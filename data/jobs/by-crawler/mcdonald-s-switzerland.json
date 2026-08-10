@@ -32,8 +32,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-7025",
         "it": "collaboratore-trice-in-max-40-pensum-per-volketswil-mcdonald-s-switzerland-volketswil",
-        "en": "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil",
-        "fr": "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
+        "en": "employee-max-40-for-volketswil-mcdonald-s-switzerland-volketswil",
+        "fr": "employe-max-40-pour-volketswil-mcdonald-s-switzerland-volketswil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen.\n\nBei McDonald’s kannst du zeigen, was du drauf hast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -45,10 +45,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-7025"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-7025"
+        "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-7025",
+        "mitarbeiter-in-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -73,7 +80,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7119",
-      "slug": "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137",
+      "slug": "manager-mcdonald-s-coast-mcdonald-s-switzerland-nyon",
       "location": "Nyon",
       "canton": "VD",
       "country": "CH",
@@ -95,8 +102,8 @@
         "it": "Manager McDonald's Coast"
       },
       "slugByLocale": {
-        "de": "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137",
-        "it": "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137",
+        "de": "geschaftsfuhrer-mcdonald-s-coast-mcdonald-s-switzerland-nyon",
+        "it": "manager-mcdonald-s-coast-mcdonald-s-switzerland-nyon",
         "en": "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137",
         "fr": "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137"
       },
@@ -122,7 +129,18 @@
       },
       "addressLocality": "Nyon",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.986Z"
+      "firstSeenAt": "2026-08-10T10:47:50.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137"
+        ],
+        "de": [
+          "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137"
+        ]
+      },
+      "previousSlugs": [
+        "manager-mcdonald-s-la-cote-mcdonalds-switzerland-nyon-7137"
+      ]
     },
     {
       "title": "Mitarbeitende Schlieren 30-40%",
@@ -130,7 +148,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7100",
-      "slug": "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095",
+      "slug": "membri-del-personale-30-40-mcdonald-s-switzerland-schlieren",
       "location": "Schlieren",
       "canton": "ZH",
       "country": "CH",
@@ -153,9 +171,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095",
-        "it": "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095",
-        "en": "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095",
-        "fr": "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095"
+        "it": "membri-del-personale-30-40-mcdonald-s-switzerland-schlieren",
+        "en": "staff-members-30-40-mcdonald-s-switzerland-schlieren",
+        "fr": "fonctionnaires-30-40-mcdonald-s-switzerland-schlieren"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -179,7 +197,21 @@
       },
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.986Z"
+      "firstSeenAt": "2026-08-10T10:47:50.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095"
+        ],
+        "en": [
+          "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095"
+        ],
+        "fr": [
+          "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-schlieren-30-40-mcdonalds-switzerland-schlieren-7095"
+      ]
     },
     {
       "title": "Crewmitarbeiter/-in",
@@ -187,7 +219,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/6986",
-      "slug": "crewmitarbeiter-in-mcdonald-s-switzerland-therwil",
+      "slug": "membro-del-crew-in-mcdonald-s-switzerland-therwil",
       "location": "Therwil",
       "canton": "BL",
       "country": "CH",
@@ -210,9 +242,9 @@
       },
       "slugByLocale": {
         "de": "crewmitarbeiter-in-mcdonalds-switzerland-therwil-6880",
-        "it": "crewmitarbeiter-in-mcdonald-s-switzerland-therwil",
-        "en": "crewmitarbeiter-in-mcdonald-s-switzerland-therwil",
-        "fr": "crewmitarbeiter-in-mcdonald-s-switzerland-therwil"
+        "it": "membro-del-crew-in-mcdonald-s-switzerland-therwil",
+        "en": "crew-member-in-mcdonald-s-switzerland-therwil",
+        "fr": "membre-d-equipage-in-mcdonald-s-switzerland-therwil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -223,11 +255,19 @@
       "id": "mcdonald-s-switzerland-12ff18cc2471",
       "previousSlugsByLocale": {
         "it": [
-          "crewmitarbeiter-in-mcdonalds-switzerland-therwil-6880"
+          "crewmitarbeiter-in-mcdonalds-switzerland-therwil-6880",
+          "crewmitarbeiter-in-mcdonald-s-switzerland-therwil"
+        ],
+        "en": [
+          "crewmitarbeiter-in-mcdonald-s-switzerland-therwil"
+        ],
+        "fr": [
+          "crewmitarbeiter-in-mcdonald-s-switzerland-therwil"
         ]
       },
       "previousSlugs": [
-        "crewmitarbeiter-in-mcdonalds-switzerland-therwil-6880"
+        "crewmitarbeiter-in-mcdonalds-switzerland-therwil-6880",
+        "crewmitarbeiter-in-mcdonald-s-switzerland-therwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -252,7 +292,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7116",
-      "slug": "equipier-ere-a-gland-mcdonalds-switzerland-gland-7131",
+      "slug": "equipier-era-in-gland-mcdonald-s-switzerland-gland",
       "location": "Gland",
       "canton": "VD",
       "country": "CH",
@@ -275,7 +315,7 @@
       },
       "slugByLocale": {
         "de": "equipier-ere-a-gland-mcdonalds-switzerland-gland-7131",
-        "it": "equipier-ere-a-gland-mcdonalds-switzerland-gland-7131",
+        "it": "equipier-era-in-gland-mcdonald-s-switzerland-gland",
         "en": "equipier-ere-a-gland-mcdonald-s-switzerland-gland",
         "fr": "equipier-ere-a-gland-mcdonalds-switzerland-gland-7131"
       },
@@ -301,7 +341,15 @@
       },
       "addressLocality": "Gland",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.985Z"
+      "firstSeenAt": "2026-08-10T10:47:50.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "equipier-ere-a-gland-mcdonalds-switzerland-gland-7131"
+        ]
+      },
+      "previousSlugs": [
+        "equipier-ere-a-gland-mcdonalds-switzerland-gland-7131"
+      ]
     },
     {
       "title": "Equipier / ère Nyon Drive",
@@ -423,7 +471,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7190",
-      "slug": "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266",
+      "slug": "dipendente-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich",
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
@@ -446,9 +494,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266",
-        "it": "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266",
-        "en": "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266",
-        "fr": "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266"
+        "it": "dipendente-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "en": "employee-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "salarie-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -472,7 +520,21 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.984Z"
+      "firstSeenAt": "2026-08-10T10:47:50.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266"
+        ],
+        "en": [
+          "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266"
+        ],
+        "fr": [
+          "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-7266"
+      ]
     },
     {
       "title": "Mitarbeitende ZH Löwenstrasse 30-40%",
@@ -480,7 +542,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7191",
-      "slug": "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268",
+      "slug": "dipendente-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
@@ -503,9 +565,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268",
-        "it": "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268",
-        "en": "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268",
-        "fr": "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268"
+        "it": "dipendente-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "en": "employee-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "employe-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -529,7 +591,21 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.984Z"
+      "firstSeenAt": "2026-08-10T10:47:50.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268"
+        ],
+        "en": [
+          "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268"
+        ],
+        "fr": [
+          "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-7268"
+      ]
     },
     {
       "title": "Crew-Mitarbeiterinnen",
@@ -537,7 +613,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7123",
-      "slug": "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt",
+      "slug": "membri-del-crew-mcdonald-s-switzerland-zermatt",
       "location": "Zermatt",
       "canton": "VS",
       "country": "CH",
@@ -560,9 +636,9 @@
       },
       "slugByLocale": {
         "de": "crew-mitarbeiterinnen-mcdonalds-switzerland-zermatt-7145",
-        "it": "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt",
-        "en": "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt",
-        "fr": "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt"
+        "it": "membri-del-crew-mcdonald-s-switzerland-zermatt",
+        "en": "crew-members-mcdonald-s-switzerland-zermatt",
+        "fr": "membres-d-equipage-mcdonald-s-switzerland-zermatt"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -573,11 +649,19 @@
       "id": "mcdonald-s-switzerland-8504611158cb",
       "previousSlugsByLocale": {
         "it": [
-          "crew-mitarbeiterinnen-mcdonalds-switzerland-zermatt-7145"
+          "crew-mitarbeiterinnen-mcdonalds-switzerland-zermatt-7145",
+          "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt"
+        ],
+        "en": [
+          "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt"
+        ],
+        "fr": [
+          "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiterinnen-mcdonalds-switzerland-zermatt-7145"
+        "crew-mitarbeiterinnen-mcdonalds-switzerland-zermatt-7145",
+        "crew-mitarbeiterinnen-mcdonald-s-switzerland-zermatt"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -626,8 +710,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonalds-switzerland-thoune-7833",
         "it": "crew-collaboratore-trice-spatschicht-30-50-kasse-kuche-thun-mcdonald-s-switzerland-thoune",
-        "en": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonald-s-switzerland-thoune",
-        "fr": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
+        "en": "crew-staff-late-shift-30-50-cashier-kitchen-thun-mcdonald-s-switzerland-thoune",
+        "fr": "personnel-d-equipage-quart-tardif-30-50-caissier-cuisine-thun-mcdonald-s-switzerland-thoune"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -639,10 +723,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonalds-switzerland-thoune-7833"
+        ],
+        "en": [
+          "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
+        ],
+        "fr": [
+          "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonalds-switzerland-thoune-7833"
+        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonalds-switzerland-thoune-7833",
+        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
       ],
       "salaryMin": 24800,
       "salaryMax": 37500,
@@ -666,7 +757,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7189",
-      "slug": "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264",
+      "slug": "dipendenti-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
@@ -689,9 +780,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264",
-        "it": "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264",
-        "en": "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264",
-        "fr": "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264"
+        "it": "dipendenti-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
+        "en": "employees-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "salaries-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -715,7 +806,21 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.983Z"
+      "firstSeenAt": "2026-08-10T10:47:50.983Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264"
+        ],
+        "en": [
+          "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264"
+        ],
+        "fr": [
+          "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-7264"
+      ]
     },
     {
       "title": "Crew Mitarbeiter Kasse/Küche THUN",
@@ -747,8 +852,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-kasse-kuche-thun-mcdonalds-switzerland-thoune-7831",
         "it": "crew-collaboratore-trice-kasse-kuche-thun-mcdonald-s-switzerland-thoune",
-        "en": "crew-mitarbeiter-kasse-kuche-thun-mcdonald-s-switzerland-thoune",
-        "fr": "crew-mitarbeiter-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
+        "en": "crew-employee-cashier-kitchen-thun-mcdonald-s-switzerland-thoune",
+        "fr": "caissiere-cuisine-d-equipage-mcdonald-s-switzerland-thoune"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -760,10 +865,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-kasse-kuche-thun-mcdonalds-switzerland-thoune-7831"
+        ],
+        "en": [
+          "crew-mitarbeiter-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
+        ],
+        "fr": [
+          "crew-mitarbeiter-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-kasse-kuche-thun-mcdonalds-switzerland-thoune-7831"
+        "crew-mitarbeiter-kasse-kuche-thun-mcdonalds-switzerland-thoune-7831",
+        "crew-mitarbeiter-kasse-kuche-thun-mcdonald-s-switzerland-thoune"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -811,8 +923,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7841",
         "it": "crew-collaboratore-trice-spatschicht-30-50-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler",
-        "en": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler",
-        "fr": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
+        "en": "crew-staff-late-shift-30-50-cashier-kitchen-spiez-mcdonald-s-switzerland-spiezwiler",
+        "fr": "personnel-d-equipage-en-retard-30-50-caissier-cuisine-spiez-mcdonald-s-switzerland-spiezwiler"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -824,10 +936,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7841"
+        ],
+        "en": [
+          "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
+        ],
+        "fr": [
+          "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7841"
+        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7841",
+        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
       ],
       "salaryMin": 24800,
       "salaryMax": 37500,
@@ -988,8 +1107,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7837",
         "it": "crew-collaboratore-trice-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler",
-        "en": "crew-mitarbeiter-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler",
-        "fr": "crew-mitarbeiter-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
+        "en": "crew-employee-cashier-kitchen-spiez-mcdonald-s-switzerland-spiezwiler",
+        "fr": "caissiere-cuisine-d-equipage-mcdonald-s-switzerland-spiezwiler"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -1001,10 +1120,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7837"
+        ],
+        "en": [
+          "crew-mitarbeiter-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
+        ],
+        "fr": [
+          "crew-mitarbeiter-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7837"
+        "crew-mitarbeiter-kasse-kuche-spiez-mcdonalds-switzerland-spiezwiler-7837",
+        "crew-mitarbeiter-kasse-kuche-spiez-mcdonald-s-switzerland-spiezwiler"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1053,7 +1179,7 @@
         "de": "guest-experience-leader-thun-teilzeit-mcdonalds-switzerland-thoune-7829",
         "it": "guest-experience-leader-thun-teilzeit-mcdonalds-switzerland-thoune-7829",
         "en": "guest-experience-leader-thun-teilzeit-mcdonalds-switzerland-thoune-7829",
-        "fr": "guest-experience-leader-thun-teilzeit-mcdonalds-switzerland-thoune-7829"
+        "fr": "chef-d-experience-invite-thun-a-temps-partiel-mcdonald-s-switzerland-thoune"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDein Lächeln begrüsst unsere Gäste bei jedem Besuch, du stellst ihnen gewandt unsere neusten Angebote vor und unterstützt sie bei der Bestellung. Deine Leidenschaft für zufriedene Gäste und dein Fachwissen als perfekter Gastgeber vermittelst du dem ganzen Serviceteam und motivierst es durch deinen starken Teamspirit. Du hast ein Auge für die Details des perfekten Restauranterlebnisses und hast immer ein offenes Ohr für die Wünsche und das Feedback unserer Gäste. Dieses teilst du mit dem Restaurantmanagement und setzt es wirkungsvoll um. So bietest du mit dem ganzen Serviceteam echte Wow-Momente und machst unsere Gäste zu den Glücklichsten in der Schweiz. Erst wenn jeder Gast happy ist, bist auch du zufrieden.\n\nAufgabenbereich\n\nAls Guest Experience Leader übernimmst du diese Verantwortung:\n\n• Du bist der Gastgeber/die Gastgeberin im Restaurant: Begrüssung und aktiver Austausch mit den Gästen – immer mit dem Ziel, ein perfektes Restauranterlebnis zu bieten.\n• Du bist der Qualitätsprofi: Umsetzung aller Standards für den besten Service, genussvolle Produkte und eine perfekte Restaurantatmosphäre.\n• Du bist ein Multitalent: Service an den Tisch, an der Kasse sowie in der Küche – du fühlst dich auch hier am richtigen Platz, wenn das Team deinen Support braucht.\n\nWir bieten\n\nWir bieten dir ein spannendes und abwechslungsreiches Arbeitsumfeld, in dem Teamwork grossgeschrieben wird. Unsere flexiblen Arbeitsmodelle ermöglichen es dir, deine Arbeitszeiten nach deinen Wünschen einzuteilen. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und Karriere machen. Jeder fünfte Restaurantmanager kommt bei uns z.B. aus den eigenen Reihen. Als Mitglied von GastroSuisse setzen wir den Gesamtarbeitsvertrag der Gastronomie um und zahlen faire Löhne. Als McDonald’s-Mitarbeitender/-Mitarbeitende erhältst du zudem Rabatt auf alle Produkte.\n\n#XXX",
@@ -1108,8 +1234,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7839",
         "it": "crew-collaboratore-trice-spatschicht-30-50-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken",
-        "en": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken",
-        "fr": "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
+        "en": "crew-employees-late-shift-30-50-cashier-kitchen-interlaken-mcdonald-s-switzerland-interlaken",
+        "fr": "employes-en-poste-en-retard-30-50-caissier-cuisine-interlaken-mcdonald-s-switzerland-interlaken"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -1121,10 +1247,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7839"
+        ],
+        "en": [
+          "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
+        ],
+        "fr": [
+          "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7839"
+        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7839",
+        "crew-mitarbeiter-spatschicht-30-50-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
       ],
       "salaryMin": 34300,
       "salaryMax": 52000,
@@ -1173,8 +1306,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-prozent-fur-uster-mcdonalds-switzerland-uster-8149",
         "it": "collaboratore-trice-in-max-40-prozent-per-uster-mcdonald-s-switzerland-uster",
-        "en": "mitarbeiter-in-max-40-prozent-fur-uster-mcdonald-s-switzerland-uster",
-        "fr": "mitarbeiter-in-max-40-prozent-fur-uster-mcdonald-s-switzerland-uster"
+        "en": "employee-max-40-for-uster-mcdonald-s-switzerland-uster",
+        "fr": "employe-max-40-pour-uster-mcdonald-s-switzerland-uster"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen.\n\nBei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -1186,10 +1319,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-prozent-fur-uster-mcdonalds-switzerland-uster-8149"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-prozent-fur-uster-mcdonald-s-switzerland-uster"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-prozent-fur-uster-mcdonald-s-switzerland-uster"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-prozent-fur-uster-mcdonalds-switzerland-uster-8149"
+        "mitarbeiter-in-max-40-prozent-fur-uster-mcdonalds-switzerland-uster-8149",
+        "mitarbeiter-in-max-40-prozent-fur-uster-mcdonald-s-switzerland-uster"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1294,8 +1434,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7835",
         "it": "crew-collaboratore-trice-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken",
-        "en": "crew-mitarbeiter-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken",
-        "fr": "crew-mitarbeiter-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
+        "en": "crew-staff-cashier-kitchen-interlaken-mcdonald-s-switzerland-interlaken",
+        "fr": "caissiere-cuisine-du-personnel-d-equipage-interlaken-mcdonald-s-switzerland-interlaken"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -1307,10 +1447,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7835"
+        ],
+        "en": [
+          "crew-mitarbeiter-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
+        ],
+        "fr": [
+          "crew-mitarbeiter-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7835"
+        "crew-mitarbeiter-kasse-kuche-interlaken-mcdonalds-switzerland-interlaken-7835",
+        "crew-mitarbeiter-kasse-kuche-interlaken-mcdonald-s-switzerland-interlaken"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1359,8 +1506,8 @@
       "slugByLocale": {
         "de": "flexibler-job-fur-studierende-zurich-30-40-mcdonalds-switzerland-zurich-8183",
         "it": "flexibler-job-per-studierende-zurich-30-40-mcdonald-s-switzerland-zurich",
-        "en": "flexibler-job-fur-studierende-zurich-30-40-mcdonalds-switzerland-zurich-8183",
-        "fr": "flexibler-job-fur-studierende-zurich-30-40-mcdonalds-switzerland-zurich-8183"
+        "en": "flexible-job-for-students-zurich-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "emploi-flexible-pour-les-etudiants-zurich-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nMONEY AND STUDY\n\nDeine Power - Unsere Flexibilität - Gemeinsamer Erfolg\n\nSchule oder Studium läuft - aber du willst dein Konto nicht verhungern lassen?\nBei uns geht beides! Wir bieten dir einen Nebenjob, der dir nicht nur Geld bringt, sondern Skills, die dir auch nach dem Abschluss etwas bringen.\nEin Team, das dich willkommen heisst und flexible Arbeitszeiten, die zu deinem Alltag passen.\nKlingt nach einem Match? Dann sichere dir den Job, der perfekt in dein Leben passt.\n\nAufgabenbereich\n\n• Zubereitung und Servieren von Produkten höchster Qualität\n• Begrüsse unsere Gäste freundlich, höflich und mit einem Lächeln\n• Halte dich über aktuelle Aktionen auf dem Laufenden und informiere unsere Gäste darüber\n• Präsentiere und bewerbe neue Produkte\n\nDas bringst du mit:\n• Teamgeist und Freude am Umgang mit Menschen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Lust, Neues zu lernen und im Service Gas zu geben\n\nWir bieten\n\nDarauf kannst du dich freuen:\n\n• Ein starkes Team mit guter Stimmung\n• Flexible Arbeitszeiten, die zu deinem Leben passen\n• Faire Bezahlung und Benefits\n• Ein Arbeitsplatz, an dem du wachsen kannst\n• Faire Löhne\n• Umfangreiches Aus- und Weiterbildungsprogramm\n• Mitarbeiterrabatt von 50 Prozent\n• und vieles mehr..",
@@ -1371,6 +1518,12 @@
       "id": "mcdonald-s-switzerland-2bde2dff537f",
       "previousSlugsByLocale": {
         "it": [
+          "flexibler-job-fur-studierende-zurich-30-40-mcdonalds-switzerland-zurich-8183"
+        ],
+        "en": [
+          "flexibler-job-fur-studierende-zurich-30-40-mcdonalds-switzerland-zurich-8183"
+        ],
+        "fr": [
           "flexibler-job-fur-studierende-zurich-30-40-mcdonalds-switzerland-zurich-8183"
         ]
       },
@@ -1424,8 +1577,8 @@
       "slugByLocale": {
         "de": "mitarbeitende-fur-die-mittagszeit-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-8185",
         "it": "mitarbeitende-per-la-mittagszeit-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich",
-        "en": "mitarbeitende-fur-die-mittagszeit-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-8185",
-        "fr": "mitarbeitende-fur-die-mittagszeit-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-8185"
+        "en": "employees-for-lunchtime-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "employes-pour-le-dejeuner-zh-badenerstrasse-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu bist auf der Suche nach einem Job von Montag bis Freitag über die Mittagszeit zwischen 10:00 bis 14:00 Uhr? Oder sogar am Wochenende zu flexiblen Zeiten? Du liebst es im Team zu arbeiten um möchtest die Systemgastronomie in den Service -und Küchenbereichen kennenlernen? Dann bist du bei unserer McFamily genau richtig und wir freuen uns dich persönlich bei einem Bewerbungsgespräch kennenzulernen!\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:\n• der freundliche und schnelle Service an der Theke, sowie im ganzen Restaurant;\n• die sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co. sowie\n• die regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir einen grossartigen Arbeitsplatz in einem neu gestalteten und top modernen Restaurant. Es erwartet dich ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork grossgeschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Interessiert? Dann bewirb dich jetzt. Wir freuen uns, dich kennenzulernen!",
@@ -1436,6 +1589,12 @@
       "id": "mcdonald-s-switzerland-0ac40c1eee0f",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeitende-fur-die-mittagszeit-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-8185"
+        ],
+        "en": [
+          "mitarbeitende-fur-die-mittagszeit-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-8185"
+        ],
+        "fr": [
           "mitarbeitende-fur-die-mittagszeit-zh-badenerstrasse-30-40-mcdonalds-switzerland-zurich-8185"
         ]
       },
@@ -1465,7 +1624,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7655",
-      "slug": "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175",
+      "slug": "teamplayer-gastronomia-zurigo-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
@@ -1488,7 +1647,7 @@
       },
       "slugByLocale": {
         "de": "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175",
-        "it": "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175",
+        "it": "teamplayer-gastronomia-zurigo-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
         "en": "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175",
         "fr": "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175"
       },
@@ -1514,7 +1673,15 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.979Z"
+      "firstSeenAt": "2026-08-10T10:47:50.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175"
+        ]
+      },
+      "previousSlugs": [
+        "teamplayer-gastronomie-zurich-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8175"
+      ]
     },
     {
       "title": "Crew Mitarbeiter/in - Schlieren 30-40%",
@@ -1546,8 +1713,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-schlieren-30-40-mcdonalds-switzerland-schlieren-8193",
         "it": "crew-collaboratore-trice-schlieren-30-40-mcdonald-s-switzerland-schlieren",
-        "en": "crew-mitarbeiter-in-schlieren-30-40-mcdonald-s-switzerland-schlieren",
-        "fr": "crew-mitarbeiter-in-schlieren-30-40-mcdonald-s-switzerland-schlieren"
+        "en": "crew-staff-schlieren-30-40-mcdonald-s-switzerland-schlieren",
+        "fr": "personnel-d-equipage-schlieren-30-40-mcdonald-s-switzerland-schlieren"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst mehr als nur einen Job?\nEinen Platz, an dem du willkommen bist?\nEin Team, das zusammenhält?\nUnd Arbeitszeiten, die zu deinem Leben passen?\n\nKlingt gut?\nDann bewirb dich jetzt - wir freuen uns darauf, dich kennenzulernen!\n\nAufgabenbereich\n\n• Zubereitung und Servieren von Produkten höchster Qualität\n• Begrüsse unsere Gäste freundlich, höflich und mit einem Lächeln\n• Halte dich über aktuelle Aktionen auf dem Laufenden und informiere unsere Gäste\n• Präsentiere und bewerbe neue Produkte\n\nDas bringst du mit:\n• Teamgeist und Freude am Umgang mit Menschen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Lust, Neues zu lernen und im Service Gas zu geben\n\nWir bieten\n\nDarauf kannst du dich freuen:\n• Ein starkes Team mit guter Stimmung\n• Flexible Arbeitszeiten, die zu deinem Leben passen\n• Faire Bezahlung und Benefits\n• Ein Arbeitsplatz, an dem du wachsen kannst\n• Faire Löhne\n• Umfangreiches Aus- und Weiterbildungsprogramm\n• Mitarbeiterrabatt von 50 Prozent\n• Sunrise-Abos zu einem reduzierten Preis\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n• Kostenloser Zugang zu Sprachkursen über die EF-Plattform",
@@ -1559,10 +1726,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-schlieren-30-40-mcdonalds-switzerland-schlieren-8193"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-schlieren-30-40-mcdonald-s-switzerland-schlieren"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-schlieren-30-40-mcdonald-s-switzerland-schlieren"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-schlieren-30-40-mcdonalds-switzerland-schlieren-8193"
+        "crew-mitarbeiter-in-schlieren-30-40-mcdonalds-switzerland-schlieren-8193",
+        "crew-mitarbeiter-in-schlieren-30-40-mcdonald-s-switzerland-schlieren"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -1612,7 +1786,7 @@
         "de": "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonalds-switzerland-zurich-8195",
         "it": "crew-collaboratore-trice-zh-stauffacher-30-40-mcdonald-s-switzerland-zurich",
         "en": "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonald-s-switzerland-zurich",
-        "fr": "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonald-s-switzerland-zurich"
+        "fr": "employe-d-equipage-zh-stauffacher-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst mehr als nur einen Job?\nEinen Platz, an dem du willkommen bist?\nEin Team, das zusammenhält?\nUnd Arbeitszeiten, die zu deinem Leben passen?\n\nKlingt gut?\nDann bewirb dich jetzt - wir freuen uns darauf, dich kennenzulernen!\n\nAufgabenbereich\n\n• Zubereitung und Servieren von Produkten höchster Qualität\n• Begrüsse unsere Gäste freundlich, höflich und mit einem Lächeln\n• Halte dich über aktuelle Aktionen auf dem Laufenden und informiere unsere Gäste\n• Präsentiere und bewerbe neue Produkte\n\nDas bringst du mit:\n• Teamgeist und Freude am Umgang mit Menschen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Lust, Neues zu lernen und im Service Gas zu geben\n\nWir bieten\n\nDarauf kannst du dich freuen:\n• Ein starkes Team mit guter Stimmung\n• Flexible Arbeitszeiten, die zu deinem Leben passen\n• Faire Bezahlung und Benefits\n• Ein Arbeitsplatz, an dem du wachsen kannst\n• Faire Löhne\n• Umfangreiches Aus- und Weiterbildungsprogramm\n• Mitarbeiterrabatt von 50 Prozent\n• Sunrise-Abos zu einem reduzierten Preis\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n• Kostenloser Zugang zu Sprachkursen über die EF-Plattform",
@@ -1624,10 +1798,14 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonalds-switzerland-zurich-8195"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonald-s-switzerland-zurich"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonalds-switzerland-zurich-8195"
+        "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonalds-switzerland-zurich-8195",
+        "crew-mitarbeiter-in-zh-stauffacher-30-40-mcdonald-s-switzerland-zurich"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -1677,7 +1855,7 @@
         "de": "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-8197",
         "it": "crew-collaboratore-trice-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
         "en": "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
-        "fr": "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich"
+        "fr": "equipage-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst mehr als nur einen Job?\nEinen Platz, an dem du willkommen bist?\nEin Team, das zusammenhält?\nUnd Arbeitszeiten, die zu deinem Leben passen?\n\nKlingt gut?\nDann bewirb dich jetzt - wir freuen uns darauf, dich kennenzulernen!\n\nAufgabenbereich\n\n• Zubereitung und Servieren von Produkten höchster Qualität\n• Begrüsse unsere Gäste freundlich, höflich und mit einem Lächeln\n• Halte dich über aktuelle Aktionen auf dem Laufenden und informiere unsere Gäste\n• Präsentiere und bewerbe neue Produkte\n\nDas bringst du mit:\n• Teamgeist und Freude am Umgang mit Menschen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Lust, Neues zu lernen und im Service Gas zu geben\n\nWir bieten\n\nDarauf kannst du dich freuen:\n• Ein starkes Team mit guter Stimmung\n• Flexible Arbeitszeiten, die zu deinem Leben passen\n• Faire Bezahlung und Benefits\n• Ein Arbeitsplatz, an dem du wachsen kannst\n• Faire Löhne\n• Umfangreiches Aus- und Weiterbildungsprogramm\n• Mitarbeiterrabatt von 50 Prozent\n• Sunrise-Abos zu einem reduzierten Preis\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n• Kostenloser Zugang zu Sprachkursen über die EF-Plattform",
@@ -1689,10 +1867,14 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-8197"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-8197"
+        "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-8197",
+        "crew-mitarbeiter-in-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -1742,7 +1924,7 @@
         "de": "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8199",
         "it": "crew-collaboratore-trice-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
         "en": "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich",
-        "fr": "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich"
+        "fr": "employe-d-equipage-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst mehr als nur einen Job?\nEinen Platz, an dem du willkommen bist?\nEin Team, das zusammenhält?\nUnd Arbeitszeiten, die zu deinem Leben passen?\n\nKlingt gut?\nDann bewirb dich jetzt - wir freuen uns darauf, dich kennenzulernen!\n\nAufgabenbereich\n\n• Zubereitung und Servieren von Produkten höchster Qualität\n• Begrüsse unsere Gäste freundlich, höflich und mit einem Lächeln\n• Halte dich über aktuelle Aktionen auf dem Laufenden und informiere unsere Gäste\n• Präsentiere und bewerbe neue Produkte\n\nDas bringst du mit:\n• Teamgeist und Freude am Umgang mit Menschen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Lust, Neues zu lernen und im Service Gas zu geben\n\nWir bieten\n\nDarauf kannst du dich freuen:\n• Ein starkes Team mit guter Stimmung\n• Flexible Arbeitszeiten, die zu deinem Leben passen\n• Faire Bezahlung und Benefits\n• Ein Arbeitsplatz, an dem du wachsen kannst\n• Faire Löhne\n• Umfangreiches Aus- und Weiterbildungsprogramm\n• Mitarbeiterrabatt von 50 Prozent\n• Sunrise-Abos zu einem reduzierten Preis\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n• Kostenloser Zugang zu Sprachkursen über die EF-Plattform",
@@ -1754,10 +1936,14 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8199"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8199"
+        "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonalds-switzerland-zurich-8199",
+        "crew-mitarbeiter-in-zh-bahnhofplatz-30-40-mcdonald-s-switzerland-zurich"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -1806,8 +1992,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonalds-switzerland-zurich-8191",
         "it": "crew-collaboratore-trice-zurich-tessinerplatz-30-40-mcdonald-s-switzerland-zurich",
-        "en": "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonald-s-switzerland-zurich",
-        "fr": "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonald-s-switzerland-zurich"
+        "en": "crew-employee-zurich-ticino-square-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "employe-d-equipage-place-du-tessin-a-zurich-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst mehr als nur einen Job?\nEinen Platz, an dem du willkommen bist?\nEin Team, das zusammenhält?\nUnd Arbeitszeiten, die zu deinem Leben passen?\n\nDann bewirb dich jetzt, wir freuen uns auf dich!\n\nUnd das Beste daran: Dein Arbeitsplatz ist ein brandneues, topmodernes Restaurant - mitten im Herzen von Zürich.\n\nAufgabenbereich\n\n• Zubereitung und Servieren von Produkten höchster Qualität\n• Begrüsse unsere Gäste freundlich, höflich und mit einem Lächeln\n• Halte dich über aktuelle Aktionen auf dem Laufenden und informiere unsere Gäste darüber\n• Präsentiere und bewerbe neue Produkte\n\nDas bringst du mit:\n• Teamgeist und Freude am Umgang mit Menschen\n• Zuverlässigkeit und Verantwortungsbewusstsein\n• Lust, Neues zu lernen und im Service Gas zu geben\n\nWir bieten\n\nDarauf kannst du dich freuen:\n\n• Ein starkes Team mit guter Stimmung\n• Flexible Arbeitszeiten, die zu deinem Leben passen\n• Faire Bezahlung und Benefits\n• Ein Arbeitsplatz, an dem du wachsen kannst\n• Faire Löhne\n• Umfangreiches Aus- und Weiterbildungsprogramm\n• Mitarbeiterrabatt von 50 Prozent\n• Sunrise-Abos zu einem reduzierten Preis\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n• Kostenloser Zugang zu Sprachkursen über die EF-Plattform",
@@ -1819,10 +2005,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonalds-switzerland-zurich-8191"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonald-s-switzerland-zurich"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonald-s-switzerland-zurich"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonalds-switzerland-zurich-8191"
+        "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonalds-switzerland-zurich-8191",
+        "crew-mitarbeiter-in-zurich-tessinerplatz-30-40-mcdonald-s-switzerland-zurich"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -1871,8 +2064,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8290",
         "it": "collaboratore-trice-in-max-40-pensum-per-tages-e-o-nachtschicht-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau",
-        "en": "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau",
-        "fr": "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
+        "en": "employee-max-40-pensum-for-day-and-or-night-shift-highway-center-fuchsberg-mcdonald-s-switzerland-wollerau",
+        "fr": "employe-max-40-pensum-pour-le-jour-et-ou-le-soir-centre-de-l-autoroute-fuchsberg-mcdonald-s-switzerland-wollerau"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen.\nMit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du drauf hast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und deinem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen. Wir freuen uns auf deine Bewerbung!\n\nANMERKUNG: 10 Laufminuten ab Bushaltestelle Schiessstand, Pfäffikon SZ",
@@ -1884,10 +2077,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8290"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8290"
+        "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8290",
+        "mitarbeiter-in-max-40-pensum-fur-tages-und-oder-nachtschicht-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,
@@ -1936,8 +2136,8 @@
       "slugByLocale": {
         "de": "systemgastronomie-lehre-efz-mcdonalds-switzerland-lucerne-8400",
         "it": "systemgastronomie-lehre-cfc-mcdonald-s-switzerland-lucerne",
-        "en": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-lucerne",
-        "fr": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-lucerne"
+        "en": "system-gastronomy-lehre-efz-mcdonald-s-switzerland-lucerne",
+        "fr": "systeme-gastronomie-lehre-efz-mcdonald-s-switzerland-lucerne"
       },
       "descriptionByLocale": {
         "de": "Anforderungsprofil\n\n• Du hast einen guten Sekundarabschluss oder Vergleichbares\n• Du verfügst über sehr gute Deutschkenntnisse (Wort und Schrift)\n• Du hast Freude am lebendigen Gastronomieumfeld\n• Du bist ein kontaktfreudiger Teamplayer\n• Du bist belastbar und packst gerne mit an\n• Du hast Spass daran, Verantwortung zu übernehmen und behältst auch in hektischen Situationen den Überblick\n• Du hast eine schnelle Auffassungsgabe und erkennst Zusammenhänge problemlos\n• Du bringst Sinn für Zahlen mit\n• Sauberkeit und Ordnung sind für dich selbstverständlich\n\nWenn du alle Fragen mit ja beantworten kannst, dann bist du die/der Richtige!\n\nAufgabenbereich\n\nAls Lehrling Systemgastronomiefachfrau/-mann EFZ erwartet dich in unseren Restaurants eine fundierte und breitgefächerte Ausbildung: Während der dreijährigen Ausbildung lernst du nicht nur, wie Produkte zubereitet und Gäste bedient werden, sondern gehst vor allem betriebswirtschaftlichen Zusammenhängen auf den Grund. Neben Lebensmittelkunde, Qualitätssicherung, Produktherstellung und Verkauf stehen Marketing, Personalwesen, Kostenkontrolle und die Organisation von Arbeitsabläufen auf deinem Lehrplan. Mit einem klaren Plan: Nach deiner Ausbildung ins Restaurant Management einzusteigen. Deine Berufsausbildung absolvierst du übrigens parallel in der Berufsschule und in einem unserer Restaurants.Dein Lehrabschluss und damit das EFZ ist der erste Meilenstein in deiner Entwicklung bei McDonald’s. Du kannst dich intern sowie externe weiterbilden. Im Restaurant geht es für dich aufwärts bis hin zum Geschäftsführer. Und im Bereich Gastronomie hast du eine Vielfalt an Entwicklungsmöglichkeiten.Eine spannende und vielfältige Tätigkeit wartet auf dich!\n\nWas wir bieten\n\nAls Lehrling bist du bei uns gut aufgehoben: In jedem Restaurant steht dir ein ausgebildeter Berufsbilder zur Seite und unterstützt dich während deiner gesamten Lehrzeit. Zudem profitierst du von 6 Wochen Ferien pro Jahr, internen Weiterbildungen (parallel zur schulischen und betrieblichen Ausbildung) sowie von einem speziell auf dich zugeschnittenem Jahresplan mit spannenden Aktivitäten.Hast du Ketchup im Blut? Dann mach den ersten Schritt und sende uns deine Bewerbung! Möchtest du dich erst noch genauer über die Ausbildung informieren? Zahlreiche Infos rund um die Ausbildung findest du auf http://jobs.mcdonalds.ch/de/lehre\n\n#XXX",
@@ -1949,10 +2149,17 @@
       "previousSlugsByLocale": {
         "it": [
           "systemgastronomie-lehre-efz-mcdonalds-switzerland-lucerne-8400"
+        ],
+        "en": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-lucerne"
+        ],
+        "fr": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-lucerne"
         ]
       },
       "previousSlugs": [
-        "systemgastronomie-lehre-efz-mcdonalds-switzerland-lucerne-8400"
+        "systemgastronomie-lehre-efz-mcdonalds-switzerland-lucerne-8400",
+        "systemgastronomie-lehre-efz-mcdonald-s-switzerland-lucerne"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2001,8 +2208,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonalds-switzerland-lucerne-8392",
         "it": "crew-collaboratore-trice-teilzeit-luz-hertenstein-mcdonald-s-switzerland-lucerne",
-        "en": "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonald-s-switzerland-lucerne",
-        "fr": "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonald-s-switzerland-lucerne"
+        "en": "crew-member-part-time-luz-hertenstein-mcdonald-s-switzerland-lucerne",
+        "fr": "membre-de-l-equipage-a-temps-partiel-luz-hertenstein-mcdonald-s-switzerland-lucerne"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -2014,10 +2221,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonalds-switzerland-lucerne-8392"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonald-s-switzerland-lucerne"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonald-s-switzerland-lucerne"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonalds-switzerland-lucerne-8392"
+        "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonalds-switzerland-lucerne-8392",
+        "crew-mitarbeiter-in-teilzeit-luz-hertenstein-mcdonald-s-switzerland-lucerne"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2066,8 +2280,8 @@
       "slugByLocale": {
         "de": "systemgastronomie-lehre-efz-mcdonalds-switzerland-sihlbrugg-8396",
         "it": "systemgastronomie-lehre-cfc-mcdonald-s-switzerland-sihlbrugg",
-        "en": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-sihlbrugg",
-        "fr": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-sihlbrugg"
+        "en": "system-gastronomy-lehre-efz-mcdonald-s-switzerland-sihlbrugg",
+        "fr": "systeme-gastronomie-lehre-efz-mcdonald-s-switzerland-sihlbrugg"
       },
       "descriptionByLocale": {
         "de": "Anforderungsprofil\n\n• Du hast einen guten Sekundarabschluss oder Vergleichbares\n• Du verfügst über sehr gute Deutschkenntnisse (Wort und Schrift)\n• Du hast Freude am lebendigen Gastronomieumfeld\n• Du bist ein kontaktfreudiger Teamplayer\n• Du bist belastbar und packst gerne mit an\n• Du hast Spass daran, Verantwortung zu übernehmen und behältst auch in hektischen Situationen den Überblick\n• Du hast eine schnelle Auffassungsgabe und erkennst Zusammenhänge problemlos\n• Du bringst Sinn für Zahlen mit\n• Sauberkeit und Ordnung sind für dich selbstverständlich\n\nWenn du alle Fragen mit ja beantworten kannst, dann bist du die/der Richtige!\n\nAufgabenbereich\n\nAls Lehrling Systemgastronomiefachfrau/-mann EFZ erwartet dich in unseren Restaurants eine fundierte und breitgefächerte Ausbildung: Während der dreijährigen Ausbildung lernst du nicht nur, wie Produkte zubereitet und Gäste bedient werden, sondern gehst vor allem betriebswirtschaftlichen Zusammenhängen auf den Grund. Neben Lebensmittelkunde, Qualitätssicherung, Produktherstellung und Verkauf stehen Marketing, Personalwesen, Kostenkontrolle und die Organisation von Arbeitsabläufen auf deinem Lehrplan. Mit einem klaren Plan: Nach deiner Ausbildung ins Restaurant Management einzusteigen. Deine Berufsausbildung absolvierst du übrigens parallel in der Berufsschule und in einem unserer Restaurants.Dein Lehrabschluss und damit das EFZ ist der erste Meilenstein in deiner Entwicklung bei McDonald’s. Du kannst dich intern sowie externe weiterbilden. Im Restaurant geht es für dich aufwärts bis hin zum Geschäftsführer. Und im Bereich Gastronomie hast du eine Vielfalt an Entwicklungsmöglichkeiten.Eine spannende und vielfältige Tätigkeit wartet auf dich!\n\nWas wir bieten\n\nAls Lehrling bist du bei uns gut aufgehoben: In jedem Restaurant steht dir ein ausgebildeter Berufsbilder zur Seite und unterstützt dich während deiner gesamten Lehrzeit. Zudem profitierst du von 6 Wochen Ferien pro Jahr, internen Weiterbildungen (parallel zur schulischen und betrieblichen Ausbildung) sowie von einem speziell auf dich zugeschnittenem Jahresplan mit spannenden Aktivitäten.Hast du Ketchup im Blut? Dann mach den ersten Schritt und sende uns deine Bewerbung! Möchtest du dich erst noch genauer über die Ausbildung informieren? Zahlreiche Infos rund um die Ausbildung findest du auf http://jobs.mcdonalds.ch/de/lehre\n\n#XXX",
@@ -2079,10 +2293,17 @@
       "previousSlugsByLocale": {
         "it": [
           "systemgastronomie-lehre-efz-mcdonalds-switzerland-sihlbrugg-8396"
+        ],
+        "en": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-sihlbrugg"
+        ],
+        "fr": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-sihlbrugg"
         ]
       },
       "previousSlugs": [
-        "systemgastronomie-lehre-efz-mcdonalds-switzerland-sihlbrugg-8396"
+        "systemgastronomie-lehre-efz-mcdonalds-switzerland-sihlbrugg-8396",
+        "systemgastronomie-lehre-efz-mcdonald-s-switzerland-sihlbrugg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2130,8 +2351,8 @@
       "slugByLocale": {
         "de": "systemgastronomie-lehre-efz-mcdonalds-switzerland-baar-8398",
         "it": "systemgastronomie-lehre-cfc-mcdonald-s-switzerland-baar",
-        "en": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-baar",
-        "fr": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-baar"
+        "en": "system-gastronomy-lehre-efz-mcdonald-s-switzerland-baar",
+        "fr": "systeme-gastronomie-lehre-efz-mcdonald-s-switzerland-baar"
       },
       "descriptionByLocale": {
         "de": "Anforderungsprofil\n\n• Du hast einen guten Sekundarabschluss oder Vergleichbares\n• Du verfügst über sehr gute Deutschkenntnisse (Wort und Schrift)\n• Du hast Freude am lebendigen Gastronomieumfeld\n• Du bist ein kontaktfreudiger Teamplayer\n• Du bist belastbar und packst gerne mit an\n• Du hast Spass daran, Verantwortung zu übernehmen und behältst auch in hektischen Situationen den Überblick\n• Du hast eine schnelle Auffassungsgabe und erkennst Zusammenhänge problemlos\n• Du bringst Sinn für Zahlen mit\n• Sauberkeit und Ordnung sind für dich selbstverständlich\n\nWenn du alle Fragen mit ja beantworten kannst, dann bist du die/der Richtige!\n\nAufgabenbereich\n\nAls Lehrling Systemgastronomiefachfrau/-mann EFZ erwartet dich in unseren Restaurants eine fundierte und breitgefächerte Ausbildung: Während der dreijährigen Ausbildung lernst du nicht nur, wie Produkte zubereitet und Gäste bedient werden, sondern gehst vor allem betriebswirtschaftlichen Zusammenhängen auf den Grund. Neben Lebensmittelkunde, Qualitätssicherung, Produktherstellung und Verkauf stehen Marketing, Personalwesen, Kostenkontrolle und die Organisation von Arbeitsabläufen auf deinem Lehrplan. Mit einem klaren Plan: Nach deiner Ausbildung ins Restaurant Management einzusteigen. Deine Berufsausbildung absolvierst du übrigens parallel in der Berufsschule und in einem unserer Restaurants.Dein Lehrabschluss und damit das EFZ ist der erste Meilenstein in deiner Entwicklung bei McDonald’s. Du kannst dich intern sowie externe weiterbilden. Im Restaurant geht es für dich aufwärts bis hin zum Geschäftsführer. Und im Bereich Gastronomie hast du eine Vielfalt an Entwicklungsmöglichkeiten.Eine spannende und vielfältige Tätigkeit wartet auf dich!\n\nWas wir bieten\n\nAls Lehrling bist du bei uns gut aufgehoben: In jedem Restaurant steht dir ein ausgebildeter Berufsbilder zur Seite und unterstützt dich während deiner gesamten Lehrzeit. Zudem profitierst du von 6 Wochen Ferien pro Jahr, internen Weiterbildungen (parallel zur schulischen und betrieblichen Ausbildung) sowie von einem speziell auf dich zugeschnittenem Jahresplan mit spannenden Aktivitäten.Hast du Ketchup im Blut? Dann mach den ersten Schritt und sende uns deine Bewerbung! Möchtest du dich erst noch genauer über die Ausbildung informieren? Zahlreiche Infos rund um die Ausbildung findest du auf http://jobs.mcdonalds.ch/de/lehre\n\n#XXX",
@@ -2143,10 +2364,17 @@
       "previousSlugsByLocale": {
         "it": [
           "systemgastronomie-lehre-efz-mcdonalds-switzerland-baar-8398"
+        ],
+        "en": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-baar"
+        ],
+        "fr": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-baar"
         ]
       },
       "previousSlugs": [
-        "systemgastronomie-lehre-efz-mcdonalds-switzerland-baar-8398"
+        "systemgastronomie-lehre-efz-mcdonalds-switzerland-baar-8398",
+        "systemgastronomie-lehre-efz-mcdonald-s-switzerland-baar"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2195,8 +2423,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8514",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-bale",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-bale",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-bale"
+        "en": "crew-member-mcdonald-s-switzerland-bale",
+        "fr": "membre-de-l-equipage-mcdonald-s-switzerland-bale"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nEin «Grüezi» und ein «auf Wiedersehen» gehören für dich im Kontakt mit unseren Gästen genauso dazu, wie ein schneller und exakter Service an der Kasse und in der Küche. Du arbeitest gerne im Team, bist zuverlässig und offen, Neues zu lernen. Du schätzt die Möglichkeit, neben deiner Familie oder deiner Ausbildung Teilzeit zu arbeiten. Bist Du bereit, am Wochenende und auch am Abend zu arbeiten? Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:\n• freundlicher und schneller Service an der Theke, im McDrive sowie im ganzen Restaurant\n• sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co.\n• regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork grossgeschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als McDonald's Mitarbeitender erhältst du zudem bei uns 50 Prozent Rabatt auf alle Produkte.",
@@ -2211,11 +2439,18 @@
         ],
         "de": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8512"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-bale"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-bale"
         ]
       },
       "previousSlugs": [
         "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8512",
-        "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8514"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-bale-8514",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-bale"
       ],
       "id": "mcdonald-s-switzerland-e836baa886d1",
       "salaryMin": 49500,
@@ -2264,8 +2499,8 @@
       "slugByLocale": {
         "de": "systemgastronomie-lehre-efz-mcdonalds-switzerland-affoltern-a-a-8402",
         "it": "systemgastronomie-lehre-cfc-mcdonald-s-switzerland-affoltern-a",
-        "en": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-affoltern-a-a",
-        "fr": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-affoltern-a-a"
+        "en": "system-gastronomy-lehre-efz-mcdonald-s-switzerland-affoltern-a",
+        "fr": "systeme-gastronomie-lehre-efz-mcdonald-s-switzerland-affoltern-a"
       },
       "descriptionByLocale": {
         "de": "Anforderungsprofil\n\n• Du hast einen guten Sekundarabschluss oder Vergleichbares\n• Du verfügst über sehr gute Deutschkenntnisse (Wort und Schrift)\n• Du hast Freude am lebendigen Gastronomieumfeld\n• Du bist ein kontaktfreudiger Teamplayer\n• Du bist belastbar und packst gerne mit an\n• Du hast Spass daran, Verantwortung zu übernehmen und behältst auch in hektischen Situationen den Überblick\n• Du hast eine schnelle Auffassungsgabe und erkennst Zusammenhänge problemlos\n• Du bringst Sinn für Zahlen mit\n• Sauberkeit und Ordnung sind für dich selbstverständlich\n\nWenn du alle Fragen mit ja beantworten kannst, dann bist du die/der Richtige!\n\nAufgabenbereich\n\nAls Lehrling Systemgastronomiefachfrau/-mann EFZ erwartet dich in unseren Restaurants eine fundierte und breitgefächerte Ausbildung: Während der dreijährigen Ausbildung lernst du nicht nur, wie Produkte zubereitet und Gäste bedient werden, sondern gehst vor allem betriebswirtschaftlichen Zusammenhängen auf den Grund. Neben Lebensmittelkunde, Qualitätssicherung, Produktherstellung und Verkauf stehen Marketing, Personalwesen, Kostenkontrolle und die Organisation von Arbeitsabläufen auf deinem Lehrplan. Mit einem klaren Plan: Nach deiner Ausbildung ins Restaurant Management einzusteigen. Deine Berufsausbildung absolvierst du übrigens parallel in der Berufsschule und in einem unserer Restaurants.Dein Lehrabschluss und damit das EFZ ist der erste Meilenstein in deiner Entwicklung bei McDonald’s. Du kannst dich intern sowie externe weiterbilden. Im Restaurant geht es für dich aufwärts bis hin zum Geschäftsführer. Und im Bereich Gastronomie hast du eine Vielfalt an Entwicklungsmöglichkeiten.Eine spannende und vielfältige Tätigkeit wartet auf dich!\n\nWas wir bieten\n\nAls Lehrling bist du bei uns gut aufgehoben: In jedem Restaurant steht dir ein ausgebildeter Berufsbilder zur Seite und unterstützt dich während deiner gesamten Lehrzeit. Zudem profitierst du von 6 Wochen Ferien pro Jahr, internen Weiterbildungen (parallel zur schulischen und betrieblichen Ausbildung) sowie von einem speziell auf dich zugeschnittenem Jahresplan mit spannenden Aktivitäten.Hast du Ketchup im Blut? Dann mach den ersten Schritt und sende uns deine Bewerbung! Möchtest du dich erst noch genauer über die Ausbildung informieren? Zahlreiche Infos rund um die Ausbildung findest du auf http://jobs.mcdonalds.ch/de/lehre\n\n#XXX",
@@ -2277,10 +2512,17 @@
       "previousSlugsByLocale": {
         "it": [
           "systemgastronomie-lehre-efz-mcdonalds-switzerland-affoltern-a-a-8402"
+        ],
+        "en": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-affoltern-a-a"
+        ],
+        "fr": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-affoltern-a-a"
         ]
       },
       "previousSlugs": [
-        "systemgastronomie-lehre-efz-mcdonalds-switzerland-affoltern-a-a-8402"
+        "systemgastronomie-lehre-efz-mcdonalds-switzerland-affoltern-a-a-8402",
+        "systemgastronomie-lehre-efz-mcdonald-s-switzerland-affoltern-a-a"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2305,7 +2547,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/7913",
-      "slug": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662",
+      "slug": "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-yvorne",
       "location": "Yvorne",
       "canton": "VD",
       "country": "CH",
@@ -2327,9 +2569,9 @@
         "en": "Apprenticeship in System Restoration - CFC"
       },
       "slugByLocale": {
-        "de": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662",
-        "it": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662",
-        "en": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662",
+        "de": "ausbildung-in-systemwiederherstellung-cfc-mcdonald-s-switzerland-yvorne",
+        "it": "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-yvorne",
+        "en": "apprenticeship-in-system-restoration-cfc-mcdonald-s-switzerland-yvorne",
         "fr": "apprenti-e-en-restauration-de-systeme-cfc-mcdonald-s-switzerland-yvorne"
       },
       "descriptionByLocale": {
@@ -2354,7 +2596,21 @@
       },
       "addressLocality": "Yvorne",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.974Z"
+      "firstSeenAt": "2026-08-10T10:47:50.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662"
+        ],
+        "en": [
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662"
+        ],
+        "de": [
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-8662"
+      ]
     },
     {
       "title": "Mitarbeiter*in für NACHTSCHICHT max. 40 % Pensum für Volketswil",
@@ -2386,8 +2642,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-8718",
         "it": "collaboratore-trice-in-per-nachtschicht-max-40-pensum-per-volketswil-mcdonald-s-switzerland-volketswil",
-        "en": "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil",
-        "fr": "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
+        "en": "employee-for-nachtschicht-max-40-for-volketswil-mcdonald-s-switzerland-volketswil",
+        "fr": "employe-pour-nachtschicht-max-40-pour-volketswil-mcdonald-s-switzerland-volketswil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen.\n\nBei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -2399,10 +2655,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-8718"
+        ],
+        "en": [
+          "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
+        ],
+        "fr": [
+          "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-8718"
+        "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonalds-switzerland-volketswil-8718",
+        "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-volketswil-mcdonald-s-switzerland-volketswil"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -2451,8 +2714,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonalds-switzerland-seewen-8720",
         "it": "collaboratore-trice-in-max-40-pensum-per-seewen-mcdonald-s-switzerland-seewen",
-        "en": "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonald-s-switzerland-seewen",
-        "fr": "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonald-s-switzerland-seewen"
+        "en": "employee-max-40-for-seaweed-mcdonald-s-switzerland-seewen",
+        "fr": "employe-max-40-pour-les-algues-mcdonald-s-switzerland-seewen"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du drauf hast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -2464,10 +2727,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonalds-switzerland-seewen-8720"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonald-s-switzerland-seewen"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonald-s-switzerland-seewen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonalds-switzerland-seewen-8720"
+        "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonalds-switzerland-seewen-8720",
+        "mitarbeiter-in-max-40-pensum-fur-seewen-mcdonald-s-switzerland-seewen"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -2516,8 +2786,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8722",
         "it": "collaboratore-trice-in-per-nachtschicht-max-40-pensum-per-hinwil-mcdonald-s-switzerland-hinwil",
-        "en": "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil",
-        "fr": "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
+        "en": "employee-for-nachtschicht-max-40-for-hinwil-mcdonald-s-switzerland-hinwil",
+        "fr": "employe-pour-nachtschicht-max-40-pour-hinwil-mcdonald-s-switzerland-hinwil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nNACHTSCHICHT\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen.\n\nBei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -2529,10 +2799,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8722"
+        ],
+        "en": [
+          "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
+        ],
+        "fr": [
+          "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8722"
+        "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8722",
+        "mitarbeiter-in-fur-nachtschicht-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -2581,8 +2858,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-kreuzlingen-8798",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-kreuzlingen",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-kreuzlingen",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-kreuzlingen"
+        "en": "crew-staff-member-mcdonald-s-switzerland-kreuzlingen",
+        "fr": "fonctionnaires-mcdonald-s-switzerland-kreuzlingen"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -2594,10 +2871,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-kreuzlingen-8798"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-kreuzlingen"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-kreuzlingen"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-mcdonalds-switzerland-kreuzlingen-8798"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-kreuzlingen-8798",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-kreuzlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2646,8 +2930,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8724",
         "it": "collaboratore-trice-in-max-40-pensum-per-hinwil-mcdonald-s-switzerland-hinwil",
-        "en": "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil",
-        "fr": "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
+        "en": "employee-max-40-for-hinwil-mcdonald-s-switzerland-hinwil",
+        "fr": "employe-max-40-pour-hinwil-mcdonald-s-switzerland-hinwil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen.\n\nBei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -2659,10 +2943,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8724"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8724"
+        "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonalds-switzerland-hinwil-8724",
+        "mitarbeiter-in-max-40-pensum-fur-hinwil-mcdonald-s-switzerland-hinwil"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -2711,8 +3002,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonalds-switzerland-rapperswil-8716",
         "it": "collaboratore-trice-in-max-40-pensum-per-rapperswil-mcdonald-s-switzerland-rapperswil",
-        "en": "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonald-s-switzerland-rapperswil",
-        "fr": "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonald-s-switzerland-rapperswil"
+        "en": "employee-max-40-for-rapperswil-mcdonald-s-switzerland-rapperswil",
+        "fr": "employe-max-40-pour-rapperswil-mcdonald-s-switzerland-rapperswil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen.\n\nBei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\n\nNoch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.\n\nWir freuen uns auf deine Bewerbung!",
@@ -2724,10 +3015,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonalds-switzerland-rapperswil-8716"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonald-s-switzerland-rapperswil"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonald-s-switzerland-rapperswil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonalds-switzerland-rapperswil-8716"
+        "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonalds-switzerland-rapperswil-8716",
+        "mitarbeiter-in-max-40-pensum-fur-rapperswil-mcdonald-s-switzerland-rapperswil"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800,
@@ -2776,8 +3074,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8726",
         "it": "collaboratore-trice-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau",
-        "en": "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau",
-        "fr": "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
+        "en": "employee-max-40-pensum-highway-center-fuchsberg-mcdonald-s-switzerland-wollerau",
+        "fr": "employe-max-40-pensum-centre-de-l-autoroute-fuchsberg-mcdonald-s-switzerland-wollerau"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen.\nMit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig. Du liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du drauf hast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nAufgabenbereich\n\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird.\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü (nebst dem üblichen 50 Prozent Rabatt während deiner Arbeitszeit) und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen. Wir freuen uns auf deine Bewerbung!",
@@ -2789,10 +3087,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8726"
+        ],
+        "en": [
+          "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
+        ],
+        "fr": [
+          "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8726"
+        "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonalds-switzerland-wollerau-8726",
+        "mitarbeiter-in-max-40-pensum-autobahnzentrum-fuchsberg-mcdonald-s-switzerland-wollerau"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,
@@ -2841,8 +3146,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-fur-service-kuche-gesucht-mcdonalds-switzerland-frauenfeld-8840",
         "it": "collaboratore-trice-per-service-kuche-gesucht-mcdonald-s-switzerland-frauenfeld",
-        "en": "mitarbeiter-fur-service-kuche-gesucht-mcdonald-s-switzerland-frauenfeld",
-        "fr": "mitarbeiter-fur-service-kuche-gesucht-mcdonald-s-switzerland-frauenfeld"
+        "en": "employees-wanted-for-service-kitchen-mcdonald-s-switzerland-frauenfeld",
+        "fr": "employes-recherches-pour-le-service-cuisine-mcdonald-s-switzerland-frauenfeld"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -2854,10 +3159,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-fur-service-kuche-gesucht-mcdonalds-switzerland-frauenfeld-8840"
+        ],
+        "en": [
+          "mitarbeiter-fur-service-kuche-gesucht-mcdonald-s-switzerland-frauenfeld"
+        ],
+        "fr": [
+          "mitarbeiter-fur-service-kuche-gesucht-mcdonald-s-switzerland-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-fur-service-kuche-gesucht-mcdonalds-switzerland-frauenfeld-8840"
+        "mitarbeiter-fur-service-kuche-gesucht-mcdonalds-switzerland-frauenfeld-8840",
+        "mitarbeiter-fur-service-kuche-gesucht-mcdonald-s-switzerland-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2906,8 +3218,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-romanshorn-8832",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-romanshorn",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-romanshorn",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-romanshorn"
+        "en": "crew-staff-member-mcdonald-s-switzerland-romanshorn",
+        "fr": "fonctionnaires-mcdonald-s-switzerland-romanshorn"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nEin Grüezi und ein Auf Wiedersehen gehören für dich im Kontakt mit unseren Gästen genauso dazu, wie ein schneller und exakter Service an der Kasse und in der Küche. Du arbeitest gerne im Team, bist zuverlässig und offen, Neues zu lernen. Du schätzt die Möglichkeit, neben deiner Familie oder deiner Ausbildung Teilzeit zu arbeiten. Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:• der freundliche und schnelle Service an der Theke, im McDrive sowie im ganzen Restaurant;• die sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co. sowie\n• die regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork gross geschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als McDonald’s Mitarbeitender erhältst du zudem bei uns 50 Prozent Rabatt auf alle Produkte.",
@@ -2919,10 +3231,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-romanshorn-8832"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-romanshorn"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-romanshorn"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-mcdonalds-switzerland-romanshorn-8832"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-romanshorn-8832",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-romanshorn"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2971,8 +3290,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-weinfelden-8796",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-weinfelden",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-weinfelden",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-weinfelden"
+        "en": "crew-member-mcdonald-s-switzerland-weinfelden",
+        "fr": "membre-de-l-equipage-mcdonald-s-switzerland-weinfelden"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nEin «Grüezi» und ein «auf Wiedersehen» gehören für dich im Kontakt mit unseren Gästen genauso dazu, wie ein schneller und exakter Service an der Kasse und in der Küche. Du arbeitest gerne im Team, bist zuverlässig und offen, Neues zu lernen. Du schätzt die Möglichkeit, neben deiner Familie oder deiner Ausbildung Teilzeit zu arbeiten. Bist Du bereit, am Wochenende und auch am Abend zu arbeiten? Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:\n• freundlicher und schneller Service an der Theke, im McDrive sowie im ganzen Restaurant\n• sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co.\n• regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork grossgeschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als McDonald's Mitarbeitender erhältst du zudem bei uns 50 Prozent Rabatt auf alle Produkte.\n\n#183",
@@ -2984,10 +3303,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-weinfelden-8796"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-weinfelden"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-weinfelden"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-mcdonalds-switzerland-weinfelden-8796"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-weinfelden-8796",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-weinfelden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3012,7 +3338,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8006",
-      "slug": "shiftcoordinator-mcdonald-s-switzerland-weinfelden",
+      "slug": "coordinatore-a-turni-mcdonald-s-switzerland-weinfelden",
       "location": "Weinfelden",
       "canton": "TG",
       "country": "CH",
@@ -3035,9 +3361,9 @@
       },
       "slugByLocale": {
         "de": "shiftcoordinator-mcdonalds-switzerland-weinfelden-8834",
-        "it": "shiftcoordinator-mcdonald-s-switzerland-weinfelden",
+        "it": "coordinatore-a-turni-mcdonald-s-switzerland-weinfelden",
         "en": "shiftcoordinator-mcdonald-s-switzerland-weinfelden",
-        "fr": "shiftcoordinator-mcdonald-s-switzerland-weinfelden"
+        "fr": "coordonnateur-de-poste-mcdonald-s-switzerland-weinfelden"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu siehst dich als einen unserer zukünftigen Restaurant Manager? Im Trainee Programm bilden wir dich zum Assistenten, also zur rechten Hand des Restaurant Managers, aus. In dieser Funktion trägst du die operative Verantwortung im Restaurantalltag. Du hast bereits Erfahrung im Leiten eines Teams und führst deine Crew mit viel Elan, denn Teamwork ist für dich ausschlaggebend für den Erfolg. Auch in hektischen Zeiten behältst du einen kühlen Kopf und unterstützt deine Mitarbeitenden, indem du überall im Restaurant mit anpackst. Du sorgst dich als zuvorkommende/r Gastgeber/in um das Wohl unserer Gäste sowie um die Einhaltung unserer hohen Qualitätsstandards. Du möchtest dich beruflich und persönlich weiterentwickeln und bei McDonald’s Schweiz deine Führungsqualitäten stärker ausbauen. Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nDeine \n• Aufgaben als Assistant Trainee umfassen:• die Führung einer Arbeitsschicht im Restaurant;• die Unterstützung der Crew in der Küche oder an der Kasse;• das Erstellen von Arbeitsplänen und Monatsabschlüssen;• das Bestellwesen rund um unsere Produkte und• die Einführung und die Schulung von neuen Mitarbeitenden.\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork gross geschrieben wird. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als Assistant Trainee profitierst du bei uns von einem sechsmonatigen Ausbildungsprogramm. Als Mitglied von Gastro Suisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Als McDonald’s-Mitarbeitender/-Mitarbeitende erhältst du zudem Rabatt auf alle Produkte.",
@@ -3048,11 +3374,16 @@
       "id": "mcdonald-s-switzerland-bd605bc6b3d8",
       "previousSlugsByLocale": {
         "it": [
-          "shiftcoordinator-mcdonalds-switzerland-weinfelden-8834"
+          "shiftcoordinator-mcdonalds-switzerland-weinfelden-8834",
+          "shiftcoordinator-mcdonald-s-switzerland-weinfelden"
+        ],
+        "fr": [
+          "shiftcoordinator-mcdonald-s-switzerland-weinfelden"
         ]
       },
       "previousSlugs": [
-        "shiftcoordinator-mcdonalds-switzerland-weinfelden-8834"
+        "shiftcoordinator-mcdonalds-switzerland-weinfelden-8834",
+        "shiftcoordinator-mcdonald-s-switzerland-weinfelden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3077,7 +3408,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8013",
-      "slug": "shiftcoordinator-mcdonald-s-switzerland-kreuzlingen",
+      "slug": "coordinatore-a-turni-mcdonald-s-switzerland-kreuzlingen",
       "location": "Kreuzlingen",
       "canton": "TG",
       "country": "CH",
@@ -3099,8 +3430,8 @@
         "en": "Shiftcoordinator"
       },
       "slugByLocale": {
-        "de": "shiftcoordinator-mcdonalds-switzerland-kreuzlingen-8836",
-        "it": "shiftcoordinator-mcdonald-s-switzerland-kreuzlingen",
+        "de": "schaltkoordinator-mcdonald-s-switzerland-kreuzlingen",
+        "it": "coordinatore-a-turni-mcdonald-s-switzerland-kreuzlingen",
         "en": "shiftcoordinator-mcdonald-s-switzerland-kreuzlingen",
         "fr": "shiftcoordinator-mcdonald-s-switzerland-kreuzlingen"
       },
@@ -3113,11 +3444,16 @@
       "id": "mcdonald-s-switzerland-4c554b2adfb0",
       "previousSlugsByLocale": {
         "it": [
+          "shiftcoordinator-mcdonalds-switzerland-kreuzlingen-8836",
+          "shiftcoordinator-mcdonald-s-switzerland-kreuzlingen"
+        ],
+        "de": [
           "shiftcoordinator-mcdonalds-switzerland-kreuzlingen-8836"
         ]
       },
       "previousSlugs": [
-        "shiftcoordinator-mcdonalds-switzerland-kreuzlingen-8836"
+        "shiftcoordinator-mcdonalds-switzerland-kreuzlingen-8836",
+        "shiftcoordinator-mcdonald-s-switzerland-kreuzlingen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3166,8 +3502,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-arbon-8838",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-arbon",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-arbon",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-arbon"
+        "en": "crew-staff-member-mcdonald-s-switzerland-arbon",
+        "fr": "fonctionnaires-mcdonald-s-switzerland-arbon"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -3179,10 +3515,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-arbon-8838"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-arbon"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-arbon"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-mcdonalds-switzerland-arbon-8838"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-arbon-8838",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-arbon"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3207,7 +3550,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8074",
-      "slug": "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290",
+      "slug": "apprenticeship-specialist-in-cfc-system-restaurant-nyon-mcdonald-s-switzerland-nyon",
       "location": "Nyon",
       "canton": "VD",
       "country": "CH",
@@ -3229,8 +3572,8 @@
         "en": "Apprenticeship Specialist in CFC system restaurant - Nyon"
       },
       "slugByLocale": {
-        "de": "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290",
-        "it": "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290",
+        "de": "lehrling-spezialist-im-cfc-system-restaurant-nyon-mcdonald-s-switzerland-nyon",
+        "it": "apprenticeship-specialist-in-cfc-system-restaurant-nyon-mcdonald-s-switzerland-nyon",
         "en": "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290",
         "fr": "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonald-s-switzerland-nyon"
       },
@@ -3256,7 +3599,18 @@
       },
       "addressLocality": "Nyon",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.969Z"
+      "firstSeenAt": "2026-08-10T10:47:50.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290"
+        ],
+        "de": [
+          "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-s-specialiste-en-restaurant-de-systeme-cfc-nyon-mcdonalds-switzerland-nyon-9290"
+      ]
     },
     {
       "title": "Crew-Mitarbeiter/in",
@@ -3288,8 +3642,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-allschwil-8850",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-allschwil",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-allschwil",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-allschwil"
+        "en": "crew-member-mcdonald-s-switzerland-allschwil",
+        "fr": "membre-de-l-equipage-mcdonald-s-switzerland-allschwil"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nEin «Grüezi» und ein «auf Wiedersehen» gehören für dich im Kontakt mit unseren Gästen genauso dazu, wie ein schneller und exakter Service an der Kasse und in der Küche. Du arbeitest gerne im Team, bist zuverlässig und offen, Neues zu lernen. Du schätzt die Möglichkeit, neben deiner Familie oder deiner Ausbildung Teilzeit zu arbeiten. Bist Du bereit, am Wochenende und auch am Abend zu arbeiten? Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:\n• freundlicher und schneller Service an der Theke, im McDrive sowie im ganzen Restaurant\n• sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co.\n• regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork grossgeschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als McDonald's Mitarbeitender erhältst du zudem bei uns 50 Prozent Rabatt auf alle Produkte.",
@@ -3301,10 +3655,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-allschwil-8850"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-allschwil"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-allschwil"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-mcdonalds-switzerland-allschwil-8850"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-allschwil-8850",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-allschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3329,7 +3690,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8010",
-      "slug": "schichtkoordinator-mcdonald-s-switzerland-frauenfeld",
+      "slug": "coordinatore-del-lavoro-mcdonald-s-switzerland-frauenfeld",
       "location": "Frauenfeld",
       "canton": "TG",
       "country": "CH",
@@ -3352,9 +3713,9 @@
       },
       "slugByLocale": {
         "de": "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842",
-        "it": "schichtkoordinator-mcdonald-s-switzerland-frauenfeld",
-        "en": "schichtkoordinator-mcdonald-s-switzerland-frauenfeld",
-        "fr": "schichtkoordinator-mcdonald-s-switzerland-frauenfeld"
+        "it": "coordinatore-del-lavoro-mcdonald-s-switzerland-frauenfeld",
+        "en": "layer-coordinator-mcdonald-s-switzerland-frauenfeld",
+        "fr": "coordonnateur-de-la-couche-mcdonald-s-switzerland-frauenfeld"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDie Zufriedenheit unserer Gäste steht für dich an erster Stelle. Mit deiner zuverlässigen und verantwortungsbewussten Art garantierst du die erfolgreiche Organisation und den reibungslosen Ablauf der Arbeitsschicht im Restaurant – auch in hektischen Zeiten. Du schätzt den Austausch mit deinen Arbeitskolleginnen und -kollegen und förderst das Teamwork untereinander. Du führst dein Team kompetent und motivierst die Crew bei ihrer täglichen Arbeit, indem du selbst grosse Einsatzbereitschaft zeigst. Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nAls Schichtkoordinator/-in bist du die Drehscheibe zwischen unseren Gästen, deinen Arbeitskollegen und dem Managementteam. Deine Aufgaben umfassen:• die erfolgreiche Organisation und Führung einer ganzen Arbeitsschicht;• die Gewährleistung eines sicheren Umfeldes für unsere Gäste und Mitarbeitende;\n• die Einhaltung unserer hohen Anforderungen an Qualität, Service, Sauberkeit und Hygiene im Restaurantalltag und\n• die Unterstützung des Restaurantteams auch in hektischen Situationen: in der Küche, hinter der Theke oder im Restaurant – dort, wo es dich am meisten braucht.\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork gross geschrieben wird.Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von Gastro Suisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als McDonald’s-Mitarbeitender/-Mitarbeitende erhältst du zudem Rabatt auf alle Produkte.",
@@ -3365,11 +3726,19 @@
       "id": "mcdonald-s-switzerland-180076e8ce5f",
       "previousSlugsByLocale": {
         "it": [
-          "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842"
+          "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842",
+          "schichtkoordinator-mcdonald-s-switzerland-frauenfeld"
+        ],
+        "en": [
+          "schichtkoordinator-mcdonald-s-switzerland-frauenfeld"
+        ],
+        "fr": [
+          "schichtkoordinator-mcdonald-s-switzerland-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842"
+        "schichtkoordinator-mcdonalds-switzerland-frauenfeld-8842",
+        "schichtkoordinator-mcdonald-s-switzerland-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3418,8 +3787,8 @@
       "slugByLocale": {
         "de": "systemgastronomie-lehre-eba-mcdonalds-switzerland-regensdorf-9360",
         "it": "systemgastronomie-lehre-afp-mcdonald-s-switzerland-regensdorf",
-        "en": "systemgastronomie-lehre-eba-mcdonald-s-switzerland-regensdorf",
-        "fr": "systemgastronomie-lehre-eba-mcdonald-s-switzerland-regensdorf"
+        "en": "system-gastronomy-lehre-eba-mcdonald-s-switzerland-regensdorf",
+        "fr": "systeme-gastronomie-lehre-eba-mcdonald-s-switzerland-regensdorf"
       },
       "descriptionByLocale": {
         "de": "Anforderungsprofil\n\n• Du hast einen guten Sekundarabschluss oder Vergleichbares\n• Du verfügst über sehr gute Deutschkenntnisse (Wort und Schrift)\n• Du hast Freude am lebendigen Gastronomieumfeld\n• Du bist ein kontaktfreudiger Teamplayer\n• Du bist belastbar und packst gerne mit an\n• Du hast Spass daran, Verantwortung zu übernehmen und behältst auch in hektischen Situationen den Überblick\n• Du hast eine schnelle Auffassungsgabe und erkennst Zusammenhänge problemlos\n• Du bringst Sinn für Zahlen mit\n• Sauberkeit und Ordnung sind für dich selbstverständlich\n\nWenn du alle Fragen mit ja beantworten kannst, dann bist du die/der Richtige!\n\nAufgabenbereich\n\nAls Lehrling Systemgastronomiefachfrau/-mann EFZ erwartet dich in unseren Restaurants eine fundierte und breitgefächerte Ausbildung: Während der dreijährigen Ausbildung lernst du nicht nur, wie Produkte zubereitet und Gäste bedient werden, sondern gehst vor allem betriebswirtschaftlichen Zusammenhängen auf den Grund. Neben Lebensmittelkunde, Qualitätssicherung, Produktherstellung und Verkauf stehen Marketing, Personalwesen, Kostenkontrolle und die Organisation von Arbeitsabläufen auf deinem Lehrplan. Mit einem klaren Plan: Nach deiner Ausbildung ins Restaurant Management einzusteigen. Deine Berufsausbildung absolvierst du übrigens parallel in der Berufsschule und in einem unserer Restaurants.Dein Lehrabschluss und damit das EFZ ist der erste Meilenstein in deiner Entwicklung bei McDonald’s. Du kannst dich intern sowie externe weiterbilden. Im Restaurant geht es für dich aufwärts bis hin zum Geschäftsführer. Und im Bereich Gastronomie hast du eine Vielfalt an Entwicklungsmöglichkeiten.Eine spannende und vielfältige Tätigkeit wartet auf dich!\n\nWas wir bieten\n\nAls Lehrling bist du bei uns gut aufgehoben: In jedem Restaurant steht dir ein ausgebildeter Berufsbilder zur Seite und unterstützt dich während deiner gesamten Lehrzeit. Zudem profitierst du von 6 Wochen Ferien pro Jahr, internen Weiterbildungen (parallel zur schulischen und betrieblichen Ausbildung) sowie von einem speziell auf dich zugeschnittenem Jahresplan mit spannenden Aktivitäten.Hast du Ketchup im Blut? Dann mach den ersten Schritt und sende uns deine Bewerbung! Möchtest du dich erst noch genauer über die Ausbildung informieren? Zahlreiche Infos rund um die Ausbildung findest du auf http://jobs.mcdonalds.ch/de/lehre\n\n#XXX",
@@ -3431,10 +3800,17 @@
       "previousSlugsByLocale": {
         "it": [
           "systemgastronomie-lehre-eba-mcdonalds-switzerland-regensdorf-9360"
+        ],
+        "en": [
+          "systemgastronomie-lehre-eba-mcdonald-s-switzerland-regensdorf"
+        ],
+        "fr": [
+          "systemgastronomie-lehre-eba-mcdonald-s-switzerland-regensdorf"
         ]
       },
       "previousSlugs": [
-        "systemgastronomie-lehre-eba-mcdonalds-switzerland-regensdorf-9360"
+        "systemgastronomie-lehre-eba-mcdonalds-switzerland-regensdorf-9360",
+        "systemgastronomie-lehre-eba-mcdonald-s-switzerland-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3483,8 +3859,8 @@
       "slugByLocale": {
         "de": "systemgastronomie-lehre-efz-mcdonalds-switzerland-regensdorf-9362",
         "it": "systemgastronomie-lehre-cfc-mcdonald-s-switzerland-regensdorf",
-        "en": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-regensdorf",
-        "fr": "systemgastronomie-lehre-efz-mcdonald-s-switzerland-regensdorf"
+        "en": "system-gastronomy-lehre-efz-mcdonald-s-switzerland-regensdorf",
+        "fr": "systeme-gastronomie-lehre-efz-mcdonald-s-switzerland-regensdorf"
       },
       "descriptionByLocale": {
         "de": "Profil\n\n• Du hast einen guten Sekundarabschluss oder Vergleichbares\n• Du verfügst über sehr gute Deutschkenntnisse (Wort und Schrift)\n• Du hast Freude am lebendigen Gastronomieumfeld\n• Du bist ein kontaktfreudiger Teamplayer\n• Du bist belastbar und packst gerne mit an\n• Du hast Spass daran, Verantwortung zu übernehmen und behältst auch in hektischen Situationen den Überblick\n• Du hast eine schnelle Auffassungsgabe und erkennst Zusammenhänge problemlos\n• Du bringst Sinn für Zahlen mit\n• Sauberkeit und Ordnung sind für dich selbstverständlich\n\nWenn du alle Fragen mit ja beantworten kannst, dann bist du die/der Richtige!\n\nAufgabenbereich\n\nAls Lehrling Systemgastronomiefachfrau/-mann EFZ erwartet dich in unseren Restaurants eine fundierte und breitgefächerte Ausbildung: Während der dreijährigen Ausbildung lernst du nicht nur, wie Produkte zubereitet und Gäste bedient werden, sondern gehst vor allem betriebswirtschaftlichen Zusammenhängen auf den Grund. Neben Lebensmittelkunde, Qualitätssicherung, Produktherstellung und Verkauf stehen Marketing, Personalwesen, Kostenkontrolle und die Organisation von Arbeitsabläufen auf deinem Lehrplan. Mit einem klaren Plan: Nach deiner Ausbildung ins Restaurant Management einzusteigen. Deine Berufsausbildung absolvierst du übrigens parallel in der Berufsschule und in einem unserer Restaurants.Dein Lehrabschluss und damit das EFZ ist der erste Meilenstein in deiner Entwicklung bei McDonald’s. Du kannst dich intern sowie externe weiterbilden. Im Restaurant geht es für dich aufwärts bis hin zum Geschäftsführer. Und im Bereich Gastronomie hast du eine Vielfalt an Entwicklungsmöglichkeiten.Eine spannende und vielfältige Tätigkeit wartet auf dich!\n\nWir bieten\n\nAls Lehrling bist du bei uns gut aufgehoben: In jedem Restaurant steht dir ein ausgebildeter Berufsbilder zur Seite und unterstützt dich während deiner gesamten Lehrzeit. Zudem profitierst du von 6 Wochen Ferien pro Jahr, internen Weiterbildungen (parallel zur schulischen und betrieblichen Ausbildung) sowie von einem speziell auf dich zugeschnittenem Jahresplan mit spannenden Aktivitäten.Hast du Ketchup im Blut? Dann mach den ersten Schritt und sende uns deine Bewerbung! Möchtest du dich erst noch genauer über die Ausbildung informieren? Zahlreiche Infos rund um die Ausbildung findest du auf http://jobs.mcdonalds.ch/de/lehre",
@@ -3496,10 +3872,17 @@
       "previousSlugsByLocale": {
         "it": [
           "systemgastronomie-lehre-efz-mcdonalds-switzerland-regensdorf-9362"
+        ],
+        "en": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-regensdorf"
+        ],
+        "fr": [
+          "systemgastronomie-lehre-efz-mcdonald-s-switzerland-regensdorf"
         ]
       },
       "previousSlugs": [
-        "systemgastronomie-lehre-efz-mcdonalds-switzerland-regensdorf-9362"
+        "systemgastronomie-lehre-efz-mcdonalds-switzerland-regensdorf-9362",
+        "systemgastronomie-lehre-efz-mcdonald-s-switzerland-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3524,7 +3907,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8169",
-      "slug": "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231",
+      "slug": "lavorazione-tardiva-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
@@ -3547,9 +3930,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231",
-        "it": "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231",
-        "en": "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231",
-        "fr": "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231"
+        "it": "lavorazione-tardiva-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "en": "collaborative-late-shift-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich",
+        "fr": "travail-poste-en-collaboration-tardive-zh-lowenstrasse-30-40-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nEin Grüezi und ein Auf Wiedersehen gehören für dich im Kontakt mit unseren Gästen genauso dazu, wie ein schneller und exakter Service an der Kasse und in der Küche.\nDu bist flexibel von Montag bis Sonntag einsetzbar, arbeitest gerne im Team, bist zuverlässig und offen, Neues zu lernen. Du schätzt die Möglichkeit in der Nacht (SO-DO bis 01:30 / FR & SA bis 06:00) zu arbeiten.\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:\n• der freundliche und schnelle Service an der Theke, sowie im ganzen Restaurant;\n• die sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co. sowie\n• die regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir einen grossartigen Arbeitsplatz in einem neu gestalteten und top modernen Restaurant. Es erwartet dich ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork grossgeschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Interessiert? Dann bewirb dich jetzt. Wir freuen uns, dich kennenzulernen!",
@@ -3573,7 +3956,21 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.967Z"
+      "firstSeenAt": "2026-08-10T10:47:50.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231"
+        ],
+        "en": [
+          "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231"
+        ],
+        "fr": [
+          "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-spatschicht-zh-lowenstrasse-30-40-mcdonalds-switzerland-zurich-10231"
+      ]
     },
     {
       "title": "Kopie von Crew Mitarbeiter(in) gesucht - McDonald's Glarus",
@@ -3605,8 +4002,8 @@
       "slugByLocale": {
         "de": "kopie-von-crew-mitarbeiter-in-gesucht-mcdonald-s-glarus-mcdonalds-switzerland-glarus-9907",
         "it": "kopie-von-crew-collaboratore-trice-in-gesucht-mcdonald-s-glarus-mcdonald-s-switzerland-glarus",
-        "en": "kopie-von-crew-mitarbeiter-in-gesucht-mcdonald-s-glarus-mcdonalds-switzerland-glarus-9907",
-        "fr": "kopie-von-crew-mitarbeiter-in-gesucht-mcdonald-s-glarus-mcdonalds-switzerland-glarus-9907"
+        "en": "copy-of-crew-employee-sought-mcdonald-s-glarus-mcdonald-s-switzerland-glarus",
+        "fr": "copie-de-l-employe-d-equipage-recherche-mcdonald-s-glarus-mcdonald-s-switzerland-glarus"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt – mit netten Kolleginnen und Kollegen und flexiblen Arbeitszeiten. Ein Job, in dem du du selbst sein kannst und dafür belohnt wirst. Dann ist McDonald’s genau das Richtige für dich!\n\nAufgabenbereich\n\nDu liebst es, Menschen glücklich zu machen. Bei McDonald’s kannst du deine gute Laune, deinen Service und deine Leidenschaft für Burger zeigen. Dein Team kann sich auf dich verlassen. Du willst dazulernen und weiterkommen – mit viel Energie bist du perfekt für die McDonald’s-Crew!\n\nWir bieten\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du für das Leben und für deine Laufbahn. Noch ein Vorteil: Die Arbeit bei McDonald’s sind sicher und auch fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise günstige Abos für dich und deine Familie abzuschliessen.\n\n#XXX",
@@ -3617,6 +4014,12 @@
       "id": "mcdonald-s-switzerland-30822cfc2915",
       "previousSlugsByLocale": {
         "it": [
+          "kopie-von-crew-mitarbeiter-in-gesucht-mcdonald-s-glarus-mcdonalds-switzerland-glarus-9907"
+        ],
+        "en": [
+          "kopie-von-crew-mitarbeiter-in-gesucht-mcdonald-s-glarus-mcdonalds-switzerland-glarus-9907"
+        ],
+        "fr": [
           "kopie-von-crew-mitarbeiter-in-gesucht-mcdonald-s-glarus-mcdonalds-switzerland-glarus-9907"
         ]
       },
@@ -3646,7 +4049,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8175",
-      "slug": "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256",
+      "slug": "dielsdorf-zh-crew-dipendenti-40-50-mcdonald-s-switzerland-dielsdorf",
       "location": "Dielsdorf",
       "canton": "ZH",
       "country": "CH",
@@ -3669,9 +4072,9 @@
       },
       "slugByLocale": {
         "de": "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256",
-        "it": "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256",
-        "en": "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256",
-        "fr": "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256"
+        "it": "dielsdorf-zh-crew-dipendenti-40-50-mcdonald-s-switzerland-dielsdorf",
+        "en": "dielsdorf-zh-crew-employees-40-50-mcdonald-s-switzerland-dielsdorf",
+        "fr": "dielsdorf-zh-crew-salaries-40-50-mcdonald-s-switzerland-dielsdorf"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -3695,7 +4098,21 @@
       },
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.966Z"
+      "firstSeenAt": "2026-08-10T10:47:50.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256"
+        ],
+        "en": [
+          "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256"
+        ],
+        "fr": [
+          "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256"
+        ]
+      },
+      "previousSlugs": [
+        "dielsdorf-zh-crew-mitarbeitende-40-50-mcdonalds-switzerland-dielsdorf-10256"
+      ]
     },
     {
       "title": "Shiftcoordinator 60-100%",
@@ -3703,7 +4120,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8173",
-      "slug": "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf",
+      "slug": "coordinamento-shift-60-100-mcdonald-s-switzerland-regensdorf",
       "location": "Regensdorf",
       "canton": "ZH",
       "country": "CH",
@@ -3726,9 +4143,9 @@
       },
       "slugByLocale": {
         "de": "shiftcoordinator-60-100-mcdonalds-switzerland-regensdorf-10251",
-        "it": "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf",
+        "it": "coordinamento-shift-60-100-mcdonald-s-switzerland-regensdorf",
         "en": "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf",
-        "fr": "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf"
+        "fr": "coordonnateur-de-poste-60-100-mcdonald-s-switzerland-regensdorf"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu liebst den Umgang mit verschiedenen Mitarbeitenden, motivierst gerne ein Team und kannst Prozesse schnell und einfach umsetzen. Zudem bist du zuverlässig, problemlösungsorientiert, diplomatisch und kontaktfreudig.\n\nAufgabenbereich\n\nAls Schichtkoordinator/-in bist du die Drehscheibe zwischen Restaurantmitarbeitenden, Gästen und dem Führungsteam des Restaurants. Du bist verantwortlich für die erfolgreiche Organisation einer ganzen Arbeitsschicht und sorgst für die Einhaltung unserer hohen \n• Anforderungen an Qualität, Service, Sauberkeit und Hygiene. Du bleibst ruhig, wenn es mal hektisch wird, und bist immer dort, wo es dich am meisten braucht.\n\nWir bieten\n\nMcDonald’s bietet dir ein attraktives und vielfältiges Arbeitsumfeld, das auf Teamwork und Anerkennung von besonderen Leistungen basiert. Du profitierst von einem Ausbildungsplan, der dich persönlich wie auch beruflich weiterbringt. Dank flexiblen Arbeitszeitmodellen kannst du zudem deine Arbeitszeiten und das Arbeitsvolumen auf deine private Situation abstimmen.",
@@ -3739,11 +4156,16 @@
       "id": "mcdonald-s-switzerland-4fbd0fd194a0",
       "previousSlugsByLocale": {
         "it": [
-          "shiftcoordinator-60-100-mcdonalds-switzerland-regensdorf-10251"
+          "shiftcoordinator-60-100-mcdonalds-switzerland-regensdorf-10251",
+          "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf"
+        ],
+        "fr": [
+          "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf"
         ]
       },
       "previousSlugs": [
-        "shiftcoordinator-60-100-mcdonalds-switzerland-regensdorf-10251"
+        "shiftcoordinator-60-100-mcdonalds-switzerland-regensdorf-10251",
+        "shiftcoordinator-60-100-mcdonald-s-switzerland-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3850,7 +4272,7 @@
         "de": "consultant-asset-management-80-100-mcdonalds-switzerland-crissier-10307",
         "it": "consultant-asset-management-80-100-mcdonalds-switzerland-crissier-10307",
         "en": "consultant-asset-management-80-100-mcdonald-s-switzerland-crissier",
-        "fr": "consultant-asset-management-80-100-mcdonalds-switzerland-crissier-10307"
+        "fr": "consultant-en-gestion-d-actifs-80-100-mcdonald-s-switzerland-crissier"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nMcDonald's, die weltweit größte Restaurantkette, ist ein innovatives und menschenorientiertes Unternehmen, das von einer führenden multinationalen Marke unterstützt wird. Derzeit gibt es in der Schweiz 190 McDonald’s-Restaurants, die von 46 unabhängigen Unternehmern (Franchisees) betrieben werden. Da unser Geschäft schnell wächst, suchen wir talentierte Mitarbeiter, um unsere Hauptbüros zu stärken, die alle Restaurants unterstützen. Um seine Entwicklungsabteilung mit Sitz in Crissier zu ergänzen, sucht McDonald's Schweiz die Rolle von:\nAsset Management Consultant (80-100%)\nWir suchen einen erfahrenen Fachmann, um unsere Entwicklungsabteilung zu stärken. In dieser Schlüsselrolle tragen Sie zum strategischen und operativen Management unseres Immobilienportfolios in der französischsprachigen Schweiz bei. Sie arbeiten eng mit internen Abteilungen und externen Partnern in einem dynamischen, geschäftsorientierten Umfeld zusammen.\nSchlüssel\n• Zuständigkeiten\n\nUmsetzung der Immobilienstrategie und aktiver Beitrag zu deren Weiterentwicklung.\nVerwalten und entwickeln Sie das bestehende Immobilienportfolio in der ganzen Schweiz.\nBeaufsichtigen Sie alle administrativen, operativen und vertraglichen Prozesse im Zusammenhang mit den Immobilien.\nDienen Sie als Hauptanlaufstelle für Immobilienbesitzer, Verwaltungsgesellschaften, Behörden und externe Partner.\nVerwalten Sie den gesamten Lebenszyklus von Mietverträgen und Landnutzungsrechten, einschließlich Laufzeiten, Verlängerungen, Mietanpassungen und Verhandlungen.\nEntwurf, Überprüfung, Verhandlung und Abschluss von Immobilienverträgen.\nDurchführung von Aktivitäten zur Mietersuche und Gewährleistung einer optimalen Belegung der verfügbaren Räume.\nBereiten Sie Marktanalysen, Berichtsunterlagen und interne Präsentationen vor.\nUnterstützung bei der Erstellung von Akten, die juristisches Fachwissen im Zusammenhang mit Immobilien erfordern.\nBereitstellung solider strategischer Empfehlungen zur Unterstützung der Entscheidungsfindung auf Managementebene.\n\nWas Sie brauchen, um erfolgreich zu sein\n\nAnerkannte Ausbildung in Immobilien (Bundesdiplom, Berufszertifikat oder gleichwertige Qualifikation).\nMehrjährige erfolgreiche Berufserfahrung im Asset Management oder Immobilienmanagement.\nStarke Kenntnisse des Schweizer Immobilienmarktes, idealerweise mit einem aktiven Netzwerk in der französischsprachigen Schweiz.\nSprachen: Französischer Muttersprachler mit perfekten Englischkenntnissen. Deutsch ist ein starkes zusätzliches Kapital.\nBewährte Fähigkeit, Verträge präzise zu verhandeln, zu entwerfen und zu überprüfen.\nStarke analytische Fähigkeiten und die Fähigkeit, komplexe Dateien unabhängig und strukturiert zu verwalten.\nZuverlässige, engagierte, flexible Persönlichkeit mit praxisorientiertem, lösungsorientiertem Mindset.\nFähigkeit, in einer dynamischen Umgebung zu gedeihen und mehrere Prioritäten gleichzeitig zu verwalten.\n\nBei uns erhalten Sie folgende Vorteile\n\nFlexibles Arbeiten: die Fähigkeit, aus der Ferne zu arbeiten, um die bestmögliche Balance zwischen Arbeit und Privatleben zu erreichen. Home Office ist möglich. Die Arbeitszeiten sind in Absprache mit dem Leiter flexibel und berücksichtigen die geschäftlichen und individuellen Bedürfnisse.\nMobilitätsvorteil, der mit dieser Position verbunden ist: Dienstwagen oder SBB-Zeitkarte oder Reisekostenzulage.\nBonus: ein variabler Prozentsatz basierend auf Leistung und kommerziellen Ergebnissen.\nAktives Talent Management: gezieltes Engagement im Bereich persönliches Lernen und Kompetenzentwicklung, vor Ort, via E-Learning oder auf dem lebendigen Campus der Hamburger University in London, Paris und München.\nWohlbefinden der Mitarbeiter: Beiträge zu Wellnessaktivitäten.\nAttraktive Rabatte in unseren Restaurants und Essen für Mitarbeiter.\nProgramm verpackt mit exklusiven Rabatten auf unserer Partnerplattform, Unternehmensvorteile.",
@@ -3882,7 +4304,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8187",
-      "slug": "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305",
+      "slug": "gestione-patrimoniale-e-immobiliare-100-mcdonald-s-switzerland-crissier",
       "location": "Crissier",
       "canton": "VD",
       "country": "CH",
@@ -3905,9 +4327,9 @@
       },
       "slugByLocale": {
         "de": "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305",
-        "it": "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305",
+        "it": "gestione-patrimoniale-e-immobiliare-100-mcdonald-s-switzerland-crissier",
         "en": "manager-asset-management-real-estate-100-mcdonald-s-switzerland-crissier",
-        "fr": "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305"
+        "fr": "gestionnaire-gestion-d-actifs-et-immobilier-100-mcdonald-s-switzerland-crissier"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nMcDonald's, die weltweit größte Restaurantkette, ist ein innovatives und menschenorientiertes Unternehmen, das von einer führenden multinationalen Marke unterstützt wird. Derzeit gibt es in der Schweiz 190 McDonald’s-Restaurants, die von 46 unabhängigen Unternehmern (Franchisees) betrieben werden. Da unser Geschäft schnell wächst, suchen wir talentierte Mitarbeiter, um unsere Hauptbüros zu stärken, die alle Restaurants unterstützen. Um seine Entwicklungsabteilung mit Sitz in Crissier zu ergänzen, sucht McDonald's Schweiz die Rolle von:\nAsset Management & Real Estate Manager (100%)\nWir suchen einen erfahrenen Fachmann, um unsere Entwicklungsabteilung zu stärken. Als Manager Asset Management & Real Estate übernehmen Sie eine leitende, strategische Rolle im Herzen der Immobilienexpansion von McDonald’s in der Schweiz. Sie sind dafür verantwortlich, die bundesweite Immobilienstrategie voranzutreiben, das langfristige Wachstum unseres Restaurantportfolios zu sichern und unsere bestehenden Vermögenswerte zu optimieren. Durch Ihre Expertise, Ihr Netzwerk und Ihre Führung spielen Sie eine Schlüsselrolle bei der Gestaltung der Präsenz von McDonald’s auf dem Schweizer Markt.\nSchlüssel\n• Zuständigkeiten\n\nFühren Sie Asset Management und Immobilienexpansion in der ganzen Schweiz und verwalten und entwickeln Sie ein Team von vier Teammitgliedern.\nEntwicklung und Umsetzung der Immobilienstrategie, Identifizierung neuer Standorte und Pflege einer soliden und gut strukturierten Projektpipeline.\nBewerten Sie die Eignung von Grundstücken und Immobilien, erstellen Sie Einnahmenschätzungen und stellen Sie die Projektrentabilität (ROI) sicher.\nOptimieren Sie das bestehende Portfolio und führen Sie Verhandlungen im Zusammenhang mit neuen Standorten, Erneuerungen, Umsiedlungen oder Kündigungen von Mietverträgen.\nVerhandeln, entwerfen und schließen Sie Verträge und offizielle Dokumente mit Partnern und Behörden ab.\nErstellen Sie Berichte, Marktanalysen und präsentieren Sie dem DMT-Board Projekte zur Validierung.\nRepräsentieren Sie McDonald's mit externen Partnern und unterhalten Sie ein starkes Netzwerk zur Unterstützung von Expansionsaktivitäten.\n\nWas Sie brauchen, um erfolgreich zu sein\n\nUniversität oder Fachhochschule in Immobilien oder einer gleichwertigen Qualifikation.\nMehrjährige erfolgreiche Erfahrung in der Immobilienexpansion, Standortentwicklung und / oder Asset Management; Retail-Erfahrung ist ein starkes Kapital.\nNachgewiesene Führungserfahrung mit der Fähigkeit, ein Team zu motivieren, zu strukturieren und zu entwickeln.\nGute Kenntnisse des Schweizer Immobilienmarktes und ein etabliertes Netzwerk, idealerweise in der deutschsprachigen Schweiz.\nHervorragendes Verhandlungsgeschick und eine nachgewiesene Fähigkeit, anspruchsvolle Vertragsgespräche zu führen.\nStarke analytische Fähigkeiten, strukturierter Arbeitsstil und die Fähigkeit, komplexe Projekte und Prioritäten zu verwalten.\nProaktives, lösungsorientiertes Mindset mit starken Planungsfähigkeiten.\nBereitschaft und Motivation, regelmäßig in der ganzen Schweiz zu reisen.\nSprachen: Deutscher Muttersprachler mit perfekten Englischkenntnissen. Französisch ist ein starkes zusätzliches Kapital.\n\nBei uns erhalten Sie folgende Vorteile\n\nFlexibles Arbeiten: die Fähigkeit, aus der Ferne zu arbeiten, um die bestmögliche Balance zwischen Arbeit und Privatleben zu erreichen. Home Office ist möglich. Die Arbeitszeiten sind in Absprache mit dem Leiter flexibel und berücksichtigen die geschäftlichen und individuellen Bedürfnisse.\nMobilitätsvorteil, der mit dieser Position verbunden ist: Dienstwagen oder SBB-Zeitkarte oder Reisekostenzulage.\nBonus: ein variabler Prozentsatz basierend auf Leistung und kommerziellen Ergebnissen.\nAktives Talent Management: gezieltes Engagement im Bereich persönliches Lernen und Kompetenzentwicklung, vor Ort, via E-Learning oder auf dem lebendigen Campus der Hamburger University in London, Paris und München.\nWohlbefinden der Mitarbeiter: Beiträge zu Wellnessaktivitäten.\nAttraktive Rabatte in unseren Restaurants und Essen für Mitarbeiter.\nProgramm verpackt mit exklusiven Rabatten auf unserer Partnerplattform, Unternehmensvorteile.",
@@ -3931,7 +4353,18 @@
       },
       "addressLocality": "Crissier",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.965Z"
+      "firstSeenAt": "2026-08-10T10:47:50.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305"
+        ],
+        "fr": [
+          "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305"
+        ]
+      },
+      "previousSlugs": [
+        "manager-asset-management-real-estate-100-mcdonalds-switzerland-crissier-10305"
+      ]
     },
     {
       "title": "Restaurant Crew Mitarbeiter/in 20% bis 60% Burgdorf",
@@ -3963,8 +4396,8 @@
       "slugByLocale": {
         "de": "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonalds-switzerland-burgdorf-10403",
         "it": "restaurant-crew-collaboratore-trice-20-bis-60-burgdorf-mcdonald-s-switzerland-burgdorf",
-        "en": "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonald-s-switzerland-burgdorf",
-        "fr": "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonald-s-switzerland-burgdorf"
+        "en": "restaurant-crew-employees-in-20-to-60-burgdorf-mcdonald-s-switzerland-burgdorf",
+        "fr": "restaurant-equipage-employes-dans-20-a-60-burgdorf-mcdonald-s-switzerland-burgdorf"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nEin Grüezi und ein Auf Wiedersehen gehören für dich im Kontakt mit unseren Gästen genauso dazu, wie ein schneller und exakter Service an der Kasse und in der Küche. Du arbeitest gerne im Team, bist zuverlässig und offen, Neues zu lernen. Du schätzt die Möglichkeit, neben deiner Familie oder deiner Ausbildung Teilzeit zu arbeiten. Dann freuen wir uns, dich kennenzulernen!\n\nAufgabenbereich\n\nZu deinen abwechslungsreichen Aufgaben als Crewmitglied zählen:• der freundliche und schnelle Service an der Theke, im McDrive sowie im ganzen Restaurant;• die sorgfältige Zubereitung unseres breiten Angebots an Burgern, Salaten und Co. sowie\n• die regelmässigen Kontrollen für höchste Sauberkeit im ganzen Restaurant\n\nWir bieten\n\nWir bieten dir ein spannendes und multikulturelles Arbeitsumfeld, in dem Teamwork gross geschrieben wird. Unsere flexiblen Arbeitszeitmodelle erlauben dir, deine Arbeitszeiten nach deiner persönlichen Situation einzuteilen. Als Mitglied von GastroSuisse wenden wir vollumfänglich den Gesamtarbeitsvertrag der Gastronomie an und zahlen faire Löhne. Dank unseren Aus- und Weiterbildungsprogrammen kannst du dich weiterentwickeln und in unseren Restaurants Karriere machen. Als McDonald’s Mitarbeitender erhältst du zudem bei uns 50 Prozent Rabatt auf alle Produkte.",
@@ -3976,10 +4409,17 @@
       "previousSlugsByLocale": {
         "it": [
           "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonalds-switzerland-burgdorf-10403"
+        ],
+        "en": [
+          "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonald-s-switzerland-burgdorf"
+        ],
+        "fr": [
+          "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonald-s-switzerland-burgdorf"
         ]
       },
       "previousSlugs": [
-        "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonalds-switzerland-burgdorf-10403"
+        "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonalds-switzerland-burgdorf-10403",
+        "restaurant-crew-mitarbeiter-in-20-bis-60-burgdorf-mcdonald-s-switzerland-burgdorf"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -4004,7 +4444,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8230",
-      "slug": "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414",
+      "slug": "purchasing-consulente-80-100-mcdonald-s-switzerland-crissier",
       "location": "Crissier",
       "canton": "VD",
       "country": "CH",
@@ -4026,10 +4466,10 @@
         "fr": "Consultant en achats (80-100%)"
       },
       "slugByLocale": {
-        "de": "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414",
-        "it": "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414",
+        "de": "purchasing-berater-80-100-mcdonald-s-switzerland-crissier",
+        "it": "purchasing-consulente-80-100-mcdonald-s-switzerland-crissier",
         "en": "purchasing-consultant-80-100-mcdonald-s-switzerland-crissier",
-        "fr": "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414"
+        "fr": "consultant-en-achats-80-100-mcdonald-s-switzerland-crissier"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nMcDonald's, die weltweit größte Restaurantkette, ist ein innovatives und menschenorientiertes Unternehmen, das von einer führenden multinationalen Marke unterstützt wird. Derzeit gibt es in der Schweiz 189 McDonald’s-Restaurants, die von 46 unabhängigen Unternehmern (Franchisesitzern) betrieben werden. Da unser Geschäft schnell wächst, suchen wir talentierte Mitarbeiter, um unsere Hauptbüros zu stärken, die alle Restaurants unterstützen. Um die Supply Chain-Abteilung mit Sitz in Crissier zu ergänzen, möchte McDonald's Schweiz die Rolle von:\nEinkaufsberater (80-100%)\nWir suchen einen erfahrenen Fachmann, um unsere Supply Chain-Abteilung zu stärken. In dieser Schlüsselrolle werden Sie die Beschaffungsaktivitäten vorantreiben, Lieferantenbeziehungen verwalten und die Produktentwicklung und -aktionen in unserem Restaurantnetzwerk unterstützen. Sie helfen, unsere Lieferkette zu optimieren, zur Innovation beizutragen und ein wettbewerbsfähiges und vielfältiges Produktangebot zu gewährleisten.\nSchlüssel\n• Zuständigkeiten\n\nVerhandeln und kaufen Sie eine breite Palette von Lebensmitteln und Non-Food-Artikeln für alle Restaurants in der Schweiz, mit einem starken Fokus auf proteinbasierte Produkte.\nPflegen Sie tägliche Beziehungen zu Schweizer und europäischen Lieferanten, um Qualität, Zuverlässigkeit, wettbewerbsfähige Preise und eine sichere Beschaffung von wichtigen Proteinkategorien zu gewährleisten.\nÜberwachen Sie die Lieferantenleistung, identifizieren Sie Verbesserungsmöglichkeiten und unterstützen Sie die kontinuierliche Optimierung der Lieferkette, um die Effizienz zu erhöhen und Kosten zu senken.\nArbeiten Sie eng mit Marketing und Operations zusammen, um neue Produkte zu entwickeln und zu verfeinern und Einblicke in Lebensmitteltrends zu erhalten, insbesondere in den Protein- und Alternativproteinsegmenten.\nTragen Sie zu nationalen Werbeaktionen bei, indem Sie Produkteinführungen unterstützen, die Leistung überwachen und sich mit internen Teams und Lieferanten abstimmen.\nVerfolgen Sie die Produktergebnisse während ihres gesamten Lebenszyklus und unterstützen Sie Entscheidungen über Fortsetzung oder Rücknahme.\nBleiben Sie auf dem Laufenden über Markttrends und sich entwickelnde Kundenerwartungen und handeln Sie als proaktive Quelle für Ideen, um das Restaurantsortiment zu modernisieren und zu beleben.\n\nWas Sie brauchen, um erfolgreich zu sein\n\nNachgewiesene Erfahrung (min. 5 Jahre) in der Beschaffung und idealerweise im Lebensmittelbereich\nSchweizer Berufsqualifikation im Beschaffungswesen (z. B. Bundeskaufabschluss) oder ein gleichwertiger Abschluss in einem verwandten Geschäftsfeld.\nAutonome, flexible und komfortable Interaktion mit verschiedenen Stakeholdern wie Lieferanten, Logistikpartnern und Restaurantteams.\nKommunikativ und proaktiv, mit der Fähigkeit, Initiative zu ergreifen, Ideen vorzuschlagen und unter Druck widerstandsfähig zu bleiben.\nStarke Kenntnisse in Englisch, Deutsch und Französisch als Asset\n\nBei uns erhalten Sie folgende Vorteile\n\nFlexibles Arbeiten: Fähigkeit, aus der Ferne zu arbeiten, um die bestmögliche Balance zwischen Arbeit und Privatleben zu erreichen. Home Office ist möglich und die Arbeitszeiten sind in Absprache mit dem Leiter flexibel, wobei geschäftliche und individuelle Bedürfnisse berücksichtigt werden.\nBonus: Variabler Prozentsatz basierend auf Leistung und kommerziellen Ergebnissen.\nAktives Talent Management: Gezieltes Engagement im Bereich persönliches Lernen und Kompetenzentwicklung, vor Ort, via E-Learning oder auf dem lebendigen Campus der Hamburger University in London, Paris und München.\nWohlbefinden der Mitarbeiter: Beiträge zu Wellnessaktivitäten.\nAttraktive Rabatte in unseren Restaurants und Essen für Mitarbeiter.\nProgramm verpackt mit exklusiven Rabatten auf unserer Partnerplattform, Unternehmensvorteile.",
@@ -4053,7 +4493,21 @@
       },
       "addressLocality": "Crissier",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.963Z"
+      "firstSeenAt": "2026-08-10T10:47:50.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414"
+        ],
+        "de": [
+          "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414"
+        ],
+        "fr": [
+          "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414"
+        ]
+      },
+      "previousSlugs": [
+        "purchasing-consultant-80-100-mcdonalds-switzerland-crissier-10414"
+      ]
     },
     {
       "title": "Kopie von Kopie von Crew-Mitarbeiter/in 30-50%  McDonald's Baar",
@@ -4126,7 +4580,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8245",
-      "slug": "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450",
+      "slug": "sr-manager-trasformazione-80-100-mcdonald-s-switzerland-crissier",
       "location": "Crissier",
       "canton": "VD",
       "country": "CH",
@@ -4149,9 +4603,9 @@
       },
       "slugByLocale": {
         "de": "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450",
-        "it": "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450",
+        "it": "sr-manager-trasformazione-80-100-mcdonald-s-switzerland-crissier",
         "en": "sr-manager-transformation-80-100-mcdonald-s-switzerland-crissier",
-        "fr": "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450"
+        "fr": "gestionnaire-principal-transformation-80-100-mcdonald-s-switzerland-crissier"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nMcDonald's, die weltweit größte Restaurantkette, ist ein innovatives und menschenorientiertes Unternehmen, das von einer führenden multinationalen Marke unterstützt wird. In der Schweiz werden 189 Restaurants von 46 unabhängigen Franchisenehmern betrieben. Um unser schnell wachsendes Geschäft zu unterstützen, bieten unsere Hauptbüros Dienstleistungen für alle Restaurants an.\nUm seine Managementabteilung mit Sitz in Crissier zu stärken, möchte McDonald’s Schweiz die Rolle des Sr Manager, Transformation (80–100%) übernehmen.\nDer Transformation Lead for Market treibt die Umsetzung der Transformationsvision von McDonald’s auf Marktebene voran und sorgt für strategische Ausrichtung, disziplinierte Umsetzung, effektives Change Management und zentralisierte Projekt-Governance auf Verbraucher-, Restaurant- und Unternehmensplattformen.\nDiese Rolle fungiert als Brücke zwischen globalen Transformationsprogrammen und lokaler Marktausführung, während eine zentralisierte Marktsicht aller strategischen und Transformationsinitiativen geschaffen wird. Es sorgt für eine klare Priorisierung, Transparenz und eine starke Umsetzung und ermöglicht es der Führung, Leistung, Transformation und Organisationsfähigkeit auszugleichen.\nDer Transformation Lead bietet eine durchgängige Transparenz der Marktprioritäten, unterstützt die Sequenzierung von Initiativen und stärkt die Ausführungsdisziplin durch konsistente Projekt- und Change-Management-Standards. Die Rolle kann direkte oder indirekte Berichte umfassen und behält die Rechenschaftspflicht für die strategische Ausrichtung und die operative Ausführung.\nSchlüssel\n• Zuständigkeiten\nMarktausrichtung Marktinitiativen mit Unternehmensvision und Segmentprioritäten koordinieren. Integrieren Sie globale Programme (GBS, ArchOS, MCX usw.) in die Marktausführung. Befürworten Sie die Marktbedürfnisse und teilen Sie Best Practices.\nMarktweites Projekt- und PortfoliomanagementBesitzen Sie eine zentrale Sicht auf alle strategischen und Transformationsprojekte im gesamten Markt. Lenken Sie das Projektportfolio mit Transparenz über Prioritäten, Zeitpläne, Abhängigkeiten, Risiken und Ressourcen. Steigern Sie einheitliche Projekt-Governance-Standards und erleichtern Sie die Priorisierung mit Marktführerschaft. Geben Sie strukturierte Portfolio-Einblicke, identifizieren Sie Überschneidungen und Risiken und fungieren Sie als Koordinationspunkt zwischen globalen, Segment- und Marktinitiativen, um einen \"One Market / One Portfolio\" -Ansatz zu gewährleisten.\nDeployment & ExecutionOversee Planung und Ausführung, Verfolgung des Fortschritts, Management von Risiken und Gewährleistung der pünktlichen Lieferung. Nutzen Sie die Realisierung in Partnerschaft mit Projektleitern und CxOs.\nPortfolio & Roadmap ManagementÜberwinden Sie die integrierte Markttransformations-Roadmap auf allen drei Plattformen. Handeln Sie als Verbindung zu globalen, Segment- und Marktakteuren und sorgen Sie für Transparenz über den Fortschritt und den Ressourcenbedarf.\nSupport Project LeadsSupport führt mit Governance-Einrichtung, Tools, Anleitung und Eskalationsunterstützung, basierend auf Projektpriorität und strategischen Auswirkungen.\nDrive Change – One McDonald’s WayCoordinate change delivery using McDonald’s frameworks. Unterstützen Sie Marktakzeptanzpläne, beeinflussen Sie Führungskräfte, sich für Veränderungen einzusetzen und bauen Sie nachhaltige Transformationsfähigkeiten auf.\nFunktionale Zusammenarbeit Arbeit mit globalen, Segment- und Marktpartnern. Steigen Sie die wichtigsten Risiken, fördern Sie \"Share & Steal\" -Praktiken und arbeiten Sie mit COEs zusammen, um Feedback zu sammeln und kontinuierliche Verbesserungen voranzutreiben.\nAdvocacy, Capability Building & CommunicationsUnterstützen Sie die Weiterbildung im Change Management, coachen Sie Führungskräfte bei der Ausführung und Messung von Änderungen und koordinieren Sie die Marktkommunikation im Einklang mit den Leitlinien für die Unternehmenstransformation.\n\nWas Sie brauchen, um erfolgreich zu sein\n\nQualifikationen\n\nBachelor-Abschluss in Business, Human Resources oder verwandten Bereichen; Master bevorzugt.\nProject Management Professional (PMP®) und Change Management Zertifizierung (PROSCI, ADKAR oder gleichwertig).\n8+ Jahre Erfahrung im Projekt- und Change Management, vorzugsweise in einer globalen oder matrixförmigen Umgebung.\nStarke Fähigkeiten in den Bereichen Stakeholder Management, Beratung und Coaching.\nAusgezeichnete mündliche und schriftliche Kommunikation; Englisch, Französisch und Deutsch.\nFähigkeit, globale und lokale Prioritäten auszugleichen, Verhaltensänderungen voranzutreiben und Ergebnisse durch Matrixteams zu liefern.\nVerpflichtung zu McDonald's Werten: Dienen, Inklusion, Integrität, Gemeinschaft, Familie.\n\nPersönliche Eigenschaften\n\nKollaborativ, widerstandsfähig, anpassungsfähig und kundenorientiert.\nIn der Lage, verschiedene Interessengruppen zu führen und zu beeinflussen.\nBereitschaft, jeden Tag die Werte von McDonald’s zu leben.\n\nErfolgsmessungen\n\nTransformations- und strategische Projektmeilensteine wurden rechtzeitig und vollständig geliefert.\nKlare marktweite Sichtbarkeit und Priorisierung von Projekten, um fundierte Führungsentscheidungen zu ermöglichen.\nAkzeptanz und erzielte Geschäftsergebnisse (Readiness KPIs, Capability Uplift, Benefit Realisation).\nPortfolio Gesundheit erhalten (Risikomanagement, Interdependenz-Auflösung, Kapazitätsausrichtung).\nVerbesserte Ausführungsdisziplin und reduzierte Fragmentierung über Initiativen hinweg.\nTeameffektivität und marktübergreifende Kollaborationsgeschwindigkeit.\n\nBei uns erhalten Sie folgende Vorteile\n\nFlexibles Arbeiten: die Fähigkeit, aus der Ferne zu arbeiten, um die bestmögliche Balance zwischen Arbeit und Privatleben zu erreichen. Home Office ist möglich. Die Arbeitszeiten sind in Absprache mit dem Leiter flexibel und berücksichtigen die geschäftlichen und individuellen Bedürfnisse.\nMobilitätsvorteil, der mit dieser Position verbunden ist: Dienstwagen oder SBB-Zeitkarte oder Reisekostenzulage.\nBonus: ein variabler Prozentsatz basierend auf Leistung und kommerziellen Ergebnissen.\nAktives Talent Management: gezieltes Engagement im Bereich persönliches Lernen und Kompetenzentwicklung, vor Ort, via E-Learning oder auf dem lebendigen Campus der Hamburger University in London, Paris und München.\nWohlbefinden der Mitarbeiter: Beiträge zu Wellnessaktivitäten.\nAttraktive Rabatte in unseren Restaurants und Essen für Mitarbeiter.\nProgramm verpackt mit exklusiven Rabatten auf unserer Partnerplattform, Unternehmensvorteile.",
@@ -4175,7 +4629,18 @@
       },
       "addressLocality": "Crissier",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-10T10:47:50.962Z"
+      "firstSeenAt": "2026-08-10T10:47:50.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450"
+        ],
+        "fr": [
+          "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450"
+        ]
+      },
+      "previousSlugs": [
+        "sr-manager-transformation-80-100-mcdonalds-switzerland-crissier-10450"
+      ]
     },
     {
       "title": "CREW - Locarno",
@@ -4248,7 +4713,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/details-offre/8267",
-      "slug": "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490",
+      "slug": "crew-kloten-riapertura-mcdonald-s-switzerland-zurich",
       "location": "Zurich",
       "canton": "ZH",
       "country": "CH",
@@ -4271,9 +4736,9 @@
       },
       "slugByLocale": {
         "de": "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490",
-        "it": "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490",
-        "en": "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490",
-        "fr": "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490"
+        "it": "crew-kloten-riapertura-mcdonald-s-switzerland-zurich",
+        "en": "crew-kloten-reopening-mcdonald-s-switzerland-zurich",
+        "fr": "reouverture-de-l-equipage-kloten-mcdonald-s-switzerland-zurich"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -4297,7 +4762,21 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-10T10:47:50.959Z"
+      "firstSeenAt": "2026-08-10T10:47:50.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490"
+        ],
+        "en": [
+          "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490"
+        ],
+        "fr": [
+          "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490"
+        ]
+      },
+      "previousSlugs": [
+        "crew-kloten-neueroffnung-mcdonalds-switzerland-zurich-10490"
+      ]
     },
     {
       "title": "Crew Mitarbeiter/in",
@@ -4329,8 +4808,8 @@
       "slugByLocale": {
         "de": "crew-mitarbeiter-in-mcdonalds-switzerland-langenthal-10492",
         "it": "crew-collaboratore-trice-mcdonald-s-switzerland-langenthal",
-        "en": "crew-mitarbeiter-in-mcdonald-s-switzerland-langenthal",
-        "fr": "crew-mitarbeiter-in-mcdonald-s-switzerland-langenthal"
+        "en": "crew-staff-member-mcdonald-s-switzerland-langenthal",
+        "fr": "fonctionnaires-mcdonald-s-switzerland-langenthal"
       },
       "descriptionByLocale": {
         "de": "Profil\n\nDu suchst einen Job, der zu dir passt. Mit tollen Kolleginnen und Kollegen. Mit Arbeitszeiten, die sich nach deinem Leben richten. Ein Job, in dem dein Groove nicht nur erwünscht ist, sondern sich auszahlt. Ja? Dann bist du bei McDonald’s genau richtig.\n\nWas du mitbringst\n\nDu liebst es, Menschen happy zu machen. Bei McDonald’s kannst du zeigen, was du draufhast: deine gute Laune, deine Fitness im Service und deine Leidenschaft für beste Burger. Und dein Team kann sich auf dich verlassen. Du willst weiterkommen und bist ready, Neues zu Lernen. Wichtig: Eine Extraportion Energie gehört für dich einfach dazu. So passt du perfekt zur McDonald’s-Crew.\n\nWas du bekommst\n\nMcDonald’s bietet dir einen Job, der zu dir und einem Leben passt. Die Arbeitszeiten sind flexibel und die \n• Aufgaben im Service, in der Küche und an der Theke sind so vielfältig wie du. Da kommt nie Langeweile auf.\nBei McDonald’s lernst du im Team zu arbeiten, Ziele zu erreichen und nicht gleich ins Schwitzen zu kommen, wenn es mal hektisch wird. So lernst du fürs Leben und für deine Laufbahn. Noch ein Vorteil: Die Jobs bei McDonald’s sind sicher und fair bezahlt. Du erhältst fünf Mal im Monat 50 Prozent Rabatt auf dein Lieblingsmenü und du hast die Möglichkeit, bei Sunrise vorteilhafte Abos für dich und deine Familie abzuschliessen.",
@@ -4342,10 +4821,17 @@
       "previousSlugsByLocale": {
         "it": [
           "crew-mitarbeiter-in-mcdonalds-switzerland-langenthal-10492"
+        ],
+        "en": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-langenthal"
+        ],
+        "fr": [
+          "crew-mitarbeiter-in-mcdonald-s-switzerland-langenthal"
         ]
       },
       "previousSlugs": [
-        "crew-mitarbeiter-in-mcdonalds-switzerland-langenthal-10492"
+        "crew-mitarbeiter-in-mcdonalds-switzerland-langenthal-10492",
+        "crew-mitarbeiter-in-mcdonald-s-switzerland-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -11026,7 +11512,7 @@
         "it": "assistente-direttore-del-ristorante-mcdonald-s-switzerland-lugano-pazzallo",
         "en": "assistant-restaurant-manager-mcdonalds-switzerland-lugano-pazzallo-p8-310079-1",
         "de": "assistant-restaurant-manager-mcdonalds-switzerland-lugano-pazzallo-p8-310079-1",
-        "fr": "assistant-restaurant-manager-mcdonald-s-switzerland-lugano-pazzallo"
+        "fr": "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-lugano-pazzallo"
       },
       "descriptionByLocale": {
         "it": "Presentazione aziendale\n\nA McDonald’s, ogni giorno è una nuova opportunità per crescere, guidare e fare la differenza insieme! Il nostro team ama lavorare insieme, supportarsi a vicenda e dare ai nostri ospiti e equipaggio grandi momenti. Se stai cercando un lavoro dinamico con opportunità di carriera reali, sei al posto giusto con noi!\n\nDescrizione del lavoro\n\nCome Assistant Restaurant Manager, supporta il Restaurant Manager nella guida del team e assicura che il ristorante funzioni senza problemi. Si occupa di compiti aggiuntivi, impostare un esempio in sicurezza alimentare, qualità, servizio e igiene e contribuire allo sviluppo del ristorante. Allena e motiva i membri del team, coordina le priorità e promuove un ambiente di lavoro positivo e rispettoso.\n\nPrincipali compiti\n\n• Guidare la squadra con empatia, rispetto e pazienza\n\n• Comunicazione aperta e gestione dei conflitti costruttiva\n\n• Impostare priorità strategiche e coordinare i processi quotidiani\n\n• Allenamento e supporto dei turnisti e dell'equipaggio per prestazioni ottimali\n\n• Garantire sicurezza alimentare, qualità, servizio, pulizia e igiene\n\n• Utilizzo di strumenti di gestione per la pianificazione, la gestione dei contanti, gli ordini e l'inventario\n\n• Analisi dei KPI e sostegno alle iniziative di sviluppo\n\n• Sostegno al reclutamento, all'imbarco, alla formazione e alla fidelizzazione dei dipendenti\n\n• Gestire reclami e creare momenti di benessere per gli ospiti\n\n• Manutenzione e risoluzione dei problemi\nRequisiti\n\n• L'esperienza nella gestione del team o nella gastronomia è vantaggiosa\n\n• Forte capacità di comunicazione e gestione dei conflitti\n\n• Analitico, organizzato e tech-savvy\n\n• Proattivo, orientato alla soluzione e pronto ad imparare\n\n• Affidabile, affidabile e resiliente\n\n• Buona conoscenza della lingua nazionale (verbale e scritta)\nVantaggi\n\n• Ore lavorative flessibili per un buon equilibrio di vita lavorativa\n\n• Team di supporto e multiculturale\n\n• Formazione e ulteriori opportunità di formazione – molti manager iniziano come assistenti!\n\n• Remunerazione e condizioni di lavoro secondo le disposizioni del contratto collettivo di lavoro (L-GAV)\n\n• 50% di sconto sui nostri prodotti nei nostri ristoranti in Svizzera e Liechtenstein\n\n• Abbonamenti Sunrise ad un prezzo ridotto\n\n• Accesso agli sconti esclusivi tramite la piattaforma \"Corporate Benefits\"\n\n• Vacanze aggiuntive offerte per oltre 50s\n\n• Accesso gratuito alla più grande biblioteca di formazione online\nApplicazione\n\nPronti per il prossimo passo di carriera? Applicare ora e iniziare il vostro viaggio al McDonald’s. Non vediamo l'ora di vederti!",
@@ -11037,7 +11523,6 @@
       "id": "mcdonald-s-switzerland-488e540e4469",
       "previousSlugs": [
         "assistant-restaurant-manager-mcdonalds-switzerland-lugano-pazzallo-p8-310079-1",
-        "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-lugano-pazzallo",
         "assistant-restaurant-manager-mcdonald-s-switzerland-lugano-pazzallo"
       ],
       "previousSlugsByLocale": {
@@ -11045,7 +11530,6 @@
           "assistant-restaurant-manager-mcdonalds-switzerland-lugano-pazzallo-p8-310079-1"
         ],
         "fr": [
-          "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-lugano-pazzallo",
           "assistant-restaurant-manager-mcdonald-s-switzerland-lugano-pazzallo"
         ]
       },
@@ -11451,7 +11935,7 @@
         "it": "assistente-del-manager-ristorante-mcdonald-s-switzerland-murten",
         "en": "assistant-restaurant-manager-mcdonalds-switzerland-murten-p8-317686-1",
         "de": "assistant-restaurant-manager-mcdonalds-switzerland-murten-p8-317686-1",
-        "fr": "assistant-restaurant-manager-mcdonald-s-switzerland-murten"
+        "fr": "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-murten"
       },
       "descriptionByLocale": {
         "it": "Visione aziendale\n\nAl McDnald, ogni giorno è una nuova opportunità per crescere, condurre e muoversi insieme! Il nostro team ama lavorare insieme, sostenersi e dare ai nostri ospiti e l'equipaggio momenti grandi. Se siete alla ricerca di un lavoro dinamico con opportunità di carriera reali, avete ragione con noi!\n\nDescrizione del lavoro\n\nCome responsabile del ristorante, si sostiene il responsabile del ristorante nella gestione del team e garantire che il ristorante funziona senza intoppi. Si assumono compiti aggiuntivi, dare un esempio in materia di sicurezza alimentare, qualità, servizio e igiene e contribuire allo sviluppo del ristorante. Coach e i membri del team diugano, coordinano le priorità e promuovono un ambiente di lavoro positivo e rispettoso.\n\nCompiti principali\n\n- Gestione del team con empatia, rispetto e pazienza - Comunicazione aperta e gestione costruttiva dei conflitti - Impostare priorità strategiche e coordinare i processi quotidiani - Allenamento e supporto dei responsabili del turno e dell'equipaggio per prestazioni ottimali - Garantire standard in materia di sicurezza alimentare, qualità, servizio, pulizia e igiene - Utilizzo di strumenti di gestione per la pianificazione, gestione del contante, ordini e inventario - Analisi dei KPI e supporto alle iniziative di sviluppo - Supporto per il reclutamento, l'imbarco, la formazione e la ritenzione dei dipendenti -\n\nGestione dei reclami e creazione di momenti di comfort per gli ospiti - Manutenzione delle attrezzature e risoluzione dei problemi\n\nRequisiti\n\n- Esperienza nella gestione di team o gastronomia di vantaggio - Forte capacità di comunicazione e gestione dei conflitti - Analisi, organizzazione e tecnica - Proattivo, orientato alla soluzione e all'apprendimento affidabile, affidabile e resiliente - Buona conoscenza della lingua nazionale (oralmente e per iscritto)\n\nOffriamo\n\n- Orari di lavoro flessibili per un buon equilibrio tra vita professionale e vita privata - Sostenere, multiculturale - Possibilità di formazione e di perfezionamento. molti manager iniziano come assistenti! - Compensazioni e condizioni di lavoro secondo le disposizioni del contratto di lavoro complessivo (L-GAV) - 50% di sconto sui nostri prodotti nei nostri ristoranti in Svizzera e Liechtenstein - Abbonamenti Sunrise a prezzo ridotto - Accesso a sconti esclusivi tramite la piattaforma \"6171\" - Vacanze aggiuntive offerte per oltre 50 anni - Accesso gratuito alla più grande biblioteca di formazione online\n\nContatto\n\nPronti per il prossimo passo della carriera? Iscriviti ora e iniziare il tuo viaggio a McDonald,s. Siamo lieti di vedervi!",
@@ -11463,7 +11947,6 @@
       "previousSlugs": [
         "assistant-restaurant-manager-mcdonalds-switzerland-murten-p8-317686-1",
         "assistente-del-manager-del-ristorante-mcdonald-s-switzerland-murten",
-        "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-murten",
         "assistant-restaurant-manager-mcdonald-s-switzerland-murten"
       ],
       "previousSlugsByLocale": {
@@ -11472,7 +11955,6 @@
           "assistente-del-manager-del-ristorante-mcdonald-s-switzerland-murten"
         ],
         "fr": [
-          "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-murten",
           "assistant-restaurant-manager-mcdonald-s-switzerland-murten"
         ]
       },
@@ -11720,7 +12202,7 @@
         "it": "assistente-direttore-del-ristorante-mcdonald-s-switzerland-marin-epagnier",
         "en": "assistant-restaurant-manager-mcdonalds-switzerland-marin-epagnier-p8-317685-1",
         "de": "assistant-restaurant-manager-mcdonalds-switzerland-marin-epagnier-p8-317685-1",
-        "fr": "assistant-restaurant-manager-mcdonald-s-switzerland-marin-epagnier"
+        "fr": "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-marin-epagnier"
       },
       "descriptionByLocale": {
         "it": "Presentazione aziendale\n\nA McDonald’s, ogni giorno è una nuova opportunità per crescere, guidare e fare la differenza insieme! Il nostro team ama lavorare insieme, supportarsi a vicenda e dare ai nostri ospiti e equipaggio grandi momenti. Se stai cercando un lavoro dinamico con opportunità di carriera reali, sei al posto giusto con noi!\n\nDescrizione del lavoro\n\nCome Assistant Restaurant Manager, supporta il Restaurant Manager nella guida del team e assicura che il ristorante funzioni senza problemi. Si occupa di compiti aggiuntivi, impostare un esempio in sicurezza alimentare, qualità, servizio e igiene e contribuire allo sviluppo del ristorante. Allena e motiva i membri del team, coordina le priorità e promuove un ambiente di lavoro positivo e rispettoso.\n\nPrincipali compiti\n\n• Guidare la squadra con empatia, rispetto e pazienza\n\n• Comunicazione aperta e gestione dei conflitti costruttiva\n\n• Impostare priorità strategiche e coordinare i processi quotidiani\n\n• Allenamento e supporto dei turnisti e dell'equipaggio per prestazioni ottimali\n\n• Garantire sicurezza alimentare, qualità, servizio, pulizia e igiene\n\n• Utilizzo di strumenti di gestione per la pianificazione, la gestione dei contanti, gli ordini e l'inventario\n\n• Analisi dei KPI e sostegno alle iniziative di sviluppo\n\n• Sostegno al reclutamento, all'imbarco, alla formazione e alla fidelizzazione dei dipendenti\n\n• Gestire reclami e creare momenti di benessere per gli ospiti\n\n• Manutenzione e risoluzione dei problemi\nRequisiti\n\n• L'esperienza nella gestione del team o nella gastronomia è vantaggiosa\n\n• Forte capacità di comunicazione e gestione dei conflitti\n\n• Analitico, organizzato e tech-savvy\n\n• Proattivo, orientato alla soluzione e pronto ad imparare\n\n• Affidabile, affidabile e resiliente\n\n• Buona conoscenza della lingua nazionale (verbale e scritta)\nVantaggi\n\n• Ore lavorative flessibili per un buon equilibrio di vita lavorativa\n\n• Team di supporto e multiculturale\n\n• Formazione e ulteriori opportunità di formazione – molti manager iniziano come assistenti!\n\n• Remunerazione e condizioni di lavoro secondo le disposizioni del contratto collettivo di lavoro (L-GAV)\n\n• 50% di sconto sui nostri prodotti nei nostri ristoranti in Svizzera e Liechtenstein\n\n• Abbonamenti Sunrise ad un prezzo ridotto\n\n• Accesso agli sconti esclusivi tramite la piattaforma \"Corporate Benefits\"\n\n• Vacanze aggiuntive offerte per oltre 50s\n\n• Accesso gratuito alla più grande biblioteca di formazione online\nApplicazione\n\nPronti per il prossimo passo di carriera? Applicare ora e iniziare il vostro viaggio al McDonald’s. Non vediamo l'ora di vederti!",
@@ -11731,7 +12213,6 @@
       "id": "mcdonald-s-switzerland-37faeb9dec39",
       "previousSlugs": [
         "assistant-restaurant-manager-mcdonalds-switzerland-marin-epagnier-p8-317685-1",
-        "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-marin-epagnier",
         "assistant-restaurant-manager-mcdonald-s-switzerland-marin-epagnier"
       ],
       "previousSlugsByLocale": {
@@ -11739,7 +12220,6 @@
           "assistant-restaurant-manager-mcdonalds-switzerland-marin-epagnier-p8-317685-1"
         ],
         "fr": [
-          "directeur-adjoint-des-restaurants-mcdonald-s-switzerland-marin-epagnier",
           "assistant-restaurant-manager-mcdonald-s-switzerland-marin-epagnier"
         ]
       },
