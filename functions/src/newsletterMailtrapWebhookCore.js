@@ -3,7 +3,7 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
-import { instantReactivationFields } from './lib/subscriberReactivation.js';
+import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
 /**
@@ -121,13 +121,20 @@ export async function persistMailtrapEvent(db, eventData) {
  subscriberUpdate.active = false;
  }
 
- // Instant newsletter-sunset reactivation (#2852 item 2): an open/click on a
- // subscriber the weekly scripts/newsletter-sunset.mjs cron already marked
- // 'inactive' should re-activate them immediately instead of waiting up to a
- // week for the next cron pass. No-op unless status is currently 'inactive'.
- if (type === 'open' || type === 'click') {
- const currentSnap = await subscriberRef.get();
- Object.assign(subscriberUpdate, instantReactivationFields(currentSnap.data()?.status));
+ // Suppression recovery — one decision point for all 5 providers, both
+ // branches (functions/src/lib/subscriberReactivation.js). A delivered/open/
+ // click proves the mailbox is alive, so it clears a MACHINE-inferred
+ // suppression: our own 'inactive' sunset (#2852 item 2), a provider
+ // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
+ // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
+ // The doc read happens only on these three event types.
+ if (type === 'delivered' || type === 'open' || type === 'click') {
+ const current = (await subscriberRef.get()).data() || {};
+ Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+ currentStatus: current.status,
+ bounceSeverity: current.bounce_severity,
+ event: type,
+ }));
  }
 
  await subscriberRef.set(subscriberUpdate, { merge: true });
@@ -223,7 +230,19 @@ async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messag
  Object.assign(topUpdate, bounceUpdateFields({ severity: bounceSeverity, reason: bounceReasonText }));
  }
  if (type === 'complaint') { topUpdate.status = 'complained'; topUpdate.last_complained_at = FieldValue.serverTimestamp(); }
- if (type === 'delivered' || type === 'open' || type === 'click') topUpdate.status = 'active';
+ // Healthy delivery events → recover a machine-inferred suppression, or (for a
+ // doc that is not suppressed at all) keep the historical "healthy → active"
+ // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
+ // which would overwrite 'complained' — a human's spam complaint — with a
+ // machine's inference, and equally resurrect a proven-permanent hard bounce.
+ if (type === 'delivered' || type === 'open' || type === 'click') {
+ const current = (await subscriberRef.get()).data() || {};
+ Object.assign(topUpdate, positiveEventStatusFields({
+ currentStatus: current.status,
+ bounceSeverity: current.bounce_severity,
+ event: type,
+ }));
+ }
 
  await subscriberRef.set(topUpdate, { merge: true });
 
