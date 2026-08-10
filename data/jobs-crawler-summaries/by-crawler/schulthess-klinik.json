@@ -1,16 +1,16 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-08-09T21:34:24.047Z",
-  "total": 8,
+  "generatedAt": "2026-08-10T10:32:38.703Z",
+  "total": 7,
   "newCount": 1,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6174,
-  "avgDurationMs": 6174,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5620,
+  "avgDurationMs": 5620,
   "durationHistory": [
-    6174
+    5620
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/3b4f374f-b405-4f0c-bfca-f960c110bb91",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.789Z",
+      "crawledAt": "2026-08-10T10:32:34.054Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/cf61c0b8-25dd-43dc-bf0f-cb30c753cd31",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.777Z",
+      "crawledAt": "2026-08-10T10:32:34.040Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/cd530412-09e7-4d81-8749-7edc606137ba",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.784Z",
+      "crawledAt": "2026-08-10T10:32:34.048Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-restaurant-bistro/c6a7a7f1-2cca-46d3-813b-05f7a2313c57",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.788Z",
+      "crawledAt": "2026-08-10T10:32:34.052Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/f050b2d8-eaf2-4906-aeb0-d65189dd9105",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.794Z",
+      "crawledAt": "2026-08-10T10:32:34.055Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-wirbelsaeulenchirurgie/e5d41b37-2f03-46d5-bf6a-d82dc81dc24c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.796Z",
+      "crawledAt": "2026-08-10T10:32:34.057Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/f0113e53-104f-439d-9d85-dc38a9f1e01a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:34:18.797Z",
+      "crawledAt": "2026-08-10T10:32:34.058Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -281,8 +281,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "schulthess-klinik-244174689799",
       "slug": "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
@@ -323,5 +322,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
