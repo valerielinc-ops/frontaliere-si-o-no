@@ -9542,6 +9542,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Viggiù da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.excerpt': 'Cosa devi sapere prima di trasferirti a Viggiù da frontaliere',
     'blog.article.trasferirsi-a-viggiu-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in transito',
+    'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Vivere a Crevoladossola e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'Tutti i fatti e le cifre della vita dei frontalieri che lavorano in Ticino e risiedono a Crevoladossola',
+    'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'Un frontaliere che lavora a Lugano e risiede a Crevoladossola si affaccia sul lago di Lugano',
 };
 
 export default blogMetaIt;

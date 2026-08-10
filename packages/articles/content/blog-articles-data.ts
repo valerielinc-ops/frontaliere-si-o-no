@@ -28623,6 +28623,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-crevoladossola-lavorare-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-10T17:58:46.290Z',
+ image: '/images/blog/vivere-crevoladossola-lavorare-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
