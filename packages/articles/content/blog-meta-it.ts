@@ -9527,6 +9527,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Germignaga da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Imposta alla fonte e nuove regole per i frontalieri',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere si trasferisce a Germignaga',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Sottotitolo con dati concreti DALLA FONTE (max 160 char)',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaIt;

@@ -9528,6 +9528,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.title': 'Déménager à Germignaga en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.excerpt': 'Taxe à la source et nouvelles règles pour les frontaliers',
     'blog.article.trasferirsi-a-germignaga-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier se déplace à Germignaga',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.title': 'Déménager à Marchirolo en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.excerpt': 'Sous-titre avec des données concrètes DE LA SOURCE (max 160 char)',
+    'blog.article.trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro.imageAlt': 'Max 125 caratteri',
 };
 
 export default blogMetaFr;
