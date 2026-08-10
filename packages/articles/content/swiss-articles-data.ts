@@ -6049,6 +6049,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo',
+    category: 'novita',
+    date: '2026-08-10T01:28:26.231Z',
+    image: '/images/blog/affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

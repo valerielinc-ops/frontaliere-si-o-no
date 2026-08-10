@@ -2017,6 +2017,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Rental market in Switzerland: prices and rights',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Average rental prices in Switzerland in 2026, tenant\'s rights, security deposit and cancellation.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Scene of a Swiss real estate market with people looking at rental and sale announcements of houses and apartments.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Rentals in Switzerland 2026: prices and rights',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Average rental prices in Switzerland in 2026: CHF 2,500 - 3,500 per month.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Photo of rentals in Switzerland with Lake Lugano as the background.',
 };
 
 export default blogMetaChEn;

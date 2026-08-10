@@ -2017,6 +2017,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Mercato degli affitti in Svizzera: prezzi e diritti',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Prezzi medi degli affitti in Svizzera nel 2026, diritti dell\'inquilino, deposito cauzionale e disdetta.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Scena di un mercato immobiliare in Svizzera con gente che guarda annunci di affitto e vendita di case e appartamenti.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Affitti in Svizzera 2026: prezzi e diritti',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Prezzi medi per affitti in Svizzera nel 2026: CHF 2\'500 - 3\'500 al mese.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Foto di affitti in Svizzera con il lago di Lugano come sfondo.',
 };
 
 export default blogMetaChIt;

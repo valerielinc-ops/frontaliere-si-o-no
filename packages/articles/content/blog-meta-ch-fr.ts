@@ -2017,6 +2017,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Marché des loyers en Suisse : prix et droits',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Prix moyens des loyers en Suisse en 2026, droits du locataire, caution et résiliation.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Scène d\'un marché immobilier suisse avec des gens qui regardent les annonces de location et de vente de maisons et d\'appartements.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Location en Suisse 2026 : prix et droits',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Prix moyens des loyers en Suisse en 2026 : CHF 2\'500 - 3\'500 par mois.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Photo de locations en Suisse avec le lac de Lugano comme arrière-plan.',
 };
 
 export default blogMetaChFr;

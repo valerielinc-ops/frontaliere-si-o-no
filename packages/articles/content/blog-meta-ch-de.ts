@@ -2017,6 +2017,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.title': 'Mietmarkt Schweiz: Preise und Rechte',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.excerpt': 'Durchschnittliche Mietpreise in der Schweiz im Jahr 2026, Mieterrechte, Kaution und Kündigung.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026.imageAlt': 'Szene eines Schweizer Immobilienmarktes mit Menschen, die Anzeigen für Miete und Kauf von Häusern und Apartments betrachten.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Mieten in der Schweiz 2026: Preise und Gebühren',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Durchschnittliche Mietpreise in der Schweiz im Jahr 2026: CHF 2\'500 - 3\'500 pro Monat.',
+    'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Bild von Mietwohnungen in der Schweiz mit dem Lago di Lugano als Hintergrund.',
 };
 
 export default blogMetaChDe;
