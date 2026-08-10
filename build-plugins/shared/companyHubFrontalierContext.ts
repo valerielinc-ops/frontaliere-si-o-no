@@ -38,6 +38,7 @@
  */
 
 import { BASE_URL } from '../constants';
+import { GUIDE_HUB_HREF } from './pillarGuideHrefs';
 import fuelPricesSnapshot from '../../public/data/fuel-prices.json';
 
 export type CompanyHubFrontalierContextLocale = 'it' | 'en' | 'de' | 'fr';
@@ -310,14 +311,13 @@ function sectorHubUrl(locale: CompanyHubFrontalierContextLocale): string {
  return `${BASE_URL}${root[locale]}`;
 }
 
+// Guide section root per locale — derived from SLUG_TABLES via
+// shared/pillarGuideHrefs.ts. The literal table this replaced sent EN to
+// /en/cross-border-worker-guide/ (404) and DE to /de/grenzgaenger-leitfaden/
+// (200 but noindex,follow — a wall for the BFS-depth gate), on every company
+// hub page emitted in those two locales (#5428).
 function fiscalGuideUrl(locale: CompanyHubFrontalierContextLocale): string {
- const path: Record<CompanyHubFrontalierContextLocale, string> = {
-  it: '/guida-frontaliere/',
-  en: '/en/cross-border-worker-guide/',
-  de: '/de/grenzgaenger-leitfaden/',
-  fr: '/fr/guide-frontalier/',
- };
- return `${BASE_URL}${path[locale]}`;
+ return `${BASE_URL}${GUIDE_HUB_HREF[locale]}`;
 }
 
 function salaryCalculatorUrl(locale: CompanyHubFrontalierContextLocale): string {

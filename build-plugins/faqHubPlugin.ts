@@ -38,6 +38,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { GUIDE_HUB_HREF } from './shared/pillarGuideHrefs';
 import {
   renderSeoHeroImage,
   seoHeroImageObject,
@@ -214,12 +215,11 @@ const OG_LOCALE: Record<FaqHubLocale, string> = {
 };
 
 // Parent hub link (Guida sub-tab) for breadcrumb.
-const GUIDA_HUB_PATH: Record<FaqHubLocale, string> = {
-  it: '/guida-frontaliere/',
-  en: '/en/cross-border-guide/',
-  de: '/de/grenzgaenger-ratgeber/',
-  fr: '/fr/guide-frontalier/',
-};
+// Shared single source of truth (build-plugins/shared/pillarGuideHrefs.ts,
+// derived from SLUG_TABLES[locale].guida). Seven copies of this table lived
+// under build-plugins/; four held these values and three had drifted to a
+// 404 EN and a noindex DE — see #5428.
+const GUIDA_HUB_PATH: Record<FaqHubLocale, string> = GUIDE_HUB_HREF;
 
 // ── Helpers ──────────────────────────────────────────────────────
 

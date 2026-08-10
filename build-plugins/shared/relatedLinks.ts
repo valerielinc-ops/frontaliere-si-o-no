@@ -42,6 +42,7 @@
  */
 
 import { escHtml } from './htmlEscape';
+import { GUIDE_HUB_HREF } from './pillarGuideHrefs';
 import { AGGREGATE_KEY, resolveCantonSection } from './cantonSection';
 import {
   FUEL_ITALIAN_CITIES,
@@ -273,12 +274,11 @@ const SALARY_HUB_PATH: Record<LinkLocale, string> = {
 };
 
 /** Frontier-worker guide (permits + tax). */
-const FRONTIER_GUIDE_PATH: Record<LinkLocale, string> = {
-  it: '/guida-frontaliere/',
-  en: '/en/cross-border-guide/',
-  de: '/de/grenzgaenger-ratgeber/',
-  fr: '/fr/guide-frontalier/',
-};
+// Shared single source of truth (build-plugins/shared/pillarGuideHrefs.ts,
+// derived from SLUG_TABLES[locale].guida). Seven copies of this table lived
+// under build-plugins/; four held these values and three had drifted to a
+// 404 EN and a noindex DE — see #5428.
+const FRONTIER_GUIDE_PATH: Record<LinkLocale, string> = GUIDE_HUB_HREF;
 
 /** City-hub path builder (Lugano / Mendrisio / Bellinzona — editorial landings). */
 function cityHubPath(locale: LinkLocale, city: 'lugano' | 'mendrisio' | 'bellinzona'): string {

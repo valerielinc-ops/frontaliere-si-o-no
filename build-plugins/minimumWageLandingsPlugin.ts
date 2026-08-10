@@ -37,6 +37,7 @@ import {
 } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
+import { COMPLETE_WORK_GUIDE_HREF } from './shared/pillarGuideHrefs';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -83,13 +84,11 @@ const OG_LOCALE: Record<MinWageLocale, string> = {
   fr: 'fr_CH',
 };
 
-// Work/permits guide URL per locale — reciprocal in-page link.
-const PERMITS_GUIDE_URL: Record<MinWageLocale, string> = {
-  it: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/',
-  en: '/en/cross-border-worker-guide/complete-cross-border-work-guide-switzerland-2026/',
-  de: '/de/grenzgaenger-leitfaden/vollstaendiger-grenzgaenger-leitfaden-schweiz-2026/',
-  fr: '/fr/guide-frontalier/guide-complet-travail-frontalier-suisse-2026/',
-};
+// Work/permits guide URL per locale — reciprocal in-page link. Shared single
+// source of truth (build-plugins/shared/pillarGuideHrefs.ts), not a local
+// duplicate: the copy this replaced was byte-identical to holidaysLandings'
+// and carried the same dead EN (404) and noindex DE targets (#5428).
+const PERMITS_GUIDE_URL: Record<MinWageLocale, string> = COMPLETE_WORK_GUIDE_HREF;
 
 const CCL_UNIT_WORD: Record<MinWageLocale, Record<CclUnit, string>> = {
   it: { month: 'mese', hour: 'ora' },

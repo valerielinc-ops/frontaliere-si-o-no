@@ -62,6 +62,17 @@ import { translateSchema, type SupportedLocale } from '../services/seo/schema-tr
 // pill was the reason the DE FAQ hub — alone among the four locales — stayed
 // buried and its 103 entries sat at BFS depth 5 (issue #5428).
 import { buildFaqHubPath } from '../data/faq-hub/routes';
+// Same story, same rail, the other eleven pills: the guide/fisco hrefs below
+// were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
+// on EN and DE. Derived now from SLUG_TABLES, one module for the four copies
+// that existed (#5428).
+import {
+ COMPLETE_WORK_GUIDE_HREF,
+ LAMAL_PILLAR_HREF,
+ NEW_FRONTIER_TAX_SIM_HREF,
+ TAXATION_HUB_HREF,
+ WITHHOLDING_RATES_HREF,
+} from './shared/pillarGuideHrefs';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
 import {
@@ -889,13 +900,13 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
 // `</body>` injection point, sibling of #root, never above interactive
 // content. Anchor text uses the target's actual title (no "leggi di
 // piu" or "tutte" boilerplate — Squirrel a11y identical-links-same-purpose).
-const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: string }>> = {
+export const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: string }>> = {
  it: [
-  { href: '/guida-tassazione-frontalieri-2026/', label: 'Guida tassazione frontalieri 2026' },
-  { href: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/', label: 'Guida completa lavoro frontaliere Svizzera 2026' },
-  { href: '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/', label: 'Aliquote imposta alla fonte Ticino 2026' },
-  { href: '/guida-frontaliere/lamal-frontalieri/', label: 'LAMal frontalieri — guida pillar' },
-  { href: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/', label: 'Simulazione tasse nuovi frontalieri' },
+  { href: TAXATION_HUB_HREF.it, label: 'Guida tassazione frontalieri 2026' },
+  { href: COMPLETE_WORK_GUIDE_HREF.it, label: 'Guida completa lavoro frontaliere Svizzera 2026' },
+  { href: WITHHOLDING_RATES_HREF.it, label: 'Aliquote imposta alla fonte Ticino 2026' },
+  { href: LAMAL_PILLAR_HREF.it, label: 'LAMal frontalieri — guida pillar' },
+  { href: NEW_FRONTIER_TAX_SIM_HREF.it, label: 'Simulazione tasse nuovi frontalieri' },
   { href: '/calcola-stipendio/', label: 'Simulatore stipendio frontaliere' },
   { href: '/articoli-frontaliere/lamal-vs-cmi-frontaliere/', label: 'LAMal vs CMI — diritto d’opzione' },
   { href: '/cerca-lavoro-ticino/', label: 'Cerca lavoro Ticino' },
@@ -906,11 +917,11 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/salario-minimo/', label: 'Salario minimo in Svizzera: cantoni e CCL' },
  ],
  en: [
-  { href: '/en/guide-cross-border-taxation-2026/', label: 'Cross-border taxation guide 2026' },
-  { href: '/en/cross-border-worker-guide/complete-cross-border-work-guide-switzerland-2026/', label: 'Complete cross-border work guide Switzerland 2026' },
-  { href: '/en/taxes-and-pension/withholding-tax-rates-ticino-2026/', label: 'Withholding-tax rates Ticino 2026' },
-  { href: '/en/cross-border-worker-guide/lamal-cross-border-workers/', label: 'LAMal for cross-border workers' },
-  { href: '/en/taxes-and-pension/new-cross-border-tax-simulation/', label: 'New cross-border tax simulation' },
+  { href: TAXATION_HUB_HREF.en, label: 'Cross-border taxation guide 2026' },
+  { href: COMPLETE_WORK_GUIDE_HREF.en, label: 'Complete cross-border work guide Switzerland 2026' },
+  { href: WITHHOLDING_RATES_HREF.en, label: 'Withholding-tax rates Ticino 2026' },
+  { href: LAMAL_PILLAR_HREF.en, label: 'LAMal for cross-border workers' },
+  { href: NEW_FRONTIER_TAX_SIM_HREF.en, label: 'New cross-border tax simulation' },
   { href: '/en/calculate-salary/', label: 'Cross-border salary simulator' },
   { href: '/en/find-jobs-ticino/', label: 'Find jobs in Ticino' },
   { href: buildFaqHubPath('en'), label: 'Cross-border FAQ' },
@@ -919,11 +930,11 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/en/minimum-wage/', label: 'Minimum wage in Switzerland: cantons and CCL' },
  ],
  de: [
-  { href: '/de/leitfaden-grenzgaenger-besteuerung-2026/', label: 'Leitfaden Grenzgänger-Besteuerung 2026' },
-  { href: '/de/grenzgaenger-leitfaden/vollstaendiger-grenzgaenger-leitfaden-schweiz-2026/', label: 'Vollständiger Grenzgänger-Leitfaden Schweiz 2026' },
-  { href: '/de/steuern-und-rente/quellensteuersaetze-tessin-2026/', label: 'Quellensteuersätze Tessin 2026' },
-  { href: '/de/grenzgaenger-leitfaden/kvg-grenzgaenger/', label: 'KVG für Grenzgänger' },
-  { href: '/de/steuern-und-rente/neue-grenzgaenger-steuersimulation/', label: 'Steuersimulation neue Grenzgänger' },
+  { href: TAXATION_HUB_HREF.de, label: 'Leitfaden Grenzgänger-Besteuerung 2026' },
+  { href: COMPLETE_WORK_GUIDE_HREF.de, label: 'Vollständiger Grenzgänger-Leitfaden Schweiz 2026' },
+  { href: WITHHOLDING_RATES_HREF.de, label: 'Quellensteuersätze Tessin 2026' },
+  { href: LAMAL_PILLAR_HREF.de, label: 'KVG für Grenzgänger' },
+  { href: NEW_FRONTIER_TAX_SIM_HREF.de, label: 'Steuersimulation neue Grenzgänger' },
   { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Lohnsimulator' },
   { href: '/de/jobs-im-tessin/', label: 'Jobs im Tessin' },
   { href: buildFaqHubPath('de'), label: 'Grenzgänger-FAQ' },
@@ -932,11 +943,11 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/de/mindestlohn/', label: 'Mindestlohn in der Schweiz: Kantone und GAV' },
  ],
  fr: [
-  { href: '/fr/guide-imposition-frontaliers-2026/', label: 'Guide imposition frontaliers 2026' },
-  { href: '/fr/guide-frontalier/guide-complet-travail-frontalier-suisse-2026/', label: 'Guide complet travail frontalier Suisse 2026' },
-  { href: '/fr/impots-et-retraite/taux-impot-source-tessin-2026/', label: 'Taux d’impôt à la source Tessin 2026' },
-  { href: '/fr/guide-frontalier/lamal-frontaliers/', label: 'LAMal pour frontaliers' },
-  { href: '/fr/impots-et-retraite/simulation-impot-nouveaux-frontaliers/', label: 'Simulation impôt nouveaux frontaliers' },
+  { href: TAXATION_HUB_HREF.fr, label: 'Guide imposition frontaliers 2026' },
+  { href: COMPLETE_WORK_GUIDE_HREF.fr, label: 'Guide complet travail frontalier Suisse 2026' },
+  { href: WITHHOLDING_RATES_HREF.fr, label: 'Taux d’impôt à la source Tessin 2026' },
+  { href: LAMAL_PILLAR_HREF.fr, label: 'LAMal pour frontaliers' },
+  { href: NEW_FRONTIER_TAX_SIM_HREF.fr, label: 'Simulation impôt nouveaux frontaliers' },
   { href: '/fr/calculer-salaire/', label: 'Simulateur de salaire frontalier' },
   { href: '/fr/trouver-emploi-tessin/', label: 'Trouver un emploi au Tessin' },
   { href: buildFaqHubPath('fr'), label: 'FAQ frontaliers' },

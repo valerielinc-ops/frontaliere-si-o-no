@@ -35,6 +35,7 @@ import {
 } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
+import { COMPLETE_WORK_GUIDE_HREF } from './shared/pillarGuideHrefs';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -81,13 +82,12 @@ const OG_LOCALE: Record<HolidayLocale, string> = {
 const CALCULATOR_URL = CALC_HREF;
 
 // Work/permits guide URL per locale (satisfies the "linking da guide
-// permessi/lavoro" acceptance criterion via a reciprocal in-page link).
-const PERMITS_GUIDE_URL: Record<HolidayLocale, string> = {
-  it: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/',
-  en: '/en/cross-border-worker-guide/complete-cross-border-work-guide-switzerland-2026/',
-  de: '/de/grenzgaenger-leitfaden/vollstaendiger-grenzgaenger-leitfaden-schweiz-2026/',
-  fr: '/fr/guide-frontalier/guide-complet-travail-frontalier-suisse-2026/',
-};
+// permessi/lavoro" acceptance criterion via a reciprocal in-page link) —
+// shared single source of truth (build-plugins/shared/pillarGuideHrefs.ts),
+// not a local duplicate. The local copy this replaced pointed EN at
+// /en/cross-border-worker-guide/… (404) and DE at /de/grenzgaenger-leitfaden/…
+// (200 but noindex,follow, i.e. a wall for the BFS-depth gate) — #5428.
+const PERMITS_GUIDE_URL: Record<HolidayLocale, string> = COMPLETE_WORK_GUIDE_HREF;
 
 const WEEKDAY_ABBR: Record<HolidayLocale, readonly string[]> = {
   it: ['dom', 'lun', 'mar', 'mer', 'gio', 'ven', 'sab'],
@@ -215,7 +215,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
   it: {
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Guida frontaliere',
-    breadcrumbHubPath: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/',
+    breadcrumbHubPath: COMPLETE_WORK_GUIDE_HREF.it,
     updatedLabel: 'Aggiornato il',
     ctaCalc: 'Calcola il tuo stipendio netto →',
     ctaGuide: 'Guida completa al lavoro frontaliere',
@@ -285,7 +285,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
   en: {
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Cross-border guide',
-    breadcrumbHubPath: '/en/cross-border-worker-guide/complete-cross-border-work-guide-switzerland-2026/',
+    breadcrumbHubPath: COMPLETE_WORK_GUIDE_HREF.en,
     updatedLabel: 'Updated on',
     ctaCalc: 'Calculate your net salary →',
     ctaGuide: 'Complete cross-border work guide',
@@ -354,7 +354,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
   de: {
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Grenzgänger-Leitfaden',
-    breadcrumbHubPath: '/de/grenzgaenger-leitfaden/vollstaendiger-grenzgaenger-leitfaden-schweiz-2026/',
+    breadcrumbHubPath: COMPLETE_WORK_GUIDE_HREF.de,
     updatedLabel: 'Aktualisiert am',
     ctaCalc: 'Nettolohn berechnen →',
     ctaGuide: 'Vollständiger Grenzgänger-Leitfaden',
@@ -423,7 +423,7 @@ const COPY: Record<HolidayLocale, HolidayCopy> = {
   fr: {
     breadcrumbHome: 'Accueil',
     breadcrumbHub: 'Guide frontalier',
-    breadcrumbHubPath: '/fr/guide-frontalier/guide-complet-travail-frontalier-suisse-2026/',
+    breadcrumbHubPath: COMPLETE_WORK_GUIDE_HREF.fr,
     updatedLabel: 'Mis à jour le',
     ctaCalc: 'Calculez votre salaire net →',
     ctaGuide: 'Guide complet du travail frontalier',

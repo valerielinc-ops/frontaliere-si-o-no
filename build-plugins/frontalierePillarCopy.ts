@@ -18,6 +18,7 @@ import type { ProfessionId } from './professionLandingsData';
 // stayed invisible until the DE locale root grew a rail pointing at it and
 // buried the hub's 103 entries at BFS depth 5 (issue #5428).
 import { buildFaqHubPath } from '../data/faq-hub/routes';
+import { GUIDE_HUB_HREF } from './shared/pillarGuideHrefs';
 
 export interface FrontalierePillarCopy {
   readonly title: string;
@@ -66,7 +67,7 @@ const IT: FrontalierePillarCopy = {
   lede: 'Permesso G, stipendio netto, tasse e cassa malati: il percorso completo in una pagina.',
   breadcrumbHome: 'Home',
   breadcrumbGuide: 'Guida frontaliere',
-  guideHubHref: '/guida-frontaliere/',
+  guideHubHref: GUIDE_HUB_HREF.it,
   statTiles: [
     { value: '~80.000', label: 'frontalieri attivi in Ticino (UST)' },
     { value: '24', label: 'guide di lavoro per professione' },
@@ -169,7 +170,7 @@ const EN: FrontalierePillarCopy = {
   lede: 'G permit, net salary, taxes and health insurance: the full path on one page.',
   breadcrumbHome: 'Home',
   breadcrumbGuide: 'Cross-border guide',
-  guideHubHref: '/en/cross-border-guide/',
+  guideHubHref: GUIDE_HUB_HREF.en,
   statTiles: [
     { value: '~80,000', label: 'active cross-border workers in Ticino (FSO)' },
     { value: '24', label: 'per-profession job guides' },
@@ -271,7 +272,7 @@ const DE: FrontalierePillarCopy = {
   lede: 'G-Bewilligung, Nettolohn, Steuern und Krankenkasse: der ganze Weg auf einer Seite.',
   breadcrumbHome: 'Home',
   breadcrumbGuide: 'Grenzgänger-Ratgeber',
-  guideHubHref: '/de/grenzgaenger-ratgeber/',
+  guideHubHref: GUIDE_HUB_HREF.de,
   statTiles: [
     { value: '~80\'000', label: 'aktive Grenzgänger im Tessin (BFS)' },
     { value: '24', label: 'Stellen-Guides pro Beruf' },
@@ -373,7 +374,7 @@ const FR: FrontalierePillarCopy = {
   lede: 'Permis G, salaire net, impôts et caisse maladie : le parcours complet sur une page.',
   breadcrumbHome: 'Accueil',
   breadcrumbGuide: 'Guide frontalier',
-  guideHubHref: '/fr/guide-frontalier/',
+  guideHubHref: GUIDE_HUB_HREF.fr,
   statTiles: [
     { value: '~80 000', label: 'frontaliers actifs au Tessin (OFS)' },
     { value: '24', label: 'guides emploi par profession' },
