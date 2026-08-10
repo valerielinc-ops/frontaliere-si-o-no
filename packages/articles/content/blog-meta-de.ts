@@ -9546,6 +9546,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Wohnen in Rodero und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger: Quellensteuer, neue Vereinbarung 2024, Selbstbehalt € 10\'000, Genehmigung G und Verbindungen Brogeda-Chiasso.',
     'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger, der den Brogeda-Grenzübergang zwischen Rodero und Tessin überquert',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Leben in Agra und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Auswirkungen des neuen Abkommens auf die Tessiner Grenzgänger: neue Regeln, Befreiungen und Vorteile.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier mit Kind geht an der Seeufer von Lugano entlang',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Umzug nach Uggiate-Trevano als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Einstellung an der Quelle, neue Grenzübertrittsvereinbarung und Vorteile für die Arbeitnehmer im Tessin.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Blick auf Uggiate-Trevano mit dem Luganersee',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Wohnen in Cugliate-Fabiasco und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Die Neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und tritt am 1. Januar 2024 in Kraft. Das ändert sich im Leben der Grenzgänger.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalier mit Kindern an der Ufer des Luganer Sees',
 };
 
 export default blogMetaDe;

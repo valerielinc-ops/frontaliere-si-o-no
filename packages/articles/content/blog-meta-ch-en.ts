@@ -2035,6 +2035,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Natural catastrophes, $112 billion in losses',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Heat waves have had a direct influence on labour productivity, which then has an impact on energy prices.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Heatwave damage in Switzerland',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore returns to profit, 4.4 billion in profits',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Extraction and commodities giant Glencore closed the first six months of 2026 with a strong return to profitability',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore returns to profit with $4.4 billion profits and announces ASX listing',
+    'blog.article.job-sharing-svizzera.title': 'Job sharing conquers Swiss top management',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel and other companies adopt co-leadership to innovate.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Image of a Swiss company headquarters',
+    'blog.article.siccita-stress-famiglie.title': 'Drought: Stress on the rise among farming families in Switzerland',
+    'blog.article.siccita-stress-famiglie.excerpt': 'Prolonged drought and extreme weather events are aggravating the living and working conditions of farming families in Switzerland.',
+    'blog.article.siccita-stress-famiglie.imageAlt': 'Swiss farming family worried about drought',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: potential recycling in fossil energy infrastructure',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Decommissioned oil rigs, coal mines and power plants contain huge amounts of steel and copper. According to a Swiss study, recycling these \'urban mines\' could make the construction of solar and wind plants cheaper and more environmentally friendly.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChEn;

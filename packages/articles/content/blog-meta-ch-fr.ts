@@ -2035,6 +2035,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Catastrophes naturelles, pertes de 112 milliards de dollars',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Les vagues de chaleur ont eu une influence directe sur la productivité du travail, ce qui se répercute ensuite sur les prix de l\'énergie.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Dommages causés par les ondes de chaleur en Suisse',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore renoue avec le bénéfice, 4,4 milliards de bénéfices',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Le géant minier et des matières premières Glencore a clôturé les six premiers mois de 2026 avec un fort retour à la rentabilité',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore retourne aux bénéfices avec 4,4 milliards de dollars de bénéfices et annonce une introduction en bourse en Australie',
+    'blog.article.job-sharing-svizzera.title': 'Le job sharing conquiert les sommets de l\'entreprise suisse',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel et d\'autres entreprises adoptent le co-leadership pour innover.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Image d\'un siège social suisse',
+    'blog.article.siccita-stress-famiglie.title': 'Sécheresse : le stress augmente chez les familles paysannes en Suisse',
+    'blog.article.siccita-stress-famiglie.excerpt': 'La sécheresse prolongée et les événements météorologiques extrêmes aggravent les conditions de vie et de travail des familles paysannes en Suisse.',
+    'blog.article.siccita-stress-famiglie.imageAlt': 'Famille agricole préoccupée par la sécheresse en Suisse',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa : potentiel de recyclage dans les infrastructures d\'énergie fossile',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Les plates-formes pétrolières, les mines de charbon et les centrales électriques abandonnées contiennent d\'énormes quantités d\'acier et de cuivre. Selon une étude suisse, le recyclage de ces « mines urbaines » pourrait rendre la construction d\'installations solaires et éoliennes plus économique et plus respectueuse de l\'environnement.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChFr;

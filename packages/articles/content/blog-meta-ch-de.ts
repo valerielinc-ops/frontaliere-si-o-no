@@ -2035,6 +2035,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Naturkatastrophen, Verluste in Höhe von 112 Milliarden Dollar',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Hitzewellen hatten einen direkten Einfluss auf die Arbeitsproduktivität, was sich dann auf die Energiepreise auswirkte.',
     'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Schäden durch Hitzewellen in der Schweiz',
+    'blog.article.glencore-quotazione-australia.title': 'Glencore erwirtschaftet wieder Gewinn, 4,4 Milliarden Gewinn',
+    'blog.article.glencore-quotazione-australia.excerpt': 'Der Bergbau- und Rohstoffriese Glencore schloss die ersten sechs Monate des Jahres 2026 mit einer starken Rückkehr in die Gewinnzone ab',
+    'blog.article.glencore-quotazione-australia.imageAlt': 'Glencore kehrt in die schwarzen Zahlen zurück mit 4,4 Milliarden Euro Gewinn und plant Börsegang in Australien',
+    'blog.article.job-sharing-svizzera.title': 'Jobsharing erobert die Schweizer Unternehmensführung',
+    'blog.article.job-sharing-svizzera.excerpt': 'On, Vontobel und andere Unternehmen übernehmen die Co-Führung, um innovativ zu sein.',
+    'blog.article.job-sharing-svizzera.imageAlt': 'Bild eines Schweizer Unternehmens',
+    'blog.article.siccita-stress-famiglie.title': 'Dürre: Stress bei Bauernfamilien in der Schweiz nimmt zu',
+    'blog.article.siccita-stress-famiglie.excerpt': 'Längere Dürren und extreme Wetterereignisse verschlechtern die Lebens- und Arbeitsbedingungen der Bauernfamilien in der Schweiz.',
+    'blog.article.siccita-stress-famiglie.imageAlt': 'Bauerliche Familie in der Schweiz besorgt über die Dürre',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.title': 'Empa: Recyclingpotenzial in fossilen Energieinfrastrukturen',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.excerpt': 'Ölplattformen, Kohlebergwerke und stillgelegte Kraftwerke enthalten enorme Mengen an Stahl und Kupfer. Laut einer Schweizer Studie könnte das Recycling dieser "städtischen Minen" den Bau von Solar- und Windkraftanlagen wirtschaftlicher und umweltfreundlicher machen.',
+    'blog.article.potenziale-riciclaggio-infrastrutture-energie-fossili.imageAlt': 'Locarno Film Festival',
 };
 
 export default blogMetaChDe;

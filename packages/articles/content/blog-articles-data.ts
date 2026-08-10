@@ -28641,6 +28641,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-agra-lavorare-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-10T19:36:58.468Z',
+ image: '/images/blog/vivere-agra-lavorare-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-10T20:24:13.203Z',
+ image: '/images/blog/trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-10T20:38:14.155Z',
+ image: '/images/blog/vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
