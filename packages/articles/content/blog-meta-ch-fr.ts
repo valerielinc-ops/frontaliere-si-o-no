@@ -2011,6 +2011,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.title': 'LPP en Suisse : Cotisations et planification de la prévoyance',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.excerpt': 'Découvrez comment fonctionne le deuxième pilier LPP en Suisse, en mettant l\'accent sur le canton de Saint-Gall. Paramètres, contributions et retraits.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Guide pratique de la deuxième colonne LPP en Suisse, avec un focus sur le canton de Saint-Gall. Scène photoréaliste de Lugano, avec une colonne LPP en arrière-plan.',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.title': 'LPP en Suisse : cotisations et prévoyance dans le Canton Vaud',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.excerpt': 'Le guide du deuxième pilier LPP couvre les cotisations, le prélèvement, le rachat des lacunes et la planification de la prévoyance dans le canton de Vaud.',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.imageAlt': 'Une personne regarde un graphique de plan de retraite avec un smartphone',
 };
 
 export default blogMetaChFr;

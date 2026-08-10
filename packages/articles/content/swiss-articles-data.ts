@@ -6031,6 +6031,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'guida-lpp-secondo-pilastro-2026-vaud',
+    category: 'pratico',
+    date: '2026-08-10T00:29:07.213Z',
+    image: '/images/blog/guida-lpp-secondo-pilastro-2026-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

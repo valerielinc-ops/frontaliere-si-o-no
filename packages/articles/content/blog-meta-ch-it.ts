@@ -2011,6 +2011,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.title': 'LPP in Svizzera: Contributi e pianificazione previdenziale',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.excerpt': 'Scopri come funziona il secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Impostazioni, contributi e prelievi.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Guida pratica al secondo pilastro LPP in Svizzera, con un focus sul canton San Gallo. Scena fotorealistica di Lugano, con un pilastro LPP in primo piano.',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.title': 'LPP in Svizzera: contributi e pianificazione previdenziale nel Canton Vaud',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.excerpt': 'La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud.',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.imageAlt': 'Una persona guarda un grafico di piano di pensione con un smartphone',
 };
 
 export default blogMetaChIt;

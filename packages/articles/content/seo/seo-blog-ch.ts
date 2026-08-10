@@ -26030,6 +26030,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-lpp-secondo-pilastro-2026-vaud': {
+    title: 'LPP in Svizzera: contributi e pianificazione previdenziale nel Canton Vaud',
+    description: 'La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, pianificazione, previdenziale, canton',
+    ogTitle: 'Guida al secondo pilastro LPP in Svizzera: contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud',
+    ogDescription: 'La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud.',
+    canonicalPath: '/articoli-svizzera/guida-lpp-secondo-pilastro-2026-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LPP in Svizzera: contributi e pianificazione previdenziale nel Canton Vaud",
+      "description": "La guida al secondo pilastro LPP copre contributi, prelievo, riscatto lacune e pianificazione previdenziale nel Canton Vaud. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-lpp-secondo-pilastro-2026-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona guarda un grafico di piano di pensione con un smartphone"
+      },
+      "datePublished": "2026-08-10T00:29:07+00:00",
+      "dateModified": "2026-08-10T00:29:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-lpp-secondo-pilastro-2026-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

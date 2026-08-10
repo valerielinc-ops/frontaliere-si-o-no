@@ -2011,6 +2011,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.title': 'BVG in der Schweiz: Beiträge und Vorsorgeplanung',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.excerpt': 'Erfahren Sie, wie die zweite Säule BVG in der Schweiz funktioniert, mit Fokus auf den Kanton St. Gallen. Einstellungen, Beiträge und Abhebungen.',
     'blog.article.secondo-pilastro-lpp-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Praktische Anleitung zum zweiten Säule LPP in der Schweiz, mit Schwerpunkt auf dem Kanton St. Gallen. Fotorealistische Szene von Lugano, mit einem LPP-Säulen im Vordergrund.',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.title': 'BVG in der Schweiz: Beiträge und Vorsorgeplanung im Kanton Waadt',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.excerpt': 'Der Leitfaden zur zweiten Säule BVG deckt Beiträge, Bezug, Lückenrückkauf und Vorsorgeplanung im Kanton Waadt ab.',
+    'blog.article.guida-lpp-secondo-pilastro-2026-vaud.imageAlt': 'Ein Mensch schaut auf einen Smartphone-Bildschirm mit einem Pensionsplan-Graph',
 };
 
 export default blogMetaChDe;
