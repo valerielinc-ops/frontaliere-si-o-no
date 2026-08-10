@@ -9553,6 +9553,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Moving to Uggiate-Trevano from border crossings: pros and cons',
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Set-up at source, new border agreement and benefits for workers in Ticino.',
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'View of Uggiate-Trevano with Lake Lugano',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Cugliate-Fabiasco and working in Ticino as a border worker',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and enters into force on 1 January 2024. This is what changes in the lives of border workers.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalieri with children on the shore of Lake Lugano',
 };
 
 export default blogMetaEn;

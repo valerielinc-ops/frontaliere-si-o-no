@@ -9554,6 +9554,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Uggiate-Trevano da frontaliere: pro e contro',
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Impostazione alla fonte, nuovo accordo frontalieri e vantaggi per i lavoratori in Ticino.',
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Vista di Uggiate-Trevano con il lago di Lugano',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Vivere a Cugliate-Fabiasco e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e entra in vigore dal 1° gennaio 2024. Ecco cosa cambia nella vita dei frontalieri.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalieri con bambini sulla riva del Lago di Lugano',
 };
 
 export default blogMetaIt;

@@ -9552,6 +9552,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Umzug nach Uggiate-Trevano als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Einstellung an der Quelle, neue Grenzübertrittsvereinbarung und Vorteile für die Arbeitnehmer im Tessin.',
     'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'Blick auf Uggiate-Trevano mit dem Luganersee',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Wohnen in Cugliate-Fabiasco und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Die Neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und tritt am 1. Januar 2024 in Kraft. Das ändert sich im Leben der Grenzgänger.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalier mit Kindern an der Ufer des Luganer Sees',
 };
 
 export default blogMetaDe;
