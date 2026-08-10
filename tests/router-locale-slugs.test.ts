@@ -72,7 +72,17 @@ describe('Cluster B — FR legacy slug redirects', () => {
     ['/fr/glossaire/', '/fr/glossaire-frontalier/'],
     ['/fr/comparer-services/assurance-maladie/', '/fr/comparer-services/comparer-caisses-maladie/'],
     ['/fr/salaires-frontaliers-tessin/', '/fr/statistiques/comparer-salaires/'],
-    ['/fr/primes-assurance-maladie/ticino/', '/fr/primes-assurance-maladie-communes/ticino/'],
+    // Target updated in #5352 (review round 3), not the guarantee: this path must
+    // still be registered, and it is. It used to point at
+    // /fr/primes-assurance-maladie-communes/ticino/, which a LATER batch in the
+    // same map redirected onwards to the URL below — two hops, with the first
+    // canonical landing on a 200 `noindex` bridge that does not forward the
+    // signal. Measured live before the fix: 200 noindex,follow → 200
+    // noindex,follow → 200 index,follow. Collapsed onto the final destination,
+    // which is where the user already ended up. `findInternalChains` in
+    // tests/article-rename-redirects.test.ts now makes the two-hop form
+    // impossible to reintroduce.
+    ['/fr/primes-assurance-maladie/ticino/', '/fr/statistiques/primes-assurance-maladie-communes/'],
     ['/fr/prix-diesel/aujourdhui/', '/fr/prix-gasoil-suisse/aujourd-hui/'],
     ['/fr/prix-diesel/aujourd-hui/', '/fr/prix-gasoil-suisse/aujourd-hui/'],
     ['/fr/trouver-emploi-tessin/3-derniers-jours/', '/fr/trouver-emploi-tessin/derniers-3-jours/'],
