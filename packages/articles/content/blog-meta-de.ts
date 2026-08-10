@@ -9555,6 +9555,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Wohnen in Cugliate-Fabiasco und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Die Neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und tritt am 1. Januar 2024 in Kraft. Das ändert sich im Leben der Grenzgänger.',
     'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalier mit Kindern an der Ufer des Luganer Sees',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Leben in Dumenza und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'Alle wichtigen Fakten für Grenzgänger, die im Tessin arbeiten und in Dumenza wohnen.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'Ein Grenzgänger lebt in Dumenza und arbeitet in Ticino.',
 };
 
 export default blogMetaDe;

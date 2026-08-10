@@ -28668,6 +28668,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-dumenza-lavorare-ticino',
+ category: 'fiscale',
+ date: '2026-08-10T20:50:44.240Z',
+ image: '/images/blog/vivere-dumenza-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
