@@ -2032,6 +2032,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carenza-insegnanti-svizzera.title': 'Shortage of teachers in Switzerland shows signs of attenuation',
     'blog.article.carenza-insegnanti-svizzera.excerpt': 'Pupils are dropping and enrolments in pedagogical universities are increasing, but special pedagogy and teaching quality remain critical.',
     'blog.article.carenza-insegnanti-svizzera.imageAlt': 'A Swiss classroom scene, with teachers and students.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Natural catastrophes, $112 billion in losses',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Heat waves have had a direct influence on labour productivity, which then has an impact on energy prices.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Heatwave damage in Switzerland',
 };
 
 export default blogMetaChEn;

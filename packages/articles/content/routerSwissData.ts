@@ -703,6 +703,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imprese-edili-svizzere-chiedono-stop-penali': { it: 'imprese-edili-svizzere-chiedono-stop-penali', en: 'swiss-construction-companies-ask-for-halt-to-penalties', de: 'schweizer-bauunternehmen-verlangen-entweder-penalisierung', fr: 'entreprises-de-construction-suisses-demandent-arret-de-penalites' },
  'elisabeth-baume-schneider-protezione-chimica': { it: 'elisabeth-baume-schneider-protezione-chimica', en: 'elisabeth-baume-schneider-chemical-protection', de: 'elisabeth-baume-schneider-chemische-schutz', fr: 'elisabeth-baume-schneider-protection-chimique' },
  'carenza-insegnanti-svizzera': { it: 'carenza-insegnanti-svizzera', en: 'carenza-insegnanti-svizzera', de: 'mangel-an-lehrern-schweiz', fr: 'penurie-denseignants-suisse' },
+ 'catastrofi-naturali-perdite-112-miliardi-dollari': { it: 'catastrofi-naturali-perdite-112-miliardi-dollari', en: 'natural-disasters-112-billion-dollars', de: 'naturkatastrophen-verluste-112-milliarden', fr: 'catastrophes-naturelles-pertes-112-milliards' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

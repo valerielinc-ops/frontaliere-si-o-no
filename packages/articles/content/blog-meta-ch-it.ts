@@ -2032,6 +2032,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carenza-insegnanti-svizzera.title': 'Carenza di insegnanti in Svizzera mostra segnali di attenuazione',
     'blog.article.carenza-insegnanti-svizzera.excerpt': 'Calano gli alunni e aumentano le iscrizioni alle università pedagogiche, ma restano criticità nella pedagogia speciale e nella qualità dell\'insegnamento.',
     'blog.article.carenza-insegnanti-svizzera.imageAlt': 'Una scena di aula scolastica in Svizzera, con insegnanti e studenti.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Catastrofi naturali, perdite per 112 miliardi di dollari',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Le ondate di calore hanno avuto un influsso diretto sulla produttività del lavoro, cosa che poi si ripercuote sui prezzi dell\'energia.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Danni causati da ondate di calore in Svizzera',
 };
 
 export default blogMetaChIt;

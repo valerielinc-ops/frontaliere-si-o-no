@@ -2032,6 +2032,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carenza-insegnanti-svizzera.title': 'Lehrermangel in der Schweiz zeigt Anzeichen einer Abschwächung',
     'blog.article.carenza-insegnanti-svizzera.excerpt': 'Die Schüler sinken und die Einschreibung an den pädagogischen Universitäten nimmt zu, aber die besondere Pädagogik und die Qualität des Unterrichts bleiben kritisch.',
     'blog.article.carenza-insegnanti-svizzera.imageAlt': 'Eine Szene aus einer Schweizer Schule, mit Lehrern und Schülern.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Naturkatastrophen, Verluste in Höhe von 112 Milliarden Dollar',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Hitzewellen hatten einen direkten Einfluss auf die Arbeitsproduktivität, was sich dann auf die Energiepreise auswirkte.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Schäden durch Hitzewellen in der Schweiz',
 };
 
 export default blogMetaChDe;

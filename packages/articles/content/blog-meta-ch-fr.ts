@@ -2032,6 +2032,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carenza-insegnanti-svizzera.title': 'Pénurie d\'enseignants en Suisse montre des signes d\'atténuation',
     'blog.article.carenza-insegnanti-svizzera.excerpt': 'Les élèves baissent et les inscriptions dans les universités pédagogiques augmentent, mais la pédagogie spéciale et la qualité de l\'enseignement restent critiques.',
     'blog.article.carenza-insegnanti-svizzera.imageAlt': 'Une scène de classe en Suisse, avec des enseignants et des élèves.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.title': 'Catastrophes naturelles, pertes de 112 milliards de dollars',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.excerpt': 'Les vagues de chaleur ont eu une influence directe sur la productivité du travail, ce qui se répercute ensuite sur les prix de l\'énergie.',
+    'blog.article.catastrofi-naturali-perdite-112-miliardi-dollari.imageAlt': 'Dommages causés par les ondes de chaleur en Suisse',
 };
 
 export default blogMetaChFr;
