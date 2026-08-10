@@ -9517,6 +9517,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.title': 'Moving to Cadegliano-Viconago by border crossing: pros and cons',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.excerpt': 'What to consider before moving to Cadegliano-Viconago working in Ticino as a border worker.',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere looking out at Lake Lugano, pondering the decision to relocate to Cadegliano-Viconago.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.title': 'Living in Cadegliano-Viconago and working in Ticino',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.excerpt': 'Guide for border workers in Cadegliano-Viconago: tax, transport and advantages of the new tax agreement between Italy and Switzerland in force since 2024.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.imageAlt': 'Panoramic view from Cadegliano-Viconago towards the Swiss border of Canton Ticino',
 };
 
 export default blogMetaEn;

@@ -26147,6 +26147,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nodo-di-interscambio-lavori-settembre': {
+    title: 'Nodo di interscambio, i lavori entrano nell\'ultima fase',
+    description: 'I lavori per la sistemazione del nodo di interscambio di Biasca si concluderanno il 12 settembre. La pavimentazione fonoassorbente sarà posata nelle prossime',
+    keywords: 'frontalieri, ticino, svizzera, italia, nodo, interscambio, lavori, entrano',
+    ogTitle: 'Nodo di interscambio, i lavori entrano nell\'ultima fase',
+    ogDescription: 'I lavori per la sistemazione del nodo di interscambio di Biasca si concluderanno il 12 settembre. La pavimentazione fonoassorbente sarà posata nelle prossime settimane.',
+    canonicalPath: '/articoli-svizzera/nodo-di-interscambio-lavori-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nodo di interscambio, i lavori entrano nell'ultima fase",
+      "description": "I lavori per la sistemazione del nodo di interscambio di Biasca si concluderanno il 12 settembre. La pavimentazione fonoassorbente sarà posata nelle prossime",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nodo-di-interscambio-lavori-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un nodo di interscambio in Svizzera"
+      },
+      "datePublished": "2026-08-10T08:55:35+00:00",
+      "dateModified": "2026-08-10T08:55:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nodo-di-interscambio-lavori-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

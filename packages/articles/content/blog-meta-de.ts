@@ -9516,6 +9516,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.title': 'Umzug nach Cadegliano-Viconago als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.excerpt': 'Was Sie vor Ihrem Umzug nach Cadegliano-Viconago beachten sollten, wenn Sie als Grenzgänger im Tessin arbeiten.',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier schaut auf den Luganer See, überlegend, ob er sich nach Cadegliano-Viconago umsiedeln soll.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.title': 'Wohnen in Cadegliano-Viconago und Arbeiten im Tessin',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.excerpt': 'Leitfaden für Grenzgänger in Cadegliano-Viconago: Steuern, Transport und Vorteile des neuen Steuerabkommens zwischen Italien und der Schweiz, das ab 2024 in Kraft tritt.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.imageAlt': 'Panoramablick von Cadegliano-Viconago in Richtung der Schweizer Grenze des Kantons Tessin',
 };
 
 export default blogMetaDe;

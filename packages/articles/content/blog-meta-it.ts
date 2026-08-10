@@ -9518,6 +9518,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Cadegliano-Viconago da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.excerpt': 'Cosa considerare prima di trasferirsi a Cadegliano-Viconago lavorando in Ticino da frontaliere.',
     'blog.article.trasferirsi-a-cadegliano-viconago-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere si affaccia sul Lago di Lugano, riflettendo sulla decisione di trasferirsi a Cadegliano-Viconago.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.title': 'Vivere a Cadegliano-Viconago e lavorare in Ticino',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.excerpt': 'Guida per frontalieri a Cadegliano-Viconago: fisco, trasporti e vantaggi del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 2024.',
+    'blog.article.vivere-cadegliano-viconago-frontaliere.imageAlt': 'Panorama da Cadegliano-Viconago verso il confine svizzero del Canton Ticino',
 };
 
 export default blogMetaIt;

@@ -2020,6 +2020,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Mieten in der Schweiz 2026: Preise und Gebühren',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Durchschnittliche Mietpreise in der Schweiz im Jahr 2026: CHF 2\'500 - 3\'500 pro Monat.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Bild von Mietwohnungen in der Schweiz mit dem Lago di Lugano als Hintergrund.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Knotenpunkt, die Arbeiten treten in die letzte Phase ein',
+    'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'Die Arbeiten für den Ausbau des Verkehrsknotenpunkts Biasca werden am 12. September abgeschlossen.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Bild eines Schweizer Kreuzungsbahnhofs',
 };
 
 export default blogMetaChDe;

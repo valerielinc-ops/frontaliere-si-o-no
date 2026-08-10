@@ -2020,6 +2020,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.title': 'Affitti in Svizzera 2026: prezzi e diritti',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.excerpt': 'Prezzi medi per affitti in Svizzera nel 2026: CHF 2\'500 - 3\'500 al mese.',
     'blog.article.affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo.imageAlt': 'Foto di affitti in Svizzera con il lago di Lugano come sfondo.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.title': 'Nodo di interscambio, i lavori entrano nell\'ultima fase',
+    'blog.article.nodo-di-interscambio-lavori-settembre.excerpt': 'I lavori per la sistemazione del nodo di interscambio di Biasca si concluderanno il 12 settembre.',
+    'blog.article.nodo-di-interscambio-lavori-settembre.imageAlt': 'Immagine di un nodo di interscambio in Svizzera',
 };
 
 export default blogMetaChIt;
