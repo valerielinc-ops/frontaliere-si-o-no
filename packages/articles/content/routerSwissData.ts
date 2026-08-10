@@ -699,6 +699,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-lpp-secondo-pilastro-2026-vaud': { it: 'guida-lpp-secondo-pilastro-2026-vaud', en: 'guida-lpp-secondo-pilastro-2026-vaud-en', de: 'guida-lpp-secondo-pilastro-2026-vaud-de', fr: 'guida-lpp-secondo-pilastro-2026-vaud-fr' },
  'affitti-svizzera-mercato-immobiliare-2026': { it: 'affitti-svizzera-mercato-immobiliare-2026', en: 'swiss-rental-market-2026', de: 'schweizer-mietmarkt-2026', fr: 'marche-immobilier-suisse-2026' },
  'affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo': { it: 'affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo', en: 'switzerland-rental-market-2026-cantons-san-gallo', de: 'schweiz-mietwohnungen-markt-2026-kanton-san-gallo', fr: 'location-suisse-marche-2026-canton-san-gallo' },
+ 'nodo-di-interscambio-lavori-settembre': { it: 'nodo-di-interscambio-lavori-settembre', en: 'interchange-nodes-labor-projects-settembre', de: 'kreuzungsbahnhof-arbeiten-settembre', fr: 'n-ud-dechange-travaux-settembre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
