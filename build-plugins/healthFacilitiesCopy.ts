@@ -318,3 +318,28 @@ export const NEAR_YOU_BLOCK: Record<HealthFacilityLocale, { title: string; intro
     intro: 'Hôpitaux et cliniques suisses avec des postes ouverts pour infirmiers, assistants en soins et métiers cliniques, avec des salaires médians réels.',
   },
 };
+
+// ── Complete facility index on the HTML sitemap page (#5434) ────────────────
+// NEAR_YOU_BLOCK above is a CURATED, capped shortlist on three nursing
+// landings. This one is the opposite by design: the whole emitted family, on
+// the one page per locale that is main-nav reachable. See the header of
+// healthFacilitiesLinksPlugin.ts for the measurement that made it necessary.
+
+export const FACILITY_INDEX_BLOCK: Record<HealthFacilityLocale, { title: string; intro: string }> = {
+  it: {
+    title: 'Tutte le strutture sanitarie',
+    intro: 'Indice completo delle strutture sanitarie svizzere con offerte di lavoro indicizzate.',
+  },
+  en: {
+    title: 'All healthcare facilities',
+    intro: 'Complete index of the Swiss healthcare facilities with indexed job openings.',
+  },
+  de: {
+    title: 'Alle Gesundheitseinrichtungen',
+    intro: 'Vollständiges Verzeichnis der Schweizer Gesundheitseinrichtungen mit indexierten Stellenangeboten.',
+  },
+  fr: {
+    title: 'Tous les établissements de santé',
+    intro: 'Index complet des établissements de santé suisses avec des offres d’emploi indexées.',
+  },
+};
