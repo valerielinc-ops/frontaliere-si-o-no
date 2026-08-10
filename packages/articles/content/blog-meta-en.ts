@@ -9544,6 +9544,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.title': 'Living in Crevoladossola and working in Ticino as a border worker',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.excerpt': 'All the facts and figures of the lives of border workers who work in Ticino and reside in Crevoladossola',
     'blog.article.vivere-crevoladossola-lavorare-ticino-frontalieri.imageAlt': 'A frontaliere who works in Lugano and resides in Crevoladossola gazes out at Lake Lugano',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.title': 'Living in Rodero and working in Ticino as a border worker',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers: source tax, new 2024 agreement, €10,000 deductible, G permit and Brogeda-Chiasso connections.',
+    'blog.article.vivere-rodero-lavorare-ticino-frontaliere.imageAlt': 'Cross-border worker crossing the Brogeda border between Rodero and Ticino',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.title': 'Living in Agra and working in Ticino as a border worker',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.excerpt': 'Impact of the new agreement on Ticino border workers: new rules, exemptions and benefits.',
+    'blog.article.vivere-agra-lavorare-ticino-frontalieri.imageAlt': 'Frontalier with child walks along the lake shore of Lugano',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.title': 'Moving to Uggiate-Trevano from border crossings: pros and cons',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.excerpt': 'Set-up at source, new border agreement and benefits for workers in Ticino.',
+    'blog.article.trasferirsi-uggiatetrevano-da-frontaliere-pro-e-contro.imageAlt': 'View of Uggiate-Trevano with Lake Lugano',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.title': 'Living in Cugliate-Fabiasco and working in Ticino as a border worker',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and enters into force on 1 January 2024. This is what changes in the lives of border workers.',
+    'blog.article.vivere-a-cugliate-fabiasco-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Frontalieri with children on the shore of Lake Lugano',
+    'blog.article.vivere-dumenza-lavorare-ticino.title': 'Living in Dumenza and working in Ticino as a border worker',
+    'blog.article.vivere-dumenza-lavorare-ticino.excerpt': 'All the important facts for border workers who work in Ticino and reside in Dumenza.',
+    'blog.article.vivere-dumenza-lavorare-ticino.imageAlt': 'A border worker lives in Dumenza and works in Ticino.',
 };
 
 export default blogMetaEn;

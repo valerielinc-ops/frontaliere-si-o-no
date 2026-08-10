@@ -1,16 +1,16 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-08-10T10:28:03.458Z",
+  "generatedAt": "2026-08-10T21:43:48.569Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4608,
-  "avgDurationMs": 4608,
+  "durationMs": 4369,
+  "avgDurationMs": 4369,
   "durationHistory": [
-    4608
+    4369
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.beehire.com/invite/PdTkBFu_5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:27:59.242Z",
+      "crawledAt": "2026-08-10T21:43:44.633Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:27:59.256Z",
+      "crawledAt": "2026-08-10T21:43:44.641Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.beehire.com/invite/uZyK5KPP4",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T10:27:59.257Z",
+      "crawledAt": "2026-08-10T21:43:44.643Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "firstSeenAt": "2026-07-27T12:30:29.108Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -202,7 +202,7 @@
       "firstSeenAt": "2026-07-09T22:22:43.887Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -242,7 +242,7 @@
       "firstSeenAt": "2026-07-07T11:57:13.088Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
