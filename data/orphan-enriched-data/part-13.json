@@ -69721,9 +69721,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "stagiaire-en-a-spital-emmental-burgdorf-langnau",
-        "en": "stagiaire-en-a-spital-emmental-burgdorf-langnau",
-        "de": "stagiaire-en-a-spital-emmental-burgdorf-langnau",
+        "it": "interno-a-spital-emmental-burgdorf-langnau",
+        "en": "intern-in-a-spital-emmental-burgdorf-langnau",
+        "de": "praktikant-in-a-spital-emmental-burgdorf",
         "fr": "stagiaire-en-a-spital-emmental-burgdorf-langnau"
       },
       "localePaths": {
@@ -69738,6 +69738,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
