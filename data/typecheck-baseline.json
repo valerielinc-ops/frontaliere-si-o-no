@@ -1,0 +1,41 @@
+{
+  "_comment": "Baseline di `tsc --noEmit` (issue #5540). `blocking` = conteggio errori per file FUORI da tests/: un file nuovo con errori o un file che ne guadagna fa fallire la CI. `advisoryTotal` = errori sotto tests/, solo informativo (mock parziali contro forme inferite da .mjs non tipizzati). Il numero NON può andare a zero senza toccare il confine fra i due repo: vedi la testata di scripts/ci/check-typecheck-baseline.mjs. Rigenera SOLO dopo review umana, con checkout PIENO (un worktree sparse non ha data/ e public/): node scripts/ci/check-typecheck-baseline.mjs --write-baseline",
+  "generatedAt": "2026-08-10",
+  "tscVersion": "5.8.3",
+  "total": 331,
+  "advisoryTotal": 307,
+  "advisoryPrefixes": [
+    "tests/"
+  ],
+  "blockingTotal": 24,
+  "blocking": {
+    "build-plugins/shared/articleReaders.ts": 1,
+    "build-plugins/shared/articleSectionDescriptors.ts": 1,
+    "components/community/NewsFeed.tsx": 1,
+    "components/pages/AdminPanel.tsx": 1,
+    "components/pages/JournalistDashboardPage.tsx": 1,
+    "components/pages/PublisherDashboardPage.tsx": 1,
+    "data/blog-articles-data.ts": 1,
+    "data/swiss-articles-data.ts": 1,
+    "packages/articles/content/routerBlogData.ts": 2,
+    "services/articleSections.ts": 2,
+    "services/routerBlogData.ts": 3,
+    "services/routerSwissData.ts": 1,
+    "services/seo/seo-blog-2.ts": 1,
+    "services/seo/seo-blog-3.ts": 1,
+    "services/seo/seo-blog-4.ts": 1,
+    "services/seo/seo-blog-5.ts": 1,
+    "services/seo/seo-blog-6.ts": 1,
+    "services/seo/seo-blog-7.ts": 1,
+    "services/seo/seo-blog-ch.ts": 1,
+    "services/seo/seo-blog.ts": 1
+  },
+  "blockingCodes": {
+    "TS2307": 16,
+    "TS2304": 4,
+    "TS2339": 1,
+    "TS2345": 1,
+    "TS2352": 1,
+    "TS2769": 1
+  }
+}
