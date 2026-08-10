@@ -54,6 +54,14 @@ const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
  fr: 'Glossaire frontaliers',
 };
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
+// FAQ-hub path builder — the ONE source of the four hub slugs (router-safe
+// module, no 340 KB category corpus pulled in). ORPHAN_PILLAR_LINKS below
+// hard-coded them and had drifted on DE: `/de/haeufig-gestellte-fragen/` is a
+// 404, the real hub is `/de/haeufige-fragen/`. Harmless while `/de/` had no
+// related-guides rail; once #5468 gave the locale root that rail, the dead
+// pill was the reason the DE FAQ hub — alone among the four locales — stayed
+// buried and its 103 entries sat at BFS depth 5 (issue #5428).
+import { buildFaqHubPath } from '../data/faq-hub/routes';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
 import {
@@ -891,7 +899,7 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/calcola-stipendio/', label: 'Simulatore stipendio frontaliere' },
   { href: '/articoli-frontaliere/lamal-vs-cmi-frontaliere/', label: 'LAMal vs CMI — diritto d’opzione' },
   { href: '/cerca-lavoro-ticino/', label: 'Cerca lavoro Ticino' },
-  { href: '/domande-frequenti-frontalieri/', label: 'FAQ frontalieri' },
+  { href: buildFaqHubPath('it'), label: 'FAQ frontalieri' },
   { href: '/glossario-frontaliere/', label: 'Glossario frontaliere' },
   { href: '/giorni-festivi-ticino/', label: 'Giorni festivi Ticino e ponti' },
   { href: '/stipendio-medio-svizzera-30-anni/', label: 'Stipendio medio in Svizzera per età' },
@@ -905,7 +913,7 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/en/taxes-and-pension/new-cross-border-tax-simulation/', label: 'New cross-border tax simulation' },
   { href: '/en/calculate-salary/', label: 'Cross-border salary simulator' },
   { href: '/en/find-jobs-ticino/', label: 'Find jobs in Ticino' },
-  { href: '/en/frequently-asked-questions/', label: 'Cross-border FAQ' },
+  { href: buildFaqHubPath('en'), label: 'Cross-border FAQ' },
   { href: '/en/public-holidays-ticino/', label: 'Ticino public holidays and bridge days' },
   { href: '/en/average-salary-switzerland-age-30/', label: 'Average Swiss salary by age' },
   { href: '/en/minimum-wage/', label: 'Minimum wage in Switzerland: cantons and CCL' },
@@ -918,7 +926,7 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/de/steuern-und-rente/neue-grenzgaenger-steuersimulation/', label: 'Steuersimulation neue Grenzgänger' },
   { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Lohnsimulator' },
   { href: '/de/jobs-im-tessin/', label: 'Jobs im Tessin' },
-  { href: '/de/haeufig-gestellte-fragen/', label: 'Grenzgänger-FAQ' },
+  { href: buildFaqHubPath('de'), label: 'Grenzgänger-FAQ' },
   { href: '/de/feiertage-tessin/', label: 'Feiertage Tessin und Brückentage' },
   { href: '/de/durchschnittslohn-schweiz-30-jahre/', label: 'Durchschnittslohn Schweiz nach Alter' },
   { href: '/de/mindestlohn/', label: 'Mindestlohn in der Schweiz: Kantone und GAV' },
@@ -931,7 +939,7 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/fr/impots-et-retraite/simulation-impot-nouveaux-frontaliers/', label: 'Simulation impôt nouveaux frontaliers' },
   { href: '/fr/calculer-salaire/', label: 'Simulateur de salaire frontalier' },
   { href: '/fr/trouver-emploi-tessin/', label: 'Trouver un emploi au Tessin' },
-  { href: '/fr/questions-frequentes/', label: 'FAQ frontaliers' },
+  { href: buildFaqHubPath('fr'), label: 'FAQ frontaliers' },
   { href: '/fr/jours-feries-tessin/', label: 'Jours fériés Tessin et ponts' },
   { href: '/fr/salaire-moyen-suisse-30-ans/', label: 'Salaire moyen en Suisse par âge' },
   { href: '/fr/salaire-minimum/', label: 'Salaire minimum en Suisse : cantons et CCT' },
@@ -944,6 +952,25 @@ const escAttr = (s: string): string => s
  .replace(/>/g, '&gt;')
  .replace(/"/g, '&quot;');
 
+/**
+ * The anchor-pill row shared by the homepage related-guides rail and the
+ * locale main nav below: the same nine declarations, differing only in
+ * font-weight (500 for the rail, 600 for the nav).
+ *
+ * Written once. Two copies of the same inline style list is what CLAUDE.md
+ * non-negotiable #6 forbids, and the reason is not tidiness: the next restyle
+ * of one row leaves the other behind, on pages that sit side by side.
+ */
+function renderPillAnchors(
+ links: ReadonlyArray<{ href: string; label: string }>,
+ fontWeight: 500 | 600,
+): string {
+ const style = `display:inline-block;padding:4px 10px;margin:3px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-link);text-decoration:none;font-size:13px;font-weight:${fontWeight};border:1px solid var(--color-edge);line-height:1.4`;
+ return links
+  .map(({ href, label }) => `<a href="${href}" style="${style}">${escAttr(label)}</a>`)
+  .join('');
+}
+
 function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
  const links = ORPHAN_PILLAR_LINKS[locale] ?? ORPHAN_PILLAR_LINKS.it;
  if (links.length === 0) return '';
@@ -951,11 +978,171 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
    : locale === 'de' ? 'Vertiefende Leitfäden'
    : locale === 'fr' ? 'Guides approfondis'
    : 'Guide approfondite';
- const pillStyle = 'display:inline-block;padding:4px 10px;margin:3px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-link);text-decoration:none;font-size:13px;font-weight:500;border:1px solid var(--color-edge);line-height:1.4';
- const anchors = links
-  .map(({ href, label }) => `<a href="${href}" style="${pillStyle}">${escAttr(label)}</a>`)
-  .join('');
+ const anchors = renderPillAnchors(links, 500);
  return `<aside class="s-Q1eQm9" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="s-WrrqHM" id="hpRelatedGuidesTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
+}
+
+// ── Locale main nav (crawlable) ─────────────────────────────────────
+// The 16-anchor pipe nav that every buildPage() artifact ships (see
+// `navHtml` in the page builder). Hoisted to module scope — it is no
+// longer buildPage()-private, because the locale-root SPA shells need the
+// SAME table and CLAUDE.md non-negotiable #6 forbids a second copy of it.
+//
+// Why the locale roots need it: `/en/`, `/de/`, `/fr/` stopped being
+// buildPage() output when #5468 gave the post-loop "Locale-root SPA shells"
+// ratchet sole ownership of those three paths (the hreflang-variant loop
+// now `continue`s on them). That ratchet mirrors the IT root, so the three
+// locale homes shipped with the ITALIAN prerender nav and no locale nav at
+// all — and the only depth-≤2 anchor to each locale's HTML sitemap page
+// (`/en/site-map/`, `/de/seitenplan/`, `/fr/plan-du-site/`) lives exactly
+// here. That page is the injection target EVERY `*LinksPlugin.ts` uses to
+// pull an orphaned landing family inside the crawl budget, so losing the
+// anchor pushed it from BFS depth 2 to 3 and every family hanging off it
+// one hop further: `sitemap-salary-stats.xml` went 12 → 75 URLs past the
+// depth-4 cap (all 24 cantons × en/de/fr), and `/de/haeufige-fragen/`'s 103
+// entries went to depth 5 with it. Run 31342536200, issue #5428.
+const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
+ it: [
+ { href: '/', label: 'Simulatore Fiscale' },
+ { href: '/compara-servizi/', label: 'Confronta Servizi' },
+ { href: '/tasse-e-pensione/', label: 'Tasse e Pensione' },
+ { href: '/guida-frontaliere/', label: 'Guida Frontaliere' },
+ { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
+ { href: '/glossario-frontaliere/', label: 'Glossario' },
+ { href: '/articoli-frontaliere/', label: 'Articoli' },
+ { href: '/articoli-svizzera/', label: 'Articoli Svizzera' },
+ { href: '/mappa-del-sito/', label: 'Mappa del Sito' },
+ { href: '/chi-siamo/', label: 'Chi Siamo' },
+ { href: '/correzioni/', label: 'Correzioni' },
+ { href: '/metodologia/', label: 'Metodologia' },
+ { href: '/contattaci/', label: 'Contattaci' },
+ { href: '/privacy/', label: 'Privacy' },
+ { href: '/about/', label: 'About' },
+ { href: '/contact/', label: 'Contact' },
+ { href: '/privacy-policy/', label: 'Privacy Policy' },
+ ],
+ en: [
+ { href: '/en/', label: 'Tax Simulator' },
+ { href: '/en/service-comparison/', label: 'Compare Services' },
+ { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
+ { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
+ { href: '/en/cross-border-faq/', label: 'FAQ' },
+ { href: '/en/cross-border-glossary/', label: 'Glossary' },
+ { href: '/en/cross-border-articles/', label: 'Articles' },
+ { href: '/en/swiss-articles/', label: 'Swiss Articles' },
+ { href: '/en/site-map/', label: 'Site Map' },
+ { href: '/about/', label: 'About Us' },
+ { href: '/contact/', label: 'Contact Us' },
+ { href: '/privacy-policy/', label: 'Privacy Policy' },
+ ],
+ de: [
+ { href: '/de/', label: 'Steuersimulator' },
+ { href: '/de/service-vergleich/', label: 'Dienste Vergleichen' },
+ { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
+ { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
+ { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
+ { href: '/de/grenzgaenger-glossar/', label: 'Glossar' },
+ { href: '/de/grenzgaenger-artikel/', label: 'Artikel' },
+ { href: '/de/schweiz-artikel/', label: 'Schweiz-Artikel' },
+ { href: '/de/seitenplan/', label: 'Seitenplan' },
+ { href: '/about/', label: 'About' },
+ { href: '/contact/', label: 'Contact' },
+ { href: '/privacy-policy/', label: 'Privacy Policy' },
+ ],
+ fr: [
+ { href: '/fr/', label: 'Simulateur Fiscal' },
+ { href: '/fr/comparaison-services/', label: 'Comparer les Services' },
+ { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
+ { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
+ { href: '/fr/faq-frontaliers/', label: 'FAQ' },
+ { href: '/fr/glossaire-frontalier/', label: 'Glossaire' },
+ { href: '/fr/articles-frontalier/', label: 'Articles' },
+ { href: '/fr/articles-suisse/', label: 'Articles Suisse' },
+ { href: '/fr/plan-du-site/', label: 'Plan du Site' },
+ { href: '/about/', label: 'About' },
+ { href: '/contact/', label: 'Contact' },
+ { href: '/privacy-policy/', label: 'Privacy Policy' },
+ ],
+};
+
+/** Marker id — makes {@link injectLocaleMainNav} idempotent across build phases. */
+const LOCALE_MAIN_NAV_ID = 'hp-locale-main-nav';
+
+const LOCALE_MAIN_NAV_ARIA: Record<HpSeoLocale, string> = {
+  it: 'Sezioni principali',
+  en: 'Main sections',
+  de: 'Hauptbereiche',
+  fr: 'Sections principales',
+};
+
+/**
+ * Renders {@link NAV_LABELS} for one locale as a visible pill row.
+ *
+ * Visible, not collapsed inside `<details>`: the audit walker follows `<a>`
+ * either way, but this row is also the only main-nav a JS-less crawler sees
+ * on a locale home (the SPA header/footer are React-rendered), so hiding it
+ * would trade a BFS fix for a UX regression on the same page.
+ */
+function buildLocaleMainNavHtml(locale: HpSeoLocale): string {
+  const links = NAV_LABELS[locale] ?? NAV_LABELS.it;
+  if (links.length === 0) return '';
+  const label = LOCALE_MAIN_NAV_ARIA[locale] ?? LOCALE_MAIN_NAV_ARIA.it;
+  const anchors = renderPillAnchors(links, 600);
+  // Same extracted class as the lang switcher (`.s-U89jtE`, public/assets/
+  // seo-static.css): both are bare `<nav>` siblings of #root injected before
+  // `</body>`, so they need the identical 1100px-centred gutter wrapper. A
+  // third class with the same four declarations would be exactly the
+  // duplication CLAUDE.md #6 forbids.
+  return `<nav class="s-U89jtE" id="${LOCALE_MAIN_NAV_ID}" aria-label="${label}">${anchors}</nav>`;
+}
+
+/**
+ * Injects the locale main nav into a locale-root shell, once.
+ *
+ * Idempotent by marker id, exactly like injectHomepageSeoContent: the
+ * "Locale-root SPA shells" ratchet re-reads whatever is already on disk and
+ * re-injects, so it can run twice across build phases on the same file.
+ * Exported for tests/build-plugins/localeRootMainNav.test.ts.
+ */
+export function injectLocaleMainNav(html: string, locale: HpSeoLocale): string {
+  if (html.includes(`id="${LOCALE_MAIN_NAV_ID}"`)) return html;
+  if (!html.includes('</body>')) return html;
+  const nav = buildLocaleMainNavHtml(locale);
+  if (!nav) return html;
+  return html.replace('</body>', `${nav}\n</body>`);
+}
+
+/**
+ * The whole locale-root shell transform, in the order the "Locale-root SPA
+ * shells" ratchet applies it — strip whatever Italian block the source
+ * artifact carries, then inject the locale-correct SEO block, breadcrumb,
+ * lang switcher, related-guides rail and main nav.
+ *
+ * One function rather than the same four statements written out in each of
+ * the ratchet's two branches (file-on-disk vs mirror-the-IT-root): those two
+ * copies were byte-identical, which CLAUDE.md non-negotiable #6 forbids, and
+ * the duplication is not academic — the branches are the reason a link can be
+ * present on one build path and missing on the other. It also gives the
+ * regression test (tests/build-plugins/localeRootMainNav.test.ts) the REAL
+ * pipeline to assert against instead of a hand-rolled re-composition of it,
+ * so removing the injection from the ratchet is what makes the test go red.
+ */
+export function renderLocaleRootShell(html: string, locale: 'en' | 'de' | 'fr'): string {
+  let out = html.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+  out = out.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
+  out = injectHomepageSeoContent(out, locale);
+  // Locale main nav — the one thing this shell cannot inherit from the IT root
+  // it mirrors. Both ratchet branches end up carrying the ITALIAN pipe nav (or
+  // none at all), so without this the locale home is the only page in its own
+  // subtree with no link to `/en/site-map/`, `/de/seitenplan/`,
+  // `/fr/plan-du-site/` — the depth-≤2 hub the `*LinksPlugin.ts` family injects
+  // every orphan-rescue block into. Injected here rather than inside
+  // injectHomepageSeoContent because that helper also owns the IT root `/`,
+  // which already links those sections from its own prerendered nav and would
+  // get 16 duplicate anchors with different link text (Squirrel a11y
+  // identical-links-same-purpose). See issue #5428.
+  out = injectLocaleMainNav(out, locale);
+  return out;
 }
 
 // ── Calculator landing SEO block ─────────────────────────────────────
@@ -2626,71 +2813,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const desc = (GENERIC_DESC[locale]?.(readableTitle)) || italianSeo.desc;
 
  return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
- };
-
- // ── Locale-aware nav labels ───────────────────────────────
- const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
- it: [
- { href: '/', label: 'Simulatore Fiscale' },
- { href: '/compara-servizi/', label: 'Confronta Servizi' },
- { href: '/tasse-e-pensione/', label: 'Tasse e Pensione' },
- { href: '/guida-frontaliere/', label: 'Guida Frontaliere' },
- { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
- { href: '/glossario-frontaliere/', label: 'Glossario' },
- { href: '/articoli-frontaliere/', label: 'Articoli' },
- { href: '/articoli-svizzera/', label: 'Articoli Svizzera' },
- { href: '/mappa-del-sito/', label: 'Mappa del Sito' },
- { href: '/chi-siamo/', label: 'Chi Siamo' },
- { href: '/correzioni/', label: 'Correzioni' },
- { href: '/metodologia/', label: 'Metodologia' },
- { href: '/contattaci/', label: 'Contattaci' },
- { href: '/privacy/', label: 'Privacy' },
- { href: '/about/', label: 'About' },
- { href: '/contact/', label: 'Contact' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
- en: [
- { href: '/en/', label: 'Tax Simulator' },
- { href: '/en/service-comparison/', label: 'Compare Services' },
- { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
- { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
- { href: '/en/cross-border-faq/', label: 'FAQ' },
- { href: '/en/cross-border-glossary/', label: 'Glossary' },
- { href: '/en/cross-border-articles/', label: 'Articles' },
- { href: '/en/swiss-articles/', label: 'Swiss Articles' },
- { href: '/en/site-map/', label: 'Site Map' },
- { href: '/about/', label: 'About Us' },
- { href: '/contact/', label: 'Contact Us' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
- de: [
- { href: '/de/', label: 'Steuersimulator' },
- { href: '/de/service-vergleich/', label: 'Dienste Vergleichen' },
- { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
- { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
- { href: '/de/grenzgaenger-faq/', label: 'FAQ' },
- { href: '/de/grenzgaenger-glossar/', label: 'Glossar' },
- { href: '/de/grenzgaenger-artikel/', label: 'Artikel' },
- { href: '/de/schweiz-artikel/', label: 'Schweiz-Artikel' },
- { href: '/de/seitenplan/', label: 'Seitenplan' },
- { href: '/about/', label: 'About' },
- { href: '/contact/', label: 'Contact' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
- fr: [
- { href: '/fr/', label: 'Simulateur Fiscal' },
- { href: '/fr/comparaison-services/', label: 'Comparer les Services' },
- { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
- { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
- { href: '/fr/faq-frontaliers/', label: 'FAQ' },
- { href: '/fr/glossaire-frontalier/', label: 'Glossaire' },
- { href: '/fr/articles-frontalier/', label: 'Articles' },
- { href: '/fr/articles-suisse/', label: 'Articles Suisse' },
- { href: '/fr/plan-du-site/', label: 'Plan du Site' },
- { href: '/about/', label: 'About' },
- { href: '/contact/', label: 'Contact' },
- { href: '/privacy-policy/', label: 'Privacy Policy' },
- ],
  };
 
  // ── Locale-aware editorial fallback ───────────────────────
@@ -5552,21 +5674,18 @@ ${hrefTags}
      let localized: string | null = null;
      if (fs.existsSync(file)) {
        // File already emitted — read it back, normalise, re-inject locale block.
-       localized = fs.readFileSync(file, 'utf-8');
-       localized = localized.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
-       localized = localized.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
-       localized = injectHomepageSeoContent(localized, loc);
+       localized = renderLocaleRootShell(fs.readFileSync(file, 'utf-8'), loc);
      } else if (rootHtml) {
        // File missing — mirror the IT root, rewrite lang + canonical, inject block.
        // The mirrored breadcrumb (if any) still points at the IT home URL —
-       // strip it too so injectHomepageSeoContent below emits a locale-correct one.
-       localized = rootHtml
-         .replace(/<html\b[^>]*\blang="[^"]*"/i, `<html lang="${loc}"`)
-         .replace(/<link\s+rel="canonical"\s+href="https:\/\/frontaliereticino\.ch\/"/i,
-           `<link rel="canonical" href="https://frontaliereticino.ch/${loc}/"`);
-       localized = localized.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
-       localized = localized.replace(/<script[^>]*\bid="hp-breadcrumb-ld"[^>]*>[\s\S]*?<\/script>\s*/i, '');
-       localized = injectHomepageSeoContent(localized, loc);
+       // renderLocaleRootShell strips it so a locale-correct one is emitted.
+       localized = renderLocaleRootShell(
+         rootHtml
+           .replace(/<html\b[^>]*\blang="[^"]*"/i, `<html lang="${loc}"`)
+           .replace(/<link\s+rel="canonical"\s+href="https:\/\/frontaliereticino\.ch\/"/i,
+             `<link rel="canonical" href="https://frontaliereticino.ch/${loc}/"`),
+         loc,
+       );
      }
      if (localized) {
        _qw(file, localized);
