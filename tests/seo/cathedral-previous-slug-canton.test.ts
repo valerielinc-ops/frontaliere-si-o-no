@@ -3,9 +3,26 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 import { makeKey } from '@/services/previousSlugWinners';
+import { readJobsDataset } from '../helpers/jobsDataset';
 
 const REPO_ROOT = path.resolve(__dirname, '../..');
 const DIST = path.join(REPO_ROOT, 'dist');
+const JOBS_PATH = path.join(REPO_ROOT, 'data', 'jobs.json');
+
+// The union of what the two behavioural cases below read off a job.
+interface Job {
+  canton?: string;
+  location?: string;
+  slug?: string;
+  slugByLocale?: Record<string, string>;
+  previousSlugs?: string[];
+  previousSlugsByLocale?: Record<string, string[]>;
+}
+
+// Read once, not once per `it()` — see tests/helpers/jobsDataset.ts. This file
+// is the sibling of cathedral-job-detail-canton.test.ts, where the same
+// per-case re-parse is what timed out gate:seo-source (issue #5447).
+const readJobs = () => readJobsDataset<Job>(JOBS_PATH);
 
 describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
   // ── Structural guard: makeKey() is canton-aware ───────────────────────
@@ -112,16 +129,8 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
   //    canton-aware canonical so Google consolidates link equity. ──
   it('non-TI canton bridges (incl. legacy TI emit) canonicalize to the canton-aware URL', () => {
     if (!fs.existsSync(DIST)) return; // offline-skip
-    const jobsPath = path.join(REPO_ROOT, 'data', 'jobs.json');
-    if (!fs.existsSync(jobsPath)) return;
-    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf8')) as Array<{
-      canton?: string;
-      location?: string;
-      slug?: string;
-      slugByLocale?: Record<string, string>;
-      previousSlugs?: string[];
-      previousSlugsByLocale?: Record<string, string[]>;
-    }>;
+    const jobs = readJobs();
+    if (!jobs) return;
     // Find a few non-TI jobs that have previousSlugs.
     const samples = jobs
       .filter((j) => j.canton && j.canton !== 'TI')
@@ -183,15 +192,8 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
   //    pre-cathedral indexed URL falls through to the noindex tombstone. ──
   it('non-TI jobs with previousSlugsByLocale emit a bridge at the legacy TI section', () => {
     if (!fs.existsSync(DIST)) return; // offline-skip
-    const jobsPath = path.join(REPO_ROOT, 'data', 'jobs.json');
-    if (!fs.existsSync(jobsPath)) return;
-    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf8')) as Array<{
-      canton?: string;
-      location?: string;
-      slug?: string;
-      slugByLocale?: Record<string, string>;
-      previousSlugsByLocale?: Record<string, string[]>;
-    }>;
+    const jobs = readJobs();
+    if (!jobs) return;
     const LEGACY_TI_SECTION: Record<string, string> = {
       it: 'cerca-lavoro-ticino',
       en: 'en/find-jobs-ticino',
