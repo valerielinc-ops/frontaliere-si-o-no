@@ -9678,6 +9678,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-etroubles-lavorare-vallese.title': 'Living in Etroubles and working in Valais as a border worker',
     'blog.article.vivere-etroubles-lavorare-vallese.excerpt': 'Practical guide for border workers: taxation, new agreement, insurance obligations and management of cross-border work between Italy and Valais.',
     'blog.article.vivere-etroubles-lavorare-vallese.imageAlt': 'Alpine landscape at the border between Italy and Switzerland',
+    'blog.article.vivere-la-thuile-lavorare-vallese.title': 'Living in La Thuile and working in Valais as a border worker',
+    'blog.article.vivere-la-thuile-lavorare-vallese.excerpt': 'Setting the source on income from work: withheld only in Switzerland for border workers',
+    'blog.article.vivere-la-thuile-lavorare-vallese.imageAlt': 'Image of a commuter crossing the border between La Thuile and Valais',
 };
 
 export default blogMetaEn;

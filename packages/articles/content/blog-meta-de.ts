@@ -9677,6 +9677,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-etroubles-lavorare-vallese.title': 'Wohnen in Etroubles und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-etroubles-lavorare-vallese.excerpt': 'Praktischer Leitfaden für Grenzgänger: Besteuerung, neues Abkommen, Versicherungspflichten und grenzüberschreitendes Arbeitsmanagement zwischen Italien und dem Wallis.',
     'blog.article.vivere-etroubles-lavorare-vallese.imageAlt': 'Alpenlandschaft an der Grenze zwischen Italien und der Schweiz',
+    'blog.article.vivere-la-thuile-lavorare-vallese.title': 'Wohnen in La Thuile und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-la-thuile-lavorare-vallese.excerpt': 'Quellensteuerung auf Erwerbseinkommen: Einbehaltung nur in der Schweiz für Grenzgänger',
+    'blog.article.vivere-la-thuile-lavorare-vallese.imageAlt': 'Bild eines Pendlers, der die Grenze zwischen La Thuile und Valais überquert',
 };
 
 export default blogMetaDe;
