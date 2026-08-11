@@ -9699,6 +9699,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontier in Valais: rules and taxation',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Operational guidance on the new tax agreement, income management and social security obligations for frontier workers in Switzerland.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Alpine mountain landscape with village',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Living in Courmayeur and working in Valais as a border worker',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Tax setting and permits for border workers living in Courmayeur and working in Valais',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'A view of Courmayeur, an Italian city located on the border with Switzerland',
 };
 
 export default blogMetaEn;

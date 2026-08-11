@@ -29091,6 +29091,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'courmayeur-lavora-vallese-frontaliere',
+ category: 'pratico',
+ date: '2026-08-11T13:20:31.436Z',
+ image: '/images/blog/courmayeur-lavora-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
