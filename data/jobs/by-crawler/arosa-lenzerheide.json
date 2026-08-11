@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-08-11T10:10:53.448Z",
+  "assembledAt": "2026-08-11T22:16:43.338Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-5dd3ea37c01b",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0042/pub/27/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:10:50.915Z",
+      "crawledAt": "2026-08-11T22:16:40.121Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:10:50.262Z",
+      "crawledAt": "2026-08-11T22:16:39.491Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:10:49.387Z",
+      "crawledAt": "2026-08-11T22:16:38.761Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:10:47.863Z",
+      "crawledAt": "2026-08-11T22:16:38.086Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -405,7 +405,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "arosa-lenzerheide-bfdf2f6e660b",
@@ -422,7 +422,7 @@
       "title": "Sales Manager international",
       "titleByLocale": {
         "it": "Responsabile vendite International",
-        "en": "International Sales Manager",
+        "en": "Sales Manager international",
         "de": "Sales Manager international",
         "fr": "Directeur des ventes International"
       },
@@ -482,7 +482,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
