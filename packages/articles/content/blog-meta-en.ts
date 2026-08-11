@@ -9702,6 +9702,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Living in Courmayeur and working in Valais as a border worker',
     'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Tax setting and permits for border workers living in Courmayeur and working in Valais',
     'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'A view of Courmayeur, an Italian city located on the border with Switzerland',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Living in Gignod and working in Valais as a border worker',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analysis of tax and operational constraints for cross-border commuting between Italy and Switzerland according to current agreements.',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Swiss alpine landscape near the border',
 };
 
 export default blogMetaEn;

@@ -9704,6 +9704,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Vivre à Courmayeur et travailler en Valais comme frontalier',
     'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Réglage fiscal et permis pour les frontaliers qui vivent à Courmayeur et travaillent en Valais',
     'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Une vue de Courmayeur, une ville italienne située sur la frontière avec la Suisse',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Vivre à Gignod et travailler en Valais comme frontalier',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse des contraintes fiscales et opérationnelles pour les déplacements transfrontaliers entre l\'Italie et la Suisse conformément aux accords en vigueur.',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Paysage alpin suisse près de la frontière',
 };
 
 export default blogMetaFr;

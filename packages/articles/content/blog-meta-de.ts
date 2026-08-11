@@ -9701,6 +9701,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Wohnen in Courmayeur und Arbeiten im Wallis als Grenzgänger',
     'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Besteuerung und Genehmigungen für Grenzgänger, die in Courmayeur leben und im Wallis arbeiten',
     'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Ein Blick auf Courmayeur, eine italienische Stadt am Grenzgebiet zu der Schweiz',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Wohnen in Gignod und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse der steuerlichen und betrieblichen Zwänge für den grenzüberschreitenden Pendelverkehr zwischen Italien und der Schweiz gemäß den geltenden Vereinbarungen.',
+    'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Schweizer Alpenlandschaft nahe der Grenze',
 };
 
 export default blogMetaDe;
