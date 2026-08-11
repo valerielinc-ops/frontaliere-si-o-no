@@ -6688,6 +6688,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario',
+    category: 'pratico',
+    date: '2026-08-11T21:52:06.808Z',
+    image: '/images/blog/comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'affitti-zurigo-canoni-medi-e-diritto-di-locazione',
+    category: 'novita',
+    date: '2026-08-11T22:09:21.494Z',
+    image: '/images/blog/affitti-zurigo-canoni-medi-e-diritto-di-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

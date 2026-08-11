@@ -9743,6 +9743,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-2026.title': 'Telearbeit für Grenzgänger: Was sie wissen müssen und wie man damit umgeht',
     'blog.article.telelavoro-frontalieri-2026.excerpt': 'Telearbeit für Grenzgänger: neue Regeln und Verfahren, die befolgt werden müssen, um Steuer- und Sozialversicherungsprobleme zu vermeiden.',
     'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Bild eines Grenzgängers, der in der Schweiz arbeitet, aber in Italien wohnt, mit einem Computer und einer Maschine für Fernarbeit.',
+    'blog.article.telelavoro-frontalieri.title': 'Telearbeit für Grenzgänger: Was sich ändert und was zu tun ist',
+    'blog.article.telelavoro-frontalieri.excerpt': 'Das neue Grenzabkommen 2024 führt neue Regeln für die Telearbeit ein. Finden Sie heraus, was sich ändert und wie es funktioniert',
+    'blog.article.telelavoro-frontalieri.imageAlt': 'Die Fernarbeit ist eine Chance für Grenzgänger',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.title': 'Eine Motion für einen kantonalen Fonds für nachhaltige Mobilität',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.excerpt': 'Eine Gruppe von Abgeordneten hat eine Motion zur Einrichtung eines kantonalen Fonds für nachhaltige Mobilität eingereicht.',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.imageAlt': 'Ein neuer kantonalen Fonds für nachhaltige Mobilität in Tessin.',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.title': 'Regeln für grenzüberschreitende Arbeitskräfte, die remote arbeiten: 25/45 Tage',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.excerpt': 'Die neuen Regeln für grenzüberschreitende Pendler, die in der Schweiz remote arbeiten',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.imageAlt': 'Regeln für Remote-Arbeiter aus Italien nach der Schweiz',
 };
 
 export default blogMetaDe;

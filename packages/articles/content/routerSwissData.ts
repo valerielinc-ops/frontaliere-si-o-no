@@ -769,6 +769,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'viaggi-e-consumi-senza-rinunce': { it: 'viaggi-e-consumi-senza-rinunce', en: 'travel-and-consumption-without-compromise', de: 'reisen-und-verbrauch-ohne-kompromisse', fr: 'voyages-et-consommation-sans-compromis' },
  'on-trimestre-record': { it: 'on-trimestre-record', en: 'on-record-quarter', de: 'on-rekordquartal', fr: 'on-trimestre-record' },
  'asilo-nido-e-custodia-bambini-canton-zurigo-costi': { it: 'asilo-nido-e-custodia-bambini-canton-zurigo-costi', en: 'daycare-center-and-childcare-canton-zurich-costs', de: 'kindertagesstatte-und-kindbetreuung-kanton-zurich-kosten', fr: 'etablissement-d-accueil-pour-enfants-et-accueil-de-jeunes-a-canton-zurich' },
+ 'comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario': { it: 'comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario', en: 'buy-house-canton-zurich-prices-and-mortgage', de: 'kaufen-haus-kanton-zuerich-preise-und-hypothek', fr: 'acheter-maison-canton-de-zurich-prix-et-hypotheque' },
+ 'affitti-zurigo-canoni-medi-e-diritto-di-locazione': { it: 'affitti-zurigo-canoni-medi-e-diritto-di-locazione', en: 'zurich-rent-prices-and-tenant-rights', de: 'zuerich-mietpreise-und-mieterrechte', fr: 'prix-de-location-a-zurich-et-droits-des-locataires' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

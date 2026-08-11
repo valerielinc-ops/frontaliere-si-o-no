@@ -29226,6 +29226,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'telelavoro-frontalieri',
+ category: 'pratico',
+ date: '2026-08-11T21:42:43.254Z',
+ image: '/images/blog/telelavoro-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'fondo-cantonale-mobilita-sostenibile',
+ category: 'pratico',
+ date: '2026-08-11T21:56:58.241Z',
+ image: '/images/blog/fondo-cantonale-mobilita-sostenibile.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'telelavoro-frontalieri-2026-regole-25-45-giorni',
+ category: 'pratico',
+ date: '2026-08-11T22:20:53.681Z',
+ image: '/images/blog/telelavoro-frontalieri-2026-regole-25-45-giorni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

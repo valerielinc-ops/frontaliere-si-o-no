@@ -2230,6 +2230,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Zürich: Kosten',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.excerpt': 'Gemessen am Familieneinkommen sind die Kosten für Kindertagesstätte und Kinderbetreuung im Kanton Zürich ein komplexes Thema.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.imageAlt': 'Kindertagesstätte in Kanton Zürich',
+    'blog.article.comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario.title': 'Haus im Kanton Zürich: Preise und Kosten',
+    'blog.article.comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario.excerpt': 'Die durchschnittlichen Hauspreise im Kanton Zürich, die für den Hauskauf benötigten Eigenmittel und die Tragbarkeit des Hypothekendarlehens.',
+    'blog.article.comprare-casa-canton-zurigo-prezzi-e-mutuo-ipotecario.imageAlt': 'Redaktionelles Bild zu: Casa nel Canton Zurigo: prezzi e costi',
+    'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.title': 'Mietmarkt im Kanton Zürich: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.excerpt': 'Die durchschnittlichen Mieten im Kanton Zürich gehören zu den höchsten in der Schweiz. Hier erfahren Sie, was Sie über die Rechte von Mietern und Vermietern wissen müssen.',
+    'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.imageAlt': 'Ein Foto eines Apartments in der Miete in Zürich mit einem Mietpreis von etwa CHF 2,500-3,000 pro Monat.',
 };
 
 export default blogMetaChDe;
