@@ -1,5 +1,46 @@
 [
   {
+    "slug": "ingegnere-della-sicurezza-ram-stadler-rail-wallisellen",
+    "title": "RAM Safety Engineer",
+    "titleByLocale": {
+      "it": "Ingegnere della Sicurezza RAM",
+      "en": "RAM Safety Engineer",
+      "de": "RAM-Sicherheitsingenieur",
+      "fr": "Ingénieur de sécurité RAM"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Wallisellen",
+    "addressLocality": "Wallisellen",
+    "descriptionByLocale": {
+      "it": "PROFILO\n• Laurea in ingegneria (BSc, MSc) o background simile\n• Esperienza nell'applicazione di standard di sicurezza funzionale (ad esempio EN50126, EN50716, EN50129 o simili)\n• Esperienza nell'area della segnalazione ferroviaria è un vantaggio\n• Personalità aperta, comunicativa e flessibile con uno stile di lavoro indipendente e orientato agli obiettivi\n• Alta motivazione a familiarizzare con nuove tecnologie, processi di sviluppo e strumenti\n• Fluente in inglese, Il tedesco è un vantaggio COMPITI\n• Gestione delle attività RAMS per CBTC o altri sistemi di segnalazione\n• Creazione di documentazione di sicurezza (ad esempio Piano di Sicurezza, Analisi dei Rischi, Registro dei Pericoli e Caso di Sicurezza)\n• Validazione della sicurezza dei requisiti\n• Assistenza nella preparazione dei documenti di approvazione e nella loro revisione per la forma e la completezza\n• Assistenza nell'approvazione dei sistemi CBTC/ATO/CWS da parte delle autorità regolatorie e degli assessori\n• Altre attività RAMS / Gestione della sicurezza della Divisione Segnalazione",
+      "en": "PROFILE\n\n• Engineering degree (BSc, MSc) or similar background\n\n• Experience in the application of functional safety standards (e.g. EN50126, EN50716, EN50129 or similar)\n\n• Experience in the railway signaling area is an advantage\n\n• Open, communicative and flexible personality with an independent and goal-oriented working style\n\n• High motivation to become familiar with new technologies, development processes and tools\n\n• Fluent in English, German is an advantage\n\nTASKS\n\n• Management of RAMS activities for CBTC or other signaling systems\n\n• Creation of safety documentation (e.g. Safety Plan, Risk Analysis, Hazard Log & Safety Case)\n\n• Safety validation of requirements\n\n• Assistance with the preparation of approval documents and their review for form and completeness\n\n• Assistance with approval of CBTC/ATO/CWS systems by the regulatory authorities and assessors\n\n• Other RAMS / Safety management activities of the Division Signalling",
+      "de": "PROFIL\n• Ingenieurabschluss (BSc, MSc) oder ähnlicher Hintergrund\n• Erfahrung in der Anwendung funktionaler Sicherheitsstandards (z. B. EN50126, EN50716, EN50129 oder ähnliches)\n• Erfahrung im Bereich der Eisenbahnsignalisierung ist ein Vorteil\n• Offene, kommunikative und flexible Persönlichkeit mit einem unabhängigen und zielorientierten Arbeitsstil\n• Hohe Motivation, sich mit neuen Technologien, Entwicklungsprozessen und Werkzeugen vertraut zu machen\n• Fließend Englisch, Deutsch ist ein Vorteil AUFGABEN\n• Verwaltung der RAMS-Aktivitäten für CBTC oder andere Signalisierungssysteme\n• Erstellung von Sicherheitsdokumentationen (z. B. Sicherheitsplan, Risikoanalyse, Gefahrenprotokoll & Sicherheitsfall)\n• Sicherheitsvalidierung von Anforderungen\n• Unterstützung bei der Erstellung von Genehmigungsdokumenten und deren Überprüfung auf Form und Vollständigkeit\n• Unterstützung bei der Zulassung von CBTC/ATO/CWS-Systemen durch die Regulierungsbehörden und Gutachter\n• Weitere RAMS-/Sicherheitsmanagementaktivitäten der Abteilung Signaltechnik",
+      "fr": "• Expérience dans l'application de normes de sécurité fonctionnelles (par exemple EN50126, EN50716, EN50129 ou similaire)\n• L'expérience dans la zone de signalisation ferroviaire est un avantage\n• Une personnalité ouverte, communicative et flexible avec un style de travail indépendant et orienté vers l'objectif\n• Une motivation élevée pour se familiariser avec les nouvelles technologies, les processus de développement et les outils\n• Fluent en anglais, l'allemand est un avantage TASKS\n• Gestion des activités RAMS pour CBTC ou d'autres systèmes de signalisation\n• Création de documents de sécurité (par exemple plan de sécurité, analyse des risques, journal des risques et cas de sécurité)\n• Validation des exigences en matière de sécurité\n• Aide à la préparation des documents d'approbation et à leur examen pour la forme et l'exhaustivité\n• Assistance à l'approbation des systèmes CBTC/ATO/CCWS par les autorités réglementaires et les évaluateurs\n• Autres activités RAMS / Gestion de la sécurité de la Division Signalisation"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-della-sicurezza-ram-stadler-rail-wallisellen",
+      "en": "ram-safety-engineer-stadler-rail-ch",
+      "de": "ram-sicherheitsingenieur-stadler-rail-wallisellen",
+      "fr": "ingenieur-de-securite-ram-stadler-rail-wallisellen"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-08-11T09:38:38.267Z",
+    "previousSlugs": [
+      "ram-safety-engineer-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "ram-safety-engineer-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8304",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "projektleiter-garantie-e-nacharbeit-stadler-rail-frauenfeld",
     "title": "Projektleiter Garantie und Nacharbeit",
     "titleByLocale": {
