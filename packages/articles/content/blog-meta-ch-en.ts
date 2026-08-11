@@ -2140,6 +2140,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell: \'It was the best first semester in company history\'',
     'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'The Swiss meat processing giant closed the first half of the year with a substantially stable turnover and growing profits.',
     'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, Swiss companies, national economy',
+    'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutrality: Federal Council denies constitutional tightening',
+    'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'The federal government is calling for the neutrality initiative to be rejected, warning that a rigid definition would limit Switzerland\'s room for manoeuvre.',
+    'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
 };
 
 export default blogMetaChEn;

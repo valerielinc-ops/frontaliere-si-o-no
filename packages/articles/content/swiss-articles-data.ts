@@ -6418,6 +6418,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'consiglio-federale-iniziativa-neutralita',
+    category: 'novita',
+    date: '2026-08-11T08:25:30.285Z',
+    image: '/images/blog/consiglio-federale-iniziativa-neutralita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

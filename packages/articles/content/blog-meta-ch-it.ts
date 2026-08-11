@@ -2140,6 +2140,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell: \'È stato il miglior primo semestre dalla storia aziendale\'',
     'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'Il colosso svizzero della lavorazione della carne ha chiuso il primo semestre con un fatturato sostanzialmente stabile e profitti in crescita.',
     'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, aziende svizzere, economia nazionale',
+    'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutralità: il Consiglio federale nega la stretta costituzionale',
+    'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'Il governo federale invita a respingere l\'iniziativa sulla neutralità, avvertendo che una definizione rigida limiterebbe il margine di manovra della Svizzera.',
+    'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Palazzo Federale a Berna, sede del governo svizzero',
 };
 
 export default blogMetaChIt;

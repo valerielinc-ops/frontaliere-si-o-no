@@ -9653,6 +9653,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Déménager à Vervio en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Faits et chiffres sur la vie des frontaliers au Tessin. Quels sont les avantages et les inconvénients de déménager à Vervio ?',
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliers Ticino en voyage du travail en Suisse en Italie, avec un lac en arrière-plan.',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.title': 'Déménager à Castello Dell\' Acqua en tant que frontalier : pour et contre',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.excerpt': 'La convention entre l\'Italie et la Suisse prévoit de nouvelles règles pour les frontaliers qui souhaitent s\'installer à Castello Dell\' Acqua pour y travailler',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalière travaille à Castello Dell\'Acqua, avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
