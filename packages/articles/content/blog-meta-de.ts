@@ -9719,6 +9719,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols bankrott: Luxuskette in Gefahr',
     'blog.article.harvey-nichols-bancarotta.excerpt': 'Die Kaufhauskette Harvey Nichols könnte innerhalb eines Jahres bankrott gehen, wenn sie keine neuen Investoren findet.',
     'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols in der Insolvenz',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Umzug nach La Salle als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Festlegung der Quellensteuer für Grenzgänger: Einbehaltung in der Schweiz und Steuergutschrift in Italien.',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier in Lugano, der darüber nachdenkt, sich nach La Salle zu verlagern.',
 };
 
 export default blogMetaDe;
