@@ -1,24 +1,23 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-08-11T10:22:37.582Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-08-11T22:15:03.779Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6978,
-  "avgDurationMs": 6978,
+  "durationMs": 7914,
+  "avgDurationMs": 7914,
   "durationHistory": [
-    6978
+    7914
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus deutsche Kunden",
-      "slug": "berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-deutsche-kunden-colin-cie-zurich",
-      "url": "https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024",
-      "applyUrl": "https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024",
+      "title": "Mitarbeiter (m/w/d) im Business Management am Standort Zürich (60-80%)",
+      "slug": "mitarbeiter-m-w-d-im-business-management-am-standort-zurich-60-80-colin-cie-zurich",
+      "url": "https://www.colin-cie.com/de/karriere/mitarbeiter-business-management-08-2026",
+      "applyUrl": "https://www.colin-cie.com/de/karriere/mitarbeiter-business-management-08-2026",
       "company": "Colin&Cie Wealth Management",
       "companyKey": "colin-cie",
       "companyDomain": "colin-cie.com",
@@ -28,30 +27,24 @@
       "addressCountry": "CH",
       "canton": "ZH",
       "country": "CH",
-      "category": "consulting",
+      "category": "business",
       "sector": "Finanza / Wealth Management",
       "source": "colin-cie-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-10",
+      "postedDate": "2026-08-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 77500,
-      "salaryMax": 104500,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "8001",
-      "id": "colin-cie-e1022f4d588f",
-      "firstSeenAt": "2026-04-13T21:24:59.848Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
+        "translation": 4,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus Schweizer Kunden",
       "slug": "berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-schweizer-kunden-colin-cie-zurich",
@@ -81,6 +74,7 @@
       "postalCode": "8001",
       "id": "colin-cie-fb2e46c97d69",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,6 +112,7 @@
       "postalCode": "8200",
       "id": "colin-cie-adcd3df17efa",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -155,7 +150,6 @@
       "postalCode": "6900",
       "id": "colin-cie-39bced82bc8b",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -230,11 +224,11 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
-      "_qualityScore": 89,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -267,11 +261,11 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
-      "_qualityScore": 89,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -341,13 +335,50 @@
       "postalCode": "6900",
       "id": "colin-cie-5ba65fe9e9a3",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus deutsche Kunden",
+      "slug": "berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-deutsche-kunden-colin-cie-zurich",
+      "url": "https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024",
+      "applyUrl": "https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024",
+      "company": "Colin&Cie Wealth Management",
+      "companyKey": "colin-cie",
+      "companyDomain": "colin-cie.com",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Finanza / Wealth Management",
+      "source": "colin-cie-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 77500,
+      "salaryMax": 104500,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "8001",
+      "id": "colin-cie-e1022f4d588f",
+      "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
