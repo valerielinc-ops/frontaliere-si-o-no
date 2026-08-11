@@ -83,7 +83,7 @@ describe('classifySunset', () => {
     // can ever increment open_count again without a re-probe first re-admitting
     // the subscriber to a mailable status and triggering a real send) — this
     // engagement is evidence the system itself was able to produce.
-    const doc = { status: 'inactive', reprobed_at: daysAgo(1), reprobe_count: 1, open_count: 1 };
+    const doc = { status: 'inactive', sunset_reprobed_at: daysAgo(1), sunset_reprobe_count: 1, open_count: 1 };
     expect(classifySunset(doc, NOW).action).toBe('reactivate');
   });
 
@@ -108,10 +108,22 @@ describe('classifySunset', () => {
         status: 'inactive',
         open_count: 0,
         click_count: 0,
-        reprobe_count: REPROBE_MAX_ATTEMPTS,
-        reprobed_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 30),
+        sunset_reprobe_count: REPROBE_MAX_ATTEMPTS,
+        sunset_reprobed_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 30),
       };
       expect(classifySunset(alreadyTried, NOW).action).toBe('none');
+    });
+
+    it('ignores suppression-decay\'s unrelated reprobe_count field — a subscriber that exhausted THAT mechanism\'s budget must still be eligible here (field-namespace collision, PR #5573 review)', () => {
+      const exhaustedElsewhere = {
+        status: 'inactive',
+        open_count: 0,
+        click_count: 0,
+        inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 1),
+        reprobe_count: 99, // scripts/suppression-decay.mjs's own counter, unrelated mechanism
+        reprobed_at: daysAgo(1), // ditto
+      };
+      expect(classifySunset(exhaustedElsewhere, NOW).action).toBe('reprobe');
     });
 
     it('also grants a re-probe to a dormant_winback-sunset doc with no fresh-engagement proof (the tighter-sealed branch)', () => {

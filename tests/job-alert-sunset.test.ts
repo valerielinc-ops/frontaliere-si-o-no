@@ -68,7 +68,7 @@ describe('classifyJobAlertSunset', () => {
     // newsletter case, per the issue — there isn't even an accidental exit),
     // so open_count can only move again after a re-probe re-admits the
     // subscriber to a mailable status and a real send goes out.
-    const reengaged = zombie({ status: 'inactive', reprobed_at: daysAgo(1), reprobe_count: 1, open_count: 1 });
+    const reengaged = zombie({ status: 'inactive', sunset_reprobed_at: daysAgo(1), sunset_reprobe_count: 1, open_count: 1 });
     expect(classifyJobAlertSunset(reengaged, NOW).action).toBe('reactivate');
   });
 
@@ -91,10 +91,20 @@ describe('classifyJobAlertSunset', () => {
     it('never re-probes twice — a second silent round after an exhausted attempt stays inactive for good (no ping-pong)', () => {
       const alreadyTried = zombie({
         status: 'inactive',
-        reprobe_count: REPROBE_MAX_ATTEMPTS,
-        reprobed_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 30),
+        sunset_reprobe_count: REPROBE_MAX_ATTEMPTS,
+        sunset_reprobed_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 30),
       });
       expect(classifyJobAlertSunset(alreadyTried, NOW).action).toBe('none');
+    });
+
+    it('ignores suppression-decay\'s unrelated reprobe_count field — a subscriber that exhausted THAT mechanism\'s budget must still be eligible here (field-namespace collision, PR #5573 review)', () => {
+      const exhaustedElsewhere = zombie({
+        status: 'inactive',
+        inactive_at: daysAgo(REPROBE_AFTER_INACTIVE_DAYS + 1),
+        reprobe_count: 99, // scripts/suppression-decay.mjs's own counter, unrelated mechanism
+        reprobed_at: daysAgo(1), // ditto
+      });
+      expect(classifyJobAlertSunset(exhaustedElsewhere, NOW).action).toBe('reprobe');
     });
   });
 

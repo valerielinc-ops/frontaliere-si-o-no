@@ -23,9 +23,14 @@ export const REPROBE_MAX_ATTEMPTS = 1;
 
 /**
  * @param {object} p
- * @param {number} p.attempts prior reprobe attempts already made (reprobe_count)
- * @param {number|null} p.anchorMs ms to measure silence from — reprobed_at if a
- *   prior attempt exists, else inactive_at
+ * @param {number} p.attempts prior reprobe attempts already made
+ *   (sunset_reprobe_count — deliberately namespaced apart from
+ *   suppressionDecay.mjs's own unrelated `reprobe_count` field, which lives
+ *   on the same two collections for a different bounced/suppressed → active
+ *   recovery mechanism with its own independent cap; sharing the bare name
+ *   would let one mechanism's counter silently exhaust the other's budget)
+ * @param {number|null} p.anchorMs ms to measure silence from — sunset_reprobed_at
+ *   if a prior attempt exists, else inactive_at
  * @param {number} p.nowMs
  * @returns {boolean} true when a fresh reprobe attempt is due now
  */

@@ -80,8 +80,16 @@ function firstSeenMillis(sub) {
  * @returns {SunsetVerdict}
  */
 function reprobeOrNone(sub, nowMs, noneReason) {
-  const attempts = num(sub?.reprobe_count ?? sub?.reprobeCount);
-  const anchorMs = toMillis(sub?.reprobed_at ?? sub?.reprobedAt) ?? toMillis(sub?.inactive_at);
+  // sunset_reprobe_count / sunset_reprobed_at are deliberately their own field
+  // names, NOT the bare reprobe_count/reprobed_at that
+  // scripts/lib/suppressionDecay.mjs already owns on this same collection for
+  // its unrelated bounced/suppressed → active recovery mechanism (its own cap,
+  // MAX_REPROBE_ATTEMPTS=2). Reading the shared name would let a subscriber
+  // who exhausted suppression-decay's budget inherit a stale count here and
+  // never qualify for this PR's reprobe — reproducing the exact unreachable-
+  // exit defect issue #5559 fixes, just via the suppression-decay path.
+  const attempts = num(sub?.sunset_reprobe_count ?? sub?.sunsetReprobeCount);
+  const anchorMs = toMillis(sub?.sunset_reprobed_at ?? sub?.sunsetReprobedAt) ?? toMillis(sub?.inactive_at);
   if (isReprobeDue({ attempts, anchorMs, nowMs })) {
     return {
       action: 'reprobe',

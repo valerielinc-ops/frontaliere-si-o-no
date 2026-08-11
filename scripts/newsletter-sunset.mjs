@@ -163,13 +163,17 @@ async function main() {
   //     been inactive too long for `reactivate`'s engagement evidence to ever
   //     arrive (#5559). Distinct field from reactivated_at/reactivate so this
   //     doesn't get counted as a proven re-engagement — it's a chance, not a
-  //     confirmation. reprobe_count caps it at REPROBE_MAX_ATTEMPTS forever.
+  //     confirmation. sunset_reprobe_count caps it at REPROBE_MAX_ATTEMPTS
+  //     forever. Deliberately NOT the bare reprobe_count/reprobed_at names —
+  //     scripts/suppression-decay.mjs already owns those on this same
+  //     collection for its own unrelated recovery mechanism; sharing the name
+  //     would let one mechanism's counter exhaust the other's budget.
   if (reprobe.length) {
     await commitInChunks(db, reprobe, (batch, it) => {
       batch.set(it.ref, {
         status: 'active',
-        reprobed_at: FieldValue.serverTimestamp(),
-        reprobe_count: FieldValue.increment(1),
+        sunset_reprobed_at: FieldValue.serverTimestamp(),
+        sunset_reprobe_count: FieldValue.increment(1),
         winback_sent_at: FieldValue.delete(),
         winback_pending: FieldValue.delete(),
         sunset_source: FieldValue.delete(),
