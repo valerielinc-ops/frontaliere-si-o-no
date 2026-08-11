@@ -2176,6 +2176,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-ees-rallenta-controlli.title': 'EES slows down checks with waits of up to two hours at European airports',
     'blog.article.svizzera-ees-rallenta-controlli.excerpt': 'Qsensor and Financial Times data, summer peaks up to 120 minutes in Frankfurt and Amsterdam; eight countries and Switzerland ask for extensions.',
     'blog.article.svizzera-ees-rallenta-controlli.imageAlt': 'EES slows down airport controls in Switzerland.',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.title': 'The school system of the Canton of Zurich: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.excerpt': 'Here are the cycles and enrolment ages for compulsory schooling in the Canton of Zurich.',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.imageAlt': 'The compulsory school in the Canton of Zurich',
 };
 
 export default blogMetaChEn;

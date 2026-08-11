@@ -2176,6 +2176,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-ees-rallenta-controlli.title': 'EES rallenta i controlli con attese fino a due ore negli aeroporti europei',
     'blog.article.svizzera-ees-rallenta-controlli.excerpt': 'Dati Qsensor e Financial Times, picchi estivi fino a 120 minuti a Francoforte e Amsterdam; otto Paesi e la Svizzera chiedono proroghe.',
     'blog.article.svizzera-ees-rallenta-controlli.imageAlt': 'L\'EES rallenta i controlli aeroportuali in Svizzera.',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.title': 'Il sistema scolastico del Canton Zurigo: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.excerpt': 'Ecco i cicli e le età di iscrizione per la scuola dell\'obbligo nel Canton Zurigo.',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.imageAlt': 'La scuola dell\'obbligo nel Canton Zurigo',
 };
 
 export default blogMetaChIt;
