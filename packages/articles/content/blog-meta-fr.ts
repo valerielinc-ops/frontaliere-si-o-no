@@ -9597,6 +9597,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Vivre à Tirano et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Nouvel accord frontalier 2024 : ce qui change pour les frontaliers tessinois travaillant dans les Grisons',
     'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Image d\'une route de montagne en Suisse',
+    'blog.article.trasferirsi-villa-chiavenna-frontaliere.title': 'Se déplacer à Villa di Chiavenna en tant que frontalier : guide utile',
+    'blog.article.trasferirsi-villa-chiavenna-frontaliere.excerpt': 'Analyse des avantages et des considérations fiscales pour ceux qui vivent à Villa di Chiavenna et travaillent en Suisse dans le cadre du nouvel accord fiscal.',
+    'blog.article.trasferirsi-villa-chiavenna-frontaliere.imageAlt': 'Vue panoramique d\'une route de montagne près de la frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;
