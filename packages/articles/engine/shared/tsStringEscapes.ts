@@ -153,5 +153,12 @@ export function decodeTsStringEscapes(
  * JSON string" failure this change exists to remove.
  */
 export function repairLegacyDoubleEscapedBreaks(value: string): string {
-  return value.replace(/\\n/g, '\n');
+  // `\\+` and not `\\`: a source value escaped one level too many (four
+  // backslashes then `n`, decoding to two literal backslashes then `n`) would
+  // otherwise have only its LAST backslash consumed, leaving a stray one
+  // behind — the exact residue this function exists to remove. No such value
+  // exists in the corpus at a08f37e8 (measured: zero), so this changes no
+  // published byte today; it makes the repair total instead of leaving the
+  // next writer bug half-cleaned.
+  return value.replace(/\\+n/g, '\n');
 }

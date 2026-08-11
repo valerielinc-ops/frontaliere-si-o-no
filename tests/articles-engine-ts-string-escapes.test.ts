@@ -186,6 +186,17 @@ describe('repairLegacyDoubleEscapedBreaks', () => {
     expect(repairLegacyDoubleEscapedBreaks(String.raw`## In breve\nZurich ha`)).not.toContain('\\');
   });
 
+  it('leaves no stray backslash when the source was escaped one level too many', () => {
+    // Adversarial case raised in review on #5602. Source `\\\\n` decodes to two
+    // literal backslashes followed by n; a `/\\n/` repair would consume only the
+    // last one and leave a stray backslash next to the new line break.
+    const decoded = decodeTsStringEscapes(String.raw`fine.\\\\nInizio`);
+    expect(decoded).toBe(String.raw`fine.\\nInizio`);
+    const repaired = repairLegacyDoubleEscapedBreaks(decoded);
+    expect(repaired).toBe('fine.\nInizio');
+    expect(repaired).not.toContain('\\');
+  });
+
   it('leaves text that has no literal backslash-n alone', () => {
     expect(repairLegacyDoubleEscapedBreaks('already\nbroken into lines')).toBe(
       'already\nbroken into lines',
