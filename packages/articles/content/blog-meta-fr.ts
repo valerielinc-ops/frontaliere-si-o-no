@@ -9606,6 +9606,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Vivre à Chiavenna et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'Nouvel accord frontalier : ce qui change pour les frontaliers tessinois et grison.',
     'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Frontalier s\'approchant d\'un poste frontalière',
+    'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Déménager à Valdidentro en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analyse de la vie et du travail à Valdidentro pour les frontaliers dans les Grisons : taxes, franchises et aspects pratiques du nouvel accord fiscal.',
+    'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Vue panoramique d\'une vallée alpine près de la frontière suisse',
 };
 
 export default blogMetaFr;

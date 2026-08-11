@@ -9605,6 +9605,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Vivere a Chiavenna e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'Nuovo Accordo Frontalieri: cosa cambia per i frontalieri ticinesi e grigionesi.',
     'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Pendolare frontaliero che si avvicina a un valico di confine',
+    'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Trasferirsi a Valdidentro da frontaliere: pro e contro',
+    'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analisi su vita e lavoro a Valdidentro per frontalieri in Grigioni: imposte, franchigie e aspetti pratici del nuovo accordo fiscale.',
+    'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Veduta panoramica di una valle alpina vicino al confine svizzero',
 };
 
 export default blogMetaIt;
