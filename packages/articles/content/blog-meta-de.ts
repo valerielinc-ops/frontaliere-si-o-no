@@ -9647,6 +9647,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tredicesima-avs-frontalieri-dettagli.title': '13. AHV für Grenzgänger: So geht\'s',
     'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'Im Dezember steigt die AHV-Rente: Das sind die Regeln für Grenzgänger nach der Abstimmung vom 3. März 2024 und die Entscheide vom 12. November 2025.',
     'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Panoramablick auf Lugano und den See',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Umzug nach Vervio als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Zahlen und Fakten zum Leben der Grenzgänger im Tessin. Wie viele Vor- und Nachteile hat ein Umzug nach Vervio?',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri Ticino unterwegs von der Arbeit in der Schweiz nach Italien, mit einem See im Hintergrund.',
 };
 
 export default blogMetaDe;
