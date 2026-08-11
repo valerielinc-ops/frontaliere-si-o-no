@@ -2200,6 +2200,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-danni-agricoltura-svizzera.title': 'Dürre, Schäden an der Landwirtschaft in Höhe von 19 Millionen Franken',
     'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel meldet Schäden von mindestens 19 Millionen Franken. Befallen Sie Sommerkulturen wie Mais, Kartoffeln, Rüben und Sonnenblumen.',
     'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Von Dürre betroffene Maisfelder in der Schweiz',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM bestreitet Schweizerkreuz auf ausländische Produkte',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'Die neue Praxis ermöglicht es, das Schweizer Kreuz auch auf im Ausland hergestellten Produkten anzubringen. Das Bsv bestreitet dies.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'Die Schweizer Kruze auf einem importierten Produkt',
 };
 
 export default blogMetaChDe;
