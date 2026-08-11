@@ -18,6 +18,7 @@ import {
   detectJobTitleLocaleDetails,
   detectTextLocale,
   pinnedTitleSourceLang,
+  titleLooksUntranslated,
   titleLooksUntranslatedFromSource,
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
@@ -1429,6 +1430,25 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // Fallback: if title is still empty or too short (< 3 chars) after all hardening,
       // copy source title as placeholder. Covers jobs never translated or where a bad
       // 1-char artifact (e.g. '_') was stored. The translate pipeline will retranslate.
+      //
+      // S2 — why this wrong-language write is still here (2026-08-10).
+      // It contradicts FRO-263 below (:1570-1590), which refuses the same copy
+      // for the same reason and leaves the slot empty; this one runs first and
+      // wins. The contradiction is real but it is NOT safe to resolve in favour
+      // of FRO-263 yet, and the check is mechanical:
+      // `validate-translation-completeness.mjs` `collectBlockingIssues()` still
+      // pushes `missing/short title` for `title.length < 3` and `main()` still
+      // `process.exit(1)` on it. That exit code is read by
+      // translate-pending.yml ("Trigger deploy", ~line 395) and by
+      // post-deploy-validate-dist.yml (~line 501) — an empty slot therefore
+      // stops the deploy trigger outright. The 2026-08-10 honesty pass (#5557)
+      // deliberately left that blocking rule byte-identical ("Anything added
+      // here tightens the deploy gate — do not"), so it did NOT unblock this.
+      // Precondition for deleting the copy: the ≥3-char rule must stop being a
+      // blocking issue for non-source locales (or the writer must guarantee a
+      // real translation), and only then does FRO-263 become the single policy.
+      // Until then the copy stays, and the `needsRetranslation` it raises is what
+      // routes the slot to a real translation.
       if (String(job.titleByLocale[locale] || '').trim().length < 3 && baseTitle) {
         const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
         if (placeholder) {
@@ -1579,13 +1599,36 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
     }
 
+    // This loop MANUFACTURES the reported failure when it fires on a slot that
+    // was already correct. `heuristicTranslateJobTitle` is a phrase-map: fed
+    // "Lagermitarbeiter mit Fachverantwortung" for `it` it returns
+    // "Lagermitarbeiter con Fachverantwortung" — one function word translated,
+    // the domain nouns left German. That is byte-for-byte the shape of the four
+    // reported pages ("…Stationär con Fachverantwortung…", "Kursleiter /
+    // Trainer per Toyota e Lexus").
+    //
+    // The trigger used to be `detectJobTitleLocaleDetails(currentTitle, …).lang
+    // !== locale`, and that detector is measured (300 live titles, 2026-08-10)
+    // at a 32.7% false-alarm rate on correct Italian titles — e.g. the correct
+    // "Addetto al magazzino con responsabilità tecnica" comes back `fr @ 0.45`,
+    // so a good translation was overwritten with a machine-mangled German one.
+    // The verdict now comes from the shared primitive (96.6% precision), which
+    // is the same instrument every gate downstream uses; a slot it calls clean
+    // is left alone. The other three triggers are unchanged.
     for (const locale of DEFAULT_LOCALES) {
       if (locale === titleSourceLang) continue;
       const currentTitle = String(job.titleByLocale[locale] || '').trim();
       const shouldRepairTitle =
         !currentTitle ||
         normalize(currentTitle) === normalize(sourceTitleFallback) ||
-        detectJobTitleLocaleDetails(currentTitle, titleSourceLang).lang !== locale ||
+        titleLooksUntranslated({
+          title: currentTitle,
+          sourceTitle: sourceTitleFallback,
+          sourceLang: titleSourceLang,
+          targetLocale: locale,
+          company: job.company || '',
+          location: job.addressLocality || job.location || '',
+        }).untranslated ||
         (locale === 'it' && needsItalianTitleRepair(currentTitle));
       if (!shouldRepairTitle) continue;
 
@@ -1604,8 +1647,17 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     // (retail/food/logistics coverage); titleLooksUntranslatedFromSource is
     // detector-based and generalizes to ANY sourceLang/locale pair (e.g. DE-source
     // health-sector crawlers translating into IT, which the word-list can't cover).
+    // S9 (2026-08-10): `locale === 'de'` used to be skipped outright here, so the
+    // `de` slot of a NON-German-source job was the one slot in the dataset with
+    // no leftover-source-title gate at all. The exemption was a workaround for
+    // titleHasGermanWords, which cannot be run against a German slot — but that
+    // function already returns false for `de` on its own first line
+    // (`if (targetLocale === 'de') return false`), so the skip only ever
+    // disabled the second, generic check. Measured added volume: the `de` slot's
+    // wrong-language rate over 450 live non-source slots is 0.0%, and a
+    // DE-source job still short-circuits on `locale === titleSourceLang`.
     for (const locale of DEFAULT_LOCALES) {
-      if (locale === 'de' || locale === titleSourceLang) continue;
+      if (locale === titleSourceLang) continue;
       const currentTitle = String(job.titleByLocale[locale] || '').trim();
       if (!currentTitle || job.needsRetranslation) continue;
       if (titleHasGermanWords(currentTitle, locale) ||
@@ -2575,6 +2627,35 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const sourceTitle = nsFn(titleByLocale[titleSourceLang] || out.title || '');
   if (sourceTitle) titleByLocale[titleSourceLang] = sourceTitle;
 
+  const titleVerdictFor = (locale, text) => titleLooksUntranslated({
+    title: nsFn(text || ''),
+    sourceTitle,
+    sourceLang: titleSourceLang,
+    targetLocale: locale,
+    company: out.company || '',
+    location: out.addressLocality || out.location || '',
+  });
+
+  /**
+   * A slot the repair queue is already paying for. `needsRetranslation` means a
+   * flagger (hardenJobLocaleFields, ensureLocaleFields, the post-gate at the
+   * bottom of this function) judged this job broken, and relocalize-pending-jobs
+   * hands at most ~100 such jobs per run to the translators — so re-translating
+   * a partially-translated title here costs bounded quota. Without this the
+   * repair could never close: the two title writers below both refuse any slot
+   * that is non-empty and not a byte-copy of the source, which is precisely what
+   * a partial translation is (the dominant failure, 96.9% of broken slots). The
+   * job would be flagged, queued, force-localized, skipped, still flagged, and
+   * suppressed after MAX_RETRANSLATION_ATTEMPTS without one repair attempt.
+   * On an ordinary (unflagged) crawl the old "leave it alone" rule stands.
+   */
+  const isQueuedBrokenTitle = (locale, text) => {
+    if (!out.needsRetranslation) return false;
+    const value = nsFn(text || '');
+    if (!value) return false;
+    return titleVerdictFor(locale, value).untranslated;
+  };
+
   const titleNeedsLocalization = locales
     .filter((l) => l !== titleSourceLang)
     .some((locale) => {
@@ -2585,20 +2666,21 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       // "already translated", so a static garbled title stays flagged here
       // on every run until a fresh translation replaces it.
       if (hasConcatenatedWords(localizedTitle, locale)) return true;
-      if (sourceTitle && localizedTitle.toLowerCase() === sourceTitle.toLowerCase()) {
-        // Cross-locale guard: if at least one other non-source locale has a title that
-        // differs from the source, the job title is genuinely multilingual (e.g. an English
-        // job title that stays English across IT/DE/FR). Don't flag as needing re-translation.
-        const otherLocalesDiffer = locales.some(
-          (l) =>
-            l !== locale &&
-            l !== titleSourceLang &&
-            nsFn(titleByLocale[l] || '').toLowerCase() !== sourceTitle.toLowerCase(),
-        );
-        if (otherLocalesDiffer) return false;
-        return true;
-      }
-      return false;
+      if (isQueuedBrokenTitle(locale, localizedTitle)) return true;
+      // S3 (2026-08-10): the source-copy case used to be waved through whenever
+      // any OTHER non-source locale differed from the source ("genuinely
+      // multilingual title"). That is the reported bug — a DE-source job with
+      // translated EN/FR and an untranslated IT slot had the IT check suppressed
+      // by EN and FR. The question is asked per slot now, via the shared
+      // primitive, which needs no cross-locale corroboration by construction.
+      //
+      // Deliberately still only the source-COPY reason on the unflagged path:
+      // widening this to the full verdict would set titleNeedsLocalization on
+      // ~30% of jobs on EVERY ordinary crawl, and this branch is not covered by
+      // `hasBudget` (see shouldRunTitleLocalization below) — i.e. it would spend
+      // translator quota unbounded. Partial titles reach the translators through
+      // the flagged path above instead, at the repair queue's own pace.
+      return sourceTitle ? titleVerdictFor(locale, localizedTitle).reason === 'source-copy' : false;
     });
 
   const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
@@ -2752,6 +2834,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       .filter((locale) => {
         if (locale === titleSourceLang) return false;
         const localizedTitle = nsFn(titleByLocale[locale] || '');
+        // D5: "non-empty and not a byte-copy ⇒ already translated" is what froze
+        // partially-translated titles forever. A slot the repair queue is
+        // already paying for is re-translated instead of skipped.
+        if (isQueuedBrokenTitle(locale, localizedTitle)) return true;
         if (localizedTitle && localizedTitle.toLowerCase() !== sourceTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(localizedTitle))) return false;
         return true;
@@ -2801,7 +2887,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         }
         const currentTitle = nsFn(titleByLocale[locale] || '');
         let title = null;
-        if (locale !== titleSourceLang && (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase())) {
+        // Same D5 unfreeze as the titleJobs filter above: the forced path also
+        // refused every non-empty, non-byte-copy slot, so the "strict fallback
+        // for forced companies" — the path relocalize-pending-jobs drives — could
+        // not repair the partial translations it was queued to repair.
+        if (locale !== titleSourceLang &&
+            (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase() ||
+             isQueuedBrokenTitle(locale, currentTitle))) {
           const translated = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
           if (translated && translated.toLowerCase() !== sourceTitle.toLowerCase() &&
               !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
@@ -3107,18 +3199,32 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       for (const locale of DEFAULT_LOCALES) {
         const currentTitle = String(job.titleByLocale[locale] || '').trim();
         const currentDesc = String(job.descriptionByLocale[locale] || '').trim();
-        // Title contamination: detect source-language text in non-source locale slots.
-        // Mirrors isIncomplete() logic: only flag when no other locale was translated
-        // (avoids false positives on international/corporate titles).
-        const isTitleContaminated = locale !== titleSourceLang && currentTitle.length >= 8 && (() => {
-          const otherLocalesTranslated = DEFAULT_LOCALES.some(
-            (l) => l !== locale && l !== titleSourceLang &&
-              (job.titleByLocale[l] || '').trim().toLowerCase() !== sourceTitle.toLowerCase(),
-          );
-          if (otherLocalesTranslated) return false;
-          const det = detectJobTitleLocaleDetails(currentTitle, locale);
-          return det.confidence >= 0.65 && det.lang === titleSourceLang;
-        })();
+        // Title contamination: source-language text sitting in a non-source slot.
+        //
+        // S3 (2026-08-10): this said "Mirrors isIncomplete() logic: only flag when
+        // no other locale was translated (avoids false positives on
+        // international/corporate titles)" — the same cross-locale escape hatch,
+        // plus `detectJobTitleLocaleDetails(...) >= 0.65`, which is measured at a
+        // 55.0% miss rate on broken titles. isIncomplete() no longer works that
+        // way, so the comment had stopped being true as well as the code.
+        //
+        // Gated on `needsRetranslation` on purpose, exactly as in
+        // enrichJobLocalesDCC: a flagged job is in the repair queue (≤100
+        // jobs/run) and re-translating its title costs bounded quota, whereas
+        // applying the full verdict on every ordinary crawl would put ~30% of
+        // jobs through the translators every pass. The source-COPY case is
+        // already covered unconditionally by the third clause below.
+        const isTitleContaminated = locale !== titleSourceLang &&
+          currentTitle.length >= 8 &&
+          Boolean(job.needsRetranslation) &&
+          titleLooksUntranslated({
+            title: currentTitle,
+            sourceTitle,
+            sourceLang: titleSourceLang,
+            targetLocale: locale,
+            company: job.company || '',
+            location: job.addressLocality || job.location || '',
+          }).untranslated;
         const titleNeedsWork =
           !currentTitle ||
           isTitleContaminated ||
@@ -4206,24 +4312,34 @@ export function validateDedicatedLocaleCoverage({
           thinSourceBySlug.get(job.slug).issueReasons.add(issue.reason);
         } else blockingIssues.push(issue);
       }
-      // Check for untranslated titles (title identical to source-language title)
+      // S10 (2026-08-10): report a title that does not read as `locale`, not
+      // just one that is a byte-copy of the source. Two changes:
+      //  - the verdict comes from the shared primitive, so the partial
+      //    translations that make up 96.9% of real failures are visible here at
+      //    all (a byte-copy is 3.1% of them);
+      //  - the "…but the localized slug differs, so never mind" suppression is
+      //    gone. Slug and title are produced by different code paths — the slug
+      //    is re-derived by the loops above from company/location even when the
+      //    title was never translated — so a correctly-localized slug was
+      //    hiding an untranslated title. There is no relationship to lean on.
+      // This whole branch is observability: `untranslated_title` only ever
+      // reaches `softIssues`, which is console output (see the
+      // `localeQualityIssues` log below). It cannot block a crawler run.
       if (
         untranslatedCheck &&
         locale !== sourceLang &&
         locale !== titleSourceLang &&
         title.trim() &&
-        normalize(title) === normalize(String(job?.titleByLocale?.[titleSourceLang] || baseTitle || ''))
+        titleLooksUntranslated({
+          title: title.trim(),
+          sourceTitle: String(job?.titleByLocale?.[titleSourceLang] || baseTitle || ''),
+          sourceLang: titleSourceLang,
+          targetLocale: locale,
+          company: job?.company || '',
+          location: job?.addressLocality || job?.location || '',
+        }).untranslated
       ) {
-        const locSlug = String(job?.slugByLocale?.[locale] || '');
-        const srcSlug = String(job?.slugByLocale?.[titleSourceLang] || job?.slug || '');
-        const hasLocalizedSlug =
-          checkSlug &&
-          locSlug &&
-          srcSlug &&
-          normalize(locSlug) !== normalize(srcSlug);
-        if (!hasLocalizedSlug) {
-          softIssues.push({ slug: job.slug, locale, reason: 'untranslated_title' });
-        }
+        softIssues.push({ slug: job.slug, locale, reason: 'untranslated_title' });
       }
       // Check for untranslated slugs (slug identical to source-language slug)
       if (

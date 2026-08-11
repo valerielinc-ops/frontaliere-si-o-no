@@ -26,7 +26,7 @@ import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
-import { detectJobTitleLang, detectJobTitleLocaleDetails, pinnedTitleSourceLang } from './job-locale-utils.mjs';
+import { detectJobTitleLang, detectJobTitleLocaleDetails, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 import {
   heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
@@ -1835,6 +1835,47 @@ function extractAlternateLocaleUrls(html, currentUrl) {
   return out;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Bounded rollout for the per-slot title-language verdict (D5 / S3).
+//
+// `titleLooksUntranslated` flags 30.14% of non-source title slots (24,054 of
+// 79,796 measured 2026-08-10; 49.8% of jobs carry at least one). Flagging all of
+// them the first time this code runs would enqueue a backlog two orders of
+// magnitude above what drains: the quota-bound cascade in
+// relocalize-pending-jobs.mjs repairs ~100 jobs/run, and the free unlimited
+// local-MT mop-up only fills slots that are missing, too short, or an exact
+// source copy (local-mt-mopup.mjs `missingSlots`) — i.e. it cannot touch the
+// partial-translation majority at all.
+//
+// So the sweep over *already-stored* titles is capped per process. Slots this
+// call actually wrote are NOT capped: they are new content, they are few, and
+// checking them is what the quality gate below has always done.
+//
+// 0 disables the sweep entirely (changed slots keep being checked).
+const DEFAULT_TITLE_REQUEUE_BUDGET = 50;
+let _titleRequeueBudgetSpent = 0;
+
+function _titleRequeueBudgetLimit() {
+  const raw = process.env.JOBS_TITLE_LANG_REQUEUE_BUDGET;
+  if (raw === undefined || raw === '') return DEFAULT_TITLE_REQUEUE_BUDGET;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? Math.floor(n) : DEFAULT_TITLE_REQUEUE_BUDGET;
+}
+
+/** @returns {boolean} true when this process may raise one more backlog flag. */
+function _claimTitleRequeueBudget() {
+  if (_titleRequeueBudgetSpent >= _titleRequeueBudgetLimit()) return false;
+  _titleRequeueBudgetSpent += 1;
+  return true;
+}
+
+/** Test seam: the counter is process-wide by design (that IS the cap). */
+export function _resetTitleRequeueBudget() { _titleRequeueBudgetSpent = 0; }
+/** Test/telemetry seam. */
+export function _titleRequeueBudgetState() {
+  return { spent: _titleRequeueBudgetSpent, limit: _titleRequeueBudgetLimit() };
+}
+
 // FRO-231: slug quality checks → moved to top of file (FRO-359)
 
 function _slugByLocaleDiffer(a = {}, b = {}) {
@@ -1902,26 +1943,38 @@ export function ensureLocaleFields(job) {
       // The old logic detected "wrong language" and replaced with heuristic translations,
       // but this caused "Hebamme" (correct DE) → "Ostetrica/o" (wrong IT in DE slot),
       // and "Organizational Specialist" (correct EN) → "Specialista Organizzativo" (IT in EN).
-      // If a title exists and the locale has other translated locales, leave it alone.
-      // The translate pipeline (Phase 2) handles real contamination cases.
-      const copiedSourceTitle = sourceTitle && currentTitle.toLowerCase() === sourceTitle.toLowerCase();
-      if (copiedSourceTitle) {
-        // Title is a copy of source — check if other locales are translated (international guard)
-        const othersDiffer = LOCALES.some(
-          (l) => l !== locale && l !== titleSourceLang && normalizeSpace(titleByLocale[l] || '').toLowerCase() !== sourceTitle.toLowerCase(),
-        );
-        if (!othersDiffer) {
-          // Genuinely untranslated — try heuristic
-          const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
-          if (heuristicReplacement &&
-              heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
-              !isLowQualityLocalizedTitle(heuristicReplacement)) {
-            titleByLocale[locale] = heuristicReplacement;
-          }
+      // That stability rule stands: a wrong-language title is REPORTED here (the
+      // quality gate below queues it), never heuristically rewritten in place.
+      //
+      // S3 (2026-08-10): the source-copy branch used to be skipped whenever any
+      // OTHER non-source locale differed from the source ("it must be an
+      // international title"). That cross-locale rule is exactly the reported bug
+      // — for a DE-source job whose EN and FR slots translated and whose IT slot
+      // did not, it suppressed the IT check on the evidence of EN and FR. The
+      // verdict is now taken per slot, from the shared primitive, so no
+      // cross-locale escape hatch is needed by construction: a slot that holds
+      // its own source copy is untranslated whatever the neighbouring slots hold.
+      const verdict = titleLooksUntranslated({
+        title: currentTitle,
+        sourceTitle,
+        sourceLang: titleSourceLang,
+        targetLocale: locale,
+        company: out.company || '',
+        location: out.addressLocality || out.location || '',
+      });
+      // Only the exact-copy case is rewritten here. heuristicTranslateJobTitle
+      // translates the SOURCE title, so it has nothing to offer a slot that
+      // already holds a partial translation — that repair belongs to the
+      // translate pipeline (dedicated-crawler-common enrichJobLocalesDCC), which
+      // now accepts flagged slots instead of skipping them.
+      if (verdict.reason === 'source-copy') {
+        const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
+        if (heuristicReplacement &&
+            heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
+            !isLowQualityLocalizedTitle(heuristicReplacement)) {
+          titleByLocale[locale] = heuristicReplacement;
         }
-        // If other locales differ, this is an international title — leave as-is
       }
-      // Non-source-copy titles: leave them alone. The translate pipeline handles fixes.
     } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
       // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
@@ -2068,7 +2121,15 @@ export function ensureLocaleFields(job) {
   {
     const srcLang = out.sourceLang || 'it';
     const srcTitle = normalizeSpace(out.titleByLocale?.[srcLang] || '');
+    const gateCompany = out.company || '';
+    const gateLocation = out.addressLocality || out.location || '';
     for (const locale of LOCALES) {
+      // Every branch below only ever writes `true`, so once the job is queued
+      // there is nothing left to decide — and, crucially, no rollout budget is
+      // spent on a job the repair queue already holds. This is what keeps the
+      // re-flagging idempotent: a second pass over an already-flagged job is a
+      // no-op, byte for byte.
+      if (out.needsRetranslation) break;
       if (locale === srcLang) continue; // Never clear or flag the source language
       const title = normalizeSpace(out.titleByLocale?.[locale] || '');
       if (!title) continue;
@@ -2081,23 +2142,48 @@ export function ensureLocaleFields(job) {
         out.needsRetranslation = true;
         continue;
       }
-      // Locale slot unchanged by this call (existing, already-vetted content) —
-      // don't re-derive the flag from the heuristic every run. needsRetranslation
-      // already carried over from `job` via the initial `out = { ...job }` spread,
-      // so a genuinely still-broken title stays flagged; this only stops healthy
-      // jobs from flapping back to flagged on every crawl pass.
-      if (title === normalizeSpace(_preTitleByLocale[locale] || '')) continue;
-      // Cross-locale title duplicate = not translated.
-      // BUT: skip if other locales have different titles (international/corporate title).
-      if (title === srcTitle) {
-        const othersDiffer = LOCALES.some(
-          (l) => l !== locale && l !== srcLang && normalizeSpace(out.titleByLocale?.[l] || '') !== srcTitle,
-        );
-        if (!othersDiffer) { out.needsRetranslation = true; }
-        continue;
+      // Locale slot unchanged by this call (existing, already-vetted content).
+      const slotChanged = title !== normalizeSpace(_preTitleByLocale[locale] || '');
+      // S3 (2026-08-10): the exact-copy branch used to be suppressed whenever
+      // any OTHER non-source locale differed from the source. That cross-locale
+      // rule is the reported bug — a DE-source job whose EN and FR slots
+      // translated had its untranslated IT slot excused on the evidence of EN
+      // and FR. The verdict is now taken per slot by the shared primitive, which
+      // makes the escape hatch unnecessary by construction: whether THIS slot is
+      // still in the source language does not depend on the neighbouring slots.
+      //
+      // Rollout: a slot this call wrote is always judged (new content, low
+      // volume — the pre-existing behaviour for changed slots). A slot the call
+      // left byte-identical is the frozen backlog (D5), and judging all of it at
+      // once would enqueue ~24k slots against a ~100 jobs/run drain, so it is
+      // swept under _claimTitleRequeueBudget(). Jobs the pipeline already gave up
+      // on (`localeMismatchSuppressed`, set after MAX_RETRANSLATION_ATTEMPTS in
+      // relocalize-pending-jobs.mjs) are never re-queued: re-raising the flag
+      // there would defeat the give-up and burn one attempt per run forever,
+      // which is the same flapping shape as the EOC/migros mass re-flag incident.
+      const mayJudgeStoredSlot = !out.localeMismatchSuppressed;
+      if (slotChanged || mayJudgeStoredSlot) {
+        const verdict = titleLooksUntranslated({
+          title,
+          sourceTitle: srcTitle,
+          sourceLang: srcLang,
+          targetLocale: locale,
+          company: gateCompany,
+          location: gateLocation,
+        });
+        if (verdict.untranslated && (slotChanged || _claimTitleRequeueBudget())) {
+          out.needsRetranslation = true;
+          continue;
+        }
       }
+      if (!slotChanged) continue;
       // Wrong-language words in title — only flag if genuinely contaminated,
       // don't clear locale content (clearing destroys good descriptions for a title issue).
+      // Still gated on the unchanged-slot skip: `_hasWrongLang` is the cognate
+      // word-list heuristic behind the EOC/migros mass re-flag incident (76%/51%
+      // of already-translated jobs re-flagged every run), and it has never been
+      // measured. The primitive above is (96.6% precision / 95.0% recall), which
+      // is why it — and only it — is allowed to look at stored titles.
       if (_hasWrongLang(title, locale)) {
         out.needsRetranslation = true;
         continue;
