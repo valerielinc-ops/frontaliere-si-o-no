@@ -2098,6 +2098,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sandoz-biosimilari-2026.title': 'Sandoz dépasse les estimations avec les biosimilaires',
     'blog.article.sandoz-biosimilari-2026.excerpt': 'Chiffre d\'affaires à 5,8 milliards de dollars, biosimilaires +20% et contribuent à 33% du chiffre d\'affaires',
     'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz accélère avec les biosimilaires et dépasse les estimations du premier semestre 2026',
+    'blog.article.glencore-produzione-riscrittura.title': 'Glencore : production en baisse, mais pas pour le cuivre',
+    'blog.article.glencore-produzione-riscrittura.excerpt': 'Le géant des matières premières Glencore confirme avoir enregistré une production en baisse au premier semestre 2026, mais pas pour le cuivre.',
+    'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: production en baisse, mais pas pour le cuivre',
 };
 
 export default blogMetaChFr;

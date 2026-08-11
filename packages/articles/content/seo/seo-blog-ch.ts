@@ -27161,6 +27161,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-glencore-produzione-riscrittura': {
+    title: 'Glencore: produzione in calo, ma non per il rame',
+    description: 'Il gigante delle materie prime Glencore conferma di aver registrato una produzione in calo nel primo semestre del 2026, ma non per il rame. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, glencore, produzione, calo, rame',
+    ogTitle: 'Glencore: produzione in calo, ma non per il rame',
+    ogDescription: 'Il gigante delle materie prime Glencore conferma di aver registrato una produzione in calo nel primo semestre del 2026, ma non per il rame.',
+    canonicalPath: '/articoli-svizzera/glencore-produzione-riscrittura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Glencore: produzione in calo, ma non per il rame",
+      "description": "Il gigante delle materie prime Glencore conferma di aver registrato una produzione in calo nel primo semestre del 2026, ma non per il rame. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/glencore-produzione-riscrittura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Glencore: produzione in calo, ma non per il rame"
+      },
+      "datePublished": "2026-08-11T02:21:58+00:00",
+      "dateModified": "2026-08-11T02:21:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/glencore-produzione-riscrittura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

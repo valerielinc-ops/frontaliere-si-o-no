@@ -2098,6 +2098,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sandoz-biosimilari-2026.title': 'Sandoz übertrifft Schätzungen mit Biosimilari',
     'blog.article.sandoz-biosimilari-2026.excerpt': 'Umsatz von 5,8 Milliarden US-Dollar, Biosimilars +20% und tragen 33% zum Umsatz bei',
     'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz beschleunigt mit Biosimilaren und überschreitet die ersten Halbjahresabschlüsse 2026',
+    'blog.article.glencore-produzione-riscrittura.title': 'Glencore: Produktion rückläufig, aber nicht für Kupfer',
+    'blog.article.glencore-produzione-riscrittura.excerpt': 'Der Rohstoffgigant Glencore bestätigt, dass er im ersten Halbjahr 2026 eine rückläufige Produktion verzeichnet hat, aber nicht für Kupfer.',
+    'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: Produktion rückläufig, aber nicht für Kupfer',
 };
 
 export default blogMetaChDe;

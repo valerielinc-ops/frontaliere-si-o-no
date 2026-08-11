@@ -6292,6 +6292,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'glencore-produzione-riscrittura',
+    category: 'fiscale',
+    date: '2026-08-11T02:21:58.778Z',
+    image: '/images/blog/glencore-produzione-riscrittura.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
