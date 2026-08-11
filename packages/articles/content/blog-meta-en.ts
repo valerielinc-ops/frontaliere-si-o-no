@@ -9616,6 +9616,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.novate-mezzola-grigioni.title': 'Living in Novate Mezzola and working in Graubünden as a border worker',
     'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola is an Italian municipality located in the province of Sondrio. Border workers working in Graubünden can enjoy a high quality of life thanks to the favourable economic conditions and natural beauty of the region.',
     'blog.article.novate-mezzola-grigioni.imageAlt': 'A scenic road in Ticino',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Moving to Bianzone from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'For border crossers wishing to move to Bianzone, it is necessary to consider the pros and cons of this move.',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in a car on the road to Bianzone, Ticino, with a tree in flower in the foreground.',
 };
 
 export default blogMetaEn;

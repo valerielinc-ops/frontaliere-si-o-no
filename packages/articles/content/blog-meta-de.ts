@@ -9615,6 +9615,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.novate-mezzola-grigioni.title': 'Wohnen in Novate Mezzola und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola ist eine italienische Gemeinde in der Provinz Sondrio. Grenzgänger, die in Graubünden arbeiten, können dank der günstigen wirtschaftlichen Bedingungen und der natürlichen Schönheit der Region ein qualitativ hochwertiges Leben genießen.',
     'blog.article.novate-mezzola-grigioni.imageAlt': 'Eine panoramische Straße in Tessin',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Umzug nach Bianzone als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'Für Grenzgänger, die nach Bianzone umziehen möchten, müssen die Vor- und Nachteile dieser Umsiedlung berücksichtigt werden.',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontaliere in einem Auto auf der Strasse nach Bianzone, Ticino, mit einem blühenden Baum im Vordergrund.',
 };
 
 export default blogMetaDe;

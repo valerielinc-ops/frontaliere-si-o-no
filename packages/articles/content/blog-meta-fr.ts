@@ -9618,6 +9618,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.novate-mezzola-grigioni.title': 'Vivre à Novate Mezzola et travailler dans les Grisons en tant que frontalier',
     'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola est une commune italienne située dans la province de Sondrio. Les frontaliers travaillant dans les Grisons peuvent profiter d\'une vie de haute qualité grâce aux conditions économiques favorables et à la beauté naturelle de la région.',
     'blog.article.novate-mezzola-grigioni.imageAlt': 'Une route panoramique en Tessin',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Déménager à Bianzone en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'Pour les frontaliers qui souhaitent déménager à Bianzone, il est nécessaire de prendre en compte les avantages et les inconvénients de ce déplacement.',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere dans une voiture sur la route de Bianzone, Ticino, avec un arbre en fleur en arrière-plan.',
 };
 
 export default blogMetaFr;

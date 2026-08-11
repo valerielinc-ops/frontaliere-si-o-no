@@ -28848,6 +28848,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasferirsi-a-bianzone-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-11T03:07:09.734Z',
+ image: '/images/blog/trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

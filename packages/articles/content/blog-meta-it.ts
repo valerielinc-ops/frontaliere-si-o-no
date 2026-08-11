@@ -9617,6 +9617,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.novate-mezzola-grigioni.title': 'Vivere a Novate Mezzola e lavorare in Grigioni da frontaliere',
     'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola è un comune italiano situato in provincia di Sondrio. I frontalieri che lavorano in Grigioni possono godere di una vita di alta qualità grazie alle condizioni economiche favorevoli e alla bellezza naturale della regione.',
     'blog.article.novate-mezzola-grigioni.imageAlt': 'Una strada panoramica in Ticino',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Bianzone da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'Per i frontalieri che desiderano trasferirsi a Bianzone, è necessario considerare i pro e i contro di questo spostamento.',
+    'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in auto sulla strada per Bianzone, Ticino, con un albero di fiori in primo piano.',
 };
 
 export default blogMetaIt;
