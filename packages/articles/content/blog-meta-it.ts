@@ -9614,6 +9614,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Bormio da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'I vantaggi e gli svantaggi di trasferirsi a Bormio per i frontalieri.',
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere sta valutando la possibilità di trasferirsi a Bormio.',
+    'blog.article.novate-mezzola-grigioni.title': 'Vivere a Novate Mezzola e lavorare in Grigioni da frontaliere',
+    'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola è un comune italiano situato in provincia di Sondrio. I frontalieri che lavorano in Grigioni possono godere di una vita di alta qualità grazie alle condizioni economiche favorevoli e alla bellezza naturale della regione.',
+    'blog.article.novate-mezzola-grigioni.imageAlt': 'Una strada panoramica in Ticino',
 };
 
 export default blogMetaIt;

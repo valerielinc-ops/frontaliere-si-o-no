@@ -9613,6 +9613,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Moving to Bormio by border crossing: pros and cons',
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'The advantages and disadvantages of moving to Bormio for border workers.',
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'A frontier worker is considering the possibility of moving to Bormio.',
+    'blog.article.novate-mezzola-grigioni.title': 'Living in Novate Mezzola and working in Graubünden as a border worker',
+    'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola is an Italian municipality located in the province of Sondrio. Border workers working in Graubünden can enjoy a high quality of life thanks to the favourable economic conditions and natural beauty of the region.',
+    'blog.article.novate-mezzola-grigioni.imageAlt': 'A scenic road in Ticino',
 };
 
 export default blogMetaEn;

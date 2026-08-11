@@ -9612,6 +9612,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Umzug nach Bormio als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'Die Vor- und Nachteile eines Umzugs nach Bormio für Grenzgänger.',
     'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'Ein Grenzgänger überlegt die Möglichkeit, nach Bormio zu ziehen.',
+    'blog.article.novate-mezzola-grigioni.title': 'Wohnen in Novate Mezzola und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.novate-mezzola-grigioni.excerpt': 'Novate Mezzola ist eine italienische Gemeinde in der Provinz Sondrio. Grenzgänger, die in Graubünden arbeiten, können dank der günstigen wirtschaftlichen Bedingungen und der natürlichen Schönheit der Region ein qualitativ hochwertiges Leben genießen.',
+    'blog.article.novate-mezzola-grigioni.imageAlt': 'Eine panoramische Straße in Tessin',
 };
 
 export default blogMetaDe;
