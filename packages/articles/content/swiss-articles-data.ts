@@ -6679,6 +6679,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'asilo-nido-e-custodia-bambini-canton-zurigo-costi',
+    category: 'pratico',
+    date: '2026-08-11T21:38:35.676Z',
+    image: '/images/blog/asilo-nido-e-custodia-bambini-canton-zurigo-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

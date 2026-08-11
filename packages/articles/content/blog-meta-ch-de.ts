@@ -2227,6 +2227,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.on-trimestre-record.title': 'Mehr On: Rekordquartal mit starkem Wachstum in Asien, aber unten an der Börse',
     'blog.article.on-trimestre-record.excerpt': 'On verzeichnet ein weiteres Rekordquartal: Der Umsatz der Sportartikelmarke belief sich auf CHF 850 Mio.',
     'blog.article.on-trimestre-record.imageAlt': 'Bild eines Landschaftsabschnitts des Tessins mit der Überschrift \'On erreicht einen neuen Rekordquartal\'',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Zürich: Kosten',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.excerpt': 'Gemessen am Familieneinkommen sind die Kosten für Kindertagesstätte und Kinderbetreuung im Kanton Zürich ein komplexes Thema.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.imageAlt': 'Kindertagesstätte in Kanton Zürich',
 };
 
 export default blogMetaChDe;

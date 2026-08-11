@@ -2227,6 +2227,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.on-trimestre-record.title': 'More On: record quarter with strong growth in Asia, but down on the stock market',
     'blog.article.on-trimestre-record.excerpt': 'On scores another record quarter: the sports goods brand\'s turnover stood at CHF 850 million',
     'blog.article.on-trimestre-record.imageAlt': 'Image of a Ticino landscape with the caption \'On scores another record quarter\'',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.title': 'Kindergarten and childcare in Canton Zurich: costs',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.excerpt': 'Calculated based on household income, the costs for daycare and childcare in Canton Zurich are a complex matter.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.imageAlt': 'Daycare center in Canton Zurich',
 };
 
 export default blogMetaChEn;
