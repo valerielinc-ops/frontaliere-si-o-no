@@ -28974,6 +28974,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'allacasadicomunitalavenosegnala',
+ category: 'pratico',
+ date: '2026-08-11T08:52:13.943Z',
+ image: '/images/blog/allacasadicomunitalavenosegnala.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

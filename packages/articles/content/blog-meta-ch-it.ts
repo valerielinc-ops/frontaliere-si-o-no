@@ -2146,6 +2146,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Premi cassa malati Zurigo e riduzione premi: guida pratica',
     'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analisi sui premi LAMal nel Cantone di Zurigo, modelli di franchigia e requisiti per ottenere la riduzione dei premi cantonale.',
     'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Edificio moderno a Zurigo con persone che camminano',
+    'blog.article.permesso-dimora-b-zurigo-guida.title': 'Permesso di dimora B a Zurigo: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Guida completa al permesso di dimora B nel Canton Zurigo: procedure, documentazione necessaria, scadenze per il rinnovo e competenze delle autorità cantonali.',
+    'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Edificio direzionale moderno a Zurigo sede di uffici amministrativi',
 };
 
 export default blogMetaChIt;

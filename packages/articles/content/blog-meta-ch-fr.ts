@@ -2146,6 +2146,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Primes caisse-maladie Zurich et réduction des primes : guide pratique',
     'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analyse des primes LAMal dans le canton de Zurich, modèles de franchise et conditions pour obtenir la réduction des primes cantonales.',
     'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Bâtiment moderne à Zurich avec des passants',
+    'blog.article.permesso-dimora-b-zurigo-guida.title': 'Permis de séjour B à Zurich : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Guide complet du permis de séjour B dans le canton de Zurich : procédures, documentation nécessaire, délais de renouvellement et compétences des autorités cantonales.',
+    'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Immeuble de bureaux moderne à Zurich pour les services administratifs',
 };
 
 export default blogMetaChFr;
