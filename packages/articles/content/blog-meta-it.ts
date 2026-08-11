@@ -9587,6 +9587,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Vivere a Livigno e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'I benefici e le difficoltà dei frontalieri che lavorano in Grigioni',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'Un frontaliere vive a Livigno e lavora in Grigioni',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Vivere a Piuro e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Guida pratica al pendolarismo tra Piuro e il Canton Grigioni, con focus sulla fiscalità, il nuovo accordo e le regole per i frontalieri.',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Paesaggio montano al confine tra Italia e Grigioni',
 };
 
 export default blogMetaIt;
