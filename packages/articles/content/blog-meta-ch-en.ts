@@ -2179,6 +2179,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.title': 'The school system of the Canton of Zurich: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.excerpt': 'Here are the cycles and enrolment ages for compulsory schooling in the Canton of Zurich.',
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.imageAlt': 'The compulsory school in the Canton of Zurich',
+    'blog.article.neutralita-consiglio-federale.title': 'Maintaining Neutrality',
+    'blog.article.neutralita-consiglio-federale.excerpt': 'The Federal Council wants to maintain the current room for manoeuvre on neutrality. The popular initiative on neutrality will be voted on September 27.',
+    'blog.article.neutralita-consiglio-federale.imageAlt': 'A DFAE politician speaks in front of the Federal Council in Bern.',
 };
 
 export default blogMetaChEn;

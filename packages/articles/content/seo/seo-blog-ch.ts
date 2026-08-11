@@ -28214,6 +28214,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralita-consiglio-federale': {
+    title: 'Neutralità, il Consiglio federale intende mantenere l\'attuale margine di manovra',
+    description: 'Il Consiglio federale vuole mantenere l\'attuale margine di manovra sulla neutralità. L\'iniziativa popolare sulla neutralità sarà votata il 27 settembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, consiglio, federale, intende',
+    ogTitle: 'Il Consiglio federale intende mantenere l\'attuale margine di manovra sulla neutralità | Frontaliere Ticino',
+    ogDescription: 'Il Consiglio federale vuole mantenere l\'attuale margine di manovra sulla neutralità. L\'iniziativa popolare sulla neutralità sarà votata il 27 settembre.',
+    canonicalPath: '/articoli-svizzera/neutralita-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità, il Consiglio federale intende mantenere l'attuale margine di manovra",
+      "description": "Il Consiglio federale vuole mantenere l'attuale margine di manovra sulla neutralità. L'iniziativa popolare sulla neutralità sarà votata il 27 settembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un politico del DFAE parla davanti al Consiglio federale a Berna."
+      },
+      "datePublished": "2026-08-11T12:04:02+00:00",
+      "dateModified": "2026-08-11T12:04:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

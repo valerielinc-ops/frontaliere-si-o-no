@@ -9686,6 +9686,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-ollomont-lavorare-vallese.title': 'Wohnen in Ollomont und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Italien und der Schweiz, zwischen dem neuen Steuerabkommen, der Steuerverwaltung und der schweizerischen Sozialversicherung.',
     'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Alpine Berglandschaft zwischen Italien und der Schweiz',
+    'blog.article.vivere-doues-lavorare-vallese.title': 'Wohnen in Doues und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Leitfaden für den Pendelverkehr zwischen Doues und Wallis: Steuervorschriften, Vorsorge und grenzüberschreitendes Arbeitsmanagement in Übereinstimmung mit den geltenden Vereinbarungen.',
+    'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Berglandschaft zwischen Doues und der Schweizer Grenze',
 };
 
 export default blogMetaDe;

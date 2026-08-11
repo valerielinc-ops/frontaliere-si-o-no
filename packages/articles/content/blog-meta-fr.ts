@@ -9689,6 +9689,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-ollomont-lavorare-vallese.title': 'Vivre à Ollomont et travailler en Valais comme frontalier',
     'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Guide pratique pour les déplacements entre l\'Italie et la Suisse, entre nouvel accord fiscal, gestion fiscale et sécurité sociale suisse.',
     'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Paysage montagneux alpin entre l\'Italie et la Suisse',
+    'blog.article.vivere-doues-lavorare-vallese.title': 'Vivre à Doues et travailler en Valais comme frontalier',
+    'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Guide des déplacements entre Doues et le Valais : règles fiscales, prévoyance et gestion du travail transfrontalier dans le respect des accords en vigueur.',
+    'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Paysage de montagne entre Doues et la frontière suisse',
 };
 
 export default blogMetaFr;

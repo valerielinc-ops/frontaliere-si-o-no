@@ -2179,6 +2179,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.title': 'Das Schulsystem des Kantons Zürich: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.excerpt': 'Hier sind die Zyklen und das Einschreibealter für die obligatorische Schule im Kanton Zürich.',
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.imageAlt': 'Die obligatorische Schule im Kanton Zürich',
+    'blog.article.neutralita-consiglio-federale.title': 'Neutralität beabsichtigt der Bundesrat, den bestehenden Handlungsspielraum',
+    'blog.article.neutralita-consiglio-federale.excerpt': 'Der Bundesrat will den bisherigen Handlungsspielraum zur Neutralität beibehalten. Über die Neutralitätsinitiative wird am 27. September abgestimmt.',
+    'blog.article.neutralita-consiglio-federale.imageAlt': 'Ein DFAE-Politiker spricht vor dem Bundesrat in Bern.',
 };
 
 export default blogMetaChDe;

@@ -2179,6 +2179,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.title': 'Il sistema scolastico del Canton Zurigo: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.excerpt': 'Ecco i cicli e le età di iscrizione per la scuola dell\'obbligo nel Canton Zurigo.',
     'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.imageAlt': 'La scuola dell\'obbligo nel Canton Zurigo',
+    'blog.article.neutralita-consiglio-federale.title': 'Neutralità, il Consiglio federale intende mantenere l\'attuale margine di manovra',
+    'blog.article.neutralita-consiglio-federale.excerpt': 'Il Consiglio federale vuole mantenere l\'attuale margine di manovra sulla neutralità. L\'iniziativa popolare sulla neutralità sarà votata il 27 settembre.',
+    'blog.article.neutralita-consiglio-federale.imageAlt': 'Un politico del DFAE parla davanti al Consiglio federale a Berna.',
 };
 
 export default blogMetaChIt;
