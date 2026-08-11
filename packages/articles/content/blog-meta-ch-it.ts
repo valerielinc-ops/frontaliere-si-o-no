@@ -2116,6 +2116,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.libera-circolazione-mercato-lavoro-2026.title': 'Libera circolazione: l’impatto reale sul mercato del lavoro',
     'blog.article.libera-circolazione-mercato-lavoro-2026.excerpt': 'Il 22º rapporto del SECO analizza il ruolo dell\'immigrazione UE/AELS: tassi di occupazione e crescita economica al 2026.',
     'blog.article.libera-circolazione-mercato-lavoro-2026.imageAlt': 'Persone che lavorano in un ufficio moderno in Svizzera',
+    'blog.article.publiredazionale-aziende-informano.title': 'Publiredazionale: le aziende informano',
+    'blog.article.publiredazionale-aziende-informano.excerpt': 'Aggiornamenti e comunicazioni dalle aziende tramite lo spazio pubblicitario di laRegione.',
+    'blog.article.publiredazionale-aziende-informano.imageAlt': 'Ufficio moderno a Bellinzona con vista sulle montagne',
 };
 
 export default blogMetaChIt;

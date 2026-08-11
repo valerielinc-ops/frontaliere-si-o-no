@@ -2116,6 +2116,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.libera-circolazione-mercato-lavoro-2026.title': 'Freizügigkeit: die tatsächlichen Auswirkungen auf den Arbeitsmarkt',
     'blog.article.libera-circolazione-mercato-lavoro-2026.excerpt': 'Der 22. Bericht des SECO analysiert die Rolle der Zuwanderung EU/EFTA: Beschäftigungsquoten und Wirtschaftswachstum bis 2026.',
     'blog.article.libera-circolazione-mercato-lavoro-2026.imageAlt': 'Menschen arbeiten in einem modernen Büro in der Schweiz',
+    'blog.article.publiredazionale-aziende-informano.title': 'Advertorial: Unternehmen informieren',
+    'blog.article.publiredazionale-aziende-informano.excerpt': 'Updates und Mitteilungen von Unternehmen über die Werbefläche der Region.',
+    'blog.article.publiredazionale-aziende-informano.imageAlt': 'Modernes Büro in Bellinzona mit Bergblick',
 };
 
 export default blogMetaChDe;

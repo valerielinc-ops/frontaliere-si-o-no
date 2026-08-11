@@ -2116,6 +2116,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.libera-circolazione-mercato-lavoro-2026.title': 'Free movement: the real impact on the labour market',
     'blog.article.libera-circolazione-mercato-lavoro-2026.excerpt': 'The 22nd SECO report analyses the role of EU/EFTA immigration: employment rates and economic growth to 2026.',
     'blog.article.libera-circolazione-mercato-lavoro-2026.imageAlt': 'People working in a modern office in Switzerland',
+    'blog.article.publiredazionale-aziende-informano.title': 'Advertising: companies inform',
+    'blog.article.publiredazionale-aziende-informano.excerpt': 'Updates and communications from companies through the advertising space of the Region.',
+    'blog.article.publiredazionale-aziende-informano.imageAlt': 'Modern office in Bellinzona with mountain view',
 };
 
 export default blogMetaChEn;
