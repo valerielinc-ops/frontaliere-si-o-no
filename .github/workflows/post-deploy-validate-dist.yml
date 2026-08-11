@@ -1271,7 +1271,9 @@ jobs:
           #    '0.25'. Registering there means inheriting a 25 % sample IN
           #    SILENCE — and this audit's entire output is a published RATE
           #    that tests/job-locale-consistency.test.ts ratchets against
-          #    (33.00 % ceiling, 30.14 % measured 2026-08-10). A number that
+          #    (35.50 % ceiling, 32.55 % measured 2026-08-11 on the assembled
+          #    data/jobs.json — the same artefact restored into this job, which
+          #    is exactly why the two agree). A number that
           #    moves with the sample is not the number that ratchet is about,
           #    and the weekly job-title-locale-audit.yml — which runs the same
           #    script unsampled — would then disagree with this one for no

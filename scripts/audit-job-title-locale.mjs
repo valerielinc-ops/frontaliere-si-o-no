@@ -24,10 +24,15 @@
  *   repair path is `scripts/mark-mistranslated-jobs.mjs` (wired into
  *   translate-pending.yml); the regression gate is
  *   `tests/job-locale-consistency.test.ts`.
- * - Top-N + totals, never an unbounded dump. Measured 2026-08-10: 24,054 of
- *   79,796 non-source title slots flag (30.14%). An issue body listing them
- *   individually would exceed GitHub's 65,536-char cap ~40× and say nothing a
- *   leaderboard does not.
+ * - Top-N + totals, never an unbounded dump. Measured 2026-08-11 on the
+ *   ASSEMBLED `data/jobs.json` (22,781 active jobs): 22,236 of 68,306
+ *   non-source title slots flag (32.55%). On the committed
+ *   `data/jobs/by-crawler/*.json` slices the same run reads 24,054 of 79,796
+ *   (30.14%) — the two populations differ by 2.41pp, so ALWAYS say which one a
+ *   number came from. `tests/job-locale-consistency.test.ts` gates the
+ *   assembled one, and its header explains what that cost when it was missed.
+ *   Either way an issue body listing the offenders individually would exceed
+ *   GitHub's 65,536-char cap ~40× and say nothing a leaderboard does not.
  * - `topEvidence` is deliberately part of the output. Grouping the literal
  *   marker token that fired (`des`, `Fachfrau`, `Switzerland`, …) by
  *   locale+reason is what makes a DETECTOR false positive visible next to a
