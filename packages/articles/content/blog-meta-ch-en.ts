@@ -2086,6 +2086,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-2025.title': 'Fight against undeclared work: 14,450 company controls in 2025',
     'blog.article.lotta-lavoro-nero-2025.excerpt': 'SECO has published the report on the fight against undeclared work in Switzerland for 2025.',
     'blog.article.lotta-lavoro-nero-2025.imageAlt': 'A SECO inspector checks a building in Switzerland.',
+    'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group starts negotiations to acquire Aroma-Zone',
+    'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Exclusive negotiations with Eurazeo, which will maintain a minority stake; possible valuation around 2 billion euros',
+    'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group and Aroma-Zone',
 };
 
 export default blogMetaChEn;

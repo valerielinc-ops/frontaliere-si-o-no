@@ -2086,6 +2086,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-2025.title': 'Lotta al lavoro nero: 14 450 controlli aziendali nel 2025',
     'blog.article.lotta-lavoro-nero-2025.excerpt': 'La SECO ha pubblicato il rapporto sulla lotta al lavoro nero in Svizzera per il 2025.',
     'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Un ispettore della SECO controlla un edificio in Svizzera.',
+    'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group avvia trattative per acquisire Aroma-Zone',
+    'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Trattative esclusive con Eurazeo, che manterrà una quota di minoranza; possibile valutazione intorno a 2 miliardi di euro',
+    'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group e Aroma-Zone',
 };
 
 export default blogMetaChIt;

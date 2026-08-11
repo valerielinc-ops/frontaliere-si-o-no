@@ -27005,6 +27005,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-partners-group-trattative-aroma-zone': {
+    title: 'Partners Group avvia trattative per acquisire Aroma-Zone',
+    description: 'Partners Group annuncia l\'avvio di trattative per acquisire Aroma-Zone, noto marchio francese di cosmetici naturali. La valutazione dell\'impresa potrebbe essere',
+    keywords: 'frontalieri, ticino, svizzera, italia, partners, group, avvia, trattative',
+    ogTitle: 'Partners Group acquisisce Aroma-Zone',
+    ogDescription: 'Partners Group annuncia l\'avvio di trattative per acquisire Aroma-Zone, noto marchio francese di cosmetici naturali. La valutazione dell\'impresa potrebbe essere di circa 2 miliardi di euro.',
+    canonicalPath: '/articoli-svizzera/partners-group-trattative-aroma-zone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Partners Group avvia trattative per acquisire Aroma-Zone",
+      "description": "Partners Group annuncia l'avvio di trattative per acquisire Aroma-Zone, noto marchio francese di cosmetici naturali. La valutazione dell'impresa potrebbe essere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/partners-group-trattative-aroma-zone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partners Group e Aroma-Zone"
+      },
+      "datePublished": "2026-08-11T01:48:30+00:00",
+      "dateModified": "2026-08-11T01:48:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/partners-group-trattative-aroma-zone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

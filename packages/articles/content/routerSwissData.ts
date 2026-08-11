@@ -721,6 +721,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lotta-lavoro-nero-consultazione': { it: 'lotta-lavoro-nero-consultazione', en: 'combating-undeclared-work-consultation', de: 'kampf-gegen-schwarzarbeit-konsultation', fr: 'lutte-contre-travail-noir-consultation' },
  'mercato-lavoro-svizzera-luglio-2026': { it: 'mercato-lavoro-svizzera-luglio-2026', en: 'swiss-labor-market-july-2026', de: 'schweizer-arbeitsmarkt-juli-2026', fr: 'marche-travail-suisse-juillet-2026' },
  'lotta-lavoro-nero-2025': { it: 'lotta-lavoro-nero-2025', en: 'labor-black-market-2025', de: 'arbeitsmarkt-schwarze-arbeit-2025', fr: 'marche-du-travail-noir-2025' },
+ 'partners-group-trattative-aroma-zone': { it: 'partners-group-trattative-aroma-zone', en: 'partners-group-acquires-aroma-zone', de: 'partners-group-erwerbt-aroma-zone', fr: 'partners-group-achete-aroma-zone' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

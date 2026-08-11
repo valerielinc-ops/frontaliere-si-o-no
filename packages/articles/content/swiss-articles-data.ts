@@ -6256,6 +6256,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'partners-group-trattative-aroma-zone',
+    category: 'fiscale',
+    date: '2026-08-11T01:48:30.050Z',
+    image: '/images/blog/partners-group-trattative-aroma-zone.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
