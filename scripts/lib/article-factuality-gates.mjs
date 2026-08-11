@@ -1050,6 +1050,7 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
   'UVAS',     // "Ufficio federale delle assicurazioni sociali" → UFAS/BSV
   'UAS',      // same invention, different acronym → UFAS/BSV
   'UVA',      // same invention, different acronym → UFAS/BSV
+  'UAFS',     // same invention (letters transposed), same body → UFAS/BSV
   'UVSS',     // "Ufficio federale dei servizi sociali" → UFAS/BSV
   'UFP',      // "Ufficio federale delle pensioni" → UFAS/BSV
   'USVP',     // "Ufficio federale per la sanità pubblica" → UFSP/BAG
@@ -1081,6 +1082,7 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
   'DSPSS',    // "Dipartimento federale per la sanità pubblica e la protezione sociale" → DFI
   'DIJ',      // "Dipartimento federale dell'istruzione e della gioventù" → DEFR
   'UGCI',     // "Ufficio del Governo Confederale per la Svizzera italiana" — no such body
+  'UDD',      // "Ufficio delle dogane e dei dazi" → AFD/UDSC/BAZG
 
   // Invented cantonal offices. Ticino's real ones (URC, USTAT, SPAAS, UPAAI,
   // IAS, IFC …) are in the allowlist above.
