@@ -764,6 +764,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bilaterali-iii-vacilla-misura-accompagnamento': { it: 'bilaterali-iii-vacilla-misura-accompagnamento', en: 'bilaterali-iii-vacilla-accompanion-measure', de: 'bilaterali-iii-vacilliert-unterstutzende-ma-nahme', fr: 'bilaterali-iii-vacille-mesure-daccompagnement' },
  'lex-ubs-proposta-compromesso': { it: 'lex-ubs-proposta-compromesso', en: 'ubs-proposal-compromise', de: 'ubs-vorschlag-kompromiss', fr: 'proposition-ubs-compromis' },
  'commissione-propone-500-milioni-munizioni': { it: 'commissione-propone-500-milioni-munizioni', en: 'commissione-propone-500-milioni-munizioni', de: 'commissione-propone-500-milioni-munizioni', fr: 'commissione-propone-500-milioni-munizioni' },
+ 'borse-studio-zurigo-requisiti-e-importi': { it: 'borse-studio-zurigo-requisiti-e-importi', en: 'scholarships-zurich-requirements-and-amounts', de: 'stipendien-zuerich-anforderungen-und-betrage', fr: 'bourses-zurich-exigences-et-quantites' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
