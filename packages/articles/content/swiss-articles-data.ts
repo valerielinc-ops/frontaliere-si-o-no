@@ -6553,6 +6553,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'aziende-rimangono-prudenti',
+    category: 'novita',
+    date: '2026-08-11T13:14:50.408Z',
+    image: '/images/blog/aziende-rimangono-prudenti.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2185,6 +2185,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carne-prezzi-svizzera.title': 'Die Hitze bremst nicht den Fleischkonsum, sondern treibt die Preise in die Höhe',
     'blog.article.carne-prezzi-svizzera.excerpt': 'Die Hitzewelle hat einen Anstieg des Fleischkonsums nicht verhindert, aber die Dürre könnte das Angebot reduzieren und die Preise in die Höhe treiben.',
     'blog.article.carne-prezzi-svizzera.imageAlt': 'Der Fleischpreis in der Schweiz und seine Auswirkungen',
+    'blog.article.aziende-rimangono-prudenti.title': 'Mehr Unternehmen bleiben vorsichtig, geringe Bereitschaft zur Einstellung',
+    'blog.article.aziende-rimangono-prudenti.excerpt': 'Schweizer Unternehmen blicken weiterhin vorsichtig in die Zukunft, wobei die Einstellungsabsichten auf dem niedrigsten Stand seit fünf Jahren bleiben.',
+    'blog.article.aziende-rimangono-prudenti.imageAlt': 'Schweizer Unternehmen in einem Kontext der Vorsicht',
 };
 
 export default blogMetaChDe;

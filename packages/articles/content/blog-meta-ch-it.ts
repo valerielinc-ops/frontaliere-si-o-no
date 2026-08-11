@@ -2185,6 +2185,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carne-prezzi-svizzera.title': 'Il caldo non frena i consumi di carne, ma farà aumentare i prezzi',
     'blog.article.carne-prezzi-svizzera.excerpt': 'L\'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l\'offerta e far lievitare i prezzi.',
     'blog.article.carne-prezzi-svizzera.imageAlt': 'Il costo della carne in Svizzera e le sue implicazioni',
+    'blog.article.aziende-rimangono-prudenti.title': 'Di più Aziende rimangono prudenti, scarsa propensione ad assumere',
+    'blog.article.aziende-rimangono-prudenti.excerpt': 'Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.',
+    'blog.article.aziende-rimangono-prudenti.imageAlt': 'Aziende svizzere in un contesto di prudenza',
 };
 
 export default blogMetaChIt;

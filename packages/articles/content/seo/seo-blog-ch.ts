@@ -28292,6 +28292,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aziende-rimangono-prudenti': {
+    title: 'Di più Aziende rimangono prudenti, scarsa propensione ad assumere',
+    description: 'Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, rimangono, prudenti, scarsa',
+    ogTitle: 'Aziende svizzere: calo delle intenzioni di assunzione e aumento della richiesta di competenze digitali',
+    ogDescription: 'Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.',
+    canonicalPath: '/articoli-svizzera/aziende-rimangono-prudenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Aziende rimangono prudenti, scarsa propensione ad assumere",
+      "description": "Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aziende-rimangono-prudenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aziende svizzere in un contesto di prudenza"
+      },
+      "datePublished": "2026-08-11T13:14:50+00:00",
+      "dateModified": "2026-08-11T13:14:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aziende-rimangono-prudenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
