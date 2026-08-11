@@ -899,3 +899,81 @@ describe('every shared symbol a script uses is actually imported', () => {
     expect(offenders).toEqual([]);
   });
 });
+
+/* ── Every un-suppressor goes through the same gate ──────────────────────── */
+
+describe('every suppression-recovery runner routes its decision through the shared classifier', () => {
+  /**
+   * The class, enumerated by the write they all perform: a script that stamps
+   * one of these fields is putting a suppressed address back into the send
+   * cascade. Three of the four members used to decide that WITHOUT ever
+   * reading `bounce_severity` —
+   *   - `restore-mailtrap-suspension-suppressions.mjs` read only the event
+   *     log, where a hard bounce is `event_type: 'bounce'` and therefore
+   *     invisible, exactly like the recoverable `reject`;
+   *   - `reactivate-false-positive-bounces.mjs` applied HARD_BOUNCE_PATTERN to
+   *     the reason prose and nothing else, so every doc escalated by
+   *     `maybeEscalateSoftBounce()` (severity `hard`, prose matching no hard
+   *     phrase) sailed through;
+   *   - `mailtrap-suppression-retry.mjs` trusted the `status` filter alone to
+   *     keep complained/unsubscribed out, but `status` is a single field where
+   *     the last writer wins and the opt-out STAMPS are the durable record.
+   *
+   * Each was a different spelling of one question, so each could be fixed
+   * without the others. This scan is what makes the fourth spelling impossible
+   * to add quietly: a new runner that stamps a recovery field and does not
+   * name `classifySuppressionDecay` fails here, at the moment it is written.
+   */
+  const RECOVERY_STAMPS = [
+    'bounce_reactivated_at',
+    'mailtrap_suppression_resolved_at',
+    'restored_reason',
+    'suppression_decay_at',
+  ];
+
+  /**
+   * The engagement-sunset owners are NOT in this class: `inactive` is a soft,
+   * per-channel state whose reverse edge those files already own, deliberately
+   * excluded from decay (see the suppressionDecay.mjs header). And
+   * `subscriberReactivation.js` lives on the Cloud Functions side of a deploy
+   * boundary that cannot import `scripts/lib/`; it carries its own
+   * `isTerminalSuppression()` guarding the same severity field, asserted
+   * separately below.
+   */
+  const NOT_IN_CLASS = [
+    path.join('scripts', 'lib', 'suppressionDecay.mjs'),
+    path.join('scripts', 'lib', 'subscriberSunset.mjs'),
+    path.join('scripts', 'job-alert-sunset.mjs'),
+    path.join('scripts', 'newsletter-sunset.mjs'),
+    path.join('functions', 'src', 'lib', 'subscriberReactivation.js'),
+  ];
+
+  it('no runner un-suppresses an address without consulting the hard-bounce/human gate', () => {
+    const offenders: string[] = [];
+    let scanned = 0;
+    for (const root of SCAN_ROOTS) {
+      for (const file of sourceFiles(path.join(REPO_ROOT, root))) {
+        const rel = path.relative(REPO_ROOT, file);
+        if (NOT_IN_CLASS.includes(rel)) continue;
+        const source = fs.readFileSync(file, 'utf-8');
+        if (!RECOVERY_STAMPS.some((stamp) => source.includes(stamp))) continue;
+        scanned += 1;
+        if (!/\bclassifySuppressionDecay\b/.test(source)) {
+          offenders.push(`${rel}: stamps a recovery field without consulting classifySuppressionDecay()`);
+        }
+      }
+    }
+    // The scan found the runners, rather than silently matching nothing.
+    expect(scanned).toBeGreaterThanOrEqual(3);
+    expect(offenders).toEqual([]);
+  });
+
+  it('the Cloud Functions half of the class still refuses a proven-permanent hard bounce', () => {
+    const source = fs.readFileSync(
+      path.join(REPO_ROOT, 'functions', 'src', 'lib', 'subscriberReactivation.js'),
+      'utf-8',
+    );
+    expect(source).toContain('isTerminalSuppression');
+    expect(source).toContain('bounce_severity');
+  });
+});
