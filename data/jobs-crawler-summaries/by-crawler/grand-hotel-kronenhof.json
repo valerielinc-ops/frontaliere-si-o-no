@@ -1,16 +1,17 @@
 {
   "key": "grand-hotel-kronenhof",
   "label": "kronenhof",
-  "generatedAt": "2026-08-10T21:52:07.726Z",
+  "generatedAt": "2026-08-11T10:35:41.564Z",
   "total": 27,
   "newCount": 0,
   "updatedCount": 27,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 39091,
-  "avgDurationMs": 39091,
+  "durationMs": 39780,
+  "avgDurationMs": 39780,
   "durationHistory": [
-    39091
+    38124,
+    39780
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +38,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-10T21:52:06.330Z",
+      "crawledAt": "2026-08-11T10:35:40.573Z",
       "id": "grand-hotel-kronenhof-4c0a5d0ade2c",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -49,7 +50,8 @@
         "richness": 24,
         "translation": 25,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Assistant Reservations Manager  (m/w/d)",
@@ -74,7 +76,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-10T21:52:06.332Z",
+      "crawledAt": "2026-08-11T10:35:40.575Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -113,7 +115,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.332Z",
+      "crawledAt": "2026-08-11T10:35:40.575Z",
       "id": "grand-hotel-kronenhof-e75a50ff6089",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -150,7 +152,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.332Z",
+      "crawledAt": "2026-08-11T10:35:40.575Z",
       "id": "grand-hotel-kronenhof-e2770baba5de",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -162,7 +164,8 @@
         "richness": 24,
         "translation": 25,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Chef de Rang - Chesa al Parc (m/w/d)",
@@ -187,7 +190,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.333Z",
+      "crawledAt": "2026-08-11T10:35:40.576Z",
       "id": "grand-hotel-kronenhof-cec493792ba3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -199,7 +202,8 @@
         "richness": 24,
         "translation": 25,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Chef de Rang - immediate start (m/w/d)",
@@ -224,7 +228,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.333Z",
+      "crawledAt": "2026-08-11T10:35:40.576Z",
       "id": "grand-hotel-kronenhof-5a220adc6ac9",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -263,7 +267,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.334Z",
+      "crawledAt": "2026-08-11T10:35:40.577Z",
       "id": "grand-hotel-kronenhof-b09e78863ca6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -300,7 +304,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.334Z",
+      "crawledAt": "2026-08-11T10:35:40.577Z",
       "id": "grand-hotel-kronenhof-893c60e4d3ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -314,7 +318,8 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Commis de Cuisine Pâtisserie (m/w/d)",
@@ -339,7 +344,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.334Z",
+      "crawledAt": "2026-08-11T10:35:40.578Z",
       "id": "grand-hotel-kronenhof-8a9c201b51ac",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -353,7 +358,8 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Commis de Rang  (m/w/d)",
@@ -378,7 +384,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.335Z",
+      "crawledAt": "2026-08-11T10:35:40.578Z",
       "id": "grand-hotel-kronenhof-c03264709fc2",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -390,7 +396,8 @@
         "richness": 24,
         "translation": 23,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Commis de Rang (m/w/d)",
@@ -415,7 +422,7 @@
       "contract": "fixed-term",
       "employmentType": "full-time",
       "contractType": "fixed-term",
-      "crawledAt": "2026-08-10T21:52:06.335Z",
+      "crawledAt": "2026-08-11T10:35:40.578Z",
       "id": "grand-hotel-kronenhof-f7cae055e818",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -429,7 +436,8 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Concierge (m/w/d)",
@@ -454,7 +462,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.335Z",
+      "crawledAt": "2026-08-11T10:35:40.578Z",
       "id": "grand-hotel-kronenhof-316bbe8e5094",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -494,7 +502,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.335Z",
+      "crawledAt": "2026-08-11T10:35:40.579Z",
       "id": "grand-hotel-kronenhof-aa6ac20515db",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -531,7 +539,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-10T21:52:06.336Z",
+      "crawledAt": "2026-08-11T10:35:40.579Z",
       "id": "grand-hotel-kronenhof-c6f6aaceb4e7",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -568,7 +576,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-10T21:52:06.336Z",
+      "crawledAt": "2026-08-11T10:35:40.579Z",
       "id": "grand-hotel-kronenhof-c4e3e0a53660",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -607,7 +615,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-10T21:52:06.336Z",
+      "crawledAt": "2026-08-11T10:35:40.580Z",
       "id": "grand-hotel-kronenhof-baadf787802a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -615,13 +623,14 @@
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
       "firstSeenAt": "2026-07-20T22:43:20.488Z",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Florist (m/w/d)",
@@ -646,7 +655,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.337Z",
+      "crawledAt": "2026-08-11T10:35:40.580Z",
       "id": "grand-hotel-kronenhof-23b104bc744c",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -660,7 +669,8 @@
         "richness": 22,
         "translation": 25,
         "completeness": 25
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Front Office Agent (m/w/d)",
@@ -685,7 +695,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.337Z",
+      "crawledAt": "2026-08-11T10:35:40.580Z",
       "id": "grand-hotel-kronenhof-b877d8a4e15a",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -697,7 +707,8 @@
         "richness": 22,
         "translation": 25,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Housekeeping Supervisor  (m/w/d)",
@@ -722,7 +733,7 @@
       "contract": "fixed-term",
       "employmentType": "full-time",
       "contractType": "fixed-term",
-      "crawledAt": "2026-08-10T21:52:06.337Z",
+      "crawledAt": "2026-08-11T10:35:40.580Z",
       "id": "grand-hotel-kronenhof-ed1b8229e4ee",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -761,7 +772,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.337Z",
+      "crawledAt": "2026-08-11T10:35:40.581Z",
       "id": "grand-hotel-kronenhof-70bdd9442c3e",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -798,7 +809,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.337Z",
+      "crawledAt": "2026-08-11T10:35:40.581Z",
       "id": "grand-hotel-kronenhof-b6f776a1fa4b",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -835,7 +846,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.338Z",
+      "crawledAt": "2026-08-11T10:35:40.581Z",
       "id": "grand-hotel-kronenhof-a9c5b9fca3e5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -874,7 +885,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.338Z",
+      "crawledAt": "2026-08-11T10:35:40.581Z",
       "id": "grand-hotel-kronenhof-ddfff6441c2e",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -911,7 +922,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.338Z",
+      "crawledAt": "2026-08-11T10:35:40.582Z",
       "id": "grand-hotel-kronenhof-ccc2d047990d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -923,7 +934,8 @@
         "richness": 22,
         "translation": 23,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Sommelier  (m/w/d)",
@@ -948,7 +960,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.338Z",
+      "crawledAt": "2026-08-11T10:35:40.582Z",
       "id": "grand-hotel-kronenhof-3d917f451633",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -960,7 +972,8 @@
         "richness": 24,
         "translation": 20,
         "completeness": 19
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Spa Receptionist (m/w/d)",
@@ -985,7 +998,7 @@
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
-      "crawledAt": "2026-08-10T21:52:06.339Z",
+      "crawledAt": "2026-08-11T10:35:40.582Z",
       "id": "grand-hotel-kronenhof-d4cdae503bb5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1022,7 +1035,7 @@
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "crawledAt": "2026-08-10T21:52:06.339Z",
+      "crawledAt": "2026-08-11T10:35:40.582Z",
       "id": "grand-hotel-kronenhof-91d9b945d515",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1039,44 +1052,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Allrounder/ Spüler (m/w/d)",
-      "slug": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz-st-moritz-707",
-      "url": "https://careers.kronenhof.com/en/vacancies/707",
-      "applyUrl": "https://careers.kronenhof.com/en/vacancies/707",
-      "company": "Kulm Hotel St. Moritz",
-      "companyKey": "grand-hotel-kronenhof",
-      "companyDomain": "kronenhof.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Turismo & Ospitalità",
-      "sector": "Hotellerie & Gastronomia",
-      "source": "kronenhof-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-12-01",
-      "validThrough": "",
-      "contract": "seasonal",
-      "employmentType": "full-time",
-      "contractType": "seasonal",
-      "crawledAt": "2026-08-10T10:51:49.366Z",
-      "id": "grand-hotel-kronenhof-4df1b7a0146a",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-28T11:31:08.801Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

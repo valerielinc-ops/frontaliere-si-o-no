@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rennbahnklinik",
-  "assembledAt": "2026-08-10T21:58:25.117Z",
+  "assembledAt": "2026-08-11T10:36:44.737Z",
   "jobs": [
     {
       "id": "rennbahnklinik-e9cbf9e1f13d",
@@ -34,7 +34,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/arztsekretariat",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:22.530Z",
+      "crawledAt": "2026-08-11T10:36:41.591Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,12 +85,14 @@
       },
       "previousSlugs": [
         "arztsekretar-in-80-100-rennbahnklinik-muttenz",
-        "segretario-a-medico-80-100-rennbahnklinik-muttenz"
+        "segretario-a-medico-80-100-rennbahnklinik-muttenz",
+        "segretaria-medica-80-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-80-100-rennbahnklinik-muttenz",
-          "segretario-a-medico-80-100-rennbahnklinik-muttenz"
+          "segretario-a-medico-80-100-rennbahnklinik-muttenz",
+          "segretaria-medica-80-100-rennbahnklinik-muttenz"
         ]
       },
       "firstSeenAt": "2026-05-19T20:46:08.172Z",
@@ -138,7 +140,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:21.268Z",
+      "crawledAt": "2026-08-11T10:36:40.242Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -189,12 +191,14 @@
       },
       "previousSlugs": [
         "assistenzarzt-arztin-sport-orthopadie-100-rennbahnklinik-muttenz",
-        "assistente-medico-sport-ortopedia-100-rennbahnklinik-muttenz"
+        "assistente-medico-sport-ortopedia-100-rennbahnklinik-muttenz",
+        "assistente-medico-ortopedico-sportivo-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-sport-orthopadie-100-rennbahnklinik-muttenz",
-          "assistente-medico-sport-ortopedia-100-rennbahnklinik-muttenz"
+          "assistente-medico-sport-ortopedia-100-rennbahnklinik-muttenz",
+          "assistente-medico-ortopedico-sportivo-100-rennbahnklinik-muttenz"
         ]
       },
       "firstSeenAt": "2026-05-19T20:46:06.876Z",
@@ -209,7 +213,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rennbahnklinik-527331a61591",
@@ -242,7 +247,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mpa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:19.982Z",
+      "crawledAt": "2026-08-11T10:36:38.887Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -290,11 +295,13 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-100-rennbahnklinik-muttenz"
+        "medizinische-r-praxisassistent-in-100-rennbahnklinik-muttenz",
+        "assistente-di-studio-medico-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-100-rennbahnklinik-muttenz"
+          "medizinische-r-praxisassistent-in-100-rennbahnklinik-muttenz",
+          "assistente-di-studio-medico-100-rennbahnklinik-muttenz"
         ]
       },
       "firstSeenAt": "2026-05-19T20:46:05.620Z",
@@ -309,15 +316,16 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rennbahnklinik-6a1155962fc5",
       "slug": "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
         "it": "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz",
         "en": "dipl-nursing-professional-hf-60-100-rennbahnklinik-muttenz",
+        "de": "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
         "fr": "dipl-professionnels-des-soins-infirmiers-hf-60-100-rennbahnklinik-muttenz"
       },
       "company": "Rennbahnklinik",
@@ -325,16 +333,16 @@
       "companyDomain": "rennbahnklinik.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF 60-100%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau/-mann HF 60-100%",
-        "it": "Dipl. Infermieristica professionale HF 60-100 %",
+        "it": "Dipl. Pflegefachfrau/-mann HF 60-100%",
         "en": "Dipl. Nursing professional HF 60-100 %",
+        "de": "Dipl. Pflegefachfrau/-mann HF 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers HF 60-100 %"
       },
       "description": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit über 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Erweiterung unseres Teams suchen wir eine/n:\n\nDipl. Pflegefachfrau/-mann HF\n\nDeine Aufgaben:\n• Prae- und postoperative Betreuung der Patienten\n• Ein- uns Austrittsmanagement\n• Mitarbeit und Begleitung ärztliche Visite und Durchführung pflegerische Visite\n• Patientendokumentation und Leistungserfassung im Kliniksystem\n• Organisation Stationsablauf inklusive Tagesverantwortung\n• Sicherstellen der Qualität und Durchführen von Krisenintervention\n• Interdisziplinäre Zusammenarbeit, Mitarbeit in Arbeitsgruppen Du bringst mit:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann (FH, HF, DNII) mit SRK Anerkennung\n• Berufserfahrung im orthopädischen und sportmedizinischen Bereich\n• Patientenorientiertes und professionelles Pflegeverständnis\n• Fähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit mit allen Berufsgruppen\n• Unterstützung von neuen Entwicklungen und Lösungswegen\n• Flexibilität und Selbständigkeit\n• Gute PC Kenntnisse\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, gute mündliche Französischkenntnisse\n• Englischkenntnisse wünschenswert Wir bieten dir:\n• Interessante, anspruchsvolle und abwechslungsreiche Tätigkeit\n• Interdisziplinäre Zusammenarbeit in einem engagierten, offenen und wertschätzenden Kollegium\n• Modernste Infrastruktur\n• Zusätzlich Frei an gewissen Feiertagen\n• Vergünstigung im eigenen Fitnesstraining Du bist interessiert? ...mit Begeisterung unsere hohen Qualitätsansprüche im 3-Schichtbetrieb umzusetzen? Dann sende uns deine vollständigen Bewerbungsunterlagen via untenstehendes Bewerbungsformular. Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
       "descriptionByLocale": {
-        "de": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit über 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Erweiterung unseres Teams suchen wir eine/n:\n\nDipl. Pflegefachfrau/-mann HF\n\nDeine Aufgaben:\n• Prae- und postoperative Betreuung der Patienten\n• Ein- uns Austrittsmanagement\n• Mitarbeit und Begleitung ärztliche Visite und Durchführung pflegerische Visite\n• Patientendokumentation und Leistungserfassung im Kliniksystem\n• Organisation Stationsablauf inklusive Tagesverantwortung\n• Sicherstellen der Qualität und Durchführen von Krisenintervention\n• Interdisziplinäre Zusammenarbeit, Mitarbeit in Arbeitsgruppen Du bringst mit:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann (FH, HF, DNII) mit SRK Anerkennung\n• Berufserfahrung im orthopädischen und sportmedizinischen Bereich\n• Patientenorientiertes und professionelles Pflegeverständnis\n• Fähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit mit allen Berufsgruppen\n• Unterstützung von neuen Entwicklungen und Lösungswegen\n• Flexibilität und Selbständigkeit\n• Gute PC Kenntnisse\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, gute mündliche Französischkenntnisse\n• Englischkenntnisse wünschenswert Wir bieten dir:\n• Interessante, anspruchsvolle und abwechslungsreiche Tätigkeit\n• Interdisziplinäre Zusammenarbeit in einem engagierten, offenen und wertschätzenden Kollegium\n• Modernste Infrastruktur\n• Zusätzlich Frei an gewissen Feiertagen\n• Vergünstigung im eigenen Fitnesstraining Du bist interessiert? ...mit Begeisterung unsere hohen Qualitätsansprüche im 3-Schichtbetrieb umzusetzen? Dann sende uns deine vollständigen Bewerbungsunterlagen via untenstehendes Bewerbungsformular. Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
         "it": "Il Rennbahnklinik è un leader nella cura olistica delle persone attive. Le competenze principali della clinica includono ortopedia, medicina sportiva, fisioterapia e diagnostica funzionale. Da oltre 45 anni, il team ha lavorato con atleti e associazioni di vari sport e ha sviluppato i più alti standard. Per espandere il nostro team, ne stiamo cercando uno:\n\nDipl. Infermieristica professionale HF\n\nI vostri compiti:\n• Pre e post-operatorio cura del paziente\n• Entriamo nella gestione delle uscite\n• Cooperazione e accompagnamento di visite mediche e visite di allattamento\n• Documentazione paziente e registrazione delle prestazioni nel sistema clinico\n• Organizzazione della sequenza di stazioni, compresa la responsabilità quotidiana\n• Assicurare la qualità e l'attuazione dell'intervento di crisi\n• Cooperazione interdisciplinare, partecipazione ai gruppi di lavoro Porti con te:\n• Formazione completa come infermiera (FH, HF, DNII) con riconoscimento SRK\n• Esperienza professionale in medicina ortopedica e sportiva\n• La comprensione paziente e professionale della cura\n• Capacità e disponibilità per la cooperazione interdisciplinare con tutti i gruppi professionali\n• Sostegno a nuovi sviluppi e soluzioni\n• Flessibilità e indipendenza\n• Buona conoscenza del PC\n• Molto buono orale e scritto competenze tedesche, buone abilità orale francese\n• Le competenze di lingua inglese sono desiderabili Vi offriamo:\n• Attività interessante, impegnativa e variegata\n• Cooperazione interdisciplinare in un college impegnato, aperto e apprezzato\n• Infrastrutture moderne\n• Libero in determinate vacanze\n• Vantaggio nella tua formazione fitness Sei interessato? ...con entusiasmo per implementare i nostri elevati standard di qualità nel funzionamento a 3 turni? Quindi inviaci i tuoi documenti applicativi completi tramite il modulo di richiesta sottostante. Dettagli del lavoro Pagetitle Pensum Prima volta di inizio Personali Nome cognome Indirizzo Postcode Luogo di nascita Nationality permesso di lavoro (se non nazionalità CH) E-mail Documenti di telefono Carica lettera di motivazione CV incl. Foto Diploma, certificati e altri documenti (raccomandazione, riferimento, ecc.) Ho letto e accettato la privacy policy. Le nostre competenze I pazienti della Rennbahnklinik beneficiano di un trattamento olistico sotto un tetto. I nostri specialisti curano e trattano dalla diagnosi alla chirurgia e riabilitazione.\n• Ortopedia\n• Medicina sportiva\n• Chirurgia della mano\n• Terapia fisica\n• Diagnostica delle prestazioni\n• Biomeccanica\n• Gestione della salute sul lavoro\n• Formazione Le nostre competenze I nostri standard di qualità I nostri standard di qualità La #1 nella regione:\n• Alta qualità del trattamento\n• Soddisfazione del paziente\n• Costi più bassi Più su questo",
         "en": "The Rennbahnklinik is a leader in the holistic care of active people. The clinic’s core competencies include orthopaedics, sports medicine, physiotherapy and functional diagnostics. For more than 45 years, the team has worked with athletes and associations of various sports and has developed the highest standards. To expand our team, we are looking for one:\n\nDipl. Nursing professional HF\n\nYour tasks:\n• Pre- and post-operative patient care\n• Enter us exit management\n• Cooperation and accompaniment of medical visits and carrying out nursing visits\n• Patient documentation and performance recording in the clinic system\n• Organization of station sequence including daily responsibility\n• Ensure quality and implementation of crisis intervention\n• Interdisciplinary cooperation, participation in working groups You bring with you:\n• Completed training as a nurse (FH, HF, DNII) with SRK recognition\n• Professional experience in orthopaedic and sports medicine\n• Patient-oriented and professional understanding of care\n• Ability and readiness for interdisciplinary cooperation with all professional groups\n• Support for new developments and solutions\n• Flexibility and independence\n• Good PC knowledge\n• Very good oral and written German skills, good oral French skills\n• English language skills are desirable We offer you:\n• Interesting, challenging and varied activity\n• Interdisciplinary cooperation in a committed, open and appreciative college\n• Modern infrastructure\n• Free on certain holidays\n• Advantage in your own fitness training You are interested? ...with enthusiasm to implement our high quality standards in 3-shift operation? Then send us your complete application documents via the application form below. Job details Pagetitle Pensum Earliest start time Personals First name Last name Address Postcode Place of birth Nationality Work permit (if not nationality CH) E-mail Telephone documents Upload motivation letter CV incl. Photo Diplomas, certificates and other documents (recommendation, reference, etc.) I have read and accepted the privacy policy. Our competences Patients of the Rennbahnklinik benefit from a holistic treatment under one roof. Our specialists look after and treat you from diagnosis to surgery and rehabilitation.\n• Orthopaedics\n• Sports medicine\n• Hand surgery\n• Physical therapy\n• Performance diagnostics\n• Biomechanics\n• Occupational health management\n• Training Our Competences Our quality standards Our quality standards The #1 in the region :\n• Highest quality of treatment\n• Highest patient satisfaction\n• Lowest Costs More on this",
+        "de": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit über 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Erweiterung unseres Teams suchen wir eine/n:\n\nDipl. Pflegefachfrau/-mann HF\n\nDeine Aufgaben:\n• Prae- und postoperative Betreuung der Patienten\n• Ein- uns Austrittsmanagement\n• Mitarbeit und Begleitung ärztliche Visite und Durchführung pflegerische Visite\n• Patientendokumentation und Leistungserfassung im Kliniksystem\n• Organisation Stationsablauf inklusive Tagesverantwortung\n• Sicherstellen der Qualität und Durchführen von Krisenintervention\n• Interdisziplinäre Zusammenarbeit, Mitarbeit in Arbeitsgruppen Du bringst mit:\n• Abgeschlossene Ausbildung als Pflegefachfrau/-mann (FH, HF, DNII) mit SRK Anerkennung\n• Berufserfahrung im orthopädischen und sportmedizinischen Bereich\n• Patientenorientiertes und professionelles Pflegeverständnis\n• Fähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit mit allen Berufsgruppen\n• Unterstützung von neuen Entwicklungen und Lösungswegen\n• Flexibilität und Selbständigkeit\n• Gute PC Kenntnisse\n• Sehr gute mündliche und schriftliche Deutschkenntnisse, gute mündliche Französischkenntnisse\n• Englischkenntnisse wünschenswert Wir bieten dir:\n• Interessante, anspruchsvolle und abwechslungsreiche Tätigkeit\n• Interdisziplinäre Zusammenarbeit in einem engagierten, offenen und wertschätzenden Kollegium\n• Modernste Infrastruktur\n• Zusätzlich Frei an gewissen Feiertagen\n• Vergünstigung im eigenen Fitnesstraining Du bist interessiert? ...mit Begeisterung unsere hohen Qualitätsansprüche im 3-Schichtbetrieb umzusetzen? Dann sende uns deine vollständigen Bewerbungsunterlagen via untenstehendes Bewerbungsformular. Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
         "fr": "Le Rennbahnklinik est un leader dans la prise en charge holistique des personnes actives. Les compétences de base de la clinique comprennent l'orthopédie, la médecine sportive, la physiothérapie et le diagnostic fonctionnel. Depuis plus de 45 ans, l'équipe travaille avec des athlètes et des associations de différents sports et a développé les normes les plus élevées. Pour élargir notre équipe, nous en cherchons une :\n\nDipl. Soins infirmiers professionnels HF\n\nVos tâches:\n• Soins pré- et post-opératoires\n• Entrez-nous gestion de sortie\n• Coopération et accompagnement des visites médicales et des visites d'infirmières\n• Documentation du patient et enregistrement du rendement dans le système de clinique\n• Organisation de la séquence des stations, y compris la responsabilité quotidienne\n• Assurer la qualité et la mise en œuvre des interventions de crise\n• Coopération interdisciplinaire, participation aux groupes de travail Vous apportez avec vous:\n• Formation terminée en tant qu'infirmière (FH, HF, DNII) avec reconnaissance SRK\n• Expérience professionnelle en médecine orthopédique et sportive\n• Compréhension professionnelle et axée sur le patient des soins\n• Capacité et disponibilité pour une coopération interdisciplinaire avec tous les groupes professionnels\n• Soutien aux nouveaux développements et solutions\n• Flexibilité et indépendance\n• Bonne connaissance du PC\n• Très bonnes compétences orales et écrites en allemand, bonnes compétences orales en français\n• Les compétences en langue anglaise sont désirables Nous vous offrons :\n• Activités intéressantes, stimulantes et variées\n• Coopération interdisciplinaire dans un collège engagé, ouvert et reconnaissant\n• Infrastructures modernes\n• Gratuit pour certaines vacances\n• Avantage dans votre propre entraînement physique Vous êtes intéressé? ...avec enthousiasme à mettre en œuvre nos normes de haute qualité en 3 équipes? Envoyez-nous ensuite vos documents de candidature complets via le formulaire de candidature ci-dessous. Détails de l'emploi Pagetitle Pensum Heure de début la plus avancée Personnalités Prénom Nom Adresse Code postal Lieu de naissance Nationalité Permis de travail (si ce n'est la nationalité CH) E-mail Documents de téléphone Télécharger la lettre de motivation CV incl. J'ai lu et accepté la politique de confidentialité. Nos compétences Les patients du Rennbahnklinik bénéficient d'un traitement holistique sous un même toit. Nos spécialistes vous soignent et vous traitent depuis le diagnostic jusqu'à la chirurgie et la réadaptation.\n• Orthopédie\n• Médecine du sport\n• Chirurgie des mains\n• Thérapie physique\n• Diagnostic des performances\n• Biomécanique\n• Gestion de la santé au travail\n• Formation Nos compétences Nos normes de qualité Nos normes de qualité Le #1 dans la région :\n• Qualité maximale du traitement\n• Plus grande satisfaction du patient\n• Plus de coûts sur ce"
       },
       "location": "Muttenz",
@@ -342,7 +350,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:18.397Z",
+      "crawledAt": "2026-08-11T10:36:37.561Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -359,9 +367,7 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -377,7 +383,8 @@
       "firstSeenAt": "2026-08-10T21:58:18.397Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz"
+          "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
+          "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz"
@@ -387,8 +394,10 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz"
-      ]
+        "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
+        "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "rennbahnklinik-3d9ef18a62e5",
@@ -421,7 +430,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:17.072Z",
+      "crawledAt": "2026-08-11T10:36:36.250Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -475,12 +484,14 @@
         "tecnico-a-di-sala-operatoria-toa-80-100-rennbahnklinik-muttenz",
         "surgical-operations-technician-toa-80-100-rennbahnklinik-muttenz",
         "technical-n-operations-specialist-toa-80-100-rennbahnklinik-muttenz",
-        "technicien-ne-en-salle-d-operation-toa-80-100-rennbahnklinik-muttenz"
+        "technicien-ne-en-salle-d-operation-toa-80-100-rennbahnklinik-muttenz",
+        "operatore-operatrice-tecnico-di-area-operativa-toa-80-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-n-operationsfachfrau-mann-toa-80-100-rennbahnklinik-muttenz",
-          "tecnico-a-di-sala-operatoria-toa-80-100-rennbahnklinik-muttenz"
+          "tecnico-a-di-sala-operatoria-toa-80-100-rennbahnklinik-muttenz",
+          "operatore-operatrice-tecnico-di-area-operativa-toa-80-100-rennbahnklinik-muttenz"
         ],
         "en": [
           "surgical-operations-technician-toa-80-100-rennbahnklinik-muttenz",
@@ -502,7 +513,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rennbahnklinik-44aacd7c7eb2",
@@ -535,7 +547,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:15.663Z",
+      "crawledAt": "2026-08-11T10:36:34.957Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -568,12 +580,14 @@
       "previousSlugs": [
         "unterassistent-in-sport-orthopadie-100-rennbahnklinik-muttenz",
         "sottosegretario-a-sport-ortopedia-100-rennbahnklinik-muttenz",
-        "assistant-e-en-sport-orthopedie-100-rennbahnklinik-muttenz"
+        "assistant-e-en-sport-orthopedie-100-rennbahnklinik-muttenz",
+        "assistente-sportivo-ortopedico-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-sport-orthopadie-100-rennbahnklinik-muttenz",
-          "sottosegretario-a-sport-ortopedia-100-rennbahnklinik-muttenz"
+          "sottosegretario-a-sport-ortopedia-100-rennbahnklinik-muttenz",
+          "assistente-sportivo-ortopedico-100-rennbahnklinik-muttenz"
         ],
         "fr": [
           "assistant-e-en-sport-orthopedie-100-rennbahnklinik-muttenz"
@@ -591,7 +605,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rennbahnklinik-1b691dd5bebc",
@@ -625,7 +640,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:14.398Z",
+      "crawledAt": "2026-08-11T10:36:33.658Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -655,12 +670,14 @@
       },
       "previousSlugs": [
         "pflegepraktikum-fur-medizinstudierende-100-rennbahnklinik-muttenz",
-        "pflegepraktikum-per-medizinstudierende-100-rennbahnklinik-muttenz"
+        "pflegepraktikum-per-medizinstudierende-100-rennbahnklinik-muttenz",
+        "tirocinio-in-assistenza-per-studenti-di-medicina-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikum-fur-medizinstudierende-100-rennbahnklinik-muttenz",
-          "pflegepraktikum-per-medizinstudierende-100-rennbahnklinik-muttenz"
+          "pflegepraktikum-per-medizinstudierende-100-rennbahnklinik-muttenz",
+          "tirocinio-in-assistenza-per-studenti-di-medicina-100-rennbahnklinik-muttenz"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:57.293Z",
@@ -709,7 +726,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mtr",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:13.026Z",
+      "crawledAt": "2026-08-11T10:36:32.298Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -728,11 +745,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+        "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz",
+        "dipl-medico-tecnica-r-specialista-di-radiologia-60-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+          "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz",
+          "dipl-medico-tecnica-r-specialista-di-radiologia-60-100-rennbahnklinik-muttenz"
         ],
         "en": [
           "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
@@ -787,7 +806,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/leitende-r-oberaerztin-oberarzt-anaesthesie-w-m",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:11.959Z",
+      "crawledAt": "2026-08-11T10:36:31.001Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -806,11 +825,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-r-oberarztin-oberarzt-anasthesie-50-rennbahnklinik-muttenz"
+        "leitende-r-oberarztin-oberarzt-anasthesie-50-rennbahnklinik-muttenz",
+        "anestesia-medico-superiore-superiore-50-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-oberarztin-oberarzt-anasthesie-50-rennbahnklinik-muttenz"
+          "leitende-r-oberarztin-oberarzt-anasthesie-50-rennbahnklinik-muttenz",
+          "anestesia-medico-superiore-superiore-50-rennbahnklinik-muttenz"
         ],
         "en": [
           "leitende-r-oberarztin-oberarzt-anasthesie-50-rennbahnklinik-muttenz"
@@ -865,7 +886,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mitarbeiter-in-patientenaufnahme",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:10.849Z",
+      "crawledAt": "2026-08-11T10:36:29.668Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -884,11 +905,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz"
+        "mitarbeiter-in-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz",
+        "collaboratore-trice-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz"
+          "mitarbeiter-in-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz",
+          "collaboratore-trice-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz"
         ],
         "en": [
           "mitarbeiter-in-patientenaufnahme-40-vormittags-rennbahnklinik-muttenz"
@@ -915,9 +938,9 @@
       "id": "rennbahnklinik-9ed250dd18af",
       "slug": "professionista-della-salute-fage-80-100-rennbahnklinik-muttenz",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz",
         "it": "professionista-della-salute-fage-80-100-rennbahnklinik-muttenz",
         "en": "health-professional-fage-80-100-rennbahnklinik-muttenz",
+        "de": "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz",
         "fr": "professionnels-de-la-sante-fage-80-100-rennbahnklinik-muttenz"
       },
       "company": "Rennbahnklinik",
@@ -925,16 +948,16 @@
       "companyDomain": "rennbahnklinik.ch",
       "title": "Fachperson Gesundheit (FaGe) 80-100%",
       "titleByLocale": {
-        "de": "Fachperson Gesundheit (FaGe) 80-100%",
         "it": "Professionista della Salute (FaGe) 80-100 %",
         "en": "Health Professional (FaGe) 80-100 %",
+        "de": "Fachperson Gesundheit (FaGe) 80-100%",
         "fr": "Professionnels de la santé (FaGe) 80-100 %"
       },
       "description": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Erweiterung unseres Teams suchen wir ab sofort :\n\nFachperson Gesundheit (FaGe)\n\nDeine Aufgaben:\n• Unterstützung der diplomierten Pflegefachpersonen bei der Pflege und Verantwortung über delegierte Aufgaben gemäss Kompetenzregelung und Pflegeplanung im Drei-Schicht-Betrieb\n• Mitverantwortung für eine hochwertige Pflegequalität und Patientenzufriedenheit\n• Mithilfe bei Ein- und Austrittsprozessen\n• Übernahme und Erledigung von administrativen, organisatorischen und hauswirtschaftlichen Aufgaben\n• Begleitung von Praktikanten Du bringst mit:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit\n• Hohe Kundenorientierung, Teamfähigkeit in Kombination mit Flexibilität und Einsatzbereitschaft in einem dynamischen Arbeitsumfeld\n• Eigenverantwortung, aktives Mitdenken sowie Erhaltung unserer hohen Qualitätsstandards\n• Freude am Patientenkontakt sowie ausgeprägt Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n• Deutsche Sprachkenntnisse in Wort und Schrift und mündliche Französischkenntnisse Wir bieten :\n• Vielseitige Aufgaben in einem lebhaften Fachbereich und einem motivierten, dynamischen Team mit grossem Engagement, welches sich auf Ihre Unterstützung freut\n• Aufgaben in den Tätigkeitsfeldern Pflege, Betreuung, Administration, Logistik und Hauswirtschaft\n• Modernste Infrastruktur\n• Fortschrittliche Anstellungsbedingungen, z.B. keine Einsätze zwischen Weihnacht und Neujahr Du bist interessiert? Dann sende uns deine vollständigen Bewerbungsunterlagen via untenstehendes Bewerbungsformular. Wir freuen uns auf dich! Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
       "descriptionByLocale": {
-        "de": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Erweiterung unseres Teams suchen wir ab sofort :\n\nFachperson Gesundheit (FaGe)\n\nDeine Aufgaben:\n• Unterstützung der diplomierten Pflegefachpersonen bei der Pflege und Verantwortung über delegierte Aufgaben gemäss Kompetenzregelung und Pflegeplanung im Drei-Schicht-Betrieb\n• Mitverantwortung für eine hochwertige Pflegequalität und Patientenzufriedenheit\n• Mithilfe bei Ein- und Austrittsprozessen\n• Übernahme und Erledigung von administrativen, organisatorischen und hauswirtschaftlichen Aufgaben\n• Begleitung von Praktikanten Du bringst mit:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit\n• Hohe Kundenorientierung, Teamfähigkeit in Kombination mit Flexibilität und Einsatzbereitschaft in einem dynamischen Arbeitsumfeld\n• Eigenverantwortung, aktives Mitdenken sowie Erhaltung unserer hohen Qualitätsstandards\n• Freude am Patientenkontakt sowie ausgeprägt Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n• Deutsche Sprachkenntnisse in Wort und Schrift und mündliche Französischkenntnisse Wir bieten :\n• Vielseitige Aufgaben in einem lebhaften Fachbereich und einem motivierten, dynamischen Team mit grossem Engagement, welches sich auf Ihre Unterstützung freut\n• Aufgaben in den Tätigkeitsfeldern Pflege, Betreuung, Administration, Logistik und Hauswirtschaft\n• Modernste Infrastruktur\n• Fortschrittliche Anstellungsbedingungen, z.B. keine Einsätze zwischen Weihnacht und Neujahr Du bist interessiert? Dann sende uns deine vollständigen Bewerbungsunterlagen via untenstehendes Bewerbungsformular. Wir freuen uns auf dich! Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
         "it": "Il Rennbahnklinik è un leader nella cura olistica delle persone attive. Le competenze principali della clinica includono ortopedia, medicina sportiva, fisioterapia e diagnostica funzionale. Per 45 anni, il team ha lavorato con atleti e associazioni di vari sport e ha sviluppato i più alti standard. Per espandere il nostro team, stiamo cercando:\n\nProfessionista della Salute (FaGe)\n\nI vostri compiti:\n• Sostegno alle infermiere qualificate nella cura e nella responsabilità dei compiti delegati secondo la regolamentazione delle competenze e la pianificazione delle cure in operazione a tre turni\n• Condividi la responsabilità per la qualità della cura di alta qualità e la soddisfazione del paziente\n• Assistenza nei processi di entrata e uscita\n• Assunzione e completamento dei compiti amministrativi, organizzativi e nazionali\n• Accompagnamento di stagisti Porti con te:\n• Formazione completa come specialista in salute\n• Alto orientamento del cliente, lavoro di squadra combinato con flessibilità e impegno in un ambiente di lavoro dinamico\n• Responsabilità personale, pensiero attivo e mantenimento dei nostri elevati standard di qualità\n• Divertimento del contatto paziente e un orientamento di servizio pronunciato e un elevato senso di responsabilità\n• Trattamento apprezzativo e sensibile dei pazienti e dei loro parenti\n• Competenze linguistiche tedesche nella parola e nella scrittura e nella lingua francese orale Offriamo:\n• Compiti versatili in una vivace area specializzata e un team motivato e dinamico con grande impegno, che non vede l'ora di sostenere\n• Compiti nei campi di cura, cura, amministrazione, logistica e pulizia\n• Infrastrutture moderne\n• Condizioni di lavoro progressivo, ad esempio nessun incarico tra Natale e Capodanno Sei interessato? Quindi inviaci i tuoi documenti di applicazione completi tramite il modulo di richiesta sottostante. Non vediamo l'ora di vederti! Dettagli del lavoro Pagetitle Pensum Prima volta di inizio Personali Nome cognome Indirizzo Postcode Luogo di nascita Nationality permesso di lavoro (se non nazionalità CH) E-mail Documenti di telefono Carica lettera di motivazione CV incl. Foto Diploma, certificati e altri documenti (raccomandazione, riferimento, ecc.) Ho letto e accettato la privacy policy. Le nostre competenze I pazienti della Rennbahnklinik beneficiano di un trattamento olistico sotto un tetto. I nostri specialisti curano e trattano dalla diagnosi alla chirurgia e alla riabilitazione.\n• Ortopedia\n• Medicina sportiva\n• Chirurgia della mano\n• Terapia fisica\n• Diagnostica delle prestazioni\n• Biomeccanica\n• Gestione della salute sul lavoro\n• Formazione Le nostre competenze I nostri standard di qualità I nostri standard di qualità La #1 nella regione:\n• Alta qualità del trattamento\n• Soddisfazione del paziente\n• Costi più bassi Più su questo",
         "en": "The Rennbahnklinik is a leader in the holistic care of active people. The clinic’s core competencies include orthopaedics, sports medicine, physiotherapy and functional diagnostics. For 45 years, the team has worked with athletes and associations of various sports and has developed the highest standards. To expand our team, we are looking for:\n\nHealth Professional (FaGe)\n\nYour tasks:\n• Support of the qualified nurses in the care and responsibility for delegated tasks according to competence regulation and care planning in three-shift operation\n• Share responsibility for high-quality care quality and patient satisfaction\n• Assistance in entry and exit processes\n• Assumption and completion of administrative, organizational and domestic tasks\n• Accompaniment of interns You bring with you:\n• Completed training as a specialist in health\n• High customer orientation, teamwork combined with flexibility and commitment in a dynamic working environment\n• Personal responsibility, active thinking and maintaining our high quality standards\n• Enjoyment of patient contact as well as a pronounced service orientation and a high sense of responsibility\n• Appreciative and sensitive treatment of patients and their relatives\n• German language skills in word and writing and oral French skills We offer :\n• Versatile tasks in a lively specialist area and a motivated, dynamic team with great commitment, which looks forward to your support\n• Tasks in the fields of care, care, administration, logistics and housekeeping\n• Modern infrastructure\n• Progressive employment conditions, e.g. no assignments between Christmas and New Year You are interested? Then send us your complete application documents via the application form below. We look forward to seeing you! Job details Pagetitle Pensum Earliest start time Personals First name Last name Address Postcode Place of birth Nationality Work permit (if not nationality CH) E-mail Telephone documents Upload motivation letter CV incl. Photo Diplomas, certificates and other documents (recommendation, reference, etc.) I have read and accepted the privacy policy. Our competences Patients of the Rennbahnklinik benefit from a holistic treatment under one roof. Our specialists look after and treat you from diagnosis to surgery and rehabilitation.\n• Orthopaedics\n• Sports medicine\n• Hand surgery\n• Physical therapy\n• Performance diagnostics\n• Biomechanics\n• Occupational health management\n• Training Our Competences Our quality standards Our quality standards The #1 in the region :\n• Highest quality of treatment\n• Highest patient satisfaction\n• Lowest Costs More on this",
+        "de": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Erweiterung unseres Teams suchen wir ab sofort :\n\nFachperson Gesundheit (FaGe)\n\nDeine Aufgaben:\n• Unterstützung der diplomierten Pflegefachpersonen bei der Pflege und Verantwortung über delegierte Aufgaben gemäss Kompetenzregelung und Pflegeplanung im Drei-Schicht-Betrieb\n• Mitverantwortung für eine hochwertige Pflegequalität und Patientenzufriedenheit\n• Mithilfe bei Ein- und Austrittsprozessen\n• Übernahme und Erledigung von administrativen, organisatorischen und hauswirtschaftlichen Aufgaben\n• Begleitung von Praktikanten Du bringst mit:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit\n• Hohe Kundenorientierung, Teamfähigkeit in Kombination mit Flexibilität und Einsatzbereitschaft in einem dynamischen Arbeitsumfeld\n• Eigenverantwortung, aktives Mitdenken sowie Erhaltung unserer hohen Qualitätsstandards\n• Freude am Patientenkontakt sowie ausgeprägt Dienstleistungsorientierung und ein hohes Verantwortungsbewusstsein\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n• Deutsche Sprachkenntnisse in Wort und Schrift und mündliche Französischkenntnisse Wir bieten :\n• Vielseitige Aufgaben in einem lebhaften Fachbereich und einem motivierten, dynamischen Team mit grossem Engagement, welches sich auf Ihre Unterstützung freut\n• Aufgaben in den Tätigkeitsfeldern Pflege, Betreuung, Administration, Logistik und Hauswirtschaft\n• Modernste Infrastruktur\n• Fortschrittliche Anstellungsbedingungen, z.B. keine Einsätze zwischen Weihnacht und Neujahr Du bist interessiert? Dann sende uns deine vollständigen Bewerbungsunterlagen via untenstehendes Bewerbungsformular. Wir freuen uns auf dich! Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
         "fr": "Le Rennbahnklinik est un leader dans la prise en charge holistique des personnes actives. Les compétences de base de la clinique comprennent l'orthopédie, la médecine sportive, la physiothérapie et le diagnostic fonctionnel. Depuis 45 ans, l'équipe travaille avec des athlètes et des associations de différents sports et a développé les normes les plus élevées. Pour élargir notre équipe, nous cherchons :\n\nProfessionnels de la santé (FaGe)\n\nVos tâches:\n• Appui aux infirmières qualifiées dans les soins et la responsabilité des tâches déléguées conformément à la réglementation des compétences et à la planification des soins dans les opérations en trois équipes\n• Partager la responsabilité de la qualité des soins et de la satisfaction des patients\n• Assistance aux processus d ' entrée et de sortie\n• Hypothèse et achèvement des tâches administratives, organisationnelles et internes\n• Accompagnement des stagiaires Vous apportez avec vous:\n• Achevé la formation comme spécialiste de la santé\n• Orientation client élevée, travail d'équipe combiné avec flexibilité et engagement dans un environnement de travail dynamique\n• Responsabilité personnelle, réflexion active et maintien de nos normes de qualité élevées\n• Appréciation du contact avec le patient ainsi qu'une orientation de service prononcée et un haut sens des responsabilités\n• Traitement sensible et sensible des patients et de leurs proches\n• Compétences linguistiques en allemand, en français oral et en français oral Nous vous proposons :\n• Des tâches polyvalentes dans un domaine spécialisé animé et une équipe motivée et dynamique avec un grand engagement, qui attend avec impatience votre soutien\n• Tâches dans les domaines des soins, soins, administration, logistique et ménage\n• Infrastructures modernes\n• Conditions d'emploi progressives, p. ex. aucune affectation entre Noël et le Nouvel An Vous êtes intéressé? Envoyez-nous ensuite vos documents de candidature complets via le formulaire de candidature ci-dessous. Nous avons hâte de vous voir! Détails de l'emploi Pagetitle Pensum Heure de début la plus avancée Personnalités Prénom Nom Adresse Code postal Lieu de naissance Nationalité Permis de travail (si ce n'est la nationalité CH) E-mail Documents de téléphone Télécharger la lettre de motivation CV incl. J'ai lu et accepté la politique de confidentialité. Nos compétences Les patients du Rennbahnklinik bénéficient d'un traitement holistique sous un même toit. Nos spécialistes vous soignent et vous traitent depuis le diagnostic jusqu'à la chirurgie et la réadaptation.\n• Orthopédie\n• Médecine du sport\n• Chirurgie des mains\n• Thérapie physique\n• Diagnostic des performances\n• Biomécanique\n• Gestion de la santé au travail\n• Formation Nos compétences Nos normes de qualité Nos normes de qualité Le #1 dans la région :\n• Qualité maximale du traitement\n• Plus grande satisfaction du patient\n• Plus de coûts sur ce"
       },
       "location": "Muttenz",
@@ -942,7 +965,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/fachperson-gesundheit-fage",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:58:09.557Z",
+      "crawledAt": "2026-08-11T10:36:28.371Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -959,9 +982,7 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://www.rennbahnklinik.ch/jobs/fachperson-gesundheit-fage",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -977,7 +998,8 @@
       "firstSeenAt": "2026-08-10T21:58:09.557Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz"
+          "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz",
+          "professionista-della-salute-fage-80-100-rennbahnklinik-muttenz"
         ],
         "en": [
           "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz"
@@ -987,8 +1009,10 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz"
-      ]
+        "fachperson-gesundheit-fage-80-100-rennbahnklinik-muttenz",
+        "professionista-della-salute-fage-80-100-rennbahnklinik-muttenz"
+      ],
+      "needsRetranslation": false
     }
   ]
 }

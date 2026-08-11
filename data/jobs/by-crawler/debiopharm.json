@@ -1,6 +1,6 @@
 {
   "crawlerKey": "debiopharm",
-  "assembledAt": "2026-08-10T21:45:08.000Z",
+  "assembledAt": "2026-08-11T10:07:25.909Z",
   "jobs": [
     {
       "title": "P2623 - Private Investment Accountant",
@@ -90,7 +90,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-07T01:07:25.027Z"
+      "firstSeenAt": "2026-08-07T01:07:25.027Z",
+      "needsRetranslation": true
     },
     {
       "title": "P2624 - Global Regulatory Affairs Specialist/Manager",
@@ -288,9 +289,9 @@
       "validThrough": "",
       "description": "The Role: Mission\n\nAs the Audit & CAPA Lead, you will ensure an effective, pragmatic, and risk-based Audit & CAPA framework at Debiopharm. Your focus will be on strengthening quality oversight, supporting inspection readiness, and driving continuous improvement for all our clinical trials programs across all GxP activities, and GCP/GcLP in particular.\n\nKey Responsibilities\n\nIn this role, you will be responsible to define a risk-based audit strategy in close collaboration with key stakeholders, and will act as the global Audit & CAPA process and system owner, serving as the single point of contact to support business representatives. Your core duties will include:\n\n## Requirements\n- University Degree: Pharmacist Diploma, PhD, MSc or BSc in Science (or equivalent experience).\n- Industry Experience: At least 5 to 8 years managing quality assurance within the pharmaceutical and/or biotech industry. Hybrid experience in both large and small/medium size structures would be a real asset.\n- Audit Expertise: Minimum 5 years of experience conducting audits and supervising audits in GCP environments (mandatory) and GLP / other GxP audits is a plus.\n- GCP Inspection Experience: Recent and strong experience in leading preparation of Regulatory Authorities GCP inspections (eg. FDA, EMA, MHRA…)\n- Systems Experience: Minimum 3 years tracking CAPAs, deviations, and changes (e.g., for GCP: CROs, TMF, Investigational Sites, and CSR). Direct experience with validated electronic quality tools (e.g., Veeva, Ennov) and knowledge of computerized systems validation is highly desirable.\n- Solid, comprehensive knowledge of GxP and practical familiarity with risk-based approaches like ICH Q9.\n- Proven experience implementing risk-based approaches in alignment with current ICH E6(R3) and ICH E8(R1) regulatory frameworks.\n- Proven ability to maintain quality SOPs and translate business priorities/risk signals into a pragmatic, inspection-ready program.\n- A strategic thinker who can maintain an overarching global view while bringing rigor and efficiency to daily, detailed activities. Agile communicator being strongly exposed to matrix organizations and cross-functional collaborations.\n- High degrees of organization, flexibility, and a hands-on, pragmatic mindset focused on continuous improvement.\n\n## Benefits\n- Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day\n- Partner with teams across disciplines, at the forefront of oncology and anti-infective development\n- An inclusive and respectful workplace — proud to be Equal-Pay certified\n- Grow in a culture that values people, purpose, and performance\n- A chance to grow, share, and shape the future of healthcare",
       "titleByLocale": {
-        "it": "P2622 - Audit & CAPA Lead",
+        "it": "P2622 - Responsabilità audit e CAPA",
         "en": "P2622 - Audit & CAPA Lead",
-        "de": "P2622 - Audit & CAPA Lead",
+        "de": "P2622 - Prüfungs- und CAPA-Leitung",
         "fr": "P2622 - Vérification et APC Responsable"
       },
       "descriptionByLocale": {
@@ -302,7 +303,7 @@
       "slugByLocale": {
         "it": "p2622-audit-capa-lead-debiopharm-lausanne-vd-switzerland",
         "en": "p2622-audit-capa-lead-debiopharm-lausanne-vd-switzerland",
-        "de": "p2622-audit-capa-lead-debiopharm-lausanne-vd-switzerland",
+        "de": "p2622-prufungs-und-capa-leitung-debiopharm-lausanne",
         "fr": "p2622-verification-et-apc-responsable-debiopharm-lausanne"
       },
       "requirements": [
@@ -352,7 +353,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:17:27.323Z"
+      "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true
     },
     {
       "title": "P2621 - (Senior) Pharmacometrician",
@@ -380,7 +382,7 @@
       "titleByLocale": {
         "it": "P2621 - (Senior) Farmacometrica",
         "en": "P2621 - (Senior) Pharmacometrician",
-        "de": "P2621 - (Senior) Pharmacometrician",
+        "de": "P2621 - (Senior) Pharmakomematriker",
         "fr": "P2621 - (Aîné) Pharmacométrique"
       },
       "descriptionByLocale": {
@@ -392,7 +394,7 @@
       "slugByLocale": {
         "it": "p2621-senior-farmacometrica-debiopharm-lausanne",
         "en": "p2621-senior-pharmacometrician-debiopharm-lausanne-vd-switzerland",
-        "de": "p2621-senior-pharmacometrician-debiopharm-lausanne-vd-switzerland",
+        "de": "p2621-senior-pharmakomematriker-debiopharm-lausanne",
         "fr": "p2621-aine-pharmacometrique-debiopharm-lausanne"
       },
       "requirements": [
@@ -447,12 +449,16 @@
         "fr": [
           "p2621-senior-pharmacometrician-debiopharm-lausanne-vd-switzerland",
           "p2621-senior-pharmacometrician-debiopharm-lausanne"
+        ],
+        "de": [
+          "p2621-senior-pharmacometrician-debiopharm-lausanne-vd-switzerland"
         ]
       },
       "previousSlugs": [
         "p2621-senior-pharmacometrician-debiopharm-lausanne-vd-switzerland",
         "p2621-senior-pharmacometrician-debiopharm-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "P2620 - Safety Physician Oncology",
@@ -769,7 +775,8 @@
         "fr": [
           "p2617-senior-clinical-data-manager-debiopharm-lausanne-vd-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "P2608 - Head of Biostatistics & Data Management",

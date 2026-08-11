@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 /**
+ * @manual-tool — readiness check manuale (vedi «Uso» sotto), non un gate.
+ *
  * Verifica readiness Resend per la newsletter:
  * - stato dominio su Resend API
  * - presenza record DNS TXT resend-domain-verification

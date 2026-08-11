@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-08-10T22:13:52.612Z",
+  "assembledAt": "2026-08-11T10:36:50.238Z",
   "jobs": [
     {
       "id": "bobst-6b9490c1deb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bobst.com/Vacancies/4997/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:49.204Z",
+      "crawledAt": "2026-08-11T10:36:47.396Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch",
-        "tecnico-di-assistenza-sul-campo-wf-flexo-g-c-l-chennai-bobst-india-pune"
+        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch",
-          "tecnico-di-assistenza-sul-campo-wf-flexo-g-c-l-chennai-bobst-india-pune"
+          "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:17.619Z",
@@ -72,7 +70,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-602bfc3d2267",
@@ -105,7 +104,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6868/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:48.368Z",
+      "crawledAt": "2026-08-11T10:36:46.612Z",
       "addressLocality": "Thailand (Bangkok)",
       "addressCountry": "CH",
       "country": "CH",
@@ -122,13 +121,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "customer-care-specialist-bobst-ch",
-        "customer-care-specialista-bobst-thailand-bangkok"
+        "customer-care-specialist-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-specialist-bobst-ch",
-          "customer-care-specialista-bobst-thailand-bangkok"
+          "customer-care-specialist-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:16.917Z",
@@ -144,7 +141,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-81f8bbcbde85",
@@ -161,7 +159,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Tecnico di Servizio Campo (m/f/d)",
-        "en": "Field Service Technician (m/f/d)",
+        "en": "Field Service Technician (m/w/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Technicien de Service sur Site (H/F)"
       },
@@ -178,7 +176,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8700/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:47.556Z",
+      "crawledAt": "2026-08-11T10:36:45.813Z",
       "addressLocality": "Germany (Bielefeld)",
       "addressCountry": "CH",
       "country": "CH",
@@ -212,13 +210,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "field-service-technician-m-w-d-bobst-ch",
-        "feldservicetechniker-m-w-d-bobst-germany-bielefeld",
-        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
+        "feldservicetechniker-m-w-d-bobst-germany-bielefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-m-w-d-bobst-ch",
-          "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
+          "field-service-technician-m-w-d-bobst-ch"
         ],
         "de": [
           "feldservicetechniker-m-w-d-bobst-germany-bielefeld"
@@ -254,7 +250,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio tecnico (m/f/d)",
-        "en": "Field Service Technician (m/f/d)",
+        "en": "Field Service Technician (m/w/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -271,7 +267,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8701/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:46.668Z",
+      "crawledAt": "2026-08-11T10:36:45.041Z",
       "addressLocality": "Germany (Bielefeld)",
       "addressCountry": "CH",
       "country": "CH",
@@ -289,14 +285,12 @@
       "department": "Customer Service",
       "previousSlugs": [
         "field-service-technician-m-w-d-bobst-ch-2",
-        "field-service-technician-m-w-d-bobst-ch",
-        "servizio-tecnico-m-f-d-bobst-germany-bielefeld"
+        "field-service-technician-m-w-d-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-m-w-d-bobst-ch-2",
-          "field-service-technician-m-w-d-bobst-ch",
-          "servizio-tecnico-m-f-d-bobst-germany-bielefeld"
+          "field-service-technician-m-w-d-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T21:41:59.424Z",
@@ -345,7 +339,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8661/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:45.823Z",
+      "crawledAt": "2026-08-11T10:36:44.203Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -377,13 +371,11 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
-        "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch"
+        "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
-          "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch"
+          "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:05.389Z",
@@ -399,7 +391,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-7a741f10e50b",
@@ -432,7 +425,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8519/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:44.966Z",
+      "crawledAt": "2026-08-11T10:36:43.412Z",
       "addressLocality": "Poland (Lodz)",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,13 +455,11 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-mechanic-bobst-ch",
-        "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz"
+        "field-service-technician-mechanic-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-mechanic-bobst-ch",
-          "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz"
+          "field-service-technician-mechanic-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:03.971Z",
@@ -484,7 +475,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-4d8db0b4e002",
@@ -517,7 +509,7 @@
       "url": "https://jobs.bobst.com/Vacancies/3098/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:44.153Z",
+      "crawledAt": "2026-08-11T10:36:42.609Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -557,13 +549,11 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch",
-        "tecnico-di-servizio-meccanico-meccatronico-m-f-d-bobst-germany-meerbusch"
+        "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch",
-          "tecnico-di-servizio-meccanico-meccatronico-m-f-d-bobst-germany-meerbusch"
+          "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:55.202Z",
@@ -579,7 +569,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-17eb037c0ecb",
@@ -596,7 +587,7 @@
       "title": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
       "titleByLocale": {
         "it": "Specialista di Supporto Tecnico 100% - Macchinari & Impianti",
-        "en": "Technical Support Specialist 100% - Mechanical & Plant Engineering",
+        "en": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
         "de": "Technical Support Spezialist 100% - Maschinen- & Anlagenbau",
         "fr": "Spécialiste de support technique 100% - Machines & installations"
       },
@@ -612,7 +603,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7707/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:43.566Z",
+      "crawledAt": "2026-08-11T10:36:41.835Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,13 +641,11 @@
       "previousSlugs": [
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
         "technischer-support-spezialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
-        "technical-support-specialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
-        "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
-          "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
+          "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch"
         ],
         "en": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
@@ -679,7 +668,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-f254d67b8a12",
@@ -696,7 +686,7 @@
       "title": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
       "titleByLocale": {
         "it": "Ingegnere di Applicazione sul Campo 100% - Processi e Impianti di Incartamento",
-        "en": "Field Application Engineer 100% – Laminating Processes & Facilities",
+        "en": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
         "de": "Field Application Ingenieur 100% – Kaschierprozesse & -anlagen",
         "fr": "Ingénieur d'application sur le terrain 100% - Processus et équipements d'emballage"
       },
@@ -712,7 +702,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:42.707Z",
+      "crawledAt": "2026-08-11T10:36:41.010Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -743,13 +733,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
-        "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen",
-        "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen"
+        "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
-          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen"
+          "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch"
         ],
         "en": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
@@ -769,7 +757,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-b04b114e5eaa",
@@ -786,7 +775,7 @@
       "title": "Servicetechniker im Aussendienst / Field Service Technician 100% (mechanisch)",
       "titleByLocale": {
         "it": "Tecnico di Servizio in Campo / Field Service Technician 100% (meccanico)",
-        "en": "Field Service Technician 100% (mechanical)",
+        "en": "Servicetechniker im Aussendienst / Field Service Technician 100% (mechanisch)",
         "de": "Servicetechniker im Aussendienst / Field Service Techniker 100% (mechanisch)",
         "fr": "Technicien de service sur site / Field Service Technician 100% (mécanique)"
       },
@@ -802,7 +791,7 @@
       "url": "https://jobs.bobst.com/Vacancies/4667/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:41.837Z",
+      "crawledAt": "2026-08-11T10:36:40.223Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -833,13 +822,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch",
-        "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen",
-        "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen"
+        "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch",
-          "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen"
+          "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch"
         ],
         "de": [
           "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen"
@@ -858,7 +845,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-2317c4fa7029",
@@ -892,7 +880,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:13:41.020Z",
+      "crawledAt": "2026-08-11T10:36:39.444Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -909,13 +897,11 @@
       "requirementsByLocale": {},
       "department": "General Services",
       "previousSlugs": [
-        "dessinateur-batiment-et-technique-bobst-ch",
-        "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+        "dessinateur-batiment-et-technique-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-batiment-et-technique-bobst-ch",
-          "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+          "dessinateur-batiment-et-technique-bobst-ch"
         ],
         "en": [
           "dessinateur-batiment-et-technique-bobst-ch"
@@ -970,7 +956,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:40.138Z",
+      "crawledAt": "2026-08-11T10:36:38.610Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1008,13 +994,11 @@
       },
       "department": "Research & Development (R&D)",
       "previousSlugs": [
-        "senior-writing-systems-engineer-bobst-ch",
-        "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex"
+        "senior-writing-systems-engineer-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-writing-systems-engineer-bobst-ch",
-          "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex"
+          "senior-writing-systems-engineer-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:46.909Z",
@@ -1030,7 +1014,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-7ab61f14cc70",
@@ -1038,7 +1023,7 @@
       "slugByLocale": {
         "it": "ingegneria-dei-sistemi-di-scrittura-bobst-spain-barcelona",
         "en": "writing-systems-engineering-bobst-ch",
-        "de": "writing-systems-engineering-bobst-ch",
+        "de": "systemtechnik-schreiben-bobst-spain-barcelona",
         "fr": "ingenierie-des-systemes-d-ecriture-bobst-spain-barcelona"
       },
       "company": "Bobst",
@@ -1048,7 +1033,7 @@
       "titleByLocale": {
         "it": "Ingegneria dei sistemi di scrittura",
         "en": "Writing Systems Engineering",
-        "de": "Writing Systems Engineering",
+        "de": "Systemtechnik schreiben",
         "fr": "Ingénierie des systèmes d'écriture"
       },
       "description": "Writing Systems Engineering BES - Bobst Iberica S.L. Apply now Shape the future of industrial inkjet printing To strengthen our R&D team, we are looking for a Senior Writing Systems Engineer who will play a key role in developing and optimizing next-generation industrial inkjet printing systems for demanding production and application environments. As a senior technical expert, you will own and drive the performance of our writing systems at the heart of our digital printing platforms.You will work on highly complex multidisciplinary challenges involving printheads, fluidics, motion systems, electronics, software, print applications, and industrial process stability to ensure outstanding image quality, robustness, uptime, and production performance in real customer environments.The role requires a strong connection between technology development and real industrial application realities, including substrates, inks, workflows, operator usage, and production constraints. \n• Responsibilities Drive innovation & system performance Drive the design and optimization of industrial inkjet writing system architectures.\n\nDefine and challenge performance targets related to: printhead behavior,\n\nAct as technical owner from concept to product launch\n\nEnsure alignment between performance, quality, cost and manufacturability\n\nTranslate business needs into robust engineering solutions\n\nDevelop physical and empirical models (fluid dynamics, drop formation, thermal behavior)\n\nDesign and execute advanced experiments (DOE)\n\nAnalyze data to improve system behavior and reliability",
@@ -1064,7 +1049,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8991/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:39.280Z",
+      "crawledAt": "2026-08-11T10:36:37.804Z",
       "addressLocality": "Spain (Barcelona)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1081,15 +1066,16 @@
       "requirementsByLocale": {},
       "department": "Research & Development (R&D)",
       "previousSlugs": [
-        "writing-systems-engineering-bobst-ch",
-        "ingegneria-dei-sistemi-di-scrittura-bobst-spain-barcelona"
+        "writing-systems-engineering-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "writing-systems-engineering-bobst-ch",
-          "ingegneria-dei-sistemi-di-scrittura-bobst-spain-barcelona"
+          "writing-systems-engineering-bobst-ch"
         ],
         "fr": [
+          "writing-systems-engineering-bobst-ch"
+        ],
+        "de": [
           "writing-systems-engineering-bobst-ch"
         ]
       },
@@ -1140,7 +1126,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9003/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:13:38.404Z",
+      "crawledAt": "2026-08-11T10:36:37.001Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1157,13 +1143,11 @@
       "requirementsByLocale": {},
       "department": "General Services",
       "previousSlugs": [
-        "pmo-chef-de-projet-facility-management-bobst-ch",
-        "pmo-project-manager-facility-management-bobst-switzerland-mex"
+        "pmo-chef-de-projet-facility-management-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pmo-chef-de-projet-facility-management-bobst-ch",
-          "pmo-project-manager-facility-management-bobst-switzerland-mex"
+          "pmo-chef-de-projet-facility-management-bobst-ch"
         ],
         "en": [
           "pmo-chef-de-projet-facility-management-bobst-ch"
@@ -1202,7 +1186,7 @@
       "title": "Servicetechniker im Aussendienst / Field Service Technician - Electrical 100%",
       "titleByLocale": {
         "it": "Tecnico di Servizio in Servizio Esterno / Field Service Technician - Elettrico 100%",
-        "en": "Field Service Technician - Electrical 100%",
+        "en": "Servicetechniker im Aussendienst / Field Service Technician - Electrical 100%",
         "de": "Servicetechniker im Aussendienst / Field Service Techniker - Electrical 100%",
         "fr": "Technicien de Service sur Site - Électrique 100%"
       },
@@ -1218,7 +1202,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8736/Description/1",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:37.776Z",
+      "crawledAt": "2026-08-11T10:36:36.180Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1235,13 +1219,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch",
-        "tecnico-di-servizio-in-servizio-esterno-field-service-technician-elettrico-100-bobst-switzerland-grenchen"
+        "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch",
-          "tecnico-di-servizio-in-servizio-esterno-field-service-technician-elettrico-100-bobst-switzerland-grenchen"
+          "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:49.527Z",
@@ -1257,7 +1239,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -1291,7 +1274,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:13:36.275Z",
+      "crawledAt": "2026-08-11T10:36:34.979Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1308,13 +1291,11 @@
       "requirementsByLocale": {},
       "department": "Health & Safety",
       "previousSlugs": [
-        "ingenieur-specialiste-ehs-bobst-ch",
-        "specialista-ingegnere-ehs-bobst-switzerland-mex"
+        "ingenieur-specialiste-ehs-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-specialiste-ehs-bobst-ch",
-          "specialista-ingegnere-ehs-bobst-switzerland-mex"
+          "ingenieur-specialiste-ehs-bobst-ch"
         ],
         "en": [
           "ingenieur-specialiste-ehs-bobst-ch"
@@ -1344,7 +1325,7 @@
       "slugByLocale": {
         "it": "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune",
         "en": "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-        "de": "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
+        "de": "it-ux-services-manager-fur-betrieb-und-kontinuierliche-verbesserung-bobst-india-pune",
         "fr": "gestionnaire-des-operations-et-de-l-amelioration-continue-des-services-informatiques-ux-bobst-india-pune"
       },
       "company": "Bobst",
@@ -1354,7 +1335,7 @@
       "titleByLocale": {
         "it": "Responsabile delle Operazioni e del Miglioramento Continuo dei Servizi IT UX",
         "en": "IT UX Services Operations & Continuous Improvement Manager",
-        "de": "IT UX Services Operations & Continuous Improvement Manager",
+        "de": "IT UX Services Manager für Betrieb und kontinuierliche Verbesserung",
         "fr": "Gestionnaire des opérations et de l'amélioration continue des services informatiques UX"
       },
       "description": "IT UX Services Operations & Continuous Improvement Manager BIN - Bobst India Pvt Ltd. Apply now Position Summary: We are seeking an IT UX Services Operations & Continuous Improvement Manager to support and optimize IT support operations across Global Service Desk (GSD), Tech Bar, and Field Support activities. This role is responsible for monitoring service performance, ensuring ticket quality, managing backlog and ageing tickets, and driving continuous improvement initiatives to enhance the overall IT user experience (IT UX). Key \n• Responsibilities: Operations Monitoring & Coordination:\n\nParticipate in daily operational calls with internal and external service providers.\n\nMonitor ticket volumes, KPIs, SLAs, and operational challenges on IT UX.\n\nProvide day-to-day support to GSD and IT Tech Bar teams by addressing queries and helping resolve blockers.\n\nBacklog & Ticket Management:\n\nEnsure optimal service levels by maintaining a controlled volume of tickets.\n\nMonitor backlog evolution weekly and report deviations.\n\nPerform regular reviews of tickets older than 30 and 60 days.",
@@ -1370,7 +1351,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9036/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:35.686Z",
+      "crawledAt": "2026-08-11T10:36:34.194Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1387,15 +1368,16 @@
       "requirementsByLocale": {},
       "department": "Information Technology (IT)",
       "previousSlugs": [
-        "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-        "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune"
+        "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-          "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune"
+          "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
         ],
         "fr": [
+          "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
+        ],
+        "de": [
           "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
         ]
       },
@@ -1431,7 +1413,7 @@
         "it": "IoT Technology Direttore",
         "en": "IoT Technology Director",
         "de": "IoT Technology Direktor",
-        "fr": "Directeur de la technologie IoT"
+        "fr": "IoT Technology Director"
       },
       "description": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
       "descriptionByLocale": {
@@ -1445,7 +1427,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:34.865Z",
+      "crawledAt": "2026-08-11T10:36:33.374Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1463,13 +1445,11 @@
       "department": "Research & Development (R&D)",
       "previousSlugs": [
         "iot-technology-director-bobst-ch",
-        "iot-technology-director-bobst-switzerland-mex",
-        "iot-technology-direttore-bobst-switzerland-mex"
+        "iot-technology-director-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-technology-director-bobst-ch",
-          "iot-technology-direttore-bobst-switzerland-mex"
+          "iot-technology-director-bobst-ch"
         ],
         "de": [
           "iot-technology-director-bobst-ch"
@@ -1491,7 +1471,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-067fe05157ab",
@@ -1508,7 +1489,7 @@
       "title": "Tech Support Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile Supporto tecnico (m/f/d)",
-        "en": "Tech Support Manager (m/f/d)",
+        "en": "Tech Support Manager (m/w/d)",
         "de": "Tech Support Manager (m/w/d)",
         "fr": "Gestionnaire du soutien technique (m/f/d)"
       },
@@ -1524,7 +1505,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9083/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:34.010Z",
+      "crawledAt": "2026-08-11T10:36:32.613Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1541,13 +1522,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "tech-support-manager-m-w-d-bobst-ch",
-        "responsabile-supporto-tecnico-m-f-d-bobst-germany-meerbusch"
+        "tech-support-manager-m-w-d-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tech-support-manager-m-w-d-bobst-ch",
-          "responsabile-supporto-tecnico-m-f-d-bobst-germany-meerbusch"
+          "tech-support-manager-m-w-d-bobst-ch"
         ],
         "fr": [
           "tech-support-manager-m-w-d-bobst-ch"
@@ -1566,7 +1545,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-aa776ad9783b",
@@ -1582,9 +1562,9 @@
       "companyDomain": "bobst.com",
       "title": "IT Test & Release Manager",
       "titleByLocale": {
-        "it": "IT Test &amp; Release Manager",
+        "it": "IT Test & Release Manager",
         "en": "IT Test & Release Manager",
-        "de": "IT Test & Release Manager",
+        "de": "IT-Test- und Release-Manager",
         "fr": "Gestionnaire de test et de publication IT"
       },
       "description": "IT Test & Release Manager BIN - Bobst India Pvt Ltd. Apply now The IT Test & Release Manager is responsible for ensuring the quality, stability, and controlled delivery of IT solutions across the organization. The role defines and drives testing and release management practices, including automation, governance, and continuous improvement, to support reliable and efficient software delivery. Working closely with Product Owners, delivery teams, and operations, the position plays a key role in strengthening end-to-end quality across business-critical platforms, including major SAP transformation initiatives. Main responsibilities Define and implement the organization’s test strategy, including automation, quality standards, and KPIs to improve effectiveness and efficiency.\n\nLead the planning, monitoring, and execution of testing activities to ensure solutions meet functional, integration, performance, and business quality requirements.\n\nEstablish, maintain, and continuously enhance test automation capabilities and enable product teams to adopt scalable automation practices.\n\nDefine, implement and enforce release management processes and governance to ensure controlled, compliant, and reliable deployments across the IT landscape.\n\nCoordinate end-to-end release activities with Product Owners, IT Product Managers, and technical teams, including major SAP upgrades, support packages, and data refresh cycles.\n\nDrive risk-based testing, release readiness assessments, and go/no-go recommendations based on quality metrics, dependencies, and business impact.\n\nEnsure alignment of testing and release practices with change, configuration, deployment, Agile, DevOps, and IT service management standards.\n\nBuild strong relationships with business and IT stakeholders, act as the central point of contact for testing and release topics, and promote a culture of quality, accountability, and continuous improvement.",
@@ -1600,7 +1580,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9034/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:33.382Z",
+      "crawledAt": "2026-08-11T10:36:31.866Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1646,7 +1626,7 @@
       "title": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
       "titleByLocale": {
         "it": "Account Manager (m/f/d) - Scheda ondulata (f/m/d)",
-        "en": "Account Manager (m/f/d) - Corrugated Board (m/f/d)",
+        "en": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
         "de": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
         "fr": "Gestionnaire de comptes (m/f/d) - Comité mixte (f/m/d)"
       },
@@ -1663,7 +1643,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9039/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:13:32.557Z",
+      "crawledAt": "2026-08-11T10:36:31.091Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1680,13 +1660,11 @@
       "requirementsByLocale": {},
       "department": "Sales",
       "previousSlugs": [
-        "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
-        "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch"
+        "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
-          "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch"
+          "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch"
         ],
         "fr": [
           "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch"
@@ -1738,7 +1716,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:31.686Z",
+      "crawledAt": "2026-08-11T10:36:30.284Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1760,16 +1738,14 @@
         "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
         "field-service-technician-external-mount-engineer-h-f-bobst-switzerland-mex",
         "field-service-techniker-monteur-externe-ingenieur-h-f-bobst-switzerland-mex",
-        "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-        "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+        "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-engineer-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
-          "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-          "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+          "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
         ],
         "en": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
@@ -1799,13 +1775,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-9d4fe5cbf61c",
-      "slug": "digital-workplace-communications-platforms-product-owner-bobst-ch",
+      "slug": "proprietario-di-prodotto-per-piattaforme-di-ambiente-di-lavoro-e-comunicazione-digitale-bobst-switzerland-mex",
       "slugByLocale": {
-        "it": "digital-workplace-communications-platforms-product-owner-bobst-ch",
+        "it": "proprietario-di-prodotto-per-piattaforme-di-ambiente-di-lavoro-e-comunicazione-digitale-bobst-switzerland-mex",
         "en": "digital-workplace-communications-platforms-product-owner-bobst-ch",
         "de": "digital-workplace-kommunikationsplattformen-product-owner-bobst-switzerland-mex",
         "fr": "proprietaire-de-produits-sur-le-lieu-de-travail-et-les-plateformes-de-communication-numeriques-bobst-switzerland-mex"
@@ -1815,7 +1792,7 @@
       "companyDomain": "bobst.com",
       "title": "Digital Workplace & Communications Platforms Product Owner",
       "titleByLocale": {
-        "it": "Digital Workplace & Communications Platforms Product Owner",
+        "it": "Proprietario di prodotto per Piattaforme di Ambiente di Lavoro e Comunicazione Digitale",
         "en": "Digital Workplace & Communications Platforms Product Owner",
         "de": "Digital Workplace & Kommunikationsplattformen Product Owner",
         "fr": "Propriétaire de produits sur le lieu de travail et les plateformes de communication numériques"
@@ -1833,7 +1810,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9151/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:30.804Z",
+      "crawledAt": "2026-08-11T10:36:29.472Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1862,7 +1839,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-workplace-communications-platforms-product-owner-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-workplace-communications-platforms-product-owner-bobst-ch"
+      ]
     },
     {
       "id": "bobst-ba69d0aa2692",
@@ -1896,7 +1881,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9158/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:13:29.939Z",
+      "crawledAt": "2026-08-11T10:36:28.681Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1913,13 +1898,11 @@
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "talent-acquisition-specialist-bobst-ch",
-        "talent-acquisition-specialista-bobst-switzerland-mex"
+        "talent-acquisition-specialist-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-bobst-ch",
-          "talent-acquisition-specialista-bobst-switzerland-mex"
+          "talent-acquisition-specialist-bobst-ch"
         ],
         "de": [
           "talent-acquisition-specialist-bobst-ch"
@@ -1975,7 +1958,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9179/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:13:29.029Z",
+      "crawledAt": "2026-08-11T10:36:27.881Z",
       "addressLocality": "France (Bron)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1992,13 +1975,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch",
-        "coordinatore-documentazione-e-sicurezza-di-conformita-alternance-1-2-anni-bobst-france-bron"
+        "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch",
-          "coordinatore-documentazione-e-sicurezza-di-conformita-alternance-1-2-anni-bobst-france-bron"
+          "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch"
         ],
         "en": [
           "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch"
@@ -2099,13 +2080,11 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-mechanical-gravure-coating-laminating-bobst-ch",
-        "tecnico-di-servizio-campo-meccanico-rilievo-rivestimento-laminazione-bobst-usa-parsippany"
+        "field-service-technician-mechanical-gravure-coating-laminating-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-mechanical-gravure-coating-laminating-bobst-ch",
-          "tecnico-di-servizio-campo-meccanico-rilievo-rivestimento-laminazione-bobst-usa-parsippany"
+          "field-service-technician-mechanical-gravure-coating-laminating-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:53.004Z",
@@ -2122,7 +2101,8 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

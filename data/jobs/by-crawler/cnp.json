@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cnp",
-  "assembledAt": "2026-08-10T22:22:37.261Z",
+  "assembledAt": "2026-08-11T10:41:57.401Z",
   "jobs": [
     {
       "id": "cnp-9eb815e758d3",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1e590793-a3c6-47ba-8698-e8e49e92b47f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:34.830Z",
+      "crawledAt": "2026-08-11T10:41:54.303Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -86,7 +86,8 @@
         "terapista-musicale-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "music-therapist-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "musiktherapeutin-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "musicotherapeute-cnp-marin-epagnier"
+        "musicotherapeute-cnp-marin-epagnier",
+        "medico-assistente-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -94,7 +95,8 @@
           "terapista-musicale-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
           "music-therapist-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
           "musiktherapeutin-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-          "musicotherapeute-cnp-marin-epagnier"
+          "musicotherapeute-cnp-marin-epagnier",
+          "medico-assistente-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "music-therapist-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
@@ -118,7 +120,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-ae552df42005",
@@ -126,7 +129,7 @@
       "slugByLocale": {
         "it": "preghiera-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "en": "peer-practitioner-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
-        "de": "peer-practitioner-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "de": "praktizierende-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "fr": "pair-praticien-cnp-la-chaux-de-fonds"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -152,7 +155,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/2c9ead97-00d6-4cc1-a91f-37c2e5744d96",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:34.169Z",
+      "crawledAt": "2026-08-11T10:41:53.856Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -171,13 +174,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pair-praticien-cnp-la-chaux-de-fonds",
+        "peer-practitioner-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "preghiera-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "praktizierende-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pair-praticien-cnp-la-chaux-de-fonds"
+          "pair-praticien-cnp-la-chaux-de-fonds",
+          "preghiera-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
         ],
         "de": [
+          "peer-practitioner-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "praktizierende-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
         ]
       },
@@ -226,7 +233,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/18a3c8be-9f30-410c-9605-e85ace2d1a5d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:33.725Z",
+      "crawledAt": "2026-08-11T10:41:53.424Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -275,11 +282,13 @@
         ]
       },
       "previousSlugs": [
-        "psychologue-responsable-ambulatoire-adulte-cnp-marin-epagnier"
+        "psychologue-responsable-ambulatoire-adulte-cnp-marin-epagnier",
+        "psicologo-responsabile-ambulatoriale-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-responsable-ambulatoire-adulte-cnp-marin-epagnier"
+          "psychologue-responsable-ambulatoire-adulte-cnp-marin-epagnier",
+          "psicologo-responsabile-ambulatoriale-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:44.124Z",
@@ -294,7 +303,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-837ff7897282",
@@ -327,7 +337,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8fcc75d9-563d-4a8c-9735-9b25ba5b6c47",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:33.278Z",
+      "crawledAt": "2026-08-11T10:41:52.991Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -345,11 +355,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel"
+        "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel",
+        "medico-capo-clinica-aggiunto-psicogeriatria-rif-r2026011-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel"
+          "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel",
+          "medico-capo-clinica-aggiunto-psicogeriatria-rif-r2026011-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
       "firstSeenAt": "2026-07-08T11:41:09.943Z",
@@ -364,7 +376,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-793ce0c0ba24",
@@ -397,7 +410,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/92b0c580-9c7f-464d-b8ea-44daa4e14bc4",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:32.850Z",
+      "crawledAt": "2026-08-11T10:41:52.554Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -446,12 +459,14 @@
       },
       "previousSlugs": [
         "medecin-chef-fe-de-clinique-en-expertise-cnp-la-tene",
-        "medico-capo-clinico-team-mobile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
+        "medico-capo-clinico-team-mobile-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "medico-capo-clinico-in-esperienza-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-fe-de-clinique-en-expertise-cnp-la-tene",
-          "medico-capo-clinico-team-mobile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
+          "medico-capo-clinico-team-mobile-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+          "medico-capo-clinico-in-esperienza-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:41.409Z",
@@ -466,7 +481,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-fe8c28e61f67",
@@ -500,7 +516,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/169ef49e-3313-4826-9235-0bd4191de3a3",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:32.380Z",
+      "crawledAt": "2026-08-11T10:41:52.074Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -518,11 +534,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel"
+        "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel",
+        "medico-primario-emergenza-e-collegamento-80-100-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel"
+          "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel",
+          "medico-primario-emergenza-e-collegamento-80-100-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
       "firstSeenAt": "2026-07-13T22:41:15.069Z",
@@ -570,7 +588,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9a95c92e-a6bf-4bf9-923e-14779738be50",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:31.870Z",
+      "crawledAt": "2026-08-11T10:41:51.653Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -619,11 +637,13 @@
         ]
       },
       "previousSlugs": [
-        "pair-e-praticien-ne-en-sante-mentale-60-cnp-la-tene"
+        "pair-e-praticien-ne-en-sante-mentale-60-cnp-la-tene",
+        "operatore-trice-esperto-a-in-salute-mentale-60-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pair-e-praticien-ne-en-sante-mentale-60-cnp-la-tene"
+          "pair-e-praticien-ne-en-sante-mentale-60-cnp-la-tene",
+          "operatore-trice-esperto-a-in-salute-mentale-60-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:38.466Z",
@@ -638,7 +658,8 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-0eef0b4297fe",
@@ -672,7 +693,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7fecbd7e-56c3-4e73-859b-c097ccc9ad19",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:31.434Z",
+      "crawledAt": "2026-08-11T10:41:51.180Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -691,12 +712,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-chef-de-clinique-cnp-marin-epagnier",
-        "medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        "medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "medico-della-testa-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-de-clinique-cnp-marin-epagnier",
-          "medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+          "medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+          "medico-della-testa-clinica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "medecin-chef-de-clinique-cnp-marin-epagnier"
@@ -750,7 +773,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ef0972ca-bb17-4df1-9d69-ce3ac128b71f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:30.622Z",
+      "crawledAt": "2026-08-11T10:41:50.737Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -768,11 +791,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene"
+        "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene",
+        "capo-medical-clinic-team-mobile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene"
+          "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene",
+          "capo-medical-clinic-team-mobile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "en": [
           "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene"
@@ -793,7 +818,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-5ac1f21d1b62",
@@ -826,7 +852,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f3458257-5bea-4cb1-a123-8e630f52e114",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:30.164Z",
+      "crawledAt": "2026-08-11T10:41:50.262Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -877,12 +903,14 @@
       "previousSlugs": [
         "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
         "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
-          "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+          "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "en": [
           "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
@@ -900,7 +928,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-8f1dfedc34c3",
@@ -908,7 +937,7 @@
       "slugByLocale": {
         "it": "medico-capo-clinica-o-vice-medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "chief-resident-physician-or-deputy-chief-resident-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -934,7 +963,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/cfc46d35-2079-4e75-bd88-86602f06d622",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:29.673Z",
+      "crawledAt": "2026-08-11T10:41:49.843Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -953,13 +982,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel",
+        "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "medico-capo-clinica-o-vice-medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
+          "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel",
+          "medico-capo-clinica-o-vice-medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
+          "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
@@ -982,8 +1015,8 @@
       "slug": "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
       "slugByLocale": {
         "it": "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
-        "en": "dietician-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
-        "de": "diatetiker-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "en": "dietitian-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "de": "ernahrungsberater-in-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "fr": "dieteticien-ne-cnp-la-tene"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1009,7 +1042,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/933f0914-a4c4-484b-9b63-f9594b0180cc",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:29.090Z",
+      "crawledAt": "2026-08-11T10:41:49.422Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1042,6 +1075,9 @@
         "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
         "diateticus-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "ernahrungswissenschaftler-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "dietician-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "diatetiker-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "dietitian-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "ernahrungsberater-in-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
@@ -1053,12 +1089,14 @@
           "2-instandhaltungsbeamte-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
           "2-agents-de-maintenance-cnp-la-tene",
           "assistente-sociale-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
-          "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
+          "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+          "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "en": [
           "dieteticien-ne-cnp-la-tene",
           "2-maintenance-officers-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
           "nurse-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+          "dietician-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
           "dietitian-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "de": [
@@ -1068,6 +1106,7 @@
           "krankenschwester-in-der-kinderpsychiatrie-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
           "diateticus-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
           "ernahrungswissenschaftler-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+          "diatetiker-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
           "ernahrungsberater-in-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "fr": [
@@ -1122,7 +1161,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/996c8f1f-6624-410a-9361-07fdfccd1aff",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:28.287Z",
+      "crawledAt": "2026-08-11T10:41:48.991Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1140,11 +1179,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
+        "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
+        "psicologo-capo-dipartimento-infanzia-e-adolescenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
+          "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
+          "psicologo-capo-dipartimento-infanzia-e-adolescenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
@@ -1165,7 +1206,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-160bb3bc4e80",
@@ -1198,7 +1240,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b7bcca27-9e8c-4905-bbb4-a98e7f67b955",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:27.696Z",
+      "crawledAt": "2026-08-11T10:41:48.449Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1216,11 +1258,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-rice-medical-e-cnp-marin-epagnier"
+        "directeur-rice-medical-e-cnp-marin-epagnier",
+        "direttore-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-rice-medical-e-cnp-marin-epagnier"
+          "directeur-rice-medical-e-cnp-marin-epagnier",
+          "direttore-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "directeur-rice-medical-e-cnp-marin-epagnier"
@@ -1241,7 +1285,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-3dcbd437d33d",
@@ -1275,7 +1320,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4c9d33da-6c7b-48d5-9856-586cfb12dec8",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:27.094Z",
+      "crawledAt": "2026-08-11T10:41:48.027Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1296,14 +1341,16 @@
         "responsabile-medico-del-dipartimento-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin",
         "physician-head-of-department-emergency-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "arzt-abteilungsleiter-notfall-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
+        "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
+        "responsabile-del-servizio-medico-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-medico-del-dipartimento-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin",
           "physician-head-of-department-emergency-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
           "arzt-abteilungsleiter-notfall-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-          "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
+          "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
+          "responsabile-del-servizio-medico-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin"
         ],
         "en": [
           "physician-head-of-department-emergency-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
@@ -1334,7 +1381,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1359,7 +1406,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9598a12-17e9-46a9-815c-2daa636351e1",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:26.169Z",
+      "crawledAt": "2026-08-11T10:41:47.582Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1382,18 +1429,22 @@
         "psychologue-assistant-e-en-pedopsychiatrie-cpcl-cnp-neuchatel",
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
+        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-assistant-cnp-neuchatel",
           "assistente-psicologo-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-          "psychologue-assistant-e-en-pedopsychiatrie-cpcl-cnp-neuchatel"
+          "psychologue-assistant-e-en-pedopsychiatrie-cpcl-cnp-neuchatel",
+          "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "en": [
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
+          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
@@ -1412,7 +1463,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-7aa9f29e6e83",
@@ -1445,7 +1497,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/62abf0ca-ffe6-4fab-92a6-6fd127202969",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:25.714Z",
+      "crawledAt": "2026-08-11T10:41:47.163Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1463,11 +1515,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
+        "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier",
+        "pedopsichiatra-ambulatorio-della-crisi-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
+          "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier",
+          "pedopsichiatra-ambulatorio-della-crisi-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
@@ -1488,7 +1542,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-ba0c4bde0296",
@@ -1505,7 +1560,7 @@
       "title": "Médecin Adjoint en Expertise",
       "titleByLocale": {
         "it": "Assistente Medico in Competenza",
-        "en": "Assistant Physician in Expertise",
+        "en": "Médecin Adjoint en Expertise",
         "de": "Assistenzarzt in Expertise",
         "fr": "Médecin Adjoint en Expertise"
       },
@@ -1521,7 +1576,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/106403b3-c271-47fa-adbd-b44bff48f062",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:25.123Z",
+      "crawledAt": "2026-08-11T10:41:46.602Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1540,12 +1595,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-en-expertise-cnp-marin-epagnier",
-        "medecin-adjoint-en-expertise-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        "medecin-adjoint-en-expertise-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "assistente-medico-in-competenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-en-expertise-cnp-marin-epagnier",
-          "medecin-adjoint-en-expertise-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+          "medecin-adjoint-en-expertise-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+          "assistente-medico-in-competenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "medecin-adjoint-en-expertise-cnp-marin-epagnier"
@@ -1566,7 +1623,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-ca661e72ca20",
@@ -1599,7 +1657,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91e830ee-eefc-434a-81d0-774c11c09834",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:24.689Z",
+      "crawledAt": "2026-08-11T10:41:46.180Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1618,12 +1676,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-e-programme-intervention-precoce-cnp-marin-epagnier",
-        "medecin-adjoint-e-programme-intervention-precoce-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        "medecin-adjoint-e-programme-intervention-precoce-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "assistente-medico-programma-di-intervento-precoce-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-programme-intervention-precoce-cnp-marin-epagnier",
-          "medecin-adjoint-e-programme-intervention-precoce-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+          "medecin-adjoint-e-programme-intervention-precoce-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+          "assistente-medico-programma-di-intervento-precoce-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "medecin-adjoint-e-programme-intervention-precoce-cnp-marin-epagnier"
@@ -1644,7 +1704,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-1bcc82376546",
@@ -1677,7 +1738,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/95d61330-d730-46ab-b98e-5e954908eae2",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:24.105Z",
+      "crawledAt": "2026-08-11T10:41:45.754Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1696,12 +1757,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-e-centre-d-urgence-psychiatrique-cnp-marin-epagnier",
-        "medecin-adjoint-e-centre-d-urgence-psychiatrique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        "medecin-adjoint-e-centre-d-urgence-psychiatrique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "assistente-medico-centro-di-emergenza-psichiatrico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-centre-d-urgence-psychiatrique-cnp-marin-epagnier",
-          "medecin-adjoint-e-centre-d-urgence-psychiatrique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+          "medecin-adjoint-e-centre-d-urgence-psychiatrique-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+          "assistente-medico-centro-di-emergenza-psichiatrico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "medecin-adjoint-e-centre-d-urgence-psychiatrique-cnp-marin-epagnier"
@@ -1722,7 +1785,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-05b4a85ce3da",
@@ -1739,7 +1803,7 @@
       "title": "Médecin adjoint·e - Psychiatrie de Liaison",
       "titleByLocale": {
         "it": "Assistente medico - Psichiatria di collegamento",
-        "en": "Assistant physician - Liaison psychiatry",
+        "en": "Médecin adjoint·e - Psychiatrie de Liaison",
         "de": "Assistenzarzt - Verbindungspsychiatrie",
         "fr": "Médecin adjoint·e - Psychiatrie de Liaison"
       },
@@ -1755,7 +1819,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/436e360f-1b51-46f4-8dcd-0304e118669b",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:23.665Z",
+      "crawledAt": "2026-08-11T10:41:45.300Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1774,12 +1838,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-e-psychiatrie-de-liaison-cnp-marin-epagnier",
-        "medecin-adjoint-e-psychiatrie-de-liaison-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        "medecin-adjoint-e-psychiatrie-de-liaison-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "assistente-medico-psichiatria-di-collegamento-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-psychiatrie-de-liaison-cnp-marin-epagnier",
-          "medecin-adjoint-e-psychiatrie-de-liaison-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+          "medecin-adjoint-e-psychiatrie-de-liaison-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+          "assistente-medico-psichiatria-di-collegamento-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "medecin-adjoint-e-psychiatrie-de-liaison-cnp-marin-epagnier"
@@ -1800,7 +1866,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-f67c35d1feb6",
@@ -1834,7 +1901,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9f34a869-de79-4701-b024-6ce9cf44807f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:23.226Z",
+      "crawledAt": "2026-08-11T10:41:44.878Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1855,14 +1922,16 @@
         "infirmier-ere-en-sante-mentale-consultation-de-psychotraumatologie-cnp-marin-epagnier",
         "infermiere-a-in-salute-mentale-consultazione-di-psicotraumatologia-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "mental-health-nurse-psychotraumatology-consultation-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "psychiatrische-pflegefachkraft-psychotraumatologische-beratung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+        "psychiatrische-pflegefachkraft-psychotraumatologische-beratung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "infermiera-della-salute-mentale-consulenza-psicotrauma-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-en-sante-mentale-consultation-de-psychotraumatologie-cnp-marin-epagnier",
           "infermiere-a-in-salute-mentale-consultazione-di-psicotraumatologia-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
           "mental-health-nurse-psychotraumatology-consultation-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-          "psychiatrische-pflegefachkraft-psychotraumatologische-beratung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
+          "psychiatrische-pflegefachkraft-psychotraumatologische-beratung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+          "infermiera-della-salute-mentale-consulenza-psicotrauma-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "infirmier-ere-en-sante-mentale-consultation-de-psychotraumatologie-cnp-marin-epagnier",
@@ -1919,7 +1988,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/027ffcda-43e6-4d96-b9c1-5d6f282a373c",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:22.789Z",
+      "crawledAt": "2026-08-11T10:41:44.420Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1945,7 +2014,8 @@
         "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "nurse-adult-hospital-unit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "krankenschwester-erwachsenenkrankenhauseinheit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
+        "infermiera-unita-ospedaliere-di-eta-avanzata-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1957,7 +2027,8 @@
           "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
           "nurse-adult-hospital-unit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
           "krankenschwester-erwachsenenkrankenhauseinheit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
+          "infermiera-unita-ospedaliere-di-eta-avanzata-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "infirmier-ere-unites-hospitalieres-de-l-age-avance-cnp-marin-epagnier",
@@ -2017,7 +2088,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/52c4f7fb-4509-48bd-8eb5-9196a179d4ef",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:22.157Z",
+      "crawledAt": "2026-08-11T10:41:43.920Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2035,11 +2106,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-qualite-documentaire-cnp-marin-epagnier"
+        "specialiste-en-qualite-documentaire-cnp-marin-epagnier",
+        "specialista-nella-qualita-documentaria-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-qualite-documentaire-cnp-marin-epagnier"
+          "specialiste-en-qualite-documentaire-cnp-marin-epagnier",
+          "specialista-nella-qualita-documentaria-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "specialiste-en-qualite-documentaire-cnp-marin-epagnier"
@@ -2093,7 +2166,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ea1b3520-3059-482b-937d-23286572b932",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:21.568Z",
+      "crawledAt": "2026-08-11T10:41:43.478Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2119,7 +2192,8 @@
         "assistente-psicologo-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "assistant-psychologist-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "assistentin-psychologin-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
-        "psychologue-assistant-e-cnp-la-chaux-de-fonds"
+        "psychologue-assistant-e-cnp-la-chaux-de-fonds",
+        "psicologo-psicoterapeuta-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2131,7 +2205,8 @@
           "assistente-psicologo-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "assistant-psychologist-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "assistentin-psychologin-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
-          "psychologue-assistant-e-cnp-la-chaux-de-fonds"
+          "psychologue-assistant-e-cnp-la-chaux-de-fonds",
+          "psicologo-psicoterapeuta-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "psychologue-psychotherapeute-referent-e-en-psychogeriatrie-cnp-marin-epagnier",
@@ -2157,7 +2232,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-658494323919",
@@ -2191,7 +2267,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/015b7a52-619b-4a24-beee-3b04145daaae",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:21.126Z",
+      "crawledAt": "2026-08-11T10:41:43.048Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2210,12 +2286,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-chef-fe-ambulatoire-en-psychogeriatrie-cnp-marin-epagnier",
-        "capo-medico-ambulatorio-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "capo-medico-ambulatorio-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "capo-medico-ambulatorio-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-fe-ambulatoire-en-psychogeriatrie-cnp-marin-epagnier",
-          "capo-medico-ambulatorio-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "capo-medico-ambulatorio-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+          "capo-medico-ambulatorio-in-psicologia-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
         ],
         "en": [
           "medecin-chef-fe-ambulatoire-en-psychogeriatrie-cnp-marin-epagnier"
@@ -2269,7 +2347,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/79442b92-c41a-4c89-ada5-312d7a36f11a",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:20.618Z",
+      "crawledAt": "2026-08-11T10:41:42.468Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2287,11 +2365,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-projet-sirh-cnp-la-tene"
+        "specialiste-projet-sirh-cnp-la-tene",
+        "sirh-project-specialist-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-projet-sirh-cnp-la-tene"
+          "specialiste-projet-sirh-cnp-la-tene",
+          "sirh-project-specialist-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "en": [
           "specialiste-projet-sirh-cnp-la-tene"
@@ -2312,7 +2392,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cnp-d4eac0cc28e4",
@@ -2346,7 +2427,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/d0a842f4-fc33-413c-a10b-5d95219e8dda",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:20.154Z",
+      "crawledAt": "2026-08-11T10:41:42.039Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2365,12 +2446,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotricien-ne-cnp-la-tene",
-        "psychomotricien-ne-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
+        "psychomotricien-ne-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "psicomoto-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotricien-ne-cnp-la-tene",
-          "psychomotricien-ne-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
+          "psychomotricien-ne-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+          "psicomoto-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "en": [
           "psychomotricien-ne-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
@@ -2425,7 +2508,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1fca31b5-4ab6-489f-b331-e0e2b565d0a8",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T22:22:19.532Z",
+      "crawledAt": "2026-08-11T10:41:41.427Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2443,11 +2526,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+        "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
+        "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"
+          "infirmier-ere-en-pedopsychiatrie-cnp-la-tene",
+          "infermiera-in-psichiatria-infantile-centre-neuchatelois-de-psychiatrie-cnp-la-tene"
         ],
         "en": [
           "infirmier-ere-en-pedopsychiatrie-cnp-la-tene"

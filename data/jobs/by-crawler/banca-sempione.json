@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-08-10T22:28:05.872Z",
+  "assembledAt": "2026-08-11T10:27:43.859Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -71,7 +71,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -91,13 +92,13 @@
         "it": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "en": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "de": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
-        "fr": "banca-del-sempione-global-wealth-management-private-banker-zurich-2"
+        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Zurigo)",
-        "en": "Global Wealth Management – Private Banker (Zurigo)",
+        "en": "Global Wealth Management – Private Banker (Zurich)",
         "de": "Global Wealth Management – Privatbanker (Zurigo)",
-        "fr": "Global Wealth Management – Private Banker (Zurigo)"
+        "fr": "Gestion de patrimoine mondiale – Banquier privé (Zurich)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
@@ -157,13 +158,13 @@
         "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "en": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "de": "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-        "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
+        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Lugano)",
-        "en": "Global Wealth Management – Private Banker (Lugano)",
+        "en": "Global Wealth Management – ​​Private Banker (Lugano)",
         "de": "Global Wealth Management – Privatbanker (Lugano)",
-        "fr": "Global Wealth Management – Private Banker (Lugano)"
+        "fr": "Gestion de patrimoine mondiale – Banquier privé (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
@@ -246,7 +247,7 @@
         "fr": "global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – Private Banking Assistant (Zurich)",
+        "it": "Global Wealth Management – Assistente Private Banking (Zurigo)",
         "en": "Global Wealth Management – Private Banking Assistant (Zurich)",
         "de": "Global Wealth Management – Private Banking Assistent (Zurich)",
         "fr": "Global Wealth Management – Assistant banque privée (Zurich)"

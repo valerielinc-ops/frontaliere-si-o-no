@@ -1,55 +1,19 @@
 {
   "key": "sika",
   "label": "Sika",
-  "generatedAt": "2026-08-10T22:05:06.527Z",
+  "generatedAt": "2026-08-11T10:45:02.284Z",
   "total": 48,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 47,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 55580,
-  "avgDurationMs": 55580,
+  "unchangedCount": 1,
+  "durationMs": 54480,
+  "avgDurationMs": 54480,
   "durationHistory": [
-    55580
+    64038,
+    54480
   ],
-  "newJobs": [
-    {
-      "id": "sika-4d2ceeea2dd0",
-      "slug": "corporate-business-development-manager-wind-repair-sika-ch",
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Corporate Business Development Manager Wind Repair",
-      "location": "Widen, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:22.447Z",
-      "addressLocality": "Widen",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "sika-ee031c065902",
@@ -63,7 +27,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fb414f0f-92ed-454d-b817-0ce5a4e49072.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:16.404Z",
+      "crawledAt": "2026-08-11T10:44:11.387Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -86,7 +50,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-279a84ce4477",
@@ -100,7 +65,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:17.307Z",
+      "crawledAt": "2026-08-11T10:44:12.240Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -137,7 +102,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:18.222Z",
+      "crawledAt": "2026-08-11T10:44:13.424Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -174,7 +139,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:19.144Z",
+      "crawledAt": "2026-08-11T10:44:14.554Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -211,7 +176,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-598b5ba4-0f88-44a2-a6f6-3f57a14b3489.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:20.578Z",
+      "crawledAt": "2026-08-11T10:44:15.534Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -234,7 +199,8 @@
         "richness": 10,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-b3a5c78ad394",
@@ -248,7 +214,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8b4d71a-8410-4011-bde9-56103e206522.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:21.496Z",
+      "crawledAt": "2026-08-11T10:44:16.996Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -274,6 +240,44 @@
       }
     },
     {
+      "id": "sika-4d2ceeea2dd0",
+      "slug": "corporate-business-development-manager-wind-repair-sika-ch",
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Corporate Business Development Manager Wind Repair",
+      "location": "Widen, Aargau, Switzerland",
+      "canton": "AG",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-11T10:44:18.217Z",
+      "addressLocality": "Widen",
+      "postalCode": "6341",
+      "streetAddress": "",
+      "addressRegion": "Aargau",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-10T22:04:22.447Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "id": "sika-04442e712967",
       "slug": "mechanical-engineering-internship-digital-prototyping-innovation-6-12-months-sika-ch",
       "company": "Sika",
@@ -285,7 +289,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-b560e1d0-48fe-4f9d-8e78-f6e8e542baaa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:23.677Z",
+      "crawledAt": "2026-08-11T10:44:19.098Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -322,7 +326,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-134ed372-066e-4aa3-8b2a-97296865cf47.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:24.589Z",
+      "crawledAt": "2026-08-11T10:44:20.394Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -345,7 +349,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "sika-c197c7ca171a",
@@ -359,7 +364,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bfefbf0c-3d35-4ba1-a6f6-aac1eac03c15.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:25.547Z",
+      "crawledAt": "2026-08-11T10:44:21.582Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -396,7 +401,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:26.509Z",
+      "crawledAt": "2026-08-11T10:44:22.784Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -433,7 +438,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4c8be4c9-5540-4cd2-9ff3-d6d70466bad7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:27.573Z",
+      "crawledAt": "2026-08-11T10:44:24.676Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -470,7 +475,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb1b006a-a18d-481f-973b-31615a51b9c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:28.622Z",
+      "crawledAt": "2026-08-11T10:44:25.956Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -507,7 +512,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:30.033Z",
+      "crawledAt": "2026-08-11T10:44:27.188Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -544,7 +549,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:30.933Z",
+      "crawledAt": "2026-08-11T10:44:28.098Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -567,7 +572,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-1753dff27e4e",
@@ -581,7 +587,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:31.886Z",
+      "crawledAt": "2026-08-11T10:44:28.971Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -604,7 +610,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "sika-63e58381cd23",
@@ -618,7 +625,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-b26a7049-1fd2-4606-8870-548ed50bdbbe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:32.924Z",
+      "crawledAt": "2026-08-11T10:44:29.322Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -641,7 +648,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "sika-ea50419e7d54",
@@ -655,7 +663,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:34.310Z",
+      "crawledAt": "2026-08-11T10:44:30.185Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -672,13 +680,14 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "sika-75a953aa2ad5",
@@ -692,7 +701,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:35.232Z",
+      "crawledAt": "2026-08-11T10:44:31.064Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -729,7 +738,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:36.317Z",
+      "crawledAt": "2026-08-11T10:44:32.253Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -752,7 +761,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-757e4a7d8e68",
@@ -766,7 +776,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:37.265Z",
+      "crawledAt": "2026-08-11T10:44:33.096Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -803,7 +813,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6622ef93-be97-42ae-8107-4c5ade457cb9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:04:38.203Z",
+      "crawledAt": "2026-08-11T10:44:34.011Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -820,13 +830,14 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6622ef93-be97-42ae-8107-4c5ade457cb9.html",
       "firstSeenAt": "2026-07-31T22:26:48.751Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "sika-5f9bb3db5cd9",
@@ -840,7 +851,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:39.060Z",
+      "crawledAt": "2026-08-11T10:44:35.383Z",
       "addressLocality": "Altstätten",
       "postalCode": "6341",
       "streetAddress": "",
@@ -877,7 +888,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:39.946Z",
+      "crawledAt": "2026-08-11T10:44:36.284Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -914,7 +925,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:40.876Z",
+      "crawledAt": "2026-08-11T10:44:37.207Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -951,7 +962,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-132e0bae-d015-457d-a224-321c9ed67d15.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:41.784Z",
+      "crawledAt": "2026-08-11T10:44:38.052Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -988,7 +999,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:42.740Z",
+      "crawledAt": "2026-08-11T10:44:38.976Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1011,7 +1022,8 @@
         "richness": 14,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-7dd7e2fcb22c",
@@ -1025,7 +1037,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:43.629Z",
+      "crawledAt": "2026-08-11T10:44:40.161Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1048,7 +1060,8 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-89ea09b4e993",
@@ -1062,7 +1075,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:44.989Z",
+      "crawledAt": "2026-08-11T10:44:41.018Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1085,7 +1098,8 @@
         "richness": 10,
         "translation": 25,
         "completeness": 17
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-8a2a9eb9bc87",
@@ -1099,7 +1113,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:45.895Z",
+      "crawledAt": "2026-08-11T10:44:41.926Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1122,46 +1136,52 @@
         "richness": 14,
         "translation": 25,
         "completeness": 17
-      }
-    },
+      },
+      "needsRetranslation": true
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "sika-3f4c051f8b9e",
-      "slug": "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
+      "id": "sika-840ec3f22c38",
+      "slug": "equipment-operatore-sika-zurich",
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
-      "title": "Lehrstelle als Automatiker/-in EFZ 2027",
-      "location": "Sarnen, Obwalden, Switzerland",
-      "canton": "OW",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
+      "title": "Equipment Operator",
+      "location": "Zürich, Zurich, Switzerland",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:46.914Z",
-      "addressLocality": "Sarnen",
+      "crawledAt": "2026-08-10T22:04:54.303Z",
+      "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
-      "addressRegion": "Obwalden",
+      "addressRegion": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Produzione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Specialty chemicals (construction & industrial)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-24",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
-      "firstSeenAt": "2026-06-17T13:57:07.963Z",
-      "_qualityScore": 77,
+      "postedDate": "2026-02-05",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
+      "firstSeenAt": "2026-06-17T13:57:28.934Z",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -1,21 +1,23 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-08-10T22:24:34.817Z",
+  "generatedAt": "2026-08-11T10:42:10.268Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4683,
-  "avgDurationMs": 4683,
+  "durationMs": 5298,
+  "avgDurationMs": 5298,
   "durationHistory": [
-    4683
+    5234,
+    5298
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Consulente tecnico (m/f) - 100%",
-      "slug": "consulente-tecnico-m-f-100",
+      "slug": "consulente-tecnico-m-f-100-amag-group-pambio-noranco",
       "url": "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-j23428.html",
       "applyUrl": "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-f23428.html",
       "company": "AMAG Group",
@@ -35,52 +37,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-10-31",
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Meccatronico di automobili VL (m/f) - 100%",
-      "slug": "meccatronico-di-automobili-vl-m-f-100",
-      "url": "https://jobs.amag-group.ch/Meccatronico-di-automobili-VL-mf-100-it-j23373.html",
-      "applyUrl": "https://jobs.amag-group.ch/Meccatronico-di-automobili-VL-mf-100-it-f23373.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "automotive",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-09-30",
-      "id": "amag-group-6e796829291d",
+      "id": "amag-group-aef1560871fc",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-07-24T22:14:58.274Z",
-      "_qualityScore": 87,
+      "firstSeenAt": "2026-08-10T22:24:34.816Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
         "translation": 25,
         "completeness": 19
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

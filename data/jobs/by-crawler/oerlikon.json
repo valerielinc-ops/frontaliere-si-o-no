@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-08-10T21:46:54.237Z",
+  "assembledAt": "2026-08-11T10:08:43.751Z",
   "jobs": [
     {
       "id": "oerlikon-991456e8d17d",
@@ -33,7 +33,7 @@
       "url": "https://careers.oerlikon.com/job/Marketing-&-Communications-Coordinator/104785-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:46:51.363Z",
+      "crawledAt": "2026-08-11T10:08:40.856Z",
       "addressLocality": "Garching, DEU",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -50,7 +50,9 @@
       "applyUrl": "https://careers.oerlikon.com/job/Marketing-&-Communications-Coordinator/104785-en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-10T10:30:00.497Z",
+      "previousSlugs": [
+        "marketing-communications-coordinator-oerlikon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-communications-coordinator-oerlikon-ch"
@@ -62,9 +64,7 @@
           "marketing-communications-coordinator-oerlikon-ch"
         ]
       },
-      "previousSlugs": [
-        "marketing-communications-coordinator-oerlikon-ch"
-      ],
+      "firstSeenAt": "2026-08-10T10:30:00.497Z",
       "salaryMin": 58500,
       "salaryMax": 103500,
       "baseSalary": {
@@ -109,7 +109,7 @@
       "url": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers-WM/104205-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:46:50.703Z",
+      "crawledAt": "2026-08-11T10:08:40.219Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://careers.oerlikon.com/job/Software-Engineer-%28gn%29/104224-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:50.039Z",
+      "crawledAt": "2026-08-11T10:08:39.555Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -235,36 +235,36 @@
     },
     {
       "id": "oerlikon-a2b2e34266b8",
-      "slug": "industrial-software-automation-engineer-gn-oerlikon-ch",
+      "slug": "industrial-software-automation-ingegnere-gn-oerlikon-wohlen",
       "slugByLocale": {
-        "de": "industrial-software-automation-engineer-gn-oerlikon-ch",
-        "it": "industrial-software-automation-engineer-gn-oerlikon-ch",
+        "it": "industrial-software-automation-ingegnere-gn-oerlikon-wohlen",
         "en": "industrial-software-automation-engineer-gn-oerlikon-ch",
-        "fr": "industrial-software-automation-engineer-gn-oerlikon-ch"
+        "de": "industrial-software-automation-engineer-gn-oerlikon-ch",
+        "fr": "industrial-software-automation-ingenieur-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
       "companyDomain": "oerlikon.com",
       "title": "Industrial Software & Automation Engineer (gn)",
       "titleByLocale": {
-        "de": "Industrial Software & Automation Ingenieur (gn)",
-        "en": "Industrial Software & Automation Engineer (gn)",
         "it": "Industrial Software & Automation Ingegnere (gn)",
+        "en": "Industrial Software & Automation Engineer (gn)",
+        "de": "Industrial Software & Automation Ingenieur (gn)",
         "fr": "Industrial Software & Automation Ingénieur (gn)"
       },
       "description": "Industrial Software & Automation Engineer (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Weiterentwicklung von SPS-, HMI- und Softwarelösungen für thermische Beschichtungssysteme\n\n• Programmierung von Siemens S7-1500 Steuerungen mit TIA Portal\n\n• Entwicklung von HMI-Anwendungen mit Java unter Anwendung moderner Softwarearchitekturen und Design Patterns\n\n• Aufbau und Nutzung virtueller Testumgebungen mit Siemens SIMIT\n\n• Umsetzung von Testautomatisierungs- und Software-Qualitätssicherungskonzepten\n\n• Integration von Datenbanken sowie industriellen Kommunikationsprotokollen\n\n• Mitarbeit an CI/CD-Pipelines und DevOps-Prozessen mit GitLab\n\n• Umsetzung von Cyber-Security-, IEC 62443- und CRA-Anforderungen in Entwicklungsprojekten\n\n• Zusammenarbeit in interdisziplinären und internationalen Teams sowie Unterstützung bei Inbetriebnahmen\n\nIhr Profil\n\n• Studium oder vergleichbare Ausbildung in Informatik, Software Engineering, Automation oder Elektrotechnik\n\n• Mehrjährige Erfahrung in der SPS-Entwicklung mit Siemens S7-1500 und TIA Portal\n\n• Erfahrung mit SIMIT, Testautomatisierung und virtueller Inbetriebnahme\n\n• Fundierte Kenntnisse in Java, objektorientierter Softwareentwicklung und Design Patterns\n\n• Erfahrung mit Datenbanken (SQL, Firebird, MongoDB)\n\n• Kenntnisse industrieller Kommunikationssysteme (PROFINET, Modbus/TCP, OPC UA)\n\n• Erfahrung mit Git, GitLab, CI/CD und modernen Softwareentwicklungsprozessen\n\n• Kenntnisse in Industrial Cyber Security, Secure Development, DevSecOps, IEC 62443 und Cyber Resilience Act (CRA)\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Systemverständnis\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
       "descriptionByLocale": {
-        "de": "Industrial Software & Automation Engineer (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Weiterentwicklung von SPS-, HMI- und Softwarelösungen für thermische Beschichtungssysteme\n\n• Programmierung von Siemens S7-1500 Steuerungen mit TIA Portal\n\n• Entwicklung von HMI-Anwendungen mit Java unter Anwendung moderner Softwarearchitekturen und Design Patterns\n\n• Aufbau und Nutzung virtueller Testumgebungen mit Siemens SIMIT\n\n• Umsetzung von Testautomatisierungs- und Software-Qualitätssicherungskonzepten\n\n• Integration von Datenbanken sowie industriellen Kommunikationsprotokollen\n\n• Mitarbeit an CI/CD-Pipelines und DevOps-Prozessen mit GitLab\n\n• Umsetzung von Cyber-Security-, IEC 62443- und CRA-Anforderungen in Entwicklungsprojekten\n\n• Zusammenarbeit in interdisziplinären und internationalen Teams sowie Unterstützung bei Inbetriebnahmen\n\nIhr Profil\n\n• Studium oder vergleichbare Ausbildung in Informatik, Software Engineering, Automation oder Elektrotechnik\n\n• Mehrjährige Erfahrung in der SPS-Entwicklung mit Siemens S7-1500 und TIA Portal\n\n• Erfahrung mit SIMIT, Testautomatisierung und virtueller Inbetriebnahme\n\n• Fundierte Kenntnisse in Java, objektorientierter Softwareentwicklung und Design Patterns\n\n• Erfahrung mit Datenbanken (SQL, Firebird, MongoDB)\n\n• Kenntnisse industrieller Kommunikationssysteme (PROFINET, Modbus/TCP, OPC UA)\n\n• Erfahrung mit Git, GitLab, CI/CD und modernen Softwareentwicklungsprozessen\n\n• Kenntnisse in Industrial Cyber Security, Secure Development, DevSecOps, IEC 62443 und Cyber Resilience Act (CRA)\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Systemverständnis\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-        "it": "Industrial Software & Automation Engineer (gn)\n\nI loro compiti\n\n• Sviluppo e sviluppo di soluzioni PLC, HMI e software per sistemi di rivestimento termico\n\n• Programmazione dei controller Siemens S7-1500 con TIA Portal\n\n• Sviluppo di applicazioni HMI con Java utilizzando moderne architetture software e modelli di progettazione\n\n• Impostazione e utilizzo di ambienti di test virtuali con Siemens SIMIT\n\n• Attuazione dei concetti di automazione del test e garanzia della qualità del software\n\n• Integrazione di database e protocolli di comunicazione industriale\n\n• Collaborazione sui processi CI/CD e DevOps con GitLab\n\n• Attuazione dei requisiti di sicurezza informatica, IEC 62443 e CRA nei progetti di sviluppo\n\n• Collaborazione in team interdisciplinari e internazionali e supporto per la messa in servizio\n\nIl tuo profilo\n\n• Studi o formazione comparabile in informatica, ingegneria del software, automazione o ingegneria elettrica\n\n• Diversi anni di esperienza nello sviluppo di PLC con Siemens S7-1500 e TIA Portal\n\n• Esperienza con SIMIT, test di automazione e messa in servizio virtuale\n\n• Conoscenza approfondita di Java, modelli di sviluppo e progettazione orientati agli oggetti\n\n• Esperienza con database (SQL, Firebird, MongoDB)\n\n• Conoscenza dei sistemi di comunicazione industriale (PROFINET, Modbus/TCP, OPC UA)\n\n• Esperienza con Git, GitLab, CI/CD e moderni processi di sviluppo software\n\n• Conoscenza della sicurezza informatica industriale, sviluppo sicuro, DevSecOps, IEC 62443 e Cyber Resilience Act (CRA)\n\n• Metodo di lavoro strutturato e orientato alla soluzione con una forte comprensione del sistema\n\n• Ottima conoscenza del tedesco e dell'inglese\n\n• Operazioni occasionali di assistenza presso le strutture clienti in Germania e all'estero\n\nOffriamo\n\n• Variazione del lavoro in un'azienda orientata a livello internazionale nel settore high-tech\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Aprire la cultura aziendale e un team amichevole e aperto\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavorare in modo indipendente in un ambiente di lavoro attraente\n\n• Un pacchetto di compensazione attraente con buoni benefici sociali\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti!\n\nSi prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e materiali ad alte prestazioni. Con un portafoglio unico che comprende l'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, miglioriamo i prodotti aumentando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori, tra cui aerospaziale, automotive, energia, medicina, lusso, semiconduttore e tecnologia degli strumenti. La sede centrale si trova a Pfäffikon, in Svizzera. Oerlikon opera in 38 paesi, impiega circa 10.000 persone e ottiene vendite di CHF 1,6 miliardi nel 2025.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale – guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\n LinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "Industrial Software & Automation Engineer (gn)\n\nTheir tasks\n\n• Development and further development of PLC, HMI and software solutions for thermal coating systems\n\n• Programming of Siemens S7-1500 controllers with TIA Portal\n\n• Development of HMI applications with Java using modern software architectures and design patterns\n\n• Setting up and using virtual test environments with Siemens SIMIT\n\n• Implementation of test automation and software quality assurance concepts\n\n• Integration of databases and industrial communication protocols\n\n• Collaboration on CI/CD pipelines and DevOps processes with GitLab\n\n• Implementation of cyber security, IEC 62443 and CRA requirements in development projects\n\n• Collaboration in interdisciplinary and international teams as well as support for commissioning\n\nYour profile\n\n• Studies or comparable training in computer science, software engineering, automation or electrical engineering\n\n• Several years of experience in PLC development with Siemens S7-1500 and TIA Portal\n\n• Experience with SIMIT, test automation and virtual commissioning\n\n• In-depth knowledge of Java, object-oriented software development and design patterns\n\n• Experience with databases (SQL, Firebird, MongoDB)\n\n• Knowledge of industrial communication systems (PROFINET, Modbus/TCP, OPC UA)\n\n• Experience with Git, GitLab, CI/CD and modern software development processes\n\n• Knowledge of Industrial Cyber Security, Secure Development, DevSecOps, IEC 62443 and Cyber Resilience Act (CRA)\n\n• Structured and solution-oriented working method with a strong system understanding\n\n• Very good knowledge of German and English\n\n• Occasional support operations at customer facilities in Germany and abroad\n\nWe offer\n\n• Varied work in an internationally oriented company in the high-tech sector\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• Open corporate culture and a friendly, open-minded team\n\n• Perspectives for personal and professional development\n\n• Working independently in an attractive working environment\n\n• An attractive compensation package with good social benefits\n\nDo you feel addressed? Then we are curious to meet you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and high-performance materials. With a unique portfolio that includes surface engineering, high performance materials, coating equipment and components, we improve products by increasing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medicine, luxury, semiconductor and tool technology. The headquarters are located in Pfäffikon, Switzerland. Oerlikon operates in 38 countries, employs around 10,000 people and achieved sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\n LinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Ingénieur en logiciel industriel et automatisation (gn)\n\nLeurs tâches\n\n• Développement et développement de solutions PLC, HMI et logiciels pour les systèmes de revêtement thermique\n\n• Programmation de contrôleurs Siemens S7-1500 avec TIA Portal\n\n• Développement d'applications HMI avec Java utilisant des architectures logicielles modernes et des modèles de conception\n\n• Configuration et utilisation d'environnements de test virtuels avec Siemens SIMIT\n\n• Mise en œuvre des concepts d'automatisation des essais et d'assurance de la qualité des logiciels\n\n• Intégration des bases de données et des protocoles de communication industrielle\n\n• Collaboration sur les pipelines CI/CD et les processus DevOps avec GitLab\n\n• Mise en oeuvre des exigences de cybersécurité, de la CEI 62443 et de l'ARC dans les projets de développement\n\n• Collaboration au sein d ' équipes interdisciplinaires et internationales et appui à la mise en service\n\nVotre profil\n\n• Études ou formation comparable en informatique, génie logiciel, automatisation ou génie électrique\n\n• Plusieurs années d'expérience dans le développement de PLC avec Siemens S7-1500 et TIA Portal\n\n• Expérience avec SIMIT, automatisation des tests et mise en service virtuelle\n\n• Connaissance approfondie de Java, développement logiciel orienté objet et modèles de conception\n\n• Expérience des bases de données (SQL, Firebird, MongoDB)\n\n• Connaissance des systèmes de communication industrielle (PROFINET, Modbus/TCP, OPC UA)\n\n• Expérience avec Git, GitLab, CI/CD et processus modernes de développement de logiciels\n\n• Connaissance de la cybersécurité industrielle, du développement sécurisé, de DevSecOps, de la CEI 62443 et de la Cyberrésilience Act (CRA)\n\n• Méthode de travail structurée et axée sur la solution, avec une bonne compréhension du système\n\n• Très bonne connaissance de l'allemand et de l'anglais\n\n• Opérations occasionnelles de soutien dans les installations clientes en Allemagne et à l'étranger\n\nNous offrons\n\n• Travail varié dans une entreprise internationale dans le secteur de la haute technologie\n\n• Au début de 2027, Oerlikon Metco déménage à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Une culture d'entreprise ouverte et une équipe amicale et ouverte\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attrayant\n\n• Une rémunération attrayante avec de bons avantages sociaux\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer !\n\nVeuillez postuler en ligne via notre page Carrière www.oerlikon.com/career\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux de haute performance. Avec un portefeuille unique qui comprend l'ingénierie de surface, des matériaux haute performance, des équipements de revêtement et des composants, nous améliorons les produits en augmentant la performance, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et la technologie des outils. Le siège est situé à Pfäffikon, en Suisse. Oerlikon opère dans 38 pays, emploie environ 10 000 personnes et réalise des ventes de CHF 1,6 milliard en 2025.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\n Instagram YouTube\n\nLe site www.oerlikon.com"
+        "it": "Industrial Software & Automation Engineer (gn)\n\nI loro compiti\n\n• Sviluppo e sviluppo di soluzioni PLC, HMI e software per sistemi di rivestimento termico\n\n• Programmazione dei controller Siemens S7-1500 con TIA Portal\n\n• Sviluppo di applicazioni HMI con Java utilizzando moderne architetture software e modelli di progettazione\n\n• Impostazione e utilizzo di ambienti di test virtuali con Siemens SIMIT\n\n• Attuazione dei concetti di automazione del test e garanzia della qualità del software\n\n• Integrazione di database e protocolli di comunicazione industriale\n\n• Collaborazione sui processi CI/CD e DevOps con GitLab\n\n• Attuazione dei requisiti di sicurezza informatica, IEC 62443 e CRA nei progetti di sviluppo\n\n• Collaborazione in team interdisciplinari e internazionali e supporto per la messa in servizio\n\nIl tuo profilo\n\n• Studi o formazione comparabile in informatica, ingegneria del software, automazione o ingegneria elettrica\n\n• Diversi anni di esperienza nello sviluppo di PLC con Siemens S7-1500 e TIA Portal\n\n• Esperienza con SIMIT, test di automazione e messa in servizio virtuale\n\n• Conoscenza approfondita di Java, modelli di sviluppo e progettazione orientati agli oggetti\n\n• Esperienza con database (SQL, Firebird, MongoDB)\n\n• Conoscenza dei sistemi di comunicazione industriale (PROFINET, Modbus/TCP, OPC UA)\n\n• Esperienza con Git, GitLab, CI/CD e moderni processi di sviluppo software\n\n• Conoscenza della sicurezza informatica industriale, sviluppo sicuro, DevSecOps, IEC 62443 e Cyber Resilience Act (CRA)\n\n• Metodo di lavoro strutturato e orientato alla soluzione con una forte comprensione del sistema\n\n• Ottima conoscenza del tedesco e dell'inglese\n\n• Operazioni occasionali di assistenza presso le strutture clienti in Germania e all'estero\n\nOffriamo\n\n• Variazione del lavoro in un'azienda orientata a livello internazionale nel settore high-tech\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Aprire la cultura aziendale e un team amichevole e aperto\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavorare in modo indipendente in un ambiente di lavoro attraente\n\n• Un pacchetto di compensazione attraente con buoni benefici sociali\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti!\n\nSi prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e materiali ad alte prestazioni. Con un portafoglio unico che comprende l'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, miglioriamo i prodotti aumentando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori, tra cui aerospaziale, automotive, energia, medicina, lusso, semiconduttore e tecnologia degli strumenti. La sede centrale si trova a Pfäffikon, in Svizzera. Oerlikon opera in 38 paesi, impiega circa 10.000 persone e ottiene vendite di CHF 1,6 miliardi nel 2025.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale – guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "en": "Industrial Software & Automation Engineer (gn)\n\nTheir tasks\n\n• Development and further development of PLC, HMI and software solutions for thermal coating systems\n\n• Programming of Siemens S7-1500 controllers with TIA Portal\n\n• Development of HMI applications with Java using modern software architectures and design patterns\n\n• Setting up and using virtual test environments with Siemens SIMIT\n\n• Implementation of test automation and software quality assurance concepts\n\n• Integration of databases and industrial communication protocols\n\n• Collaboration on CI/CD pipelines and DevOps processes with GitLab\n\n• Implementation of cyber security, IEC 62443 and CRA requirements in development projects\n\n• Collaboration in interdisciplinary and international teams as well as support for commissioning\n\nYour profile\n\n• Studies or comparable training in computer science, software engineering, automation or electrical engineering\n\n• Several years of experience in PLC development with Siemens S7-1500 and TIA Portal\n\n• Experience with SIMIT, test automation and virtual commissioning\n\n• In-depth knowledge of Java, object-oriented software development and design patterns\n\n• Experience with databases (SQL, Firebird, MongoDB)\n\n• Knowledge of industrial communication systems (PROFINET, Modbus/TCP, OPC UA)\n\n• Experience with Git, GitLab, CI/CD and modern software development processes\n\n• Knowledge of Industrial Cyber Security, Secure Development, DevSecOps, IEC 62443 and Cyber Resilience Act (CRA)\n\n• Structured and solution-oriented working method with a strong system understanding\n\n• Very good knowledge of German and English\n\n• Occasional support operations at customer facilities in Germany and abroad\n\nWe offer\n\n• Varied work in an internationally oriented company in the high-tech sector\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• Open corporate culture and a friendly, open-minded team\n\n• Perspectives for personal and professional development\n\n• Working independently in an attractive working environment\n\n• An attractive compensation package with good social benefits\n\nDo you feel addressed? Then we are curious to meet you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and high-performance materials. With a unique portfolio that includes surface engineering, high performance materials, coating equipment and components, we improve products by increasing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medicine, luxury, semiconductor and tool technology. The headquarters are located in Pfäffikon, Switzerland. Oerlikon operates in 38 countries, employs around 10,000 people and achieved sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "de": "Industrial Software & Automation Engineer (gn)\n\nIhre Aufgaben\n\n• Entwicklung und Weiterentwicklung von SPS-, HMI- und Softwarelösungen für thermische Beschichtungssysteme\n\n• Programmierung von Siemens S7-1500 Steuerungen mit TIA Portal\n\n• Entwicklung von HMI-Anwendungen mit Java unter Anwendung moderner Softwarearchitekturen und Design Patterns\n\n• Aufbau und Nutzung virtueller Testumgebungen mit Siemens SIMIT\n\n• Umsetzung von Testautomatisierungs- und Software-Qualitätssicherungskonzepten\n\n• Integration von Datenbanken sowie industriellen Kommunikationsprotokollen\n\n• Mitarbeit an CI/CD-Pipelines und DevOps-Prozessen mit GitLab\n\n• Umsetzung von Cyber-Security-, IEC 62443- und CRA-Anforderungen in Entwicklungsprojekten\n\n• Zusammenarbeit in interdisziplinären und internationalen Teams sowie Unterstützung bei Inbetriebnahmen\n\nIhr Profil\n\n• Studium oder vergleichbare Ausbildung in Informatik, Software Engineering, Automation oder Elektrotechnik\n\n• Mehrjährige Erfahrung in der SPS-Entwicklung mit Siemens S7-1500 und TIA Portal\n\n• Erfahrung mit SIMIT, Testautomatisierung und virtueller Inbetriebnahme\n\n• Fundierte Kenntnisse in Java, objektorientierter Softwareentwicklung und Design Patterns\n\n• Erfahrung mit Datenbanken (SQL, Firebird, MongoDB)\n\n• Kenntnisse industrieller Kommunikationssysteme (PROFINET, Modbus/TCP, OPC UA)\n\n• Erfahrung mit Git, GitLab, CI/CD und modernen Softwareentwicklungsprozessen\n\n• Kenntnisse in Industrial Cyber Security, Secure Development, DevSecOps, IEC 62443 und Cyber Resilience Act (CRA)\n\n• Strukturierte und lösungsorientierte Arbeitsweise mit ausgeprägtem Systemverständnis\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\n• Gelegentliche Unterstützungseinsätze an Kundenanlagen im In- und Ausland\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "fr": "Ingénieur en logiciel industriel et automatisation (gn)\n\nLeurs tâches\n\n• Développement et développement de solutions PLC, HMI et logiciels pour les systèmes de revêtement thermique\n\n• Programmation de contrôleurs Siemens S7-1500 avec TIA Portal\n\n• Développement d'applications HMI avec Java utilisant des architectures logicielles modernes et des modèles de conception\n\n• Configuration et utilisation d'environnements de test virtuels avec Siemens SIMIT\n\n• Mise en œuvre des concepts d'automatisation des essais et d'assurance de la qualité des logiciels\n\n• Intégration des bases de données et des protocoles de communication industrielle\n\n• Collaboration sur les pipelines CI/CD et les processus DevOps avec GitLab\n\n• Mise en oeuvre des exigences de cybersécurité, de la CEI 62443 et de l'ARC dans les projets de développement\n\n• Collaboration au sein d ' équipes interdisciplinaires et internationales et appui à la mise en service\n\nVotre profil\n\n• Études ou formation comparable en informatique, génie logiciel, automatisation ou génie électrique\n\n• Plusieurs années d'expérience dans le développement de PLC avec Siemens S7-1500 et TIA Portal\n\n• Expérience avec SIMIT, automatisation des tests et mise en service virtuelle\n\n• Connaissance approfondie de Java, développement logiciel orienté objet et modèles de conception\n\n• Expérience des bases de données (SQL, Firebird, MongoDB)\n\n• Connaissance des systèmes de communication industrielle (PROFINET, Modbus/TCP, OPC UA)\n\n• Expérience avec Git, GitLab, CI/CD et processus modernes de développement de logiciels\n\n• Connaissance de la cybersécurité industrielle, du développement sécurisé, de DevSecOps, de la CEI 62443 et de la Cyberrésilience Act (CRA)\n\n• Méthode de travail structurée et axée sur la solution, avec une bonne compréhension du système\n\n• Très bonne connaissance de l'allemand et de l'anglais\n\n• Opérations occasionnelles de soutien dans les installations clientes en Allemagne et à l'étranger\n\nNous offrons\n\n• Travail varié dans une entreprise internationale dans le secteur de la haute technologie\n\n• Au début de 2027, Oerlikon Metco déménage à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Une culture d'entreprise ouverte et une équipe amicale et ouverte\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attrayant\n\n• Une rémunération attrayante avec de bons avantages sociaux\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer !\n\nVeuillez postuler en ligne via notre page Carrière www.oerlikon.com/career\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux de haute performance. Avec un portefeuille unique qui comprend l'ingénierie de surface, des matériaux haute performance, des équipements de revêtement et des composants, nous améliorons les produits en augmentant la performance, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et la technologie des outils. Le siège est situé à Pfäffikon, en Suisse. Oerlikon opère dans 38 pays, emploie environ 10 000 personnes et réalise des ventes de CHF 1,6 milliard en 2025.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
       },
       "location": "Wohlen",
       "canton": "AG",
       "url": "https://careers.oerlikon.com/job/Industrial-Software-&-Automation-Engineer-%28gn%29/104476-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:49.353Z",
+      "crawledAt": "2026-08-11T10:08:38.916Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -280,10 +280,20 @@
       "postedDate": "2026-07-28",
       "applyUrl": "https://careers.oerlikon.com/job/Industrial-Software-&-Automation-Engineer-%28gn%29/104476-en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "industrial-software-automation-engineer-gn-oerlikon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "industrial-software-automation-engineer-gn-oerlikon-ch"
+        ],
+        "fr": [
+          "industrial-software-automation-engineer-gn-oerlikon-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T21:46:49.353Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -295,20 +305,176 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "oerlikon-356e3fe4d231",
+      "slug": "esportatore-gn-oerlikon-wohlen",
+      "slugByLocale": {
+        "it": "esportatore-gn-oerlikon-wohlen",
+        "en": "export-packer-gn-oerlikon-wohlen",
+        "de": "export-verpacker-gn-oerlikon-ch",
+        "fr": "emballeur-d-exportation-gn-oerlikon-wohlen"
       },
-      "firstSeenAt": "2026-08-10T21:46:49.353Z",
+      "company": "Oerlikon",
+      "companyKey": "oerlikon",
+      "companyDomain": "oerlikon.com",
+      "title": "Export Verpacker (gn)",
+      "titleByLocale": {
+        "it": "Esportatore (gn)",
+        "en": "Export Packer (gn)",
+        "de": "Export Verpacker (gn)",
+        "fr": "Emballeur d'exportation (gn)"
+      },
+      "description": "Export Verpacker (gn)\n\nIhre Aufgaben\n\n• Sicheres Be- und Entladen von LKWs und Containern mit dem Stapler in der Spedition\n\n• Entgegennahme von Warenlieferungen inkl. Wareneingangskontrolle und Verbuchung im System\n\n• Organisation von Transporten: Ausmessen von Anlagen, Bestellen von Holzverpackungen sowie Erstellen von Pack- und Ladelisten für Container und LKW\n\n• Rüsten und Bereitstellen von Material für Fertigungsaufträge\n\n• Vorbereiten und Verpacken von Sendungen für den internationalen Versand\n\n• Unterstützung bei der Inventur im Rahmen der rollierenden Bestandskontrolle\n\nIhr Profil\n\n• Praxiskenntnisse in der Exportverpackung, Ladungssicherung und Lagerlogistik sind zwingend notwendig\n\n• Erfahrung im Umgang mit Hallenkran und Schwerlasten bis 8 Tonnen\n\n• Kenntnisse im Container- und LKW-Verlad\n\n• Sicherer Umgang mit Lagersystemen, vorzugsweise SAP\n\n• Staplerführerschein vorhanden, Ausbildung im Umgang mit Gefahrgut ist von Vorteil\n\n• Strukturierte, effiziente Arbeitsweise sowie die Fähigkeit, Prioritäten richtig zu setzen\n\n• Gute Deutschkenntnisse, Englischkenntnisse sind ein Plus\n\n• Zuverlässige, flexible Teamplayer-Persönlichkeit, die Zusammenarbeit schätzt\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nIhr Ansprechpartner:\n\nStephanie Minuscoli, HR-Generalist\n\nstephanie.minuscoli@oerlikon.com\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
+      "descriptionByLocale": {
+        "it": "Esportatore (gn)\n\nI loro compiti\n\n• Caricamento e scarico sicuro di camion e container con il camion nella società di spedizioni\n\n• Accettazione delle consegne di merci incl. Ispezione e prenotazione delle merci in entrata nel sistema\n\n• Organizzazione dei trasporti: misurazione delle attrezzature, ordinazione di imballaggi in legno e creazione di elenchi di imballaggio e di carico per contenitori e camion\n\n• Attrezzature e fornitura di materiali per contratti di produzione\n\n• Preparazione e confezionamento di spedizioni internazionali\n\n• Sostegno all'inventario nel controllo del materiale rotabile\n\nIl tuo profilo\n\n• Le conoscenze pratiche nell'imballaggio delle esportazioni, nella sicurezza dei carichi e nella logistica del magazzino sono assolutamente necessarie\n\n• Esperienza nella movimentazione di gru e carichi pesanti fino a 8 tonnellate\n\n• Conoscenza del carico di container e camion\n\n• Gestione sicura dei sistemi di storage, preferibilmente SAP\n\n• La licenza del conducente del carrello elevatore disponibile, la formazione nella gestione di merci pericolose è un vantaggio\n\n• Lavoro strutturato, efficiente e capacità di fissare correttamente le priorità\n\n• Buone competenze tedesche, inglese competenze sono un plus\n\n• Personalità di team player affidabile e flessibile che valorizza la collaborazione\n\nOffriamo\n\n• Variazione del lavoro in un'azienda orientata a livello internazionale nel settore high-tech\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Aprire la cultura aziendale e un team amichevole e aperto\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavorare in modo indipendente in un ambiente di lavoro attraente\n\n• Un pacchetto di compensazione attraente con buoni benefici sociali\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti!\n\nSi prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nLa persona di contatto:\n\nStephanie Minuscoli, Generalista HR\n\nstephanie.minuscoli@oerlikon.com\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e materiali ad alte prestazioni. Con un portafoglio unico che include l'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, miglioriamo i prodotti aumentando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori tra cui aerospaziale, automotive, energia, medicina, lusso, semiconduttori e utensili. La sede centrale si trova a Pfäffikon, in Svizzera. Oerlikon opera in 38 paesi, impiega circa 10.000 persone e ottiene vendite di CHF 1,6 miliardi nel 2025.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale – guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "en": "Export Packer (gn)\n\nTheir tasks\n\n• Safe loading and unloading of trucks and containers with the truck in the forwarding company\n\n• Acceptance of deliveries of goods incl. Incoming goods inspection and booking in the system\n\n• Organization of transports: measurement of equipment, ordering of wood packaging and creation of packing and loading lists for containers and trucks\n\n• Equipment and provision of materials for manufacturing contracts\n\n• Preparation and packaging of international shipments\n\n• Inventory support in rolling stock control\n\nYour profile\n\n• Practical knowledge in export packaging, load securing and warehouse logistics is absolutely necessary\n\n• Experience in handling hall crane and heavy loads up to 8 tons\n\n• Knowledge of container and truck loading\n\n• Safe handling of storage systems, preferably SAP\n\n• Forklift driver’s license available, training in handling dangerous goods is an advantage\n\n• Structured, efficient work and the ability to set priorities correctly\n\n• Good German skills, English skills are a plus\n\n• Reliable, flexible team player personality who values collaboration\n\nWe offer\n\n• Varied work in an internationally oriented company in the high-tech sector\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• Open corporate culture and a friendly, open-minded team\n\n• Perspectives for personal and professional development\n\n• Working independently in an attractive working environment\n\n• An attractive compensation package with good social benefits\n\nDo you feel addressed? Then we are curious to meet you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nYour contact person:\n\nStephanie Minuscoli, HR generalist\n\nstephanie.minuscoli@oerlikon.com\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and high-performance materials. With a unique portfolio that includes surface engineering, high performance materials, coating equipment and components, we improve products by increasing performance, efficiency and sustainability. Oerlikon serves a wide range of industries including aerospace, automotive, energy, medicine, luxury, semiconductors and tooling. The headquarters are located in Pfäffikon, Switzerland. Oerlikon operates in 38 countries, employs around 10,000 people and achieved sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "de": "Export Verpacker (gn)\n\nIhre Aufgaben\n\n• Sicheres Be- und Entladen von LKWs und Containern mit dem Stapler in der Spedition\n\n• Entgegennahme von Warenlieferungen inkl. Wareneingangskontrolle und Verbuchung im System\n\n• Organisation von Transporten: Ausmessen von Anlagen, Bestellen von Holzverpackungen sowie Erstellen von Pack- und Ladelisten für Container und LKW\n\n• Rüsten und Bereitstellen von Material für Fertigungsaufträge\n\n• Vorbereiten und Verpacken von Sendungen für den internationalen Versand\n\n• Unterstützung bei der Inventur im Rahmen der rollierenden Bestandskontrolle\n\nIhr Profil\n\n• Praxiskenntnisse in der Exportverpackung, Ladungssicherung und Lagerlogistik sind zwingend notwendig\n\n• Erfahrung im Umgang mit Hallenkran und Schwerlasten bis 8 Tonnen\n\n• Kenntnisse im Container- und LKW-Verlad\n\n• Sicherer Umgang mit Lagersystemen, vorzugsweise SAP\n\n• Staplerführerschein vorhanden, Ausbildung im Umgang mit Gefahrgut ist von Vorteil\n\n• Strukturierte, effiziente Arbeitsweise sowie die Fähigkeit, Prioritäten richtig zu setzen\n\n• Gute Deutschkenntnisse, Englischkenntnisse sind ein Plus\n\n• Zuverlässige, flexible Teamplayer-Persönlichkeit, die Zusammenarbeit schätzt\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nIhr Ansprechpartner:\n\nStephanie Minuscoli, HR-Generalist\n\nstephanie.minuscoli@oerlikon.com\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "fr": "Emballeur d'exportation (gn)\n\nLeurs tâches\n\n• Chargement et déchargement en toute sécurité des camions et conteneurs avec le camion dans la société de transport\n\n• Acceptation des livraisons de marchandises, y compris: Inspection des marchandises entrantes et réservation dans le système\n\n• Organisation des transports : mesure des équipements, commande des emballages en bois et établissement de listes d ' emballage et de chargement pour les conteneurs et les camions\n\n• Matériel et fourniture de matériaux pour les contrats de fabrication\n\n• Préparation et emballage des expéditions internationales\n\n• Appui aux stocks pour le contrôle du matériel roulant\n\nVotre profil\n\n• Des connaissances pratiques en matière d'emballage d'exportation, d'arrimage et de logistique d'entrepôt sont absolument nécessaires\n\n• Expérience dans la manutention de grue de hall et charges lourdes jusqu'à 8 tonnes\n\n• Connaissance du chargement des conteneurs et des camions\n\n• Gestion sûre des systèmes de stockage, de préférence SAP\n\n• Permis de conducteur de chariot élévateur disponible, la formation à la manutention des marchandises dangereuses est un avantage\n\n• Un travail structuré et efficace et la capacité de fixer correctement les priorités\n\n• Bonnes compétences en allemand, compétences en anglais sont un plus\n\n• Personnalité de joueur d'équipe fiable et flexible qui valorise la collaboration\n\nNous offrons\n\n• Travail varié dans une entreprise internationale dans le secteur de la haute technologie\n\n• Au début de 2027 Oerlikon Metco déménagera à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Une culture d'entreprise ouverte et une équipe amicale et ouverte d'esprit\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attrayant\n\n• Un ensemble de compensations attrayants avec de bons avantages sociaux\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer !\n\nVeuillez postuler en ligne sur notre page Carrière www.oerlikon.com/career\n\nVotre personne-ressource :\n\nStephanie Minuscoli, généraliste RH\n\nstephanie.minuscoli@oerlikon.com\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux de haute performance. Avec un portefeuille unique qui comprend l'ingénierie de surface, des matériaux haute performance, des équipements de revêtement et des composants, nous améliorons les produits en augmentant la performance, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et l'outillage. Le siège est situé à Pfäffikon, en Suisse. Oerlikon opère dans 38 pays, emploie environ 10 000 personnes et réalise un chiffre d'affaires de 1,6 milliard de CHF en 2025.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et solidaire où les gens sont habilités à grandir et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nwww.oerlikon.com"
+      },
+      "location": "Wohlen",
+      "canton": "AG",
+      "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
+      "source": "Oerlikon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-11T10:08:38.283Z",
+      "addressLocality": "Wohlen",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9496",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Ingegneria di superficie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "export-verpacker-gn-oerlikon-wohlen",
+        "emballeur-d-exportation-gn-oerlikon-wohlen",
+        "export-packer-gn-oerlikon-wohlen",
+        "export-verpacker-gn-oerlikon-ch",
+        "esportatore-gn-oerlikon-wohlen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "industrial-software-automation-ingegnere-gn-oerlikon-wohlen"
+          "export-verpacker-gn-oerlikon-wohlen",
+          "emballeur-d-exportation-gn-oerlikon-wohlen",
+          "export-packer-gn-oerlikon-wohlen",
+          "export-verpacker-gn-oerlikon-ch",
+          "esportatore-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "export-verpacker-gn-oerlikon-ch"
+        ],
+        "de": [
+          "export-verpacker-gn-oerlikon-wohlen"
         ],
         "fr": [
-          "industrial-software-automation-ingenieur-gn-oerlikon-wohlen"
+          "export-verpacker-gn-oerlikon-ch"
         ]
       },
+      "firstSeenAt": "2026-08-08T09:48:05.653Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "oerlikon-262684fe39ed",
+      "slug": "tecnico-di-servizio-gn-oerlikon-wohlen",
+      "slugByLocale": {
+        "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
+        "en": "service-technician-gn-oerlikon-wohlen",
+        "de": "servicetechniker-gn-oerlikon-ch",
+        "fr": "servicetechniker-gn-oerlikon-wohlen"
+      },
+      "company": "Oerlikon",
+      "companyKey": "oerlikon",
+      "companyDomain": "oerlikon.com",
+      "title": "Servicetechniker (gn)",
+      "titleByLocale": {
+        "it": "Tecnico di servizio (gn)",
+        "en": "Service technician (gn)",
+        "de": "Servicetechniker (gn)",
+        "fr": "Technicien des services (gn)"
+      },
+      "description": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite\n\nMehr Informationen findest du unter folgenden Link: Servicetechniker (gn) bei Oerlikon\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
+      "descriptionByLocale": {
+        "it": "Se si desidera fare la differenza e divertirsi su incarichi internazionali in tutto il mondo (circa il 60%). Allora hai ragione con noi!\n\nTecnico di servizio (gn)\n\nLe tue responsabilità\n\n• Sei responsabile per l'installazione e la messa in servizio in tutto il mondo di sistemi di rivestimento termico (tempo d'uso circa 4-6 settimane). Lavori molto a stretto contatto con il nostro cliente\n\n• Sei responsabile dell'accettazione interna dei sistemi di rivestimento\n\n• Effettuate lavori di assistenza, taratura e manutenzione sugli impianti di rivestimento termico, nonché conversioni e aggiornamenti\n\n• Crea semplici rapporti delle tue scommesse\n\n• Si dà formazione e consiglia i clienti e gli operatori sul posto\n\n• Supporti progetti di innovazione\n\nIl tuo profilo\n\n• Hai completato la formazione come ingegnere elettrico, ingegnere meccatronico o ingegnere automatico (gn), così come l'esperienza nell'ingegneria vegetale con la tecnologia di controllo/regolazione e preferibilmente la conoscenza robotica iniziale\n\n• Si mostra interesse per una sfida che richiede un ampio background tecnico, ingenuità e flessibilità\n\n• Il cliente è la vostra prima priorità e fate tutto nel vostro team per implementare con successo progetti\n\n• Ti senti comoda in tedesco e inglese per comunicare con i clienti internazionali\n\nPuoi aspettarti questo da noi\n\n• Un ambiente di lavoro internazionale molto emozionante, emozionante nel settore high-tech\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Si può sviluppare personalmente e professionalmente\n\n• Siamo aperti e onesti l'uno con l'altro\n\n• Siamo una squadra che ti supporta sempre\n\n• Offriamo condizioni di lavoro avanzate, un pacchetto di compensazione attraente, con buoni benefici sociali\n\n• Attraverso il fondo pensione vi offriamo una pensione ben sviluppata\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti! Si prega di applicare online tramite la nostra pagina Carrier\n\nMaggiori informazioni possono essere trovate sotto il seguente link: tecnico del servizio (gn) presso Oerlikon\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e materiali ad alte prestazioni. Con un portafoglio unico che comprende l'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, miglioriamo i prodotti aumentando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori, tra cui aerospaziale, automotive, energia, medicina, lusso, semiconduttore e tecnologia degli strumenti. La sede centrale si trova a Pfäffikon, in Svizzera. Oerlikon opera in 38 paesi, impiega circa 9.500 persone e produce vendite di CHF 1,6 miliardi nel 2024.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale – guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "en": "If you want to make a difference and have fun on international assignments worldwide (about 60%). Then you are right with us!\n\nService technician (gn)\n\nYour responsibilities\n\n• You are responsible for the worldwide installation and commissioning of thermal coating systems (use time approximately 4-6 weeks). You work very closely with our customer\n\n• You are responsible for internal acceptance of coating systems\n\n• You carry out service, calibration and maintenance work on thermal coating plants, as well as conversions and upgrades\n\n• You create simple rapports of your bets\n\n• You give training and advise the customers and operators on site\n\n• You support innovation projects\n\nYour profile\n\n• You have completed training as an electrical engineer, mechatronics engineer or automatic engineer (gn), as well as experience in plant engineering with control/regulation technology and preferably initial robotics knowledge\n\n• You show interest in a challenge that requires a broad technical background, ingenuity and flexibility\n\n• The customer is your first priority and you do everything in your team to successfully implement projects\n\n• You feel Get comfortable in German and English to communicate with international customers\n\nYou can expect this from us\n\n• A very exciting, exciting, international working environment in the high-tech sector\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• You can develop personally and professionally\n\n• We are open and honest with each other\n\n• We are a team that always supports you\n\n• We offer advanced employment conditions, an attractive compensation package, with good social benefits\n\n• Through the pension fund we offer you a well-developed pension provision\n\nDo you feel addressed? Then we are curious to meet you! Please apply online via our Career page\n\nMore information can be found under the following link: Service technician (gn) at Oerlikon\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and high-performance materials. With a unique portfolio that includes surface engineering, high performance materials, coating equipment and components, we improve products by increasing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medicine, luxury, semiconductor and tool technology. The headquarters are located in Pfäffikon, Switzerland. Oerlikon operates in 38 countries, employs around 9,500 people and generated sales of CHF 1.6 billion in 2024.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "de": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite\n\nMehr Informationen findest du unter folgenden Link: Servicetechniker (gn) bei Oerlikon\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "fr": "Si vous voulez faire une différence et vous amuser sur les missions internationales dans le monde entier (environ 60%). Alors tu as raison avec nous !\n\nTechnicien des services (gn)\n\nVos responsabilités\n\n• Vous êtes responsable de l'installation et de la mise en service de systèmes de revêtement thermique dans le monde entier (utilisation d'environ 4-6 semaines). Vous travaillez en étroite collaboration avec notre client\n\n• Vous êtes responsable de l'acceptation interne des systèmes de revêtement\n\n• Vous effectuez des travaux de service, d'étalonnage et d'entretien sur les installations de revêtement thermique, ainsi que des conversions et des mises à niveau\n\n• Vous créez des rapports simples de vos paris\n\n• Vous formez et conseillez les clients et opérateurs sur place\n\n• Vous soutenez des projets d'innovation\n\nVotre profil\n\n• Vous avez suivi une formation d'ingénieur électricien, d'ingénieur mécatronique ou d'ingénieur automatique (gn), ainsi qu'une expérience en ingénierie d'usine avec une technologie de contrôle/régulation et de préférence des connaissances robotiques initiales\n\n• Vous manifestez de l'intérêt pour un défi qui nécessite un vaste contexte technique, l'ingéniosité et la flexibilité\n\n• Le client est votre première priorité et vous faites tout dans votre équipe pour mettre en œuvre avec succès des projets\n\n• Vous vous sentez à l'aise en allemand et en anglais pour communiquer avec des clients internationaux\n\nVous pouvez attendre cela de nous\n\n• Un environnement de travail international très excitant dans le secteur de la haute technologie\n\n• Au début de 2027, Oerlikon Metco déménage à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Vous pouvez développer personnellement et professionnellement\n\n• Nous sommes ouverts et honnêtes les uns avec les autres\n\n• Nous sommes une équipe qui vous soutient toujours\n\n• Nous offrons des conditions d'emploi avancées, une rémunération attrayante, avec de bons avantages sociaux\n\n• Par l'intermédiaire de la caisse de retraite, nous vous offrons une pension bien développée\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer ! Veuillez postuler en ligne via notre page Carrière\n\nPour en savoir plus, consultez le lien suivant : Technicien de service (gn) chez Oerlikon\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux de haute performance. Avec un portefeuille unique qui comprend l'ingénierie de surface, des matériaux haute performance, des équipements de revêtement et des composants, nous améliorons les produits en augmentant la performance, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et la technologie des outils. Le siège est situé à Pfäffikon, en Suisse. Oerlikon opère dans 38 pays, emploie environ 9 500 personnes et génère un chiffre d'affaires de 1,6 milliard de CHF en 2024.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
+      },
+      "location": "Wohlen",
+      "canton": "AG",
+      "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
+      "source": "Oerlikon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-11T10:08:37.625Z",
+      "addressLocality": "Wohlen",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9496",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Ingegneria di superficie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "industrial-software-automation-ingenieur-gn-oerlikon-wohlen",
-        "industrial-software-automation-ingegnere-gn-oerlikon-wohlen"
-      ]
+        "servicetechniker-gn-oerlikon-ch",
+        "servicetechniker-gn-oerlikon-wohlen",
+        "technicien-des-services-gn-oerlikon-wohlen",
+        "tecnico-di-servizio-gn-oerlikon-wohlen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-gn-oerlikon-ch",
+          "servicetechniker-gn-oerlikon-wohlen",
+          "tecnico-di-servizio-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "technicien-des-services-gn-oerlikon-wohlen",
+          "servicetechniker-gn-oerlikon-wohlen"
+        ]
+      },
+      "firstSeenAt": "2026-07-08T22:12:56.655Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "oerlikon-d4a79fa30222",
@@ -341,7 +507,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:48.009Z",
+      "crawledAt": "2026-08-11T10:08:36.986Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -424,7 +590,7 @@
       "url": "https://careers.oerlikon.com/job/Service-Techniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:47.343Z",
+      "crawledAt": "2026-08-11T10:08:36.336Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -455,90 +621,8 @@
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:12:58.275Z",
       "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "oerlikon-262684fe39ed",
-      "slug": "tecnico-di-servizio-gn-oerlikon-wohlen",
-      "slugByLocale": {
-        "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
-        "en": "service-technician-gn-oerlikon-wohlen",
-        "de": "servicetechniker-gn-oerlikon-ch",
-        "fr": "servicetechniker-gn-oerlikon-wohlen"
-      },
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Servicetechniker (gn)",
-      "titleByLocale": {
-        "it": "Tecnico di servizio (gn)",
-        "en": "Service technician (gn)",
-        "de": "Servicetechniker (gn)",
-        "fr": "Technicien des services (gn)"
-      },
-      "description": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite\n\nMehr Informationen findest du unter folgenden Link: Servicetechniker (gn) bei Oerlikon\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-      "descriptionByLocale": {
-        "it": "Se si desidera fare la differenza e divertirsi su incarichi internazionali in tutto il mondo (circa il 60%). Allora hai ragione con noi!\n\nTecnico di servizio (gn)\n\nLe tue responsabilità\n\n• Sei responsabile per l'installazione e la messa in servizio in tutto il mondo di sistemi di rivestimento termico (tempo d'uso circa 4-6 settimane). Lavori molto a stretto contatto con il nostro cliente\n\n• Sei responsabile dell'accettazione interna dei sistemi di rivestimento\n\n• Effettuate lavori di assistenza, taratura e manutenzione sugli impianti di rivestimento termico, nonché conversioni e aggiornamenti\n\n• Crea semplici rapporti delle tue scommesse\n\n• Si dà formazione e consiglia i clienti e gli operatori sul posto\n\n• Supporti progetti di innovazione\n\nIl tuo profilo\n\n• Hai completato la formazione come ingegnere elettrico, ingegnere meccatronico o ingegnere automatico (gn), così come l'esperienza nell'ingegneria vegetale con la tecnologia di controllo/regolazione e preferibilmente la conoscenza robotica iniziale\n\n• Si mostra interesse per una sfida che richiede un ampio background tecnico, ingenuità e flessibilità\n\n• Il cliente è la vostra prima priorità e fate tutto nel vostro team per implementare con successo progetti\n\n• Ti senti comoda in tedesco e inglese per comunicare con i clienti internazionali\n\nPuoi aspettarti questo da noi\n\n• Un ambiente di lavoro internazionale molto emozionante, emozionante nel settore high-tech\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Si può sviluppare personalmente e professionalmente\n\n• Siamo aperti e onesti l'uno con l'altro\n\n• Siamo una squadra che ti supporta sempre\n\n• Offriamo condizioni di lavoro avanzate, un pacchetto di compensazione attraente, con buoni benefici sociali\n\n• Attraverso il fondo pensione vi offriamo una pensione ben sviluppata\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti! Si prega di applicare online tramite la nostra pagina Carrier\n\nMaggiori informazioni possono essere trovate sotto il seguente link: tecnico del servizio (gn) presso Oerlikon\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e materiali ad alte prestazioni. Con un portafoglio unico che comprende l'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, miglioriamo i prodotti aumentando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori, tra cui aerospaziale, automotive, energia, medicina, lusso, semiconduttore e tecnologia degli strumenti. La sede centrale si trova a Pfäffikon, in Svizzera. Oerlikon opera in 38 paesi, impiega circa 9.500 persone e produce vendite di CHF 1,6 miliardi nel 2024.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale – guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "If you want to make a difference and have fun on international assignments worldwide (about 60%). Then you are right with us!\n\nService technician (gn)\n\nYour responsibilities\n\n• You are responsible for the worldwide installation and commissioning of thermal coating systems (use time approximately 4-6 weeks). You work very closely with our customer\n\n• You are responsible for internal acceptance of coating systems\n\n• You carry out service, calibration and maintenance work on thermal coating plants, as well as conversions and upgrades\n\n• You create simple rapports of your bets\n\n• You give training and advise the customers and operators on site\n\n• You support innovation projects\n\nYour profile\n\n• You have completed training as an electrical engineer, mechatronics engineer or automatic engineer (gn), as well as experience in plant engineering with control/regulation technology and preferably initial robotics knowledge\n\n• You show interest in a challenge that requires a broad technical background, ingenuity and flexibility\n\n• The customer is your first priority and you do everything in your team to successfully implement projects\n\n• You feel Get comfortable in German and English to communicate with international customers\n\nYou can expect this from us\n\n• A very exciting, exciting, international working environment in the high-tech sector\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• You can develop personally and professionally\n\n• We are open and honest with each other\n\n• We are a team that always supports you\n\n• We offer advanced employment conditions, an attractive compensation package, with good social benefits\n\n• Through the pension fund we offer you a well-developed pension provision\n\nDo you feel addressed? Then we are curious to meet you! Please apply online via our Career page\n\nMore information can be found under the following link: Service technician (gn) at Oerlikon\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and high-performance materials. With a unique portfolio that includes surface engineering, high performance materials, coating equipment and components, we improve products by increasing performance, efficiency and sustainability. Oerlikon serves a wide range of industries, including aerospace, automotive, energy, medicine, luxury, semiconductor and tool technology. The headquarters are located in Pfäffikon, Switzerland. Oerlikon operates in 38 countries, employs around 9,500 people and generated sales of CHF 1.6 billion in 2024.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "de": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite\n\nMehr Informationen findest du unter folgenden Link: Servicetechniker (gn) bei Oerlikon\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Si vous voulez faire une différence et vous amuser sur les missions internationales dans le monde entier (environ 60%). Alors tu as raison avec nous !\n\nTechnicien des services (gn)\n\nVos responsabilités\n\n• Vous êtes responsable de l'installation et de la mise en service de systèmes de revêtement thermique dans le monde entier (utilisation d'environ 4-6 semaines). Vous travaillez en étroite collaboration avec notre client\n\n• Vous êtes responsable de l'acceptation interne des systèmes de revêtement\n\n• Vous effectuez des travaux de service, d'étalonnage et d'entretien sur les installations de revêtement thermique, ainsi que des conversions et des mises à niveau\n\n• Vous créez des rapports simples de vos paris\n\n• Vous formez et conseillez les clients et opérateurs sur place\n\n• Vous soutenez des projets d'innovation\n\nVotre profil\n\n• Vous avez suivi une formation d'ingénieur électricien, d'ingénieur mécatronique ou d'ingénieur automatique (gn), ainsi qu'une expérience en ingénierie d'usine avec une technologie de contrôle/régulation et de préférence des connaissances robotiques initiales\n\n• Vous manifestez de l'intérêt pour un défi qui nécessite un vaste contexte technique, l'ingéniosité et la flexibilité\n\n• Le client est votre première priorité et vous faites tout dans votre équipe pour mettre en œuvre avec succès des projets\n\n• Vous vous sentez à l'aise en allemand et en anglais pour communiquer avec des clients internationaux\n\nVous pouvez attendre cela de nous\n\n• Un environnement de travail international très excitant dans le secteur de la haute technologie\n\n• Au début de 2027, Oerlikon Metco déménage à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Vous pouvez développer personnellement et professionnellement\n\n• Nous sommes ouverts et honnêtes les uns avec les autres\n\n• Nous sommes une équipe qui vous soutient toujours\n\n• Nous offrons des conditions d'emploi avancées, une rémunération attrayante, avec de bons avantages sociaux\n\n• Par l'intermédiaire de la caisse de retraite, nous vous offrons une pension bien développée\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer ! Veuillez postuler en ligne via notre page Carrière\n\nPour en savoir plus, consultez le lien suivant : Technicien de service (gn) chez Oerlikon\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux de haute performance. Avec un portefeuille unique qui comprend l'ingénierie de surface, des matériaux haute performance, des équipements de revêtement et des composants, nous améliorons les produits en augmentant la performance, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et la technologie des outils. Le siège est situé à Pfäffikon, en Suisse. Oerlikon opère dans 38 pays, emploie environ 9 500 personnes et génère un chiffre d'affaires de 1,6 milliard de CHF en 2024.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
-      },
-      "location": "Wohlen",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:46.676Z",
-      "addressLocality": "Wohlen",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9496",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-gn-oerlikon-ch",
-        "servicetechniker-gn-oerlikon-wohlen",
-        "technicien-des-services-gn-oerlikon-wohlen",
-        "tecnico-di-servizio-gn-oerlikon-wohlen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-gn-oerlikon-ch",
-          "servicetechniker-gn-oerlikon-wohlen",
-          "tecnico-di-servizio-gn-oerlikon-wohlen"
-        ],
-        "en": [
-          "servicetechniker-gn-oerlikon-wohlen"
-        ],
-        "fr": [
-          "technicien-des-services-gn-oerlikon-wohlen",
-          "servicetechniker-gn-oerlikon-wohlen"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:12:56.655Z",
+      "firstSeenAt": "2026-07-08T22:12:58.275Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -583,7 +667,7 @@
       "url": "https://careers.oerlikon.com/job/Projektingenieur-%28gn%29-Electrical-Engineering/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:46.018Z",
+      "crawledAt": "2026-08-11T10:08:35.695Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -663,7 +747,7 @@
       "url": "https://careers.oerlikon.com/job/Sales-Engineer-f%C3%BCr-Upgrades-%28gn%29/104242-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:45.360Z",
+      "crawledAt": "2026-08-11T10:08:35.012Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -690,8 +774,8 @@
           "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen"
         ]
       },
-      "firstSeenAt": "2026-08-03T12:54:34.438Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T12:54:34.438Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -736,7 +820,7 @@
       "url": "https://careers.oerlikon.com/job/Konstrukteur-%28gn%29/104474-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:44.697Z",
+      "crawledAt": "2026-08-11T10:08:34.383Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -817,7 +901,7 @@
       "url": "https://careers.oerlikon.com/job/Lehrstelle-als-Konstrukteur-%28gn%29-EFZ/103628-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:44.004Z",
+      "crawledAt": "2026-08-11T10:08:33.733Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -895,7 +979,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:43.336Z",
+      "crawledAt": "2026-08-11T10:08:33.081Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -977,7 +1061,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/103867-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:46:42.650Z",
+      "crawledAt": "2026-08-11T10:08:32.395Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -994,8 +1078,8 @@
       "applyUrl": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/103867-en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T22:12:55.057Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:12:55.057Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1008,92 +1092,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "oerlikon-356e3fe4d231",
-      "slug": "esportatore-gn-oerlikon-wohlen",
-      "slugByLocale": {
-        "it": "esportatore-gn-oerlikon-wohlen",
-        "en": "export-packer-gn-oerlikon-wohlen",
-        "de": "export-verpacker-gn-oerlikon-ch",
-        "fr": "emballeur-d-exportation-gn-oerlikon-wohlen"
-      },
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Export Verpacker (gn)",
-      "titleByLocale": {
-        "it": "Esportatore (gn)",
-        "en": "Export Packer (gn)",
-        "de": "Export Verpacker (gn)",
-        "fr": "Emballeur d'exportation (gn)"
-      },
-      "description": "Export Verpacker (gn)\n\nIhre Aufgaben\n\n• Sicheres Be- und Entladen von LKWs und Containern mit dem Stapler in der Spedition\n\n• Entgegennahme von Warenlieferungen inkl. Wareneingangskontrolle und Verbuchung im System\n\n• Organisation von Transporten: Ausmessen von Anlagen, Bestellen von Holzverpackungen sowie Erstellen von Pack- und Ladelisten für Container und LKW\n\n• Rüsten und Bereitstellen von Material für Fertigungsaufträge\n\n• Vorbereiten und Verpacken von Sendungen für den internationalen Versand\n\n• Unterstützung bei der Inventur im Rahmen der rollierenden Bestandskontrolle\n\nIhr Profil\n\n• Praxiskenntnisse in der Exportverpackung, Ladungssicherung und Lagerlogistik sind zwingend notwendig\n\n• Erfahrung im Umgang mit Hallenkran und Schwerlasten bis 8 Tonnen\n\n• Kenntnisse im Container- und LKW-Verlad\n\n• Sicherer Umgang mit Lagersystemen, vorzugsweise SAP\n\n• Staplerführerschein vorhanden, Ausbildung im Umgang mit Gefahrgut ist von Vorteil\n\n• Strukturierte, effiziente Arbeitsweise sowie die Fähigkeit, Prioritäten richtig zu setzen\n\n• Gute Deutschkenntnisse, Englischkenntnisse sind ein Plus\n\n• Zuverlässige, flexible Teamplayer-Persönlichkeit, die Zusammenarbeit schätzt\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nIhr Ansprechpartner:\n\nStephanie Minuscoli, HR-Generalist\n\nstephanie.minuscoli@oerlikon.com\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-      "descriptionByLocale": {
-        "it": "Esportatore (gn)\n\nI loro compiti\n\n• Caricamento e scarico sicuro di camion e container con il camion nella società di spedizioni\n\n• Accettazione delle consegne di merci incl. Ispezione e prenotazione delle merci in entrata nel sistema\n\n• Organizzazione dei trasporti: misurazione delle attrezzature, ordinazione di imballaggi in legno e creazione di elenchi di imballaggio e di carico per contenitori e camion\n\n• Attrezzature e fornitura di materiali per contratti di produzione\n\n• Preparazione e confezionamento di spedizioni internazionali\n\n• Sostegno all'inventario nel controllo del materiale rotabile\n\nIl tuo profilo\n\n• Le conoscenze pratiche nell'imballaggio delle esportazioni, nella sicurezza dei carichi e nella logistica del magazzino sono assolutamente necessarie\n\n• Esperienza nella movimentazione di gru e carichi pesanti fino a 8 tonnellate\n\n• Conoscenza del carico di container e camion\n\n• Gestione sicura dei sistemi di storage, preferibilmente SAP\n\n• La licenza del conducente del carrello elevatore disponibile, la formazione nella gestione di merci pericolose è un vantaggio\n\n• Lavoro strutturato, efficiente e capacità di fissare correttamente le priorità\n\n• Buone competenze tedesche, inglese competenze sono un plus\n\n• Personalità di team player affidabile e flessibile che valorizza la collaborazione\n\nOffriamo\n\n• Variazione del lavoro in un'azienda orientata a livello internazionale nel settore high-tech\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Aprire la cultura aziendale e un team amichevole e aperto\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavorare in modo indipendente in un ambiente di lavoro attraente\n\n• Un pacchetto di compensazione attraente con buoni benefici sociali\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti!\n\nSi prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nLa persona di contatto:\n\nStephanie Minuscoli, Generalista HR\n\nstephanie.minuscoli@oerlikon.com\n\nInformazioni su Oerlikon\n\nOerlikon è leader globale nelle tecnologie di superficie e materiali ad alte prestazioni. Con un portafoglio unico che include l'ingegneria delle superfici, materiali ad alte prestazioni, attrezzature di rivestimento e componenti, miglioriamo i prodotti aumentando le prestazioni, l'efficienza e la sostenibilità. Oerlikon serve una vasta gamma di settori tra cui aerospaziale, automotive, energia, medicina, lusso, semiconduttori e utensili. La sede centrale si trova a Pfäffikon, in Svizzera. Oerlikon opera in 38 paesi, impiega circa 10.000 persone e ottiene vendite di CHF 1,6 miliardi nel 2025.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale – guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "Export Packer (gn)\n\nTheir tasks\n\n• Safe loading and unloading of trucks and containers with the truck in the forwarding company\n\n• Acceptance of deliveries of goods incl. Incoming goods inspection and booking in the system\n\n• Organization of transports: measurement of equipment, ordering of wood packaging and creation of packing and loading lists for containers and trucks\n\n• Equipment and provision of materials for manufacturing contracts\n\n• Preparation and packaging of international shipments\n\n• Inventory support in rolling stock control\n\nYour profile\n\n• Practical knowledge in export packaging, load securing and warehouse logistics is absolutely necessary\n\n• Experience in handling hall crane and heavy loads up to 8 tons\n\n• Knowledge of container and truck loading\n\n• Safe handling of storage systems, preferably SAP\n\n• Forklift driver’s license available, training in handling dangerous goods is an advantage\n\n• Structured, efficient work and the ability to set priorities correctly\n\n• Good German skills, English skills are a plus\n\n• Reliable, flexible team player personality who values collaboration\n\nWe offer\n\n• Varied work in an internationally oriented company in the high-tech sector\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• Open corporate culture and a friendly, open-minded team\n\n• Perspectives for personal and professional development\n\n• Working independently in an attractive working environment\n\n• An attractive compensation package with good social benefits\n\nDo you feel addressed? Then we are curious to meet you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nYour contact person:\n\nStephanie Minuscoli, HR generalist\n\nstephanie.minuscoli@oerlikon.com\n\nAbout Oerlikon\n\nOerlikon is a global leader in surface technologies and high-performance materials. With a unique portfolio that includes surface engineering, high performance materials, coating equipment and components, we improve products by increasing performance, efficiency and sustainability. Oerlikon serves a wide range of industries including aerospace, automotive, energy, medicine, luxury, semiconductors and tooling. The headquarters are located in Pfäffikon, Switzerland. Oerlikon operates in 38 countries, employs around 10,000 people and achieved sales of CHF 1.6 billion in 2025.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "de": "Export Verpacker (gn)\n\nIhre Aufgaben\n\n• Sicheres Be- und Entladen von LKWs und Containern mit dem Stapler in der Spedition\n\n• Entgegennahme von Warenlieferungen inkl. Wareneingangskontrolle und Verbuchung im System\n\n• Organisation von Transporten: Ausmessen von Anlagen, Bestellen von Holzverpackungen sowie Erstellen von Pack- und Ladelisten für Container und LKW\n\n• Rüsten und Bereitstellen von Material für Fertigungsaufträge\n\n• Vorbereiten und Verpacken von Sendungen für den internationalen Versand\n\n• Unterstützung bei der Inventur im Rahmen der rollierenden Bestandskontrolle\n\nIhr Profil\n\n• Praxiskenntnisse in der Exportverpackung, Ladungssicherung und Lagerlogistik sind zwingend notwendig\n\n• Erfahrung im Umgang mit Hallenkran und Schwerlasten bis 8 Tonnen\n\n• Kenntnisse im Container- und LKW-Verlad\n\n• Sicherer Umgang mit Lagersystemen, vorzugsweise SAP\n\n• Staplerführerschein vorhanden, Ausbildung im Umgang mit Gefahrgut ist von Vorteil\n\n• Strukturierte, effiziente Arbeitsweise sowie die Fähigkeit, Prioritäten richtig zu setzen\n\n• Gute Deutschkenntnisse, Englischkenntnisse sind ein Plus\n\n• Zuverlässige, flexible Teamplayer-Persönlichkeit, die Zusammenarbeit schätzt\n\nWir bieten\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Ein attraktives Vergütungspaket mit guten Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nIhr Ansprechpartner:\n\nStephanie Minuscoli, HR-Generalist\n\nstephanie.minuscoli@oerlikon.com\n\nÜber Oerlikon\n\nOerlikon ist ein global führendes Unternehmen in den Bereichen Oberflächentechnologien und Hochleistungsmaterialien. Mit einem einzigartigen Portfolio, das Oberflächenengineering, Hochleistungsmaterialien, Beschichtungsanlagen und Komponenten umfasst, verbessern wir Produkte durch die Steigerung von Leistung, Effizienz und Nachhaltigkeit. Oerlikon bedient eine breite Palette von Branchen, darunter Luft‑ und Raumfahrt, Automobil, Energie, Medizin, Luxus, Halbleiter und Werkzeugtechnik. Der Hauptsitz befindet sich in Pfäffikon, Schweiz. Oerlikon ist in 38 Ländern tätig, beschäftigt rund 10.000 Mitarbeitende und erzielte 2025 einen Umsatz von 1,6 Milliarden CHF.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Emballeur d'exportation (gn)\n\nLeurs tâches\n\n• Chargement et déchargement en toute sécurité des camions et conteneurs avec le camion dans la société de transport\n\n• Acceptation des livraisons de marchandises, y compris: Inspection des marchandises entrantes et réservation dans le système\n\n• Organisation des transports : mesure des équipements, commande des emballages en bois et établissement de listes d ' emballage et de chargement pour les conteneurs et les camions\n\n• Matériel et fourniture de matériaux pour les contrats de fabrication\n\n• Préparation et emballage des expéditions internationales\n\n• Appui aux stocks pour le contrôle du matériel roulant\n\nVotre profil\n\n• Des connaissances pratiques en matière d'emballage d'exportation, d'arrimage et de logistique d'entrepôt sont absolument nécessaires\n\n• Expérience dans la manutention de grue de hall et charges lourdes jusqu'à 8 tonnes\n\n• Connaissance du chargement des conteneurs et des camions\n\n• Gestion sûre des systèmes de stockage, de préférence SAP\n\n• Permis de conducteur de chariot élévateur disponible, la formation à la manutention des marchandises dangereuses est un avantage\n\n• Un travail structuré et efficace et la capacité de fixer correctement les priorités\n\n• Bonnes compétences en allemand, compétences en anglais sont un plus\n\n• Personnalité de joueur d'équipe fiable et flexible qui valorise la collaboration\n\nNous offrons\n\n• Travail varié dans une entreprise internationale dans le secteur de la haute technologie\n\n• Au début de 2027 Oerlikon Metco déménagera à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Une culture d'entreprise ouverte et une équipe amicale et ouverte d'esprit\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attrayant\n\n• Un ensemble de compensations attrayants avec de bons avantages sociaux\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer !\n\nVeuillez postuler en ligne sur notre page Carrière www.oerlikon.com/career\n\nVotre personne-ressource :\n\nStephanie Minuscoli, généraliste RH\n\nstephanie.minuscoli@oerlikon.com\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial dans les technologies de surface et les matériaux de haute performance. Avec un portefeuille unique qui comprend l'ingénierie de surface, des matériaux haute performance, des équipements de revêtement et des composants, nous améliorons les produits en augmentant la performance, l'efficacité et la durabilité. Oerlikon dessert un large éventail d'industries, notamment l'aérospatiale, l'automobile, l'énergie, la médecine, le luxe, les semi-conducteurs et l'outillage. Le siège est situé à Pfäffikon, en Suisse. Oerlikon opère dans 38 pays, emploie environ 10 000 personnes et réalise un chiffre d'affaires de 1,6 milliard de CHF en 2025.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et solidaire où les gens sont habilités à grandir et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nwww.oerlikon.com"
-      },
-      "location": "Wohlen",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:44:56.208Z",
-      "addressLocality": "Wohlen",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9496",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "export-verpacker-gn-oerlikon-wohlen",
-        "emballeur-d-exportation-gn-oerlikon-wohlen",
-        "export-packer-gn-oerlikon-wohlen",
-        "export-verpacker-gn-oerlikon-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "export-verpacker-gn-oerlikon-wohlen",
-          "emballeur-d-exportation-gn-oerlikon-wohlen",
-          "export-packer-gn-oerlikon-wohlen",
-          "export-verpacker-gn-oerlikon-ch"
-        ],
-        "en": [
-          "export-verpacker-gn-oerlikon-ch"
-        ],
-        "de": [
-          "export-verpacker-gn-oerlikon-wohlen"
-        ],
-        "fr": [
-          "export-verpacker-gn-oerlikon-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-08T09:48:05.653Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

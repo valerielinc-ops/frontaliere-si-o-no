@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /**
+ * @manual-tool — CLI diagnostica interattiva (vedi «Usage» sotto), non un gate.
+ *
  * check-mailgun-events.mjs — Poll Mailgun Events API for delivery tracking.
  *
  * Usage:
