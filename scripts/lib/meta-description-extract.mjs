@@ -22,10 +22,21 @@
  * `hasNoindex()` in scripts/validate-page-seo-quality.mjs was already made
  * quote-flexible when #478 landed, and carries a comment saying so; the
  * description reader three lines above it was not. That is the whole defect
- * class: a per-call-site regex that drifts. Hence one module, three call
+ * class: a per-call-site regex that drifts. Hence one module, five call
  * sites — scripts/seo/meta-description-audit.mjs,
  * scripts/validate-page-seo-quality.mjs and
- * tests/dist-duplicate-meta-description.test.ts.
+ * tests/dist-duplicate-meta-description.test.ts on our own `dist/`, plus
+ * scripts/lib/kispi-job-parser.mjs and scripts/lib/solina-job-parser.mjs on
+ * EXTERNAL job HTML.
+ *
+ * The two parsers are here for the same reason with the risk inverted: their
+ * input is someone else's build (stellen.kispi-jobs.ch, jobs.solina.ch), so
+ * the day it starts minifying its head nobody tells us — the reader just
+ * returns '' and the job description (kispi) or the pensum + city (solina)
+ * quietly degrade. They call `extractMetaDescriptionRaw` and keep their own
+ * `decodeEntities`, which resolves numeric entities this module deliberately
+ * does not: decoding twice would corrupt the double-encoded values Solina
+ * actually serves (`ab&amp;nbsp;60%`).
  *
  * The parser is attribute-based rather than one big regex: with unquoted
  * attributes a `[^>]*`-style pattern either stops too early or swallows the
