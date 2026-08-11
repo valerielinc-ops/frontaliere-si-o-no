@@ -28758,6 +28758,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-piuro-lavorare-grigioni-front',
+ category: 'fiscale',
+ date: '2026-08-11T01:17:21.617Z',
+ image: '/images/blog/vivere-piuro-lavorare-grigioni-front.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

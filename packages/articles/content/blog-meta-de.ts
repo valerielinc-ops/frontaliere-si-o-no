@@ -9585,6 +9585,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Wohnen in Livigno und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'Die Vorteile und Schwierigkeiten von Grenzgängern, die in Graubünden arbeiten',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'Ein Frontalier lebt in Livigno und arbeitet in Grigioni',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Wohnen in Plurs und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Piuro und dem Kanton Graubünden mit Schwerpunkt auf Steuern, dem neuen Abkommen und den Regeln für Grenzgänger.',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Berglandschaft an der Grenze zwischen Italien und Graubünden',
 };
 
 export default blogMetaDe;

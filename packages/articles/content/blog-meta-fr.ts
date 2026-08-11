@@ -9588,6 +9588,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Vivre à Livigno et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'Les avantages et les difficultés des frontaliers qui travaillent dans les Grisons',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'Un frontalière vit à Livigno et travaille en Grigioni',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Vivre à Piuro et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Guide pratique pour les déplacements entre Piuro et le canton des Grisons, en mettant l\'accent sur la fiscalité, le nouvel accord et les règles pour les frontaliers.',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Paysage montagneux à la frontière entre l\'Italie et les Grisons',
 };
 
 export default blogMetaFr;
