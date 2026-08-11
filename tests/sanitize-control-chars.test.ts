@@ -48,9 +48,17 @@ import {
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-/** The two bytes actually measured in `packages/articles/content`. */
+/**
+ * The two bytes actually measured in `packages/articles/content`.
+ *
+ * These comments say what each byte STOOD FOR in one measured title. They are
+ * not a repair mapping and nothing below repairs from them — the assertions
+ * only ever check what stripping leaves (`sar0`, `marted8`), which is the same
+ * whatever the lost character was. See the "Do not repair from the list above"
+ * section of `scripts/lib/sanitize-control-chars.mjs`.
+ */
 const BS = String.fromCharCode(0x08); // 0x08, from the mangling of «ì» and of the curly quotes
-const ETB = String.fromCharCode(0x17); // 0x17, from the mangling of «à»
+const ETB = String.fromCharCode(0x17); // 0x17, from the mangling of «ò» — NOT «à»; corpus #218
 
 /** The two real titles, byte-for-byte as the corpus holds them. */
 const DIRTY_TITLE = `Trump: "Intesa o sar${ETB}0 l'inferno". Il giallo dell'ultimatum spostato a marted${BS}8`;

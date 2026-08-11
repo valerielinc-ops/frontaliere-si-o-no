@@ -50,8 +50,11 @@ const PUBLISHER = path.join(REPO_ROOT, 'scripts', 'publish-article-fast.mjs');
 const GATE = path.join(REPO_ROOT, 'scripts', 'lib', 'control-char-publish-gate.mjs');
 const SANITISER = path.join(REPO_ROOT, 'scripts', 'lib', 'sanitize-control-chars.mjs');
 
+// What each byte stood for in one measured title — an observation, not a repair
+// mapping; see "Do not repair from the list above" in
+// `scripts/lib/sanitize-control-chars.mjs`.
 const BS = String.fromCharCode(0x08); // 0x08 — the byte in «martedì» and in the curly quotes
-const ETB = String.fromCharCode(0x17); // 0x17 — the byte in «sarà»
+const ETB = String.fromCharCode(0x17); // 0x17 — the byte in «sarò», NOT «sarà»; corpus #218
 
 /** The real mangled title, byte-for-byte as packages/articles/content holds it. */
 const DIRTY_TITLE = `Il ${BS}3territorio poroso${BS}3 tra Varese e la Svizzera`;
