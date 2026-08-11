@@ -9591,6 +9591,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Vivre à Piuro et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Guide pratique pour les déplacements entre Piuro et le canton des Grisons, en mettant l\'accent sur la fiscalité, le nouvel accord et les règles pour les frontaliers.',
     'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Paysage montagneux à la frontière entre l\'Italie et les Grisons',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'déménager à Madesimo en tant que frontalier : pour et contre',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Impôt à la source sur le revenu du travail : retenu UNIQUEMENT en Suisse pour les frontaliers.',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Image d\'un frontalier dans un poste-frontière italo-suisse',
 };
 
 export default blogMetaFr;
