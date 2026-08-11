@@ -2197,6 +2197,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.usam-croce-svizzera-polemica.title': 'Swiss Cross Abroad: USAM\'s Protest',
     'blog.article.usam-croce-svizzera-polemica.excerpt': 'USAM disputes the IPI practice that allows the use of the Swiss cross on products manufactured entirely outside national borders.',
     'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Label with Swiss cross on a product',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Drought, damage to agriculture for 19 million francs',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel reports damages of at least 19 million francs. Affect summer crops such as corn, potatoes, beets and sunflowers.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Drought-affected corn fields in Switzerland',
 };
 
 export default blogMetaChEn;

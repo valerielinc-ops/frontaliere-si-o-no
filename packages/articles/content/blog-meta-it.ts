@@ -9712,6 +9712,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona.',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'I costi della Cassa malati sono aumentati',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Un frontaliere con la sua famiglia guarda il lago di Lugano',
 };
 
 export default blogMetaIt;

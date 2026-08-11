@@ -9710,6 +9710,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Krankenkasse, Kosten stiegen auf 4\'834 Franken pro Person',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'Die Kosten der Krankenkasse sind in den letzten 12 Monaten um 0,4% auf insgesamt 4\'834 Franken pro Person gestiegen.',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Die Kosten der Krankenkasse sind gestiegen',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Wohnen in Roisan und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Grenzgänger, die in Roisan leben und im Wallis arbeiten, müssen die neuen Regeln und Fristen für die Steuererklärung kennen.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Eine Familie eines Frontalierers schaut auf den Luganersee',
 };
 
 export default blogMetaDe;

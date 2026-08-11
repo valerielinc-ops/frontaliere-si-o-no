@@ -64889,6 +64889,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-roisan-lavorare-vallese-da-frontalieri': {
+    title: 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    description: 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, roisan, lavorare, vallese',
+    ogTitle: 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    ogDescription: 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    canonicalPath: '/articoli-frontaliere/vivere-roisan-lavorare-vallese-da-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Roisan e lavorare in Vallese da frontaliere",
+      "description": "I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-roisan-lavorare-vallese-da-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la sua famiglia guarda il lago di Lugano"
+      },
+      "datePublished": "2026-08-11T14:54:50+00:00",
+      "dateModified": "2026-08-11T14:54:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-roisan-lavorare-vallese-da-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
