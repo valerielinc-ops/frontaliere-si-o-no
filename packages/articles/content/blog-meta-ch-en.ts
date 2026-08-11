@@ -2200,6 +2200,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-danni-agricoltura-svizzera.title': 'Drought, damage to agriculture for 19 million francs',
     'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel reports damages of at least 19 million francs. Affect summer crops such as corn, potatoes, beets and sunflowers.',
     'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Drought-affected corn fields in Switzerland',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM disputes Swiss cross on foreign products',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'The new practice also allows the Swiss cross to be affixed to products manufactured abroad. USAM contests it.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'The Swiss cross on an imported product',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Heat does not curb meat consumption but drought could drive up prices',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'The heatwave has not significantly curbed meat consumption so far, but prolonged drought risks reducing supply and driving up prices.',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'Drought may raise the prices of meat products.',
 };
 
 export default blogMetaChEn;

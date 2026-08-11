@@ -2200,6 +2200,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-danni-agricoltura-svizzera.title': 'Sécheresse, dégâts à l\'agriculture pour 19 millions de francs',
     'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel signale des dommages d\'au moins 19 millions de francs. Frappez les cultures d\'été comme le maïs, les pommes de terre, les betteraves et les tournesols.',
     'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Champs de maïs touchés par la sécheresse en Suisse',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM conteste la croix suisse sur les produits étrangers',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'La nouvelle pratique permet également d\'apposer la croix suisse sur des produits fabriqués à l\'étranger. L\'USAM y répond.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'La croix suisse sur un produit importé',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena i consumi di carne',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'Jusqu\'à présent, la vague de chaleur n\'a pas freiné de manière significative la consommation de viande, mais la sécheresse prolongée risque de réduire l\'offre et de faire grimper les prix.',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'La sécheresse pourrait faire monter les prix des produits de viande.',
 };
 
 export default blogMetaChFr;

@@ -9715,6 +9715,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivere a Roisan e lavorare in Vallese da frontaliere',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Un frontaliere con la sua famiglia guarda il lago di Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontaliere lavora in Lombardia e risiede in Ticino.',
+    'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols in bancarotta: la catena del lusso a rischio',
+    'blog.article.harvey-nichols-bancarotta.excerpt': 'La catena di grandi magazzini Harvey Nichols potrebbe essere in bancarotta entro un anno se non trova nuovi investitori.',
+    'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols a rischio bancarotta',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Trasferirsi a La Salle da frontaliere: pro e contro',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Impostazione dell\'imposta alla fonte per i frontalieri: trattenuta in Svizzera e credito d\'imposta in Italia.',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in Lugano che si trova a decidere se trasferirsi a La Salle.',
 };
 
 export default blogMetaIt;

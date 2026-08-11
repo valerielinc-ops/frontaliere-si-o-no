@@ -29136,6 +29136,33 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-m5s-vco-tassa-salute',
+ category: 'fiscale',
+ date: '2026-08-11T15:03:12.669Z',
+ image: '/images/blog/frontalieri-m5s-vco-tassa-salute.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'harvey-nichols-bancarotta',
+ category: 'fiscale',
+ date: '2026-08-11T15:15:11.900Z',
+ image: '/images/blog/harvey-nichols-bancarotta.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'trasferirsi-la-salle-frontaliere-pro-e-contro',
+ category: 'novita',
+ date: '2026-08-11T15:43:14.377Z',
+ image: '/images/blog/trasferirsi-la-salle-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

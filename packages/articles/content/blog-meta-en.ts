@@ -9714,6 +9714,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Living in Roisan and working in Valais as a border worker',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Border workers living in Roisan and working in Valais must be aware of the new rules and deadlines for filing tax returns.',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'A family of a frontaliere looks at the lake of Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontiersmen, M5S VCO: \'Piedmont and Lombardy divided, so disparities increase\'',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'The 5 Star Movement VCO intervenes on the situation of border workers after the debate at the Firefly Festival in Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'A frontaliere working in Lombardy and residing in Ticino.',
+    'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols Bankrupt: Luxury Chain at Risk',
+    'blog.article.harvey-nichols-bancarotta.excerpt': 'Department store chain Harvey Nichols could be bankrupt within a year if it doesn\'t find new investors.',
+    'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols at risk of bankruptcy',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Moving to La Salle from the border: pros and cons',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Setting up the tax at source for frontier workers: withholding tax in Switzerland and tax credit in Italy.',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in Lugano that is deciding whether to transfer to La Salle.',
 };
 
 export default blogMetaEn;
