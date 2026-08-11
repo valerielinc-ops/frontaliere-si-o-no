@@ -1,17 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-11T10:45:44.189Z",
+  "generatedAt": "2026-08-11T22:30:15.791Z",
   "total": 36,
   "newCount": 0,
   "updatedCount": 32,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 56150,
-  "avgDurationMs": 56150,
+  "durationMs": 55995,
+  "avgDurationMs": 55995,
   "durationHistory": [
-    69557,
-    56150
+    55995
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1115,45 +1114,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "HR Business Partner 100%",
-      "slug": "hr-business-partner-100-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-business-partner-100/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/f8c30bd7e0491d9977c70db3fca4bc92e6dc3d7ee1c41dbb05d5d34cd6f256906d054799c227367a25a93e92a3bdcdb9640bf3cc4e04e4064e05b1ec89d24a",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-b4e55adf9671",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "6616",
-      "firstSeenAt": "2026-07-07T12:18:02.026Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
