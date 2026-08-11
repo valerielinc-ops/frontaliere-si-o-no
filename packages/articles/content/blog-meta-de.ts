@@ -9624,6 +9624,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.title': 'Umzug nach Sondalo als grenzüberschreitender Pendler: Vor- und Nachteile',
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.excerpt': 'Hier sind die Vor- und Nachteile eines Umzugs nach Sondalo als grenzüberschreitender Pendler.',
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier arbeitet in Grisons.',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.title': 'Umzug als Grenzgänger nach Stilfserjoch: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.excerpt': 'Die neue Frontalieri-Vereinbarung sieht neue Regeln für Grenzgänger vor. Welche Vor- und Nachteile hat der Umzug ins Stilfserjoch?',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.imageAlt': 'Blick auf den Comer See von Ascona',
 };
 
 export default blogMetaDe;
