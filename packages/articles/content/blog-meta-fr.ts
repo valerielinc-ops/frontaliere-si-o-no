@@ -9725,6 +9725,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Déménager à La Salle en frontalier : pour et contre',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Réglage de l\'impôt à la source pour les frontaliers : retenue en Suisse et crédit d\'impôt en Italie.',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere à Lugano qui se demande s\'il doit se transférer à La Salle.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Vivre à Oyace et travailler en Valais comme frontalier',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Guide pratique des déplacements entre Oyace et le Valais : règles fiscales, nouvel accord et gestion des revenus entre la Suisse et l\'Italie.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Paysage de montagne entre Oyace et le Valais',
 };
 
 export default blogMetaFr;

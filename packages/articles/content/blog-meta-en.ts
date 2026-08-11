@@ -9723,6 +9723,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Moving to La Salle from the border: pros and cons',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Setting up the tax at source for frontier workers: withholding tax in Switzerland and tax credit in Italy.',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in Lugano that is deciding whether to transfer to La Salle.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Living in Oyace and working in Valais as a border worker',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Practical guide to commuting between Oyace and Valais: tax rules, new agreement and income management between Switzerland and Italy.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Mountain landscape between Oyace and Valais',
 };
 
 export default blogMetaEn;

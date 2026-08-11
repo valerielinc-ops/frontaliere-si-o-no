@@ -65045,6 +65045,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-oyace-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Oyace e lavorare in Vallese da frontaliere',
+    description: 'Guida fiscale e pratica per frontalieri tra Oyace e il Vallese: imposta alla fonte, nuovo accordo, franchigie e previdenza. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, oyace, lavorare, vallese',
+    ogTitle: 'Vivere a Oyace e lavorare in Vallese da frontaliere',
+    ogDescription: 'Tutto quello che devi sapere se vivi a Oyace e lavori in Vallese: regole fiscali, nuovo accordo del 2024 e gestione del reddito.',
+    canonicalPath: '/articoli-frontaliere/vivere-oyace-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Oyace e lavorare in Vallese da frontaliere",
+      "description": "Guida fiscale e pratica per frontalieri tra Oyace e il Vallese: imposta alla fonte, nuovo accordo, franchigie e previdenza. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-oyace-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano tra Oyace e il Vallese"
+      },
+      "datePublished": "2026-08-11T16:28:50+00:00",
+      "dateModified": "2026-08-11T16:28:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-oyace-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
