@@ -18,6 +18,7 @@ import { enableRuntimeSeo } from '@/hooks/seoHelpers';
 import { Analytics, unlockAchievement, fireCalcEntryIfNeeded } from '@/services/analyticsProxy';
 import { initPostHog } from '@/services/posthog';
 import { invalidateHeaderBiddingOnNavigation } from '@/services/headerBidding';
+import { callNativeHistory } from '@/services/nativeHistoryCall';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -161,18 +162,18 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const originalPushState = history.pushState;
 
  history.pushState = function (...args) {
- // Defensive guard (issue #4304): a live PostHog cluster showed
- // "Cannot read properties of undefined (reading 'apply')" here.
+ // Defensive guard (issue #4304, hardened #5606): a live PostHog cluster
+ // showed "Cannot read properties of undefined (reading 'apply')" here.
  // history.pushState/replaceState is also independently patched by
  // useSeoPageTracking on the same App tree — under React StrictMode
  // double-invocation or an interleaved mount/unmount ordering, the
- // captured `originalPushState` reference can go stale. Fall back to
- // History.prototype.pushState (always available): a no-op here would
- // silently freeze the SPA URL for the whole session (broken
- // back/refresh/share, pageviews tracked with a stale pathname).
- const ret = typeof originalPushState === 'function'
- ? originalPushState.apply(this, args as any)
- : History.prototype.pushState.apply(this ?? window.history, args as any);
+ // captured `originalPushState` reference can go stale. callNativeHistory
+ // falls back to History.prototype.pushState and never throws even if
+ // that is unavailable too (#5606: the fallback itself was not
+ // crash-proof) — a no-op here would silently freeze the SPA URL for the
+ // whole session (broken back/refresh/share, pageviews tracked with a
+ // stale pathname), but a thrown TypeError is strictly worse.
+ const ret = callNativeHistory('pushState', originalPushState, this ?? window.history, args);
  trackCurrentLocation();
  return ret;
  } as History['pushState'];
