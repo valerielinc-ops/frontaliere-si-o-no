@@ -2164,6 +2164,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aziende-svizzere-assunzioni-manpower.title': 'Einstellungen in der Schweiz: Absichten auf dem niedrigsten Stand seit 5 Jahren',
     'blog.article.aziende-svizzere-assunzioni-manpower.excerpt': 'Die Manpower-Umfrage verzeichnet eine Nettoprognose von +19. Das Interesse an KI-Kompetenzen wächst, aber KMU tun sich schwer, in die Digitalisierung zu investieren.',
     'blog.article.aziende-svizzere-assunzioni-manpower.imageAlt': 'Mitarbeiter bei der Arbeit in einem modernen Schweizer Büro',
+    'blog.article.tassi-interesse-bns-2027.title': 'SNB: Zinserhöhung auf 2027 verschoben',
+    'blog.article.tassi-interesse-bns-2027.excerpt': 'Expertenprognosen schlittern: Die Geldkosten in der Schweiz werden länger als erwartet auf dem aktuellen Niveau bleiben.',
+    'blog.article.tassi-interesse-bns-2027.imageAlt': 'Hauptsitz der Schweizerischen Nationalbank in Zürich',
 };
 
 export default blogMetaChDe;

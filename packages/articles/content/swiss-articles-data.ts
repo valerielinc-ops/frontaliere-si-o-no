@@ -6490,6 +6490,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassi-interesse-bns-2027',
+    category: 'novita',
+    date: '2026-08-11T10:52:38.106Z',
+    image: '/images/blog/tassi-interesse-bns-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

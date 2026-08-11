@@ -2164,6 +2164,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aziende-svizzere-assunzioni-manpower.title': 'Recrutement en Suisse : des intentions au plus bas depuis 5 ans',
     'blog.article.aziende-svizzere-assunzioni-manpower.excerpt': 'Le sondage Manpower enregistre une prévision nette de +19. L\'intérêt pour les compétences IA augmente, mais les PME peinent à investir dans le numérique.',
     'blog.article.aziende-svizzere-assunzioni-manpower.imageAlt': 'Employés travaillant dans un bureau suisse moderne',
+    'blog.article.tassi-interesse-bns-2027.title': 'BNS : hausse des taux d\'intérêt reportée à 2027',
+    'blog.article.tassi-interesse-bns-2027.excerpt': 'Les prévisions des experts glissent : le coût de l\'argent en Suisse restera aux niveaux actuels plus longtemps que prévu.',
+    'blog.article.tassi-interesse-bns-2027.imageAlt': 'Siège de la Banque nationale suisse à Zurich',
 };
 
 export default blogMetaChFr;

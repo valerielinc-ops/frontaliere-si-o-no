@@ -2164,6 +2164,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aziende-svizzere-assunzioni-manpower.title': 'Recruitment in Switzerland: intentions at a 5-year low',
     'blog.article.aziende-svizzere-assunzioni-manpower.excerpt': 'The Manpower survey has a net forecast of +19. Interest in AI skills is growing, but SMEs are struggling to invest in digital.',
     'blog.article.aziende-svizzere-assunzioni-manpower.imageAlt': 'Employees working in a modern Swiss office',
+    'blog.article.tassi-interesse-bns-2027.title': 'SNB: interest rate hike postponed to 2027',
+    'blog.article.tassi-interesse-bns-2027.excerpt': 'Experts\' forecasts are slipping: the cost of money in Switzerland will remain at current levels longer than expected.',
+    'blog.article.tassi-interesse-bns-2027.imageAlt': 'Swiss National Bank building in Zurich',
 };
 
 export default blogMetaChEn;
