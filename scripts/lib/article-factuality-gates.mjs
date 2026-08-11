@@ -269,7 +269,22 @@ export function detectTruncation(text, opts = {}) {
   const trimmed = text.trimEnd();
   const lastLine = trimmed.split('\n').filter((l) => l.trim()).pop() || '';
   const isStructural = /^\s*([|#\-*>]|\d+\.)/.test(lastLine);
-  const isAttribution = /^\s*\*?\s*(fonte|source|quelle)\s*:/i.test(lastLine);
+  // A "📊 *Fonte: …*"-style footer routinely opens on an emoji before the
+  // asterisk ("📊 *Dati: AFC/ESTV, …*", frontaliere-pensione-complementare-
+  // terzo-pilastro), which the `^` anchor below cannot see past — strip it
+  // first. "Dati"/"Data"/"Daten"/"Données" are this same footer's word for
+  // "Fonte"/"Source"/"Quelle" in the article's own locale (translations of
+  // one generated body, not independent prose), so they carry the same
+  // reference-apparatus meaning and must be exempted identically.
+  //
+  // "Dati"/"Data" are common Italian/German words, so a bare `parola:` prefix
+  // is not enough to identify the footer — "Data: 15 marzo 2024, il Consiglio
+  // federale ha approvato…" is leaked-scaffolding prose, not a source line,
+  // and must still be flagged. The footer is always wrapped in a single
+  // italic span end to end ("*Dati: AFC/ESTV, …*"), so require both the
+  // opening AND closing asterisk to anchor on that shape specifically.
+  const attributionLine = lastLine.replace(/^\s*[\p{Extended_Pictographic}️]+\s*/u, '');
+  const isAttribution = /^\*\s*(fonte|source|quelle|dati|data|daten|données)\s*:.*\*\s*$/i.test(attributionLine);
   // A markdown footnote entry closes on the back-reference glyph "↩" and carries
   // no sentence punctuation of its own. Same call as `isAttribution`: the line is
   // reference apparatus, not prose, so its ending says nothing about truncation.
