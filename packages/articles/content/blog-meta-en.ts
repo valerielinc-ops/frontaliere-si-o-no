@@ -9675,6 +9675,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.evoluzione-logistica-varese-malpensa.title': 'Logistics and Malpensa: the transformation of Varese',
     'blog.article.evoluzione-logistica-varese-malpensa.excerpt': 'From manufacturing to artificial intelligence: how Varese logistics has become a strategic lever for the economic competitiveness of the territory.',
     'blog.article.evoluzione-logistica-varese-malpensa.imageAlt': 'Modern logistics warehouse near Malpensa airport',
+    'blog.article.vivere-etroubles-lavorare-vallese.title': 'Living in Etroubles and working in Valais as a border worker',
+    'blog.article.vivere-etroubles-lavorare-vallese.excerpt': 'Practical guide for border workers: taxation, new agreement, insurance obligations and management of cross-border work between Italy and Valais.',
+    'blog.article.vivere-etroubles-lavorare-vallese.imageAlt': 'Alpine landscape at the border between Italy and Switzerland',
 };
 
 export default blogMetaEn;
