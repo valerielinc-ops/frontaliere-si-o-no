@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { applyGlossaryCorrections } from './translation-glossary.mjs';
+import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -366,24 +366,38 @@ export async function translateTextWithLocalPipeline({
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
   if (!hasProviderConfigured()) return '';
-  // Protected-term glossary: corrects meaning-inverted MT output (e.g. German
-  // "Nachtwache" → IT "orologio notturno") that passes every language gate.
-  // Applied to every accepted candidate, including memoized ones written before
-  // this guard existed. `fieldType` scopes broad single-word fallback rules to
+  // Protected TOKENS: mask DACH gender trigraphs ("(m/w/d)") before any local
+  // provider sees them — NLLB/LibreTranslate/Ollama expand the letters as words
+  // exactly like the HTTP cascade does ("(lunedì/mercoledì/d)"). Returns the
+  // input byte-identical when there is nothing to protect, so the provider
+  // payload is unchanged for text without a trigraph — no `tokens.length`
+  // branch is needed to keep the common case untouched.
+  const { text: providerInput, tokens: protectedTokens } = maskProtectedTokens(clean);
+  // Protected TERMS: the glossary corrects meaning-inverted MT output (e.g.
+  // German "Nachtwache" → IT "orologio notturno") that passes every language
+  // gate. Applied — together with the token restore and the placeholder strip —
+  // to every accepted candidate, including memoized ones written before these
+  // guards existed. `fieldType` scopes broad single-word fallback rules to
   // titles only, so a description body's legitimate "orologio"/"clock" prose is
   // never rewritten (only the narrow compound rules run on bodies).
   const fieldType = kind === 'title' ? 'title' : 'description';
-  const fixGlossary = (out) => applyGlossaryCorrections({ sourceText: clean, translatedText: out, targetLang, fieldType });
+  const finalize = (out) => finalizeTranslatedText({
+    sourceText: clean,
+    translatedText: out,
+    targetLang,
+    fieldType,
+    protectedTokens,
+  });
   const key = buildMemoryKey({ text: clean, sourceLang, targetLang, kind, context });
   const memoized = getMemoryEntry(key);
   if (memoized && passesQualityGate({ sourceText: clean, candidate: memoized, kind, minChars })) {
-    return fixGlossary(memoized);
+    return finalize(memoized);
   }
 
   let bestDraft = '';
   for (const provider of providerOrder()) {
     try {
-      const candidate = normalizeParagraphs(await provider.fn({ text: clean, sourceLang, targetLang, kind, context }));
+      const candidate = normalizeParagraphs(await provider.fn({ text: providerInput, sourceLang, targetLang, kind, context }));
       if (!candidate) continue;
       if (passesQualityGate({ sourceText: clean, candidate, kind, minChars })) {
         stats.providerHits[provider.name] += 1;
@@ -394,7 +408,7 @@ export async function translateTextWithLocalPipeline({
           targetLang,
           sourceHash: sha256(clean),
         });
-        return fixGlossary(candidate);
+        return finalize(candidate);
       }
       bestDraft = candidate;
       stats.providerFailures[provider.name] += 1;
@@ -405,7 +419,7 @@ export async function translateTextWithLocalPipeline({
 
   try {
     const repaired = normalizeParagraphs(await translateWithOllama({
-      text: clean,
+      text: providerInput,
       sourceLang,
       targetLang,
       kind,
@@ -421,7 +435,7 @@ export async function translateTextWithLocalPipeline({
         targetLang,
         sourceHash: sha256(clean),
       });
-      return fixGlossary(repaired);
+      return finalize(repaired);
     }
     if (repaired) stats.providerFailures.ollama += 1;
   } catch {
