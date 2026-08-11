@@ -63368,6 +63368,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere': {
+    title: 'Vivere a Tirano e lavorare in Grigioni da frontaliere',
+    description: 'Nuovo accordo frontalieri 2024: informazioni utili per i frontalieri ticinesi che lavorano in Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, tirano, lavorare, grigioni',
+    ogTitle: 'Vivere a Tirano e lavorare in Grigioni da frontaliere: cosa cambia?',
+    ogDescription: 'Informazioni utili per i frontalieri ticinesi che lavorano in Grigioni sul nuovo accordo frontalieri 2024',
+    canonicalPath: '/articoli-frontaliere/vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Tirano e lavorare in Grigioni da frontaliere",
+      "description": "Nuovo accordo frontalieri 2024: informazioni utili per i frontalieri ticinesi che lavorano in Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una strada montana in Ticino"
+      },
+      "datePublished": "2026-08-11T01:38:29+00:00",
+      "dateModified": "2026-08-11T01:38:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

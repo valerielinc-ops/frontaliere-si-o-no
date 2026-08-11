@@ -9592,6 +9592,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'moving to Madesimo as a border worker: pros and cons',
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Tax at source on income from work: ONLY withheld in Switzerland for border workers.',
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Image of a commuter in an Italy-Switzerland border crossing',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Living in Tirano and working in Graubünden as a border worker',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'New border agreement 2024: what changes for Ticino border workers working in Graubünden',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Image of a mountain road in Ticino',
 };
 
 export default blogMetaEn;

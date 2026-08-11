@@ -9594,6 +9594,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'déménager à Madesimo en tant que frontalier : pour et contre',
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Impôt à la source sur le revenu du travail : retenu UNIQUEMENT en Suisse pour les frontaliers.',
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Image d\'un frontalier dans un poste-frontière italo-suisse',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Vivre à Tirano et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Nouvel accord frontalier 2024 : ce qui change pour les frontaliers tessinois travaillant dans les Grisons',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Image d\'une route de montagne en Suisse',
 };
 
 export default blogMetaFr;

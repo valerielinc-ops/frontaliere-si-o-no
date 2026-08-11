@@ -9593,6 +9593,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'trasferirsi a Madesimo da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
     'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Immagine di un frontaliere in un valico italo-svizzero',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Vivere a Tirano e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Nuovo accordo frontalieri 2024: cosa cambia per i frontalieri ticinesi che lavorano in Grigioni',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Immagine di una strada montana in Ticino',
 };
 
 export default blogMetaIt;
