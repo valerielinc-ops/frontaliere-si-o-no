@@ -6670,6 +6670,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'on-trimestre-record',
+    category: 'fiscale',
+    date: '2026-08-11T20:52:32.608Z',
+    image: '/images/blog/on-trimestre-record.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

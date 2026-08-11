@@ -2224,6 +2224,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Viaggi e consumi senza rinunce, nonostante il clima',
     'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Quattro adulti su cinque non fanno rinunce, nonostante il dibattito climatico. Il 80% afferma che il dibattito climatico ha un impatto minimo o nullo sulle proprie scelte.',
     'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'Un aereo atterra all\'aeroporto di Zurigo',
+    'blog.article.on-trimestre-record.title': 'Di più On: trimestre record con forte crescita in Asia, ma giù in borsa',
+    'blog.article.on-trimestre-record.excerpt': 'On mette a segno un altro trimestre record: il fatturato del marchio di articoli sportivi si è attestato a 850 milioni di franchi',
+    'blog.article.on-trimestre-record.imageAlt': 'Immagine di un paesaggio del Ticino con la scritta \'On mette a segno un altro trimestre record\'',
 };
 
 export default blogMetaChIt;

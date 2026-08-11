@@ -767,6 +767,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-zurigo-requisiti-e-importi': { it: 'borse-studio-zurigo-requisiti-e-importi', en: 'scholarships-zurich-requirements-and-amounts', de: 'stipendien-zuerich-anforderungen-und-betrage', fr: 'bourses-zurich-exigences-et-quantites' },
  'settore-agricolo-danni-19-milioni': { it: 'settore-agricolo-danni-19-milioni', en: 'sector-agriculture-damage-19-million', de: 'landwirtschaftlicher-sektor-schaden-19-millionen', fr: 'secteur-agricole-dommages-19-millions' },
  'viaggi-e-consumi-senza-rinunce': { it: 'viaggi-e-consumi-senza-rinunce', en: 'travel-and-consumption-without-compromise', de: 'reisen-und-verbrauch-ohne-kompromisse', fr: 'voyages-et-consommation-sans-compromis' },
+ 'on-trimestre-record': { it: 'on-trimestre-record', en: 'on-record-quarter', de: 'on-rekordquartal', fr: 'on-trimestre-record' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

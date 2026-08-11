@@ -2224,6 +2224,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Travel and consumption without sacrifices, despite the climate',
     'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Four out of five adults do not give up, despite the climate debate. 80% say that the climate debate has little or no impact on their choices.',
     'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'An airplane lands at Zurich airport',
+    'blog.article.on-trimestre-record.title': 'More On: record quarter with strong growth in Asia, but down on the stock market',
+    'blog.article.on-trimestre-record.excerpt': 'On scores another record quarter: the sports goods brand\'s turnover stood at CHF 850 million',
+    'blog.article.on-trimestre-record.imageAlt': 'Image of a Ticino landscape with the caption \'On scores another record quarter\'',
 };
 
 export default blogMetaChEn;
