@@ -2092,6 +2092,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.title': 'Swiss accreditation, a step forward for the economic centre',
     'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.excerpt': 'The Swiss Accreditation Service (SAS) will become an integral part of the Directorate for the Promotion of the Economic Square from 1 July 2026.',
     'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.imageAlt': 'SECO representative in Bern',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Labour market in Switzerland: data for June 2026',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'SECO records a drop in unemployment to 2.9% in June 2026. Analysis of data on young people, the elderly and vacancies in the national market.',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Modern office workspace with a view of a Swiss lake',
 };
 
 export default blogMetaChEn;

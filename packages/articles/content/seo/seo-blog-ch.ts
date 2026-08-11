@@ -27083,6 +27083,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-svizzera-giugno-2026': {
+    title: 'Mercato del lavoro in Svizzera: i dati di giugno 2026',
+    description: 'Analisi ufficiale SECO sul mercato del lavoro svizzero a giugno 2026: tasso al 2,9%, posti vacanti e dinamiche occupazionali per giovani e anziani.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, giugno',
+    ogTitle: 'Mercato del lavoro in Svizzera: il report di giugno 2026',
+    ogDescription: 'La SECO pubblica i dati occupazionali di giugno 2026: il tasso di disoccupazione scende al 2,9%. Ecco i dettagli su posti vacanti e tendenze nazionali.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-svizzera-giugno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro in Svizzera: i dati di giugno 2026",
+      "description": "Analisi ufficiale SECO sul mercato del lavoro svizzero a giugno 2026: tasso al 2,9%, posti vacanti e dinamiche occupazionali per giovani e anziani.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-giugno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Postazione di lavoro in un ufficio moderno con vista su un lago svizzero"
+      },
+      "datePublished": "2026-08-11T02:01:10+00:00",
+      "dateModified": "2026-08-11T02:01:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-svizzera-giugno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

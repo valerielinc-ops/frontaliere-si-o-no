@@ -9599,6 +9599,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-villa-chiavenna-frontaliere.title': 'Trasferirsi a Villa di Chiavenna da frontaliere: guida utile',
     'blog.article.trasferirsi-villa-chiavenna-frontaliere.excerpt': 'Analisi dei vantaggi e delle considerazioni fiscali per chi vive a Villa di Chiavenna lavorando in Svizzera sotto il nuovo accordo fiscale.',
     'blog.article.trasferirsi-villa-chiavenna-frontaliere.imageAlt': 'Vista panoramica di una strada montana vicino al confine tra Italia e Svizzera',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Vivere a Campodolcino, lavorare in Grigioni: collegamenti e costo della vita',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'Gli ultimi aggiornamenti sugli spostamenti e le agevolazioni per i frontalieri in Svizzera.',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'Una frontaliere che si affaccia sul lago di Locarno, con la catena dei Grigioni in primo piano.',
 };
 
 export default blogMetaIt;
