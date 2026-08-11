@@ -9731,6 +9731,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Déménager à Saint-Nicolas en frontalier : les faits',
     'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analyse de la faisabilité du frontalier vers le canton du Tessin à partir de la commune de Saint-Nicolas.',
     'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Vue panoramique d\'un village alpin suisse',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Vivre à Saint-Pierre et travailler en Valais comme frontalier',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Les données clés sur la vie d\'un frontalier travaillant en Valais et résidant à Saint-Pierre.',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier qui vit à Saint-Pierre et travaille en Valais.',
 };
 
 export default blogMetaFr;
