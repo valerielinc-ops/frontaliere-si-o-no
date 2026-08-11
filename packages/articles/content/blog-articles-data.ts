@@ -28776,6 +28776,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere',
+ category: 'novita',
+ date: '2026-08-11T01:38:29.460Z',
+ image: '/images/blog/vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
