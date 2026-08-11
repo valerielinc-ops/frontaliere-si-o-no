@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
-import { SEO_CTR_FAMILIES, aggregateFamilyRows } from './lib/seo-ctr-curve.mjs';
+import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -56,26 +56,31 @@ async function main() {
       const { rows, perPath } = await fetchGscByPage({ windowDays: DAYS, pathContains: family.pathContains });
       const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
       const agg = aggregateFamilyRows(pageRows);
+      // Same floor the scheduled monitor judges against — resolved through the
+      // shared helper so the one-off baseline and the weekly monitor cannot
+      // disagree on what "below target" means for a curve-derived family.
+      const targetCtr = effectiveTargetCtr(family, agg.avgPosition);
       families[family.id] = {
         label: family.label,
         pathContains: family.pathContains,
-        targetCtr: family.targetCtr,
+        targetCtr,
+        targetCtrCurveMultiple: family.targetCtrCurveMultiple ?? null,
         rawRowCount: rows,
         ...agg,
         // Cap the stored worst-offender list — full detail isn't needed for
         // the before/after comparison, just enough to spot-check.
         belowCurvePages: agg.belowCurvePages.slice(0, 25),
       };
-      const meetsTarget = family.targetCtr === null || (agg.avgCtr !== null && agg.avgCtr >= family.targetCtr);
+      const meetsTarget = targetCtr === null || (agg.avgCtr !== null && agg.avgCtr >= targetCtr);
       log(`   pagine: ${agg.pageCount} | click: ${agg.totalClicks} | impr: ${agg.totalImpressions}`);
       log(`   CTR medio: ${pct(agg.avgCtr)} | pos media: ${agg.avgPosition ? agg.avgPosition.toFixed(1) : 'n/a'}`);
       log(`   pagine sotto curva attesa: ${agg.belowCurveCount}/${agg.pageCount}`);
-      if (family.targetCtr !== null) {
-        log(`   target: ${pct(family.targetCtr)} → ${meetsTarget ? '✅ OK' : '⚠️ SOTTO SOGLIA'}`);
+      if (targetCtr !== null) {
+        log(`   target: ${pct(targetCtr)} → ${meetsTarget ? '✅ OK' : '⚠️ SOTTO SOGLIA'}`);
       }
     } catch (e) {
       log(`   ⚠️ errore GSC: ${e.message}`);
-      families[family.id] = { label: family.label, pathContains: family.pathContains, targetCtr: family.targetCtr, error: e.message };
+      families[family.id] = { label: family.label, pathContains: family.pathContains, targetCtr: effectiveTargetCtr(family, null), error: e.message };
     }
   }
 
