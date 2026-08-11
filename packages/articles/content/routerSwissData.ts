@@ -717,6 +717,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fit-partnership-2026': { it: 'fit-partnership-2026', en: 'fit-partnership-2026', de: 'fit-partnerschaft-2026', fr: 'fit-partenariat-2026' },
  'piano-energetico-climatico-ticino-sfide': { it: 'piano-energetico-climatico-ticino-sfide', en: 'ticino-energy-climate-plan-challenges', de: 'klima-energieplan-tessin-herausforderungen', fr: 'plan-energie-climat-tessin-defis' },
  'ramaggedon-crisi-chip-memoria': { it: 'ramaggedon-crisi-chip-memoria', en: 'ramaggedon-memory-chip-shortage', de: 'ramaggedon-speicherchip-mangel', fr: 'ramaggedon-penurie-puces-memoire' },
+ 'fedelta-bancaria-costi-analisi': { it: 'fedelta-bancaria-costi-analisi', en: 'banking-loyalty-costs-analysis', de: 'banken-treue-kosten-analyse', fr: 'fidelite-bancaire-couts-analyse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

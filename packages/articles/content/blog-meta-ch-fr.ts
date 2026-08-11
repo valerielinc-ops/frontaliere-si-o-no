@@ -2074,6 +2074,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon : la crise des puces fait grimper les prix',
     'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Pénurie mondiale de puces mémoire : les centres de données et l\'IA absorbent 70 % de la RAM, ce qui a un impact sur les prix et les stocks de PC, de voitures et de consoles.',
     'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Composants matériels et serveurs de centre de données en Suisse',
+    'blog.article.fedelta-bancaria-costi-analisi.title': 'Banques : la fidélité coûte cher, mieux vaut se diversifier',
+    'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'Une étude Moneyland.ch révèle les coûts cachés de la fidélité bancaire : vous économisez jusqu\'à mille francs en diversifiant les services entre différents établissements.',
+    'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Intérieur d\'une agence bancaire suisse moderne avec des documents financiers',
 };
 
 export default blogMetaChFr;

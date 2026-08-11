@@ -2074,6 +2074,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: Chip Crisis Drives Prices Up',
     'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Global memory chip shortage: Data centers and AI absorb 70% of RAM, impacting PC, car, and console prices and inventory.',
     'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Hardware components and data center servers in Switzerland',
+    'blog.article.fedelta-bancaria-costi-analisi.title': 'Banks: loyalty costs a lot, it\'s better to diversify',
+    'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'A Moneyland.ch study reveals the hidden costs of bank loyalty: you save up to a thousand francs by diversifying services between various institutions.',
+    'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Interior of a modern Swiss bank office with financial documents',
 };
 
 export default blogMetaChEn;

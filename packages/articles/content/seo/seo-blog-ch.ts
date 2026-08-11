@@ -26849,6 +26849,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fedelta-bancaria-costi-analisi': {
+    title: 'Banche: la fedeltà costa cara, meglio diversificare',
+    description: 'Fedeltà bancaria: uno studio Moneyland.ch rivela i costi elevati per chi non diversifica. Risparmia fino a 1000 franchi gestendo i servizi tra vari istituti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, fedeltà, costa, cara',
+    ogTitle: 'Banche: la fedeltà costa cara, meglio diversificare',
+    ogDescription: 'Lo studio Moneyland.ch analizza il costo della fedeltà bancaria: diversificare i servizi finanziari permette di risparmiare fino a mille franchi all\'anno.',
+    canonicalPath: '/articoli-svizzera/fedelta-bancaria-costi-analisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche: la fedeltà costa cara, meglio diversificare",
+      "description": "Fedeltà bancaria: uno studio Moneyland.ch rivela i costi elevati per chi non diversifica. Risparmia fino a 1000 franchi gestendo i servizi tra vari istituti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fedelta-bancaria-costi-analisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un moderno istituto bancario svizzero con documenti finanziari"
+      },
+      "datePublished": "2026-08-11T01:00:20+00:00",
+      "dateModified": "2026-08-11T01:00:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fedelta-bancaria-costi-analisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
