@@ -2152,6 +2152,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Residence permit C in the Canton of Zurich: requirements and application',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'The residence permit C in the Canton of Zurich requires at least 10 years of residence, language skills and a specific application procedure.',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'A scene of Lugano, with a person approaching a office of the canton of Zurich to ask for the permit of domicile C.',
+    'blog.article.apple-stime-reducono.title': 'Apple reduces estimates, revenue growth between 9% and 11%',
+    'blog.article.apple-stime-reducono.excerpt': 'Apple expects lower sales growth and margin pressure in the coming months',
+    'blog.article.apple-stime-reducono.imageAlt': 'Image of a person in front of a computer with stock market screen',
 };
 
 export default blogMetaChEn;

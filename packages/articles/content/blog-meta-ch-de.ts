@@ -2152,6 +2152,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Niederlassungsbewilligung C im Kanton Zürich: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'Die Niederlassungsbewilligung C im Kanton Zürich erfordert mindestens 10 Jahre Aufenthalt, Sprachkenntnisse und ein spezielles Antragsverfahren.',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'Eine Szene von Lugano, mit einer Person, die sich einem Amt des Kantons Zürich nähert, um den Aufenthaltstitel C zu beantragen.',
+    'blog.article.apple-stime-reducono.title': 'Apple senkt Schätzungen, Umsatzwachstum zwischen 9% und 11%',
+    'blog.article.apple-stime-reducono.excerpt': 'Apple prognostiziert für die kommenden Monate ein geringeres Umsatzwachstum und Margendruck',
+    'blog.article.apple-stime-reducono.imageAlt': 'Bild einer Person vor einem Computer mit Börsenbildschirm',
 };
 
 export default blogMetaChDe;

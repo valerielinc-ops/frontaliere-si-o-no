@@ -2152,6 +2152,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Permis de colonisation C dans le canton de Zurich : exigences et demande',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'Le permis de résidence C dans le canton de Zurich exige au moins 10 ans de résidence, des compétences linguistiques et une procédure de candidature spécifique.',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'Une scène de Lugano, avec une personne qui se rapproche d\'un bureau du canton de Zurich pour demander le permis de domicile C.',
+    'blog.article.apple-stime-reducono.title': 'Apple réduit les estimations, la croissance des revenus entre 9% et 11%',
+    'blog.article.apple-stime-reducono.excerpt': 'Apple prévoit une croissance plus faible des ventes et une pression sur les marges dans les mois à venir',
+    'blog.article.apple-stime-reducono.imageAlt': 'Image d\'une personne devant un ordinateur avec écran de marché boursier',
 };
 
 export default blogMetaChFr;
