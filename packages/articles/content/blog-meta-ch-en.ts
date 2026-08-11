@@ -2134,6 +2134,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Residence permit B in Canton Zurich: requirements and procedure',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'The B residence permit in the Canton of Zurich requires the submission of specific documents and follows a renewal procedure.',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Image of a residence permit in Zurich',
+    'blog.article.neutralita-prassi-svizzera.title': 'Neutrality: Current practice is in Switzerland\'s interest',
+    'blog.article.neutralita-prassi-svizzera.excerpt': 'The Federal Council calls for the rejection of the neutrality initiative in the vote on 27 September',
+    'blog.article.neutralita-prassi-svizzera.imageAlt': 'Image of a Swiss expat',
 };
 
 export default blogMetaChEn;

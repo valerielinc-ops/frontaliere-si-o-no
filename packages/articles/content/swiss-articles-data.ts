@@ -6400,6 +6400,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'neutralita-prassi-svizzera',
+    category: 'fiscale',
+    date: '2026-08-11T07:58:47.249Z',
+    image: '/images/blog/neutralita-prassi-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

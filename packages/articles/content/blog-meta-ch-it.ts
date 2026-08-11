@@ -2134,6 +2134,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Permesso di dimora B in Canton Zurigo: requisiti e procedura',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'Il permesso di dimora B nel Canton Zurigo richiede la presentazione di documenti specifici e segue una procedura di rinnovo.',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Immagine di un permesso di soggiorno a Zurigo',
+    'blog.article.neutralita-prassi-svizzera.title': 'Neutralità: la prassi attuale è nell\'interesse della Svizzera',
+    'blog.article.neutralita-prassi-svizzera.excerpt': 'Il Consiglio federale invita a respingere l\'iniziativa sulla neutralità in votazione il 27 settembre',
+    'blog.article.neutralita-prassi-svizzera.imageAlt': 'Immagine di un frontaliere svizzero',
 };
 
 export default blogMetaChIt;
