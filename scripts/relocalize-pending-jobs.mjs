@@ -30,7 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
-import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
+import { detectJobTitleLocaleDetails, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import {
   addPreviousSlugForLocale,
   captureLostSlugs,
@@ -257,7 +257,6 @@ export function changedSlugsSince(snapshot, jobs, companyKey) {
 export function isIncomplete(job) {
   const dbl = job.descriptionByLocale || {};
   const tbl = job.titleByLocale || {};
-  const sourceTitle = (job.title || '').trim().toLowerCase();
   const sourceDesc = (job.description || '').trim().toLowerCase();
   const baseDesc = (job.description || '').trim();
 
@@ -284,18 +283,44 @@ export function isIncomplete(job) {
     // Missing or too short
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
 
-    // Untranslated (title identical to source in a different language).
-    // Guard: if at least one OTHER non-source locale has a different title, the job
-    // has been translated — this locale just happens to match the source because it's
-    // an international/corporate title (e.g. "Sales Assistant", "Senior Associate in
-    // Digital Assurance"). Don't flag it.
-    if (title.toLowerCase() === sourceTitle && locale !== (job.sourceLang || 'it')) {
-      const srcLang = job.sourceLang || 'it';
-      const otherLocalesTranslated = LOCALES.some(
-        (l) => l !== locale && l !== srcLang && (tbl[l] || '').trim().toLowerCase() !== sourceTitle,
-      );
-      if (!otherLocalesTranslated) return true;
-      // At least one other locale was translated → this is an international title, skip
+    // Title still in a language that is not `locale`.
+    //
+    // S3 (2026-08-10) — what was here and why it is gone. Two separate title
+    // checks, each wrapped in the same cross-locale escape hatch: "if at least
+    // one OTHER non-source locale has a title differing from the source, the job
+    // has been translated, so skip this locale". That rule is the written-down
+    // form of the reported bug: a DE-source job whose EN and FR slots translated
+    // and whose IT slot stayed German had the IT check suppressed BY EN and FR.
+    // The second occurrence also gated the only dataset-level title-language
+    // check in this file, so that check ran on almost nothing.
+    //
+    // The verdict is now per slot and needs no corroboration from the other
+    // slots by construction: whether THIS title reads as `locale` is a property
+    // of this title. It also replaces the local hint-detector + stop-word
+    // regexes that followed — `detectJobTitleLocaleDetails(title, locale) >= 0.65`
+    // was measured (300 live titles, 2026-08-10) at a 32.7% false-alarm rate on
+    // correct Italian and a 55.0% miss rate on broken titles, and passing
+    // `locale` as its fallback is what it returns when uncertain, i.e. it hid
+    // the bug. One implementation, in job-locale-utils.mjs, for every caller.
+    //
+    // Volume: this function SELECTS work, it does not flag it. `main()` sorts
+    // and slices to `effectiveMax = min(MAX_JOBS, pending.length)` (default 100)
+    // before any write, and the only place it turns into a stored
+    // `needsRetranslation` is the per-company re-flag loop, which iterates
+    // `cappedPending`. So a wider predicate changes WHICH ~100 jobs a run picks,
+    // never how many. Genuinely-international titles that no translator can
+    // improve are absorbed by the existing give-up valve
+    // (MAX_RETRANSLATION_ATTEMPTS → `localeMismatchSuppressed`).
+    if (locale !== (job.sourceLang || 'it') && title) {
+      const verdict = titleLooksUntranslated({
+        title,
+        sourceTitle: (tbl[job.sourceLang || 'it'] || job.title || '').trim(),
+        sourceLang: job.sourceLang || 'it',
+        targetLocale: locale,
+        company: job.company || '',
+        location: job.addressLocality || job.location || '',
+      });
+      if (verdict.untranslated) return true;
     }
 
     // Description identical to source (not translated) — exact match
@@ -350,30 +375,9 @@ export function isIncomplete(job) {
       }
     }
 
-    // Cross-locale contamination: title detected as SOURCE language in a non-source slot.
-    // Guard: if other non-source locales have different titles, the job WAS translated.
-    // The "contaminated" locale likely just contains cognates or loanwords (e.g. FR "des"
-    // matching DE stop-word, FR "collaborateur" matching IT "collaborat"). Only flag if
-    // NO other locale was translated — meaning the job truly wasn't processed.
-    if (locale !== (job.sourceLang || 'it') && title.length >= 8) {
-      const srcLang = job.sourceLang || 'it';
-      // Skip contamination check if other locales prove translation happened
-      const otherLocalesTranslated = LOCALES.some(
-        (l) => l !== locale && l !== srcLang && (tbl[l] || '').trim().toLowerCase() !== sourceTitle,
-      );
-      if (!otherLocalesTranslated) {
-        // No other locale was translated — contamination check is relevant
-        // Layer 1: hint-based language detector
-        const detected = detectJobTitleLocaleDetails(title, locale);
-        if (detected.confidence >= 0.65 && detected.lang === srcLang) return true;
-        // Layer 2: stop-word contamination — Italian/German articles and prepositions are
-        // strong signals even in titles too short for the hint detector
-        const lc = title.toLowerCase();
-        if (srcLang === 'it' && locale !== 'it' && /\b(per il|per la|per lo|per i|per le|dell[aeo']|nell[aeo']|sull[aeo']|consulente|impiegat[oa]|responsabile|collaborat)\b/i.test(lc)) return true;
-        if (srcLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|des|der|die|fachspezialist|mitarbeiter|leiter:?in)\b/i.test(lc)) return true;
-        if (srcLang === 'fr' && locale !== 'fr' && /\b(responsable|spécialiste|ingénieur|gestionnaire|pour le|pour la|du |de la )\b/i.test(lc)) return true;
-      }
-    }
+    // (The second title check — "cross-locale contamination", same escape hatch,
+    // three hand-rolled stop-word regexes and the unreliable hint detector — was
+    // folded into the single per-slot verdict above. See the S3 note there.)
   }
 
   // NOTE: Slug localization is NOT checked here anymore.

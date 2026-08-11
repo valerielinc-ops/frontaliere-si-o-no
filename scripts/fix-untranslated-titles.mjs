@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -54,14 +55,29 @@ async function main() {
         if (locale === sl) continue;
         const existing = (tbl[locale] || '').trim();
         if (!existing) continue;
-        // Only fix exact source copies
-        if (existing.toLowerCase() !== sourceTitle.toLowerCase()) continue;
 
-        // Skip if at least one OTHER non-source locale has a different title.
-        // This means the job was translated — this locale just matches the source
-        // because it's an international/corporate title. No translation needed.
-        const othersDiffer = LOCALES.some(l => l !== locale && l !== sl && (tbl[l] || '').trim().toLowerCase() !== sourceTitle.toLowerCase());
-        if (othersDiffer) { totalSkipped++; continue; }
+        // S3 (2026-08-10): this used to skip the slot whenever at least one
+        // OTHER non-source locale differed from the source ("international
+        // title, nothing to do"). That cross-locale rule is the reported bug —
+        // it excuses an untranslated IT slot on the evidence of a translated EN
+        // slot — so the question is now asked per slot, by the shared primitive,
+        // which needs no corroboration from the neighbouring locales.
+        //
+        // `source-copy` only, on purpose: this script rewrites the slot with a
+        // machine translation OF THE SOURCE TITLE, which is a repair for a slot
+        // holding a verbatim copy and nothing at all for a slot holding a
+        // partial translation. Widening it to every `untranslated` verdict would
+        // hand the same input to the same cascade and overwrite a half-good
+        // title with, at best, the same half-good title.
+        const verdict = titleLooksUntranslated({
+          title: existing,
+          sourceTitle,
+          sourceLang: sl,
+          targetLocale: locale,
+          company: job.company || '',
+          location: job.addressLocality || job.location || '',
+        });
+        if (verdict.reason !== 'source-copy') { totalSkipped++; continue; }
 
         // Translate using free cascade
         const translated = await freeTranslateWithRetry({
@@ -91,7 +107,11 @@ async function main() {
     }
   }
 
-  console.log(`\n📊 Title fix complete: ${totalFixed} translated, ${totalSkipped} skipped (international), ${totalFailed} failed`);
+  // "skipped" no longer means "international title": the escape hatch that used
+  // that word is gone. It now means the slot is not a verbatim copy of the
+  // source — which includes correctly-translated slots AND the partially-
+  // translated ones this script cannot repair (see the note in the loop).
+  console.log(`\n📊 Title fix complete: ${totalFixed} translated, ${totalSkipped} skipped (not a source copy), ${totalFailed} failed`);
   console.log(`   ${slicesChanged} slices modified`);
   logCascadeSummary();
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isIncomplete } from '../scripts/relocalize-pending-jobs.mjs';
+import { isIncomplete, reconcileRetranslationState } from '../scripts/relocalize-pending-jobs.mjs';
 
 const MIN_DESC = 'x'.repeat(120);
 
@@ -24,12 +24,51 @@ function makeJob(overrides: Record<string, unknown> = {}) {
   };
 }
 
-describe('isIncomplete – false positive guard for multilingual titles', () => {
-  it('returns false when title is already in English and other locales are translated', () => {
-    // Title is "Front Desk & Office Support" (English phrase), source is 'it'.
-    // EN locale title matches source title — but DE and FR have different translations,
-    // proving the content is genuinely translated. Should NOT be flagged as incomplete.
+describe('isIncomplete – per-slot title verdict (S3: no cross-locale escape hatch)', () => {
+  it('flags a source-copy slot even when the other non-source locales differ', () => {
+    // This test used to assert the OPPOSITE, and it encoded the defect.
+    // The old rule: "the EN slot equals the source title, but DE and FR differ,
+    // therefore the job was translated and this slot is an international title —
+    // don't flag it." That is the cross-locale escape hatch, and it is exactly
+    // what suppressed the reported bug: a DE-source job whose EN and FR slots
+    // translated and whose IT slot stayed German had the IT check waved through
+    // ON THE EVIDENCE OF EN AND FR.
+    //
+    // Whether the EN slot has been translated is a property of the EN slot. The
+    // verdict is now per slot, so the neighbouring locales cannot excuse it.
+    // The cost of the residual false positive (a genuinely international title
+    // that no translator can improve) is bounded, not unbounded — see the
+    // give-up test below.
     const job = makeJob();
+    expect(isIncomplete(job)).toBe(true);
+  });
+
+  it('bounds the cost of a title no translator can improve (give-up after 3 attempts)', () => {
+    // The counterpart to the test above. An international title stays
+    // isIncomplete() forever, so removing the hatch would be a queue leak if
+    // nothing absorbed it. MAX_RETRANSLATION_ATTEMPTS does: after three runs in
+    // which the job was actually ATTEMPTED and still failed, it is suppressed
+    // and leaves the work pool (needsTranslation() returns false for it), until
+    // a re-crawl rewrites its source content.
+    const job: Record<string, unknown> = { ...makeJob(), needsRetranslation: true };
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('counted');
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('counted');
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('gaveup');
+    expect(job.localeMismatchSuppressed).toBe(true);
+    expect(job.needsRetranslation).toBeUndefined();
+  });
+
+  it('does not flag a correctly translated slot as a source copy', () => {
+    // The other half of "per slot": the verdict must stay quiet on real
+    // translations, with no help from the neighbours either.
+    const job = makeJob({
+      titleByLocale: {
+        it: 'Front Desk & Office Support',
+        en: 'Front Desk Assistant',
+        de: 'Empfang und Bueroassistenz',
+        fr: 'Assistant accueil et bureau',
+      },
+    });
     expect(isIncomplete(job)).toBe(false);
   });
 
