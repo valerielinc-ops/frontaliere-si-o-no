@@ -9626,6 +9626,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Sondalo da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.excerpt': 'Ecco i vantaggi e gli svantaggi di trasferirsi a Sondalo come frontaliere.',
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere al lavoro in Grigioni.',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Stelvio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.excerpt': 'Il nuovo Accordo Frontalieri prevede nuove regole per i frontalieri. Quali sono i vantaggi e gli svantaggi di trasferirsi a Stelvio?',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.imageAlt': 'Vista del lago di Como da Ascona',
 };
 
 export default blogMetaIt;

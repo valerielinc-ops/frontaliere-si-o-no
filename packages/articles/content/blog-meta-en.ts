@@ -9625,6 +9625,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.title': 'Moving to Sondalo as a cross-border commuter: pros and cons',
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.excerpt': 'Here are the advantages and disadvantages of moving to Sondalo as a cross-border commuter.',
     'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere at work in Grisons.',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.title': 'Moving to Stelvio from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.excerpt': 'The new Frontier Agreement provides for new rules for frontier workers. What are the advantages and disadvantages of moving to Stelvio?',
+    'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.imageAlt': 'View of Lake Como from Ascona',
 };
 
 export default blogMetaEn;

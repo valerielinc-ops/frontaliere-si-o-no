@@ -63797,6 +63797,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-stelvio-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Stelvio da frontaliere: pro e contro',
+    description: 'Il nuovo Accordo Frontalieri prevede nuove regole per i frontaliere. Quali sono i vantaggi e gli svantaggi di trasferirsi a Stelvio?. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, stelvio, contro, nuovo',
+    ogTitle: 'Trasferirsi a Stelvio da frontaliere: pro e contro',
+    ogDescription: 'Il nuovo Accordo Frontalieri prevede nuove regole per i frontaliere. Quali sono i vantaggi e gli svantaggi di trasferirsi a Stelvio?',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-stelvio-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Stelvio da frontaliere: pro e contro",
+      "description": "Il nuovo Accordo Frontalieri prevede nuove regole per i frontaliere. Quali sono i vantaggi e gli svantaggi di trasferirsi a Stelvio?. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Como da Ascona"
+      },
+      "datePublished": "2026-08-11T03:34:02+00:00",
+      "dateModified": "2026-08-11T03:34:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-stelvio-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
