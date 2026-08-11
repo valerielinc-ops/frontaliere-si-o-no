@@ -2071,6 +2071,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Climate emergency: the debate on the Ticino Energy Plan',
     'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Meteorologist Matteo Buzzi analyses the climatic urgency and the role of the Cantonal Energy and Climate Plan in the Grand Council.',
     'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'View of the Lugano lakefront on a hot summer day',
+    'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: Chip Crisis Drives Prices Up',
+    'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Global memory chip shortage: Data centers and AI absorb 70% of RAM, impacting PC, car, and console prices and inventory.',
+    'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Hardware components and data center servers in Switzerland',
 };
 
 export default blogMetaChEn;

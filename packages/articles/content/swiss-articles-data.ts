@@ -6211,6 +6211,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ramaggedon-crisi-chip-memoria',
+    category: 'pratico',
+    date: '2026-08-11T00:49:40.116Z',
+    image: '/images/blog/ramaggedon-crisi-chip-memoria.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

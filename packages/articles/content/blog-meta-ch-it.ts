@@ -2071,6 +2071,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Emergenza climatica: il dibattito sul Piano energetico ticinese',
     'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Il meteorologo Matteo Buzzi analizza l\'urgenza climatica e il ruolo del Piano Energetico e Climatico Cantonale in Gran Consiglio.',
     'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'Veduta del lungolago di Lugano in una giornata estiva calda',
+    'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: la crisi dei chip spinge i prezzi al rialzo',
+    'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Carenza globale di chip di memoria: data center e IA assorbono il 70% della RAM, impattando su prezzi e scorte di PC, auto e console.',
+    'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Componenti hardware e server di un data center in Svizzera',
 };
 
 export default blogMetaChIt;
