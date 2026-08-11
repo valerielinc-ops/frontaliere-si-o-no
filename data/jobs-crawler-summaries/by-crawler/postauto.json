@@ -1,17 +1,16 @@
 {
   "key": "postauto",
   "label": "PostAuto AG",
-  "generatedAt": "2026-08-11T10:44:22.046Z",
+  "generatedAt": "2026-08-11T22:27:32.902Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 11,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 41743,
-  "avgDurationMs": 41743,
+  "unchangedCount": 1,
+  "durationMs": 33603,
+  "avgDurationMs": 33603,
   "durationHistory": [
-    45857,
-    41743
+    33603
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +26,7 @@
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Reinigung-PostAuto-und-Infrastruktur/74411-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:02.157Z",
+      "crawledAt": "2026-08-11T22:27:18.428Z",
       "addressLocality": "Laupen BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -46,6 +45,7 @@
       "pensum": "40%",
       "applyUrl": "https://job.post.ch/default/job/Mitarbeiterin-Reinigung-PostAuto-und-Infrastruktur/74411-de_DE",
       "jobReqId": "74411",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T23:01:13.668Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -53,8 +53,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-ae32ed6b82d9",
@@ -68,7 +67,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:04.188Z",
+      "crawledAt": "2026-08-11T22:27:19.959Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -87,6 +86,7 @@
       "pensum": "40-100%",
       "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "jobReqId": "74240",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:06.691Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -94,8 +94,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-124b2cdbddf7",
@@ -109,7 +108,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:05.383Z",
+      "crawledAt": "2026-08-11T22:27:20.862Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -128,6 +127,7 @@
       "pensum": "40-100%",
       "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "jobReqId": "74239",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:09.325Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -135,8 +135,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-32e0b7370d6e",
@@ -150,7 +149,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:06.634Z",
+      "crawledAt": "2026-08-11T22:27:21.782Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -169,6 +168,7 @@
       "pensum": "50-100%",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "jobReqId": "74425",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:10.749Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -176,8 +176,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-5845e37ed171",
@@ -191,7 +190,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:07.844Z",
+      "crawledAt": "2026-08-11T22:27:22.674Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -210,6 +209,7 @@
       "pensum": "60-80%",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "jobReqId": "74422",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:12.225Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -217,8 +217,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 20
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-7ad4d659f586",
@@ -232,7 +231,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr-Fahrausweiskontrolle/74068-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:09.059Z",
+      "crawledAt": "2026-08-11T22:27:23.587Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -251,6 +250,7 @@
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr-Fahrausweiskontrolle/74068-de_DE",
       "jobReqId": "74068",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:39:23.636Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -258,8 +258,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-318dbdb3c660",
@@ -273,7 +272,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:10.267Z",
+      "crawledAt": "2026-08-11T22:27:24.506Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -292,6 +291,7 @@
       "pensum": "40-100%",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "jobReqId": "74193",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:39:25.745Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -299,8 +299,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-83917ae29257",
@@ -314,7 +313,7 @@
       "url": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:14.974Z",
+      "crawledAt": "2026-08-11T22:27:28.318Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -333,6 +332,7 @@
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
       "jobReqId": "74379",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:23:16.758Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -340,8 +340,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-e542d1622bec",
@@ -355,7 +354,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:16.179Z",
+      "crawledAt": "2026-08-11T22:27:29.231Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -374,6 +373,7 @@
       "pensum": "60-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "jobReqId": "74357",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:32:34.703Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -381,8 +381,7 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "postauto-db0b7fe4d307",
@@ -396,7 +395,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:17.375Z",
+      "crawledAt": "2026-08-11T22:27:30.182Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -415,6 +414,7 @@
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
       "jobReqId": "74343",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:32:36.958Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -422,12 +422,14 @@
         "richness": 22,
         "translation": 25,
         "completeness": 14
-      },
-      "needsRetranslation": true
-    },
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "postauto-9f6345c5106a",
-      "slug": "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+      "slug": "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
       "company": "PostAuto AG",
       "companyKey": "postauto",
       "companyDomain": "postauto.ch",
@@ -457,16 +459,17 @@
       "applyUrl": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
       "jobReqId": "74191",
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 14
-      },
-      "needsRetranslation": true
+        "completeness": 19
+      }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
