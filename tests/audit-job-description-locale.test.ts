@@ -84,13 +84,43 @@ describe('audit-job-description-locale — pure core', () => {
     expect(r.rate).toBe(0);
   });
 
-  it('skips jobs already queued for retranslation — the same skip the gate applies', () => {
-    // This is the whole repair mechanism: marking an offender removes it from
-    // the gated population AND queues it. An audit that counted them anyway
-    // would report a breach that no repair could ever clear.
+  it('keeps a queued job in the DENOMINATOR but never in the numerator', () => {
+    // The population is queue-free (#5638): `needsRetranslation` is a pipeline
+    // queue that doubles overnight on a crawler wave, so defining the population
+    // as its complement made the gate report a quality movement for a queue
+    // movement. Slots stay counted; only the detection is skipped.
+    //
+    // This assertion inverts the one it replaces, which expected slots === 0.
+    // That version encoded the pre-#5638 definition and, kept as-is, would have
+    // pinned the audit to a denominator the gate no longer uses.
     const r = auditDescriptionLocales([{ ...sourceCopyJob, needsRetranslation: true }]);
     expect(r.flagged).toBe(0);
-    expect(r.slots).toBe(0);
+    expect(r.slots).toBe(4);
+    expect(r.servedSlots).toBe(0);
+    expect(r.rate).toBe(0);
+  });
+
+  it('flags GATE-BLIND when the served slice collapses', () => {
+    // The failure mode that looks exactly like health: if almost nothing is
+    // served, almost nothing is measured and the rate goes green because the
+    // gate can no longer see. Distinct alarm from a breach, on purpose.
+    const blind = auditDescriptionLocales([{ ...sourceCopyJob, needsRetranslation: true }]);
+    expect(blind.gateBlind).toBe(true);
+    expect(blind.servedShare).toBe(0);
+
+    const healthy = auditDescriptionLocales([sourceCopyJob]);
+    expect(healthy.gateBlind).toBe(false);
+    expect(healthy.servedShare).toBe(1);
+  });
+
+  it('takes its rate from the gate\'s own measurement, not a copy of it', () => {
+    // Parity by CONSTRUCTION rather than by a pinned constant: both sides call
+    // measureDescriptionLocales, so the denominators cannot drift apart again.
+    const audit = fs.readFileSync(path.join(ROOT, 'scripts', 'audit-job-description-locale.mjs'), 'utf-8');
+    expect(audit).toMatch(/measureDescriptionLocales/);
+    expect(audit).toMatch(/from '\.\/lib\/job-locale-population\.mjs'/);
+    const gate = fs.readFileSync(path.join(ROOT, 'tests', 'job-locale-consistency.test.ts'), 'utf-8');
+    expect(gate).toMatch(/measureDescriptionLocales/);
   });
 
   it('separates the free-to-repair source copies from the rest', () => {

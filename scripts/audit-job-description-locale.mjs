@@ -41,6 +41,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import {
+  measureDescriptionLocales,
+  DESCRIPTION_POPULATION,
+  MIN_SERVED_SHARE,
+} from './lib/job-locale-population.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -66,71 +71,85 @@ export const DEFAULT_MIN_HEADROOM_PP = 0.05;
  */
 export function auditDescriptionLocales(jobs) {
   const list = Array.isArray(jobs) ? jobs : [];
-  let slots = 0;
+
+  // THE RATE COMES FROM THE GATE'S OWN MEASUREMENT, not a copy of it.
+  // Until #5638 this file re-implemented the loop and divided by the NON-queued
+  // slots; the gate divides by the FULL queue-free population. Two different
+  // denominators means the alert would have been about a different number than
+  // the one that breaks CI — the exact defect this audit exists to prevent, in
+  // the audit itself. `measureDescriptionLocales` is now the single source.
+  const { slots, servedSlots, mismatches } = measureDescriptionLocales(
+    list,
+    detectLanguageWithConfidence,
+    LOCALES
+  );
+
+  const rate = slots > 0 ? mismatches.length / slots : 0;
+  const servedShare = slots > 0 ? servedSlots / slots : 0;
+  const headroomPp = (MAX_RATE - rate) * 100;
+
+  // GATE-BLIND is a distinct alarm from a breach, and it is the one that looks
+  // most like health: if the served slice collapses, almost nothing is measured
+  // and the rate goes green because the gate can no longer see. #5638 added the
+  // floor to the gate; the audit has to be able to say it out loud too.
+  const gateBlind = slots > 0 && servedShare < MIN_SERVED_SHARE;
+
+  // The breakdown below is the audit's own contribution — the gate reports a
+  // rate with no offenders, which is what made the 2026-08-11 breach take a
+  // manual walk to diagnose. It mirrors the lib's skip rules exactly (queued
+  // jobs are not detected on) so the counts stay reconcilable with `mismatches`.
   const offenders = [];
   const byCompany = new Map();
   const byPair = new Map();
-  let actionableJobs = 0;
   const actionableSlugs = new Set();
 
   for (const job of list) {
-    // Same skip as the gate: jobs awaiting translation are expected to hold
-    // source-language fallbacks until translate-pending processes them.
     if (job?.needsRetranslation) continue;
-
     for (const locale of LOCALES) {
       const description = String(job?.descriptionByLocale?.[locale] || '').trim();
       if (description.length < MIN_DESCRIPTION_CHARS) continue;
-      slots += 1;
-
       const detected = detectLanguageWithConfidence(description, locale);
       if (detected.confidence < DESCRIPTION_CONFIDENCE) continue;
-      if (detected.lang === locale || !LOCALES.includes(detected.lang)) continue;
+      if (detected.lang === locale) continue;
 
       const company = String(job?.company || '?');
       const slug = String(job?.slug || '?');
-      // A source-copy is the shape the FREE Argos mop-up can repair; anything
-      // else needs the quota-bound cascade. The distinction decides whether a
-      // breach is cheap or expensive to clear, so it belongs in the report.
       const sourceLang = String(job?.sourceLang || 'it').toLowerCase();
       const sourceDesc = String(job?.descriptionByLocale?.[sourceLang] || job?.description || '').trim();
       const sourceCopy = sourceDesc.length > 0 && description.toLowerCase() === sourceDesc.toLowerCase();
 
       offenders.push({
-        company,
-        slug,
-        locale,
+        company, slug, locale,
         detected: detected.lang,
         confidence: Number(detected.confidence.toFixed(2)),
-        sourceLang,
-        sourceCopy,
+        sourceLang, sourceCopy,
         suppressed: Boolean(job?.localeMismatchSuppressed),
       });
       byCompany.set(company, (byCompany.get(company) || 0) + 1);
       const pair = `${sourceLang}->${locale}`;
       byPair.set(pair, (byPair.get(pair) || 0) + 1);
-      if (!job?.localeMismatchSuppressed) {
-        if (!actionableSlugs.has(slug)) actionableJobs += 1;
-        actionableSlugs.add(slug);
-      }
+      if (!job?.localeMismatchSuppressed) actionableSlugs.add(slug);
     }
   }
 
-  const rate = slots > 0 ? offenders.length / slots : 0;
-  const headroomPp = (MAX_RATE - rate) * 100;
   const top = (m) => [...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, n]) => ({ key: k, count: n }));
 
   return {
     datasetPresent: list.length > 0,
     totalJobs: list.length,
+    population: DESCRIPTION_POPULATION.id,
     slots,
-    flagged: offenders.length,
+    servedSlots,
+    servedShare,
+    minServedShare: MIN_SERVED_SHARE,
+    gateBlind,
+    flagged: mismatches.length,
     rate,
     maxRate: MAX_RATE,
     headroomPp,
     breached: rate > MAX_RATE,
     sourceCopyCount: offenders.filter((o) => o.sourceCopy).length,
-    actionableJobs,
+    actionableJobs: actionableSlugs.size,
     topCompanies: top(byCompany),
     topPairs: top(byPair),
     offenders: offenders.slice(0, 200),
@@ -175,10 +194,15 @@ function main() {
 
   const pct = (v) => `${(v * 100).toFixed(3)}%`;
   console.log(
-    `[audit] descriptions-wrong-locale ${report.flagged}/${report.slots} = ${pct(report.rate)} `
+    `[audit] ${report.population} ${report.flagged}/${report.slots} = ${pct(report.rate)} `
       + `(max ${pct(report.maxRate)}, headroom ${report.headroomPp.toFixed(3)}pp) `
+      + `served ${report.servedSlots}/${report.slots} = ${(report.servedShare * 100).toFixed(1)}% `
+      + `(min ${(report.minServedShare * 100).toFixed(0)}%) `
       + `source-copy ${report.sourceCopyCount} · actionable jobs ${report.actionableJobs}`
   );
+  if (report.gateBlind) {
+    console.log('❌ GATE-BLIND — la quota servita e sotto il floor: un tasso verde qui e vacuo.');
+  }
   if (report.breached) console.log('❌ BREACHED — the vitest ratchet is red on every open PR.');
   else if (report.thinMargin) console.log(`⚠️  THIN MARGIN — under ${opts.minHeadroomPp}pp of headroom.`);
   else console.log('✅ healthy');

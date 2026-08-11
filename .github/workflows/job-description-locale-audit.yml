@@ -120,12 +120,15 @@ jobs:
             writeFileSync('/tmp/jdl/body.md', '');
             console.log('No job dataset — skipping issue update.');
           } else {
-            const unhealthy = r.breached || r.thinMargin;
+            const unhealthy = r.breached || r.thinMargin || r.gateBlind;
             let md = `## Descrizioni in lingua sbagliata — snapshot\n\n`;
-            md += r.breached
+            md += r.gateBlind
+              ? `🔴 **GATE CIECA.** Solo **${r.servedSlots}/${r.slots}** slot (${(r.servedShare * 100).toFixed(1)}%) sono serviti come traduzioni finite, sotto il floor del ${(r.minServedShare * 100).toFixed(0)}%. Il tasso qui sotto e' verde perche' la gate non vede quasi niente, non perche' il corpus sia sano: la coda \`needsRetranslation\` si e' mangiata la popolazione.\n\n`
+              : r.breached
               ? `🔴 **RATCHET SUPERATA.** \`vitest\` e' rosso su **ogni PR aperta**, e nessun branch puo' ripararlo: il difetto e' nei DATI di main, non in un diff.\n\n`
               : `⚠️ **Margine sottile.** La gate e' verde ma per poco: **${r.headroomPp.toFixed(3)}pp** sotto il limite (soglia d'allarme ${r.minHeadroomPp}pp). Un solo crawl la fa diventare rossa su tutte le PR insieme.\n\n`;
-            md += `**${r.flagged} di ${r.slots}** slot descrizione leggono come un'altra lingua = **${p3(r.rate)}** (max ${p3(r.maxRate)}), su ${r.totalJobs} job.\n\n`;
+            md += `**${r.flagged} di ${r.slots}** slot descrizione leggono come un'altra lingua = **${p3(r.rate)}** (max ${p3(r.maxRate)}), su ${r.totalJobs} job.\n`;
+            md += `Serviti come traduzioni finite: **${r.servedSlots}/${r.slots}** = ${(r.servedShare * 100).toFixed(1)}% (floor ${(r.minServedShare * 100).toFixed(0)}%). Popolazione: \`${r.population}\`.\n\n`;
             md += `Di questi, **${r.sourceCopyCount}** sono copie byte-identiche del sorgente — la forma che il mop-up Argos gratuito (\`local-mt-mopup.mjs\`, Phase 2a di translate-pending) sa riparare senza toccare la quota. Il resto richiede la cascata AI, che e' quota-bound.\n`;
             md += `Job ancora toccabili dal percorso di riparazione (non \`localeMismatchSuppressed\`): **${r.actionableJobs}**.\n\n`;
 
