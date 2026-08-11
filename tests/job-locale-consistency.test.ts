@@ -11,24 +11,52 @@
  * 2026-08-10 with a TODO describing this exact bug class ("translator pipeline
  * marked them translated without translating"), and it only ever inspected
  * descriptions — so the wrong-language TITLE defect that shipped German `<h1>`
- * on Italian pages had no gate at all. Un-skipped here, converted to a rate,
- * and extended to titles via `titleLooksUntranslated()`.
+ * on Italian pages had no gate at all. Un-skipped, converted to a rate, and
+ * extended to titles via `titleLooksUntranslated()`.
  *
- * BOTH BASELINES NAME THEIR POPULATION, and that is load-bearing. This file
- * reads the ASSEMBLED `data/jobs.json` (DATA_JOBS_PATH), the artefact CI builds
- * with `scripts/assemble-jobs-dataset.mjs` before vitest. The first calibration
- * of both ratchets was taken instead on the committed `data/jobs/by-crawler/*.json`
- * SLICES — a different, larger, more diluted set. Descriptions read 0.058% there
- * against 0.194% here, titles 30.14% against 32.55%. One gate went red on the
- * first dataset refresh after being switched on and the other was passing on
- * 0.45pp of accidental margin. Re-measure on the assembled artefact, never on
- * the slices, and say so in the comment when you do.
+ * THE POPULATION IS NOW PINNED IN CODE, not in this comment — see
+ * `scripts/lib/job-locale-population.mjs`. The previous version of this file
+ * opened with "A baseline that does not name its population is not a baseline",
+ * named its population in prose, and then went red anyway on 2026-08-11 for
+ * exactly the reason it had described: nothing could CHECK the prose.
+ *
+ * What went wrong, measured on the assembled artefact at two states of `main`
+ * ninety minutes apart, across the daily dedicated-crawler wave:
+ *
+ *   needsRetranslation (the pipeline queue)   7,126  →  14,041   (+97%)
+ *   description slots, !needsRetranslation   62,944  →  34,594   (-45%)
+ *   description slots, ALL                   91,297  →  90,528   (-0.8%)
+ *   non-source title slots                   68,587  →  67,987   (-0.9%)
+ *
+ * The descriptions ratchet had defined its population as the complement of
+ * `needsRetranslation` — a PIPELINE QUEUE that sawtooths several times a day as
+ * crawlers re-flag and translate-pending drains. Its denominator therefore
+ * halved at constant corpus quality, the rate doubled, and the gate reported a
+ * quality alarm for a population change. Three CI runs the same morning
+ * measured 0.064%, 0.325% and 0.317% on three different sets, and the committed
+ * baseline (0.194%) belonged to a fourth.
+ *
+ * So the two populations are queue-free by construction and their SIZE is now
+ * asserted, with its own message. Two defects, two errors:
+ *   · `[population-changed]`   — the set moved; the rate is not comparable and
+ *                                the baseline must be re-derived.
+ *   · `[quality-regression]`   — the set held; the defect density really rose.
+ * Both are exercised from synthetic fixtures in
+ * `tests/job-locale-population-guard.test.ts`, which needs no dataset.
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { detectLanguageWithConfidence } from '../scripts/lib/detect-language.mjs';
 import { titleLooksUntranslated } from '../scripts/lib/job-locale-utils.mjs';
+import {
+  DESCRIPTION_POPULATION,
+  MIN_SERVED_SHARE,
+  TITLE_POPULATION,
+  assertPopulationUnchanged,
+  measureDescriptionLocales,
+  measureTitleLocales,
+} from '../scripts/lib/job-locale-population.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
@@ -49,7 +77,7 @@ interface Job {
 // (.github/workflows/tests.yml "Assemble data/jobs.json"), but a sparse worktree
 // does not have it and must not go red for that. Load defensively and skip with
 // a loud message instead of throwing at describe-evaluation time, which is what
-// the previous version did.
+// an earlier version did.
 function loadJobs(): Job[] | null {
   try {
     const parsed = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
@@ -70,88 +98,103 @@ describe('job-locale-consistency', () => {
   }
 
   /**
-   * DESCRIPTIONS — wrong-language text in a `descriptionByLocale` slot.
+   * DESCRIPTIONS — wrong-language text in a `descriptionByLocale` slot the site
+   * serves as a FINISHED translation.
    *
-   * MEASURED BASELINE 2026-08-11: **73 of 37,722** eligible description slots =
-   * **0.194%**, on 22,781 active jobs.
+   * MEASURED BASELINE 2026-08-11, on the assembled artefact at both ends of the
+   * crawl wave that broke the old gate:
+   *   · main @09:52 UTC (0356b30b):  40 / 91,297 slots = 0.044%, 68.9% served
+   *   · main @10:59 UTC (efd6faf8): 100 / 90,528 slots = 0.110%, 38.2% served
+   * Same cap, two states that previously read 0.064% and 0.325% — the 5x swing
+   * was the denominator, not the corpus.
    *
-   * POPULATION — read this before touching the constant. The measurement above
-   * was taken on `data/jobs.json` AS ASSEMBLED BY `scripts/assemble-jobs-dataset.mjs`,
-   * because that is the artefact this test reads (DATA_JOBS_PATH) and the one
-   * CI builds before vitest. It is NOT the committed `data/jobs/by-crawler/*.json`
-   * slices.
+   * POPULATION and DEFECT are deliberately NOT the same set, and that is the
+   * fix. The denominator is every description slot in the corpus, queue or no
+   * queue, because the corpus is stable (-0.8% across the wave). The numerator
+   * counts only slots that are NOT queued for retranslation, because a queued
+   * slot is expected to hold a source-language fallback until translate-pending
+   * processes it — that is pending work, not shipped harm. The queue therefore
+   * enters the measurement exactly once, in the only direction where it is
+   * meaningful, and can no longer move the normalizer.
    *
-   * That distinction is the whole reason this comment exists. The first version
-   * of this gate carried `0.15% — measured 0.058% on 2026-08-10`, and that
-   * 0.058% (60 / 104,139 slots) came from the SLICES. The assembled dataset is
-   * 36% of that slot count and holds MORE mismatches in absolute terms (73 vs
-   * 60): the slices dilute the defect with jobs that never reach the assembled
-   * artefact, so the slice figure understated the gated population by 3.3x and
-   * the gate went red on the first dataset refresh after it was switched on.
-   * A baseline that does not name its population is not a baseline.
+   * The rejected alternative, for whoever revisits this: counting queued slots
+   * as defects too makes the population identical to the denominator, but the
+   * rate then tracks QUEUE DEPTH (0.055% → 1.034% across the same wave, 19x)
+   * and the gate goes red every time a crawl lands fresh untranslated jobs.
+   * That is a gate that punishes normal operation.
    *
-   * HEADROOM — 0.30%, i.e. 0.106pp above the measurement:
-   *   · counting noise: 73 events, sigma = sqrt(73) = 8.5 events = 0.023pp on
-   *     this denominator, so the margin is ~4.7 sigma;
-   *   · composition drift: two consecutive CI runs an hour apart measured
-   *     <=0.150% and then 0.194% (>=0.044pp of swing) purely because the branch
-   *     merged a refreshed `publisher-submitted.json` slice. The margin is
-   *     ~2.4x that observed swing.
-   * This is deliberately TIGHTER than the "~2.5x headroom" rule the original
-   * comment used, which on the corrected measurement would give 0.49%: the
-   * noise model supports a tighter gate than a blanket multiplier does.
+   * HEADROOM — 0.30%, i.e. 0.19pp above the worse of the two measurements:
+   *   · counting noise: 100 events, sigma = 10 events = 0.011pp on this
+   *     denominator, so the margin is ~17 sigma;
+   *   · the binding term is real quality movement — the served defect count
+   *     went 40 → 100 in ninety minutes. 0.30% is 272 slots on this population,
+   *     i.e. ~2.7x the current count.
+   * It can only ever be tightened. Do NOT raise it to absorb a population
+   * change: `assertPopulationUnchanged` below exists so that failure arrives
+   * under its own name.
    *
    * REPRODUCE (both ratchets, on the population they actually gate):
    *   node scripts/assemble-jobs-dataset.mjs --stats
    *   npx vitest run tests/job-locale-consistency.test.ts
-   * The measured rate is printed on PASS as well as on failure — see the
-   * `console.log` below. That is what makes the next recalibration possible
-   * without re-deriving it from a red run.
+   * The rate, the population size and the served share are printed on PASS as
+   * well as on failure. That is what makes the next recalibration possible
+   * without needing a red run first.
    *
-   * Repairing the 73 offenders is NOT this gate's job: `mark-mistranslated-jobs.mjs`
-   * only queues them for the production translate-pending cascade. Lower this
-   * constant as that backlog drains; it can only ever be tightened.
+   * Repairing the offenders is NOT this gate's job: `mark-mistranslated-jobs.mjs`
+   * only queues them for the production translate-pending cascade.
    */
   it.skipIf(!hasDataset)(
     'localized descriptions are not stored under the wrong locale',
     { timeout: 180000 },
     () => {
-      // 0.30% — measured 0.194% on the ASSEMBLED data/jobs.json, 2026-08-11.
+      // 0.30% — measured 0.110% on the ASSEMBLED data/jobs.json, 2026-08-11,
+      // on DESCRIPTION_POPULATION (90,900 slots ±15%).
       const MAX_RATE = 0.003;
-      const mismatches: string[] = [];
-      let slots = 0;
 
-      for (const job of jobs!) {
-        // Jobs awaiting translation are expected to hold source-language
-        // fallbacks until translate-pending processes them.
-        if (job.needsRetranslation) continue;
-
-        for (const locale of LOCALES) {
-          const description = String(job.descriptionByLocale?.[locale] || '').trim();
-          if (description.length < 120) continue;
-          slots += 1;
-
-          const detected = detectLanguageWithConfidence(description, locale);
-          if (detected.confidence >= 0.65 && detected.lang !== locale) {
-            mismatches.push(
-              `${job.company || '?'}/${job.slug || '?'} [${locale}] => ${detected.lang} (${detected.confidence.toFixed(2)})`
-            );
-          }
-        }
-      }
+      const { slots, servedSlots, mismatches } = measureDescriptionLocales(
+        jobs!,
+        detectLanguageWithConfidence,
+        LOCALES,
+      );
 
       const rate = slots > 0 ? mismatches.length / slots : 0;
+      const servedShare = slots > 0 ? servedSlots / slots : 0;
       // Printed on PASS too, on purpose. The defect this gate was born with was
-      // a baseline nobody could re-derive without making the gate red first.
+      // a baseline nobody could re-derive without making the gate red first;
+      // the defect it acquired next was a population nobody could see move.
       console.log(
-        `[ratchet] descriptions-wrong-locale ${mismatches.length}/${slots} = `
+        `[ratchet] ${DESCRIPTION_POPULATION.id} ${mismatches.length}/${slots} = `
           + `${(rate * 100).toFixed(3)}% (max ${(MAX_RATE * 100).toFixed(3)}%) `
-          + 'population=assembled data/jobs.json'
+          + `population=assembled data/jobs.json, expected ${DESCRIPTION_POPULATION.expectedSlots} `
+          + `±${(DESCRIPTION_POPULATION.tolerance * 100).toFixed(0)}%, `
+          + `served ${servedSlots}/${slots} = ${(servedShare * 100).toFixed(1)}% (min ${(MIN_SERVED_SHARE * 100).toFixed(0)}%)`
       );
+
+      // 1. Is this the set the baseline was derived on? Distinct failure.
+      assertPopulationUnchanged(DESCRIPTION_POPULATION, slots);
+
+      // 2. Can this gate still see anything? Moving the denominator off the
+      //    queue removes the instability but would let a corpus-wide queue
+      //    drive the defect count to zero. Distinct failure.
+      expect(
+        servedShare,
+        `[gate-blind] ${DESCRIPTION_POPULATION.id}: only ${servedSlots}/${slots} = `
+          + `${(servedShare * 100).toFixed(1)}% of description slots are served as finished translations `
+          + `(min ${(MIN_SERVED_SHARE * 100).toFixed(0)}%).\n`
+          + 'This is NOT a quality regression either: the defect count below is measured on that shrinking '
+          + 'served slice, so a green rate here would be vacuous.\n'
+          + 'Cause: needsRetranslation has swallowed the corpus — the translate-pending cascade is not draining. '
+          + 'Check .github/workflows/translate-pending.yml and the relocalize queue (RELOCALIZE_MAX_JOBS) '
+          + 'before touching this test.'
+      ).toBeGreaterThanOrEqual(MIN_SERVED_SHARE);
+
+      // 3. Only now is the rate comparable with its baseline.
       expect(
         rate,
-        `Descriptions stored under the wrong locale: ${mismatches.length}/${slots} = `
+        `[quality-regression] Descriptions served under the wrong locale: ${mismatches.length}/${slots} = `
           + `${(rate * 100).toFixed(3)}% (max ${(MAX_RATE * 100).toFixed(3)}%)\n`
+          + `Population held at ${slots} slots, so this IS a quality movement, not a denominator artefact.\n`
+          + 'Repair: node scripts/mark-mistranslated-jobs.mjs --dry-run\n'
           + `${mismatches.slice(0, 20).join('\n')}`
       ).toBeLessThanOrEqual(MAX_RATE);
     }
@@ -161,39 +204,41 @@ describe('job-locale-consistency', () => {
    * TITLES — a non-source `titleByLocale` slot that still reads as another
    * language once the employer/location names are stripped.
    *
-   * MEASURED BASELINE 2026-08-11: **22,236 of 68,306** non-source title slots =
-   * **32.55%**, on 22,781 active jobs (per target locale it 38.55%, en 34.48%,
-   * fr 27.81%, de 21.43%; per source language de 37.37%, en 23.15%, it 20.46%,
-   * fr 14.42%).
+   * MEASURED BASELINE 2026-08-11, on the assembled artefact:
+   *   · main @09:52 UTC (0356b30b): 17,473 / 68,587 = 25.48%
+   *   · main @10:59 UTC (efd6faf8): 19,843 / 67,987 = 29.19%
+   * (CI the same day: 68,306 and 67,844 slots — a 1.1% spread over the day.)
    *
-   * POPULATION — same correction as the descriptions ratchet above, and it was
-   * NOT cosmetic here either. The first version of this gate carried
-   * `33.00% — measured 30.14%`, taken on 26,605 jobs / 79,796 slots read from
-   * the committed `data/jobs/by-crawler/*.json` SLICES. This test reads the
-   * ASSEMBLED `data/jobs.json`, where the same measurement is **32.55%** — the
-   * slices understated it by 2.41pp. The old constant therefore shipped with
-   * 0.45pp of real headroom (1.4% relative) while its comment claimed 2.86pp,
-   * and it passed CI by luck, not by margin. Its sibling above, calibrated the
-   * same way, went red on the first dataset refresh.
+   * POPULATION — this ratchet was ALREADY queue-free, deliberately: it does not
+   * exclude `needsRetranslation` from either side of the ratio, because the site
+   * serves those titles regardless, so merge order cannot move the number on its
+   * own. That choice is why its denominator survived the crawl wave that halved
+   * its sibling's (-0.9% against -45%), and it is the choice the descriptions
+   * ratchet above has now adopted.
    *
-   * DETECTOR CONTEXT — unchanged and still true: the baseline is taken with
+   * It still needed the SIZE guard, and that is the point of touching it here:
+   * being stable today is not the same as being pinned. The identical failure
+   * one dataset refresh later is exactly how the sibling died — and this gate's
+   * own first calibration was taken on the SLICES (79,796 slots, +17% over this
+   * population), which is the same swap. `assertPopulationUnchanged` now makes
+   * that arrive as `[population-changed]` instead of as a 2.41pp quality shift
+   * nobody can explain.
+   *
+   * DETECTOR CONTEXT — unchanged: the baseline is taken with
    * `titleLooksUntranslated()` as shipped by PR #5570, so it already reflects
-   * the fixed detector. This ratchet deliberately does NOT exclude
-   * `needsRetranslation` jobs from either side of the ratio (the site serves
-   * them regardless), so merge order cannot move the number on its own.
+   * the fixed detector.
    *
    * A "meaningful" threshold — anywhere near the ~3% one would want — would be
    * red on day one for a defect that predates this test by months, which is a
    * broken gate, not a gate. So this LOCKS IN THE STATUS QUO at 35.50%, i.e.
-   * 2.95pp over the measurement:
+   * 6.3pp over the current measurement:
    *   · counting noise is the SMALL term — sigma on the count is
-   *     sqrt(68306 * 0.3255 * 0.6745) = 122 slots = 0.18pp, so 3 sigma is
-   *     0.54pp;
-   *   · composition drift is the binding one — moving from the slices to the
-   *     assembled artefact alone shifted this by 2.41pp, and the crawl mix
-   *     changes daily.
-   * 2.41 + 0.54 = 2.95pp. The margin is sized to measured movement, not to a
-   * round number, and can only ever be tightened.
+   *     sqrt(67987 * 0.2919 * 0.7081) = 118 slots = 0.17pp, so 3 sigma is
+   *     0.52pp;
+   *   · composition drift is the binding one — 3.71pp between the two
+   *     measurements above, in ninety minutes, at a stable population size.
+   * The margin is sized to measured movement, not to a round number, and can
+   * only ever be tightened.
    *
    * Tightening is tracked work, not a TODO to forget: the alert threshold in
    * `.github/workflows/job-title-locale-audit.yml` is 20%, and every weekly run
@@ -201,7 +246,7 @@ describe('job-locale-consistency', () => {
    * the repair path (`scripts/mark-mistranslated-jobs.mjs` in
    * translate-pending.yml) drains the backlog.
    *
-   * NOTE for whoever tightens it: part of the 32.55% is DETECTOR noise, not
+   * NOTE for whoever tightens it: part of the rate is DETECTOR noise, not
    * broken pages — the audit's `topEvidence` table isolates it (e.g. the German
    * article `des` firing on correct French titles). Fix the lexicon in
    * `scripts/lib/job-locale-utils.mjs` first, re-measure ON THE ASSEMBLED
@@ -211,51 +256,33 @@ describe('job-locale-consistency', () => {
     'non-source job titles are not left in the source language',
     { timeout: 180000 },
     () => {
-      // 35.50% — measured 32.55% on the ASSEMBLED data/jobs.json, 2026-08-11.
+      // 35.50% — measured 29.19% on the ASSEMBLED data/jobs.json, 2026-08-11,
+      // on TITLE_POPULATION (68,200 slots ±15%).
       const MAX_RATE = 0.355;
-      const offenders: string[] = [];
-      let slots = 0;
-      let flagged = 0;
 
-      for (const job of jobs!) {
-        const sourceLang = String(job.sourceLang || 'it').toLowerCase();
-        const titles = job.titleByLocale || {};
-        const sourceTitle = String(titles[sourceLang] || job.title || '');
-
-        for (const locale of LOCALES) {
-          if (locale === sourceLang) continue;
-          const title = String(titles[locale] || '').trim();
-          if (!title) continue; // empty slot: a completeness defect, gated elsewhere
-          slots += 1;
-
-          const verdict = titleLooksUntranslated({
-            title,
-            sourceTitle,
-            sourceLang,
-            targetLocale: locale,
-            company: job.company || '',
-            location: job.location || '',
-          });
-          if (!verdict.untranslated) continue;
-          flagged += 1;
-          if (offenders.length < 20) {
-            offenders.push(`${job.company || '?'}/${job.slug || '?'} [${locale}] ${verdict.reason} (${verdict.evidence}): ${title}`);
-          }
-        }
-      }
+      const { slots, flagged, offenders } = measureTitleLocales(
+        jobs!,
+        titleLooksUntranslated,
+        LOCALES,
+      );
 
       const rate = slots > 0 ? flagged / slots : 0;
       // See the sibling assertion: printed on PASS too, so the next person to
       // tighten this has the current number without needing a red run.
       console.log(
-        `[ratchet] titles-wrong-locale ${flagged}/${slots} = `
+        `[ratchet] ${TITLE_POPULATION.id} ${flagged}/${slots} = `
           + `${(rate * 100).toFixed(2)}% (max ${(MAX_RATE * 100).toFixed(2)}%) `
-          + 'population=assembled data/jobs.json'
+          + `population=assembled data/jobs.json, expected ${TITLE_POPULATION.expectedSlots} `
+          + `±${(TITLE_POPULATION.tolerance * 100).toFixed(0)}%`
       );
+
+      assertPopulationUnchanged(TITLE_POPULATION, slots);
+
       expect(
         rate,
-        `Non-source titles still in a foreign language: ${flagged}/${slots} = `
+        `[quality-regression] Non-source titles still in a foreign language: ${flagged}/${slots} = `
           + `${(rate * 100).toFixed(2)}% (max ${(MAX_RATE * 100).toFixed(2)}%)\n`
+          + `Population held at ${slots} slots, so this IS a quality movement, not a denominator artefact.\n`
           + 'Repair: node scripts/mark-mistranslated-jobs.mjs --dry-run\n'
           + 'Detail: npm run audit:job-title-locale\n'
           + `${offenders.join('\n')}`
