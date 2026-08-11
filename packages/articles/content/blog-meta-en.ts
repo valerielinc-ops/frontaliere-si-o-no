@@ -9666,6 +9666,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-tovo-lavorare-grigioni.title': 'Living in Tovo di Sant\'Agata and working in Graubünden',
     'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Practical guide for border workers: taxation, new agreement, deductibles and social security contributions for those who reside in Valtellina and work in the Canton of Graubünden.',
     'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Panoramic view of a mountain road near the Italian-Swiss border',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Living in Saint-Rhémy-En-Bosses and working in Valais as a border worker',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'G permits, work in Valais, commuting and cost of living for border workers residing in Saint-Rhémy-En-Bosses',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontaliere with child leaving a border crossing',
 };
 
 export default blogMetaEn;

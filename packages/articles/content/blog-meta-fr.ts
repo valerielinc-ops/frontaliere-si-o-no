@@ -9668,6 +9668,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-tovo-lavorare-grigioni.title': 'Vivre à Tovo di Sant\'Agata et travailler dans les Grisons',
     'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Guide pratique pour les frontaliers : fiscalité, nouvel accord, franchises et cotisations de sécurité sociale pour ceux qui résident en Valteline et travaillent dans le canton des Grisons.',
     'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Vue panoramique d\'une route de montagne près de la frontière italo-suisse',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Vivre à Saint-Rhémy-En-Bosses et travailler en Valais comme frontalier',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Permis G, travail en Valais, déplacements et coût de la vie pour frontaliers résidant à Saint-Rhémy-En-Bosses',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontalier avec enfant en sortant d\'un passage frontalier',
 };
 
 export default blogMetaFr;

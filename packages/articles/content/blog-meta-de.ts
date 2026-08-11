@@ -9665,6 +9665,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-tovo-lavorare-grigioni.title': 'Leben in Tovo di Sant \'Agata und Arbeiten in Graubünden',
     'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für Grenzgänger: Steuern, neues Abkommen, Franchisen und Sozialversicherungsbeiträge für diejenigen, die im Veltlin wohnen und im Kanton Graubünden arbeiten.',
     'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Panoramablick auf eine Bergstraße nahe der italienisch-schweizerischen Grenze',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'In Saint-Rhémy-En-Bosses leben und als Grenzgänger im Wallis arbeiten',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Bewilligungen G, Arbeit im Wallis, Pendeln und Lebenshaltungskosten für Grenzgänger mit Wohnsitz in Saint-Rhémy-En-Bosses',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontalier mit Kind beim Verlassen eines Grenzübergangs',
 };
 
 export default blogMetaDe;
