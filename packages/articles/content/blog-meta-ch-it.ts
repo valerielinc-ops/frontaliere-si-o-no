@@ -2137,6 +2137,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-prassi-svizzera.title': 'Neutralità: la prassi attuale è nell\'interesse della Svizzera',
     'blog.article.neutralita-prassi-svizzera.excerpt': 'Il Consiglio federale invita a respingere l\'iniziativa sulla neutralità in votazione il 27 settembre',
     'blog.article.neutralita-prassi-svizzera.imageAlt': 'Immagine di un frontaliere svizzero',
+    'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell: \'È stato il miglior primo semestre dalla storia aziendale\'',
+    'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'Il colosso svizzero della lavorazione della carne ha chiuso il primo semestre con un fatturato sostanzialmente stabile e profitti in crescita.',
+    'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, aziende svizzere, economia nazionale',
 };
 
 export default blogMetaChIt;
