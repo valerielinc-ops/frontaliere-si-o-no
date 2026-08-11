@@ -27395,6 +27395,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-publiredazionale-aziende-informano': {
+    title: 'Publiredazionale: le aziende informano | Frontaliere Ticino',
+    description: 'Scopri come le aziende comunicano su laRegione tramite il format publiredazionale e approfondisci le tue conoscenze sul mercato del lavoro svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, publiredazionale, aziende, informano, aggiornamenti',
+    ogTitle: 'Publiredazionale: le aziende informano',
+    ogDescription: 'Approfondimento sul format publiredazionale: come le aziende comunicano le proprie notizie e come i lavoratori possono orientarsi con strumenti di analisi.',
+    canonicalPath: '/articoli-svizzera/publiredazionale-aziende-informano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Publiredazionale: le aziende informano",
+      "description": "Scopri come le aziende comunicano su laRegione tramite il format publiredazionale e approfondisci le tue conoscenze sul mercato del lavoro svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/publiredazionale-aziende-informano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno a Bellinzona con vista sulle montagne"
+      },
+      "datePublished": "2026-08-11T03:28:16+00:00",
+      "dateModified": "2026-08-11T03:28:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/publiredazionale-aziende-informano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
