@@ -9686,6 +9686,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-allein-lavorare-vallese.title': 'Vivre à Allein et travailler en Valais comme frontalier',
     'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Guide pratique des déplacements entre la Vallée d\'Aoste et le Valais : règles fiscales, nouvel accord et gestion du travail transfrontalier.',
     'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Paysage alpin près du col du Grand-Saint-Bernard',
+    'blog.article.vivere-ollomont-lavorare-vallese.title': 'Vivre à Ollomont et travailler en Valais comme frontalier',
+    'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Guide pratique pour les déplacements entre l\'Italie et la Suisse, entre nouvel accord fiscal, gestion fiscale et sécurité sociale suisse.',
+    'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Paysage montagneux alpin entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

@@ -9684,6 +9684,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-allein-lavorare-vallese.title': 'Living in Allein and working in Valais as a border worker',
     'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Practical guide to commuting between Valle d \'Aosta and Valais: tax rules, new agreement and cross-border work management.',
     'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Alpine landscape near the Great St Bernard Pass',
+    'blog.article.vivere-ollomont-lavorare-vallese.title': 'Living in Ollomont and working in Valais as a border worker',
+    'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Practical guide for commuting between Italy and Switzerland, between new tax agreement, tax management and Swiss social security.',
+    'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Alpine mountain landscape between Italy and Switzerland',
 };
 
 export default blogMetaEn;

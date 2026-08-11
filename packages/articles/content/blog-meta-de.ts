@@ -9683,6 +9683,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-allein-lavorare-vallese.title': 'Wohnen in Allein und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Aostatal und Wallis: Steuerregeln, neue Vereinbarung und grenzüberschreitendes Arbeitsmanagement.',
     'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Alpenlandschaft am Grossen St. Bernhard',
+    'blog.article.vivere-ollomont-lavorare-vallese.title': 'Wohnen in Ollomont und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Italien und der Schweiz, zwischen dem neuen Steuerabkommen, der Steuerverwaltung und der schweizerischen Sozialversicherung.',
+    'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Alpine Berglandschaft zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;
