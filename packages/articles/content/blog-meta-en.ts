@@ -9741,6 +9741,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Third pillar for border workers: deductions, yields and practical cases',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'How does the supplementary pension for border workers work in Switzerland? Tax deductions, yields and practical choices for the third pillar.',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Swiss 3rd pillar pension documents with permit G and Italian passport on a Ticinese desk',
+    'blog.article.telelavoro-frontalieri-2026.title': 'Telework for border workers: what they need to know and how to manage it',
+    'blog.article.telelavoro-frontalieri-2026.excerpt': 'Teleworking for border workers: new rules and procedures to be followed to avoid tax and social security problems.',
+    'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Image of a cross-border worker who works in Switzerland but resides in Italy, with a computer and a machine for remote work.',
 };
 
 export default blogMetaEn;

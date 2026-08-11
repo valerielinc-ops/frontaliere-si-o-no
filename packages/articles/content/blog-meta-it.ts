@@ -9742,6 +9742,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Terzo pilastro per frontalieri: deduzioni, rendimenti e casi pratici',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'Come funziona la pensione complementare in Svizzera per i frontalieri? Deduzioni fiscali, rendimenti e scelte pratiche per il terzo pilastro.',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Documenti del terzo pilastro svizzero con permesso G e passaporto italiano su una scrivania ticinese',
+    'blog.article.telelavoro-frontalieri-2026.title': 'Telelavoro per frontalieri: cosa devono sapere e come gestirlo',
+    'blog.article.telelavoro-frontalieri-2026.excerpt': 'Il telelavoro per frontalieri: nuove norme e procedure da seguire per evitare problemi fiscali e previdenziali.',
+    'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Immagine di un frontaliere che lavora in Svizzera e risiede in Italia, con un computer e una macchina per il telelavoro.',
 };
 
 export default blogMetaIt;

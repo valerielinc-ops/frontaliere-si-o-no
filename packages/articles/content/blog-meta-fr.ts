@@ -9743,6 +9743,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Troisième pilier pour les frontaliers : déductions, rendements et cas pratiques',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'Comment fonctionne la pension complémentaire en Suisse pour les frontaliers ? Déductions fiscales, rendements et choix pratiques pour le troisième pilier.',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Documents du troisième pilier suisse avec permis G et passeport italien sur un bureau tessinois',
+    'blog.article.telelavoro-frontalieri-2026.title': 'Télétravail pour les frontaliers : ce qu\'ils doivent savoir et comment le gérer',
+    'blog.article.telelavoro-frontalieri-2026.excerpt': 'Le télétravail pour les frontaliers : nouvelles règles et procédures à suivre pour éviter les problèmes fiscaux et de sécurité sociale.',
+    'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Image d\'un travailleur frontalier qui travaille en Suisse mais réside en Italie, avec un ordinateur et une machine pour le travail à distance.',
 };
 
 export default blogMetaFr;

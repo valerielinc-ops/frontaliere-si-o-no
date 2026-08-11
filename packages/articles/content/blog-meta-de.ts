@@ -9740,6 +9740,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Dritte Säule für Grenzgänger: Abzüge, Renditen und Praxisfälle',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'Wie funktioniert die Zusatzrente für Grenzgänger in der Schweiz? Steuerabzüge, Renditen und praktische Entscheidungen für die dritte Säule.',
     'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Dokumente zur Säule 3a mit Aufenthaltsbewilligung G und italienischem Pass auf einem Tessiner Schreibtisch',
+    'blog.article.telelavoro-frontalieri-2026.title': 'Telearbeit für Grenzgänger: Was sie wissen müssen und wie man damit umgeht',
+    'blog.article.telelavoro-frontalieri-2026.excerpt': 'Telearbeit für Grenzgänger: neue Regeln und Verfahren, die befolgt werden müssen, um Steuer- und Sozialversicherungsprobleme zu vermeiden.',
+    'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Bild eines Grenzgängers, der in der Schweiz arbeitet, aber in Italien wohnt, mit einem Computer und einer Maschine für Fernarbeit.',
 };
 
 export default blogMetaDe;

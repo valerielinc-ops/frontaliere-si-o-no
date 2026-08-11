@@ -65279,6 +65279,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-frontalieri-2026': {
+    title: 'Telelavoro per frontalieri: cosa devono sapere e come gestirlo',
+    description: 'Il telelavoro per frontalieri richiede una gestione precisa delle tasse e delle previdenze. È importante comprendere le regole fiscali e previdenziali',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, cosa, devono, sapere',
+    ogTitle: 'Telelavoro per frontalieri: cosa devono sapere e come gestirlo',
+    ogDescription: 'Il telelavoro per frontalieri richiede una gestione precisa delle tasse e delle previdenze. È importante comprendere le regole fiscali e previdenziali per evitare problemi.',
+    canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro per frontalieri: cosa devono sapere e come gestirlo",
+      "description": "Il telelavoro per frontalieri richiede una gestione precisa delle tasse e delle previdenze. È importante comprendere le regole fiscali e previdenziali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che lavora in Svizzera e risiede in Italia, con un computer e una macchina per il telelavoro."
+      },
+      "datePublished": "2026-08-11T20:47:51+00:00",
+      "dateModified": "2026-08-11T20:47:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
