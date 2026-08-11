@@ -2149,6 +2149,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-zurigo-guida.title': 'Residence permit B in Zurich: requirements and renewal',
     'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Complete guide to residence permit B in the Canton of Zurich: procedures, necessary documentation, deadlines for renewal and competences of the cantonal authorities.',
     'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Modern office building in Zurich housing administrative services',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Residence permit C in the Canton of Zurich: requirements and application',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'The residence permit C in the Canton of Zurich requires at least 10 years of residence, language skills and a specific application procedure.',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'A scene of Lugano, with a person approaching a office of the canton of Zurich to ask for the permit of domicile C.',
 };
 
 export default blogMetaChEn;

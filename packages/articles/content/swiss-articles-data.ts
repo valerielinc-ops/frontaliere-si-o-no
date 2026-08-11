@@ -6445,6 +6445,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-domicilio-c-zurigo-requisiti-domanda',
+    category: 'fiscale',
+    date: '2026-08-11T09:01:44.187Z',
+    image: '/images/blog/permesso-domicilio-c-zurigo-requisiti-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

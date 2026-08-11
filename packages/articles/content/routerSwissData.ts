@@ -742,6 +742,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'consiglio-federale-iniziativa-neutralita': { it: 'consiglio-federale-iniziativa-neutralita', en: 'federal-council-reject-neutrality-initiative', de: 'bundesrat-neutralitaetsinitiative-ablehnen', fr: 'conseil-federal-rejeter-initiative-neutralite' },
  'premi-cassa-malati-zurigo-riduzione': { it: 'premi-cassa-malati-zurigo-riduzione', en: 'health-insurance-premiums-zurich-reduction', de: 'krankenkassenpraemien-zuerich-verbilligung', fr: 'primes-assurance-maladie-zurich-reduction' },
  'permesso-dimora-b-zurigo-guida': { it: 'permesso-dimora-b-zurigo-guida', en: 'residence-permit-b-zurich-requirements', de: 'aufenthaltsbewilligung-b-zuerich-voraussetzungen', fr: 'permis-de-sejour-b-zurich-exigences' },
+ 'permesso-domicilio-c-zurigo-requisiti-domanda': { it: 'permesso-domicilio-c-zurigo-requisiti-domanda', en: 'permit-of-domicile-c-zurich', de: 'aufenthaltstitel-c-zurich', fr: 'permis-de-domicile-c-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

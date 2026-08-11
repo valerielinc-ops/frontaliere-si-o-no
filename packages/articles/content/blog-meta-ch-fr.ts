@@ -2149,6 +2149,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-zurigo-guida.title': 'Permis de séjour B à Zurich : exigences et renouvellement',
     'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Guide complet du permis de séjour B dans le canton de Zurich : procédures, documentation nécessaire, délais de renouvellement et compétences des autorités cantonales.',
     'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Immeuble de bureaux moderne à Zurich pour les services administratifs',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Permis de colonisation C dans le canton de Zurich : exigences et demande',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'Le permis de résidence C dans le canton de Zurich exige au moins 10 ans de résidence, des compétences linguistiques et une procédure de candidature spécifique.',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'Une scène de Lugano, avec une personne qui se rapproche d\'un bureau du canton de Zurich pour demander le permis de domicile C.',
 };
 
 export default blogMetaChFr;
