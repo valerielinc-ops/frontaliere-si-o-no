@@ -9745,6 +9745,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-2026.title': 'Telelavoro per frontalieri: cosa devono sapere e come gestirlo',
     'blog.article.telelavoro-frontalieri-2026.excerpt': 'Il telelavoro per frontalieri: nuove norme e procedure da seguire per evitare problemi fiscali e previdenziali.',
     'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Immagine di un frontaliere che lavora in Svizzera e risiede in Italia, con un computer e una macchina per il telelavoro.',
+    'blog.article.telelavoro-frontalieri.title': 'Il telelavoro per i frontalieri: cosa cambia e cosa fare',
+    'blog.article.telelavoro-frontalieri.excerpt': 'Il nuovo accordo frontalieri 2024 introduce nuove regole per il telelavoro. Scopri cosa cambia e come funziona',
+    'blog.article.telelavoro-frontalieri.imageAlt': 'Il telelavoro e\' un\'opportunità per i frontalieri',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.title': 'Una mozione per un Fondo cantonale per la mobilità sostenibile',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.excerpt': 'Un gruppo di deputati ha presentato una mozione per istituire un Fondo cantonale per la mobilità sostenibile.',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.imageAlt': 'Un nuovo fondo per la mobilità sostenibile in Ticino.',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.title': 'Regole per i frontalieri che lavorano da remoto: 25/45 giorni',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.excerpt': 'Le nuove regole per i frontalieri che lavorano da remoto in Svizzera',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.imageAlt': 'Regole per i frontalieri che lavorano da remoto',
 };
 
 export default blogMetaIt;

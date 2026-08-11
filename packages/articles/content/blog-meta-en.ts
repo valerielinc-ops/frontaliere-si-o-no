@@ -9744,6 +9744,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-2026.title': 'Telework for border workers: what they need to know and how to manage it',
     'blog.article.telelavoro-frontalieri-2026.excerpt': 'Teleworking for border workers: new rules and procedures to be followed to avoid tax and social security problems.',
     'blog.article.telelavoro-frontalieri-2026.imageAlt': 'Image of a cross-border worker who works in Switzerland but resides in Italy, with a computer and a machine for remote work.',
+    'blog.article.telelavoro-frontalieri.title': 'Teleworking for frontier workers: what changes and what to do',
+    'blog.article.telelavoro-frontalieri.excerpt': 'The new 2024 border agreement introduces new rules for teleworking. Find out what\'s changing and how it works',
+    'blog.article.telelavoro-frontalieri.imageAlt': 'The telecommuting is an opportunity for frontier workers',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.title': 'A motion for a Cantonal Fund for Sustainable Mobility',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.excerpt': 'A group of MEPs tabled a motion to establish a Cantonal Fund for Sustainable Mobility.',
+    'blog.article.fondo-cantonale-mobilita-sostenibile.imageAlt': 'A new cantonal fund for sustainable mobility in Ticino.',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.title': 'Rules for cross-border workers working remotely: 25/45 days',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.excerpt': 'The new rules for cross-border commuters working remotely in Switzerland',
+    'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.imageAlt': 'Rules for remote workers from Italy to Switzerland',
 };
 
 export default blogMetaEn;
