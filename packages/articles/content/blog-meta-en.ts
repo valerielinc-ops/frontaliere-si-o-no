@@ -9610,6 +9610,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Living in Valfurva and working in Graubünden as a border worker',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Key facts about the new double taxation agreement and the new tax agreement for Ticino border workers',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontaliers in line for border control',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Moving to Bormio by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'The advantages and disadvantages of moving to Bormio for border workers.',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'A frontier worker is considering the possibility of moving to Bormio.',
 };
 
 export default blogMetaEn;

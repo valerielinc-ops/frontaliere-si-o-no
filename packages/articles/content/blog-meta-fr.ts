@@ -9612,6 +9612,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Vivre à Valfurva et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Faits clés sur la nouvelle convention de double imposition et sur le nouvel accord fiscal pour les frontaliers tessinois',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontaliers en file pour le contrôle aux frontières',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Déménager à Bormio en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'Les avantages et les inconvénients de déménager à Bormio pour les frontaliers.',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'Un travailleur frontalier envisage la possibilité de déménager à Bormio.',
 };
 
 export default blogMetaFr;

@@ -9609,6 +9609,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Wohnen in Valfurva und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Eckdaten zum neuen Doppelbesteuerungsabkommen und zum neuen Steuerabkommen für Tessiner Grenzgänger',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontalier in der Schlange für die Grenzkontrolle',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Umzug nach Bormio als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'Die Vor- und Nachteile eines Umzugs nach Bormio für Grenzgänger.',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'Ein Grenzgänger überlegt die Möglichkeit, nach Bormio zu ziehen.',
 };
 
 export default blogMetaDe;
