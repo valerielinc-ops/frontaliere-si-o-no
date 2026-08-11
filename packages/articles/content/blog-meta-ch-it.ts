@@ -2212,6 +2212,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, si cerca un compromesso',
     'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commissione dell\'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa madre di banche di rilevanza sistemica (UBS).',
     'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'L\'edificio del Parlamento federale a Berna.',
+    'blog.article.commissione-propone-500-milioni-munizioni.title': '500 milioni per munizioni, rafforza la difesa',
+    'blog.article.commissione-propone-500-milioni-munizioni.excerpt': 'La Commissione propone 500 milioni di franchi per munizioni per rafforzare la difesa',
+    'blog.article.commissione-propone-500-milioni-munizioni.imageAlt': 'La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A',
 };
 
 export default blogMetaChIt;
