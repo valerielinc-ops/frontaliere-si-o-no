@@ -841,13 +841,23 @@ describe('the hard-bounce regex is not duplicated', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('is actually imported by the one-off that first defined it', () => {
+  it('is reached through the shared classifier by the one-off that first defined it', () => {
     const source = fs.readFileSync(
       path.join(REPO_ROOT, 'scripts', 'dev', 'reactivate-false-positive-bounces.mjs'),
       'utf-8',
     );
-    expect(source).toContain('HARD_BOUNCE_PATTERN');
+    // The one-off no longer applies the regex itself. It delegates to
+    // `classifySuppressionDecay()`, which reads the STRUCTURED
+    // `bounce_severity` field FIRST and falls back to HARD_BOUNCE_PATTERN only
+    // for pre-classifier documents — strictly stronger than the regex-only
+    // reading it used to do, which missed every doc escalated by
+    // `maybeEscalateSoftBounce()` (severity `hard`, prose matching no hard
+    // phrase) and would have reactivated a suppression that exists on purpose.
+    // Asserting the DELEGATION rather than the import of the raw regex is what
+    // makes that impossible to regress.
     expect(source).toContain('suppressionDecay.mjs');
+    expect(source).toContain('classifySuppressionDecay');
+    expect(source).not.toMatch(/HARD_BOUNCE_PATTERN\s*=/); // never a literal copy
   });
 });
 
