@@ -9755,6 +9755,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Grenzbesteuerung 2026: Neues Abkommen zwischen Italien und der Schweiz',
     'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'Neues Abkommen zur Besteuerung von Grenzgängern, unterzeichnet am 23. Dezember 2020.',
     'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontaliers in Reihe am Grenzübergang Brogeda.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Einreise in die Schweiz für Grenzgänger: Dokumente und Zoll',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'Für die Einreise in die Schweiz müssen die Grenzgänger die richtigen Dokumente vorlegen und die Zollverfahren einhalten.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'Ein Grenzgänger wartet am Chiasso-Grenzübergang.',
 };
 
 export default blogMetaDe;

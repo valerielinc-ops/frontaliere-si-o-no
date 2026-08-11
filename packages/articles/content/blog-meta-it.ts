@@ -9757,6 +9757,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera',
     'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020.',
     'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontalieri in fila al valico di Brogeda.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Ingresso in Svizzera per i frontalieri: documenti e dogana',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'Per gli ingressi in Svizzera, i frontalieri devono presentare i documenti corretti e seguire le procedure di dogana.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'Un frontaliere in attesa al valico di Chiasso.',
 };
 
 export default blogMetaIt;
