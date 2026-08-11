@@ -2101,6 +2101,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.glencore-produzione-riscrittura.title': 'Glencore: Produktion rückläufig, aber nicht für Kupfer',
     'blog.article.glencore-produzione-riscrittura.excerpt': 'Der Rohstoffgigant Glencore bestätigt, dass er im ersten Halbjahr 2026 eine rückläufige Produktion verzeichnet hat, aber nicht für Kupfer.',
     'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: Produktion rückläufig, aber nicht für Kupfer',
+    'blog.article.lavorare-seco.title': 'Trocken arbeiten',
+    'blog.article.lavorare-seco.excerpt': 'Das SECO bietet EFZ-Lehrstellen und Hochschulpraktika für Studierende an, die ihr Wissen in die Praxis umsetzen möchten.',
+    'blog.article.lavorare-seco.imageAlt': 'SECO-Mitarbeiter an der Arbeit in Bern',
 };
 
 export default blogMetaChDe;

@@ -2101,6 +2101,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.glencore-produzione-riscrittura.title': 'Glencore: production down, but not for copper',
     'blog.article.glencore-produzione-riscrittura.excerpt': 'Commodity giant Glencore confirms it recorded declining production in the first half of 2026, but not for copper.',
     'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: production in decline, but not for copper',
+    'blog.article.lavorare-seco.title': 'Working DRY',
+    'blog.article.lavorare-seco.excerpt': 'SECO offers AFC apprenticeships and university traineeships for students who wish to put their knowledge into practice.',
+    'blog.article.lavorare-seco.imageAlt': 'SECO employees at work in Bern',
 };
 
 export default blogMetaChEn;

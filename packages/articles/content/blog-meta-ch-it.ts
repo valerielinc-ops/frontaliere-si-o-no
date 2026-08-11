@@ -2101,6 +2101,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.glencore-produzione-riscrittura.title': 'Glencore: produzione in calo, ma non per il rame',
     'blog.article.glencore-produzione-riscrittura.excerpt': 'Il gigante delle materie prime Glencore conferma di aver registrato una produzione in calo nel primo semestre del 2026, ma non per il rame.',
     'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: produzione in calo, ma non per il rame',
+    'blog.article.lavorare-seco.title': 'Lavorare alla SECO',
+    'blog.article.lavorare-seco.excerpt': 'La SECO offre posti di apprendistato AFC e tirocini universitari per gli studenti che desiderano mettere in pratica le proprie conoscenze.',
+    'blog.article.lavorare-seco.imageAlt': 'Collaboratori della SECO a Berna',
 };
 
 export default blogMetaChIt;
