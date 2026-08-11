@@ -64811,6 +64811,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-regime-fiscale-nuovo-accordo': {
+    title: 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    description: 'Scopri le novità del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024: tassazione, franchigie e credito d\'imposta per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, accordo, fiscale, completa',
+    ogTitle: 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    ogDescription: 'Tutto quello che c\'è da sapere sul nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024 e le regole per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-regime-fiscale-nuovo-accordo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e nuovo accordo fiscale: guida completa 2024",
+      "description": "Scopri le novità del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024: tassazione, franchigie e credito d'imposta per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con edifici moderni"
+      },
+      "datePublished": "2026-08-11T13:57:51+00:00",
+      "dateModified": "2026-08-11T13:57:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-regime-fiscale-nuovo-accordo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cassa-malati-aumento-costi-lamal-2026': {
+    title: 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
+    description: 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, costi, sono',
+    ogTitle: 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
+    ogDescription: 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona.',
+    canonicalPath: '/articoli-frontaliere/cassa-malati-aumento-costi-lamal-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati, i costi sono saliti a 4'834 franchi per persona",
+      "description": "I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4'834 franchi per persona. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-malati-aumento-costi-lamal-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I costi della Cassa malati sono aumentati"
+      },
+      "datePublished": "2026-08-11T14:43:23+00:00",
+      "dateModified": "2026-08-11T14:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-aumento-costi-lamal-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-roisan-lavorare-vallese-da-frontalieri': {
+    title: 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    description: 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, roisan, lavorare, vallese',
+    ogTitle: 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    ogDescription: 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    canonicalPath: '/articoli-frontaliere/vivere-roisan-lavorare-vallese-da-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Roisan e lavorare in Vallese da frontaliere",
+      "description": "I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-roisan-lavorare-vallese-da-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la sua famiglia guarda il lago di Lugano"
+      },
+      "datePublished": "2026-08-11T14:54:50+00:00",
+      "dateModified": "2026-08-11T14:54:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-roisan-lavorare-vallese-da-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-m5s-vco-tassa-salute': {
+    title: 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    description: 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, piemonte, lombardia, divisi, così',
+    ogTitle: 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    ogDescription: 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-m5s-vco-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, M5S VCO: 'Piemonte e Lombardia divisi, così aumentano le disparità'",
+      "description": "Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-m5s-vco-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora in Lombardia e risiede in Ticino."
+      },
+      "datePublished": "2026-08-11T15:03:12+00:00",
+      "dateModified": "2026-08-11T15:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-m5s-vco-tassa-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

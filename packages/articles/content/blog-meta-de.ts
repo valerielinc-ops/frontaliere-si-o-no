@@ -9704,6 +9704,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Wohnen in Gignod und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse der steuerlichen und betrieblichen Zwänge für den grenzüberschreitenden Pendelverkehr zwischen Italien und der Schweiz gemäß den geltenden Vereinbarungen.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Schweizer Alpenlandschaft nahe der Grenze',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Grenzgänger und neues Steuerabkommen: Kompletter Leitfaden 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Alles, was Sie über das neue Steuerabkommen zwischen Italien und der Schweiz, das seit dem 1. Januar 2024 in Kraft ist, und die Regeln für Grenzgänger wissen müssen.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Krankenkasse, Kosten stiegen auf 4\'834 Franken pro Person',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'Die Kosten der Krankenkasse sind in den letzten 12 Monaten um 0,4% auf insgesamt 4\'834 Franken pro Person gestiegen.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Die Kosten der Krankenkasse sind gestiegen',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Wohnen in Roisan und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Grenzgänger, die in Roisan leben und im Wallis arbeiten, müssen die neuen Regeln und Fristen für die Steuererklärung kennen.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Eine Familie eines Frontalierers schaut auf den Luganersee',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Piemont und Lombardei gespalten, so wachsen die Disparitäten',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Die 5-Sterne-Bewegung VCO greift nach der Debatte beim Glühwürmchenfest in Villadossola in die Situation der Grenzgänger ein.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Ein Frontalier arbeitet in der Lombardei und wohnt in Tessin.',
 };
 
 export default blogMetaDe;

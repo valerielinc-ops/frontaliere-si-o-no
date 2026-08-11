@@ -29109,6 +29109,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-regime-fiscale-nuovo-accordo',
+ category: 'fiscale',
+ date: '2026-08-11T13:57:51.061Z',
+ image: '/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'cassa-malati-aumento-costi-lamal-2026',
+ category: 'fiscale',
+ date: '2026-08-11T14:43:23.428Z',
+ image: '/images/blog/cassa-malati-aumento-costi-lamal-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'vivere-roisan-lavorare-vallese-da-frontalieri',
+ category: 'fiscale',
+ date: '2026-08-11T14:54:50.117Z',
+ image: '/images/blog/vivere-roisan-lavorare-vallese-da-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'frontalieri-m5s-vco-tassa-salute',
+ category: 'fiscale',
+ date: '2026-08-11T15:03:12.669Z',
+ image: '/images/blog/frontalieri-m5s-vco-tassa-salute.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

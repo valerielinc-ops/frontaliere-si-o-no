@@ -28409,6 +28409,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usam-croce-svizzera-polemica': {
+    title: 'Croce svizzera all\'estero: la protesta di USAM',
+    description: 'L\'USAM contesta la prassi IPI che permette l\'uso della croce svizzera su prodotti fabbricati all\'estero. Dati, sondaggi e impatto sulla produzione nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, estero, protesta, usam',
+    ogTitle: 'Croce svizzera all\'estero: la protesta di USAM',
+    ogDescription: 'L\'Unione svizzera delle arti e mestieri contesta la prassi che permette l\'uso del marchio croce svizzera su prodotti fatti all\'estero. Ecco i dati e le preoccupazioni per il polo produttivo elvetico.',
+    canonicalPath: '/articoli-svizzera/usam-croce-svizzera-polemica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce svizzera all'estero: la protesta di USAM",
+      "description": "L'USAM contesta la prassi IPI che permette l'uso della croce svizzera su prodotti fabbricati all'estero. Dati, sondaggi e impatto sulla produzione nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/usam-croce-svizzera-polemica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Etichetta con croce svizzera su un prodotto"
+      },
+      "datePublished": "2026-08-11T14:47:04+00:00",
+      "dateModified": "2026-08-11T14:47:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/usam-croce-svizzera-polemica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-danni-agricoltura-svizzera': {
+    title: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    description: 'La siccità in Svizzera causa danni all\'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, danni, agricoltura, milioni',
+    ogTitle: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    ogDescription: 'Schweizer Hagel stima danni per 19 milioni di franchi a causa della siccità. Focus su colture estive e nuovi contributi federali ai premi assicurativi.',
+    canonicalPath: '/articoli-svizzera/siccita-danni-agricoltura-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, danni all'agricoltura per 19 milioni di franchi",
+      "description": "La siccità in Svizzera causa danni all'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-danni-agricoltura-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi di mais colpiti dalla siccità in Svizzera"
+      },
+      "datePublished": "2026-08-11T14:57:46+00:00",
+      "dateModified": "2026-08-11T14:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-danni-agricoltura-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

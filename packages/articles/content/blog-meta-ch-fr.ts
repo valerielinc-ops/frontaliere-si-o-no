@@ -2194,6 +2194,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-zurigo-guida.title': 'Apprentissage et formation professionnelle dans le canton de Zurich',
     'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Guide pratique à la recherche d\'un poste d\'apprentissage, contrat de travail, rémunération de l\'apprenti et maturité professionnelle dans le système suisse.',
     'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Étudiant en formation professionnelle dans un laboratoire moderne à Zurich',
+    'blog.article.usam-croce-svizzera-polemica.title': 'Croix suisse à l\'étranger : la protestation d\'USAM',
+    'blog.article.usam-croce-svizzera-polemica.excerpt': 'L\'USAM conteste la pratique de l\'IPI qui permet l\'utilisation de la croix suisse sur des produits fabriqués entièrement en dehors des frontières nationales.',
+    'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Étiquette avec croix suisse sur un produit',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Sécheresse, dégâts à l\'agriculture pour 19 millions de francs',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel signale des dommages d\'au moins 19 millions de francs. Frappez les cultures d\'été comme le maïs, les pommes de terre, les betteraves et les tournesols.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Champs de maïs touchés par la sécheresse en Suisse',
 };
 
 export default blogMetaChFr;

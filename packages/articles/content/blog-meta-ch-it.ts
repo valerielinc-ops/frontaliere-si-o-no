@@ -2194,6 +2194,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-zurigo-guida.title': 'Apprendistato e formazione professionale nel Cantone di Zurigo',
     'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Guida pratica alla ricerca di un posto di tirocinio, contratto di lavoro, retribuzione dell\'apprendista e maturità professionale nel sistema svizzero.',
     'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Studente in formazione professionale in un laboratorio moderno a Zurigo',
+    'blog.article.usam-croce-svizzera-polemica.title': 'Croce svizzera all\'estero: la protesta di USAM',
+    'blog.article.usam-croce-svizzera-polemica.excerpt': 'L\'USAM contesta la prassi dell\'IPI che permette l\'uso della croce svizzera su prodotti fabbricati interamente fuori dai confini nazionali.',
+    'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Etichetta con croce svizzera su un prodotto',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel segnala danni per almeno 19 milioni di franchi. Colpite le colture estive come mais, patate, barbabietole e girasoli.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Campi di mais colpiti dalla siccità in Svizzera',
 };
 
 export default blogMetaChIt;

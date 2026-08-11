@@ -9707,6 +9707,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Vivre à Gignod et travailler en Valais comme frontalier',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse des contraintes fiscales et opérationnelles pour les déplacements transfrontaliers entre l\'Italie et la Suisse conformément aux accords en vigueur.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Paysage alpin suisse près de la frontière',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontaliers et nouvel accord fiscal : guide complet 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Tout ce qu\'il faut savoir sur le nouvel accord fiscal entre l\'Italie et la Suisse en vigueur depuis le 1er janvier 2024 et les règles pour les travailleurs frontaliers.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Caisse-maladie, les coûts sont montés à 4834francs par personne',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'Les coûts de la Caisse maladie ont augmenté de 0,4% au cours des 12 derniers mois, pour atteindre un total de 4834francs par personne.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Les coûts de la caisse de maladie ont augmenté',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivre à Roisan et travailler en Valais comme frontalier',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Les frontaliers qui vivent à Roisan et travaillent en Valais doivent être au courant des nouvelles règles et délais de déclaration de revenus.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Une famille d\'un frontalier regarde le lac de Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Piemonte e Lombardia divisi, disparità in aumento',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Le Mouvement 5 Étoiles VCO intervient sur la situation des frontaliers après le débat à la Fête de la Lucciola de Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontalière travaille en Lombardie et réside en Tessin.',
 };
 
 export default blogMetaFr;

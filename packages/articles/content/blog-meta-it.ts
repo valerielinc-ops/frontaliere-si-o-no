@@ -9706,6 +9706,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Vivere a Gignod e lavorare in Vallese da frontaliere',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analisi dei vincoli fiscali e operativi per il pendolarismo transfrontaliero tra Italia e Svizzera secondo gli accordi vigenti.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio alpino svizzero al confine',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Tutto quello che c\'è da sapere sul nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024 e le regole per i lavoratori frontalieri.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Veduta panoramica di Lugano con edifici moderni',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'I costi della Cassa malati sono aumentati',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Un frontaliere con la sua famiglia guarda il lago di Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontaliere lavora in Lombardia e risiede in Ticino.',
 };
 
 export default blogMetaIt;

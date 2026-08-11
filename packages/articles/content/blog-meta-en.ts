@@ -9705,6 +9705,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Living in Gignod and working in Valais as a border worker',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analysis of tax and operational constraints for cross-border commuting between Italy and Switzerland according to current agreements.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Swiss alpine landscape near the border',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontier and new tax agreement: complete guide 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Everything you need to know about the new tax agreement between Italy and Switzerland in force since 1 January 2024 and the rules for frontier workers.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Panoramic view of Lugano with modern buildings',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Sick fund, costs have risen to CHF 4,834 per person',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'The sick fund\'s costs have increased by 0.4% in the last 12 months, bringing the total to CHF 4,834 per person.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Health insurance costs have increased',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Living in Roisan and working in Valais as a border worker',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Border workers living in Roisan and working in Valais must be aware of the new rules and deadlines for filing tax returns.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'A family of a frontaliere looks at the lake of Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontiersmen, M5S VCO: \'Piedmont and Lombardy divided, so disparities increase\'',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'The 5 Star Movement VCO intervenes on the situation of border workers after the debate at the Firefly Festival in Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'A frontaliere working in Lombardy and residing in Ticino.',
 };
 
 export default blogMetaEn;
