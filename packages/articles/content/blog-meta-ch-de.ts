@@ -2191,6 +2191,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Klima und Konsum: 80% der Schweizer ändern ihre Gewohnheiten nicht',
     'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'Eine Comparis-Umfrage unter 1.040 Personen zeigt, dass der Klimawandel kaum Einfluss auf die Kaufentscheidung hat. Hohe Einkommen sind weniger sensibel.',
     'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Schweizer Bürger beim Einkaufen in einer Innenstadt.',
+    'blog.article.apprendistato-formazione-zurigo-guida.title': 'Lehre und Berufsausbildung im Kanton Zürich',
+    'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Praktischer Leitfaden zur Suche nach einer Lehrstelle, Arbeitsvertrag, Lehrlingsvergütung und Berufsmaturität im schweizerischen System.',
+    'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Auszubildender in der Berufsbildung in einem modernen Labor in Zürich',
 };
 
 export default blogMetaChDe;
