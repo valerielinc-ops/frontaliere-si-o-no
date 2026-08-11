@@ -56,7 +56,7 @@ import { fileURLToPath } from 'node:url';
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
 import { readRunStartMs, markRunStart } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
-import { applyGlossaryCorrections } from './lib/translation-glossary.mjs';
+import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -160,6 +160,62 @@ function missingSlots(job) {
   return slots;
 }
 
+/**
+ * Protected TOKENS — the mop-up's half of the guard, applied BEFORE the batch is
+ * handed to Python.
+ *
+ * Handed the raw DACH gender code, a machine translator is free to read the
+ * letters as words and does: live IT titles came back as
+ * "(lunedì/mercoledì/d)" (m→Monday, w→Wednesday). Argos is no different from the
+ * HTTP cascade (free-translate.mjs) or the local providers
+ * (job-localization-pipeline.mjs) in this respect — and since this tier produces
+ * the BULK of the mop-up-translated corpus, leaving it unmasked would keep the
+ * defect alive on the highest-volume writer while the other two were fixed.
+ *
+ * `maskProtectedTokens` returns the input byte-identical when there is nothing
+ * to protect, so the JSONL payload handed to Python is unchanged for the
+ * overwhelming majority of requests.
+ *
+ * @returns {{ request: {id: string, text: string, from: string, to: string},
+ *             protectedTokens: Array }}
+ */
+export function buildMopupRequest({ id, text, from, to }) {
+  const { text: masked, tokens: protectedTokens } = maskProtectedTokens(text);
+  return { request: { id, text: masked, from, to }, protectedTokens };
+}
+
+/**
+ * The SAME single exit transform the other two translation entry points use —
+ * `finalizeTranslatedText` (restore protected tokens in the target locale's
+ * display form → protected-term glossary → placeholder strip) — reached by a
+ * CALL, not by a re-implementation, so the three writers into the published
+ * corpus cannot drift.
+ *
+ * Markdown-marker balancing runs first, exactly as in the cascade's finalize():
+ * the raw Argos output leaks orphan `**` as literal markers.
+ *
+ * `fieldType` scopes the glossary's broad single-word fallbacks (and the
+ * dropped-token re-append) to titles only, so a description body's legitimate
+ * prose is never rewritten.
+ *
+ * @returns {string} '' when nothing meaningful survives — the caller skips the write.
+ */
+export function finalizeMopupTranslation({
+  sourceText,
+  rawText,
+  targetLang,
+  fieldType = 'title',
+  protectedTokens = [],
+}) {
+  return finalizeTranslatedText({
+    sourceText,
+    translatedText: balanceMarkdownMarkers(String(rawText ?? '')),
+    targetLang,
+    fieldType,
+    protectedTokens,
+  }).trim();
+}
+
 function normalizeCompanyKey(value = '') {
   return String(value || '')
     .trim()
@@ -237,8 +293,12 @@ async function main() {
         const text = field === 'title' ? sourceTitle : sourceDesc;
         if (!text) continue;
         const id = `r${nextId++}`;
-        requests.push({ id, text, from: srcLang, to: locale });
-        targets.set(id, { file, jobIdx, locale, field });
+        // Mask gender trigraphs so Argos never sees the raw code (see
+        // buildMopupRequest). The sentinels are carried on the target entry and
+        // restored — in the target locale's display form — by the write loop.
+        const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale });
+        requests.push(request);
+        targets.set(id, { file, jobIdx, locale, field, protectedTokens });
         queued++;
       }
       if (queued > 0) {
@@ -350,7 +410,7 @@ async function main() {
     let fileChanged = false;
     const touchedJobs = new Set();
 
-    for (const { jobIdx, locale, field, text } of edits) {
+    for (const { jobIdx, locale, field, text, protectedTokens } of edits) {
       const job = data.jobs[jobIdx];
       if (!job) continue;
       const srcLang = job.sourceLang || 'it';
@@ -368,19 +428,24 @@ async function main() {
         ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
         : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
 
-      // Quality parity with the cascade's finalize() (free-translate.mjs): balance
-      // markdown markers, then apply the protected-term glossary. The raw Argos
-      // output skipped both, so the BULK of the mop-up-translated corpus (the
-      // workhorse tier) shipped lower quality than the cascade's — orphan `**`
-      // leaking as literal markers, and meaning-inverted MT (e.g. DE "Nachtwache"
-      // → IT "orologio notturno") never corrected. fieldType scopes the glossary's
-      // broad single-word fallbacks to titles only (body prose stays untouched).
-      const incoming = applyGlossaryCorrections({
+      // Quality parity with the other two entry points: the SAME shared exit
+      // transform (`finalizeTranslatedText`, via finalizeMopupTranslation) —
+      // balance markdown markers, restore the masked gender trigraphs in the
+      // target locale's display form, apply the protected-term glossary, strip
+      // leaked template placeholders. The raw Argos output skipped all of it, so
+      // the BULK of the mop-up-translated corpus (the workhorse tier) shipped
+      // lower quality than the cascade's — orphan `**` leaking as literal
+      // markers, meaning-inverted MT (e.g. DE "Nachtwache" → IT "orologio
+      // notturno") never corrected, a German "(m/w/d)" surviving verbatim into an
+      // Italian title, and a leaked "(ORGANIZZAZIONE)" reaching the dataset.
+      // Returns '' when nothing meaningful survives, which the guard below skips.
+      const incoming = finalizeMopupTranslation({
         sourceText,
-        translatedText: balanceMarkdownMarkers(raw),
+        rawText: raw,
         targetLang: locale,
         fieldType: field,
-      }).trim();
+        protectedTokens,
+      });
       if (!incoming) continue;
 
       // Never write a value that is just a copy of the source (would re-flag).
@@ -432,7 +497,28 @@ async function main() {
   console.log('✅ [local-mt] Local MT mop-up complete.');
 }
 
-main().catch((err) => {
-  console.error('❌ [local-mt] Mop-up failed:', err?.message || err);
-  process.exit(1);
-});
+/**
+ * Direct-invocation guard — same shape as relocalize-pending-jobs.mjs, which
+ * this module already imports.
+ *
+ * Two reasons it has to be here. (1) The pure seams above (buildMopupRequest /
+ * finalizeMopupTranslation) are unit-tested, and importing the module must not
+ * scan data/jobs/by-crawler and spawn Python. (2) main() calls markRunStart(),
+ * and translate-run-clock.mjs documents that as "call ONLY when a script is
+ * invoked directly — never on import"; without the guard, any importer seeded
+ * the shared run clock with its own start time.
+ */
+const invokedDirectly = (() => {
+  try {
+    const entry = process.argv[1];
+    if (!entry) return false; // node REPL / no script → not a direct invocation
+    return import.meta.url === `file://${entry}` || import.meta.url.endsWith(entry);
+  } catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('❌ [local-mt] Mop-up failed:', err?.message || err);
+    process.exit(1);
+  });
+}
