@@ -112,9 +112,18 @@ export const NON_WORKFLOW_YML = new Set([
 ]);
 
 // Title prefixes stamped by the CI monitors that auto-file on a workflow FAILURE:
-// `scan-failed-runs.mjs` ("Workflow Failure: <display name>") and `scan-job-timeouts.mjs`
-// ("CI Failure: <display name>"). Anchored at the start — a title merely *containing* the
-// words is a human-written issue and must not match.
+// "Workflow Failure: <display name>" (`report-workflow-failure.mjs` here,
+// `scan-failed-runs.mjs` on the corpus mirror — same title, different filer) and
+// "CI Failure: <display name>" (`scan-job-timeouts.mjs`, both sides).
+//
+// Anchored at `^` — a title merely *containing* the words is a human-written issue and
+// must not match. That anchor is the whole difference from the bare-word regex #5455 had
+// to undo, which excluded every `Workflow Failure:` issue from parked-retry forever.
+//
+// `Crawler Failure:` is deliberately NOT here even though the three families are handled
+// together by close-recovered-failure-issues.mjs / failure-issue-inventory.mjs: a broken
+// crawler is fixed in `scripts/crawlers/**`, not in the workflow that launches it, so
+// including it would bury fixable work.
 export const MONITOR_FAILURE_TITLE_RE = /^\s*(?:workflow|ci)\s+failure\s*:/i;
 
 // Labels applied by those same monitors. `ci-timeout` is scan-job-timeouts.mjs's own
