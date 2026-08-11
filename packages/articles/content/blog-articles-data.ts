@@ -29019,6 +29019,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-etroubles-lavorare-vallese',
+ category: 'pratico',
+ date: '2026-08-11T10:55:43.653Z',
+ image: '/images/blog/vivere-etroubles-lavorare-vallese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

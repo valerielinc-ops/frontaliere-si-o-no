@@ -9674,6 +9674,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.evoluzione-logistica-varese-malpensa.title': 'Logistik und Malpensa: die Transformation des Varesotto',
     'blog.article.evoluzione-logistica-varese-malpensa.excerpt': 'Von der Fertigung bis zur künstlichen Intelligenz: Wie die Logistik von Varese zu einem strategischen Hebel für die wirtschaftliche Wettbewerbsfähigkeit des Territoriums geworden ist.',
     'blog.article.evoluzione-logistica-varese-malpensa.imageAlt': 'Modernes Logistiklager in der Nähe des Flughafens Malpensa',
+    'blog.article.vivere-etroubles-lavorare-vallese.title': 'Wohnen in Etroubles und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-etroubles-lavorare-vallese.excerpt': 'Praktischer Leitfaden für Grenzgänger: Besteuerung, neues Abkommen, Versicherungspflichten und grenzüberschreitendes Arbeitsmanagement zwischen Italien und dem Wallis.',
+    'blog.article.vivere-etroubles-lavorare-vallese.imageAlt': 'Alpenlandschaft an der Grenze zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;
