@@ -6310,6 +6310,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lastminute-com-perdita-obiettivi-trimestre',
+    category: 'fiscale',
+    date: '2026-08-11T02:46:39.268Z',
+    image: '/images/blog/lastminute-com-perdita-obiettivi-trimestre.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

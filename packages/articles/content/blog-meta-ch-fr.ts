@@ -2104,6 +2104,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavorare-seco.title': 'Travailler au SECO',
     'blog.article.lavorare-seco.excerpt': 'Le SECO propose des places d\'apprentissage AFC et des stages universitaires pour les étudiants qui souhaitent mettre en pratique leurs connaissances.',
     'blog.article.lavorare-seco.imageAlt': 'Employés de la SECO au travail à Berne',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com : premier semestre en perte, objectifs revus',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'La société active dans le secteur de l\'offre de voyages en ligne a enregistré une perte au premier semestre et a revu à la baisse ses prévisions de croissance.',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Photo d\'un homme assis à un ordinateur, avec une carte du monde sur l\'écran.',
 };
 
 export default blogMetaChFr;

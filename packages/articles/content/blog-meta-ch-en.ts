@@ -2104,6 +2104,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavorare-seco.title': 'Working DRY',
     'blog.article.lavorare-seco.excerpt': 'SECO offers AFC apprenticeships and university traineeships for students who wish to put their knowledge into practice.',
     'blog.article.lavorare-seco.imageAlt': 'SECO employees at work in Bern',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com: first semester loss, revised goals',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'The company active in the online travel offer sector recorded a loss in the first half and revised its growth forecasts downwards.',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Photo of a man sitting at a computer, with a world map on the screen.',
 };
 
 export default blogMetaChEn;

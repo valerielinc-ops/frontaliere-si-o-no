@@ -2104,6 +2104,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavorare-seco.title': 'Lavorare alla SECO',
     'blog.article.lavorare-seco.excerpt': 'La SECO offre posti di apprendistato AFC e tirocini universitari per gli studenti che desiderano mettere in pratica le proprie conoscenze.',
     'blog.article.lavorare-seco.imageAlt': 'Collaboratori della SECO a Berna',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com: primo semestre in perdita, rivisti gli obiettivi',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'La società attiva nel settore dell\'offerta di viaggi online ha registrato una perdita nel primo semestre e ha rivisto al ribasso le proprie previsioni di crescita.',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Immagine di un uomo seduto a un computer, con una mappa del mondo sullo schermo.',
 };
 
 export default blogMetaChIt;

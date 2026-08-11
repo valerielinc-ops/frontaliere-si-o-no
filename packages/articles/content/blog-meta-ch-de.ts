@@ -2104,6 +2104,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavorare-seco.title': 'Trocken arbeiten',
     'blog.article.lavorare-seco.excerpt': 'Das SECO bietet EFZ-Lehrstellen und Hochschulpraktika für Studierende an, die ihr Wissen in die Praxis umsetzen möchten.',
     'blog.article.lavorare-seco.imageAlt': 'SECO-Mitarbeiter an der Arbeit in Bern',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com: erstes Halbjahr mit Verlust, überarbeitete Ziele',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'Das im Bereich des Online-Reiseangebots tätige Unternehmen verzeichnete im ersten Halbjahr einen Verlust und revidierte seine Wachstumsprognosen nach unten.',
+    'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Bild von einem Mann, der an einem Computer sitzt, mit einer Weltkarte auf dem Bildschirm.',
 };
 
 export default blogMetaChDe;
