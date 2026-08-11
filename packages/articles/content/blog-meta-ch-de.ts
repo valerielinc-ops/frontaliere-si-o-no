@@ -2110,6 +2110,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.logitech-2026-2027.title': 'Logitech: Geschäftsjahr 2026/2027 läuft gut, Ergebnisse über den Erwartungen',
     'blog.article.logitech-2026-2027.excerpt': 'Logitech: im ersten Quartal 2026/2027 1,2 Milliarden US-Dollar Umsatz, EBIT +60% und Nettogewinn +61%',
     'blog.article.logitech-2026-2027.imageAlt': 'Logitech Logo',
+    'blog.article.mammut-proprieta-investitore-cinese.title': 'Mammut wechselt Eigentümer: Chinesischer Investor übernimmt Marke',
+    'blog.article.mammut-proprieta-investitore-cinese.excerpt': 'Die historische Schweizer Outdoor-Bekleidungsmarke Mammut geht an das chinesische Unternehmen CPE über. Die Transaktion ist laut Bloomberg rund 463 Millionen Franken wert.',
+    'blog.article.mammut-proprieta-investitore-cinese.imageAlt': 'Schweizer Alpenlandschaft mit modernem Bürogebäude',
 };
 
 export default blogMetaChDe;

@@ -27317,6 +27317,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mammut-proprieta-investitore-cinese': {
+    title: 'Mammut cambia proprietà: investitore cinese rileva il marchio',
+    description: 'Lo storico marchio svizzero Mammut passa alla cinese CPE. La vendita, stimata in 463 milioni di franchi, punta a espandere il brand in Asia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mammut, cambia, proprietà, investitore',
+    ogTitle: 'Mammut passa a un investitore cinese: i dettagli della vendita',
+    ogDescription: 'Lo storico marchio svizzero Mammut cambia proprietà: la cinese CPE rileva l\'azienda per circa 463 milioni di franchi. Sede e management restano in Svizzera.',
+    canonicalPath: '/articoli-svizzera/mammut-proprieta-investitore-cinese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mammut cambia proprietà: investitore cinese rileva il marchio",
+      "description": "Lo storico marchio svizzero Mammut passa alla cinese CPE. La vendita, stimata in 463 milioni di franchi, punta a espandere il brand in Asia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mammut-proprieta-investitore-cinese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama alpino svizzero con edificio moderno"
+      },
+      "datePublished": "2026-08-11T03:11:52+00:00",
+      "dateModified": "2026-08-11T03:11:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mammut-proprieta-investitore-cinese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

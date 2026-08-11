@@ -729,6 +729,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lavorare-seco': { it: 'lavorare-seco', en: 'working-at-seco', de: 'arbeit-bei-seco', fr: 'travailler-au-seco' },
  'lastminute-com-perdita-obiettivi-trimestre': { it: 'lastminute-com-perdita-obiettivi-trimestre', en: 'lastminute-com-loss-of-objectives-quarter', de: 'lastminute-com-verlust-von-zielen-quartal', fr: 'lastminute-com-perte-de-ressources-quartal' },
  'logitech-2026-2027': { it: 'logitech-2026-2027', en: 'logitech-2026-2027', de: 'logitech-2026-2027', fr: 'logitech-2026-2027' },
+ 'mammut-proprieta-investitore-cinese': { it: 'mammut-proprieta-investitore-cinese', en: 'mammut-acquired-chinese-investor', de: 'mammut-eigentuemerwechsel-china', fr: 'mammut-changement-proprietaire-chinois' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
