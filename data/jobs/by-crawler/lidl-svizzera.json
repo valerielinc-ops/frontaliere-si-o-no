@@ -42,8 +42,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
-        "en": "salesperson-responsible-for-team-m-f-d-80-lausanne-region-lidl-svizzera-mont-sur-lausanne",
-        "de": "verkaufer-verantwortlich-fur-team-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
+        "en": "salesperson-m-f-d-80-lausanne-region-lidl-svizzera-mont-sur-lausanne",
+        "de": "verkaufer-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
       },
       "requirementsByLocale": {},
@@ -54,14 +54,18 @@
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
         ],
         "en": [
-          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+          "salesperson-responsible-for-team-m-f-d-80-lausanne-region-lidl-svizzera-mont-sur-lausanne"
         ],
         "de": [
-          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+          "verkaufer-verantwortlich-fur-team-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz"
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne-143iwz",
+        "salesperson-responsible-for-team-m-f-d-80-lausanne-region-lidl-svizzera-mont-sur-lausanne",
+        "verkaufer-verantwortlich-fur-team-m-w-d-80-region-lausanne-lidl-svizzera-mont-sur-lausanne"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -14046,7 +14050,7 @@
     },
     {
       "id": "company-75fgii",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii",
+      "slug": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-lucerna-lidl-svizzera-luzern",
       "company": "Lidl Svizzera",
       "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
       "location": "Luzern",
@@ -14081,7 +14085,8 @@
         "stv-filialleiterin-m-w-d-80-100-lucerne-lidl-svizzera-luzern-6r3g1x",
         "stv-filialleiterin-m-w-d-80-100-lucerne-lidl-svizzera-luzern-74b9qd",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14095,12 +14100,14 @@
           "stv-filialleiterin-m-w-d-80-100-lucerne-lidl-svizzera-luzern-6r3g1x",
           "stv-filialleiterin-m-w-d-80-100-lucerne-lidl-svizzera-luzern-74b9qd",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74b9qd",
           "stv-filialleiterin-m-w-d-80-100-lucerne-lidl-svizzera-luzern-74r5hc",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii"
         ],
         "de": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74b9qd",
@@ -14109,7 +14116,8 @@
         "fr": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74b9qd",
           "stv-filialleiterin-m-w-d-80-100-lucerne-lidl-svizzera-luzern-74r5hc",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-74r5hc",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii"
         ]
       },
       "titleByLocale": {
@@ -14126,10 +14134,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii",
-        "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii",
+        "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-lucerna-lidl-svizzera-luzern",
+        "en": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-lucerne-lidl-svizzera-luzern",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii",
-        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-75fgii"
+        "fr": "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-lucerne-lidl-svizzera-luzern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -24767,7 +24775,7 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-e27wxr",
-        "en": "salesman-salesman-m-f-d-20-40-lidl-svizzera-minusio",
+        "en": "seller-seller-m-f-d-20-40-lidl-svizzera-minusio",
         "de": "verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-minusio",
         "fr": "vendeur-vendeur-m-f-d-20-40-lidl-svizzera-minusio"
       },
@@ -24793,7 +24801,8 @@
         ],
         "en": [
           "seller-seller-m-f-d-20-40-lidl-svizzera-minusio",
-          "venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio"
+          "venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio",
+          "salesman-salesman-m-f-d-20-40-lidl-svizzera-minusio"
         ]
       },
       "previousSlugs": [
@@ -24804,7 +24813,8 @@
         "343-venditore-vendeur-l-f-d-20-40-lidl-svizzera-minusio",
         "343-venditore-verkaufer-m-w-d-20-40-lidl-svizzera-minusio",
         "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino",
-        "seller-seller-m-f-d-20-40-lidl-svizzera-minusio"
+        "seller-seller-m-f-d-20-40-lidl-svizzera-minusio",
+        "salesman-salesman-m-f-d-20-40-lidl-svizzera-minusio"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
