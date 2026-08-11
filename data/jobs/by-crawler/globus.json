@@ -2632,22 +2632,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois",
-        "logistica-collaboratore-per-la-nostra-drogheria-fine-delicatessa-40-due-mesi-rinnovabile-cdd-globus-lausanne"
+        "logistica-collaboratore-per-la-nostra-drogheria-fine-delicatessa-40-due-mesi-rinnovabile-cdd-globus-lausanne",
+        "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois-reconductible-globus-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois",
-          "logistica-collaboratore-per-la-nostra-drogheria-fine-delicatessa-40-due-mesi-rinnovabile-cdd-globus-lausanne"
+          "logistica-collaboratore-per-la-nostra-drogheria-fine-delicatessa-40-due-mesi-rinnovabile-cdd-globus-lausanne",
+          "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois-reconductible-globus-lausanne"
         ],
         "en": [
           "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois"
         ],
         "de": [
           "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois"
+        ],
+        "fr": [
+          "collaborateur-trice-logistique-pour-notre-epicerie-fine-delicatessa-a-40-cdd-de-2-mois-reconductible-globus-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:59.885Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -2659,7 +2663,8 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "globus-324b9f25314f",
