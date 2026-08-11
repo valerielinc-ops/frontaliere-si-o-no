@@ -9611,6 +9611,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Vivere a Valfurva e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Fatti chiave sulla nuova convenzione doppie imposizioni e sul nuovo accordo fiscale per i frontalieri ticinesi',
     'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontalieri in fila per il controllo ai valichi',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Bormio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.excerpt': 'I vantaggi e gli svantaggi di trasferirsi a Bormio per i frontalieri.',
+    'blog.article.trasferirsi-a-bormio-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere sta valutando la possibilità di trasferirsi a Bormio.',
 };
 
 export default blogMetaIt;
