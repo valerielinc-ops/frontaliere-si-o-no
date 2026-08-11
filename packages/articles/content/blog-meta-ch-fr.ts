@@ -2101,6 +2101,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.glencore-produzione-riscrittura.title': 'Glencore : production en baisse, mais pas pour le cuivre',
     'blog.article.glencore-produzione-riscrittura.excerpt': 'Le géant des matières premières Glencore confirme avoir enregistré une production en baisse au premier semestre 2026, mais pas pour le cuivre.',
     'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: production en baisse, mais pas pour le cuivre',
+    'blog.article.lavorare-seco.title': 'Travailler au SECO',
+    'blog.article.lavorare-seco.excerpt': 'Le SECO propose des places d\'apprentissage AFC et des stages universitaires pour les étudiants qui souhaitent mettre en pratique leurs connaissances.',
+    'blog.article.lavorare-seco.imageAlt': 'Employés de la SECO au travail à Berne',
 };
 
 export default blogMetaChFr;
