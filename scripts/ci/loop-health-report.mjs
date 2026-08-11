@@ -24,6 +24,12 @@ const argv = process.argv.slice(2);
 const DAYS = Number(argv.includes('--days') ? argv[argv.indexOf('--days') + 1] : 7);
 const NO_POST = argv.includes('--no-post');
 const TRACKER_TITLE = '📊 Loop health report (tracker)';
+// Never eligible for followup-drainer's age-out close (#5615): a quiet stretch
+// with nothing to report still makes this tracker look old+idle to the
+// drainer, which would close it — the next run just recreates it, but the
+// historical comment thread is lost. Checked in isAgeOutEligible
+// (scripts/ci/followup-drainer.mjs); keep the literal in sync.
+const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
 // Workflow Claude = i soli 5 che bruciano quota Max (AGENTS.md § frugalità).
 const CLAUDE_WORKFLOWS = [
@@ -271,8 +277,12 @@ function main() {
   let num = tracker;
   if (!num) {
     try {
+      // Best-effort: `gh issue create --label` errors if the label doesn't
+      // exist yet. `gh label create` errors if it already does — both fine.
+      try { execFileSync('gh', ['label', 'create', LBL_NO_AGE_OUT, '--repo', REPO], { encoding: 'utf8' }); } catch { /* already exists */ }
       const url = gh(['issue', 'create', '--repo', REPO, '--title', TRACKER_TITLE,
         '--label', 'automation',
+        '--label', LBL_NO_AGE_OUT,
         '--body', 'Tracker permanente: il report settimanale di salute del loop autonomo atterra qui come commento (loop-health-report.yml, zero-Claude). NON chiudere: il prossimo run la ricreerebbe.'],
         { json: false });
       num = Number((url.match(/\/issues\/(\d+)/) || [])[1]) || null;

@@ -82,6 +82,12 @@ const RECURRENCE_MARKER = '🔁'; // prefixes every recurrence comment we post
 // routable per-crawler issue. Nobody ever has to close the ledger.
 const TRANSIENT_LEDGER_TITLE = 'Crawler transient failures (rolling ledger)';
 const LEDGER_KEY_PREFIX = 'transient-key:'; // machine-readable per-crawler key in each ledger comment
+// Counter issue: never eligible for followup-drainer's age-out close (#5615).
+// Without this, a stretch of healthy crawlers — no sub-threshold comments to
+// refresh `updatedAt` — makes the ledger look old+idle and the drainer closes
+// it, resetting every in-progress streak. Checked in isAgeOutEligible
+// (scripts/ci/followup-drainer.mjs); keep the literal in sync.
+const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
 /**
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
@@ -361,7 +367,7 @@ function findOrCreateTransientLedger() {
   const byTitle = exactTitle(searchIssuesByTitlePrefix(TRANSIENT_LEDGER_TITLE, 'open'));
   if (byTitle) return byTitle.number;
 
-  ensureLabelsExist([CRAWLER_TRANSIENT_LABEL, PRIORITY_LABEL[4]]);
+  ensureLabelsExist([CRAWLER_TRANSIENT_LABEL, PRIORITY_LABEL[4], LBL_NO_AGE_OUT]);
   const body = [
     'Rolling log of **sub-threshold** crawler failures.',
     '',
@@ -375,6 +381,8 @@ function findOrCreateTransientLedger() {
     'routable issue at full priority — that is the signal worth acting on.',
     '',
     '**Leave this issue open.** It is the counter; closing it resets every streak.',
+    `The \`${LBL_NO_AGE_OUT}\` label keeps followup-drainer's age-out close from`,
+    'doing that automatically during a healthy stretch.',
   ].join('\n');
   const url = gh([
     'issue', 'create',
@@ -382,6 +390,7 @@ function findOrCreateTransientLedger() {
     '--body', body,
     '--label', CRAWLER_TRANSIENT_LABEL,
     '--label', PRIORITY_LABEL[4],
+    '--label', LBL_NO_AGE_OUT,
     ...repoFlag(),
   ], { allowFailure: true });
   if (!url) return null;
