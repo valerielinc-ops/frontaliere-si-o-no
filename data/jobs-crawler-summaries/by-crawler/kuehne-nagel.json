@@ -1,16 +1,17 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-08-11T10:20:48.868Z",
+  "generatedAt": "2026-08-11T10:43:57.539Z",
   "total": 6,
   "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7260,
-  "avgDurationMs": 7260,
+  "durationMs": 6460,
+  "avgDurationMs": 6460,
   "durationHistory": [
-    7260
+    7260,
+    6460
   ],
   "newJobs": [
     {
@@ -25,7 +26,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14711EXTERNALENGLOBAL/global-program-manager-healthcare-m-f-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:20:44.561Z",
+      "crawledAt": "2026-08-11T10:43:53.834Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -64,7 +65,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15666EXTERNALENGLOBAL/communications-manager-technology",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:20:43.853Z",
+      "crawledAt": "2026-08-11T10:43:53.058Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -102,7 +103,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15013EXTERNALENGLOBAL/operations-manager-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:20:44.958Z",
+      "crawledAt": "2026-08-11T10:43:54.265Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -140,7 +141,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14660EXTERNALENGLOBAL/senior-travel-agent-m-d-f",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:20:44.208Z",
+      "crawledAt": "2026-08-11T10:43:53.477Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -157,7 +158,6 @@
       "postedDate": "2026-07-09",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14660EXTERNALENGLOBAL/senior-travel-agent-m-d-f",
       "jobReqId": "14660",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-09T22:45:33.344Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -165,7 +165,8 @@
         "richness": 20,
         "translation": 23,
         "completeness": 20
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "kuehne-nagel-350006744391",
@@ -179,7 +180,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL12404EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:20:43.485Z",
+      "crawledAt": "2026-08-11T10:43:52.649Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -217,7 +218,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:20:45.369Z",
+      "crawledAt": "2026-08-11T10:43:54.645Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
