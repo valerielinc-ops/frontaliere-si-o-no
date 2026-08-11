@@ -2209,6 +2209,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilatérales III, l\'une des mesures d\'accompagnement vacille',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'La Commission de l\'économie et des impôts du Conseil des Etats a rejeté la mesure 14, qui renforçait la protection contre le licenciement des représentants du personnel et des syndicats actifs dans les entreprises.',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: vue sur le lac',
+    'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, un compromis est recherché',
+    'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commission de l\'économie et des impôts des États (cet-S) a reporté la discussion sur la couverture par des fonds propres de participations étrangères dans la maison mère de banques d\'importance systémique (UBS).',
+    'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'Le bâtiment du Parlement fédéral à Berne.',
 };
 
 export default blogMetaChFr;
