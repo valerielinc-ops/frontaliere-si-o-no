@@ -2,7 +2,7 @@
 /**
  * Precompute the per-comune evergreen topics and publish them as data.
  *
- * The article generator needs ~170 long-tail keywords of the shape "vivere a X
+ * The article generator needs ~85 long-tail keywords of the shape "vivere a X
  * e lavorare in Y da frontaliere". Deriving them takes four site datasets —
  * municipalities, border crossings, the crossing slugs and the wait averages —
  * because the canton is assigned by geographic proximity. Those datasets have
@@ -58,9 +58,10 @@ function main() {
 
   // A collapse here would silently strip the generator's evergreen pool, and
   // an empty pool is not a visible failure — it just quietly narrows what gets
-  // written. Refuse rather than publish it.
-  if (!Array.isArray(topics) || topics.length < 100) {
-    console.error(`::error::expected at least 100 comune topics, got ${topics?.length ?? 0} — refusing to write`);
+  // written. Refuse rather than publish it. Floor is half the pre-#5563
+  // value: one candidate per comune now, not two.
+  if (!Array.isArray(topics) || topics.length < 50) {
+    console.error(`::error::expected at least 50 comune topics, got ${topics?.length ?? 0} — refusing to write`);
     process.exit(1);
   }
 

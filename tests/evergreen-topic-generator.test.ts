@@ -10,8 +10,8 @@ import { MUNICIPALITIES } from '../data/municipalities.ts';
 describe('buildProfessionEvergreenTopics', () => {
   const topics = buildProfessionEvergreenTopics();
 
-  it('produces two candidates per profession, all shaped {keyword, angle}', () => {
-    expect(topics.length).toBeGreaterThan(100);
+  it('produces one candidate per profession, all shaped {keyword, angle}', () => {
+    expect(topics.length).toBeGreaterThan(50);
     for (const t of topics) {
       expect(typeof t.keyword).toBe('string');
       expect(t.keyword.length).toBeGreaterThan(0);
@@ -119,8 +119,8 @@ describe('resolveComuneCanton', () => {
 describe('buildComuneEvergreenTopics', () => {
   const topics = buildComuneEvergreenTopics();
 
-  it('produces two candidates per selected comune, all shaped {keyword, angle}', () => {
-    expect(topics.length).toBeGreaterThan(50);
+  it('produces one candidate per selected comune, all shaped {keyword, angle}', () => {
+    expect(topics.length).toBeGreaterThan(25);
     for (const t of topics) {
       expect(typeof t.keyword).toBe('string');
       expect(t.keyword.length).toBeGreaterThan(0);
@@ -141,8 +141,8 @@ describe('buildComuneEvergreenTopics', () => {
   });
 
   it('caps candidates per canton bucket instead of exploding to all 518 comuni', () => {
-    // 40 Ticino + 25 Grigioni + 20 Vallese, × 2 templates each = 170 max
-    expect(topics.length).toBeLessThanOrEqual(170);
+    // 40 Ticino + 25 Grigioni + 20 Vallese, one candidate each = 85 max
+    expect(topics.length).toBeLessThanOrEqual(85);
   });
 });
 
