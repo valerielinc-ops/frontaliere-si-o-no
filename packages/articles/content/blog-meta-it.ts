@@ -9652,6 +9652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Vervio da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Fatti e cifre sulla vita dei frontalieri in Ticino. Quanti sono i vantaggi e svantaggi di trasferirsi a Vervio?',
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri Ticino in viaggio dal lavoro in Svizzera all\'Italia, con un lago in sfondo.',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Castello Dell\'Acqua da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.excerpt': 'La convenzione tra Italia e Svizzera prevede nuove regole per i frontalieri che intendono trasferirsi a Castello Dell\'Acqua per lavoro',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere lavora in Castello Dell\'Acqua, con il lago di Lugano in secondo piano',
 };
 
 export default blogMetaIt;

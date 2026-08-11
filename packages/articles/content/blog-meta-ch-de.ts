@@ -2140,6 +2140,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell: \'Es war das beste erste Halbjahr in der Unternehmensgeschichte\'',
     'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'Der Schweizer Fleischverarbeitungsgigant schloss das erste Halbjahr mit einem im Wesentlichen stabilen Umsatz und steigenden Gewinnen ab.',
     'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, Schweizer Unternehmen, nationale Wirtschaft',
+    'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutralität: Bundesrat bestreitet verfassungsrechtliche Strenge',
+    'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'Die Bundesregierung fordert zur Ablehnung der Neutralitätsinitiative auf und warnt davor, dass eine starre Definition den Handlungsspielraum der Schweiz einschränken würde.',
+    'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
 };
 
 export default blogMetaChDe;

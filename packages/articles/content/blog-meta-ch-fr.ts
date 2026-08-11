@@ -2140,6 +2140,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell : \'Ce fut le meilleur premier semestre de l\'histoire de l\'entreprise\'',
     'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'Le géant suisse de la transformation de la viande a clôturé le premier semestre avec un chiffre d\'affaires globalement stable et des bénéfices en hausse.',
     'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, entreprises suisses, économie nationale',
+    'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutralité : le Conseil fédéral nie le resserrement constitutionnel',
+    'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'Le gouvernement fédéral invite à rejeter l\'initiative sur la neutralité, avertissant qu\'une définition stricte limiterait la marge de manœuvre de la Suisse.',
+    'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
 };
 
 export default blogMetaChFr;

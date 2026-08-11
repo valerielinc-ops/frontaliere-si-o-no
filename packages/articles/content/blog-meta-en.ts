@@ -9651,6 +9651,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Moving to Vervio from border crossings: pros and cons',
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Facts and figures about the lives of border workers in Ticino. How many are the advantages and disadvantages of moving to Vervio?',
     'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri Ticino in travel from work in Switzerland to Italy, with a lake in background.',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.title': 'Moving to Castello Dell \'Acqua from a border crossing: pros and cons',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.excerpt': 'The agreement between Italy and Switzerland provides new rules for border workers who intend to move to Castello Dell \'Acqua for work',
+    'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere works in Castello Dell\'Acqua, with the Lake of Lugano in the background',
 };
 
 export default blogMetaEn;
