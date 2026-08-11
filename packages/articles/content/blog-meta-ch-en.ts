@@ -2107,6 +2107,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com: first semester loss, revised goals',
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'The company active in the online travel offer sector recorded a loss in the first half and revised its growth forecasts downwards.',
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Photo of a man sitting at a computer, with a world map on the screen.',
+    'blog.article.logitech-2026-2027.title': 'Logitech: financial year 2026/2027 starts well, results above expectations',
+    'blog.article.logitech-2026-2027.excerpt': 'Logitech: in the first quarter of 2026/2027, revenues of $1.2 billion, EBIT +60% and net profit +61%',
+    'blog.article.logitech-2026-2027.imageAlt': 'Logitech logo',
 };
 
 export default blogMetaChEn;

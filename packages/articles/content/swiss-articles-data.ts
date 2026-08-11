@@ -6319,6 +6319,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'logitech-2026-2027',
+    category: 'fiscale',
+    date: '2026-08-11T03:00:52.591Z',
+    image: '/images/blog/logitech-2026-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

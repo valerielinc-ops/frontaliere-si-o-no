@@ -27278,6 +27278,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-logitech-2026-2027': {
+    title: 'Logitech: esercizio 2026/2027 parte bene, risultati sopra le attese',
+    description: 'Logitech annuncia i suoi risultati per il primo trimestre 2026/2027, con ricavi di 1,2 miliardi di dollari e un utile netto che ha aumentato del 61%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, logitech, esercizio, parte, bene',
+    ogTitle: 'Logitech: esercizio 2026/2027 parte bene, risultati sopra le attese',
+    ogDescription: 'Logitech annuncia i suoi risultati per il primo trimestre 2026/2027, con ricavi di 1,2 miliardi di dollari e un utile netto che ha aumentato del 61%.',
+    canonicalPath: '/articoli-svizzera/logitech-2026-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Logitech: esercizio 2026/2027 parte bene, risultati sopra le attese",
+      "description": "Logitech annuncia i suoi risultati per il primo trimestre 2026/2027, con ricavi di 1,2 miliardi di dollari e un utile netto che ha aumentato del 61%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/logitech-2026-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Logo di Logitech"
+      },
+      "datePublished": "2026-08-11T03:00:52+00:00",
+      "dateModified": "2026-08-11T03:00:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/logitech-2026-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
