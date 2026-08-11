@@ -1,0 +1,35 @@
+{
+  "_doc": "BASELINE A SCALARE — vedi tests/gate-wiring.test.ts. Si possono solo TOGLIERE righe.",
+  "orphanGates": [
+    "scripts/audit-adsense-channels.mjs",
+    "scripts/audit-cannibalization.mjs",
+    "scripts/audit-cls-stripping.mjs",
+    "scripts/audit-job-content-match.mjs",
+    "scripts/audit-umantis-detail-urls.mjs",
+    "scripts/find-thin-pages.mjs",
+    "scripts/seo/internal-link-audit.mjs",
+    "scripts/seo/meta-description-audit.mjs",
+    "scripts/seo/meta-translation-audit.mjs",
+    "scripts/seo/schema-audit.mjs",
+    "scripts/seo/slug-translation-audit.mjs",
+    "scripts/seo/title-audit.mjs",
+    "scripts/validate-blog-meta-placeholders.mjs",
+    "scripts/validate-jobs-crawler-keys.mjs",
+    "scripts/validate-jobs-rich-results-sample.mjs",
+    "scripts/validate-jsonld-shape.mjs",
+    "scripts/validate-page-seo-quality.mjs",
+    "scripts/validate-structured-data.mjs",
+    "scripts/verify-l3-report-equivalence.mjs"
+  ],
+  "unsetTestSwitches": {
+    "RUN_DIST_GATES": [
+      "tests/dist-duplicate-meta-description.test.ts",
+      "tests/dist-duplicate-structured-data.test.ts",
+      "tests/dist-link-anchor-text.test.ts",
+      "tests/dist-single-h1-per-page.test.ts",
+      "tests/seo/faqpage-validity.test.ts",
+      "tests/seo/image-object-license-fields.test.ts",
+      "tests/seo/related-search-clusters-emitted.test.ts"
+    ]
+  }
+}

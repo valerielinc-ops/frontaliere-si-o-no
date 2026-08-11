@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /**
+ * @manual-tool — strumento una tantum: richiede un redirect OAuth su localhost:3456.
+ *
  * One-off AdSense slot audit.
  *
  * Compares the ad-unit IDs declared in services/adsenseSlots.ts against the

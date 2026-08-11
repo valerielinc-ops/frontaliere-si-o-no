@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /**
+ * @manual-tool — harness one-shot post-deploy, come dice la riga sopra.
+ *
  * verify-cls-fix.mjs — one-shot post-deploy CLS verification harness.
  *
  * Runs both CLS measurement layers in sequence and prints a single verdict:
