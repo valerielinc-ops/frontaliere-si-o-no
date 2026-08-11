@@ -2065,6 +2065,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calore-data-center-poco-sfruttato.title': 'La chaleur des datacenters est sous-exploitée',
     'blog.article.calore-data-center-poco-sfruttato.excerpt': 'Les centres de données suisses pourraient fournir de la chaleur pour le chauffage urbain, mais seul un tiers d\'entre eux l\'utilise.',
     'blog.article.calore-data-center-poco-sfruttato.imageAlt': 'une photographie d\'un centre de données en Suisse',
+    'blog.article.fit-partnership-2026.title': 'Règles du commerce : engagement commun',
+    'blog.article.fit-partnership-2026.excerpt': 'La Suisse a soutenu la sécurité économique et la résilience des chaînes d\'approvisionnement à travers le FIT PARTNERSHIP',
+    'blog.article.fit-partnership-2026.imageAlt': 'Vue de Lugano avec le Ministère fédéral de la justice et de la police en vue, avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaChFr;
