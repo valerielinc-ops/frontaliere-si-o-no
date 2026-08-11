@@ -28097,6 +28097,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc': {
+    title: 'Indennità di disoccupazione nel Cantone di Zurigo',
+    description: 'La presente guida esamina le condizioni per richiedere l\'indennità di disoccupazione nel Cantone di Zurigo, inclusa l\'iscrizione all\'URC, il periodo',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, disoccupazione, cantone, zurigo',
+    ogTitle: 'Indennità di disoccupazione nel Cantone di Zurigo',
+    ogDescription: 'La presente guida esamina le condizioni per richiedere l\'indennità di disoccupazione nel Cantone di Zurigo, inclusa l\'iscrizione all\'URC, il periodo di contribuzione minimo, il calcolo dell\'indennità giornaliera, gli obblighi di ricerca impiego',
+    canonicalPath: '/articoli-svizzera/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di disoccupazione nel Cantone di Zurigo",
+      "description": "La presente guida esamina le condizioni per richiedere l'indennità di disoccupazione nel Cantone di Zurigo, inclusa l'iscrizione all'URC, il periodo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "una scena di lavoro in una fabbrica del Cantone di Zurigo"
+      },
+      "datePublished": "2026-08-11T11:37:04+00:00",
+      "dateModified": "2026-08-11T11:37:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
