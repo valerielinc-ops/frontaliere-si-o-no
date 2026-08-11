@@ -9735,6 +9735,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.title': 'Moving to Saarland from border crossings: pros and cons',
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.excerpt': 'Tax at source, new rates and changes for border crossers Ticino-Italy.',
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.imageAlt': 'Editorial image related to: Trasferirsi a Sarre da frontaliere: pro e contro',
+    'blog.article.vivere-aosta-lavorare-vallese.title': 'Living in Aosta and working in Valais as a border worker',
+    'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Practical guide to commuting between Aosta and the Valais: connections, tax at source, change management and rules for new and old border crossers.',
+    'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Alpine panorama between Italy and Switzerland for cross-border commuters',
 };
 
 export default blogMetaEn;

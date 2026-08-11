@@ -65201,6 +65201,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-aosta-lavorare-vallese': {
+    title: 'Vivere a Aosta e lavorare in Vallese da frontaliere',
+    description: 'Guida completa per frontalieri tra Aosta e Vallese: imposta alla fonte, nuovo accordo, franchigie fiscali, previdenza e permessi di lavoro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, aosta, lavorare, vallese',
+    ogTitle: 'Vivere a Aosta e lavorare in Vallese da frontaliere',
+    ogDescription: 'Tutto sul pendolarismo tra Aosta e il Canton Vallese: fiscalità, imposta alla fonte svizzera, credito d\'imposta italiano e regole per nuovi e vecchi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-aosta-lavorare-vallese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Aosta e lavorare in Vallese da frontaliere",
+      "description": "Guida completa per frontalieri tra Aosta e Vallese: imposta alla fonte, nuovo accordo, franchigie fiscali, previdenza e permessi di lavoro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-aosta-lavorare-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama alpino tra Italia e Svizzera per pendolari frontalieri"
+      },
+      "datePublished": "2026-08-11T18:19:07+00:00",
+      "dateModified": "2026-08-11T18:19:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-aosta-lavorare-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
