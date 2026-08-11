@@ -48,6 +48,10 @@ import {
   normalizeText,
   stemToken,
 } from './lib/profession-taxonomy.mjs';
+import {
+  keywordLandingPath,
+  professionKeywordLandingPath,
+} from './lib/keyword-page-paths.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
 import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
 
@@ -205,7 +209,12 @@ function buildCoverage() {
       for (const page of config.pages || []) {
         const surface = [page.query || '', ...(page.filterKeywords || [])].join(' ');
         const id = matchProfession(surface);
-        if (id && !covered.has(id)) covered.set(id, `keyword page /${page.slug}/`);
+        // The PATH the plugin serves, never the bare slug. `jobsSeoPagesPlugin`
+        // emits keyword landings under `{section}/{searchRoutePrefix}-{slug}/`,
+        // so `/${page.slug}/` was a 404 on every one of these rows — a reader
+        // who probed it concluded the emission chain was broken while the page
+        // was live one directory down.
+        if (id && !covered.has(id)) covered.set(id, `keyword page ${keywordLandingPath(page.slug)}`);
       }
     } catch {
       console.error('[coverage] keyword-pages-config.json unreadable — skipping that layer');
@@ -327,6 +336,12 @@ for (const entry of PROFESSION_TAXONOMY) {
   if (covered.has(entry.id)) {
     coveredRows.push({ ...row, coveredBy: covered.get(entry.id) });
   } else {
+    // The URL the profession-gap feed will give this row at the next
+    // `refresh-keyword-config` run — same slugify, same path builder the
+    // emitter uses (scripts/lib/keyword-page-paths.mjs). Printed so
+    // "Promuovibile ✅" can be VERIFIED with one request instead of inferred
+    // from the slug, which is not a path.
+    row.plannedPath = row.promotable ? professionKeywordLandingPath(entry.label) : null;
     opportunities.push(row);
   }
 }
@@ -380,10 +395,12 @@ md.push(`Finestra: ${WINDOW_DAYS} giorni · on-site search: ${onsiteTerms ? `${o
 md.push('');
 md.push('**Promuovibile ✅** = `refresh-keyword-config` genera la pagina al prossimo giro, senza intervento.');
 md.push('');
+md.push(`Le pagine keyword vivono sotto \`${keywordLandingPath('<slug>')}\` — lo slug **non è** un path, e provarlo nudo dà 404. La colonna **Pagina** riporta l'URL che verrà creato; nella tabella "Già coperte" la copertura \`keyword page\` è già l'URL live.`);
+md.push('');
 md.push(`Due qualificazioni, una sola conseguenza. **Domanda**: ≥${DOUBLE_VALIDATED_MIN_ONSITE} ricerche on-site *e* ≥${DOUBLE_VALIDATED_MIN_JOBS} annunci — c'è chi cerca e c'è cosa mostrargli. **Offerta**: ≥${SUPPLY_VALIDATED_MIN_JOBS} annunci *e* ≥${SUPPLY_VALIDATED_MIN_FILTER_JOBS} match filtro — per le professioni che leggono 0 on-site perché il sito non ha ancora una pagina da cui farsi cercare. In entrambi i casi il filtro letterale deve restare specifico quanto la professione, o la pagina elencherebbe lavori diversi da quello nel suo H1.`);
 md.push('');
-md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Promuovibile |');
-md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- |');
+md.push('| # | Professione | On-site (60g) | Annunci | Match filtro | Cantoni top | GSC impr. | Score | Promuovibile | Pagina |');
+md.push('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |');
 opportunities.slice(0, 20).forEach((o, i) => {
   const cantonTop = Object.entries(o.cantons).slice(0, 3).map(([c, n]) => `${c}:${n}`).join(' ') || '—';
   // Say WHY when the answer is no — a bare dash is what made this report
@@ -395,9 +412,10 @@ opportunities.slice(0, 20).forEach((o, i) => {
       : o.jobCount < DOUBLE_VALIDATED_MIN_JOBS
         ? '— nessun annuncio da mostrare'
         : '— sotto entrambe le soglie';
-  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} |`);
+  const page = o.plannedPath ? `\`${o.plannedPath}\`` : '—';
+  md.push(`| ${i + 1} | ${o.label} (\`${o.id}\`) | ${o.onsiteCount} | ${o.jobCount} | ${o.feedFilterJobCount} | ${cantonTop} | ${o.gscImpressions} | ${o.score} | ${why} | ${page} |`);
 });
-if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | |');
+if (opportunities.length === 0) md.push('| — | _nessun gap: tutte le professioni con segnale sono già coperte_ | | | | | | | | |');
 md.push('');
 md.push(`<details><summary>Già coperte (${coveredRows.length}) — escluse dal ranking</summary>`);
 md.push('');

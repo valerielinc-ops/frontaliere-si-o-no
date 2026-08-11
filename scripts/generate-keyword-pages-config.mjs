@@ -13,6 +13,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import {
+  keywordPageSlugify as slugify,
+  professionKeywordQuery,
+} from './lib/keyword-page-paths.mjs';
 import { isPromotable } from './lib/profession-taxonomy.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -21,14 +25,10 @@ const OUTPUT_PATH = path.join(ROOT, 'data/keyword-pages-config.json');
 
 // ── Helpers ──────────────────────────────────────────────────────────────
 
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 80);
-}
+// `slugify` is imported (as `keywordPageSlugify`) from lib/keyword-page-paths.mjs:
+// the weekly report predicts the URL a promotable profession will get, and it
+// can only do that if it slugifies exactly the way this script does. One copy,
+// no drift.
 
 // Stop words to filter out when computing query similarity
 const STOP_WORDS = new Set([
@@ -278,9 +278,11 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
       // with <3 matching jobs — feeding below that produces a page that
       // silently never emits. Missing field (stale file) → treat as 0.
       if ((Number(o.feedFilterJobCount) || 0) < 3) continue;
-      const label = String(o.label || '').replace(/\s*\([^)]*\)/g, '').trim().toLowerCase();
-      if (!label) continue;
-      const query = `${label} ticino`;
+      // Shared with the weekly report (lib/keyword-page-paths.mjs) so the URL
+      // it prints under "Pagina" is the one this loop actually creates.
+      const query = professionKeywordQuery(o.label);
+      if (!query) continue;
+      const label = query.replace(/\s+ticino$/, '');
       const slug = slugify(query);
       if (!slug || slug.length < 5 || usedSlugs.has(slug)) continue;
       if ([...COVERED_KEYWORDS].some(kw => query.includes(kw))) continue;
