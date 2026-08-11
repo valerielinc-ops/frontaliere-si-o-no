@@ -9737,6 +9737,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.title': 'Déménager à Sarre en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.excerpt': 'Taxe à la source, nouveaux taux et changements pour les frontaliers Tessin-Italie.',
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.imageAlt': 'Image éditoriale relative à: Trasferirsi a Sarre da frontaliere: pro e contro',
+    'blog.article.vivere-aosta-lavorare-vallese.title': 'Vivre à Aoste et travailler en Valais comme frontalier',
+    'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Guide pratique pour les déplacements entre Aoste et le Valais : liaisons, impôt à la source, gestion du change et règles pour les nouveaux et anciens frontaliers.',
+    'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Panorama alpin entre l\'Italie et la Suisse pour travailleurs frontaliers',
 };
 
 export default blogMetaFr;
