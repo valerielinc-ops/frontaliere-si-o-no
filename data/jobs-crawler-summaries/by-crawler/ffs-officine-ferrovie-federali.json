@@ -1,16 +1,17 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-08-11T10:27:25.778Z",
-  "total": 150,
+  "generatedAt": "2026-08-11T10:40:28.405Z",
+  "total": 146,
   "newCount": 5,
-  "updatedCount": 144,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 490270,
-  "avgDurationMs": 490270,
+  "updatedCount": 134,
+  "removedCount": 3,
+  "unchangedCount": 9,
+  "durationMs": 325909,
+  "avgDurationMs": 325909,
   "durationHistory": [
-    490270
+    490270,
+    325909
   ],
   "newJobs": [
     {
@@ -32,7 +33,7 @@
       "postedDate": "2026-08-11",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/planificateurtrice-des-ressources/d0fd71dc-3ee9-43cc-ac84-6c2d13f84a5a",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:19:55.614Z",
+      "crawledAt": "2026-08-11T10:35:41.758Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "postedDate": "2026-08-11",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-junior-m-f-d/42bb31a5-6a7b-4822-8037-23bf98c1415d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:20:06.746Z",
+      "crawledAt": "2026-08-11T10:35:46.408Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -88,7 +89,7 @@
       "postedDate": "2026-08-10",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/84e60310-488b-4b90-ac05-c5750f07bcef",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:19:57.286Z",
+      "crawledAt": "2026-08-11T10:35:36.529Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -174,7 +175,7 @@
       "postedDate": "2026-08-09",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-fachtechniker-in-industrie/831158b7-c0ce-431d-9cae-fcbecd8ae61b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:19:52.399Z",
+      "crawledAt": "2026-08-11T10:35:37.540Z",
       "firstSeenAt": "2026-08-10T21:52:11.563Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -203,7 +204,7 @@
       "postedDate": "2026-08-09",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/stellwerkangestellte-r-olten/0d9ff808-b381-4f4e-91d4-7d19415e9d14",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:19:57.334Z",
+      "crawledAt": "2026-08-11T10:35:39.344Z",
       "firstSeenAt": "2026-08-10T21:52:07.994Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -232,7 +233,7 @@
       "postedDate": "2026-08-09",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in/5ef089fc-36a2-4143-9d13-a2873562a2c6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:20:01.796Z",
+      "crawledAt": "2026-08-11T10:35:41.102Z",
       "firstSeenAt": "2026-08-10T21:52:15.263Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -261,7 +262,7 @@
       "postedDate": "2026-08-09",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-verkehrswegbauer-in-in-der-jochmontage-im-bahntechnikcenter/eeedc5ee-5152-4b3d-b7ce-d5db3244e682",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:20:18.447Z",
+      "crawledAt": "2026-08-11T10:36:00.412Z",
       "firstSeenAt": "2026-08-10T10:51:50.123Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -292,13 +293,18 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-11T10:20:18.460Z",
       "firstSeenAt": "2026-08-10T10:51:55.695Z",
-      "_qualityScore": 89,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
-      }
+        "completeness": 19
+      },
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "addressRegion": "SZ",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-82821a83af14",
@@ -319,37 +325,8 @@
       "postedDate": "2026-08-09",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/werkmitarbeiter-in-im-kraft-und-frequenzumformerwerk-massaboden-bitsch/f8476c63-19dc-4191-9a55-ac2e8623908a",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:20:22.538Z",
+      "crawledAt": "2026-08-11T10:36:04.092Z",
       "firstSeenAt": "2026-08-10T10:51:55.400Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "sbb-f4b61ab842ce",
-      "slug": "event-manager-regolazione-traffic-control-center-ffs-officine-ferrovie-federali-bern",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "jobs.sbb.ch",
-      "title": "Manager des événements Régulation Traffic Control Center",
-      "location": "Bern",
-      "canton": "BE",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "fr",
-      "postedDate": "2026-08-07",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/manager-des-evenements-regulation-traffic-control-center/7ee6737b-cdf9-4906-b7fb-a3aceaf6c3b1",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:20:35.680Z",
-      "firstSeenAt": "2026-08-07T10:15:00.091Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -580,7 +557,7 @@
       "postedDate": "2026-08-06",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4e8754c7-1122-4cc0-b301-dcbb260bbcbd",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:22.625Z",
+      "crawledAt": "2026-08-11T10:36:09.841Z",
       "firstSeenAt": "2026-08-07T01:11:36.738Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -609,7 +586,7 @@
       "postedDate": "2026-08-05",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-planification-et-disposition-des-machines-de-chantiers-ferroviaires-h-f-d/e56c46bf-c7e8-458f-8ca7-0f60cc1cf78f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:02.269Z",
+      "crawledAt": "2026-08-11T10:35:58.682Z",
       "firstSeenAt": "2026-08-06T11:41:42.769Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -638,7 +615,7 @@
       "postedDate": "2026-08-05",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-pianificazione-e-disposizione-macchine-per-la-posa-del-binario-m-f-d/2df49388-a7ad-4d84-b760-74802614caea",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:19.317Z",
+      "crawledAt": "2026-08-11T10:36:12.066Z",
       "firstSeenAt": "2026-08-07T21:47:41.637Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -667,7 +644,7 @@
       "postedDate": "2026-08-05",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/181b575a-0f66-4ee6-a4c0-f78ee17305db",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:41.990Z",
+      "crawledAt": "2026-08-11T10:36:36.255Z",
       "firstSeenAt": "2026-08-07T21:47:49.843Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -696,7 +673,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-jobcenter/3efd8ae4-3510-464c-8b50-2baeec18f745",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:21.565Z",
+      "crawledAt": "2026-08-11T10:36:10.917Z",
       "firstSeenAt": "2026-08-07T21:47:33.033Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -725,7 +702,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-jobcenter-h-f-d/4dbf35c3-130c-4edc-97b6-1bcc39fd6782",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:23.898Z",
+      "crawledAt": "2026-08-11T10:36:22.976Z",
       "firstSeenAt": "2026-08-07T21:47:35.383Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -754,7 +731,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-unite-production-vehicules/3b6c20f4-28c0-4043-a95f-444d0e0c0f26",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:37.327Z",
+      "crawledAt": "2026-08-11T10:36:37.586Z",
       "firstSeenAt": "2026-08-07T01:11:35.989Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -783,7 +760,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-jobcenter-m-f-d/b886717f-2886-436b-abde-69cfde862e4d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:38.973Z",
+      "crawledAt": "2026-08-11T10:36:28.173Z",
       "firstSeenAt": "2026-08-07T21:47:47.466Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -812,7 +789,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-fahrzeugproduktion/338f677a-2219-4a2e-9bfb-3768ef6c1fe2",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:41.985Z",
+      "crawledAt": "2026-08-11T10:36:33.371Z",
       "firstSeenAt": "2026-08-07T01:11:36.735Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -841,7 +818,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/naturgefahrenmanager-in/8d52012d-8f98-44f3-b568-4bf8780ff415",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:46.018Z",
+      "crawledAt": "2026-08-11T10:36:40.743Z",
       "firstSeenAt": "2026-08-07T01:11:42.343Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -870,7 +847,7 @@
       "postedDate": "2026-08-04",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ressourcenplaner-in-lenkung-kundenbegleitung/fe803151-63ce-4e0c-b9d6-84ffd97bb406",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:22:00.664Z",
+      "crawledAt": "2026-08-11T10:36:45.638Z",
       "firstSeenAt": "2026-08-07T01:11:53.940Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -928,7 +905,7 @@
       "postedDate": "2026-08-03",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/a2bf6a30-2758-4d43-8a39-c6eb43a2f4d0",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:21:55.300Z",
+      "crawledAt": "2026-08-11T10:36:33.901Z",
       "firstSeenAt": "2026-08-07T01:11:47.158Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -957,7 +934,7 @@
       "postedDate": "2026-08-03",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/portfoliomanager-in-instandhaltungsanlagen/38132e30-ca6f-4125-bdc9-9e110991bdc8",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:22:01.501Z",
+      "crawledAt": "2026-08-11T10:36:48.560Z",
       "firstSeenAt": "2026-08-07T01:11:57.522Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -986,7 +963,7 @@
       "postedDate": "2026-08-03",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/produktmanager-in-bildung/004bd588-2a7f-4e70-8126-c17925ac0149",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:22:15.270Z",
+      "crawledAt": "2026-08-11T10:36:52.881Z",
       "firstSeenAt": "2026-08-07T01:12:11.143Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -1015,7 +992,7 @@
       "postedDate": "2026-08-03",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/52cb6107-1a9a-4f9e-aa50-ed406bfe2895",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-08-11T10:22:24.830Z",
+      "crawledAt": "2026-08-11T10:36:59.829Z",
       "firstSeenAt": "2026-08-07T01:12:25.038Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -1050,6 +1027,74 @@
       "firstSeenAt": "2026-08-07T10:15:03.960Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
+      "addressRegion": "BE",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "sbb-f4b61ab842ce",
+      "slug": "event-manager-regolazione-traffic-control-center-ffs-officine-ferrovie-federali-bern",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Manager des événements Régulation Traffic Control Center",
+      "location": "Bern",
+      "canton": "BE",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "fr",
+      "postedDate": "2026-08-07",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/manager-des-evenements-regulation-traffic-control-center/7ee6737b-cdf9-4906-b7fb-a3aceaf6c3b1",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-08-09T21:40:06.072Z",
+      "firstSeenAt": "2026-08-07T10:15:00.091Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "addressRegion": "BE",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "sbb-a7664816d79c",
+      "slug": "centro-di-controllo-del-traffico-responsabile-eventi-ffs-officine-ferrovie-federali-bern",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Ereignismanager:in Traffic Control Center",
+      "location": "Bern",
+      "canton": "BE",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "de",
+      "postedDate": "2026-08-03",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/ereignismanager-in-traffic-control-center/9d690971-bd4e-479f-845a-5d1558ef7779",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-08-09T21:40:05.492Z",
+      "firstSeenAt": "2026-08-03T22:16:29.170Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
