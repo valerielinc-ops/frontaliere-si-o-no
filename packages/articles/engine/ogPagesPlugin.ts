@@ -19,6 +19,7 @@ import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
+import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -278,6 +279,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  let count = 0;
  let faqCount = 0;
+ // Article PAGES (one per locale) whose structured `.faq` was present but
+ // produced no FAQPage. `<articleId>:<locale>` -> reason.
+ const faqRejected = new Map<string, string>();
  let totalEntries = 0;
  const writtenEntries: RenderedArticleEntry[] = [];
 
@@ -700,24 +704,20 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const blogIndexSlug: Record<string, string> =
  SECTION.name === 'frontaliere' ? { ...shell.blogIndexSlugs } : { ...shell.swissBlogIndexSlugs };
 
+ // Both were chains of .replace() until 2026-08-11, which cannot decode
+ // escapes: each pass re-reads the previous pass's output, and `\\` — the
+ // escape that protects every other one — was resolved LAST. The source text
+ // `\\t` (a JSON tab escape, correctly spelled for a single-quoted TS
+ // literal) came out as `\` + a space, and for `faq` that lone backslash made
+ // JSON.parse throw, dropping the article's FAQPage schema and its visible
+ // accordion without a word. See shared/tsStringEscapes.ts for the full
+ // measurement; the two decoders now differ ONLY in what `\n` becomes.
  const unescapeTsString = (value: string): string =>
- value
- .replace(/\\'/g, '\'')
- .replace(/\\"/g, '"')
- .replace(/\\n/g, ' ')
- .replace(/\\r/g, '')
- .replace(/\\t/g, ' ')
- .replace(/\\\\/g, '\\');
+ decodeTsStringEscapes(value, { newlineAs: ' ' });
 
  // Preserves \n as actual newlines (needed for body markdown structure: headings/lists/FAQ).
  const unescapeTsStringRaw = (value: string): string =>
- value
- .replace(/\\'/g, '\'')
- .replace(/\\"/g, '"')
- .replace(/\\n/g, '\n')
- .replace(/\\r/g, '')
- .replace(/\\t/g, ' ')
- .replace(/\\\\/g, '\\');
+ decodeTsStringEscapes(value, { newlineAs: '\n' });
 
  const parseBlogMetaLocale = (locale: 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
@@ -768,7 +768,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  while ((m = rx.exec(src)) !== null) {
  const articleId = m[1];
  const field = m[2];
- const value = unescapeTsStringRaw(m[3]);
+ // `faq` is JSON and keeps its escapes verbatim for JSON.parse; body text
+ // is markdown, where a leftover literal `\n` is legacy corpus damage that
+ // renders as a visible backslash. See repairLegacyDoubleEscapedBreaks.
+ const decoded = unescapeTsStringRaw(m[3]);
+ const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
  if (!out[articleId]) out[articleId] = {};
  out[articleId][field] = value;
  }
@@ -1327,7 +1331,18 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .map((p: any) => ({ question: String(p.q), answer: String(p.a) }));
  if (faqPairsFromData!.length < 2) faqPairsFromData = null;
  }
- } catch { /* invalid JSON, fall through to heuristic */ }
+ if (!faqPairsFromData) faqRejected.set(`${en.articleId}:${locale}`, 'too-few-usable-pairs');
+ } catch {
+ // Was `catch { /* invalid JSON, fall through to heuristic */ }` — silent.
+ // Falling through is right (the heuristic still covers evergreen
+ // categories), but staying quiet is how 102 published articles could lose
+ // their FAQPage schema and their visible accordion with nothing to look at:
+ // no error, no exit code, no line in the build log. The fall-through is
+ // kept exactly as it was; only the counter below is new, so a corpus that
+ // starts emitting unreadable `.faq` is visible in the build output the
+ // same day instead of via a rich-results audit weeks later.
+ faqRejected.set(`${en.articleId}:${locale}`, 'json-parse');
+ }
  }
  }
 
@@ -1562,6 +1577,15 @@ ${headTags}
  const written = await collector.flush();
  const skippedHash = collector.skippedByHash;
  console.log(`\x1b[36m[og-pages]\x1b[0m [${opts.section}] Generated ${count} OG landing pages for ${totalEntries} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
+ // Never fatal: the heuristic fallback stays in charge and a corpus defect
+ // must not be able to fail a build. But it is no longer invisible.
+ if (faqRejected.size > 0) {
+ const byReason = new Map<string, number>();
+ for (const reason of faqRejected.values()) byReason.set(reason, (byReason.get(reason) ?? 0) + 1);
+ const breakdown = [...byReason].map(([r, n]) => `${r}=${n}`).join(', ');
+ const sample = [...faqRejected.keys()].slice(0, 5).join(', ');
+ console.warn(`\x1b[33m[og-pages]\x1b[0m [${opts.section}] ${faqRejected.size} article page(s) carry a .faq that produced no FAQPage (${breakdown}) — e.g. ${sample}`);
+ }
  return { written, entries: writtenEntries };
 }
 
