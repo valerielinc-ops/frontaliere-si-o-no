@@ -9720,6 +9720,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols Bankrupt: Luxury Chain at Risk',
     'blog.article.harvey-nichols-bancarotta.excerpt': 'Department store chain Harvey Nichols could be bankrupt within a year if it doesn\'t find new investors.',
     'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols at risk of bankruptcy',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Moving to La Salle from the border: pros and cons',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Setting up the tax at source for frontier workers: withholding tax in Switzerland and tax credit in Italy.',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in Lugano that is deciding whether to transfer to La Salle.',
 };
 
 export default blogMetaEn;

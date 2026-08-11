@@ -29154,6 +29154,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasferirsi-la-salle-frontaliere-pro-e-contro',
+ category: 'novita',
+ date: '2026-08-11T15:43:14.377Z',
+ image: '/images/blog/trasferirsi-la-salle-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
