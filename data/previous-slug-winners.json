@@ -1808,6 +1808,15 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::fr::pharmaassistent-in-kantonsspital-aarau-ksa-aarau": {
+    "winnerJobIdentifier": "ksa-1570a6c9765e",
+    "winnerCanonical": "pharmacienne-kantonsspital-aarau-ksa-aarau",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::fr::process-engineer-bimos-backend-80-100-f-m-d-hitachi-energy-lenzburg-switzerland": {
     "winnerJobIdentifier": "hitachi-energy-e29fd431bfd4",
     "winnerCanonical": "process-ingenieur-bimos-backend-assembly-80-100-f-m-d-hitachi-energy-lenzburg",
@@ -3239,6 +3248,15 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::it::pharmaassistent-in-kantonsspital-aarau-ksa-aarau": {
+    "winnerJobIdentifier": "ksa-1570a6c9765e",
+    "winnerCanonical": "farmacia-kantonsspital-aarau-ksa-aarau",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::pharmaassistent-in-ksa-ch": {
     "winnerJobIdentifier": "ksa-5467322ba4dc",
     "winnerCanonical": "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
@@ -4521,7 +4539,7 @@
     "winnerJobIdentifier": "company-py53qo",
     "winnerCanonical": "fachspezialistin-front-support-m-w-d-80-100-bank-cler-8440-mwst-che-py53qo-ka9jaz",
     "decidedAt": "2026-08-09T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.9333,
     "candidatesCount": 2,
     "canton": "BASILEA"
@@ -19385,6 +19403,15 @@
     "candidatesCount": 1,
     "canton": "GE"
   },
+  "GE::de::sales-associate-richemont-geneva": {
+    "winnerJobIdentifier": "richemont-18639d812af9",
+    "winnerCanonical": "vertriebsmitarbeiter-buccellati-geneva",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::de::schmuckmanager-europa-richemont-meyrin": {
     "winnerJobIdentifier": "richemont-31697e54915b",
     "winnerCanonical": "krankenhaus-intern-richemont-meyrin",
@@ -19794,7 +19821,7 @@
     "winnerJobIdentifier": "richemont-18639d812af9",
     "winnerCanonical": "associe-de-vente-buccellati-geneva",
     "decidedAt": "2026-08-08T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.125,
     "candidatesCount": 1,
     "canton": "GE"
@@ -20334,7 +20361,7 @@
     "winnerJobIdentifier": "richemont-18639d812af9",
     "winnerCanonical": "vendite-buccellati-geneva",
     "decidedAt": "2026-08-08T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "GE"
@@ -21285,20 +21312,20 @@
     "canton": "GR"
   },
   "GR::de::sekretar-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-df11e78e005b",
-    "winnerCanonical": "sekretar-in-kantonale-verwaltung-graubunden-chur",
-    "decidedAt": "2026-08-07T00:00:00.000Z",
+    "winnerJobIdentifier": "kanton-gr-1092ded3e147",
+    "winnerCanonical": "assistent-in-generalsekretar-kanton-gr-ch",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
     "lastSeenAt": "2026-08-11T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 2,
+    "score": 0.5714,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::sozialarbeiter-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-c7a2d1aa2314",
-    "winnerCanonical": "sozialarbeiter-in-kantonale-verwaltung-graubunden-cazis",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
-    "score": 0.2222,
+    "winnerJobIdentifier": "kanton-gr-60dc507c96d7",
+    "winnerCanonical": "sozialarbeiter-in-kanton-gr-ch-n953y5",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.8333,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -24504,6 +24531,15 @@
     "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::sozialarbeiter-in-kanton-gr-ch-2": {
+    "winnerJobIdentifier": "kanton-gr-37e57a650697",
+    "winnerCanonical": "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis-14f1aa",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur": {
@@ -29753,6 +29789,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::en::lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen": {
+    "winnerJobIdentifier": "raiffeisen-67bc497e7057",
+    "winnerCanonical": "apprenticeship-as-a-businessman-businesswoman-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-ticino",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::en::leitende-staatsanwaltin-leitenden-staatsanwalt-kanton-st-gallen-ch": {
     "winnerJobIdentifier": "kanton-st-gallen-bc1cc3a33b59",
     "winnerCanonical": "senior-prosecutor-chief-public-prosecutor-kanton-st-gallen-uznach",
@@ -31127,6 +31172,15 @@
     "decidedAt": "2026-06-10T00:00:00.000Z",
     "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen": {
+    "winnerJobIdentifier": "raiffeisen-67bc497e7057",
+    "winnerCanonical": "apprentissage-en-tant-qu-homme-d-affaires-femme-d-affaires-efz-branche-bank-debut-de-l-apprentissage-aout-2027-e7fbe2",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.1667,
     "candidatesCount": 2,
     "canton": "SG"
   },
@@ -46763,6 +46817,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-4": {
+    "winnerJobIdentifier": "rituals-cosmetics-37079e713e96",
+    "winnerCanonical": "stellvertreteretenner-filialleiter-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::technician-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino": {
     "winnerJobIdentifier": "hoval-fd8e3ab9018c",
     "winnerCanonical": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -46866,7 +46929,7 @@
     "winnerJobIdentifier": "company-faodkh",
     "winnerCanonical": "zurich-insurance-sede-ticino-lugano-faodkh",
     "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
     "canton": "TI"
@@ -47127,7 +47190,7 @@
     "winnerJobIdentifier": "fondation-soins-lausanne-f4678a6538e8",
     "winnerCanonical": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
     "decidedAt": "2026-08-08T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "VD"
@@ -47298,7 +47361,7 @@
     "winnerJobIdentifier": "fondation-soins-lausanne-6e1469263179",
     "winnerCanonical": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
     "decidedAt": "2026-08-07T00:00:00.000Z",
-    "lastSeenAt": "2026-08-10T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "VD"
@@ -51603,6 +51666,15 @@
     "lastSeenAt": "2026-07-27T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::de::padagogische-betreuungsassistenz-stadt-zuerich-zurigo-50949": {
+    "winnerJobIdentifier": "stadt-zuerich-f1adbf8ec2bc",
+    "winnerCanonical": "schulassistenz-stadt-zuerich-zurigo-51283",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::de::pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich": {
@@ -56889,10 +56961,10 @@
     "canton": "ZH"
   },
   "ZH::en::troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland-2": {
-    "winnerJobIdentifier": "hitachi-energy-085bcd2b25f9",
+    "winnerJobIdentifier": "hitachi-energy-44a574da83f0",
     "winnerCanonical": "project-manager-process-improvement-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-07-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
     "score": 0.5882,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -57672,11 +57744,11 @@
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-2aax6",
-    "winnerCanonical": "seller-denner-ag-zurich",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-05T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-pj7cl1",
+    "winnerCanonical": "seller-denner-ag-zurich-286be5",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -61974,11 +62046,11 @@
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-2aax6",
-    "winnerCanonical": "vendeur-denner-ag-zurich",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-05T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-pj7cl1",
+    "winnerCanonical": "vendeur-denner-ag-zurich-286be5",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -62547,6 +62619,15 @@
     "lastSeenAt": "2026-07-27T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::aide-domestique-et-educative-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-danikon-g37zxl": {
@@ -64799,6 +64880,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::domestic-and-educational-assistance-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::einstieg-ins-financial-consulting-unabhangige-vermogensberatung-80-100-vz": {
     "winnerJobIdentifier": "vz-vermoegenszentrum-a888c9013cc5",
     "winnerCanonical": "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-zurich-zurich",
@@ -65382,6 +65472,33 @@
     "lastSeenAt": "2026-07-14T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::hauswirtschaftliche-e-padagogische-betreuungsassistenz-stadt-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::hauswirtschaftliche-und-padagogische-betreuungsassistenz-stadt-zuerich-zurigo-50048": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::hauswirtschaftliche-und-padagogische-betreuungsassistenz-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::hilfsassistenz-oder-assistenz-mit-promotionsmoglichkeit-uzh-zurich": {
@@ -66941,6 +67058,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::padagogische-betreuungsassistenz-stadt-zurich-zurich": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::patissier-patissiere-coop-genossenschaft-zurich": {
     "winnerJobIdentifier": "company-f98hhe",
     "winnerCanonical": "pasticcere-panettiere-coop-genossenschaft-affoltern-am-albis",
@@ -68028,6 +68154,15 @@
     "lastSeenAt": "2026-07-27T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::schulassistenz-stadt-zuerich-zurigo-50949": {
+    "winnerJobIdentifier": "stadt-zuerich-cd1e096d0384",
+    "winnerCanonical": "assistenza-interna-stadt-zurich-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.125,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-lengghalde-2-zurich": {
@@ -70101,11 +70236,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-denner-ag-zurich": {
-    "winnerJobIdentifier": "company-fzpktp",
-    "winnerCanonical": "venditore-denner-ag-zurich-1ed56c",
-    "decidedAt": "2026-07-27T00:00:00.000Z",
-    "lastSeenAt": "2026-07-27T00:00:00.000Z",
-    "score": 0.4286,
+    "winnerJobIdentifier": "company-pj7cl1",
+    "winnerCanonical": "venditore-denner-ag-zurich",
+    "decidedAt": "2026-08-11T00:00:00.000Z",
+    "lastSeenAt": "2026-08-11T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
