@@ -1895,7 +1895,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.diventare-pastore-ticino.title': 'Diventare pastore in Ticino',
  'blog.article.diventare-pastore-ticino.excerpt': 'Il Canton Ticino offre una formazione per diventare pastore, rivolta a chiunque sia interessato.',
  'blog.article.diventare-pastore-ticino.imageAlt': 'Pastore in Ticino',
- 'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
+ 'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sarò l\'inferno". Il giallo dell\'ultimatum spostato a martedì',
  'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
  'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump annuncia un ultimato alla Cina',
  'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop richiama formaggi: possono contenere salmonelle',
