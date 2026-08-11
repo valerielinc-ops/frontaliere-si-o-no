@@ -9636,6 +9636,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.title': 'Vivre à Chiuro: le changements pour les frontaliers',
     'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.excerpt': 'Le nouvel accord frontalier : nouveautés et changements pour les frontaliers de Chiuro',
     'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliére avec sa famille en une journée ensoleillée à Chiuro',
+    'blog.article.bollettino-frontaliere-2026-08-11.title': 'Bulletin du frontalier – 11 août 2026 : 603 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-11.excerpt': 'Les chiffres du jour, 11 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-11.imageAlt': 'Les chiffres du jour pour les frontaliers – 11 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Bulletin du frontalier du 11 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'Les chiffres du 11 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

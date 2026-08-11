@@ -9635,6 +9635,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.title': 'Vivere a Chiuro e lavorare in Grigioni da frontaliere: cosa cambia e cosa fare',
     'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.excerpt': 'Il nuovo Accordo Frontalieri: novità e cambiamenti per i frontalieri di Chiuro',
     'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere con la sua famiglia in un giorno di sole a Chiuro',
+    'blog.article.bollettino-frontaliere-2026-08-11.title': 'Bollettino del frontaliere – 11 agosto 2026: 603 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-11.excerpt': 'I numeri di oggi, 11 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-11.imageAlt': 'I numeri del giorno per i frontalieri – 11 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Bollettino frontalieri del 11 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'I numeri del 11 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
