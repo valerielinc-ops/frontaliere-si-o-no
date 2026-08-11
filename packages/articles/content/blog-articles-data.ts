@@ -29262,6 +29262,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ingresso-in-svizzera-frontalieri-documenti-dogana',
+ category: 'pratico',
+ date: '2026-08-11T23:30:16.493Z',
+ image: '/images/blog/ingresso-in-svizzera-frontalieri-documenti-dogana.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

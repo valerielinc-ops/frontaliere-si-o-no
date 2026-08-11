@@ -65474,6 +65474,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ingresso-in-svizzera-frontalieri-documenti-dogana': {
+    title: 'Ingresso in Svizzera per i frontalieri: documenti e dogana',
+    description: 'Per gli ingressi in Svizzera, i frontaliere devono presentare i documenti corretti e seguire le procedure di dogana. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ingresso, documenti, dogana, ingressi',
+    ogTitle: 'Ingresso in Svizzera per i frontaliere: documenti e dogana',
+    ogDescription: 'Per gli ingressi in Svizzera, i frontaliere devono presentare i documenti corretti e seguire le procedure di dogana.',
+    canonicalPath: '/articoli-frontaliere/ingresso-in-svizzera-frontalieri-documenti-dogana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ingresso in Svizzera per i frontalieri: documenti e dogana",
+      "description": "Per gli ingressi in Svizzera, i frontaliere devono presentare i documenti corretti e seguire le procedure di dogana. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ingresso-in-svizzera-frontalieri-documenti-dogana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa al valico di Chiasso."
+      },
+      "datePublished": "2026-08-11T23:30:16+00:00",
+      "dateModified": "2026-08-11T23:30:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ingresso-in-svizzera-frontalieri-documenti-dogana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -9756,6 +9756,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Border taxation 2026: new agreement between Italy and Switzerland',
     'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'New agreement for the taxation of border workers, signed on 23 December 2020.',
     'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontaliers in line at Brogeda border crossing.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Entry into Switzerland for border workers: documents and customs',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'For entries into Switzerland, border guards must present the correct documents and follow customs procedures.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'A frontier worker waiting at the Chiasso border crossing.',
 };
 
 export default blogMetaEn;

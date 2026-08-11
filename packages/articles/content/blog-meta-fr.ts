@@ -9758,6 +9758,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Taxation des frontaliers 2026 : nouvel accord entre l\'Italie et la Suisse',
     'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'Nouvel accord pour la taxation des frontaliers, signé le 23 décembre 2020.',
     'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontaliers en file au poste frontière de Brogeda.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Entrée en Suisse pour les frontaliers : documents et douane',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'Pour les entrées en Suisse, les frontaliers doivent présenter les documents corrects et suivre les procédures douanières.',
+    'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'Un travailleur frontalier en attente au poste frontalier de Chiasso.',
 };
 
 export default blogMetaFr;
