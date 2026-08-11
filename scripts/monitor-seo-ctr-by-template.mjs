@@ -28,7 +28,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
-import { SEO_CTR_FAMILIES, aggregateFamilyRows } from './lib/seo-ctr-curve.mjs';
+import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -53,11 +53,14 @@ function loadState() {
   }
 }
 
-async function openOrCommentIssue({ family, ctr, target, run }) {
+async function openOrCommentIssue({ family, ctr, target, position, run }) {
   if (dryRun) {
     console.log(`   [dry-run] avrei aperto/commentato issue per ${family.label}`);
     return;
   }
+  const targetBasis = Number.isFinite(Number(family.targetCtrCurveMultiple)) && position !== null
+    ? `${family.targetCtrCurveMultiple}× la CTR attesa per la posizione media ${Number(position).toFixed(2)}`
+    : 'soglia assoluta dichiarata nel registro';
   try {
     const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
     await createGithubIssue({
@@ -66,7 +69,8 @@ async function openOrCommentIssue({ family, ctr, target, run }) {
 
 **Path family:** \`${family.pathContains}\`
 **CTR attuale (14gg):** ${pct(ctr)}
-**Target:** ${pct(target)}
+**Target:** ${pct(target)} (${targetBasis})
+**Posizione media ponderata (14gg):** ${position === null ? 'n/a' : Number(position).toFixed(2)}
 **Check consecutivi sotto soglia:** ${run}
 
 Il monitor CTR-per-template (issue #4300, scripts/monitor-seo-ctr-by-template.mjs)
@@ -96,12 +100,18 @@ async function main() {
     const prior = state.families[family.id] || { consecutiveBelowRuns: 0 };
 
     let ctr = null;
+    let position = null;
+    // Recomputed per run: for a family with a curve multiple the floor tracks
+    // the measured position instead of being frozen in the registry.
+    let target = effectiveTargetCtr(family, null);
     try {
       const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains: family.pathContains });
       const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
       const agg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
       ctr = agg.avgCtr;
-      console.log(`   CTR (${WINDOW_DAYS}gg): ${pct(ctr)} | target: ${pct(family.targetCtr)} | pagine: ${agg.pageCount}`);
+      position = agg.avgPosition;
+      target = effectiveTargetCtr(family, position);
+      console.log(`   CTR (${WINDOW_DAYS}gg): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
     } catch (e) {
       console.warn(`   ⚠️ errore GSC, salto questo giro: ${e.message}`);
       // Don't touch the counter on a fetch failure — avoid false escalation
@@ -110,13 +120,13 @@ async function main() {
       continue;
     }
 
-    const belowTarget = ctr !== null && ctr < family.targetCtr;
+    const belowTarget = ctr !== null && target !== null && ctr < target;
     const consecutiveBelowRuns = belowTarget ? (prior.consecutiveBelowRuns || 0) + 1 : 0;
 
     if (belowTarget) {
       console.log(`   ⚠️ sotto soglia (giro consecutivo #${consecutiveBelowRuns})`);
       if (consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE) {
-        await openOrCommentIssue({ family, ctr, target: family.targetCtr, run: consecutiveBelowRuns });
+        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns });
       }
     } else {
       console.log('   ✅ CTR nella norma');
@@ -125,6 +135,8 @@ async function main() {
     state.families[family.id] = {
       consecutiveBelowRuns,
       lastCtr: ctr,
+      lastPosition: position,
+      lastTargetCtr: target,
       lastCheckedIso: nowIso,
       lastError: null,
     };

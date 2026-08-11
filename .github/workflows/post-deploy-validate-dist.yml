@@ -1332,6 +1332,51 @@ jobs:
             awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:job-title-locale(report-only)\", $end-$start}" \
               >> /tmp/post-build-timings.txt
           ) &
+
+          # seo/meta-description-audit — REPORT ONLY, same idiom and same
+          # rationale as job-title-locale above.
+          #
+          # Why it is HERE and not in tests.yml: it needs a real dist/, and
+          # neither `typecheck` nor `vitest (unit + integration)` builds or
+          # downloads one. Adding a THIRD job to tests.yml would also be
+          # ornamental — auto-merge keys on the single check-run name
+          # `vitest (unit + integration)` (scripts/ci/lib/constants.mjs), so a
+          # sibling job there is never consulted. This pool is where every
+          # other dist reader already runs.
+          #
+          # Why report-only and not spawn_capped: the script always exits 0 by
+          # construction (fail-soft, stub report on a missing/empty dist), so
+          # feeding it to the gate wrapper would assert a contract it does not
+          # have. It is a measurement, and until now it was a measurement
+          # nobody ever took: the script was ORPHANED — zero references in
+          # .github/workflows/**, package.json and scripts/ci/**. The "19 su 22
+          # pagine lavoro senza meta description" in issue #5412 is the residue
+          # of one manual run, never re-measured, and it was wrong: the reader
+          # required quotes around `description` and dist is minified with
+          # `removeAttributeQuotes`. Measured 2026-08-11 on 200 production job
+          # pages: old reader 200/200 "missing", 0/200 actually missing.
+          #
+          # Cost: one dist walk with a regex per file, no JSON.parse of a large
+          # data file and no browser — the lightest class in this pool. Report
+          # goes to /tmp, never into the checked-out tree, and not into
+          # dist/audit-reports/ whose `gate-offenders` jq line below expects a
+          # gate-shaped record.
+          wait_slot
+          (
+            set +e
+            start=$(date +%s.%N)
+            node scripts/seo/meta-description-audit.mjs \
+              --dist=dist --out=/tmp/meta-description-reports \
+              > /tmp/meta-description-audit.log 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            echo "" >> /tmp/meta-description-audit.log
+            echo "[report-only] seo/meta-description-audit exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates" \
+              >> /tmp/meta-description-audit.log
+            # `rc=0` is HARD-CODED on purpose — see the bullet above.
+            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(report-only)\", $end-$start}" \
+              >> /tmp/post-build-timings.txt
+          ) &
           # audit:image-object-license migrated into `npm run audit:all`
           # (see scripts/audit-all.mjs REGISTRY). Single dist walk, in-process
           # JSON-LD parse — removes 34 s of standalone wall time from the
@@ -1392,6 +1437,19 @@ jobs:
           echo "Job title locale — REPORT ONLY, not a gate (100 % of data/jobs.json)"
           echo "══════════════════════════════════════════════════════════════════════"
           cat /tmp/job-title-locale.log 2>/dev/null || true
+          echo "══════════════════════════════════════════════════════════════════════"
+
+          # Same argument again: the meta-description report has no failure
+          # branch, the reports/ directory it writes is NOT in the artifact
+          # upload path below (which is `if: failure()` and globs
+          # dist/audit-reports/**), so the job log is the only place this
+          # number survives. A measurement nobody can read is the same defect
+          # as a measurement nobody takes.
+          echo ""
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "Meta description — REPORT ONLY, not a gate (100 % of dist/*.html)"
+          echo "══════════════════════════════════════════════════════════════════════"
+          cat /tmp/meta-description-audit.log 2>/dev/null || true
           echo "══════════════════════════════════════════════════════════════════════"
 
           echo ""

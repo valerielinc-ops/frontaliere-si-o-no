@@ -3,7 +3,9 @@ import {
   expectedCtrForPosition,
   ctrGapRatio,
   aggregateFamilyRows,
+  effectiveTargetCtr,
   SEO_CTR_FAMILIES,
+  MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
 
 describe('seo-ctr-curve (issue #4300)', () => {
@@ -49,12 +51,112 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(byId['tasse-e-pensione'].monitored).toBe(true);
     });
 
-    it('marks the 2 reference families as report-only (unmonitored, no target)', () => {
+    it('keeps the /de/ locale prefix report-only (unmonitored, no target)', () => {
       const byId = Object.fromEntries(SEO_CTR_FAMILIES.map((f) => [f.id, f]));
+      expect(byId['de'].kind).toBe('locale');
       expect(byId['de'].monitored).toBe(false);
       expect(byId['de'].targetCtr).toBeNull();
-      expect(byId['cerca-lavoro-ticino'].monitored).toBe(false);
-      expect(byId['cerca-lavoro-ticino'].targetCtr).toBeNull();
+    });
+
+    it('monitors /cerca-lavoro-ticino/, the highest-volume family', () => {
+      // Regression guard for the state this test itself used to pin: the
+      // family was `monitored: false, targetCtr: null` while carrying
+      // 911.138 impressioni / 90gg — 2,4× le tre famiglie sorvegliate insieme.
+      const byId = Object.fromEntries(SEO_CTR_FAMILIES.map((f) => [f.id, f]));
+      const fam = byId['cerca-lavoro-ticino'];
+      expect(fam.kind).toBe('template');
+      expect(fam.monitored).toBe(true);
+      expect(fam.targetCtrCurveMultiple).toBeGreaterThan(1);
+      expect(fam.targetCtr).toBeGreaterThan(0);
+    });
+
+    it('every family carries a measured 90-day impression volume', () => {
+      // The invariant below is only as good as its input: a family with no
+      // `impressions90d` would slip under any volume threshold for free.
+      for (const family of SEO_CTR_FAMILIES) {
+        expect(
+          Number.isFinite(family.impressions90d),
+          `${family.id}: manca impressions90d (misura GSC a 90 giorni)`,
+        ).toBe(true);
+        expect(family.impressions90d, `${family.id}: impressions90d non positivo`).toBeGreaterThan(0);
+        expect(typeof family.measuredOn, `${family.id}: manca measuredOn`).toBe('string');
+      }
+    });
+
+    it('THE INVARIANT: every template family above the volume threshold is monitored with a usable target', () => {
+      // This is the test the missing `/cerca-lavoro-ticino/` entry needed and
+      // did not have. Without it, dropping `monitored: true` is a silent
+      // one-word edit that no gate notices.
+      const offenders = SEO_CTR_FAMILIES.filter(
+        (f) => f.kind === 'template' && f.impressions90d >= MIN_IMPRESSIONS_TO_MONITOR && !f.monitored,
+      ).map((f) => `${f.id} (${f.impressions90d} impressioni/90gg)`);
+      expect(
+        offenders,
+        `famiglie template sopra ${MIN_IMPRESSIONS_TO_MONITOR} impressioni/90gg lasciate fuori dal monitor: ${offenders.join(', ')}`,
+      ).toEqual([]);
+
+      for (const family of SEO_CTR_FAMILIES.filter((f) => f.monitored)) {
+        // A monitored family whose target resolves to null (or to 0) would
+        // make `ctr < target` always false — a monitor that can never fire.
+        const target = effectiveTargetCtr(family, 8);
+        expect(target, `${family.id}: target effettivo non risolvibile`).not.toBeNull();
+        expect(target, `${family.id}: target effettivo non positivo`).toBeGreaterThan(0);
+      }
+    });
+
+    it('the `locale` exemption cannot be used to hide a template family', () => {
+      // `kind: 'locale'` is the only way out of the invariant above, so it is
+      // pinned to an actual locale root. Relabelling e.g. /cerca-lavoro-ticino/
+      // as `locale` to silence the invariant fails here.
+      for (const family of SEO_CTR_FAMILIES.filter((f) => f.kind === 'locale')) {
+        expect(
+          family.pathContains,
+          `${family.id}: kind 'locale' ammesso solo su una radice /xx/`,
+        ).toMatch(/^\/(en|de|fr|it)\/$/);
+      }
+      for (const family of SEO_CTR_FAMILIES) {
+        expect(['template', 'locale'], `${family.id}: kind sconosciuto`).toContain(family.kind);
+      }
+    });
+  });
+
+  describe('effectiveTargetCtr', () => {
+    const curveFamily = { id: 'x', targetCtr: 0.053, targetCtrCurveMultiple: 1.9 };
+    const staticFamily = { id: 'y', targetCtr: 0.03 };
+
+    it('derives the target from the position curve when a multiple is declared', () => {
+      // expectedCtrForPosition(8.61) → bucket 9 → 0.028; 1.9 × 0.028 = 0.0532
+      expect(effectiveTargetCtr(curveFamily, 8.61)).toBeCloseTo(1.9 * 0.028, 10);
+    });
+
+    it('moves the target with the position instead of freezing it', () => {
+      const atFour = effectiveTargetCtr(curveFamily, 4);
+      const atFifteen = effectiveTargetCtr(curveFamily, 15);
+      expect(atFour).toBeGreaterThan(atFifteen);
+    });
+
+    it('falls back to the static target when the position is unusable', () => {
+      expect(effectiveTargetCtr(curveFamily, null)).toBe(0.053);
+      expect(effectiveTargetCtr(curveFamily, NaN)).toBe(0.053);
+      expect(effectiveTargetCtr(curveFamily, 0)).toBe(0.053);
+    });
+
+    it('leaves families without a curve multiple on their static target', () => {
+      expect(effectiveTargetCtr(staticFamily, 8.61)).toBe(0.03);
+    });
+
+    it('returns null for a report-only family', () => {
+      expect(effectiveTargetCtr({ id: 'z', targetCtr: null }, 8.61)).toBeNull();
+    });
+
+    it('would not fire on the /cerca-lavoro-ticino/ CTR measured on 2026-08-11', () => {
+      // Sanity check that the chosen threshold is neither ornamental nor
+      // trigger-happy: at the measured 6,63% / pos 8,61 the family is above
+      // target, and a 25% CTR regression at the same position drops below it.
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'cerca-lavoro-ticino')!;
+      const target = effectiveTargetCtr(fam, 8.61)!;
+      expect(0.0663).toBeGreaterThan(target);
+      expect(0.0663 * 0.75).toBeLessThan(target);
     });
   });
 

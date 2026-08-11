@@ -46,6 +46,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 
 export const SOLINA_KEY = 'solina';
 export const SOLINA_COMPANY_NAME = 'Stiftung Solina';
@@ -120,9 +121,26 @@ function extractTitle(html) {
   return normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
 }
 
-function extractMetaDescription(html) {
-  const m = html.match(/<meta\s+name="description"\s+content="([^"]+)"/i);
-  return m ? decodeEntities(m[1]).trim() : '';
+/**
+ * Meta description of a detail page. On Solina this is not a fallback: it is
+ * the ONLY source of pensum and city (see `parseMetaDescription` below), so an
+ * empty result silently downgrades every job to the default city.
+ *
+ * Reads through the shared `meta-description-extract.mjs` instead of a local
+ * regex. The old `/<meta\s+name="description"\s+content="([^"]+)"/i` was
+ * quote-strict, order-strict AND whitespace-strict: an unquoted
+ * `name=description` (what every HTML minifier emits for a single-token
+ * attribute value), a `content`-before-`name` tag or a newline between the two
+ * attributes all matched nothing and returned '' with no error. The HTML is
+ * onlyfy's, not ours — nothing tells us the day its head gets minified.
+ *
+ * The Raw variant is deliberate: the live value is double-encoded
+ * (`ab&amp;nbsp;60%`), so it must be decoded exactly once, by this parser's own
+ * `decodeEntities`. Returns '' on absence, exactly like the regex it replaces.
+ */
+export function extractMetaDescription(html) {
+  const raw = extractMetaDescriptionRaw(html);
+  return raw === null ? '' : decodeEntities(raw).trim();
 }
 
 /**

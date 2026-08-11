@@ -9,8 +9,15 @@
  * keywords, this test acts as a CI gate so the count cannot grow.
  *
  * The test is dist-driven: it skips silently when `dist/` does not
- * exist locally so `npm test` continues to work without a build. CI
- * builds dist before running tests, so the gate is enforced in CI.
+ * exist locally so `npm test` continues to work without a build.
+ *
+ * NOTE (2026-08-11): the opt-in switch below is `RUN_DIST_GATES=1`, and
+ * grepping `.github/workflows/**` + `package.json` for it returns ZERO
+ * hits — no job builds dist before vitest either (tests.yml has only
+ * `typecheck` and `vitest (unit + integration)`, neither of which emits
+ * dist). So this gate does not currently run anywhere; the description
+ * reader below is kept correct so that enabling it is a one-line change
+ * and not a debugging session. Wiring it is tracked separately.
  *
  * TODO(seo): once the fallback descriptions are parameterised in the
  * emit plugins (staticPagesPlugin, ogPagesPlugin, jobsSeoPagesPlugin),
@@ -19,6 +26,7 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { extractMetaDescriptionRaw } from '../scripts/lib/meta-description-extract.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
 const MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2;
@@ -47,16 +55,16 @@ function walkHtml(dir: string, out: string[] = []): string[] {
  return out;
 }
 
+/**
+ * Shared quote-agnostic reader. The local pair of regexes this replaces
+ * claimed to be "tolerant of attribute order and quote style" but required
+ * literal quotes around `description`, which `removeAttributeQuotes`
+ * (PR #478) strips on every minified page: the gate saw NOTHING on the whole
+ * job funnel and could not have flagged a duplicate there. Measured on 200
+ * production job pages: old readers 200/200 "missing", shared reader 0/200.
+ */
 function extractMetaDescription(html: string): string | null {
- // Tolerant of attribute order and quote style.
- const match = html.match(
- /<meta\s+(?:[^>]*\s)?name=["']description["'][^>]*\scontent=["']([^"']*)["'][^>]*>/i,
- );
- if (match) return match[1];
- const reverse = html.match(
- /<meta\s+(?:[^>]*\s)?content=["']([^"']*)["'][^>]*\sname=["']description["'][^>]*>/i,
- );
- return reverse ? reverse[1] : null;
+ return extractMetaDescriptionRaw(html);
 }
 
 describe('dist HTML — duplicate meta description gate (Semrush E6)', () => {

@@ -55,49 +55,156 @@ export function ctrGapRatio(actualCtr, position) {
 }
 
 /**
- * Template families targeted by issue #4300, plus two reference families
- * cited in the issue as healthy CTR benchmarks (report-only — no target,
- * never trigger the monitor).
+ * MIN_IMPRESSIONS_TO_MONITOR — the volume above which a TEMPLATE family must
+ * be monitored. Enforced by tests/seo-ctr-curve.test.ts against the measured
+ * `impressions90d` recorded on each entry, so a high-volume family cannot be
+ * silently left out of the monitor again (it already happened once: see the
+ * `cerca-lavoro-ticino` entry below).
  *
- * `targetCtr` values come directly from the issue's acceptance criteria.
+ * 50k impressions / 90 days ≈ 555/day. Below that a 14-day window carries too
+ * few impressions for the weekly check to distinguish a real CTR drop from
+ * noise; above it, a single point of CTR is worth thousands of clicks a
+ * quarter and the family has to be watched.
+ */
+export const MIN_IMPRESSIONS_TO_MONITOR = 50_000;
+
+/**
+ * Template families targeted by issue #4300, plus the `/de/` locale prefix
+ * kept as a report-only reference.
+ *
+ * FIELDS
+ *   kind          'template' = one page template with its own title/description
+ *                 generator, i.e. something the monitor's remediation advice can
+ *                 actually point at. 'locale' = a cross-cutting language prefix
+ *                 that aggregates pages of EVERY template; its CTR cannot be
+ *                 attributed to any one generator, so it is exempt from the
+ *                 monitored-above-threshold invariant. The test pins `locale` to
+ *                 an actual `/xx/` locale root so the exemption cannot be used
+ *                 to dodge the invariant by relabelling a template family.
+ *   impressions90d  measured GSC impressions over a trailing 90 days — the input
+ *                 to the invariant. `measuredOn` records when.
+ *   targetCtr     absolute CTR floor (fraction). Used as-is when the family
+ *                 declares no curve multiple, and as the fallback when GSC
+ *                 returns no usable average position.
+ *   targetCtrCurveMultiple  when set, the effective target is
+ *                 `multiple × expectedCtrForPosition(avgPosition)` — see
+ *                 effectiveTargetCtr() below.
  */
 export const SEO_CTR_FAMILIES = [
   {
     id: 'articoli-frontaliere',
     label: 'Articoli (blog)',
     pathContains: '/articoli-frontaliere/',
+    kind: 'template',
     targetCtr: 0.03,
     monitored: true,
+    // GSC 2026-05-13 → 2026-08-08, dataState final: 242.986 imp, CTR 2,03%, pos 7,56.
+    impressions90d: 242986,
+    measuredOn: '2026-08-11',
   },
   {
     id: 'guida-frontaliere',
     label: 'Guida frontaliere',
     pathContains: '/guida-frontaliere/',
+    kind: 'template',
     targetCtr: 0.035,
     monitored: true,
+    // GSC 2026-05-13 → 2026-08-08: 84.951 imp, 1.773 click, CTR 2,09%, pos 9,51.
+    impressions90d: 84951,
+    measuredOn: '2026-08-11',
   },
   {
     id: 'tasse-e-pensione',
     label: 'Tasse e pensione',
     pathContains: '/tasse-e-pensione/',
+    kind: 'template',
     targetCtr: 0.03,
     monitored: true,
+    // GSC 2026-05-13 → 2026-08-08: 45.387 imp, 670 click, CTR 1,48%, pos 6,76.
+    // Under MIN_IMPRESSIONS_TO_MONITOR but monitored anyway — the invariant is
+    // a floor on what MUST be watched, not a ceiling on what may be.
+    impressions90d: 45387,
+    measuredOn: '2026-08-11',
+  },
+  {
+    // The single highest-value family on the property, and it sat here with
+    // `monitored: false, targetCtr: null` from #4300 onward because the issue
+    // cited it as a healthy *benchmark*. Measured 2026-08-11 over GSC
+    // 2026-05-13 → 2026-08-08 (dataState final): 911.138 impressioni, 60.373
+    // click, CTR 6,63%, posizione media ponderata 8,61 — 2,4× le impressioni e
+    // 3,4× i click pesati delle tre famiglie sorvegliate MESSE INSIEME, su
+    // pubblico svizzero (CPC 0,17 contro 0,05 dell'italiano). Un punto di CTR
+    // qui vale ~9.111 click / 90gg ≈ 3.037 al mese. Non sorvegliarla era la
+    // cosa più costosa che questo registro potesse fare.
+    id: 'cerca-lavoro-ticino', // cathedral-allow: GSC family identifier for CTR aggregation, not a URL emission site
+    label: 'Cerca lavoro Ticino',
+    pathContains: '/cerca-lavoro-ticino/',
+    kind: 'template',
+    monitored: true,
+    // WHY NOT 0.035 like the Italian families: at 6,63% a 3,50% floor is 47%
+    // below where the family lives — it could never fire, and an alarm that
+    // cannot fire is decoration. WHY NOT the raw position curve either: at
+    // position 8,61 the generic organic benchmark expects 2,8%, so this family
+    // already beats its position by 2,37× (Swiss job-search intent) and 2,8%
+    // would be even more ornamental than 3,50%.
+    // So the target is expressed on the family's OWN position↔CTR curve:
+    // 80% of the demonstrated 2,37× ratio → 1,9× the position-expected CTR.
+    // Today that is 1,9 × 2,8% = 5,32%, i.e. the monitor escalates after a
+    // ~20% CTR regression sustained for 2 consecutive weekly runs. Because the
+    // target moves with the measured position, a pure ranking loss does NOT
+    // fire it — that is deliberate: this monitor answers "is the snippet still
+    // earning its position", which is the question its remediation advice
+    // (title/description generators) can actually act on.
+    targetCtrCurveMultiple: 1.9,
+    // Fallback floor when GSC gives no usable position: 80% of the measured
+    // 6,63%, the same 20%-regression trigger expressed as an absolute.
+    targetCtr: 0.053,
+    impressions90d: 911138,
+    measuredOn: '2026-08-11',
   },
   {
     id: 'de',
     label: 'DE locale (riferimento)',
     pathContains: '/de/',
+    // Locale prefix, not a template: `/de/` aggregates the German variant of
+    // every family at once, so a CTR reading here cannot be attributed to any
+    // single description generator and the issue the monitor would open would
+    // have no actionable path. Report-only by construction.
+    kind: 'locale',
     targetCtr: null,
     monitored: false,
-  },
-  {
-    id: 'cerca-lavoro-ticino', // cathedral-allow: GSC family identifier for CTR aggregation, not a URL emission site
-    label: 'Cerca lavoro Ticino (riferimento)',
-    pathContains: '/cerca-lavoro-ticino/',
-    targetCtr: null,
-    monitored: false,
+    // GSC 2026-05-13 → 2026-08-08: 518.608 imp, 18.541 click, CTR 3,58%, pos 12,52.
+    impressions90d: 518608,
+    measuredOn: '2026-08-11',
   },
 ];
+
+/**
+ * The CTR floor a family is actually judged against on a given run.
+ *
+ * When the family declares `targetCtrCurveMultiple` AND the run produced a
+ * usable weighted average position, the floor is derived from the position
+ * curve — `multiple × expectedCtrForPosition(avgPosition)` — so the threshold
+ * follows the family instead of being a number frozen in a file. Otherwise the
+ * static `targetCtr` is used, which is what the three #4300 families still do.
+ *
+ * Shared by scripts/monitor-seo-ctr-by-template.mjs and
+ * scripts/seo-ctr-baseline.mjs for the same sibling-pattern reason the curve
+ * itself is shared: the two call sites must not disagree on what "below
+ * target" means.
+ *
+ * Returns null when the family has no target at all (report-only families).
+ */
+export function effectiveTargetCtr(family, avgPosition) {
+  if (!family) return null;
+  const multiple = Number(family.targetCtrCurveMultiple);
+  const position = Number(avgPosition);
+  if (Number.isFinite(multiple) && multiple > 0 && Number.isFinite(position) && position >= 1) {
+    const expected = expectedCtrForPosition(position);
+    if (expected) return multiple * expected;
+  }
+  return family.targetCtr ?? null;
+}
 
 /**
  * Aggregate a list of GSC page rows ({clicks, impressions, ctr, position})
