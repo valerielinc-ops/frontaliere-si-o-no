@@ -2110,6 +2110,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.logitech-2026-2027.title': 'Logitech: esercizio 2026/2027 parte bene, risultati sopra le attese',
     'blog.article.logitech-2026-2027.excerpt': 'Logitech: nel primo trimestre 2026/2027, ricavi per 1,2 miliardi di dollari, Ebit +60% e utile netto +61%',
     'blog.article.logitech-2026-2027.imageAlt': 'Logo di Logitech',
+    'blog.article.mammut-proprieta-investitore-cinese.title': 'Mammut cambia proprietà: investitore cinese rileva il marchio',
+    'blog.article.mammut-proprieta-investitore-cinese.excerpt': 'Lo storico marchio svizzero di abbigliamento outdoor Mammut passa alla società cinese CPE. L\'operazione, secondo Bloomberg, vale circa 463 milioni di franchi.',
+    'blog.article.mammut-proprieta-investitore-cinese.imageAlt': 'Panorama alpino svizzero con edificio moderno',
 };
 
 export default blogMetaChIt;
