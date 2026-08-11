@@ -1,18 +1,55 @@
 {
   "key": "imad",
   "label": "imad",
-  "generatedAt": "2026-08-10T21:47:50.560Z",
+  "generatedAt": "2026-08-11T10:18:56.420Z",
   "total": 9,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5481,
-  "avgDurationMs": 5481,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4035,
+  "avgDurationMs": 4035,
   "durationHistory": [
-    5481
+    4035
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "imad-ca4890e4ece7",
+      "slug": "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction",
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Infirmier.ère spécialiste clinique / Centre des pratiques interprofessionnelles - Direction des opérations / à 80% / en CDI",
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000142822529-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-11T10:18:54.046Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-11",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000142822529-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
+      "jobReqId": "744000142822529",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "imad-d9836310b708",
@@ -27,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141841408-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.875Z",
+      "crawledAt": "2026-08-11T10:18:54.050Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141447514-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.893Z",
+      "crawledAt": "2026-08-11T10:18:54.049Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000140904529-charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.892Z",
+      "crawledAt": "2026-08-11T10:18:54.048Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000140419269-responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.889Z",
+      "crawledAt": "2026-08-11T10:18:54.047Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.879Z",
+      "crawledAt": "2026-08-11T10:18:54.051Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.894Z",
+      "crawledAt": "2026-08-11T10:18:54.050Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.896Z",
+      "crawledAt": "2026-08-11T10:18:54.051Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:47:46.895Z",
+      "crawledAt": "2026-08-11T10:18:54.052Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -311,8 +348,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "imad-1d6f9f5fbc8c",
       "slug": "lavoratore-sociale-umus-90-cdi-imad-geneva-a3d172",
@@ -353,5 +389,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
