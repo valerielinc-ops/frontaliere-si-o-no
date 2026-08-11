@@ -393,7 +393,12 @@ const MARKER_SETS = {
     functionWords:
       /\b(?:mit|und|fuer|bei|beim|oder|von|vom|zur|zum|im|der|den|dem|das|ein|eine|einen|einem|einer|aus|auf|nach|ueber|unter|sowie|als|zwischen|waehrend|stv|inkl|gesucht)\b/,
     minFunctionWordHits: 1,
-    orthography: /[äöüß]/,
+    // Case-insensitive AND an explicit uppercase-ß alternative: the `i` flag
+    // folds Ä/Ö/Ü to äöü, but ß has no case-fold pair in this engine (its
+    // uppercase form ẞ is a distinct codepoint JS regex `i` does not map back
+    // to ß), so an all-caps title like "GRUPPENLEITER STRASSENUNTERHALT" would
+    // otherwise slip past this signal entirely.
+    orthography: /[äöüßẞ]/i,
     lexical: (folded) =>
       DE_EXACT_TOKENS.has(folded) ||
       (folded.length >= 5 && DE_STEM_RE.test(folded)) ||
