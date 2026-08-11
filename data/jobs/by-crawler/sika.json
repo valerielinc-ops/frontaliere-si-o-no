@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-08-11T10:45:02.278Z",
+  "assembledAt": "2026-08-11T22:28:15.594Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:59.387Z",
+      "crawledAt": "2026-08-11T22:28:11.403Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -52,14 +52,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
+        "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
+        "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
+          "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
+          "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:50.424Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -104,7 +107,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-940b711a-b652-4ad9-aef0-f29229b8a9d8.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:58.545Z",
+      "crawledAt": "2026-08-11T22:28:10.264Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -123,14 +126,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-service-representative-100-m-w-d-sika-ch"
+        "customer-service-representative-100-m-w-d-sika-ch",
+        "servizio-clienti-representative-100-m-w-d-sika-sarnen-obwalden-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-service-representative-100-m-w-d-sika-ch"
+          "customer-service-representative-100-m-w-d-sika-ch",
+          "servizio-clienti-representative-100-m-w-d-sika-sarnen-obwalden-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-04T11:40:53.416Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -159,7 +165,7 @@
       "title": "Automatiker/Elektriker Instandhaltung (m/w)",
       "titleByLocale": {
         "it": "Manutenzione automatica/elettrica (m/f)",
-        "en": "Automatic / Electrician Maintenance (m/f)",
+        "en": "Automatiker/Elektriker Instandhaltung (m/w)",
         "de": "Automatiker/Elektriker Instandhaltung (m/w)",
         "fr": "Maintenance de technicien/électricien en automatisation (m/f)"
       },
@@ -175,7 +181,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:57.307Z",
+      "crawledAt": "2026-08-11T22:28:09.366Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -194,11 +200,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        "automatiker-elektriker-instandhaltung-m-w-sika-ch",
+        "manutenzione-automatica-elettrica-m-f-sika-dudingen-canton-of-fribourg-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch",
+          "manutenzione-automatica-elettrica-m-f-sika-dudingen-canton-of-fribourg-switzerland"
         ],
         "en": [
           "automatiker-elektriker-instandhaltung-m-w-sika-ch"
@@ -208,6 +216,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:38.750Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -252,7 +261,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:56.462Z",
+      "crawledAt": "2026-08-11T22:28:08.471Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -271,11 +280,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-solution-architect-project-manager-sap-fin-sika-ch"
+        "senior-solution-architect-project-manager-sap-fin-sika-ch",
+        "senior-solution-architetto-project-manager-sap-fin-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-solution-architect-project-manager-sap-fin-sika-ch"
+          "senior-solution-architect-project-manager-sap-fin-sika-ch",
+          "senior-solution-architetto-project-manager-sap-fin-sika-zurich"
         ],
         "de": [
           "senior-solution-architect-project-manager-sap-fin-sika-ch"
@@ -285,6 +296,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:36.947Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -329,7 +341,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:55.445Z",
+      "crawledAt": "2026-08-11T22:28:07.189Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -348,11 +360,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
+        "meccanico-operativo-polimeccanico-meccanico-industriale-sika-sarnen-obwalden-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
+          "meccanico-operativo-polimeccanico-meccanico-industriale-sika-sarnen-obwalden-switzerland"
         ],
         "en": [
           "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
@@ -406,7 +420,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:54.588Z",
+      "crawledAt": "2026-08-11T22:28:05.676Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -425,11 +439,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-technical-consultant-sap-development-transportation-management-sika-ch"
+        "senior-technical-consultant-sap-development-transportation-management-sika-ch",
+        "senior-technical-consulente-sap-development-transportation-management-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technical-consultant-sap-development-transportation-management-sika-ch"
+          "senior-technical-consultant-sap-development-transportation-management-sika-ch",
+          "senior-technical-consulente-sap-development-transportation-management-sika-zurich"
         ],
         "de": [
           "senior-technical-consultant-sap-development-transportation-management-sika-ch"
@@ -439,6 +455,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:32.932Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -483,7 +500,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:53.612Z",
+      "crawledAt": "2026-08-11T22:28:04.584Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -502,11 +519,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
+        "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch",
+        "senior-project-manager-solution-architetto-sap-tm-transportation-management-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
+          "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch",
+          "senior-project-manager-solution-architetto-sap-tm-transportation-management-sika-zurich"
         ],
         "de": [
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
@@ -515,8 +534,8 @@
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:30.183Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:30.183Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -547,7 +566,7 @@
         "it": "Ingegnere di progettazione (m/f/d)",
         "en": "Design engineer (m/f/d)",
         "de": "Konstrukteur (m/w/d)",
-        "fr": "Ingénieur de conception (h/f/d)"
+        "fr": "Konstrukteur (m/w/d)"
       },
       "description": "Konstruktion von Spritzgusswerkzeugen und -artikel von der Entwicklung bis zur technischen Freigabe Technische Schnittstelle zwischen Produktion, Engineering und externen Partnern Entwicklung und Prüfung von Werkzeugkonzepten sowie Heisskanalauslegung mittels Moldflow Durchführung von Design-Reviews und Optimierungen anhand Füllsimulationen Umsetzung von Änderungs- und Korrekturaufträgen inklusive Kosten- und Qualitätsverfolgung Prozessverbesserungen und Standardisierung aktive Mitgestaltung von Abläufen und Normen Dokumentation und Know-how-Transfer",
       "descriptionByLocale": {
@@ -561,7 +580,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c1fddc77-8f3c-4c3f-b470-7b0b7fb8e0d7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:52.354Z",
+      "crawledAt": "2026-08-11T22:28:03.437Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -581,11 +600,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konstrukteur-m-w-d-sika-ch",
-        "konstrukteur-m-w-d-sika-romanshorn"
+        "konstrukteur-m-w-d-sika-romanshorn",
+        "ingegnere-di-progettazione-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konstrukteur-m-w-d-sika-ch"
+          "konstrukteur-m-w-d-sika-ch",
+          "ingegnere-di-progettazione-m-f-d-sika-romanshorn-thurgau-switzerland"
         ],
         "en": [
           "konstrukteur-m-w-d-sika-ch"
@@ -595,6 +616,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:47.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -639,7 +661,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d4130688-ca92-4c75-9916-9b09e7482553.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:51.466Z",
+      "crawledAt": "2026-08-11T22:28:02.637Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -658,11 +680,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-hausdienst-infrastruktur-w-m-d-sika-ch"
+        "mitarbeiter-in-hausdienst-infrastruktur-w-m-d-sika-ch",
+        "collaboratore-trice-hausdienst-infrastruktur-m-w-d-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hausdienst-infrastruktur-w-m-d-sika-ch"
+          "mitarbeiter-in-hausdienst-infrastruktur-w-m-d-sika-ch",
+          "collaboratore-trice-hausdienst-infrastruktur-m-w-d-sika-zurich"
         ],
         "en": [
           "mitarbeiter-in-hausdienst-infrastruktur-w-m-d-sika-ch"
@@ -671,8 +695,8 @@
           "mitarbeiter-in-hausdienst-infrastruktur-w-m-d-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-07-16T11:38:00.388Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T11:38:00.388Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -717,7 +741,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a11659e3-20a3-4431-b3d4-d7f960b34916.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:50.294Z",
+      "crawledAt": "2026-08-11T22:28:01.423Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -736,11 +760,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-management-training-specialist-sika-ch"
+        "data-management-training-specialist-sika-ch",
+        "data-management-training-specialista-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-management-training-specialist-sika-ch"
+          "data-management-training-specialist-sika-ch",
+          "data-management-training-specialista-sika-zurich"
         ],
         "de": [
           "data-management-training-specialist-sika-ch"
@@ -794,7 +820,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:49.243Z",
+      "crawledAt": "2026-08-11T22:28:00.554Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -813,11 +839,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineering-intern-sika-ch"
+        "software-engineering-intern-sika-ch",
+        "software-engineering-tirocinante-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineering-intern-sika-ch"
+          "software-engineering-intern-sika-ch",
+          "software-engineering-tirocinante-sika-zurich"
         ],
         "de": [
           "software-engineering-intern-sika-ch"
@@ -827,6 +855,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:46:37.005Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -871,7 +900,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:48.270Z",
+      "crawledAt": "2026-08-11T22:28:00.230Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -890,11 +919,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-solution-architect-project-manager-sap-ewm-sika-ch"
+        "senior-solution-architect-project-manager-sap-ewm-sika-ch",
+        "senior-solution-architetto-project-manager-sap-ewm-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-solution-architect-project-manager-sap-ewm-sika-ch"
+          "senior-solution-architect-project-manager-sap-ewm-sika-ch",
+          "senior-solution-architetto-project-manager-sap-ewm-sika-zurich"
         ],
         "de": [
           "senior-solution-architect-project-manager-sap-ewm-sika-ch"
@@ -904,6 +935,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:19.553Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -948,7 +980,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5deb4953-a448-4e1f-8090-10c715bad5df.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:47.374Z",
+      "crawledAt": "2026-08-11T22:27:59.388Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -967,11 +999,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "risk-insurance-manager-sika-ch"
+        "risk-insurance-manager-sika-ch",
+        "rischio-e-assicurazione-sika-zurich-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "risk-insurance-manager-sika-ch"
+          "risk-insurance-manager-sika-ch",
+          "rischio-e-assicurazione-sika-zurich-zurich-switzerland"
         ],
         "de": [
           "risk-insurance-manager-sika-ch"
@@ -1009,7 +1043,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatic engineer / PLC programmer / automation engineer (m/f/d)",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "fr": "Automatique (m/f/d)"
       },
@@ -1025,7 +1059,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:46.503Z",
+      "crawledAt": "2026-08-11T22:27:58.468Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1045,11 +1079,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch"
+          "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch",
+          "automatiker-m-w-d-sika-ch"
         ],
         "it": [
           "automatiker-m-w-d-sika-ch",
-          "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch"
+          "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch",
+          "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
         ],
         "en": [
           "automatiker-m-w-d-sika-ch"
@@ -1060,9 +1096,11 @@
       },
       "previousSlugs": [
         "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch",
-        "automatiker-m-w-d-sika-ch"
+        "automatiker-m-w-d-sika-ch",
+        "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "baseSalary": {
@@ -1107,7 +1145,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:45.055Z",
+      "crawledAt": "2026-08-11T22:27:57.481Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1126,11 +1164,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
+        "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch",
+        "apprendistato-come-anlagenfuhrer-in-cfc-2027-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
+          "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch",
+          "apprendistato-come-anlagenfuhrer-in-cfc-2027-sika-sarnen"
         ],
         "en": [
           "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
@@ -1139,8 +1179,8 @@
           "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:10.542Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:10.542Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1185,7 +1225,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:44:43.994Z",
+      "crawledAt": "2026-08-11T22:27:56.621Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1204,15 +1244,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch"
+        "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch",
+        "apprendistato-come-polymechaniker-in-cfc-2027-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch"
+          "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch",
+          "apprendistato-come-polymechaniker-in-cfc-2027-sika-sarnen"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:08.974Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:08.974Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1257,7 +1299,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:43.091Z",
+      "crawledAt": "2026-08-11T22:27:56.283Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1276,11 +1318,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
+        "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
+        "apprendistato-come-automatiker-in-cfc-2027-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
+          "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
+          "apprendistato-come-automatiker-in-cfc-2027-sika-sarnen"
         ],
         "en": [
           "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
@@ -1290,6 +1334,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:07.963Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1334,7 +1379,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:41.926Z",
+      "crawledAt": "2026-08-11T22:27:55.180Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1353,11 +1398,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
+        "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
+        "apprendistato-come-impiegato-a-in-logistica-cfc-2027-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
+          "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
+          "apprendistato-come-impiegato-a-in-logistica-cfc-2027-sika-sarnen"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
@@ -1366,8 +1413,8 @@
           "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:05.923Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:05.923Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1412,7 +1459,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:41.018Z",
+      "crawledAt": "2026-08-11T22:27:54.000Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1431,11 +1478,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
+        "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch",
+        "apprendistato-come-kaufmann-frau-cfc-2027-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
+          "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch",
+          "apprendistato-come-kaufmann-frau-cfc-2027-sika-sarnen"
         ],
         "en": [
           "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
@@ -1444,8 +1493,8 @@
           "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:03.685Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:03.685Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1474,7 +1523,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer (m/w/d) Extrusionslinien - Process Operatore (m/w/d)",
-        "en": "Plant Manager (m/f/d) Extrusion Lines - Process Operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Anlagenführer (m/w/d) Extrusionslinien - Process Opérateur (m/w/d)"
       },
@@ -1490,7 +1539,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:40.161Z",
+      "crawledAt": "2026-08-11T22:27:52.853Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1510,11 +1559,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch",
-        "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-sarnen"
+        "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-sarnen",
+        "anlagenfuhrer-m-w-d-extrusionslinien-process-operatore-m-w-d-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
+          "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch",
+          "anlagenfuhrer-m-w-d-extrusionslinien-process-operatore-m-w-d-sika-sarnen"
         ],
         "en": [
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
@@ -1523,8 +1574,8 @@
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:02.407Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:02.407Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1553,7 +1604,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer Recycling (m/w/d) - Process Operatore Recycling (m/w/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Anlagenführer Recycling (m/w/d) - Process Opérateur Recycling (m/w/d)"
       },
@@ -1569,7 +1620,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:38.976Z",
+      "crawledAt": "2026-08-11T22:27:52.042Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1588,18 +1639,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
+        "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch",
+        "anlagenfuhrer-recycling-m-w-d-process-operatore-recycling-m-w-d-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
+          "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch",
+          "anlagenfuhrer-recycling-m-w-d-process-operatore-recycling-m-w-d-sika-sarnen"
         ],
         "fr": [
           "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:00.845Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:00.845Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1644,7 +1697,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-132e0bae-d015-457d-a224-321c9ed67d15.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:38.052Z",
+      "crawledAt": "2026-08-11T22:27:51.170Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1663,11 +1716,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
+        "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch",
+        "apprendistato-come-laborant-in-cfc-2027-specializzazione-chemie-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
+          "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch",
+          "apprendistato-come-laborant-in-cfc-2027-specializzazione-chemie-sika-zurich"
         ],
         "en": [
           "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
@@ -1677,6 +1732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:57:47.590Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1721,7 +1777,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:37.207Z",
+      "crawledAt": "2026-08-11T22:27:50.383Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1740,11 +1796,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kunstofftechnologe-in-efz-2027-sika-ch"
+        "lehrstelle-als-kunstofftechnologe-in-efz-2027-sika-ch",
+        "apprendistato-come-kunstofftechnologe-in-cfc-2027-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kunstofftechnologe-in-efz-2027-sika-ch"
+          "lehrstelle-als-kunstofftechnologe-in-efz-2027-sika-ch",
+          "apprendistato-come-kunstofftechnologe-in-cfc-2027-sika-sarnen"
         ],
         "en": [
           "lehrstelle-als-kunstofftechnologe-in-efz-2027-sika-ch"
@@ -1754,6 +1812,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:36:50.859Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1798,7 +1857,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:36.284Z",
+      "crawledAt": "2026-08-11T22:27:49.531Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1818,12 +1877,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch-2",
-        "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
+        "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch",
+        "apprendistato-come-laborant-in-cfc-2027-specializzazione-chemie-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch-2",
-          "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
+          "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch",
+          "apprendistato-come-laborant-in-cfc-2027-specializzazione-chemie-sika-sarnen"
         ],
         "en": [
           "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch-2"
@@ -1833,6 +1894,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:57:46.680Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1860,7 +1922,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1877,7 +1939,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:35.383Z",
+      "crawledAt": "2026-08-11T22:27:48.700Z",
       "addressLocality": "Altstätten",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1897,12 +1959,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "palettierer-sika-ch",
-        "palettierer-sika-altstatten"
+        "palettierer-sika-altstatten",
+        "palletizzatori-sika-altstatten-st-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "palettierer-sika-ch",
-          "palettierer-sika-altstatten"
+          "palettierer-sika-altstatten",
+          "palletizzatori-sika-altstatten-st-gallen-switzerland"
         ],
         "en": [
           "palettierer-sika-ch"
@@ -1912,6 +1976,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1942,7 +2007,7 @@
         "it": "Team Assistant Sika Europe Management",
         "en": "Team Assistant Sika Europe Management",
         "de": "Team Assistent Sika Europe Management",
-        "fr": "Assistant d'équipe Sika Europe Management"
+        "fr": "Team Assistant Sika Europe Management"
       },
       "description": "The Team Assistant for Sika Europe Management AG (SEMAG) is responsible for delivering comprehensive administrative and organizational support to the SEMAG team located in Baar and Zürich. This role ensures the daily operations run smoothly and that activities are coordinated efficiently. Support to our Executive Assistant including: Providing extensive administrative assistance Overseeing accounts payable-related tasks, ensuring prompt and accurate processing. Assisting in the coordination and organization of events, meetings, workshops, and training sessions. Support to local SEMAG teams (Baar and Zürich): Provide a wide range of administrative support services, including: Processing invoices and account coding Managing correspondence with invoice issuers Supporting space planning and budgeting activities Drafting visa invitation letters as needed Ordering essential office supplies, business cards, IT equipment, entry badges, and credit cards Coordinating DHL shipments and arranging travel bookings",
       "descriptionByLocale": {
@@ -1956,7 +2021,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6622ef93-be97-42ae-8107-4c5ade457cb9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:34.011Z",
+      "crawledAt": "2026-08-11T22:27:47.870Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1974,8 +2039,8 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6622ef93-be97-42ae-8107-4c5ade457cb9.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-31T22:26:48.751Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:26:48.751Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2020,7 +2085,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:33.096Z",
+      "crawledAt": "2026-08-11T22:27:46.933Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2040,12 +2105,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-        "servicetechniker-dosieranlagen-100-m-w-d-sika-widen"
+        "servicetechniker-dosieranlagen-100-m-w-d-sika-widen",
+        "sistemi-di-dosaggio-tecnico-servizio-100-w-m-d-sika-widen-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-          "servicetechniker-dosieranlagen-100-m-w-d-sika-widen"
+          "servicetechniker-dosieranlagen-100-m-w-d-sika-widen",
+          "sistemi-di-dosaggio-tecnico-servizio-100-w-m-d-sika-widen-aargau-switzerland"
         ],
         "en": [
           "servicetechniker-dosieranlagen-100-w-m-d-sika-ch"
@@ -2099,7 +2166,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:32.253Z",
+      "crawledAt": "2026-08-11T22:27:46.083Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2118,11 +2185,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
+        "lehrstelle-polymechaniker-in-efz-2027-sika-ch",
+        "apprendistato-polymechaniker-in-cfc-2027-sika-dudingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
+          "lehrstelle-polymechaniker-in-efz-2027-sika-ch",
+          "apprendistato-polymechaniker-in-cfc-2027-sika-dudingen"
         ],
         "en": [
           "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
@@ -2131,8 +2200,8 @@
           "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:56:50.007Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:56:50.007Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2177,7 +2246,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:31.064Z",
+      "crawledAt": "2026-08-11T22:27:45.198Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2196,11 +2265,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2027-sika-ch"
+        "lehrstelle-logistiker-in-efz-2027-sika-ch",
+        "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2027-sika-ch"
+          "lehrstelle-logistiker-in-efz-2027-sika-ch",
+          "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-sika-ch"
@@ -2230,7 +2301,7 @@
         "it": "international-traineeship-program-a-i-technical-department-sika-ch",
         "en": "international-traineeship-program-a-i-technical-department-sika-ch",
         "de": "international-traineeship-program-a-i-technische-abteilung-sika-widen-aargau-switzerland",
-        "fr": "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
+        "fr": "international-traineeship-program-a-i-technical-department-sika-widen"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2240,7 +2311,7 @@
         "it": "International Traineeship Program - A&I - Technical Department",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -2254,7 +2325,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:30.185Z",
+      "crawledAt": "2026-08-11T22:27:44.868Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2273,15 +2344,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland",
         "international-traineeship-program-a-i-technical-department-sika-widen"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland",
           "international-traineeship-program-a-i-technical-department-sika-widen"
         ]
       },
-      "firstSeenAt": "2026-06-24T12:15:19.902Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T12:15:19.902Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2326,7 +2399,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-b26a7049-1fd2-4606-8870-548ed50bdbbe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:29.322Z",
+      "crawledAt": "2026-08-11T22:27:43.696Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2345,18 +2418,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-leader-thermoplastic-systems-sika-ch"
+        "project-leader-thermoplastic-systems-sika-ch",
+        "sistemi-termoplastici-leader-del-progetto-sika-sarnen-obwalden-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-leader-thermoplastic-systems-sika-ch"
+          "project-leader-thermoplastic-systems-sika-ch",
+          "sistemi-termoplastici-leader-del-progetto-sika-sarnen-obwalden-switzerland"
         ],
         "fr": [
           "project-leader-thermoplastic-systems-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-07-28T22:15:16.034Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T22:15:16.034Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2401,7 +2476,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:28.971Z",
+      "crawledAt": "2026-08-11T22:27:42.532Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2420,18 +2495,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+        "master-thesis-student-procurement-analytics-material-intelligence-sika-ch",
+        "master-thesis-student-analisi-degli-appalti-e-intelligenza-dei-materiali-sika-zurich-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch",
+          "master-thesis-student-analisi-degli-appalti-e-intelligenza-dei-materiali-sika-zurich-zurich-switzerland"
         ],
         "fr": [
           "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:56:47.313Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:56:47.313Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2460,7 +2537,7 @@
       "title": "Anlagenführer (w/m) / Process Operator (f/m)",
       "titleByLocale": {
         "it": "Anlagenführer (w/m) / Process Operatore (f/m)",
-        "en": "System Manager (m/f) / Process Operator (m/f)",
+        "en": "Anlagenführer (w/m) / Process Operator (f/m)",
         "de": "Anlagenführer (w/m) / Process Operator (f/m)",
         "fr": "Anlagenführer (w/m) / Process Opérateur (f/m)"
       },
@@ -2476,7 +2553,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:28.098Z",
+      "crawledAt": "2026-08-11T22:27:41.633Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2495,11 +2572,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+        "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
+        "anlagenfuhrer-w-m-process-operatore-f-m-sika-dudingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
+          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
+          "anlagenfuhrer-w-m-process-operatore-f-m-sika-dudingen"
         ],
         "en": [
           "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
@@ -2508,8 +2587,8 @@
           "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-07-13T22:33:55.431Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T22:33:55.431Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2554,7 +2633,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:27.188Z",
+      "crawledAt": "2026-08-11T22:27:40.529Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2573,17 +2652,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-traineeship-program-a-i-key-account-manager-uk-sika-ch"
+        "international-traineeship-program-a-i-key-account-manager-uk-sika-ch",
+        "programma-di-stage-internazionale-a-i-manager-di-account-chiave-uk-sika-widen-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-traineeship-program-a-i-key-account-manager-uk-sika-ch"
+          "international-traineeship-program-a-i-key-account-manager-uk-sika-ch",
+          "programma-di-stage-internazionale-a-i-manager-di-account-chiave-uk-sika-widen-aargau-switzerland"
         ],
         "de": [
           "international-traineeship-program-a-i-key-account-manager-uk-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:17.810Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2612,7 +2694,7 @@
       "title": "Betriebselektriker (m/w/d)",
       "titleByLocale": {
         "it": "Elettricisti di servizio (m/f/d)",
-        "en": "Business electrician (m/f/d)",
+        "en": "Betriebselektriker (m/w/d)",
         "de": "Betriebselektriker (m/w/d)",
         "fr": "Électriciens de service (m/f/d)"
       },
@@ -2628,7 +2710,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb1b006a-a18d-481f-973b-31615a51b9c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:25.956Z",
+      "crawledAt": "2026-08-11T22:27:39.655Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2648,12 +2730,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebselektriker-m-w-d-sika-ch",
-        "betriebselektriker-m-w-d-sika-romanshorn"
+        "betriebselektriker-m-w-d-sika-romanshorn",
+        "elettricisti-di-servizio-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-m-w-d-sika-ch",
-          "betriebselektriker-m-w-d-sika-romanshorn"
+          "betriebselektriker-m-w-d-sika-romanshorn",
+          "elettricisti-di-servizio-m-f-d-sika-romanshorn-thurgau-switzerland"
         ],
         "en": [
           "betriebselektriker-m-w-d-sika-romanshorn"
@@ -2663,6 +2747,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:11:04.975Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2707,7 +2792,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4c8be4c9-5540-4cd2-9ff3-d6d70466bad7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:24.676Z",
+      "crawledAt": "2026-08-11T22:27:38.831Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2726,11 +2811,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-consultant-solution-architect-sap-order-to-cash-sika-ch"
+        "senior-consultant-solution-architect-sap-order-to-cash-sika-ch",
+        "senior-consulente-solution-architetto-sap-order-to-cash-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-consultant-solution-architect-sap-order-to-cash-sika-ch"
+          "senior-consultant-solution-architect-sap-order-to-cash-sika-ch",
+          "senior-consulente-solution-architetto-sap-order-to-cash-sika-zurich"
         ],
         "de": [
           "senior-consultant-solution-architect-sap-order-to-cash-sika-ch"
@@ -2740,6 +2827,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:05:05.667Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2784,7 +2872,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:22.784Z",
+      "crawledAt": "2026-08-11T22:27:37.962Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2803,11 +2891,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-technical-consultant-sap-integration-sika-ch"
+        "senior-technical-consultant-sap-integration-sika-ch",
+        "senior-technical-consulente-sap-integration-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technical-consultant-sap-integration-sika-ch"
+          "senior-technical-consultant-sap-integration-sika-ch",
+          "senior-technical-consulente-sap-integration-sika-zurich"
         ],
         "de": [
           "senior-technical-consultant-sap-integration-sika-ch"
@@ -2858,7 +2948,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bfefbf0c-3d35-4ba1-a6f6-aac1eac03c15.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:21.582Z",
+      "crawledAt": "2026-08-11T22:27:37.100Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2877,17 +2967,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-finance-development-associate-sika-ch"
+        "strategic-finance-development-associate-sika-ch",
+        "strategic-finanza-development-associate-sika-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-finance-development-associate-sika-ch"
+          "strategic-finance-development-associate-sika-ch",
+          "strategic-finanza-development-associate-sika-baar"
         ],
         "de": [
           "strategic-finance-development-associate-sika-ch"
         ]
       },
       "firstSeenAt": "2026-07-17T12:00:20.292Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -2932,7 +3025,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-134ed372-066e-4aa3-8b2a-97296865cf47.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:20.394Z",
+      "crawledAt": "2026-08-11T22:27:36.307Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2961,8 +3054,8 @@
           "assistant-corporate-target-market-automotive-befristet-fur-6-monate-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-07-23T22:33:08.073Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:33:08.073Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
       "baseSalary": {
@@ -3007,7 +3100,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-b560e1d0-48fe-4f9d-8e78-f6e8e542baaa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:19.098Z",
+      "crawledAt": "2026-08-11T22:27:35.197Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3026,11 +3119,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechanical-engineering-internship-digital-prototyping-innovation-6-12-months-sika-ch"
+        "mechanical-engineering-internship-digital-prototyping-innovation-6-12-months-sika-ch",
+        "stage-di-ingegneria-meccanica-prototipazione-digitale-e-innovazione-6-12-mesi-sika-zurich-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechanical-engineering-internship-digital-prototyping-innovation-6-12-months-sika-ch"
+          "mechanical-engineering-internship-digital-prototyping-innovation-6-12-months-sika-ch",
+          "stage-di-ingegneria-meccanica-prototipazione-digitale-e-innovazione-6-12-mesi-sika-zurich-zurich-switzerland"
         ],
         "de": [
           "mechanical-engineering-internship-digital-prototyping-innovation-6-12-months-sika-ch"
@@ -3059,7 +3154,7 @@
       "slugByLocale": {
         "it": "corporate-business-development-manager-riparazione-del-vento-sika-widen",
         "en": "corporate-business-development-manager-wind-repair-sika-ch",
-        "de": "corporate-business-development-manager-wind-repair-sika-ch",
+        "de": "corporate-business-development-manager-windreparatur-sika-widen",
         "fr": "directeur-du-developpement-des-affaires-de-l-entreprise-sika-widen-aargau-switzerland"
       },
       "company": "Sika",
@@ -3084,7 +3179,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:44:18.217Z",
+      "crawledAt": "2026-08-11T22:27:34.288Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3102,6 +3197,21 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "corporate-business-development-manager-wind-repair-sika-ch",
+        "corporate-business-development-manager-riparazione-del-vento-sika-widen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-business-development-manager-wind-repair-sika-ch",
+          "corporate-business-development-manager-riparazione-del-vento-sika-widen"
+        ],
+        "de": [
+          "corporate-business-development-manager-wind-repair-sika-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-10T22:04:22.447Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -3111,92 +3221,6 @@
           "@type": "QuantitativeValue",
           "minValue": 99500,
           "maxValue": 169500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-10T22:04:22.447Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "corporate-business-development-manager-wind-repair-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "corporate-business-development-manager-wind-repair-sika-ch"
-      ]
-    },
-    {
-      "id": "sika-b3a5c78ad394",
-      "slug": "stage-in-facility-management-real-estate-f-m-d-100-stage-pratico-5-6-mesi-sika-zurich-zurich-switzerland",
-      "slugByLocale": {
-        "it": "stage-in-facility-management-real-estate-f-m-d-100-stage-pratico-5-6-mesi-sika-zurich-zurich-switzerland",
-        "en": "internship-in-facility-management-real-estate-f-m-d-100-practical-internship-5-6-months-sika-zurich-zurich-switzerland",
-        "de": "praktikant-in-facility-management-real-estate-w-m-d-100-praxispraktikum-5-6-monate-sika-ch",
-        "fr": "stage-en-gestion-des-installations-et-immobilier-f-m-j-100-stage-pratique-5-6-mois-sika-zurich-zurich-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Praktikant/in Facility Management & Real Estate (w/m/d) 100% - Praxispraktikum (5-6 Monate)",
-      "titleByLocale": {
-        "it": "Stage in Facility Management & Real Estate (f/m/d) 100% - Stage pratico (5-6 mesi)",
-        "en": "Internship in Facility Management & Real Estate (f/m/d) 100% - Practical internship (5-6 months)",
-        "de": "Praktikant/in Facility Management & Real Estate (w/m/d) 100% - Praxispraktikum (5-6 Monate)",
-        "fr": "Stage en gestion des installations et immobilier (f/m/j) 100% - Stage pratique (5-6 mois)"
-      },
-      "description": "Mit unseren kompetenten Dienstleistungen sichern wir den Wert unserer Liegenschaften und gewährleisten einen störungsfreien Produktionsbetrieb. Wir sind an den Standorten Zürich, Widen, Birr, Ennetbürgen, Kirchberg und Baar für den infrastrukturellen sowie technischen Anlagen- und Gebäudeunterhalt zuständig. Darüber hinaus betreuen wir das Property Management, das Workplace Management sowie das Zutritts- und Systemmanagement und leisten damit einen wichtigen Beitrag zu einem sicheren und effizienten Arbeitsumfeld. Möchtest du dein theoretisches Wissen aus dem Studium in der Praxis anwenden und einen umfassenden Einblick in das Corporate Real Estate Management eines internationalen Industrieunternehmens gewinnen? Dann bist du bei uns genau richtig. Praktikumsstart ist September 2026! Folgende \n• Aufgaben warten auf dich: Aktive Mitarbeit im Property Management und Facility Management mit spannenden Einblicken in die vielfältigen \n• Aufgaben rund um Immobilien und Gebäude Unterstützung des Zutritts- und Systemmanagements Mitwirkung bei der Gestaltung und Optimierung von Prozessen, Arbeitsabläufen und Dokumentationen Mitarbeit bei der Weiterentwicklung unseres Real Estate Managements (REM) Prozesshauses Erstellung von Analysen, Auswertungen und Präsentationen als Grundlage für wichtige Entscheidungen",
-      "descriptionByLocale": {
-        "it": "Con i nostri servizi competenti, garantiamo il valore delle nostre proprietà e garantiamo operazioni di produzione senza problemi. Nelle nostre sedi a Zurigo, Widen, Birr, Ennetbürgen, Kirchberg e Baar, siamo responsabili della manutenzione di impianti e edifici infrastrutturali e tecnici. Inoltre, sosteniamo la gestione della proprietà, la gestione del posto di lavoro e l'accesso e la gestione del sistema, fornendo un importante contributo a un ambiente di lavoro sicuro ed efficiente. Volete applicare le vostre conoscenze teoriche dai vostri studi in pratica e ottenere una panoramica completa della gestione immobiliare aziendale di una società industriale internazionale? Allora hai ragione con noi. Inizio stage è settembre 2026! Di seguito:\n• Compiti sono in attesa per voi: partecipazione attiva alla gestione della proprietà e della struttura con interessanti approfondimenti nei vari\n• Real estate e supporto per l'accesso e la gestione del sistema Partecipazione alla progettazione e ottimizzazione di processi, flussi di lavoro e documentazione Partecipazione all'ulteriore sviluppo della nostra gestione immobiliare (REM) process house Creazione di analisi, valutazioni e presentazioni come base per importanti decisioni",
-        "en": "With our competent services, we secure the value of our properties and ensure trouble-free production operations. At our locations in Zurich, Widen, Birr, Ennetbürgen, Kirchberg and Baar, we are responsible for infrastructural and technical plant and building maintenance. In addition, we support property management, workplace management and access and system management, making an important contribution to a safe and efficient working environment. Would you like to apply your theoretical knowledge from your studies in practice and gain a comprehensive insight into the corporate real estate management of an international industrial company? Then you are exactly right with us. Internship start is September 2026! The following:\n• Tasks are waiting for you: Active participation in property management and facility management with exciting insights into the various\n• Real estate and building support for access and system management Participation in the design and optimization of processes, workflows and documentation Participation in the further development of our real estate management (REM) process house Creation of analyses, evaluations and presentations as a basis for important decisions",
-        "de": "Mit unseren kompetenten Dienstleistungen sichern wir den Wert unserer Liegenschaften und gewährleisten einen störungsfreien Produktionsbetrieb. Wir sind an den Standorten Zürich, Widen, Birr, Ennetbürgen, Kirchberg und Baar für den infrastrukturellen sowie technischen Anlagen- und Gebäudeunterhalt zuständig. Darüber hinaus betreuen wir das Property Management, das Workplace Management sowie das Zutritts- und Systemmanagement und leisten damit einen wichtigen Beitrag zu einem sicheren und effizienten Arbeitsumfeld. Möchtest du dein theoretisches Wissen aus dem Studium in der Praxis anwenden und einen umfassenden Einblick in das Corporate Real Estate Management eines internationalen Industrieunternehmens gewinnen? Dann bist du bei uns genau richtig. Praktikumsstart ist September 2026! Folgende \n• Aufgaben warten auf dich: Aktive Mitarbeit im Property Management und Facility Management mit spannenden Einblicken in die vielfältigen \n• Aufgaben rund um Immobilien und Gebäude Unterstützung des Zutritts- und Systemmanagements Mitwirkung bei der Gestaltung und Optimierung von Prozessen, Arbeitsabläufen und Dokumentationen Mitarbeit bei der Weiterentwicklung unseres Real Estate Managements (REM) Prozesshauses Erstellung von Analysen, Auswertungen und Präsentationen als Grundlage für wichtige Entscheidungen",
-        "fr": "Avec nos services compétents, nous garantissons la valeur de nos propriétés et nous assurons des opérations de production sans problème. Sur nos sites de Zurich, Widen, Birr, Ennetbürgen, Kirchberg et Baar, nous sommes responsables de l'entretien des installations et des bâtiments. De plus, nous soutenons la gestion des biens, la gestion des lieux de travail, l'accès et la gestion des systèmes, ce qui contribue grandement à un milieu de travail sécuritaire et efficient. Aimeriez-vous appliquer vos connaissances théoriques de vos études en pratique et obtenir un aperçu complet de la gestion immobilière d'une entreprise industrielle internationale? Alors vous avez raison avec nous. Le stage commence en septembre 2026! Ce qui suit:\n• Les tâches vous attendent : Participation active à la gestion immobilière et à la gestion des installations avec des idées passionnantes sur les divers\n• Aide à l'immobilier et au bâtiment pour l'accès et la gestion du système Participation à la conception et à l'optimisation des processus, des flux de travail et de la documentation Participation à la poursuite du développement de notre structure de gestion immobilière Création d'analyses, d'évaluations et de présentations comme base de décisions importantes"
-      },
-      "location": "Zürich, Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8b4d71a-8410-4011-bde9-56103e206522.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:16.996Z",
-      "addressLocality": "Zürich",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8b4d71a-8410-4011-bde9-56103e206522.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikant-in-facility-management-real-estate-w-m-d-100-praxispraktikum-5-6-monate-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-facility-management-real-estate-w-m-d-100-praxispraktikum-5-6-monate-sika-ch"
-        ],
-        "en": [
-          "praktikant-in-facility-management-real-estate-w-m-d-100-praxispraktikum-5-6-monate-sika-ch"
-        ],
-        "fr": [
-          "praktikant-in-facility-management-real-estate-w-m-d-100-praxispraktikum-5-6-monate-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T11:57:16.782Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -3232,7 +3256,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-598b5ba4-0f88-44a2-a6f6-3f57a14b3489.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:15.534Z",
+      "crawledAt": "2026-08-11T22:27:33.090Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3251,11 +3275,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
+        "lehrstelle-polymechaniker-efz-m-w-d-sika-ch",
+        "apprendistato-polymechaniker-cfc-m-w-d-sika-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
+          "lehrstelle-polymechaniker-efz-m-w-d-sika-ch",
+          "apprendistato-polymechaniker-cfc-m-w-d-sika-romanshorn"
         ],
         "en": [
           "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
@@ -3264,8 +3290,8 @@
           "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:29:24.819Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T01:29:24.819Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3310,7 +3336,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:14.554Z",
+      "crawledAt": "2026-08-11T22:27:32.020Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3329,11 +3355,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch"
+        "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch",
+        "apprendistato-kunststofftechnologe-cfc-m-w-d-sika-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch"
+          "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch",
+          "apprendistato-kunststofftechnologe-cfc-m-w-d-sika-romanshorn"
         ],
         "en": [
           "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch"
@@ -3343,6 +3371,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:23.952Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3387,7 +3416,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:13.424Z",
+      "crawledAt": "2026-08-11T22:27:30.892Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3406,11 +3435,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-konstrukteur-efz-m-w-d-sika-ch"
+        "lehrstelle-konstrukteur-efz-m-w-d-sika-ch",
+        "apprendistato-konstrukteur-cfc-m-w-d-sika-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-konstrukteur-efz-m-w-d-sika-ch"
+          "lehrstelle-konstrukteur-efz-m-w-d-sika-ch",
+          "apprendistato-konstrukteur-cfc-m-w-d-sika-romanshorn"
         ],
         "en": [
           "lehrstelle-konstrukteur-efz-m-w-d-sika-ch"
@@ -3420,6 +3451,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:22.601Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3464,7 +3496,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:12.240Z",
+      "crawledAt": "2026-08-11T22:27:30.076Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3483,11 +3515,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-efz-m-w-d-sika-ch"
+        "lehrstelle-logistiker-efz-m-w-d-sika-ch",
+        "apprendistato-logistiker-cfc-m-w-d-sika-arbon-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-efz-m-w-d-sika-ch"
+          "lehrstelle-logistiker-efz-m-w-d-sika-ch",
+          "apprendistato-logistiker-cfc-m-w-d-sika-arbon-romanshorn"
         ],
         "en": [
           "lehrstelle-logistiker-efz-m-w-d-sika-ch"
@@ -3497,6 +3531,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:39.273Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3541,7 +3576,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fb414f0f-92ed-454d-b817-0ce5a4e49072.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:44:11.387Z",
+      "crawledAt": "2026-08-11T22:27:29.075Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3560,11 +3595,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch"
+        "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch",
+        "apprendistato-come-kauffrau-mann-cfc-2027-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch"
+          "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch",
+          "apprendistato-come-kauffrau-mann-cfc-2027-sika-zurich"
         ],
         "en": [
           "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch"
@@ -3573,8 +3610,8 @@
           "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:25:14.703Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:25:14.703Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3589,80 +3626,78 @@
       }
     },
     {
-      "id": "sika-840ec3f22c38",
-      "slug": "equipment-operatore-sika-zurich",
+      "id": "sika-409a10bd6c31",
+      "slug": "apprendistato-come-logistiker-in-cfc-2027-sika-birr",
       "slugByLocale": {
-        "it": "equipment-operatore-sika-zurich",
-        "en": "equipment-operator-sika-ch",
-        "de": "equipment-operator-sika-ch",
-        "fr": "equipment-operateur-sika-zurich"
+        "de": "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
+        "it": "apprendistato-come-logistiker-in-cfc-2027-sika-birr",
+        "en": "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
+        "fr": "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
       },
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
-      "title": "Equipment Operator",
+      "title": "Lehrstelle als Logistiker/in EFZ 2027",
       "titleByLocale": {
-        "it": "Equipment Operatore",
-        "en": "Equipment Operator",
-        "de": "Equipment Operator",
-        "fr": "Equipment Opérateur"
+        "de": "Lehrstelle als Logistiker/in EFZ 2027",
+        "it": "Apprendistato come Logistiker/in CFC 2027",
+        "en": "Lehrstelle als Logistiker/in EFZ 2027",
+        "fr": "Lehrstelle als Logistiker/in EFZ 2027"
       },
-      "description": "Selbständiger Betrieb der Pilotanlagen der F&E nach Vorschrift der Entwicklung Selbständiges Planen und Ausführen von Versuchen Selbständige Rohstoffvorbereitung und Lagerhaltung Sicherstellung von Ordnung und Sauberkeit (5S) Sicherstellung der Einhaltung von Laborrichtlinien und Sicherheitsstandards Unterhalt, Wartung und Weiterentwicklung der Anlagen Kontakt mit Anlagenbauern und Lieferanten Gutes technisches Verständnis und exaktes Arbeiten Gute Beobachtungsgabe, Interesse am Analysieren von Daten und Resultaten Dokumentation der Arbeiten und Resultate Mitarbeit bei der Prozessentwicklung",
+      "description": "Du willst etwas bewegen? Dann bist du bei uns genau richtig! Stell dir vor: Die Produkte, die du in Birr vorbereitest und verschickst, werden später in Tunneln, Hochhäusern, Brücken oder Sportstadien auf der ganzen Welt eingesetzt. Damit das funktioniert, braucht es Menschen, die den Überblick behalten und gerne anpacken. Starte deine berufliche Zukunft bei Sika und werde Teil eines Teams, das gemeinsam dafür sorgt, dass alles zur richtigen Zeit am richtigen Ort ankommt. Für den Lehrbeginn im August 2027 suchen wir eine motivierte Persönlichkeit für die Lehrstelle als Logistiker/in EFZ . Während deiner Lehre bist du nicht nur Zuschauer/in, sondern von Anfang an mittendrin: Du nimmst Waren entgegen und kontrollierst die Lieferungen Du lernst, wie Produkte richtig gelagert und verwaltet werden Du stellst Kundenbestellungen zusammen und machst sie versandbereit Du arbeitest mit modernen technischen Hilfsmitteln und lernst den Umgang mit Staplern Du erhältst spannende Einblicke in die Abläufe eines grossen Logistikzentrums Du übernimmst Schritt für Schritt mehr Verantwortung Du arbeitest mit einem Team zusammen, das dich unterstützt und fördert",
       "descriptionByLocale": {
-        "it": "Funzionamento indipendente degli impianti pilota di R&D secondo le specifiche di sviluppo Pianificazione e esecuzione indipendente dei test Preparazione indipendente delle materie prime e del magazzino Garantire l'ordine e la pulizia (5S) Garantire la conformità con le linee guida di laboratorio e gli standard di sicurezza Manutenzione, manutenzione e ulteriore sviluppo degli impianti Contattare i produttori e fornitori di impianti Buona comprensione tecnica e lavoro esatto Buona capacità di osservazione, interesse ad analizzare i dati e i risultati Documentazione del lavoro e dei risultati",
-        "en": "Independent operation of the pilot plants of R&D according to the specification of development Independent planning and execution of tests Independent preparation of raw materials and warehousing Ensuring order and cleanliness (5S) Ensuring compliance with laboratory guidelines and safety standards Maintenance, maintenance and further development of the plants Contact with plant manufacturers and suppliers Good technical understanding and exact work Good observation ability, interest in analyzing data and results Documentation of the work and results Cooperation in process development",
-        "de": "Selbständiger Betrieb der Pilotanlagen der F&E nach Vorschrift der Entwicklung Selbständiges Planen und Ausführen von Versuchen Selbständige Rohstoffvorbereitung und Lagerhaltung Sicherstellung von Ordnung und Sauberkeit (5S) Sicherstellung der Einhaltung von Laborrichtlinien und Sicherheitsstandards Unterhalt, Wartung und Weiterentwicklung der Anlagen Kontakt mit Anlagenbauern und Lieferanten Gutes technisches Verständnis und exaktes Arbeiten Gute Beobachtungsgabe, Interesse am Analysieren von Daten und Resultaten Dokumentation der Arbeiten und Resultate Mitarbeit bei der Prozessentwicklung",
-        "fr": "Exploitation indépendante des installations pilotes de R-D selon les spécifications du développement Planification et exécution indépendantes des essais Préparation indépendante des matières premières et de l'entreposage Commande et propreté (5S) Respect des directives de laboratoire et des normes de sécurité Entretien, entretien et développement des installations Contact avec les fabricants et les fournisseurs Bonne compréhension technique et travail exact Bonne capacité d'observation, intérêt pour l'analyse des données et des résultats Documentation des travaux et des résultats Coopération en matière d'élaboration de procédés"
+        "de": "Du willst etwas bewegen? Dann bist du bei uns genau richtig! Stell dir vor: Die Produkte, die du in Birr vorbereitest und verschickst, werden später in Tunneln, Hochhäusern, Brücken oder Sportstadien auf der ganzen Welt eingesetzt. Damit das funktioniert, braucht es Menschen, die den Überblick behalten und gerne anpacken. Starte deine berufliche Zukunft bei Sika und werde Teil eines Teams, das gemeinsam dafür sorgt, dass alles zur richtigen Zeit am richtigen Ort ankommt. Für den Lehrbeginn im August 2027 suchen wir eine motivierte Persönlichkeit für die Lehrstelle als Logistiker/in EFZ . Während deiner Lehre bist du nicht nur Zuschauer/in, sondern von Anfang an mittendrin: Du nimmst Waren entgegen und kontrollierst die Lieferungen Du lernst, wie Produkte richtig gelagert und verwaltet werden Du stellst Kundenbestellungen zusammen und machst sie versandbereit Du arbeitest mit modernen technischen Hilfsmitteln und lernst den Umgang mit Staplern Du erhältst spannende Einblicke in die Abläufe eines grossen Logistikzentrums Du übernimmst Schritt für Schritt mehr Verantwortung Du arbeitest mit einem Team zusammen, das dich unterstützt und fördert",
+        "it": "Du willst etwas bewegen? Dann bist du bei uns genau richtig! Stell dir vor: Die Produkte, die du in Birr vorbereitest und verschickst, werden später in Tunneln, Hochhäusern, Brücken oder Sportstadien auf der ganzen Welt eingesetzt. Damit das funktioniert, braucht es Menschen, die den Überblick behalten und gerne anpacken. Starte deine berufliche Zukunft bei Sika und werde Teil eines Teams, das gemeinsam dafür sorgt, dass alles zur richtigen Zeit am richtigen Ort ankommt. Für den Lehrbeginn im August 2027 suchen wir eine motivierte Persönlichkeit für die Lehrstelle als Logistiker/in EFZ . Während deiner Lehre bist du nicht nur Zuschauer/in, sondern von Anfang an mittendrin: Du nimmst Waren entgegen und kontrollierst die Lieferungen Du lernst, wie Produkte richtig gelagert und verwaltet werden Du stellst Kundenbestellungen zusammen und machst sie versandbereit Du arbeitest mit modernen technischen Hilfsmitteln und lernst den Umgang mit Staplern Du erhältst spannende Einblicke in die Abläufe eines grossen Logistikzentrums Du übernimmst Schritt für Schritt mehr Verantwortung Du arbeitest mit einem Team zusammen, das dich unterstützt und fördert",
+        "en": "Du willst etwas bewegen? Dann bist du bei uns genau richtig! Stell dir vor: Die Produkte, die du in Birr vorbereitest und verschickst, werden später in Tunneln, Hochhäusern, Brücken oder Sportstadien auf der ganzen Welt eingesetzt. Damit das funktioniert, braucht es Menschen, die den Überblick behalten und gerne anpacken. Starte deine berufliche Zukunft bei Sika und werde Teil eines Teams, das gemeinsam dafür sorgt, dass alles zur richtigen Zeit am richtigen Ort ankommt. Für den Lehrbeginn im August 2027 suchen wir eine motivierte Persönlichkeit für die Lehrstelle als Logistiker/in EFZ . Während deiner Lehre bist du nicht nur Zuschauer/in, sondern von Anfang an mittendrin: Du nimmst Waren entgegen und kontrollierst die Lieferungen Du lernst, wie Produkte richtig gelagert und verwaltet werden Du stellst Kundenbestellungen zusammen und machst sie versandbereit Du arbeitest mit modernen technischen Hilfsmitteln und lernst den Umgang mit Staplern Du erhältst spannende Einblicke in die Abläufe eines grossen Logistikzentrums Du übernimmst Schritt für Schritt mehr Verantwortung Du arbeitest mit einem Team zusammen, das dich unterstützt und fördert",
+        "fr": "Du willst etwas bewegen? Dann bist du bei uns genau richtig! Stell dir vor: Die Produkte, die du in Birr vorbereitest und verschickst, werden später in Tunneln, Hochhäusern, Brücken oder Sportstadien auf der ganzen Welt eingesetzt. Damit das funktioniert, braucht es Menschen, die den Überblick behalten und gerne anpacken. Starte deine berufliche Zukunft bei Sika und werde Teil eines Teams, das gemeinsam dafür sorgt, dass alles zur richtigen Zeit am richtigen Ort ankommt. Für den Lehrbeginn im August 2027 suchen wir eine motivierte Persönlichkeit für die Lehrstelle als Logistiker/in EFZ . Während deiner Lehre bist du nicht nur Zuschauer/in, sondern von Anfang an mittendrin: Du nimmst Waren entgegen und kontrollierst die Lieferungen Du lernst, wie Produkte richtig gelagert und verwaltet werden Du stellst Kundenbestellungen zusammen und machst sie versandbereit Du arbeitest mit modernen technischen Hilfsmitteln und lernst den Umgang mit Staplern Du erhältst spannende Einblicke in die Abläufe eines grossen Logistikzentrums Du übernimmst Schritt für Schritt mehr Verantwortung Du arbeitest mit einem Team zusammen, das dich unterstützt und fördert"
       },
-      "location": "Zürich, Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
+      "location": "Birr, Aargau, Switzerland",
+      "canton": "AG",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:04:54.303Z",
-      "addressLocality": "Zürich",
+      "crawledAt": "2026-08-11T22:27:27.990Z",
+      "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
-      "addressRegion": "Zurich",
+      "addressRegion": "Aargau",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Produzione",
+      "category": "Logistica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Specialty chemicals (construction & industrial)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-05",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
+      "postedDate": "2026-08-04",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "equipment-operator-sika-ch"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "equipment-operator-sika-ch"
-        ],
-        "fr": [
-          "equipment-operator-sika-ch"
+          "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
         ]
       },
-      "firstSeenAt": "2026-06-17T13:57:28.934Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "previousSlugs": [
+        "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
+      ],
+      "salaryMin": 52000,
+      "salaryMax": 78500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 52000,
+          "maxValue": 78500,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-08-11T22:27:27.990Z"
     }
   ]
 }
