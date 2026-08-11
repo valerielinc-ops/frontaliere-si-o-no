@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T09:04:55.261Z",
+  "generatedAt": "2026-08-11T07:38:54.930Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -11,7 +11,7 @@
   },
   "current": {
     "enabled": true,
-    "variant": "year_intent",
+    "variant": "intent_simulation",
     "targets": "*",
     "year": "2026"
   },
@@ -23,7 +23,7 @@
   },
   "decision": {
     "nextVariant": "intent_simulation",
-    "reason": "switch_to_winner_uplift_0.968",
+    "reason": "winner_already_active",
     "mode": "exploit",
     "scores": {
       "year_intent": {
@@ -34,20 +34,20 @@
       },
       "intent_simulation": {
         "samples": 16,
-        "impressions": 1260830,
-        "clicks": 97554,
-        "ctr": 7.737
+        "impressions": 1363112,
+        "clicks": 104461,
+        "ctr": 7.663
       }
     }
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 115914,
-    "totalClicks": 8531,
-    "weightedCtr": 7.36,
+    "totalImpressions": 118854,
+    "totalClicks": 8320,
+    "weightedCtr": 7,
     "opportunities": 1,
-    "exposures": 7609
+    "exposures": 7350
   },
-  "changed": true,
-  "published": true
+  "changed": false,
+  "published": false
 }
