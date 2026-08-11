@@ -9608,6 +9608,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Trasferirsi a Valdidentro da frontaliere: pro e contro',
     'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analisi su vita e lavoro a Valdidentro per frontalieri in Grigioni: imposte, franchigie e aspetti pratici del nuovo accordo fiscale.',
     'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Veduta panoramica di una valle alpina vicino al confine svizzero',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Vivere a Valfurva e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Fatti chiave sulla nuova convenzione doppie imposizioni e sul nuovo accordo fiscale per i frontalieri ticinesi',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontalieri in fila per il controllo ai valichi',
 };
 
 export default blogMetaIt;

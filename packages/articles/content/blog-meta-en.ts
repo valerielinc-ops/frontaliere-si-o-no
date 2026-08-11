@@ -9607,6 +9607,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Transferring to Valdidentro by border crossing: pros and cons',
     'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analysis of life and work in Valdidentro for border workers in Graubünden: taxes, deductibles and practical aspects of the new tax agreement.',
     'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Panoramic view of an alpine valley near the Swiss border',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Living in Valfurva and working in Graubünden as a border worker',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Key facts about the new double taxation agreement and the new tax agreement for Ticino border workers',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontaliers in line for border control',
 };
 
 export default blogMetaEn;

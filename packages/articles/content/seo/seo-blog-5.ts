@@ -63563,6 +63563,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-valfurva-e-lavorare-grigioni-da-frontaliere': {
+    title: 'Vivere a Valfurva e lavorare in Grigioni da frontaliere',
+    description: 'Fatti chiave sulla nuova convenzione doppie imposizioni e sul nuovo accordo fiscale per i frontalieri ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valfurva, lavorare, grigioni',
+    ogTitle: 'Vivere a Valfurva e lavorare in Grigioni da frontaliere',
+    ogDescription: 'Fatti chiave sulla nuova convenzione doppie imposizioni e sul nuovo accordo fiscale per i frontalieri ticinesi',
+    canonicalPath: '/articoli-frontaliere/vivere-valfurva-e-lavorare-grigioni-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Valfurva e lavorare in Grigioni da frontaliere",
+      "description": "Fatti chiave sulla nuova convenzione doppie imposizioni e sul nuovo accordo fiscale per i frontalieri ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valfurva-e-lavorare-grigioni-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in fila per il controllo ai valichi"
+      },
+      "datePublished": "2026-08-11T02:29:49+00:00",
+      "dateModified": "2026-08-11T02:29:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valfurva-e-lavorare-grigioni-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
