@@ -2119,6 +2119,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.publiredazionale-aziende-informano.title': 'Publiredazionale: le aziende informano',
     'blog.article.publiredazionale-aziende-informano.excerpt': 'Aggiornamenti e comunicazioni dalle aziende tramite lo spazio pubblicitario di laRegione.',
     'blog.article.publiredazionale-aziende-informano.imageAlt': 'Ufficio moderno a Bellinzona con vista sulle montagne',
+    'blog.article.apple-chip-supply-chain-impatto.title': 'Apple: stime al ribasso per carenza chip e supply chain',
+    'blog.article.apple-chip-supply-chain-impatto.excerpt': 'Crescita ricavi prevista al 9-11%, pressioni sui margini e dipendenza da tre fornitori DRAM: le sfide di Apple che influenzano il mercato tecnologico globale.',
+    'blog.article.apple-chip-supply-chain-impatto.imageAlt': 'Ufficio moderno con vista panoramica sul lago di Lugano',
 };
 
 export default blogMetaChIt;

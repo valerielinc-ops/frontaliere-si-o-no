@@ -9627,6 +9627,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.title': 'Umzug als Grenzgänger nach Stilfserjoch: Vor- und Nachteile',
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.excerpt': 'Die neue Frontalieri-Vereinbarung sieht neue Regeln für Grenzgänger vor. Welche Vor- und Nachteile hat der Umzug ins Stilfserjoch?',
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.imageAlt': 'Blick auf den Comer See von Ascona',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Teglio ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'Grenzgänger, die nach Teglio ziehen, können von einer günstigeren Steuerregelung profitieren',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in Auto für den Arbeitstag in Teglio',
 };
 
 export default blogMetaDe;

@@ -63836,6 +63836,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-teglio-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Teglio da frontaliere: pro e contro',
+    description: 'I frontalieri che si trasferiscono a Teglio potranno beneficiare di un regime fiscale più favorevole. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, teglio, contro, trasferiscono',
+    ogTitle: 'Trasferirsi a Teglio da frontaliere: pro e contro',
+    ogDescription: 'I frontalieri che si trasferiscono a Teglio potranno beneficiare di un regime fiscale più favorevole.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-teglio-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Teglio da frontaliere: pro e contro",
+      "description": "I frontalieri che si trasferiscono a Teglio potranno beneficiare di un regime fiscale più favorevole. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-teglio-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in auto per il lavoro a Teglio"
+      },
+      "datePublished": "2026-08-11T04:44:48+00:00",
+      "dateModified": "2026-08-11T04:44:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-teglio-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

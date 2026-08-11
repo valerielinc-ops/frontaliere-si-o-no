@@ -2119,6 +2119,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.publiredazionale-aziende-informano.title': 'Advertising: companies inform',
     'blog.article.publiredazionale-aziende-informano.excerpt': 'Updates and communications from companies through the advertising space of the Region.',
     'blog.article.publiredazionale-aziende-informano.imageAlt': 'Modern office in Bellinzona with mountain view',
+    'blog.article.apple-chip-supply-chain-impatto.title': 'Apple: downside estimates for chip shortage and supply chain',
+    'blog.article.apple-chip-supply-chain-impatto.excerpt': 'Expected 9-11% revenue growth, margin pressures, and reliance on three DRAM vendors: Apple\'s challenges impacting the global tech market.',
+    'blog.article.apple-chip-supply-chain-impatto.imageAlt': 'Modern office with a panoramic view of Lake Lugano',
 };
 
 export default blogMetaChEn;

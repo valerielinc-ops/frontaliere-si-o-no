@@ -2119,6 +2119,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.publiredazionale-aziende-informano.title': 'Advertorial: Unternehmen informieren',
     'blog.article.publiredazionale-aziende-informano.excerpt': 'Updates und Mitteilungen von Unternehmen über die Werbefläche der Region.',
     'blog.article.publiredazionale-aziende-informano.imageAlt': 'Modernes Büro in Bellinzona mit Bergblick',
+    'blog.article.apple-chip-supply-chain-impatto.title': 'Apple: Abwärtsschätzungen für Chip- und Supply-Chain-Engpässe',
+    'blog.article.apple-chip-supply-chain-impatto.excerpt': 'Erwartetes Umsatzwachstum von 9-11%, Margendruck und Abhängigkeit von drei DRAM-Anbietern: Apples Herausforderungen, die den globalen Technologiemarkt beeinflussen.',
+    'blog.article.apple-chip-supply-chain-impatto.imageAlt': 'Modernes Büro mit Panoramablick auf den Luganersee',
 };
 
 export default blogMetaChDe;
