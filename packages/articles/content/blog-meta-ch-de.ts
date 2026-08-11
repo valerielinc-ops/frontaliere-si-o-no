@@ -2176,6 +2176,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-ees-rallenta-controlli.title': 'EES verlangsamt die Kontrollen',
     'blog.article.svizzera-ees-rallenta-controlli.excerpt': 'Daten von Qsensor und der Financial Times, Sommerspitzen von bis zu 120 Minuten in Frankfurt und Amsterdam; acht Länder und die Schweiz fordern eine Verlängerung.',
     'blog.article.svizzera-ees-rallenta-controlli.imageAlt': 'EES verlangsamt die Flughafenkontrollen in der Schweiz.',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.title': 'Das Schulsystem des Kantons Zürich: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.excerpt': 'Hier sind die Zyklen und das Einschreibealter für die obligatorische Schule im Kanton Zürich.',
+    'blog.article.sistema-scolastico-canton-zurigo-iscrizione-e-cicli.imageAlt': 'Die obligatorische Schule im Kanton Zürich',
 };
 
 export default blogMetaChDe;

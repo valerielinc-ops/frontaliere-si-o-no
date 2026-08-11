@@ -6526,6 +6526,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli',
+    category: 'novita',
+    date: '2026-08-11T11:58:09.280Z',
+    image: '/images/blog/sistema-scolastico-canton-zurigo-iscrizione-e-cicli.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
