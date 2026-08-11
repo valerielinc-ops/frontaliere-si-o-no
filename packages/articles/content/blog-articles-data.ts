@@ -29118,6 +29118,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'cassa-malati-aumento-costi-lamal-2026',
+ category: 'fiscale',
+ date: '2026-08-11T14:43:23.428Z',
+ image: '/images/blog/cassa-malati-aumento-costi-lamal-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
