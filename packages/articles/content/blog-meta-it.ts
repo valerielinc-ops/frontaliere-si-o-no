@@ -9685,6 +9685,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-allein-lavorare-vallese.title': 'Vivere a Allein e lavorare in Vallese da frontaliere',
     'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Guida pratica al pendolarismo tra Valle d\'Aosta e Vallese: regole fiscali, nuovo accordo e gestione del lavoro transfrontaliero.',
     'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Paesaggio alpino presso il Gran San Bernardo',
+    'blog.article.vivere-ollomont-lavorare-vallese.title': 'Vivere a Ollomont e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Guida pratica per il pendolarismo tra Italia e Svizzera, tra nuovo accordo fiscale, gestione delle imposte e previdenza sociale svizzera.',
+    'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Paesaggio montano alpino tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
