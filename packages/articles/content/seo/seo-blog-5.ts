@@ -64031,6 +64031,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tredicesima-avs-frontalieri-dettagli': {
+    title: 'Tredicesima AVS ai frontalieri: come funziona | Frontaliere Ticino',
+    description: 'Scopri come funziona la tredicesima AVS per i frontalieri a partire da dicembre 2026: requisiti, modalità di versamento e impatto della riforma. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tredicesima, funziona, dicembre, rendita',
+    ogTitle: 'Tredicesima AVS ai frontalieri: come funziona da dicembre',
+    ogDescription: 'Tutto sulla tredicesima AVS per i frontalieri: regole, date e impatto previdenziale dopo il voto del 3 marzo 2024.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-frontalieri-dettagli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tredicesima AVS ai frontalieri: come funziona",
+      "description": "Scopri come funziona la tredicesima AVS per i frontalieri a partire da dicembre 2026: requisiti, modalità di versamento e impatto della riforma. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-frontalieri-dettagli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del suo lago"
+      },
+      "datePublished": "2026-08-11T07:02:54+00:00",
+      "dateModified": "2026-08-11T07:02:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-frontalieri-dettagli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -9644,6 +9644,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Leben in Lovero und Arbeit in Graubünden als grenzüberschreitender Pendler',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Pendeln.',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'Ein Pendler fährt durch die italienisch-schweizerische Grenze.',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.title': '13. AHV für Grenzgänger: So geht\'s',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'Im Dezember steigt die AHV-Rente: Das sind die Regeln für Grenzgänger nach der Abstimmung vom 3. März 2024 und die Entscheide vom 12. November 2025.',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Panoramablick auf Lugano und den See',
 };
 
 export default blogMetaDe;
