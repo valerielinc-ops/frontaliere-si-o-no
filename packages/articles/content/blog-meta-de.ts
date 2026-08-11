@@ -9600,6 +9600,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Campodolcino - Leben und Arbeiten in Graubünden',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'Die neuesten Updates zu Reisen und Erleichterungen für Grenzgänger in der Schweiz.',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'Eine Frontaliere, die sich auf den Locarno-See blickt, mit den Grigioni-Bergen im Hintergrund.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Wohnen in Chiavenna und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'Neues Frontalieri-Abkommen: Was ändert sich für die Tessiner und Bündner Grenzgänger?',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Pendler am Grenzübergang',
 };
 
 export default blogMetaDe;
