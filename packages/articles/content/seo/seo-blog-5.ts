@@ -64811,6 +64811,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-regime-fiscale-nuovo-accordo': {
+    title: 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    description: 'Scopri le novità del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024: tassazione, franchigie e credito d\'imposta per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, accordo, fiscale, completa',
+    ogTitle: 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    ogDescription: 'Tutto quello che c\'è da sapere sul nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024 e le regole per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-regime-fiscale-nuovo-accordo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e nuovo accordo fiscale: guida completa 2024",
+      "description": "Scopri le novità del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024: tassazione, franchigie e credito d'imposta per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con edifici moderni"
+      },
+      "datePublished": "2026-08-11T13:57:51+00:00",
+      "dateModified": "2026-08-11T13:57:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-regime-fiscale-nuovo-accordo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

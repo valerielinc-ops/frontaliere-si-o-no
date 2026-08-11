@@ -9707,6 +9707,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Vivre à Gignod et travailler en Valais comme frontalier',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse des contraintes fiscales et opérationnelles pour les déplacements transfrontaliers entre l\'Italie et la Suisse conformément aux accords en vigueur.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Paysage alpin suisse près de la frontière',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontaliers et nouvel accord fiscal : guide complet 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Tout ce qu\'il faut savoir sur le nouvel accord fiscal entre l\'Italie et la Suisse en vigueur depuis le 1er janvier 2024 et les règles pour les travailleurs frontaliers.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes',
 };
 
 export default blogMetaFr;

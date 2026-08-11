@@ -29109,6 +29109,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-regime-fiscale-nuovo-accordo',
+ category: 'fiscale',
+ date: '2026-08-11T13:57:51.061Z',
+ image: '/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

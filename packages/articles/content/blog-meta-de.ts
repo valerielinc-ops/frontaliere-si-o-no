@@ -9704,6 +9704,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Wohnen in Gignod und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analyse der steuerlichen und betrieblichen Zwänge für den grenzüberschreitenden Pendelverkehr zwischen Italien und der Schweiz gemäß den geltenden Vereinbarungen.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Schweizer Alpenlandschaft nahe der Grenze',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Grenzgänger und neues Steuerabkommen: Kompletter Leitfaden 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Alles, was Sie über das neue Steuerabkommen zwischen Italien und der Schweiz, das seit dem 1. Januar 2024 in Kraft ist, und die Regeln für Grenzgänger wissen müssen.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden',
 };
 
 export default blogMetaDe;
