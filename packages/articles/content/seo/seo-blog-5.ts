@@ -65084,6 +65084,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abort-saint-nicolas-non-frontaliero': {
+    title: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
+    description: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, saint-nicolas, fatti, analisi',
+    ogTitle: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
+    ogDescription: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo per i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Saint-Nicolas da frontaliere: i fatti",
+      "description": "Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abort-saint-nicolas-non-frontaliero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di un villaggio alpino svizzero"
+      },
+      "datePublished": "2026-08-11T16:40:10+00:00",
+      "dateModified": "2026-08-11T16:40:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
