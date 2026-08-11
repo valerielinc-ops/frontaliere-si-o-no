@@ -10,6 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/transport-logistiker-in/656b54cd-1c60-4b2b-8a94-c5d02980aecf",
+    "https://jobs.sbb.ch/v2/offene-stellen/projekt-und-bewilligungsmanager-in-telecom-frmcs-ran-rollout/0c1eef08-fdfd-4f25-9762-6c4bc66d1840",
+    "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-technische-anlagen-elektroanlagen-50hz/693b2d93-18e2-4f4c-98fa-43038e62da6a",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/84e60310-488b-4b90-ac05-c5750f07bcef",
     "https://jobs.sbb.ch/v2/offene-stellen/planificateurtrice-des-ressources/d0fd71dc-3ee9-43cc-ac84-6c2d13f84a5a",
     "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-junior-m-f-d/42bb31a5-6a7b-4822-8037-23bf98c1415d",
@@ -20,6 +23,7 @@
     "https://jobs.sbb.ch/v2/offene-stellen/mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk/5c7cb136-82c5-44f9-bc71-0fd23226dca0",
     "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-fahrbahn/654fee31-bf6c-46a9-b79e-7a3c266e4f25",
     "https://jobs.sbb.ch/v2/offene-stellen/werkmitarbeiter-in-im-kraft-und-frequenzumformerwerk-massaboden-bitsch/f8476c63-19dc-4191-9a55-ac2e8623908a",
+    "https://jobs.sbb.ch/v2/offene-stellen/key-account-manager-m-w-d-bau-und-stahlindustrie/4507c69d-a3b9-4db0-ba48-1d71b4a67f8d",
     "https://jobs.sbb.ch/v2/offene-stellen/staff-frontend-engineer-m-w-d/f87cb1af-1e46-4ae6-b6cd-09667e71d01e",
     "https://jobs.sbb.ch/v2/offene-stellen/product-owner-m-w-d-mit-architekturerfahrung/67036960-bcbc-4371-a161-58c1d3ac1f25",
     "https://jobs.sbb.ch/v2/offene-stellen/ereignismanager-in-traffic-control-center/9d690971-bd4e-479f-845a-5d1558ef7779",
@@ -100,15 +104,11 @@
     "https://jobs.sbb.ch/v2/offene-stellen/ispettore-trice-del-genio-civile-montatore-trice-specialista-manufatti/7f408874-a046-44f0-b83e-549320f3ab51",
     "https://jobs.sbb.ch/v2/offene-stellen/logistiker-in-80/0b4e174c-f555-409c-8743-feb3e14fee31",
     "https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-fahrbahn/e982c891-9181-44af-a285-9e5beecbbd57",
-    "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/3c873ced-cb1f-4f3a-9913-3bb50465a5d7",
     "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau/d5f26978-0802-4886-a588-575942b85f55",
     "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/d26025bf-b71a-449c-b74a-f5a49942d33f",
     "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in/1b722e38-412d-48f8-a190-98bdda7c6c62",
     "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/1535df5b-6256-4f29-8aa4-e70925b6ca64",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/dd759881-368e-4e1f-8490-92e1f377fa1d",
-    "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/7a3de5de-3501-44ce-8369-21e3923c31b5",
-    "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fleet-control-room-astoro/39f869bc-f80b-4f83-8ba1-ecff310f38bc",
-    "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-anlagenmanager-in-fahrbahn/1b656970-b094-4b1e-a12a-c9453ab4ed6c",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/56d18928-874a-4500-b3db-a40d8605eec0",
     "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-b100-fahrleitungszugmaschine/b0e04be8-b20e-450d-be7e-611e612644b4",
     "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/73d0a66b-ac54-4883-a84f-0bc8117820ff",
@@ -161,5 +161,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-11T10:35:05.382Z"
+  "updatedAt": "2026-08-11T22:01:10.934Z"
 }
