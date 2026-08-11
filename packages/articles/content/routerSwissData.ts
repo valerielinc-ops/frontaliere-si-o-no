@@ -740,6 +740,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'neutralita-prassi-svizzera': { it: 'neutralita-prassi-svizzera', en: 'swiss-neutrality-practice', de: 'schweizerische-neutralita-praxis', fr: 'neutrality-pratique-suisse' },
  'bell-bellinzona-aziendale-2026': { it: 'bell-bellinzona-aziendale-2026', en: 'bell-bellinzona-aziendale-2026-en', de: 'bell-bellinzona-aziendale-2026-de', fr: 'bell-bellinzona-aziendale-2026-fr' },
  'consiglio-federale-iniziativa-neutralita': { it: 'consiglio-federale-iniziativa-neutralita', en: 'federal-council-reject-neutrality-initiative', de: 'bundesrat-neutralitaetsinitiative-ablehnen', fr: 'conseil-federal-rejeter-initiative-neutralite' },
+ 'premi-cassa-malati-zurigo-riduzione': { it: 'premi-cassa-malati-zurigo-riduzione', en: 'health-insurance-premiums-zurich-reduction', de: 'krankenkassenpraemien-zuerich-verbilligung', fr: 'primes-assurance-maladie-zurich-reduction' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

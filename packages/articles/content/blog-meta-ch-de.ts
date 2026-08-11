@@ -2143,6 +2143,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutralität: Bundesrat bestreitet verfassungsrechtliche Strenge',
     'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'Die Bundesregierung fordert zur Ablehnung der Neutralitätsinitiative auf und warnt davor, dass eine starre Definition den Handlungsspielraum der Schweiz einschränken würde.',
     'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Krankenkassenprämien Zürich und Prämienverbilligung: Praxisleitfaden',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analyse der KVG-Prämien im Kanton Zürich, Franchisemodelle und Voraussetzungen für die kantonale Prämienverbilligung.',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Modernes Gebäude in Zürich mit Passanten',
 };
 
 export default blogMetaChDe;
