@@ -3007,6 +3007,11 @@
           "impressions": 2
         },
         {
+          "query": "\"arbeitszeit\" +\"12 stunden\"",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "altenpflege arbeit",
           "clicks": 0,
           "impressions": 1
@@ -3030,14 +3035,9 @@
           "query": "altenpflegerin gesucht",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "altenpflegerin stellenangebote",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 170,
+      "totalImpressions": 171,
       "totalClicks": 0,
       "topQuery": "altenpfleger bern",
       "title": "Altenpflege",
