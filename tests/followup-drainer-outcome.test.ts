@@ -122,4 +122,14 @@ describe('isAgeOutEligible (drain del ratchet follow-up)', () => {
     expect(isAgeOutEligible({ labels: [{ name: 'follow-up' }], createdAt: 'x', updatedAt: 'y' }, opts)).toBe(false);
     expect(isAgeOutEligible(iss(['follow-up'], 60, 60), { ...opts, ageOutDays: 0 })).toBe(false);
   });
+
+  it('NON chiude un\'issue-contatore/tracker permanente (`agent:no-age-out`), anche molto vecchia e ferma (#5615)', () => {
+    // Il ledger crawler-transient e il tracker loop-health sono queue-managed
+    // (category='other') e sopravvivono SOLO grazie ai commenti dei fallimenti
+    // sub-soglia che contano: un periodo sano li lascia vecchi+inattivi come
+    // qualunque follow-up morto, azzerando lo streak che contano se chiusi.
+    expect(isAgeOutEligible(iss(['agent:no-age-out'], 365, 365), opts)).toBe(false);
+    // resta chiudibile senza la label, stessa età/inattività
+    expect(isAgeOutEligible(iss([], 365, 365), opts)).toBe(true);
+  });
 });
