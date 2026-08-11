@@ -2218,6 +2218,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Stipendien im Kanton Zürich: Voraussetzungen und Beträge',
     'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Finanzmittel für Schweizer Studierende',
     'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Redaktionelle Fotografie eines Universitätslehrers und Studenten in der Schweiz',
+    'blog.article.settore-agricolo-danni-19-milioni.title': 'Der Agrarsektor meldet Schäden von über 19 Millionen Franken.',
+    'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'Die Dürre trifft die Schweizer Landwirte hart und verursacht Schäden von schätzungsweise über 19 Millionen Franken.',
+    'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Ein Blick auf den Luganersee während der Dürre.',
 };
 
 export default blogMetaChDe;

@@ -9736,6 +9736,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Sarre da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.excerpt': 'Imposta alla fonte, nuove aliquote e cambiamenti per i frontalieri Ticino-Italia.',
     'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.imageAlt': 'Immagine editoriale relativa a: Trasferirsi a Sarre da frontaliere: pro e contro',
+    'blog.article.vivere-aosta-lavorare-vallese.title': 'Vivere a Aosta e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Guida pratica al pendolarismo tra Aosta e il Vallese: collegamenti, imposta alla fonte, gestione del cambio e regole per i nuovi e vecchi frontalieri.',
+    'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Panorama alpino tra Italia e Svizzera per pendolari frontalieri',
 };
 
 export default blogMetaIt;
