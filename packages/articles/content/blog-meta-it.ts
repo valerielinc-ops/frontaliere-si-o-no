@@ -9733,6 +9733,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'I dati chiave sulla vita di un frontaliere che lavora in Vallese e risiede a Saint-Pierre.',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Vallese e risiede a Saint-Pierre.',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Sarre da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.excerpt': 'Imposta alla fonte, nuove aliquote e cambiamenti per i frontalieri Ticino-Italia.',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.imageAlt': 'Immagine editoriale relativa a: Trasferirsi a Sarre da frontaliere: pro e contro',
 };
 
 export default blogMetaIt;

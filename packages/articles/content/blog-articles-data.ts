@@ -29190,6 +29190,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-sarre-da-frontaliere-pro-e-contro',
+ category: 'novita',
+ date: '2026-08-11T18:00:10.553Z',
+ image: '/images/blog/trasferirsi-a-sarre-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
