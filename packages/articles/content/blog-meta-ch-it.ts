@@ -2077,6 +2077,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fedelta-bancaria-costi-analisi.title': 'Banche: la fedeltà costa cara, meglio diversificare',
     'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'Uno studio Moneyland.ch rivela i costi occulti della fedeltà bancaria: risparmi fino a mille franchi diversificando i servizi tra vari istituti.',
     'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Interno di un moderno istituto bancario svizzero con documenti finanziari',
+    'blog.article.lotta-lavoro-nero-consultazione.title': 'Lotta al lavoro nero: al via la consultazione sulla nuova legge',
+    'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'Il Consiglio federale propone modifiche alla legge contro il lavoro nero per rafforzare i controlli e la cooperazione tra autorità entro il 16 ottobre 2026.',
+    'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Edificio amministrativo in Svizzera rappresentativo delle autorità di controllo',
 };
 
 export default blogMetaChIt;

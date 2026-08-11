@@ -2077,6 +2077,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fedelta-bancaria-costi-analisi.title': 'Banks: loyalty costs a lot, it\'s better to diversify',
     'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'A Moneyland.ch study reveals the hidden costs of bank loyalty: you save up to a thousand francs by diversifying services between various institutions.',
     'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Interior of a modern Swiss bank office with financial documents',
+    'blog.article.lotta-lavoro-nero-consultazione.title': 'Fight against undeclared work: consultation on the new law kicks off',
+    'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'The Federal Council proposes amendments to the law against undeclared work to strengthen controls and cooperation between authorities by 16 October 2026.',
+    'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Administrative building in Switzerland representing regulatory authorities',
 };
 
 export default blogMetaChEn;
