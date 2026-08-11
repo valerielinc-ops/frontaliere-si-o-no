@@ -2227,6 +2227,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.on-trimestre-record.title': 'Di più On: trimestre record con forte crescita in Asia, ma giù in borsa',
     'blog.article.on-trimestre-record.excerpt': 'On mette a segno un altro trimestre record: il fatturato del marchio di articoli sportivi si è attestato a 850 milioni di franchi',
     'blog.article.on-trimestre-record.imageAlt': 'Immagine di un paesaggio del Ticino con la scritta \'On mette a segno un altro trimestre record\'',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.title': 'Asilo nido e custodia bambini in Canton Zurigo: costi',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.excerpt': 'Calcolati in base al reddito delle famiglie, i costi per l\'asilo nido e la custodia dei bambini in Canton Zurigo sono una questione complessa.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.imageAlt': 'Asilo nido in Canton Zurigo',
 };
 
 export default blogMetaChIt;

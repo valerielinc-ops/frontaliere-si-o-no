@@ -2227,6 +2227,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.on-trimestre-record.title': 'Trio record en Asie, mais en baisse en bourse',
     'blog.article.on-trimestre-record.excerpt': 'On signe un autre trimestre record : le chiffre d\'affaires de la marque d\'articles de sport s\'établit à 850 millions de francs',
     'blog.article.on-trimestre-record.imageAlt': 'Image d\'un paysage du Tessin avec la légende \'On obtient un autre trimestre record\'',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.title': 'Garderie et garde d\'enfants dans le canton de Zurich : coûts',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.excerpt': 'Calculés sur la base du revenu des familles, les frais de garderie et de garde d\'enfants dans le canton de Zurich sont une question complexe.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-zurigo-costi.imageAlt': 'Etablissement d\'accueil pour enfants à Canton Zurich',
 };
 
 export default blogMetaChFr;
