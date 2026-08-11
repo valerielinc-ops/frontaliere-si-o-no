@@ -9623,6 +9623,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Villa di Tirano da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.excerpt': 'Ecco cosa sapere sui vantaggi e svantaggi di trasferirsi a Villa di Tirano come frontaliere',
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che si trova in una situazione simile potrebbe dover affrontare nuove sfide fiscali',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Sondalo da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.excerpt': 'Ecco i vantaggi e gli svantaggi di trasferirsi a Sondalo come frontaliere.',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere al lavoro in Grigioni.',
 };
 
 export default blogMetaIt;
