@@ -9641,6 +9641,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-11.imageAlt': 'Les chiffres du jour pour les frontaliers – 11 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Bulletin du frontalier du 11 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'Les chiffres du 11 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Déménager à Aprica en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Faits et chiffres DE LA SOURCE sur le transfert à Aprica pour les frontaliers',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier conduit de Aprica à Chiasso',
 };
 
 export default blogMetaFr;
