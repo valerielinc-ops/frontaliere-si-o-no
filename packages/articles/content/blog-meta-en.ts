@@ -9708,6 +9708,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontier and new tax agreement: complete guide 2024',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Everything you need to know about the new tax agreement between Italy and Switzerland in force since 1 January 2024 and the rules for frontier workers.',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Panoramic view of Lugano with modern buildings',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Sick fund, costs have risen to CHF 4,834 per person',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'The sick fund\'s costs have increased by 0.4% in the last 12 months, bringing the total to CHF 4,834 per person.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Health insurance costs have increased',
 };
 
 export default blogMetaEn;

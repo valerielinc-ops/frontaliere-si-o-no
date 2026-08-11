@@ -9710,6 +9710,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontaliers et nouvel accord fiscal : guide complet 2024',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Tout ce qu\'il faut savoir sur le nouvel accord fiscal entre l\'Italie et la Suisse en vigueur depuis le 1er janvier 2024 et les règles pour les travailleurs frontaliers.',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Vue panoramique de Lugano avec des bâtiments modernes',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Caisse-maladie, les coûts sont montés à 4834francs par personne',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'Les coûts de la Caisse maladie ont augmenté de 0,4% au cours des 12 derniers mois, pour atteindre un total de 4834francs par personne.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Les coûts de la caisse de maladie ont augmenté',
 };
 
 export default blogMetaFr;

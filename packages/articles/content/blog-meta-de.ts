@@ -9707,6 +9707,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Grenzgänger und neues Steuerabkommen: Kompletter Leitfaden 2024',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Alles, was Sie über das neue Steuerabkommen zwischen Italien und der Schweiz, das seit dem 1. Januar 2024 in Kraft ist, und die Regeln für Grenzgänger wissen müssen.',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Krankenkasse, Kosten stiegen auf 4\'834 Franken pro Person',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'Die Kosten der Krankenkasse sind in den letzten 12 Monaten um 0,4% auf insgesamt 4\'834 Franken pro Person gestiegen.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Die Kosten der Krankenkasse sind gestiegen',
 };
 
 export default blogMetaDe;

@@ -9709,6 +9709,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Tutto quello che c\'è da sapere sul nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024 e le regole per i lavoratori frontalieri.',
     'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Veduta panoramica di Lugano con edifici moderni',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona.',
+    'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'I costi della Cassa malati sono aumentati',
 };
 
 export default blogMetaIt;
