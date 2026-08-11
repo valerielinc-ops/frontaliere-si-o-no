@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-22T17:46:02.933Z",
-    "label": "before",
-    "total": 24827,
-    "needsRetranslation": 8385,
-    "suppressed": 38,
-    "incomplete": 208,
-    "complete": 24619,
-    "missingByLocale": {
-      "it": 163,
-      "en": 100,
-      "de": 84,
-      "fr": 136
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 25
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 21
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 11
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 10
-      },
-      {
-        "company": "VOLG",
-        "pending": 10
-      },
-      {
-        "company": "ZFV-Unternehmungen",
-        "pending": 7
-      },
-      {
-        "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-        "pending": 5
-      },
-      {
-        "company": "Universität Bern",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-22T17:57:30.589Z",
-    "label": "after",
-    "total": 24827,
-    "needsRetranslation": 1343,
-    "suppressed": 38,
-    "incomplete": 208,
-    "complete": 24619,
-    "missingByLocale": {
-      "it": 163,
-      "en": 100,
-      "de": 84,
-      "fr": 136
-    },
-    "topPending": [
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 25
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 21
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 11
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 10
-      },
-      {
-        "company": "VOLG",
-        "pending": 10
-      },
-      {
-        "company": "ZFV-Unternehmungen",
-        "pending": 7
-      },
-      {
-        "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-        "pending": 5
-      },
-      {
-        "company": "Universität Bern",
-        "pending": 5
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-22T22:32:09.777Z",
     "label": "before",
     "total": 24812,
@@ -11406,6 +11292,130 @@
       {
         "company": "Alpiq",
         "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-11T05:39:44.580Z",
+    "label": "before",
+    "total": 26997,
+    "needsRetranslation": 14035,
+    "suppressed": 48,
+    "incomplete": 271,
+    "complete": 26726,
+    "slotsPresent": 26726,
+    "flaggedAmongSlotsPresent": 13812,
+    "verifiedTranslated": 12914,
+    "sourceCopyExcused": 3130,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 191,
+      "en": 133,
+      "de": 123,
+      "fr": 179
+    },
+    "topPending": [
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 58
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 15
+      },
+      {
+        "company": "Sulzer",
+        "pending": 15
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-11T05:50:30.127Z",
+    "label": "after",
+    "total": 26997,
+    "needsRetranslation": 9339,
+    "suppressed": 48,
+    "incomplete": 271,
+    "complete": 26726,
+    "slotsPresent": 26726,
+    "flaggedAmongSlotsPresent": 9117,
+    "verifiedTranslated": 17609,
+    "sourceCopyExcused": 3130,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 191,
+      "en": 133,
+      "de": 123,
+      "fr": 179
+    },
+    "topPending": [
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 58
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 15
+      },
+      {
+        "company": "Sulzer",
+        "pending": 15
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 13
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 8
       }
     ]
   }
