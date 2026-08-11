@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novelis",
-  "assembledAt": "2026-08-10T21:49:52.554Z",
+  "assembledAt": "2026-08-11T10:25:14.609Z",
   "jobs": [
     {
       "id": "novelis-c7cf8d2f877c",
@@ -49,17 +49,19 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52223/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:49:50.536Z",
+      "crawledAt": "2026-08-11T10:25:11.279Z",
       "previousSlugs": [
         "electrician-automatician-novelis-sierre",
         "elektriker-automatiker-novelis-sierre",
-        "electricien-automaticien-novelis-ch"
+        "electricien-automaticien-novelis-ch",
+        "elettricista-automatico-novelis-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
           "electrician-automatician-novelis-sierre",
           "elektriker-automatiker-novelis-sierre",
-          "electricien-automaticien-novelis-ch"
+          "electricien-automaticien-novelis-ch",
+          "elettricista-automatico-novelis-sierre"
         ],
         "en": [
           "electricien-automaticien-novelis-ch"
@@ -129,13 +131,15 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:49:49.585Z",
+      "crawledAt": "2026-08-11T10:25:10.709Z",
       "previousSlugs": [
-        "plant-hr-manager-f-m-d-novelis-ch"
+        "plant-hr-manager-f-m-d-novelis-ch",
+        "plant-risorse-umane-manager-f-m-d-novelis-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plant-hr-manager-f-m-d-novelis-ch"
+          "plant-hr-manager-f-m-d-novelis-ch",
+          "plant-risorse-umane-manager-f-m-d-novelis-sierre"
         ],
         "de": [
           "plant-hr-manager-f-m-d-novelis-ch"
@@ -145,6 +149,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -205,7 +210,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:49:48.751Z",
+      "crawledAt": "2026-08-11T10:25:10.179Z",
       "previousSlugs": [
         "trainee-novelis-sierre",
         "auszubildende-novelis-sierre",
@@ -213,7 +218,8 @@
         "intern-visual-communication-novelis-sierre",
         "interne-visuelle-kommunikation-novelis-sierre",
         "stagiaire-communication-visuelle-novelis-ch",
-        "stagiaire-novelis-ch"
+        "stagiaire-novelis-ch",
+        "allenatore-novelis-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -223,7 +229,8 @@
           "intern-visual-communication-novelis-sierre",
           "interne-visuelle-kommunikation-novelis-sierre",
           "stagiaire-communication-visuelle-novelis-ch",
-          "stagiaire-novelis-ch"
+          "stagiaire-novelis-ch",
+          "allenatore-novelis-sierre"
         ],
         "en": [
           "stagiaire-novelis-ch"
@@ -293,13 +300,15 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:49:47.842Z",
+      "crawledAt": "2026-08-11T10:25:09.606Z",
       "previousSlugs": [
-        "internship-m-f-d-human-resources-60-80-novelis-ch"
+        "internship-m-f-d-human-resources-60-80-novelis-ch",
+        "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-m-f-d-human-resources-60-80-novelis-ch"
+          "internship-m-f-d-human-resources-60-80-novelis-ch",
+          "internship-m-f-d-risorse-umane-60-80-novelis-kusnacht"
         ],
         "de": [
           "internship-m-f-d-human-resources-60-80-novelis-ch"
@@ -309,6 +318,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -369,19 +379,21 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:49:47.084Z",
+      "crawledAt": "2026-08-11T10:25:09.085Z",
       "previousSlugs": [
         "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
         "manager-m-f-d-finanza-digital-transformation-business-projects-novelis-kusnacht",
         "manager-m-f-d-finanzen-digital-transformation-business-projects-novelis-kusnacht",
         "gestionnaire-m-f-d-finances-transformation-numerique-et-projets-operationnels-novelis-kusnacht",
-        "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch"
+        "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch",
+        "finanza-lead-m-f-d-digital-transformation-business-projects-novelis-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch",
           "manager-m-f-d-finanza-digital-transformation-business-projects-novelis-kusnacht",
-          "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch"
+          "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch",
+          "finanza-lead-m-f-d-digital-transformation-business-projects-novelis-kusnacht"
         ],
         "en": [
           "manager-m-f-d-finance-digital-transformation-business-projects-novelis-ch"
@@ -396,6 +408,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -456,17 +469,19 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:49:46.252Z",
+      "crawledAt": "2026-08-11T10:25:08.457Z",
       "previousSlugs": [
         "intern-visual-communication-novelis-sierre",
         "interne-visuelle-kommunikation-novelis-sierre",
-        "stagiaire-communication-visuelle-novelis-ch"
+        "stagiaire-communication-visuelle-novelis-ch",
+        "intern-comunicazione-visiva-novelis-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
           "intern-visual-communication-novelis-sierre",
           "interne-visuelle-kommunikation-novelis-sierre",
-          "stagiaire-communication-visuelle-novelis-ch"
+          "stagiaire-communication-visuelle-novelis-ch",
+          "intern-comunicazione-visiva-novelis-sierre"
         ],
         "en": [
           "stagiaire-communication-visuelle-novelis-ch"
@@ -476,6 +491,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:11:08.633Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -536,13 +552,15 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:49:45.447Z",
+      "crawledAt": "2026-08-11T10:25:07.817Z",
       "previousSlugs": [
-        "mecanicien-de-maintenance-novelis-ch"
+        "mecanicien-de-maintenance-novelis-ch",
+        "ingegnere-di-manutenzione-novelis-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-de-maintenance-novelis-ch"
+          "mecanicien-de-maintenance-novelis-ch",
+          "ingegnere-di-manutenzione-novelis-sierre"
         ],
         "en": [
           "mecanicien-de-maintenance-novelis-ch"
@@ -612,18 +630,20 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:49:44.492Z",
+      "crawledAt": "2026-08-11T10:25:07.286Z",
       "previousSlugs": [
-        "it-solutions-lead-m-w-d-novelis-ch"
+        "it-solutions-lead-m-w-d-novelis-ch",
+        "soluzioni-it-piombo-m-w-d-novelis-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "it-solutions-lead-m-w-d-novelis-ch",
+          "soluzioni-it-piombo-m-w-d-novelis-ticino"
+        ],
+        "de": [
           "it-solutions-lead-m-w-d-novelis-ch"
         ],
         "fr": [
-          "it-solutions-lead-m-w-d-novelis-ch"
-        ],
-        "de": [
           "it-solutions-lead-m-w-d-novelis-ch"
         ]
       },
@@ -688,13 +708,15 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52824/senior-global-event-specialist-%28m-f-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:49:43.416Z",
+      "crawledAt": "2026-08-11T10:25:06.611Z",
       "previousSlugs": [
-        "senior-global-event-specialist-m-f-d-novelis-ch"
+        "senior-global-event-specialist-m-f-d-novelis-ch",
+        "senior-global-event-specialista-m-f-d-novelis-kusnacht-de-bw-stuttgart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-global-event-specialist-m-f-d-novelis-ch"
+          "senior-global-event-specialist-m-f-d-novelis-ch",
+          "senior-global-event-specialista-m-f-d-novelis-kusnacht-de-bw-stuttgart"
         ],
         "de": [
           "senior-global-event-specialist-m-f-d-novelis-ch"
@@ -764,13 +786,15 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52860/internship-%28m-f-d%29-internal-communications-%2840%25-60%25%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T21:49:42.326Z",
+      "crawledAt": "2026-08-11T10:25:05.865Z",
       "previousSlugs": [
-        "internship-m-f-d-internal-communications-40-60-novelis-ch"
+        "internship-m-f-d-internal-communications-40-60-novelis-ch",
+        "internship-m-f-d-comunicazioni-interne-40-60-novelis-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-m-f-d-internal-communications-40-60-novelis-ch"
+          "internship-m-f-d-internal-communications-40-60-novelis-ch",
+          "internship-m-f-d-comunicazioni-interne-40-60-novelis-kusnacht"
         ],
         "de": [
           "internship-m-f-d-internal-communications-40-60-novelis-ch"
@@ -780,6 +804,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:44.264Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
