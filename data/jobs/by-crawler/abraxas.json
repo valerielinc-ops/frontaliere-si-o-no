@@ -100,9 +100,9 @@
       "companyDomain": "abraxas.ch",
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
-        "de": "Software Ingenieur – Data Migration 80 - 100%",
-        "en": "Software Engineer - Data Migration 80 - 100%",
         "it": "Software Ingegnere – Data Migration 80 - 100%",
+        "en": "Software Engineer – Data Migration 80 – 100%",
+        "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
       "description": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
@@ -139,6 +139,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "firstSeenAt": "2026-08-10T21:45:24.826Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -150,9 +151,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-10T21:45:24.826Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-f90530a90f84",
@@ -169,7 +168,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer AI & Automation 80-100%",
+        "en": "ServiceNow Engineer KI & Automation 80-100 %",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -241,8 +240,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -259,7 +257,7 @@
       "title": "Senior Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Software-Ingegnere 80–100 %",
-        "en": "Senior Software-Engineer 80–100 %",
+        "en": "Senior Software Engineer 80-100%",
         "de": "Senior Software-Ingenieur 80–100 %",
         "fr": "Senior Software-Ingénieur 80–100 %"
       },
@@ -276,7 +274,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:39.097Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -356,7 +353,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80–100 %",
+        "en": "Senior OpenStack Engineer 80-100%",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -373,7 +370,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:38.644Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -445,7 +441,7 @@
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
+        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
         "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
@@ -462,7 +458,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:38.191Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -874,9 +869,9 @@
       "companyDomain": "abraxas.ch",
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
-        "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer - Data Migration 80 - 100%",
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
+        "en": "Lead Software Engineer – Data Migration 80 – 100%",
+        "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
       "description": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\n• Du steuerst die Planung sowie Implementierung der technischen Anbindungen und hältst dabei Deadlines sicher im Griff.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\n• Enge Zusammenarbeit und Koordination mit anderen Teams und Stakeholdern\n• Starke Kommunikationsfähigkeiten und adressatengerechte Vermittlung von Themen\n• Aktive Unterstützung und Coaching der Teammitglieder\n• Sicheres Auftreten, Überzeugungskraft und Ausdauer bei der Umsetzung von Lösungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
@@ -913,6 +908,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "firstSeenAt": "2026-08-10T21:45:20.857Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -924,9 +920,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-10T21:45:20.857Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-09133f677de5",
@@ -943,7 +937,7 @@
       "title": "KI - Consultant 80–100 %",
       "titleByLocale": {
         "it": "KI - Consulente 80–100 %",
-        "en": "KI - Consultant 80–100 %",
+        "en": "AI - Consultant 80-100%",
         "de": "KI - Berater 80–100 %",
         "fr": "AI - Consultant 80-100%"
       },
@@ -960,7 +954,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:35.476Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1033,7 +1026,7 @@
       "title": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
       "titleByLocale": {
         "it": "IT Service Manager (m/f/d) - Focus Change, Incident & Practice Management (100%)",
-        "en": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
+        "en": "IT Service Manager (m/f/d) - Focus Change, Incident & Practice Management (100%)",
         "de": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
         "fr": "Gestionnaire de services de TI (m/f/d) - Changement de orientation, gestion des incidents et des pratiques (100 %)"
       },
@@ -1101,7 +1094,7 @@
       "title": "ICT-System Engineer Citrix 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Citrix 80–100 %",
-        "en": "ICT-System Engineer Citrix 80–100 %",
+        "en": "ICT System Engineer Citrix 80-100%",
         "de": "ICT-System Ingenieur Citrix 80–100 %",
         "fr": "ICT-System Ingénieur Citrix 80–100 %"
       },
@@ -1118,7 +1111,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:34.567Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1180,7 +1172,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1261,7 +1253,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1408,8 +1400,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-aa92662fa1fe",
@@ -1426,7 +1417,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1443,7 +1434,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:32.736Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1807,7 +1797,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-11T10:07:30.902Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
