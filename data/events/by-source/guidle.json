@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-10T07:10:38.067Z",
+  "assembledAt": "2026-08-11T06:50:08.544Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -11996,6 +11996,355 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AwU7rrR.jpg"
+    },
+    {
+      "id": "guidle:ABmv6pC",
+      "title": "Löwenbräukunst Offenes Haus",
+      "titleByLocale": {
+        "it": "Löwenbräukunst Offenes Haus",
+        "en": "Löwenbräukunst Open House",
+        "de": "L ⑤enbr ①ukunst Offenes Haus",
+        "fr": "Löwenbräukunst Maison ouverte"
+      },
+      "description": "Löwenbräukunst Offenes Haus mit Ausstellungsrundgängen in verschiedenen Sprachen und umfangreichem Programm aus Performance und Workshops",
+      "descriptionByLocale": {
+        "it": "Löwenbräukunst Offenes Haus fornisce una piattaforma per incontri e scambi tra le comunità. Favorisce connessioni sostenibili e inclusive che estendono la visita del singolo museo.",
+        "en": "Löwenbräukunst Offenes Haus provides a platform for encounters and exchange across communities. It fosters sustainable and inclusive connections that extend the individual museum visit.",
+        "de": "Das Löwenbräukunst Offenes Haus bietet eine Plattform für Begegnung und gemeinschaftsübergreifenden Austausch. Es fördert nachhaltige und inklusive Verbindungen, die den individuellen Museumsbesuch verlängern.",
+        "fr": "La Löwenbräukunst Offenes Haus offre une plate-forme de rencontres et d'échanges entre les communautés. Il favorise des connexions durables et inclusives qui prolongent la visite individuelle du musée."
+      },
+      "startDate": "2026-08-15",
+      "endDate": "2027-02-06",
+      "startTime": "11:00",
+      "category": "L'arte in generale",
+      "venue": "Löwenbräukunst",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/classical/zurich/loewenbraeukunst-offenes-haus_ABmv6pC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Limmatstrasse 268 & 270",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3891521,
+        "lng": 8.5252162
+      },
+      "recurring": true
+    },
+    {
+      "id": "guidle:A35jvWJ",
+      "title": "Hin&Her",
+      "titleByLocale": {
+        "it": "Hin&Her",
+        "en": "Hin&Her",
+        "de": "Hin&Her",
+        "fr": "Hin&Elle"
+      },
+      "description": "Auf einer Brücke über einen Grenzfluss ist Havlicek heimatlos. Weitere Gestalten in diesem Niemandsland bringen Lust und Frust, Verwirrung und Klarheit, zarte Töne und kriminelle Gesinnung mit sich.",
+      "descriptionByLocale": {
+        "it": "Auf einer Brücke über einen Grenzfluss ist Havlicek heimatlos. Weitere Gestalten in diesem Niemandsland bringen Lust und Frust, Verwirrung und Klarheit, zarte Töne und kriminelle Gesinnung mit sich.",
+        "en": "Auf einer Brücke über einen Grenzfluss ist Havlicek heimatlos. Weitere Gestalten in diesem Niemandsland bringen Lust und Frust, Verwirrung und Klarheit, zarte Töne und crimenelle Gesinnung mit sich.",
+        "de": "Auf einer Brücke über einen Grenzfluss ist Havlicek heimatlos. Weitere Gestalten in diesem Niemandsland bringen Lust und Frust, Verwirrung und Klarheit, zarte Töne und crimenelle Gesinnung mit sich.",
+        "fr": "Auf einer Brücke über einen Grenzfluss ist Havlicek heimatlos. D'autres Gestalten dans ce Niemandsland apportent Lust et Frust, Verwirrung et Klarheit, zarte Töne et crimenelle Gesinnung mit sich."
+      },
+      "startDate": "2027-05-15",
+      "endDate": "2027-05-15",
+      "startTime": "20:00",
+      "category": "Genere drammativo",
+      "venue": "Theater im Burgbachkeller",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zug/hin-und-her_A35jvWJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 3",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.164248,
+        "lng": 8.5145922
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A35jvWJ.jpg"
+    },
+    {
+      "id": "guidle:AqJXRr5",
+      "title": "Vide-grenier \"A Coffre Ouvert\" in Rolle",
+      "titleByLocale": {
+        "it": "Vide-grenier \"A Coffre Ouvert\" in Rolle",
+        "en": "Videogrenier \"A Coffre Ouvert\" in Rolle",
+        "de": "Videograenier \"A Coffre Ouvert\" in Rolle",
+        "fr": "Vide-grenier « A Coffre Ouvert » en Rolle"
+      },
+      "description": "Gartenverkauf von Privatpersonen rund um das Schloss Rolle.",
+      "descriptionByLocale": {
+        "it": "Visita il garage vendita “A Coffre ouvert” riservato ai privati vicino al Castello di Rolle.",
+        "en": "Visit the garage sale \"A Coffre ouvert\" reserved for individuals close to the Castle of Rolle.",
+        "de": "Besuchen Sie den Garagenverkauf \"A Coffre ouvert\", der für Personen in der Nähe des Schlosses Rolle reserviert ist.",
+        "fr": "Vide-greniers réservé aux particuliers sur la pelouse du Château de Rolle."
+      },
+      "startDate": "2026-08-15",
+      "endDate": "2026-10-17",
+      "startTime": "00:00",
+      "category": "L'arte in generale",
+      "venue": "Château de Rolle",
+      "comune": "Rolle",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/classique/rolle/vide-grenier-a-coffre-ouvert-de-rolle_AqJXRr5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Grand-Rue 1",
+        "postalCode": "1180"
+      },
+      "geo": {
+        "lat": 46.458877,
+        "lng": 6.3410816
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AqJXRr5.jpg"
+    },
+    {
+      "id": "guidle:ATM4WSa",
+      "title": "Konzert mit Thorsten Ahlrichs",
+      "titleByLocale": {
+        "it": "Konzert mit Thorsten Ahlrichs",
+        "en": "Concert with Thorsten Ahlrichs",
+        "de": "Konzert mit Thorsten Ahlrichs",
+        "fr": "Concert avec Thorsten Ahlrichs"
+      },
+      "description": "Orgelkonzerte",
+      "descriptionByLocale": {
+        "it": "Orgelkonzerte",
+        "en": "Orgelkonzerte",
+        "de": "Orgelkonzerte",
+        "fr": "Orgelkonzerte (Orgelkonzerte)"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "17:30",
+      "category": "Musica per piano / organo",
+      "venue": "Evang.-ref. Kirche Weiningen",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/weiningen-zh/konzert_ATM4WSa",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Regensdorferstrasse 12",
+        "postalCode": "8104"
+      },
+      "geo": {
+        "lat": 47.4206088,
+        "lng": 8.4358456
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ATM4WSa.png"
+    },
+    {
+      "id": "guidle:AjXT2av",
+      "title": "Öffentliche Kunstführung",
+      "titleByLocale": {
+        "it": "Öffentliche Kunstführung",
+        "en": "Public art tour",
+        "de": "①ffentische Kunstf",
+        "fr": "Visite guidée publique de l'art"
+      },
+      "description": "Erleben Sie die Welt der modernen und zeitgenössischen Kunst in einer fachkundigen und informativen Führung!",
+      "descriptionByLocale": {
+        "it": "Erleben Sie die Welt der modernen und zeitgenössischen Kunst in einer fachkundigen und informativen Führung!",
+        "en": "Experience the world of modern and contemporary art in an expert and informative guided tour!",
+        "de": "Erfahren Sie die ⑤elt der modernen und zeitgenen cumsssische Kunst in einer fachkundigen und informativen F Nevrhrung!",
+        "fr": "Erleben Sie die Welt der modernen und zeitgenössischen Kunst in einer fachkundigen und informativen Führung !"
+      },
+      "startDate": "2026-08-16",
+      "endDate": "2026-09-27",
+      "startTime": "15:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Forum Würth Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/oeffentliche-kunstfuehrung_AjXT2av",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Churerstrasse 10",
+        "postalCode": "9400"
+      },
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AjXT2av.jpg"
+    },
+    {
+      "id": "guidle:AkqG49K",
+      "title": "Öffentlicher Seniorenrundgang",
+      "titleByLocale": {
+        "it": "Öffentlicher Seniorenrundgang",
+        "en": "Öffentlicher Seniorenrundgang",
+        "de": "Öffentlicher Seniorenrundgang",
+        "fr": "Öffentlicher Seniorenrundgang"
+      },
+      "description": "Senioren führen Senioren",
+      "descriptionByLocale": {
+        "it": "Senioren führen Senioren",
+        "en": "Senioren führen Senioren",
+        "de": "Senioren führen Senioren",
+        "fr": "Senioren führen Senioren"
+      },
+      "startDate": "2026-09-02",
+      "endDate": "2026-09-02",
+      "startTime": "14:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Forum Würth Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/oeffentlicher-seniorenrundgang_AkqG49K",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 3,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Churerstrasse 10",
+        "postalCode": "9400"
+      },
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AkqG49K.jpg"
+    },
+    {
+      "id": "guidle:AgrUakX",
+      "title": "Salonkonzert",
+      "titleByLocale": {
+        "it": "Salonkonzert",
+        "en": "Salonkonzert",
+        "de": "Salonkonzert",
+        "fr": "Salonkonzert"
+      },
+      "description": "Salonkonzerte bieten abwechslungsreiche Konzerterlebnisse in besonderer Atmosphäre. Alumni und Studierende der HSLU Musik gestalten die Programme.",
+      "descriptionByLocale": {
+        "it": "Salonkonzerte bieten abwechslungsreiche Konzerterlebnisse in besonderer Atmosphäre. Alumni und Studierende der HSLU Musik gestalten die Programme.",
+        "en": "Salon concerts offer varied concert experiences in a special atmosphere. Alumni and students of HSLU Music design the programs.",
+        "de": "Salonkonzerte bieten abwechslungsreiche Konzerterlebnisse in besonderer Atmosphäre. Alumni und Studierende der HSLU Musik gestalten die Programme.",
+        "fr": "Salonkonzerte bieten abwechslungsreiche Konzerterlebnisse in besonderer Atmosphäre. Alumni und Studierende der HSLU Musik gestalten die Programme."
+      },
+      "startDate": "2026-10-02",
+      "endDate": "2026-11-27",
+      "startTime": "15:00",
+      "category": "Musica classica",
+      "venue": "Richard Wagner Museum",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/salonkonzert_AgrUakX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Richard-Wagner-Weg 27",
+        "postalCode": "6005"
+      },
+      "geo": {
+        "lat": 47.0423906,
+        "lng": 8.3290901
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AgrUakX.jpg"
+    },
+    {
+      "id": "guidle:AjCLSAg",
+      "title": "Vitromusée Romont – Vitromatinée",
+      "titleByLocale": {
+        "it": "Vitromusée Romont – Vitromatinée",
+        "en": "Vitromusée Romont – Vitromatinée",
+        "de": "Vitromusée Romont – Vitromatinée",
+        "fr": "Vitromusée Romont – Vitromatinée"
+      },
+      "description": "Lassen Sie sich während Ihres Besuches im Vitromusée Romont von Klängen junger Talente des Konservatoriums Freiburg KF verzaubern.",
+      "descriptionByLocale": {
+        "it": "Lassen Sie sich während Ihres Besuches im Vitromusée Romont von Klängen junger Talente des Konservatoriums Freiburg KF verzaubern.",
+        "en": "Let yourself be enchanted by works of music during your visit to the Vitromusée Romont.",
+        "de": "Lassen Sie sich während Ihres Besuches im Vitromusée Romont von Klängen junger Talente des Konservatoriums Freiburg KF verzaubern.",
+        "fr": "Laissez-vous enchanter par des œuvres musicales le temps de votre visite au Vitromusée Romont."
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "11:00",
+      "category": "L'arte in generale",
+      "venue": "Vitromusée Romont",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/museums/children/events/romont-fr/vitromusee-romont-vitromatinee_AjCLSAg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue du Château 108b",
+        "postalCode": "1680"
+      },
+      "geo": {
+        "lat": 46.6948882,
+        "lng": 6.9188815
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AjCLSAg.jpg"
+    },
+    {
+      "id": "guidle:A3QmfEx",
+      "title": "Outdoor-Tanzperformance: unterwegs",
+      "titleByLocale": {
+        "it": "Outdoor-Tanzperformance: unterwegs",
+        "en": "Outdoor-Tanzperformance: unterwegs",
+        "de": "Outdoor-Tanzperformance: unterwegs",
+        "fr": "Outdoor-Tanzperformance: unterwegs"
+      },
+      "description": "Tanz-Spaziergang in Utzigen in der Natur bis zum Schlossgarten. Spartenübergreifende Kunstvorstellungen mit MusikerInnen und Texterinnen. Generationenübergreifendes Projekt.",
+      "descriptionByLocale": {
+        "it": "Tanz-Spaziergang in Utzigen in der Natur bis zum Schlossgarten. Spartenübergreifende Kunstvorstellungen mit MusikerInnen und Texterinnen. Generationenübergreifendes Projekt.",
+        "en": "Tanz-Spaziergang in Utzigen in der Natur bis zum Schlossgarten. Spartenübergreifende Kunstvorstellungen mit MusikerInnen und Texterinnen. Generationenübergreifendes Projekt.",
+        "de": "Tanz-Spaziergang in Utzigen in der Natur bis zum Schlossgarten. Spartenübergreifende Kunstvorstellungen mit MusikerInnen und Texterinnen. Generationenübergreifendes Projekt.",
+        "fr": "Tanz-Spaziergang in Utzigen in der Natur bis zum Schlossgarten. Spartenübergreifende Kunstvorstellungen mit MusikerInnen und Texterinnen. Generationenübergreifendes Projekt."
+      },
+      "startDate": "2026-08-14",
+      "endDate": "2026-09-18",
+      "startTime": "18:00",
+      "category": "Performance (danza)",
+      "venue": "Schützenhaus",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/utzigen/outdoor-tanzperformance-unterwegs_A3QmfEx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "3068"
+      },
+      "geo": {
+        "lat": 46.960835,
+        "lng": 7.564833
+      },
+      "recurring": true
     }
   ]
 }
