@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "alcon-b66acee3cbdc",
-      "slug": "associate-inter-company-order-invoice-flow-alcon-ch",
+      "slug": "flusso-associato-ordini-e-fatture-interaziendali-alcon-fribourg",
       "slugByLocale": {
-        "it": "associate-inter-company-order-invoice-flow-alcon-ch",
+        "it": "flusso-associato-ordini-e-fatture-interaziendali-alcon-fribourg",
         "en": "associate-inter-company-order-invoice-flow-alcon-ch",
         "de": "partner-inter-company-order-invoice-flow-alcon-fribourg",
         "fr": "associate-inter-company-ordre-et-flux-de-facturation-alcon-fribourg"
@@ -16,7 +16,7 @@
       "companyDomain": "alcon.com",
       "title": "Associate, Inter Company Order & Invoice Flow",
       "titleByLocale": {
-        "it": "Associate, Inter Company Order & Invoice Flow",
+        "it": "Flusso associato, ordini e fatture interaziendali",
         "en": "Associate, Inter Company Order & Invoice Flow",
         "de": "Partner, Inter Company Order & Invoice Flow",
         "fr": "Associate, Inter Company Ordre et flux de facturation"
@@ -63,7 +63,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-inter-company-order-invoice-flow-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-inter-company-order-invoice-flow-alcon-ch"
+      ]
     },
     {
       "id": "alcon-015b82cef148",

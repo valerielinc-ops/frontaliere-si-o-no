@@ -31,8 +31,8 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Business Risk Manager - PB COO - BRM (TEMP)",
-        "it": "Business Risk Manager - PB COO - BRM (TEMP)",
-        "de": "Business Risk Manager - PB COO - BRM (TEMP)",
+        "it": "Business Risk Manager - PB COO - BRM (TEMPORANEO)",
+        "de": "Business Risk Manager – PB COO – BRM (TEMPORÄR)",
         "fr": "Gestionnaire des risques opérationnels - PB CO - BRM (TEMP)"
       },
       "descriptionByLocale": {
@@ -165,7 +165,7 @@
     },
     {
       "id": "efg-6336",
-      "slug": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
+      "slug": "responsabile-governance-e-supervisione-del-rischio-legale-e-conformita-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Governance & Risk Oversight Manager Legal & Compliance",
       "location": "Geneve",
@@ -200,8 +200,8 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Governance & Risk Oversight Manager Legal & Compliance",
-        "it": "Governance & Risk Oversight Manager Legal & Compliance",
-        "de": "Governance & Risk Oversight Manager Legal & Compliance",
+        "it": "Responsabile Governance e Supervisione del Rischio Legale e Conformità",
+        "de": "Manager für Governance und Risikoüberwachung Recht und Compliance",
         "fr": "Gestionnaire de la gouvernance et de la surveillance des risques"
       },
       "descriptionByLocale": {
@@ -359,9 +359,9 @@
       },
       "crawledAt": "2026-08-11T10:08:19.026Z",
       "slugByLocale": {
-        "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
+        "it": "responsabile-governance-e-supervisione-del-rischio-legale-e-conformita-efg-international-ag-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
-        "de": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
+        "de": "manager-fur-governance-und-risikouberwachung-recht-und-compliance-efg-international-ag-geneve",
         "fr": "gestionnaire-de-la-gouvernance-et-de-la-surveillance-des-risques-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -384,7 +384,18 @@
       "postalCode": "1204",
       "country": "CH",
       "firstSeenAt": "2026-06-25T22:13:58.906Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "governance-risk-oversight-manager-legal-compliance-efg-geneve"
+        ],
+        "de": [
+          "governance-risk-oversight-manager-legal-compliance-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "governance-risk-oversight-manager-legal-compliance-efg-geneve"
+      ]
     },
     {
       "id": "efg-6327",
@@ -3083,7 +3094,7 @@
     },
     {
       "id": "efg-6385",
-      "slug": "business-risk-manager-pb-coo-brm-efg-lugano",
+      "slug": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
       "company": "EFG International AG",
       "title": "Business Risk Manager - PB COO - BRM",
       "location": "Lugano",
@@ -3110,8 +3121,8 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Business Risk Manager - PB COO - BRM",
-        "it": "Business Risk Manager - PB COO - BRM",
-        "de": "Business Risk Manager - PB COO - BRM",
+        "it": "Responsabile Rischio Aziendale - PB COO - BRM",
+        "de": "Business Risk Manager – PB COO – BRM",
         "fr": "Gestionnaire des risques opérationnels - PB COO - BRM"
       },
       "descriptionByLocale": {
@@ -3204,7 +3215,7 @@
       },
       "crawledAt": "2026-08-11T10:08:18.969Z",
       "slugByLocale": {
-        "it": "business-risk-manager-pb-coo-brm-efg-lugano",
+        "it": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
         "en": "business-risk-manager-pb-coo-brm-efg-lugano",
         "de": "business-risk-manager-pb-coo-brm-efg-lugano",
         "fr": "gestionnaire-des-risques-operationnels-pb-coo-brm-efg-international-ag-lugano"
@@ -3230,7 +3241,15 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "firstSeenAt": "2026-08-04T22:14:55.681Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "business-risk-manager-pb-coo-brm-efg-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "business-risk-manager-pb-coo-brm-efg-lugano"
+      ]
     },
     {
       "id": "efg-5969",
@@ -3578,7 +3597,7 @@
       "titleByLocale": {
         "en": "Senior Compliance Officer Onboarding & Periodic Reviews",
         "it": "Senior Compliance Officer Onboarding & Recensioni periodiche",
-        "de": "Senior Compliance Officer Onboarding & Periodic Reviews",
+        "de": "Onboarding und regelmäßige Überprüfungen des Senior Compliance Officer",
         "fr": "Agent principal de conformité à bord et examens périodiques"
       },
       "descriptionByLocale": {
@@ -3681,7 +3700,7 @@
       "slugByLocale": {
         "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
-        "de": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
+        "de": "onboarding-und-regelma-ige-uberprufungen-des-senior-compliance-officer-efg-international-ag-geneve",
         "fr": "agent-principal-de-conformite-a-bord-et-examens-periodiques-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -3706,6 +3725,9 @@
       "firstSeenAt": "2026-06-23T22:12:49.483Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
+        ],
+        "de": [
           "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
         ]
       },

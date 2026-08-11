@@ -825,7 +825,7 @@
       "title": "Floor Supervisor 100% (w/m/i)",
       "titleByLocale": {
         "it": "Floor Supervisor 100% (w/m/i)",
-        "en": "Floor Supervisor 100% (w/m/i)",
+        "en": "Floor Supervisor 100% (f/m/i)",
         "de": "Floor Vorgesetzter 100% (w/m/i)",
         "fr": "Floor Superviseur 100% (w/m/i)"
       },
@@ -836,7 +836,6 @@
         "de": "Floor Supervisor 100% (w/m/i) bei Bürgenstock Hotels AG in Obbürgen (6363, NW), Schweiz.\n\n• Standort: Obbürgen (NW)\n• Bewerbung über das Umantis-Karriereportal von Bürgenstock Hotels AG",
         "fr": "Superviseur à 100 % (f/m/i) chez Bürgenstock Hotels AG à Obbürgen (6363, NW), Suisse.\n\n• Lieu: Obbürgen (NW)\n• Application via le portail de carrière Umantis de Bürgenstock Hotels AG"
       },
-      "needsRetranslation": true,
       "location": "Obbürgen",
       "canton": "NW",
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1444/Description/1",
@@ -888,7 +887,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "buergenstock-hotels-2ca68f8c5ef5",
@@ -2278,7 +2278,7 @@
       "companyDomain": "buergenstock.ch",
       "title": "Sommelier 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Sommelier 100% (w/m/i)",
+        "it": "Sommelier al 100% (f/m/i)",
         "en": "Sommelier 100% (m/f/i)",
         "de": "Sommelier 100% (w/m/i)",
         "fr": "Sommelier 100% (m/f/i)"

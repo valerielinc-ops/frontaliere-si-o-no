@@ -2807,9 +2807,9 @@
     },
     {
       "id": "coopers-2cc66121879b",
-      "slug": "junior-operations-planner-m-f-d-coopers-tessin",
+      "slug": "pianificatore-operativo-junior-m-f-d-coopers-group-ag-tessin",
       "slugByLocale": {
-        "it": "junior-operations-planner-m-f-d-coopers-tessin",
+        "it": "pianificatore-operativo-junior-m-f-d-coopers-group-ag-tessin",
         "en": "junior-operations-planner-m-f-d-coopers-tessin",
         "de": "junior-operations-planner-m-f-d-coopers-tessin",
         "fr": "planificateur-des-operations-juniors-m-f-d-coopers-group-ag-tessin"
@@ -2819,7 +2819,7 @@
       "companyDomain": "coopers.ch",
       "title": "Junior Operations Planner (m/f/d)",
       "titleByLocale": {
-        "it": "Junior Operations Planner (m/f/d)",
+        "it": "Pianificatore Operativo Junior (m/f/d)",
         "en": "Junior Operations Planner (m/f/d)",
         "de": "Junior Operations Planner (m/w/d)",
         "fr": "Planificateur des opérations juniors (m/f/d)"
@@ -2880,7 +2880,15 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-operations-planner-m-f-d-coopers-tessin"
+        ]
+      },
+      "previousSlugs": [
+        "junior-operations-planner-m-f-d-coopers-tessin"
+      ]
     },
     {
       "id": "coopers-13b00ef7eb1c",
@@ -5068,9 +5076,9 @@
     },
     {
       "id": "coopers-9e8e9d8e66e5",
-      "slug": "global-cmo-clinical-packaging-site-manager-m-f-d-coopers-aargau",
+      "slug": "global-cmo-responsabile-del-sito-di-packaging-clinico-m-f-d-coopers-group-ag-aargau",
       "slugByLocale": {
-        "it": "global-cmo-clinical-packaging-site-manager-m-f-d-coopers-aargau",
+        "it": "global-cmo-responsabile-del-sito-di-packaging-clinico-m-f-d-coopers-group-ag-aargau",
         "en": "global-cmo-clinical-packaging-site-manager-m-f-d-coopers-aargau",
         "de": "global-cmo-clinical-packaging-site-manager-m-f-d-coopers-aargau",
         "fr": "gestionnaire-du-site-d-emballage-clinique-de-l-ocm-mondial-m-f-d-coopers-group-ag-aargau"
@@ -5080,7 +5088,7 @@
       "companyDomain": "coopers.ch",
       "title": "Global CMO Clinical Packaging Site Manager (m/f/d)",
       "titleByLocale": {
-        "it": "Global CMO Clinical Packaging Site Manager (m/f/d)",
+        "it": "Global CMO Responsabile del Sito di Packaging Clinico (m/f/d)",
         "en": "Global CMO Clinical Packaging Site Manager (m/f/d)",
         "de": "Global CMO Clinical Packaging Site Manager (m/w/d)",
         "fr": "Gestionnaire du site d'emballage clinique de l'OCM mondial (m/f/d)"
@@ -5142,7 +5150,15 @@
         }
       },
       "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "global-cmo-clinical-packaging-site-manager-m-f-d-coopers-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "global-cmo-clinical-packaging-site-manager-m-f-d-coopers-aargau"
+      ]
     }
   ]
 }
