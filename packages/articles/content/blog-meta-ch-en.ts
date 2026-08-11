@@ -2080,6 +2080,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-consultazione.title': 'Fight against undeclared work: consultation on the new law kicks off',
     'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'The Federal Council proposes amendments to the law against undeclared work to strengthen controls and cooperation between authorities by 16 October 2026.',
     'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Administrative building in Switzerland representing regulatory authorities',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Labour market in Switzerland: SECO data for July 2026',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Unemployment rises in Switzerland in July 2026: rate at 3.0% with 148,002 total unemployed. Here are the official SECO data.',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Modern office building in Switzerland',
 };
 
 export default blogMetaChEn;

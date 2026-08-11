@@ -26927,6 +26927,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-svizzera-luglio-2026': {
+    title: 'Mercato del lavoro in Svizzera: dati SECO di luglio 2026',
+    description: 'Analisi ufficiale SECO sul mercato del lavoro svizzero a luglio 2026: tasso di disoccupazione al 3,0%, dati su giovani, anziani e posti vacanti URC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, seco',
+    ogTitle: 'Mercato del lavoro Svizzera: dati SECO luglio 2026',
+    ogDescription: 'Scopri i dati aggiornati della SECO sul mercato del lavoro svizzero a luglio 2026: tasso di disoccupazione, variazioni stagionali e posti vacanti.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro in Svizzera: dati SECO di luglio 2026",
+      "description": "Analisi ufficiale SECO sul mercato del lavoro svizzero a luglio 2026: tasso di disoccupazione al 3,0%, dati su giovani, anziani e posti vacanti URC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio di uffici moderno in Svizzera"
+      },
+      "datePublished": "2026-08-11T01:20:16+00:00",
+      "dateModified": "2026-08-11T01:20:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
