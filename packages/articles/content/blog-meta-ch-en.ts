@@ -2191,6 +2191,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Climate and consumption: 80% of Swiss do not change their habits',
     'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'A Comparis survey of 1,040 people reveals that climate change has little impact on purchasing choices. High incomes are less sensitive.',
     'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Swiss citizens shopping in a city center.',
+    'blog.article.apprendistato-formazione-zurigo-guida.title': 'Apprenticeship and vocational training in the Canton of Zurich',
+    'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Practical guide to finding a traineeship, employment contract, apprentice\'s salary and professional maturity in the Swiss system.',
+    'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Student in vocational training in a modern laboratory in Zurich',
 };
 
 export default blogMetaChEn;

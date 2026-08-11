@@ -2191,6 +2191,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Clima e consumi: l\'80% degli svizzeri non cambia abitudini',
     'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'Un sondaggio Comparis su 1.040 persone rivela che il cambiamento climatico incide poco sulle scelte d\'acquisto. Meno sensibili i redditi alti.',
     'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Cittadini svizzeri impegnati in attività di shopping in un centro urbano.',
+    'blog.article.apprendistato-formazione-zurigo-guida.title': 'Apprendistato e formazione professionale nel Cantone di Zurigo',
+    'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Guida pratica alla ricerca di un posto di tirocinio, contratto di lavoro, retribuzione dell\'apprendista e maturità professionale nel sistema svizzero.',
+    'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Studente in formazione professionale in un laboratorio moderno a Zurigo',
 };
 
 export default blogMetaChIt;
