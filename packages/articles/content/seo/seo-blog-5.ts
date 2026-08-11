@@ -64616,6 +64616,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abort-topical-relevance-pre-saint-didier': {
+    title: 'Vivere a Pré-Saint-Didier e lavorare in Vallese',
+    description: 'Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pré-saint-didier, lavorare, vallese',
+    ogTitle: 'Vivere a Pré-Saint-Didier e lavorare in Vallese da frontaliere',
+    ogDescription: 'Analisi sulle norme per i frontalieri e il requisito della residenza nei comuni entro 20 km dal confine svizzero per chi vive a Pré-Saint-Didier.',
+    canonicalPath: '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pré-Saint-Didier e lavorare in Vallese",
+      "description": "Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abort-topical-relevance-pre-saint-didier.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino al confine svizzero"
+      },
+      "datePublished": "2026-08-11T12:07:52+00:00",
+      "dateModified": "2026-08-11T12:07:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

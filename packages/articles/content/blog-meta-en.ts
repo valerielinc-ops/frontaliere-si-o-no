@@ -9690,6 +9690,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-doues-lavorare-vallese.title': 'Living in Doues and working in Valais as a border worker',
     'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Guide to commuting between Doues and Valais: tax rules, social security and management of cross-border work in compliance with current agreements.',
     'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Mountain landscape between Doues and the Swiss border',
+    'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Living in Pré-Saint-Didier and working in Valais',
+    'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analysis of residence in Pré-Saint-Didier for workers in Switzerland and the geographical constraints related to border status.',
+    'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Alpine landscape at the Swiss border',
 };
 
 export default blogMetaEn;
