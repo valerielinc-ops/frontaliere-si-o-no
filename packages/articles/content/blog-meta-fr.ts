@@ -9662,6 +9662,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.title': 'Frontaliers du Tessin : ce qui change avec le nouvel accord 2024',
     'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Le nouvel accord frontalier de 2024 est entré en vigueur le 1er janvier 2024 et prévoit une exemption de 7 500 € pour les anciens frontaliers et de 10 000 € pour les nouveaux frontaliers.',
     'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Un passage frontalier entre Tovo di Sant\'Agata et Grigioni.',
+    'blog.article.allacasadicomunitalavenosegnala.title': 'Travail à 37 degrés à Laveno, le syndicat signale',
+    'blog.article.allacasadicomunitalavenosegnala.excerpt': 'Le syndicat signale le cas d\'une maison communautaire à Laveno où vous travaillez avec des températures élevées',
+    'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'Une maison de communauté en Ticino avec des températures élevées',
 };
 
 export default blogMetaFr;

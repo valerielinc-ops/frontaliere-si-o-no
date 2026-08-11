@@ -2146,6 +2146,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Zurich health insurance premiums and premium reductions: a practical guide',
     'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analysis of LAMal premiums in the Canton of Zurich, franchise models and requirements to obtain the cantonal premium reduction.',
     'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Modern building in Zurich with people walking',
+    'blog.article.permesso-dimora-b-zurigo-guida.title': 'Residence permit B in Zurich: requirements and renewal',
+    'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Complete guide to residence permit B in the Canton of Zurich: procedures, necessary documentation, deadlines for renewal and competences of the cantonal authorities.',
+    'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Modern office building in Zurich housing administrative services',
 };
 
 export default blogMetaChEn;

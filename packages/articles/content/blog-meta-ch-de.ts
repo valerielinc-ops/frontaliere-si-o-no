@@ -2146,6 +2146,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Krankenkassenprämien Zürich und Prämienverbilligung: Praxisleitfaden',
     'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analyse der KVG-Prämien im Kanton Zürich, Franchisemodelle und Voraussetzungen für die kantonale Prämienverbilligung.',
     'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Modernes Gebäude in Zürich mit Passanten',
+    'blog.article.permesso-dimora-b-zurigo-guida.title': 'Aufenthaltsbewilligung B in Zürich: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Vollständiger Leitfaden zur Aufenthaltsbewilligung B im Kanton Zürich: Verfahren, erforderliche Unterlagen, Fristen für die Erneuerung und Zuständigkeiten der kantonalen Behörden.',
+    'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Modernes Bürogebäude in Zürich für Verwaltungsdienste',
 };
 
 export default blogMetaChDe;

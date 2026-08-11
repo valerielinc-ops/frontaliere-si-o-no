@@ -27785,6 +27785,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-dimora-b-zurigo-guida': {
+    title: 'Permesso di dimora B a Zurigo: requisiti e rinnovo',
+    description: 'Guida pratica al permesso di dimora B nel Canton Zurigo: scopri i requisiti, i documenti necessari e la procedura ufficiale per il rinnovo del titolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, zurigo, requisiti',
+    ogTitle: 'Permesso di dimora B a Zurigo: requisiti e rinnovo',
+    ogDescription: 'Tutto quello che devi sapere sul permesso di dimora B nel Canton Zurigo: procedure, scadenze e consigli pratici per i residenti.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B a Zurigo: requisiti e rinnovo",
+      "description": "Guida pratica al permesso di dimora B nel Canton Zurigo: scopri i requisiti, i documenti necessari e la procedura ufficiale per il rinnovo del titolo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio direzionale moderno a Zurigo sede di uffici amministrativi"
+      },
+      "datePublished": "2026-08-11T08:49:11+00:00",
+      "dateModified": "2026-08-11T08:49:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
