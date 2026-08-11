@@ -2113,6 +2113,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mammut-proprieta-investitore-cinese.title': 'Mammut change de propriétaire : un investisseur chinois rachète la marque',
     'blog.article.mammut-proprieta-investitore-cinese.excerpt': 'L\'historique marque suisse de vêtements de plein air Mammut passe à la société chinoise CPE. L\'opération, selon Bloomberg, vaut environ 463 millions de francs.',
     'blog.article.mammut-proprieta-investitore-cinese.imageAlt': 'Paysage alpin suisse avec un bâtiment moderne',
+    'blog.article.libera-circolazione-mercato-lavoro-2026.title': 'Libre circulation : l’impact réel sur le marché du travail',
+    'blog.article.libera-circolazione-mercato-lavoro-2026.excerpt': 'Le 22e rapport du SECO analyse le rôle de l\'immigration UE/AELE : taux d\'emploi et croissance économique en 2026.',
+    'blog.article.libera-circolazione-mercato-lavoro-2026.imageAlt': 'Des gens travaillant dans un bureau moderne en Suisse',
 };
 
 export default blogMetaChFr;
