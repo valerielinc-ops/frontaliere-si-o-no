@@ -9,6 +9,9 @@
  *   winback    → send ONE "are you still there?" email, stamp winback_sent_at
  *   sunset     → status = 'inactive' (soft, excluded from sends, resubscribable)
  *   reactivate → an 'inactive' subscriber who has since engaged → status 'active'
+ *   reprobe    → an 'inactive' subscriber silent long enough that reactivate's
+ *                engagement evidence can never arrive → one-time, capped
+ *                return to 'active' so a real send can produce it (#5559)
  *
  * `inactive` is honored by the newsletter sender via NEWSLETTER_EXCLUDED_STATUSES
  * (services/emailSuppression.mjs); it is NOT a cross-channel hard signal, so job
@@ -110,6 +113,7 @@ async function main() {
   const winback = [];
   const sunset = [];
   const reactivate = [];
+  const reprobe = [];
 
   snap.forEach((doc) => {
     if (doc.id === '_meta_') return;
@@ -118,18 +122,21 @@ async function main() {
     if (action === 'winback') winback.push({ ref: doc.ref, email: data.email || doc.id, locale: localeOf(data) });
     else if (action === 'sunset') sunset.push({ ref: doc.ref, email: data.email || doc.id });
     else if (action === 'reactivate') reactivate.push({ ref: doc.ref, email: data.email || doc.id });
+    else if (action === 'reprobe') reprobe.push({ ref: doc.ref, email: data.email || doc.id });
   });
 
   console.log(`📊 Sunset scan: ${snap.size} subscribers`);
   console.log(`   win-back to send : ${winback.length}`);
   console.log(`   to sunset        : ${sunset.length}`);
   console.log(`   to reactivate    : ${reactivate.length}`);
+  console.log(`   to re-probe      : ${reprobe.length}`);
 
   if (!APPLY) {
     console.log('\n🔍 DRY-RUN — no writes, no emails. Re-run with --apply (and --send to email).');
     for (const w of winback.slice(0, 10)) console.log(`   [winback] ${w.email} (${w.locale})`);
     for (const s of sunset.slice(0, 10)) console.log(`   [sunset]  ${s.email}`);
     for (const r of reactivate.slice(0, 10)) console.log(`   [reactivate] ${r.email}`);
+    for (const p of reprobe.slice(0, 10)) console.log(`   [reprobe] ${p.email}`);
     return;
   }
 
@@ -150,6 +157,30 @@ async function main() {
       }, { merge: true });
     });
     console.log(`✅ Reactivated ${reactivate.length}`);
+  }
+
+  // 1b. Re-probe: one-time, capped return to mailable for subscribers who've
+  //     been inactive too long for `reactivate`'s engagement evidence to ever
+  //     arrive (#5559). Distinct field from reactivated_at/reactivate so this
+  //     doesn't get counted as a proven re-engagement — it's a chance, not a
+  //     confirmation. sunset_reprobe_count caps it at REPROBE_MAX_ATTEMPTS
+  //     forever. Deliberately NOT the bare reprobe_count/reprobed_at names —
+  //     scripts/suppression-decay.mjs already owns those on this same
+  //     collection for its own unrelated recovery mechanism; sharing the name
+  //     would let one mechanism's counter exhaust the other's budget.
+  if (reprobe.length) {
+    await commitInChunks(db, reprobe, (batch, it) => {
+      batch.set(it.ref, {
+        status: 'active',
+        sunset_reprobed_at: FieldValue.serverTimestamp(),
+        sunset_reprobe_count: FieldValue.increment(1),
+        winback_sent_at: FieldValue.delete(),
+        winback_pending: FieldValue.delete(),
+        sunset_source: FieldValue.delete(),
+        inactive_at: FieldValue.delete(),
+      }, { merge: true });
+    });
+    console.log(`🔁 Re-probed ${reprobe.length}`);
   }
 
   // 2. Sunset the grace-expired non-responders.
