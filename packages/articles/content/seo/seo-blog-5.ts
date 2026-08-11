@@ -63680,6 +63680,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-bianzone-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Bianzone da frontaliere: pro e contro',
+    description: 'Informazioni sui vantaggi e gli svantaggi di trasferirsi a Bianzone da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, bianzone, contro, desiderano',
+    ogTitle: 'Trasferirsi a Bianzone da frontaliere: pro e contro',
+    ogDescription: 'Informazioni sui vantaggi e gli svantaggi di trasferirsi a Bianzone da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-bianzone-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Bianzone da frontaliere: pro e contro",
+      "description": "Informazioni sui vantaggi e gli svantaggi di trasferirsi a Bianzone da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in auto sulla strada per Bianzone, Ticino, con un albero di fiori in primo piano."
+      },
+      "datePublished": "2026-08-11T03:07:09+00:00",
+      "dateModified": "2026-08-11T03:07:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-bianzone-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
