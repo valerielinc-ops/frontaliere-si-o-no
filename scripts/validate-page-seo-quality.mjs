@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 
 /**
  * Deploy validation: checks generated HTML pages in dist/ for SEO issues
@@ -269,11 +270,14 @@ function extractTitle(html) {
   return match ? match[1].trim() : '';
 }
 
-// Extract <meta name="description"> content
+// Extract <meta name="description"> content.
+// Quote-agnostic via the shared reader, for the SAME reason hasNoindex() below
+// already is: `removeAttributeQuotes` (PR #478) emits `name=description` bare
+// on every minified page. The local regex here required the quotes and so
+// reported the whole job funnel as "missing description" — 200/200 production
+// job pages measured, 0/200 actually missing. Keep it in the shared module.
 function extractMetaDescription(html) {
-  const match = html.match(/<meta[^>]*name\s*=\s*["']description["'][^>]*content\s*=\s*["']([^"']*)["']/i)
-    || html.match(/<meta[^>]*content\s*=\s*["']([^"']*)["'][^>]*name\s*=\s*["']description["']/i);
-  return match ? match[1].trim() : '';
+  return extractMetaDescriptionRaw(html) ?? '';
 }
 
 // Check if <meta name="robots"> contains "noindex".
