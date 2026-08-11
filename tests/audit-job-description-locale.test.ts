@@ -159,9 +159,30 @@ describe('measurement parity with the gate it reports on', () => {
   });
 
   it('applies the same confidence floor and minimum length as the gate', () => {
-    const gate = fs.readFileSync(path.join(ROOT, 'tests', 'job-locale-consistency.test.ts'), 'utf-8');
-    expect(gate).toMatch(/description\.length < 120/);
-    expect(gate).toMatch(/detected\.confidence >= 0\.65/);
+    // WHERE the gate keeps its thresholds is not the point — that the NUMBERS
+    // agree is. The first version of this test read them out of
+    // tests/job-locale-consistency.test.ts only, which pinned a location rather
+    // than a value: #5638 moves the measurement into
+    // scripts/lib/job-locale-population.mjs, and this assertion would have gone
+    // red on a change that altered nothing it actually cares about — turning
+    // main red on every open PR, which is the exact failure this whole audit
+    // exists to prevent.
+    const GATE_SOURCES = [
+      path.join(ROOT, 'tests', 'job-locale-consistency.test.ts'),
+      path.join(ROOT, 'scripts', 'lib', 'job-locale-population.mjs'),
+    ].filter((p) => fs.existsSync(p));
+    expect(GATE_SOURCES.length, 'no gate source found at all').toBeGreaterThan(0);
+    const gate = GATE_SOURCES.map((p) => fs.readFileSync(p, 'utf-8')).join('\n');
+
+    // 120-char floor, in either the inline or the extracted form.
+    expect(gate, 'the gate no longer applies a 120-char description floor').toMatch(
+      /(?:description|desc)\.length < 120|MIN_DESCRIPTION_CHARS\s*=\s*120|minLength\s*=\s*120/
+    );
+    // 0.65 confidence floor, likewise.
+    expect(gate, 'the gate no longer applies a 0.65 confidence floor').toMatch(
+      /confidence\s*>=\s*0\.65|minConfidence\s*=\s*0\.65|MIN_CONFIDENCE\s*=\s*0\.65/
+    );
+
     const audit = fs.readFileSync(path.join(ROOT, 'scripts', 'audit-job-description-locale.mjs'), 'utf-8');
     expect(audit).toMatch(/MIN_DESCRIPTION_CHARS = 120/);
     expect(audit).toMatch(/DESCRIPTION_CONFIDENCE = 0\.65/);
