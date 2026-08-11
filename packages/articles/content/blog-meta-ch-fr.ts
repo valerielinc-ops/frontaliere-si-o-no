@@ -2158,6 +2158,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Permis L de courte durée dans le canton de Zurich : validité et prolongation',
     'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'Les permis L de courte durée dans le canton de Zurich sont valables pour une durée maximale d\'un an, mais la prolongation est soumise à des conditions spécifiques.',
     'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'Un étranger en Suisse avec un permis L de courte durée',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Catastrophes naturelles, en 2026 des dommages inférieurs à la moyenne',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'Les dégâts des catastrophes naturelles en 2026 sont inférieurs à la moyenne des 10 dernières années',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'Une famille au lac de Lugano',
 };
 
 export default blogMetaChFr;

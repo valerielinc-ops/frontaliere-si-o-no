@@ -2158,6 +2158,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Short-term permit L in the Canton of Zurich: validity and extension',
     'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'Short-term L permits in the Canton of Zurich are valid for a maximum of 1 year, but the extension is subject to specific conditions.',
     'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'A foreigner in Switzerland with a short-term L permit',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Natural disasters, below average damage in 2026',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'Damage from natural disasters in 2026 is below the 10-year average',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'A family by the lake of Lugano',
 };
 
 export default blogMetaChEn;

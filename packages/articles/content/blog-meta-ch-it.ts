@@ -2158,6 +2158,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Permesso L di breve durata nel Cantone di Zurigo: validità e proroga',
     'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'I permessi L di breve durata nel Cantone di Zurigo sono validi per un massimo di 1 anno, ma la proroga è soggetta a condizioni specifiche.',
     'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'Un frontaliere in Svizzera con un permesso L di breve durata',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Catastrofi naturali, nel 2026 danni inferiori alla media',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'I danni delle catastrofi naturali nel 2026 sono inferiori alla media degli ultimi 10 anni',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'Una famiglia in riva al lago di Lugano',
 };
 
 export default blogMetaChIt;
