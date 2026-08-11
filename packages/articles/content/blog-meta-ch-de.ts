@@ -2125,6 +2125,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.annunci-di-lavoro-svizzera.title': 'Stellenanzeigen in der Schweiz: Was ändern?',
     'blog.article.annunci-di-lavoro-svizzera.excerpt': 'Das dreistufige Schweizer Steuersystem: Direkte Bundessteuer (DFI) + Kanton + Gemeinde. Jeder Kanton hat sein eigenes Steuerrecht und seinen eigenen Multiplikator; die Gemeinden wenden einen Multiplikator auf den Kanton an.',
     'blog.article.annunci-di-lavoro-svizzera.imageAlt': 'Eine Szene von Arbeit in einer Schweizer Firma.',
+    'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon: Umsatz im 2. Quartal 2026 auf 2,78 Milliarden',
+    'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'Die Augenheilkunde-Gruppe Alcon schließt das Q2 2026 mit einem Umsatz von 2,78 Milliarden US-Dollar ab, was einem Wachstum von 8% gegenüber dem Vorjahr entspricht.',
+    'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'Ein Finanzanalyst bei der Arbeit in einem modernen Büro in der Schweiz.',
 };
 
 export default blogMetaChDe;
