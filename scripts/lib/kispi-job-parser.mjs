@@ -23,6 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
+import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -129,10 +130,27 @@ function extractTitleFromHtml(html) {
   return raw.replace(/^Kinderspital\s+Zürich:\s*/i, '').trim();
 }
 
-function extractMetaDescription(html) {
-  const m = html.match(/<meta[^>]+name="description"[^>]+content="([^"]*)"/i);
-  if (!m) return '';
-  return normalizeSpace(decodeEntities(m[1]));
+/**
+ * Meta description of a detail page — the SECOND tier of the description
+ * fallback below, so an empty result here reaches published job data.
+ *
+ * Reads through the shared `meta-description-extract.mjs` instead of a local
+ * regex. The old `/<meta[^>]+name="description"[^>]+content="([^"]*)"/i` was
+ * both quote-strict and order-strict: an unquoted `name=description` (what
+ * every HTML minifier emits for a single-token attribute value) or a
+ * `content`-before-`name` tag matched nothing and returned '' with no error.
+ * The HTML is Prospective's, not ours — we do not get a say in when its head
+ * gets minified, and there would be no signal when it happens.
+ *
+ * The Raw variant is deliberate: entity decoding stays with this parser's own
+ * `decodeEntities`, which resolves numeric entities the shared normaliser does
+ * not, and decoding twice would corrupt a double-encoded value. Returns '' on
+ * absence, exactly like the regex it replaces.
+ */
+export function extractMetaDescription(html) {
+  const raw = extractMetaDescriptionRaw(html);
+  if (raw === null) return '';
+  return normalizeSpace(decodeEntities(raw));
 }
 
 function normaliseEmploymentType(raw) {

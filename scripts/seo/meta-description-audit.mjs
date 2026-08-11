@@ -13,13 +13,24 @@
  * Output:
  *   reports/meta-description-audit-YYYY-MM-DD.json
  *   reports/meta-description-audit-YYYY-MM-DD.md
+ * (`--out=` overrides the directory; the post-deploy job points it at /tmp so
+ * this audit never mutates the tree it is validating.)
  *
  * Fail-soft: emits stub report when dist/ is missing / empty.
+ *
+ * The description reader lives in scripts/lib/meta-description-extract.mjs and
+ * is shared with scripts/validate-page-seo-quality and
+ * tests/dist-duplicate-meta-description.test.ts. It used to be a local pair of
+ * regexes requiring quotes around `description`, which made this audit blind to
+ * every minified page (`removeAttributeQuotes`, PR #478) — measured on 200
+ * production job-funnel pages: 200/200 reported "missing", 0/200 actually
+ * missing. Do not re-inline it.
  */
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { extractMetaDescription } from '../lib/meta-description-extract.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
@@ -73,27 +84,6 @@ function fileToUrlPath(filePath, distRoot) {
   if (rel === '/index.html') return '/';
   if (rel.endsWith('/index.html')) return rel.slice(0, -'index.html'.length);
   return rel;
-}
-
-// Match <meta name="description" content="..."> in either attribute order.
-const META_DESC_RE_1 = /<meta[^>]*\bname\s*=\s*["']description["'][^>]*\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)')[^>]*>/i;
-const META_DESC_RE_2 = /<meta[^>]*\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)')[^>]*\bname\s*=\s*["']description["'][^>]*>/i;
-
-function extractMetaDescription(html) {
-  let m = html.match(META_DESC_RE_1);
-  if (!m) m = html.match(META_DESC_RE_2);
-  if (!m) return null;
-  const raw = (m[1] ?? m[2] ?? '').trim();
-  if (!raw) return null;
-  return raw
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
 }
 
 function tokenize(s) {
@@ -217,9 +207,23 @@ function main() {
     });
     md.push('');
   }
+  const missingUrls = issues.filter((i) => i.type === 'missing-description').map((i) => i.url);
+  if (missingUrls.length > 0) {
+    md.push('## Missing description (top 50)');
+    md.push('');
+    missingUrls.slice(0, 50).forEach((u) => md.push(`- \`${u}\``));
+    md.push('');
+  }
   writeFileSync(join(args.out, `meta-description-audit-${today}.md`), md.join('\n'));
 
   console.log(`[meta-description-audit] ${files.length} pages → duplicates=${Object.keys(duplicates).length} tooShort=${tooShort} tooLong=${tooLong} missingKw=${missingKeyword} missing=${missing}`);
+  // The report files live on the runner and are not uploaded on a green run,
+  // so the offenders have to reach STDOUT or nobody ever reads them — the
+  // "muto" half of the defect this script was fixed for.
+  missingUrls.slice(0, 20).forEach((u) => console.log(`[meta-description-audit] missing-description ${u}`));
+  if (missingUrls.length > 20) {
+    console.log(`[meta-description-audit] … +${missingUrls.length - 20} altre URL senza description (elenco completo nel JSON)`);
+  }
 }
 
 const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
