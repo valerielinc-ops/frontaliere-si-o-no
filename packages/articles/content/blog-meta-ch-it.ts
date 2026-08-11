@@ -2152,6 +2152,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Permesso di domicilio C nel Cantone di Zurigo: requisiti e domanda',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'Il permesso di domicilio C nel Cantone di Zurigo richiede almeno 10 anni di residenza, conoscenze linguistiche e una procedura di domanda specifica.',
     'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'Una scena di Lugano con una persona che si avvicina a un ufficio del cantone di Zurigo per domandare il permesso di domicilio C.',
+    'blog.article.apple-stime-reducono.title': 'Apple riduce stime, crescita ricavi tra 9% e 11%',
+    'blog.article.apple-stime-reducono.excerpt': 'Apple prevede una crescita delle vendite più contenuta e una pressione sui margini per i prossimi mesi',
+    'blog.article.apple-stime-reducono.imageAlt': 'Immagine di una persona davanti a un computer con schermo del mercato azionario',
 };
 
 export default blogMetaChIt;
