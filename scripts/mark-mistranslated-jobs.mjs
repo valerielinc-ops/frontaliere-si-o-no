@@ -82,6 +82,12 @@ import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { applyMarks, persistMarksToSlices } from './lib/job-mark-persistence.mjs';
+
+// Re-exported: `applyMarks` moved to lib/ so the descriptions marker shares one
+// write path with this one (see that module's header for why). Kept on this
+// module's surface because callers and tests already import it from here.
+export { applyMarks };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -219,24 +225,6 @@ export function selectMistranslatedJobs(
   };
 }
 
-/**
- * Apply `needsRetranslation` to every record whose slug is in `slugs`.
- * Monotone (never clears a flag) and no-ops on an unchanged list, so calling it
- * twice writes once.
- *
- * @returns {number} records mutated
- */
-export function applyMarks(list, slugs) {
-  let marked = 0;
-  for (const job of Array.isArray(list) ? list : []) {
-    if (job && slugs.has(job.slug) && !job.needsRetranslation) {
-      job.needsRetranslation = true;
-      marked += 1;
-    }
-  }
-  return marked;
-}
-
 function parseArgs(argv) {
   const get = (flag) => {
     const i = argv.indexOf(flag);
@@ -299,27 +287,10 @@ function main() {
     if (!opts.dryRun && assembledMarked > 0) writeJsonAtomic(jobsPath, jobs);
   }
 
-  const byCrawler = path.join(ROOT, 'data', 'jobs', 'by-crawler');
-  let totalMarked = 0;
-  let slicesChanged = 0;
-  if (selection.slugs.size > 0 && fs.existsSync(byCrawler)) {
-    for (const file of fs.readdirSync(byCrawler).filter((f) => f.endsWith('.json'))) {
-      const filePath = path.join(byCrawler, file);
-      let data;
-      try {
-        data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      } catch {
-        continue; // an unreadable slice must not sink the whole pass
-      }
-      const list = Array.isArray(data) ? data : data?.jobs || [];
-      const marked = applyMarks(list, selection.slugs);
-      if (marked > 0) {
-        if (!opts.dryRun) writeJsonAtomic(filePath, data);
-        totalMarked += marked;
-        slicesChanged += 1;
-      }
-    }
-  }
+  const { totalMarked, slicesChanged } = persistMarksToSlices(selection.slugs, {
+    root: ROOT,
+    dryRun: opts.dryRun,
+  });
 
   console.log(
     `${opts.dryRun ? '[dry-run] would mark' : 'Marked'} ${totalMarked} jobs across ${slicesChanged} slices`
