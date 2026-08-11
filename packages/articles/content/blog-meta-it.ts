@@ -9655,6 +9655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Castello Dell\'Acqua da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.excerpt': 'La convenzione tra Italia e Svizzera prevede nuove regole per i frontalieri che intendono trasferirsi a Castello Dell\'Acqua per lavoro',
     'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere lavora in Castello Dell\'Acqua, con il lago di Lugano in secondo piano',
+    'blog.article.sanzioni-sicurezza-lavoro-comasco.title': 'Sanzioni per sicurezza lavoro nel Comasco: 18 imprese sospese',
+    'blog.article.sanzioni-sicurezza-lavoro-comasco.excerpt': 'Il Comando Provinciale dei Carabinieri di Como ha condotto 18 controlli ispettivi sul territorio provinciale, portando all\'adozione di 18 provvedimenti di sospensione dell\'attività imprenditoriale.',
+    'blog.article.sanzioni-sicurezza-lavoro-comasco.imageAlt': 'Fotografia di un valico di frontiera in Ticino',
 };
 
 export default blogMetaIt;

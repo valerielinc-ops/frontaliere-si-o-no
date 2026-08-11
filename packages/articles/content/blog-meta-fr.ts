@@ -9656,6 +9656,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.title': 'Déménager à Castello Dell\' Acqua en tant que frontalier : pour et contre',
     'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.excerpt': 'La convention entre l\'Italie et la Suisse prévoit de nouvelles règles pour les frontaliers qui souhaitent s\'installer à Castello Dell\' Acqua pour y travailler',
     'blog.article.trasferirsi-a-castello-dellacqua-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalière travaille à Castello Dell\'Acqua, avec le lac de Lugano en arrière-plan',
+    'blog.article.sanzioni-sicurezza-lavoro-comasco.title': 'Sanctions pour sécurité au travail à Comasco : 18 entreprises suspendues',
+    'blog.article.sanzioni-sicurezza-lavoro-comasco.excerpt': 'Le commandement provincial des carabiniers de Côme a effectué 18 contrôles d\'inspection sur le territoire provincial, ce qui a conduit à l\'adoption de 18 mesures de suspension de l\'activité entrepreneuriale.',
+    'blog.article.sanzioni-sicurezza-lavoro-comasco.imageAlt': 'Fotographies d\'un passage frontalier en Suisse',
 };
 
 export default blogMetaFr;

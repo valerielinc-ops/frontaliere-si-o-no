@@ -64148,6 +64148,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanzioni-sicurezza-lavoro-comasco': {
+    title: 'Sanzioni per sicurezza lavoro nel Comasco: 18 imprese sospese',
+    description: 'Il Comando Provinciale dei Carabinieri di Como ha condotto 18 controlli ispettivi sul territorio provinciale, portando all\'adozione di 18 provvedimenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, sicurezza, lavoro, comasco',
+    ogTitle: 'Sanzioni per sicurezza lavoro nel Comasco: 18 imprese sospese',
+    ogDescription: 'Il Comando Provinciale dei Carabinieri di Como ha condotto 18 controlli ispettivi sul territorio provinciale, portando all\'adozione di 18 provvedimenti di sospensione dell\'attività imprenditoriale.',
+    canonicalPath: '/articoli-frontaliere/sanzioni-sicurezza-lavoro-comasco',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni per sicurezza lavoro nel Comasco: 18 imprese sospese",
+      "description": "Il Comando Provinciale dei Carabinieri di Como ha condotto 18 controlli ispettivi sul territorio provinciale, portando all'adozione di 18 provvedimenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-sicurezza-lavoro-comasco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un valico di frontiera in Ticino"
+      },
+      "datePublished": "2026-08-11T08:30:29+00:00",
+      "dateModified": "2026-08-11T08:30:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanzioni-sicurezza-lavoro-comasco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
