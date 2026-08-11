@@ -9581,6 +9581,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Domaso da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.excerpt': 'Il Nuovo Accordo Frontalieri è stato firmato il 23 dicembre 2020 e prevede una serie di vantaggi per i frontalieri che si trasferiscono a Domaso.',
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che si trova in una situazione simile potrebbe trasferirsi a Domaso per godere di una serie di vantaggi.',
+    'blog.article.vivere-bisuschio-lavorare-ticino.title': 'Vivere a Bisuschio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-bisuschio-lavorare-ticino.excerpt': 'Perché Bisuschio è una delle migliori opzioni per i frontalieri che lavorano in Ticino e cosa si deve sapere prima di trasferirsi.',
+    'blog.article.vivere-bisuschio-lavorare-ticino.imageAlt': 'Un frontaliere in bicicletta sulla strada che porta a Bisuschio, con il Lago di Lugano sullo sfondo.',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Vivere a Livigno e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'I benefici e le difficoltà dei frontalieri che lavorano in Grigioni',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'Un frontaliere vive a Livigno e lavora in Grigioni',
 };
 
 export default blogMetaIt;

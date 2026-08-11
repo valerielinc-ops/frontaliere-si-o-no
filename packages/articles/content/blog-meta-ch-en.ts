@@ -2071,6 +2071,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Climate emergency: the debate on the Ticino Energy Plan',
     'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Meteorologist Matteo Buzzi analyses the climatic urgency and the role of the Cantonal Energy and Climate Plan in the Grand Council.',
     'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'View of the Lugano lakefront on a hot summer day',
+    'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: Chip Crisis Drives Prices Up',
+    'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Global memory chip shortage: Data centers and AI absorb 70% of RAM, impacting PC, car, and console prices and inventory.',
+    'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Hardware components and data center servers in Switzerland',
+    'blog.article.fedelta-bancaria-costi-analisi.title': 'Banks: loyalty costs a lot, it\'s better to diversify',
+    'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'A Moneyland.ch study reveals the hidden costs of bank loyalty: you save up to a thousand francs by diversifying services between various institutions.',
+    'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Interior of a modern Swiss bank office with financial documents',
+    'blog.article.lotta-lavoro-nero-consultazione.title': 'Fight against undeclared work: consultation on the new law kicks off',
+    'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'The Federal Council proposes amendments to the law against undeclared work to strengthen controls and cooperation between authorities by 16 October 2026.',
+    'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Administrative building in Switzerland representing regulatory authorities',
 };
 
 export default blogMetaChEn;

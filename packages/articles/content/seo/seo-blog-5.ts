@@ -63212,6 +63212,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-bisuschio-lavorare-ticino': {
+    title: 'Vivere a Bisuschio e lavorare in Ticino da frontaliere',
+    description: 'Perché Bisuschio è una delle migliori opzioni per i frontaliere che lavorano in Ticino e cosa si deve sapere prima di trasferirsi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, bisuschio, lavorare, perché',
+    ogTitle: 'Vivere a Bisuschio e lavorare in Ticino da frontaliere',
+    ogDescription: 'Bisuschio è un comune in Svizzera che offre una qualità della vita alta e un costo della vita moderato.',
+    canonicalPath: '/articoli-frontaliere/vivere-bisuschio-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Bisuschio e lavorare in Ticino da frontaliere",
+      "description": "Perché Bisuschio è una delle migliori opzioni per i frontaliere che lavorano in Ticino e cosa si deve sapere prima di trasferirsi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-bisuschio-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in bicicletta sulla strada che porta a Bisuschio, con il Lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-08-11T00:57:05+00:00",
+      "dateModified": "2026-08-11T00:57:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-bisuschio-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-livigno-lavorare-grigioni-frontalieri': {
+    title: 'Vivere a Livigno e lavorare in Grigioni da frontaliere',
+    description: 'I benefici e le difficoltà dei frontalieri che lavorano in Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, livigno, lavorare, grigioni',
+    ogTitle: 'Vivere a Livigno e lavorare in Grigioni da frontaliere',
+    ogDescription: 'I benefici e le difficoltà dei frontalieri che lavorano in Grigioni.',
+    canonicalPath: '/articoli-frontaliere/vivere-livigno-lavorare-grigioni-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Livigno e lavorare in Grigioni da frontaliere",
+      "description": "I benefici e le difficoltà dei frontalieri che lavorano in Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-livigno-lavorare-grigioni-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere vive a Livigno e lavora in Grigioni"
+      },
+      "datePublished": "2026-08-11T01:04:20+00:00",
+      "dateModified": "2026-08-11T01:04:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-livigno-lavorare-grigioni-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
