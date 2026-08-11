@@ -9648,6 +9648,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tredicesima-avs-frontalieri-dettagli.title': 'Thirteenth AVS to frontier workers: how it works',
     'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'In December, the AVS pension rises: here are the rules for border workers after the vote on 3 March 2024 and the decisions of 12 November 2025.',
     'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Panoramic view of Lugano and its lake',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Moving to Vervio from border crossings: pros and cons',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Facts and figures about the lives of border workers in Ticino. How many are the advantages and disadvantages of moving to Vervio?',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri Ticino in travel from work in Switzerland to Italy, with a lake in background.',
 };
 
 export default blogMetaEn;

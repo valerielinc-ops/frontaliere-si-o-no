@@ -64070,6 +64070,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-a-vervio-da-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a Vervio da frontaliere: pro e contro',
+    description: 'Fatti e cifre sulla vita dei frontaliere in Ticino. Quanti sono i vantaggi e svantaggi di trasferirsi a Vervio?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, vervio, contro, fatti',
+    ogTitle: 'Trasferirsi a Vervio da frontaliere: pro e contro',
+    ogDescription: 'Fatti e cifre sulla vita dei frontaliere in Ticino. Quanti sono i vantaggi e svantaggi di trasferirsi a Vervio?',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-a-vervio-da-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Vervio da frontaliere: pro e contro",
+      "description": "Fatti e cifre sulla vita dei frontaliere in Ticino. Quanti sono i vantaggi e svantaggi di trasferirsi a Vervio?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-a-vervio-da-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri Ticino in viaggio dal lavoro in Svizzera all'Italia, con un lago in sfondo."
+      },
+      "datePublished": "2026-08-11T08:08:53+00:00",
+      "dateModified": "2026-08-11T08:08:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-a-vervio-da-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

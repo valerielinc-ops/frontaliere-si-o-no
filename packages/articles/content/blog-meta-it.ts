@@ -9649,6 +9649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tredicesima-avs-frontalieri-dettagli.title': 'Tredicesima AVS ai frontalieri: come funziona',
     'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'A dicembre la rendita AVS sale: ecco le regole per i frontalieri dopo il voto del 3 marzo 2024 e le decisioni del 12 novembre 2025.',
     'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Vista panoramica di Lugano e del suo lago',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Vervio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Fatti e cifre sulla vita dei frontalieri in Ticino. Quanti sono i vantaggi e svantaggi di trasferirsi a Vervio?',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri Ticino in viaggio dal lavoro in Svizzera all\'Italia, con un lago in sfondo.',
 };
 
 export default blogMetaIt;

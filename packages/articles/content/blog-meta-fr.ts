@@ -9650,6 +9650,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tredicesima-avs-frontalieri-dettagli.title': 'Treizième AVS aux frontaliers : comment ça marche',
     'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'En décembre, la rente AVS augmente : voici les règles pour les frontaliers après le vote du 3 mars 2024 et les décisions du 12 novembre 2025.',
     'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Vue panoramique de Lugano et de son lac',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.title': 'Déménager à Vervio en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.excerpt': 'Faits et chiffres sur la vie des frontaliers au Tessin. Quels sont les avantages et les inconvénients de déménager à Vervio ?',
+    'blog.article.trasferirsi-a-vervio-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliers Ticino en voyage du travail en Suisse en Italie, avec un lac en arrière-plan.',
 };
 
 export default blogMetaFr;
