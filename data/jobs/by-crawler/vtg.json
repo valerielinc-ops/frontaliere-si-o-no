@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-wlhin8",
-      "slug": "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
+      "slug": "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Elektroniker/-in Avionik",
       "location": "Bern",
@@ -41,20 +41,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
-        "en": "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
+        "it": "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern",
+        "en": "electronics-engineer-in-avionics-swiss-armed-forces-vtg-bern",
         "de": "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
-        "fr": "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
+        "fr": "ingenieur-en-electronique-en-avionique-swiss-armed-forces-vtg-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern"
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern",
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
+        ],
+        "en": [
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
+        ],
+        "fr": [
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
         ]
       },
       "previousSlugs": [
-        "elektroniker-in-avionik-swiss-armed-forces-vtg-bern"
+        "elektroniker-in-avionik-swiss-armed-forces-vtg-bern",
+        "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2678,7 +2686,7 @@
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
-        "en": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern",
+        "en": "driver-transport-assistant-swiss-armed-forces-vtg-bern",
         "de": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
         "fr": "conducteur-assistant-de-transport-swiss-armed-forces-vtg-bern"
       },
@@ -2724,7 +2732,6 @@
         "en": [
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
-          "driver-transport-assistant-swiss-armed-forces-vtg-bern",
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern"
         ],
         "de": [
@@ -2742,8 +2749,7 @@
         "autista-in-comando-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
         "fahrer-in-transportregal-swiss-armed-forces-vtg-bern-4hynmv",
-        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
-        "driver-transport-assistant-swiss-armed-forces-vtg-bern"
+        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000
@@ -3236,7 +3242,7 @@
       "crawledAt": "2026-08-10T22:01:03.421Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
+        "it": "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-sanitary-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
         "fr": "specialiste-des-infrastructures-sanitaires-swiss-armed-forces-vtg-bern"
@@ -3285,8 +3291,7 @@
           "spezialist-in-fordertechnik-confederazione-andermatt",
           "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
           "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
-          "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-          "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
+          "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt"
         ],
         "en": [
           "infrastructure-specialist-in-sanitary-swiss-armed-forces-vtg-bern",
@@ -3320,8 +3325,7 @@
         "spezialist-in-fordertechnik-confederazione-andermatt",
         "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
         "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
-        "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-        "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern"
+        "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000

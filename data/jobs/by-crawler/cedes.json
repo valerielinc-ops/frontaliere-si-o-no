@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "cedes-697abaeca835",
-      "slug": "business-development-ea-professional-network-cedes-landquart",
+      "slug": "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart",
       "slugByLocale": {
         "en": "business-development-ea-professional-network-cedes-landquart",
-        "it": "business-development-ea-professional-network-cedes-landquart",
+        "it": "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart",
         "de": "business-development-ea-professional-network-cedes-landquart",
-        "fr": "business-development-ea-professional-network-cedes-landquart"
+        "fr": "developpement-des-entreprises-reseau-professionnel-ea-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes",
@@ -60,7 +60,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-10T21:45:49.906Z"
+      "firstSeenAt": "2026-08-10T21:45:49.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-ea-professional-network-cedes-landquart"
+        ],
+        "fr": [
+          "business-development-ea-professional-network-cedes-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-ea-professional-network-cedes-landquart"
+      ]
     },
     {
       "id": "cedes-35a5cf0843f1",
@@ -162,13 +173,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-10T21:45:49.156Z",
       "previousSlugs": [
-        "packaging-line-worker-100-cedes-landquart",
-        "linea-di-confezionamento-worker-100-cedes-ag-landquart"
+        "packaging-line-worker-100-cedes-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-line-worker-100-cedes-landquart",
-          "linea-di-confezionamento-worker-100-cedes-ag-landquart"
+          "packaging-line-worker-100-cedes-landquart"
         ],
         "de": [
           "packaging-line-worker-100-cedes-landquart"
@@ -236,14 +245,12 @@
       "crawledAt": "2026-08-10T21:45:48.496Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
-        "unsolicited-applications-cedes-landquart",
-        "candidature-non-richiesta-cedes-ag-landquart"
+        "unsolicited-applications-cedes-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unsolicited-applications-cedes-ag-landquart",
-          "unsolicited-applications-cedes-landquart",
-          "candidature-non-richiesta-cedes-ag-landquart"
+          "unsolicited-applications-cedes-landquart"
         ],
         "de": [
           "unsolicited-applications-cedes-ag-landquart",
