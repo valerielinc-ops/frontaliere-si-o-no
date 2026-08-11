@@ -6580,6 +6580,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'usam-croce-svizzera-polemica',
+    category: 'novita',
+    date: '2026-08-11T14:47:04.515Z',
+    image: '/images/blog/usam-croce-svizzera-polemica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2194,6 +2194,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-zurigo-guida.title': 'Lehre und Berufsausbildung im Kanton Zürich',
     'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Praktischer Leitfaden zur Suche nach einer Lehrstelle, Arbeitsvertrag, Lehrlingsvergütung und Berufsmaturität im schweizerischen System.',
     'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Auszubildender in der Berufsbildung in einem modernen Labor in Zürich',
+    'blog.article.usam-croce-svizzera-polemica.title': 'Auslandschweizerkreuz: Der Protest von USAM',
+    'blog.article.usam-croce-svizzera-polemica.excerpt': 'Das Bsv stellt die Praxis des ige in Frage, die die Verwendung des Schweizer Kreuzes auf Produkten erlaubt, die gänzlich ausserhalb der Landesgrenzen hergestellt werden.',
+    'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Etikett mit Schweizer Kreuz auf einem Produkt',
 };
 
 export default blogMetaChDe;
