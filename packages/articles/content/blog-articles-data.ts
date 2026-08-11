@@ -28740,6 +28740,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-bisuschio-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-11T00:57:04.983Z',
+ image: '/images/blog/vivere-bisuschio-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-livigno-lavorare-grigioni-frontalieri',
+ category: 'fiscale',
+ date: '2026-08-11T01:04:20.443Z',
+ image: '/images/blog/vivere-livigno-lavorare-grigioni-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

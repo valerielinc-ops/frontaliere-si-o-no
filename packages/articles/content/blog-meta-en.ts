@@ -9580,6 +9580,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.title': 'Moving to Domaso by border crossing: pros and cons',
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and provides a number of benefits for frontier workers moving to Domaso.',
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.imageAlt': 'A frontiera worker who finds themselves in a similar situation might transfer to Domaso to enjoy a range of benefits.',
+    'blog.article.vivere-bisuschio-lavorare-ticino.title': 'Living in Bisuschio and working in Ticino as a border worker',
+    'blog.article.vivere-bisuschio-lavorare-ticino.excerpt': 'Because Bisuschio is one of the best options for border workers working in Ticino and what you need to know before moving.',
+    'blog.article.vivere-bisuschio-lavorare-ticino.imageAlt': 'A cyclist on the road to Bisuschio, with Lake Lugano in the background.',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Living in Livigno and working in Graubünden as a border worker',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'The benefits and difficulties of border workers working in Graubünden',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'A frontaliere living in Livigno and working in Grigioni',
 };
 
 export default blogMetaEn;

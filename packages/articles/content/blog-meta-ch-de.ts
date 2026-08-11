@@ -2071,6 +2071,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Klimanotstand: Die Debatte um den Tessiner Energieplan',
     'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Der Meteorologe Matteo Buzzi analysiert die klimatische Dringlichkeit und die Rolle des kantonalen Energie- und Klimaplans im Grossen Rat.',
     'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'Blick auf das Seebecken von Lugano an einem heißen Sommertag',
+    'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: Chipkrise treibt Preise nach oben',
+    'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Globaler Mangel an Speicherchips: Rechenzentren und KI absorbieren 70% des RAM, was sich auf die Preise und Bestände von PCs, Autos und Konsolen auswirkt.',
+    'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Hardware-Komponenten und Rechenzentrumsserver in der Schweiz',
+    'blog.article.fedelta-bancaria-costi-analisi.title': 'Banken: Loyalität ist teuer, besser diversifizieren',
+    'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'Eine Studie von Moneyland.ch deckt die versteckten Kosten der Banktreue auf: Einsparungen von bis zu tausend Franken durch die Diversifizierung der Dienstleistungen zwischen verschiedenen Instituten.',
+    'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Innenansicht einer modernen Schweizer Bankfiliale mit Finanzunterlagen',
+    'blog.article.lotta-lavoro-nero-consultazione.title': 'Bekämpfung der Schwarzarbeit: Die Vernehmlassung zum neuen Gesetz beginnt',
+    'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'Der Bundesrat schlägt Änderungen des Gesetzes gegen Schwarzarbeit vor, um die Kontrollen und die Zusammenarbeit zwischen den Behörden bis zum 16. Oktober 2026 zu verstärken.',
+    'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Verwaltungsgebäude in der Schweiz, das die Aufsichtsbehörden repräsentiert',
 };
 
 export default blogMetaChDe;
