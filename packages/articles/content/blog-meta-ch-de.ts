@@ -2236,6 +2236,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.title': 'Mietmarkt im Kanton Zürich: Durchschnittsmieten und Mietrecht',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.excerpt': 'Die durchschnittlichen Mieten im Kanton Zürich gehören zu den höchsten in der Schweiz. Hier erfahren Sie, was Sie über die Rechte von Mietern und Vermietern wissen müssen.',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.imageAlt': 'Ein Foto eines Apartments in der Miete in Zürich mit einem Mietpreis von etwa CHF 2,500-3,000 pro Monat.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Einbürgerung Kanton Zürich Anforderungen und Verfahren',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'Das Einbürgerungsverfahren im Kanton Zürich: Voraussetzungen, Integrationstest und Sprache, zu entrichtende Gebühren und Dauer des Verfahrens.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'Ansicht von Lugano, Schweiz, mit einem Schwerpunkt auf die Naturalisierungsverfahren für den Kanton Zürich',
 };
 
 export default blogMetaChDe;

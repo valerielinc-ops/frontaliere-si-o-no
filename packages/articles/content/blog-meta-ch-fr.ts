@@ -2236,6 +2236,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.title': 'Marché locatif dans le canton de Zurich : loyers moyens et droit des locations',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.excerpt': 'Les loyers moyens dans le canton de Zurich comptent parmi les plus élevés de Suisse. Voici ce que vous devez savoir sur les droits des locataires et des propriétaires.',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.imageAlt': 'Une photo d\'un appartement à louer à Zurich avec un prix de location d\'environ CHF 2 500-3 000 par mois.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Naturalisation canton Zurich exigences et procédure',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'La procédure de naturalisation dans le canton de Zurich : exigences, tests d\'intégration et langue, taxes à payer et durée de la procédure.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'Vue de Lugano, Suisse, avec un focus sur le processus de naturalisation pour le Canton de Zurich',
 };
 
 export default blogMetaChFr;

@@ -2236,6 +2236,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.title': 'Rental market in the canton of Zurich: average rents and tenancy law',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.excerpt': 'Average rents in the canton of Zurich are among the highest in Switzerland. Here\'s what you need to know about tenant and landlord rights.',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.imageAlt': 'A photo of an apartment for rent in Zurich with a rent price of approximately CHF 2,500-3,000 per month.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Naturalization Canton Zurich requirements and procedure',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'The naturalization procedure in the Canton of Zurich: requirements, integration and language tests, fees to be paid and duration of the procedure.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'View of Lugano, Switzerland, with a focus on the naturalization process for the Canton of Zurich',
 };
 
 export default blogMetaChEn;
