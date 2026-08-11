@@ -1,3 +1,5 @@
+import { classifySuppressionDecay, hasConsentEvidence } from './suppressionDecay.mjs';
+
 /**
  * classify() — pure classifier behind
  * scripts/restore-mailtrap-suspension-suppressions.mjs. Extracted so it is
@@ -54,4 +56,107 @@ export function classify(events) {
     else sawRealFailure = true;
   }
   return { sawSuspension, sawRealFailure, sawUnsubscribe };
+}
+
+/**
+ * ── THE BLIND SPOT, and why widening the query alone would be dangerous ─────
+ *
+ * `classify()` above reads ONLY events whose `event_type === 'suppressed'`.
+ * That is the whole of its evidence, and it cuts BOTH ways:
+ *
+ *   - Mailtrap's `reject` is written as `event_type: 'bounce'`, so it is
+ *     invisible to `classify()` → `sawRealFailure` stays false → the doc is
+ *     restorable. For the 281-address cohort this PR exists for, that is the
+ *     CORRECT answer: `mapMailtrapEvent` maps `reject → 'bounce'`,
+ *     `classifyBounceSeverity({ provider: 'mailtrap', rawEvent: 'reject' })`
+ *     returns `'soft'`, and `bounceUpdateFields({ severity: 'soft' })` does
+ *     NOT touch `status` — so with today's code that state is structurally
+ *     unproducible. It is the residue of a writer already removed from the
+ *     repo, not a verdict anything still stands behind.
+ *
+ *   - but a GENUINE hard bounce is ALSO written as `event_type: 'bounce'`.
+ *     Equally invisible. `classify()` never reads `bounce_severity` and never
+ *     applies HARD_BOUNCE_PATTERN.
+ *
+ * So as long as the caller selected only `status === 'suppressed'` (2 docs in
+ * production on 2026-08-11) the blind spot was harmless. Widening the query to
+ * `status in ['suppressed','bounced']` — which is the only way to reach the
+ * 281 — pulls the hard bounces into the same selection, and the event-log
+ * classifier cannot tell them apart. Measured on the real data: the widened
+ * query returns 398 docs and the OLD precedence would have restored 295 of
+ * them, 14 of which carry `bounce_severity: 'hard'` — including two Gmail
+ * `NoSuchUser` ("the email account that you tried to reach does not exist"),
+ * one `address unknown`, four escalated after 3 consecutive soft rejects,
+ * three mailbox-full and two over-quota marked hard. Resurrecting a mailbox
+ * the provider declares nonexistent is the one outcome worse than leaving a
+ * live subscriber suppressed.
+ *
+ * `decideRestore()` therefore puts `classifySuppressionDecay()`'s TERMINAL
+ * verdict first in the precedence, ahead of every event-log signal. That
+ * single gate covers all four terminal families at once — `hard-severity`
+ * (the structured field, which is what catches the escalated docs whose prose
+ * matches no hard pattern), `hard-reason` (the legacy regex, for pre-classifier
+ * docs), the human stamps, and an exhausted re-probe budget — instead of
+ * re-deriving any of them here, which is exactly the duplicated-safety-regex
+ * drift AGENTS.md Non-Negotiable #6 forbids.
+ *
+ * Age-independent BY CONSTRUCTION: only the `terminal` half of the verdict is
+ * read, and no terminal branch in `classifySuppressionDecay` consults
+ * `ageDays`. `nowMs` is therefore threaded through for reporting only, and the
+ * decision is identical whatever clock the caller passes — pinned by a test.
+ *
+ * @param {object} input
+ * @param {object} input.sub subscriber doc fields
+ * @param {object[]} [input.events] docs from the subscriber's `events` subcollection
+ * @param {number} input.nowMs current time in ms (reporting only — see above)
+ * @returns {{restore: boolean, code: string, reason: string, confirmed: boolean, tier: string}}
+ */
+export function decideRestore({ sub = {}, events = [], nowMs = 0 } = {}) {
+  const decay = classifySuppressionDecay(sub, nowMs);
+
+  // Only a MACHINE-inferred suppression may be undone. Redundant with the
+  // caller's Firestore filter today, and deliberately so: the function is the
+  // whole precedence, and a caller that widens its query again (or passes a
+  // doc from a different code path) must not be able to "restore" a mailable
+  // doc, still less an `inactive` one — that status is owned by the sunset
+  // classifiers, and a second writer of that transition is the defect
+  // scripts/lib/suppressionDecay.mjs's header calls out.
+  if (decay.code === 'mailable' || decay.code === 'engagement-sunset') {
+    return { restore: false, code: 'not-suppressed', reason: decay.reason, confirmed: false, tier: decay.tier };
+  }
+
+  // FIRST among the suppression verdicts, and ahead of every event-log signal:
+  // a hard bounce or a human decision is never undone by this script, whatever
+  // the event log says.
+  if (decay.tier === 'terminal') {
+    return { restore: false, code: decay.code, reason: decay.reason, confirmed: false, tier: decay.tier };
+  }
+
+  const { sawSuspension, sawRealFailure, sawUnsubscribe } = classify(events);
+
+  // Deliberately UNCONDITIONAL, and deliberately divergent from
+  // `classifySuppressionDecay`, which lets a `confirmed_at` newer than the
+  // opt-out supersede the stamp (a re-subscription). This script resurrects
+  // addresses on a root-cause claim rather than on evidence of life, so it
+  // keeps the stricter reading it has always had: an opt-out stamp, or an
+  // opt-out in the event log (which decay never reads at all), stops it.
+  if (sub?.unsubscribed_at || sub?.unsubscribedAt || sawUnsubscribe) {
+    return { restore: false, code: 'unsubscribed', reason: 'explicit opt-out (stamp or event log)', confirmed: false, tier: decay.tier };
+  }
+  if (sawRealFailure) {
+    return { restore: false, code: 'real-failure', reason: 'a suppressed event from a cause other than suspension', confirmed: false, tier: decay.tier };
+  }
+  if (!sawSuspension) {
+    return { restore: false, code: 'no-suspension-evidence', reason: 'no suppressed event carrying mailtrap suspension', confirmed: false, tier: decay.tier };
+  }
+
+  return {
+    restore: true,
+    code: 'suspension-mismapped',
+    reason: `suppression attributable to the mis-mapped mailtrap suspension (decay tier '${decay.tier}')`,
+    // Consent is never inferred from the restore itself: a subscriber who was
+    // still `pending` when the suppression landed comes back `pending`.
+    confirmed: hasConsentEvidence(sub, events),
+    tier: decay.tier,
+  };
 }
