@@ -6265,6 +6265,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'servizio-di-accreditamento-svizzero-diventa-parte-integrante',
+    category: 'fiscale',
+    date: '2026-08-11T01:54:51.799Z',
+    image: '/images/blog/servizio-di-accreditamento-svizzero-diventa-parte-integrante.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

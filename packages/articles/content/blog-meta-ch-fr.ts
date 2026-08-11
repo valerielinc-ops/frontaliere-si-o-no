@@ -2089,6 +2089,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group entame des négociations pour acquérir Aroma-Zone',
     'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Négociations exclusives avec Eurazeo, qui conservera une part minoritaire ; évaluation possible d\'environ 2 milliards d\'euros',
     'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group et Aroma-Zone',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.title': 'Accréditation suisse, un pas en avant pour la place économique',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.excerpt': 'Le Service d\'accréditation suisse (SAS) deviendra partie intégrante de la Direction pour la promotion de la place économique à compter du 1er juillet 2026.',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.imageAlt': 'Représentant de la SECO à Berne',
 };
 
 export default blogMetaChFr;

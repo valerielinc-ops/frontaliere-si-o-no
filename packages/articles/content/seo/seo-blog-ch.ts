@@ -27044,6 +27044,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-servizio-di-accreditamento-svizzero-diventa-parte-integrante': {
+    title: 'Accreditamento svizzero, un passo in avanti per la piazza economica',
+    description: 'Il Servizio di accreditamento svizzero diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026. Scopri',
+    keywords: 'frontalieri, ticino, svizzera, italia, accreditamento, svizzero, passo, avanti',
+    ogTitle: 'Servizio di accreditamento svizzero diventa parte integrante della Direzione per la promozione della piazza economica',
+    ogDescription: 'Il Servizio di accreditamento svizzero diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026.',
+    canonicalPath: '/articoli-svizzera/servizio-di-accreditamento-svizzero-diventa-parte-integrante/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accreditamento svizzero, un passo in avanti per la piazza economica",
+      "description": "Il Servizio di accreditamento svizzero diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026. Scopri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/servizio-di-accreditamento-svizzero-diventa-parte-integrante.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rappresentante SECO a Berna"
+      },
+      "datePublished": "2026-08-11T01:54:51+00:00",
+      "dateModified": "2026-08-11T01:54:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/servizio-di-accreditamento-svizzero-diventa-parte-integrante/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
