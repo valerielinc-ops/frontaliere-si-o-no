@@ -1,16 +1,17 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-08-11T10:21:49.696Z",
+  "generatedAt": "2026-08-11T10:41:33.085Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3302,
-  "avgDurationMs": 3302,
+  "durationMs": 4612,
+  "avgDurationMs": 4612,
   "durationHistory": [
-    3302
+    3302,
+    4612
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +28,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/ingenieur-senior-microsoft-cloud-plateformes-2424.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:21:47.318Z",
+      "crawledAt": "2026-08-11T10:41:29.450Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -64,7 +65,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:21:47.762Z",
+      "crawledAt": "2026-08-11T10:41:29.968Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
