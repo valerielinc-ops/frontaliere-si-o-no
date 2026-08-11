@@ -2221,6 +2221,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.settore-agricolo-danni-19-milioni.title': 'The agricultural sector reports damages of over 19 million francs.',
     'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'The drought is hitting Swiss farmers hard, with damages estimated at over 19 million francs.',
     'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'A view of Lake Lugano during the drought.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Travel and consumption without sacrifices, despite the climate',
+    'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Four out of five adults do not give up, despite the climate debate. 80% say that the climate debate has little or no impact on their choices.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'An airplane lands at Zurich airport',
 };
 
 export default blogMetaChEn;
