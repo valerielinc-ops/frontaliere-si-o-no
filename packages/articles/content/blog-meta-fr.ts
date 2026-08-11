@@ -9719,6 +9719,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Piemonte e Lombardia divisi, disparità in aumento',
     'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Le Mouvement 5 Étoiles VCO intervient sur la situation des frontaliers après le débat à la Fête de la Lucciola de Villadossola.',
     'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontalière travaille en Lombardie et réside en Tessin.',
+    'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols en faillite : la chaîne du luxe en péril',
+    'blog.article.harvey-nichols-bancarotta.excerpt': 'La chaîne de grands magasins Harvey Nichols pourrait faire faillite d\'ici un an si elle ne trouve pas de nouveaux investisseurs.',
+    'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols en faillite',
 };
 
 export default blogMetaFr;

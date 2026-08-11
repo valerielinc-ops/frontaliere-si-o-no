@@ -9717,6 +9717,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontiersmen, M5S VCO: \'Piedmont and Lombardy divided, so disparities increase\'',
     'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'The 5 Star Movement VCO intervenes on the situation of border workers after the debate at the Firefly Festival in Villadossola.',
     'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'A frontaliere working in Lombardy and residing in Ticino.',
+    'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols Bankrupt: Luxury Chain at Risk',
+    'blog.article.harvey-nichols-bancarotta.excerpt': 'Department store chain Harvey Nichols could be bankrupt within a year if it doesn\'t find new investors.',
+    'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols at risk of bankruptcy',
 };
 
 export default blogMetaEn;
