@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 /**
+ * @manual-tool — diagnostica OFFLINE, come dice il paragrafo sotto: si lancia a mano
+ * contro un artefatto locale, non e' un gate di build.
+ *
  * Audit a built artifact for inline `<style>...</style>` blocks in emitted
  * static HTML — the dist-bloat class the PR #454 `.s-*` codemod does NOT cover
  * (that codemod only extracted inline `style="..."` ATTRIBUTES into hashed
