@@ -2200,6 +2200,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-danni-agricoltura-svizzera.title': 'Sécheresse, dégâts à l\'agriculture pour 19 millions de francs',
     'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel signale des dommages d\'au moins 19 millions de francs. Frappez les cultures d\'été comme le maïs, les pommes de terre, les betteraves et les tournesols.',
     'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Champs de maïs touchés par la sécheresse en Suisse',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM conteste la croix suisse sur les produits étrangers',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'La nouvelle pratique permet également d\'apposer la croix suisse sur des produits fabriqués à l\'étranger. L\'USAM y répond.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'La croix suisse sur un produit importé',
 };
 
 export default blogMetaChFr;

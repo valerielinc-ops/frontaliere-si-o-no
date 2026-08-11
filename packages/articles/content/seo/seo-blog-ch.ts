@@ -28487,6 +28487,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-usam-croce-svizzera-polemica': {
+    title: 'USAM contesta croce svizzera su prodotti esteri',
+    description: 'L\'USAM contesta la prassi che consente di apporre la croce svizzera su prodotti fabbricati all\'estero. La questione riguarda la produzione di prodotti',
+    keywords: 'frontalieri, ticino, svizzera, italia, usam, contesta, croce, prodotti',
+    ogTitle: 'USAM contesta prassi che autorizza la croce svizzera su prodotti fabbricati all\'estero',
+    ogDescription: 'L\'USAM contesta la prassi che consente di apporre la croce svizzera su prodotti fabbricati all\'estero. La questione riguarda la produzione di prodotti all\'estero.',
+    canonicalPath: '/articoli-svizzera/svizzera-usam-croce-svizzera-polemica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USAM contesta croce svizzera su prodotti esteri",
+      "description": "L'USAM contesta la prassi che consente di apporre la croce svizzera su prodotti fabbricati all'estero. La questione riguarda la produzione di prodotti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-usam-croce-svizzera-polemica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La croce svizzera su un prodotto fabbricato all'estero"
+      },
+      "datePublished": "2026-08-11T15:10:27+00:00",
+      "dateModified": "2026-08-11T15:10:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-usam-croce-svizzera-polemica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

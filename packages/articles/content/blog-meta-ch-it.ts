@@ -2200,6 +2200,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-danni-agricoltura-svizzera.title': 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
     'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel segnala danni per almeno 19 milioni di franchi. Colpite le colture estive come mais, patate, barbabietole e girasoli.',
     'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Campi di mais colpiti dalla siccità in Svizzera',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM contesta croce svizzera su prodotti esteri',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'La nuova prassi consente di apporre la croce svizzera anche su prodotti fabbricati all\'estero. L\'USAM la contesta.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'La croce svizzera su un prodotto fabbricato all\'estero',
 };
 
 export default blogMetaChIt;
