@@ -1084,24 +1084,6 @@
         ]
       },
       "sfJobId": "1165246255",
-      "previousSlugs": [
-        "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "assistenza-assistenza-di-emergenza-f-m-d-die-mobiliar-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-          "assistenza-assistenza-di-emergenza-f-m-d-die-mobiliar-bern"
-        ],
-        "en": [
-          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
-        ],
-        "fr": [
-          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:32:50.566Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1114,7 +1096,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-10T10:32:50.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
+          "assistenza-assistenza-di-emergenza-f-m-d-die-mobiliar-bern",
+          "consultant-assistance-m-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
+        "assistenza-assistenza-di-emergenza-f-m-d-die-mobiliar-bern",
+        "consultant-assistance-m-d-die-mobiliar-bern"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-0e1bf8075717",

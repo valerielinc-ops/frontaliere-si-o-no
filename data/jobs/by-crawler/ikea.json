@@ -818,9 +818,9 @@
       "title": "Lehrstelle Logistiker:in (01.08.2027-31.07.2030)",
       "titleByLocale": {
         "it": "Apprendistato impiegata/impiegato in logistica (01.08.2027-31.07.2030)",
-        "en": "Lehrstelle Logistiker:in (01.08.2027-31.07.2030)",
         "de": "Lehrstelle Logistiker:in (01.08.2027-31.07.2030)",
-        "fr": "Lehrstelle Logistiker:in (01.08.2027-31.07.2030)"
+        "en": "Logistician's apprenticeship (01.08.2027-31.07.2030)",
+        "fr": "Poste de Logisticien(ne) (01.08.2027-31.07.2030)"
       },
       "description": "Lehrstelle Logistiker:in (01.08.2027-31.07.2030) — IKEA",
       "descriptionByLocale": {
@@ -849,7 +849,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T10:28:39.444Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -861,7 +860,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T10:28:39.444Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ikea-d398cbcf633d",

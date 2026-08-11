@@ -521,14 +521,14 @@
       "titleByLocale": {
         "it": "Infermiere/a Dipl. Palliativ",
         "en": "Dipl. Pflegefachmann/-frau Palliativstation",
-        "de": "Dipl. Pflegefachmann/-frau Palliativstation",
+        "de": "Dipl.Hydrichfmann/-frau Palliativstation",
         "fr": "Infirmier/infirmière Diplômé(e) en Soins Palliatifs"
       },
       "description": "Dipl. Pflegefachmann/-frau Palliativstation — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Münsterlingen\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
         "it": "Descrizione\n\nInfermiere/a Dipl. Palliativ — Spital Thurgau (STGAG).\n\nSede\n- Kantonsspital Münsterlingen\n\nReparto\n- Infermieristica (inclusa ostetricia)\n\nArea\n- Kantonsspital Münsterlingen\n\nOrario di lavoro\n- Tempo pieno, part-time possibile\n\nTipo di contratto\n- A tempo indeterminato",
         "en": "Description\n\nRegistered Nurse Palliative Care — Spital Thurgau (STGAG).\n\nLocation\n- Kantonsspital Münsterlingen\n\nDepartment\n- Nursing (including Midwifery)\n\nArea\n- Kantonsspital Münsterlingen\n\nWorkload\n- Full-time, part-time possible\n\nEmployment Type\n- Permanent",
-        "de": "Dipl. Pflegefachmann/-frau Palliativstation — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Münsterlingen\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
+        "de": "Beschreibung\n\nDipl. Pflegefachmann/-frau Palliativstation — Spital Thurgau (STGAG).\n\nStandort\n- Kantonsspital Münsterlingen\n\nAbteilung\n- Pflege (inkl. Hebamme)\n\nBereich\n- Kantonsspital Münsterlingen\n\nPensum\n- Vollzeit, Teilzeit möglich\n\nAnstellungsverhältnis\n- Unbefristet",
         "fr": "Description\n\nInfirmier/infirmière Diplômé(e) en Soins Palliatifs — Spital Thurgau (STGAG).\n\nLieu\n- Kantonsspital Münsterlingen\n\nService\n- Soins infirmiers (y compris sage-femme)\n\nSecteur\n- Kantonsspital Münsterlingen\n\nTemps de travail\n- Temps plein, possibilité à temps partiel\n\nType d'emploi\n- CDI"
       },
       "location": "Kantonsspital Münsterlingen",
@@ -578,7 +578,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -590,7 +589,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-915084911655",
@@ -608,14 +608,14 @@
       "titleByLocale": {
         "it": "Dipl. Pflegefachmann/-frau HF/FH",
         "en": "Registered Nurse Diploma HF/FH",
-        "de": "Dipl. Pflegefachmann/-frau HF/FH",
+        "de": "logi.Holdermann/-frau HF/FH",
         "fr": "Infirmier/ère Diplômé/e HF/FH"
       },
       "description": "Dipl. Pflegefachmann/-frau HF/FH — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Münsterlingen\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
         "it": "Infermiere/a Diplomato/a HF/FH — Ospedale Turgovia (STGAG)\n\nDescrizione\n\n- Luogo: Ospedale Cantonale Münsterlingen\n- Reparto: Infermieristica (incl. Ostetricia)\n- Area: Ospedale Cantonale Münsterlingen\n- Percentuale di lavoro: Tempo pieno, Tempo parziale possibile\n- Contratto di lavoro: Indeterminato",
         "en": "Registered Nurse Diploma HF/FH — Thurgau Hospital (STGAG)\n\nDescription\n\n- Location: Cantonal Hospital Münsterlingen\n- Department: Nursing (incl. Midwifery)\n- Area: Cantonal Hospital Münsterlingen\n- Hours: Full-time, Part-time possible\n- Employment Contract: Permanent",
-        "de": "Dipl. Pflegefachmann/-frau HF/FH — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Münsterlingen\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
+        "de": "Dipl. Pflegefachmann/-frau HF/FH — Spital Thurgau (STGAG)\n\nBeschreibung\n\n- Standort: Kantonsspital Münsterlingen\n- Abteilung: Pflege (inkl. Hebamme)\n- Bereich: Kantonsspital Münsterlingen\n- Pensum: Vollzeit, Teilzeit möglich\n- Anstellungsverhältnis: Unbefristet",
         "fr": "Infirmier/ère Diplômé/e HF/FH — Hôpital Thurgovie (STGAG)\n\nDescription\n\n- Localisation: Hôpital Cantonal Münsterlingen\n- Service: Soins infirmiers (incl. Sage-femme)\n- Zone: Hôpital Cantonal Münsterlingen\n- Pourcentage d'emploi: Temps complet, Temps partiel possible\n- Contrat de travail: Indéterminé"
       },
       "location": "Kantonsspital Münsterlingen",
@@ -710,7 +710,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -722,7 +721,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-8b4b50246dbe",

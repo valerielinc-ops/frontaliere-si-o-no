@@ -846,7 +846,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -858,7 +857,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ac4838d9c43c",
@@ -1268,7 +1268,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1280,7 +1279,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-4ff77a59da50",
@@ -2007,7 +2007,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2019,7 +2018,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -2810,7 +2810,7 @@
       "descriptionByLocale": {
         "it": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
         "en": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
-        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum — Kantonsspital Aarau (KSA), Aarau",
+        "de": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau",
         "fr": "Oberärztin / Oberarzt Interdisziplinäres Notfallzentrum. Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -2846,10 +2846,9 @@
           "medico-senior-centro-di-emergenza-interdisciplinare-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 90,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -4553,7 +4552,7 @@
       "descriptionByLocale": {
         "it": "Descrizione\n\nGiornata di pratica - Uno sguardo dietro le quinte delle cure di emergenza e di terapia intensiva Pediatria — Ospedale cantonale di Aarau (KSA), Aarau",
         "en": "Description Day of Practice - A glimpse behind the scenes of emergency and intensive care Pediatrics — Kantonsspital Aarau (KSA), Aarau",
-        "de": "Praxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
+        "de": "## Beschreibung\n\nPraxistag - Ein Blick hinter die Kulissen der Notfall- und Intensivpflege Pädiatrie — Kantonsspital Aarau (KSA), Aarau",
         "fr": "Description Jour de pratique - Un aperçu dans les coulisses de la pédiatrie en cas d'urgence et de soins intensifs — Kantonsspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
@@ -4589,7 +4588,6 @@
           "praxistag-ein-blick-hinter-la-kulissen-der-notfall-e-intensivpflege-padiatrie-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4611,7 +4609,7 @@
         "it": "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
         "en": "care-internship-independent-of-training-medicine-kantonsspital-aarau-ksa-aarau",
         "de": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "fr": "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4625,8 +4623,10 @@
       },
       "description": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
-        "de": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
-        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau"
+        "de": "Die in den Erwägungsgründen 215 bis 316 genannten Maßnahmen sind in den Erwägungsgründen 215 bis 316 der vorläufigen Verordnung aufgeführt.",
+        "fr": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau",
+        "it": "Pflegepraktikum ausbildungsunabhängig (Medizin) — Kantonsspital Aarau (KSA), Aarau\n\nDescrizione del ruolo\n\nIl Kantonsspital Aarau (KSA) offre un tirocinio di cura indipendente dall'istruzione (Medicina) presso il nostro ospedale. Questo tirocinio offre l'opportunità di guadagnare esperienza pratica in un ambiente ospedaliero dinamico e di sviluppare le proprie competenze in campo medico.\n\nCompiti e responsabilità\n\n- Collaborare con il personale medico e infermieristico per fornire cure di alta qualità ai pazienti\n- Assumere responsabilità per la cura e il trattamento dei pazienti in diverse aree cliniche\n- Partecipare a riunioni di equipe e contribuire al processo decisionale\n- Sviluppare e implementare strategie per migliorare la qualità della cura e la soddisfazione dei pazienti\n- Collaborare con altri dipartimenti e servizi per garantire la continuità della cura\n- Partecipare a progetti di miglioramento e innovazione clinica\n- Sviluppare e implementare strategie per migliorare la sicurezza dei pazienti e del personale\n- Collaborare con il personale di supporto per garantire la funzionalità degli impianti e dei servizi\n\nRequisiti\n\n- Laurea in Medicina o corso di laurea in Medicina correlato\n- Esperienza pratica in campo medico (preferibilmente in un ambiente ospedaliero)\n- Buone competenze comunicative e di teamwork\n- Capacità di lavorare in un ambiente dinamico e di adattarsi a nuove situazioni\n- Buone competenze organizzative e di pianificazione\n- Capacità di lavorare in equipe e di collaborare con altri dipartimenti e servizi\n- Buone competenze di problem-solving e di decisione\n- Capacità di lavorare in un ambiente di alta pressione e di gestire lo stress\n- Buone competenze di comunicazione e di presentazione\n\nCosa offriamo\n\n- Opportunità di guadagnare esperienza pratica in un ambiente ospedaliero dinamico\n- Sviluppo delle proprie competenze in campo medico\n- Collaborazione con un team di professionisti altamente qualificati\n- Opportunità di partecipare a progetti di miglioramento e innovazione clinica\n- Opportunità di sviluppare e implementare strategie per migliorare la qualità della cura e la soddisfazione dei pazienti\n- Opportunità di collaborare con altri dipartimenti e servizi per garantire la continuità della cura\n- Opportunità di partecipare a corsi di formazione e di sviluppo professionale\n- Opportunità di lavorare in un ambiente di alta qualità e di soddisfazione dei pazienti\n\nCome candidarsi\n\nSe sei interessato a questo tirocinio di cura indipendente dall'istruzione (Medicina) presso il Kantonsspital Aarau (KSA), invia il tuo curriculum vitae e una lettera di presentazione al seguente indirizzo:\n\n[Indirizzo del Kantonsspital Aarau (KSA)]\n\nAttenzione: il Kantonsspital Aarau (KSA) è un'istituzione pubblica e non accetta candidature di persone che non soddisfano i requisiti di base per l'assunzione.",
+        "en": "Pflegepraktikum aus bldungsunabhängig (Medizin) — Kantonspital Aarau (KSA), Aarau"
       },
       "location": "Aarau",
       "canton": "AG",
@@ -4653,7 +4653,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch",
-        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
+        "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau",
+        "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4661,13 +4662,12 @@
           "ausbildungsunabhangig-medizin-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "pflegepraktikum-ausbildungsunabhangig-medizin-ksa-ch"
+          "stage-de-soins-independant-de-la-formation-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 82,
-      "retranslationAttempts": 30,
+      "retranslationAttempts": 31,
       "firstSeenAt": "2026-07-10T12:11:07.794Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5376,7 +5376,6 @@
         "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5388,7 +5387,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b17df214a77f",
@@ -7823,7 +7823,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7835,7 +7834,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -8435,7 +8435,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksa-f35cb0abe3c9",
