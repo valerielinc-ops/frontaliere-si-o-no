@@ -107,7 +107,31 @@ export async function maybeEscalateSoftBounce(subscriberRef, reason) {
     const snap = await tx.get(subscriberRef);
     const data = snap.data() || {};
     const count = Number(data.soft_bounce_count) || 0;
-    if (count < SOFT_ESCALATION_THRESHOLD || data.status === 'bounced') return false;
+
+    if (data.status === 'bounced') {
+      // Already terminal. This call only runs right after bounceUpdateFields
+      // wrote a SOFT classification, and that function has no visibility into
+      // the doc's current state — it unconditionally sets bounce_severity:
+      // 'soft'. If a soft-classified bounce event arrives for an address that
+      // was already escalated to hard, that write silently downgrades
+      // bounce_severity back to 'soft' while status stays 'bounced', producing
+      // a combination bounceUpdateFields itself can never produce on its own
+      // (see #5610). The old guard here (`data.status === 'bounced' → no-op`)
+      // never noticed, so the corruption stuck. Repair it instead of
+      // no-op'ing — but ONLY the exact corruption this function can cause
+      // (severity explicitly flipped to 'soft'). A legacy doc bounced before
+      // `bounce_severity` existed at all has no severity field, which is a
+      // distinct, deliberately-conservative case handled by one-off
+      // remediation (scripts/restore-mailtrap-suspension-suppressions.mjs) —
+      // stamping it 'hard' here would be an unrelated, unreviewed decision.
+      if (data.bounce_severity === 'soft') {
+        tx.set(subscriberRef, { bounce_severity: 'hard' }, { merge: true });
+        return true;
+      }
+      return false;
+    }
+
+    if (count < SOFT_ESCALATION_THRESHOLD) return false;
 
     tx.set(subscriberRef, {
       status: 'bounced',
