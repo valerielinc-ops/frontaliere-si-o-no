@@ -2215,6 +2215,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.commissione-propone-500-milioni-munizioni.title': '500 Millionen für Munition, stärkt die Verteidigung',
     'blog.article.commissione-propone-500-milioni-munizioni.excerpt': 'Kommission schlägt 500 Millionen Franken Munition zur Stärkung der Verteidigung vor',
     'blog.article.commissione-propone-500-milioni-munizioni.imageAlt': 'La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Stipendien im Kanton Zürich: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Finanzmittel für Schweizer Studierende',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Redaktionelle Fotografie eines Universitätslehrers und Studenten in der Schweiz',
 };
 
 export default blogMetaChDe;
