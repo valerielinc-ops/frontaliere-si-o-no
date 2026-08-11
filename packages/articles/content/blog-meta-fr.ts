@@ -9695,6 +9695,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Vivre à Pré-Saint-Didier et travailler en Valais',
     'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analyse de la résidence à Pré-Saint-Didier pour les travailleurs en Suisse et des contraintes géographiques liées au statut de frontalier.',
     'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Paysage alpin à la frontière suisse',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Frontalier Tessin : travailler en Valais depuis Courmayeur',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Informations concrètes pour les frontaliers sur le trajet Courmayeur-Valais et sur la zone conseillée.',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier envisage la région de Courmayeur et Vallese pour son travail et son logement.',
 };
 
 export default blogMetaFr;

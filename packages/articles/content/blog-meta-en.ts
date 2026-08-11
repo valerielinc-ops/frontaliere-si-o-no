@@ -9693,6 +9693,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Living in Pré-Saint-Didier and working in Valais',
     'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analysis of residence in Pré-Saint-Didier for workers in Switzerland and the geographical constraints related to border status.',
     'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Alpine landscape at the Swiss border',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Ticino border worker: working in Valais from Courmayeur',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Concrete information for border crossers on Courmayeur-Vallese commuting and the recommended area.',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'A cross-border worker considers the Courmayeur and Vallese area for work and residence.',
 };
 
 export default blogMetaEn;

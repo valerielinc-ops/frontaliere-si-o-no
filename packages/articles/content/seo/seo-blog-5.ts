@@ -64655,6 +64655,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
+    title: 'Frontaliere Ticino: lavorare in Vallese da Courmayeur',
+    description: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, vallese, courmayeur, informazioni',
+    ogTitle: 'Vivere a Courmayeur e lavorare in Vallese da frontaliere: cosa fare e dove andare.',
+    ogDescription: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata.',
+    canonicalPath: '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino: lavorare in Vallese da Courmayeur",
+      "description": "Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-courmayeur-e-lavorare-vallese-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere considera la zona di Courmayeur e Vallese per il suo lavoro e residenza."
+      },
+      "datePublished": "2026-08-11T12:58:54+00:00",
+      "dateModified": "2026-08-11T12:58:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

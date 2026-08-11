@@ -9692,6 +9692,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Wohnen in Pré-Saint-Didier und Arbeiten im Wallis',
     'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analyse des Wohnsitzes in Pré-Saint-Didier für Arbeitnehmer in der Schweiz und der geografischen Einschränkungen im Zusammenhang mit dem Grenzgängerstatus.',
     'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Alpenlandschaft an der Schweizer Grenze',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Grenzgänger Tessin: Arbeiten im Wallis bei Courmayeur',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Konkrete Informationen für Grenzgänger zum Pendeln Courmayeur-Wallis und zur empfohlenen Gegend.',
+    'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Grenzgänger erwägt die Region Courmayeur und Vallese für Arbeit und Wohnen.',
 };
 
 export default blogMetaDe;
