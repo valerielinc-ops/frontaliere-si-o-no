@@ -145,7 +145,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:36.838Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -174,7 +173,7 @@
       "title": "Business Analyst (12 mois)",
       "titleByLocale": {
         "it": "Business Analista (12 mois)",
-        "en": "Business Analyst (12 mois)",
+        "en": "Business Analyst (12 months)",
         "de": "Business Analyst (12 Monate)",
         "fr": "Business Analyste (12 mois)"
       },
@@ -221,7 +220,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:39:47.137Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -300,7 +298,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:08:17.552Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -379,7 +376,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:28.124Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -453,8 +449,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pictet-31fbeb34fa53",
@@ -657,8 +652,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pictet-5e5216bca5f0",

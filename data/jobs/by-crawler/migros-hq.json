@@ -17,7 +17,7 @@
       "title": "(Senior) Fullstack Software Engineer (w/m/d)",
       "titleByLocale": {
         "it": "(Senior) Fullstack Software Ingegnere (w/m/d)",
-        "en": "(Senior) Fullstack Software Engineer (w/m/d)",
+        "en": "(Senior) Fullstack Software Engineer (m/f/d)",
         "de": "(Senior) Fullstack Software Ingenieur (w/m/d)",
         "fr": "(Senior) Fullstack Software Ingénieur (w/m/d)"
       },
@@ -174,7 +174,7 @@
       "title": "Product Owner - IT Service Management Prozesse (w/m/d)",
       "titleByLocale": {
         "it": "Proprietario del prodotto - Processi di gestione dei servizi IT (f/m/d)",
-        "en": "Product Owner - IT Service Management Prozesse (w/m/d)",
+        "en": "Product Owner - IT Service Management Processes (m/f/d)",
         "de": "Product Owner - IT Service Management Prozesse (w/m/d)",
         "fr": "Propriétaire du produit - Processus de gestion des services de TI (f/m/d)"
       },
@@ -233,8 +233,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "migros-hq-0cf886b0ea77",
@@ -251,7 +250,7 @@
       "title": "Product Owner \"ServiceNow Plattform Basis\" (w/m/d)",
       "titleByLocale": {
         "it": "Proprietario del prodotto \"ServiceNow Platform Basis\" (f/m/d)",
-        "en": "Product Owner \"ServiceNow Plattform Basis\" (w/m/d)",
+        "en": "Product Owner \"ServiceNow Platform Basis\" (m/f/d)",
         "de": "Product Owner \"ServiceNow Plattform Basis\" (w/m/d)",
         "fr": "Propriétaire du produit \"ServiceNow Platform Base\" (f/m/d)"
       },
@@ -316,8 +315,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
