@@ -9576,6 +9576,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.montegrino-valtravaglia-frontalieri-ticino.title': 'Leben in Montegrino Valtravaglia und Arbeiten im Tessin als Grenzgänger',
     'blog.article.montegrino-valtravaglia-frontalieri-ticino.excerpt': 'Das am 23. Dezember 2020 unterzeichnete neue Grenzgängerabkommen sieht neue Regeln für Grenzgänger vor, die im Tessin arbeiten.',
     'blog.article.montegrino-valtravaglia-frontalieri-ticino.imageAlt': 'Frontalier in Tessin',
+    'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Domaso ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.excerpt': 'Die neue Frontalieri-Vereinbarung wurde am 23. Dezember 2020 unterzeichnet und sieht eine Reihe von Vorteilen für Grenzgänger vor, die nach Domaso ziehen.',
+    'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.imageAlt': 'Ein Grenzgänger, der sich in einer ähnlichen Situation befindet, könnte sich nach Domaso versetzen lassen, um eine Reihe von Vorteilen zu genießen.',
 };
 
 export default blogMetaDe;
