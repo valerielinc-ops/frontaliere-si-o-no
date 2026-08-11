@@ -1,6 +1,6 @@
 {
   "crawlerKey": "climeworks",
-  "assembledAt": "2026-08-11T10:10:45.962Z",
+  "assembledAt": "2026-08-11T22:16:32.665Z",
   "jobs": [
     {
       "id": "climeworks-bcdf637f980a",
@@ -33,7 +33,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.856Z",
+      "crawledAt": "2026-08-11T22:16:30.300Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,6 +82,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -127,7 +128,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.854Z",
+      "crawledAt": "2026-08-11T22:16:30.299Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,6 +176,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.366Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -220,7 +222,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.844Z",
+      "crawledAt": "2026-08-11T22:16:30.294Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -267,6 +269,7 @@
       },
       "remote": true,
       "firstSeenAt": "2026-07-03T21:37:32.360Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -312,7 +315,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.839Z",
+      "crawledAt": "2026-08-11T22:16:30.292Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -358,8 +361,18 @@
         ]
       },
       "remote": true,
-      "firstSeenAt": "2026-08-03T13:10:05.390Z",
+      "previousSlugs": [
+        "senior-synthetic-chemist-sorbent-innovation-lead-80-100-climeworks-opfikon-zurich",
+        "senior-synthetic-chemist-responsabile-dell-innovazione-per-sorbenti-80-100-climeworks-opfikon-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-synthetic-chemist-sorbent-innovation-lead-80-100-climeworks-opfikon-zurich",
+          "senior-synthetic-chemist-responsabile-dell-innovazione-per-sorbenti-80-100-climeworks-opfikon-zurich"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T13:10:05.390Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -372,15 +385,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-synthetic-chemist-sorbent-innovation-lead-80-100-climeworks-opfikon-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-synthetic-chemist-sorbent-innovation-lead-80-100-climeworks-opfikon-zurich"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "climeworks-56a63aacccd3",
@@ -413,7 +418,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.837Z",
+      "crawledAt": "2026-08-11T22:16:30.291Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -507,7 +512,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-growth-lead-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.832Z",
+      "crawledAt": "2026-08-11T22:16:30.289Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -555,11 +560,13 @@
       },
       "remote": true,
       "previousSlugs": [
-        "commercial-growth-lead-100-climeworks-opfikon-zurich"
+        "commercial-growth-lead-100-climeworks-opfikon-zurich",
+        "piombo-di-crescita-commerciale-100-climeworks-opfikon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-growth-lead-100-climeworks-opfikon-zurich"
+          "commercial-growth-lead-100-climeworks-opfikon-zurich",
+          "piombo-di-crescita-commerciale-100-climeworks-opfikon-zurich"
         ],
         "de": [
           "commercial-growth-lead-100-climeworks-opfikon-zurich"
@@ -569,6 +576,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:10:38.025Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -614,7 +622,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.827Z",
+      "crawledAt": "2026-08-11T22:16:30.286Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -661,8 +669,18 @@
         ]
       },
       "remote": true,
-      "firstSeenAt": "2026-07-08T22:24:43.541Z",
+      "previousSlugs": [
+        "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
+        "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
+          "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:24:43.541Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -675,15 +693,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "previousSlugsByLocale": {
-        "it": [
-          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "climeworks-6dac73b445f5",
@@ -716,7 +726,7 @@
       "url": "https://climeworks.recruitee.com/o/strategic-communications-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:10:42.811Z",
+      "crawledAt": "2026-08-11T22:16:30.277Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -780,11 +790,13 @@
       },
       "remote": true,
       "previousSlugs": [
-        "strategic-communications-manager-100-climeworks-opfikon-zurich"
+        "strategic-communications-manager-100-climeworks-opfikon-zurich",
+        "responsabile-comunicazione-strategica-100-climeworks-opfikon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-communications-manager-100-climeworks-opfikon-zurich"
+          "strategic-communications-manager-100-climeworks-opfikon-zurich",
+          "responsabile-comunicazione-strategica-100-climeworks-opfikon-zurich"
         ],
         "de": [
           "strategic-communications-manager-100-climeworks-opfikon-zurich"
@@ -794,6 +806,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:31:40.139Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
