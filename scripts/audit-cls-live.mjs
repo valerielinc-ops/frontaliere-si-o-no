@@ -432,9 +432,26 @@ async function run() {
 
   // Exit policy:
   //   0 — no hard regression (soft regressions are warning only)
-  //   1 — at least one hard regression OR all PSI calls errored
+  //   1 — at least one hard regression OR all PSI calls errored for a reason
+  //       that isn't quota-exhaustion
   if (hardRegressions.length > 0) process.exit(1);
-  if (results.length === 0 && errors.length > 0) process.exit(1);
+  if (results.length === 0 && errors.length > 0) {
+    // If every single call was rejected by PSI's daily quota (429 "Quota
+    // exceeded"), there is zero signal about the live site's actual CLS —
+    // this fires whenever `load-rc-env.mjs` fails to fetch PAGESPEED_API_KEY
+    // from Remote Config (itself rate-limited) and the script falls back to
+    // unauthenticated calls, which share a much smaller global PSI quota.
+    // Blocking the deploy gate on a third-party rate limit is a false
+    // "Validation Failure", not a real regression. Fail open, same as this
+    // repo's other watchdogs on inconclusive API results (see
+    // check-pages-publish-lag.mjs).
+    const allQuotaExceeded = errors.every((e) => /\bPSI 429\b/.test(e.error));
+    if (allQuotaExceeded) {
+      console.log('\n⚠️  All PSI calls rejected with quota-exceeded (429) — inconclusive, not a site regression. Passing gate open.');
+      process.exit(0);
+    }
+    process.exit(1);
+  }
   process.exit(0);
 }
 
