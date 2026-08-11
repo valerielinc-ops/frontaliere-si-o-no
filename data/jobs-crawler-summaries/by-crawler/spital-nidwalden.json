@@ -1,13 +1,19 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-08-11T10:38:18.063Z",
+  "generatedAt": "2026-08-11T22:24:26.929Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "newJobs": [
+  "durationMs": 6607,
+  "avgDurationMs": 6607,
+  "durationHistory": [
+    6607
+  ],
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-nidwalden-3026ca67f725",
       "slug": "leitung-spital-nidwalden-100-spital-nidwalden-stans",
@@ -15,13 +21,13 @@
       "companyKey": "spital-nidwalden",
       "companyDomain": "spital-nidwalden.ch",
       "title": "Leitung Spital Nidwalden 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Stans",
       "canton": "NW",
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:38:14.847Z",
+      "crawledAt": "2026-08-11T22:24:22.758Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -37,16 +43,16 @@
       "featured": false,
       "postedDate": "2026-08-10",
       "applyUrl": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-11T10:38:14.847Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +86,8 @@
       "firstSeenAt": "2026-07-10T12:27:28.000Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -89,11 +96,5 @@
         "completeness": 22
       }
     }
-  ],
-  "durationMs": 5818,
-  "avgDurationMs": 5818,
-  "durationHistory": [
-    6201,
-    5818
   ]
 }
