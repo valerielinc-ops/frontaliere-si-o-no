@@ -2113,6 +2113,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mammut-proprieta-investitore-cinese.title': 'Mammoth changes ownership: Chinese investor takes over brand',
     'blog.article.mammut-proprieta-investitore-cinese.excerpt': 'The historic Swiss outdoor clothing brand Mammut passes to the Chinese company CPE. The deal, according to Bloomberg, is worth about 463 million francs.',
     'blog.article.mammut-proprieta-investitore-cinese.imageAlt': 'Swiss alpine landscape with a modern building',
+    'blog.article.libera-circolazione-mercato-lavoro-2026.title': 'Free movement: the real impact on the labour market',
+    'blog.article.libera-circolazione-mercato-lavoro-2026.excerpt': 'The 22nd SECO report analyses the role of EU/EFTA immigration: employment rates and economic growth to 2026.',
+    'blog.article.libera-circolazione-mercato-lavoro-2026.imageAlt': 'People working in a modern office in Switzerland',
 };
 
 export default blogMetaChEn;
