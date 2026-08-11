@@ -725,6 +725,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'servizio-di-accreditamento-svizzero-diventa-parte-integrante': { it: 'servizio-di-accreditamento-svizzero-diventa-parte-integrante', en: 'swiss-accreditation-service-becomes-part-of-promotion-direction', de: 'schweizer-zertifizierungs-dienst-wird-teil-der-foerderungsbetriebung', fr: 'service-de-credits-suisse-becomes-part-of-direction-promotion' },
  'mercato-lavoro-svizzera-giugno-2026': { it: 'mercato-lavoro-svizzera-giugno-2026', en: 'swiss-labor-market-june-2026', de: 'schweizer-arbeitsmarkt-juni-2026', fr: 'marche-travail-suisse-juin-2026' },
  'sandoz-biosimilari-2026': { it: 'sandoz-biosimilari-2026', en: 'sandoz-biosimilars-2026', de: 'sandoz-biosimilare-2026', fr: 'sandoz-biosimilaires-2026' },
+ 'glencore-produzione-riscrittura': { it: 'glencore-produzione-riscrittura', en: 'glencore-production-riscrittura', de: 'glencore-produktion-riscrittura', fr: 'glencore-production-riscrittura' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

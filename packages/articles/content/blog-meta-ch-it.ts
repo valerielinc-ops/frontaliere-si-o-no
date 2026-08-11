@@ -2098,6 +2098,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sandoz-biosimilari-2026.title': 'Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026',
     'blog.article.sandoz-biosimilari-2026.excerpt': 'Fatturato a 5,8 miliardi di dollari, biosimilari +20% e contribuiscono al 33% dei ricavi',
     'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026',
+    'blog.article.glencore-produzione-riscrittura.title': 'Glencore: produzione in calo, ma non per il rame',
+    'blog.article.glencore-produzione-riscrittura.excerpt': 'Il gigante delle materie prime Glencore conferma di aver registrato una produzione in calo nel primo semestre del 2026, ma non per il rame.',
+    'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: produzione in calo, ma non per il rame',
 };
 
 export default blogMetaChIt;

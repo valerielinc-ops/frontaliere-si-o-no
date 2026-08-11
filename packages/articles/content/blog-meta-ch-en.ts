@@ -2098,6 +2098,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sandoz-biosimilari-2026.title': 'Sandoz accelerates with biosimilars and exceeds first-half 2026 estimates',
     'blog.article.sandoz-biosimilari-2026.excerpt': 'Turnover at $5.8 billion, biosimilar +20% and contribute to 33% of revenues',
     'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz accelerates with biosimilars and exceeds first-half 2026 estimates',
+    'blog.article.glencore-produzione-riscrittura.title': 'Glencore: production down, but not for copper',
+    'blog.article.glencore-produzione-riscrittura.excerpt': 'Commodity giant Glencore confirms it recorded declining production in the first half of 2026, but not for copper.',
+    'blog.article.glencore-produzione-riscrittura.imageAlt': 'Glencore: production in decline, but not for copper',
 };
 
 export default blogMetaChEn;
