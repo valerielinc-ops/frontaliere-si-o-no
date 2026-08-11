@@ -2221,6 +2221,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.settore-agricolo-danni-19-milioni.title': 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
     'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi.',
     'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Una vista del lago di Lugano durante la siccità.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Viaggi e consumi senza rinunce, nonostante il clima',
+    'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Quattro adulti su cinque non fanno rinunce, nonostante il dibattito climatico. Il 80% afferma che il dibattito climatico ha un impatto minimo o nullo sulle proprie scelte.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'Un aereo atterra all\'aeroporto di Zurigo',
 };
 
 export default blogMetaChIt;

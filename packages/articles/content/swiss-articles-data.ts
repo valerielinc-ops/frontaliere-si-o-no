@@ -6661,6 +6661,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'viaggi-e-consumi-senza-rinunce',
+    category: 'novita',
+    date: '2026-08-11T18:59:20.763Z',
+    image: '/images/blog/viaggi-e-consumi-senza-rinunce.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

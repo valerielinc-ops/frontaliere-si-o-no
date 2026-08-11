@@ -2221,6 +2221,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settore-agricolo-danni-19-milioni.title': 'Le secteur agricole signale des dommages pour plus de 19 millions de francs.',
     'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'La sécheresse frappe durement les agriculteurs suisses, avec des dégâts estimés à plus de 19 millions de francs.',
     'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Une vue du lac de Lugano pendant la sécheresse.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Voyages et consommation sans renoncer, malgré le climat',
+    'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Quatre adultes sur cinq ne renoncent pas, malgré le débat climatique. 80 % affirment que le débat climatique a un impact minime ou nul sur leurs choix.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'Un avion atterrit à l\'aéroport de Zurich',
 };
 
 export default blogMetaChFr;
