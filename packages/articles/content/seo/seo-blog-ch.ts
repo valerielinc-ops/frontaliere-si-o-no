@@ -27473,6 +27473,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-annunci-di-lavoro-svizzera': {
+    title: 'Annunci di lavoro in Svizzera: cosa cambiare? | Frontaliere Ticino',
+    description: 'Il sistema fiscale svizzero è complesso e differisce da cantone a cantone. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, annunci, lavoro, cosa, cambiare',
+    ogTitle: 'Annunci di lavoro in Svizzera: cosa cambiare?',
+    ogDescription: 'Il sistema fiscale svizzero è complesso e differisce da cantone a cantone.',
+    canonicalPath: '/articoli-svizzera/annunci-di-lavoro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Annunci di lavoro in Svizzera: cosa cambiare?",
+      "description": "Il sistema fiscale svizzero è complesso e differisce da cantone a cantone. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/annunci-di-lavoro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di lavoro in un'azienda svizzera."
+      },
+      "datePublished": "2026-08-11T04:47:58+00:00",
+      "dateModified": "2026-08-11T04:47:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/annunci-di-lavoro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2122,6 +2122,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apple-chip-supply-chain-impatto.title': 'Apple: Abwärtsschätzungen für Chip- und Supply-Chain-Engpässe',
     'blog.article.apple-chip-supply-chain-impatto.excerpt': 'Erwartetes Umsatzwachstum von 9-11%, Margendruck und Abhängigkeit von drei DRAM-Anbietern: Apples Herausforderungen, die den globalen Technologiemarkt beeinflussen.',
     'blog.article.apple-chip-supply-chain-impatto.imageAlt': 'Modernes Büro mit Panoramablick auf den Luganersee',
+    'blog.article.annunci-di-lavoro-svizzera.title': 'Stellenanzeigen in der Schweiz: Was ändern?',
+    'blog.article.annunci-di-lavoro-svizzera.excerpt': 'Das dreistufige Schweizer Steuersystem: Direkte Bundessteuer (DFI) + Kanton + Gemeinde. Jeder Kanton hat sein eigenes Steuerrecht und seinen eigenen Multiplikator; die Gemeinden wenden einen Multiplikator auf den Kanton an.',
+    'blog.article.annunci-di-lavoro-svizzera.imageAlt': 'Eine Szene von Arbeit in einer Schweizer Firma.',
 };
 
 export default blogMetaChDe;

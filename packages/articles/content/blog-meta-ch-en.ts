@@ -2122,6 +2122,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apple-chip-supply-chain-impatto.title': 'Apple: downside estimates for chip shortage and supply chain',
     'blog.article.apple-chip-supply-chain-impatto.excerpt': 'Expected 9-11% revenue growth, margin pressures, and reliance on three DRAM vendors: Apple\'s challenges impacting the global tech market.',
     'blog.article.apple-chip-supply-chain-impatto.imageAlt': 'Modern office with a panoramic view of Lake Lugano',
+    'blog.article.annunci-di-lavoro-svizzera.title': 'Job advertisements in Switzerland: what to change?',
+    'blog.article.annunci-di-lavoro-svizzera.excerpt': 'The Swiss tax system has three levels: direct federal tax (DFI) + cantonal + municipal. Each canton has its own tax law and multiplier; municipalities apply a multiplier on the cantonal.',
+    'blog.article.annunci-di-lavoro-svizzera.imageAlt': 'A scene of work in a Swiss company.',
 };
 
 export default blogMetaChEn;
