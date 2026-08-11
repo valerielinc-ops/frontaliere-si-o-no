@@ -9632,6 +9632,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Teglio da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'I frontalieri che si trasferiscono a Teglio potranno beneficiare di un regime fiscale più favorevole',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in auto per il lavoro a Teglio',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.title': 'Vivere a Chiuro e lavorare in Grigioni da frontaliere: cosa cambia e cosa fare',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.excerpt': 'Il nuovo Accordo Frontalieri: novità e cambiamenti per i frontalieri di Chiuro',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere con la sua famiglia in un giorno di sole a Chiuro',
 };
 
 export default blogMetaIt;
