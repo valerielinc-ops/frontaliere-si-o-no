@@ -9662,6 +9662,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': '37-Grad-Arbeit in Laveno, berichtet die Gewerkschaft',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'Die Gewerkschaft weist auf den Fall eines Gemeinschaftshauses in Laveno hin, in dem mit hohen Temperaturen gearbeitet wird',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'Eine Gemeinschaftshaus in Ticino mit hohen Temperaturen',
+    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Leben in Tovo di Sant \'Agata und Arbeiten in Graubünden',
+    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für Grenzgänger: Steuern, neues Abkommen, Franchisen und Sozialversicherungsbeiträge für diejenigen, die im Veltlin wohnen und im Kanton Graubünden arbeiten.',
+    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Panoramablick auf eine Bergstraße nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;

@@ -28983,6 +28983,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-tovo-lavorare-grigioni',
+ category: 'fiscale',
+ date: '2026-08-11T09:05:24.219Z',
+ image: '/images/blog/vivere-tovo-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
