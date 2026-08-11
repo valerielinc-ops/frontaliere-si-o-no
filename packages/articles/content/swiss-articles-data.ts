@@ -6220,6 +6220,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'fedelta-bancaria-costi-analisi',
+    category: 'pratico',
+    date: '2026-08-11T01:00:20.351Z',
+    image: '/images/blog/fedelta-bancaria-costi-analisi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

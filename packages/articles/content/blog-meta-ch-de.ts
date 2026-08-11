@@ -2074,6 +2074,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: Chipkrise treibt Preise nach oben',
     'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Globaler Mangel an Speicherchips: Rechenzentren und KI absorbieren 70% des RAM, was sich auf die Preise und Bestände von PCs, Autos und Konsolen auswirkt.',
     'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Hardware-Komponenten und Rechenzentrumsserver in der Schweiz',
+    'blog.article.fedelta-bancaria-costi-analisi.title': 'Banken: Loyalität ist teuer, besser diversifizieren',
+    'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'Eine Studie von Moneyland.ch deckt die versteckten Kosten der Banktreue auf: Einsparungen von bis zu tausend Franken durch die Diversifizierung der Dienstleistungen zwischen verschiedenen Instituten.',
+    'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Innenansicht einer modernen Schweizer Bankfiliale mit Finanzunterlagen',
 };
 
 export default blogMetaChDe;
