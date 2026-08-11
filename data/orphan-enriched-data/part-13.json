@@ -33379,23 +33379,24 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
-        "en": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
-        "de": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
-        "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
+        "de": "beschaffungsprozessmanager-richemont-plan-les-ouates",
+        "en": "procurement-process-manager-richemont-plan-les-ouates",
+        "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
+        "it": "responsabile-processo-acquisti-richemont-plan-les-ouates"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
-        "en": "/en/find-jobs-ticino/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
-        "de": "/de/jobs-im-tessin/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
-        "fr": "/fr/trouver-emploi-tessin/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
+        "it": "/cerca-lavoro-ginevra/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
+        "en": "/en/find-jobs-geneva/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
+        "de": "/de/jobs-in-genf/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates",
+        "fr": "/fr/trouver-emploi-geneve/gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://careers.richemont.com/en/jobs/jr128179/procurement-process-manager",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
