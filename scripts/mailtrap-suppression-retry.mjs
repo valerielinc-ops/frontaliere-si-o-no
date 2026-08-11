@@ -22,6 +22,18 @@
  * entirely (see functions/src/newsletterMailtrapWebhookCore.js) and are never
  * touched by this script.
  *
+ * The status filter alone was doing that last guarantee, and it is not enough:
+ * `status` is a single field where the LAST writer wins, so an address that
+ * complained or opted out and then received one more send before the filter
+ * caught up ends up `status: 'suppressed'` with `complained_at`/
+ * `unsubscribed_at` still set — a human decision this cron would quietly
+ * undo. Same for a doc carrying a structured `bounce_severity: 'hard'`.
+ * `classifySuppressionDecay()` reads the append-only stamps and the severity
+ * field, so the gate below is the durable form of the same promise, shared
+ * with scripts/restore-mailtrap-suspension-suppressions.mjs,
+ * scripts/dev/reactivate-false-positive-bounces.mjs and
+ * scripts/suppression-decay.mjs rather than re-derived here.
+ *
  * Usage:
  *   node scripts/mailtrap-suppression-retry.mjs            # DRY-RUN (no writes, no API mutation)
  *   node scripts/mailtrap-suppression-retry.mjs --apply    # un-suppress + reactivate eligible
@@ -38,6 +50,7 @@ import {
   MIN_API_CALL_INTERVAL_MS,
 } from './lib/mailtrapSuppressionsApi.mjs';
 import { isRetryable, MAX_REACTIVATIONS_PER_RUN } from './lib/mailtrapSuppressionRetry.mjs';
+import { classifySuppressionDecay } from './lib/suppressionDecay.mjs';
 
 const APPLY = process.argv.includes('--apply');
 
@@ -108,7 +121,28 @@ async function main() {
     console.log(`✅ Backfilled ${backfilled.length}/${missingBackfill.length} (rest had no event history — treated as unknown-age)`);
   }
 
-  const eligible = suppressed.filter((s) => isRetryable(s.data, now));
+  // Terminal gate BEFORE the age gate: a hard bounce or a human decision is
+  // never made retryable by the passage of time. Counted per code so a
+  // population appearing here becomes visible in the run log instead of just
+  // shrinking the eligible set. Note the ORDER of the two filters is what
+  // makes the log readable — `isRetryable` is about age only and would
+  // otherwise hide terminal docs behind the grace period.
+  const terminalCodes = {};
+  const mailable = suppressed.filter((s) => {
+    const verdict = classifySuppressionDecay(s.data, now);
+    if (verdict.tier !== 'terminal') return true;
+    terminalCodes[verdict.code] = (terminalCodes[verdict.code] || 0) + 1;
+    return false;
+  });
+  const terminalCount = suppressed.length - mailable.length;
+  if (terminalCount) {
+    console.log(`⛔ Excluded as terminal (hard bounce / human decision), never retried: ${terminalCount}`);
+    for (const [code, count] of Object.entries(terminalCodes).sort((a, b) => b[1] - a[1])) {
+      console.log(`     ${code}: ${count}`);
+    }
+  }
+
+  const eligible = mailable.filter((s) => isRetryable(s.data, now));
   console.log(`📊 Retry-eligible (grace period expired): ${eligible.length}`);
 
   const toReactivate = eligible.slice(0, MAX_REACTIVATIONS_PER_RUN);
