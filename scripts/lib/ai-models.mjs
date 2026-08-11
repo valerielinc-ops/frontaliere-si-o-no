@@ -1098,7 +1098,36 @@ const DEFAULT_OPTS = {
  *   registered providers. Falls back to the safe `json_object` default;
  *   revisit only if/when OmniRoute normalizes schema support across backends.
  */
-const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'OpenRouter', 'Mistral', 'Local']);
+const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(
+  [PROVIDER.GITHUB, PROVIDER.OPENROUTER, PROVIDER.MISTRAL, PROVIDER.LOCAL].map(_normalizeProviderKey),
+);
+
+/**
+ * Canonicalize a provider identifier so the SAME set above can be queried with
+ * either spelling this module uses for a provider:
+ *
+ *   - the PROVIDER.* constant returned by getProvider() — lowercase, e.g. 'groq'
+ *   - the human `providerName` string each _call*() hands to
+ *     _callOpenAICompatible() — e.g. 'Groq', 'OpenRouter', 'Z.AI'
+ *
+ * Those two spellings are why this normalization is not cosmetic. The set used
+ * to hold display names ONLY, so `shouldUseSchemaMode(getProvider(model))`
+ * returned false for every provider on earth — including the four that DO
+ * receive the schema. Any caller reaching for the send-time decision from the
+ * getProvider() side (estimateRequestTokens' pre-flight call site does exactly
+ * that) would have silently under-counted GitHub/OpenRouter/Mistral/Local
+ * instead of over-counting Groq: same bug, opposite sign, and the file's own
+ * cost model rates that direction worse (a wrong pass costs a guaranteed 413,
+ * a wrong skip costs one chain step).
+ *
+ * Stripping non-alphanumerics — not a bare toLowerCase() — because 'Z.AI'
+ * lowercases to 'z.ai' while its constant is 'zai'. Applied to BOTH the set's
+ * contents and every lookup, so the two spellings collapse onto one key and no
+ * second list has to be kept in sync.
+ */
+function _normalizeProviderKey(provider) {
+  return String(provider ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
 
 /**
  * Global schema-mode toggle for ops control. Driven by AI_MODELS_SCHEMA_MODE env
@@ -1131,6 +1160,21 @@ function getSchemaMode() {
  * GitHub-hosted Ministral/Codestral/Phi-4 variant) stops being offered it,
  * without punishing the rest of that provider's models.
  *
+ * `providerName` accepts either spelling — the display name used at send time
+ * ('GitHub') or the PROVIDER.* constant returned by getProvider() ('github').
+ * See _normalizeProviderKey.
+ *
+ * THIS IS THE SINGLE SOURCE OF TRUTH for "does this provider receive the
+ * schema". Both halves that need the answer ask it: the send side
+ * (_callOpenAICompatible / _callGeminiRaw, which build the request body) and
+ * the estimate side (estimateRequestTokens, which sizes that same body for the
+ * pre-flight skip-guard). Do not re-derive the answer from
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA at a new call site: the two halves
+ * disagreeing is precisely the defect this function was widened to close —
+ * the estimator used to add the serialized schema unconditionally, so Groq
+ * (not in the set, never sent the schema) was pre-flight-skipped on ~516
+ * phantom tokens it would never have received.
+ *
  * Exported for tests / smoke probes.
  */
 export function shouldUseSchemaMode(providerName, hasSchema = true, modelForTracking = undefined) {
@@ -1139,8 +1183,9 @@ export function shouldUseSchemaMode(providerName, hasSchema = true, modelForTrac
   if (mode === 'off') return false;
   if (mode === 'force') return true;
   if (modelForTracking && _learnedSchemaIncompatible.has(modelForTracking)) return false;
-  if (providerName === 'Gemini') return true;
-  return PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(providerName);
+  const key = _normalizeProviderKey(providerName);
+  if (key === _normalizeProviderKey(PROVIDER.GEMINI)) return true;
+  return PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(key);
 }
 
 /**
@@ -3098,9 +3143,28 @@ function _learnSchemaIncompatible(modelForTracking) {
  * See tests/scripts/ai-models-token-estimate-divisor.test.ts for the
  * regression lock on the divisor value and the boundary math above.
  *
+ * `providerName`, when given, makes the jsonSchema term provider-accurate: the
+ * serialized schema is only added for providers that actually RECEIVE it, as
+ * decided by shouldUseSchemaMode() — the same call the send side makes when it
+ * builds the body. Omit it and the schema is counted unconditionally, which is
+ * the conservative upper bound across the fleet and preserves the estimate
+ * every existing provider-agnostic caller already relies on.
+ *
+ * Why it matters: this codebase's article schema serializes to ~1805 chars ≈
+ * 516 tokens. Groq is deliberately NOT in PROVIDERS_WITH_STRICT_JSON_SCHEMA
+ * (it 400s on `response_format: json_schema`), so _callGroq sends plain
+ * `json_object` and those 516 tokens never leave the process — yet the
+ * pre-flight skip-guard was charging Groq for them and skipping models whose
+ * real payload fit under the cap, without ever attempting the call. That is a
+ * false-positive skip: the estimate has to describe the body that will
+ * actually be sent, not the richest body any provider might get. Passing
+ * `modelForTracking` extends the same fidelity to the per-model
+ * _learnedSchemaIncompatible set and to the AI_MODELS_SCHEMA_MODE=off
+ * kill-switch, both of which also stop the schema from being sent.
+ *
  * Exported for tests / smoke probes.
  */
-export function estimateRequestTokens(messages, opts = {}) {
+export function estimateRequestTokens(messages, opts = {}, providerName = undefined, modelForTracking = undefined) {
   const SAFETY_MARGIN = 500;
   let chars = 0;
   for (const m of messages || []) {
@@ -3113,8 +3177,12 @@ export function estimateRequestTokens(messages, opts = {}) {
       }
     }
   }
-  // jsonSchema is serialized and sent in response_format → counts toward body
-  if (opts.jsonSchema?.schema) {
+  // jsonSchema is serialized and sent in response_format → counts toward body,
+  // but ONLY for the providers that receive it. With no providerName the
+  // caller is asking a provider-agnostic question, so keep the upper bound.
+  const schemaIsSent = providerName === undefined
+    || shouldUseSchemaMode(providerName, true, modelForTracking);
+  if (opts.jsonSchema?.schema && schemaIsSent) {
     try { chars += JSON.stringify(opts.jsonSchema.schema).length; } catch { /* noop */ }
   }
   return Math.ceil(chars / 3.5) + SAFETY_MARGIN;
@@ -4366,7 +4434,11 @@ export async function callLLM(messages, opts = {}) {
     ].filter((v) => typeof v === 'number' && v > 0);
     const reqLimit = knownLimits.length ? Math.min(...knownLimits) : undefined;
     if (reqLimit) {
-      const estTokens = estimateRequestTokens(messages, o);
+      // `provider` + `model` make the jsonSchema term match the body this
+      // model will actually receive: providers outside shouldUseSchemaMode()
+      // get `json_object`, not the serialized schema, so charging them for it
+      // skipped models whose real request fit under reqLimit.
+      const estTokens = estimateRequestTokens(messages, o, provider, model);
       if (estTokens > reqLimit) {
         // One-line log per skip so ops can see the cascade in the workflow output
         console.warn(`⏭️  [${model}] Skipped — request would exceed ${reqLimit}-token limit (estimated ${estTokens})`);
