@@ -9582,6 +9582,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-bisuschio-lavorare-ticino.title': 'Wohnen in Bisuschio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-bisuschio-lavorare-ticino.excerpt': 'Denn Bisuschio ist eine der besten Möglichkeiten für Grenzgänger, die im Tessin arbeiten und was man vor dem Umzug wissen muss.',
     'blog.article.vivere-bisuschio-lavorare-ticino.imageAlt': 'Ein Radfahrer auf der Strasse nach Bisuschio, mit dem Luganer See im Hintergrund.',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Wohnen in Livigno und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'Die Vorteile und Schwierigkeiten von Grenzgängern, die in Graubünden arbeiten',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'Ein Frontalier lebt in Livigno und arbeitet in Grigioni',
 };
 
 export default blogMetaDe;

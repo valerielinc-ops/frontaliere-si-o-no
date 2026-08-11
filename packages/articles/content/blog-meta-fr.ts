@@ -9585,6 +9585,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-bisuschio-lavorare-ticino.title': 'Vivre à Bisuschio et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-bisuschio-lavorare-ticino.excerpt': 'Parce que Bisuschio est l\'une des meilleures options pour les frontaliers qui travaillent au Tessin et ce qu\'il faut savoir avant de déménager.',
     'blog.article.vivere-bisuschio-lavorare-ticino.imageAlt': 'Un cycliste sur la route qui mène à Bisuschio, avec le lac de Lugano à l\'arrière-plan.',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Vivre à Livigno et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'Les avantages et les difficultés des frontaliers qui travaillent dans les Grisons',
+    'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'Un frontalière vit à Livigno et travaille en Grigioni',
 };
 
 export default blogMetaFr;
