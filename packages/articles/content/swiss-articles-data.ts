@@ -6706,6 +6706,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'canton-zurigo-naturalizzazione-requisiti-e-procedura',
+    category: 'fiscale',
+    date: '2026-08-11T23:23:31.830Z',
+    image: '/images/blog/canton-zurigo-naturalizzazione-requisiti-e-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

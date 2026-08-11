@@ -2236,6 +2236,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.title': 'Mercato degli affitti nel Cantone di Zurigo: canoni medi e diritto di locazione',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.excerpt': 'I canoni medi di affitto nel Cantone di Zurigo sono tra i più alti della Svizzera. Ecco cosa devi sapere sui diritti dei locatari e locatori.',
     'blog.article.affitti-zurigo-canoni-medi-e-diritto-di-locazione.imageAlt': 'Una foto di un appartamento in affitto a Zurigo con un prezzo medio di affitto di circa CHF 2.500-3.000 al mese.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Naturalizzazione Canton Zurigo requisiti e procedura',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'La procedura di naturalizzazione nel Canton di Zurigo: requisiti, test di integrazione e lingua, tasse da versare e durata della procedura.',
+    'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'Vista di Lugano, Svizzera, con un focus sulla procedura di naturalizzazione per il Canton di Zurigo',
 };
 
 export default blogMetaChIt;

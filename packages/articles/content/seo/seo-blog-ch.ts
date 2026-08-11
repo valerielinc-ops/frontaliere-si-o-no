@@ -28955,6 +28955,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canton-zurigo-naturalizzazione-requisiti-e-procedura': {
+    title: 'Naturalizzazione Canton Zurigo requisiti e procedura',
+    description: 'La procedura di naturalizzazione nel Canton di Zurigo richiede 10 anni di residenza e una serie di requisiti e test di integrazione e lingua. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, zurigo, requisiti',
+    ogTitle: 'Naturalizzazione Canton Zurigo requisiti e procedura',
+    ogDescription: 'La procedura di naturalizzazione nel Canton di Zurigo richiede 10 anni di residenza e una serie di requisiti e test di integrazione e lingua.',
+    canonicalPath: '/articoli-svizzera/canton-zurigo-naturalizzazione-requisiti-e-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Canton Zurigo requisiti e procedura",
+      "description": "La procedura di naturalizzazione nel Canton di Zurigo richiede 10 anni di residenza e una serie di requisiti e test di integrazione e lingua. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canton-zurigo-naturalizzazione-requisiti-e-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, Svizzera, con un focus sulla procedura di naturalizzazione per il Canton di Zurigo"
+      },
+      "datePublished": "2026-08-11T23:23:31+00:00",
+      "dateModified": "2026-08-11T23:23:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canton-zurigo-naturalizzazione-requisiti-e-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
