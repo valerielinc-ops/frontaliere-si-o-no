@@ -2167,6 +2167,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassi-interesse-bns-2027.title': 'SNB: Zinserhöhung auf 2027 verschoben',
     'blog.article.tassi-interesse-bns-2027.excerpt': 'Expertenprognosen schlittern: Die Geldkosten in der Schweiz werden länger als erwartet auf dem aktuellen Niveau bleiben.',
     'blog.article.tassi-interesse-bns-2027.imageAlt': 'Hauptsitz der Schweizerischen Nationalbank in Zürich',
+    'blog.article.assegni-familiari-canton-zurigo.title': 'Familienzulagen im Kanton Zürich: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-zurigo.excerpt': 'Das Antragsverfahren für die Familienzulage im Kanton Zürich ist einfach und kann online oder am Sitz der zuständigen Ausgleichskasse eingereicht werden.',
+    'blog.article.assegni-familiari-canton-zurigo.imageAlt': 'Panorama von Lugano, einer Stadt im Kanton Tessin, mit dem See und den umliegenden Hügeln',
 };
 
 export default blogMetaChDe;

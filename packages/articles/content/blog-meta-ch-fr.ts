@@ -2167,6 +2167,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassi-interesse-bns-2027.title': 'BNS : hausse des taux d\'intérêt reportée à 2027',
     'blog.article.tassi-interesse-bns-2027.excerpt': 'Les prévisions des experts glissent : le coût de l\'argent en Suisse restera aux niveaux actuels plus longtemps que prévu.',
     'blog.article.tassi-interesse-bns-2027.imageAlt': 'Siège de la Banque nationale suisse à Zurich',
+    'blog.article.assegni-familiari-canton-zurigo.title': 'Allocations familiales dans le canton de Zurich : montants et demande',
+    'blog.article.assegni-familiari-canton-zurigo.excerpt': 'La procédure de demande d\'allocation familiale dans le canton de Zurich est simple et peut être déposée en ligne ou au siège de la caisse de compensation compétente.',
+    'blog.article.assegni-familiari-canton-zurigo.imageAlt': 'Vue de Lugano, une ville dans le canton du Tessin, avec le lac et les collines environnantes',
 };
 
 export default blogMetaChFr;
