@@ -6391,6 +6391,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo',
+    category: 'fiscale',
+    date: '2026-08-11T07:13:06.812Z',
+    image: '/images/blog/permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

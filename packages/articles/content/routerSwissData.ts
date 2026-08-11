@@ -736,6 +736,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'annunci-di-lavoro-svizzera': { it: 'annunci-di-lavoro-svizzera', en: 'job-announcements-switzerland', de: 'job-anzeigen-schweiz', fr: 'annonces-emploi-suisse' },
  'alcon-risultati-finanziari-q2-2026': { it: 'alcon-risultati-finanziari-q2-2026', en: 'alcon-q2-2026-financial-results', de: 'alcon-q2-2026-finanzergebnisse', fr: 'alcon-resultats-q2-2026' },
  'economia-svizzera-nazionale-2026': { it: 'economia-svizzera-nazionale-2026', en: 'swiss-economy-national', de: 'schweizerische-wirtschaft-national', fr: 'economie-suisse-nationale' },
+ 'permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo': { it: 'permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo', en: 'residence-permit-b-canton-zurich', de: 'aufenthaltstitel-b-kanton-zuerich', fr: 'permis-de-sejour-b-canton-de-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
