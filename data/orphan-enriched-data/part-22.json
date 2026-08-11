@@ -23679,9 +23679,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
-        "en": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
-        "de": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
-        "fr": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems"
+        "en": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+        "de": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
@@ -23695,6 +23695,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
