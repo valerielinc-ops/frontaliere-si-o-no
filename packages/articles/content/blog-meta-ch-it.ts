@@ -2095,6 +2095,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Mercato del lavoro in Svizzera: i dati di giugno 2026',
     'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'La SECO registra un calo della disoccupazione al 2,9% a giugno 2026. Analisi dei dati su giovani, anziani e posti vacanti nel mercato nazionale.',
     'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Postazione di lavoro in un ufficio moderno con vista su un lago svizzero',
+    'blog.article.sandoz-biosimilari-2026.title': 'Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026',
+    'blog.article.sandoz-biosimilari-2026.excerpt': 'Fatturato a 5,8 miliardi di dollari, biosimilari +20% e contribuiscono al 33% dei ricavi',
+    'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026',
 };
 
 export default blogMetaChIt;

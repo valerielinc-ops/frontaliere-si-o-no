@@ -27122,6 +27122,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sandoz-biosimilari-2026': {
+    title: 'Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026',
+    description: 'Sandoz ha chiuso il primo semestre del 2026 con risultati in netta crescita, superando ampiamente le previsioni degli analisti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sandoz, accelera, biosimilari, supera',
+    ogTitle: 'Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026',
+    ogDescription: 'Sandoz ha chiuso il primo semestre del 2026 con risultati in netta crescita, superando ampiamente le previsioni degli analisti.',
+    canonicalPath: '/articoli-svizzera/sandoz-biosimilari-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026",
+      "description": "Sandoz ha chiuso il primo semestre del 2026 con risultati in netta crescita, superando ampiamente le previsioni degli analisti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sandoz-biosimilari-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sandoz accelera con i biosimilari e supera le stime del primo semestre 2026"
+      },
+      "datePublished": "2026-08-11T02:12:11+00:00",
+      "dateModified": "2026-08-11T02:12:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sandoz-biosimilari-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2095,6 +2095,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Labour market in Switzerland: data for June 2026',
     'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'SECO records a drop in unemployment to 2.9% in June 2026. Analysis of data on young people, the elderly and vacancies in the national market.',
     'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Modern office workspace with a view of a Swiss lake',
+    'blog.article.sandoz-biosimilari-2026.title': 'Sandoz accelerates with biosimilars and exceeds first-half 2026 estimates',
+    'blog.article.sandoz-biosimilari-2026.excerpt': 'Turnover at $5.8 billion, biosimilar +20% and contribute to 33% of revenues',
+    'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz accelerates with biosimilars and exceeds first-half 2026 estimates',
 };
 
 export default blogMetaChEn;
