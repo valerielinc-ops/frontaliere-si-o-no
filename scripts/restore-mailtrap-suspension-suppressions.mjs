@@ -40,6 +40,9 @@ import admin from 'firebase-admin';
 // copies of "may this address come back as `confirmed`?" would drift into two
 // different answers to the one question that must never be got wrong.
 import { hasConsentEvidence } from './lib/suppressionDecay.mjs';
+// Pure classifier, extracted to scripts/lib/ so it is importable (and
+// testable) without this file's Firebase init below.
+import { classify } from './lib/mailtrapSuspensionClassify.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(`--${n}`);
@@ -55,24 +58,6 @@ if (!admin.apps?.length) {
   });
 }
 const db = admin.firestore();
-
-function classify(events) {
-  let sawSuspension = false;
-  let sawRealFailure = false;
-  let sawUnsubscribe = false;
-  for (const e of events) {
-    const type = String(e.event_type || '');
-    const raw = String(e.mailtrap_event || e.provider_event || '').toLowerCase();
-    if (type === 'unsubscribed' || raw === 'unsubscribe') sawUnsubscribe = true;
-    if (type !== 'suppressed') continue;
-    // Anything that is not a suspension counts as a real recipient-level
-    // failure, INCLUDING an empty/unknown raw event: an unrecognised cause must
-    // keep the address suppressed rather than resurrect it on a guess.
-    if (raw === 'suspension') sawSuspension = true;
-    else sawRealFailure = true;
-  }
-  return { sawSuspension, sawRealFailure, sawUnsubscribe };
-}
 
 async function main() {
   console.log(`🔧 restore-mailtrap-suspension-suppressions — mode=${APPLY ? 'APPLY' : 'dry-run'}${LIMIT ? ` limit=${LIMIT}` : ''}`);
