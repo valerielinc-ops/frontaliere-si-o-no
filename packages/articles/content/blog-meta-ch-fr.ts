@@ -2077,6 +2077,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fedelta-bancaria-costi-analisi.title': 'Banques : la fidélité coûte cher, mieux vaut se diversifier',
     'blog.article.fedelta-bancaria-costi-analisi.excerpt': 'Une étude Moneyland.ch révèle les coûts cachés de la fidélité bancaire : vous économisez jusqu\'à mille francs en diversifiant les services entre différents établissements.',
     'blog.article.fedelta-bancaria-costi-analisi.imageAlt': 'Intérieur d\'une agence bancaire suisse moderne avec des documents financiers',
+    'blog.article.lotta-lavoro-nero-consultazione.title': 'Lutte contre le travail au noir : début de la consultation sur la nouvelle loi',
+    'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'Le Conseil fédéral propose des modifications à la loi contre le travail au noir pour renforcer les contrôles et la coopération entre autorités au plus tard le 16 octobre 2026.',
+    'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Bâtiment administratif en Suisse représentant les autorités de contrôle',
 };
 
 export default blogMetaChFr;

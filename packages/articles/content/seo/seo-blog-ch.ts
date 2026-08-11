@@ -26888,6 +26888,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lotta-lavoro-nero-consultazione': {
+    title: 'Lotta al lavoro nero: al via la consultazione sulla nuova legge',
+    description: 'Il Consiglio federale avvia la consultazione per potenziare la lotta al lavoro nero. Novità su controlli e cooperazione tra autorità fino al 16 ottobre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lotta, lavoro, nero, consultazione',
+    ogTitle: 'Consultazione sulla nuova legge contro il lavoro nero',
+    ogDescription: 'Il Consiglio federale propone modifiche alla legge federale contro il lavoro nero per rafforzare i controlli e migliorare la collaborazione tra le autorità.',
+    canonicalPath: '/articoli-svizzera/lotta-lavoro-nero-consultazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lotta al lavoro nero: al via la consultazione sulla nuova legge",
+      "description": "Il Consiglio federale avvia la consultazione per potenziare la lotta al lavoro nero. Novità su controlli e cooperazione tra autorità fino al 16 ottobre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lotta-lavoro-nero-consultazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo in Svizzera rappresentativo delle autorità di controllo"
+      },
+      "datePublished": "2026-08-11T01:07:12+00:00",
+      "dateModified": "2026-08-11T01:07:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lotta-lavoro-nero-consultazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

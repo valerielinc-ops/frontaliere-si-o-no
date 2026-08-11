@@ -6229,6 +6229,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lotta-lavoro-nero-consultazione',
+    category: 'novita',
+    date: '2026-08-11T01:07:12.064Z',
+    image: '/images/blog/lotta-lavoro-nero-consultazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
