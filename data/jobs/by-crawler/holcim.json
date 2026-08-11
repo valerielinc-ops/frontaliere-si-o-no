@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-08-11T10:17:45.246Z",
+  "assembledAt": "2026-08-11T22:33:34.232Z",
   "jobs": [
     {
       "id": "holcim-c6569cf25abe",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-People-Partnerin-AG-5303/1367342357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:41.519Z",
+      "crawledAt": "2026-08-11T22:33:29.897Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -50,11 +50,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "people-partner-in-holcim-ch"
+        "people-partner-in-holcim-ch",
+        "partner-delle-persone-in-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-partner-in-holcim-ch"
+          "people-partner-in-holcim-ch",
+          "partner-delle-persone-in-holcim-group-eclepens"
         ],
         "en": [
           "people-partner-in-holcim-ch"
@@ -63,8 +65,8 @@
           "people-partner-in-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-22T12:49:42.003Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-22T12:49:42.003Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -109,7 +111,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/St_-Gallen-ChauffeureChauffeuse-St_-9000/1365498457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:41.057Z",
+      "crawledAt": "2026-08-11T22:33:29.394Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -126,17 +128,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeure-chauffeuse-holcim-ch"
+        "chauffeure-chauffeuse-holcim-ch",
+        "cuffie-cameriere-holcim-group-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeure-chauffeuse-holcim-ch"
+          "chauffeure-chauffeuse-holcim-ch",
+          "cuffie-cameriere-holcim-group-st-gallen"
         ],
         "en": [
           "chauffeure-chauffeuse-holcim-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:54.263Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -181,7 +186,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:40.610Z",
+      "crawledAt": "2026-08-11T22:33:28.895Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -199,12 +204,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf"
+        "lastwagenfuhrer-in-holcim-group-oberdorf",
+        "camion-driver-in-holcim-group-oberdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
-          "lastwagenfuhrer-in-holcim-group-oberdorf"
+          "lastwagenfuhrer-in-holcim-group-oberdorf",
+          "camion-driver-in-holcim-group-oberdorf"
         ],
         "en": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
@@ -213,8 +220,8 @@
           "lastwagenfuhrer-in-holcim-group-oberdorf"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:39.818Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:39.818Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -259,7 +266,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-H&S-Koordinatorin-Kies-&-Beton-80-100-NW-6370/1358872357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:40.158Z",
+      "crawledAt": "2026-08-11T22:33:28.382Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -290,8 +297,8 @@
           "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:40.260Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:40.260Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -336,7 +343,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:39.716Z",
+      "crawledAt": "2026-08-11T22:33:27.881Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -353,18 +360,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-in-holcim-ch"
+        "allrounder-in-holcim-ch",
+        "allrounder-holcim-group-ingenbohl-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-holcim-ch"
+          "allrounder-in-holcim-ch",
+          "allrounder-holcim-group-ingenbohl-brunnen"
         ],
         "fr": [
           "allrounder-in-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:53.801Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:53.801Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -409,7 +418,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Lastwagenf%C3%BChrerin-Niederstetten-St_-9249/1367206557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:39.252Z",
+      "crawledAt": "2026-08-11T22:33:27.392Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -427,12 +436,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-niederstetten-holcim-ch",
-        "lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten"
+        "lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten",
+        "driver-del-camion-a-niederstetten-holcim-group-niederstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-niederstetten-holcim-ch",
-          "lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten"
+          "lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten",
+          "driver-del-camion-a-niederstetten-holcim-group-niederstetten"
         ],
         "en": [
           "lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten"
@@ -441,8 +452,8 @@
           "lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten"
         ]
       },
-      "firstSeenAt": "2026-07-21T12:14:20.190Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T12:14:20.190Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -487,7 +498,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Springerin-als-Lastwagenf%C3%BChrerin-Region-Nordost-St_-9249/1367719057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:38.791Z",
+      "crawledAt": "2026-08-11T22:33:26.894Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -505,12 +516,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "springer-in-als-lastwagenfuhrer-in-niederstetten-holcim-ch",
-        "springer-in-als-lastwagenfuhrer-in-region-nordost-holcim-ch"
+        "springer-in-als-lastwagenfuhrer-in-region-nordost-holcim-ch",
+        "springer-in-come-lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "springer-in-als-lastwagenfuhrer-in-niederstetten-holcim-ch",
-          "springer-in-als-lastwagenfuhrer-in-region-nordost-holcim-ch"
+          "springer-in-als-lastwagenfuhrer-in-region-nordost-holcim-ch",
+          "springer-in-come-lastwagenfuhrer-in-niederstetten-holcim-group-niederstetten"
         ],
         "en": [
           "springer-in-als-lastwagenfuhrer-in-niederstetten-holcim-ch"
@@ -522,8 +535,8 @@
           "springer-in-als-lastwagenfuhrer-in-niederstetten-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-27T12:54:39.767Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T12:54:39.767Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -568,7 +581,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Springerin-Disposition-und-Fahrmischer-Region-Nordost-St_-9249/1367725457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:38.349Z",
+      "crawledAt": "2026-08-11T22:33:26.378Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -598,8 +611,8 @@
           "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-27T12:54:40.223Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T12:54:40.223Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -644,7 +657,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:37.902Z",
+      "crawledAt": "2026-08-11T22:33:25.891Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -661,11 +674,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+        "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+          "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
         ],
         "en": [
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
@@ -674,8 +689,8 @@
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:45.653Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:45.653Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -691,11 +706,11 @@
     },
     {
       "id": "holcim-ddea62ef4da4",
-      "slug": "allrounder-in-kieswaage-holcim-ch",
+      "slug": "allrounder-in-kieswaage-holcim-group-mulligen",
       "slugByLocale": {
+        "it": "allrounder-in-kieswaage-holcim-group-mulligen",
+        "en": "allrounder-in-kieswaage-holcim-group-mulligen",
         "de": "allrounder-in-kieswaage-holcim-ch",
-        "it": "allrounder-in-kieswaage-holcim-ch",
-        "en": "allrounder-in-kieswaage-holcim-ch",
         "fr": "tout-autour-a-kieswaage-holcim-group-mulligen"
       },
       "company": "Holcim Group",
@@ -703,16 +718,16 @@
       "companyDomain": "holcim.com",
       "title": "Allrounder:in Kieswaage",
       "titleByLocale": {
-        "de": "Allrounder:in Kieswaage",
         "it": "Allrounder: in Kieswaage",
         "en": "Allrounder: in Kieswaage",
+        "de": "Allrounder:in Kieswaage",
         "fr": "Tout autour: à Kieswaage"
       },
       "description": "Nachhaltigkeit treibt uns an. Dich auch?\n\nWenn du etwas bewegen möchtest, bist du bei uns richtig.\n\nWas dich erwartet:\n\n• Du unterstützt die Disposition administrativ und hältst unseren Betrieb am Laufen\n\n• Du arbeitest eng mit der Produktion und dem Verkauf zusammen und sorgst für einen reibungslosen Informationsfluss\n\n• Du kontrollierst und bearbeitest Lieferscheine nach – auf deine Genauigkeit ist Verlass\n\n• Du betreust unsere Kieswaage und das dazugehörige System. Du bist die erste Anlaufstelle für die Fahrer und deklarierst angelieferte Materialien wie Aushub & Co\n\n• Du überwachst das System, pflegst Stammdaten und erfasst Lieferungen aus Gruben und Deponien gewissenhaft nach\n\n• Du findest bei Unstimmigkeiten in den Rechnungen die Lösung und führst Korrekturen selbstständig durch\n\n• Du erledigst allgemeine administrative Aufgaben mit links und sorgst für Ordnung im Büro\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossenen Berufslehre KV\n\n• Du hast bereits Erfahrung im Bereich Logistik und Disposition gesammelt\n\n• Du bist sicher im Umgang mit ERP-Software. Kenntnisse in SAP und Salesforce sind für uns ein echtes Highlight\n\n• Du bringst Grundkenntnisse unserer Verladeanlagen inklusive der Steuerungs- und Regeltechnik mit\n\n• Du arbeitest strukturiert, behältst auch bei hohem Betrieb die Ruhe und kommunizierst klar und direkt\n\nUnser Angebot :\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Nachhaltigkeit treibt uns an. Dich auch?\n\nWenn du etwas bewegen möchtest, bist du bei uns richtig.\n\nWas dich erwartet:\n\n• Du unterstützt die Disposition administrativ und hältst unseren Betrieb am Laufen\n\n• Du arbeitest eng mit der Produktion und dem Verkauf zusammen und sorgst für einen reibungslosen Informationsfluss\n\n• Du kontrollierst und bearbeitest Lieferscheine nach – auf deine Genauigkeit ist Verlass\n\n• Du betreust unsere Kieswaage und das dazugehörige System. Du bist die erste Anlaufstelle für die Fahrer und deklarierst angelieferte Materialien wie Aushub & Co\n\n• Du überwachst das System, pflegst Stammdaten und erfasst Lieferungen aus Gruben und Deponien gewissenhaft nach\n\n• Du findest bei Unstimmigkeiten in den Rechnungen die Lösung und führst Korrekturen selbstständig durch\n\n• Du erledigst allgemeine administrative Aufgaben mit links und sorgst für Ordnung im Büro\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossenen Berufslehre KV\n\n• Du hast bereits Erfahrung im Bereich Logistik und Disposition gesammelt\n\n• Du bist sicher im Umgang mit ERP-Software. Kenntnisse in SAP und Salesforce sind für uns ein echtes Highlight\n\n• Du bringst Grundkenntnisse unserer Verladeanlagen inklusive der Steuerungs- und Regeltechnik mit\n\n• Du arbeitest strukturiert, behältst auch bei hohem Betrieb die Ruhe und kommunizierst klar und direkt\n\nUnser Angebot :\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "it": "La sostenibilità ci guida. Anche tu?\n\nSe vuoi fare la differenza, hai ragione con noi.\n\nCosa aspettarsi:\n\n• Lei sostiene la disposizione amministrativa e mantiene la nostra operazione in esecuzione\n\n• Lavori a stretto contatto con la produzione e le vendite, garantendo un flusso regolare di informazioni\n\n• Controlla e elabora le note di consegna – puoi contare sulla tua accuratezza\n\n• Controllate la nostra scala di ghiaia e il sistema associato. Sei il primo punto di contatto per i conducenti e dichiara materiali consegnati come Aushub & Co\n\n• Monitorare il sistema, mantenere i dati master e registrare con attenzione le consegne da miniere e discariche\n\n• Si trova la soluzione per le incongruenze nelle fatture e effettuare correzioni indipendentemente\n\n• Effettuare compiti amministrativi generali con link e garantire l'ordine in ufficio\n\nCosa porti:\n\n• Hai un apprendistato completato KV\n\n• Hai già esperienza nella logistica e nella disposizione\n\n• Sei sicuro di usare il software ERP. La conoscenza di SAP e Salesforce sono un vero e proprio punto di riferimento per noi\n\n• Porti la conoscenza di base dei nostri sistemi di carico, compresa la tecnologia di controllo e controllo\n\n• Si lavora strutturato, mantenere la calma anche in alto funzionamento e comunicare chiaramente e direttamente\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo fin dall'inizio con un'attenta familiarizzazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo orari di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni di vacanze, acquisto di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
         "en": "Sustainability drives us. You too?\n\nIf you want to make a difference, you are right with us.\n\nWhat to expect:\n\n• You support the disposition administratively and keep our operation running\n\n• You work closely with production and sales, ensuring a smooth flow of information\n\n• You check and process delivery notes – you can rely on your accuracy\n\n• You supervise our gravel scale and the associated system. You are the first point of contact for the drivers and declare delivered materials such as Aushub & Co\n\n• You monitor the system, maintain master data and carefully record deliveries from mines and landfills\n\n• You find the solution for inconsistencies in the invoices and carry out corrections independently\n\n• You perform general administrative tasks with links and ensure order in the office\n\nWhat you bring:\n\n• You have a completed apprenticeship KV\n\n• You already have experience in logistics and disposition\n\n• You are confident in using ERP software. Knowledge of SAP and Salesforce are a real highlight for us\n\n• You bring basic knowledge of our loading systems including control and control technology\n\n• You work structured, keep calm even in high operation and communicate clearly and directly\n\nOur offer :\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful familiarization, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+        "de": "Nachhaltigkeit treibt uns an. Dich auch?\n\nWenn du etwas bewegen möchtest, bist du bei uns richtig.\n\nWas dich erwartet:\n\n• Du unterstützt die Disposition administrativ und hältst unseren Betrieb am Laufen\n\n• Du arbeitest eng mit der Produktion und dem Verkauf zusammen und sorgst für einen reibungslosen Informationsfluss\n\n• Du kontrollierst und bearbeitest Lieferscheine nach – auf deine Genauigkeit ist Verlass\n\n• Du betreust unsere Kieswaage und das dazugehörige System. Du bist die erste Anlaufstelle für die Fahrer und deklarierst angelieferte Materialien wie Aushub & Co\n\n• Du überwachst das System, pflegst Stammdaten und erfasst Lieferungen aus Gruben und Deponien gewissenhaft nach\n\n• Du findest bei Unstimmigkeiten in den Rechnungen die Lösung und führst Korrekturen selbstständig durch\n\n• Du erledigst allgemeine administrative Aufgaben mit links und sorgst für Ordnung im Büro\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossenen Berufslehre KV\n\n• Du hast bereits Erfahrung im Bereich Logistik und Disposition gesammelt\n\n• Du bist sicher im Umgang mit ERP-Software. Kenntnisse in SAP und Salesforce sind für uns ein echtes Highlight\n\n• Du bringst Grundkenntnisse unserer Verladeanlagen inklusive der Steuerungs- und Regeltechnik mit\n\n• Du arbeitest strukturiert, behältst auch bei hohem Betrieb die Ruhe und kommunizierst klar und direkt\n\nUnser Angebot :\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "fr": "La durabilité nous motive. Toi aussi ?\n\nSi vous voulez faire une différence, vous avez raison avec nous.\n\nÀ quoi s'attendre :\n\n• Vous soutenez la disposition administrativement et maintenez notre opération en marche\n\n• Vous travaillez en étroite collaboration avec la production et les ventes, assurant un flux d'informations en douceur\n\n• Vous vérifiez et traitez les notes de livraison – vous pouvez compter sur votre précision\n\n• Vous supervisez notre échelle de gravier et le système associé. Vous êtes le premier point de contact pour les conducteurs et déclarez les matériaux livrés tels que Aushub & Co\n\n• Vous surveillez le système, conservez les données de base et enregistrez soigneusement les livraisons des mines et des décharges\n\n• Vous trouvez la solution pour les incohérences dans les factures et effectuez des corrections indépendamment\n\n• Vous effectuez des tâches administratives générales avec des liens et assurez l'ordre dans le bureau\n\nCe que vous apportez :\n\n• Vous avez un apprentissage complet KV\n\n• Vous avez déjà de l'expérience en logistique et disposition\n\n• Vous êtes confiant dans l'utilisation du logiciel ERP. La connaissance de SAP et Salesforce est un véritable point fort pour nous\n\n• Vous apportez des connaissances de base sur nos systèmes de chargement, y compris la technologie de contrôle et de contrôle\n\n• Vous travaillez structuré, restez calme même en haute opération et communiquez clairement et directement\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début d'une familiarisation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie les parts à un prix préférentiel à l'avantage Swibeco monde - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
       },
       "location": "Mülligen",
@@ -720,7 +735,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/M%C3%BClligen-Allrounderin-Kieswaage-AG-5243/1367824157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:37.351Z",
+      "crawledAt": "2026-08-11T22:33:25.394Z",
       "addressLocality": "Mülligen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -735,10 +750,20 @@
       "postedDate": "2026-07-27",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/M%C3%BClligen-Allrounderin-Kieswaage-AG-5243/1367824157/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:17:37.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-kieswaage-holcim-ch"
+        ],
+        "en": [
+          "allrounder-in-kieswaage-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-kieswaage-holcim-ch"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -750,8 +775,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-11T10:17:37.351Z"
+      }
     },
     {
       "id": "holcim-b6ba4e576b26",
@@ -784,7 +808,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-People-Partner-VD-1312/1367591357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:17:31.914Z",
+      "crawledAt": "2026-08-11T22:33:24.899Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -805,7 +829,8 @@
         "responsabile-del-progetto-holcim-group-eclepens",
         "project-manager-holcim-group-eclepens",
         "projektmanager-holcim-group-eclepens",
-        "project-manager-holcim-ch"
+        "project-manager-holcim-ch",
+        "partner-delle-persone-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -813,7 +838,8 @@
           "responsabile-del-progetto-holcim-group-eclepens",
           "project-manager-holcim-group-eclepens",
           "projektmanager-holcim-group-eclepens",
-          "project-manager-holcim-ch"
+          "project-manager-holcim-ch",
+          "partner-delle-persone-holcim-group-eclepens"
         ],
         "en": [
           "project-manager-holcim-group-eclepens"
@@ -826,8 +852,8 @@
           "project-manager-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-24T11:25:15.696Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-24T11:25:15.696Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -872,7 +898,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-People-Partnerin-1-VD-1312/1367591457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:31.465Z",
+      "crawledAt": "2026-08-11T22:33:24.409Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -889,18 +915,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "people-partner-in-1-holcim-ch"
+        "people-partner-in-1-holcim-ch",
+        "partner-in-1-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-partner-in-1-holcim-ch"
+          "people-partner-in-1-holcim-ch",
+          "partner-in-1-holcim-group-eclepens"
         ],
         "en": [
           "people-partner-in-1-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-24T11:25:15.230Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-24T11:25:15.230Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -929,7 +957,7 @@
       "title": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
       "titleByLocale": {
         "it": "Operazioni Excellence Manager AGG 80-100%",
-        "en": "Specialist:in processing technology 80-100% (Operations Excellence Manager:in)",
+        "en": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "de": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
       },
@@ -945,7 +973,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:30.990Z",
+      "crawledAt": "2026-08-11T22:33:23.915Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -964,12 +992,14 @@
       "previousSlugsByLocale": {
         "de": [
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
+          "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen"
         ],
         "it": [
           "operations-excellence-manager-agg-80-100-holcim-ch",
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
+          "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
         ],
         "fr": [
           "operations-excellence-manager-agg-80-100-holcim-ch"
@@ -978,10 +1008,12 @@
       "previousSlugs": [
         "operations-excellence-manager-agg-80-100-holcim-ch",
         "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
+        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
+        "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
+        "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
       ],
-      "firstSeenAt": "2026-07-08T22:25:51.964Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:51.964Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1026,7 +1058,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:17:30.535Z",
+      "crawledAt": "2026-08-11T22:33:23.429Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1043,11 +1075,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+        "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+          "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
         ],
         "en": [
           "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
@@ -1057,6 +1091,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:49.676Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1074,9 +1109,9 @@
       "id": "holcim-ab7cd8aa4d23",
       "slug": "interno-in-dipartimento-persone-holcim-group-wurenlingen",
       "slugByLocale": {
-        "de": "praktikant-in-people-department-holcim-ch",
         "it": "interno-in-dipartimento-persone-holcim-group-wurenlingen",
         "en": "praktikant-in-people-department-holcim-ch",
+        "de": "praktikant-in-people-department-holcim-ch",
         "fr": "stagiaire-departement-des-personnes-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
@@ -1084,16 +1119,16 @@
       "companyDomain": "holcim.com",
       "title": "Praktikant:in People Department",
       "titleByLocale": {
-        "de": "Praktikant:in People Department",
         "it": "Interno: in Dipartimento Persone",
         "en": "Intern: in People Department",
+        "de": "Praktikant:in People Department",
         "fr": "Stagiaire: Département des personnes"
       },
       "description": "Du studierst Psychologie oder HR-Management und willst echtes Business-Life erleben? Perfekt, dann bist du in unserem People Department genau richtig!\nBei uns schaust du nicht nur über die Schulter, sondern wirst vom ersten Tag an voll integriert. Nutze die Chance, deine theoretischen Skills in echte Praxis-Impacts zu verwandeln!\n\nWas dich erwartet:\n\n• Einblick ins Business Partnering: Du unterstützt unser People Business Partner Team aktiv im operativen Tagesgeschäft und begleitest die Betreuung unserer Führungskräfte und Teams\n\n• Unterstützung im Talent Management: Du unterstützt uns dabei, unsere Talente zu identifizieren und zu entwickeln\n\n• Mitgestaltung im Compensation & Benefits Management: Du hilfst mit, unsere Comp&Ben Strategie umzusetzen\n\n• HR Digital: Du bringst deine frischen Ideen aus dem Studium aktiv in unsere People Prozesse ein\n\nWas du mitbringst:\n\n• Laufendes Studium: Du befindest dich im fortgeschrittenen Bachelor- oder Masterstudium der Psychologie, des Personalmanagements, der Betriebswirtschaft mit HR-Fokus oder einer ähnlichen Fachrichtung\n\n• Begeisterung für People & Culture: Du brennst für People-Themen, bringst ein hohes Mass an Empathie mit und willst verstehen, wie modernes HR den Unternehmenserfolg steuert\n\n• Starke Kommunikationsskills: Du bist kommunikativ, gehst offen auf Menschen zu und drückst dich auf Deutsch sowie Englisch (in Wort und Schrift) stilsicher aus\n\n• Strukturierte & digitale Arbeitsweise: Du bist fit im Umgang mit Google Workspace, hast ein Flair für digitale Tools und arbeitest selbstständig sowie absolut zuverlässig\n\n• Growth Mindset: Du bist neugierig, denkst vernetzt, bringst eine gesunde Portion Hands-on-Mentalität mit und hast Lust, dich in einem agilen Umfeld weiterzuentwickeln\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Du studierst Psychologie oder HR-Management und willst echtes Business-Life erleben? Perfekt, dann bist du in unserem People Department genau richtig!\nBei uns schaust du nicht nur über die Schulter, sondern wirst vom ersten Tag an voll integriert. Nutze die Chance, deine theoretischen Skills in echte Praxis-Impacts zu verwandeln!\n\nWas dich erwartet:\n\n• Einblick ins Business Partnering: Du unterstützt unser People Business Partner Team aktiv im operativen Tagesgeschäft und begleitest die Betreuung unserer Führungskräfte und Teams\n\n• Unterstützung im Talent Management: Du unterstützt uns dabei, unsere Talente zu identifizieren und zu entwickeln\n\n• Mitgestaltung im Compensation & Benefits Management: Du hilfst mit, unsere Comp&Ben Strategie umzusetzen\n\n• HR Digital: Du bringst deine frischen Ideen aus dem Studium aktiv in unsere People Prozesse ein\n\nWas du mitbringst:\n\n• Laufendes Studium: Du befindest dich im fortgeschrittenen Bachelor- oder Masterstudium der Psychologie, des Personalmanagements, der Betriebswirtschaft mit HR-Fokus oder einer ähnlichen Fachrichtung\n\n• Begeisterung für People & Culture: Du brennst für People-Themen, bringst ein hohes Mass an Empathie mit und willst verstehen, wie modernes HR den Unternehmenserfolg steuert\n\n• Starke Kommunikationsskills: Du bist kommunikativ, gehst offen auf Menschen zu und drückst dich auf Deutsch sowie Englisch (in Wort und Schrift) stilsicher aus\n\n• Strukturierte & digitale Arbeitsweise: Du bist fit im Umgang mit Google Workspace, hast ein Flair für digitale Tools und arbeitest selbstständig sowie absolut zuverlässig\n\n• Growth Mindset: Du bist neugierig, denkst vernetzt, bringst eine gesunde Portion Hands-on-Mentalität mit und hast Lust, dich in einem agilen Umfeld weiterzuentwickeln\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "it": "Studi psicologia o gestione delle risorse umane e vuoi vivere la vita reale? Perfetto, allora sei esattamente nel nostro Dipartimento del Popolo!\nCon noi, non solo si guarda sopra la spalla, ma sono completamente integrati dal primo giorno. Sfrutta la possibilità di trasformare le tue abilità teoriche in effetti pratici!\n\nCosa aspettarsi:\n\n• Insight in Business Partnering: Supporti attivamente il nostro People Business Partner Team nelle operazioni quotidiane e accompagni il supporto dei nostri manager e team\n\n• Supporto in Talent Management: Ci supporti nell'identificazione e nello sviluppo dei nostri talenti\n\n• Partecipazione a Compensation & Benefits Management: aiuta a implementare la nostra strategia Comp&Ben\n\n• HR Digital: contribuisci attivamente alle tue idee fresche dai tuoi studi ai nostri processi\n\nCosa porti:\n\n• Studi in corso: sei nel corso di laurea avanzato o Master in psicologia, gestione delle risorse umane, amministrazione aziendale con focus HR o una disciplina simile\n\n• Enthusiasm for People & Culture: Sei appassionato di argomenti di persone, portare un alto grado di empatia e vogliono capire come il moderno HR guida il successo aziendale\n\n• Forte capacità di comunicazione: Lei è comunicativo, si avvicina apertamente alle persone e si esprime in tedesco e inglese (nelle parole e nella scrittura) con stile\n\n• Modo di lavoro strutturato e digitale: Sei adatto per utilizzare Google Workspace, avere un tocco per strumenti digitali e lavorare in modo indipendente e assolutamente affidabile\n\n• Mindset di crescita: Siete curiosi, in rete, portare una dose sana di mentalità hands-on e vogliono svilupparsi in un ambiente agile\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo fin dall'inizio con un'attenta familiarizzazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life Balance: Offriamo orari di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni di vacanze, acquisto di vacanze, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti",
         "en": "You study psychology or HR management and want to experience real business life? Perfect, then you are exactly right in our People Department!\nWith us, you not only look over your shoulder, but are fully integrated from day one. Take the chance to turn your theoretical skills into real practical impacts!\n\nWhat to expect:\n\n• Insight into Business Partnering: You actively support our People Business Partner Team in day-to-day operations and accompany the support of our managers and teams\n\n• Support in Talent Management: You support us in identifying and developing our talents\n\n• Participation in Compensation & Benefits Management: You help to implement our Comp&Ben strategy\n\n• HR Digital: You actively contribute your fresh ideas from your studies to our People processes\n\nWhat you bring:\n\n• Ongoing studies: You are in the advanced Bachelor's or Master's degree in psychology, human resources management, business administration with HR focus or a similar discipline\n\n• Enthusiasm for People & Culture: You are passionate about people topics, bring a high degree of empathy and want to understand how modern HR drives corporate success\n\n• Strong communication skills: You are communicative, openly approach people and express yourself in German and English (in words and writing) stylishly\n\n• Structured & digital way of working: You are fit to use Google Workspace, have a flair for digital tools and work independently and absolutely reliable\n\n• Growth Mindset: You are curious, networked, bring a healthy dose of hands-on mentality and want to develop in an agile environment\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful familiarization, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+        "de": "Du studierst Psychologie oder HR-Management und willst echtes Business-Life erleben? Perfekt, dann bist du in unserem People Department genau richtig!\nBei uns schaust du nicht nur über die Schulter, sondern wirst vom ersten Tag an voll integriert. Nutze die Chance, deine theoretischen Skills in echte Praxis-Impacts zu verwandeln!\n\nWas dich erwartet:\n\n• Einblick ins Business Partnering: Du unterstützt unser People Business Partner Team aktiv im operativen Tagesgeschäft und begleitest die Betreuung unserer Führungskräfte und Teams\n\n• Unterstützung im Talent Management: Du unterstützt uns dabei, unsere Talente zu identifizieren und zu entwickeln\n\n• Mitgestaltung im Compensation & Benefits Management: Du hilfst mit, unsere Comp&Ben Strategie umzusetzen\n\n• HR Digital: Du bringst deine frischen Ideen aus dem Studium aktiv in unsere People Prozesse ein\n\nWas du mitbringst:\n\n• Laufendes Studium: Du befindest dich im fortgeschrittenen Bachelor- oder Masterstudium der Psychologie, des Personalmanagements, der Betriebswirtschaft mit HR-Fokus oder einer ähnlichen Fachrichtung\n\n• Begeisterung für People & Culture: Du brennst für People-Themen, bringst ein hohes Mass an Empathie mit und willst verstehen, wie modernes HR den Unternehmenserfolg steuert\n\n• Starke Kommunikationsskills: Du bist kommunikativ, gehst offen auf Menschen zu und drückst dich auf Deutsch sowie Englisch (in Wort und Schrift) stilsicher aus\n\n• Strukturierte & digitale Arbeitsweise: Du bist fit im Umgang mit Google Workspace, hast ein Flair für digitale Tools und arbeitest selbstständig sowie absolut zuverlässig\n\n• Growth Mindset: Du bist neugierig, denkst vernetzt, bringst eine gesunde Portion Hands-on-Mentalität mit und hast Lust, dich in einem agilen Umfeld weiterzuentwickeln\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "fr": "Vous étudiez la psychologie ou la gestion des RH et voulez vivre une vraie vie d'affaires? Parfait, alors vous avez exactement raison dans notre département des gens !\nAvec nous, vous ne regardez pas seulement par-dessus votre épaule, mais êtes pleinement intégré dès le premier jour. Prenez la chance de transformer vos compétences théoriques en impacts pratiques !\n\nÀ quoi s'attendre :\n\n• Insight in Business Partnering: Vous soutenez activement notre équipe People Business Partner dans les opérations quotidiennes et accompagnez le soutien de nos gestionnaires et équipes\n\n• Soutien en gestion des talents : Vous nous aidez à identifier et à développer nos talents\n\n• Participation à la gestion de la rémunération et des avantages sociaux : Vous aidez à mettre en oeuvre notre stratégie Comp&Ben\n\n• HR Digital: Vous apportez activement vos idées nouvelles de vos études à nos processus Personnes\n\nCe que vous apportez :\n\n• Études en cours : Vous êtes titulaire d'un baccalauréat ou d'une maîtrise en psychologie, gestion des ressources humaines, administration des affaires avec orientation RH ou discipline similaire\n\n• Enthousiasme pour les gens et la culture: Vous êtes passionné par les sujets des gens, apportez un degré élevé d'empathie et voulez comprendre comment les RH modernes stimulent le succès de l'entreprise\n\n• Fortes compétences en communication: Vous êtes communicatif, vous approchez ouvertement les gens et vous exprimez en allemand et en anglais (en paroles et en écriture) avec style\n\n• Mode de travail structuré et numérique : Vous êtes apte à utiliser Google Workspace, avoir un style pour les outils numériques et travailler indépendamment et absolument fiable\n\n• Growth Mindset: Vous êtes curieux, en réseau, apportez une bonne dose de mentalité pratique et voulez se développer dans un environnement agile\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début d'une familiarisation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité et équilibre entre le travail et la vie personnelle : nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie les parts à un prix préférentiel à l'avantage Swibeco monde - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
       },
       "location": "Würenlingen",
@@ -1101,7 +1136,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-People-Department-AG-5303/1369052157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:30.072Z",
+      "crawledAt": "2026-08-11T22:33:22.930Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1116,10 +1151,22 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-People-Department-AG-5303/1369052157/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikant-in-people-department-holcim-ch",
+        "interno-in-dipartimento-persone-holcim-group-wurenlingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-people-department-holcim-ch",
+          "interno-in-dipartimento-persone-holcim-group-wurenlingen"
+        ],
+        "fr": [
+          "praktikant-in-people-department-holcim-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:17:30.072Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1131,19 +1178,7 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-11T10:17:30.072Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-people-department-holcim-ch"
-        ],
-        "fr": [
-          "praktikant-in-people-department-holcim-ch"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-in-people-department-holcim-ch"
-      ]
+      }
     },
     {
       "id": "holcim-e58798f793d9",
@@ -1176,7 +1211,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-80-100-AG-5303/829324802/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:29.603Z",
+      "crawledAt": "2026-08-11T22:33:22.430Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1193,11 +1228,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-in-80-100-holcim-ch"
+        "mechaniker-in-80-100-holcim-ch",
+        "meccanica-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-80-100-holcim-ch"
+          "mechaniker-in-80-100-holcim-ch",
+          "meccanica-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "mechaniker-in-80-100-holcim-ch"
@@ -1206,8 +1243,8 @@
           "mechaniker-in-80-100-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:51.494Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:51.494Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1252,7 +1289,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Anlagen-und-Apparatebauerin-GR-7204/1364250357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:29.162Z",
+      "crawledAt": "2026-08-11T22:33:21.926Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1269,11 +1306,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-holcim-ch"
+        "anlagen-und-apparatebauer-in-holcim-ch",
+        "anlagen-e-apparatebauer-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-holcim-ch"
+          "anlagen-und-apparatebauer-in-holcim-ch",
+          "anlagen-e-apparatebauer-in-holcim-group-untervaz"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-holcim-ch"
@@ -1282,8 +1321,8 @@
           "anlagen-und-apparatebauer-in-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:52.910Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:52.910Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1328,7 +1367,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:28.707Z",
+      "crawledAt": "2026-08-11T22:33:21.427Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1345,11 +1384,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-80-100-holcim-ch"
+        "projektleiter-in-80-100-holcim-ch",
+        "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-80-100-holcim-ch"
+          "projektleiter-in-80-100-holcim-ch",
+          "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "projektleiter-in-80-100-holcim-ch"
@@ -1387,7 +1428,7 @@
       "title": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
       "titleByLocale": {
         "it": "Experte/Expertin in Automations- e Steuerungstechnik 80-100%",
-        "en": "Expert in Automation and Control Technology 80-100 %",
+        "en": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
         "de": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
         "fr": "Expert en technologie d'automatisation et de contrôle 80-100 %"
       },
@@ -1403,7 +1444,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-ExperteExpertin-in-Automations-und-Steuerungstechnik-80-100-AG-5303/1367844357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:28.254Z",
+      "crawledAt": "2026-08-11T22:33:20.925Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1433,8 +1474,8 @@
           "experte-expertin-in-automations-und-steuerungstechnik-80-100-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-28T12:15:05.953Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T12:15:05.953Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1463,7 +1504,7 @@
       "title": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
       "titleByLocale": {
         "it": "People Business Partner & Lead Talent Attraction 80% (m/f/d)",
-        "en": "People Business Partner & Lead Talent Attraction 80% (m/f/d)",
+        "en": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
         "de": "People Business Partner & Lead Talent Attraction 80% (m/w/d)",
         "fr": "Personnes Business Partner & Lead Talent Attraction 80% (m/f/d)"
       },
@@ -1479,7 +1520,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-People-Business-Partner-&-Lead-Talent-Attraction-80-%28mwd%29-CH-%C2%AD8050/1367462757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:27.791Z",
+      "crawledAt": "2026-08-11T22:33:20.425Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1506,8 +1547,8 @@
           "people-business-partner-amp-lead-talent-attraction-80-m-w-d-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-23T11:43:16.154Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T11:43:16.154Z",
       "salaryMin": 81200,
       "salaryMax": 123200,
       "baseSalary": {
@@ -1552,7 +1593,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Laborantin-Bindemitteltechnologie-80-100-AG-5303/1359795357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:27.330Z",
+      "crawledAt": "2026-08-11T22:33:19.925Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1569,11 +1610,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+        "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+          "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
@@ -1582,8 +1625,8 @@
           "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:43.387Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:43.387Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1628,7 +1671,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-GR-7204/1368625757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:26.886Z",
+      "crawledAt": "2026-08-11T22:33:19.421Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1658,7 +1701,8 @@
         "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
         "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
         "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz",
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1675,7 +1719,8 @@
           "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
           "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
           "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz",
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-untervaz"
         ],
         "en": [
           "construction-machinery-operator-in-holcim-group-untervaz",
@@ -1689,8 +1734,8 @@
           "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:39:15.387Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T11:39:15.387Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1735,7 +1780,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mitarbeiterin-f%C3%BCr-Betriebsstoffgruppe-AG-5303/1365752557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:26.445Z",
+      "crawledAt": "2026-08-11T22:33:18.924Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1753,11 +1798,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
-        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
+        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen",
+        "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch"
+          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
+          "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
         ],
         "en": [
           "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
@@ -1766,8 +1813,8 @@
           "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:53.360Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:53.360Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1812,7 +1859,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Bi%C3%A8re-Machiniste-polyvalent-Bi%C3%A8re-VD-1145/1366311957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:17:25.997Z",
+      "crawledAt": "2026-08-11T22:33:18.438Z",
       "addressLocality": "Bière",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1829,11 +1876,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machiniste-polyvalent-biere-holcim-ch"
+        "machiniste-polyvalent-biere-holcim-ch",
+        "macchinista-multiuso-birra-holcim-group-biere"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machiniste-polyvalent-biere-holcim-ch"
+          "machiniste-polyvalent-biere-holcim-ch",
+          "macchinista-multiuso-birra-holcim-group-biere"
         ],
         "en": [
           "machiniste-polyvalent-biere-holcim-ch"
@@ -1843,6 +1892,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:55:02.432Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1870,7 +1920,7 @@
       "companyDomain": "holcim.com",
       "title": "Installateur·trice électricien·ne 80-100%",
       "titleByLocale": {
-        "it": "Installatore elettrico 80-100%",
+        "it": "Installateur·trice électricien·ne 80-100%",
         "en": "Electrical equipment 80-100%",
         "de": "Elektrische Ausrüstung 80-100%",
         "fr": "Installateur·trice électricien·ne 80-100%"
@@ -1887,7 +1937,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:17:25.541Z",
+      "crawledAt": "2026-08-11T22:33:17.929Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1904,6 +1954,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:25:49.237Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1915,7 +1966,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "materiel-electrique-80-100-holcim-group-eclepens"
+        ]
+      },
+      "previousSlugs": [
+        "materiel-electrique-80-100-holcim-group-eclepens"
+      ]
     },
     {
       "id": "holcim-68f18d3bd0c0",
@@ -1948,7 +2007,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Schichtfachmann-Schichtfachfrau-in-Siggenthal-AG-5303/1366828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:25.097Z",
+      "crawledAt": "2026-08-11T22:33:17.425Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1965,11 +2024,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
+        "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
+          "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen"
         ],
         "en": [
           "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
@@ -2007,7 +2068,7 @@
       "title": "Project & Engineering Manager - Grossprojekte (CapEx)",
       "titleByLocale": {
         "it": "Project & Engineering Manager - Grandi Progetti (CapEx)",
-        "en": "Project & Engineering Manager - Major Projects (CapEx)",
+        "en": "Project & Engineering Manager - Grossprojekte (CapEx)",
         "de": "Project & Engineering Manager - Grossprojekte (CapEx)",
         "fr": "Gestionnaire de projet et d'ingénierie - Grands projets (CapEx)"
       },
@@ -2023,7 +2084,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Project-&-Engineering-Manager-Grossprojekte-%28CapEx%29-AG-5303/1367774957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:24.658Z",
+      "crawledAt": "2026-08-11T22:33:16.923Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2048,6 +2109,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:37.930Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2092,7 +2154,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-Elektrotechnik-&-Automatisierung-80-100-AG-5303/1354026357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:24.218Z",
+      "crawledAt": "2026-08-11T22:33:16.409Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2116,8 +2178,8 @@
           "projektleiter-in-elektrotechnik-amp-automatisierung-80-100-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:44.314Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:44.314Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2162,7 +2224,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:23.772Z",
+      "crawledAt": "2026-08-11T22:33:15.921Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2183,7 +2245,8 @@
         "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
         "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
         "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
+        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen",
+        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2191,7 +2254,8 @@
           "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
           "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
           "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-          "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
+          "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen",
+          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
@@ -2205,8 +2269,8 @@
           "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
         ]
       },
-      "firstSeenAt": "2026-07-09T22:38:53.396Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T22:38:53.396Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2251,7 +2315,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenmechanikerin-AG-5303/1365325057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:23.324Z",
+      "crawledAt": "2026-08-11T22:33:15.428Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2269,12 +2333,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenmechaniker-in-holcim-ch",
-        "baumaschinenmechaniker-in-holcim-group-wurenlingen"
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen",
+        "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenmechaniker-in-holcim-ch",
-          "baumaschinenmechaniker-in-holcim-group-wurenlingen"
+          "baumaschinenmechaniker-in-holcim-group-wurenlingen",
+          "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenmechaniker-in-holcim-group-wurenlingen"
@@ -2283,8 +2349,8 @@
           "baumaschinenmechaniker-in-holcim-group-wurenlingen"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:42.042Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:42.042Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2329,7 +2395,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Koch-K%C3%B6chin-Personalrestaurant-60-70-GR-7204/1361996657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:22.850Z",
+      "crawledAt": "2026-08-11T22:33:14.936Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2346,11 +2412,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-personalrestaurant-60-70-holcim-ch"
+        "koch-kochin-personalrestaurant-60-70-holcim-ch",
+        "chef-staff-ristorante-60-70-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-personalrestaurant-60-70-holcim-ch"
+          "koch-kochin-personalrestaurant-60-70-holcim-ch",
+          "chef-staff-ristorante-60-70-holcim-group-untervaz"
         ],
         "en": [
           "koch-kochin-personalrestaurant-60-70-holcim-ch"
@@ -2388,7 +2456,7 @@
       "title": "Health & Safety (H&S) Project Manager 80-100%",
       "titleByLocale": {
         "it": "Direttore del progetto Salute e sicurezza (H&S) 80-100%",
-        "en": "Health & Safety (H&S) Project Manager 80-100 %",
+        "en": "Health & Safety (H&S) Project Manager 80-100%",
         "de": "Health & Safety (H&S) Project Manager 80-100%",
         "fr": "Gestionnaire de projet Santé et sécurité (S et S) 80-100%"
       },
@@ -2404,7 +2472,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:22.398Z",
+      "crawledAt": "2026-08-11T22:33:14.439Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2431,8 +2499,8 @@
       "previousSlugs": [
         "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
       ],
-      "firstSeenAt": "2026-07-08T22:25:42.496Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:42.496Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2477,7 +2545,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:21.956Z",
+      "crawledAt": "2026-08-11T22:33:13.940Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2495,12 +2563,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-beton-holcim-ch",
-        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
+        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
+        "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-beton-holcim-ch",
-          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
+          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
+          "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
         ],
         "en": [
           "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
@@ -2509,8 +2579,8 @@
           "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:25:46.096Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:25:46.096Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2555,7 +2625,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Schichtverantwortlicher-60-100-GR-7204/1364122157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:17:21.420Z",
+      "crawledAt": "2026-08-11T22:33:13.301Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2573,12 +2643,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schichtverantwortliche-r-60-100-holcim-ch",
-        "schichtverantwortliche-r-60-100-holcim-group-untervaz"
+        "schichtverantwortliche-r-60-100-holcim-group-untervaz",
+        "rischio-responsabile-60-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtverantwortliche-r-60-100-holcim-ch",
-          "schichtverantwortliche-r-60-100-holcim-group-untervaz"
+          "schichtverantwortliche-r-60-100-holcim-group-untervaz",
+          "rischio-responsabile-60-100-holcim-group-untervaz"
         ],
         "en": [
           "schichtverantwortliche-r-60-100-holcim-group-untervaz"
@@ -2632,7 +2704,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:17:20.885Z",
+      "crawledAt": "2026-08-11T22:33:12.656Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2649,11 +2721,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-communications-intern-for-6-months-holcim-ch"
+        "corporate-communications-intern-for-6-months-holcim-ch",
+        "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corporate-communications-intern-for-6-months-holcim-ch"
+          "corporate-communications-intern-for-6-months-holcim-ch",
+          "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
         ],
         "fr": [
           "corporate-communications-intern-for-6-months-holcim-ch"
@@ -2704,7 +2778,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Global-Head-of-Specification-Selling-6300/1367627357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:17:20.449Z",
+      "crawledAt": "2026-08-11T22:33:12.145Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2721,11 +2795,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-specification-selling-holcim-ch"
+        "global-head-of-specification-selling-holcim-ch",
+        "global-responsabile-specification-selling-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-specification-selling-holcim-ch"
+          "global-head-of-specification-selling-holcim-ch",
+          "global-responsabile-specification-selling-holcim-group-zug"
         ],
         "de": [
           "global-head-of-specification-selling-holcim-ch"
@@ -2779,7 +2855,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-International-Mobility-Manager-6300/1367556757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:17:19.998Z",
+      "crawledAt": "2026-08-11T22:33:11.636Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2796,18 +2872,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-mobility-manager-holcim-ch"
+        "international-mobility-manager-holcim-ch",
+        "responsabile-della-mobilita-internazionale-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-mobility-manager-holcim-ch"
+          "international-mobility-manager-holcim-ch",
+          "responsabile-della-mobilita-internazionale-holcim-group-zug"
         ],
         "fr": [
           "international-mobility-manager-holcim-ch"
         ]
       },
-      "firstSeenAt": "2026-07-23T22:17:49.144Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:17:49.144Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -2852,7 +2930,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Ready-to-Operate-CCUS-6300/1357793157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:17:19.537Z",
+      "crawledAt": "2026-08-11T22:33:11.107Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2869,11 +2947,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-ready-to-operate-ccus-holcim-ch"
+        "head-of-ready-to-operate-ccus-holcim-ch",
+        "responsabile-ready-to-operate-ccus-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ready-to-operate-ccus-holcim-ch"
+          "head-of-ready-to-operate-ccus-holcim-ch",
+          "responsabile-ready-to-operate-ccus-holcim-group-zug"
         ],
         "de": [
           "head-of-ready-to-operate-ccus-holcim-ch"
@@ -2895,98 +2975,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "holcim-097f9f53c70a",
-      "slug": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
-      "slugByLocale": {
-        "it": "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten",
-        "en": "construction-machine-operator-in-allrounder-in-holcim-group-kehrsiten",
-        "de": "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "fr": "operateur-de-machines-de-construction-in-allrounder-in-holcim-group-kehrsiten"
-      },
-      "company": "Holcim Group",
-      "companyKey": "holcim",
-      "companyDomain": "holcim.com",
-      "title": "Baumaschinenführer:in / Allrounder:in",
-      "titleByLocale": {
-        "it": "Operatore di macchine da costruzione:in / Allrounder:in",
-        "en": "Construction machine operator:in / Allrounder:in",
-        "de": "Baumaschinenführer:in / Allrounder:in",
-        "fr": "Opérateur de machines de construction:in / Allrounder:in"
-      },
-      "description": "Du liebst große Maschinen, arbeitest gerne im Freien und packst überall mit an, wo deine Unterstützung gebraucht wird? Dann werde Teil unseres Teams und halte gemeinsam mit uns den Betrieb am Laufen.\n\nWas dich erwartet:\n\n• Bedienung von Baumaschinen und Anlagen im Bereich Abbau, Verladung, Deponie und Rekultivierung\n\n• Mitarbeit in der Produktion bei der Aufbereitung von Splitt und Kies\n\n• Durchführung kleiner Wartungs- und Instandhaltungsarbeiten an Maschinen und Geräten\n\n• Unterstützung bei Revisions-, Reinigungs- und Werksunterhaltsarbeiten\n\n• Sicherstellung eines sauberen und ordentlichen Betriebsgeländes\n\n• Enge Zusammenarbeit mit den Teams aus Produktion, Instandhaltung und Qualitätsmanagement unter Einhaltung aller Sicherheitsvorgaben\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung, idealerweise mit Ausbildung als Baumaschinenführer\n\n• Erfahrung im sicheren und umweltschonenden Umgang mit Baumaschinen sowie technisches Verständnis für Wartung und Instandhaltung\n\n• Interesse an Produktion, Aufbereitungsmechanik und modernen Technologien sowie gute IT-Anwenderkenntnisse\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Teamgeist, Kommunikationsstärke und eine lösungsorientierte Denkweise\n\n• Eigeninitiative, Flexibilität und Bereitschaft, neue Aufgaben und Verantwortungen zu übernehmen\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
-      "descriptionByLocale": {
-        "it": "Ami le macchine grandi, come lavorare all'aperto e andare dove è necessario il supporto? Allora diventa parte del nostro team e continua l'operazione insieme a noi.\n\nCosa aspettarsi:\n\n• Funzionamento di macchinari ed attrezzature per l'estrazione mineraria, il carico, la discarica e la bonifica\n\n• Collaborazione nella produzione nella lavorazione di grana e ghiaia\n\n• Eseguire la manutenzione su piccola scala su macchinari e attrezzature\n\n• Supporto per lavori di ispezione, pulizia e manutenzione di fabbrica\n\n• Assicurare un locale pulito e ordinato\n\n• Una stretta collaborazione con i team di produzione, manutenzione e gestione della qualità nel rispetto di tutti i requisiti di sicurezza\n\nCosa porti:\n\n• Formazione professionale tecnica completa, ideale per la formazione come operatore di macchine edili\n\n• Esperienza nella gestione sicura e rispettosa dell'ambiente dei macchinari edili, nonché nella comprensione tecnica della manutenzione e della manutenzione\n\n• Interessi nella produzione, nella lavorazione meccanica e nelle tecnologie moderne, nonché nella buona conoscenza degli utenti IT\n\n• Metodo di lavoro indipendente, strutturato e affidabile con un elevato senso di sicurezza e responsabilità\n\n• Spirito di squadra, forza di comunicazione e una mentalità orientata alla soluzione\n\n• Iniziativa, flessibilità e volontà di assumere nuovi compiti e responsabilità\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
-        "en": "Do you love big machines, like working outdoors and go wherever your support is needed? Then become part of our team and keep the operation running together with us.\n\nWhat to expect:\n\n• Operation of construction machinery and equipment for mining, loading, landfill and reclamation\n\n• Collaboration in production in the processing of grit and gravel\n\n• Carrying out small-scale maintenance on machinery and equipment\n\n• Support for inspection, cleaning and factory maintenance work\n\n• Ensuring a clean and orderly premises\n\n• Close cooperation with the teams from production, maintenance and quality management in compliance with all safety requirements\n\nWhat you bring:\n\n• Completed technical vocational training, ideally with training as a construction machine operator\n\n• Experience in the safe and environmentally friendly handling of construction machinery as well as technical understanding of maintenance and maintenance\n\n• Interest in production, processing mechanics and modern technologies as well as good IT user knowledge\n\n• Independent, structured and reliable working method with a high sense of safety and responsibility\n\n• Team spirit, communication strength and a solution-oriented mindset\n\n• Initiative, flexibility and willingness to take on new tasks and responsibilities\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
-        "de": "Du liebst große Maschinen, arbeitest gerne im Freien und packst überall mit an, wo deine Unterstützung gebraucht wird? Dann werde Teil unseres Teams und halte gemeinsam mit uns den Betrieb am Laufen.\n\nWas dich erwartet:\n\n• Bedienung von Baumaschinen und Anlagen im Bereich Abbau, Verladung, Deponie und Rekultivierung\n\n• Mitarbeit in der Produktion bei der Aufbereitung von Splitt und Kies\n\n• Durchführung kleiner Wartungs- und Instandhaltungsarbeiten an Maschinen und Geräten\n\n• Unterstützung bei Revisions-, Reinigungs- und Werksunterhaltsarbeiten\n\n• Sicherstellung eines sauberen und ordentlichen Betriebsgeländes\n\n• Enge Zusammenarbeit mit den Teams aus Produktion, Instandhaltung und Qualitätsmanagement unter Einhaltung aller Sicherheitsvorgaben\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung, idealerweise mit Ausbildung als Baumaschinenführer\n\n• Erfahrung im sicheren und umweltschonenden Umgang mit Baumaschinen sowie technisches Verständnis für Wartung und Instandhaltung\n\n• Interesse an Produktion, Aufbereitungsmechanik und modernen Technologien sowie gute IT-Anwenderkenntnisse\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise mit hohem Sicherheits- und Verantwortungsbewusstsein\n\n• Teamgeist, Kommunikationsstärke und eine lösungsorientierte Denkweise\n\n• Eigeninitiative, Flexibilität und Bereitschaft, neue Aufgaben und Verantwortungen zu übernehmen\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
-        "fr": "Vous aimez les grosses machines, comme travailler à l'extérieur et aller où votre soutien est nécessaire? Puis devenez membre de notre équipe et continuez l'opération avec nous.\n\nÀ quoi s'attendre :\n\n• Exploitation de machines et d'équipements de construction pour l'exploitation minière, le chargement, la mise en décharge et la remise en état\n\n• Collaboration à la production dans le traitement du grain et du gravier\n\n• Entretien à petite échelle des machines et du matériel\n\n• Appui aux travaux d'inspection, de nettoyage et d'entretien en usine\n\n• Assurer un local propre et ordonné\n\n• Coopération étroite avec les équipes de production, de maintenance et de gestion de la qualité conformément à toutes les exigences de sécurité\n\nCe que vous apportez:\n\n• Formation professionnelle technique terminée, idéalement avec formation en tant qu'opérateur de machines de construction\n\n• Expérience dans la manipulation sûre et respectueuse de l'environnement des machines de construction ainsi que la compréhension technique de l'entretien et de l'entretien\n\n• Intérêt pour la production, la mécanique de traitement et les technologies modernes ainsi que pour une bonne connaissance des utilisateurs de TI\n\n• Méthode de travail indépendante, structurée et fiable, avec un haut sentiment de sécurité et de responsabilité\n\n• Esprit d'équipe, force de communication et esprit orienté vers la solution\n\n• Initiative, flexibilité et volonté d'assumer de nouvelles tâches et responsabilités\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
-      },
-      "location": "Kehrsiten",
-      "canton": "NW",
-      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
-      "source": "Holcim Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:51:19.505Z",
-      "addressLocality": "Kehrsiten",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Materiali da costruzione / Cemento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-        "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
-        "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
-        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-          "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
-          "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
-          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-          "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
-        ],
-        "en": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-          "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen"
-        ],
-        "de": [
-          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
-        ],
-        "fr": [
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-          "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T23:05:24.812Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }
