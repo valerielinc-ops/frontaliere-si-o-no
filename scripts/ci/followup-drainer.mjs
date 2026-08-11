@@ -41,11 +41,9 @@
 import { execFileSync } from 'node:child_process';
 import { classifyIssue } from '../lib/classify-issue.mjs';
 import {
-  WORKFLOW_PATH_RE,
-  BARE_YML_RE,
-  NON_WORKFLOW_YML,
   CODE_PATH_RE,
   detectWorkflowScoped,
+  extractWorkflowRefs,
 } from '../lib/workflow-scope-detect.mjs';
 import { detectSecretsScoped, matchSecretsScopedLabel } from '../lib/secrets-scope-detect.mjs';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
@@ -572,8 +570,13 @@ const reparkGenOf = (iss) => {
  * rischiare un re-fail garantito). */
 function isWorkflowScoped(num) {
   try {
-    const d = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body']);
-    return detectWorkflowScoped(`${d?.title || ''}\n${d?.body || ''}`);
+    // `labels` is fetched (not just title/body) because the shared detector recognises a
+    // monitor auto-file by the `ci-timeout` label as well as by the title prefix (#5595).
+    const d = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']);
+    return detectWorkflowScoped(`${d?.title || ''}\n${d?.body || ''}`, {
+      title: d?.title || '',
+      labels: d?.labels,
+    });
   } catch { return true; }
 }
 
@@ -1286,12 +1289,15 @@ function runDrain() {
     // perché. Un parcheggio motivato male è peggio di nessun parcheggio — nessuno lo rimette
     // in discussione.
     const issueFixCanPushWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
-    if (!issueFixCanPushWorkflows && body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
-      const wfRefs = [...new Set((body.match(WORKFLOW_PATH_RE) || []).concat(
-        (body.match(BARE_YML_RE) || []).filter((y) => !NON_WORKFLOW_YML.has(y.toLowerCase())),
-      ))].slice(0, 5).join(', ');
-      console.log(`PARK #${cand.number} (workflow-scoped: ${wfRefs}) → no promozione, evito run bloccato`);
-      const note = `⏭️ **Pre-flight drainer (zero-Claude, #1724)**: il fix di questa follow-up tocca **esclusivamente** file \`.github/workflows/**\` (${wfRefs}), che il token GitHub App di \`issue-fix\` non può pushare (manca lo scope \`workflows\`). Promuoverla a \`agent:fix\` brucerebbe ~1M token in un run che finirebbe comunque \`blocked-workflows-scope\`. **Non promuovo**: serve un PAT abilitato o mano umana. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-workflows-scope -->`;
+    // NB: una riga sola, per contratto — `tests/issue-fix-app-token-wiring.test.ts` asserisce
+    // la forma testuale di questa condizione (`!issueFixCanPushWorkflows && body && detectWorkflowScoped`).
+    if (!issueFixCanPushWorkflows && body && detectWorkflowScoped(`${cand.title}\n${body}`, { title: cand.title, labels: cand.labels })) {
+      // Title INCLUDED (#5595): a monitor auto-file ("Workflow Failure: <name>") names its
+      // workflow subject only there, so a body-only scan renders an empty `(...)` list.
+      const wfRefs = extractWorkflowRefs(`${cand.title}\n${body}`).slice(0, 5).join(', ');
+      const subject = wfRefs || 'workflow indicato dal monitor che ha aperto la issue';
+      console.log(`PARK #${cand.number} (workflow-scoped: ${subject}) → no promozione, evito run bloccato`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #1724/#5595)**: il fix di questa follow-up tocca **esclusivamente** file \`.github/workflows/**\` (${subject}), che il token GitHub App di \`issue-fix\` non può pushare (manca lo scope \`workflows\`). Promuoverla a \`agent:fix\` brucerebbe ~1M token in un run che finirebbe comunque \`blocked-workflows-scope\`. **Non promuovo**: serve un PAT abilitato o mano umana. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-workflows-scope -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (workflow-scoped)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
