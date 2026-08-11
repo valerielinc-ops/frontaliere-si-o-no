@@ -2194,6 +2194,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-zurigo-guida.title': 'Apprentissage et formation professionnelle dans le canton de Zurich',
     'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Guide pratique à la recherche d\'un poste d\'apprentissage, contrat de travail, rémunération de l\'apprenti et maturité professionnelle dans le système suisse.',
     'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Étudiant en formation professionnelle dans un laboratoire moderne à Zurich',
+    'blog.article.usam-croce-svizzera-polemica.title': 'Croix suisse à l\'étranger : la protestation d\'USAM',
+    'blog.article.usam-croce-svizzera-polemica.excerpt': 'L\'USAM conteste la pratique de l\'IPI qui permet l\'utilisation de la croix suisse sur des produits fabriqués entièrement en dehors des frontières nationales.',
+    'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Étiquette avec croix suisse sur un produit',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Sécheresse, dégâts à l\'agriculture pour 19 millions de francs',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel signale des dommages d\'au moins 19 millions de francs. Frappez les cultures d\'été comme le maïs, les pommes de terre, les betteraves et les tournesols.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Champs de maïs touchés par la sécheresse en Suisse',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM conteste la croix suisse sur les produits étrangers',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'La nouvelle pratique permet également d\'apposer la croix suisse sur des produits fabriqués à l\'étranger. L\'USAM y répond.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'La croix suisse sur un produit importé',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena i consumi di carne',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'Jusqu\'à présent, la vague de chaleur n\'a pas freiné de manière significative la consommation de viande, mais la sécheresse prolongée risque de réduire l\'offre et de faire grimper les prix.',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'La sécheresse pourrait faire monter les prix des produits de viande.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilatérales III, l\'une des mesures d\'accompagnement vacille',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'La Commission de l\'économie et des impôts du Conseil des Etats a rejeté la mesure 14, qui renforçait la protection contre le licenciement des représentants du personnel et des syndicats actifs dans les entreprises.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: vue sur le lac',
 };
 
 export default blogMetaChFr;

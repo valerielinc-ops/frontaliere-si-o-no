@@ -28409,6 +28409,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usam-croce-svizzera-polemica': {
+    title: 'Croce svizzera all\'estero: la protesta di USAM',
+    description: 'L\'USAM contesta la prassi IPI che permette l\'uso della croce svizzera su prodotti fabbricati all\'estero. Dati, sondaggi e impatto sulla produzione nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, estero, protesta, usam',
+    ogTitle: 'Croce svizzera all\'estero: la protesta di USAM',
+    ogDescription: 'L\'Unione svizzera delle arti e mestieri contesta la prassi che permette l\'uso del marchio croce svizzera su prodotti fatti all\'estero. Ecco i dati e le preoccupazioni per il polo produttivo elvetico.',
+    canonicalPath: '/articoli-svizzera/usam-croce-svizzera-polemica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce svizzera all'estero: la protesta di USAM",
+      "description": "L'USAM contesta la prassi IPI che permette l'uso della croce svizzera su prodotti fabbricati all'estero. Dati, sondaggi e impatto sulla produzione nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/usam-croce-svizzera-polemica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Etichetta con croce svizzera su un prodotto"
+      },
+      "datePublished": "2026-08-11T14:47:04+00:00",
+      "dateModified": "2026-08-11T14:47:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/usam-croce-svizzera-polemica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-danni-agricoltura-svizzera': {
+    title: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    description: 'La siccità in Svizzera causa danni all\'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, danni, agricoltura, milioni',
+    ogTitle: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    ogDescription: 'Schweizer Hagel stima danni per 19 milioni di franchi a causa della siccità. Focus su colture estive e nuovi contributi federali ai premi assicurativi.',
+    canonicalPath: '/articoli-svizzera/siccita-danni-agricoltura-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, danni all'agricoltura per 19 milioni di franchi",
+      "description": "La siccità in Svizzera causa danni all'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-danni-agricoltura-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi di mais colpiti dalla siccità in Svizzera"
+      },
+      "datePublished": "2026-08-11T14:57:46+00:00",
+      "dateModified": "2026-08-11T14:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-danni-agricoltura-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-usam-croce-svizzera-polemica': {
+    title: 'USAM contesta croce svizzera su prodotti esteri',
+    description: 'L\'USAM contesta la prassi che consente di apporre la croce svizzera su prodotti fabbricati all\'estero. La questione riguarda la produzione di prodotti',
+    keywords: 'frontalieri, ticino, svizzera, italia, usam, contesta, croce, prodotti',
+    ogTitle: 'USAM contesta prassi che autorizza la croce svizzera su prodotti fabbricati all\'estero',
+    ogDescription: 'L\'USAM contesta la prassi che consente di apporre la croce svizzera su prodotti fabbricati all\'estero. La questione riguarda la produzione di prodotti all\'estero.',
+    canonicalPath: '/articoli-svizzera/svizzera-usam-croce-svizzera-polemica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USAM contesta croce svizzera su prodotti esteri",
+      "description": "L'USAM contesta la prassi che consente di apporre la croce svizzera su prodotti fabbricati all'estero. La questione riguarda la produzione di prodotti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-usam-croce-svizzera-polemica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La croce svizzera su un prodotto fabbricato all'estero"
+      },
+      "datePublished": "2026-08-11T15:10:27+00:00",
+      "dateModified": "2026-08-11T15:10:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-usam-croce-svizzera-polemica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi': {
+    title: 'Caldo non frena i consumi di carne ma la siccità potrebbe far salire i prezzi',
+    description: 'L\'ondata di calore non ha finora frenato in modo significativo il consumo di carne, ma la siccità prolungata rischia di ridurre l\'offerta e far lievitare',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, frena, consumi, carne',
+    ogTitle: 'Caldo non frena i consumi di carne ma la siccità potrebbe far salire i prezzi',
+    ogDescription: 'L\'ondata di calore non ha finora frenato in modo significativo il consumo di carne, ma la siccità prolungata rischia di ridurre l\'offerta e far lievitare i prezzi.',
+    canonicalPath: '/articoli-svizzera/caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caldo non frena i consumi di carne ma la siccità potrebbe far salire i prezzi",
+      "description": "L'ondata di calore non ha finora frenato in modo significativo il consumo di carne, ma la siccità prolungata rischia di ridurre l'offerta e far lievitare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La siccità potrebbe far salire i prezzi dei prodotti di carne."
+      },
+      "datePublished": "2026-08-11T15:22:08+00:00",
+      "dateModified": "2026-08-11T15:22:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bilaterali-iii-vacilla-misura-accompagnamento': {
+    title: 'Bilaterali III, vacilla una delle misure di accompagnamento',
+    description: 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, vacilla, misure, accompagnamento',
+    ogTitle: 'Bilaterali III, vacilla una delle misure di accompagnamento',
+    ogDescription: 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento dei rappresentanti del personale e sindacali attivi nelle aziende.',
+    canonicalPath: '/articoli-svizzera/bilaterali-iii-vacilla-misura-accompagnamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, vacilla una delle misure di accompagnamento",
+      "description": "La Commissione dell'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bilaterali-iii-vacilla-misura-accompagnamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano: vista del lago"
+      },
+      "datePublished": "2026-08-11T16:34:17+00:00",
+      "dateModified": "2026-08-11T16:34:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bilaterali-iii-vacilla-misura-accompagnamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

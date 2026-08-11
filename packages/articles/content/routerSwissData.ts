@@ -757,6 +757,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aziende-rimangono-prudenti': { it: 'aziende-rimangono-prudenti', en: 'companies-remain-cautious', de: 'unternehmen-bleiben-vorsichtig', fr: 'entreprises-restent-prudentes' },
  'svizzeri-clima-consumi-sondaggio': { it: 'svizzeri-clima-consumi-sondaggio', en: 'swiss-climate-consumption-survey', de: 'schweizer-klima-konsum-umfrage', fr: 'suisses-climat-consommation-sondage' },
  'apprendistato-formazione-zurigo-guida': { it: 'apprendistato-formazione-zurigo-guida', en: 'apprenticeship-vocational-training-zurich', de: 'lehrstelle-berufsbildung-zuerich', fr: 'apprentissage-formation-professionnelle-zurich' },
+ 'usam-croce-svizzera-polemica': { it: 'usam-croce-svizzera-polemica', en: 'usam-swiss-cross-controversy', de: 'usam-schweizer-kreuz-kontroverse', fr: 'usam-croix-suisse-controverse' },
+ 'siccita-danni-agricoltura-svizzera': { it: 'siccita-danni-agricoltura-svizzera', en: 'drought-agricultural-damage-switzerland', de: 'duerre-landwirtschaft-schweiz-schaden', fr: 'secheresse-dommages-agriculture-suisse' },
+ 'svizzera-usam-croce-svizzera-polemica': { it: 'svizzera-usam-croce-svizzera-polemica', en: 'switzerland-usam-swiss-cross-controversy', de: 'schweiz-usam-schweizer-kreuz-polemik', fr: 'suisse-usam-croix-suisse-controverse' },
+ 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi': { it: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', en: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', de: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', fr: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi' },
+ 'bilaterali-iii-vacilla-misura-accompagnamento': { it: 'bilaterali-iii-vacilla-misura-accompagnamento', en: 'bilaterali-iii-vacilla-accompanion-measure', de: 'bilaterali-iii-vacilliert-unterstutzende-ma-nahme', fr: 'bilaterali-iii-vacille-mesure-daccompagnement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

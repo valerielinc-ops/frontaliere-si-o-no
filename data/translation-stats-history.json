@@ -11428,5 +11428,129 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-11T14:33:20.759Z",
+    "label": "before",
+    "total": 26856,
+    "needsRetranslation": 9497,
+    "suppressed": 48,
+    "incomplete": 106,
+    "complete": 26750,
+    "slotsPresent": 26750,
+    "flaggedAmongSlotsPresent": 9439,
+    "verifiedTranslated": 17311,
+    "sourceCopyExcused": 2155,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 59,
+      "en": 42,
+      "de": 50,
+      "fr": 53
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Orell Füssli Thalia",
+        "pending": 7
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Skyguide",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-11T15:58:18.445Z",
+    "label": "after",
+    "total": 26856,
+    "needsRetranslation": 8951,
+    "suppressed": 48,
+    "incomplete": 106,
+    "complete": 26750,
+    "slotsPresent": 26750,
+    "flaggedAmongSlotsPresent": 8892,
+    "verifiedTranslated": 17858,
+    "sourceCopyExcused": 2150,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 59,
+      "en": 42,
+      "de": 50,
+      "fr": 53
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 27
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Orell Füssli Thalia",
+        "pending": 7
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Skyguide",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Hans Ziegler AG Hauptsitz",
+        "pending": 2
+      }
+    ]
   }
 ]

@@ -2194,6 +2194,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-zurigo-guida.title': 'Lehre und Berufsausbildung im Kanton Zürich',
     'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Praktischer Leitfaden zur Suche nach einer Lehrstelle, Arbeitsvertrag, Lehrlingsvergütung und Berufsmaturität im schweizerischen System.',
     'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Auszubildender in der Berufsbildung in einem modernen Labor in Zürich',
+    'blog.article.usam-croce-svizzera-polemica.title': 'Auslandschweizerkreuz: Der Protest von USAM',
+    'blog.article.usam-croce-svizzera-polemica.excerpt': 'Das Bsv stellt die Praxis des ige in Frage, die die Verwendung des Schweizer Kreuzes auf Produkten erlaubt, die gänzlich ausserhalb der Landesgrenzen hergestellt werden.',
+    'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Etikett mit Schweizer Kreuz auf einem Produkt',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Dürre, Schäden an der Landwirtschaft in Höhe von 19 Millionen Franken',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel meldet Schäden von mindestens 19 Millionen Franken. Befallen Sie Sommerkulturen wie Mais, Kartoffeln, Rüben und Sonnenblumen.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Von Dürre betroffene Maisfelder in der Schweiz',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM bestreitet Schweizerkreuz auf ausländische Produkte',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'Die neue Praxis ermöglicht es, das Schweizer Kreuz auch auf im Ausland hergestellten Produkten anzubringen. Das Bsv bestreitet dies.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'Die Schweizer Kruze auf einem importierten Produkt',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena il consumo di carne, ma la siccità lo potrebbe',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'Die Hitzewelle hat den Fleischkonsum bisher nicht wesentlich gebremst, aber die anhaltende Dürre droht das Angebot zu drosseln und die Preise in die Höhe zu treiben.',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'Die Dürre könnte die Preise der Fleischprodukte erhöhen.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilaterale III, eine der flankierenden Massnahmen gerät ins Wanken',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Ständerates lehnte die Massnahme 14 ab, mit der der Kündigungsschutz der in den Betrieben tätigen Arbeitnehmer- und Gewerkschaftsvertreter gestärkt wurde.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: Blick auf den See',
 };
 
 export default blogMetaChDe;

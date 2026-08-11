@@ -2194,6 +2194,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-zurigo-guida.title': 'Apprendistato e formazione professionale nel Cantone di Zurigo',
     'blog.article.apprendistato-formazione-zurigo-guida.excerpt': 'Guida pratica alla ricerca di un posto di tirocinio, contratto di lavoro, retribuzione dell\'apprendista e maturità professionale nel sistema svizzero.',
     'blog.article.apprendistato-formazione-zurigo-guida.imageAlt': 'Studente in formazione professionale in un laboratorio moderno a Zurigo',
+    'blog.article.usam-croce-svizzera-polemica.title': 'Croce svizzera all\'estero: la protesta di USAM',
+    'blog.article.usam-croce-svizzera-polemica.excerpt': 'L\'USAM contesta la prassi dell\'IPI che permette l\'uso della croce svizzera su prodotti fabbricati interamente fuori dai confini nazionali.',
+    'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Etichetta con croce svizzera su un prodotto',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel segnala danni per almeno 19 milioni di franchi. Colpite le colture estive come mais, patate, barbabietole e girasoli.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Campi di mais colpiti dalla siccità in Svizzera',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM contesta croce svizzera su prodotti esteri',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'La nuova prassi consente di apporre la croce svizzera anche su prodotti fabbricati all\'estero. L\'USAM la contesta.',
+    'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'La croce svizzera su un prodotto fabbricato all\'estero',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena i consumi di carne ma la siccità potrebbe far salire i prezzi',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'L\'ondata di calore non ha finora frenato in modo significativo il consumo di carne, ma la siccità prolungata rischia di ridurre l\'offerta e far lievitare i prezzi.',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'La siccità potrebbe far salire i prezzi dei prodotti di carne.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilaterali III, vacilla una delle misure di accompagnamento',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento dei rappresentanti del personale e sindacali attivi nelle aziende.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: vista del lago',
 };
 
 export default blogMetaChIt;
