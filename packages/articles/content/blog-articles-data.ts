@@ -29073,6 +29073,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-11T12:58:53.991Z',
+ image: '/images/blog/vivere-courmayeur-e-lavorare-vallese-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
