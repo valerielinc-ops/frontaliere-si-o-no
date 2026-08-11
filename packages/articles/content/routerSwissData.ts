@@ -720,6 +720,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fedelta-bancaria-costi-analisi': { it: 'fedelta-bancaria-costi-analisi', en: 'banking-loyalty-costs-analysis', de: 'banken-treue-kosten-analyse', fr: 'fidelite-bancaire-couts-analyse' },
  'lotta-lavoro-nero-consultazione': { it: 'lotta-lavoro-nero-consultazione', en: 'combating-undeclared-work-consultation', de: 'kampf-gegen-schwarzarbeit-konsultation', fr: 'lutte-contre-travail-noir-consultation' },
  'mercato-lavoro-svizzera-luglio-2026': { it: 'mercato-lavoro-svizzera-luglio-2026', en: 'swiss-labor-market-july-2026', de: 'schweizer-arbeitsmarkt-juli-2026', fr: 'marche-travail-suisse-juillet-2026' },
+ 'lotta-lavoro-nero-2025': { it: 'lotta-lavoro-nero-2025', en: 'labor-black-market-2025', de: 'arbeitsmarkt-schwarze-arbeit-2025', fr: 'marche-du-travail-noir-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

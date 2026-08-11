@@ -2083,6 +2083,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Mercato del lavoro in Svizzera: dati SECO di luglio 2026',
     'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Aumenta la disoccupazione in Svizzera a luglio 2026: tasso al 3,0% con 148\'002 disoccupati totali. Ecco i dati ufficiali della SECO.',
     'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Edificio di uffici moderno in Svizzera',
+    'blog.article.lotta-lavoro-nero-2025.title': 'Lotta al lavoro nero: 14 450 controlli aziendali nel 2025',
+    'blog.article.lotta-lavoro-nero-2025.excerpt': 'La SECO ha pubblicato il rapporto sulla lotta al lavoro nero in Svizzera per il 2025.',
+    'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Un ispettore della SECO controlla un edificio in Svizzera.',
 };
 
 export default blogMetaChIt;

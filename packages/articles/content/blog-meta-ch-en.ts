@@ -2083,6 +2083,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Labour market in Switzerland: SECO data for July 2026',
     'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Unemployment rises in Switzerland in July 2026: rate at 3.0% with 148,002 total unemployed. Here are the official SECO data.',
     'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Modern office building in Switzerland',
+    'blog.article.lotta-lavoro-nero-2025.title': 'Fight against undeclared work: 14,450 company controls in 2025',
+    'blog.article.lotta-lavoro-nero-2025.excerpt': 'SECO has published the report on the fight against undeclared work in Switzerland for 2025.',
+    'blog.article.lotta-lavoro-nero-2025.imageAlt': 'A SECO inspector checks a building in Switzerland.',
 };
 
 export default blogMetaChEn;

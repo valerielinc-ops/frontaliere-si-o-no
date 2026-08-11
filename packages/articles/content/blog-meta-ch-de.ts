@@ -2083,6 +2083,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Arbeitsmarkt Schweiz: Daten des SECO vom Juli 2026',
     'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Die Arbeitslosigkeit in der Schweiz steigt im Juli 2026 auf 3,0% mit 148\'002 Arbeitslosen insgesamt. Hier die offiziellen Daten des SECO.',
     'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Modernes Bürogebäude in der Schweiz',
+    'blog.article.lotta-lavoro-nero-2025.title': 'Bekämpfung der Schwarzarbeit: 14.450 Unternehmenskontrollen im Jahr 2025',
+    'blog.article.lotta-lavoro-nero-2025.excerpt': 'Das SECO hat den Bericht zur Bekämpfung der Schwarzarbeit in der Schweiz für 2025 veröffentlicht.',
+    'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Ein SECO-Inspektor überprüft ein Gebäude in der Schweiz.',
 };
 
 export default blogMetaChDe;
