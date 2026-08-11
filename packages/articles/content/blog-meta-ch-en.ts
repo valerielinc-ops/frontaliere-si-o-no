@@ -2209,6 +2209,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilateral III, one of the accompanying measures falters',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'The Economic and Tax Commission of the Council of States rejected measure 14, which strengthened the protection against dismissal of staff and trade union representatives active in companies.',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: lake view',
+    'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, compromise sought',
+    'blog.article.lex-ubs-proposta-compromesso.excerpt': 'The Commission for the Economy and Taxation of States (CET-S) postponed the discussion on own funds hedging for foreign holdings in the parent company of systemically important banks (UBS).',
+    'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'The Federal Parliament building in Bern.',
 };
 
 export default blogMetaChEn;
