@@ -29037,6 +29037,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-allein-lavorare-vallese',
+ category: 'pratico',
+ date: '2026-08-11T11:41:03.804Z',
+ image: '/images/blog/vivere-allein-lavorare-vallese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

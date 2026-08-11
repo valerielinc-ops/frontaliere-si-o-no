@@ -9682,6 +9682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-la-thuile-lavorare-vallese.title': 'Vivere a La Thuile e lavorare in Vallese da frontaliere',
     'blog.article.vivere-la-thuile-lavorare-vallese.excerpt': 'Impostazione della fonte sul reddito da lavoro: trattenuta solo in Svizzera per i frontalieri',
     'blog.article.vivere-la-thuile-lavorare-vallese.imageAlt': 'Immagine di un pendolare che attraversa il confine tra La Thuile e Vallese',
+    'blog.article.vivere-allein-lavorare-vallese.title': 'Vivere a Allein e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Guida pratica al pendolarismo tra Valle d\'Aosta e Vallese: regole fiscali, nuovo accordo e gestione del lavoro transfrontaliero.',
+    'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Paesaggio alpino presso il Gran San Bernardo',
 };
 
 export default blogMetaIt;

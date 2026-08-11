@@ -9681,6 +9681,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-la-thuile-lavorare-vallese.title': 'Living in La Thuile and working in Valais as a border worker',
     'blog.article.vivere-la-thuile-lavorare-vallese.excerpt': 'Setting the source on income from work: withheld only in Switzerland for border workers',
     'blog.article.vivere-la-thuile-lavorare-vallese.imageAlt': 'Image of a commuter crossing the border between La Thuile and Valais',
+    'blog.article.vivere-allein-lavorare-vallese.title': 'Living in Allein and working in Valais as a border worker',
+    'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Practical guide to commuting between Valle d \'Aosta and Valais: tax rules, new agreement and cross-border work management.',
+    'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Alpine landscape near the Great St Bernard Pass',
 };
 
 export default blogMetaEn;
