@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stgag",
-  "assembledAt": "2026-08-10T21:48:02.852Z",
+  "assembledAt": "2026-08-11T10:21:59.397Z",
   "jobs": [
     {
       "id": "stgag-83bec58ed8df",
@@ -34,7 +34,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3736/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:48:00.638Z",
+      "crawledAt": "2026-08-11T10:21:57.202Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -53,7 +53,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sozialarbeiter-in-fh-stgag-ch-r134n9"
+          "sozialarbeiter-in-fh-stgag-ch-r134n9",
+          "sozialarbeiter-in-fh-stgag-ch"
         ],
         "it": [
           "sozialarbeiter-in-fh-stgag-ch"
@@ -117,7 +118,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3734/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:59.607Z",
+      "crawledAt": "2026-08-11T10:21:56.385Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -136,12 +137,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "projektleiter-in-drittmarkt-stgag-munsterlingen"
+          "projektleiter-in-drittmarkt-stgag-munsterlingen",
+          "projektleiter-in-drittmarkt-stgag-ch"
         ],
         "it": [
           "projektleiter-in-drittmarkt-stgag-munsterlingen",
           "projektleiter-in-drittmarkt-stgag-ch",
-          "responsabile-di-progetto-drittmarkt-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "responsabile-di-progetto-drittmarkt-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "responsabile-di-progetto-drittmarkt-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "projektleiter-in-drittmarkt-stgag-ch"
@@ -153,7 +156,8 @@
       "previousSlugs": [
         "projektleiter-in-drittmarkt-stgag-munsterlingen",
         "projektleiter-in-drittmarkt-stgag-ch",
-        "responsabile-di-progetto-drittmarkt-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "responsabile-di-progetto-drittmarkt-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "responsabile-di-progetto-drittmarkt-spital-thurgau-stgag-munsterlingen"
       ],
       "firstSeenAt": "2026-08-05T11:36:05.296Z",
       "salaryMin": 79000,
@@ -201,7 +205,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3737/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:58.622Z",
+      "crawledAt": "2026-08-11T10:21:55.531Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -231,6 +235,9 @@
           "stationsleiter-in-hf-fh-rehabilitation-stgag-ch",
           "gestionnaire-de-station-en-rehabilitation-hf-fh-spital-thurgau-stgag-diessenhofen",
           "stationsleiter-in-hf-fh-rehabilitation-stgag-munsterlingen-r134n8"
+        ],
+        "de": [
+          "stationsleiter-in-hf-fh-rehabilitation-stgag-ch"
         ]
       },
       "previousSlugs": [
@@ -286,7 +293,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3743/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:57.624Z",
+      "crawledAt": "2026-08-11T10:21:54.667Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -316,6 +323,9 @@
           "pflegehelfer-in-srk-stgag-ch",
           "assistant-infirmier-en-srk-spital-thurgau-stgag-diessenhofen",
           "pflegehelfer-in-srk-stgag-munsterlingen-r134mh"
+        ],
+        "de": [
+          "pflegehelfer-in-srk-stgag-ch"
         ]
       },
       "previousSlugs": [
@@ -371,7 +381,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3745/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:56.654Z",
+      "crawledAt": "2026-08-11T10:21:53.805Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -454,7 +464,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3751/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:55.671Z",
+      "crawledAt": "2026-08-11T10:21:52.933Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -509,9 +519,9 @@
       "id": "stgag-114996c3a6a9",
       "slug": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
       "slugByLocale": {
-        "de": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch-r134mb",
         "it": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
         "en": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
+        "de": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
         "fr": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -531,12 +541,13 @@
         "de": "Wir bieten Praktikumsplätze für das Praktikum Fachmatura Gesundheit (FMG) September 2027 100% Patientennah, lernfreudig, motiviert, empathisch, genau und flexibel - das sind wir. Treffen diese Werte auch auf dich zu? Dann bewerbe dich bei uns – wir freuen uns auf dich! Deine Aufgaben Als Praktikant/-in FMG betreust und unterstützt du unsere Patient/innen im Spitalalltag und wirkst bei der Pflege mit. Dabei arbeitest du im Team mit dipl. Pflegefachpersonen, Fachfrauen/-männer Gesundheit (FaGe) und Auszubildenden aus den Pflegeberufen zusammen.\n\nIn deinem Kompetenzbereich erledigst du Arbeiten wie pflegerische Tätigkeiten (z. B. Unterstützen in der Körperpflege, beim Essen), pflegetechnische Aufträge (z. B. Blutdruck- / Pulskontrollen), Alltagsgestaltung sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Praktikant/-in FMG leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung der Gesundheit und des Wohlbefindens von Patient/-innen.\n\nDu arbeitest gerne im Team\n\nDu bist zuverlässig und verantwortungsbewusst\n\nDu bist körperlich und psychisch belastbar\n\nDu bist am Pflegeberuf und dem Arbeiten in der Pflege interessiert\n\nDu hast die FMS an der Fachmittelschule Frauenfeld oder Romanshorn abgeschlossen\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Befristet",
         "fr": "Nous offrons des stages pour le stage Fachmatura Gesundheit (FMG) Septembre 2027 100% patient, désireux d'apprendre, motivé, empathique, précis et flexible - c'est nous. Ces valeurs s'appliquent-elles à vous? Faites ensuite une demande avec nous – nous nous réjouissons de vous! En tant que stagiaire/in FMG, vous supervisez et soutenez nos patients dans la vie quotidienne de l'hôpital et aidez avec les soins. Vous travaillez en équipe avec le dipl. Infirmières, spécialistes de la santé (FaGe) et stagiaires des professions infirmières.\n\nDans votre domaine de compétence, vous effectuerez des tâches telles que des activités de soins infirmiers (p. ex., un soutien dans les soins personnels, tout en mangeant), des tâches de soins infirmiers (p. ex., des contrôles de la pression artérielle/du pouls), une conception quotidienne ainsi que des tâches domestiques, logistiques et administratives.\n\nEn tant que stagiaire, vous faites une contribution importante à la promotion resp. Maintenir la santé et le bien-être des patients.\n\nTu aimes travailler en équipe\n\nVous êtes fiable et responsable\n\nVous êtes physiquement et psychologiquement résistant\n\nVous êtes intéressé par les soins infirmiers et le travail en soins infirmiers\n\nVous avez complété le FMS à la Fachmittelschule Frauenfeld ou Romanshorn\n\n• Domaine: Éducation\n• Type: Temps plein\n• Délai: Temporaire"
       },
+      "needsRetranslation": true,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3749/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:54.643Z",
+      "crawledAt": "2026-08-11T10:21:52.050Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -553,6 +564,28 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3749/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch-r134mb",
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
+        ],
+        "it": [
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
+        ],
+        "en": [
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
+        ],
+        "fr": [
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
+          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen-r134mb"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
+        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen-r134mb",
+        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch-r134mb"
+      ],
+      "firstSeenAt": "2026-08-10T10:41:23.973Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -564,35 +597,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-10T10:41:23.973Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
-        ],
-        "en": [
-          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
-        ],
-        "de": [
-          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
-        ],
-        "fr": [
-          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
-          "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen-r134mb"
-        ]
-      },
-      "previousSlugs": [
-        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
-        "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen-r134mb"
-      ]
+      }
     },
     {
       "id": "stgag-a9667bcfefe8",
       "slug": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
       "slugByLocale": {
-        "de": "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch-r134mg",
         "it": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
         "en": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
+        "de": "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
         "fr": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -612,12 +625,13 @@
         "de": "Deine Aufgaben Als Praktikant/-in FMG betreust und unterstützt du unsere Patientinnen und Patienten im Alltag und wirkst bei der Pflege mit. Dabei arbeitest du im Team mit dipl. Pflegefachpersonen, Fachfrauen/-männer Gesundheit (FaGe) und Auszubildenden aus den Pflegeberufen zusammen\n\nIn deinem Kompetenzbereich erledigst du Arbeiten wie Begleitung unserer Patientinnen und Patienten innerhalb der Klinik, pflegerische Tätigkeiten (z. B. Unterstützen in der Körperpflege), pflegetechnische Aufträge (z. B. Blutdruck- / Pulskontrollen), Alltagsgestaltung sowie hauswirtschaftliche, logistische und administrative Aufgaben\n\nAls Praktikant/-in FMG leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung der Gesundheit und des Wohlbefindens von Patientinnen und Patienten\n\nDu arbeitest gerne im Team Du bist zuverlässig und verantwortungsbewusst Du bist körperlich und psychisch belastbar Du bist am Pflegeberuf und dem Arbeiten in der Pflege interessiert Du hast die FMS an der Fachmittelschule abgeschlossen Du hast einen fünfwöchigen Vorbereitungskurs besucht Dir ist der vorliegende Kriterienkatalog \"pflegerische Fertigkeiten\" für das Praktikum im Detail bekannt\n\n1007000|1007004|1007006|1007010|20000126|20000130|20000132\n\nKlinik St. Katharinental, Diessenhofen\n\nDie Klinik St. Katharinental i n Diessenhofen ist ein Unternehmen der Spital Thurgau AG mit insgesamt 132 Betten. In historischer Umgebung des ehemaligen Klosters bieten wir die Bereiche muskuloskelettale, internistische, onkologische und geriatrische Rehabilitation, Akutrheumatologie sowie Langzeitpflege an. Jährlich betreuen wir rund 1’700 stationäre Rehabilitationspatienten und erbringen ein umfangreiches ambulantes Angebot. Neben der einmaligen Lage direkt am Rhein erwarten Sie bei uns eine wertschätzende Kultur, multiprofessionelle Zusammenarbeit, umfangreiche Aus- und Weiterbildungsmöglichkeiten sowie attraktive Lohn- und Sozialleistungen. Als Mitarbeitende der Klinik St. Katharinental profitieren Sie von den Benefits der Spital Thurgau AG.\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Praktikum",
         "fr": "En tant que stagiaire/in FMG, vous supervisez et soutenez nos patients dans la vie quotidienne et aidez avec leurs soins. Vous travaillez en équipe avec le dipl. Infirmières, spécialistes de la santé (FaGe) et apprentis des professions infirmières ensemble\n\nDans votre domaine de compétence, vous effectuerez des tâches telles que le soutien à nos patients au sein de la clinique, les activités de soins infirmiers (p. ex. soutien aux soins personnels), les tâches de soins infirmiers (p. ex. contrôle de la pression artérielle / pouls), la conception de la vie quotidienne ainsi que les tâches domestiques, logistiques et administratives.\n\nEn tant que stagiaire, vous faites une contribution importante à la promotion resp. Maintenir la santé et le bien-être des patients\n\nVous aimez travailler en équipe Vous êtes fiable et responsable Vous êtes physiquement et psychologiquement résistant Vous êtes intéressé par les soins infirmiers et le travail en soins infirmiers Vous avez complété le SGF à la Fachmittelschule Vous avez suivi un cours de préparation de cinq semaines Vous êtes familier avec le présent catalogue de critères « compétences infirmières » pour le stage en détail\n\n1007000|1007004|1007006|1007010|20000126|20000130|20000132\n\nKlinik St. Katharinental, Diessenhofen\n\nKlinik St. Katharinental i n Diessenhofen est une société de Spital Thurgau AG avec un total de 132 lits. Dans le cadre historique de l'ancien monastère, nous offrons les zones de rééducation musculo-squelettique, interniste, oncologique et gériatrique, de rhumatologie aiguë et de soins de longue durée. Chaque année, nous nous occupons d'environ 1 700 patients hospitalisés en réadaptation et offrons un vaste service ambulatoire. En plus de l'emplacement unique directement sur le Rhin, vous pouvez vous attendre à une culture appréciatrice, une coopération multiprofessionnelle, des possibilités de formation étendues et des avantages sociaux et salariaux attrayants. En tant qu'employé de Klinik St. Katharinental, vous bénéficiez des avantages de Spital Thurgau AG.\n\n• Domaine: Éducation\n• Type: Temps plein\n• Durée temporaire : stage"
       },
+      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3744/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:53.655Z",
+      "crawledAt": "2026-08-11T10:21:51.172Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -634,6 +648,28 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3744/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch-r134mg",
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
+        ],
+        "it": [
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
+        ],
+        "en": [
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
+        ],
+        "fr": [
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
+          "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen-r134mg"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
+        "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen-r134mg",
+        "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch-r134mg"
+      ],
+      "firstSeenAt": "2026-08-10T10:41:22.992Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -645,61 +681,41 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-10T10:41:22.992Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
-        ],
-        "en": [
-          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
-        ],
-        "de": [
-          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
-        ],
-        "fr": [
-          "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
-          "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen-r134mg"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
-        "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen-r134mg"
-      ],
-      "needsRetranslation": false
+      }
     },
     {
       "id": "stgag-161fa634382c",
       "slug": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "de": "dipl-pflegefachmann-frau-stgag-ch",
+        "it": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-nursing-professional-woman-spital-thurgau-stgag-munsterlingen",
-        "fr": "specialiste-diplome-en-soins-infirmiers-spital-thurgau-stgag-munsterlingen",
-        "it": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen"
+        "de": "dipl-pflegefachmann-frau-stgag-ch",
+        "fr": "specialiste-diplome-en-soins-infirmiers-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachmann/-frau",
-        "it": "Dipl. Infermieristica professionale/donna",
+        "it": "Dipl. Pflegefachmann/-frau",
         "en": "Dipl. Nursing professional/woman",
+        "de": "Dipl. Pflegefachmann/-frau",
         "fr": "Dipl. Professionnels des soins infirmiers/femmes"
       },
       "description": "Du möchtest in einem Bereich arbeiten, in dem Beziehung, Fachlichkeit und Menschlichkeit gleichermassen zählen? Du suchst ein Umfeld, in dem du nicht nur mitarbeitest, sondern mitgestaltest? Du wünschst dir ein Team, das zusammenhält, sich unterstützt und auch in anspruchsvollen Situationen mit Ruhe, Humor und Professionalität arbeitet? Dann bist du bei uns richtig. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau 70-100% Auf unserer Station erwartet dich ein spannendes und vielseitiges Arbeitsfeld. Du begleitest Menschen in herausfordernden Lebenssituationen, gestaltest Beziehungen, gibst Orientierung und trägst mit deiner pflegerischen Arbeit wesentlich zu Stabilisierung, Entwicklung und Perspektiven bei. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson von Ein- bis Austritt in einem multiprofessionellen Team\n\nEinbettung in und professionelle Unterstützung durch ein multiprofessionelles, dynamisches und humorvolles Team\n\nMitarbeit und Leitung pflegerischer Gruppen- und Einzelangebote\n\nFür Mitarbeitende mit einem Teilzeitpensum besteht die Möglichkeit einer zusätzlichen, flexibel gestaltbaren Tätigkeit im Mitarbeiterpool\n\nFreude an der Arbeit mit Menschen\n\nInteresse an psychiatrischer und somatischer Pflege und an Beziehungsgestaltung\n\nAbgeschlossene Ausbildung als Dipl. Pflegefachmann/- frau HF/FH\n\nOffene, personenbezogene, partizipative Kommunikationskompetenz\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Du möchtest in einem Bereich arbeiten, in dem Beziehung, Fachlichkeit und Menschlichkeit gleichermassen zählen? Du suchst ein Umfeld, in dem du nicht nur mitarbeitest, sondern mitgestaltest? Du wünschst dir ein Team, das zusammenhält, sich unterstützt und auch in anspruchsvollen Situationen mit Ruhe, Humor und Professionalität arbeitet? Dann bist du bei uns richtig. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau 70-100% Auf unserer Station erwartet dich ein spannendes und vielseitiges Arbeitsfeld. Du begleitest Menschen in herausfordernden Lebenssituationen, gestaltest Beziehungen, gibst Orientierung und trägst mit deiner pflegerischen Arbeit wesentlich zu Stabilisierung, Entwicklung und Perspektiven bei. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson von Ein- bis Austritt in einem multiprofessionellen Team\n\nEinbettung in und professionelle Unterstützung durch ein multiprofessionelles, dynamisches und humorvolles Team\n\nMitarbeit und Leitung pflegerischer Gruppen- und Einzelangebote\n\nFür Mitarbeitende mit einem Teilzeitpensum besteht die Möglichkeit einer zusätzlichen, flexibel gestaltbaren Tätigkeit im Mitarbeiterpool\n\nFreude an der Arbeit mit Menschen\n\nInteresse an psychiatrischer und somatischer Pflege und an Beziehungsgestaltung\n\nAbgeschlossene Ausbildung als Dipl. Pflegefachmann/- frau HF/FH\n\nOffene, personenbezogene, partizipative Kommunikationskompetenz\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
         "it": "Vuoi lavorare in un campo in cui rapporto, competenza e umanità contano allo stesso modo? Stai cercando un ambiente in cui non lavori solo, ma anche forma? Vuoi una squadra che si attacca, si sostiene e lavora con calma, umorismo e professionalità anche in situazioni difficili? Allora hai ragione con noi. Cerchiamo un Dipl entro il 1o settembre 2026 o d'accordo. Infermieristica professionale 70-100% Nella nostra stazione, un campo di lavoro emozionante e versatile vi aspetta. Accompagnate le persone in situazioni di vita difficili, le relazioni di forma, fornire orientamento e contribuire in modo significativo alla stabilizzazione, sviluppo e prospettive con il vostro lavoro di cura. Si prende cura professionale dei nostri pazienti come persona di riferimento dall'ingresso all'uscita in un team multi-professionale\n\nEmbedding e supporto professionale da un team multi-professionale, dinamico e divertente\n\nCooperazione e gestione del gruppo di cura e delle offerte individuali\n\nPer i dipendenti con un carico di lavoro part-time, c'è la possibilità di un lavoro supplementare e flessibile nel pool dei dipendenti\n\nGioia di lavorare con le persone\n\nInteressi nella progettazione psichiatrica e somatica della cura e del rapporto\n\nAllenamento completato come Dipl. Infermieristica professionale/- donna HF/FH\n\nCompetenza di comunicazione aperta, personale e partecipativa\n\n• Area: Cura (compresa l'ostetrica)\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo",
         "en": "Do you want to work in a field where relationship, expertise and humanity count equally? Are you looking for an environment in which you not only work, but also shape? Do you want a team that sticks together, supports itself and works with calm, humor and professionalism even in demanding situations? Then you are right with us. We are looking for a Dipl by 1 September 2026 or by agreement. Nursing professional 70-100% On our station, an exciting and versatile field of work awaits you. You accompany people in challenging life situations, shape relationships, provide orientation and contribute significantly to stabilization, development and perspectives with your nursing work. You take over professional care of our patients as a reference person from entry to exit in a multi-professional team\n\nEmbedding in and professional support by a multi-professional, dynamic and humorous team\n\nCooperation and management of nursing group and individual offers\n\nFor employees with a part-time workload, there is the possibility of an additional, flexible work in the employee pool\n\nJoy of working with people\n\nInterest in psychiatric and somatic care and relationship design\n\nCompleted training as a Dipl. Nursing professional/- woman HF/FH\n\nOpen, personal, participatory communication competence\n\n• Area: Care (including midwife)\n• Type: Full-time, part-time\n• Temporary term: perpetual",
+        "de": "Du möchtest in einem Bereich arbeiten, in dem Beziehung, Fachlichkeit und Menschlichkeit gleichermassen zählen? Du suchst ein Umfeld, in dem du nicht nur mitarbeitest, sondern mitgestaltest? Du wünschst dir ein Team, das zusammenhält, sich unterstützt und auch in anspruchsvollen Situationen mit Ruhe, Humor und Professionalität arbeitet? Dann bist du bei uns richtig. Wir suchen per 1. September 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau 70-100% Auf unserer Station erwartet dich ein spannendes und vielseitiges Arbeitsfeld. Du begleitest Menschen in herausfordernden Lebenssituationen, gestaltest Beziehungen, gibst Orientierung und trägst mit deiner pflegerischen Arbeit wesentlich zu Stabilisierung, Entwicklung und Perspektiven bei. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson von Ein- bis Austritt in einem multiprofessionellen Team\n\nEinbettung in und professionelle Unterstützung durch ein multiprofessionelles, dynamisches und humorvolles Team\n\nMitarbeit und Leitung pflegerischer Gruppen- und Einzelangebote\n\nFür Mitarbeitende mit einem Teilzeitpensum besteht die Möglichkeit einer zusätzlichen, flexibel gestaltbaren Tätigkeit im Mitarbeiterpool\n\nFreude an der Arbeit mit Menschen\n\nInteresse an psychiatrischer und somatischer Pflege und an Beziehungsgestaltung\n\nAbgeschlossene Ausbildung als Dipl. Pflegefachmann/- frau HF/FH\n\nOffene, personenbezogene, partizipative Kommunikationskompetenz\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
         "fr": "Voulez-vous travailler dans un domaine où les relations, l'expertise et l'humanité comptent également ? Vous cherchez un environnement dans lequel vous ne travaillez pas seulement, mais aussi la forme? Voulez-vous une équipe qui s'appuie, se soutient et travaille avec calme, humour et professionnalisme, même dans des situations exigeantes ? Alors tu as raison avec nous. Nous cherchons un Dipl avant le 1er septembre 2026 ou par accord. Professionnels des soins infirmiers 70-100% Sur notre station, un champ de travail passionnant et polyvalent vous attend. Vous accompagnez les gens dans des situations de vie difficiles, façonnez les relations, donnez de l'orientation et contribuez grandement à la stabilisation, au développement et aux perspectives de votre travail infirmier. Vous prenez soin de nos patients en tant que personne de référence d'entrée à sortie dans une équipe multiprofessionnelle\n\nIntégration et soutien professionnel par une équipe multi-professionnelle, dynamique et humoristique\n\nCoopération et gestion des offres individuelles et de groupes de soins infirmiers\n\nPour les employés ayant une charge de travail à temps partiel, il y a la possibilité d'un travail supplémentaire et flexible dans le bassin d'employés\n\nJoy de travailler avec les gens\n\nIntérêt pour les soins psychiatriques et somatiques et la conception des relations\n\nFormation terminée en tant que diplômé. Professionnels des soins infirmiers/- femmes HF/FH\n\nCompétence de communication ouverte, personnelle et participative\n\n• Zone: soins (y compris la sage-femme)\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3608/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:52.570Z",
+      "crawledAt": "2026-08-11T10:21:50.246Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -715,9 +731,11 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3608/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachmann-frau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-langzeitpflege-spital-thurgau-stgag-munsterlingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-stgag-munsterlingen",
@@ -727,11 +745,7 @@
           "dipl-pflegefachmann-frau-stgag-munsterlingen"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachmann-frau-stgag-munsterlingen",
-        "specialiste-diplome-en-soins-infirmiers-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-langzeitpflege-spital-thurgau-stgag-munsterlingen"
-      ],
+      "firstSeenAt": "2026-08-10T21:47:52.570Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -743,33 +757,32 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-10T21:47:52.570Z"
+      }
     },
     {
       "id": "stgag-6b957a9a742a",
       "slug": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
       "slugByLocale": {
-        "de": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
+        "it": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
         "en": "assistant-doctor-in-advanced-specialist-training-child-and-adolescent-psychiatry-and-psychotherapy-with-interest-in",
-        "fr": "medecin-assistant-en-psychiatrie-et-psychotherapie-des-enfants-et-des-adolescents-avec-interet-pour-la-psychosomatique",
-        "it": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess"
+        "de": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
+        "fr": "medecin-assistant-en-psychiatrie-et-psychotherapie-des-enfants-et-des-adolescents-avec-interet-pour-la-psychosomatique"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Assistenzarzt/-ärztin in fortgeschrittener Facharztweiterbildung Kinder- und Jugendpsychiatrie und Psychotherapie mit Interesse an Psychosomatik",
       "titleByLocale": {
-        "de": "Assistenzarzt/-ärztin in fortgeschrittener Facharztweiterbildung Kinder- und Jugendpsychiatrie und Psychotherapie mit Interesse an Psychosomatik",
         "it": "Assistenzarzt/-ärztin in fortgeschrittener Facharztweiterbildung Kinder- e Jugendpsychiatrie e Psychotherapie con Interesse an Psychosomatik",
         "en": "Assistant doctor in advanced specialist training child and adolescent psychiatry and psychotherapy with interest in psychosomatics",
+        "de": "Assistenzarzt/-ärztin in fortgeschrittener Facharztweiterbildung Kinder- und Jugendpsychiatrie und Psychotherapie mit Interesse an Psychosomatik",
         "fr": "Médecin assistant en psychiatrie et psychothérapie des enfants et des adolescents avec intérêt pour la psychosomatique"
       },
       "description": "Wir suchen nach Vereinbarung eine/-n\n\nIn Zusammenarbeit zwischen der Klinik für Kinder und Jugendliche und dem Kinder- und Jugendpsychiatrischen Dienst Thurgau bieten wir am Kantonsspital Münsterlingen für Kolleginnen und Kollegen in fortgeschrittener Weiterbildung die einmalige Möglichkeit über 2 Jahre in einem psychosomatischen Kontext stationär zu arbeiten. Im ersten Jahr arbeiten Sie unter fachlicher Anleitung der Kinder- und Jugendpsychiatrie und direkt im Anschluss im zweiten Jahr unter fachlicher Leitung der Kinder- und Jugendmedizin. Der Kinder- und Jugendpsychiatrische Dienst (KJPD) Thurgau und die Klinik für Kinder und Jugendliche (KKJ) bieten hervorragende Rahmenbedingungen für fundierte Weiterbildungen. Wir engagieren uns seit Jahren in einer familienfreundlichen, stark ambulant ausgerichteten Versorgung. Wir behandeln mit hohem Qualitätsanspruch, wenn möglich mit evidenzbasierten Therapieverfahren.\n\nDer Kinder- und Jugendpsychiatrische Dienst (KJPD) Thurgau bietet hervorragende Rahmenbedingungen für die klassische kinder- und jugendpsychiatrische sowie für eine umfassende psychotherapeutische Ausbildung. Wir behandeln jährlich über 3'000 Patientinnen und Patienten mit hohem Qualitätsanspruch in familienfreundlichen, ambulanten, aufsuchenden und tagesklinischen Settings, wenn möglich mit evidenzbasierten Therapieverfahren (multisystemische Therapie MST, Parent Child Interaction Therapy PCIT, ESDM zur Frühintervention bei Autismus). Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen den KJPD als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Wir suchen nach Vereinbarung eine/-n\n\nIn Zusammenarbeit zwischen der Klinik für Kinder und Jugendliche und dem Kinder- und Jugendpsychiatrischen Dienst Thurgau bieten wir am Kantonsspital Münsterlingen für Kolleginnen und Kollegen in fortgeschrittener Weiterbildung die einmalige Möglichkeit über 2 Jahre in einem psychosomatischen Kontext stationär zu arbeiten. Im ersten Jahr arbeiten Sie unter fachlicher Anleitung der Kinder- und Jugendpsychiatrie und direkt im Anschluss im zweiten Jahr unter fachlicher Leitung der Kinder- und Jugendmedizin. Der Kinder- und Jugendpsychiatrische Dienst (KJPD) Thurgau und die Klinik für Kinder und Jugendliche (KKJ) bieten hervorragende Rahmenbedingungen für fundierte Weiterbildungen. Wir engagieren uns seit Jahren in einer familienfreundlichen, stark ambulant ausgerichteten Versorgung. Wir behandeln mit hohem Qualitätsanspruch, wenn möglich mit evidenzbasierten Therapieverfahren.\n\nDer Kinder- und Jugendpsychiatrische Dienst (KJPD) Thurgau bietet hervorragende Rahmenbedingungen für die klassische kinder- und jugendpsychiatrische sowie für eine umfassende psychotherapeutische Ausbildung. Wir behandeln jährlich über 3'000 Patientinnen und Patienten mit hohem Qualitätsanspruch in familienfreundlichen, ambulanten, aufsuchenden und tagesklinischen Settings, wenn möglich mit evidenzbasierten Therapieverfahren (multisystemische Therapie MST, Parent Child Interaction Therapy PCIT, ESDM zur Frühintervention bei Autismus). Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen den KJPD als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
         "it": "Stiamo cercando un accordo/- n\n\nIn collaborazione tra la clinica per bambini e adolescenti e il servizio psichiatrico infantile e adolescente Thurgau, al Canton Hospital Münsterlingen offriamo ai colleghi in formazione avanzata l'opportunità unica di lavorare in un contesto psicosomatico per più di 2 anni. Nel primo anno si lavora sotto la guida professionale di psichiatria infantile e adolescente e direttamente dopo nel secondo anno sotto la gestione professionale di medicina pediatrica e adolescente. Il servizio psichiatrico infantile e adolescente (KJPD) Thurgau e la Clinica per bambini e adolescenti (KKJ) offrono eccellenti condizioni per un'ulteriore formazione fondata. Siamo stati coinvolti nella cura familiare, altamente ambulatorio per anni. Trattiamo con standard di alta qualità, se possibile con procedure terapeutiche basate su prove.\n\nIl servizio psichiatrico infantile e adolescente (KJPD) Thurgau offre eccellenti condizioni per la formazione psichiatrica infantile e adolescente e per una formazione psicoterapeutica completa. Ogni anno, trattiamo più di 3.000 pazienti con elevati standard di qualità in ambienti familiari, ambulatoriale, visita e giorno-clinico, se possibile con procedure terapeutiche basate su prove (terapia multi-sistematica MST, Terapia Parent Child Interaction PCIT, ESDM per intervento precoce nell'autismo). Una cultura apprezzativa combinata con un'eccellente formazione e formazione rendono il KJPD un datore di lavoro altamente attraente come parte dei servizi psichiatrici Thurgau. Preferiamo applicazioni dirette, agenti di lavoro si prega di astenersi dal contatto. Tutte le nostre competenze\n\n• Area: Personale medico\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo",
         "en": "We are looking for an agreement/- n\n\nIn cooperation between the clinic for children and adolescents and the child and adolescent psychiatric service Thurgau, we at the Canton Hospital Münsterlingen offer colleagues in advanced training the unique opportunity to work in a psychosomatic context for more than 2 years. In the first year you work under the professional guidance of child and adolescent psychiatry and directly afterwards in the second year under the professional management of pediatric and adolescent medicine. The Child and Adolescent Psychiatric Service (KJPD) Thurgau and the Clinic for Children and Adolescents (KKJ) offer excellent conditions for well-founded further education. We have been involved in family-friendly, highly outpatient care for years. We treat with high quality standards, if possible with evidence-based therapy procedures.\n\nThe Child and Adolescent Psychiatric Service (KJPD) Thurgau offers excellent conditions for classical child and adolescent psychiatric training as well as for comprehensive psychotherapeutic training. Every year, we treat more than 3,000 patients with high quality standards in family-friendly, outpatient, visiting and day-clinical settings, if possible with evidence-based therapy procedures (multi-systemic therapy MST, Parent Child Interaction Therapy PCIT, ESDM for early intervention in autism). An appreciative culture combined with an excellent education and training make the KJPD a highly attractive employer as part of the Psychiatric Services Thurgau. We prefer direct applications, job agents please refrain from contacting. ALL OUR OPEN AUTHORITIES\n\n• Area: Medical staff\n• Type: Full-time, part-time\n• Temporary term: perpetual",
+        "de": "Wir suchen nach Vereinbarung eine/-n\n\nIn Zusammenarbeit zwischen der Klinik für Kinder und Jugendliche und dem Kinder- und Jugendpsychiatrischen Dienst Thurgau bieten wir am Kantonsspital Münsterlingen für Kolleginnen und Kollegen in fortgeschrittener Weiterbildung die einmalige Möglichkeit über 2 Jahre in einem psychosomatischen Kontext stationär zu arbeiten. Im ersten Jahr arbeiten Sie unter fachlicher Anleitung der Kinder- und Jugendpsychiatrie und direkt im Anschluss im zweiten Jahr unter fachlicher Leitung der Kinder- und Jugendmedizin. Der Kinder- und Jugendpsychiatrische Dienst (KJPD) Thurgau und die Klinik für Kinder und Jugendliche (KKJ) bieten hervorragende Rahmenbedingungen für fundierte Weiterbildungen. Wir engagieren uns seit Jahren in einer familienfreundlichen, stark ambulant ausgerichteten Versorgung. Wir behandeln mit hohem Qualitätsanspruch, wenn möglich mit evidenzbasierten Therapieverfahren.\n\nDer Kinder- und Jugendpsychiatrische Dienst (KJPD) Thurgau bietet hervorragende Rahmenbedingungen für die klassische kinder- und jugendpsychiatrische sowie für eine umfassende psychotherapeutische Ausbildung. Wir behandeln jährlich über 3'000 Patientinnen und Patienten mit hohem Qualitätsanspruch in familienfreundlichen, ambulanten, aufsuchenden und tagesklinischen Settings, wenn möglich mit evidenzbasierten Therapieverfahren (multisystemische Therapie MST, Parent Child Interaction Therapy PCIT, ESDM zur Frühintervention bei Autismus). Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen den KJPD als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
         "fr": "Nous cherchons un accord/-\n\nEn coopération entre la clinique pour enfants et adolescents et le service psychiatrique pour enfants et adolescents Thurgau, nous, à l'hôpital de Canton Münsterlingen, offrons à nos collègues en formation avancée l'occasion unique de travailler dans un contexte psychosomatique pendant plus de 2 ans. Dans la première année, vous travaillez sous la direction professionnelle de la psychiatrie de l'enfant et de l'adolescent et directement après la deuxième année sous la gestion professionnelle de la médecine pédiatrique et de l'adolescent. Le Service psychiatrique pour les enfants et les adolescents (KJPD) Thurgau et la Clinique pour les enfants et les adolescents (KKJ) offrent d'excellentes conditions pour une éducation complémentaire bien fondée. Nous sommes impliqués dans des soins ambulatoires adaptés à la famille depuis des années. Nous traitons avec des normes de qualité élevées, si possible avec des procédures thérapeutiques fondées sur des preuves.\n\nLe Service psychiatrique pour enfants et adolescents (KJPD) Thurgau offre d'excellentes conditions pour la formation psychiatrique classique pour enfants et adolescents ainsi que pour une formation psychothérapeutique complète. Chaque année, nous traitons plus de 3 000 patients avec des normes de qualité élevées en milieu familial, ambulatoire, visitant et clinique de jour, si possible avec des procédures de thérapie fondées sur des données probantes (thérapie multi-systémique MST, thérapie mère-enfant PCIT, ESDM pour une intervention précoce dans l'autisme). Une culture d'appréciation combinée à une excellente éducation et formation font du KJPD un employeur très attrayant dans le cadre des Services psychiatriques Thurgau. Nous préférons les candidatures directes, les agents d'emploi s'il vous plaît ne pas contacter. TOUS NOS AUTORITÉS OUVERTES\n\n• Zone : personnel médical\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel"
       },
       "needsRetranslation": true,
@@ -778,7 +791,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3385/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T21:47:51.495Z",
+      "crawledAt": "2026-08-11T10:21:49.364Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -794,24 +807,23 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3385/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und"
-        ],
-        "de": [
-          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und"
-        ],
-        "en": [
-          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-interesse-an-psychosomatik-spital-thurgau-stgag-munsterlingen"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-interesse-an-psychosomatik-spital-thurgau-stgag-munsterlingen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und"
+        ],
+        "en": [
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-interesse-an-psychosomatik-spital-thurgau-stgag-munsterlingen"
+        ],
+        "de": [
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und"
+        ]
+      },
+      "firstSeenAt": "2026-08-10T21:47:51.495Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -823,8 +835,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-10T21:47:51.495Z"
+      }
     },
     {
       "id": "stgag-4469a6549362",
@@ -913,7 +924,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "stgag-47bfdcb909af",
@@ -932,7 +944,7 @@
         "it": "Stv. Team Leader/-in Patisserie",
         "en": "Stv. Team Leader/-in Patisserie",
         "de": "Stv. Teamleiter/-in Patisserie",
-        "fr": "Chef d'équipe/-dans Patisserie"
+        "fr": "Stv. Teamleiter/-in Patisserie"
       },
       "description": "Die Hotellerie am Spitalcampus Münsterlingen bietet Ihnen einen interessanten, lebhaften Arbeitsplatz in einem modernen Küchenbetrieb mit kalter Linie, 1'800 Patientenmenüs pro Tag und vielfältigem diätetischem Angebot. Zur Ergänzung der Patisserie suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nNeben einem Lehrabschluss als Konditor/Koch/Köchin verfügst Du mit Vorteil über einige Jahre Berufspraxis, bist lern- und teamfähig. Dann unterstützen wir Dich gerne bei deiner weiteren Berufslaufbahn. Wir bieten viel Eigenverantwortung, ein breites Aufgabengebiet mit Fokus auf Teamwork. Es erwartet Dich eine moderne Infrastruktur mit Tageslicht, in einem zukunftsorientierten und erfolgreichen Dienstleistungsbetrieb.\n\nTagesbetrieb ohne Zimmerstunde. Die Arbeitszeiten sind üblicherweise von 05.20 -12.00 Uhr / 13.10 - 15.00 Uhr oder 06.30 - 12.10 / 13.50 - 16.40 Uhr.\n\nDer Bereich Verpflegung umfasst die Herstellung der Mahlzeiten für Patienten, Mitarbeitende und Veranstaltungen für das Kantonsspital, die Psychiatrischen Dienste Münsterlingen sowie externe Heime. Dazu gehört auch ein breites Angebot ernährungstherapeutischer Kostformen, das in Zusammenarbeit mit der Ernährungsberatung laufend aktualisiert wird. Die Arbeit in allen Bereichen der Küche runden die abwechslungsreiche Stelle ab. Es erwartet Dich eine dynamische Brigade, mit dem Können und Wissen, wie Du es besitzt. Interessiert an Deiner beruflichen Weiterentwicklung? Dann unterstützten wir Dich auch gerne in Deiner Weiterbildung und in Deinem Weiterkommen.\n\nNeben einem Lehrabschluss EFZ als Konditor-Confiseur/-in oder Koch/Köchin , verfügst Du mit Vorteil über einige Jahre Berufserfahrung. Du hast ein organisatorisches Flair, bist teamfähig, effizient, flexibel und arbeitest gerne Kunden- und ergebnisorientiert.\n\n«Willst Du mehr über diese spannende Stelle erfahren? Ich freue mich über Deine Kontaktaufnahme.»\n\nZum erfolgreichen Unternehmen Spital Thurgau AG gehören die Kantonsspitäler in Frauenfeld und Münsterlingen, die Psychiatrischen Dienste Thurgau in Münsterlingen und Weinfelden sowie die Klink St. Katharinental für Rehabilitation und Langzeitpflege in Diessenhofen. Ebenfalls betreiben wir zentrale medizinische und administrative Dienste und Institute. Wir bieten ein umfassendes Leistungsangebot und investieren stetig in die hochwertige Infrastruktur. Unseren rund 4'100 Mitarbeitenden bieten wir attraktive Arbeitsumgebungen, interdisziplinäre Zusammenarbeit und gezielte Entwicklungsmöglichkeiten. Werde auch Du Teil unserer Erfolgsgeschichte!\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Bereich: Hotellerie\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
       "descriptionByLocale": {
@@ -998,183 +1010,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
-    },
-    {
-      "id": "stgag-f10b19c9ada3",
-      "slug": "stage-in-anno-pratico-strutturato-spj-cura-fh-ost-2027-spital-thurgau-stgag-kantonsspital-munsterlingen",
-      "slugByLocale": {
-        "it": "stage-in-anno-pratico-strutturato-spj-cura-fh-ost-2027-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "internship-in-structured-practical-year-spj-care-fh-ost-2027-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "de": "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
-        "fr": "stage-en-annee-pratique-structuree-spj-soins-fh-ost-2027-spital-thurgau-stgag-kantonsspital-munsterlingen"
-      },
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "stgag",
-      "companyDomain": "stgag.ch",
-      "title": "Praktikant/-in Strukturiertes Praxisjahr (SPJ) Pflege FH OST 2027",
-      "titleByLocale": {
-        "it": "Stage in Anno pratico strutturato (SPJ) Cura FH OST 2027",
-        "en": "Internship in Structured Practical Year (SPJ) Care FH OST 2027",
-        "de": "Praktikant/-in Strukturiertes Praxisjahr (SPJ) Pflege FH OST 2027",
-        "fr": "Stage en année pratique structurée (SPJ) Soins FH OST 2027"
-      },
-      "description": "Wir bieten Praktikumsplätze als Praktikant/-in Strukturiertes Praxisjahr (SPJ) Pflege FH OST 2027 100% Patientennah, lernfreudig, motiviert, empathisch, genau und flexibel - das sind wir. Treffen diese Werte auch auf dich zu? Dann bewirb dich bei uns – wir freuen uns auf dich! Du übernimmst Als Praktikant/-in SPJ betreust und unterstützt du unsere Patienten/-innen im Spitalalltag und wirkst aktiv bei der Pflege mit. Dabei bist du Teil eines Pflegeteams von diplomierten Pflegefachpersonen, Fachpersonen Gesundheit und Auszubildenden aus den unterschiedlichen Pflegeberufen.\n\nIn deinem Kompetenzbereich erledigst du unterschiedliche pflegerische sowie medizinaltechnische Tätigkeiten wie beispielsweise einfache Körperpflege, Vitalzeichenkontrolle, Alltagsgestaltung, Verbandwechsel sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Praktikant/-in SPJ leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung der Gesundheit und des Wohlbefindens von Patienten/-innen\n\nDu arbeitest gerne im Team\n\nDu bist zuverlässig und verantwortungsbewusst\n\nDu bist körperlich und psychisch belastbar\n\nDu bist am Pflegeberuf und dem Arbeiten in der Pflege interessiert\n\nFachmatura in einer anderen Richtung als Gesundheit\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Befristet",
-      "descriptionByLocale": {
-        "it": "Offriamo stage come stagista / in Anno pratico strutturato (SPJ) Infermieristica FH OST 2027 100% paziente-oriented, desideroso di imparare, motivato, empatico, accurato e flessibile - che siamo noi. Questi valori si applicano a voi? Allora applicaci – non vediamo l'ora di te! Si prende il sopravvento come stagista SPJ, si prende cura e sostenere i nostri pazienti nella vita quotidiana dell'ospedale e partecipare attivamente alla cura. Siete parte di un team di cura di infermieri qualificati, specialisti della salute e apprendisti dalle varie professioni di cura.\n\nNella vostra area di competenza, svolgete varie attività di cura e di medicina-tecnica come la cura personale semplice, il controllo dei segni vitali, il design di tutti i giorni, il cambiamento di vestirsi così come compiti domestici, logistici e amministrativi.\n\nCome tirocinante si dà un contributo importante alla promozione resp. Mantenere la salute e il benessere dei pazienti\n\nTi piace lavorare in una squadra\n\nSei affidabile e responsabile\n\nSei fisicamente e psicologicamente resiliente\n\nSei interessato alla cura e al lavoro in allattamento\n\nFormazione professionale in una direzione diversa dalla salute\n\n• Dominio: Istruzione\n• Tipo: Tempo pieno\n• Termine: Temporaneo",
-        "en": "We offer internships as an intern/in Structured Practical Year (SPJ) Nursing FH OST 2027 100% patient-oriented, eager to learn, motivated, empathetic, accurate and flexible - that's us. Do these values apply to you? Then apply to us – we look forward to you! You take over as an intern SPJ, you look after and support our patients in everyday hospital life and actively participate in the care. You are part of a nursing team of qualified nurses, health specialists and trainees from the various nursing professions.\n\nIn your area of competence, you carry out various nursing and medical-technical activities such as simple personal care, vital sign control, everyday design, change of dressing as well as domestic, logistical and administrative tasks.\n\nAs an intern you make an important contribution to the promotion resp. Maintaining patient health and well-being\n\nYou like working in a team\n\nYou are reliable and responsible\n\nYou are physically and psychologically resilient\n\nYou are interested in nursing and working in nursing\n\nProfessional education in a different direction than health\n\n• Domain: Education\n• Type: Full-time\n• Time limit: Temporary",
-        "de": "Wir bieten Praktikumsplätze als Praktikant/-in Strukturiertes Praxisjahr (SPJ) Pflege FH OST 2027 100% Patientennah, lernfreudig, motiviert, empathisch, genau und flexibel - das sind wir. Treffen diese Werte auch auf dich zu? Dann bewirb dich bei uns – wir freuen uns auf dich! Du übernimmst Als Praktikant/-in SPJ betreust und unterstützt du unsere Patienten/-innen im Spitalalltag und wirkst aktiv bei der Pflege mit. Dabei bist du Teil eines Pflegeteams von diplomierten Pflegefachpersonen, Fachpersonen Gesundheit und Auszubildenden aus den unterschiedlichen Pflegeberufen.\n\nIn deinem Kompetenzbereich erledigst du unterschiedliche pflegerische sowie medizinaltechnische Tätigkeiten wie beispielsweise einfache Körperpflege, Vitalzeichenkontrolle, Alltagsgestaltung, Verbandwechsel sowie hauswirtschaftliche, logistische und administrative Aufgaben.\n\nAls Praktikant/-in SPJ leistest du einen wichtigen Beitrag zur Förderung resp. Erhaltung der Gesundheit und des Wohlbefindens von Patienten/-innen\n\nDu arbeitest gerne im Team\n\nDu bist zuverlässig und verantwortungsbewusst\n\nDu bist körperlich und psychisch belastbar\n\nDu bist am Pflegeberuf und dem Arbeiten in der Pflege interessiert\n\nFachmatura in einer anderen Richtung als Gesundheit\n\n• Bereich: Bildung\n• Art: Vollzeit\n• Befristung: Befristet",
-        "fr": "Nous offrons des stages en tant que stagiaire/en année pratique structurée (SPJ) Soins infirmiers FH OST 2027 100% orienté patient, désireux d'apprendre, motivé, empathique, précis et flexible - c'est nous. Ces valeurs s'appliquent-elles à vous? Alors appliquez-nous – nous vous attendons avec impatience! Vous prenez le relais en tant que stagiaire SPJ, vous soignez et soutenez nos patients dans la vie quotidienne de l'hôpital et participez activement aux soins. Vous faites partie d'une équipe d'infirmières, de spécialistes de la santé et de stagiaires des diverses professions infirmières.\n\nDans votre domaine de compétence, vous effectuez diverses activités médicales et techniques telles que des soins personnels simples, le contrôle des signes vitaux, la conception quotidienne, le changement d'habillage ainsi que des tâches domestiques, logistiques et administratives.\n\nEn tant que stagiaire, vous apportez une contribution importante à la promotion resp. Maintenir la santé et le bien-être des patients\n\nTu aimes travailler en équipe\n\nVous êtes fiable et responsable\n\nVous êtes physiquement et psychologiquement résistant\n\nVous êtes intéressé par les soins infirmiers et le travail en soins infirmiers\n\nLa formation professionnelle dans une direction différente de la santé\n\n• Domaine: Éducation\n• Type: Temps plein\n• Délai: Temporaire"
-      },
-      "needsRetranslation": false,
-      "location": "Münsterlingen",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3636/Description/1",
-      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:25.470Z",
-      "addressLocality": "Münsterlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8596",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3636/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
-        "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-        "stage-in-anno-pratico-strutturato-spj-cura-fh-ost-2027-spital-thurgau-stgag-munsterlingen",
-        "internship-in-structured-practical-year-spj-care-fh-ost-2027-spital-thurgau-stgag-munsterlingen",
-        "stage-en-annee-pratique-structuree-spj-soins-fh-ost-2027-spital-thurgau-stgag-munsterlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-          "stage-in-anno-pratico-strutturato-spj-cura-fh-ost-2027-spital-thurgau-stgag-munsterlingen"
-        ],
-        "en": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-          "internship-in-structured-practical-year-spj-care-fh-ost-2027-spital-thurgau-stgag-munsterlingen"
-        ],
-        "de": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen"
-        ],
-        "fr": [
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-ch",
-          "praktikant-in-strukturiertes-praxisjahr-spj-pflege-fh-ost-2027-stgag-munsterlingen",
-          "stage-en-annee-pratique-structuree-spj-soins-fh-ost-2027-spital-thurgau-stgag-munsterlingen"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:09:23.151Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stgag-66e9a39c4275",
-      "slug": "junior-hr-generalist-in-stgag-munsterlingen",
-      "slugByLocale": {
-        "it": "junior-hr-generalist-in-stgag-munsterlingen",
-        "en": "junior-hr-generalist-in-stgag-munsterlingen",
-        "de": "junior-hr-generalist-in-stgag-ch",
-        "fr": "junior-hr-generalist-in-stgag-munsterlingen"
-      },
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "stgag",
-      "companyDomain": "stgag.ch",
-      "title": "Junior HR Generalist/-in",
-      "titleByLocale": {
-        "it": "Junior Risorse Umane Generalist/-in",
-        "en": "Junior HR Generalist",
-        "de": "Junior HR Generalist/-in",
-        "fr": "Junior Ressources Humaines Generalist/-in"
-      },
-      "description": "Da sich unsere aktuelle Stelleninhaberin weiterentwickelt, suchen wir eine Nachfolge als Junior HR Generalist/-in 50-60% Spannende, verantwortungsvolle Einstiegsstelle im HR mit Fokus auf Kommunikation gesucht? Dann hätten wir eine passende Chance, um das eigene HR-Wissen zu etablieren, anzuwenden und sich on-the-job weiterzuentwickeln. Sie übernehmen Betreuung der HRM-internen Dokumente, des HRM-Intranets und der HRM-spezifischen Websiteninhalte\n\nBetreuung der Social-Media-Profile und der LinkedIn-Profile des Unternehmens sowie Schulung der Mitwirkenden\n\nErstellung von HRM-Kommunikations- und Marketing-Materialien (Flyer, Plakate, Präsentationen etc.)\n\nVerantwortung für Mitarbeitendendokumente wie DAG-Urkunden, Onboarding-Postkarten, etc.\n\nMitwirkung bei der Personalzeitung und beim Pensioniertenmanagement\n\nMitwirkung in HRM-Projekten\n\nHR Fachfrau/-mann oder Bachelorabschluss in HRM oder Kommunikation\n\nKommunikation- und Marketingkompetenz sowie fundierte Social Media-Kompetenz und -Affinität\n\n• Bereich: HR\n• Art: Teilzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Mentre il nostro attuale titolare del lavoro si sviluppa, stiamo cercando un successore come Junior HR Generalist 50-60% Eccitante, posizione di entry-level responsabile in HR con un focus sulla comunicazione? Allora avremmo la possibilità di stabilire, applicare e sviluppare le nostre conoscenze HR sul lavoro. Si prende cura dei documenti interni HRM, HRM intranet e il contenuto del sito HRM-specifico\n\nSupervisione dei profili dei social media dell’azienda e dei profili LinkedIn e formazione dei collaboratori\n\nCreazione di HRM comunicazione e materiali di marketing (figli, manifesti, presentazioni, ecc.)\n\nResponsabilità per i documenti dei dipendenti come documenti DAG, cartoline di bordo, ecc.\n\nPartecipazione ai giornali del personale e alla gestione in pensione\n\nPartecipazione a progetti HRM\n\nHR specialista o laurea in HRM o comunicazione\n\nCompetenze di comunicazione e marketing nonché competenze e affinità dei social media\n\n• Area: HR\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
-        "en": "As our current job holder develops, are we looking for a successor as Junior HR Generalist 50-60% Exciting, responsible entry-level position in HR with a focus on communication? Then we would have a suitable chance to establish, apply and develop our own HR knowledge on-the-job. You take care of the HRM internal documents, the HRM intranet and the HRM-specific website content\n\nSupervision of the company’s social media profiles and LinkedIn profiles as well as training of contributors\n\nCreation of HRM communication and marketing materials (flyers, posters, presentations, etc.)\n\nResponsibility for employee documents such as DAG documents, onboarding postcards, etc.\n\nParticipation in staff newspapers and in retired management\n\nParticipation in HRM projects\n\nHR specialist or Bachelor’s degree in HRM or communication\n\nCommunication and marketing skills as well as in-depth social media expertise and affinity\n\n• Area: HR\n• Type: part-time\n• Temporary term: perpetual",
-        "de": "Da sich unsere aktuelle Stelleninhaberin weiterentwickelt, suchen wir eine Nachfolge als Junior HR Generalist/-in 50-60% Spannende, verantwortungsvolle Einstiegsstelle im HR mit Fokus auf Kommunikation gesucht? Dann hätten wir eine passende Chance, um das eigene HR-Wissen zu etablieren, anzuwenden und sich on-the-job weiterzuentwickeln. Sie übernehmen Betreuung der HRM-internen Dokumente, des HRM-Intranets und der HRM-spezifischen Websiteninhalte\n\nBetreuung der Social-Media-Profile und der LinkedIn-Profile des Unternehmens sowie Schulung der Mitwirkenden\n\nErstellung von HRM-Kommunikations- und Marketing-Materialien (Flyer, Plakate, Präsentationen etc.)\n\nVerantwortung für Mitarbeitendendokumente wie DAG-Urkunden, Onboarding-Postkarten, etc.\n\nMitwirkung bei der Personalzeitung und beim Pensioniertenmanagement\n\nMitwirkung in HRM-Projekten\n\nHR Fachfrau/-mann oder Bachelorabschluss in HRM oder Kommunikation\n\nKommunikation- und Marketingkompetenz sowie fundierte Social Media-Kompetenz und -Affinität\n\n• Bereich: HR\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "À mesure que notre titulaire actuel se développe, est-ce que nous cherchons un successeur en tant que généraliste junior des RH 50-60% Excitant, poste d'entrée de gamme responsable en RH avec un accent sur la communication? Ensuite, nous aurions une chance appropriée d'établir, de mettre en application et de développer nos propres connaissances en RH sur le tas. Vous prenez soin des documents internes de la GRH, de l'intranet de la GRH et du contenu spécifique du site Web de la GRH\n\nSupervision des profils des médias sociaux et des profils LinkedIn de l'entreprise ainsi que formation des contributeurs\n\nCréation de matériel de communication et de marketing (voleurs, affiches, présentations, etc.)\n\nResponsabilité pour les documents des employés tels que les documents du DAG, les cartes postales à bord, etc.\n\nParticipation aux journaux du personnel et à la gestion à la retraite\n\nParticipation aux projets de GRH\n\nSpécialiste en RH ou baccalauréat en RH ou en communication\n\nCompétences en communication et marketing ainsi qu'une expertise et une affinité approfondies des médias sociaux\n\n• Domaine : RH\n• Type: temps partiel\n• Terme temporaire : perpétuel"
-      },
-      "needsRetranslation": false,
-      "location": "Münsterlingen",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3708/Description/1",
-      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-09T21:35:21.859Z",
-      "addressLocality": "Münsterlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8596",
-      "category": "Risorse Umane",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3708/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "junior-hr-generalist-in-stgag-ch-r134ps"
-        ],
-        "it": [
-          "junior-hr-generalist-in-stgag-ch"
-        ],
-        "en": [
-          "junior-hr-generalist-in-stgag-ch"
-        ],
-        "fr": [
-          "junior-hr-generalist-in-stgag-ch",
-          "junior-hr-generalist-in-stgag-munsterlingen-r134ps"
-        ]
-      },
-      "previousSlugs": [
-        "junior-hr-generalist-in-stgag-ch",
-        "junior-hr-generalist-in-stgag-munsterlingen-r134ps",
-        "junior-hr-generalist-in-stgag-ch-r134ps"
-      ],
-      "firstSeenAt": "2026-08-05T11:36:06.038Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
