@@ -9687,6 +9687,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-ollomont-lavorare-vallese.title': 'Living in Ollomont and working in Valais as a border worker',
     'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Practical guide for commuting between Italy and Switzerland, between new tax agreement, tax management and Swiss social security.',
     'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Alpine mountain landscape between Italy and Switzerland',
+    'blog.article.vivere-doues-lavorare-vallese.title': 'Living in Doues and working in Valais as a border worker',
+    'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Guide to commuting between Doues and Valais: tax rules, social security and management of cross-border work in compliance with current agreements.',
+    'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Mountain landscape between Doues and the Swiss border',
 };
 
 export default blogMetaEn;

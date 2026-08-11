@@ -9688,6 +9688,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-ollomont-lavorare-vallese.title': 'Vivere a Ollomont e lavorare in Vallese da frontaliere',
     'blog.article.vivere-ollomont-lavorare-vallese.excerpt': 'Guida pratica per il pendolarismo tra Italia e Svizzera, tra nuovo accordo fiscale, gestione delle imposte e previdenza sociale svizzera.',
     'blog.article.vivere-ollomont-lavorare-vallese.imageAlt': 'Paesaggio montano alpino tra Italia e Svizzera',
+    'blog.article.vivere-doues-lavorare-vallese.title': 'Vivere a Doues e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Guida al pendolarismo tra Doues e il Vallese: regole fiscali, previdenza e gestione del lavoro transfrontaliero nel rispetto degli accordi vigenti.',
+    'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Paesaggio montano tra Doues e il confine svizzero',
 };
 
 export default blogMetaIt;

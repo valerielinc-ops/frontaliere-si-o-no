@@ -752,6 +752,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc': { it: 'indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc', en: 'unemployment-insurance-canton-zurich-urc-registration', de: 'arbeitslosenversicherung-kanton-zurich-urc-anmeldung', fr: 'securite-chomage-canton-de-zurich-inscription-au-urc' },
  'svizzera-ees-rallenta-controlli': { it: 'svizzera-ees-rallenta-controlli', en: 'svizzera-ees-rallenta-controlli', de: 'schweiz-ees-verlangsamt-kontrollen', fr: 'suisse-ees-ralentit-controles' },
  'sistema-scolastico-canton-zurigo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli', en: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli', de: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli', fr: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli' },
+ 'neutralita-consiglio-federale': { it: 'neutralita-consiglio-federale', en: 'federal-council-neutrality', de: 'bundesrat-neutralitaet', fr: 'conseil-federal-neutralite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

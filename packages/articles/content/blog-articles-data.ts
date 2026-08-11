@@ -29055,6 +29055,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-doues-lavorare-vallese',
+ category: 'pratico',
+ date: '2026-08-11T12:01:38.446Z',
+ image: '/images/blog/vivere-doues-lavorare-vallese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
