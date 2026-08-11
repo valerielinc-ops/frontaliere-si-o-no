@@ -19,12 +19,12 @@
  * unquoted, i.e. exactly the highest-CPC family was invisible, while the
  * quoted families (home, the Ticino job hub, sectors, guides) passed.
  *
- * `hasNoindex()` in scripts/validate-page-seo-quality.mjs was already made
+ * `hasNoindex()` in scripts/validate-page-seo-quality was already made
  * quote-flexible when #478 landed, and carries a comment saying so; the
  * description reader three lines above it was not. That is the whole defect
  * class: a per-call-site regex that drifts. Hence one module, five call
  * sites — scripts/seo/meta-description-audit.mjs,
- * scripts/validate-page-seo-quality.mjs and
+ * scripts/validate-page-seo-quality and
  * tests/dist-duplicate-meta-description.test.ts on our own `dist/`, plus
  * scripts/lib/kispi-job-parser.mjs and scripts/lib/solina-job-parser.mjs on
  * EXTERNAL job HTML.

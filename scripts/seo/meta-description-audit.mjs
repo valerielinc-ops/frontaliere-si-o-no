@@ -19,7 +19,7 @@
  * Fail-soft: emits stub report when dist/ is missing / empty.
  *
  * The description reader lives in scripts/lib/meta-description-extract.mjs and
- * is shared with scripts/validate-page-seo-quality.mjs and
+ * is shared with scripts/validate-page-seo-quality and
  * tests/dist-duplicate-meta-description.test.ts. It used to be a local pair of
  * regexes requiring quotes around `description`, which made this audit blind to
  * every minified page (`removeAttributeQuotes`, PR #478) — measured on 200
