@@ -2128,6 +2128,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon: turnover at 2.78 billion in the second quarter of 2026',
     'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'The Alcon ophthalmology group closed Q2 2026 with a turnover of 2.78 billion dollars, marking a growth of 8% on an annual basis.',
     'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'A financial analyst working in a modern office in Switzerland.',
+    'blog.article.economia-svizzera-nazionale-2026.title': 'Productivity increase for Logitech in Q1 2026/2027',
+    'blog.article.economia-svizzera-nazionale-2026.excerpt': 'The 2026/2027 financial year starts well for Logitech: in the first quarter (April-June period) gross product increased by 13.3% compared to the same period of the previous year.',
+    'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'The Swiss economy at the national level',
 };
 
 export default blogMetaChEn;

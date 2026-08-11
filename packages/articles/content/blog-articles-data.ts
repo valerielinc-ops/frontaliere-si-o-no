@@ -28920,6 +28920,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-lovero-lavorare-grigioni-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-11T06:52:09.010Z',
+ image: '/images/blog/vivere-lovero-lavorare-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

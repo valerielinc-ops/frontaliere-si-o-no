@@ -735,6 +735,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apple-chip-supply-chain-impatto': { it: 'apple-chip-supply-chain-impatto', en: 'apple-chip-shortage-supply-chain-impact', de: 'apple-chip-mangel-lieferketten-auswirkungen', fr: 'apple-penurie-puces-impact-chaine-approvisionnement' },
  'annunci-di-lavoro-svizzera': { it: 'annunci-di-lavoro-svizzera', en: 'job-announcements-switzerland', de: 'job-anzeigen-schweiz', fr: 'annonces-emploi-suisse' },
  'alcon-risultati-finanziari-q2-2026': { it: 'alcon-risultati-finanziari-q2-2026', en: 'alcon-q2-2026-financial-results', de: 'alcon-q2-2026-finanzergebnisse', fr: 'alcon-resultats-q2-2026' },
+ 'economia-svizzera-nazionale-2026': { it: 'economia-svizzera-nazionale-2026', en: 'swiss-economy-national', de: 'schweizerische-wirtschaft-national', fr: 'economie-suisse-nationale' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

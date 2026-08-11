@@ -27551,6 +27551,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economia-svizzera-nazionale-2026': {
+    title: 'Aumento produttività per Logitech nel primo trimestre 2026/2027',
+    description: 'La situazione attuale dell\'economia svizzera sembra essere positiva, con alcuni settori che mostrano un aumento della produttività. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, produttività, logitech, primo',
+    ogTitle: 'Aumento produttività per Logitech nel primo trimestre 2026/2027',
+    ogDescription: 'La situazione attuale dell\'economia svizzera sembra essere positiva, con alcuni settori che mostrano un aumento della produttività.',
+    canonicalPath: '/articoli-svizzera/economia-svizzera-nazionale-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento produttività per Logitech nel primo trimestre 2026/2027",
+      "description": "La situazione attuale dell'economia svizzera sembra essere positiva, con alcuni settori che mostrano un aumento della produttività. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-svizzera-nazionale-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La vita economica in Svizzera a livello nazionale"
+      },
+      "datePublished": "2026-08-11T06:59:13+00:00",
+      "dateModified": "2026-08-11T06:59:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-nazionale-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

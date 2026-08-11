@@ -2128,6 +2128,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon: fatturato a 2,78 miliardi nel secondo trimestre 2026',
     'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'Il gruppo oftalmologico Alcon chiude il Q2 2026 con un fatturato di 2,78 miliardi di dollari, segnando una crescita dell\'8% su base annua.',
     'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'Un analista finanziario al lavoro in un ufficio moderno in Svizzera.',
+    'blog.article.economia-svizzera-nazionale-2026.title': 'Aumento produttività per Logitech nel primo trimestre 2026/2027',
+    'blog.article.economia-svizzera-nazionale-2026.excerpt': 'Parte bene l\'esercizio 2026/2027 per Logitech: nel primo trimestre (periodo aprile-giugno) il prodotto lordo è aumentato di 13,3% rispetto allo stesso periodo dell\'anno precedente.',
+    'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'La vita economica in Svizzera a livello nazionale',
 };
 
 export default blogMetaChIt;

@@ -2128,6 +2128,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon : chiffre d\'affaires à 2,78 milliards au deuxième trimestre 2026',
     'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'Le groupe ophtalmologique Alcon clôture le Q2 2026 avec un chiffre d\'affaires de 2,78 milliards de dollars, marquant une croissance de 8 % sur une base annuelle.',
     'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'Un analyste financier travaillant dans un bureau moderne en Suisse.',
+    'blog.article.economia-svizzera-nazionale-2026.title': 'Augmentation de la productivité pour Logitech au premier trimestre 2026/2027',
+    'blog.article.economia-svizzera-nazionale-2026.excerpt': 'L\'exercice 2026/2027 commence bien pour Logitech : au premier trimestre (période avril-juin), le produit brut a augmenté de 13,3 % par rapport à la même période de l\'année précédente.',
+    'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'L\'économie suisse au niveau national',
 };
 
 export default blogMetaChFr;
