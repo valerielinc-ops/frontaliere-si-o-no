@@ -2068,6 +2068,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fit-partnership-2026.title': 'Regole per il commercio: impegno comune',
     'blog.article.fit-partnership-2026.excerpt': 'La Svizzera ha sostenuto la sicurezza economica e la resilienza delle catene di approvvigionamento attraverso il FIT Partnership',
     'blog.article.fit-partnership-2026.imageAlt': 'Vista di Lugano con il Ministero federale della giustizia e polizia nella vista, con il lago Lugano in primo piano',
+    'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Emergenza climatica: il dibattito sul Piano energetico ticinese',
+    'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Il meteorologo Matteo Buzzi analizza l\'urgenza climatica e il ruolo del Piano Energetico e Climatico Cantonale in Gran Consiglio.',
+    'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'Veduta del lungolago di Lugano in una giornata estiva calda',
 };
 
 export default blogMetaChIt;
