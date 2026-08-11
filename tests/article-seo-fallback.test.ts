@@ -25,6 +25,27 @@ describe('article SEO fallback builder', () => {
     expect(allText).toContain('imposta');
   });
 
+  // Issue #5560: STOP_WORDS used to hardcode the literal '2026' instead of a
+  // year-shaped test, so any other four-digit year (past or future) could win
+  // a topicTerms slot and displace a genuinely distinctive term. The year
+  // tokens live only in `keywords` here (never echoed verbatim like title/desc
+  // are), so a year surfacing in the output can only come from topicTerms —
+  // this fails today for any year outside the hand-written '2026' literal.
+  it('never lets a bare year win a topicTerms slot, for any year', () => {
+    const sections = buildArticleSeoSections(
+      'it',
+      'Novita sul regime frontalieri',
+      'Guida pratica aggiornata per chi lavora in Ticino.',
+      'regime frontalieri, novita fiscali, 1998, 2031, scadenza importante, obbligo dichiarativo',
+    );
+
+    const allText = sections.flatMap((section) => [section.heading, ...section.paragraphs]).join(' ');
+    expect(allText).not.toMatch(/\b1998\b/);
+    expect(allText).not.toMatch(/\b2031\b/);
+    expect(allText).toContain('novita');
+    expect(allText).toContain('regime');
+  });
+
   it('renders markdown-like article body sections into semantic HTML', () => {
     const sections = cleanupArticleBodySections(keyed([
       '## Titolo\n**Testo** con [link](https://example.com) e `code`',
