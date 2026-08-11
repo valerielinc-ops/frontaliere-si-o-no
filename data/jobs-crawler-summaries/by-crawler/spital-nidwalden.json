@@ -1,17 +1,12 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-08-11T10:15:38.857Z",
+  "generatedAt": "2026-08-11T10:38:18.063Z",
   "total": 2,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6201,
-  "avgDurationMs": 6201,
-  "durationHistory": [
-    6201
-  ],
   "newJobs": [
     {
       "id": "spital-nidwalden-3026ca67f725",
@@ -26,7 +21,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:15:35.406Z",
+      "crawledAt": "2026-08-11T10:38:14.847Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -94,5 +89,11 @@
         "completeness": 22
       }
     }
+  ],
+  "durationMs": 5818,
+  "avgDurationMs": 5818,
+  "durationHistory": [
+    6201,
+    5818
   ]
 }
