@@ -274,6 +274,15 @@ describe('titleLooksUntranslated — partial German residue in IT slots (no sour
     }).untranslated).toBe(true);
   });
 
+  // Follow-up of #5574 (item 2 of #5592): `/in` matched the plain slash form
+  // but not the hyphenated translator artifact "Dipendente/-in" (source
+  // "Mitarbeiter/-in") — 6 live slots slipped through undetected.
+  it('flags the hyphenated slash Binnen-I artifact "Dipendente/-in"', () => {
+    expect(titleLooksUntranslated({
+      title: 'Dipendente/-in Vendita 80-100%', sourceLang: 'de', targetLocale: 'it',
+    })).toMatchObject({ untranslated: true, reason: 'binnen-i' });
+  });
+
   // Correct Italian that a looser German-morphology rule swallowed: "assistenza"
   // is not "Assistenz", "Socio-Sanitario" is not "Sanitär". These were measured
   // false positives.

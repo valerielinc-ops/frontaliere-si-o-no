@@ -15,7 +15,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
@@ -80,10 +80,13 @@ describe('issue-fix.yml — App token wiring', () => {
     const git = String(stepNamed(/Configure git identity/)!.run);
     expect(git).toContain('git remote set-url origin');
     expect(git).toContain('x-access-token:${APP_TOKEN}');
-    // THE trap. actions/checkout writes
+    // Trap #1 of TWO. actions/checkout writes
     // `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`, which
     // takes precedence over the URL credential — drop this unset and the push silently
     // reverts to the token without the scope. Same cause, same fix as pr-redflag-fixer.yml.
+    // Trap #2 is LATER and was missed for weeks: claude-code-action rewrites this same
+    // remote when it starts. It is pinned by the `github_token` block further down — this
+    // step alone does NOT make the App token survive to `git push`.
     expect(git).toContain('--unset-all');
     expect(git).toContain('http.https://github.com/.extraheader');
     // And it must stay conditional: with no token, rewriting the remote to
@@ -112,6 +115,82 @@ describe('issue-fix.yml — App token wiring', () => {
     const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
     expect(prompt).toContain('NON hai PAT/Firebase SA');
     expect(prompt).toContain('CF_API_TOKEN');
+  });
+});
+
+describe('il token della App deve SOPRAVVIVERE fino al `git push` (#5595)', () => {
+  // Il buco che ha reso inutile tutto il cablaggio qui sopra per settimane.
+  //
+  // `Configure git identity` puntava il remote sull'App token, il conio confermava
+  // `workflows=write`, il log stampava «scope workflows CONFERMATO» — e il push moriva
+  // comunque con «refusing to allow a GitHub App to create or update workflow … without
+  // `workflows` permission». Il motivo non era il permesso: era CHI pushava.
+  //
+  // `claude-code-action`, in `src/github/operations/git-config.ts`, chiama
+  // `configureGitAuth()` → `replaceCheckoutCredentials()`, che esegue un
+  // `git remote set-url origin https://x-access-token:<token>@github.com/…`
+  // INCONDIZIONATO. Quando `github_token` non è passato in input, quel `<token>` è quello
+  // che la action si conia da sé (App `claude`) — e quella App non ha `workflows: write`.
+  // Ogni riga di configurazione git del workflow veniva quindi sovrascritta all'avvio
+  // della action, senza un errore e senza una riga di log del workflow che lo dicesse.
+  //
+  // Misurato sulla issue #5595 (run 31464108396, 2026-08-11): `"github_token": ""` negli
+  // input della action, `mint-app-token: … workflows=write` nel log, push rifiutato lo
+  // stesso. Il fix era completo (254 righe, 3 file) ed è sopravvissuto solo come commento.
+  const wfDir = resolve(__dirname, '../.github/workflows');
+
+  it('issue-fix passa l\'App token alla action, non solo al remote', () => {
+    const claude = steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!;
+    const withBlock = (claude.with || {}) as Record<string, string>;
+    expect(String(withBlock.github_token)).toBe('${{ env.APP_TOKEN }}');
+  });
+
+  it('il fallback è la stringa vuota, MAI GITHUB_TOKEN', () => {
+    // `env.APP_TOKEN` non scritto → `''` → ramo di default della action (`inputs.github_token
+    // == ''`): conia il suo token e lo revoca, cioè il comportamento pre-fix, invariato.
+    // `secrets.GITHUB_TOKEN` come fallback sarebbe una REGRESSIONE, non una rete di
+    // sicurezza: gli eventi di GITHUB_TOKEN non ri-triggerano i workflow a valle
+    // (anti-ricorsione), quindi `tests` e `pr-review-loop` non partirebbero più sulle PR
+    // del fixer — che resterebbero ferme per sempre, senza review e senza auto-merge.
+    for (const file of ['issue-fix.yml', 'pr-redflag-fixer.yml']) {
+      const text = readFileSync(resolve(wfDir, file), 'utf8');
+      const line = text.split('\n').find((l) => l.trim().startsWith('github_token:'));
+      expect(line, `${file} deve passare github_token alla action`).toBeTruthy();
+      expect(line).not.toContain('secrets.GITHUB_TOKEN');
+      expect(line).toContain('env.APP_TOKEN');
+    }
+  });
+
+  it('il 🔴-fixer usa per la action la STESSA identità del suo push remote', () => {
+    // Stesso difetto, stesso file gemello: il suo prompt dichiara all'agente «il remote
+    // origin è già autenticato con l'App token», affermazione che la action smentiva
+    // riscrivendo il remote un istante prima che l'agente la leggesse.
+    const text = readFileSync(resolve(wfDir, 'pr-redflag-fixer.yml'), 'utf8');
+    expect(text).toMatch(/PUSH_TOKEN: \$\{\{ env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/);
+    expect(text).toMatch(/github_token: \$\{\{ env\.APP_TOKEN \|\| env\.GITHUB_PAT \}\}/);
+  });
+
+  it('INVARIANTE DI CLASSE: chi autentica un remote e poi lancia la action deve passarle il token', () => {
+    // Il guard che conta. I due file sopra sono i casi noti; questo impedisce al difetto
+    // di rientrare da un TERZO workflow scritto domani. La firma è meccanica: un workflow
+    // che si costruisce un remote autenticato (`x-access-token:`) e poi invoca
+    // `claude-code-action` sta assumendo che quel remote sopravviva — e non sopravvive,
+    // a meno che non passi `github_token`.
+    const offenders: string[] = [];
+    for (const file of readdirSync(wfDir).filter((f) => f.endsWith('.yml'))) {
+      const text = readFileSync(resolve(wfDir, file), 'utf8');
+      const buildsAuthedRemote = text.includes('x-access-token:');
+      const runsAction = text.includes('anthropics/claude-code-action');
+      if (!buildsAuthedRemote || !runsAction) continue;
+      const passesToken = text
+        .split('\n')
+        .some((l) => l.trim().startsWith('github_token:') && l.includes('env.APP_TOKEN'));
+      if (!passesToken) offenders.push(file);
+    }
+    expect(
+      offenders,
+      `questi workflow autenticano un remote che claude-code-action sovrascriverà: ${offenders.join(', ')}`,
+    ).toEqual([]);
   });
 });
 
