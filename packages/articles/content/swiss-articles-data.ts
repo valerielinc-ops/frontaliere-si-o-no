@@ -6481,6 +6481,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'aziende-svizzere-assunzioni-manpower',
+    category: 'pratico',
+    date: '2026-08-11T10:38:21.122Z',
+    image: '/images/blog/aziende-svizzere-assunzioni-manpower.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

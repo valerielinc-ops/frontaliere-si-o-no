@@ -2161,6 +2161,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Natural disasters, below average damage in 2026',
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'Damage from natural disasters in 2026 is below the 10-year average',
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'A family by the lake of Lugano',
+    'blog.article.aziende-svizzere-assunzioni-manpower.title': 'Recruitment in Switzerland: intentions at a 5-year low',
+    'blog.article.aziende-svizzere-assunzioni-manpower.excerpt': 'The Manpower survey has a net forecast of +19. Interest in AI skills is growing, but SMEs are struggling to invest in digital.',
+    'blog.article.aziende-svizzere-assunzioni-manpower.imageAlt': 'Employees working in a modern Swiss office',
 };
 
 export default blogMetaChEn;

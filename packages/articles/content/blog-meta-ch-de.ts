@@ -2161,6 +2161,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Naturkatastrophen, 2026 Schäden unterdurchschnittlich',
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'Die Schäden durch Naturkatastrophen im Jahr 2026 liegen unter dem Durchschnitt der letzten 10 Jahre',
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'Eine Familie am Luganersee',
+    'blog.article.aziende-svizzere-assunzioni-manpower.title': 'Einstellungen in der Schweiz: Absichten auf dem niedrigsten Stand seit 5 Jahren',
+    'blog.article.aziende-svizzere-assunzioni-manpower.excerpt': 'Die Manpower-Umfrage verzeichnet eine Nettoprognose von +19. Das Interesse an KI-Kompetenzen wächst, aber KMU tun sich schwer, in die Digitalisierung zu investieren.',
+    'blog.article.aziende-svizzere-assunzioni-manpower.imageAlt': 'Mitarbeiter bei der Arbeit in einem modernen Schweizer Büro',
 };
 
 export default blogMetaChDe;

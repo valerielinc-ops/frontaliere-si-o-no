@@ -27980,6 +27980,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aziende-svizzere-assunzioni-manpower': {
+    title: 'Assunzioni in Svizzera: intenzioni ai minimi da 5 anni',
+    description: 'Sondaggio Manpower: previsione netta assunzioni a +19. Cresce la richiesta di competenze IA, ma le PMI restano indietro. Analisi e consigli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, assunzioni, intenzioni, minimi, anni',
+    ogTitle: 'Assunzioni in Svizzera: intenzioni ai minimi da 5 anni',
+    ogDescription: 'Il sondaggio Manpower registra una previsione netta di +19. Cresce l\'interesse per le competenze IA, ma le PMI faticano a investire nel digitale. Analisi del mercato del lavoro svizzero.',
+    canonicalPath: '/articoli-svizzera/aziende-svizzere-assunzioni-manpower/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assunzioni in Svizzera: intenzioni ai minimi da 5 anni",
+      "description": "Sondaggio Manpower: previsione netta assunzioni a +19. Cresce la richiesta di competenze IA, ma le PMI restano indietro. Analisi e consigli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aziende-svizzere-assunzioni-manpower.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impiegati al lavoro in un ufficio moderno in Svizzera"
+      },
+      "datePublished": "2026-08-11T10:38:21+00:00",
+      "dateModified": "2026-08-11T10:38:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aziende-svizzere-assunzioni-manpower/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

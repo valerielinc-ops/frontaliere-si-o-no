@@ -2161,6 +2161,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Catastrophes naturelles, en 2026 des dommages inférieurs à la moyenne',
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'Les dégâts des catastrophes naturelles en 2026 sont inférieurs à la moyenne des 10 dernières années',
     'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'Une famille au lac de Lugano',
+    'blog.article.aziende-svizzere-assunzioni-manpower.title': 'Recrutement en Suisse : des intentions au plus bas depuis 5 ans',
+    'blog.article.aziende-svizzere-assunzioni-manpower.excerpt': 'Le sondage Manpower enregistre une prévision nette de +19. L\'intérêt pour les compétences IA augmente, mais les PME peinent à investir dans le numérique.',
+    'blog.article.aziende-svizzere-assunzioni-manpower.imageAlt': 'Employés travaillant dans un bureau suisse moderne',
 };
 
 export default blogMetaChFr;
