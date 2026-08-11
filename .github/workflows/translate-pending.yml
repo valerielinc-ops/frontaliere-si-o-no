@@ -250,6 +250,42 @@ jobs:
         continue-on-error: true
         run: node scripts/mark-locale-mismatched-jobs.mjs
 
+      # Wrong-language TITLES. Until 2026-08-10 this repo had no scheduled step
+      # for them at all: mark-mistranslated-jobs.mjs (and its sibling
+      # reset-wrong-language-translations.mjs) were in NO workflow, and the step
+      # above reads `descriptionByLocale` only — with a 120-char floor that
+      # excludes every title by construction. That gap is why German `<h1>`s
+      # shipped on Italian job pages for months behind a "100% translated" gate.
+      #
+      # The script now applies `titleLooksUntranslated()` per non-source title
+      # slot and flags the job `needsRetranslation`, which puts it in front of
+      # Phase 2b (cascade) and Phase 2c (free unlimited local MT) in THIS run —
+      # it writes data/jobs.json as well as the slices precisely so the flags are
+      # visible to those steps, not only to the next run's commit.
+      #
+      # SIZED TO THE DRAIN, not to the backlog. Two steps consume
+      # needsRetranslation and only one of them repairs the dominant defect:
+      # the free unlimited Argos mop-up (Phase 2a/2c) rebuilds a title slot only
+      # when it is missing/too short/an exact copy of the source, so it covers
+      # the `source-copy` family (~14% of flags) and nothing else; a partially
+      # translated title can only be rewritten by the QUOTA-BOUND cascade in
+      # Phase 2b below, whose `max_jobs` default is 100/run. So the marking cap
+      # is 100/run to match, and the script additionally refuses to mark at all
+      # once ~2000 jobs already await retranslation
+      # (TITLE_MISTRANSLATION_QUEUE_CEILING) — a queue that grows faster than it
+      # drains would starve the genuinely-incomplete jobs competing for the same
+      # 100 cascade slots, on top of repeating the sitemap-drop incident behind
+      # assemble-jobs-dataset.mjs's NEAR_DUP_TITLE_FLAG_CAP. Raise either var for
+      # a deliberate owner-driven backfill.
+      # Soft-fail: a detection crash must not block the batch.
+      - name: "Phase 2 pre: Flag wrong-language job titles"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        env:
+          TITLE_MISTRANSLATION_MARK_CAP: ${{ vars.TITLE_MISTRANSLATION_MARK_CAP || '100' }}
+          TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
+        run: node scripts/mark-mistranslated-jobs.mjs
+
       - name: Log translation stats (before)
         if: inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs before

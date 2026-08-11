@@ -34,6 +34,7 @@
     "gate:seo-source": "vitest run tests/seo/ --reporter=dot",
     "audit:title-uniqueness": "node --expose-gc scripts/audit-title-uniqueness.mjs",
     "audit:job-locations": "node scripts/audit-job-locations.mjs",
+    "audit:job-title-locale": "node scripts/audit-job-title-locale.mjs",
     "audit:spa-bundle-injection": "node scripts/audit-spa-bundle-injection.mjs",
     "audit:spa-bundle-injection:rebaseline": "node scripts/audit-spa-bundle-injection.mjs --rebaseline",
     "analyze:write-collisions": "node scripts/analyze-write-collisions.mjs",

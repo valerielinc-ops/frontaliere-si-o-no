@@ -1,0 +1,256 @@
+name: job-title-locale-audit
+
+# Weekly deterministic check of wrong-language JOB TITLES
+# (scripts/audit-job-title-locale.mjs): how many non-source `titleByLocale`
+# slots still read as another language once the employer/location names are
+# stripped, broken down by target locale, source language, canton, company and
+# marker family.
+#
+# WHY IT EXISTS. Italian job pages shipped German `<h1>`/`<title>`/
+# `JobPosting.title` for months while `validate-translation-completeness.mjs`
+# reported 100% coverage — that gate counts CHARACTERS in a locale slot, never
+# their LANGUAGE. Four layers each deferred titles to another layer and none
+# owned them, and the one ratchet that could have caught it
+# (tests/job-locale-consistency.test.ts) had been `it.skip` since 2026-05-19
+# and only ever inspected descriptions. Nothing measured the defect, so nothing
+# could report it. This workflow is the missing measurement.
+#
+# Zero-Claude: a deterministic script plus `gh issue` calls. Report-only — it is
+# NOT a deploy gate (the repair path is mark-mistranslated-jobs.mjs inside
+# translate-pending.yml; the regression gate is the vitest ratchet).
+#
+# ROUTING — deliberately NOT the immediate `agent:fix` route. Per
+# scripts/lib/classify-issue.mjs, `agent:fix` is reserved for category
+# `crawler` (title matching `Crawler Failure|crawler-health|[parser-health]`,
+# label `parser-broken`, or `priority:high` + a crawler/parser title): the
+# production-critical, low-volume case proven safe for the direct route. This
+# audit's stable title carries none of those and ships `priority:medium`, so it
+# classifies as `other` → `route: queue` → `agent:fix-queued` + `fu-prio:low`,
+# drained one at a time by followup-drainer. tests/audit-job-title-locale.test.ts
+# asserts that classification so a future title edit cannot silently promote it
+# into the crawler bypass.
+#
+# CLOSURE — the issue closes ITSELF. `close-recovered-failure-issues.yml`, the
+# central reconciler, matches only `^(?:Workflow|Crawler|CI) Failure:`
+# (scripts/ci/close-recovered-failure-issues.mjs TITLE_RE) and would never touch
+# this title; and even if it did, it decides on the WORKFLOW's run conclusion,
+# which here is green whatever the metric says. So the healthy branch below
+# calls `github-issue-creator.mjs --resolve` on the same stable title
+# (scripts/lib/github-issue-creator.mjs → `--resolve` CLI flag →
+# resolveGithubIssue()), which comments and closes the canonical issue. This is
+# the same mechanism deploy.yml / rpm-canary.yml / post-deploy-validate-*.yml
+# already use. Shipping an alert with no closer is the alert-pat-down.mjs
+# incident (a `priority:urgent` issue naming a workflow that did not exist as
+# "the only point of closure", deduped on title, hence open forever) — the
+# `--resolve` branch and its test exist so this one cannot repeat it.
+#
+# Dedup: createGithubIssue() matches OPEN issues by the first 60 chars of the
+# title, so repeated runs COMMENT on the canonical issue instead of piling up;
+# `--reopen-within-hours` reopens it if the metric regresses shortly after a
+# close instead of minting a duplicate.
+
+on:
+  schedule:
+    - cron: '40 9 * * 2' # Tuesdays 09:40 UTC (clear of crawler-data-quality Mon 08:20, location-quality Wed 09:10)
+  workflow_dispatch:
+    inputs:
+      alert_rate_pct:
+        description: 'Flagged-slot rate (%) at or below which the tracking issue is auto-closed. Default: repo var JOB_TITLE_LOCALE_ALERT_RATE, else 20.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: job-title-locale-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      # data/jobs.json is gitignored (build artifact). Assemble it from the
+      # committed per-crawler slices so the audit sees every real crawler.
+      # (The audit degrades to reading the slices directly if this ever fails,
+      # so a partial assemble still yields a measurement rather than a crash.)
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Run job title locale audit
+        id: audit
+        continue-on-error: true
+        run: npm run audit:job-title-locale
+
+      - name: Upload full report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-title-locale-audit-report
+          path: data/job-title-locale-audit.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      # Split into three steps ON PURPOSE — body, open, close. The repo's own
+      # opener/closer inventory (scripts/ci/failure-issue-inventory.mjs, gated by
+      # tests/failure-issue-closers.test.ts) recognises a closer as "a twin
+      # `--resolve` step in the SAME workflow with an IDENTICAL literal title"
+      # (`coverageOf` → `sibling-resolve-step`). Folding both calls into one
+      # `run:` block, or hiding the title behind a shell/`env` variable, makes
+      # the pair invisible to that inventory — which is how an alert ends up
+      # believed-covered and actually unclosable. The two literals below are
+      # asserted identical by tests/audit-job-title-locale.test.ts.
+      - name: Build issue body from the report
+        id: body
+        if: steps.audit.outcome == 'success'
+        env:
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          ALERT_RATE_PCT: ${{ inputs.alert_rate_pct || vars.JOB_TITLE_LOCALE_ALERT_RATE || '20' }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/jtl
+
+          node --input-type=module - <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const r = JSON.parse(readFileSync('data/job-title-locale-audit.json', 'utf8'));
+          const alertRate = Number(process.env.ALERT_RATE_PCT || '20');
+          const p2 = (v) => `${(v * 100).toFixed(2)}%`;
+
+          if (!r.datasetPresent) {
+            // No dataset => no measurement. Say nothing rather than assert health:
+            // silently closing the issue on an empty run is how a real defect
+            // disappears from the tracker.
+            writeFileSync('/tmp/jtl/action', 'skip');
+            writeFileSync('/tmp/jtl/body.md', '');
+            console.log('No job dataset — skipping issue update.');
+          } else {
+            const unhealthy = r.rate * 100 > alertRate;
+            let md = `## Wrong-language job titles — snapshot\n\n`;
+            md += `**${r.flagged} of ${r.slots}** non-source title slots read as another language `;
+            md += `(**${p2(r.rate)}**), affecting **${r.jobsFlagged}** of ${r.totalJobs} jobs (${p2(r.jobRate)}).\n\n`;
+            md += `Of those, **${r.actionable.flagged}** sit on jobs the repair path can still touch `;
+            md += `(not \`needsRetranslation\`, not \`localeMismatchSuppressed\`) — ${r.actionable.jobs} jobs.\n`;
+            md += `Already queued: needsRetranslation=${r.queued.needsRetranslation}, `;
+            md += `localeMismatchSuppressed=${r.queued.localeMismatchSuppressed}.\n\n`;
+
+            md += `### By target locale\n\n| locale | flagged | slots | rate |\n|---|---:|---:|---:|\n`;
+            for (const [loc, v] of Object.entries(r.byTargetLocale)) {
+              md += `| ${loc} | ${v.flagged} | ${v.slots} | ${p2(v.rate)} |\n`;
+            }
+            md += `\n### By source language\n\n| source | flagged | slots | rate |\n|---|---:|---:|---:|\n`;
+            for (const [lang, v] of Object.entries(r.bySourceLang)) {
+              md += `| ${lang} | ${v.flagged} | ${v.slots} | ${p2(v.rate)} |\n`;
+            }
+            md += `\n### By marker family\n\n| reason | flagged |\n|---|---:|\n`;
+            for (const [reason, n] of Object.entries(r.byReason)) md += `| \`${reason}\` | ${n} |\n`;
+
+            md += `\n### Worst companies\n\n| company | flagged | slots | rate |\n|---|---:|---:|---:|\n`;
+            for (const row of r.byCompany.slice(0, 10)) {
+              md += `| ${String(row.company).replace(/\|/g, '\\|')} | ${row.flagged} | ${row.slots} | ${p2(row.rate)} |\n`;
+            }
+            md += `\n### Worst cantons\n\n| canton | flagged | slots | rate |\n|---|---:|---:|---:|\n`;
+            for (const row of r.byCanton.slice(0, 10)) {
+              md += `| ${row.canton} | ${row.flagged} | ${row.slots} | ${p2(row.rate)} |\n`;
+            }
+
+            md += `\n### Top marker evidence\n\n`;
+            md += `The literal token that fired, grouped by target locale + reason. `;
+            md += `**Read this before treating the total as a page count**: one token responsible for `;
+            md += `thousands of flags in exactly ONE target locale is a detector lexicon bug, not that `;
+            md += `many broken pages — fix it in \`scripts/lib/job-locale-utils.mjs\` and re-measure.\n\n`;
+            md += `| count | locale | reason | token |\n|---:|---|---|---|\n`;
+            for (const e of r.topEvidence) {
+              md += `| ${e.count} | ${e.targetLocale} | \`${e.reason}\` | \`${String(e.evidence).replace(/\|/g, '\\|')}\` |\n`;
+            }
+
+            md += `\n### Sample offending slots\n\n`;
+            for (const s of r.samples.slice(0, 10)) {
+              md += `- **[${s.targetLocale}]** \`${s.reason}\` (\`${s.evidence}\`) — ${s.title}\n`;
+              md += `  - source (${s.sourceLang}): ${s.sourceTitle}\n`;
+              if (s.url) md += `  - ${s.url}\n`;
+            }
+
+            md += `\n### Reproduce\n\n\`\`\`bash\nnode scripts/assemble-jobs-dataset.mjs\nnpm run audit:job-title-locale\n\`\`\`\n\n`;
+            md += `### Repair path\n\n`;
+            md += `\`\`\`bash\nnode scripts/mark-mistranslated-jobs.mjs --dry-run\n\`\`\`\n\n`;
+            md += `That marks affected jobs \`needsRetranslation\` (capped per run, see \`TITLE_MISTRANSLATION_MARK_CAP\`); `;
+            md += `\`.github/workflows/translate-pending.yml\` runs it 5x/day and re-translates the queue.\n\n`;
+            md += `**Detector:** \`titleLooksUntranslated()\` in \`scripts/lib/job-locale-utils.mjs\`\n`;
+            md += `**Audit:** \`scripts/audit-job-title-locale.mjs\`\n`;
+            md += `**Ratchet:** \`tests/job-locale-consistency.test.ts\` (rate-based)\n`;
+            md += `**Alert threshold:** ${alertRate}% — this issue auto-closes when the rate drops to or below it.\n`;
+            md += `**Full report:** \`job-title-locale-audit-report\` workflow artifact (30-day retention).\n`;
+            md += `**Run:** ${process.env.RUN_URL}\n`;
+
+            writeFileSync('/tmp/jtl/body.md', md);
+            writeFileSync('/tmp/jtl/action', unhealthy ? 'alert' : 'resolve');
+            console.log(`rate=${p2(r.rate)} threshold=${alertRate}% -> ${unhealthy ? 'alert' : 'resolve'}`);
+          }
+          NODE
+
+          echo "action=$(cat /tmp/jtl/action)" >> "$GITHUB_OUTPUT"
+
+      # priority 3 (`priority:medium`) + the labels below classify as category
+      # `other` in scripts/lib/classify-issue.mjs => route 'queue' =>
+      # `agent:fix-queued` + `fu-prio:low`, drained one at a time by
+      # followup-drainer. Do NOT raise to priority:high or add `parser-broken`:
+      # combined with a crawler/parser word in the title that would jump the
+      # anti-starvation queue into the immediate `agent:fix` route.
+      - name: Open / update the tracking issue
+        if: steps.body.outputs.action == 'alert'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Job title locale quality: weekly snapshot" \
+            --description "$(cat /tmp/jtl/body.md)" \
+            --priority 3 \
+            --label job-title-locale \
+            --label bug \
+            --reopen-within-hours 336 \
+            --workflow "${{ github.workflow }}"
+
+      # THE CLOSER. Identical literal title to the opener above, so
+      # resolveGithubIssue() matches the same canonical issue that
+      # createGithubIssue() deduped on. No-op when nothing is open, hence safe on
+      # every healthy run. This step is the reason the alert is not immortal.
+      - name: Close the tracking issue once the rate is healthy
+        if: steps.body.outputs.action == 'resolve'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Job title locale quality: weekly snapshot" \
+            --resolve \
+            --run-url "$RUN_URL" \
+            --workflow "${{ github.workflow }}"
+
+      - name: Report audit crash to GitHub Issues
+        if: steps.audit.outcome != 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Job title locale audit crashed
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          \`scripts/audit-job-title-locale.mjs\` exited non-zero — no snapshot produced this run. Check that \`data/jobs.json\` assembled." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Fail job if audit crashed
+        if: steps.audit.outcome != 'success'
+        run: |
+          echo "::error::job title locale audit crashed — see the issue opened above."
+          exit 1
