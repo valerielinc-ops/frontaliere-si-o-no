@@ -2206,6 +2206,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Heat does not curb meat consumption but drought could drive up prices',
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'The heatwave has not significantly curbed meat consumption so far, but prolonged drought risks reducing supply and driving up prices.',
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'Drought may raise the prices of meat products.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilateral III, one of the accompanying measures falters',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'The Economic and Tax Commission of the Council of States rejected measure 14, which strengthened the protection against dismissal of staff and trade union representatives active in companies.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: lake view',
 };
 
 export default blogMetaChEn;

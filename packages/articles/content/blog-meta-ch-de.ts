@@ -2206,6 +2206,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena il consumo di carne, ma la siccità lo potrebbe',
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'Die Hitzewelle hat den Fleischkonsum bisher nicht wesentlich gebremst, aber die anhaltende Dürre droht das Angebot zu drosseln und die Preise in die Höhe zu treiben.',
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'Die Dürre könnte die Preise der Fleischprodukte erhöhen.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilaterale III, eine der flankierenden Massnahmen gerät ins Wanken',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Ständerates lehnte die Massnahme 14 ab, mit der der Kündigungsschutz der in den Betrieben tätigen Arbeitnehmer- und Gewerkschaftsvertreter gestärkt wurde.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: Blick auf den See',
 };
 
 export default blogMetaChDe;

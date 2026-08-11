@@ -9724,6 +9724,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Trasferirsi a La Salle da frontaliere: pro e contro',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Impostazione dell\'imposta alla fonte per i frontalieri: trattenuta in Svizzera e credito d\'imposta in Italia.',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in Lugano che si trova a decidere se trasferirsi a La Salle.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Vivere a Oyace e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Guida pratica al pendolarismo tra Oyace e il Vallese: regole fiscali, nuovo accordo e gestione del reddito tra Svizzera e Italia.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio montano tra Oyace e il Vallese',
+    'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
+    'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino partendo dal comune di Saint-Nicolas.',
+    'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Veduta panoramica di un villaggio alpino svizzero',
 };
 
 export default blogMetaIt;
