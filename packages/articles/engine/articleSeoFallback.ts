@@ -10,11 +10,19 @@ type SeoSection = {
 };
 
 const STOP_WORDS: Record<Locale, Set<string>> = {
- it: new Set(['frontaliere', 'frontalieri', 'ticino', 'svizzera', 'italia', 'della', 'delle', 'degli', 'dello', 'dell', 'del', 'dei', 'gli', 'con', 'per', 'tra', 'come', 'cosa', 'nelle', 'nella', 'dopo', 'dove', 'sul', 'sulla', 'una', 'uno', 'alla', 'alle', 'agli', 'nel', 'nei', 'che', 'piu', 'piu', '2026']),
- en: new Set(['cross', 'border', 'worker', 'workers', 'ticino', 'switzerland', 'italy', 'with', 'from', 'this', 'that', 'what', 'when', 'your', 'into', 'over', 'about', '2026']),
- de: new Set(['grenzganger', 'grenzgänger', 'tessin', 'schweiz', 'italien', 'diese', 'dieser', 'dass', 'uber', 'über', 'eine', 'einen', 'fuer', 'für', 'und', 'mit', '2026']),
- fr: new Set(['frontalier', 'frontaliers', 'tessin', 'suisse', 'italie', 'avec', 'dans', 'pour', 'sur', 'cette', 'votre', 'plus', '2026']),
+ it: new Set(['frontaliere', 'frontalieri', 'ticino', 'svizzera', 'italia', 'della', 'delle', 'degli', 'dello', 'dell', 'del', 'dei', 'gli', 'con', 'per', 'tra', 'come', 'cosa', 'nelle', 'nella', 'dopo', 'dove', 'sul', 'sulla', 'una', 'uno', 'alla', 'alle', 'agli', 'nel', 'nei', 'che', 'piu', 'piu']),
+ en: new Set(['cross', 'border', 'worker', 'workers', 'ticino', 'switzerland', 'italy', 'with', 'from', 'this', 'that', 'what', 'when', 'your', 'into', 'over', 'about']),
+ de: new Set(['grenzganger', 'grenzgänger', 'tessin', 'schweiz', 'italien', 'diese', 'dieser', 'dass', 'uber', 'über', 'eine', 'einen', 'fuer', 'für', 'und', 'mit']),
+ fr: new Set(['frontalier', 'frontaliers', 'tessin', 'suisse', 'italie', 'avec', 'dans', 'pour', 'sur', 'cette', 'votre', 'plus']),
 };
+
+// A hand-written year literal (`'2026'`) in a stopword Set is a lock that only
+// covers the year it was written in — from the next New Year it silently stops
+// filtering and a bare year can win a `topicTerms` slot. `tokenizeTopic` keeps
+// tokens of length >= 4, so a four-digit year always clears that bar. This test
+// is a no-op for any year, current or future: 19xx/20xx four-digit tokens never
+// carry the site's topic signal (issue #5560).
+const YEAR_TOKEN_RE = /^(19|20)\d{2}$/;
 
 const SECTION_LABELS: Record<Locale, { intro: string; why: string; checks: string; impact: string; next: string }> = {
  it: {
@@ -227,7 +235,7 @@ const extractTopicTerms = (locale: Locale, title: string, desc: string, keywords
 
  for (const source of weightedSources) {
  for (const token of tokenizeTopic(source.value)) {
- if (stopWords.has(token)) continue;
+ if (stopWords.has(token) || YEAR_TOKEN_RE.test(token)) continue;
  scores.set(token, (scores.get(token) ?? 0) + source.weight);
  }
  }
