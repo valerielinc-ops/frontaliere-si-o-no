@@ -2155,6 +2155,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apple-stime-reducono.title': 'Apple riduce stime, crescita ricavi tra 9% e 11%',
     'blog.article.apple-stime-reducono.excerpt': 'Apple prevede una crescita delle vendite più contenuta e una pressione sui margini per i prossimi mesi',
     'blog.article.apple-stime-reducono.imageAlt': 'Immagine di una persona davanti a un computer con schermo del mercato azionario',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Permesso L di breve durata nel Cantone di Zurigo: validità e proroga',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'I permessi L di breve durata nel Cantone di Zurigo sono validi per un massimo di 1 anno, ma la proroga è soggetta a condizioni specifiche.',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'Un frontaliere in Svizzera con un permesso L di breve durata',
 };
 
 export default blogMetaChIt;

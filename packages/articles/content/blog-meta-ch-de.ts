@@ -2155,6 +2155,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apple-stime-reducono.title': 'Apple senkt Schätzungen, Umsatzwachstum zwischen 9% und 11%',
     'blog.article.apple-stime-reducono.excerpt': 'Apple prognostiziert für die kommenden Monate ein geringeres Umsatzwachstum und Margendruck',
     'blog.article.apple-stime-reducono.imageAlt': 'Bild einer Person vor einem Computer mit Börsenbildschirm',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Kurzaufenthaltsbewilligung L im Kanton Zürich: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'Kurzfristige L-Bewilligungen im Kanton Zürich sind maximal 1 Jahr gültig, die Verlängerung unterliegt jedoch besonderen Bedingungen.',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'Ein Ausländer in der Schweiz mit einem kurzfristigen L-Erlaubnis',
 };
 
 export default blogMetaChDe;
