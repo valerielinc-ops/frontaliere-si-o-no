@@ -2071,6 +2071,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Urgence climatique : le débat sur le Plan énergétique tessinois',
     'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Le météorologue Matteo Buzzi analyse l\'urgence climatique et le rôle du Plan énergétique et climatique cantonal au sein du Grand Conseil.',
     'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'Vue du bord du lac de Lugano par une chaude journée d\'été',
+    'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon : la crise des puces fait grimper les prix',
+    'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Pénurie mondiale de puces mémoire : les centres de données et l\'IA absorbent 70 % de la RAM, ce qui a un impact sur les prix et les stocks de PC, de voitures et de consoles.',
+    'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Composants matériels et serveurs de centre de données en Suisse',
 };
 
 export default blogMetaChFr;

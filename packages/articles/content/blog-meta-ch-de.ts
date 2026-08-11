@@ -2071,6 +2071,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.piano-energetico-climatico-ticino-sfide.title': 'Klimanotstand: Die Debatte um den Tessiner Energieplan',
     'blog.article.piano-energetico-climatico-ticino-sfide.excerpt': 'Der Meteorologe Matteo Buzzi analysiert die klimatische Dringlichkeit und die Rolle des kantonalen Energie- und Klimaplans im Grossen Rat.',
     'blog.article.piano-energetico-climatico-ticino-sfide.imageAlt': 'Blick auf das Seebecken von Lugano an einem heißen Sommertag',
+    'blog.article.ramaggedon-crisi-chip-memoria.title': 'RAMaggedon: Chipkrise treibt Preise nach oben',
+    'blog.article.ramaggedon-crisi-chip-memoria.excerpt': 'Globaler Mangel an Speicherchips: Rechenzentren und KI absorbieren 70% des RAM, was sich auf die Preise und Bestände von PCs, Autos und Konsolen auswirkt.',
+    'blog.article.ramaggedon-crisi-chip-memoria.imageAlt': 'Hardware-Komponenten und Rechenzentrumsserver in der Schweiz',
 };
 
 export default blogMetaChDe;
