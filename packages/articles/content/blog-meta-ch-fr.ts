@@ -2212,6 +2212,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, un compromis est recherché',
     'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commission de l\'économie et des impôts des États (cet-S) a reporté la discussion sur la couverture par des fonds propres de participations étrangères dans la maison mère de banques d\'importance systémique (UBS).',
     'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'Le bâtiment du Parlement fédéral à Berne.',
+    'blog.article.commissione-propone-500-milioni-munizioni.title': '500 millions pour les munitions, renforce la défense',
+    'blog.article.commissione-propone-500-milioni-munizioni.excerpt': 'La Commission propose 500 millions de francs pour les munitions afin de renforcer la défense',
+    'blog.article.commissione-propone-500-milioni-munizioni.imageAlt': 'La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A',
 };
 
 export default blogMetaChFr;
