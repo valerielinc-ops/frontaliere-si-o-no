@@ -40,6 +40,17 @@
  * Se tutti i gate passano → squash-merge con PAT (stesso meccanismo di prima:
  * PRIMARY_TOKEN=GITHUB_PAT per il cascade deploy/followup, fallback GITHUB_TOKEN).
  *
+ * OSSERVAZIONE, non gate (#5552): subito dopo il gate 3 — cioè quando la PR sta
+ * per mergiare — `emitCheckSetObservation` elenca TUTTI i check-run completati
+ * sulla HEAD e dice quali AVREBBERO bloccato se la decisione fosse presa
+ * sull'insieme invece che sul solo `VITEST_CHECK_NAME`. Serve perché chi
+ * aggiunge un gate lo vede girare e lo vede rosso, e ne conclude che blocchi:
+ * non blocca — non c'è nemmeno branch protection su `main` (404), quindi quel
+ * singolo check è l'unico cancello. La condizione di merge NON cambia: la lista
+ * dei gate sopra è esattamente quella di prima, e il blocco di osservazione non
+ * contiene alcun `return`/`exit`. Il passaggio a bloccante è una decisione del
+ * proprietario, dopo una settimana di misura.
+ *
  * Uso:  node scripts/ci/auto-merge-eval.mjs <prNumber>
  * Env:  GH_TOKEN (read-only, per le query), GITHUB_REPOSITORY,
  *       MERGE_PRIMARY_TOKEN (PAT o GITHUB_TOKEN), MERGE_FALLBACK_TOKEN,
@@ -49,10 +60,18 @@
  * atteso (l'altro trigger ri-valuterà), non un errore di workflow.
  */
 import { execFileSync } from 'node:child_process';
+import { appendFileSync } from 'node:fs';
 import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE, REVIEW_WORKFLOW_DRIFT_FILES } from './lib/constants.mjs';
 import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
 import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
 import { checkMergePreviewDuplicates } from './lib/mergePreviewCheck.mjs';
+import {
+  observeCheckRuns,
+  formatObservationMarkdown,
+  formatObservationLogLine,
+  OBSERVATION_MARKER,
+} from './lib/checkRunObservation.mjs';
+import { upsertStickyComment } from './lib/prComments.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -88,6 +107,75 @@ function notifyAwaitingVitest(pr) {
     console.log(`Commento "attendo vitest" postato su #${pr}.`);
   } catch (e) {
     console.log(`notifyAwaitingVitest best-effort fallito: ${String(e).slice(0, 120)}`);
+  }
+}
+
+/**
+ * Emette l'osservazione dell'insieme dei check-run (#5552). NON decide nulla e
+ * NON può cambiare l'esito del merge: ogni ramo è best-effort e non rilancia.
+ *
+ * Tre sink, scelti per ragioni diverse — vedi il razionale nel PR body:
+ *  1. **log** — una riga a campo singolo, sempre. Costo zero, e permette
+ *     `gh run view --log | grep CHECK-SET-OBSERVATION` su una run qualunque.
+ *  2. **job summary** — sempre, anche quando l'esito è "nessun blocco".
+ *     È il record completo, e `$GITHUB_STEP_SUMMARY` NON produce notifiche.
+ *  3. **commento sticky sulla PR** — SOLO quando almeno un check avrebbe
+ *     bloccato. Sulla finestra misurata (60 PR, 2026-08-09→11) sarebbe scattato
+ *     UNA volta: 59 PR su 60 non ricevono alcun commento, quindi il requisito
+ *     "non rumoroso" è soddisfatto per costruzione invece che per moderazione.
+ *     È anche l'unico sink AGGREGABILE in un comando dopo una settimana
+ *     (`gh search issues '"CHECK-SET-OBSERVATION"'`): un job summary si può
+ *     leggere solo una run alla volta, quindi da solo non risponderebbe alla
+ *     domanda «quante PR sarebbero state bloccate e da cosa».
+ *
+ * Il commento è STICKY (upsert): l'eval gira su DUE trigger e più volte per PR,
+ * e un `commentOnce` lascerebbe la prima misura a invecchiare mentre un
+ * commento nuovo per giro produrrebbe esattamente i "40 commenti" da evitare.
+ */
+function emitCheckSetObservation(checkRuns, head) {
+  let obs;
+  try {
+    obs = observeCheckRuns(checkRuns);
+  } catch (e) {
+    console.log(`osservazione check-set fallita (non blocca il merge): ${String(e).slice(0, 160)}`);
+    return;
+  }
+  console.log(formatObservationLogLine(obs, { pr: PR, head }));
+
+  const md = formatObservationMarkdown(obs, { pr: PR, head });
+
+  // Job summary: sempre. `GITHUB_STEP_SUMMARY` è impostato dal runner in ogni
+  // step; fuori da Actions (es. in locale) semplicemente non c'è.
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY || '';
+  if (summaryPath) {
+    try {
+      appendFileSync(summaryPath, `${md}\n\n`);
+    } catch (e) {
+      console.log(`job summary non scritto (non blocca): ${String(e).slice(0, 120)}`);
+    }
+  }
+
+  if (obs.wouldBlock.length === 0) return; // il caso comune: nessun commento.
+
+  const token = process.env.MERGE_PRIMARY_TOKEN || '';
+  if (!token) {
+    console.log('osservazione: nessun token di scrittura — commento sticky saltato (log e summary restano).');
+    return;
+  }
+  // Adattatore al contratto di prComments.mjs (`gh(args, {json, allowFail})`):
+  // il `gh` locale THROWA e non conosce `allowFail`. Qui ogni errore è ingoiato
+  // — l'osservazione non deve mai far fallire il job che sta per mergiare.
+  const ghSafe = (args, { json = true } = {}) => {
+    try {
+      return gh(args, { json, token });
+    } catch {
+      return null;
+    }
+  };
+  try {
+    upsertStickyComment(ghSafe, REPO, PR, OBSERVATION_MARKER, md);
+  } catch (e) {
+    console.log(`commento osservazione best-effort fallito: ${String(e).slice(0, 120)}`);
   }
 }
 
@@ -415,9 +503,11 @@ function main() {
   // success reale → auto-merge bloccato pur coi test verdi (osservato #2394).
   // Vedi lib/vitestCheck.mjs.
   let conclusion = '';
+  let allCheckRuns = null;
   try {
     const cr = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`]);
-    conclusion = latestCompletedVitestConclusion(cr && cr.check_runs);
+    allCheckRuns = (cr && cr.check_runs) || [];
+    conclusion = latestCompletedVitestConclusion(allCheckRuns);
   } catch (e) {
     return fail(`Impossibile leggere check-runs HEAD ${head}: ${String(e).slice(0, 160)} — skip.`);
   }
@@ -435,6 +525,17 @@ function main() {
     return fail(`vitest gate conclusion='${conclusion || '<none/pending>'}' ≠ success — skip; il completamento di 'tests' ri-valuterà (no merge su pending/missing).`);
   }
   console.log('Gate vitest: success ✔');
+
+  // 3-bis. OSSERVAZIONE dell'insieme dei check (#5552) — NON è un gate.
+  // Qui, e solo qui, il gate vitest è appena passato: la PR mergerà. È quindi
+  // l'unico istante in cui la domanda del proprietario ha senso — «di quelle
+  // che mergiano, quante sarebbero state fermate da un altro check?». Farlo
+  // prima (es. su vitest rosso) misurerebbe una popolazione che non mergia
+  // comunque, e gonfierebbe il numero con casi già bloccati oggi.
+  // Riusa `allCheckRuns` già letto per il gate sopra: zero chiamate API in più.
+  // Nessun `return`/`exit` in questo blocco — l'osservazione non può cambiare
+  // l'esito del merge, che resta esattamente quello di prima.
+  emitCheckSetObservation(allCheckRuns, head);
 
   // 4. Collision gate (P3): collision-risk + behind main → NO merge (va rebasata).
   if (labels.includes('collision-risk')) {
