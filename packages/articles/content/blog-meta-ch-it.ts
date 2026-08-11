@@ -2122,6 +2122,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apple-chip-supply-chain-impatto.title': 'Apple: stime al ribasso per carenza chip e supply chain',
     'blog.article.apple-chip-supply-chain-impatto.excerpt': 'Crescita ricavi prevista al 9-11%, pressioni sui margini e dipendenza da tre fornitori DRAM: le sfide di Apple che influenzano il mercato tecnologico globale.',
     'blog.article.apple-chip-supply-chain-impatto.imageAlt': 'Ufficio moderno con vista panoramica sul lago di Lugano',
+    'blog.article.annunci-di-lavoro-svizzera.title': 'Annunci di lavoro in Svizzera: cosa cambiare?',
+    'blog.article.annunci-di-lavoro-svizzera.excerpt': 'Il sistema fiscale svizzero a tre livelli: imposta federale diretta (IFD) + cantonale + comunale. Ogni cantone ha la propria legge tributaria e il proprio moltiplicatore; i comuni applicano un moltiplicatore sul cantonale.',
+    'blog.article.annunci-di-lavoro-svizzera.imageAlt': 'Una scena di lavoro in un\'azienda svizzera.',
 };
 
 export default blogMetaChIt;
