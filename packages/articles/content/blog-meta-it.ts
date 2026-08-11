@@ -9718,6 +9718,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
     'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola.',
     'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontaliere lavora in Lombardia e risiede in Ticino.',
+    'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols in bancarotta: la catena del lusso a rischio',
+    'blog.article.harvey-nichols-bancarotta.excerpt': 'La catena di grandi magazzini Harvey Nichols potrebbe essere in bancarotta entro un anno se non trova nuovi investitori.',
+    'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols a rischio bancarotta',
 };
 
 export default blogMetaIt;
