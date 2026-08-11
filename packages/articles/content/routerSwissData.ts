@@ -745,6 +745,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-zurigo-requisiti-domanda': { it: 'permesso-domicilio-c-zurigo-requisiti-domanda', en: 'permit-of-domicile-c-zurich', de: 'aufenthaltstitel-c-zurich', fr: 'permis-de-domicile-c-zurich' },
  'apple-stime-reducono': { it: 'apple-stime-reducono', en: 'apple-reduces-estimates', de: 'apple-reduziert-schatzungen', fr: 'apple-reduit-estimations' },
  'permesso-l-breve-durata-canton-zurigo': { it: 'permesso-l-breve-durata-canton-zurigo', en: 'short-term-l-permit-canton-zurich', de: 'kurzfristiges-l-erlaubnis-kanton-zurich', fr: 'permis-l-de-courte-duree-canton-de-zurich' },
+ 'catastrofi-naturali-2026-danni-inferiori-media': { it: 'catastrofi-naturali-2026-danni-inferiori-media', en: 'natural-disasters-2026-damage-below-average', de: 'naturkatastrophen-2026-schaden-unter-durchschnitt', fr: 'catastrophes-naturelles-2026-dommages-eleves' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2158,6 +2158,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Kurzaufenthaltsbewilligung L im Kanton Zürich: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'Kurzfristige L-Bewilligungen im Kanton Zürich sind maximal 1 Jahr gültig, die Verlängerung unterliegt jedoch besonderen Bedingungen.',
     'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'Ein Ausländer in der Schweiz mit einem kurzfristigen L-Erlaubnis',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.title': 'Naturkatastrophen, 2026 Schäden unterdurchschnittlich',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.excerpt': 'Die Schäden durch Naturkatastrophen im Jahr 2026 liegen unter dem Durchschnitt der letzten 10 Jahre',
+    'blog.article.catastrofi-naturali-2026-danni-inferiori-media.imageAlt': 'Eine Familie am Luganersee',
 };
 
 export default blogMetaChDe;
