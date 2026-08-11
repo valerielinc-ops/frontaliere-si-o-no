@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-11T10:15:27.270Z",
+  "updatedAt": "2026-08-11T22:06:33.570Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/intern-trainee-corporate-tax/02fe70e9-66f5-44b6-92a1-c599f69741a1": {
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-11"
+    },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-treasury-strategy-technology/8ac593a7-5780-4fdf-ba54-cf6278e9931d": {
       "location": "Zürich",
       "canton": "ZH",
@@ -86,13 +92,13 @@
       "postedDate": "2026-07-29"
     },
     "https://jobs.pwc.ch/job-vacancies/senior-manager-quality-management/34b6355d-9546-4f52-987b-bb904ae758d8": {
-      "location": "Zürich",
+      "location": "Zurich",
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-07-28"
     },
-    "https://jobs.pwc.ch/job-vacancies/assistant-manager-quality-management-technology/f196cf47-50ab-4981-9717-2d5aadfe62ff": {
-      "location": "Zürich",
+    "https://jobs.pwc.ch/job-vacancies/assistant-manager-quality-management/f196cf47-50ab-4981-9717-2d5aadfe62ff": {
+      "location": "Zurich",
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-07-28"
@@ -126,12 +132,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-07-23"
-    },
-    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-beratung-gesundheitswesen/5f922783-5f07-45ba-a861-84f1bf827d83": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-07-19"
     },
     "https://jobs.pwc.ch/job-vacancies/aktuar-in-intern-trainee-actuarial-services-6-monate/d9e899a4-d8d7-47be-a31f-92eb6b67dbaf": {
       "location": "Zürich",
@@ -372,12 +372,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-04-17"
-    },
-    "https://jobs.pwc.ch/job-vacancies/audit-senior-manager-trade-industries-services-us-gaap/36c4a8da-dd05-4805-8c88-4c965ae4a9ff": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-04-16"
     },
     "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/31bd84bf-f959-4ad6-9939-17ba55bbff57": {
       "location": "Zürich",
