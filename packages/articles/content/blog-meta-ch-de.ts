@@ -2221,6 +2221,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.settore-agricolo-danni-19-milioni.title': 'Der Agrarsektor meldet Schäden von über 19 Millionen Franken.',
     'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'Die Dürre trifft die Schweizer Landwirte hart und verursacht Schäden von schätzungsweise über 19 Millionen Franken.',
     'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Ein Blick auf den Luganersee während der Dürre.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Reisen und Konsum ohne Kompromisse, trotz des Klimas',
+    'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Vier von fünf Erwachsenen geben trotz Klimadebatte nicht auf. 80% geben an, dass die Klimadebatte keine oder nur geringe Auswirkungen auf ihre Entscheidungen hat.',
+    'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'Ein Flugzeug landet am Flughafen Zürich',
 };
 
 export default blogMetaChDe;
