@@ -36436,6 +36436,63 @@
       ]
     },
     {
+      "slug": "juridique",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-bale/juridique/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/juridique/"
+      },
+      "queries": [
+        {
+          "query": "offre emploi bale",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offre emploi bale",
+      "title": "Juridique",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "juridique",
+        "en": "juridique",
+        "de": "juridique",
+        "fr": "juridique"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/juridique",
+        "en": "/en/find-jobs-basel/juridique",
+        "de": "/de/jobs-im-basel/juridique",
+        "fr": "/fr/trouver-emploi-bale/juridique"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "jurist-in-the-field-of-occupational-pensions-pwc-switzerland-zurich",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/jurist-in-the-field-of-occupational-pensions-pwc-switzerland-zurich",
@@ -68157,6 +68214,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+      "locale": "it",
+      "path": "/cerca-lavoro-san-gallo/supply-chain-specialista-w-m-d-raiffeisen-st-gallen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-san-gallo/supply-chain-specialista-w-m-d-raiffeisen-st-gallen/"
+      },
+      "queries": [
+        {
+          "query": "supply chain jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "supply chain jobs",
+      "title": "Supply chain specialista raiffeisen st gallen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+        "en": "supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+        "de": "supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+        "fr": "supply-chain-specialista-w-m-d-raiffeisen-st-gallen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+        "en": "/en/find-jobs-st-gallen/supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+        "de": "/de/jobs-im-st-gallen/supply-chain-specialista-w-m-d-raiffeisen-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/supply-chain-specialista-w-m-d-raiffeisen-st-gallen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
