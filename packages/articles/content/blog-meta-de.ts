@@ -9722,6 +9722,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Umzug nach La Salle als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Festlegung der Quellensteuer für Grenzgänger: Einbehaltung in der Schweiz und Steuergutschrift in Italien.',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Ein Frontalier in Lugano, der darüber nachdenkt, sich nach La Salle zu verlagern.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Wohnen in Oyace und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Oyace und dem Wallis: Steuerregeln, neues Abkommen und Einkommensmanagement zwischen der Schweiz und Italien.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Berglandschaft zwischen Oyace und Wallis',
 };
 
 export default blogMetaDe;
