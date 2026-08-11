@@ -2212,6 +2212,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, Kompromiss gesucht',
     'blog.article.lex-ubs-proposta-compromesso.excerpt': 'Die Kommission für Wirtschaft und Abgaben der Staaten (WAK-S) hat die Diskussion über die Deckung ausländischer Beteiligungen an der Muttergesellschaft systemrelevanter Banken (UBS) mit Eigenmitteln vertagt.',
     'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'Das Bundesparlament in Bern.',
+    'blog.article.commissione-propone-500-milioni-munizioni.title': '500 Millionen für Munition, stärkt die Verteidigung',
+    'blog.article.commissione-propone-500-milioni-munizioni.excerpt': 'Kommission schlägt 500 Millionen Franken Munition zur Stärkung der Verteidigung vor',
+    'blog.article.commissione-propone-500-milioni-munizioni.imageAlt': 'La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Stipendien im Kanton Zürich: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Finanzmittel für Schweizer Studierende',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Redaktionelle Fotografie eines Universitätslehrers und Studenten in der Schweiz',
+    'blog.article.settore-agricolo-danni-19-milioni.title': 'Der Agrarsektor meldet Schäden von über 19 Millionen Franken.',
+    'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'Die Dürre trifft die Schweizer Landwirte hart und verursacht Schäden von schätzungsweise über 19 Millionen Franken.',
+    'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Ein Blick auf den Luganersee während der Dürre.',
 };
 
 export default blogMetaChDe;

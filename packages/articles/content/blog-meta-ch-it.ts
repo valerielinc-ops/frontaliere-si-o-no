@@ -2212,6 +2212,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, si cerca un compromesso',
     'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commissione dell\'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa madre di banche di rilevanza sistemica (UBS).',
     'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'L\'edificio del Parlamento federale a Berna.',
+    'blog.article.commissione-propone-500-milioni-munizioni.title': '500 milioni per munizioni, rafforza la difesa',
+    'blog.article.commissione-propone-500-milioni-munizioni.excerpt': 'La Commissione propone 500 milioni di franchi per munizioni per rafforzare la difesa',
+    'blog.article.commissione-propone-500-milioni-munizioni.imageAlt': 'La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Borse di studio nel Cantone di Zurigo: requisiti e importi',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Risorse finanziarie per gli studenti svizzeri',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Fotografia editoriale di un docente e studente universitari in Svizzera',
+    'blog.article.settore-agricolo-danni-19-milioni.title': 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
+    'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi.',
+    'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Una vista del lago di Lugano durante la siccità.',
 };
 
 export default blogMetaChIt;

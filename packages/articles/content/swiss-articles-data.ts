@@ -6634,6 +6634,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'commissione-propone-500-milioni-munizioni',
+    category: 'fiscale',
+    date: '2026-08-11T17:48:35.013Z',
+    image: '/images/blog/commissione-propone-500-milioni-munizioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'borse-studio-zurigo-requisiti-e-importi',
+    category: 'fiscale',
+    date: '2026-08-11T18:13:13.312Z',
+    image: '/images/blog/borse-studio-zurigo-requisiti-e-importi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'settore-agricolo-danni-19-milioni',
+    category: 'fiscale',
+    date: '2026-08-11T18:23:13.726Z',
+    image: '/images/blog/settore-agricolo-danni-19-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3,7 +3,12 @@
  * pr-collision-detector.mjs e pr-autorebase.mjs (residuo #5095, issue #5100).
  */
 import { describe, it, expect, vi } from 'vitest';
-import { hasCommentMarker, commentOnce } from '../scripts/ci/lib/prComments.mjs';
+import {
+  hasCommentMarker,
+  commentOnce,
+  findCommentIdByMarker,
+  upsertStickyComment,
+} from '../scripts/ci/lib/prComments.mjs';
 
 const MARKER = '<!-- TEST_MARKER -->';
 
@@ -60,5 +65,65 @@ describe('commentOnce', () => {
     const gh = fakeGh(MARKER);
     commentOnce(gh, 'o/r', 42, MARKER, 'ciao', { dry: true });
     expect(gh).toHaveBeenCalledTimes(1); // solo la fetch dei commenti, niente altro
+  });
+});
+
+/**
+ * `upsertStickyComment` (#5552): serve a un chiamante che rigira PIÙ volte sulla
+ * stessa PR e deve lasciare UN solo commento sempre aggiornato — dove
+ * `commentOnce` lascerebbe invece la prima misura a invecchiare per sempre.
+ */
+describe('findCommentIdByMarker', () => {
+  it('ritorna l’id emesso da jq', () => {
+    const gh = vi.fn(() => '918273\n');
+    expect(findCommentIdByMarker(gh, 'o/r', 42, MARKER)).toBe('918273');
+    // Il match dev'essere delegato a jq sul body intero, non a un parser di
+    // righe lato JS: i body sono multi-riga.
+    expect(gh.mock.calls[0][0]).toContain('--jq');
+    expect(gh.mock.calls[0][0].join(' ')).toContain(`contains("${MARKER}")`);
+  });
+
+  it('nessun match → null', () => {
+    expect(findCommentIdByMarker(vi.fn(() => ''), 'o/r', 42, MARKER)).toBeNull();
+  });
+
+  it('fetch fallita (null) o output non numerico → null, nessun crash', () => {
+    expect(findCommentIdByMarker(vi.fn(() => null), 'o/r', 42, MARKER)).toBeNull();
+    expect(findCommentIdByMarker(vi.fn(() => 'gh: not found'), 'o/r', 42, MARKER)).toBeNull();
+  });
+
+  it('più commenti col marker → prende il primo (stabile fra i giri)', () => {
+    expect(findCommentIdByMarker(vi.fn(() => '111\n222\n'), 'o/r', 42, MARKER)).toBe('111');
+  });
+});
+
+describe('upsertStickyComment', () => {
+  const body = `${MARKER}\nmisura aggiornata`;
+
+  it('commento assente → ne CREA uno con il body così com’è (marker incluso)', () => {
+    const gh = vi.fn(() => '');
+    upsertStickyComment(gh, 'o/r', 42, MARKER, body);
+    const post = gh.mock.calls.find((c) => c[0][0] === 'pr');
+    expect(post[0]).toEqual(['pr', 'comment', '42', '--repo', 'o/r', '--body', body]);
+    // A differenza di commentOnce NON antepone il marker: lo fa già il body.
+    expect(post[0][6].startsWith(`${MARKER}\n${MARKER}`)).toBe(false);
+  });
+
+  it('commento presente → lo AGGIORNA in place, senza crearne un secondo', () => {
+    const gh = vi.fn((args) => (args[0] === 'api' && args[1] !== '--method' ? '55\n' : ''));
+    upsertStickyComment(gh, 'o/r', 42, MARKER, body);
+    const patch = gh.mock.calls.find((c) => c[0].includes('--method'));
+    expect(patch).toBeTruthy();
+    expect(patch[0]).toEqual([
+      'api', '--method', 'PATCH', 'repos/o/r/issues/comments/55', '-f', `body=${body}`,
+    ]);
+    // L'invariante che rende l'osservatore silenzioso: N giri, 1 commento.
+    expect(gh.mock.calls.some((c) => c[0][0] === 'pr')).toBe(false);
+  });
+
+  it('dry-run → nessuna scrittura, né create né update', () => {
+    const gh = vi.fn(() => '55\n');
+    upsertStickyComment(gh, 'o/r', 42, MARKER, body, { dry: true });
+    expect(gh.mock.calls.some((c) => c[0].includes('--method') || c[0][0] === 'pr')).toBe(false);
   });
 });

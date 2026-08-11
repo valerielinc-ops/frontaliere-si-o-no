@@ -9734,6 +9734,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Vivre à Saint-Pierre et travailler en Valais comme frontalier',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Les données clés sur la vie d\'un frontalier travaillant en Valais et résidant à Saint-Pierre.',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier qui vit à Saint-Pierre et travaille en Valais.',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.title': 'Déménager à Sarre en tant que frontalier : avantages et inconvénients',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.excerpt': 'Taxe à la source, nouveaux taux et changements pour les frontaliers Tessin-Italie.',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.imageAlt': 'Image éditoriale relative à: Trasferirsi a Sarre da frontaliere: pro e contro',
+    'blog.article.vivere-aosta-lavorare-vallese.title': 'Vivre à Aoste et travailler en Valais comme frontalier',
+    'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Guide pratique pour les déplacements entre Aoste et le Valais : liaisons, impôt à la source, gestion du change et règles pour les nouveaux et anciens frontaliers.',
+    'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Panorama alpin entre l\'Italie et la Suisse pour travailleurs frontaliers',
 };
 
 export default blogMetaFr;

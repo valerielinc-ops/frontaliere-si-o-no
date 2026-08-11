@@ -763,6 +763,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi': { it: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', en: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', de: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', fr: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi' },
  'bilaterali-iii-vacilla-misura-accompagnamento': { it: 'bilaterali-iii-vacilla-misura-accompagnamento', en: 'bilaterali-iii-vacilla-accompanion-measure', de: 'bilaterali-iii-vacilliert-unterstutzende-ma-nahme', fr: 'bilaterali-iii-vacille-mesure-daccompagnement' },
  'lex-ubs-proposta-compromesso': { it: 'lex-ubs-proposta-compromesso', en: 'ubs-proposal-compromise', de: 'ubs-vorschlag-kompromiss', fr: 'proposition-ubs-compromis' },
+ 'commissione-propone-500-milioni-munizioni': { it: 'commissione-propone-500-milioni-munizioni', en: 'commissione-propone-500-milioni-munizioni', de: 'commissione-propone-500-milioni-munizioni', fr: 'commissione-propone-500-milioni-munizioni' },
+ 'borse-studio-zurigo-requisiti-e-importi': { it: 'borse-studio-zurigo-requisiti-e-importi', en: 'scholarships-zurich-requirements-and-amounts', de: 'stipendien-zuerich-anforderungen-und-betrage', fr: 'bourses-zurich-exigences-et-quantites' },
+ 'settore-agricolo-danni-19-milioni': { it: 'settore-agricolo-danni-19-milioni', en: 'sector-agriculture-damage-19-million', de: 'landwirtschaftlicher-sektor-schaden-19-millionen', fr: 'secteur-agricole-dommages-19-millions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

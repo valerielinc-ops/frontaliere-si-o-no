@@ -28643,6 +28643,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissione-propone-500-milioni-munizioni': {
+    title: '500 milioni per munizioni, rafforza la difesa | Frontaliere Ticino',
+    description: 'La Commissione propone 500 milioni di franchi per munizioni per rafforzare la difesa e contrastare le minacce più probabili. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, munizioni, rafforza, difesa',
+    ogTitle: 'La Commissione propone 500 milioni di franchi per munizioni per rafforzare la difesa',
+    ogDescription: 'La Commissione propone 500 milioni di franchi per munizioni per rafforzare la difesa e contrastare le minacce più probabili.',
+    canonicalPath: '/articoli-svizzera/commissione-propone-500-milioni-munizioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "500 milioni per munizioni, rafforza la difesa",
+      "description": "La Commissione propone 500 milioni di franchi per munizioni per rafforzare la difesa e contrastare le minacce più probabili. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissione-propone-500-milioni-munizioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A"
+      },
+      "datePublished": "2026-08-11T17:48:35+00:00",
+      "dateModified": "2026-08-11T17:48:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissione-propone-500-milioni-munizioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borse-studio-zurigo-requisiti-e-importi': {
+    title: 'Borse di studio nel Cantone di Zurigo: requisiti e importi',
+    description: 'Risorse finanziarie per gli studenti svizzeri nel Cantone di Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, cantone, zurigo',
+    ogTitle: 'Borse di studio nel Cantone di Zurigo: requisiti e importi',
+    ogDescription: 'Risorse finanziarie per gli studenti svizzeri nel Cantone di Zurigo',
+    canonicalPath: '/articoli-svizzera/borse-studio-zurigo-requisiti-e-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio nel Cantone di Zurigo: requisiti e importi",
+      "description": "Risorse finanziarie per gli studenti svizzeri nel Cantone di Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-zurigo-requisiti-e-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia editoriale di un docente e studente universitari in Svizzera"
+      },
+      "datePublished": "2026-08-11T18:13:13+00:00",
+      "dateModified": "2026-08-11T18:13:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-zurigo-requisiti-e-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-settore-agricolo-danni-19-milioni': {
+    title: 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
+    description: 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, settore, agricolo, segnala, danni',
+    ogTitle: 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
+    ogDescription: 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/settore-agricolo-danni-19-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il settore agricolo segnala danni per oltre 19 milioni di franchi.",
+      "description": "La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/settore-agricolo-danni-19-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista del lago di Lugano durante la siccità."
+      },
+      "datePublished": "2026-08-11T18:23:13+00:00",
+      "dateModified": "2026-08-11T18:23:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/settore-agricolo-danni-19-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

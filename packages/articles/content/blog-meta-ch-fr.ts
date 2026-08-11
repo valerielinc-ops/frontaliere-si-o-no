@@ -2212,6 +2212,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, un compromis est recherché',
     'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commission de l\'économie et des impôts des États (cet-S) a reporté la discussion sur la couverture par des fonds propres de participations étrangères dans la maison mère de banques d\'importance systémique (UBS).',
     'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'Le bâtiment du Parlement fédéral à Berne.',
+    'blog.article.commissione-propone-500-milioni-munizioni.title': '500 millions pour les munitions, renforce la défense',
+    'blog.article.commissione-propone-500-milioni-munizioni.excerpt': 'La Commission propose 500 millions de francs pour les munitions afin de renforcer la défense',
+    'blog.article.commissione-propone-500-milioni-munizioni.imageAlt': 'La Svizzera si prepara alla difesa con 500 milioni di franchi per munizioni e F-35A',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Bourses d\'études dans le canton de Zurich : exigences et montants',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Ressources financières pour les étudiants suisses',
+    'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Photographie éditoriale d\'un enseignant et d\'un étudiant en Suisse',
+    'blog.article.settore-agricolo-danni-19-milioni.title': 'Le secteur agricole signale des dommages pour plus de 19 millions de francs.',
+    'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'La sécheresse frappe durement les agriculteurs suisses, avec des dégâts estimés à plus de 19 millions de francs.',
+    'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Une vue du lac de Lugano pendant la sécheresse.',
 };
 
 export default blogMetaChFr;

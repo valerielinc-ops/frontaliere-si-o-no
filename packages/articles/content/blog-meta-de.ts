@@ -9731,6 +9731,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Wohnen in Saint-Pierre und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Die Eckdaten zum Leben eines Grenzgängers, der im Wallis arbeitet und in Saint-Pierre wohnt.',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Saint-Pierre lebt und in Valais arbeitet.',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Saarland ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.excerpt': 'Quellensteuer, neue Steuersätze und Änderungen für Grenzgänger Tessin-Italien.',
+    'blog.article.trasferirsi-a-sarre-da-frontaliere-pro-e-contro.imageAlt': 'Redaktionelles Bild zu: Trasferirsi a Sarre da frontaliere: pro e contro',
+    'blog.article.vivere-aosta-lavorare-vallese.title': 'Wohnen in Aosta und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Aosta und dem Wallis: Verbindungen, Quellensteuer, Wechselkursmanagement und Regeln für neue und alte Grenzgänger.',
+    'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Alpenpanorama zwischen Italien und der Schweiz für Grenzgänger',
 };
 
 export default blogMetaDe;
