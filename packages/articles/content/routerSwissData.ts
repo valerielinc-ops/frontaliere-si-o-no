@@ -732,6 +732,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mammut-proprieta-investitore-cinese': { it: 'mammut-proprieta-investitore-cinese', en: 'mammut-acquired-chinese-investor', de: 'mammut-eigentuemerwechsel-china', fr: 'mammut-changement-proprietaire-chinois' },
  'libera-circolazione-mercato-lavoro-2026': { it: 'libera-circolazione-mercato-lavoro-2026', en: 'free-movement-labour-market-2026', de: 'personenfreizuegigkeit-arbeitsmarkt-2026', fr: 'libre-circulation-marche-travail-2026' },
  'publiredazionale-aziende-informano': { it: 'publiredazionale-aziende-informano', en: 'publiredazionale-corporate-info', de: 'publiredazionale-unternehmensinfos', fr: 'publiredazionale-infos-entreprises' },
+ 'apple-chip-supply-chain-impatto': { it: 'apple-chip-supply-chain-impatto', en: 'apple-chip-shortage-supply-chain-impact', de: 'apple-chip-mangel-lieferketten-auswirkungen', fr: 'apple-penurie-puces-impact-chaine-approvisionnement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

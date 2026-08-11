@@ -27434,6 +27434,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apple-chip-supply-chain-impatto': {
+    title: 'Apple: stime al ribasso per carenza chip e supply chain',
+    description: 'Apple rivede al ribasso le stime di crescita al 9-11% per carenza di chip e crisi della supply chain. Impatti sul mercato tecnologico e sui prezzi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apple, stime, ribasso, carenza',
+    ogTitle: 'Apple: stime al ribasso per carenza chip e supply chain',
+    ogDescription: 'Apple prevede ricavi in crescita del 9-11%, segnata da pressioni sulla supply chain e carenza di memorie DRAM. Ecco cosa sta succedendo.',
+    canonicalPath: '/articoli-svizzera/apple-chip-supply-chain-impatto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apple: stime al ribasso per carenza chip e supply chain",
+      "description": "Apple rivede al ribasso le stime di crescita al 9-11% per carenza di chip e crisi della supply chain. Impatti sul mercato tecnologico e sui prezzi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apple-chip-supply-chain-impatto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno con vista panoramica sul lago di Lugano"
+      },
+      "datePublished": "2026-08-11T03:36:41+00:00",
+      "dateModified": "2026-08-11T03:36:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apple-chip-supply-chain-impatto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

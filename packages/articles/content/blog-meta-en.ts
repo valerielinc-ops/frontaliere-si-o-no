@@ -9628,6 +9628,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.title': 'Moving to Stelvio from border crossings: pros and cons',
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.excerpt': 'The new Frontier Agreement provides for new rules for frontier workers. What are the advantages and disadvantages of moving to Stelvio?',
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.imageAlt': 'View of Lake Como from Ascona',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Moving to Teglio from border crossing: pros and cons',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'Border workers who move to Teglio will benefit from a more favourable tax regime',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in auto per il lavoro a Teglio',
 };
 
 export default blogMetaEn;

@@ -9629,6 +9629,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Stelvio da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.excerpt': 'Il nuovo Accordo Frontalieri prevede nuove regole per i frontalieri. Quali sono i vantaggi e gli svantaggi di trasferirsi a Stelvio?',
     'blog.article.trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.imageAlt': 'Vista del lago di Como da Ascona',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Teglio da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'I frontalieri che si trasferiscono a Teglio potranno beneficiare di un regime fiscale più favorevole',
+    'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in auto per il lavoro a Teglio',
 };
 
 export default blogMetaIt;
