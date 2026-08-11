@@ -6508,6 +6508,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc',
+    category: 'pratico',
+    date: '2026-08-11T11:37:04.628Z',
+    image: '/images/blog/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

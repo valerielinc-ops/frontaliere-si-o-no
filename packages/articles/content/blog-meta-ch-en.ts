@@ -2170,6 +2170,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-zurigo.title': 'Family allowances in the canton of Zurich: amounts and applications',
     'blog.article.assegni-familiari-canton-zurigo.excerpt': 'The application procedure for the family allowance in the Canton of Zurich is simple and can be submitted online or at the seat of the relevant clearing house.',
     'blog.article.assegni-familiari-canton-zurigo.imageAlt': 'View of Lugano, a city in the Canton of Ticino, with the lake and surrounding hills',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.title': 'Unemployment benefits in the canton of Zurich',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.excerpt': 'This guide examines the conditions for claiming unemployment benefit in the Canton of Zurich, including enrollment in the URC, the minimum contribution period, the calculation of the daily allowance, employment search obligations, and vocational reintegration measures.',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.imageAlt': 'a scene of work in a factory in the Canton of Zurich',
 };
 
 export default blogMetaChEn;

@@ -2170,6 +2170,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-zurigo.title': 'Familienzulagen im Kanton Zürich: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-zurigo.excerpt': 'Das Antragsverfahren für die Familienzulage im Kanton Zürich ist einfach und kann online oder am Sitz der zuständigen Ausgleichskasse eingereicht werden.',
     'blog.article.assegni-familiari-canton-zurigo.imageAlt': 'Panorama von Lugano, einer Stadt im Kanton Tessin, mit dem See und den umliegenden Hügeln',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.title': 'Arbeitslosengeld im Kanton Zürich',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.excerpt': 'Dieser Leitfaden untersucht die Voraussetzungen für die Beantragung der Arbeitslosenentschädigung im Kanton Zürich, einschliesslich der Anmeldung beim RAV, der Mindestbeitragsdauer, der Berechnung des Taggeldes, der Arbeitssuchverpflichtungen und der Massnahmen zur beruflichen Wiedereingliederung.',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.imageAlt': 'eine Szene des Arbeitens in einer Fabrik des Kantons Zürich',
 };
 
 export default blogMetaChDe;

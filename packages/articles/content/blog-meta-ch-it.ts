@@ -2170,6 +2170,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-zurigo.title': 'Assegni familiari nel Canton Zurigo: importi e domanda',
     'blog.article.assegni-familiari-canton-zurigo.excerpt': 'La procedura di domanda per l\'assegno familiare nel Canton Zurigo è semplice e può essere presentata online o presso la sede della cassa di compensazione competente.',
     'blog.article.assegni-familiari-canton-zurigo.imageAlt': 'Vista di Lugano, città del Canton Ticino, con il lago e le colline circostanti',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.title': 'Indennità di disoccupazione nel Cantone di Zurigo',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.excerpt': 'La presente guida esamina le condizioni per richiedere l\'indennità di disoccupazione nel Cantone di Zurigo, inclusa l\'iscrizione all\'URC, il periodo di contribuzione minimo, il calcolo dell\'indennità giornaliera, gli obblighi di ricerca impiego e i provvedimenti di reinserimento professionale.',
+    'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.imageAlt': 'una scena di lavoro in una fabbrica del Cantone di Zurigo',
 };
 
 export default blogMetaChIt;

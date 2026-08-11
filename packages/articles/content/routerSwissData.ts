@@ -749,6 +749,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aziende-svizzere-assunzioni-manpower': { it: 'aziende-svizzere-assunzioni-manpower', en: 'swiss-hiring-trends-manpower', de: 'schweizer-einstellungsabsichten-manpower', fr: 'intentions-embauche-suisse-manpower' },
  'tassi-interesse-bns-2027': { it: 'tassi-interesse-bns-2027', en: 'interest-rates-snb-2027', de: 'zinsen-snb-2027', fr: 'taux-interet-bns-2027' },
  'assegni-familiari-canton-zurigo': { it: 'assegni-familiari-canton-zurigo', en: 'child-allowance-canton-zurich', de: 'kindergeld-kanton-zuerich', fr: 'allocation-familiale-canton-de-zurich' },
+ 'indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc': { it: 'indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc', en: 'unemployment-insurance-canton-zurich-urc-registration', de: 'arbeitslosenversicherung-kanton-zurich-urc-anmeldung', fr: 'securite-chomage-canton-de-zurich-inscription-au-urc' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
