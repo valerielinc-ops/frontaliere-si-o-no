@@ -849,9 +849,12 @@ function slugHash(s: string): number {
 }
 
 /** Extract meaningful topic words from an article slug (split on hyphens, drop short/stop words) */
-const STOP_WORDS = new Set(['2025', '2026', '2027', 'del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal']);
+const STOP_WORDS = new Set(['del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal']);
+// A literal year (formerly '2025'/'2026'/'2027') would need rewriting every
+// January (issue #5560); a four-digit-year test is a no-op for any year.
+const YEAR_SLUG_TOKEN_RE = /^(19|20)\d{2}$/;
 function slugTopicWords(id: string): Set<string> {
- return new Set(id.split('-').filter(w => w.length > 2 && !STOP_WORDS.has(w)));
+ return new Set(id.split('-').filter(w => w.length > 2 && !STOP_WORDS.has(w) && !YEAR_SLUG_TOKEN_RE.test(w)));
 }
 
 /** Score-based related articles: category match + topic overlap + date proximity + deterministic variety */

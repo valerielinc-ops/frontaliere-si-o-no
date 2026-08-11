@@ -520,10 +520,13 @@ async function fetchJobDetailResilient(jobId: string, slug?: string | null): Pro
  return fetchJobDetail(liveId);
 }
 
-const ARTICLE_STOP_WORDS = new Set(['2025', '2026', '2027', 'del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal', 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
+const ARTICLE_STOP_WORDS = new Set(['del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal', 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
+// A literal year (formerly '2025'/'2026'/'2027') would need rewriting every
+// January (issue #5560); a four-digit-year test is a no-op for any year.
+const YEAR_SLUG_TOKEN_RE = /^(19|20)\d{2}$/;
 
 function slugTopicWordsJob(id: string): Set<string> {
- return new Set(id.split('-').filter(w => w.length > 2 && !ARTICLE_STOP_WORDS.has(w)));
+ return new Set(id.split('-').filter(w => w.length > 2 && !ARTICLE_STOP_WORDS.has(w) && !YEAR_SLUG_TOKEN_RE.test(w)));
 }
 
 function saveJobAuthRedirectSlug(slug: string): void {
