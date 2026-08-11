@@ -9689,6 +9689,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-doues-lavorare-vallese.title': 'Wohnen in Doues und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Leitfaden für den Pendelverkehr zwischen Doues und Wallis: Steuervorschriften, Vorsorge und grenzüberschreitendes Arbeitsmanagement in Übereinstimmung mit den geltenden Vereinbarungen.',
     'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Berglandschaft zwischen Doues und der Schweizer Grenze',
+    'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Wohnen in Pré-Saint-Didier und Arbeiten im Wallis',
+    'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analyse des Wohnsitzes in Pré-Saint-Didier für Arbeitnehmer in der Schweiz und der geografischen Einschränkungen im Zusammenhang mit dem Grenzgängerstatus.',
+    'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Alpenlandschaft an der Schweizer Grenze',
 };
 
 export default blogMetaDe;

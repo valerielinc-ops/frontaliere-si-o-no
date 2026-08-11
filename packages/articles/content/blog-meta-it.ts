@@ -9691,6 +9691,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-doues-lavorare-vallese.title': 'Vivere a Doues e lavorare in Vallese da frontaliere',
     'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Guida al pendolarismo tra Doues e il Vallese: regole fiscali, previdenza e gestione del lavoro transfrontaliero nel rispetto degli accordi vigenti.',
     'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Paesaggio montano tra Doues e il confine svizzero',
+    'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Vivere a Pré-Saint-Didier e lavorare in Vallese',
+    'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analisi sulla residenza a Pré-Saint-Didier per lavoratori in Svizzera e i vincoli geografici legati allo status di frontaliere.',
+    'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Paesaggio alpino al confine svizzero',
 };
 
 export default blogMetaIt;
