@@ -2173,6 +2173,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.title': 'Arbeitslosengeld im Kanton Zürich',
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.excerpt': 'Dieser Leitfaden untersucht die Voraussetzungen für die Beantragung der Arbeitslosenentschädigung im Kanton Zürich, einschliesslich der Anmeldung beim RAV, der Mindestbeitragsdauer, der Berechnung des Taggeldes, der Arbeitssuchverpflichtungen und der Massnahmen zur beruflichen Wiedereingliederung.',
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.imageAlt': 'eine Szene des Arbeitens in einer Fabrik des Kantons Zürich',
+    'blog.article.svizzera-ees-rallenta-controlli.title': 'EES verlangsamt die Kontrollen',
+    'blog.article.svizzera-ees-rallenta-controlli.excerpt': 'Daten von Qsensor und der Financial Times, Sommerspitzen von bis zu 120 Minuten in Frankfurt und Amsterdam; acht Länder und die Schweiz fordern eine Verlängerung.',
+    'blog.article.svizzera-ees-rallenta-controlli.imageAlt': 'EES verlangsamt die Flughafenkontrollen in der Schweiz.',
 };
 
 export default blogMetaChDe;
