@@ -6262,7 +6262,7 @@
       "title": "Internship Corporate Communications",
       "titleByLocale": {
         "it": "Internship Corporate Communications (1 anno limitato)",
-        "en": "Internship Corporate Communications",
+        "en": "Corporate Communications Internship",
         "de": "Internship Corporate Communications",
         "fr": "Stage Communications ministérielles (1 an limité)"
       },
@@ -6323,8 +6323,8 @@
           "internship-corporate-communications-1-jahr-befristet-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T11:39:07.778Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -7442,12 +7442,14 @@
       },
       "previousSlugs": [
         "laborant-in-emmi-ch",
-        "laboratorio-in-emmi-dagmersellen-luzern"
+        "laboratorio-in-emmi-dagmersellen-luzern",
+        "laboratorio-in-emmi-dagmersellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-emmi-ch",
-          "laboratorio-in-emmi-dagmersellen-luzern"
+          "laboratorio-in-emmi-dagmersellen-luzern",
+          "laboratorio-in-emmi-dagmersellen"
         ],
         "en": [
           "laborant-in-emmi-ch"
@@ -7456,8 +7458,8 @@
           "laborant-in-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:31:55.260Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -7942,14 +7944,19 @@
           "• Gute Deutschkenntnisse und grundlegende MS-Office-Kenntnisse"
         ]
       },
-      "previousSlugs": [
-        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-kl1tuz",
-        "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen",
-        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch-kl1tuz",
-        "technician-heating-ventilation-air-conditioning-sanitation-hvac-emmi-dagmersellen",
-        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch",
-        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmersellen"
-      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.290Z",
       "previousSlugsByLocale": {
         "it": [
           "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-kl1tuz",
@@ -7972,20 +7979,14 @@
           "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:49:51.290Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-kl1tuz",
+        "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen",
+        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch-kl1tuz",
+        "technician-heating-ventilation-air-conditioning-sanitation-hvac-emmi-dagmersellen",
+        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch",
+        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmersellen"
+      ]
     },
     {
       "id": "emmi-22c587e26511",
@@ -8149,15 +8150,6 @@
           "• Offenheit, zusätzliche Aufgaben nach Anweisung zu übernehmen."
         ]
       },
-      "previousSlugs": [
-        "milchtechnologin-oder-milchtechnologe-emmi-ch",
-        "tecnico-lattiero-caseario-emmi-landquart-6s079b",
-        "milchtechnologin-oder-milchtechnologe-emmi-ch-2",
-        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
-        "milk-technologist-or-dairy-technologist-emmi-landquart",
-        "milchtechnologin-oder-milchtechnologe-emmi-landquart",
-        "milchtechnologin-o-milchtechnologe-emmi-landquart"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "milchtechnologin-oder-milchtechnologe-emmi-ch",
@@ -8175,8 +8167,15 @@
           "technologue-du-lait-ou-technologue-du-lait-emmi-landquart"
         ]
       },
-      "firstSeenAt": "2026-08-10T21:49:51.289Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "milchtechnologin-oder-milchtechnologe-emmi-ch",
+        "tecnico-lattiero-caseario-emmi-landquart-6s079b",
+        "milchtechnologin-oder-milchtechnologe-emmi-ch-2",
+        "technologue-du-lait-ou-technologue-du-lait-emmi-landquart",
+        "milk-technologist-or-dairy-technologist-emmi-landquart",
+        "milchtechnologin-oder-milchtechnologe-emmi-landquart",
+        "milchtechnologin-o-milchtechnologe-emmi-landquart"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8188,7 +8187,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.289Z",
+      "needsRetranslation": true
     },
     {
       "id": "emmi-49d267d27fb0",
@@ -8252,13 +8253,7 @@
           "• Du bist flexibel und schätzt die Vorteile des ununterbrochenen Schichtbetriebes."
         ]
       },
-      "previousSlugs": [
-        "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
-        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
-        "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
-        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-in-pulverproduktion-emmi-ch",
@@ -8276,8 +8271,13 @@
           "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:49:51.288Z",
+      "previousSlugs": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8289,7 +8289,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.288Z"
     },
     {
       "id": "emmi-7c61ad60bdec",
@@ -8349,14 +8350,6 @@
           "• Die deutsche Sprache beherrscht du in Wort und Schrift und du bist technisch interessiert."
         ]
       },
-      "previousSlugs": [
-        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
-        "translation-of-job-posting-emmi-dagmersellen",
-        "traduzione-del-post-di-lavoro-emmi-dagmersellen-xmtmur",
-        "traduction-du-post-de-travail-emmi-dagmersellen",
-        "dairy-technologist-or-food-technologist-emmi-dagmersellen-luzern",
-        "milchtechnologin-technologe-o-lebensmitteltechnologe-technologin-emmi-dagmersellen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
@@ -8376,8 +8369,14 @@
           "traduction-du-post-de-travail-emmi-dagmersellen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:49:51.289Z",
+      "previousSlugs": [
+        "milchtechnologin-technologe-oder-lebensmitteltechnologe-technologin-emmi-ch",
+        "translation-of-job-posting-emmi-dagmersellen",
+        "traduzione-del-post-di-lavoro-emmi-dagmersellen-xmtmur",
+        "traduction-du-post-de-travail-emmi-dagmersellen",
+        "dairy-technologist-or-food-technologist-emmi-dagmersellen-luzern",
+        "milchtechnologin-technologe-o-lebensmitteltechnologe-technologin-emmi-dagmersellen"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8389,7 +8388,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.289Z"
     },
     {
       "id": "emmi-6afc4a9e8764",
@@ -8445,14 +8445,7 @@
         "• Sehr gute Deutschkenntnisse und ein Führerausweis der Kategorie B runden dein Profil ab und machen dich flexibel einsetzbar – egal ob im täglichen Betrieb oder bei Einsätzen vor Ort."
       ],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebsmechaniker-in-emmi-ch-2",
-        "betriebsmechaniker-in-emmi-ch",
-        "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
-        "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
-        "business-mechanic-in-emmi-dagmersellen-luzern",
-        "betriebsmechaniker-in-emmi-dagmersellen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-in-emmi-ch-2",
@@ -8471,8 +8464,14 @@
           "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:49:51.287Z",
+      "previousSlugs": [
+        "betriebsmechaniker-in-emmi-ch-2",
+        "betriebsmechaniker-in-emmi-ch",
+        "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
+        "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
+        "business-mechanic-in-emmi-dagmersellen-luzern",
+        "betriebsmechaniker-in-emmi-dagmersellen"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8484,7 +8483,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.287Z"
     },
     {
       "id": "emmi-b5975d943845",
@@ -8628,13 +8628,7 @@
           "• Teamgeist, Offenheit, Engagement sowie ein ausgeprägtes Hygienebewusstsein."
         ]
       },
-      "previousSlugs": [
-        "maschinenfuhrer-in-3-schicht-emmi-ch",
-        "operatore-macchina-in-3-shift-emmi-emmen-luzern-1iu9bt",
-        "operateur-de-machine-en-3-equipes-emmi-emmen-luzern",
-        "machine-operator-in-3-shift-emmi-emmen-luzern",
-        "maschinenfuhrer-in-3-schicht-emmi-emmen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-3-schicht-emmi-ch",
@@ -8652,8 +8646,13 @@
           "operateur-de-machine-en-3-equipes-emmi-emmen-luzern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:49:51.284Z",
+      "previousSlugs": [
+        "maschinenfuhrer-in-3-schicht-emmi-ch",
+        "operatore-macchina-in-3-shift-emmi-emmen-luzern-1iu9bt",
+        "operateur-de-machine-en-3-equipes-emmi-emmen-luzern",
+        "machine-operator-in-3-shift-emmi-emmen-luzern",
+        "maschinenfuhrer-in-3-schicht-emmi-emmen"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -8665,7 +8664,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.284Z"
     },
     {
       "id": "emmi-0bb6099efb1b",
