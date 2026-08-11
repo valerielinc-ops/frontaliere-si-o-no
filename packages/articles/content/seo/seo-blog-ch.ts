@@ -28253,6 +28253,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carne-prezzi-svizzera': {
+    title: 'Il caldo non frena i consumi di carne, ma farà aumentare i prezzi',
+    description: 'L\'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l\'offerta e far lievitare i prezzi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, frena, consumi, carne',
+    ogTitle: 'Il caldo non frena i consumi di carne, ma farà aumentare i prezzi',
+    ogDescription: 'L\'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l\'offerta e far lievitare i prezzi.',
+    canonicalPath: '/articoli-svizzera/carne-prezzi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il caldo non frena i consumi di carne, ma farà aumentare i prezzi",
+      "description": "L'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l'offerta e far lievitare i prezzi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carne-prezzi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il costo della carne in Svizzera e le sue implicazioni"
+      },
+      "datePublished": "2026-08-11T13:07:40+00:00",
+      "dateModified": "2026-08-11T13:07:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carne-prezzi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

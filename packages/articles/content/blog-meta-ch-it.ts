@@ -2182,6 +2182,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-consiglio-federale.title': 'Neutralità, il Consiglio federale intende mantenere l\'attuale margine di manovra',
     'blog.article.neutralita-consiglio-federale.excerpt': 'Il Consiglio federale vuole mantenere l\'attuale margine di manovra sulla neutralità. L\'iniziativa popolare sulla neutralità sarà votata il 27 settembre.',
     'blog.article.neutralita-consiglio-federale.imageAlt': 'Un politico del DFAE parla davanti al Consiglio federale a Berna.',
+    'blog.article.carne-prezzi-svizzera.title': 'Il caldo non frena i consumi di carne, ma farà aumentare i prezzi',
+    'blog.article.carne-prezzi-svizzera.excerpt': 'L\'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l\'offerta e far lievitare i prezzi.',
+    'blog.article.carne-prezzi-svizzera.imageAlt': 'Il costo della carne in Svizzera e le sue implicazioni',
 };
 
 export default blogMetaChIt;
