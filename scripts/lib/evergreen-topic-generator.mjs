@@ -50,8 +50,9 @@ function readPublishedComuneTopics() {
     const parsed = JSON.parse(fs.readFileSync(PUBLISHED_TOPICS, 'utf-8'));
     const topics = parsed?.topics;
     // A short list means the file is truncated or the datasets collapsed;
-    // computing is better than publishing a silently narrowed pool.
-    if (!Array.isArray(topics) || topics.length < 100) return null;
+    // computing is better than publishing a silently narrowed pool. Floor is
+    // half the pre-#5563 value: one candidate per comune now, not two.
+    if (!Array.isArray(topics) || topics.length < 50) return null;
     return topics;
   } catch {
     return null;
@@ -71,6 +72,11 @@ function cleanProfessionLabel(label) {
     .toLowerCase();
 }
 
+// One candidate per profession, not two: "stipendio requisiti" and "quanto
+// guadagna" used to ship as separate near-duplicate keywords with
+// overlapping angles (#5563) — the pool declared double what it could
+// actually turn into distinct articles. The angle below folds both framings
+// (requirements AND actual pay) into the one candidate that survives.
 export function buildProfessionEvergreenTopics(taxonomy = PROFESSION_TAXONOMY) {
   const out = [];
   const seen = new Set();
@@ -80,11 +86,7 @@ export function buildProfessionEvergreenTopics(taxonomy = PROFESSION_TAXONOMY) {
     seen.add(label);
     out.push({
       keyword: `frontaliere ${label} ticino stipendio requisiti`,
-      angle: `Lavorare come ${label} in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.`,
-    });
-    out.push({
-      keyword: `quanto guadagna un ${label} frontaliere in ticino`,
-      angle: `Stipendio reale di un ${label} frontaliere in Ticino: fascia salariale, differenze rispetto all'Italia, fattori che incidono sulla retribuzione.`,
+      angle: `Lavorare come ${label} in Ticino da frontaliere: quanto si guadagna realmente (fascia salariale, differenze rispetto all'Italia), requisiti, eventuale riconoscimento del titolo di studio, permesso G.`,
     });
   }
   return out;
@@ -186,13 +188,15 @@ export function buildComuneEvergreenTopics(municipalities) {
     // largest frontaliere population and therefore real search intent.
     const picked = [...list].sort((a, b) => a.distanceKm - b.distanceKm).slice(0, cap);
     for (const m of picked) {
+      // One candidate per comune, not two: "vivere a / lavorare in" and
+      // "trasferirsi ... pro e contro" used to ship as separate near-duplicate
+      // keywords whose angles overlapped (commute mechanics vs relocation
+      // pro/cons, #5563) — the pool declared double what it could actually
+      // turn into distinct articles. The angle below folds both framings
+      // into the one candidate that survives.
       out.push({
         keyword: `vivere a ${m.name} e lavorare in ${canton} da frontaliere`,
-        angle: `Pendolarismo ${m.name}-${canton} per frontalieri: collegamenti, tempi di percorrenza, costo della vita, zone consigliate.`,
-      });
-      out.push({
-        keyword: `trasferirsi a ${m.name} da frontaliere pro e contro`,
-        angle: `Vivere a ${m.name} lavorando in ${canton} da frontaliere: vantaggi, svantaggi, tempi di spostamento, cosa considerare prima di trasferirsi.`,
+        angle: `Vivere a ${m.name} e lavorare in ${canton} da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento, cosa considerare prima di trasferirsi.`,
       });
     }
   }

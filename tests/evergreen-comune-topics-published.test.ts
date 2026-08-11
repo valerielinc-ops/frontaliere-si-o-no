@@ -25,9 +25,9 @@ describe('published evergreen comune topics', () => {
   it('carries a real pool, not a collapsed one', () => {
     const published = JSON.parse(fs.readFileSync(PUBLISHED, 'utf-8'));
 
-    // The reader treats anything under 100 as unusable and recomputes; a file
+    // The reader treats anything under 50 as unusable and recomputes; a file
     // that trips its own floor would be silently ignored in production.
-    expect(published.topics.length).toBeGreaterThanOrEqual(100);
+    expect(published.topics.length).toBeGreaterThanOrEqual(50);
     for (const t of published.topics) {
       expect(typeof t.keyword).toBe('string');
       expect(t.keyword.length).toBeGreaterThan(0);
