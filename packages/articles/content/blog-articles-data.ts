@@ -28929,6 +28929,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tredicesima-avs-frontalieri-dettagli',
+ category: 'pensione',
+ date: '2026-08-11T07:02:54.775Z',
+ image: '/images/blog/tredicesima-avs-frontalieri-dettagli.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9646,6 +9646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Vivere a Lovero e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Impostazione fiscale, permessi e pendolarismo.',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere in automobile in transito dal confine italo-svizzero.',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.title': 'Tredicesima AVS ai frontalieri: come funziona',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'A dicembre la rendita AVS sale: ecco le regole per i frontalieri dopo il voto del 3 marzo 2024 e le decisioni del 12 novembre 2025.',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Vista panoramica di Lugano e del suo lago',
 };
 
 export default blogMetaIt;

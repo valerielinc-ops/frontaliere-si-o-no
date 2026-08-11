@@ -9645,6 +9645,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Living in Lovero and working in Graubünden as a cross-border commuter',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Tax setting, permits and commuting.',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'A commuter driving through the Italian-Swiss border.',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.title': 'Thirteenth AVS to frontier workers: how it works',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.excerpt': 'In December, the AVS pension rises: here are the rules for border workers after the vote on 3 March 2024 and the decisions of 12 November 2025.',
+    'blog.article.tredicesima-avs-frontalieri-dettagli.imageAlt': 'Panoramic view of Lugano and its lake',
 };
 
 export default blogMetaEn;
