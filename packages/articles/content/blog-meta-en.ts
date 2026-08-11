@@ -9577,6 +9577,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.montegrino-valtravaglia-frontalieri-ticino.title': 'Living in Montegrino Valtravaglia and working in Ticino as a border worker',
     'blog.article.montegrino-valtravaglia-frontalieri-ticino.excerpt': 'The new border agreement signed on 23 December 2020 provides for new rules for border workers working in Ticino.',
     'blog.article.montegrino-valtravaglia-frontalieri-ticino.imageAlt': 'Frontalier in Ticino',
+    'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.title': 'Moving to Domaso by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.excerpt': 'The New Frontier Agreement was signed on 23 December 2020 and provides a number of benefits for frontier workers moving to Domaso.',
+    'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.imageAlt': 'A frontiera worker who finds themselves in a similar situation might transfer to Domaso to enjoy a range of benefits.',
 };
 
 export default blogMetaEn;

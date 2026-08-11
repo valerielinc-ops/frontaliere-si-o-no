@@ -28731,6 +28731,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-a-domaso-da-frontaliere-pro-e-contro',
+ category: 'fiscale',
+ date: '2026-08-11T00:42:52.567Z',
+ image: '/images/blog/trasferirsi-a-domaso-da-frontaliere-pro-e-contro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
