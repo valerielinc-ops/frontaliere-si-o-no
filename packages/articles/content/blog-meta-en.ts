@@ -9604,6 +9604,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Living in Chiavenna and working in Graubünden as a border worker',
     'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'New Frontier Agreement: what changes for Ticino and Graubünden frontiersmen.',
     'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Frontalier approaching a border crossing',
+    'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Transferring to Valdidentro by border crossing: pros and cons',
+    'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analysis of life and work in Valdidentro for border workers in Graubünden: taxes, deductibles and practical aspects of the new tax agreement.',
+    'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Panoramic view of an alpine valley near the Swiss border',
 };
 
 export default blogMetaEn;

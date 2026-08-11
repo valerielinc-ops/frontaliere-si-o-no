@@ -9603,6 +9603,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Wohnen in Chiavenna und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'Neues Frontalieri-Abkommen: Was ändert sich für die Tessiner und Bündner Grenzgänger?',
     'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Pendler am Grenzübergang',
+    'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Umzug nach Valdidentro als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analyse von Leben und Arbeit in Valdidentro für Grenzgänger in Graubünden: Steuern, Franchisen und praktische Aspekte des neuen Steuerabkommens.',
+    'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Panoramablick auf ein Alpental nahe der Schweizer Grenze',
 };
 
 export default blogMetaDe;

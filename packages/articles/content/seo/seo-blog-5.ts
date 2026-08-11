@@ -63524,6 +63524,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-valdidentro-frontaliere': {
+    title: 'Trasferirsi a Valdidentro da frontaliere: pro e contro',
+    description: 'Trasferirsi a Valdidentro da frontaliere: scopri imposte, franchigie e aspetti fiscali del nuovo accordo CH-IT in vigore dal 2024 per chi lavora in Grigioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, valdidentro, contro, analisi',
+    ogTitle: 'Trasferirsi a Valdidentro da frontaliere: pro e contro',
+    ogDescription: 'Guida pratica per chi vive a Valdidentro e lavora in Svizzera: dettagli su tasse, previdenza e il nuovo accordo fiscale tra Italia e Grigioni.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-valdidentro-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Valdidentro da frontaliere: pro e contro",
+      "description": "Trasferirsi a Valdidentro da frontaliere: scopri imposte, franchigie e aspetti fiscali del nuovo accordo CH-IT in vigore dal 2024 per chi lavora in Grigioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-valdidentro-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di una valle alpina vicino al confine svizzero"
+      },
+      "datePublished": "2026-08-11T02:15:55+00:00",
+      "dateModified": "2026-08-11T02:15:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-valdidentro-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
