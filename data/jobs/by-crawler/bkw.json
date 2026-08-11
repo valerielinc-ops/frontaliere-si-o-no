@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bkw",
-  "assembledAt": "2026-08-11T10:20:02.317Z",
+  "assembledAt": "2026-08-11T08:19:54.670Z",
   "jobs": [
     {
       "id": "bkw-4f0a6bacc40f",
@@ -16263,17 +16263,17 @@
         "it": "brandschutzfachmann-frau-alle-bkw-chur",
         "en": "brandschutzfachmann-frau-alle-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
-        "fr": "brandschutzfachmann-frau-alle-bkw-ch"
+        "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
       "company": "BKW",
       "companyKey": "bkw",
       "companyDomain": "bkw.ch",
       "title": "Brandschutzfachmann:frau (alle)",
       "titleByLocale": {
-        "it": "Brandschutzfachmann: frau (alle)",
+        "it": "Specialista nella protezione antincendio (tutti)",
         "en": "Brandschutzfachmann:frau (alle)",
         "de": "Brandschutzfachmann:frau (alle)",
-        "fr": "Brandschutzfachmann :frau (alle)"
+        "fr": "Spécialiste de la protection incendie (tous)"
       },
       "description": "Dein Wirkungsfeld\n\n• Entwicklung von ganzheitlichen Brandschutzkonzepten für vielseitige und anspruchsvolle Bauvorhaben\n\n• Unterstützung und Sicherstellung der Qualität in den verschiedenen Planungsphasen\n\n• Fachliche Beratung von Bauherrschaften, Architekten und Planungsteams in brandschutztechnischen Fragestellungen\n\n• Durchführung von Qualitäts- und Funktionskontrollen während der Realisierungsphase\n\n• Verantwortung hinsichtlich Qualität, Kosten und Terminen\n\nDeine Expertise\n\n• Abgeschlossene Ausbildung als Brandschutzfachmann/-frau VKF\n\n• Selbständige, strukturierte und verantwortungsbewusste Arbeitsweise\n\n• Interesse an der fachlichen Weiterentwicklung im Brandschutz\n\n• Qualitätsbewusstsein sowie Verständnis für Termine, Kosten und wirtschaftliche Lösungen\n\nCarla Zimmermann\nRecruiting Partner\n+41 79 648 09 49\n\nWir wünschen keine Anfragen von Personaldienstleistern.\n\nWir freuen uns auf deine Online-Bewerbung.\n\nÜber uns\n\nDie enerpeak ag bietet ihren Kundinnen und Kunden innovative Gesamtlösungen im Bereich Gebäude-Elektro-Engineering. Wir beschäftigen rund 60 Mitarbeitende an fünf Standorten. Gemeinsam planen wir energieeffiziente Gebäude und gestalten nachhaltige Lebensräume von morgen.\nDazu brauchen wir Sie: Menschen mit Ideen und Engagement. Leisten Sie mit uns einen wertvollen Beitrag für die Gesellschaft und unsere Umwelt!",
       "descriptionByLocale": {
@@ -16316,10 +16316,12 @@
         "en": [
           "brandschutzfachmann-frau-alle-bkw-ch",
           "fire-protection-specialist-woman-all-bkw-chur"
+        ],
+        "fr": [
+          "brandschutzfachmann-frau-alle-bkw-ch"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -16331,7 +16333,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-5696dca94e9b",
@@ -18388,9 +18391,9 @@
     },
     {
       "id": "bkw-1ec663234fb5",
-      "slug": "sap-vendor-manager-bkw-ch",
+      "slug": "responsabile-fornitori-sap-bkw-bern",
       "slugByLocale": {
-        "it": "sap-vendor-manager-bkw-ch",
+        "it": "responsabile-fornitori-sap-bkw-bern",
         "en": "sap-vendor-manager-bkw-ch",
         "de": "sap-vendor-manager-bkw-ch",
         "fr": "gestionnaire-de-fournisseurs-sap-bkw-bern"
@@ -18400,7 +18403,7 @@
       "companyDomain": "bkw.ch",
       "title": "SAP Vendor Manager",
       "titleByLocale": {
-        "it": "SAP Vendor Manager",
+        "it": "Responsabile Fornitori SAP",
         "en": "SAP Vendor Manager",
         "de": "SAP Vendor Manager",
         "fr": "Gestionnaire de fournisseurs SAP"
@@ -18437,19 +18440,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fornitori-sap-bkw-bern",
-        "responsable-des-fournisseurs-sap-bkw-bern"
+        "responsable-des-fournisseurs-sap-bkw-bern",
+        "sap-vendor-manager-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fornitori-sap-bkw-bern",
-          "responsable-des-fournisseurs-sap-bkw-bern"
+          "responsable-des-fournisseurs-sap-bkw-bern",
+          "sap-vendor-manager-bkw-ch"
         ],
         "fr": [
           "responsable-des-fournisseurs-sap-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-07-27T12:36:27.116Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -18461,7 +18465,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-157333a70741",
@@ -28631,9 +28636,9 @@
       "companyDomain": "bkw.ch",
       "title": "Senior Application Manager Dynamics 365 CRM",
       "titleByLocale": {
-        "it": "Senior Application Manager Dynamics 365 CRM",
-        "en": "Senior Application Manager Dynamics 365 CRM",
         "de": "Senior Application Manager Dynamics 365 CRM",
+        "en": "Senior Application Manager Dynamics 365 CRM",
+        "it": "Responsabile applicativo senior Dynamics 365 CRM",
         "fr": "Gestionnaire d'applications principal Dynamics 365 CRM"
       },
       "description": "Dein Wirkungsfeld\n\n• Du stellst den stabilen und sicheren Betrieb der Microsoft Dynamics 365 CRM-, Customer-Engagement- sowie der Power-Plattform sicher\n\n• Gemeinsam mit internen und externen Partnern koordinierst und begleitest du Changes, Releases, Tests sowie produktive Einführungen und sorgst für eine zuverlässige Umsetzung der Lösungen\n\n• Business-Anforderungen aus unterschiedlichen Fachbereichen analysierst und priorisierst du und überführst sie in tragfähige technische Lösungen\n\n• Du berätst Fachbereiche, Product Owner und Projektleitende bei Fragestellungen rund um Prozesse, Daten, Integrationen, Berechtigungen und Automatisierung\n\n• Plattformen, Integrationen und Automatisierungen entwickelst du kontinuierlich weiter und unterstützt damit eine nachhaltige und leistungsfähige Systemlandschaft\n\n• Moderne Technologien, AI-Services sowie Plattformfunktionen der Microsoft Cloud evaluierst du kontinuierlich und bringst deren Potenzial aktiv in die Weiterentwicklung der Lösungslandschaft ein\n\nDas bringst du mit\n\n• Du verfügst über eine höhere Ausbildung in Informatik, Wirtschaftsinformatik oder einem vergleichbaren technischen Fachgebiet\n\n• Die Zusammenarbeit mit unterschiedlichen Stakeholdern gelingt dir auch in anspruchsvollen und sich verändernden Systemlandschaften, wobei du Beziehungen aufbaust und den Überblick behältst\n\n• Mehrjährige Erfahrung im Application Management (idealerweise von Microsoft Dynamics 365 CRM) sowie im Betrieb und der Weiterentwicklung entsprechender Plattformen zeichnen dich aus\n\n• Gute Kenntnisse von Microsoft Azure, der Power-Plattform sowie moderner Cloud-, Integrations- und Automatisierungslösungen bringst du mit\n\n• Komplexe technische und fachliche Zusammenhänge analysierst du strukturiert und findest dafür pragmatische und nachhaltige Lösungen\n\n• Sehr gute Deutsch- sowie gute Englischkenntnisse runden dein Profil ab; Zertifizierungen im Microsoft-Dynamics-Umfeld sind von Vorteil\n\nWir wünschen keine Anfragen von Personaldienstleistern.\n\nWir freuen uns auf deine Online-Bewerbung.\n\nÜber uns\n\nDie BKW bietet zukunftsweisende Gesamtlösungen in den Bereichen Energie, Gebäude und Infrastruktur – international und partnerschaftlich. Mit rund 12'000 Mitarbeitenden bauen wir moderne Netze, erzeugen erneuerbare Energie und realisieren energieeffiziente Gebäude. Dafür suchen wir Menschen mit Leidenschaft, die gemeinsam mit uns einen Beitrag für die Gesellschaft und Umwelt von Morgen leisten. Werde Teil des BKW Netzwerks und gestalte mit uns lebenswerte Lebensräume!",
@@ -28666,8 +28671,6 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/senior-application-manager-dynamics-365-crm/c88dd2ec-c8f1-474e-8049-68c30578917c",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T10:33:38.723Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -28679,7 +28682,9 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T10:33:38.723Z",
+      "needsRetranslation": true
     },
     {
       "id": "bkw-8e847636a0bf",
@@ -28695,9 +28700,9 @@
       "companyDomain": "bkw.ch",
       "title": "Finance Systems Analyst FP&A",
       "titleByLocale": {
-        "it": "Finanza Systems Analista FP&A",
-        "en": "Finance Systems Analyst FP&A",
         "de": "Finanzen Systems Analyst FP&A",
+        "en": "Financial Systems Analyst FP&A",
+        "it": "Finanza Systems Analista FP&A",
         "fr": "Finance Systems Analyste FP&A"
       },
       "description": "Dein Wirkungsfeld\n\n• Du stellst den stabilen Betrieb und die Administration von IBM Planning Analytics sicher und trägst zu einer hohen Systemverfügbarkeit sowie Datenqualität bei\n\n• Gemeinsam mit Group FP&A entwickelst du Datenmodelle, Planungsprozesse, Reports und Dashboards weiter und setzt fachliche Anforderungen technisch um\n\n• Du optimierst und automatisierst konzernweite Budgetierungs-, Forecast- und Finanzplanungsprozesse, damit manuelle Arbeiten reduziert werden\n\n• Du stärkst die Betriebssicherheit durch strukturierte Analysen, findest nachhaltige Lösungen in deinem Verantwortungsbereich und begleitest Releases, Tests sowie die Anbindung von Schnittstellen aktiv\n\n• In enger Zusammenarbeit mit internen und externen Ansprechpersonen erarbeitest du praxisnahe Lösungen und unterstützt Anwenderinnen und Anwender im Arbeitsalltag\n\n• Mit Dokumentationen, Schulungsunterlagen sowie digitalen und KI-gestützten Ansätzen leistest du einen Beitrag zur Weiterentwicklung der Finance-Systemlandschaft\n\nDas bringst du mit\n\n• Du verfügst über ein abgeschlossenes Studium oder eine höhere Fachausbildung in Wirtschaftsinformatik, Betriebsökonomie mit IT-Fokus oder Informatik mit Interesse an Finance\n\n• Erste Berufserfahrung in Business Intelligence, Finance Systems, Corporate Performance Management oder Data Analytics bildet eine solide Grundlage für diese Aufgabe\n\n• Budgetierungs-, Forecast- und Reportingprozesse interessieren dich und du möchtest Finance und Technologie wirkungsvoll miteinander verbinden\n\n• Idealerweise bringst du Kenntnisse in IBM Planning Analytics oder einer vergleichbaren Planungslösung mit\n\n• Eine strukturierte, sorgfältige und lösungsorientierte Arbeitsweise zeichnet dich aus und du kommunizierst sicher auf Deutsch; Englischkenntnisse sind von Vorteil\n\nWir wünschen keine Anfragen von Personaldienstleistern.\n\nWir freuen uns auf deine Online-Bewerbung.\n\nÜber uns\n\nDie BKW bietet zukunftsweisende Gesamtlösungen in den Bereichen Energie, Gebäude und Infrastruktur – international und partnerschaftlich. Mit rund 12'000 Mitarbeitenden bauen wir moderne Netze, erzeugen erneuerbare Energie und realisieren energieeffiziente Gebäude. Dafür suchen wir Menschen mit Leidenschaft, die gemeinsam mit uns einen Beitrag für die Gesellschaft und Umwelt von Morgen leisten. Werde Teil des BKW Netzwerks und gestalte mit uns lebenswerte Lebensräume!",
@@ -28730,18 +28735,6 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/finance-systems-analyst-fp-a/974955bb-343b-44e5-bfa9-af77587ef35d",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "finance-systems-analyst-fp-a-bkw-ch",
-        "finanza-systems-analista-fp-a-bkw-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "finance-systems-analyst-fp-a-bkw-ch",
-          "finanza-systems-analista-fp-a-bkw-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:33:38.723Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -28753,7 +28746,19 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T10:33:38.723Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-systems-analyst-fp-a-bkw-ch",
+          "finanza-systems-analista-fp-a-bkw-bern"
+        ]
+      },
+      "previousSlugs": [
+        "finance-systems-analyst-fp-a-bkw-ch",
+        "finanza-systems-analista-fp-a-bkw-bern"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "bkw-a1a8374f408e",
