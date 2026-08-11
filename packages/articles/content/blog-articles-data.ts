@@ -28956,6 +28956,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sanzioni-sicurezza-lavoro-comasco',
+ category: 'fiscale',
+ date: '2026-08-11T08:30:29.000Z',
+ image: '/images/blog/sanzioni-sicurezza-lavoro-comasco.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
