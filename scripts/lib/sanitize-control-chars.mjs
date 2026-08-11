@@ -5,9 +5,11 @@
  *
  * Two source titles in `content/` carry raw control bytes, born upstream from a
  * mangling of accented characters and typographic quotes — `sar\x170` for
- * «sarà», `marted\x088` for «martedì», `\x083…\x083` for the pair of curly
- * quotes. They are ordinary string data as far as every emitter here is
- * concerned, so every emitter forwarded them verbatim into the public surface:
+ * «sarò», `marted\x088` for «martedì», `\x083…\x083` for the pair of curly
+ * quotes. Those three are OBSERVATIONS OF TWO TITLES, not a mapping to repair
+ * from; read "Do not repair from the list above" before using any of them.
+ * They are ordinary string data as far as every emitter here is concerned, so
+ * every emitter forwarded them verbatim into the public surface:
  *
  *   - `sitemap-blog.xml` carried 0x08 and 0x17 inside `<image:title>` at two
  *     of its 3120 `<url>` blocks. XML 1.0 §2.2 admits no C0 character other
@@ -29,6 +31,39 @@
  * *illegal* in the two serialisations we publish. Nothing between the corpus
  * and the reader was looking, so the failure was silent in the producer and
  * total in the consumer.
+ *
+ * ## Do not repair from the list above
+ *
+ * The three pairs are what was MEASURED in two titles. They are NOT a
+ * `(byte, digit) → character` function, and reading them as one has already
+ * produced a wrong answer: this docstring said `sar\x170` was «sarà» until
+ * 2026-08-11, and the corpus holds the same sentence clean in
+ * `content/blog-body/it/trump-intesa-o-inferno.ts` — `Trump: "Intesa o sarò
+ * l'inferno"`, Trump speaking in the first person. A repair guided by this file
+ * would have written `sarà`: corrupt text, green CI, and no residue left for
+ * anyone to grep. The same wrong pair is in corpus issue #66's census.
+ *
+ * The relation is not a function in EITHER direction. Byte-verified in the
+ * corpus repo's merged #218:
+ *
+ *   - one key, two characters — `\x083` spells BOTH ends of
+ *     `\x083territorio poroso\x083`, so it cannot say which quote to write;
+ *   - one byte, two characters — `\x0f` is «ù» in `O\x0f :` → `Où` and «œ» in
+ *     `en \x0fuvre` → `en œuvre`, in the same file;
+ *   - two keys, one character — «é» is `\x0e` in `Municipalit\x0e de` and
+ *     `\x169` in `comp\x169tences`.
+ *
+ * What holds instead is the WITNESS channel corpus #218 established: take the
+ * 16 characters before the marker and the 24 after, look that anchor up in the
+ * corpus files that carry no marker at all, and accept what the witnesses have
+ * in between ONLY if they are unanimous and it is a single letter. No witness,
+ * or witnesses that disagree, and the byte stays where it is. That is the
+ * method to reach for; this list is not.
+ *
+ * Of the three pairs, only `marted\x088` → «martedì» is confirmed by a clean
+ * witness (the same title, in the file named above). `\x083` is confirmed to be
+ * a typographic quote and NOT which one. Neither says anything about any other
+ * byte, and nothing here was verified for the bytes not listed.
  *
  * ## Why here, and not in `content/`
  *
