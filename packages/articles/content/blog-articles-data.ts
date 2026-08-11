@@ -29010,6 +29010,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'evoluzione-logistica-varese-malpensa',
+ category: 'pratico',
+ date: '2026-08-11T10:44:18.007Z',
+ image: '/images/blog/evoluzione-logistica-varese-malpensa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9672,6 +9672,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-saint-oyen-lavorare-vallese.title': 'Living in Saint-Oyen and working in Valais as a border worker',
     'blog.article.vivere-saint-oyen-lavorare-vallese.excerpt': 'Practical guide for border workers: taxation, agreements and management of commuting between Saint-Oyen and the Valais according to current regulations.',
     'blog.article.vivere-saint-oyen-lavorare-vallese.imageAlt': 'Mountain landscape near the Italian-Swiss border',
+    'blog.article.evoluzione-logistica-varese-malpensa.title': 'Logistics and Malpensa: the transformation of Varese',
+    'blog.article.evoluzione-logistica-varese-malpensa.excerpt': 'From manufacturing to artificial intelligence: how Varese logistics has become a strategic lever for the economic competitiveness of the territory.',
+    'blog.article.evoluzione-logistica-varese-malpensa.imageAlt': 'Modern logistics warehouse near Malpensa airport',
 };
 
 export default blogMetaEn;

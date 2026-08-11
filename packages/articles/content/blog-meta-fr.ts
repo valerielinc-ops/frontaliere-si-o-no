@@ -9674,6 +9674,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-saint-oyen-lavorare-vallese.title': 'Vivre à Saint-Oyen et travailler en Valais comme frontalier',
     'blog.article.vivere-saint-oyen-lavorare-vallese.excerpt': 'Guide pratique pour les frontaliers : fiscalité, accords et gestion des déplacements entre Saint-Oyen et le Valais selon les réglementations en vigueur.',
     'blog.article.vivere-saint-oyen-lavorare-vallese.imageAlt': 'Paysage de montagne près de la frontière italo-suisse',
+    'blog.article.evoluzione-logistica-varese-malpensa.title': 'Logistique et Malpensa : la transformation du Varesotto',
+    'blog.article.evoluzione-logistica-varese-malpensa.excerpt': 'De la fabrication à l\'intelligence artificielle : comment la logistique de Varèse est devenue un levier stratégique pour la compétitivité économique du territoire.',
+    'blog.article.evoluzione-logistica-varese-malpensa.imageAlt': 'Entrepôt logistique moderne près de l\'aéroport de Malpensa',
 };
 
 export default blogMetaFr;
