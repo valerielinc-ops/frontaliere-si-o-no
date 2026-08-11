@@ -291,11 +291,118 @@ describe('titleLooksUntranslated — partial German residue in IT slots (no sour
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Calibration corpus — 179 labelled title slots sampled from the live site.
+// Cross-language homographs in the marker lexicon.
+//
+// The 179-entry calibration corpus is too small to expose these: each family is
+// a single lexicon entry that happens to be an ordinary word in one of the other
+// three locales, so it only shows up at dataset scale. Measured over all 79,754
+// non-source title slots in data/jobs/by-crawler (2026-08-10) BEFORE the fix:
+//
+//   marker                          flags   what it actually matched
+//   de functionWords `des`          2,209   the French partitive article (2,192
+//                                           of them in a correct FR slot)
+//   DE_EXACT_TOKENS `installateur`    279   the identically-spelled French noun
+//                                           (277 in a correct FR slot)
+//   fr functionWords `sous`            19   "Sous Chef", a culinary borrowing
+//                                           used verbatim in it/en/de (19 of 19)
+//   DE_CLUSTER_RE on English roots    ~127  Switzerland, Watchmaker, Switchgear,
+//                                           Benchmarking, Attachments, …
+//   DE_PREFIX_RE `ober` on toponyms   ~110  Oberland, Oberwallis, Oberaargau, …
+//
+// Every string below is verbatim from that dataset or a minimal paraphrase of
+// one, and every one of them flagged before the lexicon was corrected.
+// ─────────────────────────────────────────────────────────────────────────────
+describe('titleLooksUntranslated — cross-language homographs must not flag', () => {
+  const cleanCases: Array<[string, string, string, string]> = [
+    // `des` — the single largest false-positive family (8.2% of all flags).
+    ['des: correct French, German article homograph', 'Directeur des ventes - constructeurs de panneaux (80-100%)', 'fr', 'de'],
+    ['des: French apprenticeship title', 'Apprentissage 2027 comme spécialiste des restaurants EFZ', 'fr', 'de'],
+    ['des: French HR title', 'Responsable des ressources humaines', 'fr', 'de'],
+    // `installateur` — spelled identically in French and German.
+    ['installateur: correct French trade title', 'Installateur sanitaire CFC (80-100%)', 'fr', 'de'],
+    ['installateur: correct French compound', 'Installateur-électricien CFC', 'fr', 'de'],
+    // DE_CLUSTER_RE `tz` / `chm` / `chg` / `chs` on English roots.
+    ['tz: English "Switzerland"', 'Regional Sales Manager Cardiac Rhythm Management - Region Central Switzerland', 'en', 'de'],
+    ['tz: English "Switzerland" again', 'Territory Manager Cardiology - Region German-speaking Switzerland', 'en', 'de'],
+    ['chm: English "Watchmaker"', 'Watchmaker for high-end complications (100%)', 'en', 'de'],
+    ['chg: English "Switchgear"', 'Project Engineer Switchgear Systems', 'en', 'de'],
+    ['chm: English "Benchmarking"', 'Benchmarking Analyst Compensation', 'en', 'de'],
+    // `sous` — "Sous Chef" is the same token in all four locales.
+    ['sous: Italian kitchen brigade title', 'Sous Chef 100%', 'it', 'de'],
+    ['sous: English kitchen brigade title', 'Junior Sous Chef 100%', 'en', 'de'],
+    // DE_PREFIX_RE `ober` on Swiss place names.
+    ['ober: Swiss toponym in an Italian title', 'Consulente clienti Oberland bernese 80%', 'it', 'de'],
+    ['ober: Swiss toponym in an English title', 'Service Technician Oberwallis', 'en', 'de'],
+  ];
+
+  for (const [label, title, targetLocale, sourceLang] of cleanCases) {
+    it(`stays clean — ${label}`, () => {
+      const res = titleLooksUntranslated({ title, sourceLang, targetLocale });
+      expect(res.reason).toBe('ok');
+      expect(res.untranslated).toBe(false);
+    });
+  }
+
+  // The homograph fixes must not cost recall on the German words that share the
+  // rule. `tz` still has to reach "Metzger" (292 flags in the same sweep) and
+  // `ober` still has to reach "Oberarzt" (173); `installateur` is still German
+  // inside a compound; `des` is still German residue when anything else in the
+  // title says so.
+  const stillFlagged: Array<[string, string]> = [
+    ['Aiuto Metzger 60-100%', 'compound-residue'],
+    ['Apprendistato 2027 Automobil-Mechatroniker CFC Nutzfahrzeuge', 'compound-residue'],
+    ['Oberarzt (m/w/d) Psychiatrie', 'compound-residue'],
+    ['Oberärztin Anästhesie 80%', 'source-orthography'],
+    ['Sanitärinstallateur/in (100%)', 'source-orthography'],
+    ['Responsabile di progetto Heizungsinstallateur 80%', 'compound-residue'],
+    ['Mitglied des Verwaltungsrates - Finanz- e Rechnungswesen', 'compound-residue'],
+    ['Einrichter:in Spritzguss / Estrusione (80-100%)', 'compound-residue'],
+  ];
+  for (const [title, reason] of stillFlagged) {
+    it(`still flags real German residue: ${title.slice(0, 46)}…`, () => {
+      const res = titleLooksUntranslated({ title, sourceLang: 'de', targetLocale: 'it' });
+      expect(res.untranslated).toBe(true);
+      expect(res.reason).toBe(reason);
+    });
+  }
+
+  // The reason `des` was removed rather than reclassified as a FRENCH marker
+  // (which the ALWAYS_SCANNED_MARKER_LANGS mechanism would then keep out of the
+  // FR slot by construction): the fr marker set IS scanned against `de` slots,
+  // and 78 correct German titles in a non-source `de` slot carry the genitive
+  // "des". Reclassifying would have swapped 2,192 French false positives for 78
+  // German ones and bought only 3 extra true positives. Measured, not assumed.
+  it('does not flag correct German carrying the genitive "des" in a de slot', () => {
+    const res = titleLooksUntranslated({
+      title: 'Leiter des Referats Gebaudemanagementsysteme', sourceLang: 'fr', targetLocale: 'de',
+    });
+    expect(res.untranslated).toBe(false);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Calibration corpus — 197 labelled title slots sampled from the live site.
 // This is a RATCHET: raise the constants when a change improves the numbers,
 // never lower them to make a regression pass. Rates, not counts, so the gate
 // does not flicker if the fixture is ever resampled (see the workspace memory
 // note on absolute-count ratchets).
+//
+// The fixture was revised on 2026-08-10 (see _meta.revisions): 8 entries were
+// labelled broken:true on the strength of an ordinary word in their own locale
+// — "des" in French, "alle" in Italian — because the labelling rule and the
+// detector shared the same lexicon bug. Numbers measured before and after that
+// revision are NOT comparable, so the honest comparison is both detectors
+// against the corrected labels, on the ORIGINAL 179 entries only (i.e. with the
+// 18 entries this PR added excluded, so curation cannot flatter the result):
+//
+//              precision   recall   fp-rate
+//   before        88.14%   100.00%    5.51%
+//   after         96.30%   100.00%    1.57%
+//
+// Recall cost of the false-positive fix: zero, on the corpus and on the full
+// 79,754-slot dataset (there the flag rate moves 30.16% → 27.39%, and the only
+// slots that stopped flagging for a defensible reason are ~13 whose sole marker
+// was a Swiss toponym).
 // ─────────────────────────────────────────────────────────────────────────────
 describe('titleLooksUntranslated — calibration corpus ratchet', () => {
   const corpus = JSON.parse(
@@ -326,24 +433,36 @@ describe('titleLooksUntranslated — calibration corpus ratchet', () => {
   const tn = scored.filter((r) => !r.predicted && !r.broken).length;
 
   it('keeps the fixture and its provenance intact', () => {
-    expect(corpus.entries.length).toBeGreaterThanOrEqual(179);
+    expect(corpus.entries.length).toBeGreaterThanOrEqual(197);
     expect(corpus._meta).toHaveProperty('labellingRule');
     expect(corpus._meta).toHaveProperty('caveat');
+    // Any future relabelling must leave the same audit trail this one did.
+    expect(corpus._meta).toHaveProperty('revisions');
     expect(tp + fp + fn + tn).toBe(corpus.entries.length);
   });
 
+  // Measured 96.77%. Deliberately NOT raised past 0.96 even though the number
+  // improved: the 2026-08-10 label revision means the old 96.61% and this
+  // 96.77% are computed against different ground truth, and 96.77% is two
+  // entries of headroom on 62 positives. The fp-rate ratchet below is the one
+  // that was tightened, because it is the number this detector's users feel.
   it('holds precision at or above 96% on the labelled corpus', () => {
     expect(tp / (tp + fp)).toBeGreaterThanOrEqual(0.96);
   });
 
-  it('holds recall at or above 95% on the labelled corpus', () => {
-    expect(tp / (tp + fn)).toBeGreaterThanOrEqual(0.95);
+  // Raised 0.95 → 0.98 (measured 100.00%). The false-positive pass cost no
+  // recall at all, so the old floor no longer describes the detector.
+  it('holds recall at or above 98% on the labelled corpus', () => {
+    expect(tp / (tp + fn)).toBeGreaterThanOrEqual(0.98);
   });
 
   // The failure mode that would make this gate unusable is over-flagging
-  // correct titles, so the false-positive rate is ratcheted hardest.
-  it('holds the false-positive rate on correct titles at or below 2%', () => {
-    expect(fp / (fp + tn)).toBeLessThanOrEqual(0.02);
+  // correct titles, so the false-positive rate is ratcheted hardest. Tightened
+  // 2% → 1.8% (measured 1.46%): the repair queue is throughput-bound on a
+  // quota-limited translation cascade, so every false positive here is a real
+  // broken page that does not get repaired.
+  it('holds the false-positive rate on correct titles at or below 1.8%', () => {
+    expect(fp / (fp + tn)).toBeLessThanOrEqual(0.018);
   });
 
   it('never flags a source-language slot (guaranteed negatives)', () => {

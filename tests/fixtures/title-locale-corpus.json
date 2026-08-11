@@ -37,7 +37,17 @@
    "sourceLang for entries where no marker fired still derives from the canton language zone (Grigioni and Vallese forced to \"de\"), so it can be wrong on clean entries. Do not train on sourceLang.",
    "Near-duplicate employer templates were collapsed, so per-employer frequency in this file is not the site-wide frequency."
   ],
-  "caveat": "These labels are lexical/heuristic ground truth produced by automated sampling of the live site, not human-verified translation judgements. Every label was assigned by regex-based marker rules over a proper-noun allowlist, then spot-checked by eye on the top offenders and on each trap category — the corpus as a whole was NOT read and adjudicated entry by entry by a fluent speaker of all four languages. Expect a residue of misclassification in both directions, particularly on very short titles, on mixed-language titles where the correct rendering is genuinely debatable (English job-title borrowings above all), and on entries whose true source language differs from the canton language zone. Treat this as a calibration corpus for tuning and regression-testing a detector, not as an authoritative gold set: if a new rule disagrees with a label here, open the URL and read the page before assuming the rule is wrong."
+  "caveat": "These labels are lexical/heuristic ground truth produced by automated sampling of the live site, not human-verified translation judgements. Every label was assigned by regex-based marker rules over a proper-noun allowlist, then spot-checked by eye on the top offenders and on each trap category — the corpus as a whole was NOT read and adjudicated entry by entry by a fluent speaker of all four languages. Expect a residue of misclassification in both directions, particularly on very short titles, on mixed-language titles where the correct rendering is genuinely debatable (English job-title borrowings above all), and on entries whose true source language differs from the canton language zone. Treat this as a calibration corpus for tuning and regression-testing a detector, not as an authoritative gold set: if a new rule disagrees with a label here, open the URL and read the page before assuming the rule is wrong.",
+  "revisions": [
+   {
+    "date": "2026-08-10",
+    "pr": "fix/title-locale-lexicon-false-positives",
+    "relabelled": 8,
+    "added": 18,
+    "why": "A sweep of ALL 79,754 non-source title slots in data/jobs/by-crawler found three false-positive families in the detector lexicon that 179 entries cannot expose, and the labelling rule in _meta.labellingRule shared two of them: it, too, counted the German article \"des\" and the German quantifier \"alle\" as German evidence. Eight entries were therefore labelled broken:true on the strength of an ordinary French or Italian word in their own locale. Those labels are retracted here (see each entry notes[], prefixed \"homograph-marker-retracted-2026-08-10\"); no other label was touched, and no entry was deleted. Eighteen entries were added covering the corrected families and, symmetrically, the German words that share each corrected rule and must keep firing.",
+    "caveat": "Because the retracted labels were false negatives for the corrected detector and true positives for the old one, recall and precision measured against this file are NOT comparable across the revision. Both detectors were re-scored against the corrected labels; the numbers are in the PR body."
+   }
+  ]
  },
  "entries": [
   {
@@ -139,11 +149,11 @@
    "company": "Leukerbad Clinic",
    "location": "Leukerbad",
    "canton": "vallese",
-   "broken": true,
-   "markers": [
-    "german-word:PHYSIOTHERAPEUTE"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:PHYSIOTHERAPEUTE\"] — french \"physiothérapeute diplômé·e\" in unaccented caps; the same caps token stands in the German source slot, so it is not German evidence"
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-valais/candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche/"
   },
@@ -398,11 +408,11 @@
    "company": "Universitätsspital Zürich (USZ)",
    "location": "Zürich",
    "canton": "zurigo",
-   "broken": true,
-   "markers": [
-    "german-word:des"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:des\"] — correct French; \"des\" is the French partitive article. \"Visceral\" for \"viscérale\" is a translation-quality defect, which this corpus excludes by construction (see labellingRule.excluded)"
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/specialiste-des-soins-visceral-et-station-de-transplantation-60-100-universitatsspital-zurich-usz-campus/"
   },
@@ -740,9 +750,11 @@
    "canton": "ginevra",
    "broken": true,
    "markers": [
-    "german-word:des"
+    "source-copy"
    ],
-   "notes": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: the \"german-word:des\" marker is withdrawn (French partitive article). broken:true is KEPT because title === sourceTitle byte for byte, which is an independent signal; sourceLang \"de\" for a Genève posting is a canton-zone inference and is probably wrong, but relabelling on that basis would be training on sourceLang, which _meta.knownWeaknesses forbids. titleLooksUntranslated still flags it as source-copy."
+   ],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee/"
   },
@@ -1051,11 +1063,11 @@
    "company": "OTTO'S AG",
    "location": "Sarnen",
    "canton": "obvaldo",
-   "broken": true,
-   "markers": [
-    "german-word:alle"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:alle\"] — correct Italian; \"alle\" is the Italian preposition a+le, not German \"alle\". tests/job-title-locale-utils.test.ts has asserted this string clean since the primitive landed — the fixture contradicted its own test suite"
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/cerca-lavoro-obvaldo/verkaufsmitarbeiter-in-food-non-food-otto-s-ag-sarnen/"
   },
@@ -1159,11 +1171,11 @@
    "company": "OTTO'S AG",
    "location": "Uetendorf",
    "canton": "berna",
-   "broken": true,
-   "markers": [
-    "german-word:alle"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:alle\"] — correct Italian; \"alle\" is the Italian preposition a+le, not German \"alle\""
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/cerca-lavoro-berna/assistente-assistente-vendite-food-non-food-otto-s-ag-uetendorf/"
   },
@@ -1407,11 +1419,11 @@
    "company": "Psychiatrische Dienste Aargau (PDAG)",
    "location": "Baden",
    "canton": "argovia",
-   "broken": true,
-   "markers": [
-    "german-word:des"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:des\"] — correct French throughout; \"des\" is the French partitive article"
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-argovie/dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-826d33/"
   },
@@ -1873,11 +1885,11 @@
    "company": "Reboot Monkey",
    "location": "Chiasso",
    "canton": "ticino",
-   "broken": true,
-   "markers": [
-    "german-word:des"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:des\"] — correct French; \"On-site\" is an English borrowing, which this corpus labels clean"
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/technicien-des-centres-de-donnees-suisse-chiasso-on-site-reboot-monkey-chiasso/"
   },
@@ -2270,11 +2282,11 @@
    "company": "Rheinmetall Air Defence AG",
    "location": "Zürich",
    "canton": "zurigo",
-   "broken": true,
-   "markers": [
-    "german-word:des"
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:des\"] — correct French; the (m/f/d) gender code is a notes-only signal by deliberate_clean_calls"
    ],
-   "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/assurance-de-la-qualite-des-employes-marchandises-entrantes-m-f-d-rheinmetall-air-defence-ag-zurich/"
   },
@@ -2516,12 +2528,11 @@
    "company": "Axpo Group",
    "location": "Baden",
    "canton": "argovia",
-   "broken": true,
-   "markers": [
-    "german-word:des"
-   ],
+   "broken": false,
+   "markers": [],
    "notes": [
-    "german-gender-code:w/m/d"
+    "german-gender-code:w/m/d",
+    "homograph-marker-retracted-2026-08-10: was broken:true on [\"german-word:des\"] — correct French; the (w/m/d) German gender code is a notes-only signal by deliberate_clean_calls"
    ],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/fr/trouver-emploi-argovie/chef-de-la-division-des-technologies-de-l-information-hydroenergie-et-biomasse-w-m-d-axpo-group-baden/"
@@ -2743,6 +2754,328 @@
    "notes": [],
    "isSourceSlot": false,
    "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/addetto-a-alle-vendite-m-w-d-30-con-schlusselfunktion-in-bremgarten-c-a-schweiz-bremgarten/"
+  },
+  {
+   "title": "Directeur des ventes – Projets stratégiques mondiaux, Mining",
+   "sourceTitle": "Sales Manager – Global Strategic Projects, Mining",
+   "sourceLang": "en",
+   "targetLocale": "fr",
+   "company": "ABB Svizzera (sede Ticino)",
+   "location": "Baden",
+   "canton": "AG",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-functionword-des — 2,209 flags dataset-wide, 2,192 of them on a correct FR slot"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Apprentissage 2027 comme spécialiste des restaurants / spécialiste des restaurants EFZ m/f/d",
+   "sourceTitle": "Lehrstelle 2027 als Restaurantfachfrau / Restaurantfachmann EFZ m/w/d",
+   "sourceLang": "de",
+   "targetLocale": "fr",
+   "company": "aarReha Schinznach",
+   "location": "Schinznach-Bad",
+   "canton": "AG",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-functionword-des"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Installateur-électricien CFC (tous)",
+   "sourceTitle": "Elektroinstallateur:in EFZ (alle)",
+   "sourceLang": "de",
+   "targetLocale": "fr",
+   "company": "BKW",
+   "location": "Bern",
+   "canton": "BE",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-exact-installateur — 279 flags dataset-wide, 277 on a correct FR slot"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Installateur principal (f/m/d)",
+   "sourceTitle": "Senior Monteur/in (w/m/d)",
+   "sourceLang": "de",
+   "targetLocale": "fr",
+   "company": "Axpo Group",
+   "location": "Baden",
+   "canton": "AG",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-exact-installateur"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Field Technical Engineer/Application Specialist Electrophysiology - Region German-speaking Switzerland",
+   "sourceTitle": "Field Technical Ingenieur/Applikationsspezialist Elektrophysiologie - Region Deutschschweiz",
+   "sourceLang": "de",
+   "targetLocale": "en",
+   "company": "Abbott",
+   "location": "Bern",
+   "canton": "BE",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-cluster-tz on English \"Switzerland\" — 88 flags dataset-wide"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Switchgear Assembler (all genders)",
+   "sourceTitle": "Servicemonteur:in Schaltanlagenbau (alle)",
+   "sourceLang": "de",
+   "targetLocale": "en",
+   "company": "BKW",
+   "location": "Bern",
+   "canton": "BE",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-cluster-chg on English \"Switchgear\""
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Watchmaker Restaurateur",
+   "sourceTitle": "Horloger Restaurateur",
+   "sourceLang": "fr",
+   "targetLocale": "en",
+   "company": "Audemars Piguet",
+   "location": "Le Brassus",
+   "canton": "VD",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-cluster-chm on English \"Watchmaker\""
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Junior Sous Chef 100% (m/f/d)",
+   "sourceTitle": "Junior Sous Chef 100% (m/w/d)",
+   "sourceLang": "de",
+   "targetLocale": "it",
+   "company": "Bürgenstock Hotels AG",
+   "location": "Obbürgen",
+   "canton": "NW",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:fr-functionword-sous — 19 flags dataset-wide, 19 of them \"Sous Chef\""
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Sous Chef*in Catering & Events",
+   "sourceTitle": "Sous Chef*in Catering & Events",
+   "sourceLang": "de",
+   "targetLocale": "en",
+   "company": "ZFV-Unternehmungen",
+   "location": "Zürich",
+   "canton": "ZH",
+   "broken": true,
+   "markers": [
+    "binnen-i:*in"
+   ],
+   "notes": [
+    "guard: the `sous` retraction must not take the Binnen-I artefact with it"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Responsabile Vendite Regione Sense Oberland",
+   "sourceTitle": "Nachwuchskader Verkauf Region Sense Oberland",
+   "sourceLang": "de",
+   "targetLocale": "it",
+   "company": "Coop Genossenschaft",
+   "location": "Bern",
+   "canton": "BE",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-prefix-ober on the Swiss toponym \"Oberland\""
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Consulente Vendite Esterno (M/F) - Regione Oberwallis",
+   "sourceTitle": "VERKAUFSBERATER/IN AUSSENDIENST (W/M) - REGION OBERWALLIS",
+   "sourceLang": "de",
+   "targetLocale": "it",
+   "company": "Ariston Group",
+   "location": "Brig",
+   "canton": "VS",
+   "broken": false,
+   "markers": [],
+   "notes": [
+    "fp-family:de-prefix-ober on the Swiss toponym \"Oberwallis\""
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Metzger:in (specialista di carne / specialista di carne)",
+   "sourceTitle": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
+   "sourceLang": "de",
+   "targetLocale": "it",
+   "company": "Coop Genossenschaft",
+   "location": "Basel",
+   "canton": "BS",
+   "broken": true,
+   "markers": [
+    "german-word:Metzger"
+   ],
+   "notes": [
+    "guard: DE_CLUSTER_RE `tz` is KEPT — \"Metzger\" is 292 flags dataset-wide. Deleting the cluster instead of allowlisting the English roots was measured: 44 fewer flags, all of them German"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Process Ingegnere - Spritzguss & Kunststofftechnik (a) 80-100%",
+   "sourceTitle": "Process Ingenieur - Spritzguss & Kunststofftechnik (a) 80-100%",
+   "sourceLang": "de",
+   "targetLocale": "it",
+   "company": "Geberit",
+   "location": "Rapperswil-Jona",
+   "canton": "SG",
+   "broken": true,
+   "markers": [
+    "german-word:Spritzguss"
+   ],
+   "notes": [
+    "guard: DE_CLUSTER_RE `tz`"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Oberarzt (m/w/d) e/o Leitender Facharzt (m/w/d) Psychiatrie e Psychotherapie",
+   "sourceTitle": "Oberarzt (m/w/d) und/oder Leitender Facharzt (m/w/d) Psychiatrie und Psychotherapie",
+   "sourceLang": "de",
+   "targetLocale": "it",
+   "company": "AMEOS Schweiz",
+   "location": "Schaffhausen",
+   "canton": "SH",
+   "broken": true,
+   "markers": [
+    "german-word:Oberarzt"
+   ],
+   "notes": [
+    "guard: DE_PREFIX_RE `ober` must still reach the German intensifier after the toponyms were allowlisted"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Watchmaker:in",
+   "sourceTitle": "Uhrmacher:in",
+   "sourceLang": "de",
+   "targetLocale": "en",
+   "company": "CHRIST Uhren & Schmuck AG",
+   "location": "Zürich",
+   "canton": "ZH",
+   "broken": true,
+   "markers": [
+    "binnen-i::in"
+   ],
+   "notes": [
+    "guard: allowlisting \"watchmaker\" must not clear the Binnen-I artefact on the same token"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Fachspezialist:in Switchgear (all)",
+   "sourceTitle": "Fachspezialist:in Schaltanlagen (alle)",
+   "sourceLang": "de",
+   "targetLocale": "en",
+   "company": "BKW",
+   "location": "Bern",
+   "canton": "BE",
+   "broken": true,
+   "markers": [
+    "german-word:Fachspezialist"
+   ],
+   "notes": [
+    "guard: allowlisting \"switchgear\" must not clear the German noun next to it"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Lehrstelle Installateur/trice électricien/ne EFZ",
+   "sourceTitle": "Lehrstelle Elektroinstallateur/in EFZ",
+   "sourceLang": "de",
+   "targetLocale": "fr",
+   "company": "Arxada",
+   "location": "Visp",
+   "canton": "VS",
+   "broken": true,
+   "markers": [
+    "german-word:Lehrstelle"
+   ],
+   "notes": [
+    "guard: this slot was reachable ONLY through the retracted `installateur` token; `lehrstell` was added to DE_STEMS to pay the recall back"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
+  },
+  {
+   "title": "Lehrstelle Electrical Installer EFZ",
+   "sourceTitle": "Lehrstelle Elektroinstallateur/in EFZ",
+   "sourceLang": "de",
+   "targetLocale": "en",
+   "company": "Arxada",
+   "location": "Visp",
+   "canton": "VS",
+   "broken": true,
+   "markers": [
+    "german-word:Lehrstelle"
+   ],
+   "notes": [
+    "guard: DE_STEMS `lehrstell`"
+   ],
+   "isSourceSlot": false,
+   "url": null,
+   "addedBy": "lexicon-false-positive-sweep-2026-08-10"
   }
  ]
 }

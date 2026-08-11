@@ -253,6 +253,14 @@ const PROPER_NOUN_ALLOWLIST = new Set([
   'schonenwerd', 'ruschlikon', 'bulach', 'monchaltorf', 'gruningen', 'ruti',
   'pfaffikon', 'emmenbrucke', 'schlieren', 'schoftland', 'schafisheim',
   'winterthur', 'gruze', 'fruebuel', 'zurichsee', 'buchs', 'gossau', 'wil',
+  // `Ober-` + a geographic element is a Swiss place name, NOT the German
+  // intensifier prefix DE_PREFIX_RE looks for ("Oberarzt", "Oberpsychologin").
+  // Measured 2026-08-10: ~110 flags across the dataset came from Oberland /
+  // Oberwallis / Oberaargau / Oberwil / Oberhofen / Oberglatt sitting in a
+  // correctly-translated it/en/fr title. The list is observation-based, like
+  // the rest of this set — an unseen Ober-toponym still slips through, which is
+  // the weakness the corpus fixture already documents under knownWeaknesses.
+  'oberland', 'oberwallis', 'oberaargau', 'oberwil', 'oberhofen', 'oberglatt',
   'chur', 'davos', 'brig', 'visp', 'thun', 'olten', 'aarau', 'baden', 'brugg',
   'wettingen', 'spreitenbach', 'safenwil', 'dietikon', 'wetzikon', 'horgen',
   'thalwil', 'kilchberg', 'adliswil', 'opfikon', 'wallisellen', 'kloten',
@@ -263,6 +271,41 @@ const PROPER_NOUN_ALLOWLIST = new Set([
   // employer/brand words seen in the sample
   'migros', 'coop', 'swisscom', 'kuhne', 'nagel', 'buhrle', 'zurzach', 'spital',
   'kantonsspital', 'universitatsspital', 'unispital', 'genossenschaft',
+]);
+
+/**
+ * Ordinary English and French words that trip the GERMAN morphology rules
+ * below. Not proper nouns, so they are kept apart from PROPER_NOUN_ALLOWLIST,
+ * but skipped at the same point and for the same reason: the token is evidence
+ * of nothing.
+ *
+ * These exist because DE_CLUSTER_RE reasons about letter sequences, and three
+ * of its clusters are perfectly ordinary in English: `tz` ends "Switzerland",
+ * and `chm`/`chg`/`chs`/`dt` sit inside the `-ch` roots switch/watch/bench/
+ * tech/match/attach/detach/sandwich. Measured over all 79,754 non-source title
+ * slots (2026-08-10): ~127 flags, of which "Switzerland" alone was 88 — and
+ * "Region German-speaking Switzerland" is about as unambiguously English as a
+ * job title gets.
+ *
+ * Whole-token, folded, and deliberately NOT a substring test: a substring rule
+ * on "tech" would also exempt "Gebäudetechnik", and exempting real German
+ * compounds is the one thing this must not do. Entries are the tokens actually
+ * observed in the dataset plus their regular inflections; every entry here
+ * verifiably trips a rule, so nothing in the list is decoration ("coaches" and
+ * "sandwiches" were dropped for that reason — only the French plurals
+ * "coachs"/"sandwichs" produce the `chs` cluster).
+ *
+ * The alternative was to delete `tz` from DE_CLUSTER_RE outright. Measured on
+ * the same sweep: that removes only 44 more flags than this list does, and all
+ * 44 are German ("Metzger" alone is 292 flags, "Spritzguss", "Nutzfahrzeuge",
+ * "Netzelektriker"). Allowlisting the English roots is strictly better.
+ */
+const NON_SOURCE_HOMOGRAPHS = new Set([
+  'switzerland', 'switchgear', 'switchgears', 'switchboard', 'switchboards',
+  'watchmaker', 'watchmakers', 'watchmaking', 'benchmark', 'benchmarks',
+  'benchmarking', 'attachment', 'attachments', 'detachment', 'detachments',
+  'coachs', 'sandwichs', 'techsupport', 'medtech', 'handtherapy',
+  'matchmaker', 'matchmaking',
 ]);
 
 /**
@@ -283,7 +326,13 @@ const DE_STEMS = [
   'fach', 'fahrzeug', 'fertigung', 'forschung', 'frisch', 'fuhrung',
   'gebaude', 'gesundheit', 'herren', 'haustechnik', 'hauswirtschaft', 'heizung',
   'instandhalt', 'kauffrau', 'kaufmann', 'konfektion', 'kunden',
-  'kuche', 'lager', 'lehrling', 'leiter', 'leitung', 'luftung', 'magaziner',
+  // `lehrstell` covers Lehrstelle/Lehrstellen: 197 slots carry the word and 33
+  // of them had no other marker at all. It is added here to pay back the one
+  // recall loss the `installateur` deletion causes —
+  // "Lehrstelle Installateur/trice électricien/ne EFZ" is a French slot with a
+  // German noun still in it, and `installateur` was the only rule reaching it.
+  // No Italian/French/English word contains the sequence.
+  'kuche', 'lager', 'lehrling', 'lehrstell', 'leiter', 'leitung', 'luftung', 'magaziner',
   'markt', 'maschinen', 'mechanik', 'mechatronik', 'pflege',
   'planung', 'polydesign', 'praktik', 'projekt', 'pruf', 'reinigung',
   'schlosser', 'schreiner', 'servicemonteur', 'sicherung', 'spengler',
@@ -297,10 +346,18 @@ const DE_STEM_RE = new RegExp(`(?:${DE_STEMS.join('|')})`);
  * they may only match as a whole token. `sanitar` would hit Italian
  * "Socio-Sanitario", `assistenz` hits "assistenza", and `physiotherapeut` hits
  * the correct French "Physiothérapeute" — all measured false positives.
+ *
+ * `installateur` was removed on 2026-08-10: it is spelled identically in
+ * French, and because MARKER_SETS.de is scanned against every non-German slot
+ * it fired on 279 slots of which 277 were correct FRENCH titles
+ * ("Installateur sanitaire CFC", "Installateur-électricien"). It bought 2 true
+ * positives. The German compounds are still reachable — `sanitarinstallateur`
+ * is listed here in full and "Heizungsinstallateur" is caught by the `heizung`
+ * stem — so the deletion costs no German recall at all.
  */
 const DE_EXACT_TOKENS = new Set([
   'physiotherapeut', 'physiotherapeutin', 'assistenz', 'assistenzarzt',
-  'assistenzarztin', 'sanitar', 'sanitarinstallateur', 'installateur',
+  'assistenzarztin', 'sanitar', 'sanitarinstallateur',
 ]);
 /** German nominal suffixes at token end (folded), plus the compound linker.
  *  Applied from 7 characters up: at 5 it swallows English "young". */
@@ -318,8 +375,23 @@ const DE_CLUSTER_RE = /chs|chb|chf|chg|chm|chw|tsch|sch(?![eiho])|tz|dt/;
 const MARKER_SETS = {
   de: {
     // "in" is absent on purpose: it is a word in all four languages.
+    //
+    // "des" was removed on 2026-08-10 for the same reason, and it was the
+    // single largest false-positive family in the whole detector: 2,209 flags
+    // over the dataset, 2,192 of them on a CORRECT French title, because "des"
+    // is the everyday French partitive article ("Directeur des ventes",
+    // "spécialiste des restaurants"). That is 8.2% of every flag the detector
+    // raised, all of it stealing capacity from the quota-limited repair queue.
+    //
+    // Reclassifying it as a FRENCH marker instead of deleting it looks tidier —
+    // ALWAYS_SCANNED_MARKER_LANGS never scans a marker set against its own
+    // locale, so it would stop firing on FR slots by construction. Measured, it
+    // is worse: the fr set IS scanned against `de` slots, and 78 correct German
+    // titles sitting in a non-source `de` slot carry the genitive "des"
+    // ("Leiter des Referats …"), against 3 extra true positives. Swapping 2,192
+    // French false positives for 78 German ones is not a fix, so "des" is gone.
     functionWords:
-      /\b(?:mit|und|fuer|bei|beim|oder|von|vom|zur|zum|im|der|den|dem|des|das|ein|eine|einen|einem|einer|aus|auf|nach|ueber|unter|sowie|als|zwischen|waehrend|stv|inkl|gesucht)\b/,
+      /\b(?:mit|und|fuer|bei|beim|oder|von|vom|zur|zum|im|der|den|dem|das|ein|eine|einen|einem|einer|aus|auf|nach|ueber|unter|sowie|als|zwischen|waehrend|stv|inkl|gesucht)\b/,
     minFunctionWordHits: 1,
     orthography: /[äöüß]/,
     lexical: (folded) =>
@@ -329,8 +401,14 @@ const MARKER_SETS = {
       (folded.length >= 6 && DE_CLUSTER_RE.test(folded)),
   },
   fr: {
+    // "sous" was removed on 2026-08-10: in a job TITLE it is never the French
+    // preposition, it is the kitchen-brigade rank "Sous Chef", which Italian,
+    // English and German job ads all write verbatim. 19 flags over the whole
+    // dataset, 19 of them "Sous Chef" / "Sous-Chef" in a correct it/en/de slot,
+    // 0 true positives. Same call as the English/French homographs already kept
+    // out of DE_STEMS.
     functionWords:
-      /\b(?:avec|pour|dans|chez|ainsi|selon|aupres|notre|votre|sous|entre)\b/,
+      /\b(?:avec|pour|dans|chez|ainsi|selon|aupres|notre|votre|entre)\b/,
     minFunctionWordHits: 1,
     orthography: null, // é/è/à also occur in correct Italian titles (qualità)
     lexical: (folded) =>
@@ -354,10 +432,26 @@ const MARKER_SETS = {
   },
 };
 
-/** Marker sets scanned against every non-source title, whatever `sourceLang`
- *  claims. A DE-source job whose IT slot carries French residue is broken too,
- *  and `sourceLang` is frequently inferred (canton language zone) rather than
- *  known. EN/IT sets stay opt-in via `sourceLang` — see MARKER_SETS.en. */
+/**
+ * Marker sets scanned against every non-source title, whatever `sourceLang`
+ * claims. A DE-source job whose IT slot carries French residue is broken too,
+ * and `sourceLang` is frequently inferred (canton language zone) rather than
+ * known. EN/IT sets stay opt-in via `sourceLang` — see MARKER_SETS.en.
+ *
+ * This list is deliberately unchanged by the 2026-08-10 false-positive pass,
+ * and the reasoning is the whole point of the fix. Scanning German markers
+ * against a French slot is CORRECT: a German title really can land there, and
+ * `sourceLang` is not trustworthy enough to decide otherwise. What was wrong
+ * was the contents of MARKER_SETS.de — "des" and "installateur" are not German-
+ * exclusive evidence, so scanning them cross-language turned every correct
+ * French title carrying one into a repair-queue entry.
+ *
+ * The invariant a marker must satisfy to live in a set scanned this way:
+ * **the token must be evidence of that language and of no other of the four.**
+ * Narrowing the scan instead would have hidden the bad entries rather than
+ * removed them, and would have cost the cross-language recall this list exists
+ * for — French residue in an IT slot is 199 real flags in the same sweep.
+ */
 const ALWAYS_SCANNED_MARKER_LANGS = ['de', 'fr'];
 
 /**
@@ -455,7 +549,7 @@ function scanSourceMarkers(body, markerLang, sourceTokens) {
   const tokens = contentTokens(body);
   for (const token of tokens) {
     const key = foldText(token);
-    if (PROPER_NOUN_ALLOWLIST.has(key)) continue;
+    if (PROPER_NOUN_ALLOWLIST.has(key) || NON_SOURCE_HOMOGRAPHS.has(key)) continue;
     if (set.orthography && set.orthography.test(token)) {
       return { reason: 'source-orthography', evidence: token };
     }
