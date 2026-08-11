@@ -2173,6 +2173,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.title': 'Indennità di disoccupazione nel Cantone di Zurigo',
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.excerpt': 'La presente guida esamina le condizioni per richiedere l\'indennità di disoccupazione nel Cantone di Zurigo, inclusa l\'iscrizione all\'URC, il periodo di contribuzione minimo, il calcolo dell\'indennità giornaliera, gli obblighi di ricerca impiego e i provvedimenti di reinserimento professionale.',
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.imageAlt': 'una scena di lavoro in una fabbrica del Cantone di Zurigo',
+    'blog.article.svizzera-ees-rallenta-controlli.title': 'EES rallenta i controlli con attese fino a due ore negli aeroporti europei',
+    'blog.article.svizzera-ees-rallenta-controlli.excerpt': 'Dati Qsensor e Financial Times, picchi estivi fino a 120 minuti a Francoforte e Amsterdam; otto Paesi e la Svizzera chiedono proroghe.',
+    'blog.article.svizzera-ees-rallenta-controlli.imageAlt': 'L\'EES rallenta i controlli aeroportuali in Svizzera.',
 };
 
 export default blogMetaChIt;

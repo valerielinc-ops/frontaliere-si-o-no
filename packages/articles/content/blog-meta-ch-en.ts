@@ -2173,6 +2173,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.title': 'Unemployment benefits in the canton of Zurich',
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.excerpt': 'This guide examines the conditions for claiming unemployment benefit in the Canton of Zurich, including enrollment in the URC, the minimum contribution period, the calculation of the daily allowance, employment search obligations, and vocational reintegration measures.',
     'blog.article.indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.imageAlt': 'a scene of work in a factory in the Canton of Zurich',
+    'blog.article.svizzera-ees-rallenta-controlli.title': 'EES slows down checks with waits of up to two hours at European airports',
+    'blog.article.svizzera-ees-rallenta-controlli.excerpt': 'Qsensor and Financial Times data, summer peaks up to 120 minutes in Frankfurt and Amsterdam; eight countries and Switzerland ask for extensions.',
+    'blog.article.svizzera-ees-rallenta-controlli.imageAlt': 'EES slows down airport controls in Switzerland.',
 };
 
 export default blogMetaChEn;
