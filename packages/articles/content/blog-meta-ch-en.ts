@@ -2143,6 +2143,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutrality: Federal Council denies constitutional tightening',
     'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'The federal government is calling for the neutrality initiative to be rejected, warning that a rigid definition would limit Switzerland\'s room for manoeuvre.',
     'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Zurich health insurance premiums and premium reductions: a practical guide',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analysis of LAMal premiums in the Canton of Zurich, franchise models and requirements to obtain the cantonal premium reduction.',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Modern building in Zurich with people walking',
 };
 
 export default blogMetaChEn;

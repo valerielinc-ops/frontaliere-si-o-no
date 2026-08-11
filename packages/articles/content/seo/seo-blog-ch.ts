@@ -27746,6 +27746,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-zurigo-riduzione': {
+    title: 'Premi cassa malati Zurigo e riduzione premi: guida pratica',
+    description: 'Scopri come funzionano i premi LAMal nel Cantone di Zurigo, la scelta delle franchigie e i requisiti per richiedere la riduzione dei premi cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, zurigo',
+    ogTitle: 'Premi cassa malati Zurigo e riduzione premi: guida pratica',
+    ogDescription: 'Informazioni essenziali sui premi LAMal a Zurigo, opzioni di franchigia e procedure per accedere alla riduzione cantonale dei premi.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-zurigo-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Zurigo e riduzione premi: guida pratica",
+      "description": "Scopri come funzionano i premi LAMal nel Cantone di Zurigo, la scelta delle franchigie e i requisiti per richiedere la riduzione dei premi cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-zurigo-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno a Zurigo con persone che camminano"
+      },
+      "datePublished": "2026-08-11T08:38:09+00:00",
+      "dateModified": "2026-08-11T08:38:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-zurigo-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

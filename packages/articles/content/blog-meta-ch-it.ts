@@ -2143,6 +2143,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutralità: il Consiglio federale nega la stretta costituzionale',
     'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'Il governo federale invita a respingere l\'iniziativa sulla neutralità, avvertendo che una definizione rigida limiterebbe il margine di manovra della Svizzera.',
     'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Palazzo Federale a Berna, sede del governo svizzero',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Premi cassa malati Zurigo e riduzione premi: guida pratica',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analisi sui premi LAMal nel Cantone di Zurigo, modelli di franchigia e requisiti per ottenere la riduzione dei premi cantonale.',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Edificio moderno a Zurigo con persone che camminano',
 };
 
 export default blogMetaChIt;

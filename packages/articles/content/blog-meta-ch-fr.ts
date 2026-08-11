@@ -2143,6 +2143,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-federale-iniziativa-neutralita.title': 'Neutralité : le Conseil fédéral nie le resserrement constitutionnel',
     'blog.article.consiglio-federale-iniziativa-neutralita.excerpt': 'Le gouvernement fédéral invite à rejeter l\'initiative sur la neutralité, avertissant qu\'une définition stricte limiterait la marge de manœuvre de la Suisse.',
     'blog.article.consiglio-federale-iniziativa-neutralita.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.title': 'Primes caisse-maladie Zurich et réduction des primes : guide pratique',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.excerpt': 'Analyse des primes LAMal dans le canton de Zurich, modèles de franchise et conditions pour obtenir la réduction des primes cantonales.',
+    'blog.article.premi-cassa-malati-zurigo-riduzione.imageAlt': 'Bâtiment moderne à Zurich avec des passants',
 };
 
 export default blogMetaChFr;
