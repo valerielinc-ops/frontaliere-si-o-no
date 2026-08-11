@@ -433,17 +433,17 @@ describe('titleLooksUntranslated — calibration corpus ratchet', () => {
     }>;
   };
 
-  const scored = corpus.entries.map((e) => ({
-    broken: !!e.broken,
-    predicted: titleLooksUntranslated({
+  const scored = corpus.entries.map((e) => {
+    const res = titleLooksUntranslated({
       title: e.title,
       sourceTitle: e.sourceTitle || '',
       sourceLang: e.sourceLang,
       targetLocale: e.targetLocale,
       company: e.company || '',
       location: e.location || '',
-    }).untranslated,
-  }));
+    });
+    return { broken: !!e.broken, predicted: res.untranslated, reason: res.reason, evidence: res.evidence };
+  });
 
   const tp = scored.filter((r) => r.predicted && r.broken).length;
   const fp = scored.filter((r) => r.predicted && !r.broken).length;
@@ -491,6 +491,34 @@ describe('titleLooksUntranslated — calibration corpus ratchet', () => {
         title: e.title, sourceTitle: e.sourceTitle || '', sourceLang: e.sourceLang,
         targetLocale: e.targetLocale, company: e.company || '', location: e.location || '',
       }).untranslated).toBe(false);
+    }
+  });
+
+  // Generic class-level gate, follow-up of #5574 (issue #5592 item 3): the
+  // "cross-language homographs must not flag" block above only catches the 5
+  // NAMED families a future edit could reintroduce. This one needs no name — it
+  // groups every false positive on the corpus by its `evidence` token and fails
+  // if any single token accounts for more than a couple of them, which is what
+  // a reintroduced (or brand-new) cross-language homograph in the marker
+  // lexicon looks like structurally: one token systematically misfiring across
+  // many otherwise-correct titles, rather than isolated one-off noise.
+  //
+  // Measured with the fix in place: 2 false positives on the corpus, each a
+  // distinct evidence token (max concentration 1). Reintroducing the removed
+  // German `des` function word alone raises one token's count to 7 — this gate
+  // catches that shape without the token needing to be enumerated anywhere, so
+  // it also covers a homograph nobody has found yet, as long as the corpus
+  // contains an example of it (the repo has no multilingual reference list to
+  // check against otherwise — see issue #5592 item 3).
+  it('never lets one marker token account for more than a couple of the corpus false positives', () => {
+    const falsePositives = scored.filter((r) => r.predicted && !r.broken);
+    const byEvidence = new Map<string, number>();
+    for (const fp of falsePositives) {
+      const key = fp.evidence.toLowerCase();
+      byEvidence.set(key, (byEvidence.get(key) || 0) + 1);
+    }
+    for (const [evidence, count] of byEvidence) {
+      expect(count, `marker evidence "${evidence}" false-positives on the corpus`).toBeLessThanOrEqual(2);
     }
   });
 });
