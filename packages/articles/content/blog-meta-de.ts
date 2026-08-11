@@ -9728,6 +9728,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Umzug nach Saint-Nicolas als Grenzgänger: Die Fakten',
     'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analyse der Machbarkeit des Grenzverlaufs zum Kanton Tessin ausgehend von der Gemeinde Saint-Nicolas.',
     'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Panoramablick auf ein Schweizer Bergdorf',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Wohnen in Saint-Pierre und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Die Eckdaten zum Leben eines Grenzgängers, der im Wallis arbeitet und in Saint-Pierre wohnt.',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Saint-Pierre lebt und in Valais arbeitet.',
 };
 
 export default blogMetaDe;
