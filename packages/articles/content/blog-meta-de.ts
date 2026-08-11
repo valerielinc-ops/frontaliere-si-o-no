@@ -9737,6 +9737,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-aosta-lavorare-vallese.title': 'Wohnen in Aosta und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Aosta und dem Wallis: Verbindungen, Quellensteuer, Wechselkursmanagement und Regeln für neue und alte Grenzgänger.',
     'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Alpenpanorama zwischen Italien und der Schweiz für Grenzgänger',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Dritte Säule für Grenzgänger: Abzüge, Renditen und Praxisfälle',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'Wie funktioniert die Zusatzrente für Grenzgänger in der Schweiz? Steuerabzüge, Renditen und praktische Entscheidungen für die dritte Säule.',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Dokumente zur Säule 3a mit Aufenthaltsbewilligung G und italienischem Pass auf einem Tessiner Schreibtisch',
 };
 
 export default blogMetaDe;

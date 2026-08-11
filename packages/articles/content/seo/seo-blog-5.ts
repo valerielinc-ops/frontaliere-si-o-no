@@ -65240,6 +65240,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensione-complementare-terzo-pilastro': {
+    title: 'Terzo pilastro per frontalieri: deduzioni, rendimenti e casi pratici',
+    description: 'Guida completa al terzo pilastro svizzero per frontalieri: deducibilità fiscale, rendimenti, procedure di attivazione e casi pratici post-Accordo 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, deduzioni, rendimenti',
+    ogTitle: 'Terzo Pilastro per Frontalieri: Deduzioni e Vantaggi 2024',
+    ogDescription: 'Scopri come il terzo pilastro svizzero (3a) offre deduzioni fiscali fino a CHF 7\'056 per i frontalieri. Guida pratica post-Accordo 2024 con esempi reali.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pensione-complementare-terzo-pilastro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro per frontalieri: deduzioni, rendimenti e casi pratici",
+      "description": "Guida completa al terzo pilastro svizzero per frontalieri: deducibilità fiscale, rendimenti, procedure di attivazione e casi pratici post-Accordo 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-complementare-terzo-pilastro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti del terzo pilastro svizzero con permesso G e passaporto italiano su una scrivania ticinese"
+      },
+      "datePublished": "2026-08-11T19:18:12+00:00",
+      "dateModified": "2026-08-11T19:18:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-complementare-terzo-pilastro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -9738,6 +9738,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-aosta-lavorare-vallese.title': 'Living in Aosta and working in Valais as a border worker',
     'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Practical guide to commuting between Aosta and the Valais: connections, tax at source, change management and rules for new and old border crossers.',
     'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Alpine panorama between Italy and Switzerland for cross-border commuters',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Third pillar for border workers: deductions, yields and practical cases',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'How does the supplementary pension for border workers work in Switzerland? Tax deductions, yields and practical choices for the third pillar.',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Swiss 3rd pillar pension documents with permit G and Italian passport on a Ticinese desk',
 };
 
 export default blogMetaEn;
