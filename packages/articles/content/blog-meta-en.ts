@@ -9598,6 +9598,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-villa-chiavenna-frontaliere.title': 'Transfer to Villa di Chiavenna by border crossing: useful guide',
     'blog.article.trasferirsi-villa-chiavenna-frontaliere.excerpt': 'Analysis of the advantages and tax considerations for those living in Villa di Chiavenna working in Switzerland under the new tax agreement.',
     'blog.article.trasferirsi-villa-chiavenna-frontaliere.imageAlt': 'Panoramic view of a mountain road near the border between Italy and Switzerland',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Living in Campodolcino, working in Graubünden: connections and cost of living',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'The latest updates on travel and benefits for border workers in Switzerland.',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'A frontaliere overlooking Lake Locarno, with the Grigioni Mountains in the background.',
 };
 
 export default blogMetaEn;

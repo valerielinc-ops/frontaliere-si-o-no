@@ -28794,6 +28794,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-campodolcino-lavorare-grigioni-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-11T01:58:49.734Z',
+ image: '/images/blog/vivere-campodolcino-lavorare-grigioni-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

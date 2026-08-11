@@ -2092,6 +2092,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.title': 'Schweizer Akkreditierung, ein Schritt nach vorne für den Wirtschaftsstandort',
     'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.excerpt': 'Die Schweizerische Akkreditierungsstelle (SAS) wird per 1. Juli 2026 integraler Bestandteil der Direktion Standortförderung.',
     'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.imageAlt': 'Vertreter der SECO in Bern',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Arbeitsmarkt Schweiz: Die Daten vom Juni 2026',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'Das SECO verzeichnet einen Rückgang der Arbeitslosigkeit auf 2,9% im Juni 2026. Analyse von Daten zu Jugendlichen, älteren Menschen und offenen Stellen auf dem heimischen Markt.',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Moderner Büroarbeitsplatz mit Blick auf einen Schweizer See',
 };
 
 export default blogMetaChDe;
