@@ -768,6 +768,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'settore-agricolo-danni-19-milioni': { it: 'settore-agricolo-danni-19-milioni', en: 'sector-agriculture-damage-19-million', de: 'landwirtschaftlicher-sektor-schaden-19-millionen', fr: 'secteur-agricole-dommages-19-millions' },
  'viaggi-e-consumi-senza-rinunce': { it: 'viaggi-e-consumi-senza-rinunce', en: 'travel-and-consumption-without-compromise', de: 'reisen-und-verbrauch-ohne-kompromisse', fr: 'voyages-et-consommation-sans-compromis' },
  'on-trimestre-record': { it: 'on-trimestre-record', en: 'on-record-quarter', de: 'on-rekordquartal', fr: 'on-trimestre-record' },
+ 'asilo-nido-e-custodia-bambini-canton-zurigo-costi': { it: 'asilo-nido-e-custodia-bambini-canton-zurigo-costi', en: 'daycare-center-and-childcare-canton-zurich-costs', de: 'kindertagesstatte-und-kindbetreuung-kanton-zurich-kosten', fr: 'etablissement-d-accueil-pour-enfants-et-accueil-de-jeunes-a-canton-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
