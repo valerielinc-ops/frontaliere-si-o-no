@@ -29001,6 +29001,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-saint-oyen-lavorare-vallese',
+ category: 'pratico',
+ date: '2026-08-11T10:34:20.996Z',
+ image: '/images/blog/vivere-saint-oyen-lavorare-vallese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

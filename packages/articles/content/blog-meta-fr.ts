@@ -9671,6 +9671,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Vivre à Saint-Rhémy-En-Bosses et travailler en Valais comme frontalier',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Permis G, travail en Valais, déplacements et coût de la vie pour frontaliers résidant à Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontalier avec enfant en sortant d\'un passage frontalier',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.title': 'Vivre à Saint-Oyen et travailler en Valais comme frontalier',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.excerpt': 'Guide pratique pour les frontaliers : fiscalité, accords et gestion des déplacements entre Saint-Oyen et le Valais selon les réglementations en vigueur.',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.imageAlt': 'Paysage de montagne près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;

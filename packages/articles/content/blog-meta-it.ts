@@ -9670,6 +9670,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Vivere a Saint-Rhémy-En-Bosses e lavorare in Vallese da frontaliere',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Permessi G, lavoro in Vallese, pendolarismo e costo della vita per frontalieri residenti in Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontaliere con bambino all\'uscita di un valico',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.title': 'Vivere a Saint-Oyen e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.excerpt': 'Guida pratica per i frontalieri: fiscalità, accordi e gestione del pendolarismo tra Saint-Oyen e il Vallese secondo le normative vigenti.',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.imageAlt': 'Paesaggio montano vicino al confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

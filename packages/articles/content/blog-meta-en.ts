@@ -9669,6 +9669,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Living in Saint-Rhémy-En-Bosses and working in Valais as a border worker',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'G permits, work in Valais, commuting and cost of living for border workers residing in Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontaliere with child leaving a border crossing',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.title': 'Living in Saint-Oyen and working in Valais as a border worker',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.excerpt': 'Practical guide for border workers: taxation, agreements and management of commuting between Saint-Oyen and the Valais according to current regulations.',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.imageAlt': 'Mountain landscape near the Italian-Swiss border',
 };
 
 export default blogMetaEn;

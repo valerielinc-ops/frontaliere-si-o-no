@@ -9668,6 +9668,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'In Saint-Rhémy-En-Bosses leben und als Grenzgänger im Wallis arbeiten',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Bewilligungen G, Arbeit im Wallis, Pendeln und Lebenshaltungskosten für Grenzgänger mit Wohnsitz in Saint-Rhémy-En-Bosses',
     'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontalier mit Kind beim Verlassen eines Grenzübergangs',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.title': 'Wohnen in Saint-Oyen und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.excerpt': 'Praktischer Leitfaden für Grenzgänger: Besteuerung, Vereinbarungen und Verwaltung des Pendelverkehrs zwischen Saint-Oyen und dem Wallis gemäß den geltenden Vorschriften.',
+    'blog.article.vivere-saint-oyen-lavorare-vallese.imageAlt': 'Berglandschaft nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;
