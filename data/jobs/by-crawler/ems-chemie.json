@@ -29,8 +29,8 @@
       },
       "titleByLocale": {
         "it": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
-        "en": "Elektroinstallateur/Automatiker/in (m/w/d) 100%",
-        "de": "Elektroinstallateur/Automatiker/in (m/w/d) 100%",
+        "en": "Elektroinstallateur / Automatiker / in ZQ0% (m/f/d)",
+        "de": "Elektroinstallateur / Automatiker / in ZQ beliebigen 0 beliebigen 100% (m/w/d)",
         "fr": "Elektroinstallateur/Automatiker/in (m/m/j) 100%"
       },
       "crawledAt": "",
@@ -144,13 +144,13 @@
       "slugByLocale": {
         "it": "prozessingenieur-betriebsentwicklung-m-w-d-100-ems-chemie-domat-ems",
         "en": "prozessingenieur-betriebsentwicklung-m-w-d-100-ems-chemie-domat-ems",
-        "de": "prozessingenieur-betriebsentwicklung-m-w-d-100-ems-chemie-domat-ems",
+        "de": "prozessingenieur-betriebsent-cctricklung-zq-tq0-tqz-100-m-w-d-ems-chemie-ag-domat-ems",
         "fr": "prozessingenieur-betriebsentwicklung-m-w-d-100-ems-chemie-domat-ems"
       },
       "titleByLocale": {
         "it": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
         "en": "Prozessingenieur Betriebsentwicklung (m/f/d) 100%",
-        "de": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
+        "de": "Prozessingenieur Betriebsent Cctricklung ZQ TQ0 TQZ 100% (m/w/d)",
         "fr": "Prozessingenieur Betriebsentwicklung (m/m/j) 100%"
       },
       "crawledAt": "",
@@ -334,7 +334,7 @@
       "titleByLocale": {
         "it": "Polymechaniker (m/w/d) 100%",
         "en": "Polymechaniker (m/f/d) 100%",
-        "de": "Polymechaniker (m/w/d) 100%",
+        "de": "Polymechaniker (m/w/d) 100 %",
         "fr": "Polymécaniker (m/p/j) 100%"
       },
       "crawledAt": "",
@@ -394,13 +394,13 @@
       "slugByLocale": {
         "it": "it-supporter-100-ems-chemie-romanshorn",
         "en": "it-supporter-100-ems-chemie-romanshorn",
-        "de": "it-supporter-100-ems-chemie-ag-domat-ems",
+        "de": "it-unterstutzer-zu-100-ems-chemie-ag-domat-ems",
         "fr": "support-informatique-100-ems-chemie-ag-romanshorn"
       },
       "titleByLocale": {
         "it": "IT Supporter 100%",
-        "en": "IT Supporter 100%",
-        "de": "IT Supporter 100%",
+        "en": "EN Supporter 100%",
+        "de": "IT-Unterstützer zu 100 %",
         "fr": "Support informatique 100%"
       },
       "crawledAt": "",
@@ -430,10 +430,14 @@
       "previousSlugsByLocale": {
         "it": [
           "it-supporter-100-ems-chemie-domat-ems"
+        ],
+        "de": [
+          "it-supporter-100-ems-chemie-ag-domat-ems"
         ]
       },
       "previousSlugs": [
-        "it-supporter-100-ems-chemie-domat-ems"
+        "it-supporter-100-ems-chemie-domat-ems",
+        "it-supporter-100-ems-chemie-ag-domat-ems"
       ]
     },
     {
@@ -464,7 +468,7 @@
       "titleByLocale": {
         "it": "Raumpfleger (m/w/d) 20%",
         "en": "Raumpfleger (m/f/d) 20%",
-        "de": "Raumpfleger (m/w/d) 20%",
+        "de": "Raumpfleger (m/w/d) 20 %",
         "fr": "Raumpfleger (m/p/j) 20%"
       },
       "crawledAt": "",
@@ -513,13 +517,13 @@
       "slug": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
       "slugByLocale": {
         "it": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
-        "en": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
+        "en": "engineer-zq0-m-f-d-ems-chemie-ag-domat-ems",
         "de": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems",
         "fr": "it-system-engineer-m-w-d-100-ems-chemie-domat-ems"
       },
       "titleByLocale": {
         "it": "IT System Ingegnere (m/w/d) 100%",
-        "en": "IT System Engineer (m/w/d) 100%",
+        "en": "Engineer ZQ0% (m/f/d)",
         "de": "IT System Ingenieur (m/w/d) 100%",
         "fr": "IT System Ingénieur (m/w/d) 100%"
       },
@@ -705,7 +709,7 @@
       "titleByLocale": {
         "it": "Verkaufscontroller (m/w/d) 100%",
         "en": "Verkaufscontroller (m/f/d) 100%",
-        "de": "Verkaufscontroller (m/w/d) 100%",
+        "de": "Verkaufscontroller (m/w/d) 100 %",
         "fr": "Verkaufscontroller (m/m/j) 100%"
       },
       "crawledAt": "",

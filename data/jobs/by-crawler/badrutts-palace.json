@@ -640,9 +640,9 @@
     },
     {
       "id": "badrutts-palace-a42be3afd1f4",
-      "slug": "tailor-m-f-d-badrutts-palace-ch",
+      "slug": "sarto-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "tailor-m-f-d-badrutts-palace-ch",
+        "it": "sarto-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "tailor-m-f-d-badrutts-palace-ch",
         "de": "schneider-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "adaptateur-m-f-d-badrutt-s-palace-hotel-st-moritz"
@@ -652,7 +652,7 @@
       "companyDomain": "badruttscareers.com",
       "title": "Tailor (m/f/d)",
       "titleByLocale": {
-        "it": "Tailor (m/f/d)",
+        "it": "Sarto (m/f/d)",
         "en": "Tailor (m/f/d)",
         "de": "Schneider (m/w/d)",
         "fr": "Adaptateur (m/f/d)"
@@ -686,15 +686,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "tailor-m-f-d-badrutts-palace-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "tailor-m-f-d-badrutts-palace-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:51:40.950Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

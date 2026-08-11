@@ -64577,6 +64577,474 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-doues-lavorare-vallese': {
+    title: 'Vivere a Doues e lavorare in Vallese da frontaliere',
+    description: 'Guida pratica per frontalieri tra Doues e Vallese: regole fiscali, nuovo accordo 2024, franchigie e gestione del credito d\'imposta per evitare doppie tasse.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, doues, lavorare, vallese',
+    ogTitle: 'Vivere a Doues e lavorare in Vallese da frontaliere',
+    ogDescription: 'Tutto quello che devi sapere se vivi a Doues e lavori in Vallese: norme fiscali, previdenza e gestione del lavoro transfrontaliero dopo il 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/vivere-doues-lavorare-vallese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Doues e lavorare in Vallese da frontaliere",
+      "description": "Guida pratica per frontalieri tra Doues e Vallese: regole fiscali, nuovo accordo 2024, franchigie e gestione del credito d'imposta per evitare doppie tasse.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-doues-lavorare-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano tra Doues e il confine svizzero"
+      },
+      "datePublished": "2026-08-11T12:01:38+00:00",
+      "dateModified": "2026-08-11T12:01:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-doues-lavorare-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-abort-topical-relevance-pre-saint-didier': {
+    title: 'Vivere a Pré-Saint-Didier e lavorare in Vallese',
+    description: 'Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pré-saint-didier, lavorare, vallese',
+    ogTitle: 'Vivere a Pré-Saint-Didier e lavorare in Vallese da frontaliere',
+    ogDescription: 'Analisi sulle norme per i frontalieri e il requisito della residenza nei comuni entro 20 km dal confine svizzero per chi vive a Pré-Saint-Didier.',
+    canonicalPath: '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pré-Saint-Didier e lavorare in Vallese",
+      "description": "Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abort-topical-relevance-pre-saint-didier.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino al confine svizzero"
+      },
+      "datePublished": "2026-08-11T12:07:52+00:00",
+      "dateModified": "2026-08-11T12:07:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
+    title: 'Frontaliere Ticino: lavorare in Vallese da Courmayeur',
+    description: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, vallese, courmayeur, informazioni',
+    ogTitle: 'Vivere a Courmayeur e lavorare in Vallese da frontaliere: cosa fare e dove andare.',
+    ogDescription: 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata.',
+    canonicalPath: '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino: lavorare in Vallese da Courmayeur",
+      "description": "Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-courmayeur-e-lavorare-vallese-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere considera la zona di Courmayeur e Vallese per il suo lavoro e residenza."
+      },
+      "datePublished": "2026-08-11T12:58:54+00:00",
+      "dateModified": "2026-08-11T12:58:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-valpelline-lavorare-vallese': {
+    title: 'Frontaliere in Vallese: regole e fiscalità | Frontaliere Ticino',
+    description: 'Scopri le regole fiscali, le trattenute previdenziali e le novità del nuovo accordo per i frontalieri che lavorano in Svizzera nel Vallese. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vallese, regole, fiscalità, operativa',
+    ogTitle: 'Frontaliere in Vallese: guida fiscale e regole 2024',
+    ogDescription: 'Tutto quello che c\'è da sapere sulle tasse, i contributi e il nuovo accordo fiscale per chi lavora come frontaliere in territorio svizzero.',
+    canonicalPath: '/articoli-frontaliere/vivere-valpelline-lavorare-vallese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere in Vallese: regole e fiscalità",
+      "description": "Scopri le regole fiscali, le trattenute previdenziali e le novità del nuovo accordo per i frontalieri che lavorano in Svizzera nel Vallese. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valpelline-lavorare-vallese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano alpino con villaggio"
+      },
+      "datePublished": "2026-08-11T13:11:13+00:00",
+      "dateModified": "2026-08-11T13:11:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valpelline-lavorare-vallese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-courmayeur-lavora-vallese-frontaliere': {
+    title: 'Vivere a Courmayeur e lavorare in Vallese da frontaliere',
+    description: 'Impostazione fiscale e permessi per i frontaliere che vivono a Courmayeur e lavorano in Vallese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, courmayeur, lavorare, vallese',
+    ogTitle: 'Vivere a Courmayeur e lavorare in Vallese da frontaliere',
+    ogDescription: 'Impostazione fiscale e permessi per i frontaliere che vivono a Courmayeur e lavorano in Vallese',
+    canonicalPath: '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Courmayeur e lavorare in Vallese da frontaliere",
+      "description": "Impostazione fiscale e permessi per i frontaliere che vivono a Courmayeur e lavorano in Vallese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/courmayeur-lavora-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista di Courmayeur, città italiana situata sul confine con la Svizzera"
+      },
+      "datePublished": "2026-08-11T13:20:31+00:00",
+      "dateModified": "2026-08-11T13:20:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-gignod-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Gignod e lavorare in Vallese da frontaliere',
+    description: 'Guida fiscale e operativa per chi vive in Italia e lavora in Vallese. Scopri le regole sul nuovo accordo frontalieri, tassazione e contributi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, gignod, lavorare, vallese',
+    ogTitle: 'Vivere a Gignod e lavorare in Vallese da frontaliere',
+    ogDescription: 'Approfondimento sulle regole fiscali per frontalieri tra Italia e Svizzera, con dettagli su franchigie e contributi previdenziali.',
+    canonicalPath: '/articoli-frontaliere/vivere-gignod-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Gignod e lavorare in Vallese da frontaliere",
+      "description": "Guida fiscale e operativa per chi vive in Italia e lavora in Vallese. Scopri le regole sul nuovo accordo frontalieri, tassazione e contributi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-gignod-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero al confine"
+      },
+      "datePublished": "2026-08-11T13:27:08+00:00",
+      "dateModified": "2026-08-11T13:27:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-gignod-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-regime-fiscale-nuovo-accordo': {
+    title: 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    description: 'Scopri le novità del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024: tassazione, franchigie e credito d\'imposta per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, accordo, fiscale, completa',
+    ogTitle: 'Frontalieri e nuovo accordo fiscale: guida completa 2024',
+    ogDescription: 'Tutto quello che c\'è da sapere sul nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024 e le regole per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-regime-fiscale-nuovo-accordo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e nuovo accordo fiscale: guida completa 2024",
+      "description": "Scopri le novità del nuovo accordo fiscale tra Italia e Svizzera in vigore dal 1° gennaio 2024: tassazione, franchigie e credito d'imposta per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con edifici moderni"
+      },
+      "datePublished": "2026-08-11T13:57:51+00:00",
+      "dateModified": "2026-08-11T13:57:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-regime-fiscale-nuovo-accordo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cassa-malati-aumento-costi-lamal-2026': {
+    title: 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
+    description: 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, costi, sono',
+    ogTitle: 'Cassa malati, i costi sono saliti a 4\'834 franchi per persona',
+    ogDescription: 'I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4\'834 franchi per persona.',
+    canonicalPath: '/articoli-frontaliere/cassa-malati-aumento-costi-lamal-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati, i costi sono saliti a 4'834 franchi per persona",
+      "description": "I costi della Cassa malati sono aumentati di 0,4% negli ultimi 12 mesi, portando a un totale di 4'834 franchi per persona. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-malati-aumento-costi-lamal-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I costi della Cassa malati sono aumentati"
+      },
+      "datePublished": "2026-08-11T14:43:23+00:00",
+      "dateModified": "2026-08-11T14:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-aumento-costi-lamal-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-roisan-lavorare-vallese-da-frontalieri': {
+    title: 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    description: 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, roisan, lavorare, vallese',
+    ogTitle: 'Vivere a Roisan e lavorare in Vallese da frontaliere',
+    ogDescription: 'I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.',
+    canonicalPath: '/articoli-frontaliere/vivere-roisan-lavorare-vallese-da-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Roisan e lavorare in Vallese da frontaliere",
+      "description": "I frontalieri che vivono a Roisan e lavorano in Vallese devono essere a conoscenza delle nuove regole e scadenze per la dichiarazione dei redditi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-roisan-lavorare-vallese-da-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la sua famiglia guarda il lago di Lugano"
+      },
+      "datePublished": "2026-08-11T14:54:50+00:00",
+      "dateModified": "2026-08-11T14:54:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-roisan-lavorare-vallese-da-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-m5s-vco-tassa-salute': {
+    title: 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    description: 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, piemonte, lombardia, divisi, così',
+    ogTitle: 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    ogDescription: 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-m5s-vco-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, M5S VCO: 'Piemonte e Lombardia divisi, così aumentano le disparità'",
+      "description": "Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-m5s-vco-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora in Lombardia e risiede in Ticino."
+      },
+      "datePublished": "2026-08-11T15:03:12+00:00",
+      "dateModified": "2026-08-11T15:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-m5s-vco-tassa-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-harvey-nichols-bancarotta': {
+    title: 'Harvey Nichols in bancarotta: la catena del lusso a rischio',
+    description: 'La catena di grandi magazzini Harvey Nichols potrebbe essere in bancarotta entro un anno se non trova nuovi investitori. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, harvey, nichols, bancarotta, catena',
+    ogTitle: 'Harvey Nichols in bancarotta: la catena del lusso a rischio',
+    ogDescription: 'La catena di grandi magazzini Harvey Nichols potrebbe essere in bancarotta entro un anno se non trova nuovi investitori.',
+    canonicalPath: '/articoli-frontaliere/harvey-nichols-bancarotta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Harvey Nichols in bancarotta: la catena del lusso a rischio",
+      "description": "La catena di grandi magazzini Harvey Nichols potrebbe essere in bancarotta entro un anno se non trova nuovi investitori. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/harvey-nichols-bancarotta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Harvey Nichols a rischio bancarotta"
+      },
+      "datePublished": "2026-08-11T15:15:11+00:00",
+      "dateModified": "2026-08-11T15:15:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/harvey-nichols-bancarotta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-la-salle-frontaliere-pro-e-contro': {
+    title: 'Trasferirsi a La Salle da frontaliere: pro e contro',
+    description: 'Impostazione dell\'imposta alla fonte per i frontalieri: trattenuta in Svizzera e credito d\'imposta in Italia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, salle, contro, impostazione',
+    ogTitle: 'Trasferirsi a La Salle da frontaliere: pro e contro',
+    ogDescription: 'Impostazione dell\'imposta alla fonte per i frontalieri: trattenuta in Svizzera e credito d\'imposta in Italia.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-la-salle-frontaliere-pro-e-contro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a La Salle da frontaliere: pro e contro",
+      "description": "Impostazione dell'imposta alla fonte per i frontalieri: trattenuta in Svizzera e credito d'imposta in Italia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-la-salle-frontaliere-pro-e-contro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in Lugano che si trova a decidere se trasferirsi a La Salle."
+      },
+      "datePublished": "2026-08-11T15:43:14+00:00",
+      "dateModified": "2026-08-11T15:43:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-la-salle-frontaliere-pro-e-contro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
