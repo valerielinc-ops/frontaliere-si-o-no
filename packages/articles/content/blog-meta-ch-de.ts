@@ -2203,6 +2203,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-usam-croce-svizzera-polemica.title': 'USAM bestreitet Schweizerkreuz auf ausländische Produkte',
     'blog.article.svizzera-usam-croce-svizzera-polemica.excerpt': 'Die neue Praxis ermöglicht es, das Schweizer Kreuz auch auf im Ausland hergestellten Produkten anzubringen. Das Bsv bestreitet dies.',
     'blog.article.svizzera-usam-croce-svizzera-polemica.imageAlt': 'Die Schweizer Kruze auf einem importierten Produkt',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena il consumo di carne, ma la siccità lo potrebbe',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'Die Hitzewelle hat den Fleischkonsum bisher nicht wesentlich gebremst, aber die anhaltende Dürre droht das Angebot zu drosseln und die Preise in die Höhe zu treiben.',
+    'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'Die Dürre könnte die Preise der Fleischprodukte erhöhen.',
 };
 
 export default blogMetaChDe;

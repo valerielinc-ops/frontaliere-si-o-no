@@ -760,6 +760,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'usam-croce-svizzera-polemica': { it: 'usam-croce-svizzera-polemica', en: 'usam-swiss-cross-controversy', de: 'usam-schweizer-kreuz-kontroverse', fr: 'usam-croix-suisse-controverse' },
  'siccita-danni-agricoltura-svizzera': { it: 'siccita-danni-agricoltura-svizzera', en: 'drought-agricultural-damage-switzerland', de: 'duerre-landwirtschaft-schweiz-schaden', fr: 'secheresse-dommages-agriculture-suisse' },
  'svizzera-usam-croce-svizzera-polemica': { it: 'svizzera-usam-croce-svizzera-polemica', en: 'switzerland-usam-swiss-cross-controversy', de: 'schweiz-usam-schweizer-kreuz-polemik', fr: 'suisse-usam-croix-suisse-controverse' },
+ 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi': { it: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', en: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', de: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', fr: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
