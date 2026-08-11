@@ -6634,6 +6634,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'commissione-propone-500-milioni-munizioni',
+    category: 'fiscale',
+    date: '2026-08-11T17:48:35.013Z',
+    image: '/images/blog/commissione-propone-500-milioni-munizioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
