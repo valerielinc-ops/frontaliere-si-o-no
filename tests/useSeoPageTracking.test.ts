@@ -169,6 +169,45 @@ describe('useSeoPageTracking', () => {
     }
   });
 
+  it('does not throw when History.prototype.pushState/replaceState are also unavailable (issue #5606)', () => {
+    // Hardening for #5606: 18 occurrences/7d of the same TypeError kept
+    // arriving weeks after the #4304 fix shipped — the fallback to
+    // History.prototype[method] was itself unguarded. Simulates that
+    // reference being unavailable too (observed in the wild in some
+    // WebViews / privacy-hardened browsers).
+    window.history.replaceState({}, '', '/');
+    (window.history as unknown as { pushState: unknown }).pushState = undefined;
+    (window.history as unknown as { replaceState: unknown }).replaceState = undefined;
+
+    const pushProtoDescriptor = Object.getOwnPropertyDescriptor(History.prototype, 'pushState');
+    const replaceProtoDescriptor = Object.getOwnPropertyDescriptor(History.prototype, 'replaceState');
+    Object.defineProperty(History.prototype, 'pushState', { configurable: true, writable: true, value: undefined });
+    Object.defineProperty(History.prototype, 'replaceState', { configurable: true, writable: true, value: undefined });
+
+    const { unmount } = renderHook(() => useSeoPageTracking());
+    posthogMock.mockClear();
+
+    try {
+      expect(() => {
+        act(() => {
+          window.history.pushState({}, '', '/premi-cassa-malati/ticino/');
+        });
+      }).not.toThrow();
+
+      expect(() => {
+        act(() => {
+          window.history.replaceState({}, '', '/permessi-di-lavoro/');
+        });
+      }).not.toThrow();
+    } finally {
+      unmount();
+      if (pushProtoDescriptor) Object.defineProperty(History.prototype, 'pushState', pushProtoDescriptor);
+      if (replaceProtoDescriptor) Object.defineProperty(History.prototype, 'replaceState', replaceProtoDescriptor);
+      window.history.pushState = originalPushState;
+      window.history.replaceState = originalReplaceState;
+    }
+  });
+
   it('does not emit when navigating to an untagged path', () => {
     window.history.replaceState({}, '', '/');
     renderHook(() => useSeoPageTracking());

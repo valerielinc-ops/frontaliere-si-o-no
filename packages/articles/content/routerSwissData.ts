@@ -761,6 +761,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'siccita-danni-agricoltura-svizzera': { it: 'siccita-danni-agricoltura-svizzera', en: 'drought-agricultural-damage-switzerland', de: 'duerre-landwirtschaft-schweiz-schaden', fr: 'secheresse-dommages-agriculture-suisse' },
  'svizzera-usam-croce-svizzera-polemica': { it: 'svizzera-usam-croce-svizzera-polemica', en: 'switzerland-usam-swiss-cross-controversy', de: 'schweiz-usam-schweizer-kreuz-polemik', fr: 'suisse-usam-croix-suisse-controverse' },
  'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi': { it: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', en: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', de: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi', fr: 'caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi' },
+ 'bilaterali-iii-vacilla-misura-accompagnamento': { it: 'bilaterali-iii-vacilla-misura-accompagnamento', en: 'bilaterali-iii-vacilla-accompanion-measure', de: 'bilaterali-iii-vacilliert-unterstutzende-ma-nahme', fr: 'bilaterali-iii-vacille-mesure-daccompagnement' },
+ 'lex-ubs-proposta-compromesso': { it: 'lex-ubs-proposta-compromesso', en: 'ubs-proposal-compromise', de: 'ubs-vorschlag-kompromiss', fr: 'proposition-ubs-compromis' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

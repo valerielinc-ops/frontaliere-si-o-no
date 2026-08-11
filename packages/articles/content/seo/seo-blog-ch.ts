@@ -28565,6 +28565,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bilaterali-iii-vacilla-misura-accompagnamento': {
+    title: 'Bilaterali III, vacilla una delle misure di accompagnamento',
+    description: 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, vacilla, misure, accompagnamento',
+    ogTitle: 'Bilaterali III, vacilla una delle misure di accompagnamento',
+    ogDescription: 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento dei rappresentanti del personale e sindacali attivi nelle aziende.',
+    canonicalPath: '/articoli-svizzera/bilaterali-iii-vacilla-misura-accompagnamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, vacilla una delle misure di accompagnamento",
+      "description": "La Commissione dell'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bilaterali-iii-vacilla-misura-accompagnamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano: vista del lago"
+      },
+      "datePublished": "2026-08-11T16:34:17+00:00",
+      "dateModified": "2026-08-11T16:34:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bilaterali-iii-vacilla-misura-accompagnamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lex-ubs-proposta-compromesso': {
+    title: 'Lex UBS, si cerca un compromesso | Frontaliere Ticino',
+    description: 'La Commissione dell\'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa',
+    keywords: 'frontalieri, ticino, svizzera, italia, cerca, compromesso, commissione, dell',
+    ogTitle: 'Lex UBS, si cerca un compromesso',
+    ogDescription: 'La Commissione dell\'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa madre di banche di rilevanza sistemica (UBS).',
+    canonicalPath: '/articoli-svizzera/lex-ubs-proposta-compromesso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lex UBS, si cerca un compromesso",
+      "description": "La Commissione dell'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lex-ubs-proposta-compromesso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'edificio del Parlamento federale a Berna."
+      },
+      "datePublished": "2026-08-11T17:34:08+00:00",
+      "dateModified": "2026-08-11T17:34:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lex-ubs-proposta-compromesso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

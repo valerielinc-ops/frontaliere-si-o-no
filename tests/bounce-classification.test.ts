@@ -153,10 +153,36 @@ describe('bounceClassification', () => {
       expect(String(ref.__data().bounce_reason)).toContain('escalated after');
     });
 
-    it('is a no-op if already bounced', async () => {
+    it('is a no-op if already bounced with hard severity', async () => {
+      const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD + 5, status: 'bounced', bounce_severity: 'hard' });
+      const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');
+      expect(escalated).toBe(false);
+      expect(ref.__data().bounce_severity).toBe('hard');
+    });
+
+    // Regression coverage for #5610: bounceUpdateFields({ severity: 'soft' })
+    // has no visibility into the doc's current state and unconditionally
+    // writes bounce_severity: 'soft'. If that soft classification lands for
+    // an address already escalated to a terminal 'bounced', the old guard
+    // here (`status === 'bounced'` → no-op) let bounce_severity stay
+    // corrupted at 'soft' forever — a status/severity combination
+    // bounceUpdateFields itself can never produce directly.
+    it('repairs bounce_severity back to hard if a later soft event corrupted an already-terminal doc', async () => {
+      const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD + 1, status: 'bounced', bounce_severity: 'soft' });
+      const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');
+      expect(escalated).toBe(true);
+      expect(ref.__data().status).toBe('bounced');
+      expect(ref.__data().bounce_severity).toBe('hard');
+    });
+
+    // A legacy doc bounced before `bounce_severity` existed (no severity
+    // field at all) is a distinct case handled by one-off remediation, not
+    // this classifier — must stay untouched, not be stamped 'hard'.
+    it('does not touch a legacy bounced doc with no bounce_severity field at all', async () => {
       const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD + 5, status: 'bounced' });
       const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');
       expect(escalated).toBe(false);
+      expect(ref.__data().bounce_severity).toBeUndefined();
     });
 
     // Race-condition regression coverage for #3206 item 3: maybeEscalateSoftBounce

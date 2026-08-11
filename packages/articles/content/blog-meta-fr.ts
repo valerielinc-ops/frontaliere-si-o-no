@@ -9725,6 +9725,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Déménager à La Salle en frontalier : pour et contre',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Réglage de l\'impôt à la source pour les frontaliers : retenue en Suisse et crédit d\'impôt en Italie.',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere à Lugano qui se demande s\'il doit se transférer à La Salle.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Vivre à Oyace et travailler en Valais comme frontalier',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Guide pratique des déplacements entre Oyace et le Valais : règles fiscales, nouvel accord et gestion des revenus entre la Suisse et l\'Italie.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Paysage de montagne entre Oyace et le Valais',
+    'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Déménager à Saint-Nicolas en frontalier : les faits',
+    'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analyse de la faisabilité du frontalier vers le canton du Tessin à partir de la commune de Saint-Nicolas.',
+    'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Vue panoramique d\'un village alpin suisse',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Vivre à Saint-Pierre et travailler en Valais comme frontalier',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Les données clés sur la vie d\'un frontalier travaillant en Valais et résidant à Saint-Pierre.',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier qui vit à Saint-Pierre et travaille en Valais.',
 };
 
 export default blogMetaFr;

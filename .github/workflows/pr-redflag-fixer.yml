@@ -366,6 +366,18 @@ jobs:
         with:
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Stessa identità dello step `Configure push remote (App token / PAT)` qui sopra,
+          # e per la stessa ragione per cui la si passa in issue-fix.yml: senza questo input
+          # `claude-code-action` conia un proprio token e RI-SCRIVE il remote
+          # (`git-config.ts` → `replaceCheckoutCredentials()` fa un `git remote set-url`
+          # incondizionato), buttando via il remote appena configurato. Il commento del
+          # prompt qui sotto — «il remote origin è già autenticato con l'App token» —
+          # era quindi falso nel momento in cui l'agente lo leggeva, e ogni fix 🔴 su
+          # `.github/workflows/**` moriva al push nonostante il guard `HAS_PAT` lo avesse
+          # lasciato passare sulla capacità VERIFICATA (`APP_TOKEN_WORKFLOWS == 'true'`).
+          # Espressione identica a PUSH_TOKEN: se nessuno dei due esiste rende `''`, che è
+          # il ramo di default della action = comportamento odierno invariato.
+          github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           show_full_output: true
           # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
           # frontaliere-automation[bot] (App): le PR aggiornate via App token

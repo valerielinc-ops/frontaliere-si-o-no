@@ -9723,6 +9723,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Moving to La Salle from the border: pros and cons',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Setting up the tax at source for frontier workers: withholding tax in Switzerland and tax credit in Italy.',
     'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in Lugano that is deciding whether to transfer to La Salle.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Living in Oyace and working in Valais as a border worker',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Practical guide to commuting between Oyace and Valais: tax rules, new agreement and income management between Switzerland and Italy.',
+    'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Mountain landscape between Oyace and Valais',
+    'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Moving to Saint-Nicolas by border crossing: the facts',
+    'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analysis of the feasibility of the border towards the Canton of Ticino starting from the municipality of Saint-Nicolas.',
+    'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Panoramic view of a Swiss alpine village',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Living in Saint-Pierre and working in Valais as a border worker',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'The key facts about the life of a border worker who works in Valais and resides in Saint-Pierre.',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'A cross-border worker living in Saint-Pierre and working in Valais.',
 };
 
 export default blogMetaEn;

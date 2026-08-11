@@ -65045,6 +65045,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-oyace-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Oyace e lavorare in Vallese da frontaliere',
+    description: 'Guida fiscale e pratica per frontalieri tra Oyace e il Vallese: imposta alla fonte, nuovo accordo, franchigie e previdenza. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, oyace, lavorare, vallese',
+    ogTitle: 'Vivere a Oyace e lavorare in Vallese da frontaliere',
+    ogDescription: 'Tutto quello che devi sapere se vivi a Oyace e lavori in Vallese: regole fiscali, nuovo accordo del 2024 e gestione del reddito.',
+    canonicalPath: '/articoli-frontaliere/vivere-oyace-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Oyace e lavorare in Vallese da frontaliere",
+      "description": "Guida fiscale e pratica per frontalieri tra Oyace e il Vallese: imposta alla fonte, nuovo accordo, franchigie e previdenza. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-oyace-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano tra Oyace e il Vallese"
+      },
+      "datePublished": "2026-08-11T16:28:50+00:00",
+      "dateModified": "2026-08-11T16:28:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-oyace-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-abort-saint-nicolas-non-frontaliero': {
+    title: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
+    description: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, saint-nicolas, fatti, analisi',
+    ogTitle: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
+    ogDescription: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo per i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Saint-Nicolas da frontaliere: i fatti",
+      "description": "Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abort-saint-nicolas-non-frontaliero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di un villaggio alpino svizzero"
+      },
+      "datePublished": "2026-08-11T16:40:10+00:00",
+      "dateModified": "2026-08-11T16:40:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere': {
+    title: 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
+    description: 'I dati chiave sulla vita di un frontaliere che lavora in Vallese e risiede a Saint-Pierre. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, saint-pierre, lavorare, vallese',
+    ogTitle: 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
+    ogDescription: 'I dati chiave sulla vita di un frontaliere che lavora in Vallese e risiede a Saint-Pierre.',
+    canonicalPath: '/articoli-frontaliere/vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Saint-Pierre e lavorare in Vallese da frontaliere",
+      "description": "I dati chiave sulla vita di un frontaliere che lavora in Vallese e risiede a Saint-Pierre. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora in Vallese e risiede a Saint-Pierre."
+      },
+      "datePublished": "2026-08-11T17:42:10+00:00",
+      "dateModified": "2026-08-11T17:42:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
