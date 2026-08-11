@@ -2095,6 +2095,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Arbeitsmarkt Schweiz: Die Daten vom Juni 2026',
     'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'Das SECO verzeichnet einen Rückgang der Arbeitslosigkeit auf 2,9% im Juni 2026. Analyse von Daten zu Jugendlichen, älteren Menschen und offenen Stellen auf dem heimischen Markt.',
     'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Moderner Büroarbeitsplatz mit Blick auf einen Schweizer See',
+    'blog.article.sandoz-biosimilari-2026.title': 'Sandoz übertrifft Schätzungen mit Biosimilari',
+    'blog.article.sandoz-biosimilari-2026.excerpt': 'Umsatz von 5,8 Milliarden US-Dollar, Biosimilars +20% und tragen 33% zum Umsatz bei',
+    'blog.article.sandoz-biosimilari-2026.imageAlt': 'Sandoz beschleunigt mit Biosimilaren und überschreitet die ersten Halbjahresabschlüsse 2026',
 };
 
 export default blogMetaChDe;
