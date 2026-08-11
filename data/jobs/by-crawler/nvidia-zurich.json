@@ -157,8 +157,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-cb3066f760d3",
@@ -623,8 +622,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-ac40a1fa78c0",
@@ -702,8 +700,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-27971b6e3310",
@@ -781,8 +778,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-06b759596ad5",
@@ -860,8 +856,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-5268a88a5d1e",
@@ -954,8 +949,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-2cfb04ee35cb",
@@ -1033,8 +1027,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-d25cdd04bc0b",
@@ -1488,8 +1481,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-86fa115f08b6",
@@ -2020,18 +2012,28 @@
       "jobReqId": "JR2016204",
       "previousSlugs": [
         "senior-hpc-performance-engineer-nvidia-zurich-ch",
-        "senior-hpc-performance-ingegnere-nvidia-ufficio-zurich-zurich"
+        "senior-hpc-performance-ingegnere-nvidia-ufficio-zurich-zurich",
+        "hpc-performance-ingegnere-nvidia-ufficio-zurich-zurich",
+        "hpc-performance-engineer-nvidia-zurich-ch",
+        "hpc-performance-ingenieur-nvidia-ufficio-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hpc-performance-engineer-nvidia-zurich-ch",
-          "senior-hpc-performance-ingegnere-nvidia-ufficio-zurich-zurich"
+          "senior-hpc-performance-ingegnere-nvidia-ufficio-zurich-zurich",
+          "hpc-performance-ingegnere-nvidia-ufficio-zurich-zurich",
+          "hpc-performance-engineer-nvidia-zurich-ch",
+          "hpc-performance-ingenieur-nvidia-ufficio-zurich-zurich"
         ],
         "de": [
           "senior-hpc-performance-engineer-nvidia-zurich-ch"
         ],
         "fr": [
-          "senior-hpc-performance-engineer-nvidia-zurich-ch"
+          "senior-hpc-performance-engineer-nvidia-zurich-ch",
+          "hpc-performance-ingenieur-nvidia-ufficio-zurich-zurich"
+        ],
+        "en": [
+          "hpc-performance-engineer-nvidia-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-07-30T22:25:01.793Z",
@@ -2279,8 +2281,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "nvidia-zurich-ff52f7ddef3e",
@@ -2421,8 +2422,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
