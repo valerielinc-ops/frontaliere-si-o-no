@@ -9631,6 +9631,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Moving to Teglio from border crossing: pros and cons',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'Border workers who move to Teglio will benefit from a more favourable tax regime',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in auto per il lavoro a Teglio',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.title': 'Living in Chiuro, working in Graubünden: what changes',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.excerpt': 'The new Frontier Agreement: news and changes for border workers in Chiuro',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.imageAlt': 'A frontaliere with his family in a sunny day at Chiuro',
 };
 
 export default blogMetaEn;

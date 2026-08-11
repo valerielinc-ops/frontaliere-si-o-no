@@ -9630,6 +9630,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Als Grenzgänger nach Teglio ziehen: Vor- und Nachteile',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'Grenzgänger, die nach Teglio ziehen, können von einer günstigeren Steuerregelung profitieren',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontalieri in Auto für den Arbeitstag in Teglio',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.title': 'Frontalieri in Grigioni: cosa cambia e cosa fare',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.excerpt': 'Die neue Frontalieri-Vereinbarung: Neuigkeiten und Änderungen für die Grenzgänger von Chiuro',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.imageAlt': 'Ein Frontalier mit seiner Familie an einem sonnigen Tag in Chiuro',
 };
 
 export default blogMetaDe;

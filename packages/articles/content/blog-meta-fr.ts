@@ -9633,6 +9633,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.title': 'Déménager à Teglio en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.excerpt': 'Les frontaliers qui s\'installent à Teglio pourront bénéficier d\'un régime fiscal plus favorable',
     'blog.article.trasferirsi-a-teglio-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliers en voiture pour le travail à Teglio',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.title': 'Vivre à Chiuro: le changements pour les frontaliers',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.excerpt': 'Le nouvel accord frontalier : nouveautés et changements pour les frontaliers de Chiuro',
+    'blog.article.vivere-chiuro-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliére avec sa famille en une journée ensoleillée à Chiuro',
 };
 
 export default blogMetaFr;

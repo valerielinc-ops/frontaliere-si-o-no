@@ -63875,6 +63875,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-chiuro-lavorare-grigioni-frontaliere': {
+    title: 'Vivere a Chiuro e lavorare in Grigioni da frontaliere: cosa cambia e cosa fare',
+    description: 'Il nuovo Accordo Frontalieri: novità e cambiamenti per i frontalieri di Chiuro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, chiuro, lavorare, grigioni',
+    ogTitle: 'Vivere a Chiuro e lavorare in Grigioni da frontaliere: cosa cambia e cosa fare',
+    ogDescription: 'Il nuovo Accordo Frontalieri: novità e cambiamenti per i frontalieri di Chiuro',
+    canonicalPath: '/articoli-frontaliere/vivere-chiuro-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Chiuro e lavorare in Grigioni da frontaliere: cosa cambia e cosa fare",
+      "description": "Il nuovo Accordo Frontalieri: novità e cambiamenti per i frontalieri di Chiuro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-chiuro-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere con la sua famiglia in un giorno di sole a Chiuro"
+      },
+      "datePublished": "2026-08-11T04:53:07+00:00",
+      "dateModified": "2026-08-11T04:53:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-chiuro-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
