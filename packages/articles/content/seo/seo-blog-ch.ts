@@ -27590,6 +27590,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo': {
+    title: 'Permesso di dimora B in Canton Zurigo: requisiti e procedura',
+    description: 'Il permesso di dimora B nel Canton Zurigo richiede la presentazione di documenti specifici e segue una procedura di rinnovo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, canton, zurigo',
+    ogTitle: 'Permesso di dimora B nel Canton Zurigo: requisiti, documenti da produrre, durata, procedura di rinnovo e ufficio cantonale della migrazione competente',
+    ogDescription: 'Il permesso di dimora B nel Canton Zurigo richiede la presentazione di documenti specifici e segue una procedura di rinnovo.',
+    canonicalPath: '/articoli-svizzera/permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B in Canton Zurigo: requisiti e procedura",
+      "description": "Il permesso di dimora B nel Canton Zurigo richiede la presentazione di documenti specifici e segue una procedura di rinnovo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un permesso di soggiorno a Zurigo"
+      },
+      "datePublished": "2026-08-11T07:13:06+00:00",
+      "dateModified": "2026-08-11T07:13:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2131,6 +2131,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.economia-svizzera-nazionale-2026.title': 'Produktivitätssteigerung für Logitech im ersten Quartal 2026/2027',
     'blog.article.economia-svizzera-nazionale-2026.excerpt': 'Das Geschäftsjahr 2026/2027 startet für Logitech gut: Im ersten Quartal (Zeitraum April-Juni) stieg der Bruttoumsatz im Vergleich zum Vorjahreszeitraum um 13,3%.',
     'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'Die schweizerische Wirtschaft auf nationaler Ebene',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Zürich: Voraussetzungen und Verfahren',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Zürich erfordert die Vorlage spezifischer Dokumente und folgt einem Erneuerungsverfahren.',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Bild von einem Aufenthaltstitel in Zürich',
 };
 
 export default blogMetaChDe;

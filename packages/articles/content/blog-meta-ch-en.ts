@@ -2131,6 +2131,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.economia-svizzera-nazionale-2026.title': 'Productivity increase for Logitech in Q1 2026/2027',
     'blog.article.economia-svizzera-nazionale-2026.excerpt': 'The 2026/2027 financial year starts well for Logitech: in the first quarter (April-June period) gross product increased by 13.3% compared to the same period of the previous year.',
     'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'The Swiss economy at the national level',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Residence permit B in Canton Zurich: requirements and procedure',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'The B residence permit in the Canton of Zurich requires the submission of specific documents and follows a renewal procedure.',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Image of a residence permit in Zurich',
 };
 
 export default blogMetaChEn;

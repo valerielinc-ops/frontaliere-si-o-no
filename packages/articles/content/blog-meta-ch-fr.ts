@@ -2131,6 +2131,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.economia-svizzera-nazionale-2026.title': 'Augmentation de la productivité pour Logitech au premier trimestre 2026/2027',
     'blog.article.economia-svizzera-nazionale-2026.excerpt': 'L\'exercice 2026/2027 commence bien pour Logitech : au premier trimestre (période avril-juin), le produit brut a augmenté de 13,3 % par rapport à la même période de l\'année précédente.',
     'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'L\'économie suisse au niveau national',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Permis de séjour B dans le canton de Zurich : exigences et procédure',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Zurich nécessite la présentation de documents spécifiques et suit une procédure de renouvellement.',
+    'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Image d\'un permis de séjour à Zurich',
 };
 
 export default blogMetaChFr;
