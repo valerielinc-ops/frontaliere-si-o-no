@@ -1,21 +1,22 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-08-11T10:20:29.746Z",
+  "generatedAt": "2026-08-11T22:36:48.056Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6668,
-  "avgDurationMs": 6668,
+  "durationMs": 6918,
+  "avgDurationMs": 6918,
   "durationHistory": [
-    6668
+    6918
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "apg-sga-e2d7f5f4d041",
-      "slug": "afficheur-in-60-st-gallen-apg-sga-ch",
+      "slug": "afficheur-in-60-san-gallo-apg-sga-st-gallen",
       "company": "APG|SGA",
       "companyKey": "apg-sga",
       "companyDomain": "apgsga.ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-st-gallen/d54gb1dntc7fxfdn0rc7os0h00w5cikgfy33eobs8dly2ddtfuxdpck4q2uqfl5m",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:20:26.851Z",
+      "crawledAt": "2026-08-11T22:36:45.212Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-08-03",
       "applyUrl": "https://jobs.apgsga.ch/publication/afficheur-in-st-gallen/d54gb1dntc7fxfdn0rc7os0h00w5cikgfy33eobs8dly2ddtfuxdpck4q2uqfl5m",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:20:26.851Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "apg-sga-cc265091c6cd",
       "slug": "software-engineer-80-100-zurich-apg-sga-ch",
@@ -62,7 +63,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:20:27.477Z",
+      "crawledAt": "2026-08-11T22:36:45.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
