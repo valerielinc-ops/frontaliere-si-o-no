@@ -9586,6 +9586,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.title': 'Living in Livigno and working in Graubünden as a border worker',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.excerpt': 'The benefits and difficulties of border workers working in Graubünden',
     'blog.article.vivere-livigno-lavorare-grigioni-frontalieri.imageAlt': 'A frontaliere living in Livigno and working in Grigioni',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Living in Piuro and working in Graubünden as a border worker',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Practical guide to commuting between Piuro and the Canton of Graubünden, with a focus on taxation, the new agreement and rules for border crossers.',
+    'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Mountain landscape at the border between Italy and Grisons',
 };
 
 export default blogMetaEn;
