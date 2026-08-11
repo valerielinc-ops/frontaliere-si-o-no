@@ -1155,7 +1155,7 @@
         "it": "agente-di-vendita-adliswil-60-100-sunrise-communications-ag-adliswil",
         "en": "sales-agent-adliswil-60-100-sunrise-adliswil",
         "de": "sales-agent-adliswil-60-100-sunrise-adliswil",
-        "fr": "sales-agent-adliswil-60-100-sunrise-adliswil"
+        "fr": "vendeur-adliswil-60-100-sunrise-communications-ag-adliswil"
       },
       "id": "sunrise-sede-ticino-48be5644f540",
       "salaryMin": 83000,
@@ -1174,6 +1174,9 @@
       "firstSeenAt": "2026-08-07T01:12:03.117Z",
       "previousSlugsByLocale": {
         "it": [
+          "sales-agent-adliswil-60-100-sunrise-adliswil"
+        ],
+        "fr": [
           "sales-agent-adliswil-60-100-sunrise-adliswil"
         ]
       },

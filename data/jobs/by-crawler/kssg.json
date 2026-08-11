@@ -8575,10 +8575,10 @@
       "id": "kssg-35357d888947",
       "slug": "fachfrau-mann-hauswirtschaft-m-b-a-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
       "slugByLocale": {
-        "it": "fachfrau-mann-hauswirtschaft-m-b-a-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
-        "en": "fachfrau-mann-hauswirtschaft-m-b-a-100-kssg-ch",
         "de": "fachfrau-mann-hauswirtschaft-m-b-a-100-kssg-ch",
-        "fr": "fachfrau-mann-hauswirtschaft-m-b-a-100-kssg-ch"
+        "it": "fachfrau-mann-hauswirtschaft-m-b-a-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+        "en": "housekeeping-specialist-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+        "fr": "specialiste-de-la-gestion-de-la-maison-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8621,6 +8621,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-hauswirtschaft-m-b-a-100-kssg-ch"
+        ],
+        "en": [
+          "fachfrau-mann-hauswirtschaft-m-b-a-100-kssg-ch"
+        ],
+        "fr": [
           "fachfrau-mann-hauswirtschaft-m-b-a-100-kssg-ch"
         ]
       },
