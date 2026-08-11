@@ -4590,10 +4590,10 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-trump-intesa-o-inferno': {
- title: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum',
+ title: 'Trump: "Intesa o sarò l\'inferno". Il giallo dell\'ultimatum',
  description: 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, trump, intesa, inferno, giallo',
- ogTitle: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a martedì',
+ ogTitle: 'Trump: "Intesa o sarò l\'inferno". Il giallo dell\'ultimatum spostato a martedì',
  ogDescription: 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
  canonicalPath: '/articoli-frontaliere/trump-intesa-o-inferno/',
  structuredData: {

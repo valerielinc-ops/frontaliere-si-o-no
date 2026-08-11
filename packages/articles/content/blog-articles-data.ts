@@ -28722,6 +28722,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'montegrino-valtravaglia-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-08-11T00:34:44.476Z',
+ image: '/images/blog/montegrino-valtravaglia-frontalieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

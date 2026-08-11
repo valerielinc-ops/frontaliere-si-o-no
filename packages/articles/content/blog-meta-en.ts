@@ -9574,6 +9574,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Moving to Cernobbio from border crossings: pros and cons',
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Tax settings, permits and benefits for border crossers moving to Cernobbio',
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'A family of frontiersmen with children moving to Cernobbio',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.title': 'Living in Montegrino Valtravaglia and working in Ticino as a border worker',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.excerpt': 'The new border agreement signed on 23 December 2020 provides for new rules for border workers working in Ticino.',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.imageAlt': 'Frontalier in Ticino',
 };
 
 export default blogMetaEn;
