@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-08-11T10:41:41.910Z",
+  "assembledAt": "2026-08-11T08:55:43.969Z",
   "jobs": [
     {
       "id": "sbb-73b396fb500a",
@@ -3180,11 +3180,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-11T10:36:57.404Z",
       "previousSlugs": [
-        "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-zurich"
+        "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-zurich",
+        "specialista-di-manovra-ai40-ffs-officine-ferrovie-federali-interlaken",
+        "shunting-specialist-ai40-ffs-officine-ferrovie-federali-interlaken",
+        "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-interlaken",
+        "specialiste-de-man-uvre-ai40-ffs-officine-ferrovie-federali-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-zurich"
+          "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-zurich",
+          "specialista-di-manovra-ai40-ffs-officine-ferrovie-federali-interlaken",
+          "shunting-specialist-ai40-ffs-officine-ferrovie-federali-interlaken",
+          "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-interlaken",
+          "specialiste-de-man-uvre-ai40-ffs-officine-ferrovie-federali-interlaken"
+        ],
+        "en": [
+          "shunting-specialist-ai40-ffs-officine-ferrovie-federali-interlaken"
+        ],
+        "de": [
+          "rangierspezialist-in-ai40-ffs-officine-ferrovie-federali-interlaken"
+        ],
+        "fr": [
+          "specialiste-de-man-uvre-ai40-ffs-officine-ferrovie-federali-interlaken"
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:12.254Z",
@@ -12318,7 +12335,8 @@
         ],
         "it": [
           "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-bern",
-          "specialista-in-manovra-a-ingresso-laterale-ffs-officine-ferrovie-federali-bern"
+          "specialista-in-manovra-a-ingresso-laterale-ffs-officine-ferrovie-federali-bern",
+          "rangierspezialist-in-ffs-officine-ferrovie-federali-bern"
         ],
         "en": [
           "lateral-entry-shunting-specialist-ffs-officine-ferrovie-federali-bern"
@@ -12331,7 +12349,8 @@
         "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-bern",
         "specialista-in-manovra-a-ingresso-laterale-ffs-officine-ferrovie-federali-bern",
         "lateral-entry-shunting-specialist-ffs-officine-ferrovie-federali-bern",
-        "specialiste-de-la-man-uvre-a-entree-laterale-ffs-officine-ferrovie-federali-bern"
+        "specialiste-de-la-man-uvre-a-entree-laterale-ffs-officine-ferrovie-federali-bern",
+        "rangierspezialist-in-ffs-officine-ferrovie-federali-bern"
       ],
       "firstSeenAt": "2026-08-07T01:12:17.529Z",
       "salaryMin": 73000,
