@@ -9713,6 +9713,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Caisse-maladie, les coûts sont montés à 4834francs par personne',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'Les coûts de la Caisse maladie ont augmenté de 0,4% au cours des 12 derniers mois, pour atteindre un total de 4834francs par personne.',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Les coûts de la caisse de maladie ont augmenté',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivre à Roisan et travailler en Valais comme frontalier',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Les frontaliers qui vivent à Roisan et travaillent en Valais doivent être au courant des nouvelles règles et délais de déclaration de revenus.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Une famille d\'un frontalier regarde le lac de Lugano',
 };
 
 export default blogMetaFr;

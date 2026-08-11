@@ -9711,6 +9711,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassa-malati-aumento-costi-lamal-2026.title': 'Sick fund, costs have risen to CHF 4,834 per person',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.excerpt': 'The sick fund\'s costs have increased by 0.4% in the last 12 months, bringing the total to CHF 4,834 per person.',
     'blog.article.cassa-malati-aumento-costi-lamal-2026.imageAlt': 'Health insurance costs have increased',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Living in Roisan and working in Valais as a border worker',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Border workers living in Roisan and working in Valais must be aware of the new rules and deadlines for filing tax returns.',
+    'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'A family of a frontaliere looks at the lake of Lugano',
 };
 
 export default blogMetaEn;

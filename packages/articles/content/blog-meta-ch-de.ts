@@ -2197,6 +2197,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.usam-croce-svizzera-polemica.title': 'Auslandschweizerkreuz: Der Protest von USAM',
     'blog.article.usam-croce-svizzera-polemica.excerpt': 'Das Bsv stellt die Praxis des ige in Frage, die die Verwendung des Schweizer Kreuzes auf Produkten erlaubt, die gänzlich ausserhalb der Landesgrenzen hergestellt werden.',
     'blog.article.usam-croce-svizzera-polemica.imageAlt': 'Etikett mit Schweizer Kreuz auf einem Produkt',
+    'blog.article.siccita-danni-agricoltura-svizzera.title': 'Dürre, Schäden an der Landwirtschaft in Höhe von 19 Millionen Franken',
+    'blog.article.siccita-danni-agricoltura-svizzera.excerpt': 'Schweizer Hagel meldet Schäden von mindestens 19 Millionen Franken. Befallen Sie Sommerkulturen wie Mais, Kartoffeln, Rüben und Sonnenblumen.',
+    'blog.article.siccita-danni-agricoltura-svizzera.imageAlt': 'Von Dürre betroffene Maisfelder in der Schweiz',
 };
 
 export default blogMetaChDe;

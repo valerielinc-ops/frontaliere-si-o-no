@@ -28448,6 +28448,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-danni-agricoltura-svizzera': {
+    title: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    description: 'La siccità in Svizzera causa danni all\'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, danni, agricoltura, milioni',
+    ogTitle: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    ogDescription: 'Schweizer Hagel stima danni per 19 milioni di franchi a causa della siccità. Focus su colture estive e nuovi contributi federali ai premi assicurativi.',
+    canonicalPath: '/articoli-svizzera/siccita-danni-agricoltura-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, danni all'agricoltura per 19 milioni di franchi",
+      "description": "La siccità in Svizzera causa danni all'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-danni-agricoltura-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi di mais colpiti dalla siccità in Svizzera"
+      },
+      "datePublished": "2026-08-11T14:57:46+00:00",
+      "dateModified": "2026-08-11T14:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-danni-agricoltura-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
