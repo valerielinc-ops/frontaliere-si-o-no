@@ -9622,6 +9622,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.title': 'Moving to Villa di Tirano by border crossing: pros and cons',
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.excerpt': 'Here\'s what to know about the advantages and disadvantages of moving to Villa di Tirano as a border worker',
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.imageAlt': 'A cross-border worker who finds themselves in a similar situation may have to face new tax challenges',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.title': 'Moving to Sondalo as a cross-border commuter: pros and cons',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.excerpt': 'Here are the advantages and disadvantages of moving to Sondalo as a cross-border commuter.',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere at work in Grisons.',
 };
 
 export default blogMetaEn;

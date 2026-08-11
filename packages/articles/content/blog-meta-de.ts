@@ -9621,6 +9621,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.title': 'Umzug nach Villa di Tirano als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.excerpt': 'Was Sie über die Vor- und Nachteile eines Umzugs nach Villa di Tirano als Grenzgänger wissen sollten',
     'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.imageAlt': 'Ein Grenzgänger, der sich in einer ähnlichen Situation befindet, muss möglicherweise neue Steuerforderungen bewältigen',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.title': 'Umzug nach Sondalo als grenzüberschreitender Pendler: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.excerpt': 'Hier sind die Vor- und Nachteile eines Umzugs nach Sondalo als grenzüberschreitender Pendler.',
+    'blog.article.trasferirsi-a-sondalo-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier arbeitet in Grisons.',
 };
 
 export default blogMetaDe;
