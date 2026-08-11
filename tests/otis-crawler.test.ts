@@ -80,7 +80,7 @@ const MOCK_DETAIL = {
     jobReqId: '20152293',
     country: { descriptor: 'Switzerland', id: 'bc33aa3152ec42d4995f4791a106ed09' },
     remoteType: 'On-Site',
-    externalUrl: 'https://otis.wd5.myworkdayjobs.com/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293',
+    externalUrl: 'https://otis.wd504.myworkdayjobs.com/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293',
   },
 };
 
@@ -164,7 +164,7 @@ describe('parseOtisWorkdayDetail', () => {
   it('builds correct public URL', () => {
     const path = '/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293';
     const result = parseOtisWorkdayDetail(MOCK_DETAIL, path);
-    expect(result!.url).toContain('otis.wd5.myworkdayjobs.com');
+    expect(result!.url).toContain('otis.wd504.myworkdayjobs.com');
     expect(result!.url).toContain('/Aufzugsmonteur--m-w-d-_20152293');
   });
 
@@ -239,7 +239,7 @@ describe('parseWorkdayCity', () => {
 describe('buildPublicUrl', () => {
   it('builds correct URL', () => {
     expect(buildPublicUrl('/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293')).toBe(
-      'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293'
+      'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293'
     );
   });
 });

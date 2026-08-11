@@ -3,7 +3,7 @@
  * Dedicated Otis SA crawler runner.
  *
  * Source:
- *   https://otis.wd5.myworkdayjobs.com/REC_Ext_Gateway
+ *   https://otis.wd504.myworkdayjobs.com/REC_Ext_Gateway
  *
  * Otis uses a Workday portal for job listings. This crawler uses the
  * Workday JSON API (POST for listings, GET for details).
@@ -64,7 +64,7 @@ const COMPANY_NAME = 'Otis SA';
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
   const url = String(job?.url || '').toLowerCase();
-  return key.includes(COMPANY_KEY) || url.includes('otis.wd5.myworkdayjobs.com');
+  return key.includes(COMPANY_KEY) || url.includes('otis.wd504.myworkdayjobs.com') || url.includes('otis.wd5.myworkdayjobs.com');
 }
 
 function writeJobsFiles(jobs) {
