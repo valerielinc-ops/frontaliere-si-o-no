@@ -9590,6 +9590,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Vivere a Piuro e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Guida pratica al pendolarismo tra Piuro e il Canton Grigioni, con focus sulla fiscalità, il nuovo accordo e le regole per i frontalieri.',
     'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Paesaggio montano al confine tra Italia e Grigioni',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'trasferirsi a Madesimo da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Immagine di un frontaliere in un valico italo-svizzero',
 };
 
 export default blogMetaIt;
