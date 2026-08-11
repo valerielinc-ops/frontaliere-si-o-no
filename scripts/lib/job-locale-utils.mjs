@@ -472,12 +472,15 @@ const ALWAYS_SCANNED_MARKER_LANGS = ['de', 'fr'];
  * only looks for the glued `:in`.
  *
  * `/in` additionally needs the trailing word boundary so that the correct
- * English "Physiotherapist/inpatient" does not match. The third alternative —
+ * English "Physiotherapist/inpatient" does not match. The optional hyphen
+ * before `in` catches the alternate translator artifact "Dipendente/-in"
+ * (source "Mitarbeiter/-in"), where the slash-hyphen is carried over as one
+ * glued unit instead of the plain slash form. The third alternative —
  * a colon glued between two words — catches the form where the translator
  * also translated the suffix ("Konstrukteur:in" -> "Conduttore:nella"),
  * which no amount of German vocabulary would find.
  */
-const BINNEN_I_RE = /\p{L}{3,}[:*_] ?in(?:nen)?\b|\p{L}{4,}\/in\b|\p{L}{3,}:\p{L}{2,}/iu;
+const BINNEN_I_RE = /\p{L}{3,}[:*_] ?in(?:nen)?\b|\p{L}{4,}\/-?in\b|\p{L}{3,}:\p{L}{2,}/iu;
 /** ":r"/"*r"/"_r" is one letter and far weaker — see the corroboration rule in
  *  scanSourceMarkers(). */
 const GENDER_R_RE = /(\p{L}{4,})[:*_] ?r\b/giu;

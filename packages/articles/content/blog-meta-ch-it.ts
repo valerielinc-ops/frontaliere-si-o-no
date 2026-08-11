@@ -2206,6 +2206,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.title': 'Caldo non frena i consumi di carne ma la siccità potrebbe far salire i prezzi',
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.excerpt': 'L\'ondata di calore non ha finora frenato in modo significativo il consumo di carne, ma la siccità prolungata rischia di ridurre l\'offerta e far lievitare i prezzi.',
     'blog.article.caldo-non-frene-consumi-carne-ma-siccia-potrebbe-far-salire-prezzi.imageAlt': 'La siccità potrebbe far salire i prezzi dei prodotti di carne.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilaterali III, vacilla una delle misure di accompagnamento',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento dei rappresentanti del personale e sindacali attivi nelle aziende.',
+    'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: vista del lago',
+    'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, si cerca un compromesso',
+    'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commissione dell\'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa madre di banche di rilevanza sistemica (UBS).',
+    'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'L\'edificio del Parlamento federale a Berna.',
 };
 
 export default blogMetaChIt;

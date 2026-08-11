@@ -29172,6 +29172,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'abort-saint-nicolas-non-frontaliero',
+ category: 'fiscale',
+ date: '2026-08-11T16:40:10.447Z',
+ image: '/images/blog/abort-saint-nicolas-non-frontaliero.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-11T17:42:10.891Z',
+ image: '/images/blog/vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
