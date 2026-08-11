@@ -715,6 +715,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazi-usa-consiglio-federale-2026': { it: 'dazi-usa-consiglio-federale-2026', en: 'usa-tariffs-council-federal', de: 'usa-zolle-bundesrat', fr: 'tarifs-usa-conseil-federal' },
  'calore-data-center-poco-sfruttato': { it: 'calore-data-center-poco-sfruttato', en: 'data-center-heat-underutilized', de: 'daten-zentrum-warme-unterschatzte', fr: 'centre-de-donnees-chaleur-insuffisamment-exploitee' },
  'fit-partnership-2026': { it: 'fit-partnership-2026', en: 'fit-partnership-2026', de: 'fit-partnerschaft-2026', fr: 'fit-partenariat-2026' },
+ 'piano-energetico-climatico-ticino-sfide': { it: 'piano-energetico-climatico-ticino-sfide', en: 'ticino-energy-climate-plan-challenges', de: 'klima-energieplan-tessin-herausforderungen', fr: 'plan-energie-climat-tessin-defis' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
