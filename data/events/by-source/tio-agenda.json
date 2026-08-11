@@ -3,378 +3,8 @@
   "sourceKey": "tio-agenda",
   "sourceName": "Tio.ch Agenda",
   "canton": "TI",
-  "assembledAt": "2026-08-10T06:56:03.839Z",
+  "assembledAt": "2026-08-11T06:33:11.099Z",
   "events": [
-    {
-      "id": "tio-agenda:60875",
-      "title": "Astrazione - Creazione di Gloria Pasi",
-      "startDate": "2026-08-10",
-      "startTime": "08:00",
-      "category": "arte",
-      "region": "Mendrisiotto",
-      "venue": "Uffici Capifid Sa",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/60875",
-      "imageUrl": "/images/events/tio-agenda-60875.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-28",
-      "titleByLocale": {
-        "it": "Astrazione - Creazione di Gloria Pasi",
-        "en": "Abstraction - Creation of Gloria Pasi",
-        "de": "Abstraktion - Schaffung von Gloria Pasi",
-        "fr": "Abstraction - Création de Gloria Pasi"
-      }
-    },
-    {
-      "id": "tio-agenda:63135",
-      "title": "Eco. Il richiamo della montagna",
-      "startDate": "2026-08-10",
-      "startTime": "09:00",
-      "category": "musei",
-      "region": "Leventina",
-      "venue": "Passo San Gottardo",
-      "comune": "Faido",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63135",
-      "imageUrl": "/images/events/tio-agenda-63135.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "titleByLocale": {
-        "it": "Eco. Il richiamo della montagna",
-        "en": "The call of the mountains",
-        "de": "Echo. Der Ruf des Berges",
-        "fr": "Eco. L'appel de la montagne"
-      }
-    },
-    {
-      "id": "tio-agenda:63054",
-      "title": "Sguardi in dialogo",
-      "startDate": "2026-08-10",
-      "startTime": "10:00",
-      "category": "arte",
-      "region": "Luganese",
-      "venue": "Casa anziani Malcantonese",
-      "comune": "Lugano",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63054",
-      "imageUrl": "/images/events/tio-agenda-63054.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "titleByLocale": {
-        "it": "Sguardi in dialogo",
-        "en": "Glances in dialogue",
-        "de": "Blicke im Dialog",
-        "fr": "Regards en dialogue"
-      }
-    },
-    {
-      "id": "tio-agenda:61534",
-      "title": "Isa Hesse-Rabinovitch!",
-      "startDate": "2026-08-10",
-      "startTime": "10:30",
-      "category": "arte",
-      "region": "Luganese",
-      "venue": "Museo Hermann Hesse",
-      "comune": "Lugano",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/61534",
-      "imageUrl": "/images/events/tio-agenda-61534.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "price": {
-        "amount": null,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "geo": {
-        "lat": 45.9829674,
-        "lng": 8.9188427
-      },
-      "titleByLocale": {
-        "it": "Isa Hesse-Rabinovitch!",
-        "de": "Isa Hesse-Rabinowitsch!",
-        "fr": "Isa Hesse-Rabinovitch !"
-      }
-    },
-    {
-      "id": "tio-agenda:63136",
-      "title": "Esposizione",
-      "startDate": "2026-08-10",
-      "startTime": "11:00",
-      "category": "arte",
-      "region": "Luganese",
-      "venue": "Residenza Rivabella",
-      "comune": "Lugano",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63136",
-      "imageUrl": "/images/events/tio-agenda-63136.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "titleByLocale": {
-        "it": "Esposizione",
-        "en": "Exposure",
-        "de": "arbeiten",
-        "fr": "Expo"
-      }
-    },
-    {
-      "id": "tio-agenda:63434",
-      "title": "Aperitivi in musica",
-      "startDate": "2026-08-10",
-      "startTime": "19:30",
-      "category": "musica",
-      "region": "Locarnese",
-      "venue": "Piazza Sant'Antonio",
-      "comune": "Locarno",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63434",
-      "imageUrl": "/images/events/tio-agenda-63434.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-15",
-      "geo": {
-        "lat": 46.1697747,
-        "lng": 8.7916939
-      },
-      "titleByLocale": {
-        "it": "Aperitivi in musica",
-        "en": "Aperitifs in music",
-        "de": "Aperitifs in Musik",
-        "fr": "Apéritifs en musique"
-      }
-    },
-    {
-      "id": "tio-agenda:62775",
-      "title": "Uomo e ambiente - Il distruttore",
-      "startDate": "2026-08-10",
-      "startTime": "20:00",
-      "category": "arte",
-      "region": "Bellinzonese",
-      "venue": "Monumento San Giovanni Battista",
-      "comune": "Bellinzona",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/62775",
-      "imageUrl": "/images/events/tio-agenda-62775.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "titleByLocale": {
-        "it": "Uomo e ambiente - Il distruttore",
-        "en": "Man and Environment - The Destroyer",
-        "de": "Mensch und Umwelt - Der Zerstörer",
-        "fr": "L'homme et l'environnement - Le destructeur"
-      }
-    },
-    {
-      "id": "tio-agenda:63223",
-      "title": "Teatro Dimitri’s Vintage Variété 2026 – NUOVO!",
-      "startDate": "2026-08-10",
-      "startTime": "20:00",
-      "category": "teatro",
-      "region": "Locarnese",
-      "venue": "Teatro Dimitri",
-      "comune": "Locarno",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63223",
-      "imageUrl": "/images/events/tio-agenda-63223.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "price": {
-        "amount": 35,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "geo": {
-        "lat": 46.185487,
-        "lng": 8.7315265
-      },
-      "titleByLocale": {
-        "it": "Teatro Dimitri’s Vintage Variété 2026 – NUOVO!",
-        "en": "Dimitri's Vintage Variété Theatre 2026 – NEW!",
-        "de": "Dimitri's Vintage Variété Theater 2026 – NEU!",
-        "fr": "Théâtre Dimitri’s Vintage Variété 2026 – NOUVEAU !"
-      }
-    },
-    {
-      "id": "tio-agenda:58243",
-      "title": "Corpi in prestito",
-      "startDate": "2026-08-10",
-      "category": "arte",
-      "region": "Luganese",
-      "venue": "Associazione per l’assistenza e la cura a domicilio Maggio",
-      "comune": "Lugano",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/58243",
-      "imageUrl": "/images/events/tio-agenda-58243.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-28",
-      "titleByLocale": {
-        "it": "Corpi in prestito",
-        "en": "Borrowed bodies",
-        "de": "Leihkörper",
-        "fr": "Corps prêtés"
-      }
-    },
-    {
-      "id": "tio-agenda:61525",
-      "title": "Fra Roberto tra le mura",
-      "startDate": "2026-08-10",
-      "category": "arte",
-      "region": "Bellinzonese",
-      "venue": "Sasso Corbaro",
-      "comune": "Bellinzona",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/61525",
-      "imageUrl": "/images/events/tio-agenda-61525.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "geo": {
-        "lat": 46.1881229,
-        "lng": 9.030132
-      },
-      "titleByLocale": {
-        "it": "Fra Roberto tra le mura",
-        "en": "Fra Roberto fra le mura",
-        "de": "Fra Roberto zwischen den Mauern",
-        "fr": "Frère Roberto entre les murs"
-      }
-    },
-    {
-      "id": "tio-agenda:62822",
-      "title": "Ivo Soldini - Progetto Castel Grande",
-      "startDate": "2026-08-10",
-      "category": "arte",
-      "region": "Bellinzonese",
-      "venue": "Castel Grande",
-      "comune": "Bellinzona",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/62822",
-      "imageUrl": "/images/events/tio-agenda-62822.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "price": {
-        "amount": 15,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "geo": {
-        "lat": 46.1922858,
-        "lng": 9.0201042
-      },
-      "titleByLocale": {
-        "it": "Ivo Soldini - Progetto Castel Grande",
-        "en": "Ivo Soldini - Castel Grande Project",
-        "de": "Ivo Soldini - Projekt Castel Grande",
-        "fr": "Ivo Soldini - Projet Castel Grande"
-      }
-    },
-    {
-      "id": "tio-agenda:63357",
-      "title": "Becaària – Un’estate ticinese",
-      "startDate": "2026-08-10",
-      "category": "arte",
-      "region": "Locarnese",
-      "venue": "Pasticceria Marnin",
-      "comune": "Locarno",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63357",
-      "imageUrl": "/images/events/tio-agenda-63357.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-30",
-      "geo": {
-        "lat": 46.1699833,
-        "lng": 8.791788
-      },
-      "titleByLocale": {
-        "it": "Becaària – Un’estate ticinese",
-        "en": "Internship – A Ticino summer",
-        "de": "Becaària – Ein Tessiner Sommer",
-        "fr": "Becaària – Un été tessinois"
-      }
-    },
-    {
-      "id": "tio-agenda:61078",
-      "title": "Locarno Film Festival",
-      "startDate": "2026-08-10",
-      "category": "cinema",
-      "region": "Locarnese",
-      "venue": "Piazza Grande",
-      "comune": "Locarno",
-      "comuneMatch": "exact",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/61078",
-      "imageUrl": "/images/events/tio-agenda-61078.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "endDate": "2026-08-15",
-      "geo": {
-        "lat": 46.1692181,
-        "lng": 8.7949702
-      },
-      "titleByLocale": {
-        "it": "Locarno Film Festival",
-        "en": "9 LOCARNO FILM FESTIVAL",
-        "de": "Filmfestival Locarno",
-        "fr": "Festival du film de Locarno"
-      }
-    },
-    {
-      "id": "tio-agenda:63369",
-      "title": "Sagra di Santo Stefano",
-      "startDate": "2026-08-10",
-      "category": "feste",
-      "region": "Mendrisiotto",
-      "venue": "Oratorio parrocchiale",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260810/63369",
-      "imageUrl": "/images/events/tio-agenda-63369.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Sagra di Santo Stefano",
-        "en": "Feast of Saint Stephen",
-        "de": "Stephansfest",
-        "fr": "Fête de Santo Stefano"
-      }
-    },
     {
       "id": "tio-agenda:62100",
       "title": "Quando delle opere d'arte rimangono solo le foto",
@@ -390,7 +20,7 @@
       "imageUrl": "/images/events/tio-agenda-62100.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-29",
       "geo": {
         "lat": 46.0134941,
@@ -401,6 +31,54 @@
         "en": "When only the photos remain of the works of art",
         "de": "Wenn von den Kunstwerken nur noch die Fotos übrig sind",
         "fr": "Quand des œuvres d'art ne restent que des photos"
+      }
+    },
+    {
+      "id": "tio-agenda:60875",
+      "title": "Astrazione - Creazione di Gloria Pasi",
+      "startDate": "2026-08-11",
+      "startTime": "08:00",
+      "category": "arte",
+      "region": "Mendrisiotto",
+      "venue": "Uffici Capifid Sa",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/60875",
+      "imageUrl": "/images/events/tio-agenda-60875.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Astrazione - Creazione di Gloria Pasi",
+        "en": "Abstraction - Creation of Gloria Pasi",
+        "de": "Abstraktion - Schaffung von Gloria Pasi",
+        "fr": "Abstraction - Création de Gloria Pasi"
+      }
+    },
+    {
+      "id": "tio-agenda:63135",
+      "title": "Eco. Il richiamo della montagna",
+      "startDate": "2026-08-11",
+      "startTime": "09:00",
+      "category": "musei",
+      "region": "Leventina",
+      "venue": "Passo San Gottardo",
+      "comune": "Faido",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/63135",
+      "imageUrl": "/images/events/tio-agenda-63135.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Eco. Il richiamo della montagna",
+        "en": "The call of the mountains",
+        "de": "Echo. Der Ruf des Berges",
+        "fr": "Eco. L'appel de la montagne"
       }
     },
     {
@@ -418,7 +96,7 @@
       "imageUrl": "/images/events/tio-agenda-63292.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-29",
       "geo": {
         "lat": 46.0101138,
@@ -446,7 +124,7 @@
       "imageUrl": "/images/events/tio-agenda-62429.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 45.8640268,
@@ -474,7 +152,7 @@
       "imageUrl": "/images/events/tio-agenda-61781.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "price": {
         "amount": 6,
@@ -486,6 +164,30 @@
         "en": "Dialogues over time. Works from the collection",
         "de": "Dialoge im Laufe der Zeit. Werke aus der Sammlung",
         "fr": "Dialogues dans le temps. Œuvres de la collection"
+      }
+    },
+    {
+      "id": "tio-agenda:63054",
+      "title": "Sguardi in dialogo",
+      "startDate": "2026-08-11",
+      "startTime": "10:00",
+      "category": "arte",
+      "region": "Luganese",
+      "venue": "Casa anziani Malcantonese",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/63054",
+      "imageUrl": "/images/events/tio-agenda-63054.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Sguardi in dialogo",
+        "en": "Glances in dialogue",
+        "de": "Blicke im Dialog",
+        "fr": "Regards en dialogue"
       }
     },
     {
@@ -503,7 +205,7 @@
       "imageUrl": "/images/events/tio-agenda-62864.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "price": {
         "amount": 6,
@@ -522,6 +224,62 @@
       }
     },
     {
+      "id": "tio-agenda:61534",
+      "title": "Isa Hesse-Rabinovitch!",
+      "startDate": "2026-08-11",
+      "startTime": "10:30",
+      "category": "arte",
+      "region": "Luganese",
+      "venue": "Museo Hermann Hesse",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/61534",
+      "imageUrl": "/images/events/tio-agenda-61534.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 45.9829674,
+        "lng": 8.9188427
+      },
+      "titleByLocale": {
+        "it": "Isa Hesse-Rabinovitch!",
+        "de": "Isa Hesse-Rabinowitsch!",
+        "fr": "Isa Hesse-Rabinovitch !"
+      }
+    },
+    {
+      "id": "tio-agenda:63136",
+      "title": "Esposizione",
+      "startDate": "2026-08-11",
+      "startTime": "11:00",
+      "category": "arte",
+      "region": "Luganese",
+      "venue": "Residenza Rivabella",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/63136",
+      "imageUrl": "/images/events/tio-agenda-63136.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Esposizione",
+        "en": "Exposure",
+        "de": "arbeiten",
+        "fr": "Expo"
+      }
+    },
+    {
       "id": "tio-agenda:62804",
       "title": "Umberto Boccioni",
       "startDate": "2026-08-11",
@@ -536,7 +294,7 @@
       "imageUrl": "/images/events/tio-agenda-62804.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "price": {
         "amount": 20,
@@ -567,7 +325,7 @@
       "imageUrl": "/images/events/tio-agenda-53980.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "price": {
         "amount": 20,
@@ -600,7 +358,7 @@
       "imageUrl": "/images/events/tio-agenda-63452.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Donazione di sangue",
         "en": "Blood donation",
@@ -621,7 +379,7 @@
       "imageUrl": "/images/events/tio-agenda-61959.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "price": {
         "amount": 7,
@@ -654,7 +412,7 @@
       "imageUrl": "/images/events/tio-agenda-63251.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 28,
         "currency": "CHF",
@@ -686,7 +444,7 @@
       "imageUrl": "/images/events/tio-agenda-63362.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 46.1776686,
@@ -697,6 +455,108 @@
         "en": "Stratigraphies - Felicita Bianchi Duyne",
         "de": "Stratigraphien - Felicita Bianchi Duyne",
         "fr": "Stratigraphies - Felicita Bianchi Duyne"
+      }
+    },
+    {
+      "id": "tio-agenda:63434",
+      "title": "Aperitivi in musica",
+      "startDate": "2026-08-11",
+      "startTime": "19:30",
+      "category": "musica",
+      "region": "Locarnese",
+      "venue": "Piazza Sant'Antonio",
+      "comune": "Locarno",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/63434",
+      "imageUrl": "/images/events/tio-agenda-63434.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-15",
+      "geo": {
+        "lat": 46.1697747,
+        "lng": 8.7916939
+      },
+      "titleByLocale": {
+        "it": "Aperitivi in musica",
+        "en": "Aperitifs in music",
+        "de": "Aperitifs in Musik",
+        "fr": "Apéritifs en musique"
+      }
+    },
+    {
+      "id": "tio-agenda:62775",
+      "title": "Uomo e ambiente - Il distruttore",
+      "startDate": "2026-08-11",
+      "startTime": "20:00",
+      "category": "arte",
+      "region": "Bellinzonese",
+      "venue": "Monumento San Giovanni Battista",
+      "comune": "Bellinzona",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/62775",
+      "imageUrl": "/images/events/tio-agenda-62775.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Uomo e ambiente - Il distruttore",
+        "en": "Man and Environment - The Destroyer",
+        "de": "Mensch und Umwelt - Der Zerstörer",
+        "fr": "L'homme et l'environnement - Le destructeur"
+      }
+    },
+    {
+      "id": "tio-agenda:58243",
+      "title": "Corpi in prestito",
+      "startDate": "2026-08-11",
+      "category": "arte",
+      "region": "Luganese",
+      "venue": "Associazione per l’assistenza e la cura a domicilio Maggio",
+      "comune": "Lugano",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/58243",
+      "imageUrl": "/images/events/tio-agenda-58243.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Corpi in prestito",
+        "en": "Borrowed bodies",
+        "de": "Leihkörper",
+        "fr": "Corps prêtés"
+      }
+    },
+    {
+      "id": "tio-agenda:61078",
+      "title": "Locarno Film Festival",
+      "startDate": "2026-08-11",
+      "category": "cinema",
+      "region": "Locarnese",
+      "venue": "Piazza Grande",
+      "comune": "Locarno",
+      "comuneMatch": "exact",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/61078",
+      "imageUrl": "/images/events/tio-agenda-61078.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-15",
+      "geo": {
+        "lat": 46.1692181,
+        "lng": 8.7949702
+      },
+      "titleByLocale": {
+        "it": "Locarno Film Festival",
+        "en": "9 LOCARNO FILM FESTIVAL",
+        "de": "Filmfestival Locarno",
+        "fr": "Festival du film de Locarno"
       }
     },
     {
@@ -713,7 +573,7 @@
       "imageUrl": "/images/events/tio-agenda-62925.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 46.1708634,
@@ -724,6 +584,33 @@
         "en": "Andrea Todisco. Intersections",
         "de": "Andrea Todisco. Kreuzungen",
         "fr": "Andrea Todisco. Intersections"
+      }
+    },
+    {
+      "id": "tio-agenda:61525",
+      "title": "Fra Roberto tra le mura",
+      "startDate": "2026-08-11",
+      "category": "arte",
+      "region": "Bellinzonese",
+      "venue": "Sasso Corbaro",
+      "comune": "Bellinzona",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/61525",
+      "imageUrl": "/images/events/tio-agenda-61525.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "geo": {
+        "lat": 46.1881229,
+        "lng": 9.030132
+      },
+      "titleByLocale": {
+        "it": "Fra Roberto tra le mura",
+        "en": "Fra Roberto fra le mura",
+        "de": "Fra Roberto zwischen den Mauern",
+        "fr": "Frère Roberto entre les murs"
       }
     },
     {
@@ -740,7 +627,7 @@
       "imageUrl": "/images/events/tio-agenda-61721.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 45.9672597,
@@ -751,6 +638,38 @@
         "en": "Gyotaku - Fish Trails",
         "de": "Gyotaku - Spuren von Fischen",
         "fr": "Gyotaku - Traces de poissons"
+      }
+    },
+    {
+      "id": "tio-agenda:62822",
+      "title": "Ivo Soldini - Progetto Castel Grande",
+      "startDate": "2026-08-11",
+      "category": "arte",
+      "region": "Bellinzonese",
+      "venue": "Castel Grande",
+      "comune": "Bellinzona",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260811/62822",
+      "imageUrl": "/images/events/tio-agenda-62822.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "geo": {
+        "lat": 46.1922858,
+        "lng": 9.0201042
+      },
+      "titleByLocale": {
+        "it": "Ivo Soldini - Progetto Castel Grande",
+        "en": "Ivo Soldini - Castel Grande Project",
+        "de": "Ivo Soldini - Projekt Castel Grande",
+        "fr": "Ivo Soldini - Projet Castel Grande"
       }
     },
     {
@@ -767,7 +686,7 @@
       "imageUrl": "/images/events/tio-agenda-63363.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 46.1776686,
@@ -795,7 +714,7 @@
       "imageUrl": "/images/events/tio-agenda-63431.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.0204452,
         "lng": 8.8663273
@@ -820,7 +739,7 @@
       "imageUrl": "/images/events/tio-agenda-63467.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -838,6 +757,29 @@
       }
     },
     {
+      "id": "tio-agenda:63482",
+      "title": "Kiliradio al Bistrot Teatro Paravento",
+      "startDate": "2026-08-12",
+      "startTime": "21:30",
+      "category": "musica",
+      "region": "Locarnese",
+      "venue": "Bistrot Teatro Paravento",
+      "comune": "Locarno",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260812/63482",
+      "imageUrl": "/images/events/tio-agenda-63482.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Kiliradio al Bistrot Teatro Paravento",
+        "en": "Kiliradio at the Bistrot Teatro Paravento",
+        "de": "Kiliradio im Bistrot Teatro Paravento",
+        "fr": "Kiliradio au Bistrot Teatro Paravento"
+      }
+    },
+    {
       "id": "tio-agenda:63364",
       "title": "Carlo Agostino Meletta - pittore",
       "startDate": "2026-08-12",
@@ -851,13 +793,40 @@
       "imageUrl": "/images/events/tio-agenda-63364.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "titleByLocale": {
         "it": "Carlo Agostino Meletta - pittore",
         "en": "Carlo Agostino Meletta - painter",
         "de": "Carlo Agostino Meletta - Maler",
         "fr": "Carlo Agostino Meletta - peintre"
+      }
+    },
+    {
+      "id": "tio-agenda:63357",
+      "title": "Becaària – Un’estate ticinese",
+      "startDate": "2026-08-12",
+      "category": "arte",
+      "region": "Locarnese",
+      "venue": "Pasticceria Marnin",
+      "comune": "Locarno",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260812/63357",
+      "imageUrl": "/images/events/tio-agenda-63357.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-31",
+      "geo": {
+        "lat": 46.1699833,
+        "lng": 8.791788
+      },
+      "titleByLocale": {
+        "it": "Becaària – Un’estate ticinese",
+        "en": "Internship – A Ticino summer",
+        "de": "Becaària – Ein Tessiner Sommer",
+        "fr": "Becaària – Un été tessinois"
       }
     },
     {
@@ -875,7 +844,7 @@
       "imageUrl": "/images/events/tio-agenda-63224.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 35,
         "currency": "CHF",
@@ -906,7 +875,7 @@
       "imageUrl": "/images/events/tio-agenda-62115.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-23",
       "geo": {
         "lat": 46.1612644,
@@ -934,7 +903,7 @@
       "imageUrl": "/images/events/tio-agenda-63241.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1707504,
         "lng": 8.7949446
@@ -961,7 +930,7 @@
       "imageUrl": "/images/events/tio-agenda-63408.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1998663,
         "lng": 9.0174629
@@ -988,7 +957,7 @@
       "imageUrl": "/images/events/tio-agenda-63178.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Ayurveda: reportage sul Kerala",
         "en": "Ayurveda: reportage on Kerala",
@@ -1011,7 +980,7 @@
       "imageUrl": "/images/events/tio-agenda-62936.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-15",
       "geo": {
         "lat": 46.0039232,
@@ -1038,7 +1007,7 @@
       "imageUrl": "/images/events/tio-agenda-63279.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.4484499,
         "lng": 8.5173696
@@ -1065,7 +1034,7 @@
       "imageUrl": "/images/events/tio-agenda-63373.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Si torna a suonare anche all'Hollywood",
         "en": "We also go back to playing in Hollywood",
@@ -1088,7 +1057,7 @@
       "imageUrl": "/images/events/tio-agenda-62880.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-29",
       "titleByLocale": {
         "it": "Vivi il giardino",
@@ -1112,7 +1081,7 @@
       "imageUrl": "/images/events/tio-agenda-61868.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 80,
         "currency": "CHF",
@@ -1144,7 +1113,7 @@
       "imageUrl": "/images/events/tio-agenda-63372.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 30,
         "currency": "CHF",
@@ -1176,7 +1145,7 @@
       "imageUrl": "/images/events/tio-agenda-62560.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 59.5,
         "currency": "CHF",
@@ -1206,7 +1175,7 @@
       "imageUrl": "/images/events/tio-agenda-62985.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "titleByLocale": {
         "it": "Insieme alfin uniti siam. Fotografie di matrimonio",
@@ -1230,7 +1199,7 @@
       "imageUrl": "/images/events/tio-agenda-63252.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 28,
         "currency": "CHF",
@@ -1260,7 +1229,7 @@
       "imageUrl": "/images/events/tio-agenda-63459.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -1291,7 +1260,7 @@
       "imageUrl": "/images/events/tio-agenda-63146.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "After Lagoon with Moscow Death Brigade",
         "en": "After Lagoon Mosc",
@@ -1314,7 +1283,7 @@
       "imageUrl": "/images/events/tio-agenda-63361.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 58,
         "currency": "CHF",
@@ -1346,7 +1315,7 @@
       "imageUrl": "/images/events/tio-agenda-61740.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "titleByLocale": {
         "it": "Anton Zoran Music",
@@ -1369,7 +1338,7 @@
       "imageUrl": "/images/events/tio-agenda-63351.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 45.9829674,
@@ -1397,7 +1366,7 @@
       "imageUrl": "/images/events/tio-agenda-63365.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1176476,
         "lng": 8.893825
@@ -1424,7 +1393,7 @@
       "imageUrl": "/images/events/tio-agenda-63366.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Il bosco in valigia",
         "en": "The forest in your suitcase",
@@ -1447,7 +1416,7 @@
       "imageUrl": "/images/events/tio-agenda-63403.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 12,
         "currency": "CHF",
@@ -1478,7 +1447,7 @@
       "imageUrl": "/images/events/tio-agenda-61586.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 46.1728953,
@@ -1506,7 +1475,7 @@
       "imageUrl": "/images/events/tio-agenda-63382.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -1534,7 +1503,7 @@
       "imageUrl": "/images/events/tio-agenda-63383.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -1562,7 +1531,7 @@
       "imageUrl": "/images/events/tio-agenda-63209.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1707504,
         "lng": 8.7949446
@@ -1589,7 +1558,7 @@
       "imageUrl": "/images/events/tio-agenda-63385.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -1617,7 +1586,7 @@
       "imageUrl": "/images/events/tio-agenda-63061.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Come il linguaggio decide il successo",
         "en": "How language decides success",
@@ -1640,7 +1609,7 @@
       "imageUrl": "/images/events/tio-agenda-63386.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -1668,7 +1637,7 @@
       "imageUrl": "/images/events/tio-agenda-63462.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Corso MTB Kids – Bike Park",
         "en": "Kids MTB Course – Bike Park",
@@ -1690,7 +1659,7 @@
       "imageUrl": "/images/events/tio-agenda-62713.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-23",
       "geo": {
         "lat": 45.8709661,
@@ -1718,7 +1687,7 @@
       "imageUrl": "/images/events/tio-agenda-63381.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-22",
       "geo": {
         "lat": 45.846683,
@@ -1746,7 +1715,7 @@
       "imageUrl": "/images/events/tio-agenda-63078.png",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8736838,
         "lng": 8.9446255
@@ -1773,7 +1742,7 @@
       "imageUrl": "/images/events/tio-agenda-63074.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8767036,
         "lng": 8.9428616
@@ -1794,7 +1763,7 @@
       "imageUrl": "/images/events/tio-agenda-63465.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Duo Bottasso",
         "fr": "Le Duo de Bottasso"
@@ -1815,7 +1784,7 @@
       "imageUrl": "/images/events/tio-agenda-63083.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "El Pacto del Olvido",
         "en": "The Pact of Forgetting",
@@ -1838,7 +1807,7 @@
       "imageUrl": "/images/events/tio-agenda-63090.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Passé Composé",
         "en": "Passe Compose",
@@ -1861,7 +1830,7 @@
       "imageUrl": "/images/events/tio-agenda-63387.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -1872,6 +1841,33 @@
         "en": "Chaïm Soutine: a tree in the wind",
         "de": "Chaïm Soutine: Ein Baum im Wind",
         "fr": "Chaïm Soutine : un arbre dans le vent"
+      }
+    },
+    {
+      "id": "tio-agenda:63485",
+      "title": "Graffiskate 32",
+      "startDate": "2026-08-21",
+      "startTime": "11:00",
+      "category": "appuntamenti",
+      "region": "Locarnese",
+      "venue": "Largo Zorzi",
+      "comune": "Locarno",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260821/63485",
+      "imageUrl": "/images/events/tio-agenda-63485.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-23",
+      "geo": {
+        "lat": 46.1700602,
+        "lng": 8.7996067
+      },
+      "titleByLocale": {
+        "it": "Graffiskate 32",
+        "de": "Graffiskat 32",
+        "fr": "Planche de graffiti 32"
       }
     },
     {
@@ -1889,7 +1885,7 @@
       "imageUrl": "/images/events/tio-agenda-63395.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-23",
       "geo": {
         "lat": 46.0115936,
@@ -1900,56 +1896,6 @@
         "en": "Siss",
         "de": "Schweizer Jonglierungskonvention 2026",
         "fr": "Convention suisse de jonglerie 2026"
-      }
-    },
-    {
-      "id": "tio-agenda:63079",
-      "title": "A corpo libero",
-      "startDate": "2026-08-21",
-      "startTime": "18:30",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Bar Sport",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260821/63079",
-      "imageUrl": "/images/events/tio-agenda-63079.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "geo": {
-        "lat": 45.8736838,
-        "lng": 8.9446255
-      },
-      "titleByLocale": {
-        "it": "A corpo libero",
-        "en": "Free form",
-        "de": "Freihändig",
-        "fr": "Sol"
-      }
-    },
-    {
-      "id": "tio-agenda:63096",
-      "title": "Firmato Ribelle",
-      "startDate": "2026-08-21",
-      "startTime": "18:30",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Corte solari",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260821/63096",
-      "imageUrl": "/images/events/tio-agenda-63096.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Firmato Ribelle",
-        "en": "Signed Rebel",
-        "de": "Unterzeichnet Rebelle",
-        "fr": "Signé Rebelle"
       }
     },
     {
@@ -1967,12 +1913,62 @@
       "imageUrl": "/images/events/tio-agenda-63084.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "El Pacto del Olvido",
         "en": "The Pact of Forgetting",
         "de": "Der Pakt des Vergessens",
         "fr": "Le Pacte de l'Oubli"
+      }
+    },
+    {
+      "id": "tio-agenda:63096",
+      "title": "Firmato Ribelle",
+      "startDate": "2026-08-21",
+      "startTime": "18:30",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Corte solari",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260821/63096",
+      "imageUrl": "/images/events/tio-agenda-63096.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Firmato Ribelle",
+        "en": "Signed Rebel",
+        "de": "Unterzeichnet Rebelle",
+        "fr": "Signé Rebelle"
+      }
+    },
+    {
+      "id": "tio-agenda:63079",
+      "title": "A corpo libero",
+      "startDate": "2026-08-21",
+      "startTime": "18:30",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Bar Sport",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260821/63079",
+      "imageUrl": "/images/events/tio-agenda-63079.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "geo": {
+        "lat": 45.8736838,
+        "lng": 8.9446255
+      },
+      "titleByLocale": {
+        "it": "A corpo libero",
+        "en": "Free form",
+        "de": "Freihändig",
+        "fr": "Sol"
       }
     },
     {
@@ -1990,62 +1986,12 @@
       "imageUrl": "/images/events/tio-agenda-63091.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Tuono, il mio vicino gigante",
         "en": "Thunder, my giant neighbor",
         "de": "Donner, mein riesiger Nachbar",
         "fr": "Tonnerre, mon voisin géant"
-      }
-    },
-    {
-      "id": "tio-agenda:63097",
-      "title": "Oggi: Fuga a quattro mani per nonna e bambino",
-      "startDate": "2026-08-21",
-      "startTime": "20:15",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Corte solari",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260821/63097",
-      "imageUrl": "/images/events/tio-agenda-63097.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Oggi: Fuga a quattro mani per nonna e bambino",
-        "en": "Today: Four-Handed Escape for Grandma and Baby",
-        "de": "Heute: Vierhändige Flucht für Oma und Kind",
-        "fr": "Aujourd'hui : Escapade à quatre mains pour grand-mère et enfant"
-      }
-    },
-    {
-      "id": "tio-agenda:63082",
-      "title": "A corpo libero",
-      "startDate": "2026-08-21",
-      "startTime": "20:15",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Bar Sport",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260821/63082",
-      "imageUrl": "/images/events/tio-agenda-63082.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "geo": {
-        "lat": 45.8736838,
-        "lng": 8.9446255
-      },
-      "titleByLocale": {
-        "it": "A corpo libero",
-        "en": "Free form",
-        "de": "Freihändig",
-        "fr": "Sol"
       }
     },
     {
@@ -2063,12 +2009,62 @@
       "imageUrl": "/images/events/tio-agenda-63092.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Vassilissa e la Baba Jaga",
         "en": "Vassilissa and the Baba Jaga",
         "de": "Vassilissa und die Baba Jaga",
         "fr": "Vassilissa et la Baba Jaga"
+      }
+    },
+    {
+      "id": "tio-agenda:63082",
+      "title": "A corpo libero",
+      "startDate": "2026-08-21",
+      "startTime": "20:15",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Bar Sport",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260821/63082",
+      "imageUrl": "/images/events/tio-agenda-63082.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "geo": {
+        "lat": 45.8736838,
+        "lng": 8.9446255
+      },
+      "titleByLocale": {
+        "it": "A corpo libero",
+        "en": "Free form",
+        "de": "Freihändig",
+        "fr": "Sol"
+      }
+    },
+    {
+      "id": "tio-agenda:63097",
+      "title": "Oggi: Fuga a quattro mani per nonna e bambino",
+      "startDate": "2026-08-21",
+      "startTime": "20:15",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Corte solari",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260821/63097",
+      "imageUrl": "/images/events/tio-agenda-63097.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Oggi: Fuga a quattro mani per nonna e bambino",
+        "en": "Today: Four-Handed Escape for Grandma and Baby",
+        "de": "Heute: Vierhändige Flucht für Oma und Kind",
+        "fr": "Aujourd'hui : Escapade à quatre mains pour grand-mère et enfant"
       }
     },
     {
@@ -2085,7 +2081,7 @@
       "imageUrl": "/images/events/tio-agenda-63110.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.044713,
         "lng": 8.9325447
@@ -2112,7 +2108,7 @@
       "imageUrl": "/images/events/tio-agenda-63367.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Sombras de cine - Ombre del cinema",
         "en": "Film Shadows - Film Shadows",
@@ -2133,7 +2129,7 @@
       "imageUrl": "/images/events/tio-agenda-63460.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -2151,29 +2147,6 @@
       }
     },
     {
-      "id": "tio-agenda:63086",
-      "title": "La sparanoia",
-      "startDate": "2026-08-21",
-      "startTime": "21:30",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Palestra Scuole",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260821/63086",
-      "imageUrl": "/images/events/tio-agenda-63086.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "La sparanoia",
-        "en": "The Sparanoia",
-        "de": "Die Schießerei",
-        "fr": "La tiranoia"
-      }
-    },
-    {
       "id": "tio-agenda:63075",
       "title": "Kamikaze",
       "startDate": "2026-08-21",
@@ -2188,10 +2161,33 @@
       "imageUrl": "/images/events/tio-agenda-63075.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8767036,
         "lng": 8.9428616
+      }
+    },
+    {
+      "id": "tio-agenda:63086",
+      "title": "La sparanoia",
+      "startDate": "2026-08-21",
+      "startTime": "21:30",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Palestra Scuole",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260821/63086",
+      "imageUrl": "/images/events/tio-agenda-63086.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "La sparanoia",
+        "en": "The Sparanoia",
+        "de": "Die Schießerei",
+        "fr": "La tiranoia"
       }
     },
     {
@@ -2209,7 +2205,7 @@
       "imageUrl": "/images/events/tio-agenda-63479.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Una giornata di storie",
         "en": "A day of stories",
@@ -2232,7 +2228,7 @@
       "imageUrl": "/images/events/tio-agenda-63278.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1839811,
         "lng": 9.0171778
@@ -2259,7 +2255,7 @@
       "imageUrl": "/images/events/tio-agenda-62826.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1717038,
         "lng": 8.6784826
@@ -2286,35 +2282,12 @@
       "imageUrl": "/images/events/tio-agenda-63099.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Mio nonno vola gli aquiloni",
         "en": "My grandfather flies kites",
         "de": "Mein Großvater fliegt Drachen",
         "fr": "Mon grand-père vole les cerfs-volants"
-      }
-    },
-    {
-      "id": "tio-agenda:63085",
-      "title": "Per sempre",
-      "startDate": "2026-08-22",
-      "startTime": "18:30",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Palestra Scuole",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260822/63085",
-      "imageUrl": "/images/events/tio-agenda-63085.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Per sempre",
-        "en": "Forever",
-        "de": "Für immer?",
-        "fr": "Pour toujours."
       }
     },
     {
@@ -2332,12 +2305,35 @@
       "imageUrl": "/images/events/tio-agenda-63477.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Festa estiva con musica live a Pianezzo",
         "en": "Summer party with live music in Pianezzo",
         "de": "Sommerfest mit Live-Musik in Pianezzo",
         "fr": "Fête d'été avec musique live à Pianezzo"
+      }
+    },
+    {
+      "id": "tio-agenda:63085",
+      "title": "Per sempre",
+      "startDate": "2026-08-22",
+      "startTime": "18:30",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Palestra Scuole",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260822/63085",
+      "imageUrl": "/images/events/tio-agenda-63085.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Per sempre",
+        "en": "Forever",
+        "de": "Für immer?",
+        "fr": "Pour toujours."
       }
     },
     {
@@ -2355,7 +2351,7 @@
       "imageUrl": "/images/events/tio-agenda-63094.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Tuono, il mio vicino gigante",
         "en": "Thunder, my giant neighbor",
@@ -2377,7 +2373,7 @@
       "imageUrl": "/images/events/tio-agenda-63080.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8736838,
         "lng": 8.9446255
@@ -2387,29 +2383,6 @@
         "en": "Journey of a Cloud",
         "de": "Reise einer Wolke",
         "fr": "Voyage d'un nuage"
-      }
-    },
-    {
-      "id": "tio-agenda:63098",
-      "title": "Oggi: Fuga a quattro mani per nonna e bambino",
-      "startDate": "2026-08-22",
-      "startTime": "20:15",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Corte solari",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260822/63098",
-      "imageUrl": "/images/events/tio-agenda-63098.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Oggi: Fuga a quattro mani per nonna e bambino",
-        "en": "Today: Four-Handed Escape for Grandma and Baby",
-        "de": "Heute: Vierhändige Flucht für Oma und Kind",
-        "fr": "Aujourd'hui : Escapade à quatre mains pour grand-mère et enfant"
       }
     },
     {
@@ -2427,12 +2400,35 @@
       "imageUrl": "/images/events/tio-agenda-63093.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Vassilissa e la Baba Jaga",
         "en": "Vassilissa and the Baba Jaga",
         "de": "Vassilissa und die Baba Jaga",
         "fr": "Vassilissa et la Baba Jaga"
+      }
+    },
+    {
+      "id": "tio-agenda:63098",
+      "title": "Oggi: Fuga a quattro mani per nonna e bambino",
+      "startDate": "2026-08-22",
+      "startTime": "20:15",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Corte solari",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260822/63098",
+      "imageUrl": "/images/events/tio-agenda-63098.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Oggi: Fuga a quattro mani per nonna e bambino",
+        "en": "Today: Four-Handed Escape for Grandma and Baby",
+        "de": "Heute: Vierhändige Flucht für Oma und Kind",
+        "fr": "Aujourd'hui : Escapade à quatre mains pour grand-mère et enfant"
       }
     },
     {
@@ -2450,7 +2446,7 @@
       "imageUrl": "/images/events/tio-agenda-63424.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Il gatto con gli stivali",
         "en": "Puss in Boots",
@@ -2473,7 +2469,7 @@
       "imageUrl": "/images/events/tio-agenda-63087.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Io sono verticale",
         "en": "I am vertical",
@@ -2496,7 +2492,7 @@
       "imageUrl": "/images/events/tio-agenda-63076.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8767036,
         "lng": 8.9428616
@@ -2523,7 +2519,7 @@
       "imageUrl": "/images/events/tio-agenda-63378.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 80,
         "currency": "CHF",
@@ -2555,7 +2551,7 @@
       "imageUrl": "/images/events/tio-agenda-63306.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1757081,
         "lng": 8.6461477
@@ -2582,35 +2578,12 @@
       "imageUrl": "/images/events/tio-agenda-63425.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Storie da mangiare",
         "en": "Stories to eat",
         "de": "Geschichten zum Essen",
         "fr": "Histoires à manger"
-      }
-    },
-    {
-      "id": "tio-agenda:63088",
-      "title": "Io sono verticale",
-      "startDate": "2026-08-23",
-      "startTime": "18:30",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Palestra Scuole",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260823/63088",
-      "imageUrl": "/images/events/tio-agenda-63088.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Io sono verticale",
-        "en": "I am vertical",
-        "de": "Ich bin vertikal",
-        "fr": "Je suis vertical"
       }
     },
     {
@@ -2628,12 +2601,35 @@
       "imageUrl": "/images/events/tio-agenda-63095.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Il corvo",
         "en": "6.3.2. The Raven",
         "de": "Der Rabe",
         "fr": "The Crow"
+      }
+    },
+    {
+      "id": "tio-agenda:63088",
+      "title": "Io sono verticale",
+      "startDate": "2026-08-23",
+      "startTime": "18:30",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Palestra Scuole",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260823/63088",
+      "imageUrl": "/images/events/tio-agenda-63088.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Io sono verticale",
+        "en": "I am vertical",
+        "de": "Ich bin vertikal",
+        "fr": "Je suis vertical"
       }
     },
     {
@@ -2651,35 +2647,12 @@
       "imageUrl": "/images/events/tio-agenda-63100.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Mio nonno vola gli aquiloni",
         "en": "My grandfather flies kites",
         "de": "Mein Großvater fliegt Drachen",
         "fr": "Mon grand-père vole les cerfs-volants"
-      }
-    },
-    {
-      "id": "tio-agenda:63089",
-      "title": "Per sempre",
-      "startDate": "2026-08-23",
-      "startTime": "20:30",
-      "category": "teatro",
-      "region": "Mendrisiotto",
-      "venue": "Palestra Scuole",
-      "comune": "Mendrisio",
-      "comuneMatch": "region",
-      "canton": "TI",
-      "url": "https://www.tio.ch/agenda/day/20260823/63089",
-      "imageUrl": "/images/events/tio-agenda-63089.jpg",
-      "sourceKey": "tio-agenda",
-      "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
-      "titleByLocale": {
-        "it": "Per sempre",
-        "en": "Forever",
-        "de": "Für immer?",
-        "fr": "Pour toujours."
       }
     },
     {
@@ -2697,7 +2670,7 @@
       "imageUrl": "/images/events/tio-agenda-63077.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8767036,
         "lng": 8.9428616
@@ -2707,6 +2680,29 @@
         "en": "Silly saints and poor Christs",
         "de": "Heilige Tollkühne und arme Christen",
         "fr": "Saints vauriens et pauvres chrétiens"
+      }
+    },
+    {
+      "id": "tio-agenda:63089",
+      "title": "Per sempre",
+      "startDate": "2026-08-23",
+      "startTime": "20:30",
+      "category": "teatro",
+      "region": "Mendrisiotto",
+      "venue": "Palestra Scuole",
+      "comune": "Mendrisio",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260823/63089",
+      "imageUrl": "/images/events/tio-agenda-63089.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "titleByLocale": {
+        "it": "Per sempre",
+        "en": "Forever",
+        "de": "Für immer?",
+        "fr": "Pour toujours."
       }
     },
     {
@@ -2724,7 +2720,7 @@
       "imageUrl": "/images/events/tio-agenda-63388.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -2752,7 +2748,7 @@
       "imageUrl": "/images/events/tio-agenda-63120.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Scrivere a tante mani",
         "en": "Write with many hands",
@@ -2775,7 +2771,7 @@
       "imageUrl": "/images/events/tio-agenda-63389.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -2803,7 +2799,7 @@
       "imageUrl": "/images/events/tio-agenda-63121.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Lingue e pipistrelli",
         "en": "Languages and Bats",
@@ -2826,7 +2822,7 @@
       "imageUrl": "/images/events/tio-agenda-63281.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1707504,
         "lng": 8.7949446
@@ -2853,7 +2849,7 @@
       "imageUrl": "/images/events/tio-agenda-63397.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.19324,
         "lng": 9.0121301
@@ -2880,7 +2876,7 @@
       "imageUrl": "/images/events/tio-agenda-63390.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -2908,7 +2904,7 @@
       "imageUrl": "/images/events/tio-agenda-63101.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1846293,
         "lng": 9.0204639
@@ -2935,7 +2931,7 @@
       "imageUrl": "/images/events/tio-agenda-63197.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Chilometro zero. Ancora d'agosto",
         "en": "Zero kilometer. Still in August",
@@ -2958,7 +2954,7 @@
       "imageUrl": "/images/events/tio-agenda-63405.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.19324,
         "lng": 9.0121301
@@ -2985,7 +2981,7 @@
       "imageUrl": "/images/events/tio-agenda-63457.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1729603,
         "lng": 8.8157309
@@ -3012,7 +3008,7 @@
       "imageUrl": "/images/events/tio-agenda-63449.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.9210248,
         "lng": 8.9864575
@@ -3039,7 +3035,7 @@
       "imageUrl": "/images/events/tio-agenda-63391.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -3067,7 +3063,7 @@
       "imageUrl": "/images/events/tio-agenda-63284.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.0142521,
         "lng": 8.9123486
@@ -3094,7 +3090,7 @@
       "imageUrl": "/images/events/tio-agenda-63285.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1707504,
         "lng": 8.7949446
@@ -3121,7 +3117,7 @@
       "imageUrl": "/images/events/tio-agenda-62342.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-29",
       "titleByLocale": {
         "it": "Street Food Festival Capriasca",
@@ -3144,7 +3140,7 @@
       "imageUrl": "/images/events/tio-agenda-62989.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 25,
         "currency": "CHF",
@@ -3176,7 +3172,7 @@
       "imageUrl": "/images/events/tio-agenda-63327.png",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Amichevole HC Ambrì Piotta – SCL Tigers",
         "en": "Friendly HC Ambrì Piotta – SCL Tigers",
@@ -3199,7 +3195,7 @@
       "imageUrl": "/images/events/tio-agenda-63458.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Buonanotte nel parco",
         "en": "Good night in the park",
@@ -3222,7 +3218,7 @@
       "imageUrl": "/images/events/tio-agenda-63450.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "...Senza parole! - Cine-concerto",
         "en": "...Speechless! - Cinema-concert",
@@ -3245,7 +3241,7 @@
       "imageUrl": "/images/events/tio-agenda-63393.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 20,
         "currency": "CHF",
@@ -3273,7 +3269,7 @@
       "imageUrl": "/images/events/tio-agenda-63432.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "SELA Workshop - Energy law",
         "en": "SELAshop",
@@ -3296,7 +3292,7 @@
       "imageUrl": "/images/events/tio-agenda-63102.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.1846293,
         "lng": 9.0204639
@@ -3323,7 +3319,7 @@
       "imageUrl": "/images/events/tio-agenda-63398.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Normativity and Nature",
         "de": "Normativität und Natur",
@@ -3345,7 +3341,7 @@
       "imageUrl": "/images/events/tio-agenda-63417.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "endDate": "2026-08-30",
       "geo": {
         "lat": 45.8818196,
@@ -3372,10 +3368,38 @@
       "imageUrl": "/images/events/tio-agenda-63198.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Matteo Bianchi, Carolina Leite, Luca Pascoletti",
         "fr": "Matteo Bianchi, Caroline Leite, Luca Pascoletti"
+      }
+    },
+    {
+      "id": "tio-agenda:63483",
+      "title": "Storie in giardino con Luca Chieregato",
+      "startDate": "2026-08-28",
+      "startTime": "18:30",
+      "category": "teatro",
+      "region": "Bellinzonese",
+      "venue": "Teatro Tan",
+      "comune": "Bellinzona",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260828/63483",
+      "imageUrl": "/images/events/tio-agenda-63483.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "titleByLocale": {
+        "it": "Storie in giardino con Luca Chieregato",
+        "en": "Stories in the garden with Luca Chieregato",
+        "de": "Geschichten im Garten mit Luca Chieregato",
+        "fr": "Histoires dans le jardin avec Luca Chieregato"
       }
     },
     {
@@ -3393,7 +3417,7 @@
       "imageUrl": "/images/events/tio-agenda-63226.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 10,
         "currency": "CHF",
@@ -3424,7 +3448,7 @@
       "imageUrl": "/images/events/tio-agenda-63451.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.881671,
         "lng": 9.0365307
@@ -3451,12 +3475,36 @@
       "imageUrl": "/images/events/tio-agenda-63426.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Fagiolino nel bosco incantato",
         "en": "Green bean in the enchanted forest",
         "de": "Grüne Bohne im Zauberwald",
         "fr": "Haricot vert dans la forêt enchantée"
+      }
+    },
+    {
+      "id": "tio-agenda:63486",
+      "title": "Swiss Enduro Series",
+      "startDate": "2026-08-29",
+      "startTime": "08:00",
+      "category": "sport",
+      "region": "Leventina",
+      "venue": "Funivie",
+      "comune": "Faido",
+      "comuneMatch": "region",
+      "canton": "TI",
+      "url": "https://www.tio.ch/agenda/day/20260829/63486",
+      "imageUrl": "/images/events/tio-agenda-63486.jpg",
+      "sourceKey": "tio-agenda",
+      "sourceName": "Tio.ch Agenda",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
+      "endDate": "2026-08-30",
+      "titleByLocale": {
+        "it": "Swiss Enduro Series",
+        "en": "Siss",
+        "de": "Schweizer Enduro-Serie",
+        "fr": "Série suisse d'enduro"
       }
     },
     {
@@ -3474,7 +3522,7 @@
       "imageUrl": "/images/events/tio-agenda-62768.png",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8818196,
         "lng": 8.9503602
@@ -3500,7 +3548,7 @@
       "imageUrl": "/images/events/tio-agenda-62561.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "price": {
         "amount": 89.5,
         "currency": "CHF",
@@ -3528,7 +3576,7 @@
       "imageUrl": "/images/events/tio-agenda-63427.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Terribile battaglia tra Orlando e Rinaldo",
         "en": "Terrible battle between Orlando and Rinaldo",
@@ -3550,7 +3598,7 @@
       "imageUrl": "/images/events/tio-agenda-62992.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 46.4780427,
         "lng": 8.8009322
@@ -3577,7 +3625,7 @@
       "imageUrl": "/images/events/tio-agenda-63440.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "geo": {
         "lat": 45.8456026,
         "lng": 8.9909692
@@ -3604,7 +3652,7 @@
       "imageUrl": "/images/events/tio-agenda-62562.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Jazz Matinée al Fiore di pietra",
         "en": "Jazz Matinée with Stone Flower",
@@ -3627,7 +3675,7 @@
       "imageUrl": "/images/events/tio-agenda-63428.jpg",
       "sourceKey": "tio-agenda",
       "sourceName": "Tio.ch Agenda",
-      "crawledAt": "2026-08-10T06:56:03.839Z",
+      "crawledAt": "2026-08-11T06:33:11.099Z",
       "titleByLocale": {
         "it": "Raperonzolo",
         "en": "Rapunzel",
