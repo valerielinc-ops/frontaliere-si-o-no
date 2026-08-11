@@ -9667,6 +9667,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-tovo-lavorare-grigioni.title': 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni',
     'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Guida pratica per frontalieri: fiscalità, nuovo accordo, franchigie e contributi previdenziali per chi risiede in Valtellina e lavora nel Cantone dei Grigioni.',
     'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Vista panoramica di una strada montana vicino al confine tra Italia e Svizzera',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.title': 'Vivere a Saint-Rhémy-En-Bosses e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.excerpt': 'Permessi G, lavoro in Vallese, pendolarismo e costo della vita per frontalieri residenti in Saint-Rhémy-En-Bosses',
+    'blog.article.vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere.imageAlt': 'Frontaliere con bambino all\'uscita di un valico',
 };
 
 export default blogMetaIt;
