@@ -288,6 +288,15 @@ describe('titleLooksUntranslated — partial German residue in IT slots (no sour
       expect(titleLooksUntranslated({ title, sourceLang: 'de', targetLocale: 'it' }).untranslated).toBe(false);
     }
   });
+
+  // The orthography signal used to be case-sensitive (`/[äöüß]/` with no `i`
+  // flag), so an all-caps German title slipped past it entirely — the umlaut
+  // was there, just uppercase. Follow-up of #5574.
+  it('catches uppercase umlaut orthography (all-caps German titles)', () => {
+    expect(titleLooksUntranslated({
+      title: 'GRÜEZI TEAM MITGLIED', sourceLang: 'de', targetLocale: 'it',
+    })).toMatchObject({ untranslated: true, reason: 'source-orthography', evidence: 'GRÜEZI' });
+  });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
