@@ -10,6 +10,15 @@ import {
   hasPreciseFeedFilter,
   isPromotable,
 } from '../scripts/lib/profession-taxonomy.mjs';
+import {
+  KEYWORD_LANDING_LOCALE_PREFIX,
+  KEYWORD_LANDING_SECTION,
+  KEYWORD_LANDING_SEARCH_PREFIX,
+  keywordLandingPath,
+  keywordPageSlugify,
+  professionKeywordQuery,
+  professionKeywordLandingPath,
+} from '../scripts/lib/keyword-page-paths.mjs';
 
 /**
  * Drift guard for #4564: profession-keyword-opportunities.mjs flags a gap
@@ -27,6 +36,7 @@ import {
 const ROOT = resolve(import.meta.dirname, '..');
 const OPPORTUNITIES_SRC = readFileSync(resolve(ROOT, 'scripts/profession-keyword-opportunities.mjs'), 'utf-8');
 const FEED_SRC = readFileSync(resolve(ROOT, 'scripts/generate-keyword-pages-config.mjs'), 'utf-8');
+const PLUGIN_SRC = readFileSync(resolve(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
 
 describe('DOUBLE_VALIDATED thresholds (#4564 drift guard)', () => {
   it('are the expected values (catches an accidental rename/retune of the shared consts)', () => {
@@ -153,5 +163,107 @@ describe('supply validation opens the demand-signal dead zone without lowering a
       /^\s*(const|let|function)\s+isPromotable\b/m.test(OPPORTUNITIES_SRC),
       'profession-keyword-opportunities.mjs must not re-declare isPromotable locally',
     ).toBe(false);
+  });
+});
+
+/**
+ * The report must name a URL, not a slug.
+ *
+ * `profession-keyword-opportunities.mjs` wrote its coverage reason as
+ * `keyword page /${page.slug}/`. `jobsSeoPagesPlugin` emits keyword landings
+ * under `{localePrefix}/{sectionByLocale}/{searchRoutePrefix}-{slug}/`, so
+ * every one of those printed paths was a 404: measured on the 2026-08-10
+ * report (issue 5505), 23 of the 52 "Già coperte" rows. `/medico-ticino/`
+ * 404s; the live page is `/cerca-lavoro-ticino/ricerca-medico-ticino/`, 200
+ * and listed in `sitemap-jobs.xml`.
+ *
+ * The failure mode is not cosmetic. Both a human and the autonomous fix loop
+ * read this issue; probing the printed path makes a working chain look broken,
+ * which is what a 2026-08-11 session concluded before discovering that all
+ * eight professions the report had marked "Promuovibile ✅" were already live.
+ *
+ * Two invariants keep it closed: the path builder is pinned to the emitter's
+ * own literals, and the promotable rows carry the URL they will get — so the
+ * claim can be verified with one request instead of inferred.
+ */
+describe('keyword-page paths: the report prints the URL the emitter serves', () => {
+  /** Parse a `const <name>: Record<...> = { it: '…', … };` literal out of the plugin. */
+  const pluginLocaleMap = (name: string): Record<string, string> => {
+    const block = new RegExp(`const ${name}: Record<[^>]*> = \\{([\\s\\S]*?)\\n\\s*\\};`).exec(PLUGIN_SRC);
+    expect(block, `${name} literal not found in build-plugins/jobsSeoPagesPlugin.ts`).toBeTruthy();
+    const out: Record<string, string> = {};
+    for (const m of block![1].matchAll(/(\w+):\s*'([^']*)'/g)) out[m[1]] = m[2];
+    return out;
+  };
+
+  it('mirrors the emitter\'s localePrefix / sectionByLocale / searchRoutePrefix verbatim', () => {
+    // A rename on the plugin side must fail HERE, not silently turn every URL
+    // the weekly report prints into a 404.
+    expect(pluginLocaleMap('localePrefix')).toEqual(KEYWORD_LANDING_LOCALE_PREFIX);
+    expect(pluginLocaleMap('sectionByLocale')).toEqual(KEYWORD_LANDING_SECTION);
+    expect(pluginLocaleMap('searchRoutePrefix')).toEqual(KEYWORD_LANDING_SEARCH_PREFIX);
+  });
+
+  it('builds the live path in every locale, trailing slash included', () => {
+    // Verified live on 2026-08-11: the IT form is 200 and in sitemap-jobs.xml.
+    expect(keywordLandingPath('cassiere-ticino')).toBe('/cerca-lavoro-ticino/ricerca-cassiere-ticino/');
+    expect(keywordLandingPath('cassiere-ticino', 'en')).toBe('/en/find-jobs-ticino/search-cassiere-ticino/');
+    expect(keywordLandingPath('cassiere-ticino', 'de')).toBe('/de/jobs-im-tessin/suche-cassiere-ticino/');
+    expect(keywordLandingPath('cassiere-ticino', 'fr')).toBe('/fr/trouver-emploi-tessin/recherche-cassiere-ticino/');
+  });
+
+  it('never returns the bare slug — the exact shape that produced the 404s', () => {
+    expect(keywordLandingPath('medico-ticino')).not.toBe('/medico-ticino/');
+    expect(keywordLandingPath('medico-ticino')).toBe('/cerca-lavoro-ticino/ricerca-medico-ticino/');
+    // Empty in, empty out: a caller must print nothing rather than a path that
+    // silently points at the section hub.
+    expect(keywordLandingPath('')).toBe('');
+  });
+
+  it('the report renders coverage through the shared builder, never a slug template', () => {
+    expect(
+      /import\s*\{[\s\S]*?\bkeywordLandingPath\b[\s\S]*?\}\s*from\s*'\.\/lib\/keyword-page-paths\.mjs'/.test(OPPORTUNITIES_SRC),
+      "profession-keyword-opportunities.mjs must import keywordLandingPath from './lib/keyword-page-paths.mjs'",
+    ).toBe(true);
+    expect(
+      OPPORTUNITIES_SRC.includes('keyword page /${page.slug}/'),
+      'profession-keyword-opportunities.mjs must not print the bare slug as a path — that is the 404 this closes',
+    ).toBe(false);
+  });
+
+  it('the feed slugifies through the same module, so the predicted URL is the created one', () => {
+    expect(
+      /import\s*\{[\s\S]*?\bkeywordPageSlugify\b[\s\S]*?\}\s*from\s*'\.\/lib\/keyword-page-paths\.mjs'/.test(FEED_SRC),
+      "generate-keyword-pages-config.mjs must import keywordPageSlugify from './lib/keyword-page-paths.mjs'",
+    ).toBe(true);
+    expect(
+      /^\s*function slugify\b/m.test(FEED_SRC),
+      'generate-keyword-pages-config.mjs must not re-declare a local slugify — one copy, shared with the report',
+    ).toBe(false);
+  });
+
+  it('predicts, for a promotable profession, the URL the feed really creates', () => {
+    // The four measured on 2026-08-11: all live at the predicted path.
+    expect(professionKeywordLandingPath('Cassiere')).toBe('/cerca-lavoro-ticino/ricerca-cassiere-ticino/');
+    expect(professionKeywordLandingPath('Polimeccanico')).toBe('/cerca-lavoro-ticino/ricerca-polimeccanico-ticino/');
+    expect(professionKeywordLandingPath('Disegnatore tecnico')).toBe('/cerca-lavoro-ticino/ricerca-disegnatore-tecnico-ticino/');
+    expect(professionKeywordLandingPath('Aiuto cucina')).toBe('/cerca-lavoro-ticino/ricerca-aiuto-cucina-ticino/');
+    // Parenthetical qualifiers are dropped by the feed before slugifying.
+    expect(professionKeywordQuery('Operatore socio sanitario (OSS)')).toBe('operatore socio sanitario ticino');
+    expect(keywordPageSlugify('Custode / portinaio ticino')).toBe('custode-portinaio-ticino');
+    // Nothing to name a page after → no URL, rather than a path to the hub.
+    expect(professionKeywordLandingPath('(OSS)')).toBe('');
+  });
+
+  it('the report publishes the predicted URL on promotable rows', () => {
+    expect(
+      OPPORTUNITIES_SRC.includes('row.plannedPath = row.promotable ? professionKeywordLandingPath(entry.label) : null;'),
+      'profession-keyword-opportunities.mjs must publish `plannedPath` for promotable rows, so '
+        + '"Promuovibile ✅" is verifiable with one request instead of inferred from the slug',
+    ).toBe(true);
+    expect(
+      /\|\s*Promuovibile\s*\|\s*Pagina\s*\|/.test(OPPORTUNITIES_SRC),
+      'the markdown ranking table must carry the Pagina column that renders plannedPath',
+    ).toBe(true);
   });
 });
