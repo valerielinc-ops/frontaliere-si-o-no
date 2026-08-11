@@ -28682,6 +28682,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-studio-zurigo-requisiti-e-importi': {
+    title: 'Borse di studio nel Cantone di Zurigo: requisiti e importi',
+    description: 'Risorse finanziarie per gli studenti svizzeri nel Cantone di Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, cantone, zurigo',
+    ogTitle: 'Borse di studio nel Cantone di Zurigo: requisiti e importi',
+    ogDescription: 'Risorse finanziarie per gli studenti svizzeri nel Cantone di Zurigo',
+    canonicalPath: '/articoli-svizzera/borse-studio-zurigo-requisiti-e-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio nel Cantone di Zurigo: requisiti e importi",
+      "description": "Risorse finanziarie per gli studenti svizzeri nel Cantone di Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-zurigo-requisiti-e-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia editoriale di un docente e studente universitari in Svizzera"
+      },
+      "datePublished": "2026-08-11T18:13:13+00:00",
+      "dateModified": "2026-08-11T18:13:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-zurigo-requisiti-e-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
