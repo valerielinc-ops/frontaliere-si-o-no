@@ -9697,6 +9697,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Frontaliere Ticino: lavorare in Vallese da Courmayeur',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Informazioni concrete per i frontalieri sul pendolarismo Courmayeur-Vallese e sulla zona consigliata.',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Un frontaliere considera la zona di Courmayeur e Vallese per il suo lavoro e residenza.',
+    'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontaliere in Vallese: regole e fiscalità',
+    'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Guida operativa sul nuovo accordo fiscale, gestione del reddito e obblighi previdenziali per i lavoratori frontalieri in Svizzera.',
+    'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Paesaggio montano alpino con villaggio',
 };
 
 export default blogMetaIt;

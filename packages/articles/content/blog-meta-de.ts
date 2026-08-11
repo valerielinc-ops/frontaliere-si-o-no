@@ -9695,6 +9695,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Grenzgänger Tessin: Arbeiten im Wallis bei Courmayeur',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Konkrete Informationen für Grenzgänger zum Pendeln Courmayeur-Wallis und zur empfohlenen Gegend.',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Grenzgänger erwägt die Region Courmayeur und Vallese für Arbeit und Wohnen.',
+    'blog.article.vivere-valpelline-lavorare-vallese.title': 'Grenzgänger im Wallis: Regeln und Besteuerung',
+    'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Operativer Leitfaden zum neuen Steuerabkommen, Einkommensmanagement und Vorsorgepflichten für Grenzgänger in der Schweiz.',
+    'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Alpine Berglandschaft mit Dorf',
 };
 
 export default blogMetaDe;

@@ -9696,6 +9696,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Ticino border worker: working in Valais from Courmayeur',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Concrete information for border crossers on Courmayeur-Vallese commuting and the recommended area.',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'A cross-border worker considers the Courmayeur and Vallese area for work and residence.',
+    'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontier in Valais: rules and taxation',
+    'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Operational guidance on the new tax agreement, income management and social security obligations for frontier workers in Switzerland.',
+    'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Alpine mountain landscape with village',
 };
 
 export default blogMetaEn;
