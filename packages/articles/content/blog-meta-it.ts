@@ -9739,6 +9739,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-aosta-lavorare-vallese.title': 'Vivere a Aosta e lavorare in Vallese da frontaliere',
     'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Guida pratica al pendolarismo tra Aosta e il Vallese: collegamenti, imposta alla fonte, gestione del cambio e regole per i nuovi e vecchi frontalieri.',
     'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Panorama alpino tra Italia e Svizzera per pendolari frontalieri',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Terzo pilastro per frontalieri: deduzioni, rendimenti e casi pratici',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'Come funziona la pensione complementare in Svizzera per i frontalieri? Deduzioni fiscali, rendimenti e scelte pratiche per il terzo pilastro.',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Documenti del terzo pilastro svizzero con permesso G e passaporto italiano su una scrivania ticinese',
 };
 
 export default blogMetaIt;
