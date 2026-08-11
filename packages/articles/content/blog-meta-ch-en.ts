@@ -2185,6 +2185,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carne-prezzi-svizzera.title': 'The heat does not curb meat consumption, but it will increase prices',
     'blog.article.carne-prezzi-svizzera.excerpt': 'The heatwave has not prevented an increase in meat consumption, but the drought could reduce supply and drive up prices.',
     'blog.article.carne-prezzi-svizzera.imageAlt': 'The cost of meat in Switzerland and its implications',
+    'blog.article.aziende-rimangono-prudenti.title': 'More Companies remain cautious, little inclination to hire',
+    'blog.article.aziende-rimangono-prudenti.excerpt': 'Swiss companies continue to look to the future with caution, with hiring intentions remaining at the lowest levels of the past five years.',
+    'blog.article.aziende-rimangono-prudenti.imageAlt': 'Swiss companies in a context of prudence',
 };
 
 export default blogMetaChEn;

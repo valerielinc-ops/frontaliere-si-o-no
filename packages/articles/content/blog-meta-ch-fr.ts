@@ -2185,6 +2185,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carne-prezzi-svizzera.title': 'La chaleur ne freine pas la consommation de viande, mais fera augmenter les prix',
     'blog.article.carne-prezzi-svizzera.excerpt': 'La vague de chaleur n\'a pas empêché une augmentation de la consommation de viande, mais la sécheresse pourrait réduire l\'offre et faire monter les prix.',
     'blog.article.carne-prezzi-svizzera.imageAlt': 'Le coût du boeuf en Suisse et ses conséquences',
+    'blog.article.aziende-rimangono-prudenti.title': 'Plus d\'entreprises restent prudentes, peu enclines à embaucher',
+    'blog.article.aziende-rimangono-prudenti.excerpt': 'Les entreprises suisses continuent de regarder l\'avenir avec prudence, avec des intentions de recrutement qui restent au plus bas depuis cinq ans.',
+    'blog.article.aziende-rimangono-prudenti.imageAlt': 'Entreprises suisses dans un contexte de prudence',
 };
 
 export default blogMetaChFr;
