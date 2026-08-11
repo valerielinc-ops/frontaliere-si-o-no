@@ -3258,16 +3258,6 @@
       "jobReqId": "1375715533",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-10T21:45:13.597Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "fr": [
-          "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
-        ]
-      },
-      "previousSlugs": [
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
-      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3279,7 +3269,31 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T21:45:13.597Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        ],
+        "it": [
+          "gestionnaire-de-consentement-aux-cookies-schindler-basel",
+          "gestionnaire-de-consentement-aux-cookies-schindler-bern",
+          "gestionnaire-de-consentement-aux-cookies-schindler-ebikon",
+          "gestionnaire-de-consentement-aux-cookies-schindler-oberentfelden",
+          "gestionnaire-de-consentement-des-cookies-schindler-basel",
+          "gestionnaire-du-consentement-des-cookies-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "gestionnaire-de-consentement-aux-cookies-schindler-basel",
+        "gestionnaire-de-consentement-aux-cookies-schindler-bern",
+        "gestionnaire-de-consentement-aux-cookies-schindler-ebikon",
+        "gestionnaire-de-consentement-aux-cookies-schindler-oberentfelden",
+        "gestionnaire-de-consentement-des-cookies-schindler-basel",
+        "gestionnaire-du-consentement-des-cookies-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-a71b58653d3b",
@@ -5976,7 +5990,7 @@
         "it": "titolo-a-le-mont-sur-loussanne-schindler-le-mont-sur-lausanne-a7fbf1",
         "en": "administrative-apprentice-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "de": "kaufmannische-r-lernende-r-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
-        "fr": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
+        "fr": "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6027,7 +6041,9 @@
         "administrative-assistant-schindler-le-mont-sur-lausanne",
         "kaufmannische-r-angestellte-r-schindler-le-mont-sur-lausanne",
         "titel-im-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
-        "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa"
+        "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa",
+        "administrative-apprentice-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
+        "kaufmannische-r-lernende-r-in-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6047,7 +6063,8 @@
           "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-2"
         ],
         "fr": [
-          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa"
+          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne-qcnysa",
+          "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:47.088Z",
@@ -6154,7 +6171,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-sion",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
-        "en": "cookie-consent-manager-schindler-sion",
+        "en": "cookie-consent-manager-schindler-sion-qcokaf",
         "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
@@ -6211,7 +6228,8 @@
           "cookie-consent-manager-schindler-sion"
         ],
         "en": [
-          "cookie-consent-manager-schindler-sion-qcokaf"
+          "cookie-consent-manager-schindler-sion-qcokaf",
+          "cookie-consent-manager-schindler-sion"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:43.278Z",
@@ -6282,21 +6300,22 @@
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "cookie-consent-manager-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr",
+          "cookie-consent-manager-schindler-bussigny"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -6308,7 +6327,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",

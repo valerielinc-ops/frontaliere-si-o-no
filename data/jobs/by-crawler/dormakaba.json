@@ -349,9 +349,9 @@
     },
     {
       "id": "dormakaba-11900",
-      "slug": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+      "slug": "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
       "slugByLocale": {
-        "it": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+        "it": "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
         "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang"
@@ -361,7 +361,7 @@
       "companyDomain": "dormakaba.com",
       "title": "Configurable Materials Master Data Domain Lead",
       "titleByLocale": {
-        "it": "Configurable Materials Master Data Domain Lead",
+        "it": "Responsabile del Dominio Dati Master dei Materiali Configurabili",
         "en": "Configurable Materials Master Data Domain Lead",
         "de": "Konfigurierbare Materialien Master Data Domain Lead",
         "fr": "Matériaux configurables Chef de domaine de données principal"
@@ -397,8 +397,8 @@
       "legalEntity": "dormakaba International Holding AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:17:33.262Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -410,7 +410,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
+        ]
+      },
+      "previousSlugs": [
+        "configurable-materials-master-data-domain-lead-dormakaba-ch"
+      ]
     },
     {
       "id": "dormakaba-11908",

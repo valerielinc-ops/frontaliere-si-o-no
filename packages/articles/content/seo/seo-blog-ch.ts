@@ -28097,6 +28097,396 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc': {
+    title: 'Indennità di disoccupazione nel Cantone di Zurigo',
+    description: 'La presente guida esamina le condizioni per richiedere l\'indennità di disoccupazione nel Cantone di Zurigo, inclusa l\'iscrizione all\'URC, il periodo',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, disoccupazione, cantone, zurigo',
+    ogTitle: 'Indennità di disoccupazione nel Cantone di Zurigo',
+    ogDescription: 'La presente guida esamina le condizioni per richiedere l\'indennità di disoccupazione nel Cantone di Zurigo, inclusa l\'iscrizione all\'URC, il periodo di contribuzione minimo, il calcolo dell\'indennità giornaliera, gli obblighi di ricerca impiego',
+    canonicalPath: '/articoli-svizzera/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di disoccupazione nel Cantone di Zurigo",
+      "description": "La presente guida esamina le condizioni per richiedere l'indennità di disoccupazione nel Cantone di Zurigo, inclusa l'iscrizione all'URC, il periodo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "una scena di lavoro in una fabbrica del Cantone di Zurigo"
+      },
+      "datePublished": "2026-08-11T11:37:04+00:00",
+      "dateModified": "2026-08-11T11:37:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-di-disoccupazione-cantone-zurigo-iscrizione-urc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-ees-rallenta-controlli': {
+    title: 'EES rallenta i controlli con attese fino a due ore negli aeroporti europei',
+    description: 'L\'EES rallenta i controlli aeroportuali in Svizzera. Dati Qsensor e Financial Times, picchi estivi fino a 120 minuti a Francoforte e Amsterdam. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rallenta, controlli, attese, fino',
+    ogTitle: 'EES rallenta i controlli con attese fino a due ore negli aeroporti europei',
+    ogDescription: 'L\'EES rallenta i controlli aeroportuali in Svizzera. Dati Qsensor e Financial Times, picchi estivi fino a 120 minuti a Francoforte e Amsterdam.',
+    canonicalPath: '/articoli-svizzera/svizzera-ees-rallenta-controlli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EES rallenta i controlli con attese fino a due ore negli aeroporti europei",
+      "description": "L'EES rallenta i controlli aeroportuali in Svizzera. Dati Qsensor e Financial Times, picchi estivi fino a 120 minuti a Francoforte e Amsterdam. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-ees-rallenta-controlli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'EES rallenta i controlli aeroportuali in Svizzera."
+      },
+      "datePublished": "2026-08-11T11:46:09+00:00",
+      "dateModified": "2026-08-11T11:46:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-ees-rallenta-controlli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-scolastico-canton-zurigo-iscrizione-e-cicli': {
+    title: 'Il sistema scolastico del Canton Zurigo: iscrizione e cicli',
+    description: 'Ecco i cicli e le età di iscrizione per la scuola dell\'obbligo nel Canton Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, canton, zurigo',
+    ogTitle: 'Il sistema scolastico del Canton Zurigo: iscrizione e cicli',
+    ogDescription: 'Ecco i cicli e le età di iscrizione per la scuola dell\'obbligo nel Canton Zurigo.',
+    canonicalPath: '/articoli-svizzera/sistema-scolastico-canton-zurigo-iscrizione-e-cicli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il sistema scolastico del Canton Zurigo: iscrizione e cicli",
+      "description": "Ecco i cicli e le età di iscrizione per la scuola dell'obbligo nel Canton Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-scolastico-canton-zurigo-iscrizione-e-cicli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La scuola dell'obbligo nel Canton Zurigo"
+      },
+      "datePublished": "2026-08-11T11:58:09+00:00",
+      "dateModified": "2026-08-11T11:58:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-scolastico-canton-zurigo-iscrizione-e-cicli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-neutralita-consiglio-federale': {
+    title: 'Neutralità, il Consiglio federale intende mantenere l\'attuale margine di manovra',
+    description: 'Il Consiglio federale vuole mantenere l\'attuale margine di manovra sulla neutralità. L\'iniziativa popolare sulla neutralità sarà votata il 27 settembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, consiglio, federale, intende',
+    ogTitle: 'Il Consiglio federale intende mantenere l\'attuale margine di manovra sulla neutralità | Frontaliere Ticino',
+    ogDescription: 'Il Consiglio federale vuole mantenere l\'attuale margine di manovra sulla neutralità. L\'iniziativa popolare sulla neutralità sarà votata il 27 settembre.',
+    canonicalPath: '/articoli-svizzera/neutralita-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità, il Consiglio federale intende mantenere l'attuale margine di manovra",
+      "description": "Il Consiglio federale vuole mantenere l'attuale margine di manovra sulla neutralità. L'iniziativa popolare sulla neutralità sarà votata il 27 settembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un politico del DFAE parla davanti al Consiglio federale a Berna."
+      },
+      "datePublished": "2026-08-11T12:04:02+00:00",
+      "dateModified": "2026-08-11T12:04:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carne-prezzi-svizzera': {
+    title: 'Il caldo non frena i consumi di carne, ma farà aumentare i prezzi',
+    description: 'L\'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l\'offerta e far lievitare i prezzi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, frena, consumi, carne',
+    ogTitle: 'Il caldo non frena i consumi di carne, ma farà aumentare i prezzi',
+    ogDescription: 'L\'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l\'offerta e far lievitare i prezzi.',
+    canonicalPath: '/articoli-svizzera/carne-prezzi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il caldo non frena i consumi di carne, ma farà aumentare i prezzi",
+      "description": "L'ondata di calore non ha impedito un aumento dei consumi di carne, ma la siccità potrebbe ridurre l'offerta e far lievitare i prezzi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carne-prezzi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il costo della carne in Svizzera e le sue implicazioni"
+      },
+      "datePublished": "2026-08-11T13:07:40+00:00",
+      "dateModified": "2026-08-11T13:07:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carne-prezzi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aziende-rimangono-prudenti': {
+    title: 'Di più Aziende rimangono prudenti, scarsa propensione ad assumere',
+    description: 'Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, rimangono, prudenti, scarsa',
+    ogTitle: 'Aziende svizzere: calo delle intenzioni di assunzione e aumento della richiesta di competenze digitali',
+    ogDescription: 'Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.',
+    canonicalPath: '/articoli-svizzera/aziende-rimangono-prudenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Aziende rimangono prudenti, scarsa propensione ad assumere",
+      "description": "Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aziende-rimangono-prudenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aziende svizzere in un contesto di prudenza"
+      },
+      "datePublished": "2026-08-11T13:14:50+00:00",
+      "dateModified": "2026-08-11T13:14:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aziende-rimangono-prudenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzeri-clima-consumi-sondaggio': {
+    title: 'Clima e consumi: l\'80% degli svizzeri non cambia abitudini',
+    description: 'Sondaggio Comparis su 1.040 persone: l\'80% degli svizzeri non modifica le proprie scelte di acquisto per il clima. Meno sensibili i redditi alti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, clima, consumi, svizzeri, cambia',
+    ogTitle: 'Clima e consumi: l\'80% degli svizzeri non cambia abitudini',
+    ogDescription: 'Un sondaggio Comparis su 1.040 persone rivela che il clima incide poco sulle scelte d\'acquisto. Solo il 20% della popolazione considera il fattore climatico.',
+    canonicalPath: '/articoli-svizzera/svizzeri-clima-consumi-sondaggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Clima e consumi: l'80% degli svizzeri non cambia abitudini",
+      "description": "Sondaggio Comparis su 1.040 persone: l'80% degli svizzeri non modifica le proprie scelte di acquisto per il clima. Meno sensibili i redditi alti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-clima-consumi-sondaggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cittadini svizzeri impegnati in attività di shopping in un centro urbano."
+      },
+      "datePublished": "2026-08-11T13:23:22+00:00",
+      "dateModified": "2026-08-11T13:23:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzeri-clima-consumi-sondaggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-formazione-zurigo-guida': {
+    title: 'Apprendistato e formazione professionale nel Cantone di Zurigo',
+    description: 'Guida completa all\'apprendistato nel Cantone di Zurigo: come trovare un tirocinio, gestire contratto, salario, tasse e previdenza nel sistema svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, cantone',
+    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Zurigo',
+    ogDescription: 'Tutto quello che c\'è da sapere sull\'apprendistato a Zurigo: dalla ricerca del posto di lavoro alle regole fiscali e previdenziali per i giovani apprendisti.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Cantone di Zurigo",
+      "description": "Guida completa all'apprendistato nel Cantone di Zurigo: come trovare un tirocinio, gestire contratto, salario, tasse e previdenza nel sistema svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente in formazione professionale in un laboratorio moderno a Zurigo"
+      },
+      "datePublished": "2026-08-11T13:53:57+00:00",
+      "dateModified": "2026-08-11T13:53:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-usam-croce-svizzera-polemica': {
+    title: 'Croce svizzera all\'estero: la protesta di USAM',
+    description: 'L\'USAM contesta la prassi IPI che permette l\'uso della croce svizzera su prodotti fabbricati all\'estero. Dati, sondaggi e impatto sulla produzione nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, estero, protesta, usam',
+    ogTitle: 'Croce svizzera all\'estero: la protesta di USAM',
+    ogDescription: 'L\'Unione svizzera delle arti e mestieri contesta la prassi che permette l\'uso del marchio croce svizzera su prodotti fatti all\'estero. Ecco i dati e le preoccupazioni per il polo produttivo elvetico.',
+    canonicalPath: '/articoli-svizzera/usam-croce-svizzera-polemica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce svizzera all'estero: la protesta di USAM",
+      "description": "L'USAM contesta la prassi IPI che permette l'uso della croce svizzera su prodotti fabbricati all'estero. Dati, sondaggi e impatto sulla produzione nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/usam-croce-svizzera-polemica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Etichetta con croce svizzera su un prodotto"
+      },
+      "datePublished": "2026-08-11T14:47:04+00:00",
+      "dateModified": "2026-08-11T14:47:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/usam-croce-svizzera-polemica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-danni-agricoltura-svizzera': {
+    title: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    description: 'La siccità in Svizzera causa danni all\'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, danni, agricoltura, milioni',
+    ogTitle: 'Siccità, danni all\'agricoltura per 19 milioni di franchi',
+    ogDescription: 'Schweizer Hagel stima danni per 19 milioni di franchi a causa della siccità. Focus su colture estive e nuovi contributi federali ai premi assicurativi.',
+    canonicalPath: '/articoli-svizzera/siccita-danni-agricoltura-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, danni all'agricoltura per 19 milioni di franchi",
+      "description": "La siccità in Svizzera causa danni all'agricoltura per 19 milioni di franchi. Colpite le colture estive. Supporto federale ai premi assicurativi dal 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-danni-agricoltura-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi di mais colpiti dalla siccità in Svizzera"
+      },
+      "datePublished": "2026-08-11T14:57:46+00:00",
+      "dateModified": "2026-08-11T14:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-danni-agricoltura-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
