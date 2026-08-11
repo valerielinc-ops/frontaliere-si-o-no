@@ -65435,6 +65435,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassazione-frontalieri-nuovo-accordo': {
+    title: 'Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera',
+    description: 'Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, nuovo, accordo, firmato',
+    ogTitle: 'Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera',
+    ogDescription: 'Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020.',
+    canonicalPath: '/articoli-frontaliere/tassazione-frontalieri-nuovo-accordo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera",
+      "description": "Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassazione-frontalieri-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in fila al valico di Brogeda."
+      },
+      "datePublished": "2026-08-11T23:13:56+00:00",
+      "dateModified": "2026-08-11T23:13:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-nuovo-accordo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

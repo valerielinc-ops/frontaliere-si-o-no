@@ -9753,6 +9753,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.title': 'Rules for cross-border workers working remotely: 25/45 days',
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.excerpt': 'The new rules for cross-border commuters working remotely in Switzerland',
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.imageAlt': 'Rules for remote workers from Italy to Switzerland',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Border taxation 2026: new agreement between Italy and Switzerland',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'New agreement for the taxation of border workers, signed on 23 December 2020.',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontaliers in line at Brogeda border crossing.',
 };
 
 export default blogMetaEn;

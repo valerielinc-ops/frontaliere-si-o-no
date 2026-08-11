@@ -29253,6 +29253,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassazione-frontalieri-nuovo-accordo',
+ category: 'fiscale',
+ date: '2026-08-11T23:13:56.392Z',
+ image: '/images/blog/tassazione-frontalieri-nuovo-accordo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

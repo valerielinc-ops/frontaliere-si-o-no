@@ -9755,6 +9755,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.title': 'Règles pour les frontaliers qui travaillent à distance : 25/45 jours',
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.excerpt': 'Les nouvelles règles pour les navetteurs transfrontaliers travaillant à distance en Suisse',
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.imageAlt': 'Règles pour les travailleurs à distance d\'Italie en Suisse',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Taxation des frontaliers 2026 : nouvel accord entre l\'Italie et la Suisse',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'Nouvel accord pour la taxation des frontaliers, signé le 23 décembre 2020.',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontaliers en file au poste frontière de Brogeda.',
 };
 
 export default blogMetaFr;

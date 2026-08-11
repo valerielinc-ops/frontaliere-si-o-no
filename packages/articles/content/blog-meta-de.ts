@@ -9752,6 +9752,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.title': 'Regeln für grenzüberschreitende Arbeitskräfte, die remote arbeiten: 25/45 Tage',
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.excerpt': 'Die neuen Regeln für grenzüberschreitende Pendler, die in der Schweiz remote arbeiten',
     'blog.article.telelavoro-frontalieri-2026-regole-25-45-giorni.imageAlt': 'Regeln für Remote-Arbeiter aus Italien nach der Schweiz',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.title': 'Grenzbesteuerung 2026: Neues Abkommen zwischen Italien und der Schweiz',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.excerpt': 'Neues Abkommen zur Besteuerung von Grenzgängern, unterzeichnet am 23. Dezember 2020.',
+    'blog.article.tassazione-frontalieri-nuovo-accordo.imageAlt': 'Frontaliers in Reihe am Grenzübergang Brogeda.',
 };
 
 export default blogMetaDe;
