@@ -2080,6 +2080,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-consultazione.title': 'Lutte contre le travail au noir : début de la consultation sur la nouvelle loi',
     'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'Le Conseil fédéral propose des modifications à la loi contre le travail au noir pour renforcer les contrôles et la coopération entre autorités au plus tard le 16 octobre 2026.',
     'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Bâtiment administratif en Suisse représentant les autorités de contrôle',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Marché du travail en Suisse : données SECO de juillet 2026',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Le chômage augmente en Suisse en juillet 2026 : taux à 3,0% avec 148\'002 chômeurs totaux. Voici les données officielles du SECO.',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Bâtiment de bureaux moderne en Suisse',
+    'blog.article.lotta-lavoro-nero-2025.title': 'Lutte contre le travail au noir : 14 450 contrôles d\'entreprises en 2025',
+    'blog.article.lotta-lavoro-nero-2025.excerpt': 'Le SECO a publié le rapport sur la lutte contre le travail au noir en Suisse pour 2025.',
+    'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Un inspecteur de la SECO contrôle un bâtiment en Suisse.',
 };
 
 export default blogMetaChFr;

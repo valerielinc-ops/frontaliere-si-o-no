@@ -9588,6 +9588,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Wohnen in Plurs und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Praktischer Leitfaden für das Pendeln zwischen Piuro und dem Kanton Graubünden mit Schwerpunkt auf Steuern, dem neuen Abkommen und den Regeln für Grenzgänger.',
     'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Berglandschaft an der Grenze zwischen Italien und Graubünden',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'als Grenzgänger nach Madesimo ziehen: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Quellensteuer auf Arbeitseinkommen: NUR in der Schweiz für Grenzgänger einbehalten.',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Bild eines Pendlers in einer italienisch-schweizerischen Grenzüberschreitung',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Leben in Tirano und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Neues Grenzabkommen 2024: Was ändert sich für Tessiner Grenzgänger, die in Graubünden arbeiten?',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Bild einer Bergstraße in Ticino',
 };
 
 export default blogMetaDe;

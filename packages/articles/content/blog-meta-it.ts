@@ -1895,7 +1895,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.diventare-pastore-ticino.title': 'Diventare pastore in Ticino',
  'blog.article.diventare-pastore-ticino.excerpt': 'Il Canton Ticino offre una formazione per diventare pastore, rivolta a chiunque sia interessato.',
  'blog.article.diventare-pastore-ticino.imageAlt': 'Pastore in Ticino',
- 'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
+ 'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sarò l\'inferno". Il giallo dell\'ultimatum spostato a martedì',
  'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
  'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump annuncia un ultimato alla Cina',
  'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop richiama formaggi: possono contenere salmonelle',
@@ -9590,6 +9590,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-piuro-lavorare-grigioni-front.title': 'Vivere a Piuro e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-piuro-lavorare-grigioni-front.excerpt': 'Guida pratica al pendolarismo tra Piuro e il Canton Grigioni, con focus sulla fiscalità, il nuovo accordo e le regole per i frontalieri.',
     'blog.article.vivere-piuro-lavorare-grigioni-front.imageAlt': 'Paesaggio montano al confine tra Italia e Grigioni',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.title': 'trasferirsi a Madesimo da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.excerpt': 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
+    'blog.article.trasferirsi-a-madesimo-da-frontaliere-pro-e-contro.imageAlt': 'Immagine di un frontaliere in un valico italo-svizzero',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Vivere a Tirano e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Nuovo accordo frontalieri 2024: cosa cambia per i frontalieri ticinesi che lavorano in Grigioni',
+    'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Immagine di una strada montana in Ticino',
 };
 
 export default blogMetaIt;
