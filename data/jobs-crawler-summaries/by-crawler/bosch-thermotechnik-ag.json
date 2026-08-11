@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-11T10:10:53.067Z",
+  "generatedAt": "2026-08-11T22:16:27.897Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17482,
-  "avgDurationMs": 17482,
+  "durationMs": 17583,
+  "avgDurationMs": 17583,
   "durationHistory": [
-    17482
+    17583
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "4- oder 5-Tage-Woche – Servicetechniker Wärmepumpen Region Ostschweiz (w/m/div.) REF293856U",
       "slug": "4-oder-5-tage-woche-servicetechniker-warmepumpen-region-ostschweiz-w-m-div-ref293856u-bosch-steinhausen",
@@ -35,16 +36,19 @@
       "sourceLang": "de",
       "postedDate": "2026-08-11",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-a1caf282ef57",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-11T10:10:53.064Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Instandhalter Wärmebehandlung 100% (w/m/div.) - REF293787Q",
       "slug": "instandhalter-warmebehandlung-100-w-m-div-ref293787q-bosch-st-niklaus",
@@ -291,42 +295,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lehrstelle Logistik (w/m/div.) 2027 - REF289879M",
-      "slug": "apprendistato-logistik-w-m-div-2027-ref289879m-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF289879M-lehrstelle-logistik-w-m-div-2027-ref289879m",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136720149-lehrstelle-logistik-w-m-div-2027-ref289879m?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "apprenticeship",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-09",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-ca7e65cc5535",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-09T12:21:33.795Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
