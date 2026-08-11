@@ -1,16 +1,16 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-08-10T22:17:30.053Z",
+  "generatedAt": "2026-08-11T10:22:32.877Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4289,
-  "avgDurationMs": 4289,
+  "durationMs": 3849,
+  "avgDurationMs": 3849,
   "durationHistory": [
-    4289
+    3849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/product-manager-80-100-m-w-d-st-moritz",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:17:28.096Z",
+      "crawledAt": "2026-08-11T10:22:30.843Z",
       "firstSeenAt": "2026-08-05T11:39:03.670Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -74,7 +74,8 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-10T22:17:28.431Z",
+      "crawledAt": "2026-08-11T10:22:31.204Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
