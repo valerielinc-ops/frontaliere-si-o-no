@@ -9573,6 +9573,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Umzug nach Cernobbio als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Steuereinstellungen, Genehmigungen und Vorteile für Grenzgänger, die nach Cernobbio ziehen',
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'Eine Familie von Frontalierern mit Kindern, die nach Cernobbio umzieht',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.title': 'Leben in Montegrino Valtravaglia und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.excerpt': 'Das am 23. Dezember 2020 unterzeichnete neue Grenzgängerabkommen sieht neue Regeln für Grenzgänger vor, die im Tessin arbeiten.',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.imageAlt': 'Frontalier in Tessin',
 };
 
 export default blogMetaDe;

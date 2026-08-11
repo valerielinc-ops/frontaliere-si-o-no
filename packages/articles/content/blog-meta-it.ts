@@ -9575,6 +9575,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Cernobbio da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.excerpt': 'Impostazioni fiscali, permessi e vantaggi per i frontalieri che si trasferiscono a Cernobbio',
     'blog.article.trasferirsi-a-cernobbio-da-frontaliere-pro-e-contro.imageAlt': 'Una famiglia frontaliera con bambini che si trasferisce a Cernobbio',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.title': 'Vivere a Montegrino Valtravaglia e lavorare in Ticino da frontaliere',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.excerpt': 'Il nuovo accordo frontalieri firmato il 23 dicembre 2020 prevede nuove regole per i frontalieri che lavorano in Ticino.',
+    'blog.article.montegrino-valtravaglia-frontalieri-ticino.imageAlt': 'Frontaliere in Ticino',
 };
 
 export default blogMetaIt;
