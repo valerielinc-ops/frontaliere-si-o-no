@@ -2137,6 +2137,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-prassi-svizzera.title': 'Neutralität: Die aktuelle Praxis liegt im Interesse der Schweiz',
     'blog.article.neutralita-prassi-svizzera.excerpt': 'Bundesrat fordert zur Ablehnung der Neutralitätsinitiative auf, über die am 27. September abgestimmt wird',
     'blog.article.neutralita-prassi-svizzera.imageAlt': 'Bild eines Schweizer Auslandschweizers',
+    'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell: \'Es war das beste erste Halbjahr in der Unternehmensgeschichte\'',
+    'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'Der Schweizer Fleischverarbeitungsgigant schloss das erste Halbjahr mit einem im Wesentlichen stabilen Umsatz und steigenden Gewinnen ab.',
+    'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, Schweizer Unternehmen, nationale Wirtschaft',
 };
 
 export default blogMetaChDe;

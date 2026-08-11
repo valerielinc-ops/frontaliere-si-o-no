@@ -738,6 +738,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'economia-svizzera-nazionale-2026': { it: 'economia-svizzera-nazionale-2026', en: 'swiss-economy-national', de: 'schweizerische-wirtschaft-national', fr: 'economie-suisse-nationale' },
  'permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo': { it: 'permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo', en: 'residence-permit-b-canton-zurich', de: 'aufenthaltstitel-b-kanton-zuerich', fr: 'permis-de-sejour-b-canton-de-zurich' },
  'neutralita-prassi-svizzera': { it: 'neutralita-prassi-svizzera', en: 'swiss-neutrality-practice', de: 'schweizerische-neutralita-praxis', fr: 'neutrality-pratique-suisse' },
+ 'bell-bellinzona-aziendale-2026': { it: 'bell-bellinzona-aziendale-2026', en: 'bell-bellinzona-aziendale-2026-en', de: 'bell-bellinzona-aziendale-2026-de', fr: 'bell-bellinzona-aziendale-2026-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

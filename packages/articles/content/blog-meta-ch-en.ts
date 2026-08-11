@@ -2137,6 +2137,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-prassi-svizzera.title': 'Neutrality: Current practice is in Switzerland\'s interest',
     'blog.article.neutralita-prassi-svizzera.excerpt': 'The Federal Council calls for the rejection of the neutrality initiative in the vote on 27 September',
     'blog.article.neutralita-prassi-svizzera.imageAlt': 'Image of a Swiss expat',
+    'blog.article.bell-bellinzona-aziendale-2026.title': 'Bell: \'It was the best first semester in company history\'',
+    'blog.article.bell-bellinzona-aziendale-2026.excerpt': 'The Swiss meat processing giant closed the first half of the year with a substantially stable turnover and growing profits.',
+    'blog.article.bell-bellinzona-aziendale-2026.imageAlt': 'Frontaliere Ticino, Swiss companies, national economy',
 };
 
 export default blogMetaChEn;
