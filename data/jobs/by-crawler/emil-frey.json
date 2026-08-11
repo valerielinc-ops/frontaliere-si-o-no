@@ -1431,7 +1431,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T22:17:36.468Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -1443,7 +1442,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "emil-frey-14aa1c3dc9ef",
