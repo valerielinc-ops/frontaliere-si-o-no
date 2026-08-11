@@ -9620,6 +9620,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Bianzone da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'Per i frontalieri che desiderano trasferirsi a Bianzone, è necessario considerare i pro e i contro di questo spostamento.',
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere in auto sulla strada per Bianzone, Ticino, con un albero di fiori in primo piano.',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Villa di Tirano da frontaliere: pro e contro',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.excerpt': 'Ecco cosa sapere sui vantaggi e svantaggi di trasferirsi a Villa di Tirano come frontaliere',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere che si trova in una situazione simile potrebbe dover affrontare nuove sfide fiscali',
 };
 
 export default blogMetaIt;
