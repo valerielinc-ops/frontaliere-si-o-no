@@ -1,0 +1,211 @@
+name: job-description-locale-audit
+
+# Twice-daily deterministic check of wrong-language JOB DESCRIPTIONS
+# (scripts/audit-job-description-locale.mjs) — the metric behind the DESCRIPTIONS
+# ratchet in tests/job-locale-consistency.test.ts.
+#
+# WHY IT EXISTS. On 2026-08-11 that ratchet read 0.320% against its 0.300% limit
+# and turned `vitest` red on EVERY open PR at once. Nothing reported the drift:
+# the gate only speaks inside a PR run, it prints a rate with no offender list,
+# and NO BRANCH COULD FIX IT because the defect was in main's DATA, not in any
+# diff. Every open PR sat on `stale-review` while the cause went unnamed.
+# This workflow is the missing measurement, and it names the offenders.
+#
+# IT ALSO ALERTS ON A THIN MARGIN, not only on a breach. Same day, the gate went
+# green again with NOTHING repaired: the offender count stayed at 100 while the
+# dataset grew from 31,266 to 34,594 description slots, so the rate fell to
+# 0.289% by dilution alone. A gate 0.011pp under its limit is one crawl away
+# from red and, to every existing signal, looks exactly like a healthy one.
+# `min_headroom_pp` is what makes that state visible before it costs a day.
+#
+# THE REPAIR PATH IS NOT HERE. `mark-locale-mismatched-jobs.mjs` inside
+# translate-pending.yml marks the offenders `needsRetranslation`, which both
+# removes them from this population and queues them for the cascade. That script
+# wrote its marks ONLY to the gitignored `data/jobs.json` until #5637, so the
+# marks evaporated on every re-assemble and the backlog could never drain —
+# which is why the breach above was never going to clear on its own. This audit
+# reports; it does not write data.
+#
+# Zero-Claude: a deterministic script plus `gh issue` calls. Report-only, never
+# a deploy gate.
+#
+# ROUTING — deliberately NOT the immediate `agent:fix` route. Per
+# scripts/lib/classify-issue.mjs, `agent:fix` is reserved for category `crawler`.
+# `priority:medium` plus the labels below classify as `other` => `route: queue`
+# => `agent:fix-queued` + `fu-prio:low`, drained one at a time by
+# followup-drainer. tests/audit-job-description-locale.test.ts asserts that
+# classification so a future title edit cannot silently promote it into the
+# crawler bypass.
+#
+# CLOSURE — the issue closes ITSELF via the `--resolve` twin step below, with a
+# literal title IDENTICAL to the opener's. scripts/ci/failure-issue-inventory.mjs
+# (gated by tests/failure-issue-closers.test.ts) recognises a closer only as a
+# twin `--resolve` step in the SAME workflow with an identical literal title, so
+# the two calls stay split and neither title moves into a shell variable.
+# Shipping an alert with no closer is the alert-pat-down.mjs incident.
+
+on:
+  schedule:
+    # 08:25 and 20:25 UTC — both sit AFTER a translate-pending drain (07:00 and
+    # 13:00 crons) so the measurement reflects the post-drain state, and clear of
+    # job-title-locale-audit (Tue 09:40) and the crawler-quality audits.
+    - cron: '25 8,20 * * *'
+  workflow_dispatch:
+    inputs:
+      min_headroom_pp:
+        description: 'Percentage points of headroom below the ratchet under which a still-green gate is alerted. Default: repo var JOB_DESC_LOCALE_MIN_HEADROOM_PP, else 0.05.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: job-description-locale-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      # data/jobs.json is gitignored (build artifact). Assemble it from the
+      # committed per-crawler slices so the audit measures the same population
+      # the vitest ratchet does — the test reads DATA_JOBS_PATH, never the slices.
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Run job description locale audit
+        id: audit
+        continue-on-error: true
+        env:
+          MIN_HEADROOM_PP: ${{ inputs.min_headroom_pp || vars.JOB_DESC_LOCALE_MIN_HEADROOM_PP || '0.05' }}
+        run: node scripts/audit-job-description-locale.mjs --min-headroom-pp "$MIN_HEADROOM_PP"
+
+      - name: Upload full report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-description-locale-audit-report
+          path: data/job-description-locale-audit.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Build issue body from the report
+        id: body
+        if: steps.audit.outcome == 'success'
+        env:
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/jdl
+
+          node --input-type=module - <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const r = JSON.parse(readFileSync('data/job-description-locale-audit.json', 'utf8'));
+          const p3 = (v) => `${(v * 100).toFixed(3)}%`;
+
+          if (!r.datasetPresent) {
+            // No dataset => no measurement. Say nothing rather than assert health:
+            // silently closing the issue on an empty run is how a real defect
+            // disappears from the tracker.
+            writeFileSync('/tmp/jdl/action', 'skip');
+            writeFileSync('/tmp/jdl/body.md', '');
+            console.log('No job dataset — skipping issue update.');
+          } else {
+            const unhealthy = r.breached || r.thinMargin;
+            let md = `## Descrizioni in lingua sbagliata — snapshot\n\n`;
+            md += r.breached
+              ? `🔴 **RATCHET SUPERATA.** \`vitest\` e' rosso su **ogni PR aperta**, e nessun branch puo' ripararlo: il difetto e' nei DATI di main, non in un diff.\n\n`
+              : `⚠️ **Margine sottile.** La gate e' verde ma per poco: **${r.headroomPp.toFixed(3)}pp** sotto il limite (soglia d'allarme ${r.minHeadroomPp}pp). Un solo crawl la fa diventare rossa su tutte le PR insieme.\n\n`;
+            md += `**${r.flagged} di ${r.slots}** slot descrizione leggono come un'altra lingua = **${p3(r.rate)}** (max ${p3(r.maxRate)}), su ${r.totalJobs} job.\n\n`;
+            md += `Di questi, **${r.sourceCopyCount}** sono copie byte-identiche del sorgente — la forma che il mop-up Argos gratuito (\`local-mt-mopup.mjs\`, Phase 2a di translate-pending) sa riparare senza toccare la quota. Il resto richiede la cascata AI, che e' quota-bound.\n`;
+            md += `Job ancora toccabili dal percorso di riparazione (non \`localeMismatchSuppressed\`): **${r.actionableJobs}**.\n\n`;
+
+            md += `### Dove si concentrano\n\n| offender | azienda |\n|---:|---|\n`;
+            for (const c of r.topCompanies) md += `| ${c.count} | ${c.key} |\n`;
+            md += `\n| offender | direzione |\n|---:|---|\n`;
+            for (const p of r.topPairs) md += `| ${p.count} | \`${p.key}\` |\n`;
+
+            md += `\n### Primi offender\n\n`;
+            for (const o of r.offenders.slice(0, 15)) {
+              md += `- \`${o.company}/${o.slug}\` [${o.locale}] => ${o.detected} (${o.confidence})`;
+              md += o.sourceCopy ? ` — **copia del sorgente ${o.sourceLang}**\n` : `\n`;
+            }
+
+            md += `\n### Riprodurre\n\n\`\`\`bash\nnode scripts/assemble-jobs-dataset.mjs\nnode scripts/audit-job-description-locale.mjs\nnpx vitest run tests/job-locale-consistency.test.ts\n\`\`\`\n\n`;
+            md += `### Riparare\n\nIl percorso previsto e' il marker dentro \`translate-pending.yml\`, che mette \`needsRetranslation\` sugli offender (cosi' escono da questa popolazione ED entrano in coda per la cascata):\n\n`;
+            md += `\`\`\`bash\nnode scripts/mark-locale-mismatched-jobs.mjs\n\`\`\`\n\n`;
+            md += `Se il conteggio non scende fra un run e l'altro, il sospetto e' che i mark non stiano arrivando alle slice committate: \`data/jobs.json\` e' un artefatto gitignorato, e uno step che scrive solo li' perde il flag al riassemblaggio successivo (era il difetto chiuso da #5637).\n\n`;
+            md += `**Report completo:** artifact \`job-description-locale-audit-report\` (30 giorni).\n`;
+            md += `**Run:** ${process.env.RUN_URL}\n`;
+
+            writeFileSync('/tmp/jdl/body.md', md);
+            writeFileSync('/tmp/jdl/action', unhealthy ? 'alert' : 'resolve');
+            console.log(`rate=${p3(r.rate)} headroom=${r.headroomPp.toFixed(3)}pp -> ${unhealthy ? 'alert' : 'resolve'}`);
+          }
+          NODE
+
+          echo "action=$(cat /tmp/jdl/action)" >> "$GITHUB_OUTPUT"
+
+      # priority 3 (`priority:medium`) + the labels below classify as category
+      # `other` in scripts/lib/classify-issue.mjs => route 'queue' =>
+      # `agent:fix-queued` + `fu-prio:low`. Do NOT raise to priority:high or add
+      # `parser-broken`: combined with a crawler/parser word in the title that
+      # would jump the anti-starvation queue into the immediate `agent:fix` route.
+      - name: Open / update the tracking issue
+        if: steps.body.outputs.action == 'alert'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Job description locale quality: daily snapshot" \
+            --description "$(cat /tmp/jdl/body.md)" \
+            --priority 3 \
+            --label job-description-locale \
+            --label bug \
+            --reopen-within-hours 72 \
+            --workflow "${{ github.workflow }}"
+
+      # THE CLOSER. Identical literal title to the opener above, so
+      # resolveGithubIssue() matches the same canonical issue createGithubIssue()
+      # deduped on. No-op when nothing is open, hence safe on every healthy run.
+      - name: Close the tracking issue once the rate is healthy
+        if: steps.body.outputs.action == 'resolve'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Job description locale quality: daily snapshot" \
+            --resolve \
+            --run-url "$RUN_URL" \
+            --workflow "${{ github.workflow }}"
+
+      - name: Report audit crash to GitHub Issues
+        if: steps.audit.outcome != 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Job description locale audit crashed
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          \`scripts/audit-job-description-locale.mjs\` exited non-zero — no snapshot produced this run. Check that \`data/jobs.json\` assembled." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Fail job if audit crashed
+        if: steps.audit.outcome != 'success'
+        run: |
+          echo "::error::job description locale audit crashed — see the issue opened above."
+          exit 1
