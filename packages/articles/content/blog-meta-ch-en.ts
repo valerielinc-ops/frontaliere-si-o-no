@@ -2167,6 +2167,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassi-interesse-bns-2027.title': 'SNB: interest rate hike postponed to 2027',
     'blog.article.tassi-interesse-bns-2027.excerpt': 'Experts\' forecasts are slipping: the cost of money in Switzerland will remain at current levels longer than expected.',
     'blog.article.tassi-interesse-bns-2027.imageAlt': 'Swiss National Bank building in Zurich',
+    'blog.article.assegni-familiari-canton-zurigo.title': 'Family allowances in the canton of Zurich: amounts and applications',
+    'blog.article.assegni-familiari-canton-zurigo.excerpt': 'The application procedure for the family allowance in the Canton of Zurich is simple and can be submitted online or at the seat of the relevant clearing house.',
+    'blog.article.assegni-familiari-canton-zurigo.imageAlt': 'View of Lugano, a city in the Canton of Ticino, with the lake and surrounding hills',
 };
 
 export default blogMetaChEn;
