@@ -8670,6 +8670,30 @@ ${staticAnalyticsHtml}
  }
  const kwHrefFor = (al: AlternateLocale): string =>
  `${BASE_URL}${withSlash(`${localePrefix[al]}/${sectionByLocale[al]}/${searchRoutePrefix[al]}-${kwSlug}`.replace(/\/+/g, '/'))}`;
+ // Locales for which the loop below ACTUALLY wrote a keyword landing.
+ //
+ // The sitemap block further down used to re-derive its own answer from
+ // `kwEligibleLocales` (the anti-doorway floor) alone, while this emit loop
+ // applies two MORE gates the floor knows nothing about:
+ //   - `editorialSearchSlugsByLocale` — an editorial landing already owns
+ //     this search slug for that locale;
+ //   - `activeJobDirs` — another emitter already wrote this directory.
+ // Two predicates for one question is the defect. It stayed invisible for
+ // `it` specifically because the existence stat below is SKIPPED for `it`
+ // (correctly: on a non-IT shard the IT page is written elsewhere), so an
+ // override-skipped IT keyword page still got a <loc> — advertising a URL
+ // owned by whichever emitter did write it. Those URLs are non-self-
+ // canonical (relatedSearchClustersPlugin's legacy-canton mirror
+ // canonicalises `/cerca-lavoro-ticino/ricerca-<slug>/` to
+ // `/cerca-lavoro-svizzera/ricerca-<slug>/`) or noindex bridges — exactly
+ // the two classes `audit:sitemap-canonicals` and `validate:sitemap-pages`
+ // hard-fail on, and the two that plugin already filters out of ITS own
+ // sitemap (see its `dropNoindexLocs` rationale).
+ //
+ // Recording the emission and reading it back makes the two answers the
+ // SAME answer rather than two answers that happen to agree on today's
+ // data. `tests/keyword-landing-sitemap-parity.test.ts` pins that shape.
+ const kwEmittedLocales = new Set<typeof localeList[number]>();
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const kwJobs = kwJobsByLocale.get(locale) ?? [];
@@ -8842,6 +8866,7 @@ ${staticAnalyticsHtml}
  const kwFlatPath = kwCanonicalPath.replace(/\/+$/, '');
  if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _qwFlatFull(kwFlatFile, kwHtml); }
  keywordPageCount++;
+ kwEmittedLocales.add(locale);
  recordEmit('gsc-keyword-landing', __tGsc);
  }
  // Sitemap entry (Italian canonical)
@@ -8853,29 +8878,53 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
  kwLocalePaths.set(l, lp);
  }
- // Same eligibility set as the HTML block above. Sitemaps have no `tooFew`
- // rule — reciprocity only asks that every advertised alternate is itself a
- // published <loc> — so this FILTERS rather than voiding: an ineligible
- // locale has no page on any shard, and advertising it points the crawler
- // at a 404 exactly as the HTML block did (issue #5114, same class).
+ // The ONE set that decides this keyword page's whole sitemap contribution:
+ // which locales get a <loc>, which appear as alternates, and whether
+ // x-default is backed. Reciprocity only asks that every advertised
+ // alternate is itself a published <loc> — so alternates and locs MUST come
+ // from the same set, or shrinking one silently breaks the other.
+ //
+ // Three filters, in the order their evidence becomes available:
+ //   1. the anti-doorway floor (`kwEligibleLocales`) — shard-stable by
+ //      construction, so every shard agrees on it (issue #5114);
+ //   2. for a locale THIS shard renders: what the emit loop actually wrote
+ //      (`kwEmittedLocales`). This is what carries the two overrides the
+ //      floor cannot see; before it, a page skipped by an override still
+ //      got a <loc> pointing at another emitter's URL;
+ //   3. for a locale ANOTHER shard renders: the dist existence stat, the
+ //      only evidence available here. `it` stays exempt from it because on
+ //      a non-IT shard the IT page is written elsewhere and a stat would
+ //      false-negative — note that sitemaps ship from the it/main shard
+ //      (localeEmitFilter: non-locale files are owned by `it`), so in the
+ //      build that actually publishes this file `it` always takes branch 2.
+ const kwSitemapLocales = new Set<typeof localeList[number]>();
+ for (const l of localeList) {
+ if (!kwEligibleLocales.has(l)) continue;
+ if (shouldEmitLocale(l)) {
+ if (!kwEmittedLocales.has(l)) continue;
+ } else if (l !== 'it') {
+ const dirIndex = np.join(distDir, kwLocalePaths.get(l)!.slice(1).replace(/\/$/, ''), 'index.html');
+ if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ }
+ kwSitemapLocales.add(l);
+ }
  const kwSmAlternates = buildSitemapAlternateBlock({
- eligibleLocales: kwEligibleLocales,
+ eligibleLocales: kwSitemapLocales,
  hrefFor: (l) => `${BASE_URL}${kwLocalePaths.get(l)}`,
  });
+ // x-default points at the IT landing, so it may only be advertised when
+ // that landing is itself published — otherwise dropping IT from the set
+ // above would leave x-default naming a URL with no <loc>, re-opening the
+ // reciprocity hole one level down.
+ const kwXDefault = kwSitemapLocales.has('it')
+ ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${kwItPath}" />`
+ : '';
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see
  // pushEditorialSitemapEntry above for rationale.
  for (const l of localeList) {
+ if (!kwSitemapLocales.has(l)) continue;
  const p = kwLocalePaths.get(l)!;
- // IT is exempt from the existence stat (on a non-IT shard the IT page is
- // written by ANOTHER shard, so a stat here would false-negative), but it
- // is NOT exempt from the floor: below it no shard writes an IT page and
- // the <loc> would advertise a 404 (issue #5114, same class).
- if (!kwEligibleLocales.has(l)) continue;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
- keywordSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${kwSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${kwItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ keywordSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${kwSmAlternates}${kwXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
  } catch (e) {

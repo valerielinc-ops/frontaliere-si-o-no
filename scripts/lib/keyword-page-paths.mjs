@@ -9,8 +9,19 @@
  * not: `jobsSeoPagesPlugin` emits keyword landings under
  * `{localePrefix}/{section}/{searchRoutePrefix}-{slug}/`, so the report told
  * every reader that `medico-ticino` lived at `/medico-ticino/` (404) when the
- * live page is `/cerca-lavoro-ticino/ricerca-medico-ticino/` (200, and in
- * `sitemap-jobs.xml`).
+ * real convention puts it at `/cerca-lavoro-ticino/ricerca-medico-ticino/`.
+ *
+ * What this module does NOT promise, and the example that proves it: the path
+ * above is the URL the keyword landing WOULD occupy, not evidence that the
+ * keyword landing is what answers there. Measured 2026-08-11, that exact URL
+ * is 200 — but it is served by `relatedSearchClustersPlugin`'s legacy-canton
+ * mirror, `index,follow` with `<link rel=canonical>` pointing at
+ * `/cerca-lavoro-svizzera/ricerca-medico-ticino/`, and it is in NO sitemap;
+ * only the canonical twin is (`sitemap-search-clusters-003.xml`). An earlier
+ * revision of this comment asserted it was "200, and in `sitemap-jobs.xml`" —
+ * it is not, and that sentence sent a later session hunting a missing-sitemap
+ * bug that did not exist. A 200 at a predicted path proves the path is taken,
+ * never by whom: `curl` the canonical and the robots meta before concluding.
  *
  * Measured on the 2026-08-10 report: 23 of the 52 "Già coperte" rows carried a
  * path that 404s. The cost is not cosmetic — the report is consumed by humans
