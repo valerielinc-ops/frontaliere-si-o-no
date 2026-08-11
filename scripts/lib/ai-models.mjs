@@ -2942,6 +2942,17 @@ const DEFAULT_REQUEST_TOKENS_BY_PROVIDER = {
   // Math.min across all three sources, so tighter per-model entries (e.g.
   // nvidia/nemotron-mini-4b-instruct at 3000) still win over this default.
   [PROVIDER.NVIDIA]: MAX_PREFLIGHT_REQUEST_TOKENS,
+  // Cerebras and Cohere are the same "not validated, not accepting" shape as
+  // NVIDIA above: their `pick()` filters in DISCOVERY_PROVIDERS have no
+  // context-length check at all (Cerebras' /v1/models entries carry no
+  // context field to filter on; Cohere's native listing does expose
+  // `context_length`, but `pick` only checks the `chat` endpoint flag, not
+  // size), so a discovered id enters DEFAULT_CHAIN with no pre-flight cap and
+  // takes its first 413 at runtime instead of being skip-guarded. #5565 closed
+  // this hole for NVIDIA with a present-only discovery guard PLUS this
+  // provider-wide default; Cerebras/Cohere never got the second half.
+  [PROVIDER.CEREBRAS]: MAX_PREFLIGHT_REQUEST_TOKENS,
+  [PROVIDER.COHERE]: MAX_PREFLIGHT_REQUEST_TOKENS,
 };
 
 /**

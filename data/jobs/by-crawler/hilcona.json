@@ -484,12 +484,14 @@
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-in-efz-lehrstart-2027-hilcona-dallikon",
-        "logistiker-in-efz-lehrstart-2027-eisberg-ag-dallikon"
+        "logistiker-in-efz-lehrstart-2027-eisberg-ag-dallikon",
+        "logistica-a-efz-lehrstart-2027-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-lehrstart-2027-hilcona-dallikon",
-          "logistiker-in-efz-lehrstart-2027-eisberg-ag-dallikon"
+          "logistiker-in-efz-lehrstart-2027-eisberg-ag-dallikon",
+          "logistica-a-efz-lehrstart-2027-eisberg-ag-dallikon"
         ],
         "en": [
           "logistiker-in-efz-lehrstart-2027-hilcona-dallikon"
@@ -499,7 +501,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:46:13.989Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -512,7 +513,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "hilcona-f6f090e946e9",

@@ -5723,23 +5723,6 @@
       "jobReqId": "744000142565104",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve",
-        "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-hug-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve",
-          "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-hug-geneve"
-        ],
-        "en": [
-          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve"
-        ],
-        "de": [
-          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:27:37.083Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -5751,7 +5734,28 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-10T10:27:37.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve",
+          "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-hug-geneve",
+          "medical-or-medical-secretary-for-anaesthesiology-consultation-80-to-100-hug-geneve",
+          "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-al-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-hug-geneve",
+        "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-hug-geneve",
+        "medical-or-medical-secretary-for-anaesthesiology-consultation-80-to-100-hug-geneve",
+        "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-al-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-4991b8544680",
