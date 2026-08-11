@@ -9680,6 +9680,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-la-thuile-lavorare-vallese.title': 'Wohnen in La Thuile und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-la-thuile-lavorare-vallese.excerpt': 'Quellensteuerung auf Erwerbseinkommen: Einbehaltung nur in der Schweiz für Grenzgänger',
     'blog.article.vivere-la-thuile-lavorare-vallese.imageAlt': 'Bild eines Pendlers, der die Grenze zwischen La Thuile und Valais überquert',
+    'blog.article.vivere-allein-lavorare-vallese.title': 'Wohnen in Allein und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-allein-lavorare-vallese.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Aostatal und Wallis: Steuerregeln, neue Vereinbarung und grenzüberschreitendes Arbeitsmanagement.',
+    'blog.article.vivere-allein-lavorare-vallese.imageAlt': 'Alpenlandschaft am Grossen St. Bernhard',
 };
 
 export default blogMetaDe;
