@@ -27629,6 +27629,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralita-prassi-svizzera': {
+    title: 'Neutralità: la prassi attuale è nell\'interesse della Svizzera',
+    description: 'Il Consiglio federale invita a respingere l\'iniziativa sulla neutralità in votazione il 27 settembre. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, prassi, attuale, nell',
+    ogTitle: 'Neutralità: la prassi attuale è nell\'interesse della Svizzera',
+    ogDescription: 'Il Consiglio federale invita a respingere l\'iniziativa sulla neutralità in votazione il 27 settembre',
+    canonicalPath: '/articoli-svizzera/neutralita-prassi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità: la prassi attuale è nell'interesse della Svizzera",
+      "description": "Il Consiglio federale invita a respingere l'iniziativa sulla neutralità in votazione il 27 settembre. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-prassi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere svizzero"
+      },
+      "datePublished": "2026-08-11T07:58:47+00:00",
+      "dateModified": "2026-08-11T07:58:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-prassi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

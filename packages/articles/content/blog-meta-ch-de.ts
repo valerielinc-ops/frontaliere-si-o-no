@@ -2134,6 +2134,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Zürich: Voraussetzungen und Verfahren',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Zürich erfordert die Vorlage spezifischer Dokumente und folgt einem Erneuerungsverfahren.',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Bild von einem Aufenthaltstitel in Zürich',
+    'blog.article.neutralita-prassi-svizzera.title': 'Neutralität: Die aktuelle Praxis liegt im Interesse der Schweiz',
+    'blog.article.neutralita-prassi-svizzera.excerpt': 'Bundesrat fordert zur Ablehnung der Neutralitätsinitiative auf, über die am 27. September abgestimmt wird',
+    'blog.article.neutralita-prassi-svizzera.imageAlt': 'Bild eines Schweizer Auslandschweizers',
 };
 
 export default blogMetaChDe;

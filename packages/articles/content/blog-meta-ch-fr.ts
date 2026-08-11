@@ -2134,6 +2134,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.title': 'Permis de séjour B dans le canton de Zurich : exigences et procédure',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Zurich nécessite la présentation de documents spécifiques et suit une procédure de renouvellement.',
     'blog.article.permesso-di-dimora-b-canton-zurigo-requisiti-e-rinnovo.imageAlt': 'Image d\'un permis de séjour à Zurich',
+    'blog.article.neutralita-prassi-svizzera.title': 'Neutralité : la pratique actuelle est dans l\'intérêt de la Suisse',
+    'blog.article.neutralita-prassi-svizzera.excerpt': 'Le Conseil fédéral invite à rejeter l\'initiative sur la neutralité en votation le 27 septembre',
+    'blog.article.neutralita-prassi-svizzera.imageAlt': 'Image d\'un expatrié suisse',
 };
 
 export default blogMetaChFr;
