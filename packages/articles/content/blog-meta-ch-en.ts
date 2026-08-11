@@ -2188,6 +2188,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aziende-rimangono-prudenti.title': 'More Companies remain cautious, little inclination to hire',
     'blog.article.aziende-rimangono-prudenti.excerpt': 'Swiss companies continue to look to the future with caution, with hiring intentions remaining at the lowest levels of the past five years.',
     'blog.article.aziende-rimangono-prudenti.imageAlt': 'Swiss companies in a context of prudence',
+    'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Climate and consumption: 80% of Swiss do not change their habits',
+    'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'A Comparis survey of 1,040 people reveals that climate change has little impact on purchasing choices. High incomes are less sensitive.',
+    'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Swiss citizens shopping in a city center.',
 };
 
 export default blogMetaChEn;

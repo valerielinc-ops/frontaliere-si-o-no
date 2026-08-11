@@ -2188,6 +2188,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aziende-rimangono-prudenti.title': 'Di più Aziende rimangono prudenti, scarsa propensione ad assumere',
     'blog.article.aziende-rimangono-prudenti.excerpt': 'Le aziende svizzere continuano a guardare al futuro con prudenza, con le intenzioni di assunzione che rimangono sui livelli più bassi degli ultimi cinque anni.',
     'blog.article.aziende-rimangono-prudenti.imageAlt': 'Aziende svizzere in un contesto di prudenza',
+    'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Clima e consumi: l\'80% degli svizzeri non cambia abitudini',
+    'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'Un sondaggio Comparis su 1.040 persone rivela che il cambiamento climatico incide poco sulle scelte d\'acquisto. Meno sensibili i redditi alti.',
+    'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Cittadini svizzeri impegnati in attività di shopping in un centro urbano.',
 };
 
 export default blogMetaChIt;

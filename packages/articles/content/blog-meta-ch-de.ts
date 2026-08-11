@@ -2188,6 +2188,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aziende-rimangono-prudenti.title': 'Mehr Unternehmen bleiben vorsichtig, geringe Bereitschaft zur Einstellung',
     'blog.article.aziende-rimangono-prudenti.excerpt': 'Schweizer Unternehmen blicken weiterhin vorsichtig in die Zukunft, wobei die Einstellungsabsichten auf dem niedrigsten Stand seit fünf Jahren bleiben.',
     'blog.article.aziende-rimangono-prudenti.imageAlt': 'Schweizer Unternehmen in einem Kontext der Vorsicht',
+    'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Klima und Konsum: 80% der Schweizer ändern ihre Gewohnheiten nicht',
+    'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'Eine Comparis-Umfrage unter 1.040 Personen zeigt, dass der Klimawandel kaum Einfluss auf die Kaufentscheidung hat. Hohe Einkommen sind weniger sensibel.',
+    'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Schweizer Bürger beim Einkaufen in einer Innenstadt.',
 };
 
 export default blogMetaChDe;
