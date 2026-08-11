@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-11T10:08:18.670Z",
+  "assembledAt": "2026-08-11T09:14:23.915Z",
   "jobs": [
     {
       "id": "ksw-445a24d0c4fd",
@@ -550,22 +550,33 @@
         "oberarztin-oberarzt-ksw-ch",
         "medico-senior-kantonsspital-winterthur-ksw-winterthur",
         "oberarztin-oberarzt-kantonsspital-winterthur-ksw-winterthur",
-        "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur"
+        "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur",
+        "medico-senior-medico-senior-adulto-di-emergenza-kantonsspital-winterthur-ksw-winterthur",
+        "senior-physician-senior-physician-emergency-adult-kantonsspital-winterthur-ksw-winterthur",
+        "oberarztin-oberarzt-notfall-erwachsene-ksw-ch",
+        "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-ksw-ch",
           "medico-senior-kantonsspital-winterthur-ksw-winterthur",
-          "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur"
+          "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur",
+          "medico-senior-medico-senior-adulto-di-emergenza-kantonsspital-winterthur-ksw-winterthur",
+          "senior-physician-senior-physician-emergency-adult-kantonsspital-winterthur-ksw-winterthur",
+          "oberarztin-oberarzt-notfall-erwachsene-ksw-ch",
+          "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "oberarztin-oberarzt-ksw-ch"
+          "oberarztin-oberarzt-ksw-ch",
+          "senior-physician-senior-physician-emergency-adult-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
-          "oberarztin-oberarzt-kantonsspital-winterthur-ksw-winterthur"
+          "oberarztin-oberarzt-kantonsspital-winterthur-ksw-winterthur",
+          "oberarztin-oberarzt-notfall-erwachsene-ksw-ch"
         ],
         "fr": [
-          "oberarztin-oberarzt-ksw-ch"
+          "oberarztin-oberarzt-ksw-ch",
+          "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:38.060Z",
