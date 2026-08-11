@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-11T10:19:52.723Z",
+  "assembledAt": "2026-08-11T10:35:46.138Z",
   "jobs": [
     {
       "id": "unispital-basel-7e895057a061",
@@ -33,7 +33,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/nds-experte-expertin-notfallpflege-nfz/b3126b9f-601f-4805-ba35-7a04c8e8c3f9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.278Z",
+      "crawledAt": "2026-08-11T10:35:04.473Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -73,7 +73,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -85,7 +84,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-43bf9c5d75fd",
@@ -118,7 +118,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-notfallmedizin/650009ee-65a0-4bf0-ba90-57c098cb02da",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.278Z",
+      "crawledAt": "2026-08-11T10:35:04.472Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -220,7 +220,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellow-cardiology/f71b7678-049a-46bf-980d-a82e8c913ba4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:19:17.278Z",
+      "crawledAt": "2026-08-11T10:35:04.473Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -254,7 +254,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -266,7 +265,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-1eb347fe25ed",
@@ -299,7 +299,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-gesundheit-und-soziales-neurologische-bettenstation/84d902bb-ae9f-40b9-a2a8-239f10e4892d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.277Z",
+      "crawledAt": "2026-08-11T10:35:04.471Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -337,7 +337,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.335Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -349,7 +348,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-afa5593080c7",
@@ -382,7 +382,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-imc/08853e06-501c-44ac-bd5b-4bb2f15f2a61",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.277Z",
+      "crawledAt": "2026-08-11T10:35:04.470Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -426,7 +426,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -438,7 +437,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-7dc3af95898a",
@@ -471,7 +471,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellowship-kardiothorakale-radiologie/7d2a5df8-3a9c-4809-ae18-7a2d645a88d6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.277Z",
+      "crawledAt": "2026-08-11T10:35:04.471Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -501,7 +501,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -513,7 +512,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-285cd727d60a",
@@ -546,7 +546,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-gesundheit-und-soziales-ags-innere-medizin-7-2/9673921d-a4b5-406e-9378-7abb01503b29",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.277Z",
+      "crawledAt": "2026-08-11T10:35:04.472Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -589,7 +589,6 @@
         "assistentin-assistent-gesundheit-e-soziales-ags-innere-medizin-7-2-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.334Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -601,7 +600,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-a292aece20e2",
@@ -634,7 +634,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/unterassistentin-unterassistent-anaesthesie/666447ec-3d5c-4f30-bd11-b54c4ee6449e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.277Z",
+      "crawledAt": "2026-08-11T10:35:04.471Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -718,7 +718,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstuetzungszwischendienst/a29677cb-5181-4072-b935-fa19f0d0c9d7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.276Z",
+      "crawledAt": "2026-08-11T10:35:04.466Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -802,7 +802,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/ueberwachungs-poolstudentin-poolstudent/a0377530-d353-447c-9c13-21a5dbe49e51",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.276Z",
+      "crawledAt": "2026-08-11T10:35:04.467Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -893,7 +893,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-experte-expertin-nds-anaesthesiepflege/935cc980-8461-425e-accf-fb3c7a0ee42e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.276Z",
+      "crawledAt": "2026-08-11T10:35:04.468Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -933,7 +933,6 @@
         "dipl-expert-expert-nds-anaesthesia-care-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.334Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -945,7 +944,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2b5046fef3c1",
@@ -978,7 +978,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-operationslagerungen/0570252e-1114-4055-a1ca-ef2353a4aa1d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.276Z",
+      "crawledAt": "2026-08-11T10:35:04.467Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1062,7 +1062,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellowship-abdominelle-und-onkologische-radiologie/2d972151-90c7-41ae-9d1f-1a6228154040",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.276Z",
+      "crawledAt": "2026-08-11T10:35:04.469Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1095,7 +1095,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1107,7 +1106,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-f78833618e19",
@@ -1140,7 +1140,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/diabetesfachberatung-medizinische-poliklinik/c059a66b-ef27-478b-98a7-862162dc2c01",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.275Z",
+      "crawledAt": "2026-08-11T10:35:04.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1224,7 +1224,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-fuer-gesundheit-und-soziales-ags-imc/9aa9239b-11d9-4001-93ef-b932207f6dfc",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.275Z",
+      "crawledAt": "2026-08-11T10:35:04.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1278,7 +1278,6 @@
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1290,7 +1289,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2c661fa858f8",
@@ -1323,7 +1323,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/nachdiplomstudium-nds-intensivpflege/23c43b60-4199-4099-aba7-8d645ecf693a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.275Z",
+      "crawledAt": "2026-08-11T10:35:04.466Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1407,7 +1407,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit/f205b09c-981b-4a92-ac3a-6212a4542e4a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.275Z",
+      "crawledAt": "2026-08-11T10:35:04.464Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1440,7 +1440,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1452,7 +1451,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-ce0eeedb2f51",
@@ -1485,7 +1485,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachperson-innere-medizin-7-2/aad40bdd-8e33-4c70-86d7-202449ff707c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.275Z",
+      "crawledAt": "2026-08-11T10:35:04.465Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1563,7 +1563,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/c2d35090-c9f0-431e-832c-df13e1b0d9ab",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.275Z",
+      "crawledAt": "2026-08-11T10:35:04.464Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1644,7 +1644,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1656,7 +1655,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-6c8b835ba157",
@@ -1689,7 +1689,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/md-phd-stelle-schnittstelle-zwischen-klinischer-und-experimenteller-neurologie/bf7c00c5-b85a-4155-ab88-decc4d51a659",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.274Z",
+      "crawledAt": "2026-08-11T10:35:04.460Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1717,7 +1717,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.580Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1729,7 +1728,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-5771d007e263",
@@ -1762,7 +1762,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-mpa-notfallzentrum/99b6feab-9c43-4d75-8ca2-95617e2fc106",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.274Z",
+      "crawledAt": "2026-08-11T10:35:04.462Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1802,7 +1802,6 @@
         "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-22T13:24:58.839Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1814,7 +1813,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-503d1107174d",
@@ -1847,7 +1847,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ags-im-stundenlohn/0438db39-4e1d-4458-91ef-558648dfb19f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.273Z",
+      "crawledAt": "2026-08-11T10:35:04.459Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1897,7 +1897,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.621Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1909,7 +1908,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2b18bfb9f371",
@@ -1942,7 +1942,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage/9cc115ec-4957-4154-a58b-80d278609f57",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.273Z",
+      "crawledAt": "2026-08-11T10:35:04.459Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2027,7 +2027,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kaderaerztin-kaderarzt-pneumologie/1d0ec746-a71c-42fb-8183-394a96839c9c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.273Z",
+      "crawledAt": "2026-08-11T10:35:04.460Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2067,7 +2067,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2079,7 +2078,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b04eae5e3978",
@@ -2112,7 +2112,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool/c791542d-8743-4887-ab2c-93fcf70dded2",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.272Z",
+      "crawledAt": "2026-08-11T10:35:04.456Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2140,7 +2140,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:20:47.073Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2152,7 +2151,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b05ac4a77666",
@@ -2185,7 +2185,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinische-r-praxisassistent-in-springerpool/1cc07639-2a40-4464-a952-564e682a47d7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.272Z",
+      "crawledAt": "2026-08-11T10:35:04.456Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2213,7 +2213,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.959Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2225,7 +2224,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-d867d764a20d",
@@ -2258,7 +2258,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/leitende-aerztin-leitender-arzt-oder-kaderaerztin-kaderarzt-angiologie/78da7fd9-2542-4cf3-864e-cb7b12ad94b5",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.272Z",
+      "crawledAt": "2026-08-11T10:35:04.457Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2294,7 +2294,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:41.249Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2306,7 +2305,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-00337b73ef4f",
@@ -2339,7 +2339,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-expertin-experte-nds-hf-ip-intensivstation/49f607d0-1e95-48ed-85f6-2fd1b5792b03",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.272Z",
+      "crawledAt": "2026-08-11T10:35:04.457Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2374,7 +2374,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2386,7 +2385,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-8ecfaa6eb231",
@@ -2419,7 +2419,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachleitung-pflege-gynaekologisch-onkologisches-ambulatorium-brustklinik/8358c848-2a74-495f-9b25-a7c24d2a76fb",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.271Z",
+      "crawledAt": "2026-08-11T10:35:04.454Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2497,7 +2497,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie/5371f581-59d5-453b-a8f5-427f44b980a0",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.271Z",
+      "crawledAt": "2026-08-11T10:35:04.455Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2532,7 +2532,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2544,7 +2543,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-8e89686cf7a8",
@@ -2577,7 +2577,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool/36dad475-8ffc-4345-8ce9-4bf8c5eaaaab",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.271Z",
+      "crawledAt": "2026-08-11T10:35:04.455Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2660,7 +2660,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-fh-strahlentherapie-und-radioonkologie/cf9d4966-019b-47eb-b44b-4913b0bb6f03",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.271Z",
+      "crawledAt": "2026-08-11T10:35:04.454Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2732,7 +2732,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin/0c569d6e-ae5c-49ae-a32e-d8cf1ebbf701",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.271Z",
+      "crawledAt": "2026-08-11T10:35:04.453Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2762,7 +2762,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2774,7 +2773,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-215ab77a2845",
@@ -2807,7 +2807,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-mri/39de182a-47c5-4b18-808f-a76162a425d9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.270Z",
+      "crawledAt": "2026-08-11T10:35:04.451Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2850,7 +2850,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2862,7 +2861,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b2fda8c6319f",
@@ -2895,7 +2895,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-fh/6b5a2320-1446-46b5-a6aa-6a9c8a6b9384",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.270Z",
+      "crawledAt": "2026-08-11T10:35:04.451Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2931,7 +2931,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.965Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2943,7 +2942,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-aff9ff56ac08",
@@ -2976,7 +2976,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/op-koordinator-in/46987b11-8337-4998-90fe-aa2de8194c3b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.270Z",
+      "crawledAt": "2026-08-11T10:35:04.453Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3027,7 +3027,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3039,7 +3038,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-9025212a38d2",
@@ -3072,7 +3072,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistent-in-radiologie/006d96fa-f99a-4a1b-b26e-8913e453af48",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.270Z",
+      "crawledAt": "2026-08-11T10:35:04.452Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3115,7 +3115,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3127,7 +3126,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-5a6b8bd0fd2c",
@@ -3160,7 +3160,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/it-service-manager-in/31a35e27-5030-421e-aaa5-10e8237700ad",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.269Z",
+      "crawledAt": "2026-08-11T10:35:04.449Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3191,7 +3191,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.843Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -3203,7 +3202,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-d491bc6a88c5",
@@ -3236,7 +3236,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-konventionelles-roentgen/c568a53a-7e85-4b2b-b131-b8ac979c45e0",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.269Z",
+      "crawledAt": "2026-08-11T10:35:04.449Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3315,7 +3315,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-r-mitarbeiter-in/6aedffa9-2b0f-4bf7-a02e-41e298e176b3",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.269Z",
+      "crawledAt": "2026-08-11T10:35:04.450Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3355,7 +3355,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-11T10:19:17.269Z"
+      "firstSeenAt": "2026-08-11T10:35:04.450Z"
     },
     {
       "id": "unispital-basel-3a335f18265e",
@@ -3388,7 +3388,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/adminstrative-r-mitarbeiter-in/7659d8d0-283b-4bd8-9ea8-16a9dff958be",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.269Z",
+      "crawledAt": "2026-08-11T10:35:04.450Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3431,7 +3431,6 @@
         "adminstrative-r-collaboratore-trice-in-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.284Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3443,7 +3442,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-530f68ac47e1",
@@ -3476,7 +3476,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/stv-stationsleiter-in-orthopaedie-traumatologie/e507f298-ef0e-4e2e-ab94-27a8e4e88374",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.268Z",
+      "crawledAt": "2026-08-11T10:35:04.445Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3504,7 +3504,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T22:48:33.475Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3516,7 +3515,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b84e67c3f97c",
@@ -3549,7 +3549,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-endokrinologie-diabetes-und-metabolismus/a75c376a-7d34-4563-bb61-68bcc2386229",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.268Z",
+      "crawledAt": "2026-08-11T10:35:04.447Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3577,7 +3577,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.714Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3589,7 +3588,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3255f1882fcd",
@@ -3622,7 +3622,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinische-r-praxisassistent-in-mpa/761fab08-ed1c-4e01-82ea-3113bf8fbeaf",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.268Z",
+      "crawledAt": "2026-08-11T10:35:04.444Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3662,7 +3662,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:24:41.982Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3674,7 +3673,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-ad78492ec9aa",
@@ -3707,7 +3707,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-kardiologie/cd495f2f-d0d9-42e2-8f33-aeb16f139a24",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.268Z",
+      "crawledAt": "2026-08-11T10:35:04.448Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3760,7 +3760,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.840Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3772,7 +3771,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-653957aa477e",
@@ -3805,7 +3805,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfallmedizin/2a9815e1-73ab-49cc-bf85-127c8f18dadf",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.268Z",
+      "crawledAt": "2026-08-11T10:35:04.447Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3862,7 +3862,6 @@
         "assistente-medico-assistente-medico-medicina-di-emergenza-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T00:38:44.886Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3874,7 +3873,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-c5c7947e895c",
@@ -3907,7 +3907,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-radioonkologie-claraspital/20fcc673-eb38-4650-acff-8106ad6f415f",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.267Z",
+      "crawledAt": "2026-08-11T10:35:04.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3941,7 +3941,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:02:54.504Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3953,7 +3952,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-cf01f057def3",
@@ -3986,7 +3986,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinische-r-praxisassistent-in-oder-fachangestellte-r-gesundheit-medizinische-poliklinik/0c94a8da-3b86-43e2-a1b7-2417e4599520",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.267Z",
+      "crawledAt": "2026-08-11T10:35:04.443Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4018,7 +4018,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:27:48.351Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4030,7 +4029,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-eea124ba543e",
@@ -4063,7 +4063,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/hauptverantwortliche-r-berufsbildung-pflege-hvbb/9e39762b-159e-4157-95e3-f70c25c8d30b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.267Z",
+      "crawledAt": "2026-08-11T10:35:04.443Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4137,7 +4137,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-chirurgische-kurzzeitklinik/ded3703a-4714-4e41-9df9-dbb69c5393f2",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.267Z",
+      "crawledAt": "2026-08-11T10:35:04.444Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4215,7 +4215,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-mann-gesundheit-fage-neurologie/c145f6c7-69d7-48b4-ab08-8e4498f2829d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.267Z",
+      "crawledAt": "2026-08-11T10:35:04.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4304,7 +4304,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzarzt-assistenzaerztin-pneumologie/1f702814-50b2-4043-bb16-31124628a0e8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.266Z",
+      "crawledAt": "2026-08-11T10:35:04.440Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4332,7 +4332,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:05:36.017Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4344,7 +4343,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3f9fc2090ad6",
@@ -4377,7 +4377,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/system-engineer-client-engineering/e7374558-d874-4dec-99f0-b6db048c39e6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.266Z",
+      "crawledAt": "2026-08-11T10:35:04.441Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4408,7 +4408,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:31:23.963Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4420,7 +4419,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b47037335bed",
@@ -4453,7 +4453,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/hebamme-geburtsabteilung/052a2e4f-be5f-454b-bc5e-65964eeeafb6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.266Z",
+      "crawledAt": "2026-08-11T10:35:04.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4525,7 +4525,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-haematologie-claraspital/aa5157e8-21ab-4c65-8a85-94ba1c243bb9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.266Z",
+      "crawledAt": "2026-08-11T10:35:04.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4559,7 +4559,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:09:51.132Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4571,7 +4570,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-640a59e26647",
@@ -4604,7 +4604,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/arztsekretaer-in/e35f6ea4-99bf-4b2e-99c9-35a4b0aa0a56",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.266Z",
+      "crawledAt": "2026-08-11T10:35:04.441Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4667,7 +4667,6 @@
         "secretaire-medical-e-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.320Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4679,7 +4678,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-d27aed0f4a7a",
@@ -4712,7 +4712,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistent-in-oder-fachfrau-fachmann-gesundheit-operative-urologie-bethesda/8ace93fb-68af-4252-b306-f469e2bc02fb",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.265Z",
+      "crawledAt": "2026-08-11T10:35:04.439Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4748,7 +4748,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:20.661Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4760,7 +4759,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-e0160d60d387",
@@ -4793,7 +4793,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-operationstechnik-spezialisierung-urologie/06395060-d2ce-4a28-b6d6-73b095b3baff",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.265Z",
+      "crawledAt": "2026-08-11T10:35:04.440Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4884,7 +4884,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-lungenstation/6d876028-de10-4e82-a87c-de742953af60",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.265Z",
+      "crawledAt": "2026-08-11T10:35:04.438Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4918,7 +4918,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.535Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4930,7 +4929,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-bf41d0679629",
@@ -4963,7 +4963,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1/ec96c15a-cb99-4714-b55e-ccefefbaf2b9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.265Z",
+      "crawledAt": "2026-08-11T10:35:04.439Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4997,7 +4997,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5009,7 +5008,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-f1a736be88c6",
@@ -5042,7 +5042,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachperson-mtra-oder-pflegefachperson-hf-fh/310a3bb4-6bd4-49d5-b942-e79b53ad0ea8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.265Z",
+      "crawledAt": "2026-08-11T10:35:04.439Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5074,7 +5074,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5086,7 +5085,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-93431ebd0841",
@@ -5119,7 +5119,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-erfahrung-als-berufsbildner-in-lungenstation-27141/ed60840e-cce4-4aca-b258-abd87f9fba07",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.265Z",
+      "crawledAt": "2026-08-11T10:35:04.438Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5151,7 +5151,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.915Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -5163,7 +5162,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-ef8221177aab",
@@ -5196,7 +5196,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-angiologie/3990387e-4204-43bc-a2c9-778247db2fee",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.264Z",
+      "crawledAt": "2026-08-11T10:35:04.437Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5230,7 +5230,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:06:32.994Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -5242,7 +5241,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-23d53386c673",
@@ -5275,7 +5275,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-innere-medizin/0d996b2d-75c2-4a40-9c03-1f62e303536d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.264Z",
+      "crawledAt": "2026-08-11T10:35:04.436Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5303,7 +5303,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:29:56.677Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5315,7 +5314,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-73288a0ca513",
@@ -5348,7 +5348,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/arztsekretaer-in-medizinische-r-praxisassistent-in-onkologie/32fea346-39d9-43fc-9b97-a144dcb9e22b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.264Z",
+      "crawledAt": "2026-08-11T10:35:04.436Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5420,7 +5420,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-27142/4f100d58-243e-4656-b163-f1f7dfcc7b3a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.264Z",
+      "crawledAt": "2026-08-11T10:35:04.437Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5453,7 +5453,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5465,7 +5464,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-114d0eeb94db",
@@ -5498,7 +5498,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachexpertin-fachexperte-fuer-infektionspraevention/a13eae5b-77d1-4a6b-a6c0-deefad351038",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.263Z",
+      "crawledAt": "2026-08-11T10:35:04.434Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5526,7 +5526,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:01:21.722Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5538,7 +5537,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-d154c16811cf",
@@ -5571,7 +5571,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-pflegeassistent-in-augenklinik/52669d73-a0c0-47ba-ac18-d9b1df92868e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.262Z",
+      "crawledAt": "2026-08-11T10:35:04.431Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5599,7 +5599,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:20:41.055Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5611,7 +5610,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-43b4f76ef76d",
@@ -5644,7 +5644,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-r-mitarbeiter-in-patienten-services/7c18f96c-5b57-496d-942e-ba554211acd2",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.262Z",
+      "crawledAt": "2026-08-11T10:35:04.432Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5679,7 +5679,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:20:41.060Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5691,7 +5690,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-be47136b8caa",
@@ -5724,7 +5724,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/controller-in-bereich-immobilien-und-grossbauprojekte/8e9cfded-440d-4a16-90f7-4368a800a7eb",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.262Z",
+      "crawledAt": "2026-08-11T10:35:04.433Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5752,7 +5752,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:54:51.139Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5764,7 +5763,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-e8a23a936af7",
@@ -5797,7 +5797,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-theragnostik-pflege-onkologie/76adfd8a-297d-4bdc-899c-01b4b6c6f360",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.262Z",
+      "crawledAt": "2026-08-11T10:35:04.433Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5878,7 +5878,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-pflegeassistent-in-onkologisch-chirurgische-station/c9cf2a09-e1b3-4266-8774-d48319015ba8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.262Z",
+      "crawledAt": "2026-08-11T10:35:04.432Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5910,7 +5910,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:29:56.674Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5922,7 +5921,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-c8ddda1db683",
@@ -5955,7 +5955,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizinproduktetechnologin-medizinproduktetechnologe/ee5e240a-c369-4d38-a919-ac5b143f87b8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.261Z",
+      "crawledAt": "2026-08-11T10:35:04.430Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5990,7 +5990,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6002,7 +6001,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-e59dc314cad5",
@@ -6035,7 +6035,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-bautechnik-schreiner-in/b76236e3-f7e1-4d63-b15f-8532e15393cd",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.261Z",
+      "crawledAt": "2026-08-11T10:35:04.429Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6063,7 +6063,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:45:57.172Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6075,7 +6074,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2ea997803c7d",
@@ -6108,7 +6108,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/medizincodiererin-medizincodierer/8a2c6b92-cb93-4614-922f-72f4293888af",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.261Z",
+      "crawledAt": "2026-08-11T10:35:04.429Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6136,7 +6136,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:45:57.171Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6148,7 +6147,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-cb61e43a1183",
@@ -6181,7 +6181,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/nachdiplomstudium-nds-anaesthesiepflege/765f5260-feb4-47b9-9216-4bf5100dc427",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.261Z",
+      "crawledAt": "2026-08-11T10:35:04.430Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6221,7 +6221,6 @@
         "studi-post-laurea-nds-anaesthesia-cura-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6233,7 +6232,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-069ccf30a656",
@@ -6266,7 +6266,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik/c3b5123e-482c-42b9-8935-3013da262a8e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.260Z",
+      "crawledAt": "2026-08-11T10:35:04.425Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6344,7 +6344,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-elektrotechnik/7a0e8964-d0d3-4f31-b1df-134b0cd9eed6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.260Z",
+      "crawledAt": "2026-08-11T10:35:04.426Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6372,7 +6372,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:30:35.682Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6384,7 +6383,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-70ec46e46c03",
@@ -6417,7 +6417,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-medizin-betriebstechnik/54cb4c80-1346-4f3c-bdc5-d33e05c61fe8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.260Z",
+      "crawledAt": "2026-08-11T10:35:04.427Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6445,7 +6445,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:30:35.685Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6457,7 +6456,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-84fee6c62926",
@@ -6490,7 +6490,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage-orthopaedie-traumatologie-plastische-und-handchirurgie/3d26bb77-5776-48d8-a3b0-3e966f1f05a1",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.260Z",
+      "crawledAt": "2026-08-11T10:35:04.428Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6574,7 +6574,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/leitende-hebamme/a49f6ef0-df21-4d28-a120-18100a129242",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.259Z",
+      "crawledAt": "2026-08-11T10:35:04.421Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6629,7 +6629,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:31:43.832Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6641,7 +6640,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-4b27f6a9d3ec",
@@ -6674,7 +6674,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-mpa-hno/edf679a1-f9e6-4e58-b649-da9963dd6e5e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.259Z",
+      "crawledAt": "2026-08-11T10:35:04.422Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6702,7 +6702,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:54:29.199Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6714,7 +6713,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-1f0c9e5004e0",
@@ -6747,7 +6747,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-thoraxchirurgie/1792ad03-d92a-418d-a053-cef2599612a4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.259Z",
+      "crawledAt": "2026-08-11T10:35:04.424Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6775,7 +6775,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:20:41.056Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6787,7 +6786,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-72456ce1c92d",
@@ -6820,7 +6820,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/projektleiterin-projektleiter/144b5b1c-6e43-41f5-a643-75d1eb7a5959",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.258Z",
+      "crawledAt": "2026-08-11T10:35:04.416Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6848,7 +6848,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:52.442Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6860,7 +6859,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3775f916588b",
@@ -6893,7 +6893,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachperson-fuer-kardiale-sonographie-cardiac-sonographer/e31d0253-ee0c-4920-8db7-0672dc05f711",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.258Z",
+      "crawledAt": "2026-08-11T10:35:04.417Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6929,7 +6929,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:11:12.857Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6941,7 +6940,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-e989f012fafc",
@@ -6974,7 +6974,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-diagnostik-support-team/a5f5056a-d37d-4552-b541-d5be58fede48",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.258Z",
+      "crawledAt": "2026-08-11T10:35:04.420Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7008,7 +7008,6 @@
         "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-06-09T12:27:47.540Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7020,7 +7019,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-848e773d6b41",
@@ -7053,7 +7053,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikantin-praktikant-wms-personaladministration/2b69696e-8b0f-45e2-9545-70523a7a496a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.257Z",
+      "crawledAt": "2026-08-11T10:35:04.410Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7081,7 +7081,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.605Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7093,7 +7092,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-ddecbfb2a44c",
@@ -7126,7 +7126,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistiker-in-efz-fachrichtung-lagertechnik-stationslogistik-lehrstelle/b70b1466-a4cb-410f-9b25-f1b508769af4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.257Z",
+      "crawledAt": "2026-08-11T10:35:04.414Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7154,7 +7154,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.609Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7166,7 +7165,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-405c30deca94",
@@ -7199,7 +7199,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium/9d52ba82-001d-4821-ad85-f5066954beef",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.257Z",
+      "crawledAt": "2026-08-11T10:35:04.414Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7279,7 +7279,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/chefapothekerin-chefapotheker/6c6dfcf9-d207-4b3c-a59b-b51570d99e9b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.257Z",
+      "crawledAt": "2026-08-11T10:35:04.415Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7307,7 +7307,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.617Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -7319,7 +7318,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-6c6b795e1e64",
@@ -7352,7 +7352,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistikerin-logistiker-efz-fachrichtung-lagertechnik-lagerlogistik-lehrstelle/fc3c3bd4-ee7a-4e46-bf58-3088c40b4d0b",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.256Z",
+      "crawledAt": "2026-08-11T10:35:04.405Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7380,7 +7380,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.596Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7392,7 +7391,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-c14374cd5020",
@@ -7425,7 +7425,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/informatikerin-informatiker-plattformentwicklung-lehrstelle/c2a66cf7-d86c-488e-9018-e5b08e262b4c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.256Z",
+      "crawledAt": "2026-08-11T10:35:04.406Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7459,7 +7459,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.601Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7471,7 +7470,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-6b8fc4920c14",
@@ -7504,7 +7504,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kauffrau-kaufmann-eba-lehrstelle/78c18ef0-d168-443a-b90d-1d9bb100db05",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.256Z",
+      "crawledAt": "2026-08-11T10:35:04.409Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7532,7 +7532,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.613Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7544,7 +7543,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-e590edde8590",
@@ -7577,7 +7577,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/ict-fachfrau-fachmann-efz-lehrstelle/1d9507a5-6073-40f8-bf90-8b65e3ef9fa3",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.256Z",
+      "crawledAt": "2026-08-11T10:35:04.409Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7611,7 +7611,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.605Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7623,7 +7622,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-c7b6d2184918",
@@ -7656,7 +7656,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kuechenangestellte-r-eba-lehrstelle/46aa005a-e1ef-474d-8476-537a573ad8a7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.255Z",
+      "crawledAt": "2026-08-11T10:35:04.398Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7684,7 +7684,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.603Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7696,7 +7695,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-aa560d55ccd6",
@@ -7729,7 +7729,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-lehrstelle/b633f53f-f641-4963-a615-3f90c4ac9fe5",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.255Z",
+      "crawledAt": "2026-08-11T10:35:04.403Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7763,7 +7763,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.604Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7775,7 +7774,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-cfc53eaefa75",
@@ -7808,7 +7808,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/systemgastronomiepraktiker-in-eba-lehrstelle/88b30723-509c-43b6-a8e1-ada1d0dbb5e7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.255Z",
+      "crawledAt": "2026-08-11T10:35:04.404Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7836,7 +7836,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.590Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7848,7 +7847,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-0b5fb572f853",
@@ -7881,7 +7881,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikantin-praktikant-wms-lohnadministration/69110b01-5506-445c-9161-38bee5c100ee",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.255Z",
+      "crawledAt": "2026-08-11T10:35:04.404Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7909,7 +7909,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.592Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -7921,7 +7920,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-5118a6f930d7",
@@ -7954,7 +7954,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikantin-praktikant-wms-servicecenter-med-dokumentation/ee05bfbc-e234-405a-add2-61b5874df6d3",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.254Z",
+      "crawledAt": "2026-08-11T10:35:04.396Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7988,7 +7988,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.602Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8000,7 +7999,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3ab70da3f0f3",
@@ -8033,7 +8033,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistikerin-logistiker-efz-intralogistik-lehrstelle/4c764117-a712-420a-b97e-e66f74a23dba",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.254Z",
+      "crawledAt": "2026-08-11T10:35:04.396Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8061,7 +8061,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.609Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8073,7 +8072,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-9ef03cfcf3ce",
@@ -8106,7 +8106,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/informatikerin-informatiker-efz-fachrichtung-applikationsentwicklung-lehrstelle/2a0c3961-24bf-4c48-9b7a-29a829330d63",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.254Z",
+      "crawledAt": "2026-08-11T10:35:04.397Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8134,7 +8134,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.603Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8146,7 +8145,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-d11237c812c6",
@@ -8179,7 +8179,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/oberaerztin-oberarzt-brustklinik/e0e9dce4-0330-4e5a-adc6-dbdcd7b33106",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.253Z",
+      "crawledAt": "2026-08-11T10:35:04.391Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8294,7 +8294,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/systemgastronomie-fachmann-fachfrau-efz-lehrstelle/a3e564a0-6f9d-4c62-84a8-c3d4ec46a3b3",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.253Z",
+      "crawledAt": "2026-08-11T10:35:04.394Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8324,7 +8324,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.594Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8336,7 +8335,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-fd0008745a7d",
@@ -8369,7 +8369,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/koechin-koch-efz-lehrstelle/c307e50c-07e8-459b-8345-d8897f59cf56",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.253Z",
+      "crawledAt": "2026-08-11T10:35:04.395Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8403,7 +8403,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.595Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8415,7 +8414,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-b0ff6e1d44bd",
@@ -8448,7 +8448,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/praktikantin-praktikant-wms-time-management/6131d484-94d2-47d7-a1b6-27bfa36d398e",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.253Z",
+      "crawledAt": "2026-08-11T10:35:04.396Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8526,7 +8526,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin/2fac60ba-9a26-45e8-9784-ddb2a3bd862d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.252Z",
+      "crawledAt": "2026-08-11T10:35:04.390Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8566,7 +8566,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:42:09.297Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8578,7 +8577,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-a5e5eba85f4b",
@@ -8611,7 +8611,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/mitarbeiter-in-hotellerie-service/23dcfdb1-7e3f-424d-bbd1-a1a8e11a73fa",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.250Z",
+      "crawledAt": "2026-08-11T10:35:04.383Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8639,7 +8639,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:50.187Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8651,7 +8650,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-f660d3774f57",
@@ -8684,7 +8684,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/diabetesfachberatung-med-pol/0bfe46c9-40b4-44be-a9f3-5185be569666",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.250Z",
+      "crawledAt": "2026-08-11T10:35:04.385Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8756,7 +8756,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-efz-lehrstelle/5ae100a9-82d4-440b-b5e9-da936eb7c9c5",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.249Z",
+      "crawledAt": "2026-08-11T10:35:04.381Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8788,7 +8788,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:14:21.099Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -8800,7 +8799,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-3d7fae1f96c7",
@@ -8833,7 +8833,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-intensivstation/74a0dcee-7bdc-40d0-86df-a798ff035359",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.249Z",
+      "crawledAt": "2026-08-11T10:35:04.383Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8868,7 +8868,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8880,7 +8879,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-89b5ee6186dd",
@@ -8913,7 +8913,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistentin-praxisassistent-mpa-anaesthesiologie/605b3b17-8434-4f2e-9c3f-61f1e466f988",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.249Z",
+      "crawledAt": "2026-08-11T10:35:04.382Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8951,7 +8951,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:29:19.371Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8963,7 +8962,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-51f067e8f34b",
@@ -8996,7 +8996,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/study-nurse-coordinator/81ac2962-2ba5-4080-8e1e-bf6186e627ad",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.248Z",
+      "crawledAt": "2026-08-11T10:35:04.380Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9042,7 +9042,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.617Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -9054,7 +9053,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-d6760d0894e4",
@@ -9087,7 +9087,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/klinikleiter-in-pflege-herzzentrum/8dedd90d-eb92-4553-93cc-ceea263c653a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.248Z",
+      "crawledAt": "2026-08-11T10:35:04.378Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9173,7 +9173,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopaedie-traumatologie/91d3fadf-7f0c-4218-841d-97c75b44f633",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.247Z",
+      "crawledAt": "2026-08-11T10:35:04.375Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9205,7 +9205,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-11T10:19:17.247Z"
+      "firstSeenAt": "2026-08-11T10:35:04.375Z"
     },
     {
       "id": "unispital-basel-4d6ba812a724",
@@ -9238,7 +9238,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistent-in-gesundheit-und-soziales-pflegeassistent-in-medizin-6-2/95c3fea4-66f5-44d4-9fd2-7e8761339147",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.247Z",
+      "crawledAt": "2026-08-11T10:35:04.377Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9266,7 +9266,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:46:22.491Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -9278,7 +9277,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-56e4c7bcef5e",
@@ -9311,7 +9311,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/case-managerin-case-manager/a900a6e9-90fd-4da8-84e8-069b1f47f463",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:19:17.246Z",
+      "crawledAt": "2026-08-11T10:35:04.374Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9339,7 +9339,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:54:51.136Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -9351,7 +9350,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-8caa36dbe71f",
@@ -9384,7 +9384,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/md-phd-position-interface-of-clinical-and-experimental-neurology/f806f067-b0cb-4a98-9dd7-bcccea4228e3",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:19:17.245Z",
+      "crawledAt": "2026-08-11T10:35:04.369Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9418,7 +9418,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.631Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -9430,7 +9429,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
