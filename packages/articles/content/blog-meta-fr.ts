@@ -9740,6 +9740,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-aosta-lavorare-vallese.title': 'Vivre à Aoste et travailler en Valais comme frontalier',
     'blog.article.vivere-aosta-lavorare-vallese.excerpt': 'Guide pratique pour les déplacements entre Aoste et le Valais : liaisons, impôt à la source, gestion du change et règles pour les nouveaux et anciens frontaliers.',
     'blog.article.vivere-aosta-lavorare-vallese.imageAlt': 'Panorama alpin entre l\'Italie et la Suisse pour travailleurs frontaliers',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.title': 'Troisième pilier pour les frontaliers : déductions, rendements et cas pratiques',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.excerpt': 'Comment fonctionne la pension complémentaire en Suisse pour les frontaliers ? Déductions fiscales, rendements et choix pratiques pour le troisième pilier.',
+    'blog.article.frontaliere-pensione-complementare-terzo-pilastro.imageAlt': 'Documents du troisième pilier suisse avec permis G et passeport italien sur un bureau tessinois',
 };
 
 export default blogMetaFr;

@@ -29208,6 +29208,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-pensione-complementare-terzo-pilastro',
+ category: 'pensione',
+ date: '2026-08-11T19:18:12.844Z',
+ image: '/images/blog/frontaliere-pensione-complementare-terzo-pilastro.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
