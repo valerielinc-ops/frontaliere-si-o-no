@@ -478,6 +478,137 @@ export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   return ageDays >= ageOutDays && idleDays >= inactiveDays;
 }
 
+// --- INATTIVITÀ SIGNIFICATIVA vs `updatedAt` (starvation del PARKED-RETRY) ---
+// `updatedAt` di GitHub si alza a OGNI commento, compresi quelli dei bot. I
+// monitor che hanno APERTO queste issue le ri-commentano ogni 2-3 ore («🔁
+// Recurrence on workflow run»), quindi le issue più sorvegliate non raggiungono
+// MAI la quiete richiesta dal cooldown del PARKED-RETRY e restano escluse dalla
+// riparazione per sempre. Il rinfresco automatico è esattamente ciò che le
+// esclude dal venire riparate.
+//
+// Misurato il 2026-08-11 sulle 35 issue aperte del sito: 19 candidate
+// `fu-parked` superano tutti gli altri filtri, **zero** superano il cooldown —
+// nessuna arriva a 5 giorni di `updatedAt` fermo (il massimo osservato è 2,67g,
+// il minimo 0,02g). Le vittime sono le `fu-prio:high` di SEO, cioè le più
+// preziose: #5321 (24 commenti/14gg, gap max 0,86g), #5429 (14, 0,35g), #5323
+// (11, 1,00g), #5341 (9, 0,54g).
+//
+// L'ironia che rende lo stato STABILE invece che transitorio: lo stesso
+// `updatedAt` che le affama le protegge anche dall'age-out close, che legge lo
+// stesso identico campo (`AGEOUT_INACTIVE_DAYS`, vedi `isAgeOutEligible` sopra)
+// → limbo permanente, mai ritentate e mai chiuse.
+//
+// La fix cambia QUALE tempo si misura, non quanto se ne aspetta:
+// `RETRY_COOLDOWN_DAYS`, `MAX_REPARK_GEN` e `RETRY_MAX_PER_RUN` restano
+// invariati (abbassati apposta il 2026-06-30 per frugalità di quota; il cap
+// 1/run resta l'unica protezione che conta sul volume).
+
+// Riconoscere un bot NON è una lista da mantenere a mano — e questo repo lo
+// dimostra da solo. Le due forme in cui GitHub espone lo stesso attore:
+//   • REST   `/issues/N/comments` → `user.login: "github-actions[bot]"`,
+//                                   `user.type: "Bot"`   ← flag AUTORITATIVO
+//   • GraphQL (`gh issue view --json comments`) → `author.login:
+//                                   "github-actions"`, nessun flag, NESSUN suffisso
+// Verificato il 2026-08-11 sulle 19 candidate del pool: 145 commenti di bot su
+// 185, da TRE bot distinti — `github-actions[bot]` (118), `claude[bot]` (24) e
+// `frontaliere-automation[bot]` (3). Il terzo è la prova del perché la sola
+// allowlist non basta: è comparso senza che nessuno lo aggiungesse a niente, e
+// in GraphQL si chiama `frontaliere-automation`, senza suffisso — una regola
+// basata solo sul suffisso lo mancherebbe, una basata solo sull'allowlist pure.
+// Un bot non riconosciuto rimette la sua issue in starvation IN SILENZIO: è
+// esattamente il difetto che questa fix chiude, e non deve poter tornare per il
+// solo fatto che è nato un nuovo workflow.
+//
+// Perciò il cooldown legge i commenti dalla REST (`issueCommentsRest`), dove il
+// flag `user.type` arriva da GitHub e si mantiene da solo. `isBotLogin` resta
+// come fallback per la forma GraphQL, che il resto di questo file usa già.
+export const BOT_COMMENT_LOGINS = new Set(['github-actions', 'claude', 'frontaliere-automation']);
+
+/**
+ * Fallback per la forma GraphQL, dove non esiste alcun flag: suffisso `[bot]`
+ * (regola generale) oppure allowlist dei bot osservati su questo repo (i login
+ * GraphQL sono nudi, quindi il suffisso da solo non li vedrebbe). Login
+ * assente/illeggibile → `false`: non si ignora mai una voce potenzialmente
+ * umana per un campo mancante. Pura → testabile.
+ * @param {string|undefined} login
+ */
+export function isBotLogin(login) {
+  const l = String(login || '').trim().toLowerCase();
+  if (!l) return false;
+  if (l.endsWith('[bot]')) return true;
+  return BOT_COMMENT_LOGINS.has(l);
+}
+
+/**
+ * Vero se il commento è stato scritto da un bot. Accetta entrambe le forme:
+ * REST (`user.type === 'Bot'`, autoritativo → nessuna manutenzione) e GraphQL
+ * (`author.login`, via `isBotLogin`). Pura → testabile.
+ * @param {{user?: {login?: string, type?: string}, author?: {login?: string}}} comment
+ */
+export function isBotComment(comment) {
+  if (String(comment?.user?.type || '') === 'Bot') return true;
+  return isBotLogin(comment?.user?.login ?? comment?.author?.login);
+}
+
+/**
+ * Timestamp (epoch ms) dell'ultimo evento SIGNIFICATIVO della issue — cioè un
+ * evento che dice qualcosa sul suo STATO, invece di limitarsi a rinfrescarla:
+ *
+ *  - un commento di un autore NON-bot (qualcuno ha davvero detto qualcosa);
+ *  - un commento che porta un marker `FIX_OUTCOME`, anche se di un bot: è il
+ *    verdetto con cui il fixer chiude una run, quindi la migliore
+ *    approssimazione DISPONIBILE del momento del park — che è una pura mutazione
+ *    di label e non ha alcun timestamp nel JSON delle issue — e non costa
+ *    nessuna chiamata in più, perché i commenti sono già quelli letti qui.
+ *    Non ricorre: una issue parkata non viene promossa, quindi non produce nuovi
+ *    verdetti. È questo termine a impedire che «ignora i bot» degeneri in
+ *    «ri-accoda subito un park di un'ora fa»;
+ *  - in mancanza di entrambi, la CREAZIONE della issue.
+ *
+ * Fuori resta il rumore che causa la starvation: ping ricorrenti dei monitor,
+ * digest, commenti di aggiornamento automatico.
+ *
+ * INVARIANTE: il valore è sempre ≤ `updatedAt`, perché ognuno di questi eventi
+ * bumpa `updatedAt`. Quindi il pool calcolato con questa funzione è un
+ * SOVRAINSIEME di quello calcolato con `updatedAt`: la fix non può escludere
+ * nulla che oggi entri. Pura (niente gh) → testabile.
+ *
+ * Accetta entrambe le forme di commento: REST (`created_at`, `user`) e GraphQL
+ * (`createdAt`, `author`).
+ *
+ * @param {{createdAt?: string, created_at?: string}} iss
+ * @param {Array<{body?: string, createdAt?: string, created_at?: string, author?: {login?: string}, user?: {login?: string, type?: string}}>} comments
+ * @returns {number|null} epoch ms, o null se nessuna data è leggibile
+ */
+export function lastSignificantActivityAt(iss, comments) {
+  const created = Date.parse(iss?.createdAt ?? iss?.created_at);
+  let at = Number.isNaN(created) ? -Infinity : created;
+  for (const c of comments || []) {
+    const t = Date.parse(c?.createdAt ?? c?.created_at);
+    if (Number.isNaN(t) || t <= at) continue;
+    if (!isBotComment(c) || FIX_OUTCOME_RE.test(String(c?.body || ''))) at = t;
+  }
+  return at === -Infinity ? null : at;
+}
+
+/**
+ * La issue parkata ha superato il cooldown di ri-accodo? Misura l'inattività
+ * dall'ultimo evento significativo (vedi sopra), non da `updatedAt`. Date
+ * tutte illeggibili → `false` (non ri-accodare al buio). Pura → testabile.
+ *
+ * L'interruttore on/off resta del chiamante (`RETRY_COOLDOWN_DAYS > 0` disabilita
+ * l'intero pass): qui `cooldownDays = 0` significa letteralmente «nessuna attesa».
+ *
+ * @param {{createdAt?: string}} iss
+ * @param {Array<{body?: string, createdAt?: string, author?: {login?: string}}>} comments
+ * @param {{now: number, cooldownDays: number}} opts
+ */
+export function isRetryCooldownElapsed(iss, comments, { now, cooldownDays }) {
+  const at = lastSignificantActivityAt(iss, comments);
+  if (at === null) return false;
+  return (now - at) / 86_400_000 >= cooldownDays;
+}
+
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return json ? JSON.parse(out) : out;
@@ -543,7 +674,11 @@ const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 // i parked con il fixer migliorato, BOUNDED (no loop infinito):
 //   - skip WF-scope (capability-guard: il fixer CI non può toccare workflows →
 //     re-fail garantito; restano umani/age-out);
-//   - cooldown: solo parked fermi da ≥ RETRY_COOLDOWN_DAYS (non i freschi);
+//   - cooldown: solo parked fermi da ≥ RETRY_COOLDOWN_DAYS. «Fermi» si misura
+//     sull'ultimo evento SIGNIFICATIVO (`lastSignificantActivityAt`), non su
+//     `updatedAt`: i commenti dei bot rinfrescano `updatedAt` senza dire nulla
+//     sullo stato, e le issue sorvegliate da un monitor non arrivavano mai a
+//     5 giorni di quiete — restavano escluse dalla riparazione per sempre;
 //   - generation-cap: `fu-reparked:N` ≤ MAX_REPARK_GEN (poi resta parked stabile);
 //   - cap/run anti-burst.
 // Token-frugality (2026-06-30): default abbassati per strozzare il ri-burn di
@@ -554,6 +689,20 @@ const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 5);
 const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 1);
 const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 1);
+// Il cooldown si misura sull'ultimo evento SIGNIFICATIVO, non su `updatedAt`
+// (vedi `lastSignificantActivityAt`), e leggerlo costa una `gh issue view --json
+// comments` per candidata. Due limiti tengono il costo bounded e indipendente
+// dalla lunghezza del backlog:
+//  • si legge SOLO chi `updatedAt` da solo escluderebbe. Chi è già quieto entra
+//    nel pool con zero chiamate in più, esattamente come prima di questa fix
+//    (l'invariante «significativo ≤ updatedAt» rende il salto sicuro);
+//  • cap per run, sullo stesso modello di `QUOTA_SCAN_MAX`. 25 copre con margine
+//    le 19 candidate misurate il 2026-08-11; l'eccedenza è dichiarata nel log e
+//    rivalutata al tick successivo (AGENTS.md "no silent cap").
+const RETRY_COMMENT_SCAN_MAX = Number(process.env.FOLLOWUP_RETRY_COMMENT_SCAN_MAX || 25);
+// Costo di una singola lettura commenti per il budget di run: una `gh issue
+// view`, molto meno della coppia comment+edit di `ITEM_COST_MS`.
+const COMMENT_SCAN_COST_MS = Number(process.env.FOLLOWUP_COMMENT_SCAN_COST_MS || 3_000);
 const reparkGenOf = (iss) => {
   const m = names(iss).map((n) => /^fu-reparked:(\d+)$/.exec(n)).find(Boolean);
   return m ? parseInt(m[1], 10) : 0;
@@ -750,25 +899,45 @@ export function crawlerFixDecision({
     : { action: 'requeue', nextAttempt, reason: `${reason}, tentativo ${nextAttempt}/${maxAttempts}` };
 }
 
-/** Ultimo verdetto FIX_OUTCOME sulla issue, o null. Best-effort: null su errore
- * gh/parse → fail-open al rescue normale (mai park per un glitch API). */
-function latestFixOutcome(num) {
+/** Commenti della issue in forma GraphQL (`body`/`createdAt`/`author.login`), o
+ * `null` su errore gh. Il null è informativo e va distinto da `[]`: «non ho
+ * potuto leggerli» non è «non ce ne sono». I chiamanti che non hanno bisogno
+ * della distinzione fanno `|| []`. */
+function issueComments(num) {
   try {
     const data = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'comments']);
-    return latestFixOutcomeFromComments(Array.isArray(data?.comments) ? data.comments : []);
+    return Array.isArray(data?.comments) ? data.comments : [];
   } catch {
     return null;
   }
 }
 
-/** Beacon di quota sulla issue (epoch di reset), o null. Best-effort. */
-function quotaResetsAt(num) {
+/** Commenti della issue in forma REST, o `null` su errore gh. Serve SOLO al
+ * cooldown del PARKED-RETRY, ed è l'unica sorgente che porta `user.type` — il
+ * flag di bot autoritativo, che non richiede alcuna allowlist da mantenere
+ * (vedi `isBotComment`). `--paginate` è obbligatorio: la REST restituisce i
+ * commenti in ordine CRESCENTE, quindi senza paginare una issue con >100
+ * commenti darebbe i più VECCHI e l'ultimo evento significativo risulterebbe
+ * più antico del vero — cioè un ri-accodo troppo eager, l'errore nel verso
+ * sbagliato. `per_page=100` tiene le pagine (e quindi le chiamate) al minimo. */
+function issueCommentsRest(num) {
   try {
-    const data = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'comments']);
-    return maxQuotaResetsAt(Array.isArray(data?.comments) ? data.comments : []);
+    const out = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate']);
+    return Array.isArray(out) ? out : [];
   } catch {
     return null;
   }
+}
+
+/** Ultimo verdetto FIX_OUTCOME sulla issue, o null. Best-effort: null su errore
+ * gh/parse → fail-open al rescue normale (mai park per un glitch API). */
+function latestFixOutcome(num) {
+  return latestFixOutcomeFromComments(issueComments(num) || []);
+}
+
+/** Beacon di quota sulla issue (epoch di reset), o null. Best-effort. */
+function quotaResetsAt(num) {
+  return maxQuotaResetsAt(issueComments(num) || []);
 }
 
 /**
@@ -872,13 +1041,52 @@ function runDrain() {
   // Ortogonale allo slot (sposta solo fu-parked→queued; il drain promuove dopo).
   if (RETRY_COOLDOWN_DAYS > 0) {
     const now = Date.now();
-    const reparkable = listIssues(LBL_PARKED)
+    const cooldownMin = RETRY_COOLDOWN_DAYS * 1440;
+    const pool = listIssues(LBL_PARKED)
       .filter((iss) => isQueueManaged(iss))
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED)) // non già in lavoro/coda
       .filter((iss) => !has(iss, 'needs-human'))                    // già escalato (too-large) → fuori dal retry
-      .filter((iss) => reparkGenOf(iss) < MAX_REPARK_GEN)            // generation-cap
-      .filter((iss) => minutesSince(iss.updatedAt) >= RETRY_COOLDOWN_DAYS * 1440) // cooldown
-      .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.updatedAt) - Date.parse(b.updatedAt));
+      .filter((iss) => reparkGenOf(iss) < MAX_REPARK_GEN);           // generation-cap
+    // Cooldown (vedi `lastSignificantActivityAt`): lo scarto è fra chi è quieto
+    // DAVVERO e chi lo sembra soltanto perché nessun bot lo sta ri-commentando.
+    // `updatedAt` è un limite superiore dell'ultimo evento significativo, quindi
+    // chi lo supera è eleggibile per costruzione e non serve leggerne i commenti.
+    let commentScans = 0;
+    let scanCapped = 0;
+    let unreadable = 0;
+    const eligible = [];
+    for (const iss of pool) {
+      if (minutesSince(iss.updatedAt) >= cooldownMin) {
+        // Quieto anche sul campo grezzo → eleggibile senza chiamate extra. La
+        // chiave d'ordine è `updatedAt`, che sovrastima la staleness reale: chi
+        // passa da questo ramo non può quindi scavalcare in coda chi è entrato
+        // con un evento significativo davvero più vecchio.
+        eligible.push({ iss, at: Date.parse(iss.updatedAt) });
+        continue;
+      }
+      if (commentScans >= RETRY_COMMENT_SCAN_MAX) { scanCapped++; continue; }
+      if (!budget.take(`#${iss.number} (cooldown-scan)`, COMMENT_SCAN_COST_MS)) break;
+      commentScans++;
+      const comments = issueCommentsRest(iss.number);
+      if (comments === null) { unreadable++; continue; } // glitch gh → si rivaluta al prossimo tick
+      if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: RETRY_COOLDOWN_DAYS })) continue;
+      eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
+    }
+    if (commentScans) {
+      // Osservabilità della fix: senza questa riga l'effetto è invisibile nei
+      // log, e «quante ne sblocca davvero» tornerebbe una domanda da misurare a
+      // mano fuori dal loop.
+      console.log(`parked-retry: ${commentScans}/${pool.length} candidate escluse da \`updatedAt\` e rivalutate sull'ultimo evento significativo → ${eligible.length} nel pool.`);
+    }
+    if (scanCapped) {
+      console.log(`parked-retry: cap di scansione commenti ${RETRY_COMMENT_SCAN_MAX}/run raggiunto, ${scanCapped} candidate non valutate in questo tick (no silent cap).`);
+    }
+    if (unreadable) {
+      console.log(`parked-retry: ${unreadable} candidate con commenti illeggibili (glitch gh) → nessuna decisione presa, rivalutate al prossimo tick.`);
+    }
+    const reparkable = eligible
+      .sort((a, b) => prioRank(a.iss) - prioRank(b.iss) || a.at - b.at) // high prima, poi i più stantii
+      .map((e) => e.iss);
     let retried = 0;
     let skippedWf = 0;
     for (const iss of reparkable) {
