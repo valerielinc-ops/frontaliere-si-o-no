@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonarsource",
-  "assembledAt": "2026-08-10T22:07:31.193Z",
+  "assembledAt": "2026-08-11T10:34:39.890Z",
   "jobs": [
     {
       "id": "sonarsource-ac3e5b1dc0bc",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/sonarsource/1f5fb7b2-30b9-402d-9820-ef81993e2924",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:27.546Z",
+      "crawledAt": "2026-08-11T10:34:37.243Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -49,18 +49,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vp-domain-leader-sonarsource-ch"
+        "vp-domain-leader-sonarsource-ch",
+        "leader-del-dominio-vp-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-domain-leader-sonarsource-ch"
+          "vp-domain-leader-sonarsource-ch",
+          "leader-del-dominio-vp-sonarsource-sonar-geneva"
         ],
         "fr": [
           "vp-domain-leader-sonarsource-ch"
         ]
       },
-      "firstSeenAt": "2026-07-03T23:17:45.827Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:17:45.827Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -106,7 +108,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:27.244Z",
+      "crawledAt": "2026-08-11T10:34:36.941Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -126,7 +128,8 @@
         "responsabile-del-prodotto-tecnico-qualita-del-codice-f-m-d-sonarsource-sonar-geneva",
         "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
         "technical-product-manager-code-qualitat-f-m-d-sonarsource-sonar-geneva",
-        "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva"
+        "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva",
+        "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -134,7 +137,8 @@
           "responsabile-del-prodotto-tecnico-qualita-del-codice-f-m-d-sonarsource-sonar-geneva",
           "technical-product-manager-code-quality-f-m-d-sonarsource-ch",
           "technical-product-manager-code-qualitat-f-m-d-sonarsource-sonar-geneva",
-          "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva"
+          "technical-product-manager-code-qualite-f-m-d-sonarsource-sonar-geneva",
+          "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva"
         ],
         "en": [
           "technical-product-manager-code-quality-f-m-d-sonarsource-ch"
@@ -149,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:45.224Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -194,7 +199,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:26.942Z",
+      "crawledAt": "2026-08-11T10:34:36.639Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,8 +214,8 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:44.922Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:17:44.922Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -229,34 +234,34 @@
       "id": "sonarsource-ee043eb91b1d",
       "slug": "support-ingegnere-sonarsource-sonar-geneva",
       "slugByLocale": {
-        "en": "support-engineer-sonarsource-ch",
         "it": "support-ingegnere-sonarsource-sonar-geneva",
+        "en": "support-engineer-sonarsource-ch",
         "de": "support-ingenieur-sonarsource-sonar-geneva",
-        "fr": "support-engineer-sonarsource-ch"
+        "fr": "support-ingenieur-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
       "companyDomain": "sonarsource.com",
       "title": "Support Engineer",
       "titleByLocale": {
-        "en": "Support Engineer",
         "it": "Support Ingegnere",
+        "en": "Support Engineer",
         "de": "Support Ingenieur",
         "fr": "Support Ingénieur"
       },
       "description": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code verification and governance, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n• SonarQube: The world’s leading AI code review and verification platform.\n\n• SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n• SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n• Committed to our customers and community.\n\n• Obsessed with quality.\n\n• Deliberate in our decisions.\n\n• Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n\nTo sustain the growth of our customer portfolio and to extend our services offering, we are looking for a Support Engineer. On top of joining a fast-growing and innovative company, you will have the opportunity to assist our customers around the world in deploying/using our solutions and adopting software engineering best practices as a whole.\n\nAs a Support Engineer, you will contribute to Sonar products adoption and integration. You will provide an individualized level of service to our customers. You will guide them in finding the right implementation and advocate the best way to use our products. You will also investigate and solve customer issues in a timely manner. In Sonar, you will represent the customer voice in product discussions.\n\nWhat you will do\n\n•\n Help customers integrate our solutions across their development pipeline. It means helping with the technical integration with developer IDE, ALMs, and Continuous Integration chain; the integration to software lifecycle (SCM, build, test), and the integration to existing business applications (identity provider, database, etc.).\n\n•\n Drive technical issues to resolution: from the qualification of customer concerns to conducting an in-depth technical investigation and managing customer relationships all along the way.\n\n•\n Collaborate with Sales and Consultants to improve overall customer experience and make sure that our Service offering brings maximum value to our customers.\n\n•\n Work with the rest of the team to listen, challenge, and refine customers feedback to feed discussions with product teams and shape product evolutions.\n\n•\n Have a voice in enhancing the way we work.\n\nExperience and qualifications\n\n•\n Software engineering best practices, with at least 3-5 years of experience in supporting, or maintaining and delivering high-quality software.\n\n•\n 2+ years experience using or administrating a DevOps pipeline: SCM (e.g. Git, SVN), IDE (e.g. Visual Studio, IntelliJ), CI (e.g. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). More than acronyms, these are the tools that our customers use and that our products integrate with.\n\n•\n Demonstrated curiosity and practical experience using AI tools in development, troubleshooting or workflow optimization\n\n•\n ​​Working knowledge of both local and cloud-based software deployment platforms and technologies, including Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\n Investigation skills to understand problems in their context and the ability to reproduce these scenarios.\n\n•\n Team player, receiving and giving feedback as well as sharing knowledge.\n\n•\n Can-do attitude: challenging status quo, leading and contributing to key improvements and innovations.\n\n•\n Excellent English, verbal/written communication skills\n\nIn-office culture\n\nWe're intentional about this. We believe the best teams are built in the room together. Three anchor days — Mondays, Tuesdays, and Thursdays — create the collaboration rhythm that makes a hub office worth having.\n\nCandidates need to be genuinely based in the location the role is posted — if that's not where you are today, we're happy to support relocation for the right person.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
       "descriptionByLocale": {
-        "en": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code verification and governance, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n• SonarQube: The world’s leading AI code review and verification platform.\n\n• SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n• SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n• Committed to our customers and community.\n\n• Obsessed with quality.\n\n• Deliberate in our decisions.\n\n• Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n\nTo sustain the growth of our customer portfolio and to extend our services offering, we are looking for a Support Engineer. On top of joining a fast-growing and innovative company, you will have the opportunity to assist our customers around the world in deploying/using our solutions and adopting software engineering best practices as a whole.\n\nAs a Support Engineer, you will contribute to Sonar products adoption and integration. You will provide an individualized level of service to our customers. You will guide them in finding the right implementation and advocate the best way to use our products. You will also investigate and solve customer issues in a timely manner. In Sonar, you will represent the customer voice in product discussions.\n\nWhat you will do\n\n•\n Help customers integrate our solutions across their development pipeline. It means helping with the technical integration with developer IDE, ALMs, and Continuous Integration chain; the integration to software lifecycle (SCM, build, test), and the integration to existing business applications (identity provider, database, etc.).\n\n•\n Drive technical issues to resolution: from the qualification of customer concerns to conducting an in-depth technical investigation and managing customer relationships all along the way.\n\n•\n Collaborate with Sales and Consultants to improve overall customer experience and make sure that our Service offering brings maximum value to our customers.\n\n•\n Work with the rest of the team to listen, challenge, and refine customers feedback to feed discussions with product teams and shape product evolutions.\n\n•\n Have a voice in enhancing the way we work.\n\nExperience and qualifications\n\n•\n Software engineering best practices, with at least 3-5 years of experience in supporting, or maintaining and delivering high-quality software.\n\n•\n 2+ years experience using or administrating a DevOps pipeline: SCM (e.g. Git, SVN), IDE (e.g. Visual Studio, IntelliJ), CI (e.g. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). More than acronyms, these are the tools that our customers use and that our products integrate with.\n\n•\n Demonstrated curiosity and practical experience using AI tools in development, troubleshooting or workflow optimization\n\n•\n ​​Working knowledge of both local and cloud-based software deployment platforms and technologies, including Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\n Investigation skills to understand problems in their context and the ability to reproduce these scenarios.\n\n•\n Team player, receiving and giving feedback as well as sharing knowledge.\n\n•\n Can-do attitude: challenging status quo, leading and contributing to key improvements and innovations.\n\n•\n Excellent English, verbal/written communication skills\n\nIn-office culture\n\nWe're intentional about this. We believe the best teams are built in the room together. Three anchor days — Mondays, Tuesdays, and Thursdays — create the collaboration rhythm that makes a hub office worth having.\n\nCandidates need to be genuinely based in the location the role is posted — if that's not where you are today, we're happy to support relocation for the right person.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
-        "it": "Chi è Sonar?\n\nSonar sta guidando il futuro dello sviluppo software agente-centrico. Come leader nella verifica e nella governance del codice AI, risolviamo un problema critico: garantire che il software generato da sviluppatori assistiti da AI o agenti autonomi sia affidabile, sicuro e manutenbile.\n\nIntegrando senza soluzione di continuità con Claude Code, Codex, Cursor, GitHub Copilot, Gemini e Devin, aiutiamo oltre il 75% del software Fortune 100 costruire affidabile, affidabile, conforme. I clienti che utilizzano Sonar sono il 44% meno probabilità di segnalare un outage a causa del codice generato dall'IA.\n\nCrediamo che la verifica del codice sia il collegamento mancante fondamentale nel Ciclo di Sviluppo Agent-Centric (AC/DC). I giganti del settore come Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca e Ford Motor Company contano su di noi per fornire una revisione indipendente, spiegabile, coerente e la governance del loro codice generato dall'IA attraverso prodotti come:\n\n• SonarQube: la piattaforma leader mondiale per la revisione e la verifica del codice AI.\n\n• SonarQube Foundation Agent: Attualmente il lancio delle classifiche per la riparazione di software agentic.\n\n• SonarSweep & Sonar Context Augmentation: Fornire il contesto di livello enterprise e gli agenti vincoli devono essere veramente efficaci.\n\nIl nostro team opera in tutto il mondo a Austin, Bochum, Dubai, Ginevra, Londra, Singapore, Tokyo e Washington D.C. Ci muoviamo con una mentalità che chiamiamo CODE:\n\n• Impegnati ai nostri clienti e comunità.\n\n• Obsessed con qualità.\n\n• Deliberate nelle nostre decisioni.\n\n• Efficace come una squadra.\n\nCon oltre 400 milioni di dollari di ricavi e crescita redditizia e rapida, stiamo costruendo la spina dorsale della rivoluzione software AI. Se hai fame di avere un impatto, vuoi costruire ad un ritmo veloce, e pronto a lavorare in prima linea di AI, vogliamo sentire da te.\n\nDescrizione della posizione\n\nPer sostenere la crescita del nostro portafoglio clienti e per estendere la nostra offerta di servizi, stiamo cercando un Support Engineer. Oltre ad unire un'azienda in rapida crescita e innovativa, avrai l'opportunità di aiutare i nostri clienti in tutto il mondo a implementare/utilizzare le nostre soluzioni e ad adottare le migliori pratiche di ingegneria del software nel suo insieme.\n\nCome Ingegnere di Supporto, contribuirai all'adozione e all'integrazione dei prodotti Sonar. Fornirete un livello di servizio individualizzato ai nostri clienti. Li guiderai nel trovare la giusta implementazione e sostenere il modo migliore per utilizzare i nostri prodotti. Potrai anche indagare e risolvere i problemi dei clienti in modo tempestivo. In Sonar, rappresenterai la voce del cliente nelle discussioni sui prodotti.\n\nCosa farai\n\n•\n Aiuta i clienti a integrare le nostre soluzioni attraverso il loro pipeline di sviluppo. Significa aiutare con l'integrazione tecnica con lo sviluppatore IDE, ALMs e la catena di integrazione continua; l'integrazione al ciclo di vita del software (SCM, build, test), e l'integrazione alle applicazioni aziendali esistenti (identity provider, database, ecc.).\n\n•\n Guidare le questioni tecniche alla risoluzione: dalla qualificazione delle preoccupazioni del cliente a condurre un'indagine tecnica approfondita e gestire le relazioni dei clienti lungo il percorso.\n\n•\n Collabora con Vendite e Consulenti per migliorare l'esperienza globale del cliente e assicurarsi che la nostra offerta di servizi porti il massimo valore ai nostri clienti.\n\n•\n Lavora con il resto del team per ascoltare, sfidare e affinare il feedback dei clienti per alimentare le discussioni con i team di prodotto e modellare le evoluzioni dei prodotti.\n\n•\n Abbia voce nel migliorare il nostro lavoro.\n\nEsperienza e qualifiche\n\n•\n Le migliori pratiche di ingegneria del software, con almeno 3-5 anni di esperienza nel supporto, nel mantenimento e nella fornitura di software di alta qualità.\n\n•\n 2+ anni di esperienza utilizzando o sostenendo una pipeline DevOps: SCM (ad esempio Git, SVN), IDE (ad esempio Visual Studio, IntelliJ), CI (ad esempio Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). Più che acronimi, questi sono gli strumenti che i nostri clienti utilizzano e che i nostri prodotti si integrano con.\n\n•\n Curiosità dimostrata e esperienza pratica utilizzando strumenti AI in sviluppo, risoluzione dei problemi o ottimizzazione del flusso di lavoro\n\n•\n Conoscenza di funzionamento di piattaforme e tecnologie di distribuzione software locali e cloud, tra cui Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\n Capacità di indagine per comprendere i problemi nel loro contesto e la capacità di riprodurre questi scenari.\n\n•\n Giocatore di squadra, ricevere e dare feedback e condividere le conoscenze.\n\n•\n Atteggiamento Can-do: sfidare lo status quo, leader e contribuire a miglioramenti chiave e innovazioni.\n\n•\n Eccellente inglese, capacità di comunicazione verbale/scritta\n\nCultura in ufficio\n\nSiamo intenzionali. Crediamo che le migliori squadre siano costruite nella stanza insieme. Tre giorni di ancora — lunedì, martedì e giovedì — creano il ritmo di collaborazione che rende un hub office degno di avere.\n\nI candidati devono essere autenticamente basati nel luogo in cui il ruolo è pubblicato — se non è lì che sei oggi, siamo lieti di sostenere la delocalizzazione per la persona giusta.\n\nValoriamo la diversità, l'equità e l'inclusione\n\nA Sonar, crediamo che la nostra diversità sia la nostra forza. Siamo una società globale che valorizza e rispetta diversi sfondi, prospettive e culture. Ci impegniamo a promuovere un ambiente di lavoro diversificato e inclusivo in cui tutti si sentono valorizzati e potenziati per contribuire al meglio. Siamo orgogliosi di essere un datore di lavoro pari opportunità e di accogliere tutti i candidati qualificati, indipendentemente da razza, colore, religione, sesso, identità di genere o espressione, orientamento sessuale, origine nazionale, genetica, disabilità, età, o stato veterano.\n\nSe avete bisogno di un alloggio, contattateci all'indirizzo hiring@sonarsource.com .\n\nTutte le offerte di lavoro a Sonar sono contingenti sui risultati di un controllo completo di sfondo e verifica di riferimento effettuato prima della data di inizio.\n\nLe domande che vengono presentate tramite agenzie o reclutatori di terze parti non saranno considerate.",
-        "de": "Wer ist Sonar?\n\nSonar treibt die Zukunft der agentenzentrierten Softwareentwicklung voran. Als führender Anbieter von KI-Code-Verifizierung und -Governance lösen wir ein entscheidendes Problem: sicherzustellen, dass Software, die von KI-unterstützten Entwicklern oder autonomen Agenten erstellt wird, zuverlässig, sicher und wartbar ist.\n\nDurch die nahtlose Integration mit Claude Code, Codex, Cursor, GitHub Copilot, Gemini und Devin helfen wir über 75% der Fortune 100 dabei, vertrauenswürdige, zuverlässige und konforme Software zu erstellen. Kunden, die Sonar verwenden, haben eine um 44% geringere Wahrscheinlichkeit, einen Ausfall aufgrund von AI-generiertem Code zu melden.\n\nWir glauben, dass die Codeverifizierung das kritische fehlende Glied im Agent-Centric Development Cycle (AC/DC) ist. Branchenriesen wie Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca und Ford Motor Company zählen darauf, dass wir eine unabhängige, erklärbare, konsistente Überprüfung und Governance ihres KI-generierten Codes über Produkte wie:\n\n• SonarQube: Die weltweit führende Plattform für die Überprüfung und Verifizierung von KI-Codes.\n\n• SonarQube Foundation Agent: Derzeit Spitzenreiter bei der Reparatur von Agentic-Software.\n\n• SonarSweep & Sonar Context Augmentation: Die Bereitstellung von Kontexten und Einschränkungen für Unternehmen muss wirklich effektiv sein.\n\nUnser Team ist in globalen Hubs in Austin, Bochum, Dubai, Genf, London, Singapur, Tokio und Washington D.C. tätig. Wir bewegen uns mit einer Denkweise, die wir CODE nennen:\n\n• Unseren Kunden und der Community verpflichtet.\n\n• Besessen von Qualität.\n\n• Absichtlich in unseren Entscheidungen.\n\n• Effektiv als ein Team.\n\nMit über 400 Millionen US-Dollar Umsatz und profitablem, schnellem Wachstum bauen wir das Rückgrat der KI-Software-Revolution auf. Wenn Sie hungrig sind, etwas zu bewirken, schnell bauen und bereit sind, an der Spitze der KI zu arbeiten, möchten wir von Ihnen hören.\n\nPositionsbeschreibung\n\nUm das Wachstum unseres Kundenportfolios zu unterstützen und unser Serviceangebot zu erweitern, suchen wir einen Support Engineer. Neben dem Eintritt in ein schnell wachsendes und innovatives Unternehmen haben Sie die Möglichkeit, unsere Kunden auf der ganzen Welt bei der Bereitstellung / Verwendung unserer Lösungen und der Übernahme von Best Practices für Software-Engineering zu unterstützen.\n\nAls Support Engineer tragen Sie zur Einführung und Integration von Sonar-Produkten bei. Sie bieten unseren Kunden ein individuelles Serviceniveau. Sie werden sie bei der Suche nach der richtigen Umsetzung unterstützen und sich für die beste Verwendung unserer Produkte einsetzen. Sie werden auch Kundenprobleme rechtzeitig untersuchen und lösen. In Sonar vertreten Sie die Kundenstimme in Produktdiskussionen.\n\nWas du tun wirst\n\n•\n Helfen Sie Ihren Kunden, unsere Lösungen in ihre gesamte Entwicklungspipeline zu integrieren. Es bedeutet, bei der technischen Integration mit Entwickler-IDE, ALMs und Continuous Integration Chain zu helfen; die Integration in den Software-Lebenszyklus (SCM, Build, Test) und die Integration in bestehende Geschäftsanwendungen (Identitätsanbieter, Datenbank usw.).\n\n•\n Führen Sie technische Probleme zur Lösung: von der Qualifizierung von Kundenanliegen bis hin zu einer eingehenden technischen Untersuchung und dem Management der Kundenbeziehungen.\n\n•\n Arbeiten Sie mit Vertriebs- und Beratern zusammen, um das allgemeine Kundenerlebnis zu verbessern und sicherzustellen, dass unser Serviceangebot unseren Kunden maximalen Nutzen bringt.\n\n•\n Arbeiten Sie mit dem Rest des Teams zusammen, um zuzuhören, Kundenfeedback herauszufordern und zu verfeinern, um Diskussionen mit Produktteams zu führen und Produktentwicklungen zu gestalten.\n\n•\n Haben Sie eine Stimme bei der Verbesserung unserer Arbeitsweise.\n\nErfahrung und Qualifikationen\n\n•\n Best Practices für Softwareentwicklung mit mindestens 3-5 Jahren Erfahrung in der Unterstützung oder Wartung und Bereitstellung hochwertiger Software.\n\n•\n 2+ Jahre Erfahrung in der Verwendung oder Verwaltung einer DevOps-Pipeline: SCM (z. B. Git, SVN), IDE (z. B. Visual Studio, IntelliJ), CI (z. B. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). Mehr als Akronyme sind dies die Tools, die unsere Kunden verwenden und in die unsere Produkte integriert sind.\n\n•\n Nachgewiesene Neugier und praktische Erfahrung mit KI-Tools in der Entwicklung, Fehlersuche oder Workflow-Optimierung\n\n•\n Kenntnisse sowohl lokaler als auch cloudbasierter Softwarebereitstellungsplattformen und -technologien, einschließlich Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\n Untersuchungsfähigkeiten, um Probleme in ihrem Kontext zu verstehen und die Fähigkeit, diese Szenarien zu reproduzieren.\n\n•\n Teamplayer, Feedback erhalten und geben sowie Wissen teilen.\n\n•\n Can-do-Haltung: Herausfordern des Status quo, Führen und Beitragen zu wichtigen Verbesserungen und Innovationen.\n\n•\n Ausgezeichnetes Englisch, verbale / schriftliche Kommunikationsfähigkeiten\n\nIn-Office-Kultur\n\nDas ist unsere Absicht. Wir glauben, dass die besten Teams gemeinsam im Raum gebaut werden. Drei Ankertage - montags, dienstags und donnerstags - schaffen den Kollaborationsrhythmus, der ein Hub-Office wert macht.\n\nDie Kandidaten müssen wirklich an dem Ort ansässig sein, an dem die Rolle veröffentlicht wird - wenn Sie heute nicht dort sind, unterstützen wir gerne den Umzug für die richtige Person.\n\nWir legen Wert auf Vielfalt, Gerechtigkeit und Inklusion\n\nBei Sonar glauben wir, dass unsere Vielfalt unsere Stärke ist. Wir sind ein globales Unternehmen, das unterschiedliche Hintergründe, Perspektiven und Kulturen schätzt und respektiert. Wir setzen uns für ein vielfältiges und integratives Arbeitsumfeld ein, in dem sich jeder geschätzt und befähigt fühlt, sein Bestes zu geben. Wir sind stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein und begrüßen alle qualifizierten Bewerber, unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, Geschlechtsidentität oder -ausdruck, sexueller Orientierung, nationaler Herkunft, Genetik, Behinderung, Alter oder Veteranenstatus.\n\nWenn Sie eine Unterkunft benötigen, kontaktieren Sie uns bitte unter hiring@sonarsource.com.\n\nAlle Beschäftigungsangebote bei Sonar hängen von den Ergebnissen einer umfassenden Hintergrundprüfung und Referenzüberprüfung ab, die vor dem Startdatum durchgeführt wurden.\n\nBewerbungen, die über Agenturen oder Drittanbieter eingereicht werden, werden nicht berücksichtigt.",
-        "fr": "Qui est Sonar ?\n\nSonar dirige l'avenir du développement de logiciels centrés sur les agents. En tant que chef de file en matière de vérification et de gouvernance des codes d'IA, nous résolvons un problème critique : veiller à ce que les logiciels générés par les développeurs assistés par l'IA ou les agents autonomes soient fiables, sécurisés et durables.\n\nEn s'intégrant parfaitement avec Claude Code, Codex, Cursor, GitHub Copilot, Gemini et Devin, nous aidons plus de 75% des logiciels de construction Fortune 100 fiables, conformes. Les clients qui utilisent Sonar sont 44 % moins susceptibles de signaler une panne en raison du code généré par l'IA.\n\nNous croyons que la vérification du code est le lien manquant essentiel dans le cycle de développement Agent-Centric (AC/DC). Les géants de l'industrie comme Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca et Ford Motor Company comptent sur nous pour fournir un examen indépendant, explicable, cohérent et la gouvernance de leur code généré par l'IA via des produits comme:\n\n• SonarQube: Le monde est la principale plate-forme de révision et de vérification de code AI.\n\n• SonarQube Foundation Agent: En ce moment, les classements pour la réparation de logiciels mandataires.\n\n• SonarSweep & Sonar Contexte Augmentation : fournir le contexte de qualité entreprise et les agents de contraintes doivent être vraiment efficaces.\n\nNotre équipe opère à travers des centres mondiaux à Austin, Bochum, Dubaï, Genève, Londres, Singapour, Tokyo et Washington D.C. Nous bougeons avec un état d'esprit que nous appelons CODE:\n\n• Engagement envers nos clients et notre communauté.\n\n• Obsédé par la qualité.\n\n• Délibérer dans nos décisions.\n\n• Efficace comme une seule équipe.\n\nAvec plus de 400 M$ de revenus et une croissance rentable et rapide, nous construisons l'épine dorsale de la révolution logicielle de l'IA. Si vous avez faim d'avoir un impact, voulez construire à un rythme rapide, et prêt à travailler à l'avant-garde de l'IA, nous voulons entendre de vous.\n\nDescription de la position\n\nPour soutenir la croissance de notre portefeuille de clients et étendre notre offre de services, nous recherchons un ingénieur de soutien. En plus de rejoindre une entreprise à croissance rapide et innovante, vous aurez la possibilité d'aider nos clients dans le monde entier à déployer/utiliser nos solutions et à adopter les meilleures pratiques en ingénierie logicielle dans son ensemble.\n\nEn tant qu'ingénieur de soutien, vous contribuerez à l'adoption et à l'intégration des produits Sonar. Vous fournirez un niveau de service personnalisé à nos clients. Vous les guiderez dans la recherche de la bonne mise en œuvre et prônerez la meilleure façon d'utiliser nos produits. Vous allez également enquêter et résoudre les problèmes des clients en temps opportun. Dans Sonar, vous représenterez la voix du client dans les discussions sur les produits.\n\nCe que vous ferez\n\n•\n Aider les clients à intégrer nos solutions dans leur pipeline de développement. Cela signifie aider à l'intégration technique avec le développeur IDE, ALMs, et la chaîne d'intégration continue; l'intégration au cycle de vie du logiciel (SCM, construction, test), et l'intégration aux applications commerciales existantes (fournisseur d'identité, base de données, etc.).\n\n•\n Conduire les questions techniques à la résolution: de la qualification des préoccupations des clients à la conduite d'une enquête technique approfondie et la gestion des relations avec les clients tout au long du chemin.\n\n•\n Collaborez avec Sales and Consultants pour améliorer l'expérience client globale et assurez-vous que notre offre de service apporte un maximum de valeur à nos clients.\n\n•\n Travailler avec le reste de l'équipe pour écouter, défier et affiner les commentaires des clients pour alimenter les discussions avec les équipes de produits et façonner les évolutions de produits.\n\n•\n Ayez une voix pour améliorer notre façon de travailler.\n\nExpérience et qualifications\n\n•\n Meilleures pratiques en génie logiciel, avec au moins 3-5 ans d'expérience dans le soutien, la maintenance et la livraison de logiciels de haute qualité.\n\n•\n 2+ années d'expérience en utilisant ou en administrant un pipeline DevOps: SCM (p. ex. Git, SVN), IDE (p. ex. Visual Studio, IntelliJ), CI (p. ex. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). Plus que les acronymes, ce sont les outils que nos clients utilisent et que nos produits intègrent.\n\n•\n Curiosité démontrée et expérience pratique en utilisant des outils d'IA dans le développement, le dépannage ou l'optimisation du flux de travail\n\n•\n Connaissance des plateformes et technologies de déploiement de logiciels locales et en nuage, y compris Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\n Compétences d'investigation pour comprendre les problèmes dans leur contexte et la capacité de reproduire ces scénarios.\n\n•\n Joueur d'équipe, recevoir et donner des commentaires ainsi que partager des connaissances.\n\n•\n Can-do attitude: défier le statu quo, conduire et contribuer à des améliorations et des innovations clés.\n\n•\n Excellentes compétences en anglais, en communication verbale et écrite\n\nCulture interne\n\nOn est intentionnels. Nous croyons que les meilleures équipes sont construites dans la pièce ensemble. Trois jours d'ancrage — les lundis, les mardis et les jeudis — créent le rythme de collaboration qui rend un bureau central intéressant.\n\nLes candidats doivent être vraiment basés dans l'endroit où le rôle est affiché — si ce n'est pas là où vous êtes aujourd'hui, nous sommes heureux d'appuyer la réinstallation pour la bonne personne.\n\nNous apprécions la diversité, l'équité et l'inclusion\n\nChez Sonar, nous croyons que notre diversité est notre force. Nous sommes une entreprise mondiale qui valorise et respecte différents horizons, perspectives et cultures. Nous sommes déterminés à favoriser un environnement de travail diversifié et inclusif où chacun se sent valorisé et habilité à contribuer le mieux possible. Nous sommes fiers d'être un employeur sur un pied d'égalité et d'accueillir tous les candidats qualifiés, peu importe la race, la couleur, la religion, le sexe, l'identité ou l'expression de genre, l'orientation sexuelle, l'origine nationale, la génétique, le handicap, l'âge ou le statut de vétéran.\n\nSi vous avez besoin d'un logement, veuillez communiquer avec nous à l'adresse embauche@sonarsource.com .\n\nToutes les offres d'emploi chez Sonar dépendent des résultats d'une vérification complète des antécédents et des références effectuée avant la date de début.\n\nLes demandes présentées par des organismes ou des tiers recruteurs ne seront pas prises en considération."
+        "it": "Chi è Sonar?\n\nSonar sta guidando il futuro dello sviluppo software agente-centrico. Come leader nella verifica e nella governance del codice AI, risolviamo un problema critico: garantire che il software generato da sviluppatori assistiti da AI o agenti autonomi sia affidabile, sicuro e manutenbile.\n\nIntegrando senza soluzione di continuità con Claude Code, Codex, Cursor, GitHub Copilot, Gemini e Devin, aiutiamo oltre il 75% del software Fortune 100 costruire affidabile, affidabile, conforme. I clienti che utilizzano Sonar sono il 44% meno probabilità di segnalare un outage a causa del codice generato dall'IA.\n\nCrediamo che la verifica del codice sia il collegamento mancante fondamentale nel Ciclo di Sviluppo Agent-Centric (AC/DC). I giganti del settore come Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca e Ford Motor Company contano su di noi per fornire una revisione indipendente, spiegabile, coerente e la governance del loro codice generato dall'IA attraverso prodotti come:\n\n• SonarQube: la piattaforma leader mondiale per la revisione e la verifica del codice AI.\n\n• SonarQube Foundation Agent: Attualmente il lancio delle classifiche per la riparazione di software agentic.\n\n• SonarSweep & Sonar Context Augmentation: Fornire il contesto di livello enterprise e gli agenti vincoli devono essere veramente efficaci.\n\nIl nostro team opera in tutto il mondo a Austin, Bochum, Dubai, Ginevra, Londra, Singapore, Tokyo e Washington D.C. Ci muoviamo con una mentalità che chiamiamo CODE:\n\n• Impegnati ai nostri clienti e comunità.\n\n• Obsessed con qualità.\n\n• Deliberate nelle nostre decisioni.\n\n• Efficace come una squadra.\n\nCon oltre 400 milioni di dollari di ricavi e crescita redditizia e rapida, stiamo costruendo la spina dorsale della rivoluzione software AI. Se hai fame di avere un impatto, vuoi costruire ad un ritmo veloce, e pronto a lavorare in prima linea di AI, vogliamo sentire da te.\n\nDescrizione della posizione\n\nPer sostenere la crescita del nostro portafoglio clienti e per estendere la nostra offerta di servizi, stiamo cercando un Support Engineer. Oltre ad unire un'azienda in rapida crescita e innovativa, avrai l'opportunità di aiutare i nostri clienti in tutto il mondo a implementare/utilizzare le nostre soluzioni e ad adottare le migliori pratiche di ingegneria del software nel suo insieme.\n\nCome Ingegnere di Supporto, contribuirai all'adozione e all'integrazione dei prodotti Sonar. Fornirete un livello di servizio individualizzato ai nostri clienti. Li guiderai nel trovare la giusta implementazione e sostenere il modo migliore per utilizzare i nostri prodotti. Potrai anche indagare e risolvere i problemi dei clienti in modo tempestivo. In Sonar, rappresenterai la voce del cliente nelle discussioni sui prodotti.\n\nCosa farai\n\n•\nAiuta i clienti a integrare le nostre soluzioni attraverso il loro pipeline di sviluppo. Significa aiutare con l'integrazione tecnica con lo sviluppatore IDE, ALMs e la catena di integrazione continua; l'integrazione al ciclo di vita del software (SCM, build, test), e l'integrazione alle applicazioni aziendali esistenti (identity provider, database, ecc.).\n\n•\nGuidare le questioni tecniche alla risoluzione: dalla qualificazione delle preoccupazioni del cliente a condurre un'indagine tecnica approfondita e gestire le relazioni dei clienti lungo il percorso.\n\n•\nCollabora con Vendite e Consulenti per migliorare l'esperienza globale del cliente e assicurarsi che la nostra offerta di servizi porti il massimo valore ai nostri clienti.\n\n•\nLavora con il resto del team per ascoltare, sfidare e affinare il feedback dei clienti per alimentare le discussioni con i team di prodotto e modellare le evoluzioni dei prodotti.\n\n•\nAbbia voce nel migliorare il nostro lavoro.\n\nEsperienza e qualifiche\n\n•\nLe migliori pratiche di ingegneria del software, con almeno 3-5 anni di esperienza nel supporto, nel mantenimento e nella fornitura di software di alta qualità.\n\n•\n2+ anni di esperienza utilizzando o sostenendo una pipeline DevOps: SCM (ad esempio Git, SVN), IDE (ad esempio Visual Studio, IntelliJ), CI (ad esempio Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). Più che acronimi, questi sono gli strumenti che i nostri clienti utilizzano e che i nostri prodotti si integrano con.\n\n•\nCuriosità dimostrata e esperienza pratica utilizzando strumenti AI in sviluppo, risoluzione dei problemi o ottimizzazione del flusso di lavoro\n\n•\nConoscenza di funzionamento di piattaforme e tecnologie di distribuzione software locali e cloud, tra cui Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\nCapacità di indagine per comprendere i problemi nel loro contesto e la capacità di riprodurre questi scenari.\n\n•\nGiocatore di squadra, ricevere e dare feedback e condividere le conoscenze.\n\n•\nAtteggiamento Can-do: sfidare lo status quo, leader e contribuire a miglioramenti chiave e innovazioni.\n\n•\nEccellente inglese, capacità di comunicazione verbale/scritta\n\nCultura in ufficio\n\nSiamo intenzionali. Crediamo che le migliori squadre siano costruite nella stanza insieme. Tre giorni di ancora — lunedì, martedì e giovedì — creano il ritmo di collaborazione che rende un hub office degno di avere.\n\nI candidati devono essere autenticamente basati nel luogo in cui il ruolo è pubblicato — se non è lì che sei oggi, siamo lieti di sostenere la delocalizzazione per la persona giusta.\n\nValoriamo la diversità, l'equità e l'inclusione\n\nA Sonar, crediamo che la nostra diversità sia la nostra forza. Siamo una società globale che valorizza e rispetta diversi sfondi, prospettive e culture. Ci impegniamo a promuovere un ambiente di lavoro diversificato e inclusivo in cui tutti si sentono valorizzati e potenziati per contribuire al meglio. Siamo orgogliosi di essere un datore di lavoro pari opportunità e di accogliere tutti i candidati qualificati, indipendentemente da razza, colore, religione, sesso, identità di genere o espressione, orientamento sessuale, origine nazionale, genetica, disabilità, età, o stato veterano.\n\nSe avete bisogno di un alloggio, contattateci all'indirizzo hiring@sonarsource.com .\n\nTutte le offerte di lavoro a Sonar sono contingenti sui risultati di un controllo completo di sfondo e verifica di riferimento effettuato prima della data di inizio.\n\nLe domande che vengono presentate tramite agenzie o reclutatori di terze parti non saranno considerate.",
+        "en": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code verification and governance, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n• SonarQube: The world’s leading AI code review and verification platform.\n\n• SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n• SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n• Committed to our customers and community.\n\n• Obsessed with quality.\n\n• Deliberate in our decisions.\n\n• Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n\nTo sustain the growth of our customer portfolio and to extend our services offering, we are looking for a Support Engineer. On top of joining a fast-growing and innovative company, you will have the opportunity to assist our customers around the world in deploying/using our solutions and adopting software engineering best practices as a whole.\n\nAs a Support Engineer, you will contribute to Sonar products adoption and integration. You will provide an individualized level of service to our customers. You will guide them in finding the right implementation and advocate the best way to use our products. You will also investigate and solve customer issues in a timely manner. In Sonar, you will represent the customer voice in product discussions.\n\nWhat you will do\n\n•\nHelp customers integrate our solutions across their development pipeline. It means helping with the technical integration with developer IDE, ALMs, and Continuous Integration chain; the integration to software lifecycle (SCM, build, test), and the integration to existing business applications (identity provider, database, etc.).\n\n•\nDrive technical issues to resolution: from the qualification of customer concerns to conducting an in-depth technical investigation and managing customer relationships all along the way.\n\n•\nCollaborate with Sales and Consultants to improve overall customer experience and make sure that our Service offering brings maximum value to our customers.\n\n•\nWork with the rest of the team to listen, challenge, and refine customers feedback to feed discussions with product teams and shape product evolutions.\n\n•\nHave a voice in enhancing the way we work.\n\nExperience and qualifications\n\n•\nSoftware engineering best practices, with at least 3-5 years of experience in supporting, or maintaining and delivering high-quality software.\n\n•\n2+ years experience using or administrating a DevOps pipeline: SCM (e.g. Git, SVN), IDE (e.g. Visual Studio, IntelliJ), CI (e.g. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). More than acronyms, these are the tools that our customers use and that our products integrate with.\n\n•\nDemonstrated curiosity and practical experience using AI tools in development, troubleshooting or workflow optimization\n\n•\n​​Working knowledge of both local and cloud-based software deployment platforms and technologies, including Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\nInvestigation skills to understand problems in their context and the ability to reproduce these scenarios.\n\n•\nTeam player, receiving and giving feedback as well as sharing knowledge.\n\n•\nCan-do attitude: challenging status quo, leading and contributing to key improvements and innovations.\n\n•\nExcellent English, verbal/written communication skills\n\nIn-office culture\n\nWe're intentional about this. We believe the best teams are built in the room together. Three anchor days — Mondays, Tuesdays, and Thursdays — create the collaboration rhythm that makes a hub office worth having.\n\nCandidates need to be genuinely based in the location the role is posted — if that's not where you are today, we're happy to support relocation for the right person.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
+        "de": "Wer ist Sonar?\n\nSonar treibt die Zukunft der agentenzentrierten Softwareentwicklung voran. Als führender Anbieter von KI-Code-Verifizierung und -Governance lösen wir ein entscheidendes Problem: sicherzustellen, dass Software, die von KI-unterstützten Entwicklern oder autonomen Agenten erstellt wird, zuverlässig, sicher und wartbar ist.\n\nDurch die nahtlose Integration mit Claude Code, Codex, Cursor, GitHub Copilot, Gemini und Devin helfen wir über 75% der Fortune 100 dabei, vertrauenswürdige, zuverlässige und konforme Software zu erstellen. Kunden, die Sonar verwenden, haben eine um 44% geringere Wahrscheinlichkeit, einen Ausfall aufgrund von AI-generiertem Code zu melden.\n\nWir glauben, dass die Codeverifizierung das kritische fehlende Glied im Agent-Centric Development Cycle (AC/DC) ist. Branchenriesen wie Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca und Ford Motor Company zählen darauf, dass wir eine unabhängige, erklärbare, konsistente Überprüfung und Governance ihres KI-generierten Codes über Produkte wie:\n\n• SonarQube: Die weltweit führende Plattform für die Überprüfung und Verifizierung von KI-Codes.\n\n• SonarQube Foundation Agent: Derzeit Spitzenreiter bei der Reparatur von Agentic-Software.\n\n• SonarSweep & Sonar Context Augmentation: Die Bereitstellung von Kontexten und Einschränkungen für Unternehmen muss wirklich effektiv sein.\n\nUnser Team ist in globalen Hubs in Austin, Bochum, Dubai, Genf, London, Singapur, Tokio und Washington D.C. tätig. Wir bewegen uns mit einer Denkweise, die wir CODE nennen:\n\n• Unseren Kunden und der Community verpflichtet.\n\n• Besessen von Qualität.\n\n• Absichtlich in unseren Entscheidungen.\n\n• Effektiv als ein Team.\n\nMit über 400 Millionen US-Dollar Umsatz und profitablem, schnellem Wachstum bauen wir das Rückgrat der KI-Software-Revolution auf. Wenn Sie hungrig sind, etwas zu bewirken, schnell bauen und bereit sind, an der Spitze der KI zu arbeiten, möchten wir von Ihnen hören.\n\nPositionsbeschreibung\n\nUm das Wachstum unseres Kundenportfolios zu unterstützen und unser Serviceangebot zu erweitern, suchen wir einen Support Engineer. Neben dem Eintritt in ein schnell wachsendes und innovatives Unternehmen haben Sie die Möglichkeit, unsere Kunden auf der ganzen Welt bei der Bereitstellung / Verwendung unserer Lösungen und der Übernahme von Best Practices für Software-Engineering zu unterstützen.\n\nAls Support Engineer tragen Sie zur Einführung und Integration von Sonar-Produkten bei. Sie bieten unseren Kunden ein individuelles Serviceniveau. Sie werden sie bei der Suche nach der richtigen Umsetzung unterstützen und sich für die beste Verwendung unserer Produkte einsetzen. Sie werden auch Kundenprobleme rechtzeitig untersuchen und lösen. In Sonar vertreten Sie die Kundenstimme in Produktdiskussionen.\n\nWas du tun wirst\n\n•\nHelfen Sie Ihren Kunden, unsere Lösungen in ihre gesamte Entwicklungspipeline zu integrieren. Es bedeutet, bei der technischen Integration mit Entwickler-IDE, ALMs und Continuous Integration Chain zu helfen; die Integration in den Software-Lebenszyklus (SCM, Build, Test) und die Integration in bestehende Geschäftsanwendungen (Identitätsanbieter, Datenbank usw.).\n\n•\nFühren Sie technische Probleme zur Lösung: von der Qualifizierung von Kundenanliegen bis hin zu einer eingehenden technischen Untersuchung und dem Management der Kundenbeziehungen.\n\n•\nArbeiten Sie mit Vertriebs- und Beratern zusammen, um das allgemeine Kundenerlebnis zu verbessern und sicherzustellen, dass unser Serviceangebot unseren Kunden maximalen Nutzen bringt.\n\n•\nArbeiten Sie mit dem Rest des Teams zusammen, um zuzuhören, Kundenfeedback herauszufordern und zu verfeinern, um Diskussionen mit Produktteams zu führen und Produktentwicklungen zu gestalten.\n\n•\nHaben Sie eine Stimme bei der Verbesserung unserer Arbeitsweise.\n\nErfahrung und Qualifikationen\n\n•\nBest Practices für Softwareentwicklung mit mindestens 3-5 Jahren Erfahrung in der Unterstützung oder Wartung und Bereitstellung hochwertiger Software.\n\n•\n2+ Jahre Erfahrung in der Verwendung oder Verwaltung einer DevOps-Pipeline: SCM (z. B. Git, SVN), IDE (z. B. Visual Studio, IntelliJ), CI (z. B. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). Mehr als Akronyme sind dies die Tools, die unsere Kunden verwenden und in die unsere Produkte integriert sind.\n\n•\nNachgewiesene Neugier und praktische Erfahrung mit KI-Tools in der Entwicklung, Fehlersuche oder Workflow-Optimierung\n\n•\nKenntnisse sowohl lokaler als auch cloudbasierter Softwarebereitstellungsplattformen und -technologien, einschließlich Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\nUntersuchungsfähigkeiten, um Probleme in ihrem Kontext zu verstehen und die Fähigkeit, diese Szenarien zu reproduzieren.\n\n•\nTeamplayer, Feedback erhalten und geben sowie Wissen teilen.\n\n•\nCan-do-Haltung: Herausfordern des Status quo, Führen und Beitragen zu wichtigen Verbesserungen und Innovationen.\n\n•\nAusgezeichnetes Englisch, verbale / schriftliche Kommunikationsfähigkeiten\n\nIn-Office-Kultur\n\nDas ist unsere Absicht. Wir glauben, dass die besten Teams gemeinsam im Raum gebaut werden. Drei Ankertage - montags, dienstags und donnerstags - schaffen den Kollaborationsrhythmus, der ein Hub-Office wert macht.\n\nDie Kandidaten müssen wirklich an dem Ort ansässig sein, an dem die Rolle veröffentlicht wird - wenn Sie heute nicht dort sind, unterstützen wir gerne den Umzug für die richtige Person.\n\nWir legen Wert auf Vielfalt, Gerechtigkeit und Inklusion\n\nBei Sonar glauben wir, dass unsere Vielfalt unsere Stärke ist. Wir sind ein globales Unternehmen, das unterschiedliche Hintergründe, Perspektiven und Kulturen schätzt und respektiert. Wir setzen uns für ein vielfältiges und integratives Arbeitsumfeld ein, in dem sich jeder geschätzt und befähigt fühlt, sein Bestes zu geben. Wir sind stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein und begrüßen alle qualifizierten Bewerber, unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, Geschlechtsidentität oder -ausdruck, sexueller Orientierung, nationaler Herkunft, Genetik, Behinderung, Alter oder Veteranenstatus.\n\nWenn Sie eine Unterkunft benötigen, kontaktieren Sie uns bitte unter hiring@sonarsource.com.\n\nAlle Beschäftigungsangebote bei Sonar hängen von den Ergebnissen einer umfassenden Hintergrundprüfung und Referenzüberprüfung ab, die vor dem Startdatum durchgeführt wurden.\n\nBewerbungen, die über Agenturen oder Drittanbieter eingereicht werden, werden nicht berücksichtigt.",
+        "fr": "Qui est Sonar ?\n\nSonar dirige l'avenir du développement de logiciels centrés sur les agents. En tant que chef de file en matière de vérification et de gouvernance des codes d'IA, nous résolvons un problème critique : veiller à ce que les logiciels générés par les développeurs assistés par l'IA ou les agents autonomes soient fiables, sécurisés et durables.\n\nEn s'intégrant parfaitement avec Claude Code, Codex, Cursor, GitHub Copilot, Gemini et Devin, nous aidons plus de 75% des logiciels de construction Fortune 100 fiables, conformes. Les clients qui utilisent Sonar sont 44 % moins susceptibles de signaler une panne en raison du code généré par l'IA.\n\nNous croyons que la vérification du code est le lien manquant essentiel dans le cycle de développement Agent-Centric (AC/DC). Les géants de l'industrie comme Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca et Ford Motor Company comptent sur nous pour fournir un examen indépendant, explicable, cohérent et la gouvernance de leur code généré par l'IA via des produits comme:\n\n• SonarQube: Le monde est la principale plate-forme de révision et de vérification de code AI.\n\n• SonarQube Foundation Agent: En ce moment, les classements pour la réparation de logiciels mandataires.\n\n• SonarSweep & Sonar Contexte Augmentation : fournir le contexte de qualité entreprise et les agents de contraintes doivent être vraiment efficaces.\n\nNotre équipe opère à travers des centres mondiaux à Austin, Bochum, Dubaï, Genève, Londres, Singapour, Tokyo et Washington D.C. Nous bougeons avec un état d'esprit que nous appelons CODE:\n\n• Engagement envers nos clients et notre communauté.\n\n• Obsédé par la qualité.\n\n• Délibérer dans nos décisions.\n\n• Efficace comme une seule équipe.\n\nAvec plus de 400 M$ de revenus et une croissance rentable et rapide, nous construisons l'épine dorsale de la révolution logicielle de l'IA. Si vous avez faim d'avoir un impact, voulez construire à un rythme rapide, et prêt à travailler à l'avant-garde de l'IA, nous voulons entendre de vous.\n\nDescription de la position\n\nPour soutenir la croissance de notre portefeuille de clients et étendre notre offre de services, nous recherchons un ingénieur de soutien. En plus de rejoindre une entreprise à croissance rapide et innovante, vous aurez la possibilité d'aider nos clients dans le monde entier à déployer/utiliser nos solutions et à adopter les meilleures pratiques en ingénierie logicielle dans son ensemble.\n\nEn tant qu'ingénieur de soutien, vous contribuerez à l'adoption et à l'intégration des produits Sonar. Vous fournirez un niveau de service personnalisé à nos clients. Vous les guiderez dans la recherche de la bonne mise en œuvre et prônerez la meilleure façon d'utiliser nos produits. Vous allez également enquêter et résoudre les problèmes des clients en temps opportun. Dans Sonar, vous représenterez la voix du client dans les discussions sur les produits.\n\nCe que vous ferez\n\n•\nAider les clients à intégrer nos solutions dans leur pipeline de développement. Cela signifie aider à l'intégration technique avec le développeur IDE, ALMs, et la chaîne d'intégration continue; l'intégration au cycle de vie du logiciel (SCM, construction, test), et l'intégration aux applications commerciales existantes (fournisseur d'identité, base de données, etc.).\n\n•\nConduire les questions techniques à la résolution: de la qualification des préoccupations des clients à la conduite d'une enquête technique approfondie et la gestion des relations avec les clients tout au long du chemin.\n\n•\nCollaborez avec Sales and Consultants pour améliorer l'expérience client globale et assurez-vous que notre offre de service apporte un maximum de valeur à nos clients.\n\n•\nTravailler avec le reste de l'équipe pour écouter, défier et affiner les commentaires des clients pour alimenter les discussions avec les équipes de produits et façonner les évolutions de produits.\n\n•\nAyez une voix pour améliorer notre façon de travailler.\n\nExpérience et qualifications\n\n•\nMeilleures pratiques en génie logiciel, avec au moins 3-5 ans d'expérience dans le soutien, la maintenance et la livraison de logiciels de haute qualité.\n\n•\n2+ années d'expérience en utilisant ou en administrant un pipeline DevOps: SCM (p. ex. Git, SVN), IDE (p. ex. Visual Studio, IntelliJ), CI (p. ex. Jenkins Pipelines, Azure DevOps, BitBucket, GitLab). Plus que les acronymes, ce sont les outils que nos clients utilisent et que nos produits intègrent.\n\n•\nCuriosité démontrée et expérience pratique en utilisant des outils d'IA dans le développement, le dépannage ou l'optimisation du flux de travail\n\n•\nConnaissance des plateformes et technologies de déploiement de logiciels locales et en nuage, y compris Linux, Windows, Docker, Kubernetes, AWS, Azure\n\n•\nCompétences d'investigation pour comprendre les problèmes dans leur contexte et la capacité de reproduire ces scénarios.\n\n•\nJoueur d'équipe, recevoir et donner des commentaires ainsi que partager des connaissances.\n\n•\nCan-do attitude: défier le statu quo, conduire et contribuer à des améliorations et des innovations clés.\n\n•\nExcellentes compétences en anglais, en communication verbale et écrite\n\nCulture interne\n\nOn est intentionnels. Nous croyons que les meilleures équipes sont construites dans la pièce ensemble. Trois jours d'ancrage — les lundis, les mardis et les jeudis — créent le rythme de collaboration qui rend un bureau central intéressant.\n\nLes candidats doivent être vraiment basés dans l'endroit où le rôle est affiché — si ce n'est pas là où vous êtes aujourd'hui, nous sommes heureux d'appuyer la réinstallation pour la bonne personne.\n\nNous apprécions la diversité, l'équité et l'inclusion\n\nChez Sonar, nous croyons que notre diversité est notre force. Nous sommes une entreprise mondiale qui valorise et respecte différents horizons, perspectives et cultures. Nous sommes déterminés à favoriser un environnement de travail diversifié et inclusif où chacun se sent valorisé et habilité à contribuer le mieux possible. Nous sommes fiers d'être un employeur sur un pied d'égalité et d'accueillir tous les candidats qualifiés, peu importe la race, la couleur, la religion, le sexe, l'identité ou l'expression de genre, l'orientation sexuelle, l'origine nationale, la génétique, le handicap, l'âge ou le statut de vétéran.\n\nSi vous avez besoin d'un logement, veuillez communiquer avec nous à l'adresse embauche@sonarsource.com .\n\nToutes les offres d'emploi chez Sonar dépendent des résultats d'une vérification complète des antécédents et des références effectuée avant la date de début.\n\nLes demandes présentées par des organismes ou des tiers recruteurs ne seront pas prises en considération."
       },
       "location": "Geneva",
       "canton": "GE",
       "url": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:26.640Z",
+      "crawledAt": "2026-08-11T10:34:36.338Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -270,9 +275,24 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "support-engineer-sonarsource-ch",
+        "support-ingegnere-sonarsource-sonar-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "support-engineer-sonarsource-ch",
+          "support-ingegnere-sonarsource-sonar-geneva"
+        ],
+        "de": [
+          "support-engineer-sonarsource-ch"
+        ],
+        "fr": [
+          "support-engineer-sonarsource-ch"
+        ]
       },
+      "firstSeenAt": "2026-08-10T22:07:26.640Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -285,19 +305,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "firstSeenAt": "2026-08-10T22:07:26.640Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "support-engineer-sonarsource-ch"
-        ],
-        "de": [
-          "support-engineer-sonarsource-ch"
-        ]
-      },
-      "previousSlugs": [
-        "support-engineer-sonarsource-ch"
-      ]
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-2751f0c84e73",
@@ -330,7 +338,7 @@
       "url": "https://jobs.lever.co/sonarsource/95e9c626-66c6-421c-bba3-f4cf8d5de380",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:26.338Z",
+      "crawledAt": "2026-08-11T10:34:36.036Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -346,18 +354,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-technical-writer-sonarsource-ch"
+        "software-technical-writer-sonarsource-ch",
+        "scrittore-tecnico-di-software-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-technical-writer-sonarsource-ch"
+          "software-technical-writer-sonarsource-ch",
+          "scrittore-tecnico-di-software-sonarsource-sonar-geneva"
         ],
         "fr": [
           "software-technical-writer-sonarsource-ch"
         ]
       },
-      "firstSeenAt": "2026-07-16T22:56:00.002Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T22:56:00.002Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -403,7 +413,7 @@
       "url": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:26.035Z",
+      "crawledAt": "2026-08-11T10:34:35.735Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -419,11 +429,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-java-remediation-agent-sonarsource-ch"
+        "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+        "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-java-remediation-agent-sonarsource-ch"
+          "senior-software-engineer-java-remediation-agent-sonarsource-ch",
+          "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva"
         ],
         "de": [
           "senior-software-engineer-java-remediation-agent-sonarsource-ch"
@@ -445,7 +457,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-d76dc6fd6c34",
@@ -478,7 +491,7 @@
       "url": "https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:25.732Z",
+      "crawledAt": "2026-08-11T10:34:35.433Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -494,11 +507,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-solutions-engineer-emea-sonarsource-ch"
+        "sales-solutions-engineer-emea-sonarsource-ch",
+        "sales-solutions-ingegnere-emea-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-solutions-engineer-emea-sonarsource-ch"
+          "sales-solutions-engineer-emea-sonarsource-ch",
+          "sales-solutions-ingegnere-emea-sonarsource-sonar-geneva"
         ],
         "de": [
           "sales-solutions-engineer-emea-sonarsource-ch"
@@ -553,7 +568,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:25.430Z",
+      "crawledAt": "2026-08-11T10:34:35.132Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -569,11 +584,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-development-representative-sonarsource-ch"
+        "sales-development-representative-sonarsource-ch",
+        "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-development-representative-sonarsource-ch"
+          "sales-development-representative-sonarsource-ch",
+          "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva"
         ],
         "de": [
           "sales-development-representative-sonarsource-ch"
@@ -628,7 +645,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:25.128Z",
+      "crawledAt": "2026-08-11T10:34:34.831Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -644,11 +661,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "platform-product-manager-sonarsource-ch"
+        "platform-product-manager-sonarsource-ch",
+        "gestione-dei-prodotti-della-piattaforma-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "platform-product-manager-sonarsource-ch"
+          "platform-product-manager-sonarsource-ch",
+          "gestione-dei-prodotti-della-piattaforma-sonarsource-sonar-geneva"
         ],
         "de": [
           "platform-product-manager-sonarsource-ch"
@@ -703,7 +722,7 @@
       "url": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:24.827Z",
+      "crawledAt": "2026-08-11T10:34:34.530Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -723,7 +742,8 @@
         "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva",
         "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
         "partner-business-manager-osteuropa-w-m-d-sonarsource-sonar-geneva",
-        "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva"
+        "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva",
+        "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -731,7 +751,8 @@
           "partner-business-manager-europa-orientale-f-m-d-sonarsource-sonar-geneva",
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch",
           "partner-business-manager-osteuropa-w-m-d-sonarsource-sonar-geneva",
-          "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva"
+          "directeur-d-entreprise-partenaire-europe-orientale-f-m-d-sonarsource-sonar-geneva",
+          "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva"
         ],
         "en": [
           "partner-business-manager-eastern-europe-f-m-d-sonarsource-ch"
@@ -746,6 +767,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -774,7 +796,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite & Payroll Systems Administrator",
       "titleByLocale": {
-        "it": "NetSuite & Payroll Systems Amministratore",
+        "it": "NetSuite & Payroll Systems Administrator",
         "en": "NetSuite & Payroll Systems Administrator",
         "de": "NetSuite & Payroll Systems Administrator",
         "fr": "Administrateur des systèmes NetSuite & Payroll"
@@ -791,7 +813,7 @@
       "url": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:24.524Z",
+      "crawledAt": "2026-08-11T10:34:34.228Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -806,8 +828,8 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:17:41.300Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:17:41.300Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -836,7 +858,7 @@
       "companyDomain": "sonarsource.com",
       "title": "Mid-Market Account Executive - Italy",
       "titleByLocale": {
-        "it": "Mid-Market Account Executive - Italia",
+        "it": "Mid-Market Account Executive - Italy",
         "en": "Mid-Market Account Executive - Italy",
         "de": "Mid-Market Account Executive - Italien",
         "fr": "Exécutif de compte Mid-Market - Italie"
@@ -853,7 +875,7 @@
       "url": "https://jobs.lever.co/sonarsource/d51d7b90-a0b2-47af-8677-1d336badc811",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:24.222Z",
+      "crawledAt": "2026-08-11T10:34:33.925Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -869,6 +891,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:17:40.998Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -914,7 +937,7 @@
       "url": "https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:23.921Z",
+      "crawledAt": "2026-08-11T10:34:33.621Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -931,11 +954,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-ai-engineer-sonarsource-ch",
-        "marketing-ai-engineer-sonarsource-sonar-geneva"
+        "marketing-ai-engineer-sonarsource-sonar-geneva",
+        "marketing-ai-ingegnere-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-ai-engineer-sonarsource-ch"
+          "marketing-ai-engineer-sonarsource-ch",
+          "marketing-ai-ingegnere-sonarsource-sonar-geneva"
         ],
         "en": [
           "marketing-ai-engineer-sonarsource-sonar-geneva"
@@ -948,6 +973,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:43:27.325Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -993,7 +1019,7 @@
       "url": "https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:23.618Z",
+      "crawledAt": "2026-08-11T10:34:33.319Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1009,17 +1035,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "major-incident-manager-sonarsource-ch"
+        "major-incident-manager-sonarsource-ch",
+        "direttore-principale-dell-incidente-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "major-incident-manager-sonarsource-ch"
+          "major-incident-manager-sonarsource-ch",
+          "direttore-principale-dell-incidente-sonarsource-sonar-geneva"
         ],
         "fr": [
           "major-incident-manager-sonarsource-ch"
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:56.975Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1065,7 +1094,7 @@
       "url": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:23.315Z",
+      "crawledAt": "2026-08-11T10:34:33.017Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1081,15 +1110,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "major-account-manager-dach-sonarsource-ch"
+        "major-account-manager-dach-sonarsource-ch",
+        "maggiore-account-manager-dach-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "major-account-manager-dach-sonarsource-ch"
+          "major-account-manager-dach-sonarsource-ch",
+          "maggiore-account-manager-dach-sonarsource-sonar-geneva"
         ]
       },
-      "firstSeenAt": "2026-07-03T23:17:40.696Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:17:40.696Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1135,7 +1166,7 @@
       "url": "https://jobs.lever.co/sonarsource/dfb8492a-8d96-4033-9c7b-e87dfe1b07b0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:23.012Z",
+      "crawledAt": "2026-08-11T10:34:32.715Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1151,11 +1182,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "graduate-software-engineer-sonarsource-ch"
+        "graduate-software-engineer-sonarsource-ch",
+        "graduate-software-ingegnere-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "graduate-software-engineer-sonarsource-ch"
+          "graduate-software-engineer-sonarsource-ch",
+          "graduate-software-ingegnere-sonarsource-sonar-geneva"
         ],
         "de": [
           "graduate-software-engineer-sonarsource-ch"
@@ -1210,7 +1243,7 @@
       "url": "https://jobs.lever.co/sonarsource/5a3bd23a-24c0-49af-8839-eba24776268c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:22.709Z",
+      "crawledAt": "2026-08-11T10:34:32.413Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1232,7 +1265,8 @@
         "software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
         "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
         "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
+        "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
+        "full-stack-ingegnere-remediation-agent-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1242,7 +1276,8 @@
           "software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
           "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva",
           "senior-software-engineer-java-remediation-agent-sonarsource-ch",
-          "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva"
+          "senior-software-ingenieur-java-remediation-agent-sonarsource-sonar-geneva",
+          "full-stack-ingegnere-remediation-agent-sonarsource-sonar-geneva"
         ],
         "en": [
           "software-engineer-java-remediation-agent-sonarsource-ch",
@@ -1269,7 +1304,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-ff9d08535a90",
@@ -1302,7 +1338,7 @@
       "url": "https://jobs.lever.co/sonarsource/6fcc969d-d5c6-4ffd-9e8d-41802e310dfd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:22.408Z",
+      "crawledAt": "2026-08-11T10:34:32.113Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1319,11 +1355,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "deal-desk-specialist-fixed-term-contract-sonarsource-ch"
+          "deal-desk-specialist-fixed-term-contract-sonarsource-ch",
+          "deal-desk-specialist-contractor-sonarsource-ch"
         ],
         "it": [
           "deal-desk-specialist-contractor-sonarsource-ch",
-          "deal-desk-specialist-fixed-term-contract-sonarsource-ch"
+          "deal-desk-specialist-fixed-term-contract-sonarsource-ch",
+          "deal-desk-specialista-contractor-sonarsource-sonar-geneva"
         ],
         "de": [
           "deal-desk-specialist-contractor-sonarsource-ch"
@@ -1334,7 +1372,8 @@
       },
       "previousSlugs": [
         "deal-desk-specialist-contractor-sonarsource-ch",
-        "deal-desk-specialist-fixed-term-contract-sonarsource-ch"
+        "deal-desk-specialist-fixed-term-contract-sonarsource-ch",
+        "deal-desk-specialista-contractor-sonarsource-sonar-geneva"
       ],
       "firstSeenAt": "2026-07-03T23:17:39.790Z",
       "salaryMin": 60500,
@@ -1349,7 +1388,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-f44e2cd68511",
@@ -1382,7 +1422,7 @@
       "url": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:22.106Z",
+      "crawledAt": "2026-08-11T10:34:31.811Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1399,12 +1439,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
-        "data-scientist-marketing-analytics-sonarsource-ch"
+        "data-scientist-marketing-analytics-sonarsource-ch",
+        "scienziato-dei-dati-analisi-di-marketing-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-scienziato-analisi-di-marketing-sonarsource-sonar-geneva",
-          "data-scientist-marketing-analytics-sonarsource-ch"
+          "data-scientist-marketing-analytics-sonarsource-ch",
+          "scienziato-dei-dati-analisi-di-marketing-sonarsource-sonar-geneva"
         ],
         "de": [
           "data-scientist-marketing-analytics-sonarsource-ch"
@@ -1414,6 +1456,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.488Z",
+      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "baseSalary": {
@@ -1459,7 +1502,7 @@
       "url": "https://jobs.lever.co/sonarsource/4b6bbce6-6d6f-464a-81c0-c574572fb5a2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:21.803Z",
+      "crawledAt": "2026-08-11T10:34:31.509Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1475,17 +1518,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-product-analyst-sonarsource-ch"
+        "data-product-analyst-sonarsource-ch",
+        "data-product-analista-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-product-analyst-sonarsource-ch"
+          "data-product-analyst-sonarsource-ch",
+          "data-product-analista-sonarsource-sonar-geneva"
         ],
         "fr": [
           "data-product-analyst-sonarsource-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.185Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1531,7 +1577,7 @@
       "url": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:21.498Z",
+      "crawledAt": "2026-08-11T10:34:31.207Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1547,11 +1593,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-researcher-post-training-sonarsource-ch"
+        "ai-researcher-post-training-sonarsource-ch",
+        "ricercatore-ai-post-training-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-researcher-post-training-sonarsource-ch"
+          "ai-researcher-post-training-sonarsource-ch",
+          "ricercatore-ai-post-training-sonarsource-sonar-geneva"
         ],
         "de": [
           "ai-researcher-post-training-sonarsource-ch"
@@ -1603,7 +1651,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:21.195Z",
+      "crawledAt": "2026-08-11T10:34:30.904Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1619,11 +1667,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-research-scientist-engineer-sonarsource-ch"
+        "ai-research-scientist-engineer-sonarsource-ch",
+        "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-research-scientist-engineer-sonarsource-ch"
+          "ai-research-scientist-engineer-sonarsource-ch",
+          "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva"
         ],
         "de": [
           "ai-research-scientist-engineer-sonarsource-ch"
@@ -1678,7 +1728,7 @@
       "url": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-10T22:07:20.887Z",
+      "crawledAt": "2026-08-11T10:34:30.601Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1693,8 +1743,8 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-27T12:43:24.888Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T12:43:24.888Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
