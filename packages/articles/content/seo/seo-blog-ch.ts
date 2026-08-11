@@ -27512,6 +27512,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alcon-risultati-finanziari-q2-2026': {
+    title: 'Alcon: fatturato a 2,78 miliardi nel secondo trimestre 2026',
+    description: 'Alcon chiude il secondo trimestre 2026 con un fatturato di 2,78 miliardi di dollari (+8%). Utile per azione in crescita a 84 centesimi. Dettagli finanziari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alcon, fatturato, miliardi, secondo',
+    ogTitle: 'Alcon: fatturato Q2 2026 a 2,78 miliardi di dollari',
+    ogDescription: 'Il gruppo Alcon annuncia i risultati del Q2 2026: fatturato a 2,78 miliardi di dollari e crescita dell\'utile per azione. Analisi dei dati finanziari.',
+    canonicalPath: '/articoli-svizzera/alcon-risultati-finanziari-q2-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alcon: fatturato a 2,78 miliardi nel secondo trimestre 2026",
+      "description": "Alcon chiude il secondo trimestre 2026 con un fatturato di 2,78 miliardi di dollari (+8%). Utile per azione in crescita a 84 centesimi. Dettagli finanziari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/alcon-risultati-finanziari-q2-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un analista finanziario al lavoro in un ufficio moderno in Svizzera."
+      },
+      "datePublished": "2026-08-11T06:05:25+00:00",
+      "dateModified": "2026-08-11T06:05:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/alcon-risultati-finanziari-q2-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2125,6 +2125,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.annunci-di-lavoro-svizzera.title': 'Job advertisements in Switzerland: what to change?',
     'blog.article.annunci-di-lavoro-svizzera.excerpt': 'The Swiss tax system has three levels: direct federal tax (DFI) + cantonal + municipal. Each canton has its own tax law and multiplier; municipalities apply a multiplier on the cantonal.',
     'blog.article.annunci-di-lavoro-svizzera.imageAlt': 'A scene of work in a Swiss company.',
+    'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon: turnover at 2.78 billion in the second quarter of 2026',
+    'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'The Alcon ophthalmology group closed Q2 2026 with a turnover of 2.78 billion dollars, marking a growth of 8% on an annual basis.',
+    'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'A financial analyst working in a modern office in Switzerland.',
 };
 
 export default blogMetaChEn;

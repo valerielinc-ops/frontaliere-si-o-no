@@ -2125,6 +2125,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.annunci-di-lavoro-svizzera.title': 'Annonces d\'emploi en Suisse : que changer ?',
     'blog.article.annunci-di-lavoro-svizzera.excerpt': 'Le système fiscal suisse à trois niveaux : impôt fédéral direct (IFD) + cantonal + communal. Chaque canton a sa propre loi fiscale et son propre multiplicateur ; les communes appliquent un multiplicateur sur le canton.',
     'blog.article.annunci-di-lavoro-svizzera.imageAlt': 'Une scène de travail dans une entreprise suisse.',
+    'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon : chiffre d\'affaires à 2,78 milliards au deuxième trimestre 2026',
+    'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'Le groupe ophtalmologique Alcon clôture le Q2 2026 avec un chiffre d\'affaires de 2,78 milliards de dollars, marquant une croissance de 8 % sur une base annuelle.',
+    'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'Un analyste financier travaillant dans un bureau moderne en Suisse.',
 };
 
 export default blogMetaChFr;
