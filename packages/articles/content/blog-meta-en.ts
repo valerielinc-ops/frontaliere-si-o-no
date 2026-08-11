@@ -9642,6 +9642,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Moving to Aprica from border crossings: pros and cons',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Facts and figures FROM THE SOURCE on the transfer to Aprica for border workers',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere driving from Aprica to Chiasso',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Living in Lovero and working in Graubünden as a cross-border commuter',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Tax setting, permits and commuting.',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'A commuter driving through the Italian-Swiss border.',
 };
 
 export default blogMetaEn;

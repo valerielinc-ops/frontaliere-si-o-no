@@ -9641,6 +9641,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Umzug nach Aprica als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Zahlen und Fakten AUS DER QUELLE zum Grenzübertritt nach Aprica für Grenzgänger',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier fährt von Aprica nach Chiasso',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Leben in Lovero und Arbeit in Graubünden als grenzüberschreitender Pendler',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Pendeln.',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'Ein Pendler fährt durch die italienisch-schweizerische Grenze.',
 };
 
 export default blogMetaDe;

@@ -9643,6 +9643,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Aprica da frontaliere: pro e contro',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Fatti e cifre DALLA FONTE sul trasferimento a Aprica per i frontalieri',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere che guida in auto da Aprica a Chiasso',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Vivere a Lovero e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Impostazione fiscale, permessi e pendolarismo.',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere in automobile in transito dal confine italo-svizzero.',
 };
 
 export default blogMetaIt;

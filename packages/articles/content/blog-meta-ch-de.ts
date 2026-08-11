@@ -2128,6 +2128,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.alcon-risultati-finanziari-q2-2026.title': 'Alcon: Umsatz im 2. Quartal 2026 auf 2,78 Milliarden',
     'blog.article.alcon-risultati-finanziari-q2-2026.excerpt': 'Die Augenheilkunde-Gruppe Alcon schließt das Q2 2026 mit einem Umsatz von 2,78 Milliarden US-Dollar ab, was einem Wachstum von 8% gegenüber dem Vorjahr entspricht.',
     'blog.article.alcon-risultati-finanziari-q2-2026.imageAlt': 'Ein Finanzanalyst bei der Arbeit in einem modernen Büro in der Schweiz.',
+    'blog.article.economia-svizzera-nazionale-2026.title': 'Produktivitätssteigerung für Logitech im ersten Quartal 2026/2027',
+    'blog.article.economia-svizzera-nazionale-2026.excerpt': 'Das Geschäftsjahr 2026/2027 startet für Logitech gut: Im ersten Quartal (Zeitraum April-Juni) stieg der Bruttoumsatz im Vergleich zum Vorjahreszeitraum um 13,3%.',
+    'blog.article.economia-svizzera-nazionale-2026.imageAlt': 'Die schweizerische Wirtschaft auf nationaler Ebene',
 };
 
 export default blogMetaChDe;

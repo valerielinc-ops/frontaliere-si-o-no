@@ -9644,6 +9644,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Déménager à Aprica en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Faits et chiffres DE LA SOURCE sur le transfert à Aprica pour les frontaliers',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier conduit de Aprica à Chiasso',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Vivre à Lovero et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Réglage fiscal, permis et déplacements.',
+    'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.imageAlt': 'Un commutant traverse la frontière italo-suisse en voiture.',
 };
 
 export default blogMetaFr;
