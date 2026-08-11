@@ -9659,6 +9659,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sanzioni-sicurezza-lavoro-comasco.title': 'Sanctions pour sécurité au travail à Comasco : 18 entreprises suspendues',
     'blog.article.sanzioni-sicurezza-lavoro-comasco.excerpt': 'Le commandement provincial des carabiniers de Côme a effectué 18 contrôles d\'inspection sur le territoire provincial, ce qui a conduit à l\'adoption de 18 mesures de suspension de l\'activité entrepreneuriale.',
     'blog.article.sanzioni-sicurezza-lavoro-comasco.imageAlt': 'Fotographies d\'un passage frontalier en Suisse',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.title': 'Frontaliers du Tessin : ce qui change avec le nouvel accord 2024',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Le nouvel accord frontalier de 2024 est entré en vigueur le 1er janvier 2024 et prévoit une exemption de 7 500 € pour les anciens frontaliers et de 10 000 € pour les nouveaux frontaliers.',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Un passage frontalier entre Tovo di Sant\'Agata et Grigioni.',
 };
 
 export default blogMetaFr;
