@@ -9603,6 +9603,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Vivre à Campodolcino, travailler dans les Grisons : liens et coût de la vie',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'Les dernières mises à jour sur les déplacements et les facilités pour les frontaliers en Suisse.',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'Une frontalière qui se penche sur le lac de Locarno, avec les monts Grigioni en arrière-plan.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Vivre à Chiavenna et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'Nouvel accord frontalier : ce qui change pour les frontaliers tessinois et grison.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Frontalier s\'approchant d\'un poste frontalière',
 };
 
 export default blogMetaFr;

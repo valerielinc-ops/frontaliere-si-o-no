@@ -63485,6 +63485,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-chiavenna-lavorare-grigioni': {
+    title: 'Vivere a Chiavenna e lavorare in Grigioni da frontaliere',
+    description: 'Informazioni sul Nuovo Accordo Frontalieri e le sue implicazioni per i frontalieri ticinesi e grigionesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, chiavenna, lavorare, grigioni',
+    ogTitle: 'Vivere a Chiavenna e lavorare in Grigioni da frontaliere',
+    ogDescription: 'Informazioni sul Nuovo Accordo Frontalieri e le sue implicazioni per i frontalieri ticinesi e grigionesi.',
+    canonicalPath: '/articoli-frontaliere/vivere-chiavenna-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Chiavenna e lavorare in Grigioni da frontaliere",
+      "description": "Informazioni sul Nuovo Accordo Frontalieri e le sue implicazioni per i frontalieri ticinesi e grigionesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-chiavenna-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolare frontaliero che si avvicina a un valico di confine"
+      },
+      "datePublished": "2026-08-11T02:04:45+00:00",
+      "dateModified": "2026-08-11T02:04:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-chiavenna-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

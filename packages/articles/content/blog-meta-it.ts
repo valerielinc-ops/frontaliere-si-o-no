@@ -9602,6 +9602,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Vivere a Campodolcino, lavorare in Grigioni: collegamenti e costo della vita',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'Gli ultimi aggiornamenti sugli spostamenti e le agevolazioni per i frontalieri in Svizzera.',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'Una frontaliere che si affaccia sul lago di Locarno, con la catena dei Grigioni in primo piano.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Vivere a Chiavenna e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'Nuovo Accordo Frontalieri: cosa cambia per i frontalieri ticinesi e grigionesi.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Pendolare frontaliero che si avvicina a un valico di confine',
 };
 
 export default blogMetaIt;

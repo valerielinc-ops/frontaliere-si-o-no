@@ -9601,6 +9601,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Living in Campodolcino, working in Graubünden: connections and cost of living',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'The latest updates on travel and benefits for border workers in Switzerland.',
     'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'A frontaliere overlooking Lake Locarno, with the Grigioni Mountains in the background.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.title': 'Living in Chiavenna and working in Graubünden as a border worker',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.excerpt': 'New Frontier Agreement: what changes for Ticino and Graubünden frontiersmen.',
+    'blog.article.vivere-chiavenna-lavorare-grigioni.imageAlt': 'Frontalier approaching a border crossing',
 };
 
 export default blogMetaEn;
