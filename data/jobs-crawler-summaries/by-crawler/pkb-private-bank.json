@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-11T10:27:08.768Z",
-  "total": 2,
+  "generatedAt": "2026-08-11T21:59:42.680Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5381,
-  "avgDurationMs": 5381,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4121,
+  "avgDurationMs": 4121,
   "durationHistory": [
-    5381
+    4121
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:27:05.715Z",
+      "crawledAt": "2026-08-11T21:59:40.258Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
@@ -45,8 +45,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Réceptionniste et Assistant(e) administratif(ve) à 60%",
       "company": "PKB Private Bank SA",
@@ -84,5 +83,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
