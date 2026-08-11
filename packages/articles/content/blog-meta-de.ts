@@ -9618,6 +9618,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Umzug nach Bianzone als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'Für Grenzgänger, die nach Bianzone umziehen möchten, müssen die Vor- und Nachteile dieser Umsiedlung berücksichtigt werden.',
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'Ein Frontaliere in einem Auto auf der Strasse nach Bianzone, Ticino, mit einem blühenden Baum im Vordergrund.',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.title': 'Umzug nach Villa di Tirano als Grenzgänger: Vor- und Nachteile',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.excerpt': 'Was Sie über die Vor- und Nachteile eines Umzugs nach Villa di Tirano als Grenzgänger wissen sollten',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.imageAlt': 'Ein Grenzgänger, der sich in einer ähnlichen Situation befindet, muss möglicherweise neue Steuerforderungen bewältigen',
 };
 
 export default blogMetaDe;

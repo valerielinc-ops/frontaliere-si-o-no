@@ -9619,6 +9619,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.title': 'Moving to Bianzone from border crossings: pros and cons',
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.excerpt': 'For border crossers wishing to move to Bianzone, it is necessary to consider the pros and cons of this move.',
     'blog.article.trasferirsi-a-bianzone-da-frontaliere-pro-e-contro.imageAlt': 'A frontaliere in a car on the road to Bianzone, Ticino, with a tree in flower in the foreground.',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.title': 'Moving to Villa di Tirano by border crossing: pros and cons',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.excerpt': 'Here\'s what to know about the advantages and disadvantages of moving to Villa di Tirano as a border worker',
+    'blog.article.trasferirsi-a-villa-di-tirano-da-frontaliere-pro-e-contro.imageAlt': 'A cross-border worker who finds themselves in a similar situation may have to face new tax challenges',
 };
 
 export default blogMetaEn;
