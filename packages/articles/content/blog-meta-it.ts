@@ -9664,6 +9664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': 'Lavoro a 37 gradi a Laveno, il sindacato segnala',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'Il sindacato segnala il caso di una casa di comunità in Laveno dove si lavora con temperature elevate',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'Una casa di comunità in Ticino con temperature elevate',
+    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni',
+    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Guida pratica per frontalieri: fiscalità, nuovo accordo, franchigie e contributi previdenziali per chi risiede in Valtellina e lavora nel Cantone dei Grigioni.',
+    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Vista panoramica di una strada montana vicino al confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

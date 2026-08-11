@@ -64265,6 +64265,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-tovo-lavorare-grigioni': {
+    title: 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni',
+    description: 'Guida per frontalieri: fiscalità, nuovo accordo 2024, franchigie e contributi per chi lavora nei Grigioni risiedendo in Valtellina. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, tovo, sant, agata',
+    ogTitle: 'Vivere a Tovo di Sant\'Agata e lavorare in Grigioni',
+    ogDescription: 'Tutto quello che i frontalieri devono sapere su tassazione, nuovo accordo 2024, franchigie e previdenza lavorando nel Cantone dei Grigioni.',
+    canonicalPath: '/articoli-frontaliere/vivere-tovo-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Tovo di Sant'Agata e lavorare in Grigioni",
+      "description": "Guida per frontalieri: fiscalità, nuovo accordo 2024, franchigie e contributi per chi lavora nei Grigioni risiedendo in Valtellina. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-tovo-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di una strada montana vicino al confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-11T09:05:24+00:00",
+      "dateModified": "2026-08-11T09:05:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-tovo-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

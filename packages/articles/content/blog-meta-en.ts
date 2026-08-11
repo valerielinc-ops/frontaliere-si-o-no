@@ -9663,6 +9663,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.allacasadicomunitalavenosegnala.title': 'Working at 37 degrees in Laveno, the union reports',
     'blog.article.allacasadicomunitalavenosegnala.excerpt': 'The union reports the case of a community house in Laveno where it works with high temperatures',
     'blog.article.allacasadicomunitalavenosegnala.imageAlt': 'A community house in Ticino with high temperatures',
+    'blog.article.vivere-tovo-lavorare-grigioni.title': 'Living in Tovo di Sant\'Agata and working in Graubünden',
+    'blog.article.vivere-tovo-lavorare-grigioni.excerpt': 'Practical guide for border workers: taxation, new agreement, deductibles and social security contributions for those who reside in Valtellina and work in the Canton of Graubünden.',
+    'blog.article.vivere-tovo-lavorare-grigioni.imageAlt': 'Panoramic view of a mountain road near the Italian-Swiss border',
 };
 
 export default blogMetaEn;
