@@ -2182,6 +2182,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralita-consiglio-federale.title': 'Neutralité, le Conseil fédéral entend maintenir la marge de manœuvre actuelle',
     'blog.article.neutralita-consiglio-federale.excerpt': 'Le Conseil fédéral veut maintenir la marge de manœuvre actuelle sur la neutralité. L\'initiative populaire sur la neutralité sera votée le 27 septembre.',
     'blog.article.neutralita-consiglio-federale.imageAlt': 'Un politicien du DFAE parle devant le Conseil fédéral à Berne.',
+    'blog.article.carne-prezzi-svizzera.title': 'La chaleur ne freine pas la consommation de viande, mais fera augmenter les prix',
+    'blog.article.carne-prezzi-svizzera.excerpt': 'La vague de chaleur n\'a pas empêché une augmentation de la consommation de viande, mais la sécheresse pourrait réduire l\'offre et faire monter les prix.',
+    'blog.article.carne-prezzi-svizzera.imageAlt': 'Le coût du boeuf en Suisse et ses conséquences',
 };
 
 export default blogMetaChFr;

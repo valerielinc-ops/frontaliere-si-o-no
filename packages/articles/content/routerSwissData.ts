@@ -753,6 +753,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-ees-rallenta-controlli': { it: 'svizzera-ees-rallenta-controlli', en: 'svizzera-ees-rallenta-controlli', de: 'schweiz-ees-verlangsamt-kontrollen', fr: 'suisse-ees-ralentit-controles' },
  'sistema-scolastico-canton-zurigo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli', en: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli', de: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli', fr: 'sistema-scolastico-canton-zurigo-iscrizione-e-cicli' },
  'neutralita-consiglio-federale': { it: 'neutralita-consiglio-federale', en: 'federal-council-neutrality', de: 'bundesrat-neutralitaet', fr: 'conseil-federal-neutralite' },
+ 'carne-prezzi-svizzera': { it: 'carne-prezzi-svizzera', en: 'meat-prices-switzerland', de: 'fleischpreis-schweiz', fr: 'boeuf-cout-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

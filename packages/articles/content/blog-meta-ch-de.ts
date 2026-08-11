@@ -2182,6 +2182,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-consiglio-federale.title': 'Neutralität beabsichtigt der Bundesrat, den bestehenden Handlungsspielraum',
     'blog.article.neutralita-consiglio-federale.excerpt': 'Der Bundesrat will den bisherigen Handlungsspielraum zur Neutralität beibehalten. Über die Neutralitätsinitiative wird am 27. September abgestimmt.',
     'blog.article.neutralita-consiglio-federale.imageAlt': 'Ein DFAE-Politiker spricht vor dem Bundesrat in Bern.',
+    'blog.article.carne-prezzi-svizzera.title': 'Die Hitze bremst nicht den Fleischkonsum, sondern treibt die Preise in die Höhe',
+    'blog.article.carne-prezzi-svizzera.excerpt': 'Die Hitzewelle hat einen Anstieg des Fleischkonsums nicht verhindert, aber die Dürre könnte das Angebot reduzieren und die Preise in die Höhe treiben.',
+    'blog.article.carne-prezzi-svizzera.imageAlt': 'Der Fleischpreis in der Schweiz und seine Auswirkungen',
 };
 
 export default blogMetaChDe;

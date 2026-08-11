@@ -2182,6 +2182,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-consiglio-federale.title': 'Maintaining Neutrality',
     'blog.article.neutralita-consiglio-federale.excerpt': 'The Federal Council wants to maintain the current room for manoeuvre on neutrality. The popular initiative on neutrality will be voted on September 27.',
     'blog.article.neutralita-consiglio-federale.imageAlt': 'A DFAE politician speaks in front of the Federal Council in Bern.',
+    'blog.article.carne-prezzi-svizzera.title': 'The heat does not curb meat consumption, but it will increase prices',
+    'blog.article.carne-prezzi-svizzera.excerpt': 'The heatwave has not prevented an increase in meat consumption, but the drought could reduce supply and drive up prices.',
+    'blog.article.carne-prezzi-svizzera.imageAlt': 'The cost of meat in Switzerland and its implications',
 };
 
 export default blogMetaChEn;
