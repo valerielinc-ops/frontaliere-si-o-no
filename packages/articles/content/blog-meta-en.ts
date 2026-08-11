@@ -9705,6 +9705,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.title': 'Living in Gignod and working in Valais as a border worker',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.excerpt': 'Analysis of tax and operational constraints for cross-border commuting between Italy and Switzerland according to current agreements.',
     'blog.article.vivere-gignod-lavorare-vallese-frontaliere.imageAlt': 'Swiss alpine landscape near the border',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.title': 'Frontier and new tax agreement: complete guide 2024',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.excerpt': 'Everything you need to know about the new tax agreement between Italy and Switzerland in force since 1 January 2024 and the rules for frontier workers.',
+    'blog.article.frontalieri-regime-fiscale-nuovo-accordo.imageAlt': 'Panoramic view of Lugano with modern buildings',
 };
 
 export default blogMetaEn;
