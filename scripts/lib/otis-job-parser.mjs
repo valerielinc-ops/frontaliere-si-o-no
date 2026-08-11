@@ -5,12 +5,16 @@
  * Their Swiss operations include positions across Switzerland.
  *
  * Workday API endpoints:
- *   Listing: POST https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway/jobs
+ *   Listing: POST https://otis.wd504.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway/jobs
  *            Body: {"appliedFacets":{},"limit":20,"offset":0,"searchText":"Switzerland"}
- *   Detail:  GET  https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway{externalPath}
+ *   Detail:  GET  https://otis.wd504.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway{externalPath}
  *
  * Public URL base:
- *   https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway{externalPath}
+ *   https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway{externalPath}
+ *
+ * NB: Otis migrated their Workday pod from wd5 to wd504 (observed 2026-08-11,
+ * issue #5597) — wd5 now 500s even on the human-facing career page, not just
+ * the API, so this is a genuine tenant move, not transient bot-blocking.
  *
  * The listing endpoint uses searchText to filter by country (facet IDs cause 400 errors).
  * Response locationsText format: "Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland"
@@ -21,9 +25,9 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('otis');
 
-export const WORKDAY_API_BASE = 'https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
-export const WORKDAY_PUBLIC_BASE = 'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway';
-export const COMPANY_HOST = 'otis.wd5.myworkdayjobs.com';
+export const WORKDAY_API_BASE = 'https://otis.wd504.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
+export const WORKDAY_PUBLIC_BASE = 'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway';
+export const COMPANY_HOST = 'otis.wd504.myworkdayjobs.com';
 
 /**
  * Known Ticino location keywords for filtering.
