@@ -6625,6 +6625,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'lex-ubs-proposta-compromesso',
+    category: 'fiscale',
+    date: '2026-08-11T17:34:08.706Z',
+    image: '/images/blog/lex-ubs-proposta-compromesso.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

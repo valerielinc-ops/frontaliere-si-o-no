@@ -2209,6 +2209,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilaterali III, vacilla una delle misure di accompagnamento',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha respinto il provvedimento 14, che rafforzava la protezione dal licenziamento dei rappresentanti del personale e sindacali attivi nelle aziende.',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: vista del lago',
+    'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, si cerca un compromesso',
+    'blog.article.lex-ubs-proposta-compromesso.excerpt': 'La Commissione dell\'economia e tributi degli Stati (CET-S) ha rinviato la discussione sulla copertura con fondi propri per partecipazioni estere nella casa madre di banche di rilevanza sistemica (UBS).',
+    'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'L\'edificio del Parlamento federale a Berna.',
 };
 
 export default blogMetaChIt;

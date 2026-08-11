@@ -2209,6 +2209,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.title': 'Bilaterale III, eine der flankierenden Massnahmen gerät ins Wanken',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Ständerates lehnte die Massnahme 14 ab, mit der der Kündigungsschutz der in den Betrieben tätigen Arbeitnehmer- und Gewerkschaftsvertreter gestärkt wurde.',
     'blog.article.bilaterali-iii-vacilla-misura-accompagnamento.imageAlt': 'Lugano: Blick auf den See',
+    'blog.article.lex-ubs-proposta-compromesso.title': 'Lex UBS, Kompromiss gesucht',
+    'blog.article.lex-ubs-proposta-compromesso.excerpt': 'Die Kommission für Wirtschaft und Abgaben der Staaten (WAK-S) hat die Diskussion über die Deckung ausländischer Beteiligungen an der Muttergesellschaft systemrelevanter Banken (UBS) mit Eigenmitteln vertagt.',
+    'blog.article.lex-ubs-proposta-compromesso.imageAlt': 'Das Bundesparlament in Bern.',
 };
 
 export default blogMetaChDe;
