@@ -572,9 +572,9 @@
     },
     {
       "id": "kispi-zurich-d0e4f1fd48a4",
-      "slug": "dipl-infermieristica-professionale-dipl-specialista-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-hf-fh-cura-perioperativa-60-100-universitats-kinderspital",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-specialista-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich",
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-hf-fh-cura-perioperativa-60-100-universitats-kinderspital",
         "en": "dipl-nursing-professional-dipl-care-specialist-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich-kispi",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-hf-fh-soins-perioperatoires-60-100-universitats"
@@ -619,11 +619,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich",
+        "dipl-infermieristica-professionale-dipl-specialista-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich",
+          "dipl-infermieristica-professionale-dipl-specialista-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-perioperative-care-60-100-kispi-zurich"
@@ -730,7 +732,7 @@
         "de": "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich",
         "it": "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "senior-physician-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "medecin-principal-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "medecin-aine-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -794,11 +796,13 @@
           "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
         ],
         "fr": [
-          "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
+          "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich",
+          "medecin-principal-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
+        "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich",
+        "medecin-principal-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ]
     },
     {

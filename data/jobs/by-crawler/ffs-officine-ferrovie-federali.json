@@ -215,9 +215,9 @@
     },
     {
       "id": "sbb-992389b6116e",
-      "slug": "entrata-trasversale-del-personale-di-manovra-in-ffs-officine-ferrovie-federali-spreitenbach",
+      "slug": "cambio-carriera-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-spreitenbach",
       "slugByLocale": {
-        "it": "entrata-trasversale-del-personale-di-manovra-in-ffs-officine-ferrovie-federali-spreitenbach",
+        "it": "cambio-carriera-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-spreitenbach",
         "en": "transverse-entry-shunting-employee-ffs-officine-ferrovie-federali-spreitenbach",
         "de": "quereinstieg-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-spreitenbach",
         "fr": "acces-transversal-employe-e-de-man-uvre-ffs-officine-ferrovie-federali-spreitenbach"
@@ -294,7 +294,8 @@
           "quereinstieg-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-spreitenbach",
           "dipendente-di-manovra-a-ingresso-laterale-ffs-officine-ferrovie-federali-spreitenbach",
           "lateral-entry-shunting-employee-ffs-officine-ferrovie-federali-spreitenbach",
-          "employe-de-man-uvre-a-entree-laterale-ffs-officine-ferrovie-federali-spreitenbach"
+          "employe-de-man-uvre-a-entree-laterale-ffs-officine-ferrovie-federali-spreitenbach",
+          "entrata-trasversale-del-personale-di-manovra-in-ffs-officine-ferrovie-federali-spreitenbach"
         ],
         "en": [
           "lateral-entry-shunting-employee-ffs-officine-ferrovie-federali-spreitenbach"
@@ -307,7 +308,8 @@
         "quereinstieg-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-spreitenbach",
         "dipendente-di-manovra-a-ingresso-laterale-ffs-officine-ferrovie-federali-spreitenbach",
         "lateral-entry-shunting-employee-ffs-officine-ferrovie-federali-spreitenbach",
-        "employe-de-man-uvre-a-entree-laterale-ffs-officine-ferrovie-federali-spreitenbach"
+        "employe-de-man-uvre-a-entree-laterale-ffs-officine-ferrovie-federali-spreitenbach",
+        "entrata-trasversale-del-personale-di-manovra-in-ffs-officine-ferrovie-federali-spreitenbach"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -701,9 +703,9 @@
     },
     {
       "id": "sbb-3d359c11f10c",
-      "slug": "meccanico-a-automatico-a-elettricista-a-presso-la-centrale-idroelettrica-di-etzelwerk-ffs-officine-ferrovie-federali-altendorf",
+      "slug": "mechaniker-in-automatiker-in-installatore-trice-elettrico-a-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie",
       "slugByLocale": {
-        "it": "meccanico-a-automatico-a-elettricista-a-presso-la-centrale-idroelettrica-di-etzelwerk-ffs-officine-ferrovie-federali-altendorf",
+        "it": "mechaniker-in-automatiker-in-installatore-trice-elettrico-a-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie",
         "en": "mechanic-automation-engineer-electrical-installer-at-etzelwerk-hydroelectric-power-plant-ffs-officine-ferrovie-federali-altendorf",
         "de": "mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie-federali-altendorf",
         "fr": "mecanicien-technicien-en-automatisation-electricien-a-la-centrale-hydroelectrique-d-etzelwerk-ffs-officine-ferrovie-federali-altendorf"
@@ -747,11 +749,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-11T10:20:18.460Z",
       "previousSlugs": [
-        "mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie-federali-altendorf"
+        "mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie-federali-altendorf",
+        "meccanico-a-automatico-a-elettricista-a-presso-la-centrale-idroelettrica-di-etzelwerk-ffs-officine-ferrovie-federali-altendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie-federali-altendorf"
+          "mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk-ffs-officine-ferrovie-federali-altendorf",
+          "meccanico-a-automatico-a-elettricista-a-presso-la-centrale-idroelettrica-di-etzelwerk-ffs-officine-ferrovie-federali-altendorf"
         ]
       },
       "firstSeenAt": "2026-08-10T10:51:55.695Z",
@@ -2926,7 +2930,7 @@
       "slug": "product-owner-m-f-d-con-esperienza-in-architettura-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "product-owner-m-f-d-con-esperienza-in-architettura-ffs-officine-ferrovie-federali-bern",
-        "en": "product-owner-m-w-d-mit-architekturerfahrung-ffs-officine-ferrovie-federali-bern",
+        "en": "product-owner-m-f-d-with-architecture-experience-ffs-officine-ferrovie-federali-bern",
         "de": "product-owner-m-w-d-mit-architekturerfahrung-ffs-officine-ferrovie-federali-bern",
         "fr": "product-owner-m-f-d-avec-une-experience-en-architecture-ffs-officine-ferrovie-federali-bern"
       },
@@ -2997,8 +3001,7 @@
         "product-managercatenary-systems-ffs-officine-ferrovie-federali-bern",
         "produktmanager-in-fahrleitungsanlagen-ffs-officine-ferrovie-federali-bern",
         "gestionnaire-de-produits-dans-les-systemes-catenaires-ffs-officine-ferrovie-federali-bern",
-        "product-owner-m-f-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern",
-        "product-owner-m-f-d-with-architecture-experience-ffs-officine-ferrovie-federali-bern"
+        "product-owner-m-f-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3012,7 +3015,6 @@
           "product-owner-m-w-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern",
           "product-managercatenary-systems-ffs-officine-ferrovie-federali-bern",
           "product-owner-m-f-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern",
-          "product-owner-m-f-d-with-architecture-experience-ffs-officine-ferrovie-federali-bern",
           "product-owner-m-w-d-mit-architekturerfahrung-ffs-officine-ferrovie-federali-bern"
         ],
         "de": [
@@ -6263,8 +6265,7 @@
         "produktionsleiter-werk-olten-ffs-officine-ferrovie-federali-olten",
         "assistente-al-cliente-ffs-officine-ferrovie-federali-olten",
         "customer-assistant-in-ffs-officine-ferrovie-federali-olten",
-        "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten",
-        "fachverantwortliche-r-im-klimakompetenzzentrum-ffs-officine-ferrovie-federali-olten"
+        "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6479,8 +6480,7 @@
         "pianificatore-di-risorse-in-ffs-officine-ferrovie-federali-zurich-altstetten",
         "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten",
         "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6632,7 +6632,7 @@
       "id": "sbb-599e1ca8fd44",
       "slug": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "shift-manager-transport-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "transportschichtleiter-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
@@ -6689,13 +6689,11 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-11T10:38:06.362Z",
       "previousSlugs": [
-        "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-        "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+        "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-          "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+          "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-07-20T22:43:29.008Z",
@@ -7188,7 +7186,7 @@
       "slugByLocale": {
         "it": "ingegnere-civile-opere-geotecniche-ffs-officine-ferrovie-federali-berne",
         "en": "geotechnical-civil-engineering-engineer-ffs-officine-ferrovie-federali-berne",
-        "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
+        "de": "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
         "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -7251,7 +7249,6 @@
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
         "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne",
         "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
-        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
         "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
       ],
       "previousSlugsByLocale": {
@@ -7263,7 +7260,6 @@
           "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne"
         ],
         "de": [
-          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne",
           "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
         ]
       },
@@ -9922,9 +9918,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -9985,9 +9981,8 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
-        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9995,12 +9990,11 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+          "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
       "firstSeenAt": "2026-06-10T23:24:15.002Z",

@@ -86,8 +86,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege",
         "it": "dipl-pflegefachperson-hf-fh-per-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege-spital-limmattal-schlieren",
-        "en": "emergency-care-expert-advanced-studies-nds-spital-limmattal-schlieren",
-        "fr": "expert-e-diplome-e-en-soins-d-urgence-nds-spital-limmattal-schlieren"
+        "en": "dipl-nurse-hf-fh-for-the-2-year-nds-dipl-expert-expert-emergency-care-spital-limmattal-schlieren",
+        "fr": "dipl-infirmiere-hf-fh-pour-le-dipl-expert-expert-en-soins-d-urgence-de-2-ans-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -136,14 +136,18 @@
           "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege"
+          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege",
+          "emergency-care-expert-advanced-studies-nds-spital-limmattal-schlieren"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege"
+          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege",
+          "expert-e-diplome-e-en-soins-d-urgence-nds-spital-limmattal-schlieren"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege"
+        "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-notfallpflege",
+        "emergency-care-expert-advanced-studies-nds-spital-limmattal-schlieren",
+        "expert-e-diplome-e-en-soins-d-urgence-nds-spital-limmattal-schlieren"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -166,8 +170,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege",
         "it": "dipl-pflegefachperson-hf-fh-per-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege-spital-limmattal-schlieren",
-        "en": "critical-care-nurse-hf-fh-advanced-diploma-program-spital-limmattal-schlieren",
-        "fr": "infirmier-ere-diplome-e-es-hes-en-soins-intensifs-nds-spital-limmattal-schlieren"
+        "en": "dipl-nurse-hf-fh-for-the-2-year-nds-dipl-expert-expert-intensive-care-spital-limmattal-schlieren",
+        "fr": "dipl-infirmiere-hf-fh-pour-les-soins-intensifs-d-expert-et-d-expert-de-2-ans-de-la-snd-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -216,14 +220,18 @@
           "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege"
+          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege",
+          "critical-care-nurse-hf-fh-advanced-diploma-program-spital-limmattal-schlieren"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege"
+          "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege",
+          "infirmier-ere-diplome-e-es-hes-en-soins-intensifs-nds-spital-limmattal-schlieren"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege"
+        "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-dipl-expertin-experte-intensivpflege",
+        "critical-care-nurse-hf-fh-advanced-diploma-program-spital-limmattal-schlieren",
+        "infirmier-ere-diplome-e-es-hes-en-soins-intensifs-nds-spital-limmattal-schlieren"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
