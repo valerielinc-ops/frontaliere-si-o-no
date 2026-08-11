@@ -2149,6 +2149,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-zurigo-guida.title': 'Permesso di dimora B a Zurigo: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Guida completa al permesso di dimora B nel Canton Zurigo: procedure, documentazione necessaria, scadenze per il rinnovo e competenze delle autorità cantonali.',
     'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Edificio direzionale moderno a Zurigo sede di uffici amministrativi',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Permesso di domicilio C nel Cantone di Zurigo: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'Il permesso di domicilio C nel Cantone di Zurigo richiede almeno 10 anni di residenza, conoscenze linguistiche e una procedura di domanda specifica.',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'Una scena di Lugano con una persona che si avvicina a un ufficio del cantone di Zurigo per domandare il permesso di domicilio C.',
 };
 
 export default blogMetaChIt;

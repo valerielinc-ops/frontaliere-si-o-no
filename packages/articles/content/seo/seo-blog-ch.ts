@@ -27824,6 +27824,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-domicilio-c-zurigo-requisiti-domanda': {
+    title: 'Permesso di domicilio C nel Cantone di Zurigo: requisiti e domanda',
+    description: 'Il permesso di domicilio C nel Cantone di Zurigo richiede almeno 10 anni di residenza, conoscenze linguistiche e una procedura di domanda specifica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, cantone, zurigo',
+    ogTitle: 'Permesso di domicilio C nel Cantone di Zurigo',
+    ogDescription: 'Il permesso di domicilio C nel Cantone di Zurigo richiede almeno 10 anni di residenza, conoscenze linguistiche e una procedura di domanda specifica.',
+    canonicalPath: '/articoli-svizzera/permesso-domicilio-c-zurigo-requisiti-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C nel Cantone di Zurigo: requisiti e domanda",
+      "description": "Il permesso di domicilio C nel Cantone di Zurigo richiede almeno 10 anni di residenza, conoscenze linguistiche e una procedura di domanda specifica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-domicilio-c-zurigo-requisiti-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano con una persona che si avvicina a un ufficio del cantone di Zurigo per domandare il permesso di domicilio C."
+      },
+      "datePublished": "2026-08-11T09:01:44+00:00",
+      "dateModified": "2026-08-11T09:01:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-domicilio-c-zurigo-requisiti-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

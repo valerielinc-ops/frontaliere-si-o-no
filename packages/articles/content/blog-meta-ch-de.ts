@@ -2149,6 +2149,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-zurigo-guida.title': 'Aufenthaltsbewilligung B in Zürich: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-zurigo-guida.excerpt': 'Vollständiger Leitfaden zur Aufenthaltsbewilligung B im Kanton Zürich: Verfahren, erforderliche Unterlagen, Fristen für die Erneuerung und Zuständigkeiten der kantonalen Behörden.',
     'blog.article.permesso-dimora-b-zurigo-guida.imageAlt': 'Modernes Bürogebäude in Zürich für Verwaltungsdienste',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.title': 'Niederlassungsbewilligung C im Kanton Zürich: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.excerpt': 'Die Niederlassungsbewilligung C im Kanton Zürich erfordert mindestens 10 Jahre Aufenthalt, Sprachkenntnisse und ein spezielles Antragsverfahren.',
+    'blog.article.permesso-domicilio-c-zurigo-requisiti-domanda.imageAlt': 'Eine Szene von Lugano, mit einer Person, die sich einem Amt des Kantons Zürich nähert, um den Aufenthaltstitel C zu beantragen.',
 };
 
 export default blogMetaChDe;
