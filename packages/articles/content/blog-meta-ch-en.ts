@@ -2155,6 +2155,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apple-stime-reducono.title': 'Apple reduces estimates, revenue growth between 9% and 11%',
     'blog.article.apple-stime-reducono.excerpt': 'Apple expects lower sales growth and margin pressure in the coming months',
     'blog.article.apple-stime-reducono.imageAlt': 'Image of a person in front of a computer with stock market screen',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Short-term permit L in the Canton of Zurich: validity and extension',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'Short-term L permits in the Canton of Zurich are valid for a maximum of 1 year, but the extension is subject to specific conditions.',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'A foreigner in Switzerland with a short-term L permit',
 };
 
 export default blogMetaChEn;

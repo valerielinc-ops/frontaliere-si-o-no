@@ -6463,6 +6463,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-l-breve-durata-canton-zurigo',
+    category: 'pratico',
+    date: '2026-08-11T09:33:39.268Z',
+    image: '/images/blog/permesso-l-breve-durata-canton-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2155,6 +2155,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apple-stime-reducono.title': 'Apple réduit les estimations, la croissance des revenus entre 9% et 11%',
     'blog.article.apple-stime-reducono.excerpt': 'Apple prévoit une croissance plus faible des ventes et une pression sur les marges dans les mois à venir',
     'blog.article.apple-stime-reducono.imageAlt': 'Image d\'une personne devant un ordinateur avec écran de marché boursier',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.title': 'Permis L de courte durée dans le canton de Zurich : validité et prolongation',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.excerpt': 'Les permis L de courte durée dans le canton de Zurich sont valables pour une durée maximale d\'un an, mais la prolongation est soumise à des conditions spécifiques.',
+    'blog.article.permesso-l-breve-durata-canton-zurigo.imageAlt': 'Un étranger en Suisse avec un permis L de courte durée',
 };
 
 export default blogMetaChFr;
