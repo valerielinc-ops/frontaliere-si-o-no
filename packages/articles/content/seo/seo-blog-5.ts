@@ -64928,6 +64928,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-m5s-vco-tassa-salute': {
+    title: 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    description: 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, piemonte, lombardia, divisi, così',
+    ogTitle: 'Frontalieri, M5S VCO: \'Piemonte e Lombardia divisi, così aumentano le disparità\'',
+    ogDescription: 'Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-m5s-vco-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, M5S VCO: 'Piemonte e Lombardia divisi, così aumentano le disparità'",
+      "description": "Il Movimento 5 Stelle VCO interviene sulla situazione dei frontalieri dopo il dibattito alla Festa della Lucciola di Villadossola. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-m5s-vco-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora in Lombardia e risiede in Ticino."
+      },
+      "datePublished": "2026-08-11T15:03:12+00:00",
+      "dateModified": "2026-08-11T15:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-m5s-vco-tassa-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

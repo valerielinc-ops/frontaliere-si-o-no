@@ -29136,6 +29136,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-m5s-vco-tassa-salute',
+ category: 'fiscale',
+ date: '2026-08-11T15:03:12.669Z',
+ image: '/images/blog/frontalieri-m5s-vco-tassa-salute.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

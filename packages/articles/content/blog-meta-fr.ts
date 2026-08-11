@@ -9716,6 +9716,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivre à Roisan et travailler en Valais comme frontalier',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Les frontaliers qui vivent à Roisan et travaillent en Valais doivent être au courant des nouvelles règles et délais de déclaration de revenus.',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Une famille d\'un frontalier regarde le lac de Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Piemonte e Lombardia divisi, disparità in aumento',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Le Mouvement 5 Étoiles VCO intervient sur la situation des frontaliers après le débat à la Fête de la Lucciola de Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontalière travaille en Lombardie et réside en Tessin.',
 };
 
 export default blogMetaFr;

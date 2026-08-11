@@ -9714,6 +9714,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Living in Roisan and working in Valais as a border worker',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Border workers living in Roisan and working in Valais must be aware of the new rules and deadlines for filing tax returns.',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'A family of a frontaliere looks at the lake of Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Frontiersmen, M5S VCO: \'Piedmont and Lombardy divided, so disparities increase\'',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'The 5 Star Movement VCO intervenes on the situation of border workers after the debate at the Firefly Festival in Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'A frontaliere working in Lombardy and residing in Ticino.',
 };
 
 export default blogMetaEn;
