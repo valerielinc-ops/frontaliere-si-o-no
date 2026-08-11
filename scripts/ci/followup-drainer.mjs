@@ -91,6 +91,17 @@ const SETTLE_MIN = Number(process.env.FOLLOWUP_SETTLE_MIN || 3);
 const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
+// Issue-contatore/tracker permanenti (#5615): il ledger crawler-transient e il
+// tracker loop-health sono queue-managed (category='other' → route='queue',
+// nessuna regex di categoria li riconosce), quindi altrimenti eleggibili
+// all'age-out come qualunque follow-up vecchio+inattivo. La loro "inattività"
+// però è il segnale sano — sopravvivono SOLO perché i fallimenti sub-soglia
+// che contano li ri-commentano; un periodo di crawler sani li lascia fermi e
+// il drainer li chiuderebbe, azzerando lo streak che contano. Riconoscerli dal
+// titolo sarebbe fragile (proxy, non fatto) — una label esplicita applicata
+// alla creazione (github-issue-creator.mjs, loop-health-report.mjs) è verificata
+// qui, indipendente da età/inattività.
+const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
 // Age-out close: il post-merge-followup apre 1 follow-up per PR mergiata e
 // NESSUN workflow le chiude mai → ratchet monotòno (osservate 41 aperte). Un
@@ -456,10 +467,11 @@ export function isQueueManaged(iss) {
 /**
  * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
  * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
- * solo follow-up), NON in lavorazione (né `agent:fix` né `agent:fix-queued`),
- * creata da ≥ageOutDays E inattiva da ≥inactiveDays. I `fu-parked` ricadono
- * qui (non sono in coda). Il chiamante aggiunge la guardia "nessuna PR aperta"
- * (impura).
+ * solo follow-up), NON marcata `agent:no-age-out` (issue-contatore/tracker
+ * permanente, #5615), NON in lavorazione (né `agent:fix` né
+ * `agent:fix-queued`), creata da ≥ageOutDays E inattiva da ≥inactiveDays. I
+ * `fu-parked` ricadono qui (non sono in coda). Il chiamante aggiunge la
+ * guardia "nessuna PR aperta" (impura).
  * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
  * @param {{now:number, ageOutDays:number, inactiveDays:number}} opts
  */
@@ -467,6 +479,7 @@ export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
+  if (ls.includes(LBL_NO_AGE_OUT)) return false; // issue-contatore/tracker permanente, mai eleggibile
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
   const created = Date.parse(iss?.createdAt);
   const updated = Date.parse(iss?.updatedAt);
