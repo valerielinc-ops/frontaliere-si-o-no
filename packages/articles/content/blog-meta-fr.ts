@@ -9582,6 +9582,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.title': 'Déménager à Domaso en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.excerpt': 'Le nouvel accord frontalier a été signé le 23 décembre 2020 et prévoit une série d\'avantages pour les frontaliers qui déménagent à Domaso.',
     'blog.article.trasferirsi-a-domaso-da-frontaliere-pro-e-contro.imageAlt': 'Un frontalier qui se trouve dans une situation similaire pourrait se transférer à Domaso pour profiter d\'une série de avantages.',
+    'blog.article.vivere-bisuschio-lavorare-ticino.title': 'Vivre à Bisuschio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-bisuschio-lavorare-ticino.excerpt': 'Parce que Bisuschio est l\'une des meilleures options pour les frontaliers qui travaillent au Tessin et ce qu\'il faut savoir avant de déménager.',
+    'blog.article.vivere-bisuschio-lavorare-ticino.imageAlt': 'Un cycliste sur la route qui mène à Bisuschio, avec le lac de Lugano à l\'arrière-plan.',
 };
 
 export default blogMetaFr;
