@@ -181,6 +181,46 @@ jobs:
             --workflow "${{ github.workflow }}" \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+      # ── The only place a diff of what is ABOUT TO be published still exists ─
+      #
+      # The deterministic factuality gates (scripts/lib/article-factuality-gates.mjs)
+      # were written for the 2026-07-28 incident and are correct — run against
+      # the article issue #5595 reports they flag an institution that does not
+      # exist — but nothing ever ran them on the path that actually publishes.
+      # Since the 2026-08-02 cutover (#4974) article bodies are generated in
+      # nanakokyobashi-rgb/frontaliere-articles and land here through THIS job,
+      # which commits `packages/articles/content` straight to `main` with no PR.
+      # Every committed-diff hook is therefore dead on that path, verified:
+      #
+      #   - `pull_request` runs of tests.yml never see these bodies: no PR;
+      #   - the `push: branches: [main]` run never even STARTS — the push below
+      #     uses this workflow's own GITHUB_TOKEN and GitHub does not trigger
+      #     workflows on such pushes (2026-08-11: sync commit 7f1a3b4f carries
+      #     four check-runs, all `schedule`/`workflow_run`, zero `push`);
+      #   - and if it did start, `github.base_ref` is empty on a push, so
+      #     `--changed origin/${{ github.base_ref || 'main' }}` diffs origin/main
+      #     against itself — an empty scope, green having checked nothing.
+      #
+      # So this step, HERE: the corpus pull above has already written the new
+      # bodies into the working tree and the `git add`/`git commit` below has
+      # not run yet. That uncommitted diff is the last observable form of the
+      # batch before it becomes `main`.
+      #
+      # REPORTS, NEVER BLOCKS, and `continue-on-error` is the second lock on
+      # that. Failing here would stop the commit, i.e. hold back the whole batch
+      # — the correct articles included — plus the sitemaps, the ten RSS feeds
+      # and the ticker that ride the same commit. Measured 2026-08-11: 3.173 of
+      # 15.640 body-locales flagged (20,3%), only 206 blocking, and the case the
+      # issue reports scores `major`. Making it blocking is an owner decision;
+      # the reasoning and the FACTUALITY_ISSUE_SCOPE knob are documented in
+      # scripts/ci/report-synced-article-factuality.mjs.
+      - name: Report factuality of the newly synced articles
+        if: steps.gate.outputs.skipped != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/report-synced-article-factuality.mjs
+
       - name: Commit if changed
         id: commit
         if: steps.gate.outputs.skipped != 'true'
