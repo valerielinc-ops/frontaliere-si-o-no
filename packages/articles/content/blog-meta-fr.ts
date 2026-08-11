@@ -9698,6 +9698,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Frontalier Tessin : travailler en Valais depuis Courmayeur',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Informations concrètes pour les frontaliers sur le trajet Courmayeur-Valais et sur la zone conseillée.',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier envisage la région de Courmayeur et Vallese pour son travail et son logement.',
+    'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontière en Valais : règles et fiscalité',
+    'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Guide opérationnel sur le nouvel accord fiscal, la gestion des revenus et les obligations de sécurité sociale pour les travailleurs frontaliers en Suisse.',
+    'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Paysage montagneux alpin avec village',
 };
 
 export default blogMetaFr;
