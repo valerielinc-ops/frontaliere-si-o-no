@@ -385,14 +385,14 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
    * variare articleId e slug per chiamata, e nessun file deve sopravvivere fra
    * i due render che il test confronta.
    */
-  function buildFeedXml(articleId: string, itSlug: string): string {
+  function buildFeedXml(articleId: string, itSlug: string, description = 'Test description'): string {
     const files = new Map<string, string>([
       [
         SEO_FILE,
         `export default {
   'blog-${articleId}': {
     "headline": "Test headline",
-    "description": "Test description",
+    "description": "${description}",
     "datePublished": "2026-08-01T00:00:00.000Z",
     "articleSection": "Notizie",
   },
@@ -465,5 +465,18 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     expect(xml, 'l articleId grezzo non escapato non deve comparire nel feed').not.toMatch(
       /art&id</,
     );
+  });
+
+  it('la sequenza ]]> nel testo non chiude la CDATA in anticipo (follow-up #5586)', () => {
+    // Un excerpt che contiene letteralmente `]]>` chiuderebbe la CDATA subito
+    // dopo, lasciando il resto del testo come XML non-escapato nel feed.
+    const xml = buildFeedXml('cdata-article', 'cdata-slug', 'Testo con ]]> dentro.');
+
+    // Il canale ha una propria <description> non-CDATA (meta.description):
+    // matcha solo quella dell'item, che e' avvolta in CDATA.
+    const description = xml.match(/<description><!\[CDATA\[[\s\S]*?<\/description>/)![0];
+    // La CDATA va spezzata in due sezioni adiacenti (`]]]]><![CDATA[>`) cosi'
+    // che il testo letterale "]]>" sopravviva senza chiudere la sezione.
+    expect(description).toBe('<description><![CDATA[Testo con ]]]]><![CDATA[> dentro.]]></description>');
   });
 });

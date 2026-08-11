@@ -286,6 +286,16 @@ function escapeXml(text) {
     .replace(/'/g, '&apos;');
 }
 
+// A CDATA section can't contain the literal sequence `]]>` (it's the section
+// terminator) — a body/excerpt that happens to include it would close the
+// CDATA early and leave the rest as unescaped XML, breaking the feed
+// (follow-up #5586). Split it across two adjacent CDATA sections instead:
+// close after the first `]]`, then reopen a new section starting with `>`.
+// The two sections concatenate back to the original literal text.
+function escapeCData(text) {
+  return String(text || '').replace(/]]>/g, ']]]]><![CDATA[>');
+}
+
 function toRfc822(isoDate) {
   try {
     return new Date(isoDate).toUTCString();
@@ -354,12 +364,12 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
     .map((item) => {
       const body = bodies?.get(item.articleId);
       const contentEncoded = body
-        ? `\n      <content:encoded><![CDATA[${body}]]></content:encoded>`
+        ? `\n      <content:encoded><![CDATA[${escapeCData(body)}]]></content:encoded>`
         : '';
       return `    <item>
       <title>${escapeXml(item.title)}</title>
       <link>${BASE_URL}${meta.articlePrefix}${escapeXml(item.slug)}/</link>
-      <description><![CDATA[${item.excerpt}]]></description>${contentEncoded}
+      <description><![CDATA[${escapeCData(item.excerpt)}]]></description>${contentEncoded}
       <pubDate>${toRfc822(item.pubDate)}</pubDate>
       <guid isPermaLink="false">${BASE_URL}${meta.articlePrefix}${escapeXml(item.articleId)}</guid>
       <category>${escapeXml(item.category)}</category>
