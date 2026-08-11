@@ -19,6 +19,7 @@ import {
   professionKeywordQuery,
   professionKeywordLandingPath,
 } from '../scripts/lib/keyword-page-paths.mjs';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 /**
  * Drift guard for #4564: profession-keyword-opportunities.mjs flags a gap
@@ -202,6 +203,13 @@ describe('keyword-page paths: the report prints the URL the emitter serves', () 
     expect(pluginLocaleMap('localePrefix')).toEqual(KEYWORD_LANDING_LOCALE_PREFIX);
     expect(pluginLocaleMap('sectionByLocale')).toEqual(KEYWORD_LANDING_SECTION);
     expect(pluginLocaleMap('searchRoutePrefix')).toEqual(KEYWORD_LANDING_SEARCH_PREFIX);
+  });
+
+  it('re-exports the canonical TI section table instead of copying it', () => {
+    // Object identity, not deep equality: a future edit that inlines the four
+    // slugs here would still pass `toEqual` while re-creating the copy that
+    // tests/seo/cathedral-no-ti-hardcodes.test.ts exists to forbid.
+    expect(KEYWORD_LANDING_SECTION).toBe(SECTION_LEGACY_TI);
   });
 
   it('builds the live path in every locale, trailing slash included', () => {

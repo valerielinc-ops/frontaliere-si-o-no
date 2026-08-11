@@ -28,12 +28,16 @@
  * disagreement unrepresentable, the same shape `isPromotable` already gives
  * the promotion predicate.
  *
- * The maps below mirror `build-plugins/jobsSeoPagesPlugin.ts` (`localePrefix`,
- * `sectionByLocale`, `searchRoutePrefix`). They are pinned to the plugin's own
- * literals by `tests/profession-gap-double-validated-gate.test.ts`, so a
- * rename on the emitter side fails the suite instead of silently making every
- * URL this module prints a 404.
+ * The maps below correspond to `build-plugins/jobsSeoPagesPlugin.ts`
+ * (`localePrefix`, `sectionByLocale`, `searchRoutePrefix`). The section table
+ * is IMPORTED from its canonical home rather than copied; the other two are
+ * pinned to the plugin's own literals by
+ * `tests/profession-gap-double-validated-gate.test.ts`, so a rename on the
+ * emitter side fails the suite instead of silently making every URL this
+ * module prints a 404.
  */
+
+import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
 
 /** Locale URL prefix — mirrors `localePrefix` in jobsSeoPagesPlugin.ts. */
 export const KEYWORD_LANDING_LOCALE_PREFIX = {
@@ -43,13 +47,19 @@ export const KEYWORD_LANDING_LOCALE_PREFIX = {
   fr: '/fr',
 };
 
-/** Job-board section slug — mirrors `sectionByLocale` in jobsSeoPagesPlugin.ts. */
-export const KEYWORD_LANDING_SECTION = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
-};
+/**
+ * Job-board section slug. NOT a copy: this is the canonical TI legacy section
+ * table from `build-plugins/shared/cantonResolvers.mjs`, re-exported under the
+ * name this module's callers use. `tests/seo/cathedral-no-ti-hardcodes.test.ts`
+ * is the gate that forbids a second copy anywhere under `build-plugins/`,
+ * `services/` or `scripts/lib/` — and it caught this file when the table was
+ * inlined here, which is the correct outcome: the point of this module is one
+ * URL builder, not one more place the section slug lives.
+ *
+ * `cantonResolvers.mjs` is pure (no `fs`, no JSON import) precisely so raw-node
+ * scripts can import it, which is why this costs nothing at load time.
+ */
+export const KEYWORD_LANDING_SECTION = SECTION_LEGACY_TI;
 
 /** Search-route prefix — mirrors `searchRoutePrefix` in jobsSeoPagesPlugin.ts. */
 export const KEYWORD_LANDING_SEARCH_PREFIX = {
