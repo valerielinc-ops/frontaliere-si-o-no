@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-11T10:35:46.138Z",
+  "assembledAt": "2026-08-11T09:44:30.924Z",
   "jobs": [
     {
       "id": "unispital-basel-7e895057a061",
@@ -1603,7 +1603,12 @@
         "dipl-nursing-specialist-hf-fh-hematology-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch",
         "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopala-traumatologie-universitatsspital-basel-basel",
+        "dipl-career-dipl-care-specialist-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
+        "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1624,7 +1629,10 @@
           "dipl-nursing-specialist-hf-fh-hematology-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopala-traumatologie-universitatsspital-basel-basel",
+          "dipl-career-dipl-care-specialist-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
+          "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
@@ -1635,12 +1643,14 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-aigue-universitatsspital-basel-basel",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel"
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-hematologie-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
@@ -4982,18 +4992,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-universitatsspital-basel-basel",
+        "dipl-infermieristica-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+        "dipl-nursing-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+        "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-universitatsspital-basel-basel",
+          "dipl-infermieristica-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+          "dipl-nursing-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
+          "dipl-nursing-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
@@ -7748,18 +7771,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-lehrstelle-unispital-basel-ch",
-        "fachfrau-fachmann-gesundheit-cfc-apprendistato-universitatsspital-basel"
+        "fachfrau-fachmann-gesundheit-cfc-apprendistato-universitatsspital-basel",
+        "fachfrau-fachmann-betreuung-cfc-apprendistato-universitatsspital-basel",
+        "specialist-expert-support-efz-apprenticeship-universitatsspital-basel-basel",
+        "fachfrau-fachmann-betreuung-efz-lehrstelle-unispital-basel-ch",
+        "specialiste-soutien-expert-efz-apprentissage-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-lehrstelle-unispital-basel-ch",
-          "fachfrau-fachmann-gesundheit-cfc-apprendistato-universitatsspital-basel"
+          "fachfrau-fachmann-gesundheit-cfc-apprendistato-universitatsspital-basel",
+          "fachfrau-fachmann-betreuung-cfc-apprendistato-universitatsspital-basel",
+          "specialist-expert-support-efz-apprenticeship-universitatsspital-basel-basel",
+          "fachfrau-fachmann-betreuung-efz-lehrstelle-unispital-basel-ch",
+          "specialiste-soutien-expert-efz-apprentissage-universitatsspital-basel-basel"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-efz-lehrstelle-unispital-basel-ch"
+          "fachfrau-fachmann-gesundheit-efz-lehrstelle-unispital-basel-ch",
+          "specialist-expert-support-efz-apprenticeship-universitatsspital-basel-basel"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-efz-lehrstelle-unispital-basel-ch"
+          "fachfrau-fachmann-gesundheit-efz-lehrstelle-unispital-basel-ch",
+          "specialiste-soutien-expert-efz-apprentissage-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "fachfrau-fachmann-betreuung-efz-lehrstelle-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.604Z",

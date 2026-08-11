@@ -6876,7 +6876,6 @@
       "crawledAt": "2026-08-11T10:09:02.129Z",
       "jobReqId": "R77498",
       "firstSeenAt": "2026-07-15T22:08:42.023Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6889,7 +6888,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-direktor-it-business-partner-advanced-synthesis-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "executive-direktor-it-business-partner-advanced-synthesis-lonza-visp"
+      ]
     },
     {
       "id": "lonza-7745bffc566c",
@@ -14052,19 +14060,20 @@
       "jobReqId": "R78155",
       "previousSlugs": [
         "qc-microbiology-analyst-f-m-d-lonza-ch",
-        "qc-microbiology-analista-f-m-d-lonza-ch"
+        "qc-microbiology-analista-f-m-d-lonza-ch",
+        "qc-microbiology-analista-f-m-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "qc-microbiology-analyst-f-m-d-lonza-ch",
-          "qc-microbiology-analista-f-m-d-lonza-ch"
+          "qc-microbiology-analista-f-m-d-lonza-ch",
+          "qc-microbiology-analista-f-m-d-lonza-visp"
         ],
         "fr": [
           "qc-microbiology-analyst-f-m-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T10:14:35.358Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -14077,7 +14086,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-ccb174921241",

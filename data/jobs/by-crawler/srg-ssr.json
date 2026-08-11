@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-11T10:10:14.138Z",
+  "assembledAt": "2026-08-11T09:38:30.153Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -645,7 +645,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-09T22:23:16.448Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -658,7 +657,31 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-nella-redazione-di-attualita-e-approfondimento-di-rete-due-srg-ssr-comano",
+          "stage-in-topical-and-deepening-of-rete-due-srg-ssr-comano",
+          "buhne-in-der-aktuellen-und-vertiefung-von-rete-due-srg-ssr-comano",
+          "etape-dans-l-actualite-et-l-approfondissement-de-rete-due-srg-ssr-comano"
+        ],
+        "en": [
+          "stage-in-topical-and-deepening-of-rete-due-srg-ssr-comano"
+        ],
+        "de": [
+          "buhne-in-der-aktuellen-und-vertiefung-von-rete-due-srg-ssr-comano"
+        ],
+        "fr": [
+          "etape-dans-l-actualite-et-l-approfondissement-de-rete-due-srg-ssr-comano"
+        ]
+      },
+      "previousSlugs": [
+        "stage-nella-redazione-di-attualita-e-approfondimento-di-rete-due-srg-ssr-comano",
+        "stage-in-topical-and-deepening-of-rete-due-srg-ssr-comano",
+        "buhne-in-der-aktuellen-und-vertiefung-von-rete-due-srg-ssr-comano",
+        "etape-dans-l-actualite-et-l-approfondissement-de-rete-due-srg-ssr-comano"
+      ]
     },
     {
       "id": "srg-ssr-2c91b76d0eec",
@@ -2029,22 +2052,36 @@
       },
       "previousSlugs": [
         "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich",
-        "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich"
+        "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich",
+        "grundausbildung-come-ict-fachfrau-mann-cfc-srg-ssr-zurich",
+        "basic-training-as-ict-specialist-efz-srg-ssr-zurich",
+        "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich",
+        "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich",
+        "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich",
-          "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich"
+          "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich",
+          "grundausbildung-come-ict-fachfrau-mann-cfc-srg-ssr-zurich",
+          "basic-training-as-ict-specialist-efz-srg-ssr-zurich",
+          "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich",
+          "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich",
+          "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich"
         ],
         "en": [
-          "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich"
+          "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich",
+          "basic-training-as-ict-specialist-efz-srg-ssr-zurich"
         ],
         "fr": [
-          "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich"
+          "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich",
+          "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich"
+        ],
+        "de": [
+          "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:39.531Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2057,7 +2094,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "srg-ssr-8b5a5bf67219",

@@ -309,7 +309,8 @@
           "sachbearbeiter-in-kundendienst-coop-genossenschaft-basel-stadt",
           "sachbearbeiter-in-kundendienst-coop-genossenschaft-basel-stadt-2dhkv5",
           "sachbearbeiter-in-kundendienst-coop-basel-stadt-2dhkv5",
-          "sachbearbeiter-in-kundendienst-coop-basel-stadt"
+          "sachbearbeiter-in-kundendienst-coop-basel-stadt",
+          "personale-nel-servizio-clienti-coop-genossenschaft-basel-basel-stadt"
         ],
         "en": [
           "sachbearbeiter-in-kundendienst-coop-genossenschaft-basel-stadt-2dhkv5",
@@ -331,7 +332,8 @@
         "sachbearbeiter-in-kundendienst-coop-basel-stadt-2dhkv5",
         "personnel-in-customer-service-coop-genossenschaft-basel-basel-stadt",
         "personnel-en-service-a-la-clientele-coop-genossenschaft-basel-basel-stadt",
-        "sachbearbeiter-in-kundendienst-coop-basel-stadt"
+        "sachbearbeiter-in-kundendienst-coop-basel-stadt",
+        "personale-nel-servizio-clienti-coop-genossenschaft-basel-basel-stadt"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -347,7 +349,9 @@
       },
       "addressLocality": "Basel, Basel-Stadt",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-d24uxa",
@@ -397,7 +401,8 @@
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen",
-          "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-d24uxa"
+          "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-d24uxa",
+          "capo-della-ricevuta-aggiunto-fust-oberburen-sankt-gallen"
         ],
         "en": [
           "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-d24uxa",
@@ -412,7 +417,8 @@
         "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen",
         "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-d24uxa",
         "deputy-head-of-receipt-fust-oberburen-sankt-gallen",
-        "chef-adjoint-de-reception-fust-oberburen-sankt-gallen"
+        "chef-adjoint-de-reception-fust-oberburen-sankt-gallen",
+        "capo-della-ricevuta-aggiunto-fust-oberburen-sankt-gallen"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -503,7 +509,8 @@
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-74zv5s",
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
           "consultant-en-ventes-y-compris-directeurs-generaux-adjoints-in-christ-uhren-schmuck-ag-chur-09jw4x",
-          "sales-consultant-incl-deputy-managing-directors-in-christ-uhren-schmuck-ag-chur-09jw4x"
+          "sales-consultant-incl-deputy-managing-directors-in-christ-uhren-schmuck-ag-chur-09jw4x",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur"
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-74zv5s",
@@ -524,8 +531,10 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-74zv5s",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
         "consultant-en-ventes-y-compris-directeurs-generaux-adjoints-in-christ-uhren-schmuck-ag-chur-09jw4x",
-        "sales-consultant-incl-deputy-managing-directors-in-christ-uhren-schmuck-ag-chur-09jw4x"
-      ]
+        "sales-consultant-incl-deputy-managing-directors-in-christ-uhren-schmuck-ag-chur-09jw4x",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-p459l8",
@@ -904,7 +913,8 @@
       "previousSlugs": [
         "gruppenleiter-in-produktion-nachtschicht-coop-genossenschaft-schafisheim-aargau-3fmvxm",
         "gruppenleiter-in-produktion-nachtschicht-coop-genossenschaft-schafisheim-aargau"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-npv7em",
@@ -981,7 +991,8 @@
         "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-mpqq88",
         "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
         "deputy-group-leader-production-south-night-shift-panofina-coop-genossenschaft-schafisheim"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-mcc8sw",
@@ -7699,7 +7710,8 @@
         "it": [
           "verkaufer-in-food-coop-genossenschaft-maur-zurich",
           "verkaufer-in-food-coop-genossenschaft-maur-zurich-c8eghz",
-          "verkaufer-in-food-coop-genossenschaft-maur-zurich-2"
+          "verkaufer-in-food-coop-genossenschaft-maur-zurich-2",
+          "venditore-in-food-coop-genossenschaft-maur-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-maur-zurich-c8eghz",
@@ -7715,7 +7727,8 @@
         "verkaufer-in-food-coop-genossenschaft-maur-zurich-c8eghz",
         "seller-in-food-coop-genossenschaft-maur-zurich",
         "vendeur-dans-la-nourriture-coop-genossenschaft-maur-zurich",
-        "verkaufer-in-food-coop-genossenschaft-maur-zurich-2"
+        "verkaufer-in-food-coop-genossenschaft-maur-zurich-2",
+        "venditore-in-food-coop-genossenschaft-maur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7731,7 +7744,9 @@
       },
       "addressLocality": "Maur, Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-46lffu",
@@ -7903,7 +7918,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-unterentfelden-aargau",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-unterentfelden-aargau-dm60u8"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-unterentfelden-aargau-dm60u8",
+          "vendita-prodotti-freschi-coop-genossenschaft-unterentfelden-aargau"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-unterentfelden-aargau-dm60u8",
@@ -7918,7 +7934,8 @@
         "verkaufer-in-frischprodukte-coop-genossenschaft-unterentfelden-aargau",
         "verkaufer-in-frischprodukte-coop-genossenschaft-unterentfelden-aargau-dm60u8",
         "seller-fresh-products-coop-genossenschaft-unterentfelden-aargau",
-        "vendeur-produits-frais-coop-genossenschaft-unterentfelden-aargau"
+        "vendeur-produits-frais-coop-genossenschaft-unterentfelden-aargau",
+        "vendita-prodotti-freschi-coop-genossenschaft-unterentfelden-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8024,7 +8041,9 @@
       },
       "addressLocality": "Samedan, Graubünden",
       "addressRegion": "GR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-u42on7",
@@ -16403,7 +16422,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-08-11T10:26:18.252Z",
+  "assembledAt": "2026-08-11T09:19:30.175Z",
   "jobs": [
     {
       "id": "company-s4uyrj",
@@ -3873,12 +3873,29 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-zurich",
-        "vice-direttore-di-filiale-denner-ag-zurich"
+        "vice-direttore-di-filiale-denner-ag-zurich",
+        "stv-branch-manager-in-denner-ag-frauenfeld",
+        "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
+        "directeur-de-succursale-stv-denner-ag-frauenfeld",
+        "stv-filialleiter-in-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-zurich",
-          "vice-direttore-di-filiale-denner-ag-zurich"
+          "vice-direttore-di-filiale-denner-ag-zurich",
+          "stv-branch-manager-in-denner-ag-frauenfeld",
+          "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
+          "directeur-de-succursale-stv-denner-ag-frauenfeld",
+          "stv-filialleiter-in-denner-ag-frauenfeld"
+        ],
+        "en": [
+          "stv-branch-manager-in-denner-ag-frauenfeld"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-ag-frauenfeld-e09r57"
+        ],
+        "fr": [
+          "directeur-de-succursale-stv-denner-ag-frauenfeld"
         ]
       },
       "needsRetranslation": true,
@@ -10621,18 +10638,33 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-unterageri",
-          "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1"
+          "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1",
+          "venditore-nel-salario-orario-denner-ag-steffisburg",
+          "seller-in-the-hourly-wage-denner-ag-steffisburg",
+          "verkaufer-in-im-stundenlohn-denner-ag-steffisburg-2sndn7",
+          "vendeur-dans-le-salaire-horaire-denner-ag-steffisburg",
+          "verkaufer-in-im-stundenlohn-denner-ag-steffisburg"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1"
+          "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1",
+          "seller-in-the-hourly-wage-denner-ag-steffisburg"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1"
+          "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1",
+          "vendeur-dans-le-salaire-horaire-denner-ag-steffisburg"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner-ag-steffisburg-2sndn7"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-unterageri",
-        "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1"
+        "verkaufer-in-im-stundenlohn-denner-ag-unterageri-gtqwt1",
+        "venditore-nel-salario-orario-denner-ag-steffisburg",
+        "seller-in-the-hourly-wage-denner-ag-steffisburg",
+        "verkaufer-in-im-stundenlohn-denner-ag-steffisburg-2sndn7",
+        "vendeur-dans-le-salaire-horaire-denner-ag-steffisburg",
+        "verkaufer-in-im-stundenlohn-denner-ag-steffisburg"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17879,18 +17911,33 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden",
-          "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh"
+          "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh",
+          "venditore-nel-cibo-genossenschaft-migros-ostschweiz-weinfelden",
+          "seller-in-food-genossenschaft-migros-ostschweiz-weinfelden",
+          "verkaufer-in-food-genossenschaft-migros-ostschweiz-weinfelden-nl5s6h",
+          "vendeur-dans-la-nourriture-genossenschaft-migros-ostschweiz-weinfelden",
+          "verkaufer-in-food-genossenschaft-migros-ostschweiz-weinfelden"
         ],
         "en": [
-          "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh"
+          "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh",
+          "seller-in-food-genossenschaft-migros-ostschweiz-weinfelden"
         ],
         "fr": [
-          "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh"
+          "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh",
+          "vendeur-dans-la-nourriture-genossenschaft-migros-ostschweiz-weinfelden"
+        ],
+        "de": [
+          "verkaufer-in-food-genossenschaft-migros-ostschweiz-weinfelden-nl5s6h"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden",
-        "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh"
+        "verkaufer-in-genossenschaft-migros-ostschweiz-weinfelden-d2yhxh",
+        "venditore-nel-cibo-genossenschaft-migros-ostschweiz-weinfelden",
+        "seller-in-food-genossenschaft-migros-ostschweiz-weinfelden",
+        "verkaufer-in-food-genossenschaft-migros-ostschweiz-weinfelden-nl5s6h",
+        "vendeur-dans-la-nourriture-genossenschaft-migros-ostschweiz-weinfelden",
+        "verkaufer-in-food-genossenschaft-migros-ostschweiz-weinfelden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -58385,18 +58432,75 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-office-gastraum-migros-restaurant-bern"
+          "mitarbeiter-in-office-gastraum-migros-restaurant-bern",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-thun-tlkla4",
+          "employe-en-bureau-gastraum-migros-restaurant-thun",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-thun",
+          "collaboratore-trice-in-office-gastraum-kuche-migros-restaurant-worb-xhdjuh",
+          "employee-in-office-guest-room-kitchen-migros-restaurant-worb",
+          "mitarbeiter-in-office-gastraum-kuche-migros-restaurant-worb-xhdjuh",
+          "employe-au-bureau-salle-d-accueil-cuisine-migros-restaurant-worb",
+          "mitarbeiter-in-office-gastraum-kuche-migros-restaurant-worb",
+          "collaboratore-trice-in-office-gastraum-gurten-park-im-grunen-wabern-2rnz8x",
+          "employee-in-office-guest-room-gurten-park-im-grunen-wabern",
+          "mitarbeiter-in-office-gastraum-gurten-park-im-grunen-wabern-2rnz8x",
+          "employe-en-bureau-chambre-d-hotes-gurten-park-im-grunen-wabern",
+          "mitarbeiter-in-office-gastraum-gurten-park-im-grunen-wabern",
+          "collaboratore-trice-in-office-gastraum-migros-restaurant-brugg-dbruod",
+          "employee-in-office-gastraum-migros-restaurant-brugg",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-brugg-dbruod",
+          "employe-en-bureau-gastraum-migros-restaurant-brugg",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-brugg",
+          "collaboratore-trice-in-office-gastraum-migros-restaurant-thun-tlkla4"
         ],
         "en": [
-          "mitarbeiter-in-office-gastraum-migros-restaurant-bern-k9e97l"
+          "mitarbeiter-in-office-gastraum-migros-restaurant-bern-k9e97l",
+          "employee-in-office-gastraum-migros-restaurant-thun",
+          "employee-in-office-guest-room-kitchen-migros-restaurant-worb",
+          "employee-in-office-guest-room-gurten-park-im-grunen-wabern",
+          "employee-in-office-gastraum-migros-restaurant-brugg"
         ],
         "fr": [
-          "mitarbeiter-in-office-gastraum-migros-restaurant-bern-k9e97l"
+          "mitarbeiter-in-office-gastraum-migros-restaurant-bern-k9e97l",
+          "employe-en-bureau-gastraum-migros-restaurant-thun",
+          "employe-au-bureau-salle-d-accueil-cuisine-migros-restaurant-worb",
+          "employe-en-bureau-chambre-d-hotes-gurten-park-im-grunen-wabern",
+          "employe-en-bureau-gastraum-migros-restaurant-brugg"
+        ],
+        "de": [
+          "mitarbeiter-in-office-gastraum-migros-restaurant-thun-tlkla4",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-thun",
+          "mitarbeiter-in-office-gastraum-kuche-migros-restaurant-worb-xhdjuh",
+          "mitarbeiter-in-office-gastraum-kuche-migros-restaurant-worb",
+          "mitarbeiter-in-office-gastraum-gurten-park-im-grunen-wabern-2rnz8x",
+          "mitarbeiter-in-office-gastraum-gurten-park-im-grunen-wabern",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-brugg-dbruod",
+          "mitarbeiter-in-office-gastraum-migros-restaurant-brugg"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-office-gastraum-migros-restaurant-bern",
-        "mitarbeiter-in-office-gastraum-migros-restaurant-bern-k9e97l"
+        "mitarbeiter-in-office-gastraum-migros-restaurant-bern-k9e97l",
+        "mitarbeiter-in-office-gastraum-migros-restaurant-thun-tlkla4",
+        "employe-en-bureau-gastraum-migros-restaurant-thun",
+        "mitarbeiter-in-office-gastraum-migros-restaurant-thun",
+        "collaboratore-trice-in-office-gastraum-kuche-migros-restaurant-worb-xhdjuh",
+        "employee-in-office-guest-room-kitchen-migros-restaurant-worb",
+        "mitarbeiter-in-office-gastraum-kuche-migros-restaurant-worb-xhdjuh",
+        "employe-au-bureau-salle-d-accueil-cuisine-migros-restaurant-worb",
+        "mitarbeiter-in-office-gastraum-kuche-migros-restaurant-worb",
+        "collaboratore-trice-in-office-gastraum-gurten-park-im-grunen-wabern-2rnz8x",
+        "employee-in-office-guest-room-gurten-park-im-grunen-wabern",
+        "mitarbeiter-in-office-gastraum-gurten-park-im-grunen-wabern-2rnz8x",
+        "employe-en-bureau-chambre-d-hotes-gurten-park-im-grunen-wabern",
+        "mitarbeiter-in-office-gastraum-gurten-park-im-grunen-wabern",
+        "collaboratore-trice-in-office-gastraum-migros-restaurant-brugg-dbruod",
+        "employee-in-office-gastraum-migros-restaurant-brugg",
+        "mitarbeiter-in-office-gastraum-migros-restaurant-brugg-dbruod",
+        "employe-en-bureau-gastraum-migros-restaurant-brugg",
+        "mitarbeiter-in-office-gastraum-migros-restaurant-brugg",
+        "collaboratore-trice-in-office-gastraum-migros-restaurant-thun-tlkla4",
+        "employee-in-office-gastraum-migros-restaurant-thun"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
