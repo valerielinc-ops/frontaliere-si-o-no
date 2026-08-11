@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-08-11T10:40:08.914Z",
+  "generatedAt": "2026-08-11T22:26:05.254Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4142,
-  "avgDurationMs": 4142,
+  "durationMs": 5096,
+  "avgDurationMs": 5096,
   "durationHistory": [
-    4142
+    5096
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:40:06.446Z",
+      "crawledAt": "2026-08-11T22:26:02.166Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:40:06.446Z",
+      "crawledAt": "2026-08-11T22:26:02.165Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -106,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:40:06.446Z",
+      "crawledAt": "2026-08-11T22:26:02.166Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -140,7 +140,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:40:06.445Z",
+      "crawledAt": "2026-08-11T22:26:02.165Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:40:06.444Z",
+      "crawledAt": "2026-08-11T22:26:02.164Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
@@ -188,45 +188,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "alpiq-04e9cf13b072",
-      "slug": "financial-performance-analyst-alpiq-lausanne",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Financial & Performance Analyst",
-      "location": "Lausanne",
-      "canton": "",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressLocality": "Lausanne",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "PART_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9612",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9612&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-09T21:52:28.148Z",
-      "firstSeenAt": "2026-08-03T22:31:33.409Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -252,7 +214,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:40:06.446Z",
+      "crawledAt": "2026-08-11T22:26:02.166Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -286,7 +248,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:40:06.446Z",
+      "crawledAt": "2026-08-11T22:26:02.165Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -320,7 +282,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:40:06.446Z",
+      "crawledAt": "2026-08-11T22:26:02.166Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -354,7 +316,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:40:06.445Z",
+      "crawledAt": "2026-08-11T22:26:02.165Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -388,7 +350,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T10:40:06.444Z",
+      "crawledAt": "2026-08-11T22:26:02.164Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
