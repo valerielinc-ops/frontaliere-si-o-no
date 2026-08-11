@@ -719,6 +719,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ramaggedon-crisi-chip-memoria': { it: 'ramaggedon-crisi-chip-memoria', en: 'ramaggedon-memory-chip-shortage', de: 'ramaggedon-speicherchip-mangel', fr: 'ramaggedon-penurie-puces-memoire' },
  'fedelta-bancaria-costi-analisi': { it: 'fedelta-bancaria-costi-analisi', en: 'banking-loyalty-costs-analysis', de: 'banken-treue-kosten-analyse', fr: 'fidelite-bancaire-couts-analyse' },
  'lotta-lavoro-nero-consultazione': { it: 'lotta-lavoro-nero-consultazione', en: 'combating-undeclared-work-consultation', de: 'kampf-gegen-schwarzarbeit-konsultation', fr: 'lutte-contre-travail-noir-consultation' },
+ 'mercato-lavoro-svizzera-luglio-2026': { it: 'mercato-lavoro-svizzera-luglio-2026', en: 'swiss-labor-market-july-2026', de: 'schweizer-arbeitsmarkt-juli-2026', fr: 'marche-travail-suisse-juillet-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

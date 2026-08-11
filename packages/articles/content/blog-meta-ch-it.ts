@@ -2080,6 +2080,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-consultazione.title': 'Lotta al lavoro nero: al via la consultazione sulla nuova legge',
     'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'Il Consiglio federale propone modifiche alla legge contro il lavoro nero per rafforzare i controlli e la cooperazione tra autorità entro il 16 ottobre 2026.',
     'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Edificio amministrativo in Svizzera rappresentativo delle autorità di controllo',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Mercato del lavoro in Svizzera: dati SECO di luglio 2026',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Aumenta la disoccupazione in Svizzera a luglio 2026: tasso al 3,0% con 148\'002 disoccupati totali. Ecco i dati ufficiali della SECO.',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Edificio di uffici moderno in Svizzera',
 };
 
 export default blogMetaChIt;

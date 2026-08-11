@@ -2080,6 +2080,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-consultazione.title': 'Bekämpfung der Schwarzarbeit: Die Vernehmlassung zum neuen Gesetz beginnt',
     'blog.article.lotta-lavoro-nero-consultazione.excerpt': 'Der Bundesrat schlägt Änderungen des Gesetzes gegen Schwarzarbeit vor, um die Kontrollen und die Zusammenarbeit zwischen den Behörden bis zum 16. Oktober 2026 zu verstärken.',
     'blog.article.lotta-lavoro-nero-consultazione.imageAlt': 'Verwaltungsgebäude in der Schweiz, das die Aufsichtsbehörden repräsentiert',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.title': 'Arbeitsmarkt Schweiz: Daten des SECO vom Juli 2026',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.excerpt': 'Die Arbeitslosigkeit in der Schweiz steigt im Juli 2026 auf 3,0% mit 148\'002 Arbeitslosen insgesamt. Hier die offiziellen Daten des SECO.',
+    'blog.article.mercato-lavoro-svizzera-luglio-2026.imageAlt': 'Modernes Bürogebäude in der Schweiz',
 };
 
 export default blogMetaChDe;
