@@ -2086,6 +2086,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-2025.title': 'Lotta al lavoro nero: 14 450 controlli aziendali nel 2025',
     'blog.article.lotta-lavoro-nero-2025.excerpt': 'La SECO ha pubblicato il rapporto sulla lotta al lavoro nero in Svizzera per il 2025.',
     'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Un ispettore della SECO controlla un edificio in Svizzera.',
+    'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group avvia trattative per acquisire Aroma-Zone',
+    'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Trattative esclusive con Eurazeo, che manterrà una quota di minoranza; possibile valutazione intorno a 2 miliardi di euro',
+    'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group e Aroma-Zone',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.title': 'Accreditamento svizzero, un passo in avanti per la piazza economica',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.excerpt': 'Il Servizio di accreditamento svizzero (SAS) diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026.',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.imageAlt': 'Rappresentante SECO a Berna',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Mercato del lavoro in Svizzera: i dati di giugno 2026',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'La SECO registra un calo della disoccupazione al 2,9% a giugno 2026. Analisi dei dati su giovani, anziani e posti vacanti nel mercato nazionale.',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Postazione di lavoro in un ufficio moderno con vista su un lago svizzero',
 };
 
 export default blogMetaChIt;

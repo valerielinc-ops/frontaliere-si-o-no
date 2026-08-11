@@ -2086,6 +2086,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-2025.title': 'Fight against undeclared work: 14,450 company controls in 2025',
     'blog.article.lotta-lavoro-nero-2025.excerpt': 'SECO has published the report on the fight against undeclared work in Switzerland for 2025.',
     'blog.article.lotta-lavoro-nero-2025.imageAlt': 'A SECO inspector checks a building in Switzerland.',
+    'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group starts negotiations to acquire Aroma-Zone',
+    'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Exclusive negotiations with Eurazeo, which will maintain a minority stake; possible valuation around 2 billion euros',
+    'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group and Aroma-Zone',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.title': 'Swiss accreditation, a step forward for the economic centre',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.excerpt': 'The Swiss Accreditation Service (SAS) will become an integral part of the Directorate for the Promotion of the Economic Square from 1 July 2026.',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.imageAlt': 'SECO representative in Bern',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Labour market in Switzerland: data for June 2026',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'SECO records a drop in unemployment to 2.9% in June 2026. Analysis of data on young people, the elderly and vacancies in the national market.',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Modern office workspace with a view of a Swiss lake',
 };
 
 export default blogMetaChEn;

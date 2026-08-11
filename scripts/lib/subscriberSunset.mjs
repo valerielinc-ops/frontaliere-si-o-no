@@ -13,6 +13,11 @@
  *   2. `sunset`     — after a grace window with still no open/click → status 'inactive'
  *                     (soft: excluded from sends but easily resubscribable).
  *   3. `reactivate` — an 'inactive' subscriber who has since opened/clicked → back to 'active'.
+ *   4. `reprobe`    — an 'inactive' subscriber who stayed silent long enough that
+ *                     `reactivate`'s engagement evidence can never arrive (sends are
+ *                     excluded while inactive) → one-time, capped return to mailable
+ *                     so a real send can produce that evidence. See
+ *                     scripts/lib/reprobeGuard.mjs (issue #5559).
  *
  * `inactive` is a NEWSLETTER-channel soft state, NOT an address-level hard signal
  * (bounce/complaint/suppression). It lives in NEWSLETTER_EXCLUDED_STATUSES, never
@@ -23,12 +28,14 @@
  */
 
 import { toMillis } from './firestoreTimestamp.mjs';
+import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 export const SUNSET_MIN_SENDS = 12;
 export const SUNSET_MIN_AGE_DAYS = 120;
 export const WINBACK_GRACE_DAYS = 14;
+export { REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS };
 
 // Statuses we may transition FROM. We never touch unsubscribed / bounced /
 // complained / suppressed (explicit or hard signals own those), and an empty /
@@ -61,8 +68,36 @@ function firstSeenMillis(sub) {
 }
 
 /**
- * @typedef {{ action: 'none'|'winback'|'sunset'|'reactivate', reason: string }} SunsetVerdict
+ * @typedef {{ action: 'none'|'winback'|'sunset'|'reactivate'|'reprobe', reason: string }} SunsetVerdict
  */
+
+/**
+ * Shared exit for the two 'inactive' sub-branches once neither has fresh
+ * engagement evidence: try the one-time, capped reprobe before giving up.
+ * @param {object} sub
+ * @param {number} nowMs
+ * @param {string} noneReason
+ * @returns {SunsetVerdict}
+ */
+function reprobeOrNone(sub, nowMs, noneReason) {
+  // sunset_reprobe_count / sunset_reprobed_at are deliberately their own field
+  // names, NOT the bare reprobe_count/reprobed_at that
+  // scripts/lib/suppressionDecay.mjs already owns on this same collection for
+  // its unrelated bounced/suppressed → active recovery mechanism (its own cap,
+  // MAX_REPROBE_ATTEMPTS=2). Reading the shared name would let a subscriber
+  // who exhausted suppression-decay's budget inherit a stale count here and
+  // never qualify for this PR's reprobe — reproducing the exact unreachable-
+  // exit defect issue #5559 fixes, just via the suppression-decay path.
+  const attempts = num(sub?.sunset_reprobe_count ?? sub?.sunsetReprobeCount);
+  const anchorMs = toMillis(sub?.sunset_reprobed_at ?? sub?.sunsetReprobedAt) ?? toMillis(sub?.inactive_at);
+  if (isReprobeDue({ attempts, anchorMs, nowMs })) {
+    return {
+      action: 'reprobe',
+      reason: `${noneReason} — ${REPROBE_AFTER_INACTIVE_DAYS}d silent, one-time re-probe (attempt ${attempts + 1}/${REPROBE_MAX_ATTEMPTS})`,
+    };
+  }
+  return { action: 'none', reason: noneReason };
+}
 
 /**
  * Classify a newsletter subscriber for the sunset lifecycle.
@@ -97,11 +132,11 @@ export function classifySunset(sub, nowMs) {
       const freshlyEngaged = sunsetAt != null && lastEngagementAt != null && lastEngagementAt > sunsetAt;
       return freshlyEngaged
         ? { action: 'reactivate', reason: 'dormant win-back sunset — engaged again after sunset' }
-        : { action: 'none', reason: 'dormant win-back sunset — no fresh engagement since sunset' };
+        : reprobeOrNone(sub, nowMs, 'dormant win-back sunset — no fresh engagement since sunset');
     }
     return engaged
       ? { action: 'reactivate', reason: 'inactive subscriber has since opened/clicked' }
-      : { action: 'none', reason: 'inactive, still no engagement' };
+      : reprobeOrNone(sub, nowMs, 'inactive, still no engagement');
   }
 
   // Never touch non-mailable states (unsubscribed / bounced / complained / suppressed).

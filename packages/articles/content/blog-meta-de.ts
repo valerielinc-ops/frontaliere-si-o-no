@@ -9594,6 +9594,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.title': 'Leben in Tirano und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Neues Grenzabkommen 2024: Was ändert sich für Tessiner Grenzgänger, die in Graubünden arbeiten?',
     'blog.article.vivere-a-tirano-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Bild einer Bergstraße in Ticino',
+    'blog.article.trasferirsi-villa-chiavenna-frontaliere.title': 'Umzug nach Villa di Chiavenna als Grenzgänger: Nützlicher Leitfaden',
+    'blog.article.trasferirsi-villa-chiavenna-frontaliere.excerpt': 'Analyse der Vorteile und steuerlichen Erwägungen für diejenigen, die in Villa di Chiavenna leben und in der Schweiz im Rahmen des neuen Steuerabkommens arbeiten.',
+    'blog.article.trasferirsi-villa-chiavenna-frontaliere.imageAlt': 'Panoramablick auf eine Bergstraße nahe der Grenze zwischen Italien und der Schweiz',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.title': 'Campodolcino - Leben und Arbeiten in Graubünden',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.excerpt': 'Die neuesten Updates zu Reisen und Erleichterungen für Grenzgänger in der Schweiz.',
+    'blog.article.vivere-campodolcino-lavorare-grigioni-da-frontaliere.imageAlt': 'Eine Frontaliere, die sich auf den Locarno-See blickt, mit den Grigioni-Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

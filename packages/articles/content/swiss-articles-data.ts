@@ -6256,6 +6256,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'partners-group-trattative-aroma-zone',
+    category: 'fiscale',
+    date: '2026-08-11T01:48:30.050Z',
+    image: '/images/blog/partners-group-trattative-aroma-zone.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'servizio-di-accreditamento-svizzero-diventa-parte-integrante',
+    category: 'fiscale',
+    date: '2026-08-11T01:54:51.799Z',
+    image: '/images/blog/servizio-di-accreditamento-svizzero-diventa-parte-integrante.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'mercato-lavoro-svizzera-giugno-2026',
+    category: 'novita',
+    date: '2026-08-11T02:01:10.879Z',
+    image: '/images/blog/mercato-lavoro-svizzera-giugno-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

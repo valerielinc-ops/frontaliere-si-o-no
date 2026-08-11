@@ -2086,6 +2086,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-2025.title': 'Lutte contre le travail au noir : 14 450 contrôles d\'entreprises en 2025',
     'blog.article.lotta-lavoro-nero-2025.excerpt': 'Le SECO a publié le rapport sur la lutte contre le travail au noir en Suisse pour 2025.',
     'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Un inspecteur de la SECO contrôle un bâtiment en Suisse.',
+    'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group entame des négociations pour acquérir Aroma-Zone',
+    'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Négociations exclusives avec Eurazeo, qui conservera une part minoritaire ; évaluation possible d\'environ 2 milliards d\'euros',
+    'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group et Aroma-Zone',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.title': 'Accréditation suisse, un pas en avant pour la place économique',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.excerpt': 'Le Service d\'accréditation suisse (SAS) deviendra partie intégrante de la Direction pour la promotion de la place économique à compter du 1er juillet 2026.',
+    'blog.article.servizio-di-accreditamento-svizzero-diventa-parte-integrante.imageAlt': 'Représentant de la SECO à Berne',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.title': 'Marché du travail en Suisse : les chiffres de juin 2026',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.excerpt': 'Le SECO enregistre une baisse du chômage à 2,9% en juin 2026. Analyse des données sur les jeunes, les personnes âgées et les postes vacants sur le marché national.',
+    'blog.article.mercato-lavoro-svizzera-giugno-2026.imageAlt': 'Espace de travail moderne avec vue sur un lac suisse',
 };
 
 export default blogMetaChFr;

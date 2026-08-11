@@ -63407,6 +63407,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-villa-chiavenna-frontaliere': {
+    title: 'Trasferirsi a Villa di Chiavenna da frontaliere: guida utile',
+    description: 'Trasferirsi a Villa di Chiavenna lavorando in Svizzera: scopri le regole fiscali, il nuovo accordo del 2024 e i consigli per la gestione della busta paga.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, villa, chiavenna, utile',
+    ogTitle: 'Trasferirsi a Villa di Chiavenna da frontaliere: pro e contro',
+    ogDescription: 'Guida pratica per chi vive a Villa di Chiavenna e lavora in Svizzera: focus su tassazione, assicurazione sanitaria e obblighi fiscali post-2024.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-villa-chiavenna-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi a Villa di Chiavenna da frontaliere: guida utile",
+      "description": "Trasferirsi a Villa di Chiavenna lavorando in Svizzera: scopri le regole fiscali, il nuovo accordo del 2024 e i consigli per la gestione della busta paga.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-villa-chiavenna-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di una strada montana vicino al confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-11T01:51:35+00:00",
+      "dateModified": "2026-08-11T01:51:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-villa-chiavenna-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-campodolcino-lavorare-grigioni-da-frontaliere': {
+    title: 'Vivere a Campodolcino, lavorare in Grigioni: collegamenti e costo della vita',
+    description: 'Gli ultimi aggiornamenti sugli spostamenti e le agevolazioni per i frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, campodolcino, lavorare, grigioni',
+    ogTitle: 'Vivere a Campodolcino e lavorare in Grigioni da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate.',
+    ogDescription: 'Gli ultimi aggiornamenti sugli spostamenti e le agevolazioni per i frontalieri in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vivere-campodolcino-lavorare-grigioni-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Campodolcino, lavorare in Grigioni: collegamenti e costo della vita",
+      "description": "Gli ultimi aggiornamenti sugli spostamenti e le agevolazioni per i frontalieri in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-campodolcino-lavorare-grigioni-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere che si affaccia sul lago di Locarno, con la catena dei Grigioni in primo piano."
+      },
+      "datePublished": "2026-08-11T01:58:49+00:00",
+      "dateModified": "2026-08-11T01:58:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-campodolcino-lavorare-grigioni-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

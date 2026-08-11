@@ -27005,6 +27005,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-partners-group-trattative-aroma-zone': {
+    title: 'Partners Group avvia trattative per acquisire Aroma-Zone',
+    description: 'Partners Group annuncia l\'avvio di trattative per acquisire Aroma-Zone, noto marchio francese di cosmetici naturali. La valutazione dell\'impresa potrebbe essere',
+    keywords: 'frontalieri, ticino, svizzera, italia, partners, group, avvia, trattative',
+    ogTitle: 'Partners Group acquisisce Aroma-Zone',
+    ogDescription: 'Partners Group annuncia l\'avvio di trattative per acquisire Aroma-Zone, noto marchio francese di cosmetici naturali. La valutazione dell\'impresa potrebbe essere di circa 2 miliardi di euro.',
+    canonicalPath: '/articoli-svizzera/partners-group-trattative-aroma-zone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Partners Group avvia trattative per acquisire Aroma-Zone",
+      "description": "Partners Group annuncia l'avvio di trattative per acquisire Aroma-Zone, noto marchio francese di cosmetici naturali. La valutazione dell'impresa potrebbe essere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/partners-group-trattative-aroma-zone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partners Group e Aroma-Zone"
+      },
+      "datePublished": "2026-08-11T01:48:30+00:00",
+      "dateModified": "2026-08-11T01:48:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/partners-group-trattative-aroma-zone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-servizio-di-accreditamento-svizzero-diventa-parte-integrante': {
+    title: 'Accreditamento svizzero, un passo in avanti per la piazza economica',
+    description: 'Il Servizio di accreditamento svizzero diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026. Scopri',
+    keywords: 'frontalieri, ticino, svizzera, italia, accreditamento, svizzero, passo, avanti',
+    ogTitle: 'Servizio di accreditamento svizzero diventa parte integrante della Direzione per la promozione della piazza economica',
+    ogDescription: 'Il Servizio di accreditamento svizzero diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026.',
+    canonicalPath: '/articoli-svizzera/servizio-di-accreditamento-svizzero-diventa-parte-integrante/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accreditamento svizzero, un passo in avanti per la piazza economica",
+      "description": "Il Servizio di accreditamento svizzero diventerà parte integrante della Direzione per la promozione della piazza economica dalla data del 1° luglio 2026. Scopri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/servizio-di-accreditamento-svizzero-diventa-parte-integrante.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rappresentante SECO a Berna"
+      },
+      "datePublished": "2026-08-11T01:54:51+00:00",
+      "dateModified": "2026-08-11T01:54:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/servizio-di-accreditamento-svizzero-diventa-parte-integrante/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-lavoro-svizzera-giugno-2026': {
+    title: 'Mercato del lavoro in Svizzera: i dati di giugno 2026',
+    description: 'Analisi ufficiale SECO sul mercato del lavoro svizzero a giugno 2026: tasso al 2,9%, posti vacanti e dinamiche occupazionali per giovani e anziani.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, giugno',
+    ogTitle: 'Mercato del lavoro in Svizzera: il report di giugno 2026',
+    ogDescription: 'La SECO pubblica i dati occupazionali di giugno 2026: il tasso di disoccupazione scende al 2,9%. Ecco i dettagli su posti vacanti e tendenze nazionali.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-svizzera-giugno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro in Svizzera: i dati di giugno 2026",
+      "description": "Analisi ufficiale SECO sul mercato del lavoro svizzero a giugno 2026: tasso al 2,9%, posti vacanti e dinamiche occupazionali per giovani e anziani.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-giugno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Postazione di lavoro in un ufficio moderno con vista su un lago svizzero"
+      },
+      "datePublished": "2026-08-11T02:01:10+00:00",
+      "dateModified": "2026-08-11T02:01:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-svizzera-giugno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
