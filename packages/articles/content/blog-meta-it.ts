@@ -9658,6 +9658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sanzioni-sicurezza-lavoro-comasco.title': 'Sanzioni per sicurezza lavoro nel Comasco: 18 imprese sospese',
     'blog.article.sanzioni-sicurezza-lavoro-comasco.excerpt': 'Il Comando Provinciale dei Carabinieri di Como ha condotto 18 controlli ispettivi sul territorio provinciale, portando all\'adozione di 18 provvedimenti di sospensione dell\'attività imprenditoriale.',
     'blog.article.sanzioni-sicurezza-lavoro-comasco.imageAlt': 'Fotografia di un valico di frontiera in Ticino',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.title': 'Frontalieri Ticino: cosa cambia con il Nuovo Accordo 2024',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'Il Nuovo Accordo Frontalieri del 2024 è entrato in vigore dal 1° gennaio 2024 e prevede l\'esenzione di € 7.500 per i vecchi frontalieri e di € 10.000 per i nuovi frontalieri.',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'Un frontaliere che attraversa il confine tra Tovo di Sant\'Agata e Grigioni.',
 };
 
 export default blogMetaIt;

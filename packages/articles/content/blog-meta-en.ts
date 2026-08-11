@@ -9657,6 +9657,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanzioni-sicurezza-lavoro-comasco.title': 'Sanctions for work safety in Comasco: 18 companies suspended',
     'blog.article.sanzioni-sicurezza-lavoro-comasco.excerpt': 'The Provincial Command of the Carabinieri of Como conducted 18 inspections on the provincial territory, leading to the adoption of 18 measures to suspend business activity.',
     'blog.article.sanzioni-sicurezza-lavoro-comasco.imageAlt': 'Fotografia di un valico di frontiera in Ticino',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.title': 'Frontalieri Ticino: what changes with the New 2024 Agreement',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.excerpt': 'The New Frontier Agreement of 2024 entered into force on 1 January 2024 and provides for the exemption of € 7,500 for old frontier workers and € 10,000 for new frontier workers.',
+    'blog.article.vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere.imageAlt': 'A border crossing between Tovo di Sant\'Agata and Grigioni.',
 };
 
 export default blogMetaEn;
