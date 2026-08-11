@@ -9680,6 +9680,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-etroubles-lavorare-vallese.title': 'Vivre à Etroubles et travailler en Valais comme frontalier',
     'blog.article.vivere-etroubles-lavorare-vallese.excerpt': 'Guide pratique pour les frontaliers : fiscalité, nouvel accord, obligations d\'assurance et gestion du travail transfrontalier entre l\'Italie et le Valais.',
     'blog.article.vivere-etroubles-lavorare-vallese.imageAlt': 'Paysage alpin à la frontière entre l\'Italie et la Suisse',
+    'blog.article.vivere-la-thuile-lavorare-vallese.title': 'Vivre à La Thuile et travailler en Valais comme frontalier',
+    'blog.article.vivere-la-thuile-lavorare-vallese.excerpt': 'Réglage de la source sur le revenu du travail : retenue uniquement en Suisse pour les frontaliers',
+    'blog.article.vivere-la-thuile-lavorare-vallese.imageAlt': 'Image d\'un pendulaire traversant la frontière entre La Thuile et le Valais',
 };
 
 export default blogMetaFr;
