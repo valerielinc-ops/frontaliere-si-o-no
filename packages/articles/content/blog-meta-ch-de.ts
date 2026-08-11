@@ -2086,6 +2086,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lotta-lavoro-nero-2025.title': 'Bekämpfung der Schwarzarbeit: 14.450 Unternehmenskontrollen im Jahr 2025',
     'blog.article.lotta-lavoro-nero-2025.excerpt': 'Das SECO hat den Bericht zur Bekämpfung der Schwarzarbeit in der Schweiz für 2025 veröffentlicht.',
     'blog.article.lotta-lavoro-nero-2025.imageAlt': 'Ein SECO-Inspektor überprüft ein Gebäude in der Schweiz.',
+    'blog.article.partners-group-trattative-aroma-zone.title': 'Partners Group nimmt Verhandlungen zur Übernahme von Aroma-Zone auf',
+    'blog.article.partners-group-trattative-aroma-zone.excerpt': 'Exklusivverhandlungen mit Eurazeo, das eine Minderheitsbeteiligung behalten wird; Bewertung um 2 Milliarden Euro möglich',
+    'blog.article.partners-group-trattative-aroma-zone.imageAlt': 'Partners Group und Aroma-Zone',
 };
 
 export default blogMetaChDe;
