@@ -2107,6 +2107,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com: primo semestre in perdita, rivisti gli obiettivi',
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'La società attiva nel settore dell\'offerta di viaggi online ha registrato una perdita nel primo semestre e ha rivisto al ribasso le proprie previsioni di crescita.',
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Immagine di un uomo seduto a un computer, con una mappa del mondo sullo schermo.',
+    'blog.article.logitech-2026-2027.title': 'Logitech: esercizio 2026/2027 parte bene, risultati sopra le attese',
+    'blog.article.logitech-2026-2027.excerpt': 'Logitech: nel primo trimestre 2026/2027, ricavi per 1,2 miliardi di dollari, Ebit +60% e utile netto +61%',
+    'blog.article.logitech-2026-2027.imageAlt': 'Logo di Logitech',
 };
 
 export default blogMetaChIt;

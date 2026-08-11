@@ -2107,6 +2107,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.title': 'Lastminute.com: erstes Halbjahr mit Verlust, überarbeitete Ziele',
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.excerpt': 'Das im Bereich des Online-Reiseangebots tätige Unternehmen verzeichnete im ersten Halbjahr einen Verlust und revidierte seine Wachstumsprognosen nach unten.',
     'blog.article.lastminute-com-perdita-obiettivi-trimestre.imageAlt': 'Bild von einem Mann, der an einem Computer sitzt, mit einer Weltkarte auf dem Bildschirm.',
+    'blog.article.logitech-2026-2027.title': 'Logitech: Geschäftsjahr 2026/2027 läuft gut, Ergebnisse über den Erwartungen',
+    'blog.article.logitech-2026-2027.excerpt': 'Logitech: im ersten Quartal 2026/2027 1,2 Milliarden US-Dollar Umsatz, EBIT +60% und Nettogewinn +61%',
+    'blog.article.logitech-2026-2027.imageAlt': 'Logitech Logo',
 };
 
 export default blogMetaChDe;

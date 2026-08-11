@@ -728,6 +728,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'glencore-produzione-riscrittura': { it: 'glencore-produzione-riscrittura', en: 'glencore-production-riscrittura', de: 'glencore-produktion-riscrittura', fr: 'glencore-production-riscrittura' },
  'lavorare-seco': { it: 'lavorare-seco', en: 'working-at-seco', de: 'arbeit-bei-seco', fr: 'travailler-au-seco' },
  'lastminute-com-perdita-obiettivi-trimestre': { it: 'lastminute-com-perdita-obiettivi-trimestre', en: 'lastminute-com-loss-of-objectives-quarter', de: 'lastminute-com-verlust-von-zielen-quartal', fr: 'lastminute-com-perte-de-ressources-quartal' },
+ 'logitech-2026-2027': { it: 'logitech-2026-2027', en: 'logitech-2026-2027', de: 'logitech-2026-2027', fr: 'logitech-2026-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
