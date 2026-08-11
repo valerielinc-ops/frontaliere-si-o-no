@@ -1,16 +1,16 @@
 {
   "key": "srg-ssr",
   "label": "SRG SSR",
-  "generatedAt": "2026-08-11T10:09:57.904Z",
-  "total": 31,
+  "generatedAt": "2026-08-11T21:54:34.996Z",
+  "total": 29,
   "newCount": 0,
-  "updatedCount": 28,
+  "updatedCount": 25,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 42615,
-  "avgDurationMs": 42615,
+  "unchangedCount": 4,
+  "durationMs": 101409,
+  "avgDurationMs": 101409,
   "durationHistory": [
-    42615
+    101409
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:17.258Z",
+      "crawledAt": "2026-08-11T21:52:55.771Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,6 +48,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:27:56.566Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -69,7 +70,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:18.273Z",
+      "crawledAt": "2026-08-11T21:52:56.784Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +113,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:19.096Z",
+      "crawledAt": "2026-08-11T21:52:57.610Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -134,6 +135,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:44.368Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -155,7 +157,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-multimediaelektroniker-in-efz/4d9c0d6d-3dd5-4080-87c2-aeff2808f4db",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:20.016Z",
+      "crawledAt": "2026-08-11T21:52:58.624Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -177,6 +179,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:41.118Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -198,7 +201,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:20.820Z",
+      "crawledAt": "2026-08-11T21:52:59.462Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -220,6 +223,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:40.331Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -241,7 +245,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-efz-applikationsentwicklung/a5855233-f2ce-492c-8d91-f8ba68bf1913",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:21.998Z",
+      "crawledAt": "2026-08-11T21:53:00.614Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,6 +267,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:41.940Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -284,7 +289,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-mediamatiker-in-efz/fc54677f-395d-495c-8698-8281912ea042",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:23.399Z",
+      "crawledAt": "2026-08-11T21:53:01.570Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -306,6 +311,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:39.531Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -327,7 +333,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-plattformentwicklung-efz/6fcf847a-745c-45d0-a119-9b0822815df2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:24.299Z",
+      "crawledAt": "2026-08-11T21:53:11.003Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -349,7 +355,51 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:42.791Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "srg-ssr-1347cb8243aa",
+      "slug": "stage-nel-settore-musicale-rsi-srg-ssr-comano",
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Stage nel settore musicale RSI",
+      "location": "Comano",
+      "canton": "TI",
+      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-11T21:53:15.981Z",
+      "addressLocality": "Comano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6949",
+      "streetAddress": "via Cureglia 38",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
+      "_srgMeta": {
+        "uuid": "cc678ff7-4831-4a38-833a-f8b0f2fe249a",
+        "org": "rsi",
+        "orgLabel": "RSI",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-08-05T22:40:13.924Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -370,7 +420,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-intrattenimento-cultura-e-societa-infotainment-magazine-show-e-quiz/e70d234c-38d4-4a09-9f15-d153b82f1dd4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:35.359Z",
+      "crawledAt": "2026-08-11T21:53:16.942Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -413,7 +463,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analista-di-processo/e0464443-452e-4079-be1f-94ae62f7e1d7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:39.211Z",
+      "crawledAt": "2026-08-11T21:53:17.947Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -456,7 +506,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analyste-processus-f-h-d/c995c8d0-ced2-41f8-b350-9f3cf248296f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:09:40.025Z",
+      "crawledAt": "2026-08-11T21:53:19.431Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -499,7 +549,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/prozessanalyst-in/ba2e34a8-f6d3-4190-9557-30f463c1420d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:40.778Z",
+      "crawledAt": "2026-08-11T21:53:21.414Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -542,7 +592,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/sviluppatore-trice-organizzativo-a/62516d8b-57dc-4038-a3ef-e7a0c98fd9d2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:41.635Z",
+      "crawledAt": "2026-08-11T21:53:23.525Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -585,7 +635,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/developpeur-d-organisation-f-h-d/cb912a2d-4362-4131-a5ae-ca75e2eb505e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:09:42.843Z",
+      "crawledAt": "2026-08-11T21:53:26.988Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -628,7 +678,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/organisationsentwickler-in/04541eea-808a-4631-8796-d5085e1cc384",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:43.689Z",
+      "crawledAt": "2026-08-11T21:53:31.999Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,6 +700,7 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T11:51:25.375Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -671,7 +722,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-stab/49ebb65c-5a8e-4eb1-a9af-4be275b513b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:44.445Z",
+      "crawledAt": "2026-08-11T21:53:38.411Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,7 +765,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistant-e-etat-major/4049e873-37dd-4fbf-b77a-1ab7f5ae0654",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:09:45.296Z",
+      "crawledAt": "2026-08-11T21:53:44.970Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -757,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-stato-maggiore/312922c1-41bd-4b74-a89e-54b77905f23d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:46.062Z",
+      "crawledAt": "2026-08-11T21:53:51.446Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,7 +851,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-in-regia-videomaker-monocamera/ea400b57-4196-457a-a9eb-22b349dc9919",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:46.928Z",
+      "crawledAt": "2026-08-11T21:53:57.976Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -843,7 +894,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/mediendokumentalist-in-musik/2219975b-2326-406c-b1d9-89c2d03e456d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:47.782Z",
+      "crawledAt": "2026-08-11T21:54:03.899Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -865,6 +916,7 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T21:57:11.744Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -886,7 +938,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:48.989Z",
+      "crawledAt": "2026-08-11T21:54:10.598Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -908,6 +960,7 @@
         "pensumMin": 70,
         "pensumMax": 70
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T11:59:02.798Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -929,7 +982,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-musicale-rete-due/3cc6c92a-0f29-4989-b512-dcdd43e54ec7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:50.467Z",
+      "crawledAt": "2026-08-11T21:54:17.267Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -972,7 +1025,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:51.269Z",
+      "crawledAt": "2026-08-11T21:54:23.402Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -994,6 +1047,7 @@
         "pensumMin": 60,
         "pensumMax": 80
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T23:26:49.331Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1015,7 +1069,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:52.159Z",
+      "crawledAt": "2026-08-11T21:54:29.458Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,7 +1099,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "srg-ssr-fc3f7a723214",
       "slug": "emprendista-commerziala-emprendist-commerzial-srg-ssr-cuira",
@@ -1081,12 +1138,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:10.780Z",
-      "_qualityScore": 91,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -1124,12 +1184,16 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "_qualityScore": 91,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -1167,12 +1231,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "_qualityScore": 88,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -1208,154 +1275,13 @@
         "orgLabel": "RTR"
       },
       "firstSeenAt": "2026-06-29T11:35:51.857Z",
-      "_qualityScore": 84,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "srg-ssr-1347cb8243aa",
-      "slug": "stage-nel-settore-musicale-rsi-srg-ssr-comano",
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Stage nel settore musicale RSI",
-      "location": "Comano",
-      "canton": "TI",
-      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-10T21:44:05.351Z",
-      "addressLocality": "Comano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6949",
-      "streetAddress": "via Cureglia 38",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
-      "_srgMeta": {
-        "uuid": "cc678ff7-4831-4a38-833a-f8b0f2fe249a",
-        "org": "rsi",
-        "orgLabel": "RSI",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "firstSeenAt": "2026-08-05T22:40:13.924Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "srg-ssr-3c9d5cbb35cb",
-      "slug": "revisore-interno-srg-ssr-bern-97427c",
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Auditeur.trice interne",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:44:19.191Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Marketing / Comunicazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/52527d21-58ff-4fab-bcc4-663b0b2d7623",
-      "_srgMeta": {
-        "uuid": "52527d21-58ff-4fab-bcc4-663b0b2d7623",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 50,
-        "pensumMax": 50
-      },
-      "firstSeenAt": "2026-07-15T22:01:56.421Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "srg-ssr-7ef2fe2da461",
-      "slug": "auditeur-trice-interne-srg-ssr-bern",
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Auditeur.trice interne",
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/2156fd7f-6945-4e7a-8a75-f785cf475947",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-10T21:44:22.753Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Marketing / Comunicazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/auditeur-trice-interne/2156fd7f-6945-4e7a-8a75-f785cf475947",
-      "_srgMeta": {
-        "uuid": "2156fd7f-6945-4e7a-8a75-f785cf475947",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 50,
-        "pensumMax": 50
-      },
-      "firstSeenAt": "2026-06-29T11:35:46.888Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
         "translation": 25,
         "completeness": 25
       }
