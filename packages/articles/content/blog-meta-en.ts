@@ -9729,6 +9729,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Moving to Saint-Nicolas by border crossing: the facts',
     'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analysis of the feasibility of the border towards the Canton of Ticino starting from the municipality of Saint-Nicolas.',
     'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Panoramic view of a Swiss alpine village',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Living in Saint-Pierre and working in Valais as a border worker',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'The key facts about the life of a border worker who works in Valais and resides in Saint-Pierre.',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'A cross-border worker living in Saint-Pierre and working in Valais.',
 };
 
 export default blogMetaEn;

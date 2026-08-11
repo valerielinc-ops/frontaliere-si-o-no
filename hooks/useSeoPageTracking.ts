@@ -20,6 +20,7 @@
 import { useEffect } from 'react';
 
 import { trackSeoPageView } from '@/services/analytics-seo';
+import { callNativeHistory } from '@/services/nativeHistoryCall';
 
 export function useSeoPageTracking(): void {
   useEffect(() => {
@@ -50,21 +51,21 @@ export function useSeoPageTracking(): void {
     const PUSH_EVENT = 'seo-tracking:pushstate';
     const REPLACE_EVENT = 'seo-tracking:replacestate';
 
-    // Defensive guard (issue #4304): a live PostHog cluster showed "Cannot
-    // read properties of undefined (reading 'apply')" from this monkeypatch.
-    // history.pushState/replaceState is also independently patched by
-    // useUIState on the same App tree — under React StrictMode
-    // double-invocation or an interleaved mount/unmount ordering, the
-    // captured original*State reference can go stale. Falling back to a
-    // no-op preserves the return-shape contract without crashing the whole
-    // app to the top-level ErrorBoundary over a tracking call.
+    // Defensive guard (issue #4304, hardened #5606): a live PostHog cluster
+    // showed "Cannot read properties of undefined (reading 'apply')" from
+    // this monkeypatch. history.pushState/replaceState is also
+    // independently patched by useUIState on the same App tree — under
+    // React StrictMode double-invocation or an interleaved mount/unmount
+    // ordering, the captured original*State reference can go stale.
+    // callNativeHistory falls back to History.prototype[method] and never
+    // throws even if that is unavailable too (#5606: the fallback itself
+    // was not crash-proof) — preserving the return-shape contract without
+    // crashing the whole app to the top-level ErrorBoundary over a
+    // tracking call.
     window.history.pushState = function patchedPushState(
       ...args: Parameters<History['pushState']>
     ) {
-      const result =
-        typeof originalPushState === 'function'
-          ? originalPushState.apply(window.history, args)
-          : History.prototype.pushState.apply(window.history, args);
+      const result = callNativeHistory('pushState', originalPushState, window.history, args);
       try {
         window.dispatchEvent(new Event(PUSH_EVENT));
       } catch {
@@ -76,10 +77,7 @@ export function useSeoPageTracking(): void {
     window.history.replaceState = function patchedReplaceState(
       ...args: Parameters<History['replaceState']>
     ) {
-      const result =
-        typeof originalReplaceState === 'function'
-          ? originalReplaceState.apply(window.history, args)
-          : History.prototype.replaceState.apply(window.history, args);
+      const result = callNativeHistory('replaceState', originalReplaceState, window.history, args);
       try {
         window.dispatchEvent(new Event(REPLACE_EVENT));
       } catch {

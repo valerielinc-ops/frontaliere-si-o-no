@@ -157,5 +157,35 @@ describe('useUIState', () => {
 
       unmount();
     });
+
+    it('does not throw when History.prototype.pushState is also unavailable (issue #5606)', () => {
+      // Hardening for #5606: 18 occurrences/7d of the same TypeError kept
+      // arriving weeks after the #4304 fix shipped — the fallback to
+      // History.prototype.pushState was itself unguarded. Simulates that
+      // reference being unavailable too (observed in the wild in some
+      // WebViews / privacy-hardened browsers).
+      (history as unknown as { pushState: unknown }).pushState = undefined;
+      const protoDescriptor = Object.getOwnPropertyDescriptor(History.prototype, 'pushState');
+      Object.defineProperty(History.prototype, 'pushState', {
+        configurable: true,
+        writable: true,
+        value: undefined,
+      });
+
+      try {
+        const { unmount } = renderHook(() => useUIState('calculator'));
+        vi.clearAllMocks();
+
+        expect(() => {
+          act(() => {
+            history.pushState({}, '', '/premi-cassa-malati/ticino/');
+          });
+        }).not.toThrow();
+
+        unmount();
+      } finally {
+        if (protoDescriptor) Object.defineProperty(History.prototype, 'pushState', protoDescriptor);
+      }
+    });
   });
 });

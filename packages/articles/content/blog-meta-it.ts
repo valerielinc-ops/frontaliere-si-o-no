@@ -9730,6 +9730,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
     'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino partendo dal comune di Saint-Nicolas.',
     'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Veduta panoramica di un villaggio alpino svizzero',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'I dati chiave sulla vita di un frontaliere che lavora in Vallese e risiede a Saint-Pierre.',
+    'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Vallese e risiede a Saint-Pierre.',
 };
 
 export default blogMetaIt;
