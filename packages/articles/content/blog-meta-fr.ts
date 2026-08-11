@@ -9716,6 +9716,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.title': 'Vivre à Roisan et travailler en Valais comme frontalier',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.excerpt': 'Les frontaliers qui vivent à Roisan et travaillent en Valais doivent être au courant des nouvelles règles et délais de déclaration de revenus.',
     'blog.article.vivere-roisan-lavorare-vallese-da-frontalieri.imageAlt': 'Une famille d\'un frontalier regarde le lac de Lugano',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.title': 'Piemonte e Lombardia divisi, disparità in aumento',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.excerpt': 'Le Mouvement 5 Étoiles VCO intervient sur la situation des frontaliers après le débat à la Fête de la Lucciola de Villadossola.',
+    'blog.article.frontalieri-m5s-vco-tassa-salute.imageAlt': 'Un frontalière travaille en Lombardie et réside en Tessin.',
+    'blog.article.harvey-nichols-bancarotta.title': 'Harvey Nichols en faillite : la chaîne du luxe en péril',
+    'blog.article.harvey-nichols-bancarotta.excerpt': 'La chaîne de grands magasins Harvey Nichols pourrait faire faillite d\'ici un an si elle ne trouve pas de nouveaux investisseurs.',
+    'blog.article.harvey-nichols-bancarotta.imageAlt': 'Harvey Nichols en faillite',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.title': 'Déménager à La Salle en frontalier : pour et contre',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.excerpt': 'Réglage de l\'impôt à la source pour les frontaliers : retenue en Suisse et crédit d\'impôt en Italie.',
+    'blog.article.trasferirsi-la-salle-frontaliere-pro-e-contro.imageAlt': 'Un frontaliere à Lugano qui se demande s\'il doit se transférer à La Salle.',
 };
 
 export default blogMetaFr;
