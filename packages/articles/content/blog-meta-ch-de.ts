@@ -2224,6 +2224,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.viaggi-e-consumi-senza-rinunce.title': 'Reisen und Konsum ohne Kompromisse, trotz des Klimas',
     'blog.article.viaggi-e-consumi-senza-rinunce.excerpt': 'Vier von fünf Erwachsenen geben trotz Klimadebatte nicht auf. 80% geben an, dass die Klimadebatte keine oder nur geringe Auswirkungen auf ihre Entscheidungen hat.',
     'blog.article.viaggi-e-consumi-senza-rinunce.imageAlt': 'Ein Flugzeug landet am Flughafen Zürich',
+    'blog.article.on-trimestre-record.title': 'Mehr On: Rekordquartal mit starkem Wachstum in Asien, aber unten an der Börse',
+    'blog.article.on-trimestre-record.excerpt': 'On verzeichnet ein weiteres Rekordquartal: Der Umsatz der Sportartikelmarke belief sich auf CHF 850 Mio.',
+    'blog.article.on-trimestre-record.imageAlt': 'Bild eines Landschaftsabschnitts des Tessins mit der Überschrift \'On erreicht einen neuen Rekordquartal\'',
 };
 
 export default blogMetaChDe;
