@@ -6652,6 +6652,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'settore-agricolo-danni-19-milioni',
+    category: 'fiscale',
+    date: '2026-08-11T18:23:13.726Z',
+    image: '/images/blog/settore-agricolo-danni-19-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

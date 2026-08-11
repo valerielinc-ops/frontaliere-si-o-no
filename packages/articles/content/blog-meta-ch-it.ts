@@ -2218,6 +2218,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Borse di studio nel Cantone di Zurigo: requisiti e importi',
     'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Risorse finanziarie per gli studenti svizzeri',
     'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Fotografia editoriale di un docente e studente universitari in Svizzera',
+    'blog.article.settore-agricolo-danni-19-milioni.title': 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
+    'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi.',
+    'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'Una vista del lago di Lugano durante la siccità.',
 };
 
 export default blogMetaChIt;

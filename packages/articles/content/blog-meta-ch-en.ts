@@ -2218,6 +2218,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-zurigo-requisiti-e-importi.title': 'Scholarships in the Canton of Zurich: requirements and amounts',
     'blog.article.borse-studio-zurigo-requisiti-e-importi.excerpt': 'Financial resources for Swiss students',
     'blog.article.borse-studio-zurigo-requisiti-e-importi.imageAlt': 'Editorial photography of a university teacher and student in Switzerland',
+    'blog.article.settore-agricolo-danni-19-milioni.title': 'The agricultural sector reports damages of over 19 million francs.',
+    'blog.article.settore-agricolo-danni-19-milioni.excerpt': 'The drought is hitting Swiss farmers hard, with damages estimated at over 19 million francs.',
+    'blog.article.settore-agricolo-danni-19-milioni.imageAlt': 'A view of Lake Lugano during the drought.',
 };
 
 export default blogMetaChEn;

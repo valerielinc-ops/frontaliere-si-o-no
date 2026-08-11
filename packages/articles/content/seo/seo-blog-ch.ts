@@ -28721,6 +28721,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-settore-agricolo-danni-19-milioni': {
+    title: 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
+    description: 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, settore, agricolo, segnala, danni',
+    ogTitle: 'Il settore agricolo segnala danni per oltre 19 milioni di franchi.',
+    ogDescription: 'La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/settore-agricolo-danni-19-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il settore agricolo segnala danni per oltre 19 milioni di franchi.",
+      "description": "La siccità colpisce duramente gli agricoltori svizzeri, con danni stimati a oltre 19 milioni di franchi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/settore-agricolo-danni-19-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista del lago di Lugano durante la siccità."
+      },
+      "datePublished": "2026-08-11T18:23:13+00:00",
+      "dateModified": "2026-08-11T18:23:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/settore-agricolo-danni-19-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

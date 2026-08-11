@@ -765,6 +765,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lex-ubs-proposta-compromesso': { it: 'lex-ubs-proposta-compromesso', en: 'ubs-proposal-compromise', de: 'ubs-vorschlag-kompromiss', fr: 'proposition-ubs-compromis' },
  'commissione-propone-500-milioni-munizioni': { it: 'commissione-propone-500-milioni-munizioni', en: 'commissione-propone-500-milioni-munizioni', de: 'commissione-propone-500-milioni-munizioni', fr: 'commissione-propone-500-milioni-munizioni' },
  'borse-studio-zurigo-requisiti-e-importi': { it: 'borse-studio-zurigo-requisiti-e-importi', en: 'scholarships-zurich-requirements-and-amounts', de: 'stipendien-zuerich-anforderungen-und-betrage', fr: 'bourses-zurich-exigences-et-quantites' },
+ 'settore-agricolo-danni-19-milioni': { it: 'settore-agricolo-danni-19-milioni', en: 'sector-agriculture-damage-19-million', de: 'landwirtschaftlicher-sektor-schaden-19-millionen', fr: 'secteur-agricole-dommages-19-millions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
