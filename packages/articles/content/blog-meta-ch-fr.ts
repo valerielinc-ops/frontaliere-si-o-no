@@ -2188,6 +2188,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aziende-rimangono-prudenti.title': 'Plus d\'entreprises restent prudentes, peu enclines à embaucher',
     'blog.article.aziende-rimangono-prudenti.excerpt': 'Les entreprises suisses continuent de regarder l\'avenir avec prudence, avec des intentions de recrutement qui restent au plus bas depuis cinq ans.',
     'blog.article.aziende-rimangono-prudenti.imageAlt': 'Entreprises suisses dans un contexte de prudence',
+    'blog.article.svizzeri-clima-consumi-sondaggio.title': 'Climat et consommation : 80 % des Suisses ne changent pas d\'habitudes',
+    'blog.article.svizzeri-clima-consumi-sondaggio.excerpt': 'Une enquête Comparis auprès de 1 040 personnes révèle que le changement climatique a peu d\'impact sur les choix d\'achat. Moins sensibles les hauts revenus.',
+    'blog.article.svizzeri-clima-consumi-sondaggio.imageAlt': 'Citoyens suisses faisant leurs courses dans un centre-ville.',
 };
 
 export default blogMetaChFr;

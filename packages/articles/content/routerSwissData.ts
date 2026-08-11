@@ -755,6 +755,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'neutralita-consiglio-federale': { it: 'neutralita-consiglio-federale', en: 'federal-council-neutrality', de: 'bundesrat-neutralitaet', fr: 'conseil-federal-neutralite' },
  'carne-prezzi-svizzera': { it: 'carne-prezzi-svizzera', en: 'meat-prices-switzerland', de: 'fleischpreis-schweiz', fr: 'boeuf-cout-suisse' },
  'aziende-rimangono-prudenti': { it: 'aziende-rimangono-prudenti', en: 'companies-remain-cautious', de: 'unternehmen-bleiben-vorsichtig', fr: 'entreprises-restent-prudentes' },
+ 'svizzeri-clima-consumi-sondaggio': { it: 'svizzeri-clima-consumi-sondaggio', en: 'swiss-climate-consumption-survey', de: 'schweizer-klima-konsum-umfrage', fr: 'suisses-climat-consommation-sondage' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
