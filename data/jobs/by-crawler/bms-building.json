@@ -178,15 +178,13 @@
       "previousSlugs": [
         "fleet-management-specialist-a-100-f-h-d-bms-building-ch",
         "specialiste-de-la-gestion-de-la-flotte-a-100-f-h-d-bms-building-materials-bern",
-        "fleet-management-specialist-100-w-m-d-bms-building-ch",
-        "fleet-management-specialista-100-w-m-d-bms-building-materials-bern"
+        "fleet-management-specialist-100-w-m-d-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fleet-management-specialist-a-100-f-h-d-bms-building-ch",
           "specialiste-de-la-gestion-de-la-flotte-a-100-f-h-d-bms-building-materials-bern",
-          "fleet-management-specialist-100-w-m-d-bms-building-ch",
-          "fleet-management-specialista-100-w-m-d-bms-building-materials-bern"
+          "fleet-management-specialist-100-w-m-d-bms-building-ch"
         ],
         "en": [
           "fleet-management-specialist-a-100-f-h-d-bms-building-ch"
@@ -384,13 +382,11 @@
         ]
       },
       "previousSlugs": [
-        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-zurich"
+        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-          "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-zurich"
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
         ],
         "en": [
           "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
@@ -416,12 +412,12 @@
     },
     {
       "id": "bms-building-562cd15f77f8",
-      "slug": "logistiker-m-w-d-80-bms-building-materials-fideris",
+      "slug": "logisticista-m-f-d-80-bms-building-materials-fideris",
       "slugByLocale": {
         "de": "logistiker-w-m-d-80-bms-building-ch",
-        "it": "logistiker-m-w-d-80-bms-building-materials-fideris",
-        "en": "logistiker-w-m-d-80-bms-building-materials-fideris",
-        "fr": "logistiker-w-m-d-80-bms-building-materials-fideris"
+        "it": "logisticista-m-f-d-80-bms-building-materials-fideris",
+        "en": "logistician-m-f-d-80-bms-building-materials-fideris",
+        "fr": "logisticien-h-f-d-80-bms-building-materials-fideris"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -497,11 +493,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-w-m-d-80-bms-building-ch"
+          "logistiker-w-m-d-80-bms-building-ch",
+          "logistiker-m-w-d-80-bms-building-materials-fideris"
+        ],
+        "en": [
+          "logistiker-w-m-d-80-bms-building-materials-fideris"
+        ],
+        "fr": [
+          "logistiker-w-m-d-80-bms-building-materials-fideris"
         ]
       },
       "previousSlugs": [
-        "logistiker-w-m-d-80-bms-building-ch"
+        "logistiker-w-m-d-80-bms-building-ch",
+        "logistiker-m-w-d-80-bms-building-materials-fideris",
+        "logistiker-w-m-d-80-bms-building-materials-fideris"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -594,14 +599,12 @@
       },
       "previousSlugs": [
         "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch-2",
-        "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-volketswil"
+        "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
-          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch-2",
-          "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-volketswil"
+          "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch-2"
         ],
         "en": [
           "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
@@ -860,13 +863,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-logistik-w-m-d-100-bms-building-ch",
-        "gestione-team-logistica-f-m-d-100-bms-building-materials-hunzenschwil"
+        "teamleitung-logistik-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-logistik-w-m-d-100-bms-building-ch",
-          "gestione-team-logistica-f-m-d-100-bms-building-materials-hunzenschwil"
+          "teamleitung-logistik-w-m-d-100-bms-building-ch"
         ],
         "en": [
           "teamleitung-logistik-w-m-d-100-bms-building-ch"
@@ -968,13 +969,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-        "gestione-del-team-nel-cantiere-f-m-d-100-bms-building-materials-gebenstorf"
+        "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
-          "gestione-del-team-nel-cantiere-f-m-d-100-bms-building-materials-gebenstorf"
+          "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
         ],
         "en": [
           "teamleitung-im-baubedarf-shop-w-m-d-100-bms-building-ch"
@@ -1658,13 +1657,11 @@
         ]
       },
       "previousSlugs": [
-        "standortleitung-w-m-d-100-bms-building-ch",
-        "gestione-del-sito-f-m-d-100-bms-building-materials-schmerikon"
+        "standortleitung-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "standortleitung-w-m-d-100-bms-building-ch",
-          "gestione-del-sito-f-m-d-100-bms-building-materials-schmerikon"
+          "standortleitung-w-m-d-100-bms-building-ch"
         ],
         "en": [
           "standortleitung-w-m-d-100-bms-building-ch"
@@ -1761,13 +1758,11 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch",
-        "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs"
+        "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch",
-          "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs"
+          "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:27.063Z",
@@ -1873,13 +1868,11 @@
         ]
       },
       "previousSlugs": [
-        "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
-        "project-manager-digitalizzazione-f-m-d-80-100-bms-building-materials-bern"
+        "project-manager-digitalisation-w-m-d-80-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-digitalisation-w-m-d-80-100-bms-building-ch",
-          "project-manager-digitalizzazione-f-m-d-80-100-bms-building-materials-bern"
+          "project-manager-digitalisation-w-m-d-80-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:25.917Z",
@@ -1972,14 +1965,12 @@
       },
       "previousSlugs": [
         "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
-        "product-data-specialiste-w-m-d-80-100-bms-building-materials-bern",
-        "dati-master-del-prodotto-f-m-d-80-100-bms-building-materials-bern"
+        "product-data-specialiste-w-m-d-80-100-bms-building-materials-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch",
-          "product-data-specialiste-w-m-d-80-100-bms-building-materials-bern",
-          "dati-master-del-prodotto-f-m-d-80-100-bms-building-materials-bern"
+          "product-data-specialiste-w-m-d-80-100-bms-building-materials-bern"
         ],
         "en": [
           "sachbearbeiter-in-produktstammdaten-w-m-d-80-100-bms-building-ch"
@@ -2194,14 +2185,12 @@
       },
       "previousSlugs": [
         "logistiker-w-m-d-100-bms-building-ch",
-        "logistiker-m-w-d-100-bms-building-materials-sevelen",
-        "logisticista-f-m-d-100-bms-building-materials-sevelen"
+        "logistiker-m-w-d-100-bms-building-materials-sevelen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-w-m-d-100-bms-building-ch",
-          "logistiker-m-w-d-100-bms-building-materials-sevelen",
-          "logisticista-f-m-d-100-bms-building-materials-sevelen"
+          "logistiker-m-w-d-100-bms-building-materials-sevelen"
         ],
         "en": [
           "logistiker-w-m-d-100-bms-building-ch"
@@ -2307,8 +2296,7 @@
         "servizio-clienti-nel-cantiere-f-m-d-80-bms-building-materials-fideris",
         "customer-service-in-the-construction-shop-f-m-d-80-bms-building-materials-fideris",
         "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
-        "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris",
-        "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein"
+        "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2316,8 +2304,7 @@
           "servizio-clienti-nel-cantiere-f-m-d-80-bms-building-materials-fideris",
           "customer-service-in-the-construction-shop-f-m-d-80-bms-building-materials-fideris",
           "kundenberatung-im-baubedarf-shop-w-m-d-80-bms-building-ch",
-          "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris",
-          "servizio-clienti-nel-negozio-di-costruzioni-f-m-d-100-bms-building-materials-schluein"
+          "service-client-dans-l-atelier-de-construction-f-m-d-80-bms-building-materials-fideris"
         ],
         "en": [
           "kundenberatung-im-baubedarf-shop-w-m-d-100-bms-building-ch",
@@ -2420,13 +2407,11 @@
         ]
       },
       "previousSlugs": [
-        "functional-application-manager-ai-w-m-d-100-bms-building-ch",
-        "funzionale-application-manager-ai-f-m-d-100-bms-building-materials-buchs"
+        "functional-application-manager-ai-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "functional-application-manager-ai-w-m-d-100-bms-building-ch",
-          "funzionale-application-manager-ai-f-m-d-100-bms-building-materials-buchs"
+          "functional-application-manager-ai-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:18.291Z",
@@ -2626,8 +2611,7 @@
         "logistik-w-m-d-80-100-bms-building-ch",
         "logistique-f-m-j-80-100-bms-building-materials-grenchen",
         "logistiker-m-w-d-80-100-bms-building-materials-grenchen",
-        "logistiker-w-m-d-80-100-bms-building-ch-2",
-        "logisticista-f-m-d-80-100-bms-building-materials-grenchen"
+        "logistiker-w-m-d-80-100-bms-building-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2637,8 +2621,7 @@
           "logistik-w-m-d-80-100-bms-building-ch",
           "logistique-f-m-j-80-100-bms-building-materials-grenchen",
           "logistiker-m-w-d-80-100-bms-building-materials-grenchen",
-          "logistiker-w-m-d-80-100-bms-building-ch-2",
-          "logisticista-f-m-d-80-100-bms-building-materials-grenchen"
+          "logistiker-w-m-d-80-100-bms-building-ch-2"
         ],
         "en": [
           "logistics-f-m-d-80-100-bms-building-materials-grenchen",
@@ -2745,13 +2728,11 @@
         ]
       },
       "previousSlugs": [
-        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-        "servizio-clienti-servizio-sanitario-f-m-d-100-bms-building-materials-zurich"
+        "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch",
-          "servizio-clienti-servizio-sanitario-f-m-d-100-bms-building-materials-zurich"
+          "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
         ],
         "en": [
           "kundenberatung-aussendienst-sanitar-w-m-d-100-bms-building-ch"
@@ -3048,13 +3029,11 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
-        "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-wil"
+        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
-          "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-wil"
+          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:06.453Z",
@@ -3246,13 +3225,11 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
-        "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens"
+        "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
-          "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens"
+          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:04.292Z",
@@ -3347,13 +3324,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
-        "teamleitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-hunzenschwil"
+        "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
-          "teamleitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-hunzenschwil"
+          "teamleitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:03.095Z",
@@ -3450,15 +3425,13 @@
       "previousSlugs": [
         "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
         "conseil-a-la-clientele-richner-shop-sanitaire-p-m-j-100-bms-building-materials-bern",
-        "customer-consulting-richner-shop-sanitary-w-m-d-100-bms-building-materials-bern",
-        "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-bern"
+        "customer-consulting-richner-shop-sanitary-w-m-d-100-bms-building-materials-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch",
           "conseil-a-la-clientele-richner-shop-sanitaire-p-m-j-100-bms-building-materials-bern",
-          "customer-consulting-richner-shop-sanitary-w-m-d-100-bms-building-materials-bern",
-          "servizio-clienti-richner-shop-sanitary-f-m-d-100-bms-building-materials-bern"
+          "customer-consulting-richner-shop-sanitary-w-m-d-100-bms-building-materials-bern"
         ],
         "en": [
           "kundenberatung-richner-shop-sanitar-w-m-d-100-bms-building-ch"
@@ -3557,13 +3530,11 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
-        "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-schmerikon"
+        "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch",
-          "sachbearbeitung-servizio-interno-rohbau-m-w-d-100-bms-building-materials-schmerikon"
+          "sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:00.805Z",
@@ -3655,13 +3626,11 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
-        "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur"
+        "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
-          "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur"
+          "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:57:59.668Z",
