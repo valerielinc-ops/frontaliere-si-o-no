@@ -9606,6 +9606,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Umzug nach Valdidentro als Grenzgänger: Vor- und Nachteile',
     'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analyse von Leben und Arbeit in Valdidentro für Grenzgänger in Graubünden: Steuern, Franchisen und praktische Aspekte des neuen Steuerabkommens.',
     'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Panoramablick auf ein Alpental nahe der Schweizer Grenze',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Wohnen in Valfurva und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Eckdaten zum neuen Doppelbesteuerungsabkommen und zum neuen Steuerabkommen für Tessiner Grenzgänger',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontalier in der Schlange für die Grenzkontrolle',
 };
 
 export default blogMetaDe;

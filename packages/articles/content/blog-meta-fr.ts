@@ -9609,6 +9609,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-valdidentro-frontaliere.title': 'Déménager à Valdidentro en tant que frontalier : avantages et inconvénients',
     'blog.article.trasferirsi-valdidentro-frontaliere.excerpt': 'Analyse de la vie et du travail à Valdidentro pour les frontaliers dans les Grisons : taxes, franchises et aspects pratiques du nouvel accord fiscal.',
     'blog.article.trasferirsi-valdidentro-frontaliere.imageAlt': 'Vue panoramique d\'une vallée alpine près de la frontière suisse',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.title': 'Vivre à Valfurva et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.excerpt': 'Faits clés sur la nouvelle convention de double imposition et sur le nouvel accord fiscal pour les frontaliers tessinois',
+    'blog.article.vivere-valfurva-e-lavorare-grigioni-da-frontaliere.imageAlt': 'Frontaliers en file pour le contrôle aux frontières',
 };
 
 export default blogMetaFr;
