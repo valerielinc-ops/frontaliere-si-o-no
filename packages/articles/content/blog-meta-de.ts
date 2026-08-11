@@ -9698,6 +9698,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Grenzgänger im Wallis: Regeln und Besteuerung',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Operativer Leitfaden zum neuen Steuerabkommen, Einkommensmanagement und Vorsorgepflichten für Grenzgänger in der Schweiz.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Alpine Berglandschaft mit Dorf',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Wohnen in Courmayeur und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Besteuerung und Genehmigungen für Grenzgänger, die in Courmayeur leben und im Wallis arbeiten',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Ein Blick auf Courmayeur, eine italienische Stadt am Grenzgebiet zu der Schweiz',
 };
 
 export default blogMetaDe;

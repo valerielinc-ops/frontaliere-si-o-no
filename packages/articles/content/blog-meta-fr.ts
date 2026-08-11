@@ -9701,6 +9701,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontière en Valais : règles et fiscalité',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Guide opérationnel sur le nouvel accord fiscal, la gestion des revenus et les obligations de sécurité sociale pour les travailleurs frontaliers en Suisse.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Paysage montagneux alpin avec village',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Vivre à Courmayeur et travailler en Valais comme frontalier',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Réglage fiscal et permis pour les frontaliers qui vivent à Courmayeur et travaillent en Valais',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Une vue de Courmayeur, une ville italienne située sur la frontière avec la Suisse',
 };
 
 export default blogMetaFr;

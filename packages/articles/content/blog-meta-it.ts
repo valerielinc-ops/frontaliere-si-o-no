@@ -9700,6 +9700,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valpelline-lavorare-vallese.title': 'Frontaliere in Vallese: regole e fiscalità',
     'blog.article.vivere-valpelline-lavorare-vallese.excerpt': 'Guida operativa sul nuovo accordo fiscale, gestione del reddito e obblighi previdenziali per i lavoratori frontalieri in Svizzera.',
     'blog.article.vivere-valpelline-lavorare-vallese.imageAlt': 'Paesaggio montano alpino con villaggio',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.title': 'Vivere a Courmayeur e lavorare in Vallese da frontaliere',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.excerpt': 'Impostazione fiscale e permessi per i frontalieri che vivono a Courmayeur e lavorano in Vallese',
+    'blog.article.courmayeur-lavora-vallese-frontaliere.imageAlt': 'Una vista di Courmayeur, città italiana situata sul confine con la Svizzera',
 };
 
 export default blogMetaIt;
