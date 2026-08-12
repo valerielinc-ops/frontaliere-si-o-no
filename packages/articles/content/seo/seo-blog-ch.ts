@@ -29969,6 +29969,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scherzi-nuove-misure-del-consiglio-federale': {
+    title: 'Consiglio federale: nuove misure per le banche',
+    description: 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, nuove, misure',
+    ogTitle: 'La BNS e la Finma accolgono favorevolmente le nuove misure del Consiglio federale sulle banche',
+    ogDescription: 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia di regolamentazione bancaria.',
+    canonicalPath: '/articoli-svizzera/scherzi-nuove-misure-del-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: nuove misure per le banche",
+      "description": "La Banca nazionale svizzera e l'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scherzi-nuove-misure-del-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Consiglio federale: nuove misure per le banche"
+      },
+      "datePublished": "2026-08-12T17:44:46+00:00",
+      "dateModified": "2026-08-12T17:44:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scherzi-nuove-misure-del-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

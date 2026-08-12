@@ -2314,6 +2314,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'Frutta e verdura più care da produrre, ma prezzi non salgono',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Gli orticoltori svizzeri devono affrontare costi straordinari aggiuntivi del 25% a causa della siccità, ma i prezzi non aumentano.',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'Un orticoltore in Svizzera lotta contro la siccità.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Consiglio federale: nuove misure per le banche',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia di regolamentazione bancaria.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Immagine editoriale relativa a: Consiglio federale: nuove misure per le banche',
 };
 
 export default blogMetaChIt;

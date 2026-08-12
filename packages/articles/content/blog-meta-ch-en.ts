@@ -2314,6 +2314,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'More expensive fruits and vegetables to produce, but prices do not rise',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Swiss horticulturists face extra costs of 25% due to the drought, but prices do not increase.',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'An Austrian farmer struggles with drought.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Federal Council: new measures for banks',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'The Swiss National Bank and the supervisory authority Finma welcome the measures proposed today by the Federal Council on banking regulation.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Editorial image related to: Consiglio federale: nuove misure per le banche',
 };
 
 export default blogMetaChEn;
