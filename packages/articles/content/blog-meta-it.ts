@@ -9825,6 +9825,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-itinere-confine-assicurazione.title': 'Infortunio in itinere e assicurazione per frontalieri',
     'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Guida completa alla copertura LAINF in caso di infortunio durante il tragitto transfrontaliero tra Italia e Canton Ticino.',
     'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Assicurazione e copertura per infortunio in itinere del frontaliere',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine: copertura LAINF e procedura di denuncia',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.excerpt': 'I frontalieri che subiscono un infortunio in itinere al confine tra Svizzera e Italia devono presentare denuncia entro 24 ore e ottenere un certificato di malattia.',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.imageAlt': 'Un frontaliere in bicicletta lungo la strada di confine tra Svizzera e Italia, con un infortunio al petto',
 };
 
 export default blogMetaIt;

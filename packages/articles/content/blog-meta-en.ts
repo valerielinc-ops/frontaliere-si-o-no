@@ -9824,6 +9824,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortunio-itinere-confine-assicurazione.title': 'Travelling accident and insurance for border workers',
     'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Complete guide to LAINF coverage in the event of an accident during the cross-border journey between Italy and Canton Ticino.',
     'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Insurance and commuting accident coverage for cross-border workers',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.title': 'Injury en route to the border: LAINF coverage and reporting procedure',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.excerpt': 'Border workers who suffer an accident en route to the border between Switzerland and Italy must file a complaint within 24 hours and obtain a sickness certificate.',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.imageAlt': 'A frontline worker cycling along the border road between Switzerland and Italy, with an injury to the chest',
 };
 
 export default blogMetaEn;
