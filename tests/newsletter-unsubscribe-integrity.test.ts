@@ -784,21 +784,23 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
     expect(addDocMock).not.toHaveBeenCalled();
   });
 
-  it('all FIVE auto-subscribe-on-sign-in paths gate the upsert on it', () => {
+  it('all SIX auto-subscribe-on-sign-in paths gate the upsert on it', () => {
     // The guard has to precede the call, not merely appear in the file: an
     // `isNewsletterOptedOut` that runs after the upsert would read as fixed
     // and write the event anyway.
     //
-    // FIVE, not the four the issue implies. JobBoard's autoNewsletterSubscribe
-    // is the one nothing pointed at: two of its four callers are social
+    // SIX, not the five it grew to. JobBoard's autoNewsletterSubscribe is
+    // the one nothing pointed at: two of its four callers are social
     // sign-in job unlocks that promote to confirmed/active, which is the ring
-    // verbatim.
+    // verbatim. TaxCalendar's Google/Facebook reminder sign-in is the same
+    // ring on a different funnel — #5713 item 2.
     const paths = [
       'App.tsx',
       'hooks/useUserState.ts',
       'services/authService.ts',
       'components/pages/PublisherPublishPage.tsx',
       'components/community/JobBoard.tsx',
+      'components/fisco/TaxCalendar.tsx',
     ];
     for (const rel of paths) {
       const src = read(rel);
@@ -820,6 +822,7 @@ describe('an opted-out recipient signing in produces NO write at all', () => {
       'services/authService.ts',
       'components/pages/PublisherPublishPage.tsx',
       'components/community/JobBoard.tsx',
+      'components/fisco/TaxCalendar.tsx',
     ]) {
       const src = read(rel);
       if (!src.includes("getItem('newsletter_subscribed')")) continue;
