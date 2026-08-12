@@ -2290,6 +2290,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvabilité au plus haut depuis 30 ans',
     'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'Au premier semestre, 7496 entreprises ont déclaré faillite pour cause d\'insolvabilité, le nombre le plus élevé depuis 1994.',
     'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Taux d\'insolvabilité en Suisse: un record depuis 1994',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Le Conseil fédéral rejette l\'Initiative sur la place financière',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'Le Conseil fédéral recommande au Parlement de rejeter sans contre-projet l\'initiative sur la place financière suisse.',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'Le Palais fédéral à Berne siège du Conseil fédéral',
 };
 
 export default blogMetaChFr;

@@ -6868,6 +6868,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'consiglio-federale-no-iniziativa-finanziaria',
+    category: 'novita',
+    date: '2026-08-12T12:00:07.933Z',
+    image: '/images/blog/consiglio-federale-no-iniziativa-finanziaria.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -9817,6 +9817,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.title': 'Comment fonctionnent les amendes routières suisses pour un résident italien',
     'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.excerpt': 'Le frontalier italien doit payer les amendes routières suisses dans le délai imparti.',
     'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.imageAlt': 'Le frontalier italien doit payer les amendes de circulation suisses.',
+    'blog.article.traversata-alpi-cani-adottati-cuveglio.title': 'Traversée des Alpes avec chiens adoptés : 3ème semaine',
+    'blog.article.traversata-alpi-cani-adottati-cuveglio.excerpt': 'Troisième semaine de marche pour Cristian et Mara le long de la Grande Traversée des Alpes avec leurs chiens adoptés en chenil.',
+    'blog.article.traversata-alpi-cani-adottati-cuveglio.imageAlt': 'Couple marchant dans les Alpes avec des chiens adoptés',
 };
 
 export default blogMetaFr;

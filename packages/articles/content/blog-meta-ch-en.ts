@@ -2290,6 +2290,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvencies at 30-year highs',
     'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'In the first half of the year, 7,496 companies declared bankruptcy due to insolvency, the highest number since 1994.',
     'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Switzerland\'s insolvency rate: a record high since 1994',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Federal Council rejects Financial Square Initiative',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'The Federal Council recommends that Parliament reject without counter-proposal the initiative on the Swiss financial centre.',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'The Federal Palace in Bern seat of the Federal Council',
 };
 
 export default blogMetaChEn;
