@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-11T22:26:05.253Z",
+  "assembledAt": "2026-08-12T10:46:21.012Z",
   "jobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:26:02.166Z",
+      "crawledAt": "2026-08-12T10:46:17.352Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -121,6 +121,7 @@
           "unitText": "YEAR"
         }
       },
+      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "structured-products-trader-spanish-market-alpiq-olten"
@@ -175,7 +176,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:26:02.166Z",
+      "crawledAt": "2026-08-12T10:46:17.351Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -243,7 +244,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:26:02.165Z",
+      "crawledAt": "2026-08-12T10:46:17.351Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -308,7 +309,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:26:02.164Z",
+      "crawledAt": "2026-08-12T10:46:17.349Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
