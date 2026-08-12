@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-08-12T10:28:14.526Z",
-  "total": 11,
+  "generatedAt": "2026-08-12T22:21:58.075Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3539,
-  "avgDurationMs": 3539,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3457,
+  "avgDurationMs": 3457,
   "durationHistory": [
-    3539
+    3457
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Transport, 100%",
       "slug": "trasporti-100-berit-klinik-speicher-05af3a",
@@ -428,5 +427,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
