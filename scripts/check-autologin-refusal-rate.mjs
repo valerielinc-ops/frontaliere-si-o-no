@@ -304,12 +304,20 @@ async function main() {
   log(`\n${body}\n`);
 
   if (verdict.alert) {
+    // The WORST alerting finding names the issue, not the first one found.
+    // `probe_failed` is appended after the rate findings but outranks them, and
+    // with a naive `.find` a priority-1 mint/verify drift would have been filed
+    // — and deduped — under `denominator_missing`, i.e. onto the wrong canonical
+    // issue and at the wrong urgency.
+    const worst = verdict.findings
+      .filter((f) => f.alert)
+      .sort((a, b) => a.priority - b.priority)[0];
     fs.writeFileSync(ALERT_PATH, `${JSON.stringify({
       priority: verdict.priority,
       // Discriminant FIRST: `github-issue-creator.mjs` dedups on the first 60
       // characters of the title, so a suffix would be cut off and every code
       // would collapse onto one canonical issue.
-      title: `[autologin-rate] ${verdict.findings.find((f) => f.alert).code}: rifiuti exchange_auth_code`,
+      title: `[autologin-rate] ${worst.code}: rifiuti exchange_auth_code`,
       body: `${body}\n\n${runbook(agg, verdict)}`,
     }, null, 2)}\n`, 'utf8');
     log(`🔴 Alert scritto in ${path.relative(ROOT, ALERT_PATH)} (priority ${verdict.priority}).`);
