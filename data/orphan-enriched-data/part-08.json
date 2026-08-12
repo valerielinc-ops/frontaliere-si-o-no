@@ -12557,28 +12557,28 @@
       "queries": [
         {
           "query": "case anziani ticino offerte di lavoro",
-          "clicks": 58,
-          "impressions": 820
+          "clicks": 59,
+          "impressions": 830
+        },
+        {
+          "query": "offerte lavoro casa di riposo svizzera",
+          "clicks": 43,
+          "impressions": 440
         },
         {
           "query": "offerte di lavoro casa di riposo svizzera",
           "clicks": 39,
-          "impressions": 434
-        },
-        {
-          "query": "offerte lavoro casa di riposo svizzera",
-          "clicks": 42,
-          "impressions": 432
+          "impressions": 435
         },
         {
           "query": "case anziani lugano posti di lavoro",
           "clicks": 18,
-          "impressions": 227
+          "impressions": 229
         },
         {
           "query": "offerte di lavoro casa anziani ticino",
-          "clicks": 17,
-          "impressions": 137
+          "clicks": 18,
+          "impressions": 140
         },
         {
           "query": "offerte lavoro casa anziani ticino",
@@ -12588,17 +12588,17 @@
         {
           "query": "casa anziani comunale bellinzona offerte di lavoro",
           "clicks": 6,
-          "impressions": 124
+          "impressions": 126
         },
         {
           "query": "casa anziani paradiso offerta lavoro",
           "clicks": 3,
-          "impressions": 122
+          "impressions": 124
         },
         {
           "query": "casa anziani chiasso lavoro",
           "clicks": 17,
-          "impressions": 97
+          "impressions": 99
         },
         {
           "query": "case di riposo ticino lavora con noi",
@@ -12623,17 +12623,17 @@
         {
           "query": "casa anziani offerte di lavoro",
           "clicks": 3,
-          "impressions": 57
+          "impressions": 59
         },
         {
           "query": "offerte lavoro assistente di cura ticino",
           "clicks": 6,
-          "impressions": 46
+          "impressions": 47
         },
         {
           "query": "concorso casa anziani bellinzona",
           "clicks": 2,
-          "impressions": 29
+          "impressions": 30
         },
         {
           "query": "offerte di lavoro centri diurni ticino",
@@ -12656,8 +12656,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 3258,
-      "totalClicks": 263,
+      "totalImpressions": 3293,
+      "totalClicks": 266,
       "topQuery": "case anziani ticino offerte di lavoro",
       "title": "Case anziani",
       "titleByLocale": {
@@ -53811,10 +53811,10 @@
         "fr": "retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
-        "en": "/en/find-jobs-aargau/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
-        "de": "/de/jobs-im-aargau/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
-        "fr": "/fr/trouver-emploi-argovie/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf"
+        "it": "/cerca-lavoro-berna/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
+        "en": "/en/find-jobs-bern/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
+        "de": "/de/jobs-in-bern/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
+        "fr": "/fr/trouver-emploi-berne/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67855,6 +67855,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "technicians",
+      "locale": "en",
+      "path": "/en/find-jobs-vaud/technicians/",
+      "observedPaths": {
+        "en": "/en/find-jobs-vaud/technicians/"
+      },
+      "queries": [
+        {
+          "query": "do you know facility technician jobs in switzerland in lausanne with french",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "do you know facility technician jobs in switzerland in lausanne with french",
+      "title": "Technicians",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "technicians",
+        "en": "technicians",
+        "de": "technicians",
+        "fr": "technicians"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/technicians",
+        "en": "/en/find-jobs-vaud/technicians",
+        "de": "/de/jobs-im-waadt/technicians",
+        "fr": "/fr/trouver-emploi-vaud/technicians"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
