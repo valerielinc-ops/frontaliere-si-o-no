@@ -29,6 +29,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -855,6 +856,8 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  // it from an authentication event.
  reconsent: true,
  leadMagnet: variant,
+ // #5678: the guide-for-address exchange, recorded verbatim.
+ ...consentProof('leadMagnet', 'email_submit'),
  }),
  8000,
  'newsletter_upsert',

@@ -82,7 +82,12 @@ describe('captureNewsletterSubscriber — resubscribe_link source (issue #2852 i
 
     await captureNewsletterSubscriber(
       {} as any,
-      { email: 'new@example.com', source: 'popup' },
+      {
+        email: 'new@example.com',
+        source: 'popup',
+        // #5678: a NEW subscriber cannot be created without a consent text.
+        consentText: 'formula di prova',
+      },
     );
 
     expect(setDocMock).toHaveBeenCalledTimes(1);

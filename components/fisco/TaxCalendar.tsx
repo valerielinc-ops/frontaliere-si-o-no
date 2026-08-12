@@ -11,6 +11,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 
 interface TaxDeadline {
  id: string;
@@ -534,6 +535,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  locale: navigator.language || 'it-IT',
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
+ // #5678. Two acts, two formulas: the social branch confirms immediately
+ // off an authentication, the typed-address branch stays `pending`.
+ ...consentProof(
+ isTrustedAuthSource ? 'taxCalendarSocial' : 'taxCalendarEmail',
+ isTrustedAuthSource
+ ? (source.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
+ : 'email_submit',
+ ),
  });
  markNewsletterSubscribedLocally();
  return true;
