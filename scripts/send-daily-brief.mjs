@@ -166,12 +166,26 @@ export async function loadDayPayload(todayIso, { dryRun = false, fetchImpl = fet
 /**
  * The recorded proof that this address ever completed the double opt-in.
  *
- * `confirmed_at` / `confirmedAt` are written by exactly ONE path — the
- * `action === 'confirm'` branch of functions/src/newsletterSubscriptionManagement.js,
- * in the same `.set()` that writes `status: 'confirmed'` and adds the `confirm`
- * event. It is therefore a record of a click, not an inference from the signup
- * form, and that distinction is the whole of #5677: `status` alone is NOT
- * proof, in BOTH directions, and both directions were measured on production
+ * `confirmed_at` / `confirmedAt` are written by the two branches of
+ * functions/src/newsletterSubscriptionManagement.js that a RECIPIENT reaches by
+ * clicking, and by nothing else: `action === 'confirm'` (the double-opt-in
+ * link) and `action === 'resubscribe'` (the "riattiva" click), each in the same
+ * `.set()` that writes `status: 'confirmed'`.
+ *
+ * The resubscribe half was added by #5677 itself. That branch wrote `confirmed`
+ * with NO stamp, and its token is an HMAC(email) checked without reference to
+ * the previous status — so someone who had never confirmed could unsubscribe
+ * (the link rides every transactional email), click "riattiva" on the response
+ * page, and land on `confirmed` with nothing behind it. It hid because the
+ * `unsubscribe` branch does not delete `confirmed_at`, so anyone who HAD
+ * confirmed once kept an old stamp across the cycle. Treating the reactivation
+ * click as consent rather than refusing it matches #5690, which made
+ * `resubscribe_link` one of only two signals allowed to lift a recorded
+ * opt-out.
+ *
+ * So the stamp is a record of a click, not an inference from the signup form,
+ * and that distinction is the whole of #5677: `status` alone is NOT proof, in
+ * BOTH directions, and both directions were measured on production
  * (2026-08-12, 8.617 docs):
  *
  *   - `status: 'confirmed'` WITHOUT the stamp: 392 docs, of which 380 carry a
