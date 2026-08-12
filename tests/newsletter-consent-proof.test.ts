@@ -288,21 +288,40 @@ describe('buildConsentIpStamp — the edge half of the same field', () => {
 describe('functions/index.js — where the stamp is and is not applied', () => {
   const src = read('functions/index.js');
 
-  it('stamps the two endpoints every genuinely new subscriber reaches', () => {
+  it('stamps the three endpoints every genuinely new subscriber or job-alert consent reaches', () => {
     // The browser cannot see its own address, so these are the only moments in
-    // the signup path where one is observable at all.
+    // the signup path (plus the job-alert consent gap, #5718) where one is
+    // observable at all.
     expect(src).toMatch(/async function stampConsentIp\(/);
     expect(src).toMatch(/await stampConsentIp\(req, email\)/);
-    expect(src.match(/await stampConsentIp\(/g) || []).toHaveLength(2);
+    expect(src.match(/await stampConsentIp\(/g) || []).toHaveLength(3);
   });
 
   it('does NOT stamp the autologin branch, which is a login and not a consent', () => {
     // `purpose === 'login'` is requested for an ALREADY EXISTING subscriber.
     // Stamping there would attach today's network to a consent given months
     // ago — a login dressed up as an opt-in.
-    const at = src.indexOf('await stampConsentIp(req, email)');
+    const confirmFn = src.slice(
+      src.indexOf('newsletterSendConfirmation = onRequest'),
+      src.indexOf('newsletterSendWelcome = onRequest'),
+    );
+    const at = confirmFn.indexOf('await stampConsentIp(req, email)');
     expect(at).toBeGreaterThan(-1);
-    expect(src.slice(Math.max(0, at - 200), at)).toMatch(/if \(purpose === 'confirm'\)/);
+    expect(confirmFn.slice(Math.max(0, at - 200), at)).toMatch(/if \(purpose === 'confirm'\)/);
+  });
+
+  it('stamps create_alert only after a real create, not on a rejected/invalid request (#5718)', () => {
+    // `createJobAlert` never passes through `captureNewsletterSubscriber`, so
+    // this call site was the one signup-adjacent consent moment left unstamped
+    // after #5676. Gated on `result.status === 200` — an invalid/expired token
+    // means no alert was actually created, so there is nothing to attribute.
+    const manageFn = src.slice(
+      src.indexOf('newsletterManageSubscription = onRequest'),
+      src.indexOf('async function stampConsentIp('),
+    );
+    const at = manageFn.indexOf('await stampConsentIp(req, email)');
+    expect(at).toBeGreaterThan(-1);
+    expect(manageFn.slice(Math.max(0, at - 200), at)).toMatch(/action === 'create_alert' && result\.status === 200/);
   });
 
   it('never creates or overwrites: the first address recorded is the consent one', () => {

@@ -477,7 +477,7 @@ export const newsletterManageSubscription = onRequest(
 
  const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
  const action = String(params.action || '').trim().toLowerCase();
- const email = String(params.email || '').trim();
+ const email = String(params.email || '').trim().toLowerCase();
  const token = String(params.token || '').trim();
  const format = String(params.format || '').trim().toLowerCase();
  const enabled = params.enabled;
@@ -547,6 +547,17 @@ export const newsletterManageSubscription = onRequest(
  // to before; the stored verb is what tells them apart afterwards.
  forensics: buildUnsubscribeForensics(req),
  });
+
+ // Creating a job alert is a genuine consent event (#5718): this route never
+ // passes through captureNewsletterSubscriber, so it was the only signup path
+ // with no server-side moment to attribute an IP to consent. Stamped only
+ // after a real create (status 200) — an invalid/expired token means no alert
+ // was actually created, so there is no consent to attribute here. Same
+ // non-overwrite/non-create/non-throw contract as stampConsentIp's other
+ // two callers above.
+ if (action === 'create_alert' && result.status === 200) {
+ await stampConsentIp(req, email);
+ }
 
  // exchange_auth_code always returns JSON (no HTML page)
  if (result.json) {
