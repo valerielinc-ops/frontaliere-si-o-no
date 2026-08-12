@@ -7012,6 +7012,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'grubel-ubb-intromettersi-in-ucraina',
+    category: 'fiscale',
+    date: '2026-08-12T19:45:53.112Z',
+    image: '/images/blog/grubel-ubb-intromettersi-in-ucraina.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

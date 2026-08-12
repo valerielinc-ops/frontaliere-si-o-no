@@ -30281,6 +30281,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grubel-ubb-intromettersi-in-ucraina': {
+    title: 'Grübel (ex CEO UBS e CS): | Frontaliere Ticino',
+    description: 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grübel, banchiere, critica, politica',
+    ogTitle: 'Grübel (ex CEO UBS e CS):',
+    ogDescription: 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina',
+    canonicalPath: '/articoli-svizzera/grubel-ubb-intromettersi-in-ucraina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grübel (ex CEO UBS e CS):",
+      "description": "Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all'Ucraina. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grubel-ubb-intromettersi-in-ucraina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Oswald Grübel, ex CEO di UBS e CS"
+      },
+      "datePublished": "2026-08-12T19:45:53+00:00",
+      "dateModified": "2026-08-12T19:45:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grubel-ubb-intromettersi-in-ucraina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
