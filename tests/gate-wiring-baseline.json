@@ -19,15 +19,5 @@
     "scripts/validate-structured-data.mjs",
     "scripts/verify-l3-report-equivalence.mjs"
   ],
-  "unsetTestSwitches": {
-    "RUN_DIST_GATES": [
-      "tests/dist-duplicate-meta-description.test.ts",
-      "tests/dist-duplicate-structured-data.test.ts",
-      "tests/dist-link-anchor-text.test.ts",
-      "tests/dist-single-h1-per-page.test.ts",
-      "tests/seo/faqpage-validity.test.ts",
-      "tests/seo/image-object-license-fields.test.ts",
-      "tests/seo/related-search-clusters-emitted.test.ts"
-    ]
-  }
+  "unsetTestSwitches": {}
 }

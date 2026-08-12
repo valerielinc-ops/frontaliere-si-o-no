@@ -73,6 +73,14 @@ export const QUALITY_GATES = Object.freeze({
   'audit:orphan-sitemap-pages': 'orphan pages; URLs resolve',
   // Completeness of job records (salary, postcode, …) in already-live pages.
   'validate:jobs-quality': 'job record completeness; pages serve correctly',
+  // Issue #5656 item 1: five vitest RUN_DIST_GATES files newly wired
+  // (duplicate meta descriptions, duplicate page-scoped JSON-LD, anchor-text
+  // budget, single-H1-per-page, related-search-cluster contract), running
+  // for the first time ever against production dist/. Same class as
+  // content-duplicates/h1-title-duplicates below — a page with one of these
+  // defects still renders and serves. Unreviewed-first-run, so it must not
+  // sequester the indexing notification of an already-live, valid deploy.
+  'dist:quality-tests': 'newly-wired dist content-quality gates; pages serve correctly',
 
   // ── `audit:all` sub-auditors (#4828) ───────────────────────────────────
   // `audit:all` is a bundle of 12 auditors reported under ONE gate name.
