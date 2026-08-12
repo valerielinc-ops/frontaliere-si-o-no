@@ -47,6 +47,7 @@ import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js'
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, shouldWrapAuthenticatedHref } from '../services/newsletterUrls.mjs';
+import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
@@ -1770,9 +1771,43 @@ function inlineQaCheck(sampleHtml, subject) {
   if (/\{\{[^}]+\}\}/.test(sampleHtml)) fail('no_template_vars', 'Unresolved {{template}} variables');
   else pass('no_template_vars');
 
-  // Unsubscribe URL with action param
-  if (!sampleHtml.includes('action=unsubscribe')) fail('unsubscribe_url', 'Missing ?action=unsubscribe URL');
-  else pass('unsubscribe_url');
+  // Unsubscribe / autologin link integrity.
+  //
+  // This used to be `sampleHtml.includes('action=unsubscribe')` — a substring
+  // test that asserts the TEXT is there and nothing else. It cannot see whether
+  // the URL resolves, whether the endpoint answers, or whether the click does
+  // anything, and the #5672/#5673 unsubscribe defect lived for months behind it
+  // (issue #5682). auditEmailLinksStatic runs the real checks on the same
+  // already-personalized body: an `?action=` link with no `ac` (the shape
+  // App.tsx rejects with "Link non valido"), an unsigned unsubscribe URL,
+  // half-wrapped autologin, a relative href, a body with no unsubscribe link of
+  // either shape. Static only — it must not add network latency in front of a
+  // send; the live half runs post-send in scripts/lib/email-cascade.mjs.
+  //
+  // Only the codes that mean "the recipient cannot unsubscribe" ABORT the send
+  // — this gate calls process.exit(1) and blocking the whole weekly campaign on
+  // a cosmetic link defect would be a worse outcome than sending it. Everything
+  // else the audit finds is logged here and reported again, in full, by the
+  // post-send audit in scripts/lib/email-cascade.mjs, which cannot block
+  // anything because the message has already gone out.
+  const BLOCKING_LINK_CODES = new Set([
+    'spa_action_without_ac',
+    'unsubscribe_missing',
+    'unsigned_link',
+    'authenticated_without_ac',
+    'html_missing',
+  ]);
+  const linkAudit = auditEmailLinksStatic(sampleHtml, { channel: 'newsletter-weekly' });
+  const linkErrors = linkAudit.findings.filter((f) => f.severity === 'error');
+  const blocking = linkErrors.filter((f) => BLOCKING_LINK_CODES.has(f.code));
+  for (const f of linkErrors.filter((f) => !BLOCKING_LINK_CODES.has(f.code))) {
+    console.warn(`⚠️ link audit ${f.code}: ${f.detail}${f.url ? ` — ${f.url}` : ''}`);
+  }
+  if (blocking.length) {
+    for (const f of blocking) fail(`links_${f.code}`, `${f.detail}${f.url ? ` — ${f.url}` : ''}`);
+  } else {
+    pass('unsubscribe_url');
+  }
 
   // ── HTML well-formedness checks (scoped to editorial section only) ──
 
@@ -2319,7 +2354,20 @@ async function main() {
       interest: inferInterest(subscriber),
       acquisitionSource: subscriber.source || subscriber.sourceComponent || subscriber.sourceChannel || null,
       recommendationCampaign: campaignId,
-      unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
+      // makeUnsubscribeUrl points at the site root and is handled by the SPA,
+      // which REJECTS it with "Link non valido" unless the URL carries the `ac`
+      // autologin code. That code is normally injected a few lines below by
+      // personalizeHtmlWithToken — but `codeMap` holds NULL for any subscriber
+      // with autologinEnabled === false, and makeAuthenticatedUrl with a null
+      // code adds `ne`/`utm_medium` and no `ac`. Those recipients were getting a
+      // footer unsubscribe link that cannot work: the exact #5672 shape, on the
+      // exact link the LPD art. 25/32 complaint was about. For them use the
+      // one-click endpoint instead — it goes straight to the Cloud Function and
+      // needs no autologin at all (functions/src/lib/newsletterUrls.js).
+      // Reported by the post-send audit as `spa_action_without_ac` (#5682).
+      unsubscribeUrl: codeMap.get(subscriber.email)
+        ? makeUnsubscribeUrl(subscriber.email)
+        : makeOneClickUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
       // fallbackUnsigned: true reproduces this script's pre-consolidation
       // behavior (an unsigned link instead of a dropped one when
