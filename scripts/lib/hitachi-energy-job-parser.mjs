@@ -16,6 +16,7 @@
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 
 const PAGE_SIZE = 20;
 
@@ -169,9 +170,9 @@ export function parseHitachiEnergyDetailPage(html = '') {
 
   // 3. Fallback: meta description
   if (!description) {
-    const metaMatch = html.match(/<meta\s+name="description"\s+content="([^"]+)"/i);
-    if (metaMatch) {
-      description = stripHtml(metaMatch[1]);
+    const metaRaw = extractMetaDescriptionRaw(html);
+    if (metaRaw !== null) {
+      description = stripHtml(metaRaw);
     }
   }
 

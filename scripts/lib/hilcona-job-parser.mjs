@@ -8,6 +8,7 @@
  * so we rely on the sitemap for discovery and individual job pages for details.
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 
 const SITEMAP_URL = 'https://career.bellfoodgroup.com/sitemap.job.xml';
 const CAREERS_BASE = 'https://career.bellfoodgroup.com';
@@ -118,8 +119,8 @@ export function parseHilconaDetailHtml(html) {
   const lead = leadMatch ? stripHtml(leadMatch[1]).trim() : '';
 
   // Meta description fallback
-  const metaDescMatch = html.match(/<meta\s+name="description"\s+content="([^"]*)">/i);
-  const metaDesc = metaDescMatch ? stripHtml(metaDescMatch[1]).trim() : '';
+  const metaRaw = extractMetaDescriptionRaw(html);
+  const metaDesc = metaRaw !== null ? stripHtml(metaRaw).trim() : '';
 
   // Company name: <p class="mb-0 font-bold text-job-theme">Company Name</p>
   const companyMatch = html.match(/<p[^>]*class="[^"]*font-bold text-job-theme[^"]*"[^>]*>([^<]+)<\/p>/i);
