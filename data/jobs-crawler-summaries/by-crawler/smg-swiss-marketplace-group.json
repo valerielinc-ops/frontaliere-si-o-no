@@ -1,18 +1,19 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-08-11T21:51:51.287Z",
+  "generatedAt": "2026-08-12T10:18:15.489Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4764,
-  "avgDurationMs": 4764,
+  "durationMs": 5421,
+  "avgDurationMs": 5421,
   "durationHistory": [
-    4764
+    5421
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "smg-swiss-marketplace-group-3091bb697c9e",
       "slug": "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg",
@@ -20,13 +21,13 @@
       "companyKey": "smg-swiss-marketplace-group",
       "companyDomain": "swissmarketplace.group",
       "title": "Key Account Manager Banken & Finanzinstitute (f/m/d) | 80-100% | Hybrid Working Model | Zürich",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142898924-key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:51:47.636Z",
+      "crawledAt": "2026-08-12T10:18:11.837Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142898924-key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-08-11T21:51:47.636Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "smg-swiss-marketplace-group-6bc7904567ed",
       "slug": "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
@@ -63,7 +63,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142145079-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T21:51:47.643Z",
+      "crawledAt": "2026-08-12T10:18:11.853Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000140696319-head-of-product-design-ux-research-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T21:51:47.646Z",
+      "crawledAt": "2026-08-12T10:18:11.847Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,7 +155,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
