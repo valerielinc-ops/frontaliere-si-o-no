@@ -1,6 +1,6 @@
 {
   "crawlerKey": "solothurner-spitaeler",
-  "assembledAt": "2026-08-11T22:06:06.770Z",
+  "assembledAt": "2026-08-12T09:41:25.029Z",
   "jobs": [
     {
       "id": "solothurner-spitaeler-1421aaf860b7",
@@ -13411,85 +13411,6 @@
         ],
         "fr": [
           "psychologin-psychologe-oder-assistenzarztin-assistenzarztarzt-rotationsstelle-tagesklinik"
-        ]
-      },
-      "firstSeenAt": "2026-07-17T10:56:46.087Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "solothurner-spitaeler-8e0e14e5c795",
-      "slug": "orari-di-consultazione-medica-mpa-w-m-d-solothurner-spitaler-soh-olten",
-      "slugByLocale": {
-        "it": "orari-di-consultazione-medica-mpa-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten",
-        "de": "mpa-medizinische-sprechstunden-w-m-d-soh-ch",
-        "fr": "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten"
-      },
-      "company": "Solothurner Spitäler (soH)",
-      "companyKey": "solothurner-spitaeler",
-      "companyDomain": "solothurnerspitaeler.ch",
-      "title": "MPA medizinische Sprechstunden (w/m/d)",
-      "titleByLocale": {
-        "it": "Orari di consultazione medica MPA (w/m/d)",
-        "en": "MPA medical consultation hours (w/m/d)",
-        "de": "MPA medizinische Sprechstunden (w/m/d)",
-        "fr": "Heures de consultation médicale de la ZPM (w/m/d)"
-      },
-      "description": "Aufgaben\n• Medizinaltechnische Aufgaben in der Angiologie und Gastroenterologie (Laborproben, Atemtest, Oszillogramm, Wundversorgung) Assistenz bei diagnostisch-therapeutischen Untersuchungen\n• Assistenz bei diagnostisch-therapeutischen Untersuchung\n• Administrative und logistische Aufgaben im Bereich der Sprechstundenplanung und Triage\n• Dokumentation im Kisim, Leistungserfassung (Tardoc) und Materialbewirtschaftung (SAP)\n• Aktives Beitragen für eine gute Zusammenarbeit im interdisziplinären Bereich\n\nProfil\n• Abgeschlossene Ausbildung als MPA, mindestens zwei Jahre Berufserfahrung\n• Guter Umgang mit Digitalen Tools und Software-Anwendungen\n• Organisatorisches Talent, Flexibilität, Motivation\n• Teamfähige, offene und verantwortungsbewusste Persönlichkeit\n\n• Bereich: Medizinisch-technische Berufe\n• Standort: Kantonsspital Olten\n• Abteilung: Medizinische Sprechstunde\n• Pensum: 80%",
-      "descriptionByLocale": {
-        "it": "Compiti\n• Attività di ingegneria medica in angiologia e gastroenterologia (campioni di laboratorio, test del respiro, oscillogramma, cura delle ferite) Assistenza negli esami diagnostici terapeutici\n• Assistenza nell'esame diagnostico-terapeutico\n• Attività amministrative e logistiche nel settore della pianificazione e triage delle ore di ufficio\n• Documentazione Kisim, misura delle prestazioni (Tardoc) e gestione dei materiali (SAP)\n• Contributo attivo alla buona cooperazione nel campo interdisciplinare\n\nProfilo\n• Formazione completa come MPA, almeno due anni di esperienza professionale\n• Buon uso di strumenti digitali e applicazioni software\n• talento organizzativo, flessibilità, motivazione\n• Personalità capace, aperta e responsabile\n\n• Campo: professioni mediche e tecniche\n• Posizione: Ospedale cantonale Olten\n• Dipartimento: Consultazione medica\n• Penso: 80 %",
-        "en": "Tasks\n• Medical engineering tasks in angiology and gastroenterology (laboratory samples, breath test, oscillogram, wound care) Assistance in diagnostic-therapeutic examinations\n• Assistance in diagnostic-therapeutic examination\n• Administrative and logistical tasks in the area of office hours planning and triage\n• Kisim documentation, performance measurement (Tardoc) and materials management (SAP)\n• Active contribution to good cooperation in the interdisciplinary field\n\nProfile\n• Completed training as an MPA, at least two years of professional experience\n• Good use of digital tools and software applications\n• Organizational talent, flexibility, motivation\n• Team capable, open and responsible personality\n\n• Field: Medical and technical professions\n• Location: Cantonal Hospital Olten\n• Department: Medical consultation\n• Pensum: 80 %",
-        "de": "Aufgaben\n• Medizinaltechnische Aufgaben in der Angiologie und Gastroenterologie (Laborproben, Atemtest, Oszillogramm, Wundversorgung) Assistenz bei diagnostisch-therapeutischen Untersuchungen\n• Assistenz bei diagnostisch-therapeutischen Untersuchung\n• Administrative und logistische Aufgaben im Bereich der Sprechstundenplanung und Triage\n• Dokumentation im Kisim, Leistungserfassung (Tardoc) und Materialbewirtschaftung (SAP)\n• Aktives Beitragen für eine gute Zusammenarbeit im interdisziplinären Bereich\n\nProfil\n• Abgeschlossene Ausbildung als MPA, mindestens zwei Jahre Berufserfahrung\n• Guter Umgang mit Digitalen Tools und Software-Anwendungen\n• Organisatorisches Talent, Flexibilität, Motivation\n• Teamfähige, offene und verantwortungsbewusste Persönlichkeit\n\n• Bereich: Medizinisch-technische Berufe\n• Standort: Kantonsspital Olten\n• Abteilung: Medizinische Sprechstunde\n• Pensum: 80%",
-        "fr": "Tâche\n• Tâches d'ingénierie médicale en angiologie et gastroentérologie (échantillons de laboratoire, test respiratoire, oscillogramme, soins des plaies) Assistance aux examens diagnostiques et thérapeutiques\n• Assistance à l'examen diagnostique et thérapeutique\n• Activités administratives et logistiques dans le domaine de la planification et du tri des heures de bureau\n• Documentation Kisim, mesure du rendement (Tardoc) et gestion des matériaux (SAP)\n• Contribution active à une bonne coopération dans le domaine interdisciplinaire\n\nProfil\n• Formation terminée en tant que ZPM, au moins deux ans d'expérience professionnelle\n• Bonne utilisation des outils numériques et des applications logicielles\n• Compétences organisationnelles, flexibilité, motivation\n• Personnalité capable, ouverte et responsable\n\n• Domaine: professions médicales et techniques\n• Lieu: Hôpital cantonal Olten\n• Département : Consultation médicale\n• Pensum: 80 %"
-      },
-      "needsRetranslation": false,
-      "location": "Olten",
-      "canton": "SO",
-      "url": "https://jobs.so-h.ch/offene-stellen/mpa-medizinische-sprechstunden-w-m-d/f495a8fd-0555-4bf2-92a6-56e00aca65df",
-      "source": "soH Dedicated Parser (HTML scrape @ solothurnerspitaeler.ch/jobangebote)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:06:03.232Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "postalCode": "4600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "applyUrl": "https://jobs.so-h.ch/offene-stellen/mpa-medizinische-sprechstunden-w-m-d/f495a8fd-0555-4bf2-92a6-56e00aca65df",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Medizinische Sprechstunde",
-      "workplace": "Kantonsspital Olten",
-      "previousSlugs": [
-        "mpa-medizinische-sprechstunden-w-m-d-soh-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mpa-medizinische-sprechstunden-w-m-d-soh-ch"
-        ],
-        "en": [
-          "mpa-medizinische-sprechstunden-w-m-d-soh-ch"
-        ],
-        "fr": [
-          "mpa-medizinische-sprechstunden-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-07-17T10:56:46.087Z",
