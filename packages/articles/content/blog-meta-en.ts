@@ -9762,6 +9762,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vigilanza-sulle-banche-in-svizzera.title': 'Banking supervision in Switzerland: a brief history of scandals',
     'blog.article.vigilanza-sulle-banche-in-svizzera.excerpt': 'The history of Swiss banking supervision is marked by scandals and pressures from abroad. However, the influence of the financial lobby often ends up weakening controls.',
     'blog.article.vigilanza-sulle-banche-in-svizzera.imageAlt': 'A frontaliere observes the city of Lugano with a serene expression.',
+    'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.title': 'Totalisation of AVS and INPS contributions for Ticino border crossers',
+    'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.excerpt': 'The aggregation of AVS and INPS contributions for Ticino border workers is a complex process that requires the submission of an application to the competent offices',
+    'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.imageAlt': 'Frontalieri ticinesi che lavorano in Italia e risiedono in Svizzera',
 };
 
 export default blogMetaEn;

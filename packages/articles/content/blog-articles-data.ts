@@ -29280,6 +29280,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'totalizzazione-contributi-avs-inps-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-08-12T02:47:34.595Z',
+ image: '/images/blog/totalizzazione-contributi-avs-inps-frontalieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
