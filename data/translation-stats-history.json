@@ -11478,5 +11478,129 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-12T14:36:25.607Z",
+    "label": "before",
+    "total": 26823,
+    "needsRetranslation": 10363,
+    "suppressed": 47,
+    "incomplete": 117,
+    "complete": 26706,
+    "slotsPresent": 26706,
+    "flaggedAmongSlotsPresent": 10291,
+    "verifiedTranslated": 16415,
+    "sourceCopyExcused": 1879,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 56,
+      "en": 35,
+      "de": 49,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 31
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Manor AG",
+        "pending": 7
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Skyguide",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-12T16:08:57.615Z",
+    "label": "after",
+    "total": 26823,
+    "needsRetranslation": 9993,
+    "suppressed": 49,
+    "incomplete": 116,
+    "complete": 26707,
+    "slotsPresent": 26707,
+    "flaggedAmongSlotsPresent": 9922,
+    "verifiedTranslated": 16785,
+    "sourceCopyExcused": 1878,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 55,
+      "en": 35,
+      "de": 49,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 31
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Manor AG",
+        "pending": 7
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 4
+      },
+      {
+        "company": "Skyguide",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      }
+    ]
   }
 ]
