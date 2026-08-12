@@ -29298,6 +29298,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incubo-lariana-traffico-e-code',
+ category: 'novita',
+ date: '2026-08-12T03:56:25.875Z',
+ image: '/images/blog/incubo-lariana-traffico-e-code.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
