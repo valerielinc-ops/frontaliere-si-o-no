@@ -2338,6 +2338,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.federer-patrimonio-on-borsa-calo.title': 'Roger Federer perde lo status di miliardario per il crollo di On',
     'blog.article.federer-patrimonio-on-borsa-calo.excerpt': 'Il patrimonio dell\'ex campione scende a 949 milioni di dollari dopo il calo del 19% del titolo On a Wall Street.',
     'blog.article.federer-patrimonio-on-borsa-calo.imageAlt': 'Vista del distretto finanziario svizzero che richiama il mercato azionario e le grandi aziende come On.',
+    'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel (ex CEO UBS e CS):',
+    'blog.article.grubel-ubb-intromettersi-in-ucraina.excerpt': 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina',
+    'blog.article.grubel-ubb-intromettersi-in-ucraina.imageAlt': 'Oswald Grübel, ex CEO di UBS e CS',
 };
 
 export default blogMetaChIt;
