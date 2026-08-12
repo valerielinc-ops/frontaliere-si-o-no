@@ -9823,6 +9823,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-itinere-confine-assicurazione.title': 'Reiseunfall und Grenzgängerversicherung',
     'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Vollständiger Leitfaden zur UVG-Versicherung bei einem Unfall auf dem grenzüberschreitenden Weg zwischen Italien und dem Kanton Tessin.',
     'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Unfallversicherung auf dem Arbeitsweg für Grenzgänger',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.title': 'Verkehrsunfall an der Grenze: UVG-Deckung und Meldeverfahren',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.excerpt': 'Grenzgänger, die auf dem Weg an die schweizerisch-italienische Grenze verunfallt sind, müssen innerhalb von 24 Stunden Anzeige erstatten und ein Krankheitszeugnis erhalten.',
+    'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.imageAlt': 'Ein Grenzgänger in Fahrrad entlang der Grenzstraße zwischen Schweiz und Italien, mit einer Verletzung am Brustkorb',
 };
 
 export default blogMetaDe;
