@@ -37,7 +37,7 @@ import {
   computeNextStep,
   DRIP_STEP_COUNT,
 } from '../services/newsletter/onboardingDrip.mjs';
-import { makeUnsubscribeUrl, makeOneClickUnsubscribeUrl } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { buildLifecycleEmailHeaders } from '../functions/src/lib/lifecycleEmailHeaders.js';
 import {
   perUserSendTimeEnabled,
@@ -164,6 +164,9 @@ async function buildQueue(globalHour, now) {
       interest,
       acquisitionSource,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
+      // #5684 — the drip footer carries the preference centre alongside the
+      // one-way unsubscribe, same as the weekly newsletter and the job alerts.
+      preferencesUrl: makePreferencesUrl(subscriber.email, locale, { fallbackUnsigned: true }),
     });
 
     // Per-user scheduled send (#3798): reuse the shared resolver, never a
@@ -243,6 +246,7 @@ async function runTest() {
     interest: opt('interest', null),
     acquisitionSource: opt('acquisition-source', null),
     unsubscribeUrl: makeUnsubscribeUrl(TARGET_EMAIL),
+    preferencesUrl: makePreferencesUrl(TARGET_EMAIL, opt('locale', 'it'), { fallbackUnsigned: true }),
   });
   console.log(`🧪 Test drip: step ${TEST_STEP} (${cardId}) → ${TARGET_EMAIL}`);
   const { sent, failed } = await sendEmailCascade([{

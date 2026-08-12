@@ -199,6 +199,18 @@ export function shouldSkipSubscriber(email, data, personalization = null) {
  * re-run/re-trigger never undoes a user's explicit unsubscribe (`deleteAlert`
  * sets `active: false`) — only a brand-new doc defaults to `active: true`.
  *
+ * `frequency` is carried forward for the same reason, and it was NOT (#5684).
+ * The caller merges this payload onto the existing alert doc, so a hardcoded
+ * `'daily'` silently overwrote whatever cadence the reader had chosen in the
+ * preference centre — and because the centre also sets `frequencyOverride:
+ * true` (which this payload does not carry and merge therefore preserves),
+ * scripts/lib/jobAlertEngagementTier.mjs then read the pair as "the user
+ * pinned daily on purpose" and stopped adapting. A re-trigger needs no new
+ * subscription: getCheapSignalTier derives its tier from `consent_source_url`,
+ * which a plain login rewrites to the current page URL. Net effect measured
+ * from the source: set "weekly" in the centre, log in from a job-board page,
+ * receive daily. Only a brand-new doc defaults to 'daily'.
+ *
  * Pass `personalization` to also consider the tier-3 fallback (see
  * `resolveSignalTier`); omit it for flat-field-only tiers 1/2.
  */
@@ -217,7 +229,9 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     contractTypes: [],
     sectors: [],
     cantonFilter: null,
-    frequency: 'daily',
+    frequency: typeof existingBackfill?.frequency === 'string' && existingBackfill.frequency
+      ? existingBackfill.frequency
+      : 'daily',
     locale: data?.preferred_locale || data?.locale || 'it',
     sourceJobSlug: data?.job_slug || null,
     sourceJobUrl: null,

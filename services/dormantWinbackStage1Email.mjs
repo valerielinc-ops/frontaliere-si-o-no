@@ -15,7 +15,7 @@
  * Pure + dependency-light so it is unit testable. Table-based inline-styled
  * HTML for email-client compatibility.
  */
-import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl } from './newsletterUrls.mjs';
+import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs /
@@ -41,6 +41,7 @@ const COPY = {
     body: 'Non apri la newsletter da un po’, ma qualcosa di utile te lo sei perso comunque. Ecco le letture più cliccate delle ultime settimane:',
     footNote: 'Continuerai a riceverla come sempre — nessuna azione richiesta.',
     unsub: 'Non mi interessa più, disiscrivimi',
+    prefs: 'Gestisci le preferenze',
     wordmarkSub: 'Ticino',
   },
   en: {
@@ -51,6 +52,7 @@ const COPY = {
     body: 'You haven’t opened the newsletter in a while, but you still missed some useful stuff. Here are the most-clicked reads from the last few weeks:',
     footNote: 'You’ll keep getting it as usual — no action needed.',
     unsub: "Not interested anymore, unsubscribe me",
+    prefs: 'Manage your preferences',
     wordmarkSub: 'Ticino',
   },
   de: {
@@ -61,6 +63,7 @@ const COPY = {
     body: 'Du hast den Newsletter eine Weile nicht geöffnet, aber etwas Nützliches hast du trotzdem verpasst. Hier die meistgeklickten Artikel der letzten Wochen:',
     footNote: 'Du erhältst ihn weiterhin wie gewohnt — keine Aktion nötig.',
     unsub: 'Kein Interesse mehr, abmelden',
+    prefs: 'Einstellungen verwalten',
     wordmarkSub: 'Ticino',
   },
   fr: {
@@ -71,6 +74,7 @@ const COPY = {
     body: 'Tu n’as pas ouvert la newsletter depuis un moment, mais tu as quand même manqué des choses utiles. Voici les lectures les plus cliquées de ces dernières semaines :',
     footNote: 'Tu continueras à la recevoir comme d’habitude — aucune action requise.',
     unsub: 'Plus intéressé, désabonne-moi',
+    prefs: 'Gérer mes préférences',
     wordmarkSub: 'Ticino',
   },
 };
@@ -101,6 +105,9 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
   // Header List-Unsubscribe uses the dedicated one-click endpoint (RFC 8058) —
   // proxied straight to the Cloud Function, bypassing the SPA's `ac` requirement.
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(email);
+  // #5684 — every recurring email must carry the preference centre, not just a
+  // one-way exit. See the twin comment in services/winbackEmail.mjs.
+  const preferencesUrl = makePreferencesUrl(email, l, { fallbackUnsigned: true });
 
   const items = (articles || []).filter((a) => a?.title && a?.url).slice(0, 3);
 
@@ -141,6 +148,7 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
       <!-- footer -->
       <tr><td style="border-top:1px solid #eef2f7;padding:18px 32px 24px;text-align:center;">
         <a href="${footerUnsubUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
+        <div style="margin-top:6px;"><a href="${preferencesUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${BRAND_ORANGE};text-decoration:underline;">${s.prefs}</a></div>
       </td></tr>
     </table>
     <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
@@ -150,7 +158,7 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
 </body>
 </html>`;
 
-  const text = `${s.heading}\n\n${s.body}\n\n${cardsText}\n\n${s.footNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
+  const text = `${s.heading}\n\n${s.body}\n\n${cardsText}\n\n${s.footNote}\n\n${s.unsub}: ${footerUnsubUrl}\n${s.prefs}: ${preferencesUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

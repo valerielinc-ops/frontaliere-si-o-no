@@ -438,6 +438,20 @@ async function main() {
     })
     .filter(isImmediateCompanyAlert);
 
+  // #5684 — `paused` is the preference centre's pause button, orthogonal to
+  // `active` (the soft-delete flag) per the #4298 follow-up. send-job-alerts.mjs
+  // has filtered on it since then; this sender never did, so a reader who
+  // paused a followed employer in the centre kept receiving that employer's
+  // immediate alerts. The centre renders CompanyAlert rows (`companyLabel`,
+  // `frequencyImmediate`) with the same pause control as any other alert, so
+  // the control was visibly there and inert — the shape of defect that ends at
+  // the provider's abuse desk rather than in a bug report.
+  const beforePauseFilter = alerts.length;
+  alerts = alerts.filter((a) => a.paused !== true);
+  if (beforePauseFilter !== alerts.length) {
+    console.log(`   ⏸️  Paused CompanyAlerts skipped: ${beforePauseFilter - alerts.length}`);
+  }
+
   if (ALLOWED_EMAILS) {
     alerts = alerts.filter((a) => ALLOWED_EMAILS.has(String(a.email || '').toLowerCase()));
     console.log(`   ⚠️  TARGET_EMAIL active — ${alerts.length} alert(s) in scope`);

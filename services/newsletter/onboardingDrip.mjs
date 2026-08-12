@@ -214,11 +214,17 @@ export function computeNextStep({ startedAtMs, lastStep = -1, nowMs }) {
 }
 
 /**
+ * Footer label for the preference-centre link, one entry per site locale —
+ * same four this module already branches on for the unsubscribe label (#5684).
+ */
+const PREFS_LABEL = { it: 'Gestisci le preferenze', en: 'Manage your preferences', de: 'Einstellungen verwalten', fr: 'Gérer mes préférences' };
+
+/**
  * Build the drip email for a given step.
- * @param {{ step: number, locale?: string, interest?: string|null, acquisitionSource?: string|null, unsubscribeUrl?: string, oneClickUnsubscribeUrl?: string }} args
+ * @param {{ step: number, locale?: string, interest?: string|null, acquisitionSource?: string|null, unsubscribeUrl?: string, oneClickUnsubscribeUrl?: string, preferencesUrl?: string }} args
  * @returns {{ subject: string, html: string, cardId: string }}
  */
-export function buildDripEmail({ step, locale, interest, acquisitionSource, unsubscribeUrl }) {
+export function buildDripEmail({ step, locale, interest, acquisitionSource, unsubscribeUrl, preferencesUrl }) {
   const loc = normLocale(locale);
   const cards = resolveDripCards(interest);
   const cardId = cards[step];
@@ -235,6 +241,11 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
   });
 
   const unsub = unsubscribeUrl || `${BASE_URL}/?action=unsubscribe`;
+  // #5684 — the drip is a recurring sequence (day 0/3/7/14), so it owes the
+  // reader the preference centre and not only the one-way unsubscribe. This
+  // module stays pure (it never sees the address), so the caller passes the
+  // signed URL exactly the way it already passes `unsubscribeUrl`.
+  const prefs = preferencesUrl || null;
   const stepLabel = `${step + 1}/${DRIP_STEP_COUNT}`;
 
   const html = `<!DOCTYPE html>
@@ -273,6 +284,7 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
         <tr><td class="section-pad" style="background:${BRAND_DARK};padding:24px 28px;text-align:center;">
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsub)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${loc === 'it' ? 'Disiscriviti' : loc === 'de' ? 'Abmelden' : loc === 'fr' ? 'Se désinscrire' : 'Unsubscribe'}</a></div>
+          ${prefs ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(prefs)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${PREFS_LABEL[loc] || PREFS_LABEL.it}</a></div>` : ''}
           <div style="font-size:11px;color:#475569;margin-top:8px;">${escapeHtml(dataControllerFooterLine(loc))}</div>
         </td></tr>
       </table>
