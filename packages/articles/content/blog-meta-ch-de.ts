@@ -2332,6 +2332,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cf-urgenza-siccita.title': 'Vgl.: Dürre, keine Dringlichkeit für zusätzliche Massnahmen vorerst',
     'blog.article.cf-urgenza-siccita.excerpt': 'Der Bundesrat hat noch keine neuen Massnahmen zur Bewältigung der Dürre beschlossen',
     'blog.article.cf-urgenza-siccita.imageAlt': 'Wasserstand in der Schweiz',
+    'blog.article.aeroporto-zurigo-luglio-2026.title': 'Flughafen Zürich: Juli positiv; bei Passagieren, Flügen und Umsatz',
+    'blog.article.aeroporto-zurigo-luglio-2026.excerpt': 'Der Flughafen Zürich verzeichnete im Juli einen Passagierzuwachs von 2,4% auf insgesamt 3,3 Millionen Passagiere.',
+    'blog.article.aeroporto-zurigo-luglio-2026.imageAlt': 'Der Flughafen Zürich im Sommer',
 };
 
 export default blogMetaChDe;

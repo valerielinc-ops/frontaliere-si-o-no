@@ -6994,6 +6994,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aeroporto-zurigo-luglio-2026',
+    category: 'fiscale',
+    date: '2026-08-12T18:53:35.145Z',
+    image: '/images/blog/aeroporto-zurigo-luglio-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
