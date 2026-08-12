@@ -29289,6 +29289,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'incidente-a2-dibattito-traffico-ticino',
+ category: 'pratico',
+ date: '2026-08-12T03:45:26.940Z',
+ image: '/images/blog/incidente-a2-dibattito-traffico-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

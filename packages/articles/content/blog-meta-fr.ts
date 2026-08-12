@@ -9767,6 +9767,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.title': 'Totalisation des cotisations AVS et INPS pour les frontaliers tessinois',
     'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.excerpt': 'La totalisation des cotisations AVS et INPS pour les frontaliers tessinois est un processus complexe qui nécessite le dépôt d\'une demande auprès des bureaux compétents',
     'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.imageAlt': 'Frontalieri ticinesi che lavorano in Italia e risiedono in Svizzera',
+    'blog.article.incidente-a2-dibattito-traffico-ticino.title': 'Accident sur l\'A2 : débat ouvert sur la gestion du trafic au Tessin',
+    'blog.article.incidente-a2-dibattito-traffico-ticino.excerpt': 'Le président central de l\'ACS, Simone Gianini, demande une communication plus efficace lors des urgences routières.',
+    'blog.article.incidente-a2-dibattito-traffico-ticino.imageAlt': 'Trafic sur l\'autoroute A2 au Tessin suite à un accident',
 };
 
 export default blogMetaFr;

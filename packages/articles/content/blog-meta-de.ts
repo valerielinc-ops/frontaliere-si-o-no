@@ -9764,6 +9764,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.title': 'AHV- und NISF-Beiträge für Tessiner Grenzgänger summieren',
     'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.excerpt': 'Die Zusammenrechnung der AHV- und INPS-Beiträge für Tessiner Grenzgänger ist ein komplexer Prozess, der die Einreichung eines Gesuchs bei den zuständigen Stellen erfordert',
     'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.imageAlt': 'Frontalieri ticinesi che lavorano in Italia e risiedono in Svizzera',
+    'blog.article.incidente-a2-dibattito-traffico-ticino.title': 'Unfall auf der A2: Offene Debatte über das Verkehrsmanagement im Tessin',
+    'blog.article.incidente-a2-dibattito-traffico-ticino.excerpt': 'Der Zentralpräsident der ACS, Simone Gianini, fordert eine effektivere Kommunikation bei Straßennotfällen.',
+    'blog.article.incidente-a2-dibattito-traffico-ticino.imageAlt': 'Verkehr auf der Autobahn A2 im Tessin nach einem Unfall',
 };
 
 export default blogMetaDe;
