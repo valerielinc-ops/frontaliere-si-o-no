@@ -2311,6 +2311,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Berna stringe sui bonus',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'Der Bundesrat will die Führung der Banken stärker in die Verantwortung nehmen und Risiken durch hohe Boni vermeiden.',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Bank unter der Lupe: Bern strengt die Bonus und stärkt die Anti-Krisenregeln.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'Teureres Obst und Gemüse zu produzieren, aber die Preise steigen nicht',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Schweizer Gemüsegärtner haben aufgrund der Trockenheit mit zusätzlichen Mehrkosten von 25% zu kämpfen, aber die Preise steigen nicht.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'Ein Schweizer Bauern kämpft mit der Trockenheit.',
 };
 
 export default blogMetaChDe;

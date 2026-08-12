@@ -796,6 +796,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'effetto-domino-fallite-aziende-svizzera': { it: 'effetto-domino-fallite-aziende-svizzera', en: 'domino-effect-failed-companies-switzerland', de: 'domino-effekt-gefallene-unternehmen-schweiz', fr: 'effet-domino-filiale-dentreprise-suisse' },
  'aumento-iva-per-la-difesa': { it: 'aumento-iva-per-la-difesa', en: 'iva-increase-for-defense', de: 'iva-steigerung-fuer-verteidigung', fr: 'augmentation-de-la-iva-pour-la-defense' },
  'banche-sotto-la-lente-bern-stringe-sui-bonus': { it: 'banche-sotto-la-lente-bern-stringe-sui-bonus', en: 'banks-under-the-microscope-berna-reduces-bonuses-and-strenghtens-anti-crisis-rul', de: 'bank-unter-der-lupe-bern-stringt-die-bonus-und-staerkt-die-anti-krisenregeln', fr: 'banque-sous-la-loupe-berne-reduit-les-bonuses-et-renforce-les-regles-anti-crise' },
+ 'frutta-ve-25-per-cento-piu-costi-3-sconto-migros': { it: 'frutta-ve-25-per-cento-piu-costi-3-sconto-migros', en: 'fruit-ve-25-percent-more-costs-3-discount-migros', de: 'frucht-ve-25-prozent-mehr-kosten-3-rabatt-migros', fr: 'fruits-ve-25-pour-cent-plus-de-couts-3-rabais-migros' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
