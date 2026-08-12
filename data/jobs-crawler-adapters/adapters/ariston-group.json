@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-12T10:31:45.771Z",
+  "updatedAt": "2026-08-12T21:53:37.320Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Langenfeld-KEY-ACCOUNT-MANAGEMENT-VENTILATION-%28MWD%29-IM-GEBIET-BADEN-W%C3%9CRTTEMBERG-Lang-40764/1224230001/": {
       "location": "Langenfeld (Rheinland), DE, 40764",
@@ -99,18 +99,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-08"
     },
-    "https://careers.aristongroup.com/job/Bern-TEAMLEITER-SERVICE-%C3%96L-%28MW%29-Bern-3004/1403670933/": {
-      "location": "Bern, CH, 3004",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-09"
-    },
-    "https://careers.aristongroup.com/job/Rothenburg-SERVICE-TEAM-LEADER-OIL-Roth-6023/1365043033/": {
-      "location": "Rothenburg, CH, 6023",
-      "canton": "LU",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-11"
-    },
     "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
       "location": "Thun, CH, 3600",
       "canton": "BE",
@@ -141,11 +129,23 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-12"
     },
+    "https://careers.aristongroup.com/job/Rothenburg-SERVICE-TEAM-LEADER-OIL-Roth-6023/1365043033/": {
+      "location": "Rothenburg, CH, 6023",
+      "canton": "LU",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-11"
+    },
     "https://careers.aristongroup.com/job/Biel-TEAMLEITER-SERVICE-W%C3%84RMEPUMPEN-%28MW%29-Biel-2502/1397414333/": {
       "location": "Biel, CH, 2502",
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-07-23"
+    },
+    "https://careers.aristongroup.com/job/Bern-TEAMLEITER-SERVICE-%C3%96L-%28MW%29-Bern-3004/1403670933/": {
+      "location": "Bern, CH, 3004",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-09"
     }
   }
 }
