@@ -3763,7 +3763,7 @@
       "title": "Business Analyst Senior PLEXUS1",
       "titleByLocale": {
         "it": "Business Analista Senior PLEXUS1",
-        "en": "Business Analyst Senior PLEXUS1",
+        "en": "Senior Business Analyst PLEXUS1",
         "de": "Senior Business Analyst PLEXUS1",
         "fr": "Business Analyste Senior PLEXUS1"
       },
@@ -3798,7 +3798,6 @@
       "contractType": "Informatique",
       "externalId": "1165220455",
       "firstSeenAt": "2026-08-04T11:34:33.067Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3811,7 +3810,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-48d3349f3c92",

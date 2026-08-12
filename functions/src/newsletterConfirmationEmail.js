@@ -17,6 +17,7 @@ import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { dataControllerFooterLine } from './lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
@@ -101,6 +102,7 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') 
  ${t(lang, 'copyright', { year })} ·
  <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${MUTED_COLOR};text-decoration:none;">frontaliereticino.ch</a>
  </div>
+ <div style="font-size:11px;color:${MUTED_COLOR};margin-top:6px;">${escapeHtml(dataControllerFooterLine(lang))}</div>
  </td></tr>
  </table>
  </td></tr>

@@ -30,6 +30,7 @@ import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, isProviderConfigured } from './emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { dataControllerFooterLine } from './lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <report@frontaliereticino.ch>';
@@ -78,6 +79,7 @@ function buildBodyHtml(locale, summary) {
           Ricevi questa email perch\u00e9 hai richiesto il report PDF su ${escapeHtml(BASE_URL)}.
           Se non sei stato tu, ignora pure questo messaggio.
         </p>
+        <p style="font-size:11px;color:#94a3b8;margin-top:12px;">${escapeHtml(dataControllerFooterLine(lang))}</p>
       </td></tr>
     </table>
   </td></tr></table>
@@ -108,6 +110,7 @@ function buildLamalSsnBodyHtml(locale, summary) {
           Ricevi questa email perch\u00e9 hai richiesto il report PDF su ${escapeHtml(BASE_URL)}.
           Se non sei stato tu, ignora pure questo messaggio.
         </p>
+        <p style="font-size:11px;color:#94a3b8;margin-top:12px;">${escapeHtml(dataControllerFooterLine(lang))}</p>
       </td></tr>
     </table>
   </td></tr></table>

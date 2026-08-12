@@ -19,6 +19,7 @@ import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
+import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/lib/dataControllerIdentity.js';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -4593,6 +4594,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Dati raccolti e finalità del trattamento</h2>`,
  `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
  `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
+ `<h2 class="s-o3IET6">Titolare del trattamento e diritti dell'utente</h2>`,
+ `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${DATA_CONTROLLER_EMAIL}">${DATA_CONTROLLER_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/privacy-policy/">informativa privacy completa</a>.</p>`,
  );
  } else if (canonicalPath === '/about' || canonicalPath === '/about/') {
  editorialBlocks.push(
@@ -4635,7 +4638,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Cookies and Tracking Technologies</h2>`,
  `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
  `<h2 class="s-o3IET6">Your Rights Under GDPR and FADP</h2>`,
- `<p>Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at info@frontaliereticino.ch. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
+ `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${DATA_CONTROLLER_EMAIL}">${DATA_CONTROLLER_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
  `<h2 class="s-o3IET6">Third-Party Services</h2>`,
  `The platform integrates with the following third-party services: Firebase (Google) for hosting, analytics, and configuration; TwelveData for live CHF-EUR exchange rates; Google Maps API for border crossing traffic estimates; and reCAPTCHA v3 for form protection. Each service has its own privacy policy, and we limit the information shared to the minimum necessary for service operation. No personal financial information entered in our calculators is ever sent to any third party.`,
  `<p class="s-tTvoK-">References: <a href="https://gdpr.eu/" rel="noopener">GDPR</a> · <a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en" rel="noopener">Swiss FADP</a></p>`,

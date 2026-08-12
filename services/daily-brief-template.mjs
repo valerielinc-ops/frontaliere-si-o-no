@@ -34,6 +34,9 @@
  */
 
 import { nlNormLocale, localizedUrl } from '../functions/src/lib/newsletterUrlPaths.js';
+// Data-controller identity for the footer (#5675) — see that file's header
+// for why the canonical home is functions/src/lib/, not services/.
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -422,6 +425,7 @@ ${sections.map((section) => blockSection({ ...section, ctaLabel: section.ctaLabe
           <a href="${esc(data.unsubscribeUrl)}" style="color:${MUTED};text-decoration:underline">${esc(s.unsubscribe)}</a>
         </div>
         <div style="margin:10px 0 0;font:400 11px/1.5 Arial,Helvetica,sans-serif;color:#94a3b8">${esc(s.footer)}</div>
+        <div style="margin:4px 0 0;font:400 11px/1.5 Arial,Helvetica,sans-serif;color:#94a3b8">${esc(dataControllerFooterLine(locale))}</div>
       </td></tr>
 
     </table>
@@ -444,6 +448,8 @@ ${sections.map((section) => blockSection({ ...section, ctaLabel: section.ctaLabe
     cadence,
     `${s.preferences}: ${data.preferencesUrl}`,
     `${s.unsubscribe}: ${data.unsubscribeUrl}`,
+    '',
+    dataControllerFooterLine(locale),
   ].join('\n');
 
   return { html, text, preheader };

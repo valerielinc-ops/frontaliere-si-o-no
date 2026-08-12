@@ -16,6 +16,7 @@
  * HTML for email-client compatibility.
  */
 import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl } from './newsletterUrls.mjs';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs /
 // newsletterUrls.mjs. `article.url` (from scripts/lib/articleContent.mjs's
@@ -143,12 +144,13 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
       </td></tr>
     </table>
     <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
+    <div style="max-width:520px;margin:4px auto 0;font-size:11px;color:#94a3b8;text-align:center;">${escapeHtml(dataControllerFooterLine(l))}</div>
   </td></tr>
 </table>
 </body>
 </html>`;
 
-  const text = `${s.heading}\n\n${s.body}\n\n${cardsText}\n\n${s.footNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n`;
+  const text = `${s.heading}\n\n${s.body}\n\n${cardsText}\n\n${s.footNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

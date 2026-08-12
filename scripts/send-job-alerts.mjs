@@ -45,6 +45,7 @@ import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
@@ -1006,6 +1007,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
             <a target="_blank" rel="noopener noreferrer" href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
           </div>
           <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
+          <div style="font-size:11px;color:#475569;margin-top:6px;">${escHtml(dataControllerFooterLine(locale))}</div>
         </td></tr>
 
       </table>
@@ -1042,6 +1044,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     `${s.textUnsubAllLine} ${unsubAllUrl}`,
     '',
     `\u00a9 ${new Date().getFullYear()} Frontaliere Ticino`,
+    dataControllerFooterLine(locale),
   ].join('\n');
 
   return { subject, html, text, unsubscribeUrl };

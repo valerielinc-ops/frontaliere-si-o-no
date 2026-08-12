@@ -12,6 +12,7 @@
  * testable. Table-based inline-styled HTML for email-client compatibility.
  */
 import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl } from './newsletterUrls.mjs';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 // Brand tokens — kept in sync with services/newsletter-template.mjs.
 const BRAND_ORANGE = '#f97316'; // accent / wordmark
@@ -121,13 +122,14 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
       </td></tr>
     </table>
     <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
+    <div style="max-width:520px;margin:4px auto 0;font-size:11px;color:#94a3b8;text-align:center;">${dataControllerFooterLine(l)}</div>
   </td></tr>
 </table>
 </body>
 </html>`;
 
   // Plain-text part mirrors the message (emoji stripped from the CTA label).
-  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n`;
+  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

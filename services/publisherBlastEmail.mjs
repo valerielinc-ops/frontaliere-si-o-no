@@ -15,6 +15,7 @@
  */
 
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
@@ -215,6 +216,7 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
           <div style="font-size:12px;color:${MUTED};">
             <a target="_blank" rel="noopener noreferrer" href="${esc(unsubscribeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${esc(s.unsub)}</a>
           </div>
+          <div style="font-size:11px;color:#94a3b8;margin-top:10px;">${esc(dataControllerFooterLine(loc))}</div>
         </td></tr>
 
       </table>
