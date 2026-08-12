@@ -2296,6 +2296,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Climate inflation in Switzerland: why the heat drives up prices',
     'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'From the Rhine drought to the shopping cart, climate change creates new inflation and forces the ECB and FINMA to act.',
     'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Impact of drought and climate change on the economy and prices in Switzerland',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Security at a high price: proposed VAT increase',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'The Federal Council proposes an increase in VAT of 0.5 percentage points for 12 years to strengthen Switzerland\'s defence capability',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'A 0.5% VAT increase to strengthen Switzerland\'s defense capabilities',
 };
 
 export default blogMetaChEn;

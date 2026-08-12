@@ -2296,6 +2296,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Inflation climatique en Suisse : pourquoi la chaleur fait grimper les prix',
     'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'De la sécheresse du Rhin au panier de la ménagère, le changement climatique crée une nouvelle inflation et contraint la BCE et la FINMA à agir.',
     'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Impact de la sécheresse et du changement climatique sur l\'économie et les prix en Suisse',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Sicurezza a caro prezzo: aumento Iva di 0,5%',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'Le Conseil fédéral propose une augmentation de la TVA de 0,5 point de pourcentage sur 12 ans pour renforcer la capacité de défense de la Suisse',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'Un accroissement de 0,5% de la TVA pour renforcer les capacités de défense de la Suisse',
 };
 
 export default blogMetaChFr;
