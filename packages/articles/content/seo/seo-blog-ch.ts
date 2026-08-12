@@ -30086,6 +30086,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maggiori-responsabilita-peri-vertici-bancari': {
+    title: 'Maggiori responsabilità per i vertici bancari | Frontaliere Ticino',
+    description: 'Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggiori, responsabilità, vertici, bancari',
+    ogTitle: 'Maggiori responsabilità per i vertici bancari',
+    ogDescription: 'Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari e migliorare la governance delle banche svizzere',
+    canonicalPath: '/articoli-svizzera/maggiori-responsabilita-peri-vertici-bancari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maggiori responsabilità per i vertici bancari",
+      "description": "Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maggiori-responsabilita-peri-vertici-bancari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Istituti bancari svizzeri"
+      },
+      "datePublished": "2026-08-12T18:05:46+00:00",
+      "dateModified": "2026-08-12T18:05:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maggiori-responsabilita-peri-vertici-bancari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-la-siccita-sale-al-grado-2-a-breggia': {
+    title: 'La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    description: 'La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l\'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, sale, grado, breggia',
+    ogTitle: 'La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    ogDescription: 'La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l\'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco cosa non potete fare.',
+    canonicalPath: '/articoli-svizzera/la-siccita-sale-al-grado-2-a-breggia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La siccità sale al grado 2 a Breggia: ecco cosa non potete fare",
+      "description": "La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-siccita-sale-al-grado-2-a-breggia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare"
+      },
+      "datePublished": "2026-08-12T18:14:38+00:00",
+      "dateModified": "2026-08-12T18:14:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/la-siccita-sale-al-grado-2-a-breggia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cf-urgenza-siccita': {
+    title: 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
+    description: 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, urgenza, misure, aggiuntive',
+    ogTitle: 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
+    ogDescription: 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità',
+    canonicalPath: '/articoli-svizzera/cf-urgenza-siccita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cf: siccità, non c'è urgenza per ora per misure aggiuntive",
+      "description": "Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cf-urgenza-siccita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La situazione idrica in Svizzera"
+      },
+      "datePublished": "2026-08-12T18:24:12+00:00",
+      "dateModified": "2026-08-12T18:24:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cf-urgenza-siccita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aeroporto-zurigo-luglio-2026': {
+    title: 'Aeroporto Zurigo: luglio positivo; su passeggeri, voli e fatturato',
+    description: 'L\'aeroporto di Zurigo ha registrato un aumento del 2,4% dei passeggeri in luglio, con 3,3 milioni di passeggeri totali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, zurigo, luglio, positivo',
+    ogTitle: 'Aeroporto Zurigo: luglio positivo; su passeggeri, voli e fatturato',
+    ogDescription: 'L\'aeroporto di Zurigo ha registrato un aumento del 2,4% dei passeggeri in luglio, con 3,3 milioni di passeggeri totali.',
+    canonicalPath: '/articoli-svizzera/aeroporto-zurigo-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto Zurigo: luglio positivo; su passeggeri, voli e fatturato",
+      "description": "L'aeroporto di Zurigo ha registrato un aumento del 2,4% dei passeggeri in luglio, con 3,3 milioni di passeggeri totali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aeroporto-zurigo-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'aeroporto di Zurigo in estate"
+      },
+      "datePublished": "2026-08-12T18:53:35+00:00",
+      "dateModified": "2026-08-12T18:53:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aeroporto-zurigo-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-federer-patrimonio-on-borsa-calo': {
+    title: 'Roger Federer perde lo status di miliardario per il crollo di On',
+    description: 'Patrimonio di Roger Federer scende a 949 milioni di dollari. Il titolo On perde il 19% a Wall Street. Scopri l\'impatto finanziario per l\'ex campione svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, roger, federer, perde, status',
+    ogTitle: 'Roger Federer non è più miliardario: pesa il crollo di On',
+    ogDescription: 'Il patrimonio dell\'ex tennista svizzero scende sotto il miliardo di dollari dopo il calo del 19% delle azioni On. Tutti i dettagli sulla situazione finanziaria del campione.',
+    canonicalPath: '/articoli-svizzera/federer-patrimonio-on-borsa-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roger Federer perde lo status di miliardario per il crollo di On",
+      "description": "Patrimonio di Roger Federer scende a 949 milioni di dollari. Il titolo On perde il 19% a Wall Street. Scopri l'impatto finanziario per l'ex campione svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/federer-patrimonio-on-borsa-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del distretto finanziario svizzero che richiama il mercato azionario e le grandi aziende come On."
+      },
+      "datePublished": "2026-08-12T19:25:34+00:00",
+      "dateModified": "2026-08-12T19:25:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/federer-patrimonio-on-borsa-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grubel-ubb-intromettersi-in-ucraina': {
+    title: 'Grübel (ex CEO UBS e CS): | Frontaliere Ticino',
+    description: 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grübel, banchiere, critica, politica',
+    ogTitle: 'Grübel (ex CEO UBS e CS):',
+    ogDescription: 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina',
+    canonicalPath: '/articoli-svizzera/grubel-ubb-intromettersi-in-ucraina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grübel (ex CEO UBS e CS):",
+      "description": "Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all'Ucraina. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grubel-ubb-intromettersi-in-ucraina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Oswald Grübel, ex CEO di UBS e CS"
+      },
+      "datePublished": "2026-08-12T19:45:53+00:00",
+      "dateModified": "2026-08-12T19:45:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grubel-ubb-intromettersi-in-ucraina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-amazon-capitalizzazione-3000-miliardi': {
+    title: 'Amazon supera per la prima volta i 3000 miliardi di capitalizzazione di mercato',
+    description: 'Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre e Amazon entra nel gruppo di cinque giganti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, amazon, supera, prima, volta',
+    ogTitle: 'Amazon supera i 3000 miliardi di capitalizzazione di mercato',
+    ogDescription: 'Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre e Amazon entra nel gruppo di cinque giganti',
+    canonicalPath: '/articoli-svizzera/amazon-capitalizzazione-3000-miliardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amazon supera per la prima volta i 3000 miliardi di capitalizzazione di mercato",
+      "description": "Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre e Amazon entra nel gruppo di cinque giganti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amazon-capitalizzazione-3000-miliardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Amazon entra nel gruppo di cinque giganti dopo i risultati del secondo trimestre"
+      },
+      "datePublished": "2026-08-12T20:03:02+00:00",
+      "dateModified": "2026-08-12T20:03:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amazon-capitalizzazione-3000-miliardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

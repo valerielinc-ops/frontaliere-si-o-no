@@ -13,6 +13,26 @@
  * `lib/requestForensics.js` and threaded in as an option so this handler stays
  * pure. Attribution only — nothing reads them back, so a GET still unsubscribes
  * immediately and the RFC 8058 one-click POST is unchanged.
+ *
+ * THE ASYMMETRY (#5711): OPT-OUT IS ONE-CLICK, OPT-IN IS NOT
+ * ----------------------------------------------------------
+ * RFC 8058 requires the unsubscribe to happen on a single unattended request,
+ * and it still does. The INVERSE action does not get that treatment, because
+ * the population that presses an unattended link is not the population that
+ * meant to. Measured in production on 2026-08-12, with #5672 already merged:
+ * one address unsubscribed at 12:40:53 and was back at `confirmed`/active at
+ * 12:40:55 with `source_channel: resubscribe_link` — 1,5 seconds, the same
+ * signature as the antiphishing scanner of #5674 (25 fetches in 7 seconds from
+ * a Microsoft range). The re-subscribe was a `GET` on a link rendered onto the
+ * unsubscribe confirmation page, i.e. the one door #5672 left open, and a
+ * crawler walks through it exactly as it walks through every other link.
+ *
+ * So `action=resubscribe` now needs a `POST`. A `GET` renders the confirmation
+ * form and WRITES NOTHING AT ALL — not even an event, so a scanner sweeping the
+ * page cannot amplify itself into the database. The exception in
+ * `isExplicitNewsletterReOptIn` (services/newsletterSubscribers.ts) is
+ * untouched: a human who changes their mind still gets back in, in two clicks
+ * instead of one.
  */
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
@@ -20,7 +40,14 @@ import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { forensicsFields } from './lib/requestForensics.js';
-import { verifyAutologinCode, resolveAutologinPolicy, revokedBeforeMs } from './lib/autologinCode.js';
+import { isNewsletterOptOutBinding, toEpochMillis } from './lib/newsletterOptOut.js';
+import {
+ verifyAutologinCode,
+ resolveAutologinPolicy,
+ revokedBeforeMs,
+ isAutologinRevoked,
+ revocationWatermarkFor,
+} from './lib/autologinCode.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -50,6 +77,15 @@ export function verifyHmacToken(email, token, secret) {
  } catch {
  return false;
  }
+}
+
+function escapeHtmlAttr(value) {
+ return String(value == null ? '' : value)
+ .replace(/&/g, '&amp;')
+ .replace(/</g, '&lt;')
+ .replace(/>/g, '&gt;')
+ .replace(/"/g, '&quot;')
+ .replace(/'/g, '&#39;');
 }
 
 /**
@@ -87,14 +123,35 @@ export function verifyOptOutCredential(email, token, secret) {
  return { ok: verdict.canOptOut, viaEmailToken: false, viaAutologin: verdict.canOptOut };
 }
 
+/**
+ * The re-subscribe control, and it is a FORM, never an `<a href>` (#5711).
+ *
+ * A link is something a crawler follows; a form is something a person submits.
+ * That is the entire mechanism — no bot detection, no UA allowlist, nothing that
+ * has to be kept up to date against whoever is scanning this month. The
+ * mail-security scanners that produced the 1,5-second reactivation issue
+ * requests, they do not fill in and post forms.
+ *
+ * `method="POST"` and no `formaction`/`target` games: the browser sends the
+ * hidden fields as a body, the Worker
+ * (infra/cloudflare-worker/locale-router.js) forwards method+body verbatim via
+ * `new Request(upstream, request)`, and functions/index.js merges body over
+ * query — so the same handler sees the same params it always did.
+ */
 function buildResponseHtml({ title, message, showResubscribe, email, token, locale }) {
  const lang = normalizeLocale(locale);
  const resubscribeBlock = showResubscribe
  ? `<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:20px;">
  <tr><td align="center">
- <a href="${ONE_CLICK_BASE_URL}?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}&lang=${lang}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;">
+ <form method="POST" action="${ONE_CLICK_BASE_URL}" style="margin:0;">
+ <input type="hidden" name="action" value="resubscribe">
+ <input type="hidden" name="email" value="${escapeHtmlAttr(email)}">
+ <input type="hidden" name="token" value="${escapeHtmlAttr(token)}">
+ <input type="hidden" name="lang" value="${escapeHtmlAttr(lang)}">
+ <button type="submit" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;border:0;text-decoration:none;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">
  ${t(lang, 'manageResubscribeLink')}
- </a>
+ </button>
+ </form>
  </td></tr>
  </table>`
  : '';
@@ -237,13 +294,57 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, autologinPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
+/**
+ * How close to the opt-out a re-subscribe has to land, from the SAME user
+ * agent, before it is read as a scan rather than a change of mind (#5711).
+ *
+ * 10 seconds, and deliberately short. The POST requirement is what actually
+ * stops the scanners; this is the second layer, aimed at the one that does
+ * submit forms. A window measured in minutes would start refusing real
+ * misclicks — somebody who opts out, reads the confirmation, and immediately
+ * realises they meant the other list — and the production signature being
+ * defended against is 1,5 seconds, not 5 minutes. A refusal is recoverable
+ * anyway: the page comes back with the form on it, and the next press lands
+ * outside the window.
+ */
+const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
+
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', autologinPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
+ // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
+ // through cannot re-subscribe anybody; the opposite default would make the
+ // #5711 guard silently vacuous the first time this function grows a second
+ // entrypoint, which is the failure mode the EDGE_PUSHED_FILES gate had.
+ const httpMethod = String(method || 'GET').trim().toUpperCase();
  // Allowlist-copied and error-swallowing by construction (see forensicsFields):
  // a hostile or broken forensics object contributes {} and every action below
  // behaves exactly as it did before.
  const forensicFields = forensicsFields(forensics);
  const normalizedEmail = normalizeEmail(email);
+ // One policy read for the whole call: exchange_auth_code grades against it and
+ // revoke_autologin refuses under `legacy` (see there).
+ const acPolicy = autologinPolicy || resolveAutologinPolicy();
+
+ // The ONLY observable signal that the expiry is refusing anybody (#5685).
+ //
+ // Without it the first symptom of a mis-set TTL is a complaint: every refusal
+ // is an HTTP 403 indistinguishable in Cloud Logging from the `invalid_auth_code`
+ // that anti-phishing scanners generate all day (35 hits, 25 inside 7 seconds,
+ // measured on this domain), so "are 0 or 3.000 people locked out?" has no
+ // answer and the rollback has no trigger. One structured line per refusal makes
+ // it a log-based metric — refused-by-reason over exchanges — which is the
+ // number the rollback decision needs.
+ //
+ // Deliberately NOT logged: the address and the code. The reason and the scheme
+ // are the whole diagnostic, and this is a public repo's production log.
+ const refuseAutologin = (reason, scheme) => {
+ console.warn('[exchange_auth_code] refused', JSON.stringify({
+ reason,
+ scheme: scheme || 'unparsed',
+ mint_scheme: acPolicy.mintScheme,
+ ttl_days: acPolicy.ttlDays,
+ }));
+ };
 
  // Try to get locale from subscriber record
  let lang = normalizeLocale(locale);
@@ -273,13 +374,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // grading itself lives in lib/autologinCode.js; what happens here is the
  // policy read, the per-subscriber state read, and the refusal.
  if (action === 'exchange_auth_code') {
- const policy = autologinPolicy || resolveAutologinPolicy();
+ const policy = acPolicy;
 
  // Signature first, WITHOUT touching Firestore: a forged code must cost a
  // hash and nothing else, or this endpoint becomes a free read amplifier for
  // anyone who can guess an address.
  const verdict = verifyAutologinCode(normalizedEmail, token, { secret, policy });
  if (!verdict.authentic) {
+ refuseAutologin('invalid_auth_code', verdict.scheme);
  return { status: 403, json: { success: false, error: 'invalid_auth_code' } };
  }
 
@@ -297,10 +399,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  } catch { /* read failure: signature verdict alone, exactly as before */ }
 
- // A legacy code carries no issue date, so ANY watermark revokes it — that is
- // what "revoke every link already sent" has to mean.
- const revoked = revokedBefore !== null
- && (verdict.issuedAtMs === null || verdict.issuedAtMs < revokedBefore);
+ // Same rule the module applies, from the same function — this branch grades
+ // the signature BEFORE the Firestore read, so the watermark has to be applied
+ // here rather than inside verifyAutologinCode. Two call sites, one rule.
+ const revoked = isAutologinRevoked(verdict, revokedBefore, policy);
 
  // Enforce opt-out: even with an authentic code, refuse to mint a custom token
  // when the subscriber has disabled autologin. This invalidates previously
@@ -311,13 +413,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // record an opt-out (verifyOptOutCredential), so App.tsx must offer the exit
  // instead of "Link non valido".
  if (optedOut) {
+ refuseAutologin('autologin_disabled', verdict.scheme);
  return { status: 403, json: { success: false, error: 'autologin_disabled', optOutEligible: true } };
  }
  if (revoked) {
+ refuseAutologin('auth_code_revoked', verdict.scheme);
  return { status: 403, json: { success: false, error: 'auth_code_revoked', optOutEligible: true } };
  }
  if (verdict.expired) {
+ refuseAutologin('auth_code_expired', verdict.scheme);
  return { status: 403, json: { success: false, error: 'auth_code_expired', optOutEligible: true } };
+ }
+ // Stamped in the future: authentic, but immune to both gates above, so it is
+ // refused on its own terms rather than silently trusted (see the futureDated
+ // note in lib/autologinCode.js). Named distinctly because the operator
+ // response is different — this one says a MINTER has a wrong clock.
+ if (verdict.futureDated) {
+ refuseAutologin('auth_code_not_yet_valid', verdict.scheme);
+ return { status: 403, json: { success: false, error: 'auth_code_not_yet_valid', optOutEligible: true } };
  }
 
  try {
@@ -414,20 +527,38 @@ export async function handleSubscriptionManagement({ action, email, token, local
  //
  // A watermark, not the counter #5685 proposed: a counter would have to be read
  // by all EIGHT senders that mint a code before minting it, and any sender that
- // did not would emit permanently-dead codes for that recipient. Every code
- // issued after the watermark is newer than it and works, so the next email
- // repairs autologin by itself.
+ // did not would emit permanently-dead codes for that recipient. A watermark
+ // repairs itself with no sender knowing anything — but with a DELAY worth
+ // stating: the v1 stamp is day-granular, so the repair arrives with the first
+ // email of the following UTC day, not with the next email. See
+ // revocationWatermarkFor.
  //
- // Known and deliberate: while NEWSLETTER_AC_SCHEME is `legacy`, codes carry no
- // issue date, so a revoke is PERMANENT for that subscriber until the scheme
- // flips to v1 — a legacy code can never be newer than the watermark. That is
- // why revocation and the v1 scheme are one rollout step.
+ // REFUSED under the legacy scheme, by construction rather than by comment.
+ // A legacy code carries no issue date, so it can never be newer than a
+ // watermark: revoking while `legacy` is minted would be an IRREVERSIBLE
+ // lockout of that subscriber's own autologin — no future email can repair it
+ // and there is no un-revoke API. Refusing here is what makes "revocation and
+ // the v1 scheme are one rollout step" true instead of aspirational, and it is
+ // also why a rollback is clean: the watermark cannot exist before v1, and
+ // isAutologinRevoked stops applying it to legacy codes the moment the policy
+ // goes back to `legacy` (lib/autologinCode.js). The permanent, user-reversible
+ // kill switch under either scheme is `autologin_enabled:false`.
  if (action === 'revoke_autologin') {
+ if (acPolicy.mintScheme !== 'v1') {
+ return { status: 409, json: { success: false, error: 'revocation_requires_v1' } };
+ }
  try {
  const now = new Date();
+ // Start of the next UTC day, not this instant. The stamp being revoked is
+ // day-granular, so an instant mid-day is being compared against a midnight
+ // and the boundary was emergent; this states it. Consequence, and it is the
+ // honest one: the codes minted LATER on the day of the revocation die too,
+ // and autologin returns with the first email of the following UTC day.
+ const watermarkMs = revocationWatermarkFor(now.getTime());
  await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
  email: normalizedEmail,
- autologin_revoked_before: admin.firestore.FieldValue.serverTimestamp(),
+ autologin_revoked_before: admin.firestore.Timestamp.fromMillis(watermarkMs),
+ autologin_revoked_at: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -436,11 +567,21 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: 'autologin_revoked',
  source_channel: 'preferences_link',
+ effective_from: new Date(watermarkMs).toISOString(),
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: now.toISOString(),
  });
 
- return { status: 200, json: { success: true, revokedAt: now.toISOString() } };
+ return {
+ status: 200,
+ json: {
+ success: true,
+ revokedAt: now.toISOString(),
+ // What the caller has to be told, because it is not "immediately, and
+ // then the next email works".
+ effectiveFrom: new Date(watermarkMs).toISOString(),
+ },
+ };
  } catch (err) {
  console.error('[revoke_autologin] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'write_failed' } };
@@ -457,10 +598,15 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // Both spellings (#5673): 458 documents carry only the camelCase stamp
  // the SPA path used to write, and reading one name told those people the
  // preferences page still had them subscribed.
- const hasUnsubAt = !!(data.unsubscribed_at || data.unsubscribedAt);
+ //
+ // Shared predicate since #5711, and it has to be: the opt-out stamp is no
+ // longer deleted by a re-subscription, so `stamp present` on its own would
+ // now tell everyone who ever came back that they are unsubscribed — on the
+ // page whose entire job is to say whether they are.
+ const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
  // Subscribed unless explicitly unsubscribed.
- const subscribed = status !== 'unsubscribed' && !hasUnsubAt && (isActive || status === 'confirmed' || status === 'pending');
+ const subscribed = !optOutBinding && (isActive || status === 'confirmed' || status === 'pending');
  newsletter = {
  subscribed,
  autologinEnabled: data.autologin_enabled !== false,
@@ -509,6 +655,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  if (action === 'toggle_newsletter_subscription') {
  const desired = subscribed === true || subscribed === 'true' || subscribed === '1';
+ // Same asymmetry as `resubscribe` (#5711): turning the newsletter back ON
+ // is a state change in the direction a scanner must never be able to make,
+ // so it needs a POST. Turning it OFF stays reachable by any verb — an
+ // opt-out must never be harder than the mail that provoked it.
+ // /preferenze-newsletter/ posts it (see toggleNewsletterSubscription in
+ // services/newsletterSubscribers.ts); this endpoint is not linked from any
+ // page, so no crawler constructs the URL today — the gate is here so that
+ // stays true by construction rather than by nobody having tried.
+ if (desired && httpMethod !== 'POST') {
+ return { status: 405, json: { success: false, error: 'method_not_allowed' } };
+ }
  try {
  if (desired) {
  await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
@@ -516,12 +673,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'subscribed',
  isActive: true,
  active: true,
+ // Both spellings, and NEITHER opt-out stamp is deleted (#5711). The
+ // re-opt-in stamp is what lifts the opt-out for every sender now —
+ // `isNewsletterOptOutBinding` compares the two — so the lift is no
+ // longer paid for with the evidence that the opt-out happened.
  resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
- unsubscribed_at: admin.firestore.FieldValue.delete(),
- // The camelCase twin has to go too, or the re-opt-in is cosmetic:
- // scripts/send-newsletter.mjs drops any row carrying EITHER spelling,
- // whatever `status` says (#5673).
- unsubscribedAt: admin.firestore.FieldValue.delete(),
+ resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -806,9 +963,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...forensicFields,
  }, { merge: true });
 
- // The subscriber doc keeps only the LAST unsubscribe (a resubscribe cycle
- // overwrites it); the event doc is the append-only trail, so the forensics
- // go on both — that is where the scanner-vs-human analysis will run.
+ // The subscriber doc keeps only the LAST unsubscribe (a later opt-out
+ // overwrites it — a re-subscription no longer does, since #5711); the event
+ // doc is the append-only trail, so the forensics go on both — that is where
+ // the scanner-vs-human analysis will run.
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
  event_type: 'unsubscribe',
@@ -856,12 +1014,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
  confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
  // A double opt-in confirmation click IS the explicit act that lifts an
- // earlier opt-out, so clear both stamps. Without this the confirmation
+ // earlier opt-out — without something recording that, the confirmation
  // said "sei iscritto" while scripts/send-newsletter.mjs kept dropping
- // the row on the stale stamp — the silent dead end for anyone who
+ // the row on the stale stamp, the silent dead end for anyone who
  // unsubscribed and later signed up again (#5673).
- unsubscribed_at: admin.firestore.FieldValue.delete(),
- unsubscribedAt: admin.firestore.FieldValue.delete(),
+ //
+ // It used to be recorded by DELETING the opt-out stamps. It is now
+ // recorded by stamping the re-opt-in beside them (#5711): the senders
+ // compare the two and the newer one wins, so the lift still happens and
+ // the evidence of the original opt-out survives it.
+ resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -931,6 +1094,103 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  if (action === 'resubscribe') {
+ // ── A GET renders the form and writes NOTHING (#5711) ──────────────────
+ //
+ // Not a 405, and not an error page: the recipient may legitimately arrive
+ // here by GET — an archived confirmation page, a forwarded link, a browser
+ // that turned the POST into a GET on a redirect — and telling a human
+ // "method not allowed" for wanting back on a list is absurd. They get the
+ // same branded page with the same button; pressing it POSTs.
+ //
+ // Zero writes on this path is a property, not an omission. A scanner that
+ // sweeps every URL in a message hits this branch once per link it invented;
+ // if it left an event behind, the sweep would write to Firestore under the
+ // recipient's document and pollute exactly the event trail #5711's
+ // measurement reads.
+ if (httpMethod !== 'POST') {
+ return {
+ status: 200,
+ resubscribeApplied: false,
+ html: buildResponseHtml({
+ title: t(lang, 'manageResubscribeConfirmTitle'),
+ message: `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageResubscribeConfirmBody')}`,
+ showResubscribe: true,
+ email: normalizedEmail,
+ token,
+ locale: lang,
+ }),
+ };
+ }
+
+ // ── Second layer: a re-subscribe inside the burst window, from the same
+ // user agent that opted out, is a scan and is refused — AND RECORDED.
+ //
+ // Readable only because `unsubscribed_at` and `unsubscribe_user_agent`
+ // now survive a re-subscription (see below): the previous behaviour
+ // deleted the stamp, so this comparison had nothing to compare against.
+ // Fail-open on a read error — the POST gate is the primary defence, and a
+ // Firestore blip must not cost somebody their re-subscription.
+ let burst = null;
+ try {
+ const priorSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+ const prior = priorSnap.exists ? (priorSnap.data() || {}) : {};
+ const optOutMs = toEpochMillis(prior.unsubscribed_at) ?? toEpochMillis(prior.unsubscribedAt);
+ const priorAgent = typeof prior.unsubscribe_user_agent === 'string' ? prior.unsubscribe_user_agent : null;
+ const currentAgent = typeof forensicFields.unsubscribe_user_agent === 'string'
+ ? forensicFields.unsubscribe_user_agent
+ : null;
+ const gapMs = optOutMs == null ? null : Date.now() - optOutMs;
+ if (
+ gapMs != null
+ && gapMs >= 0
+ && gapMs < RESUBSCRIBE_BURST_WINDOW_MS
+ && priorAgent
+ && currentAgent
+ && priorAgent === currentAgent
+ ) {
+ burst = { gapMs, agent: currentAgent };
+ }
+ } catch (readErr) {
+ console.warn('[resubscribe] burst pre-check unavailable (fail-open):', readErr?.message || readErr);
+ }
+
+ if (burst) {
+ // Recorded, never silently dropped: a refusal nobody can count is
+ // indistinguishable from a defence that never fires. The UA goes on the
+ // event under a NEUTRAL name — the `unsubscribe_*` fields would be a lie
+ // on a re-subscribe write (same reason as the
+ // toggle_newsletter_subscription branch above).
+ try {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: 'resubscribe_refused',
+ source_channel: 'resubscribe_link',
+ refusal_reason: 'burst_same_user_agent',
+ gap_ms: burst.gapMs,
+ request_method: httpMethod,
+ request_user_agent: burst.agent,
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+ } catch (eventErr) {
+ console.warn('[resubscribe] refusal event write failed:', eventErr?.message || eventErr);
+ }
+
+ return {
+ status: 200,
+ resubscribeApplied: false,
+ resubscribeRefusedReason: 'burst_same_user_agent',
+ html: buildResponseHtml({
+ title: t(lang, 'manageResubscribeRefusedTitle'),
+ message: `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageResubscribeRefusedBody')}`,
+ showResubscribe: true,
+ email: normalizedEmail,
+ token,
+ locale: lang,
+ }),
+ };
+ }
+
  await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
  email: normalizedEmail,
  status: 'confirmed',
@@ -959,10 +1219,20 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // stamp across the cycle, so only the never-confirmed were affected.
  confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
  confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
- // Same reason as the confirm branch: an explicit "riattiva" click has
- // to clear BOTH stamps or the row stays permanently unmailable (#5673).
- unsubscribed_at: admin.firestore.FieldValue.delete(),
- unsubscribedAt: admin.firestore.FieldValue.delete(),
+ // `unsubscribed_at` / `unsubscribedAt` are NOT cleared here, and this is
+ // the second half of #5711. Deleting them made the re-subscription
+ // destroy the record that the person had opted out — the very evidence a
+ // supervisory authority asks for, and the signal the 186 resurrected
+ // opt-outs of #5672 were found by. The production case that opened
+ // #5711 read back `unsubscribed_at: null` afterwards, so the fastest
+ // reactivation ever recorded left the tidiest-looking document.
+ //
+ // The stamp is append-only from here on. What lifts it for the senders is
+ // this pair of fields, which they compare AGAINST the opt-out stamp —
+ // see isNewsletterOptOutBinding in lib/newsletterOptOut.js and its
+ // canonical twin services/newsletterOptOut.mjs. Both spellings, because
+ // scripts/send-newsletter.mjs and the SPA read different ones (#5673).
+ resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -971,12 +1241,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: 'subscribe_completed',
  source_channel: 'resubscribe_link',
+ // The verb, on the event trail, so the #5711 measurement can tell a
+ // deliberate submission from whatever the previous GET link was
+ // collecting. Every row written from here on says POST by construction.
+ request_method: httpMethod,
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });
 
  return {
  status: 200,
+ resubscribeApplied: true,
  html: buildResponseHtml({
  title: `${t(lang, 'manageResubscribeTitle')}`,
  message: `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageResubscribeBody')} ${t(lang, 'manageResubscribeNote')}`,

@@ -1,7 +1,6 @@
 import {
  addDoc,
  collection,
- deleteField,
  doc,
  getDoc,
  increment,
@@ -10,6 +9,7 @@ import {
  type Firestore,
 } from 'firebase/firestore';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
+import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { FUNCTIONS_BASE } from './functionsBase';
@@ -383,22 +383,17 @@ export function normalizeNewsletterEmail(raw: string): string {
 /**
  * Is a recorded opt-out still binding on this document?
  *
- * BOTH spellings of the stamp are read, and that is the whole point (#5673):
- * the Cloud Function path writes `unsubscribed_at` (snake_case) while the SPA
- * path wrote `unsubscribedAt` (camelCase) and nothing else. 458 production
- * documents measured on 2026-08-12 carry ONLY the camelCase spelling, so a
- * guard that reads one name honours half the opt-outs. No data migration is
- * needed — and none is performed — precisely because every reader accepts both.
+ * Re-exported rather than defined here since #5711: the same question is asked
+ * by the Node senders (scripts/send-newsletter.mjs, scripts/send-onboarding-drip.mjs)
+ * and by the Cloud Function's `get_full_status`, and the answer changed shape —
+ * an opt-out stamp is no longer deleted by a re-subscription, so "stamp present"
+ * stopped being the whole rule. Three copies of a rule that just changed is how
+ * the two spellings of #5673 drifted apart in the first place.
  *
- * `status` alone is not enough either: it is a single last-writer-wins field,
- * and the resurrection ring this exists to close overwrote it.
+ * The definition, the supersession rule and the reasoning live in
+ * services/newsletterOptOut.mjs.
  */
-export function isNewsletterOptOutBinding(existing: Record<string, any> | null | undefined): boolean {
- if (!existing) return false;
- return existing.status === 'unsubscribed'
- || existing.unsubscribed_at != null
- || existing.unsubscribedAt != null;
-}
+export { isNewsletterOptOutBinding };
 
 /**
  * The ONLY signals that may lift a recorded opt-out.
@@ -414,6 +409,37 @@ function isExplicitNewsletterReOptIn(input: NewsletterUpsertInput): boolean {
  return normalizeSourceChannel(input) === 'resubscribe_link';
 }
 
+/**
+ * Which half of the status vocabulary a write belongs to.
+ *
+ * `subscription` — the two outcomes a (re)subscription write can land on. They
+ * are the only statuses that say "we may mail this person", so they are the
+ * only ones the opt-out post-filter below has any business intercepting.
+ *
+ * `suppression` — an opt-out, or an address-level signal a webhook reports
+ * (hard bounce / spam complaint / provider blocklist). Every one of them is at
+ * least as restrictive as the opt-out itself, which is why they pass through
+ * the post-filter byte-identically: `functions/src/lib/emailSuppression.js`
+ * holds exactly this half in `NEWSLETTER_EXCLUDED_STATUSES` (plus `inactive`,
+ * a sunset state no writer on this path can produce), and the correspondence
+ * is asserted in tests/newsletter-unsubscribe-integrity.test.ts rather than
+ * duplicated here — the client bundle has no reason to import a Cloud
+ * Functions module.
+ *
+ * Typed as a total `Record` on purpose: adding a status to
+ * `NewsletterSubscriberStatus` fails the build until it is classified, so the
+ * post-filter can never silently acquire a blind spot the way it had one for
+ * `pending`.
+ */
+const NEWSLETTER_STATUS_KIND: Record<NewsletterSubscriberStatus, 'subscription' | 'suppression'> = {
+ pending: 'subscription',
+ confirmed: 'subscription',
+ unsubscribed: 'suppression',
+ bounced: 'suppression',
+ complained: 'suppression',
+ suppressed: 'suppression',
+};
+
 export function inferNewsletterSubscriptionState(
  input: NewsletterUpsertInput,
  existing: Record<string, any> | undefined,
@@ -422,10 +448,23 @@ export function inferNewsletterSubscriptionState(
 
  // ── The opt-out is binding against EVERY write path (#5672) ───────────────
  //
- // Applied as a post-filter, and deliberately so: it can only ever DECLINE a
- // promotion to active, never invent a demotion. A write that already lands
- // inactive (an explicit `status: 'bounced'`, an `isActive: false`) passes
- // through byte-identically, so no webhook or suppression path changes.
+ // Applied as a post-filter, and deliberately so: it never invents a state,
+ // it declines a SUBSCRIPTION. A suppression write — the opt-out itself, or
+ // the `bounced`/`complained`/`suppressed` a webhook reports about the
+ // mailbox — passes through byte-identically, so no webhook or suppression
+ // path changes.
+ //
+ // The gate used to be `if (!inferred.isActive) return inferred`, and that is
+ // the defect #5734 measured: it guards on ACTIVITY while the protection
+ // lives in the STATUS. An anonymous signup against an opt-out infers
+ // `{ status: 'pending', isActive: false }` — inactive, so it returned there
+ // and the preservation below was unreachable — and `pending` protects LESS
+ // than `unsubscribed`: it is absent from NEWSLETTER_EXCLUDED_STATUSES, so
+ // scripts/send-daily-brief.mjs stops excluding the recipient and falls back
+ // to `hasConfirmationProof`, which an old `confirmed_at` satisfies. The
+ // post-filter must never hand back a status less protective than the one on
+ // the document; keying on the status vocabulary instead of on `isActive` is
+ // what makes that true by construction.
  //
  // The ring it closes: unsubscribe → click any link in any old email → the
  // never-expiring `ac` autologin code signs the reader in → App.tsx's
@@ -439,7 +478,11 @@ export function inferNewsletterSubscriptionState(
  // the resurrection wrote one (`status === 'confirmed' && !wasConfirmed`
  // below). Such a rule would exempt exactly the cohort this guard exists for.
  // Only `resubscribe_link` / `reconsent` lift it.
- if (!inferred.isActive) return inferred;
+ //
+ // Fail-closed on an unrecognised status: only a KNOWN suppression status is
+ // waved through, so a caller passing something outside the union is treated
+ // as a subscription attempt and declined.
+ if (NEWSLETTER_STATUS_KIND[inferred.status] === 'suppression') return inferred;
  if (isExplicitNewsletterReOptIn(input)) return inferred;
  if (!isNewsletterOptOutBinding(existing)) return inferred;
 
@@ -448,14 +491,20 @@ export function inferNewsletterSubscriptionState(
  // opt-out demands: the 281 documents measured as `status: 'unsubscribed'`
  // yet still active are repaired on their next write instead of being
  // carried forward.
+ //
+ // `isActive: false` UNCONDITIONALLY, which is the other half of #5733. The
+ // correction used to be spelled `existingStatus === 'unsubscribed' ? false
+ // : existingActive`, and that test is strictly narrower than the one that
+ // got us here: `isNewsletterOptOutBinding` also binds on a stamp under
+ // either spelling, so `{ status: 'confirmed', isActive: true,
+ // unsubscribedAt: X }` — the shape the pre-#5673 SPA unsubscribe left on 458
+ // documents — reached this line and was handed back ACTIVE. Two predicates
+ // that answer the same question must not disagree; the divergence, not
+ // either side of it, was the defect.
  const existingStatus = typeof existing?.status === 'string'
  ? (existing.status as NewsletterSubscriberStatus)
  : 'unsubscribed';
- const existingActive = existing?.isActive === true || existing?.active === true;
- return {
- status: existingStatus,
- isActive: existingStatus === 'unsubscribed' ? false : existingActive,
- };
+ return { status: existingStatus, isActive: false };
 }
 
 function inferSubscriptionStateIgnoringOptOut(
@@ -678,10 +727,28 @@ export async function upsertNewsletterDelivery(
  );
 }
 
+/**
+ * What a capture/upsert reports back to its caller.
+ *
+ * `optedOut` is the field #5734 needed and did not have. The two email
+ * branches in `upsertNewsletterSubscriber` decide from `status` + `existed`,
+ * and neither can express "this document carries an opt-out we did not lift":
+ * `existed` is `alreadyActive`, which an opt-out makes false by definition, and
+ * a preserved status is whatever the document happened to hold — `pending` for
+ * anyone who opted out before confirming. So the fact travels explicitly.
+ */
+export type NewsletterCaptureResult = {
+ existed: boolean;
+ id: string;
+ status: NewsletterSubscriberStatus;
+ /** A recorded opt-out was binding on this document and this write did not lift it. */
+ optedOut: boolean;
+};
+
 export async function captureNewsletterSubscriber(
  db: Firestore,
  input: NewsletterUpsertInput,
-): Promise<{ existed: boolean; id: string; status: NewsletterSubscriberStatus }> {
+): Promise<NewsletterCaptureResult> {
  const email = normalizeNewsletterEmail(input.email);
  if (!email || !email.includes('@')) {
  throw new Error('Invalid email');
@@ -715,6 +782,13 @@ export async function captureNewsletterSubscriber(
  }
 
  const subscriptionState = inferNewsletterSubscriptionState(input, existingData);
+ // The same two questions the guard above asks, asked once and reused: the
+ // stamp-lift below and the confirmation/welcome emails in
+ // `upsertNewsletterSubscriber` are all decisions about a recorded opt-out,
+ // and until #5733 each of them re-derived it from a different proxy.
+ const reOptInGranted = isExplicitNewsletterReOptIn(input);
+ const optOutBinding = isNewsletterOptOutBinding(existingData);
+ const optedOut = optOutBinding && !reOptInGranted;
  const resolved = await resolveCaptureDefaults(input);
  const sourceChannel = resolved.sourceChannel;
  const jobContext = input.jobContext || {};
@@ -813,16 +887,30 @@ export async function captureNewsletterSubscriber(
  mergedData.unsubscribedAt = serverTimestamp();
  }
 
- // A granted re-opt-in must CLEAR both opt-out stamps, or the lift is
- // cosmetic: scripts/send-newsletter.mjs drops any row carrying either
- // spelling (`if (row.unsubscribedAt || row.unsubscribed_at) return null`)
- // whatever `status` says, so before this the win-back "riattiva" click made
- // someone `confirmed` and still permanently unmailable. Clearing is what
- // keeps `isNewsletterOptOutBinding` from re-blocking them on the next write
- // too — the escape hatch has to actually open.
- if (subscriptionState.isActive && isNewsletterOptOutBinding(existingData)) {
- mergedData.unsubscribed_at = deleteField();
- mergedData.unsubscribedAt = deleteField();
+ // A granted re-opt-in must actually LIFT the opt-out, or the win-back
+ // "riattiva" click makes someone `confirmed` and permanently unmailable:
+ // scripts/send-newsletter.mjs drops any row carrying either spelling of the
+ // stamp, whatever `status` says.
+ //
+ // Until #5711 the lift was performed by DELETING both stamps, and that is
+ // what destroyed the evidence — the record of an opt-out is exactly what an
+ // art. 25 request asks for, and it is the signal the 186 resurrections of
+ // #5672 were found by. The lift is now the re-opt-in stamp WRITTEN BESIDE
+ // the opt-out: `isNewsletterOptOutBinding` compares the two and the newer
+ // one wins, so the escape hatch opens without paying for it in evidence.
+ //
+ // `serverTimestamp()` is strictly later than a stamp already on the
+ // document by construction, so the comparison cannot tie.
+ //
+ // GRANTED, not merely active (#5733). This was `subscriptionState.isActive`,
+ // and since the stamp IS the supersession rule, that condition let any of the
+ // 16 anonymous subscribe surfaces forge the evidence of a re-opt-in nobody
+ // gave: on `{ status: 'confirmed', isActive: true, unsubscribedAt: X }` the
+ // preservation branch handed back `isActive: true`, this block wrote a fresh
+ // `resubscribed_at`, and from that write on `isNewsletterOptOutBinding` was
+ // false forever — no stamp deleted, and the opt-out gone all the same. The
+ // condition now names the thing that authorises the lift.
+ if (reOptInGranted && optOutBinding) {
  mergedData.resubscribed_at = serverTimestamp();
  mergedData.resubscribedAt = serverTimestamp();
  }
@@ -849,7 +937,11 @@ export async function captureNewsletterSubscriber(
  // `status !== 'unsubscribed'` so a future unsubscribe-via-upsert caller
  // (none today; unsubscribe currently goes through a separate Cloud
  // Function endpoint) can't mis-flag the user as a subscriber.
- if (subscriptionState.status !== 'unsubscribed') {
+ //
+ // …and on `!optedOut` for the same reason one status test is not enough
+ // anywhere else in this file: the preserved status of someone who opted out
+ // before confirming is `pending`, not `unsubscribed`.
+ if (subscriptionState.status !== 'unsubscribed' && !optedOut) {
  import('@/services/analytics').then(({ Analytics }) => {
  Analytics.setUserSegmentFlags({ isNewsletterSubscriber: true });
  }).catch(() => {});
@@ -880,7 +972,7 @@ export async function captureNewsletterSubscriber(
  },
  });
 
- return { existed: alreadyActive, id: email, status: subscriptionState.status };
+ return { existed: alreadyActive, id: email, status: subscriptionState.status, optedOut };
 }
 
 export async function recordNewsletterClick(
@@ -993,7 +1085,7 @@ export async function applyNewsletterDeliveryEvent(
 export async function upsertNewsletterSubscriber(
  db: Firestore,
  input: NewsletterUpsertInput,
-): Promise<{ existed: boolean; id: string; status: NewsletterSubscriberStatus }> {
+): Promise<NewsletterCaptureResult> {
  // FRO-19: Rate limiting
  const rateCheck = checkSubscriptionRateLimit();
  if (!rateCheck.allowed) {
@@ -1001,6 +1093,21 @@ export async function upsertNewsletterSubscriber(
  }
  recordSubscriptionAttempt();
  const result = await captureNewsletterSubscriber(db, input);
+
+ // NOT ONE EMAIL to an address with a recorded opt-out, whatever status the
+ // guard computed (#5734).
+ //
+ // Both branches below decide from `status` + `existed`, and neither can see
+ // an opt-out: `existed` is `alreadyActive`, which an opt-out makes false by
+ // definition, so the `!result.existed` half is satisfied by exactly the
+ // people it should exclude. Closing the demotion above stops the common
+ // case — a clean opt-out no longer resolves to `pending` — but not this one:
+ // somebody who opted out while still `pending` has that status PRESERVED,
+ // lands here again, and gets an invitation to confirm a subscription they
+ // cancelled. A defence that holds only as long as another function keeps its
+ // shape is a defence the next refactor switches off, so the fact is checked
+ // here directly.
+ if (result.optedOut) return result;
 
  // FRO-24: Send confirmation email for new pending subscribers
  if (result.status === 'pending' && !result.existed) {
@@ -1426,7 +1533,12 @@ export async function toggleNewsletterSubscription(
  const normalizedEmail = email.toLowerCase().trim();
  const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
  const url = `${endpoint}?action=toggle_newsletter_subscription&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&subscribed=${subscribed ? 'true' : 'false'}&format=json`;
- const resp = await fetch(url);
+ // POST, not GET, and only because of the re-opt-in direction (#5711): the
+ // handler refuses `subscribed=true` on a GET so that no state change putting
+ // somebody BACK on a list can be produced by following a URL. The params stay
+ // on the query string — functions/index.js merges query and body for POST, so
+ // this is one verb changing, not a payload move.
+ const resp = await fetch(url, { method: 'POST' });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, subscribed: data.subscribed === true };

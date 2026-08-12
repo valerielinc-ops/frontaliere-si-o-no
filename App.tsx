@@ -824,6 +824,12 @@ const App: React.FC = () => {
  const [newsletterActionEmail, setNewsletterActionEmail] = useState<string | null>(null);
  const [showNewsletterWelcome, setShowNewsletterWelcome] = useState(false);
  const [newsletterActionType, setNewsletterActionType] = useState<'unsubscribe' | 'resubscribe' | null>(null);
+ // The SPA half of #5711's asymmetry. Leaving happens on the request; COMING
+ // BACK waits for a real gesture, and this holds the already-authenticated
+ // write until one arrives. Stored as a thunk (hence the `() => fn` setter
+ // shape) so the whole authenticated closure — db handle, normalised address,
+ // legacy-duplicate sync — survives out of the effect without being rebuilt.
+ const [pendingResubscribe, setPendingResubscribe] = useState<null | (() => Promise<void>)>(null);
  useEffect(() => {
  const urlParams = new URLSearchParams(window.location.search);
  const action = urlParams.get('action');
@@ -912,6 +918,14 @@ const App: React.FC = () => {
  // `authenticated` gates the client-side Firestore path below, which needs a
  // real session. It is NOT the gate on leaving — see the fallback under it.
  let authenticated = false;
+ // Did the Cloud Function say the code's SIGNATURE does not verify? That is
+ // the only refusal that means "this link is not ours". Everything else —
+ // expired, revoked, autologin_disabled, a 500, a dropped connection — leaves
+ // an unproven code, and before #5685 all of them fell through to the
+ // session-less Firestore write below. Distinguishing them is what lets the
+ // resubscribe branch keep that fall-through without also honouring a forged
+ // link, which the pre-#5685 code did (it never checked the verdict at all).
+ let codeForged = false;
  if (autologinCode) {
  // Exchange the autologin code for a fresh token. Since #5685 this can
  // refuse an AUTHENTIC code: expired past the TTL, revoked by the
@@ -922,6 +936,8 @@ const App: React.FC = () => {
  const signedInUser = await signInWithCustomAuthToken(result.authToken);
  const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
  authenticated = !!signedInEmail && normalizeNewsletterEmail(signedInEmail) === normalizedEmail;
+ } else {
+ codeForged = result.error === 'invalid_auth_code';
  }
  } else if (legacyAuthToken) {
  const signedInUser = await signInWithCustomAuthToken(legacyAuthToken);
@@ -946,19 +962,23 @@ const App: React.FC = () => {
  // #5672 shape), the exchange 500'd, the network blinked — used to end
  // right here with "Link non valido": a person holding a genuine
  // unsubscribe link and unable to leave, which is the defect the LPD art.
- // 25/32 complaint behind this wave was about. So the opt-out now falls
- // back to the Cloud Function, which takes either the `token` email HMAC or
- // an authentic autologin code of ANY age and needs no session at all
+ // 25/32 complaint behind this wave was about. So the opt-out falls back to
+ // the Cloud Function, which takes either the `token` email HMAC or an
+ // authentic autologin code of ANY age and needs no session at all
  // (verifyOptOutCredential in
  // functions/src/newsletterSubscriptionManagement.js).
- //
- // No resubscribe twin, deliberately: putting somebody back on a list from
- // a stale credential is the #5672 resurrection. Leaving is always
- // honoured; joining always needs a live session.
  if (action === 'unsubscribe') {
- const credential = urlParams.get('token') || autologinCode || legacyAuthToken;
- if (credential) {
+ // EVERY distinct credential in the URL, in order, not just the first one
+ // present. A single `a || b` made one truncated parameter fatal: mail
+ // clients wrap long hrefs, and a half-copied `token` is non-empty, wins
+ // the `||`, gets refused, and the intact `ac` sitting in the same URL is
+ // never tried. `legacyAuthToken` is deliberately NOT in this list — it is
+ // a Firebase custom token, which neither verifyHmacToken nor
+ // verifyAutologinCode can ever accept, so sending it would only put live
+ // session material into the function's request log as a query parameter.
  const { unsubscribeViaCloudFunction } = await import('@/services/newsletterSubscribers');
+ for (const credential of [urlParams.get('token'), autologinCode]) {
+ if (!credential) continue;
  const out = await unsubscribeViaCloudFunction(normalizedEmail, credential);
  if (out.success) {
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
@@ -967,12 +987,41 @@ const App: React.FC = () => {
  return;
  }
  }
- }
- setUnsubscribeMsg(action === 'unsubscribe'
- ? 'Link non valido o scaduto. Riprova dalla newsletter.'
- : 'Link non valido o scaduto. Riprova dalla newsletter.');
+ // Cloud Function unreachable or refusing — DO NOT stop here. The
+ // client-side write below needs no session either (firestore.rules:
+ // `newsletter_subscribers/{email}` is publicly writable) and is what
+ // actually unsubscribed people before #5685, including while this
+ // function was down. Routing the exit through a single service and then
+ // showing an error when that service blinks would have made leaving
+ // strictly less reliable than it is today — in the wave that exists
+ // because leaving did not work.
+ //
+ // The fall-through carries the pre-#5685 precondition unchanged: an `ac`
+ // was present. A link with only `token` never reached the write before
+ // (it hit the "no credential" rejection), and letting it through here
+ // would let anyone unsubscribe any address by typing a URL whenever the
+ // function is unavailable. `codeForged` excludes the case where the
+ // function is demonstrably UP and has said the code is not ours.
+ if (!autologinCode || codeForged) {
+ setUnsubscribeMsg('Link non valido o scaduto. Riprova dalla newsletter.');
  window.history.replaceState({}, '', window.location.pathname);
  return;
+ }
+ } else if (codeForged || !autologinCode) {
+ // Resubscribe. No fall-through for a link whose code does not verify, or
+ // for one carrying no `ac` at all: putting somebody BACK on a list from
+ // an unproven credential is the #5672 resurrection, and the pre-#5685
+ // code did exactly that (it fell through on ANY exchange failure without
+ // ever checking the verdict). An authentic-but-refused code — expired,
+ // revoked, autologin_disabled — still falls through, because that is the
+ // "Resta iscritto" button of the win-back email and the 25 subscribers
+ // with autologin_enabled:false reach it on every single send. Failing
+ // that click closed would delete people who had just said they wanted to
+ // stay, which is the mirror image of the defect this wave repairs.
+ setUnsubscribeMsg('Link non valido o scaduto. Riprova dalla newsletter.');
+ window.history.replaceState({}, '', window.location.pathname);
+ return;
+ }
  }
 
  const [{ getFirestore, collection, setDoc, query, where, getDocs }, { getApp }] = await Promise.all([
@@ -1006,6 +1055,34 @@ const App: React.FC = () => {
  );
  };
 
+ // The re-subscription itself, deferred (#5711). Defined here rather than
+ // executed here: everything it needs is authenticated and resolved by this
+ // point, but NOTHING may be written until a person presses the button —
+ // see the two call sites below and the toast that renders it.
+ const performResubscribe = async (): Promise<void> => {
+ try {
+ await upsertNewsletterSubscriberRecord(db, {
+ email: normalizedEmail,
+ name: null,
+ preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+ source: 'resubscribe_link',
+ locale: navigator.language || 'it-IT',
+ isActive: true,
+ // Names what actually happened: the link was opened AND the button on
+ // the resulting page was pressed. Corporate anti-phishing scanners
+ // fetch every link we send (35 hits, 25 inside 7 seconds, Microsoft
+ // ranges — measured on this domain) and produce the first half only,
+ // which is why the first half alone no longer reaches this write.
+ ...consentProof('resubscribeLink', 'email_link_click_confirmed'),
+ });
+ await syncLegacyDuplicates(false, 'resubscribe_link');
+ markNewsletterSubscribedLocally();
+ setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
+ } catch {
+ setUnsubscribeMsg('Errore durante la riattivazione. Riprova più tardi.');
+ }
+ };
+
  if (action === 'unsubscribe') {
  // Single writer, shared with nothing else and importable by tests:
  // services/newsletterSubscribers.ts owns the field set AND the
@@ -1021,23 +1098,53 @@ const App: React.FC = () => {
  await syncLegacyDuplicates(false, 'unsubscribe_link');
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
+ // The way back, offered as a BUTTON on this same page instead of the
+ // `<a href="/?action=resubscribe&…">` that used to sit in the toast. That
+ // link was the SPA twin of the one #5711 removed from the Cloud
+ // Function's confirmation page; here it is also the fix for a dead end,
+ // because the link it rendered carried no credential and always answered
+ // "Link non valido".
+ setPendingResubscribe(() => performResubscribe);
+ } else if (await isNewsletterOptedOut(db, normalizedEmail)) {
+ // ── REVERSING a recorded opt-out does NOT happen on arrival (#5711) ──
+ //
+ // `action=resubscribe` is ONE parameter covering two situations that only
+ // look alike, and the difference decides whether a bare GET may write:
+ //
+ //   • the document carries a BINDING opt-out — this branch. The arrival
+ //     is asking to override a refusal the person recorded, which is the
+ //     single exception #5690 left in the opt-out wall
+ //     (`isExplicitNewsletterReOptIn` → `resubscribe_link`). A scanner
+ //     walked straight through it: measured 2026-08-12, opt-out 12:40:53,
+ //     `confirmed`/active 12:40:55. So it now only ASKS, and nothing is
+ //     written until the button below is pressed. Same asymmetry as the
+ //     Cloud Function's confirmation page, expressed as a click rather
+ //     than a POST because there is no server round-trip here.
+ //
+ //   • no binding opt-out — the branch below. That is the win-back
+ //     "Resta iscritto" CTA, which CONFIRMS the state the document is
+ //     already in and cancels a pending sunset. Nothing is being
+ //     overridden, so gating it would only cost retention: #5726 measured
+ //     25 subscribers whose click was already being dropped, and a second
+ //     tap is another place to lose them.
+ //
+ // The discriminator is the DOCUMENT, never a URL parameter — a scanner
+ // fetches whatever parameters the link carries, so anything in the URL
+ // would classify the machine exactly as it classifies the person.
+ // `isNewsletterOptedOut` fails CLOSED (a read error asks for the press).
+ setPendingResubscribe(() => performResubscribe);
+ setUnsubscribeMsg('Conferma la riattivazione: premi il pulsante qui sotto. Nessuna modifica è stata ancora applicata.');
  } else {
- await upsertNewsletterSubscriberRecord(db, {
- email: normalizedEmail,
- name: null,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
- source: 'resubscribe_link',
- locale: navigator.language || 'it-IT',
- isActive: true,
- // Records that the act was a LINK OPEN, not a form submission. Corporate
- // anti-phishing scanners fetch every link we send (35 hits, 25 inside 7
- // seconds, Microsoft ranges — measured on this domain), so the stored
- // proof has to name what actually happened instead of promoting it.
- ...consentProof('resubscribeLink', 'email_link_click'),
- });
- await syncLegacyDuplicates(false, 'resubscribe_link');
- markNewsletterSubscribedLocally();
- setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
+ // Win-back re-engagement: no refusal on record to override, one tap, as
+ // before. See the branch above for why the two are not the same act.
+ //
+ // KNOWN AND NOT FIXED HERE: this link is fetched by the same corporate
+ // scanners, so a sunset cancelled by a `GET` may be measuring the
+ // scanner's reactivity rather than the reader's. That is a defect in what
+ // `subscriberSunset` MEASURES, not a consent violation, and it needs its
+ // own measurement before anyone changes the retention funnel — tracked as
+ // chained work on #5711.
+ await performResubscribe();
  }
  // Clean URL
  window.history.replaceState({}, '', window.location.pathname);
@@ -2077,13 +2184,25 @@ const App: React.FC = () => {
  {unsubscribeMsg && (
  <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-surface border border-edge rounded-xl shadow-xl px-6 py-4 max-w-md text-center animate-fade-in">
  <p className="text-sm text-body">{unsubscribeMsg}</p>
- {newsletterActionType === 'unsubscribe' && newsletterActionEmail && (
- <a
- href={`/?action=resubscribe&email=${encodeURIComponent(newsletterActionEmail)}`}
- className="inline-block mt-2 text-xs text-accent hover:underline"
+ {/* #5711 — the re-subscription is a BUTTON, never a link. A link is
+ something a crawler follows; a press is something a person does.
+ Rendered only when the arriving credential was good enough to
+ perform the write, so it is never a control that answers "Link non
+ valido" when pressed. */}
+ {pendingResubscribe && newsletterActionEmail && (
+ <button
+ type="button"
+ onClick={() => {
+ const run = pendingResubscribe;
+ setPendingResubscribe(null);
+ void run();
+ }}
+ className="mt-2 min-h-[44px] inline-flex items-center px-4 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-xs font-medium transition-colors"
  >
- Re-iscriviti alla newsletter
- </a>
+ {newsletterActionType === 'resubscribe'
+ ? 'Conferma la riattivazione'
+ : 'Re-iscriviti alla newsletter'}
+ </button>
  )}
  <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 min-h-[44px] inline-flex items-center text-xs text-accent hover:underline">{t('common.close')}</button>
  </div>

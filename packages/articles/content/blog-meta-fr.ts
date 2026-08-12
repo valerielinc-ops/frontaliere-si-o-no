@@ -9844,6 +9844,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.amazon-malpensa-montichiari-2026.title': 'Amazon ne se présente pas en préfecture : question de politique d\'entreprise',
     'blog.article.amazon-malpensa-montichiari-2026.excerpt': 'La table convoquée à Varèse sur le transfert des activités de fret de Malpensa à Montichiari se ferme sans l\'interlocuteur principal.',
     'blog.article.amazon-malpensa-montichiari-2026.imageAlt': 'Amazon absent de la réunion à la Prefettura : politique de la société',
+    'blog.article.malpensa-m5s-contre-spostamento-amazon.title': 'M5S contre le déplacement d\'Amazon de Malpensa',
+    'blog.article.malpensa-m5s-contre-spostamento-amazon.excerpt': 'Le Mouvement 5 étoiles de la province de Varèse annonce un engagement à tous les niveaux institutionnels pour protéger les près de deux cents travailleurs impliqués dans la décision d\'Amazon de quitter, dès début septembre, l\'escale de Malpensa et de transférer ses activités à l\'aéroport de Montichiari, à Bresciano.',
+    'blog.article.malpensa-m5s-contre-spostamento-amazon.imageAlt': 'Image éditoriale relative à: M5S contro lo spostamento di Amazon da Malpensa',
 };
 
 export default blogMetaFr;
