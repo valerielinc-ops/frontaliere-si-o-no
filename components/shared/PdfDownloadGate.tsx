@@ -23,6 +23,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, FileDown, Loader2, CheckCircle2 } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import ConsentNotice from '@/components/shared/ConsentNotice';
+import { consentProof } from '@/services/consentTexts';
 import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -56,8 +58,6 @@ function triggerDownload(href: string): void {
 }
 
 type PendingDownload = { href: string; source: string; label: string };
-
-const CONSENT_TEXT = 'Registrazione gratuita per scaricare il modulo PDF: consenso esplicito a ricevere la newsletter Frontaliere Ticino.';
 
 const PdfDownloadGate: React.FC = () => {
   const { user } = useAuth();
@@ -152,10 +152,11 @@ const PdfDownloadGate: React.FC = () => {
         // Deliberately NOT in CONFIRMED_NEWSLETTER_SOURCES → starts `pending`
         // and triggers the double opt-in confirmation email. The PDF download
         // is granted immediately regardless, same as the Offerwall gate.
+        // The checkbox below renders this exact string; both sides come from
+        // consentDisplayText (#5712/#5718). IT-only gate, like the rest of
+        // this component (`locale: 'it'` above).
+        ...consentProof('communicationsOptIn', 'email_checkbox', 'it'),
         consentGiven: true,
-        consentText: CONSENT_TEXT,
-        consentMethod: 'email_checkbox',
-        consentUserAgent: navigator.userAgent,
       });
       try { Analytics.trackUIInteraction('pdf_download_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
       setStatus('success');
@@ -233,7 +234,7 @@ const PdfDownloadGate: React.FC = () => {
                 onChange={(e) => setConsentChecked(e.target.checked)}
                 className="mt-0.5"
               />
-              <span>Acconsento a ricevere la newsletter e accetto la privacy policy.</span>
+              <ConsentNotice consentKey="communicationsOptIn" locale="it" />
             </label>
 
             {status === 'error' && errorMessage && (

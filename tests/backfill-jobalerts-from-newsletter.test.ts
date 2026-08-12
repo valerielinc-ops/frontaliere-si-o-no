@@ -206,32 +206,74 @@ describe('consentNamesJobAlerts — scope of the notice, in the four locales', (
 // import (no bundler, TypeScript). The two therefore agree by convention only —
 // exactly the kind of contract that has no import shape and so is invisible to
 // every guard that follows imports. This checks it directly.
-describe('the consent register and the gate agree (#5705)', () => {
-  it('no formula in use today lets an inferred alert through', () => {
-    for (const [key, proof] of Object.entries(CONSENT_TEXTS)) {
-      const asStored = {
-        consent_given: true, // the most permissive reading of the call sites
-        consent_text: proof.text,
-        consent_text_displayed: proof.displayed,
-        consent_act: proof.act,
-      };
-      expect(hasAffirmativeJobAlertConsent(asStored), key).toBe(false);
-    }
+describe('the consent register and the gate agree (#5705, #5712)', () => {
+  /**
+   * WHAT CHANGED, AND WHY THIS IS NOT THE GUARD BEING WEAKENED.
+   *
+   * Until #5712 every entry was `displayed: false`, so this block asserted
+   * that NOTHING could pass — correct then, and it was the honest reading of a
+   * register whose formulas no JSX rendered. `communicationsOptIn` is the
+   * first formula that is actually shown to the person
+   * (components/shared/ConsentNotice.tsx, enforced call site by call site in
+   * tests/consent-shown-at-signup.test.ts), and it names the job-alert channel
+   * by the channel word rather than by "offerte di lavoro". It therefore
+   * SHOULD pass — that is what re-opens alert creation without a line changing
+   * in functions/src/jobAlertBackfillCore.js.
+   *
+   * The guard is untouched: it still needs all four conditions, and the one it
+   * cannot see from here — `consent_given: true` — is set by the call site
+   * only where a real checkbox was ticked.
+   */
+  const OPENS_THE_CHANNEL = ['communicationsOptIn'];
+
+  it('lets exactly the rendered opt-in through, and nothing else', () => {
+    const passing = Object.entries(CONSENT_TEXTS)
+      .filter(([, proof]) =>
+        hasAffirmativeJobAlertConsent({
+          consent_given: true, // the most permissive reading of the call sites
+          consent_text: proof.text,
+          consent_text_displayed: proof.displayed,
+          consent_act: proof.act,
+        }),
+      )
+      .map(([key]) => key)
+      .sort();
+    expect(passing).toEqual(OPENS_THE_CHANNEL);
   });
 
-  it('names the two entries that DO scope job alerts, so adding a third is a deliberate act', () => {
+  it('refuses that same formula when the person never ticked a box', () => {
+    // `consent_given` is the one condition the register deliberately does not
+    // supply (`consentProof` returns no `consentGiven`). A gate that only has
+    // a typed address and a submit button leaves it false, and creates no
+    // alert — which is the correct answer for it.
+    const proof = CONSENT_TEXTS.communicationsOptIn;
+    expect(hasAffirmativeJobAlertConsent({
+      consent_given: false,
+      consent_text: proof.text,
+      consent_text_displayed: proof.displayed,
+      consent_act: proof.act,
+    })).toBe(false);
+  });
+
+  it('names every entry that scopes job alerts, so adding one is a deliberate act', () => {
     const naming = Object.entries(CONSENT_TEXTS)
       .filter(([, proof]) => consentNamesJobAlerts(proof.text))
       .map(([key]) => key)
       .sort();
-    // Both are job-board unlock gates: one an OAuth sign-in (`act:
-    // 'authentication'`), one a typed address — and BOTH are `displayed: false`,
-    // i.e. the string was recorded, never rendered. That is why the register
-    // cannot admit anybody today, and it is a gap to close in the UI, not here.
-    expect(naming).toEqual(['jobUnlockEmail', 'jobUnlockSocial']);
-    for (const key of naming) {
-      expect(CONSENT_TEXTS[key as keyof typeof CONSENT_TEXTS].displayed, key).toBe(false);
+    expect(naming).toEqual([
+      'communicationsOptIn',
+      'communicationsSignIn',
+      'jobUnlockEmail',
+      'jobUnlockSocial',
+    ]);
+    // The two legacy unlock formulas remain `displayed: false` — recorded,
+    // never rendered — which is why neither can admit anybody. The sign-in
+    // formula IS rendered but keeps `act: 'authentication'`: showing somebody
+    // a notice does not turn their Google login into a request.
+    for (const key of ['jobUnlockEmail', 'jobUnlockSocial'] as const) {
+      expect(CONSENT_TEXTS[key].displayed, key).toBe(false);
     }
+    expect(CONSENT_TEXTS.communicationsSignIn.act).toBe('authentication');
   });
 });
 

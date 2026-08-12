@@ -9,6 +9,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { reportCaughtError } from '@/services/errorReporter';
+import { consentProof } from '@/services/consentTexts';
 
 export interface NewsletterState {
  unsubscribeMsg: string | null;
@@ -42,6 +43,14 @@ export function useNewsletterState(): NewsletterState {
  const q = query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail));
  const existing = await getDocs(q);
  if (existing.empty) {
+ // This is a RAW addDoc, not `captureNewsletterSubscriber` — so the
+ // `consent-text-required` creation guard added by #5695 never runs on
+ // this path. Nothing imports this hook today (App.tsx carries its own
+ // copy of the same logic, and `tests/consent-shown-at-signup.test.ts`
+ // asserts the absence of an importer), but a document created here
+ // would have been the 8.506th with no record of what was disclosed.
+ // The register's fields are written explicitly instead of left out.
+ const proof = consentProof('signInAutoSubscribe', 'social_signin');
  await addDoc(collection(db, 'newsletter_subscribers'), {
  email: normalizedEmail,
  name: displayName || null,
@@ -50,6 +59,12 @@ export function useNewsletterState(): NewsletterState {
  source,
  locale: navigator.language || 'it-IT',
  isActive: true,
+ consent_text: proof.consentText,
+ consent_text_version: proof.consentTextVersion,
+ consent_text_displayed: proof.consentTextDisplayed,
+ consent_act: proof.consentAct,
+ consent_method: proof.consentMethod,
+ consent_user_agent: proof.consentUserAgent,
  });
  } else {
  for (const d of existing.docs) {

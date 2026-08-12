@@ -18,6 +18,7 @@ import {
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import {
@@ -111,10 +112,11 @@ const WeeklyDigest: React.FC = () => {
  // recorded opt-out (#5672). Same reason as LeadMagnetCTA — without it an
  // unsubscribed reader gets the success state and no mail at all.
  reconsent: true,
- // #5678: the typed address + submit is the act, and the recorded formula
- // says so. `consentGiven` stays unset — there is no consent checkbox on
- // this form, and claiming one would invent the fact being proved.
- ...consentProof('weeklyDigest', 'email_submit'),
+ // #5678/#5712: the typed address + submit is the act, and the formula
+ // rendered under the button is the one recorded. `consentGiven` stays
+ // unset — there is no checkbox here, and claiming one would invent the
+ // fact being proved.
+ ...consentProof('communicationsOptIn', 'email_submit', locale),
  });
  markNewsletterSubscribedLocally();
  localStorage.setItem('weekly_digest_subscribed', 'true');
@@ -320,6 +322,7 @@ const WeeklyDigest: React.FC = () => {
  {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
  </button>
  </div>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block mt-2" />
 
  {/* Social sign-in */}
  <div className="flex items-center gap-3 mt-3 mb-2">

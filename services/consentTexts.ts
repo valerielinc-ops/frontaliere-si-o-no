@@ -34,6 +34,46 @@
  * tell "this is the notice that governed the gate" from "this is the sentence
  * the person read", instead of having to assume the stronger one.
  *
+ * CLOSING THAT GAP (#5712 / #5718)
+ * --------------------------------
+ * The sentence above was true of every entry until this change. It is now
+ * true of the entries that describe paths nobody can render a notice into
+ * (the auth listener in App.tsx, Google One Tap, an emailed link) and FALSE
+ * — deliberately, verifiably — of the two entries added below.
+ *
+ * `communicationsOptIn` and `communicationsSignIn` are `displayed: true`
+ * because a component renders them: `components/shared/ConsentNotice.tsx`
+ * prints `consentDisplayText(key, locale)`, the SAME function the stored
+ * value comes from, so the sentence on screen and the sentence in the
+ * document cannot drift. `tests/consent-shown-at-signup.test.ts` refuses a
+ * `displayed: true` entry whose call sites do not also render it — which is
+ * what stops the flag from becoming the flattering assumption it exists to
+ * prevent.
+ *
+ * WHY ONE FORMULA REPLACED THIRTEEN GATE-SPECIFIC ONES AT THE RENDERED GATES
+ * -------------------------------------------------------------------------
+ * The per-gate formulas below each named ONE channel (usually "la newsletter
+ * per frontalieri"). Measured 2026-08-12: eight channels ship from this repo
+ * — daily brief, weekly newsletter, job alerts, saved-jobs digest, onboarding
+ * drip, dormant win-back, sunset, publisher blast — so a person who read one
+ * of those formulas was told about a fraction of what they would receive.
+ * The replacement names CATEGORIES (editorial / job alerts / service), never
+ * products, and never a FREQUENCY: "settimanale" in the old popup formula is
+ * exactly what made the move to a daily brief contestable (#5679). Frequency
+ * lives on `CONSENT_PAGE_PATH`, generated from `services/communicationChannels.ts`,
+ * where it can change without invalidating consent already collected.
+ *
+ * WHAT THIS DOES NOT COVER, said plainly. Third-party advertising
+ * (`publisher-blast.yml`) is a different PURPOSE, not a different format, and
+ * no wording below admits it. That is an owner decision, not a code one, and
+ * `ADVERTISING_NOT_COVERED` records it where a call site would look.
+ *
+ * A NOTE ON LOCALES. `text` stays the Italian string and stays pinned; `texts`
+ * carries all four. The stored value is the one the person's own locale
+ * rendered — for en/de/fr the popup and the CTA used to SHOW a translated
+ * label and STORE the Italian literal, so the document recorded a sentence
+ * that visitor had never seen.
+ *
  * `act` records what the person actually DID. It is the field that separates
  * an authentication from a subscription, and the reason the sign-in formulas
  * below say, in so many words, that no consent box was offered. A record that
@@ -42,10 +82,65 @@
  *
  * NOT SET HERE — `consentGiven`
  * -----------------------------
- * `consent_given: true` asserts an affirmative opt-in. On every path this
- * register covers there was none (see `act`), so nothing here sets it. Keeping
- * it false also keeps the 100 documents that legitimately carry it countable.
+ * `consent_given: true` asserts an affirmative opt-in, which is a different
+ * fact from `displayed` and stays a different field. Nothing in this module
+ * sets it: a formula being on screen proves a disclosure, never a decision.
+ *
+ * Only a CALL SITE with a real checkbox the visitor has to tick before the
+ * form submits may add it, and after #5712 exactly four do — NewsletterPopup,
+ * SubscriptionCTA, PdfDownloadGate, OfferwallNewsletterGate. Four others
+ * (SaveSignInPromptModal, CompanyFollowButton, both PublisherPublishPage
+ * gates) asserted it with no checkbox anywhere in the file and no longer do:
+ * the claim was dropped, not the notice. Documents that already carry it keep
+ * it — `captureNewsletterSubscriber` falls back to the stored value.
+ *
+ * The stake is concrete. `hasAffirmativeJobAlertConsent`
+ * (functions/src/jobAlertBackfillCore.js, PR #5722) requires
+ * `consent_given` AND `consent_text_displayed` AND a text naming the alert
+ * channel: a checkbox-less gate asserting the first would re-open job-alert
+ * creation for people who never asked, which is exactly the #5705 shape that
+ * produced 6.308 unrequested alerts.
+ * `tests/consent-shown-at-signup.test.ts` enforces the checkbox rule per file.
  */
+
+import {
+  DATA_CONTROLLER_NAME,
+  DATA_CONTROLLER_EMAIL,
+} from '../functions/src/lib/dataControllerIdentity.js';
+
+/**
+ * The four locales this codebase ships everywhere else. A consent notice in a
+ * language the reader does not speak is not a notice, so a formula that claims
+ * `displayed: true` has to exist in all four.
+ */
+export const CONSENT_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+export type ConsentLocale = (typeof CONSENT_LOCALES)[number];
+
+/**
+ * The page that lists every live channel with its real cadence, generated from
+ * `services/communicationChannels.ts`. Named INSIDE the consent formula: it is
+ * what lets the formula stay silent about frequency without leaving the reader
+ * unable to find it.
+ */
+export const CONSENT_PAGE_PATH = '/comunicazioni/';
+/** How that page is written inside the formula — bare host, no scheme, as a person would read it aloud. */
+export const CONSENT_PAGE_LABEL = 'frontaliereticino.ch/comunicazioni';
+
+/**
+ * Third-party advertising is NOT in any formula below, and this constant is
+ * here so the next person to wire `blast-publisher-ads.mjs` to a consent check
+ * finds the reason instead of an absence.
+ *
+ * An advertiser's message is a different PURPOSE, not another format of the
+ * editorial category — "un consenso per qualunque email decideremo di mandare"
+ * is not a valid consent. Two ways out, and only the owner may pick: name
+ * advertising in the formula and accept that some people refuse it, or do not
+ * send it to people whose consent does not cover it. Slipping it under
+ * "aggiornamenti redazionali" is the shortcut that produced the 6.308
+ * unrequested job alerts (#5705).
+ */
+export const ADVERTISING_NOT_COVERED =
+  'blocked: owner decision — third-party advertising (publisher-blast.yml) is a different purpose and no formula in this register admits it (#5712)';
 
 /** How the address reached us, stored as `consent_method`. */
 export type ConsentMethod =
@@ -76,19 +171,141 @@ export type ConsentAct =
 export type ConsentProofEntry = {
   /** Stable grouping key. Never a substitute for `text` when answering art. 25. */
   readonly id: string;
-  /** Bump on ANY edit to `text`. Older documents keep the version they were given. */
+  /** Bump on ANY edit to `text` OR to any string in `texts`. Older documents keep the version they were given. */
   readonly version: string;
-  /** The exact disclosure in force at this gate. Stored verbatim. */
+  /** The exact disclosure in force at this gate, in Italian. Stored verbatim. */
   readonly text: string;
-  /** Was this exact string rendered to the person? `false` everywhere today. */
+  /**
+   * The same disclosure in all four locales, when it exists in all four.
+   * `texts.it` must equal `text` — asserted in tests/newsletter-consent-proof.test.ts.
+   * Absent on the legacy entries: they were only ever written in Italian, which
+   * is precisely why none of them may claim `displayed: true`.
+   */
+  readonly texts?: Readonly<Record<ConsentLocale, string>>;
+  /**
+   * Was this exact string rendered to the person?
+   *
+   * `true` requires BOTH halves: a `texts` table (so every visitor sees it in
+   * their own language) and a call site that renders it through
+   * `components/shared/ConsentNotice.tsx`. Nothing here can verify the second
+   * half; `tests/consent-shown-at-signup.test.ts` does, per call site.
+   */
   readonly displayed: boolean;
   /** What the person actually did at this gate. */
   readonly act: ConsentAct;
 };
 
-const entry = (e: ConsentProofEntry): ConsentProofEntry => Object.freeze(e);
+const entry = (e: ConsentProofEntry): ConsentProofEntry =>
+  Object.freeze({ ...e, texts: e.texts ? Object.freeze({ ...e.texts }) : undefined });
+
+/**
+ * The three categories, spelled out once per locale and reused by both
+ * displayed formulas below.
+ *
+ * `avvisi di lavoro` / `job alerts` / `Stellenbenachrichtigungen` /
+ * `alertes d'emploi` are load-bearing, not stylistic: `consentNamesJobAlerts`
+ * (functions/src/jobAlertBackfillCore.js) matches on exactly those phrases and
+ * deliberately refuses "offerte di lavoro", which names the CONTENT of a page
+ * rather than a mailing. Naming the channel is what lets an opt-in collected
+ * here create a job alert without any change to that fail-closed guard — and
+ * why an edit that softened these words back to "offerte" would silently shut
+ * the channel again.
+ */
+const CATEGORIES: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: 'aggiornamenti redazionali — cambio CHF/EUR, traffico ai valichi, fisco, previdenza e novità normative; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato.',
+  en: 'editorial updates — CHF/EUR exchange rate, traffic at the border crossings, tax, pensions and regulatory news; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved.',
+  de: 'redaktionelle Updates — CHF/EUR-Kurs, Verkehr an den Grenzübergängen, Steuern, Vorsorge und Neuerungen der Rechtslage; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen.',
+  fr: 'mises à jour éditoriales — taux CHF/EUR, trafic aux postes-frontière, fiscalité, prévoyance et nouveautés réglementaires ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées.',
+});
+
+/**
+ * The closing half: where the live list lives, how to leave, and who the
+ * controller is. No frequency word appears in it — that is the whole point.
+ * The controller is named AT COLLECTION, not only in the privacy notice
+ * (art. 19 nLPD, #5675), and through the canonical constants so it cannot
+ * drift from `/privacy/` the way the hardcoded literals did before #5702.
+ */
+const CLOSING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: `L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su ${CONSENT_PAGE_LABEL}. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
+  en: `The complete, up-to-date list of every communication, with how often each one is sent, is at ${CONSENT_PAGE_LABEL}. I can choose which ones to receive and how often, or stop them all, at any time and without giving a reason, from my preferences or the link at the bottom of every email. Data controller: ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
+  de: `Die vollständige und aktuelle Liste aller Mitteilungen, mit der Häufigkeit jeder einzelnen, steht auf ${CONSENT_PAGE_LABEL}. Ich kann jederzeit und ohne Begründung wählen, welche ich erhalte und wie oft, oder alle abbestellen — in meinen Einstellungen oder über den Link am Ende jeder E-Mail. Verantwortliche Person: ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
+  fr: `La liste complète et à jour de toutes les communications, avec la fréquence de chacune, se trouve sur ${CONSENT_PAGE_LABEL}. Je peux à tout moment et sans motif choisir lesquelles recevoir et à quelle fréquence, ou toutes les résilier, depuis mes préférences ou le lien en bas de chaque e-mail. Responsable du traitement : ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
+});
+
+const OPT_IN_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: 'Comunicazioni di Frontaliere Ticino. Accetto di ricevere via email le comunicazioni di Frontaliere Ticino dedicate a chi lavora oltre confine:',
+  en: 'Frontaliere Ticino communications. I agree to receive by email the Frontaliere Ticino communications for people who work across the border:',
+  de: 'Mitteilungen von Frontaliere Ticino. Ich stimme zu, die E-Mail-Mitteilungen von Frontaliere Ticino für Grenzgängerinnen und Grenzgänger zu erhalten:',
+  fr: 'Communications de Frontaliere Ticino. J’accepte de recevoir par e-mail les communications de Frontaliere Ticino destinées à celles et ceux qui travaillent de l’autre côté de la frontière :',
+});
+
+/**
+ * The sign-in opening. Same categories, different first sentence, because the
+ * ACT is different and a formula that hid that would be the fabrication the
+ * whole register exists to refuse: signing in is not ticking a box.
+ */
+const SIGN_IN_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: 'Comunicazioni di Frontaliere Ticino. Accedendo, l’indirizzo email del mio account viene iscritto alle comunicazioni di Frontaliere Ticino: nessuna casella di consenso separata mi è stata proposta, l’accesso è l’unico gesto che compio. Ricevo:',
+  en: 'Frontaliere Ticino communications. By signing in, my account email address is subscribed to the Frontaliere Ticino communications: no separate consent box was offered to me, signing in is the only thing I do. I receive:',
+  de: 'Mitteilungen von Frontaliere Ticino. Mit der Anmeldung wird die E-Mail-Adresse meines Kontos für die Mitteilungen von Frontaliere Ticino registriert: es wurde mir kein separates Einwilligungskästchen angeboten, die Anmeldung ist die einzige Handlung, die ich vornehme. Ich erhalte:',
+  fr: 'Communications de Frontaliere Ticino. En me connectant, l’adresse e-mail de mon compte est inscrite aux communications de Frontaliere Ticino : aucune case de consentement distincte ne m’a été proposée, la connexion est le seul geste que j’accomplis. Je reçois :',
+});
+
+const compose = (
+  opening: Readonly<Record<ConsentLocale, string>>,
+): Readonly<Record<ConsentLocale, string>> =>
+  Object.freeze(
+    Object.fromEntries(
+      CONSENT_LOCALES.map((l) => [l, `${opening[l]} ${CATEGORIES[l]} ${CLOSING[l]}`]),
+    ) as Record<ConsentLocale, string>,
+  );
+
+const COMMUNICATIONS_OPT_IN = compose(OPT_IN_OPENING);
+const COMMUNICATIONS_SIGN_IN = compose(SIGN_IN_OPENING);
 
 export const CONSENT_TEXTS = Object.freeze({
+  /**
+   * THE ONE FORMULA THAT IS ACTUALLY SHOWN — typed-address and checkbox gates.
+   *
+   * Replaces the per-gate newsletter-only formulas at every gate that renders
+   * `<ConsentNotice consentKey="communicationsOptIn">`. Which gate it was is
+   * not lost: `consent_source_url` and `source_channel` still carry it, and
+   * they are facts about the request rather than a sentence somebody wrote.
+   *
+   * `act: 'typed_email_submit'` is the only value in
+   * `AFFIRMATIVE_CONSENT_ACTS`, so this entry — combined with a `consentGiven:
+   * true` the CALL SITE sets when it really has a ticked box — is what can
+   * re-open job-alert creation after PR #5722 closed it fail-closed. Nothing
+   * here sets `consentGiven`: a gate with no checkbox stays at `false` and
+   * creates no alert, which is the correct answer for it.
+   */
+  communicationsOptIn: entry({
+    id: 'communications_opt_in',
+    version: '2026-08-12.2',
+    text: COMMUNICATIONS_OPT_IN.it,
+    texts: COMMUNICATIONS_OPT_IN,
+    displayed: true,
+    act: 'typed_email_submit',
+  }),
+
+  /**
+   * The same disclosure at a SIGN-IN gate, shown before the provider buttons.
+   *
+   * Deliberately still `act: 'authentication'`, which is NOT in
+   * `AFFIRMATIVE_CONSENT_ACTS`: showing somebody a notice does not turn their
+   * Google login into an opt-in. What it does buy is the art. 19 nLPD half —
+   * the person was told, at collection time, what they were being subscribed
+   * to and by whom — which is the half that was missing everywhere.
+   */
+  communicationsSignIn: entry({
+    id: 'communications_sign_in',
+    version: '2026-08-12.2',
+    text: COMMUNICATIONS_SIGN_IN.it,
+    texts: COMMUNICATIONS_SIGN_IN,
+    displayed: true,
+    act: 'authentication',
+  }),
+
   /** App.tsx / hooks/useUserState.ts / authService One Tap: sign-in auto-subscribe. */
   signInAutoSubscribe: entry({
     id: 'signin_auto_subscribe',
@@ -276,10 +493,18 @@ export function consentProof(
   // method strings that predate it (`social_oauth` in PublisherPublishPage).
   // Widening beats rewriting values already sitting in production documents.
   method: ConsentMethod | (string & {}),
+  /**
+   * The locale the visitor is reading the site in. Optional so the paths that
+   * cannot render a notice keep working unchanged; supplied by every gate that
+   * renders one, because storing a sentence in a language the person does not
+   * read is the defect this argument exists to remove — the popup used to SHOW
+   * `newsletter.consentLabel` in German and STORE the Italian literal.
+   */
+  locale?: string,
 ): ConsentProofInput {
   const proof = CONSENT_TEXTS[key];
   return {
-    consentText: proof.text,
+    consentText: consentDisplayText(key, locale),
     consentTextVersion: proof.version,
     consentTextDisplayed: proof.displayed,
     consentAct: proof.act,
@@ -289,6 +514,30 @@ export function consentProof(
         ? navigator.userAgent
         : null,
   };
+}
+
+/**
+ * Narrow anything the UI calls a locale down to one this register has.
+ * `it` is the fallback for the same reason every other i18n table in this
+ * codebase falls back to it: it is the primary locale, and a formula in the
+ * wrong language beats no formula.
+ */
+export function consentLocale(locale?: string | null): ConsentLocale {
+  const key = String(locale || 'it').slice(0, 2).toLowerCase() as ConsentLocale;
+  return (CONSENT_LOCALES as readonly string[]).includes(key) ? key : 'it';
+}
+
+/**
+ * The exact string to SHOW, which is by construction the exact string that
+ * gets STORED — `consentProof` calls this function and nothing else.
+ *
+ * One function, so the two halves cannot drift. A component that rendered its
+ * own translation while the upsert stored `proof.text` would rebuild the very
+ * gap `displayed` was invented to report.
+ */
+export function consentDisplayText(key: ConsentTextKey, locale?: string | null): string {
+  const proof = CONSENT_TEXTS[key];
+  return proof.texts ? proof.texts[consentLocale(locale)] : proof.text;
 }
 
 /** OAuth provider id (`google.com`, `facebook.com`, …) → `consent_method`. */

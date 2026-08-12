@@ -27,6 +27,7 @@ import {
  isNewsletterOptedOut,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { recaptchaService } from '@/services/recaptchaService';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -599,8 +600,12 @@ const PublisherPublishPage: React.FC = () => {
  // OAuth-verified email + implicit consent → no double-opt-in email.
  isActive: true,
  status: 'confirmed',
- consentGiven: true,
- ...consentProof('publisherGateSocial', consentMethod),
+ // #5712/#5718: the notice above the provider buttons in the gate below
+ // renders this exact string, in this locale.
+ ...consentProof('communicationsSignIn', consentMethod, locale),
+ // No `consentGiven`: an OAuth sign-in is not a ticked box. The notice
+ // above the provider buttons makes the disclosure real; it does not turn
+ // a login into a request. See services/consentTexts.ts (#5712).
  });
  markNewsletterSubscribedLocally();
  } catch (error) {
@@ -1294,8 +1299,11 @@ const PublisherPublishPage: React.FC = () => {
  // DOWNGRADE an already-confirmed subscriber who types their email in the
  // gate. Omitting them preserves a confirmed subscriber and defaults a new
  // address to 'pending' (→ auto opt-in/login email).
- consentGiven: true,
- ...consentProof('publisherGateEmail', 'email_checkbox'),
+ // #5712/#5718: rendered under the gate's email form, same locale.
+ ...consentProof('communicationsOptIn', 'email_submit', locale),
+ // No `consentGiven`: this form has no consent checkbox, so nothing here
+ // is an affirmative opt-in — only "was shown" is true. See the
+ // `consentGiven` section of services/consentTexts.ts (#5712).
  });
  // New pending subscribers already received the opt-in (= login) email from
  // the upsert. Existing subscribers need an explicit login link.
@@ -1381,6 +1389,7 @@ const PublisherPublishPage: React.FC = () => {
 
  <div className="mt-6 space-y-4">
  {/* Social sign-in — same row as the newsletter box (Google + LinkedIn) */}
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} />
  <SocialSignInButtons locale={locale} googleWidth={320} errorContext="publisher.gate" />
 
  {/* Divider */}
@@ -1419,7 +1428,7 @@ const PublisherPublishPage: React.FC = () => {
 
  <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
  <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
- <span>{t('publisher.gate.consentNote')}</span>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
  </p>
  </div>
  </div>
