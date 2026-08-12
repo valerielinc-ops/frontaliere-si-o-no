@@ -2320,6 +2320,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iva-aumento-governo-difesa-2026.title': 'Government: 0.5 percentage point increase over 12 years',
     'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'The VAT increase of 0.5 percentage points will be applied from 2028 and for a period of 12 years.',
     'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'A scene of a Swiss politician presenting a budget to the Parliament, with a background of the Swiss Alps.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Grisons supports railway connection S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'The collaboration with Lombardy aims to reduce travel times between Engadine and Alta Valtellina, with a concrete project expected by December.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'A train travels through the Swiss mountains, with a focus on the Livigno and S-chanf connection.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Greater responsibility for bank top management',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Federal Council consults on new measures to increase accountability of bank managers',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Swiss banks',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'Drought rises to Grade 2 in Breggia: here\'s what you can\'t do',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'The drought rises to grade 2 in Breggia. The City Council announced the increase in the scale of water crisis for the hamlets of Morbio Superiore and Sagno. Here\'s what you can\'t do.',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Editorial image related to: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Cf: drought, there is no urgency for now for additional measures',
+    'blog.article.cf-urgenza-siccita.excerpt': 'The Federal Council has not yet decided to take new measures to address the drought',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'Water situation in Switzerland',
 };
 
 export default blogMetaChEn;

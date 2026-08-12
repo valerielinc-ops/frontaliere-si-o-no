@@ -2320,6 +2320,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-governo-difesa-2026.title': 'Regierung: 0,5 Prozentpunkte Anstieg über 12 Jahre',
     'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'Die Mehrwertsteuererhöhung von 0,5 Prozentpunkten wird ab 2028 und für einen Zeitraum von 12 Jahren angewendet.',
     'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Eine Szene eines Schweizer Politikers, der einen Haushalt dem Parlament vorstellt, mit einem Hintergrund der Schweizer Alpen.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Graubünden unterstützt Bahnverbindung S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'Die Zusammenarbeit mit der Lombardei zielt darauf ab, die Reisezeiten zwischen dem Engadin und dem Oberen Veltlin zu verkürzen, wobei bis Dezember ein konkretes Projekt erwartet wird.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Ein Zug fährt durch die Schweizer Berge, mit Schwerpunkt auf die Verbindung Livigno-S-chanf.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Größere Verantwortung für die Bankspitze',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Bundesrat verhandelt über neue Massnahmen zur Stärkung der Eigenverantwortung von Bankmanagern',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Schweizer Banken',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'Die Dürre steigt in Breggia auf Grad 2: Das können Sie nicht tun',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'Die Trockenheit steigt in Breggia auf Grad 2. Die Gemeinde hat die Erhöhung der Wasserkrisenskala für die Fraktionen Morbio Superiore und Sagno mitgeteilt. Hier ist, was Sie nicht tun können.',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Redaktionelles Bild zu: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Vgl.: Dürre, keine Dringlichkeit für zusätzliche Massnahmen vorerst',
+    'blog.article.cf-urgenza-siccita.excerpt': 'Der Bundesrat hat noch keine neuen Massnahmen zur Bewältigung der Dürre beschlossen',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'Wasserstand in der Schweiz',
 };
 
 export default blogMetaChDe;

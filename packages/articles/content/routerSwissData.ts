@@ -799,6 +799,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'frutta-ve-25-per-cento-piu-costi-3-sconto-migros': { it: 'frutta-ve-25-per-cento-piu-costi-3-sconto-migros', en: 'fruit-ve-25-percent-more-costs-3-discount-migros', de: 'frucht-ve-25-prozent-mehr-kosten-3-rabatt-migros', fr: 'fruits-ve-25-pour-cent-plus-de-couts-3-rabais-migros' },
  'scherzi-nuove-misure-del-consiglio-federale': { it: 'scherzi-nuove-misure-del-consiglio-federale', en: 'jokes-new-measures-of-the-federal-council', de: 'witz-new-measures-of-the-federal-council', fr: 'blagues-new-measures-of-the-federal-council' },
  'iva-aumento-governo-difesa-2026': { it: 'iva-aumento-governo-difesa-2026', en: 'iva-increase-government-defense-2026', de: 'iva-steigerung-regierung-verteidigung-2026', fr: 'augmentation-de-la-iva-pour-la-defense-2026' },
+ 'livigno-idea-progetto-s-chanf': { it: 'livigno-idea-progetto-s-chanf', en: 'livigno-idea-project-s-chanf', de: 'livigno-idee-projekt-s-chanf', fr: 'livigno-idee-projet-s-chanf' },
+ 'maggiori-responsabilita-peri-vertici-bancari': { it: 'maggiori-responsabilita-peri-vertici-bancari', en: 'greater-responsibilities-for-bank-executives', de: 'mehr-verantwortung-fur-bankfuhrungskrafte', fr: 'plus-grand-responsabilite-pour-les-executifs-de-banques' },
+ 'la-siccita-sale-al-grado-2-a-breggia': { it: 'la-siccita-sale-al-grado-2-a-breggia', en: 'la-siccita-sale-al-grado-2-a-breggia', de: 'die-duerre-steigt-auf-grad-2-in-breggia', fr: 'la-secheresse-grimpe-au-degre-2-a-breggia' },
+ 'cf-urgenza-siccita': { it: 'cf-urgenza-siccita', en: 'cf-urgenza-siccita', de: 'cf-notstand-ursache', fr: 'cf-situation-urgence' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

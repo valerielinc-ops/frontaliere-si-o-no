@@ -2320,6 +2320,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-governo-difesa-2026.title': 'Gouvernement : 0,5 point de pourcentage d\'augmentation sur 12 ans',
     'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'L\'augmentation de la TVA de 0,5 point de pourcentage sera appliquée à partir de 2028 et pour une période de 12 ans.',
     'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Une scène d\'un politicien suisse présentant un budget au Parlement, avec un fond des Alpes suisses.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Grisons soutient la liaison ferroviaire S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'La collaboration avec la Lombardie vise à réduire les temps de trajet entre l\'Engadine et la Haute-Valtelline, avec un projet concret attendu d\'ici décembre.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Un train traverse les montagnes suisses, avec un focus sur la connexion Livigno-S-chanf.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Plus grande responsabilité pour les sommets bancaires',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Le Conseil fédéral met en consultation de nouvelles mesures pour accroître la responsabilité des dirigeants bancaires',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Banques suisses',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'La sécheresse monte au grade 2 à Breggia : voici ce que vous ne pouvez pas faire',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'La sécheresse monte au grade 2 à Breggia. La municipalité a communiqué l\'augmentation de l\'échelle de crise de l\'eau pour les hameaux de Morbio Superiore et Sagno. Voici ce que vous ne pouvez pas faire.',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Image éditoriale relative à: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Cf : sécheresse, pas d\'urgence pour l\'instant pour des mesures supplémentaires',
+    'blog.article.cf-urgenza-siccita.excerpt': 'Le Conseil fédéral n\'a pas encore décidé de nouvelles mesures pour faire face à la sécheresse',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'Situation de l\'eau en Suisse',
 };
 
 export default blogMetaChFr;

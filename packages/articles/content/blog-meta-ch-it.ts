@@ -2320,6 +2320,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iva-aumento-governo-difesa-2026.title': 'Governo: 0,5 punti percentuali di aumento per 12 anni',
     'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'L\'incremento dell\'IVA di 0,5 punti percentuali sarà applicato dal 2028 e per un periodo di 12 anni.',
     'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Una scena di un politico svizzero che presenta il bilancio al Parlamento, con un fondo delle Alpi svizzere.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Grigioni appoggia collegamento ferroviario S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Un treno attraversa le montagne svizzere, con enfasi sulla connessione Livigno-S-chanf.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Maggiori responsabilità per i vertici bancari',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Istituti bancari svizzeri',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l\'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco cosa non potete fare.',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Immagine editoriale relativa a: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
+    'blog.article.cf-urgenza-siccita.excerpt': 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'La situazione idrica in Svizzera',
 };
 
 export default blogMetaChIt;

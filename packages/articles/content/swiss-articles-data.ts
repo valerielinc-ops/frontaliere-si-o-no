@@ -6958,6 +6958,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'livigno-idea-progetto-s-chanf',
+    category: 'pratico',
+    date: '2026-08-12T17:59:03.808Z',
+    image: '/images/blog/livigno-idea-progetto-s-chanf.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'maggiori-responsabilita-peri-vertici-bancari',
+    category: 'fiscale',
+    date: '2026-08-12T18:05:46.316Z',
+    image: '/images/blog/maggiori-responsabilita-peri-vertici-bancari.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'la-siccita-sale-al-grado-2-a-breggia',
+    category: 'pratico',
+    date: '2026-08-12T18:14:38.857Z',
+    image: '/images/blog/la-siccita-sale-al-grado-2-a-breggia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'cf-urgenza-siccita',
+    category: 'novita',
+    date: '2026-08-12T18:24:12.637Z',
+    image: '/images/blog/cf-urgenza-siccita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

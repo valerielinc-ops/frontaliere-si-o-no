@@ -30047,6 +30047,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-livigno-idea-progetto-s-chanf': {
+    title: 'Grigioni appoggia collegamento ferroviario S-chanf Livigno',
+    description: 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, appoggia, collegamento, ferroviario',
+    ogTitle: 'Il Canton Grigioni appoggia l\'idea di un collegamento ferroviario tra S-chanf e Livigno',
+    ogDescription: 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    canonicalPath: '/articoli-svizzera/livigno-idea-progetto-s-chanf/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni appoggia collegamento ferroviario S-chanf Livigno",
+      "description": "La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/livigno-idea-progetto-s-chanf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un treno attraversa le montagne svizzere, con enfasi sulla connessione Livigno-S-chanf."
+      },
+      "datePublished": "2026-08-12T17:59:03+00:00",
+      "dateModified": "2026-08-12T17:59:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/livigno-idea-progetto-s-chanf/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-maggiori-responsabilita-peri-vertici-bancari': {
+    title: 'Maggiori responsabilità per i vertici bancari | Frontaliere Ticino',
+    description: 'Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggiori, responsabilità, vertici, bancari',
+    ogTitle: 'Maggiori responsabilità per i vertici bancari',
+    ogDescription: 'Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari e migliorare la governance delle banche svizzere',
+    canonicalPath: '/articoli-svizzera/maggiori-responsabilita-peri-vertici-bancari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maggiori responsabilità per i vertici bancari",
+      "description": "Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maggiori-responsabilita-peri-vertici-bancari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Istituti bancari svizzeri"
+      },
+      "datePublished": "2026-08-12T18:05:46+00:00",
+      "dateModified": "2026-08-12T18:05:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maggiori-responsabilita-peri-vertici-bancari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-la-siccita-sale-al-grado-2-a-breggia': {
+    title: 'La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    description: 'La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l\'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, sale, grado, breggia',
+    ogTitle: 'La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    ogDescription: 'La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l\'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco cosa non potete fare.',
+    canonicalPath: '/articoli-svizzera/la-siccita-sale-al-grado-2-a-breggia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La siccità sale al grado 2 a Breggia: ecco cosa non potete fare",
+      "description": "La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-siccita-sale-al-grado-2-a-breggia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare"
+      },
+      "datePublished": "2026-08-12T18:14:38+00:00",
+      "dateModified": "2026-08-12T18:14:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/la-siccita-sale-al-grado-2-a-breggia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cf-urgenza-siccita': {
+    title: 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
+    description: 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, urgenza, misure, aggiuntive',
+    ogTitle: 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
+    ogDescription: 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità',
+    canonicalPath: '/articoli-svizzera/cf-urgenza-siccita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cf: siccità, non c'è urgenza per ora per misure aggiuntive",
+      "description": "Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cf-urgenza-siccita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La situazione idrica in Svizzera"
+      },
+      "datePublished": "2026-08-12T18:24:12+00:00",
+      "dateModified": "2026-08-12T18:24:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cf-urgenza-siccita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
