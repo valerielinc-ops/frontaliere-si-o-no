@@ -145,7 +145,6 @@
       },
       "firstSeenAt": "2026-08-07T01:27:52.672Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -182,7 +181,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "Business Process Operations Specialista I",
-        "en": "Settlement Specialist Wertschriftenabwicklung",
+        "en": "Settlement Specialist securities settlement",
         "de": "Business Process Operations Spezialist I",
         "fr": "Business Process Operations Spécialiste I"
       },
@@ -229,7 +228,6 @@
       },
       "firstSeenAt": "2026-07-29T11:41:09.908Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -346,7 +344,7 @@
         "it": "Gestione partner Swisscom Vantaggi",
         "en": "Partner Management Swisscom Benefits",
         "de": "Partner Management Swisscom Benefits",
-        "fr": "Partner Management Swisscom Benefits"
+        "fr": "Gestion des partenaires Swisscom Avantages"
       },
       "slug": "gestione-partner-swisscom-vantaggi-swisscom-sede-ticino-zurich",
       "slugByLocale": {
@@ -622,7 +620,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1501,7 +1498,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -2170,7 +2166,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "PiB: Bachelor of Science (BSc) in Informatica",
-        "en": "PiBs: Bachelor of Science (BSc) in Informatik",
+        "en": "PiBs: Bachelor of Science (BSc) in Computer Science",
         "de": "PiBs: Bachelor of Science (BSc) in Informatik",
         "fr": "PiBs: Baccalauréat en sciences (BSc) en informatique"
       },
@@ -2212,7 +2208,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -2249,7 +2244,7 @@
       "requirementsByLocale": {},
       "titleByLocale": {
         "it": "PiB: Bachelor of Science (BSc) in Informatica",
-        "en": "PiBs: Bachelor of Science (BSc) in Informatik",
+        "en": "PiBs: Bachelor of Science (BSc) in Computer Science",
         "de": "PiBs: Bachelor of Science (BSc) in Informatik",
         "fr": "PiBs: Baccalauréat en sciences (BSc) en informatique"
       },
@@ -2291,7 +2286,6 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -2609,8 +2603,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant-Finance_R-0001100",
@@ -3082,7 +3075,6 @@
       },
       "firstSeenAt": "2026-07-03T23:11:01.417Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3121,7 +3113,7 @@
         "it": "Controller aziendale senior",
         "en": "Senior Business Controller",
         "de": "Senior Business Controller",
-        "fr": "Senior Business Controller"
+        "fr": "Contrôleur principal des entreprises"
       },
       "slug": "controller-aziendale-senior-swisscom-sede-ticino-bern",
       "slugByLocale": {
@@ -3244,7 +3236,6 @@
       },
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -3487,7 +3478,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
@@ -3638,7 +3628,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3719,7 +3708,6 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -3818,8 +3806,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
