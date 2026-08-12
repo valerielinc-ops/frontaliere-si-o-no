@@ -30554,6 +30554,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenino-rossoschanf-livigno': {
+    title: 'Da S-chanf a Livigno in treno, Coira dice sì | Frontaliere Ticino',
+    description: 'Il Canton Grigioni vuole lavorare assieme ai partner della Lombardia per realizzare un collegamento ferroviario tra Engadina e Alta Valtellina. A dicembre è',
+    keywords: 'frontalieri, ticino, svizzera, italia, s-chanf, livigno, treno, coira',
+    ogTitle: 'Da S-chanf a Livigno in treno, Coira dice sì',
+    ogDescription: 'Il Canton Grigioni vuole lavorare assieme ai partner della Lombardia per realizzare un collegamento ferroviario tra Engadina e Alta Valtellina. A dicembre è prevista la presentazione di un progetto concreto.',
+    canonicalPath: '/articoli-svizzera/trenino-rossoschanf-livigno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da S-chanf a Livigno in treno, Coira dice sì",
+      "description": "Il Canton Grigioni vuole lavorare assieme ai partner della Lombardia per realizzare un collegamento ferroviario tra Engadina e Alta Valtellina. A dicembre è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenino-rossoschanf-livigno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una galleria ferroviaria in Svizzera con una vista panoramica del lago di Lugano, con un treno in arrivo o in partenza. Max 125 char."
+      },
+      "datePublished": "2026-08-12T22:12:43+00:00",
+      "dateModified": "2026-08-12T22:12:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trenino-rossoschanf-livigno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
