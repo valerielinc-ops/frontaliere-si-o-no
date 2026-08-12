@@ -1,55 +1,18 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-08-11T21:56:16.295Z",
+  "generatedAt": "2026-08-12T10:41:07.013Z",
   "total": 6,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9083,
-  "avgDurationMs": 9083,
+  "unchangedCount": 1,
+  "durationMs": 7095,
+  "avgDurationMs": 7095,
   "durationHistory": [
-    9083
+    7095
   ],
-  "newJobs": [
-    {
-      "id": "pigna-7778b3432c0a",
-      "slug": "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
-      "company": "Stiftung Pigna",
-      "companyKey": "pigna",
-      "companyDomain": "pigna.ch",
-      "title": "TEAMLEITUNG FÜR UNSERE WOHNGRUPPE \"ZUGANG ZUM PARK\"",
-      "needsRetranslation": true,
-      "location": "Kloten",
-      "canton": "ZH",
-      "url": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
-      "source": "Pigna Dedicated Parser (Refline 1531)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:12.093Z",
-      "addressLocality": "Kloten",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8302",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sociale / Educazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-11",
-      "applyUrl": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "pigna-5dee32dc54dc",
@@ -58,13 +21,13 @@
       "companyKey": "pigna",
       "companyDomain": "pigna.ch",
       "title": "COMBI-TALENT FÜR PFLEGERISCH-AGOGISCHE BETREUUNG 60 - 90%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Kloten",
       "canton": "ZH",
       "url": "https://app.reflinejobs.io/1531/0138/pub/470/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:10.146Z",
+      "crawledAt": "2026-08-12T10:41:02.232Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,6 +52,43 @@
       }
     },
     {
+      "id": "pigna-7778b3432c0a",
+      "slug": "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
+      "company": "Stiftung Pigna",
+      "companyKey": "pigna",
+      "companyDomain": "pigna.ch",
+      "title": "TEAMLEITUNG FÜR UNSERE WOHNGRUPPE \"ZUGANG ZUM PARK\"",
+      "needsRetranslation": true,
+      "location": "Kloten",
+      "canton": "ZH",
+      "url": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
+      "source": "Pigna Dedicated Parser (Refline 1531)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T10:41:03.375Z",
+      "addressLocality": "Kloten",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8302",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-11",
+      "applyUrl": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
+      "firstSeenAt": "2026-08-11T21:56:12.093Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "id": "pigna-ed3dc4b4ba08",
       "slug": "agogischer-wohnprofi-mit-pflegerischem-flair-60-90-pigna-kloten",
       "company": "Stiftung Pigna",
@@ -101,7 +101,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/473/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:09.280Z",
+      "crawledAt": "2026-08-12T10:41:01.622Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/467/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:10.877Z",
+      "crawledAt": "2026-08-12T10:41:02.848Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://app.reflinejobs.io/1531/0276/pub/466/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:12.696Z",
+      "crawledAt": "2026-08-12T10:41:03.912Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,10 +198,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pigna-98a4c632c7a7",
-      "slug": "teamleitung-tagesstatte-engelwisen-60-80-pigna-kloten",
+      "slug": "attivita-di-teamling-engelwisen-60-80-stiftung-pigna-kloten",
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
       "companyDomain": "pigna.ch",
@@ -228,15 +231,16 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://app.reflinejobs.io/1531/0264/pub/437/index.html",
       "firstSeenAt": "2026-06-12T22:59:29.529Z",
-      "_qualityScore": 85,
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
