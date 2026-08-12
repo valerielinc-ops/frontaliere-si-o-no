@@ -2311,6 +2311,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Banche sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'Il Consiglio federale intende responsabilizzare maggiormente i vertici delle banche ed evitare i rischi derivanti da bonus elevati.',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Banca sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'Frutta e verdura più care da produrre, ma prezzi non salgono',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Gli orticoltori svizzeri devono affrontare costi straordinari aggiuntivi del 25% a causa della siccità, ma i prezzi non aumentano.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'Un orticoltore in Svizzera lotta contro la siccità.',
 };
 
 export default blogMetaChIt;

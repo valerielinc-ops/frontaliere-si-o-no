@@ -29930,6 +29930,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frutta-ve-25-per-cento-piu-costi-3-sconto-migros': {
+    title: 'Frutta e verdura più care da produrre, ma prezzi non salgono',
+    description: 'Gli orticoltori svizzeri devono affrontare costi straordinari aggiuntivi del 25% a causa della siccità, ma i prezzi non aumentano. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, frutta, verdura, care, produrre',
+    ogTitle: 'Frutta e verdura più care da produrre, ma prezzi non salgono',
+    ogDescription: 'Gli orticoltori svizzeri devono affrontare costi straordinari aggiuntivi del 25% a causa della siccità, ma i prezzi non aumentano.',
+    canonicalPath: '/articoli-svizzera/frutta-ve-25-per-cento-piu-costi-3-sconto-migros/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frutta e verdura più care da produrre, ma prezzi non salgono",
+      "description": "Gli orticoltori svizzeri devono affrontare costi straordinari aggiuntivi del 25% a causa della siccità, ma i prezzi non aumentano. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frutta-ve-25-per-cento-piu-costi-3-sconto-migros.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un orticoltore in Svizzera lotta contro la siccità."
+      },
+      "datePublished": "2026-08-12T16:56:39+00:00",
+      "dateModified": "2026-08-12T16:56:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frutta-ve-25-per-cento-piu-costi-3-sconto-migros/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

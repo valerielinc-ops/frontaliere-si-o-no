@@ -2311,6 +2311,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Berna rafforza le regole anti-crise',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'Le Conseil fédéral entend responsabiliser davantage les dirigeants des banques et éviter les risques liés à des primes élevées.',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Banque sous la loupe: Berne réduit les bonus et renforce les règles anti-crise.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'Fruits et légumes plus chers à produire, mais les prix n\'augmentent pas',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Les horticulteurs suisses doivent faire face à des surcoûts supplémentaires de 25 % en raison de la sécheresse, mais les prix n\'augmentent pas.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'Un fermier suisse lutte contre la sécheresse.',
 };
 
 export default blogMetaChFr;

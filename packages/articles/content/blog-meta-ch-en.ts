@@ -2311,6 +2311,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Banks under the lens: Bern tightens on bonuses and strengthens anti-crisis rules',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'The Federal Council intends to make the top management of banks more responsible and avoid the risks deriving from high bonuses.',
     'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Banque under the microscope: Berna stringe sui bonus e rafforza le regole anti-crisi.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'More expensive fruits and vegetables to produce, but prices do not rise',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Swiss horticulturists face extra costs of 25% due to the drought, but prices do not increase.',
+    'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'An Austrian farmer struggles with drought.',
 };
 
 export default blogMetaChEn;
