@@ -2245,6 +2245,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.title': 'Abonnements transports publics Canton de Zurich : zones et tarifs',
     'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.excerpt': 'Les abonnements aux transports publics dans le canton de Zurich ont été récemment modifiés.',
     'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.imageAlt': 'Une carte du transport public dans le canton de Zurich',
+    'blog.article.aprire-un-attivita-canton-zurigo.title': 'Aprire un\'attività a Zurigo: registre et coûts',
+    'blog.article.aprire-un-attivita-canton-zurigo.excerpt': 'Frais d\'inscription au registre du commerce et conditions d\'ouverture d\'une entreprise dans le canton de Zurich',
+    'blog.article.aprire-un-attivita-canton-zurigo.imageAlt': 'Entreprise dans le canton de Zurich',
 };
 
 export default blogMetaChFr;
