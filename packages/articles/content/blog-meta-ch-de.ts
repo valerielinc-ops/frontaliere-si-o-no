@@ -2317,6 +2317,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Bundesrat: Neue Massnahmen für Banken',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'Die Schweizerische Nationalbank und die Finma-Aufsichtsbehörde begrüssen die heute vom Bundesrat vorgeschlagenen Massnahmen zur Bankenregulierung.',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Redaktionelles Bild zu: Consiglio federale: nuove misure per le banche',
+    'blog.article.iva-aumento-governo-difesa-2026.title': 'Regierung: 0,5 Prozentpunkte Anstieg über 12 Jahre',
+    'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'Die Mehrwertsteuererhöhung von 0,5 Prozentpunkten wird ab 2028 und für einen Zeitraum von 12 Jahren angewendet.',
+    'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Eine Szene eines Schweizer Politikers, der einen Haushalt dem Parlament vorstellt, mit einem Hintergrund der Schweizer Alpen.',
 };
 
 export default blogMetaChDe;

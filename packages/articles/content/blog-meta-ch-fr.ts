@@ -2317,6 +2317,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Conseil fédéral : nouvelles mesures pour les banques',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'La Banque nationale suisse et l\'autorité de surveillance Finma accueillent favorablement les mesures proposées aujourd\'hui par le Conseil fédéral en matière de réglementation bancaire.',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Image éditoriale relative à: Consiglio federale: nuove misure per le banche',
+    'blog.article.iva-aumento-governo-difesa-2026.title': 'Gouvernement : 0,5 point de pourcentage d\'augmentation sur 12 ans',
+    'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'L\'augmentation de la TVA de 0,5 point de pourcentage sera appliquée à partir de 2028 et pour une période de 12 ans.',
+    'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Une scène d\'un politicien suisse présentant un budget au Parlement, avec un fond des Alpes suisses.',
 };
 
 export default blogMetaChFr;

@@ -2317,6 +2317,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Consiglio federale: nuove misure per le banche',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia di regolamentazione bancaria.',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Immagine editoriale relativa a: Consiglio federale: nuove misure per le banche',
+    'blog.article.iva-aumento-governo-difesa-2026.title': 'Governo: 0,5 punti percentuali di aumento per 12 anni',
+    'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'L\'incremento dell\'IVA di 0,5 punti percentuali sarà applicato dal 2028 e per un periodo di 12 anni.',
+    'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Una scena di un politico svizzero che presenta il bilancio al Parlamento, con un fondo delle Alpi svizzere.',
 };
 
 export default blogMetaChIt;
