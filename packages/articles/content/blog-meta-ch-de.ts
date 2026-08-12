@@ -2296,6 +2296,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Klimainflation in der Schweiz: Warum die Hitze die Preise in die Höhe treibt',
     'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'Von der Rhein-Dürre bis zum Einkaufswagen führt der Klimawandel zu neuer Inflation und zwingt die EZB und die FINMA zum Handeln.',
     'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Auswirkungen von Dürre und Klimawandel auf Wirtschaft und Preise in der Schweiz',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Sicurezza a caro prezzo: IVA um 0,5%',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'Der Bundesrat schlägt eine Erhöhung der Mehrwertsteuer um 0,5 Prozentpunkte für 12 Jahre vor, um die Verteidigungsfähigkeit der Schweiz zu stärken',
+    'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'Ein 0,5%-iger Mehrwertsteigerhöhung, um die Schweiz\' Verteidigungsfähigkeit zu stärken',
 };
 
 export default blogMetaChDe;
