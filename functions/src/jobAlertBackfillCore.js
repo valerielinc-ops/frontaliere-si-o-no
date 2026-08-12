@@ -8,6 +8,41 @@
  * Canonical here (not in `services/`) because Cloud Functions have no
  * bundler and cannot import anything outside `functions/`.
  *
+ * CONSENT GATE (#5705) — READ THIS BEFORE THE TIER DOCUMENTATION BELOW
+ * -------------------------------------------------------------------
+ * Measured on production 2026-08-12: of 7.745 documents in the `alerts`
+ * subcollection, 7.167 were created by this module and 578 by a person using
+ * `createAlert` (services/jobAlertService.ts). 6.308 of the inferred ones were
+ * still active, and 71 were created on that same day — this was not a historic
+ * one-off, it was still running.
+ *
+ * The four signal tiers documented below are **inferences of interest**, not
+ * requests for a service: a form field, an IP-geolocated city, browsing
+ * behaviour, a canton read out of the URL of the page somebody signed up on.
+ * None of them is an act by which a person asks for a DAILY email carrying
+ * every job ad — a channel with its own cadence, distinct from the weekly
+ * newsletter the subscriber actually agreed to (the stored formula, when it
+ * was stored at all, names the CHF/EUR rate, border traffic and tax news; it
+ * never names job ads). Deriving a second channel from navigation is exactly
+ * what produced 6.308 unrequested subscriptions and one nLPD complaint.
+ *
+ * So the tiers no longer AUTHORISE anything. They still classify (they decide
+ * what an alert would look like, and `buildAlertPayload` still tags its
+ * provenance with them), but `shouldSkipSubscriber` now additionally requires
+ * `hasAffirmativeJobAlertConsent` — an affirmative, recorded, job-alert-scoped
+ * consent — and returns the named reason `'no-job-alert-consent'` when it is
+ * absent. Fail-closed: absent, malformed or unreadable consent means "do not
+ * create", never "create and see".
+ *
+ * What that predicate costs today, stated plainly: **no path in this codebase
+ * records such a consent**, so all three entry points (the two triggers in
+ * functions/index.js and the batch script) create nothing. `createAlert`, the
+ * voluntary path behind the 578 real alerts, writes no consent field either —
+ * its proof of consent is that a person operated the form, which is not a fact
+ * a Firestore document carries. The predicate is satisfiable, not a hardcoded
+ * `false`: a job-alert opt-in added to `services/consentTexts.ts` and actually
+ * rendered (`displayed: true`) admits its subscribers with no change here.
+ *
  * Why `onDocumentWritten`, not `onDocumentCreated`: on every social sign-in
  * (Google/Facebook/LinkedIn/One-Tap), `saveUserProfileToFirestore`
  * (services/authService.ts) fires an un-awaited `setDoc(..., {merge:true})`
@@ -176,17 +211,115 @@ export function resolveSignalTier(data, personalization) {
 }
 
 /**
+ * The acts, as recorded in `consent_act` (services/consentTexts.ts), that are
+ * the data subject's own affirmative request.
+ *
+ * `authentication` is excluded because signing in to use a service is not an
+ * opt-in to mail — the register says so in the entries themselves ("nessuna
+ * casella di consenso è stata proposta"). `email_link_click` is excluded
+ * because a click is evidence of a fetch, not of a human: measured on this
+ * domain, corporate anti-phishing scanners opened 35 links on one send, 25 of
+ * them inside 7 seconds (see `resubscribeLink` in that register).
+ */
+export const AFFIRMATIVE_CONSENT_ACTS = Object.freeze(['typed_email_submit']);
+
+/**
+ * Phrases that name the job-alert CHANNEL — the thing being subscribed to.
+ *
+ * Deliberately NOT "annunci/offerte di lavoro" (job ads / job offers): those
+ * name the CONTENT a page shows, and appear in gate formulas about unlocking a
+ * listing, which is not a request to be mailed daily. Fail-closed means the
+ * phrase has to name the mailing, not its subject matter.
+ *
+ * Matched after `normalizeConsentText` below, so hyphenated and typographic
+ * variants ("Job-Alerts", "alertes d’emploi") need no separate entry.
+ */
+const JOB_ALERT_CONSENT_PHRASES = Object.freeze([
+  'avvisi di lavoro', // it
+  'avviso di lavoro',
+  'job alert', // en, and de "Job-Alerts" once hyphens are spaces
+  'stellenbenachrichtigung', // de, covers the -en plural
+  'job benachrichtigung',
+  'alertes emploi', // fr
+  "alertes d'emploi",
+  "alerte d'emploi",
+]);
+
+/**
+ * Lowercase, unify the apostrophes and the dash family, collapse whitespace.
+ * Non-strings collapse to '' so every caller fails closed on a missing field.
+ * @param {unknown} raw
+ * @returns {string}
+ */
+function normalizeConsentText(raw) {
+  if (typeof raw !== 'string') return '';
+  return raw
+    .toLowerCase()
+    .replace(/[‘’ʼ`´]/g, "'")
+    .replace(/[-‐-―]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * True when the verbatim disclosure stored on the subscriber document names
+ * the job-alert channel. Scope check only — it says nothing about whether the
+ * person agreed, which is what `hasAffirmativeJobAlertConsent` adds.
+ * @param {unknown} rawText the stored `consent_text`
+ * @returns {boolean}
+ */
+export function consentNamesJobAlerts(rawText) {
+  const text = normalizeConsentText(rawText);
+  if (!text) return false;
+  return JOB_ALERT_CONSENT_PHRASES.some((phrase) => text.includes(phrase));
+}
+
+/**
+ * The gate that stops a newsletter subscription from becoming a job-alert
+ * subscription (#5705). Four conditions, every one of them fail-closed:
+ *
+ *  1. `consent_given === true` — an affirmative opt-in was recorded.
+ *     `captureNewsletterSubscriber` (services/newsletterSubscribers.ts)
+ *     defaults this to `false`, and `consentProof` deliberately does not hand
+ *     callers a `consentGiven` to set, precisely so the flag stays countable.
+ *  2. `consent_text` names the job-alert channel — the newsletter formula the
+ *     6.308 were enrolled under does not, and that is the whole defect.
+ *  3. `consent_text_displayed === true` — nobody can agree to a sentence they
+ *     were never shown. Every entry in the register is `displayed: false`
+ *     today, and recording that gap honestly is the point of the field.
+ *  4. `consent_act` is one of `AFFIRMATIVE_CONSENT_ACTS` — an authentication
+ *     or a link fetch is not a request.
+ *
+ * @param {Record<string, unknown>|null|undefined} data a `newsletter_subscribers` doc
+ * @returns {boolean}
+ */
+export function hasAffirmativeJobAlertConsent(data) {
+  if (!data || typeof data !== 'object') return false;
+  if (data.consent_given !== true) return false;
+  if (data.consent_text_displayed !== true) return false;
+  if (!AFFIRMATIVE_CONSENT_ACTS.includes(String(data.consent_act ?? ''))) return false;
+  return consentNamesJobAlerts(data.consent_text);
+}
+
+/**
  * Pure eligibility check for one `newsletter_subscribers` doc. Pass
  * `personalization` (the `private/personalization` subdoc, if read) to also
  * consider the browsing-derived fallback tier; omit it to check flat fields
  * only — safe default, since deriving from an absent doc naturally yields
  * no patch and behaves exactly like the flat-field-only check.
- * @returns {'invalid-email'|'suppressed'|'no-signal'|null} skip reason, null = eligible.
+ *
+ * The consent gate is checked LAST, after the tier, on purpose: it makes the
+ * `'no-job-alert-consent'` counter mean exactly "would have been created under
+ * the pre-#5705 rule, and was not" — i.e. the live rate of the travaso this
+ * guard stops. Checking it first would bury that number under the no-signal
+ * majority.
+ * @returns {'invalid-email'|'suppressed'|'no-signal'|'no-job-alert-consent'|null} skip reason, null = eligible.
  */
 export function shouldSkipSubscriber(email, data, personalization = null) {
   if (!email || !email.includes('@')) return 'invalid-email';
   if (isNewsletterExcluded(data?.status)) return 'suppressed';
-  return resolveSignalTier(data, personalization).tier === 'none' ? 'no-signal' : null;
+  if (resolveSignalTier(data, personalization).tier === 'none') return 'no-signal';
+  return hasAffirmativeJobAlertConsent(data) ? null : 'no-job-alert-consent';
 }
 
 /**

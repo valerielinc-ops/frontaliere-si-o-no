@@ -12,6 +12,13 @@
  * `jobAlertBackfillCore.js` — no drift between "day-0 backfill of existing
  * docs" and "day-N auto-creation for new ones".
  *
+ * Since #5705 the shared `shouldSkipSubscriber` also requires an affirmative,
+ * job-alert-scoped consent on the subscriber document, so this handler returns
+ * `{created: false, reason: 'no-job-alert-consent'}` — writing nothing — for
+ * every subscriber whose consent covers the newsletter only. That is the case
+ * for the whole list today; see the consent-gate section in
+ * `jobAlertBackfillCore.js` for why a signal tier is not a request.
+ *
  * Also invoked, with a `personalization` dep, from the companion
  * `backfillJobAlertOnPersonalizationSync` trigger (functions/index.js) on
  * writes to the SEPARATE `private/personalization` subdoc — the tier-3

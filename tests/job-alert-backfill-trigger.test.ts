@@ -2,6 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
 import { getSignalTier, signalTierChanged, resolveSignalTier, MAX_ALERTS_PER_USER } from '../functions/src/jobAlertBackfillCore.js';
 
+// The affirmative, job-alert-scoped consent `shouldSkipSubscriber` requires
+// since #5705. Spread by the tests that exercise the mechanics BEYOND the gate
+// (cap, idempotence, patch merge); every test that omits it is asserting the
+// gate itself.
+import { JOB_ALERT_CONSENT } from './helpers/jobAlertConsent';
+
 interface AlertDoc {
   id: string;
   active?: boolean;
@@ -121,7 +127,11 @@ describe('handleNewsletterSubscriberCreated — cap enforcement', () => {
         active: true,
       })),
     });
-    const result = await handleNewsletterSubscriberCreated('a@b.ch', { job_category: 'tech' }, { db: db as any });
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { job_category: 'tech', ...JOB_ALERT_CONSENT },
+      { db: db as any },
+    );
     expect(result).toEqual({ created: false, reason: 'capped' });
     expect(db.writes).toHaveLength(0);
   });
@@ -134,17 +144,21 @@ describe('handleNewsletterSubscriberCreated — cap enforcement', () => {
         { id: 'alert-3', active: false },
       ],
     });
-    const result = await handleNewsletterSubscriberCreated('a@b.ch', { job_category: 'tech' }, { db: db as any });
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { job_category: 'tech', ...JOB_ALERT_CONSENT },
+      { db: db as any },
+    );
     expect(result.created).toBe(true);
   });
 });
 
 describe('handleNewsletterSubscriberCreated — creation', () => {
-  it('creates an alert for a job-signal subscriber', async () => {
+  it('creates an alert for a job-signal subscriber who affirmatively consented to job alerts', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
-      { job_category: 'tech', source_channel: 'job_gate' },
+      { job_category: 'tech', source_channel: 'job_gate', ...JOB_ALERT_CONSENT },
       { db: db as any },
     );
     expect(result.created).toBe(true);
@@ -159,7 +173,7 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
-      { location_interest: 'Lugano', source_channel: 'popup' },
+      { location_interest: 'Lugano', source_channel: 'popup', ...JOB_ALERT_CONSENT },
       { db: db as any },
     );
     expect(result.created).toBe(true);
@@ -168,7 +182,11 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
 
   it('never reactivates an alert the user already disabled', async () => {
     const db = fakeDb({ existingAlerts: [{ id: 'backfill-newsletter', active: false }] });
-    const result = await handleNewsletterSubscriberCreated('a@b.ch', { job_category: 'tech' }, { db: db as any });
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { job_category: 'tech', ...JOB_ALERT_CONSENT },
+      { db: db as any },
+    );
     expect(result.created).toBe(true);
     const alertWrite = db.writes.find((w) => w.path.includes('/alerts/backfill-newsletter'));
     expect(alertWrite?.payload.active).toBe(false);
@@ -176,9 +194,89 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
 
   it('does not overwrite created_at on an already-existing parent doc', async () => {
     const db = fakeDb({ parentExists: true });
-    await handleNewsletterSubscriberCreated('a@b.ch', { job_category: 'tech' }, { db: db as any });
+    await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      { job_category: 'tech', ...JOB_ALERT_CONSENT },
+      { db: db as any },
+    );
     const parentWrite = db.writes.find((w) => w.path === 'job_alert_subscribers/a@b.ch');
     expect(parentWrite?.payload).not.toHaveProperty('created_at');
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// #5705 — the invariant this file exists to protect from here on.
+//
+// The tests above USED to be the whole story: every one of them passed a
+// subscriber with an inferred signal and asserted an alert was created. That is
+// the defect, encoded as an expectation — 7.167 alerts against 578 a person
+// asked for. They now carry an explicit consent fixture, and the block below
+// pins what happens without it, tier by tier, for both trigger entry points.
+// ─────────────────────────────────────────────────────────────────────────────
+describe('handleNewsletterSubscriberCreated — no alert without affirmative job-alert consent (#5705)', () => {
+  const cases: Array<[string, Record<string, unknown>, Record<string, unknown> | null]> = [
+    ['tier 1 — a job_category filled into a signup form', { job_category: 'tech', source_channel: 'job_gate' }, null],
+    ['tier 2 — an IP-geolocated city', { geo_city: 'Lugano', source_channel: 'popup' }, null],
+    [
+      'tier 3 — browsing behaviour in private/personalization',
+      { source_channel: 'popup' },
+      { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia' }] },
+    ],
+    [
+      'tier 4 — a canton read out of the signup page URL',
+      { source_channel: 'popup', consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' },
+      null,
+    ],
+  ];
+
+  for (const [label, data, personalization] of cases) {
+    it(`writes nothing for ${label}`, async () => {
+      const db = fakeDb();
+      const result = await handleNewsletterSubscriberCreated('a@b.ch', data, {
+        db: db as any,
+        personalization: personalization as any,
+      });
+      expect(result).toEqual({ created: false, reason: 'no-job-alert-consent' });
+      expect(db.writes).toHaveLength(0);
+    });
+  }
+
+  it('writes nothing for the newsletter consent the 6.308 were enrolled under — it never names job ads', async () => {
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      {
+        job_category: 'tech',
+        consent_given: true,
+        consent_text_displayed: true,
+        consent_act: 'typed_email_submit',
+        consent_text:
+          'Accetto di ricevere la newsletter settimanale con aggiornamenti su cambio CHF/EUR, traffico di frontiera e novità fiscali per frontalieri. Posso disiscrivermi in qualsiasi momento.',
+      },
+      { db: db as any },
+    );
+    expect(result).toEqual({ created: false, reason: 'no-job-alert-consent' });
+    expect(db.writes).toHaveLength(0);
+  });
+
+  it('writes nothing when the notice names job alerts but the act was a sign-in, not a request', async () => {
+    // `jobUnlockSocial` in services/consentTexts.ts: the text does name the
+    // avvisi di lavoro, and says in so many words that no consent box was
+    // offered. An authentication is not an opt-in.
+    const db = fakeDb();
+    const result = await handleNewsletterSubscriberCreated(
+      'a@b.ch',
+      {
+        job_category: 'tech',
+        consent_given: true,
+        consent_text_displayed: true,
+        consent_act: 'authentication',
+        consent_text: 'Accedendo con Google, l’indirizzo email viene iscritto alla newsletter e agli avvisi di lavoro.',
+      },
+      { db: db as any },
+    );
+    expect(result).toEqual({ created: false, reason: 'no-job-alert-consent' });
+    expect(db.writes).toHaveLength(0);
   });
 });
 
@@ -240,7 +338,7 @@ describe('handleNewsletterSubscriberCreated — tier-3 personalization fallback'
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
-      { source_channel: 'popup' },
+      { source_channel: 'popup', ...JOB_ALERT_CONSENT },
       {
         db: db as any,
         personalization: { viewedJobs: [{ location: 'Mendrisio', category: 'IT / Tecnologia', company: 'Tether' }] },
@@ -343,7 +441,11 @@ describe('handleNewsletterSubscriberCreated — tier-4 URL fallback', () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
-      { source_channel: 'popup', consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/' },
+      {
+        source_channel: 'popup',
+        consent_source_url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/',
+        ...JOB_ALERT_CONSENT,
+      },
       { db: db as any },
     );
     expect(result.created).toBe(true);
