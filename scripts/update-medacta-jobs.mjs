@@ -45,6 +45,7 @@ import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -359,8 +360,8 @@ async function fetchJobDescription(detailUrl) {
   if (metaMatch) return decodeHtmlEntities(metaMatch[1]).trim();
 
   // Standard meta description
-  const stdMatch = html.match(/<meta\s+name=['"]description['"]\s+content="([^"]+)"/i);
-  if (stdMatch) return decodeHtmlEntities(stdMatch[1]).trim();
+  const stdRaw = extractMetaDescriptionRaw(html);
+  if (stdRaw !== null) return decodeHtmlEntities(stdRaw).trim();
 
   return '';
 }

@@ -1,18 +1,91 @@
 {
   "key": "trafigura",
   "label": "Trafigura",
-  "generatedAt": "2026-08-11T22:03:56.826Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-08-12T10:18:44.505Z",
+  "total": 9,
+  "newCount": 2,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9436,
-  "avgDurationMs": 9436,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12157,
+  "avgDurationMs": 12157,
   "durationHistory": [
-    9436
+    12157
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "trafigura-59a322f4603d",
+      "slug": "oil-programme-qa-lead-trafigura-ch",
+      "company": "Trafigura",
+      "companyKey": "trafigura",
+      "companyDomain": "trafigura.com",
+      "title": "Oil Programme QA Lead",
+      "needsRetranslation": true,
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/London-United-Kingdom/Oil-Programme-QA-Lead_R-018547",
+      "source": "Trafigura Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-12T10:18:34.073Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità / Compliance",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Trading di materie prime",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/London-United-Kingdom/Oil-Programme-QA-Lead_R-018547",
+      "jobReqId": "R-018547",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "trafigura-3970c9ad48a1",
+      "slug": "oil-programme-qa-lead-trafigura-ch",
+      "company": "Trafigura",
+      "companyKey": "trafigura",
+      "companyDomain": "trafigura.com",
+      "title": "Oil Programme QA Lead",
+      "needsRetranslation": true,
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Oil-Programme-QA-Lead_R-018546",
+      "source": "Trafigura Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-12T10:18:34.921Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità / Compliance",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Trading di materie prime",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Oil-Programme-QA-Lead_R-018546",
+      "jobReqId": "R-018546",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "trafigura-c3bfbffa64db",
@@ -27,7 +100,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Gasoline-Blending-Operator_R-018360",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:49.784Z",
+      "crawledAt": "2026-08-12T10:18:36.596Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +137,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Geneva-Commercial-Graduate-Programme_R-018268",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:51.197Z",
+      "crawledAt": "2026-08-12T10:18:38.208Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +174,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:49.092Z",
+      "crawledAt": "2026-08-12T10:18:35.700Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +211,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Financial-Engineer_R-017858",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:50.503Z",
+      "crawledAt": "2026-08-12T10:18:37.446Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +248,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:51.900Z",
+      "crawledAt": "2026-08-12T10:18:39.388Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +285,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:52.711Z",
+      "crawledAt": "2026-08-12T10:18:40.262Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +322,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:03:53.387Z",
+      "crawledAt": "2026-08-12T10:18:40.964Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -274,8 +347,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "trafigura-e590821f2aa3",
       "slug": "sustainability-specialista-trafigura-geneva",
@@ -316,5 +388,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

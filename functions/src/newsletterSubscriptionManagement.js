@@ -337,7 +337,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  if (subDoc.exists) {
  const data = subDoc.data() || {};
  const status = data.status;
- const hasUnsubAt = !!data.unsubscribed_at;
+ // Both spellings (#5673): 458 documents carry only the camelCase stamp
+ // the SPA path used to write, and reading one name told those people the
+ // preferences page still had them subscribed.
+ const hasUnsubAt = !!(data.unsubscribed_at || data.unsubscribedAt);
  const isActive = data.isActive === true || data.active === true;
  // Subscribed unless explicitly unsubscribed.
  const subscribed = status !== 'unsubscribed' && !hasUnsubAt && (isActive || status === 'confirmed' || status === 'pending');
@@ -398,6 +401,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  active: true,
  resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  unsubscribed_at: admin.firestore.FieldValue.delete(),
+ // The camelCase twin has to go too, or the re-opt-in is cosmetic:
+ // scripts/send-newsletter.mjs drops any row carrying EITHER spelling,
+ // whatever `status` says (#5673).
+ unsubscribedAt: admin.firestore.FieldValue.delete(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -408,6 +415,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  isActive: false,
  active: false,
  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ // Both spellings, so every opt-out writer leaves the SAME observable
+ // state whichever path the recipient used (#5673). The camelCase twin
+ // is what 458 historic documents and scripts/send-newsletter.mjs's
+ // belt-and-suspenders filter read.
+ unsubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  ...forensicFields,
@@ -667,6 +679,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  isActive: false,
  active: false,
  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ // Both spellings, so every opt-out writer leaves the SAME observable
+ // state whichever path the recipient used (#5673). The camelCase twin
+ // is what 458 historic documents and scripts/send-newsletter.mjs's
+ // belt-and-suspenders filter read.
+ unsubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  ...forensicFields,
@@ -713,6 +730,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
  active: true,
  confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
  confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+ // A double opt-in confirmation click IS the explicit act that lifts an
+ // earlier opt-out, so clear both stamps. Without this the confirmation
+ // said "sei iscritto" while scripts/send-newsletter.mjs kept dropping
+ // the row on the stale stamp — the silent dead end for anyone who
+ // unsubscribed and later signed up again (#5673).
+ unsubscribed_at: admin.firestore.FieldValue.delete(),
+ unsubscribedAt: admin.firestore.FieldValue.delete(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -788,6 +812,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  isActive: true,
  active: true,
  resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ // Same reason as the confirm branch: an explicit "riattiva" click has
+ // to clear BOTH stamps or the row stays permanently unmailable (#5673).
+ unsubscribed_at: admin.firestore.FieldValue.delete(),
+ unsubscribedAt: admin.firestore.FieldValue.delete(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });

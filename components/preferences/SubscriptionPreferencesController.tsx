@@ -436,7 +436,9 @@ async function authLoadFullStatus(email: string): Promise<{
  if (subSnap.exists()) {
  const data = subSnap.data() || {};
  const status = data.status;
- const hasUnsubAt = !!data.unsubscribed_at;
+ // Both spellings — see functions/src/newsletterSubscriptionManagement.js's
+ // get_full_status, which this mirrors token-for-token (#5673).
+ const hasUnsubAt = !!(data.unsubscribed_at || data.unsubscribedAt);
  const isActive = data.isActive === true || data.active === true;
  newsletter = {
  subscribed:
@@ -561,6 +563,9 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  active: true,
  resubscribed_at: serverTimestamp(),
  unsubscribed_at: deleteField(),
+ // Both spellings — scripts/send-newsletter.mjs drops a row carrying
+ // either one, so leaving the camelCase twin makes the toggle cosmetic.
+ unsubscribedAt: deleteField(),
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },
@@ -575,6 +580,9 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  isActive: false,
  active: false,
  unsubscribed_at: serverTimestamp(),
+ // Both spellings, so every opt-out writer leaves the same observable
+ // state whichever path the recipient used (#5673).
+ unsubscribedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },
