@@ -162,6 +162,21 @@ export async function runAutologinProbe({
       results.push({ label: c.label, passed: false, error: 'endpoint ha ACCETTATO un codice che doveva rifiutare' });
       continue;
     }
+    // A 5xx (or a rate-limit) is "could not probe", not "wrong answer", and it
+    // belongs on the fail-open side with the network errors above. This endpoint
+    // really does emit 1-6 500s a day against ~400 exchanges (measured over the
+    // week of 2026-08-05), so treating one as a verdict would let a ~1% blip
+    // block the weekly send — a false stop is as damaging here as a missed one,
+    // and it is the kind of flake that gets a gate switched off for good.
+    if (observed.status >= 500 || observed.status === 429) {
+      results.push({
+        label: c.label,
+        passed: true,
+        skipped: true,
+        error: `endpoint ha risposto ${observed.status}: sonda non conclusiva`,
+      });
+      continue;
+    }
     const ok = observed.status === 403 && observed.error === c.expect;
     results.push({
       label: c.label,

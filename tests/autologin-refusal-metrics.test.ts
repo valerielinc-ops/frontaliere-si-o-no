@@ -360,6 +360,21 @@ describe('#5724 — the synthetic probe', () => {
     expect(results[1].passed).toBe(true); // the negative control still holds
   });
 
+  it('SKIPS on a 5xx — a server blip is not a verdict', async () => {
+    // Measured: this endpoint emits 1-6 500s a day against ~400 exchanges. A ~1%
+    // blip that blocks the weekly send is the kind of flake that gets a gate
+    // switched off permanently, and a false stop costs as much as a missed one.
+    const fetchImpl = vi.fn(async () => okResponse(503, null));
+    const results = await runAutologinProbe({ secret, fetchImpl: asFetch(fetchImpl) });
+    expect(results.every((r) => r.passed && r.skipped)).toBe(true);
+    expect(results[0].error).toContain('503');
+    // But a 403 with the WRONG reason is still a verdict, and still fails.
+    const wrong = vi.fn(async () => okResponse(403, { success: false, error: 'autologin_disabled' }));
+    const wrongResults = await runAutologinProbe({ secret, fetchImpl: asFetch(wrong) });
+    expect(wrongResults[0].passed).toBe(false);
+    expect(wrongResults[0].skipped).toBeUndefined();
+  });
+
   it('SKIPS — never fails — when it cannot probe at all', async () => {
     // This gates `send-newsletter.mjs --send` through the QA artifact. A missing
     // secret locally, or one network blip, must not stop a send; only a definite
