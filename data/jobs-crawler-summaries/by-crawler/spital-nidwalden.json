@@ -1,21 +1,22 @@
 {
   "key": "spital-nidwalden",
   "label": "Spital Nidwalden",
-  "generatedAt": "2026-08-12T10:22:44.981Z",
+  "generatedAt": "2026-08-12T22:09:55.089Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5674,
-  "avgDurationMs": 5674,
+  "durationMs": 6113,
+  "avgDurationMs": 6113,
   "durationHistory": [
-    5674
+    6113
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-nidwalden-5278c6fa0e26",
-      "slug": "leitung-spital-nidwalden-100-spital-nidwalden-stans",
+      "slug": "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
       "companyDomain": "spital-nidwalden.ch",
@@ -26,7 +27,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:22:41.642Z",
+      "crawledAt": "2026-08-12T22:09:51.936Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-12T10:22:41.642Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "spital-nidwalden-3026ca67f725",
       "slug": "leitung-spital-nidwalden-100-spital-nidwalden-stans",
@@ -65,7 +65,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:22:41.652Z",
+      "crawledAt": "2026-08-12T22:09:51.939Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -91,48 +91,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "spital-nidwalden-984e39ec6365",
-      "slug": "fachfrau-mann-gesundheit-cfc-100-luzerner-kantonsspital-luks-stans",
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "Fachfrau/-mann Gesundheit EFZ 100%",
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/fachfrau-mann-gesundheit-efz/cd84e609-7d40-41ff-a077-21b354f1f198",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-08T21:51:14.481Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019f4bdd6ed2142c&j=jobexchange",
-      "firstSeenAt": "2026-07-10T12:27:28.000Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
