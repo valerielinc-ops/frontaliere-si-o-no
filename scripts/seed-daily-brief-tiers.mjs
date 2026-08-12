@@ -12,10 +12,18 @@
  *
  * THE RULE (scripts/lib/dailyBriefCadence.mjs `seedTier`, so the seed and the
  * running engine cannot disagree):
- *   clicked within 30 days           → tier 1 (daily)
+ *   HUMAN click within 30 days       → tier 1 (daily)
  *   opened within 30 days, no click  → tier 3
  *   only ever mailed via Cloudflare  → tier 3   (no webhook = no signal, not disengagement)
  *   nothing                          → tier 7 (weekly)
+ *
+ * "HUMAN click" is `classifyClickEvents` (#5674): an opt-out click, a scanner
+ * address, an automation user-agent and a burst of targets in three seconds are
+ * none of them a reader. Without a click history the classifier still sees the
+ * one click the document remembers, `last_click_at` beside `last_clicked_url` —
+ * which is the case that matters, since on 2026-08-12 that URL was the
+ * unsubscribe link for 68 of the 433 recipients this seed had put on daily.
+ * A row may carry `clickEvents` to hand the classifier the full history.
  *
  * IDEMPOTENT. Only writes subscribers that have no `daily_brief_tier` yet, so a
  * rerun after a partial run finishes the job and a rerun after a full one is a
@@ -59,7 +67,7 @@ export function planSeed(rows, nowMs) {
     if (isNewsletterExcluded(status) || isAddressSuppressed(status)) { skipped.excluded++; continue; }
     if (doc.daily_brief_frequency_override != null) { skipped.pinned++; continue; }
     if (doc.daily_brief_tier != null) { skipped.alreadySeeded++; continue; }
-    const { tierDays, reason } = seedTier(doc, nowMs);
+    const { tierDays, reason } = seedTier(doc, nowMs, { clickEvents: row.clickEvents ?? null });
     writes.push({ email: row.email, tier: tierDays, reason });
   }
   return { writes, skipped };
