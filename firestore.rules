@@ -35,14 +35,45 @@ service cloud.firestore {
     match /newsletter_subscribers/{email} {
       allow read, write: if true;
 
-      // Engagement events (subscribe, confirm, click, open) — public append
+      // Engagement events (subscribe, confirm, click, open) — append-only, and
+      // never readable by a client.
+      //
+      // READ: no browser code path reads this subcollection. Verified by an
+      // exhaustive sweep of services/, components/, hooks/, App.tsx and
+      // index.tsx for getDoc/getDocs/query/onSnapshot/getCountFromServer/
+      // collectionGroup against `events` — zero hits, and there is no
+      // collectionGroup rule for `events` either (the only {path=**} rule in
+      // this file targets `alerts`). Everything that consumes these documents
+      // — scripts/lib/*, the ESP webhook cores under functions/src/ — runs on
+      // the Admin SDK, which does not evaluate rules. So closing the read
+      // removes the per-open/per-click forensics (source page, target URL,
+      // geo_country, and the request metadata recorded by
+      // functions/src/lib/requestForensics.js) from client reach at no cost to
+      // any live path.
+      //
+      // CREATE-ONLY: all eight client writers are addDoc — an append. Nothing
+      // in the tree updates or deletes an event document, so `write` was
+      // strictly wider than the code needs. An engagement log that can be
+      // rewritten after the fact is also not much of a log.
       match /events/{eventId} {
-        allow read, write: if true;
+        allow read: if false;
+        allow create: if true;
+        allow update, delete: if false;
       }
 
-      // Campaign delivery tracking — public write (Cloud Functions + client beacons)
+      // Campaign delivery tracking — Admin SDK only.
+      //
+      // The comment this replaces named "client beacons", but there is no live
+      // client writer: the sole one is App.tsx's /newsletter/click handler, and
+      // nothing emits that URL. tests/newsletter-template-tracking.test.ts
+      // asserts the templates never contain '/newsletter/click/' — they use
+      // direct URLs, and open/click attribution arrives through the ESP
+      // webhooks (functions/src/newsletter*WebhookCore.js) on the Admin SDK.
+      // applyNewsletterDeliveryEvent, the other would-be writer, has zero
+      // callers anywhere. No client reads these documents either (same sweep as
+      // `events` above).
       match /campaign_deliveries/{deliveryId} {
-        allow read, write: if true;
+        allow read, write: if false;
       }
 
       // Private sub-collection — auth-gated, own data only
@@ -112,14 +143,28 @@ service cloud.firestore {
           && request.auth.token.email.lower() == email;
       }
 
-      // Per-alert delivery state — written by ESP webhooks (Admin SDK bypasses rules).
+      // Per-alert delivery state and the raw ESP event log. Both are written by
+      // the webhooks under functions/src/ and read by scripts/send-job-alerts.mjs
+      // — all Admin SDK, which bypasses these rules entirely, exactly as the
+      // previous comments already said. The public grant was therefore doing no
+      // work for any caller: no browser code path touches either subcollection
+      // (the only client access to job_alert_subscribers is the root doc and
+      // `alerts`, in services/jobAlertService.ts and the preferences
+      // controller).
+      //
+      // Closed here rather than in a follow-up because they are the same
+      // construct as newsletter_subscribers' `events` / `campaign_deliveries`
+      // above, holding the same category of data — `events` is the raw ESP log,
+      // with the same per-open and per-click request metadata — and the sibling
+      // sweep required before opening a PR (AGENTS.md #6) is what surfaced them.
+      // Splitting the pair across two PRs would leave half the class open for no
+      // reason.
       match /alert_deliveries/{alertId} {
-        allow read, write: if true;
+        allow read, write: if false;
       }
 
-      // Raw ESP event log — written by webhooks (Admin SDK bypasses rules).
       match /events/{eventId} {
-        allow read, write: if true;
+        allow read, write: if false;
       }
     }
 

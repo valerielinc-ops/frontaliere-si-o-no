@@ -25,6 +25,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+import { matchBlock } from './helpers/firestoreRulesBlock';
+
 const getRemoteConfigValueMock = vi.fn(async (key: string) => {
   if (key === 'STRIPE_SECRET_KEY') return 'sk_test_fake';
   if (key === 'STRIPE_PRICE_CONSULTING_BASE') return 'price_consulting_base_test';
@@ -299,20 +301,14 @@ describe('Firestore rules — consulting_orders collection', () => {
   });
 
   it('denies client create and list (Stripe webhook / Admin SDK only)', () => {
-    const block = rules.slice(
-      rules.indexOf('match /consulting_orders/{orderId}'),
-      rules.indexOf('match /consulting_orders/{orderId}') + 1500,
-    );
+    const block = matchBlock(rules, 'match /consulting_orders/{orderId}');
     expect(block).toContain('allow create: if false');
     expect(block).toContain('allow list: if false');
     expect(block).toContain('allow delete: if false');
   });
 
   it('gates the single client update on real payment + one-time submission + frozen money fields', () => {
-    const block = rules.slice(
-      rules.indexOf('match /consulting_orders/{orderId}'),
-      rules.indexOf('match /consulting_orders/{orderId}') + 1500,
-    );
+    const block = matchBlock(rules, 'match /consulting_orders/{orderId}');
     expect(block).toContain("resource.data.status == 'paid'");
     expect(block).toContain('resource.data.detailsSubmitted != true');
     expect(block).toContain('request.resource.data.detailsSubmitted == true');
