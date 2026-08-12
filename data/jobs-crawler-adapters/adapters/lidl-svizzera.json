@@ -11,7 +11,6 @@
   ],
   "seedUrls": [
     "https://team.lidl.ch/de/jobs/abpacker-m-w-d-40-60-bern-696045",
-    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-baden-681102",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-baden-702654",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-brugg-702655",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-dietikon-691852",
@@ -120,7 +119,6 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zuerich-727562",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zwingen-727530",
     "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-biodiversitaet-kreislaufwirtschaft-80-100-m-w-d-weinfelden-733498",
-    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-matten-bei-interlaken-727194",
@@ -301,7 +299,7 @@
     "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st.-moritz-728439"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-12T10:16:23.500Z",
+  "updatedAt": "2026-08-12T21:49:27.635Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -430,15 +428,6 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/junior-manager-controlling-m-w-d-80-100-weinfelden-721952": {
-      "location": "Weinfelden",
-      "addressLocality": "Weinfelden",
-      "canton": "TG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -689,15 +678,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-baden-681102": {
-      "location": "Baden",
-      "addressLocality": "Baden",
-      "canton": "AG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-baden-702620": {
       "location": "Baden",
