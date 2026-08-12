@@ -2299,6 +2299,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Sicurezza a caro prezzo: aumento Iva di 0,5%',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'Le Conseil fédéral propose une augmentation de la TVA de 0,5 point de pourcentage sur 12 ans pour renforcer la capacité de défense de la Suisse',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'Un accroissement de 0,5% de la TVA pour renforcer les capacités de défense de la Suisse',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Conseil fédéral : accords Suisse-UE non référendaires',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'Le Conseil fédéral a expliqué que les conditions requises par la Commission pour les institutions politiques des Etats n\'ont pas été remplies.',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'La Suisse et l\'UE ont négocié un accord pour stabiliser les relations entre les deux pays.',
 };
 
 export default blogMetaChFr;

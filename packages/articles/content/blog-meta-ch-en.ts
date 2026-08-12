@@ -2299,6 +2299,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Security at a high price: proposed VAT increase',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'The Federal Council proposes an increase in VAT of 0.5 percentage points for 12 years to strengthen Switzerland\'s defence capability',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'A 0.5% VAT increase to strengthen Switzerland\'s defense capabilities',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Federal Council: Switzerland-EU agreements not in the referendum',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'The Federal Council explained that the conditions required by the Commission for the political institutions of the States were not met.',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'The Switzerland and EU have negotiated an agreement to stabilize the relations between the two countries.',
 };
 
 export default blogMetaChEn;

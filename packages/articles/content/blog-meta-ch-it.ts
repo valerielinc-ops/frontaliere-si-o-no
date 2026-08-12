@@ -2299,6 +2299,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Sicurezza a caro prezzo: proposto un aumento dell\'Iva di 0,5 punti percentuali',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'Il Consiglio federale propone un aumento dell\'IVA di 0,5 punti percentuali per 12 anni per rafforzare la capacità di difesa della Svizzera',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'Un aumento dell\'IVA per rafforzare la capacità di difesa della Svizzera',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Consiglio federale: accordi Svizzera-Ue non al referendum',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'Il Consiglio federale ha spiegato che le condizioni richieste dalla Commissione per le istituzioni politiche degli Stati non sono state soddisfatte.',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'La Svizzera e l\'UE hanno negoziato un accordo per stabilizzare le relazioni tra i due paesi.',
 };
 
 export default blogMetaChIt;
