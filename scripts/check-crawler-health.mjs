@@ -589,6 +589,21 @@ const EMPTY_OK_CRAWLERS = new Set([
   // published. Same legitimately-empty small-employer case as
   // linnea/moncucco/banca-raiffeisen-vedeggio-cassarate.
   'clinica-varini',
+  // Saint-Gobain Weber/Isover Suisse (jobs.ch company pages 40563-saint-gobain-weber-ag
+  // and 107006-saint-gobain-isover-sa, #5669): verified live 2026-08-12 — both
+  // pages return HTTP 200 with the listing markup unchanged (same
+  // `data-cy="company-vacancies"` section, same `/en/vacancies/detail/{uuid}/`
+  // anchor format the parser targets — cross-checked against a company page
+  // WITH live postings, e.g. 20439-equans-switzerland-ag, where the same regex
+  // still extracts links correctly) but each `data-cy="company-no-vacancies"`
+  // block now explicitly reads "Currently, no job offers" / "Currently, there
+  // are no job offers". Both Swiss legal entities of this building-materials
+  // group legitimately have zero open postings right now (`lastNonZeroJobs: 1`
+  // in crawler-health.json — always a low-volume employer). The listing
+  // selector is healthy; re-arms automatically when either entity republishes
+  // a vacancy. Same legitimately-empty small-employer case as
+  // linnea/wuerth-international/clinica-varini.
+  'saint-gobain-weber-isover',
 ]);
 
 /** Read JSON file, return null on any error. */
