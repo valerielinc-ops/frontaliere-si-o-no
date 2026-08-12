@@ -2293,6 +2293,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Consiglio federale boccia l\'Iniziativa sulla piazza finanziaria',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'Il Consiglio federale raccomanda al Parlamento di respingere senza controprogetto l\'iniziativa sulla piazza finanziaria svizzera.',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'Il Palazzo federale a Berna sede del Consiglio federale',
+    'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Inflazione climatica in Svizzera: perché il caldo fa salire i prezzi',
+    'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'Dalla siccità del Reno al carrello della spesa, i cambiamenti climatici creano una nuova inflazione e costringono la BCE e la FINMA ad agire.',
+    'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Impatto della siccità e dei cambiamenti climatici sull\'economia e sui prezzi in Svizzera',
 };
 
 export default blogMetaChIt;

@@ -790,6 +790,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tre-banche-cantonali-be-sg-bl-profitti-in-crescita': { it: 'tre-banche-cantonali-be-sg-bl-profitti-in-crescita', en: 'three-swiss-cantonal-banks-profits-in-growth', de: 'drei-schweizerische-kantonalbanken-gewinne-im-wachstum', fr: 'trois-banques-cantonales-suisses-profits-en-croissance' },
  'insolvenze-ai-massimi-da-30-anni': { it: 'insolvenze-ai-massimi-da-30-anni', en: 'insolvencies-at-30-year-high', de: 'insolvenzen-bei-30-jahres-hochststand', fr: 'insolvabilite-en-suisse-a-t-30-ans' },
  'consiglio-federale-no-iniziativa-finanziaria': { it: 'consiglio-federale-no-iniziativa-finanziaria', en: 'federal-council-rejects-financial-initiative', de: 'bundesrat-ablehnung-finanzplatzinitiative', fr: 'conseil-federal-refus-initiative-place-financiere' },
+ 'inflazione-climatica-prezzi-svizzera': { it: 'inflazione-climatica-prezzi-svizzera', en: 'climate-inflation-prices-switzerland', de: 'klimainflation-preise-schweiz', fr: 'inflation-climatique-prix-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

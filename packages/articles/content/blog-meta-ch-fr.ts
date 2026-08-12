@@ -2293,6 +2293,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Le Conseil fédéral rejette l\'Initiative sur la place financière',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'Le Conseil fédéral recommande au Parlement de rejeter sans contre-projet l\'initiative sur la place financière suisse.',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'Le Palais fédéral à Berne siège du Conseil fédéral',
+    'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Inflation climatique en Suisse : pourquoi la chaleur fait grimper les prix',
+    'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'De la sécheresse du Rhin au panier de la ménagère, le changement climatique crée une nouvelle inflation et contraint la BCE et la FINMA à agir.',
+    'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Impact de la sécheresse et du changement climatique sur l\'économie et les prix en Suisse',
 };
 
 export default blogMetaChFr;

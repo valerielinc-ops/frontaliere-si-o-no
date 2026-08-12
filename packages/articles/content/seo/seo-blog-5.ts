@@ -66293,6 +66293,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortunio-itinere-confine-assicurazione': {
+    title: 'Infortunio in itinere e assicurazione per frontalieri',
+    description: 'Scopri le regole sull\'infortunio in itinere per i frontalieri tra Italia e Canton Ticino: copertura LAINF, differenze di tragitto e denuncia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, infortunio, itinere, assicurazione, completa',
+    ogTitle: 'Infortunio in itinere e assicurazione per frontalieri in Ticino',
+    ogDescription: 'Guida pratica alla copertura LAINF per i lavoratori frontalieri in caso di infortunio durante il tragitto tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/infortunio-itinere-confine-assicurazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infortunio in itinere e assicurazione per frontalieri",
+      "description": "Scopri le regole sull'infortunio in itinere per i frontalieri tra Italia e Canton Ticino: copertura LAINF, differenze di tragitto e denuncia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infortunio-itinere-confine-assicurazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assicurazione e copertura per infortunio in itinere del frontaliere"
+      },
+      "datePublished": "2026-08-12T12:15:05+00:00",
+      "dateModified": "2026-08-12T12:15:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortunio-itinere-confine-assicurazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
