@@ -9823,6 +9823,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Changement de canton de travail pour le frontalier',
     'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Impact du changement de canton de travail pour les frontaliers entre le Tessin, les Grisons et d\'autres régions : règles et fiscalité.',
     'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Changement de canton de travail pour frontalier',
+    'blog.article.infortunio-itinere-confine-assicurazione.title': 'Accident de trajet et assurance pour frontaliers',
+    'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Guide complet de la couverture LAA en cas d\'accident pendant le trajet transfrontalier entre l\'Italie et le canton du Tessin.',
+    'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Assurance et couverture des accidents de trajet pour frontaliers',
 };
 
 export default blogMetaFr;

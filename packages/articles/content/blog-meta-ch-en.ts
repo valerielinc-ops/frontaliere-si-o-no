@@ -2293,6 +2293,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Federal Council rejects Financial Square Initiative',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'The Federal Council recommends that Parliament reject without counter-proposal the initiative on the Swiss financial centre.',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'The Federal Palace in Bern seat of the Federal Council',
+    'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Climate inflation in Switzerland: why the heat drives up prices',
+    'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'From the Rhine drought to the shopping cart, climate change creates new inflation and forces the ECB and FINMA to act.',
+    'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Impact of drought and climate change on the economy and prices in Switzerland',
 };
 
 export default blogMetaChEn;

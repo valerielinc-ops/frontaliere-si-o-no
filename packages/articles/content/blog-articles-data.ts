@@ -29451,6 +29451,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'infortunio-itinere-confine-assicurazione',
+ category: 'pratico',
+ date: '2026-08-12T12:15:05.196Z',
+ image: '/images/blog/infortunio-itinere-confine-assicurazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

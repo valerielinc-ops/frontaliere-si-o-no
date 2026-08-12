@@ -9820,6 +9820,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Wechsel des Arbeitskantons für Grenzgänger',
     'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Auswirkungen des Stellenwechsels für Grenzgänger zwischen Tessin, Graubünden und anderen Regionen: Regeln und Besteuerung.',
     'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Arbeitskantonswechsel für Grenzgänger',
+    'blog.article.infortunio-itinere-confine-assicurazione.title': 'Reiseunfall und Grenzgängerversicherung',
+    'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Vollständiger Leitfaden zur UVG-Versicherung bei einem Unfall auf dem grenzüberschreitenden Weg zwischen Italien und dem Kanton Tessin.',
+    'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Unfallversicherung auf dem Arbeitsweg für Grenzgänger',
 };
 
 export default blogMetaDe;

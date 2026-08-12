@@ -9821,6 +9821,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Changing the working canton for the border guards',
     'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Impact of the change of working canton for border workers between Ticino, Graubünden and other regions: rules and taxation.',
     'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Job canton change for cross-border worker',
+    'blog.article.infortunio-itinere-confine-assicurazione.title': 'Travelling accident and insurance for border workers',
+    'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Complete guide to LAINF coverage in the event of an accident during the cross-border journey between Italy and Canton Ticino.',
+    'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Insurance and commuting accident coverage for cross-border workers',
 };
 
 export default blogMetaEn;

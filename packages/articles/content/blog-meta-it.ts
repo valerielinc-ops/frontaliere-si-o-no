@@ -9822,6 +9822,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Cambio cantone di lavoro per il frontaliere',
     'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Impatto del cambio di cantone di lavoro per i frontalieri tra Ticino, Grigioni e altre regioni: regole e fiscalità.',
     'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Cambio cantone di lavoro per il frontaliere',
+    'blog.article.infortunio-itinere-confine-assicurazione.title': 'Infortunio in itinere e assicurazione per frontalieri',
+    'blog.article.infortunio-itinere-confine-assicurazione.excerpt': 'Guida completa alla copertura LAINF in caso di infortunio durante il tragitto transfrontaliero tra Italia e Canton Ticino.',
+    'blog.article.infortunio-itinere-confine-assicurazione.imageAlt': 'Assicurazione e copertura per infortunio in itinere del frontaliere',
 };
 
 export default blogMetaIt;

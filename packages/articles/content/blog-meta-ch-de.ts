@@ -2293,6 +2293,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Bundesrat lehnt Finanzplatz-Initiative ab',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'Der Bundesrat empfiehlt dem Parlament, die Finanzplatz-Initiative ohne Gegenvorschlag abzulehnen.',
     'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'Das Bundeshaus in Bern Sitz des Bundesrates',
+    'blog.article.inflazione-climatica-prezzi-svizzera.title': 'Klimainflation in der Schweiz: Warum die Hitze die Preise in die Höhe treibt',
+    'blog.article.inflazione-climatica-prezzi-svizzera.excerpt': 'Von der Rhein-Dürre bis zum Einkaufswagen führt der Klimawandel zu neuer Inflation und zwingt die EZB und die FINMA zum Handeln.',
+    'blog.article.inflazione-climatica-prezzi-svizzera.imageAlt': 'Auswirkungen von Dürre und Klimawandel auf Wirtschaft und Preise in der Schweiz',
 };
 
 export default blogMetaChDe;
