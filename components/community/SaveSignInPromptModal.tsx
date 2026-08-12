@@ -33,6 +33,7 @@ import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
@@ -71,9 +72,12 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
         sourceComponent: 'SaveSignInPromptModal',
         sourceRouteFamily: 'community',
         locale: navigator.language || 'it-IT',
-        consentGiven: true,
-        // Text now lives in the versioned register (#5678) — moved verbatim.
-        ...consentProof('saveJobSignIn', 'email_checkbox'),
+        // #5712/#5718: the notice under the form renders this exact string,
+        // in this locale, and it is the one stored.
+        ...consentProof('communicationsOptIn', 'email_submit', locale),
+        // No `consentGiven`: this form has no consent checkbox, so nothing here
+        // is an affirmative opt-in — only "was shown" is true. See the
+        // `consentGiven` section of services/consentTexts.ts (#5712).
       });
       if (upsert.existed) {
         await requestConfirmationEmail(trimmed, 'login');
@@ -127,6 +131,13 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
           </div>
         ) : (
           <div className="space-y-4">
+            {/* No notice above the provider buttons here, and that is not an
+                oversight: this modal's own upsert covers the EMAIL branch only.
+                A social sign-in from here is recorded by the global auth
+                listener in App.tsx under `signInAutoSubscribe`, so rendering
+                `communicationsSignIn` would show one sentence and store
+                another — the exact drift `displayed` exists to expose. Moves to
+                a rendered notice when App.tsx is switched over (#5726). */}
             <SocialSignInButtons locale={locale} errorContext="saveAuthPrompt" googleWidth={360} />
 
             <div className="flex items-center gap-3">
@@ -174,7 +185,7 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
 
             <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
               <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
-              <span>{t('jobBoard.saveAuthPrompt.consentNote')}</span>
+              <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
             </p>
           </div>
         )}

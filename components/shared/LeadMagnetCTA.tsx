@@ -30,6 +30,7 @@ import {
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
@@ -856,8 +857,9 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  // it from an authentication event.
  reconsent: true,
  leadMagnet: variant,
- // #5678: the guide-for-address exchange, recorded verbatim.
- ...consentProof('leadMagnet', 'email_submit'),
+ // #5678/#5712: the guide-for-address exchange, recorded verbatim — and
+ // now the same sentence is rendered under both forms below.
+ ...consentProof('communicationsOptIn', 'email_submit', locale),
  }),
  8000,
  'newsletter_upsert',
@@ -949,6 +951,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </button>
  </form>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block mt-2" />
 
  <div className="flex items-center gap-3 mt-2 mb-1">
  <div className="flex-1 h-px bg-surface-raised" />
@@ -1056,6 +1059,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </button>
  </form>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block mt-2" />
 
  {/* Social sign-in */}
  <div className="flex items-center gap-3 mt-3 mb-2">

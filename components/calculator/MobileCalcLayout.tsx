@@ -6,6 +6,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
 import { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 import { SkeletonMobileResultCard } from '@/components/shared/Skeletons';
@@ -160,9 +161,9 @@ const MobileCalcLayout: React.FC<Props> = ({
  await upsertNewsletterSubscriber(db, {
  email,
  source: 'analysis_gate',
- // #5678: this gate exchanged the full salary analysis for the address,
- // and until now recorded nothing at all about what was disclosed.
- ...consentProof('analysisGate', 'email_submit'),
+ // #5678/#5712: this gate exchanged the full salary analysis for the
+ // address. The notice under the button is now what gets stored.
+ ...consentProof('communicationsOptIn', 'email_submit', locale),
  });
  await requestConfirmationEmail(email);
  markNewsletterSubscribedLocally();
@@ -639,6 +640,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {gateStatus === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Mail size={16} />}
  {t('newsletterGate.subscribe')}
  </button>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  {gateStatus === 'error' && (
  <p className="text-xs text-danger text-center">{t('newsletterGate.error')}</p>
  )}

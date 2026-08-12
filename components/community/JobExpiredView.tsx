@@ -20,6 +20,7 @@ import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -285,7 +286,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  status: 'pending',
  // #5678: record the formula in force at this gate. `pending`, so the text
  // states that the subscription waits for the confirmation link.
- ...consentProof('jobUnlockEmail', 'email_submit'),
+ // #5712/#5718: the notice under the unlock form is the stored string.
+ ...consentProof('communicationsOptIn', 'email_submit', locale),
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();
@@ -943,6 +945,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  </details>
  </div>
 

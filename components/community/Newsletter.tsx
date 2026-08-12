@@ -14,6 +14,7 @@ import {
  requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -173,10 +174,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  locale: navigator.language || 'it-IT',
  isActive: false, // pending until double opt-in confirmed
  status: 'pending',
- // #5678. This form has no consent checkbox (unlike SubscriptionCTA), so
- // `consentGiven` stays unset and the recorded text describes what the
- // submit actually was.
- ...consentProof('newsletterForm', 'email_submit'),
+ // #5678/#5712. This form has no consent checkbox (unlike SubscriptionCTA),
+ // so `consentGiven` stays unset — but the notice IS rendered in both form
+ // variants below, in this locale, so what is stored is what was read.
+ ...consentProof('communicationsOptIn', 'email_submit', locale),
  }),
  8000,
  'newsletter_upsert',
@@ -244,6 +245,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
  </button>
  </form>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-on-accent/80 leading-relaxed block" />
  {!user && (
  <div className="flex flex-col gap-2">
  <div className="space-y-2">
@@ -462,6 +464,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  )}
  </button>
  </div>
+
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
 
  <p className="text-sm text-muted text-center">
  {t('newsletter.unsubscribeNotice')}

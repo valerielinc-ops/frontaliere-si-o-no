@@ -2537,6 +2537,29 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Communications list — /comunicazioni/ + locale twins (#5712). Source of
+ // truth for the four paths: services/communicationChannels.ts
+ // COMMUNICATIONS_PAGE_PATH, which the build plugin emits from. The page is
+ // named INSIDE every consent formula (services/consentTexts.ts), so a
+ // visitor arrives here by clicking a notice — and without staticOverlay the
+ // SPA would treat the URL as unknown on hydrate, hide
+ // `main.seo-static-content` and render NotFoundSuggestions over a page that
+ // exists. Routed to `privacy` for back-nav: it is the disclosure family this
+ // page belongs to.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   const commsPaths: Record<string, Locale> = {
+     '/comunicazioni/': 'it',
+     '/en/communications/': 'en',
+     '/de/mitteilungen/': 'de',
+     '/fr/communications/': 'fr',
+   };
+   const commsLocale = commsPaths[normalized];
+   if (commsLocale) {
+     return { route: { activeTab: 'privacy', staticOverlay: true }, locale: commsLocale };
+   }
+ }
+
  // Self-certification forms guide — /moduli/autocertificazione-candidatura/
  // (IT-only, source of truth: build-plugins/selfCertificationFormsPlugin.ts
  // LANDING_URL_PATH). Emitted via buildSeoPageHtml (seoContentOutsideRoot:

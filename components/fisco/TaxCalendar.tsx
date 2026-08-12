@@ -12,6 +12,7 @@ import {
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 
 interface TaxDeadline {
  id: string;
@@ -535,13 +536,16 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  locale: navigator.language || 'it-IT',
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
- // #5678. Two acts, two formulas: the social branch confirms immediately
- // off an authentication, the typed-address branch stays `pending`.
+ // #5678/#5712. Two acts, two formulas, and now two rendered notices:
+ // the modal below prints the sign-in one above the provider buttons and
+ // the opt-in one under the email form, so each branch stores the
+ // sentence its own control displayed.
  ...consentProof(
- isTrustedAuthSource ? 'taxCalendarSocial' : 'taxCalendarEmail',
+ isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsOptIn',
  isTrustedAuthSource
  ? (source.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
  : 'email_submit',
+ locale,
  ),
  });
  markNewsletterSubscribedLocally();
@@ -907,6 +911,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="text-xs font-semibold text-warning">
  Attiva i reminder iscrivendoti: salviamo la preferenza e misuriamo questo funnel.
  </div>
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''}`}>
  <div className="space-y-2">
  <div ref={googleReminderButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-lg" />
@@ -959,6 +964,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  {reminderSignupLoading ? '...' : 'Iscriviti'}
  </button>
  </form>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  <div className="text-xs text-subtle">
  {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}
  </div>

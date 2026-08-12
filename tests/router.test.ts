@@ -673,6 +673,44 @@ describe('Router — per-municipality fiscal guide pages (finding #1)', () => {
   });
 });
 
+describe('Router — communications list (/comunicazioni/ and its locale twins)', () => {
+  /**
+   * The page is named INSIDE every consent formula
+   * (services/consentTexts.ts → CONSENT_PAGE_LABEL), so a visitor arrives here
+   * by clicking a notice they were shown at signup. Without `staticOverlay`
+   * the path is unmatched anywhere else in parsePath, falls through to the
+   * notFoundPath fallback, and the SPA hides `main.seo-static-content` and
+   * renders NotFoundSuggestions over a page the build did emit — i.e. the
+   * consent formula would point at a 404 for anyone with JS.
+   */
+  const CASES: Array<[string, string]> = [
+    ['/comunicazioni/', 'it'],
+    ['/en/communications/', 'en'],
+    ['/de/mitteilungen/', 'de'],
+    ['/fr/communications/', 'fr'],
+  ];
+
+  it.each(CASES)('parsePath resolves %s to a staticOverlay route in %s', (p, expectedLocale) => {
+    const { route, locale, notFoundPath } = parsePath(p);
+    expect(route.staticOverlay).toBe(true);
+    expect(route.activeTab).toBe('privacy');
+    expect(locale).toBe(expectedLocale);
+    expect(notFoundPath).toBeUndefined();
+  });
+
+  it.each(CASES)('resolves %s without the trailing slash the same way', (p) => {
+    const { route, notFoundPath } = parsePath(p.replace(/\/$/, ''));
+    expect(route.staticOverlay).toBe(true);
+    expect(notFoundPath).toBeUndefined();
+  });
+
+  it('does not swallow a neighbouring path that the build does not emit', () => {
+    const { route, notFoundPath } = parsePath('/comunicazioni/qualcosa/');
+    expect(route.staticOverlay).toBeUndefined();
+    expect(notFoundPath).toBe('/comunicazioni/qualcosa/');
+  });
+});
+
 describe('Router — self-certification forms guide (/moduli/autocertificazione-candidatura/)', () => {
   it('parsePath resolves the guide URL to a staticOverlay guida route (no notFoundPath)', () => {
     const { route, locale, notFoundPath } = parsePath('/moduli/autocertificazione-candidatura/');
