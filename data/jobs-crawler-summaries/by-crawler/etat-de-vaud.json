@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-08-12T10:38:35.354Z",
+  "generatedAt": "2026-08-12T21:59:51.629Z",
   "total": 53,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 25463,
-  "avgDurationMs": 25463,
+  "unchangedCount": 1,
+  "durationMs": 29385,
+  "avgDurationMs": 29385,
   "durationHistory": [
-    25463
+    29385
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5679",
       "slug": "specialist-file-manager-settore-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -45,7 +47,8 @@
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +57,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
