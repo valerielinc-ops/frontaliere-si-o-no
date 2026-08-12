@@ -9792,6 +9792,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.conversione-patente-guida-frontaliere.title': 'Conversione patente italiana in Svizzera per frontalieri',
     'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Guida pratica alla conversione della patente di guida italiana in Svizzera per i lavoratori con permesso G: procedure e validità.',
     'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Conversione patente di guida in Svizzera per frontalieri a Chiasso',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Ufficio doganale unico per Mendrisio e Sopraceneri',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'Novità dalla riorganizzazione dell\'Ufficio federale della dogana e della sicurezza dei confini con l\'accorpamento dei Grigioni alla Regione Sud.',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Ufficio doganale unico per Mendrisio e Sopraceneri',
+    'blog.article.lavoratori-frontalieri-novita-2026.title': 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
+    'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime dei frontalieri.',
+    'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalieri in attesa al valico di Brogeda',
 };
 
 export default blogMetaIt;
