@@ -2278,6 +2278,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tetto-salari-manager-casse-malattia.title': 'Caisses maladie : plafond des salaires des managers fixé par le CF',
     'blog.article.tetto-salari-manager-casse-malattia.excerpt': 'Le Conseil fédéral veut plafonner les salaires des cadres des caisses-maladie sur la base des rémunérations des conseillers fédéraux.',
     'blog.article.tetto-salari-manager-casse-malattia.imageAlt': 'Le Palais fédéral à Berne siège du Conseil fédéral',
+    'blog.article.tassa-utili-immobiliari-comuni.title': 'Taux des bénéfices immobiliers : part de 40 % aux Communes tessinoises',
+    'blog.article.tassa-utili-immobiliari-comuni.excerpt': 'Une initiative parlementaire présentée par Patrick Rusconi demande que 40 % des recettes de TUI soient alloués aux communes où se trouve l\'immeuble.',
+    'blog.article.tassa-utili-immobiliari-comuni.imageAlt': 'Vue de Bellinzona avec des batiments institutionnels',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.title': 'Zones à 30 km/h dans les villes, le Conseil fédéral intervient',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.excerpt': 'Le Conseil fédéral a décidé de modifier l\'Ordonnance sur les panneaux de signalisation pour introduire des limites de vitesse de 30 km/h dans les villes.',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.imageAlt': 'Limites de vitesse de 30 km/h dans les villes suisses',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.title': 'Trois banques cantonales suisses : trois fois plus de profits',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.excerpt': 'Les banques cantonales de Berne, Saint-Gall et Bâle-Campagne présentent leurs comptes semestriels avec des bénéfices en hausse',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.imageAlt': 'Trois banques cantonales suisses présentent leurs comptes semestriels avec des profits en croissance',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvabilité au plus haut depuis 30 ans',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'Au premier semestre, 7496 entreprises ont déclaré faillite pour cause d\'insolvabilité, le nombre le plus élevé depuis 1994.',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Taux d\'insolvabilité en Suisse: un record depuis 1994',
 };
 
 export default blogMetaChFr;
