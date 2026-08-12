@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T17:52:35.981Z",
+  "updatedAt": "2026-08-12T06:52:12.067Z",
   "perCrossing": {
     "anieres": {
       "waitTimeMinutes": 0,
@@ -207,7 +207,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-11T17:52:35.981Z"
+      "lastUpdate": "2026-08-12T06:52:12.067Z"
     },
     "campocologno-tirano": {
       "waitTimeMinutes": 0,
@@ -239,23 +239,23 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-11T17:52:35.981Z"
+      "lastUpdate": "2026-08-12T06:52:12.067Z"
     },
     "chiasso-centro": {
-      "waitTimeMinutes": 0,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 0,
-      "status": "green",
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-08-11T17:52:35.981Z"
+      "lastUpdate": "2026-08-12T06:52:12.067Z"
     },
     "chiasso-strada": {
-      "waitTimeMinutes": 0,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 0,
-      "status": "green",
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-08-11T17:52:35.981Z"
+      "lastUpdate": "2026-08-12T06:52:12.067Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 1,
@@ -394,12 +394,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "gaggiolo": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 0,
+      "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-11T17:52:35.981Z"
+      "lastUpdate": "2026-08-12T06:52:12.067Z"
     },
     "gailingen-am-hochrhein-dorflingen": {
       "waitTimeMinutes": 0,
@@ -978,12 +978,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "san-pietro": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 0,
+      "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-11T17:52:35.981Z"
+      "lastUpdate": "2026-08-12T06:52:12.067Z"
     },
     "sauverny": {
       "waitTimeMinutes": 0,

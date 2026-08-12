@@ -2254,6 +2254,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.title': 'Salari e mercato del lavoro a Zurigo: settori e livelli',
     'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Analisi approfondita del mercato del lavoro nel Cantone di Zurigo, con focus sui settori chiave, i livelli salariali e le normative in vigore.',
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Mercato del lavoro e salari nel Cantone di Zurigo',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Imposte di successione e donazione nel Cantone di Zurigo',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Nel Cantone di Zurigo, l\'imposta di successione e donazione è soggetta a aliquote diverse in base al grado di parentela.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.caldo-prezzi-inflazione-climatica.title': 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
+    'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'Dalla siccità del Reno al carrello della spesa, i cambiamenti climatici creano una nuova inflazione e costringono le banche centrali ad agire.',
+    'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impatto della siccità e del caldo sui prezzi in Svizzera',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Come utilizzare la croce svizzera sui prodotti esteri?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Una scatola di cioccolatini con la croce svizzera',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Notizie e aggiornamenti online nella Svizzera italiana',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Aggiornamenti quotidiani su cronaca, politica, economia, sport, cultura e rubriche specializzate nel panorama online della Svizzera italiana.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Portale di informazione e attualità della Svizzera italiana',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Le imposte cantonali nel Cantone di Berna sono gestite dall\'amministrazione cantonale e hanno aliquote diverse in base allo scaglione di reddito.',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Immagine editoriale relativa a: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
 };
 
 export default blogMetaChIt;

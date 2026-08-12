@@ -2254,6 +2254,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.title': 'Salaires et marché du travail à Zurich : secteurs et niveaux',
     'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Analyse approfondie du marché du travail dans le canton de Zurich, en mettant l\'accent sur les secteurs clés, les niveaux de salaire et les réglementations en vigueur.',
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Marché du travail et salaires dans le canton de Zurich',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Droits de succession et de donation dans le canton de Zurich',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Dans le canton de Zurich, l\'impôt sur les successions et les donations est soumis à des taux différents en fonction du degré de parenté.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.caldo-prezzi-inflazione-climatica.title': 'Parce que la chaleur fait grimper les prix et l\'inflation climatique',
+    'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'De la sécheresse du Rhin au panier de la ménagère, le changement climatique crée une nouvelle inflation et contraint les banques centrales à agir.',
+    'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impact de la sécheresse et de la chaleur sur les prix en Suisse',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Comment utiliser la croix suisse sur les produits étrangers ?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'La Suisse a des règles pour utiliser la croix suisse sur les produits étrangers.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Une boîte de chocolats suisses avec la croix suisse',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Actualités et mises à jour en ligne en Suisse italienne',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Mises à jour quotidiennes sur les actualités, la politique, l\'économie, le sport, la culture et les rubriques spécialisées dans le paysage en ligne de la Suisse italienne.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Portail d\'information de la Suisse italienne',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton de Berne : taux et déductions',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Les impôts cantonaux dans le canton de Berne sont gérés par l\'administration cantonale et ont des taux différents en fonction de la tranche de revenu.',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Image éditoriale relative à: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
 };
 
 export default blogMetaChFr;
