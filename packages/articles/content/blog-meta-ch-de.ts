@@ -2278,6 +2278,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tetto-salari-manager-casse-malattia.title': 'Krankenkassen: Obergrenze für Managergehälter vom CF',
     'blog.article.tetto-salari-manager-casse-malattia.excerpt': 'Der Bundesrat will die Krankenkassenkaderlöhne auf Basis von Bundesratsentgelten begrenzen.',
     'blog.article.tetto-salari-manager-casse-malattia.imageAlt': 'Das Bundeshaus in Bern Sitz des Bundesrates',
+    'blog.article.tassa-utili-immobiliari-comuni.title': 'Grundstückgewinnsteuer: 40 % Anteil an den Tessiner Gemeinden',
+    'blog.article.tassa-utili-immobiliari-comuni.excerpt': 'Eine parlamentarische Initiative von Patrick Rusconi fordert, 40% der Einnahmen der TUI für die Gemeinden zu verwenden, in denen sich die Immobilie befindet.',
+    'blog.article.tassa-utili-immobiliari-comuni.imageAlt': 'Ansicht von Bellinzona mit institutionellen Gebaeuden',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.title': '30-km/h-Zonen in Städten, Bundesrat greift ein',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.excerpt': 'Der Bundesrat hat beschlossen, die Verkehrsschilderverordnung zu ändern, um in Städten Geschwindigkeitsbegrenzungen von 30 km/h einzuführen.',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.imageAlt': '30 km/h-Geschwindigkeitsbeschränkungen in Schweizer Städten',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.title': 'Drei Schweizer Kantonalbanken: Dreimal höhere Gewinne',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.excerpt': 'Die Kantonalbanken Bern, St. Gallen und Basel-Landschaft präsentieren Halbjahresabschlüsse mit steigenden Gewinnen',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.imageAlt': 'Drei schweizerische Kantonalbanken präsentieren ihre halbjährlichen Konten mit Gewinnen im Wachstum',
 };
 
 export default blogMetaChDe;
