@@ -66,11 +66,22 @@ function extractStack(error: unknown): string {
  return '';
 }
 
+type ReportCaughtErrorOptions = {
+ type?: ErrorType;
+ apiEndpoint?: string;
+ statusCode?: number;
+ apiMethod?: string;
+ fatal?: boolean;
+};
+
 /**
  * Report a caught error to GA4 Analytics.
  *
  * Safe to call anywhere — if analytics is not initialized yet, the call
- * is silently skipped (no throw, no recursion).
+ * is silently skipped (no throw, no recursion). Guaranteed never to throw:
+ * some callers sit in fail-closed catch blocks (e.g.
+ * services/newsletterSubscribers.ts's isNewsletterOptedOut) where this call
+ * must not be able to pre-empt the fail-closed `return true` that follows it.
  *
  * @param error The caught error value (Error | string | unknown)
  * @param context A short dot-notation identifier for the call site
@@ -79,13 +90,20 @@ function extractStack(error: unknown): string {
 export function reportCaughtError(
  error: unknown,
  context: string,
- options: {
- type?: ErrorType;
- apiEndpoint?: string;
- statusCode?: number;
- apiMethod?: string;
- fatal?: boolean;
- } = {}
+ options: ReportCaughtErrorOptions = {}
+): void {
+ try {
+ reportCaughtErrorUnsafe(error, context, options);
+ } catch {
+ // Never propagate — a throw here must never be able to interrupt a
+ // caller's own control flow (see the fail-closed note above).
+ }
+}
+
+function reportCaughtErrorUnsafe(
+ error: unknown,
+ context: string,
+ options: ReportCaughtErrorOptions
 ): void {
  const message = extractMessage(error);
 
