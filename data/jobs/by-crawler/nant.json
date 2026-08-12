@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nant-eda937afa152",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
+      "slug": "assistente-in-cure-e-salute-comunitaria-o-operatore-socio-sanitario-a-orario-variabile-mistral-fondation-de-nant-corsier",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-        "it": "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-        "en": "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-        "de": "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
+        "it": "assistente-in-cure-e-salute-comunitaria-o-operatore-socio-sanitario-a-orario-variabile-mistral-fondation-de-nant-corsier",
+        "en": "community-care-and-health-assistant-or-care-worker-at-variable-hours-mistral-fondation-de-nant-corsier-sur-vevey",
+        "de": "assistent-in-in-gemeinschafts-und-gesundheitspflege-oder-pflegehilfskraft-mit-variabler-arbeitszeit-mistral-fondation-de"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -71,19 +71,23 @@
         "it": [
           "assistenza-comunitaria-e-assistente-sanitario-o-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
           "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
-          "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant"
+          "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
+          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
         ],
         "en": [
-          "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey"
+          "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
+          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
         ],
         "de": [
-          "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant"
+          "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
+          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
         ]
       },
       "previousSlugs": [
         "assistenza-comunitaria-e-assistente-sanitario-o-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
         "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
-        "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant"
+        "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
+        "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
       ],
       "retranslationAttempts": 1
     },
@@ -145,8 +149,7 @@
         "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
         "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
         "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -158,8 +161,7 @@
           "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
           "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
           "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-en-cdi-a-100-dmpc-nant-corsier-sur-vevey",
@@ -317,13 +319,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugs": [
-        "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey",
-        "frequenza-variabile-fondation-de-nant-corsier-sur-vevey"
+        "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey",
-          "frequenza-variabile-fondation-de-nant-corsier-sur-vevey"
+          "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey"
         ],
         "en": [
           "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey"
