@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-12T10:46:21.012Z",
+  "assembledAt": "2026-08-12T22:18:52.173Z",
   "jobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:46:17.352Z",
+      "crawledAt": "2026-08-12T22:18:49.339Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -121,7 +121,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "structured-products-trader-spanish-market-alpiq-olten"
@@ -176,7 +176,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:46:17.351Z",
+      "crawledAt": "2026-08-12T22:18:49.339Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -258,6 +258,7 @@
           "unitText": "YEAR"
         }
       },
+      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
@@ -309,7 +310,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:46:17.349Z",
+      "crawledAt": "2026-08-12T22:18:49.337Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
