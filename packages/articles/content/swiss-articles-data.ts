@@ -7039,6 +7039,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'apple-vola-a-5000-miliardi-di-valore',
+    category: 'fiscale',
+    date: '2026-08-12T21:36:14.113Z',
+    image: '/images/blog/apple-vola-a-5000-miliardi-di-valore.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

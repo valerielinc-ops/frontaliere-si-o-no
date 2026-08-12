@@ -2347,6 +2347,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Bern: Voraussetzungen und Antrag',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Die Niederlassungsbewilligung C im Kanton Bern: Voraussetzungen, Antrag und Antragsverfahren',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'Ein Ausländer mit einem C-Bescheinigung im Kanton Bern',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple fliegt im Wert von 5.000 Milliarden, es ist das zweite nach Nvidia',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple durchbricht eine Marktkapitalisierung von 5 Billionen US-Dollar und ist damit das zweite Unternehmen der Welt, das nach Nvidia die historische Schwelle erreicht.',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'Eine Szene mit einem Apple Store in Zürich oder Bern mit einer Schilder, die die Kurs an 5,000 Milliarden Dollar anzeigt',
 };
 
 export default blogMetaChDe;
