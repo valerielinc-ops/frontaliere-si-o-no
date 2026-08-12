@@ -29384,6 +29384,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-no-tutele-sindacalisti-bilaterali-iii': {
+    title: 'Bilaterali III: no a tutele specifiche per i sindacalisti',
+    description: 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati esclude la norma che avrebbe rafforzato le protezioni per i rappresentanti sindacali',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, tutele, specifiche, sindacalisti',
+    ogTitle: 'Bilaterali III: no a tutele specifiche per i sindacalisti',
+    ogDescription: 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati ha escluso la norma che avrebbe rafforzato le protezioni per i rappresentanti sindacali nelle aziende.',
+    canonicalPath: '/articoli-svizzera/no-tutele-sindacalisti-bilaterali-iii/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III: no a tutele specifiche per i sindacalisti",
+      "description": "La Commissione dell'economia e dei tributi del Consiglio degli Stati esclude la norma che avrebbe rafforzato le protezioni per i rappresentanti sindacali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/no-tutele-sindacalisti-bilaterali-iii.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una riunione sindacale in Svizzera"
+      },
+      "datePublished": "2026-08-12T08:15:32+00:00",
+      "dateModified": "2026-08-12T08:15:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/no-tutele-sindacalisti-bilaterali-iii/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

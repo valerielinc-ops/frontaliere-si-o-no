@@ -65903,6 +65903,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ufficio-doganale-unico-mendrisio-sopraceneri': {
+    title: 'Ufficio doganale unico per Mendrisio e Sopraceneri',
+    description: 'Scopri i dettagli del piano di riorganizzazione doganale tra Mendrisio e Sopraceneri con l\'accorpamento dei Grigioni e la soppressione di posti di quadri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ufficio, doganale, unico, mendrisio',
+    ogTitle: 'Ufficio doganale unico per Mendrisio e Sopraceneri',
+    ogDescription: 'Tutti i dettagli sul piano di riorganizzazione dell\'Ufficio federale della dogana e della sicurezza dei confini in Ticino e nei Grigioni.',
+    canonicalPath: '/articoli-frontaliere/ufficio-doganale-unico-mendrisio-sopraceneri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ufficio doganale unico per Mendrisio e Sopraceneri",
+      "description": "Scopri i dettagli del piano di riorganizzazione doganale tra Mendrisio e Sopraceneri con l'accorpamento dei Grigioni e la soppressione di posti di quadri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ufficio-doganale-unico-mendrisio-sopraceneri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio doganale unico per Mendrisio e Sopraceneri"
+      },
+      "datePublished": "2026-08-12T08:18:46+00:00",
+      "dateModified": "2026-08-12T08:18:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ufficio-doganale-unico-mendrisio-sopraceneri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

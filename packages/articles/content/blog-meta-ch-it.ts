@@ -2269,6 +2269,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
     'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Le imposte cantonali nel Cantone di Berna sono gestite dall\'amministrazione cantonale e hanno aliquote diverse in base allo scaglione di reddito.',
     'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Immagine editoriale relativa a: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.title': 'Bilaterali III: no a tutele specifiche per i sindacalisti',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati esclude la norma che avrebbe rafforzato le protezioni per i rappresentanti sindacali nelle aziende.',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.imageAlt': 'Una riunione sindacale in Svizzera',
 };
 
 export default blogMetaChIt;
