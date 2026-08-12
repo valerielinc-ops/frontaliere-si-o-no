@@ -2248,6 +2248,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-zurigo.title': 'Starting a business in the Canton of Zurich: trade register and costs',
     'blog.article.aprire-un-attivita-canton-zurigo.excerpt': 'Costs of registration in the commercial register and requirements to open a business in the Canton of Zurich',
     'blog.article.aprire-un-attivita-canton-zurigo.imageAlt': 'Business in Canton Zurich',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Driving licence in Zurich: conversion and exams',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Exchange of foreign driving licences, theoretical and practical examinations, compulsory courses and the competent road traffic office in the canton of Zurich.',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Image of a road sign at Lugano with information on converting a driving license',
 };
 
 export default blogMetaChEn;

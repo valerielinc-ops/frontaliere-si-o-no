@@ -29111,6 +29111,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-di-guida-canton-zurigo-conversione-ed-esami': {
+    title: 'Patente di guida a Zurigo: conversione e esami',
+    description: 'Conversione della patente di guida estera nel Cantone di Zurigo: requisiti, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, zurigo, conversione, esami',
+    ogTitle: 'Patente di guida nel Cantone di Zurigo: conversione della licenza estera',
+    ogDescription: 'Conversione della patente di guida estera nel Cantone di Zurigo: requisiti, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.',
+    canonicalPath: '/articoli-svizzera/patente-di-guida-canton-zurigo-conversione-ed-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida a Zurigo: conversione e esami",
+      "description": "Conversione della patente di guida estera nel Cantone di Zurigo: requisiti, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-di-guida-canton-zurigo-conversione-ed-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un cartello stradale a Lugano con informazioni sulla conversione della patente di guida"
+      },
+      "datePublished": "2026-08-12T02:57:47+00:00",
+      "dateModified": "2026-08-12T02:57:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-di-guida-canton-zurigo-conversione-ed-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
