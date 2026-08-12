@@ -9782,6 +9782,23 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Tableau RW déclaration compte courant suisse Agence du revenu',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Guide complet de suivi fiscal pour les frontaliers titulaires d\'un compte en Suisse : obligations de déclaration et TVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Vue de Lugano et de ses institutions bancaires et financieres',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Mariage frontalier italien ressortissant suisse : régime fiscal',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Réglage à la source et restauration pour les frontaliers après le mariage avec un ressortissant suisse.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'Un travailleur frontalier italien se marie à un citoyen suisse à Lugano.',
+    'blog.article.bollettino-frontaliere-2026-08-12.title': 'Bulletin du frontalier – 12 août 2026 : 762 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-12.excerpt': 'Les chiffres du jour, 12 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-12.imageAlt': 'Les chiffres du jour pour les frontaliers – 12 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-12.seoDescription': 'Bulletin du frontalier du 12 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-12.ogDescription': 'Les chiffres du 12 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.conversione-patente-guida-frontaliere.title': 'Conversion du permis italien en Suisse pour les frontaliers',
+    'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Guide pratique pour la conversion du permis de conduire italien en Suisse pour les travailleurs titulaires d\'un permis G : procédures et validité.',
+    'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Conversion du permis de conduire italien en Suisse pour frontaliers',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Bureau de douane unique pour Mendrisio et Sopraceneri',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'Nouveauté de la réorganisation de l\'Office fédéral des douanes et de la sécurité des frontières avec le rattachement des Grisons à la Région Sud.',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Bureau douanier unique pour Mendrisio et le Sopraceneri',
+    'blog.article.lavoratori-frontalieri-novita-2026.title': 'Lavoratori frontalieri : les changements 2026',
+    'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'La ratification du Protocole de modification de l\'Accord Italie-Suisse et les clarifications de l\'Agence du revenu redéfinissent le périmètre d\'application du régime des frontaliers.',
+    'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontaliers en attente au passage de Brogeda',
 };
 
 export default blogMetaFr;

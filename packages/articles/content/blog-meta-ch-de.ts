@@ -2266,6 +2266,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.portale-informazione-svizzera-italiana.title': 'Online News und Updates in der italienischen Schweiz',
     'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Tägliche Updates zu Nachrichten, Politik, Wirtschaft, Sport, Kultur und Rubriken, die sich auf die Online-Landschaft der italienischsprachigen Schweiz spezialisiert haben.',
     'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Nachrichtenportal der italienischsprachigen Schweiz',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Bern: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Die kantonalen Steuern im Kanton Bern werden von der kantonalen Verwaltung verwaltet und haben je nach Einkommensstufe unterschiedliche Sätze.',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Redaktionelles Bild zu: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.title': 'Bilaterale III: Nein zu besonderen Schutzmaßnahmen für Gewerkschafter',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Ständerates schliesst die Regelung aus, die den Schutz für Gewerkschaftsvertreter in Betrieben gestärkt hätte.',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.imageAlt': 'Eine Gewerkschaftssitzung in der Schweiz',
 };
 
 export default blogMetaChDe;

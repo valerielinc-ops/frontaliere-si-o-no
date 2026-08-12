@@ -2266,6 +2266,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.portale-informazione-svizzera-italiana.title': 'Actualités et mises à jour en ligne en Suisse italienne',
     'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Mises à jour quotidiennes sur les actualités, la politique, l\'économie, le sport, la culture et les rubriques spécialisées dans le paysage en ligne de la Suisse italienne.',
     'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Portail d\'information de la Suisse italienne',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton de Berne : taux et déductions',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Les impôts cantonaux dans le canton de Berne sont gérés par l\'administration cantonale et ont des taux différents en fonction de la tranche de revenu.',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Image éditoriale relative à: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.title': 'Bilatérales III : non à des protections spécifiques pour les syndicalistes',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.excerpt': 'La Commission de l\'économie et des redevances du Conseil des Etats exclut la règle qui aurait renforcé les protections pour les représentants syndicaux dans les entreprises.',
+    'blog.article.no-tutele-sindacalisti-bilaterali-iii.imageAlt': 'Une réunion syndicale en Suisse',
 };
 
 export default blogMetaChFr;

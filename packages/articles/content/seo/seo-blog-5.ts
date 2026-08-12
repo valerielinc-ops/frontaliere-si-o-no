@@ -65786,6 +65786,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale': {
+    title: 'Matrimonio frontaliere italiano cittadino svizzero: regime fiscale',
+    description: 'Impostazione imposta alla fonte e ristorni per i frontalieri dopo il matrimonio con un cittadino svizzero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, italiano, cittadino, svizzero',
+    ogTitle: 'Matrimonio frontaliere italiano cittadino svizzero: regime fiscale',
+    ogDescription: 'Impostazione imposta alla fonte e ristorni per i frontalieri dopo il matrimonio con un cittadino svizzero.',
+    canonicalPath: '/articoli-frontaliere/matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Matrimonio frontaliere italiano cittadino svizzero: regime fiscale",
+      "description": "Impostazione imposta alla fonte e ristorni per i frontalieri dopo il matrimonio con un cittadino svizzero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere italiano si sposa con un cittadino svizzero a Lugano."
+      },
+      "datePublished": "2026-08-12T06:04:30+00:00",
+      "dateModified": "2026-08-12T06:04:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-12': {
+    title: 'Bollettino del frontaliere – 12 agosto 2026: 762 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 12 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 12 agosto 2026: 762 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 12 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-12',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 12 agosto 2026: 762 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 12 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-12.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 12 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-12T06:17:47+00:00",
+      "dateModified": "2026-08-12T06:17:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-12/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-conversione-patente-guida-frontaliere': {
+    title: 'Conversione patente italiana in Svizzera per frontalieri',
+    description: 'Guida completa sulla conversione della patente di guida italiana in Svizzera per i lavoratori frontalieri con permesso G e residenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, conversione, patente, italiana, pratica',
+    ogTitle: 'Conversione patente italiana in Svizzera per frontalieri',
+    ogDescription: 'Scopri quando è obbligatoria la conversione della patente di guida italiana in Svizzera per i lavoratori frontalieri e quali procedure seguire.',
+    canonicalPath: '/articoli-frontaliere/conversione-patente-guida-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conversione patente italiana in Svizzera per frontalieri",
+      "description": "Guida completa sulla conversione della patente di guida italiana in Svizzera per i lavoratori frontalieri con permesso G e residenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conversione-patente-guida-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conversione patente di guida in Svizzera per frontalieri a Chiasso"
+      },
+      "datePublished": "2026-08-12T06:42:32+00:00",
+      "dateModified": "2026-08-12T06:42:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conversione-patente-guida-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ufficio-doganale-unico-mendrisio-sopraceneri': {
+    title: 'Ufficio doganale unico per Mendrisio e Sopraceneri',
+    description: 'Scopri i dettagli del piano di riorganizzazione doganale tra Mendrisio e Sopraceneri con l\'accorpamento dei Grigioni e la soppressione di posti di quadri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ufficio, doganale, unico, mendrisio',
+    ogTitle: 'Ufficio doganale unico per Mendrisio e Sopraceneri',
+    ogDescription: 'Tutti i dettagli sul piano di riorganizzazione dell\'Ufficio federale della dogana e della sicurezza dei confini in Ticino e nei Grigioni.',
+    canonicalPath: '/articoli-frontaliere/ufficio-doganale-unico-mendrisio-sopraceneri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ufficio doganale unico per Mendrisio e Sopraceneri",
+      "description": "Scopri i dettagli del piano di riorganizzazione doganale tra Mendrisio e Sopraceneri con l'accorpamento dei Grigioni e la soppressione di posti di quadri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ufficio-doganale-unico-mendrisio-sopraceneri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio doganale unico per Mendrisio e Sopraceneri"
+      },
+      "datePublished": "2026-08-12T08:18:46+00:00",
+      "dateModified": "2026-08-12T08:18:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ufficio-doganale-unico-mendrisio-sopraceneri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoratori-frontalieri-novita-2026': {
+    title: 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
+    description: 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, novità, protocollo, it-ch',
+    ogTitle: 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
+    ogDescription: 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lavoratori-frontalieri-novita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli",
+      "description": "La ratifica del Protocollo di modifica dell'Accordo Italia-Svizzera e i chiarimenti dell'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoratori-frontalieri-novita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa al valico di Brogeda"
+      },
+      "datePublished": "2026-08-12T09:05:57+00:00",
+      "dateModified": "2026-08-12T09:05:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoratori-frontalieri-novita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
