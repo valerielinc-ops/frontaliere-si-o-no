@@ -9830,6 +9830,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontier and remote: the tax implications',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'The new legislation on remote working of border workers has changed the tax and insurance rules for border workers working remotely from a third country during a holiday in Switzerland',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'a frontaliere who works remotely from a third country during a vacation in Switzerland',
+    'blog.article.frontalieri-ticino-statistiche-2026.title': 'How many border crossers are there in Ticino? Statistics 2026',
+    'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'The latest data available on the border population in Ticino, with a focus on the main sectors of employment.',
+    'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'A commuter waiting at Chiasso train station.',
 };
 
 export default blogMetaEn;

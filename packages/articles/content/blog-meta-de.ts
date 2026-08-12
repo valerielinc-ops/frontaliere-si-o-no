@@ -9829,6 +9829,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontier und Remote: die steuerlichen Auswirkungen',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'Die neuen Vorschriften über die Fernarbeit von Grenzgängern haben die Steuer- und Versicherungsvorschriften für Grenzgänger geändert, die während eines Urlaubs in der Schweiz von einem Drittland aus arbeiten',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'ein Frontaliere, der von einem Drittland während einer Urlaubsreise in der Schweiz fernarbeitet',
+    'blog.article.frontalieri-ticino-statistiche-2026.title': 'Wie viele Grenzgänger gibt es im Tessin? Statistiken 2026',
+    'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'Die neuesten verfügbaren Daten zur Grenzgängerpopulation im Tessin mit Schwerpunkt auf den wichtigsten Einsatzgebieten.',
+    'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'Ein Pendler wartet an der Bahnhof von Chiasso.',
 };
 
 export default blogMetaDe;

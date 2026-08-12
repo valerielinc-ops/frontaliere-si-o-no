@@ -9832,6 +9832,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontières et à distance : les implications fiscales',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'La nouvelle réglementation sur le travail à distance des frontaliers a modifié les règles fiscales et d\'assurance pour les frontaliers travaillant à distance depuis un pays tiers lors de vacances en Suisse',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'un frontalière qui travaille à distance d\'un pays tiers pendant un voyage de vacances en Suisse',
+    'blog.article.frontalieri-ticino-statistiche-2026.title': 'Combien y a-t-il de frontaliers au Tessin ? Statistiques 2026',
+    'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'Les dernières données disponibles sur la population de frontaliers au Tessin, en se concentrant sur les principaux domaines d\'utilisation.',
+    'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'Un travailleur frontalier en attente à la gare de Chiasso.',
 };
 
 export default blogMetaFr;
