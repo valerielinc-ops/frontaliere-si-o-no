@@ -45,7 +45,14 @@
  * services/consentTexts.ts), and quietly filing it under "editorial" is the
  * shortcut that produced 6.308 unrequested job alerts (#5705).
  */
-import type { ConsentLocale } from '@/services/consentTexts';
+// Relative, not `@/`: `build-plugins/communicationsPagePlugin.ts` imports this
+// module and is itself reachable from vite.config.ts, which esbuild bundles
+// BEFORE the `@` alias exists and without our tsconfig. A non-relative
+// specifier survives into node_modules/.vite-temp/*.mjs as an external import
+// and every build-locale job dies with ERR_MODULE_NOT_FOUND. Type-only erases
+// today, so it would break on the day the `type` keyword is dropped —
+// tests/vite-config-import-graph.test.ts refuses it now instead.
+import type { ConsentLocale } from './consentTexts';
 
 /** Which sentence of the consent formula authorises the channel. `null` = none does. */
 export type ConsentCategory = 'editorial' | 'jobs' | 'service' | null;
