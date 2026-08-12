@@ -2350,6 +2350,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple vole à 5 000 milliards de dollars, c\'est le deuxième après Nvidia',
     'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple franchit la barre des 5 000 milliards de dollars de capitalisation boursière, devenant ainsi la deuxième société au monde à atteindre le seuil historique après Nvidia.',
     'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'Une scène avec un magasin Apple à Zurich ou Berne avec une affiche qui indique la cotation à 5 000 milliards de dollars',
+    'blog.article.bns-promuove-berna.title': 'La Banque nationale suisse \'promeut\' Berne avec les mesures \'too big to fail\'',
+    'blog.article.bns-promuove-berna.excerpt': 'Les mesures proposées par le Conseil fédéral ont été accueillies favorablement par l\'Institut central suisse. La Banque nationale suisse a promu les mesures proposées par l\'exécutif fédéral.',
+    'blog.article.bns-promuove-berna.imageAlt': 'La Banque nationale suisse promeut les mesures proposées par l\'exécutif fédéral pour renforcer la stabilité du système financier suisse.',
+    'blog.article.cultura-e-spettacoli-ticino-2026.title': 'Eurovision : si le pays gagnant est en guerre, il n\'accueillera pas le concours',
+    'blog.article.cultura-e-spettacoli-ticino-2026.excerpt': 'Le règlement de la kermesse a été mis à jour, y compris avec une nouveauté sur l\'âge minimum des artistes : ils doivent avoir au moins 18 ans.',
+    'blog.article.cultura-e-spettacoli-ticino-2026.imageAlt': 'Locarno 2026 - Le Festival Les règles pour choisir les films de Locarno',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.title': 'Climatiseurs à haute altitude : les chercheurs détectent les traces',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.excerpt': 'Les chercheurs de la plus haute station de mesure d\'Europe ont détecté les traces de réfrigérants qui se dégradent en PFAS et vont polluer l\'environnement.',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Image éditoriale relative à: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
 };
 
 export default blogMetaChFr;
