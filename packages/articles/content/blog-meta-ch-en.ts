@@ -2347,6 +2347,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Residence permit C in Canton Bern: requirements and application',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Residence permit C in the Canton of Bern: requirements, application and application procedure',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'A foreigner with a C permit in the Canton of Bern',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple flies at $5 trillion in value, second only to Nvidia',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple breaks through $5 trillion in market capitalization, becoming the second company in the world to reach the historic threshold after Nvidia.',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'A scene with an Apple Store in Zurich or Bern with a sign indicating the quotation at 5,000 billion dollars',
 };
 
 export default blogMetaChEn;

@@ -2347,6 +2347,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Permesso di domicilio C nel Canton Berna: requisiti e domanda',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Il permesso di domicilio C nel Canton Berna: requisiti, domanda e procedura di applicazione',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'Un cittadino straniero con permesso di domicilio C nel Canton Berna',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple vola a 5.000 miliardi di valore, è la seconda dopo Nvidia',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple sfonda quota 5.000 miliardi di dollari di capitalizzazione di mercato, divenendo la seconda società al mondo a raggiungere la storica soglia dopo Nvidia.',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'Una scena con un Apple Store a Zurigo o a Berna con una targhetta che indica la quotazione a 5.000 miliardi di dollari',
 };
 
 export default blogMetaChIt;

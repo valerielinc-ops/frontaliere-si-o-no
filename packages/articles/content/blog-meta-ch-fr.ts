@@ -2347,6 +2347,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Permis de séjour C dans le canton de Berne : exigences et demande',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Le permis de séjour C dans le canton de Berne : exigences, demande et procédure d\'application',
     'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'Un étranger avec un permis de séjour C dans le canton de Berne',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple vole à 5 000 milliards de dollars, c\'est le deuxième après Nvidia',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple franchit la barre des 5 000 milliards de dollars de capitalisation boursière, devenant ainsi la deuxième société au monde à atteindre le seuil historique après Nvidia.',
+    'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'Une scène avec un magasin Apple à Zurich ou Berne avec une affiche qui indique la cotation à 5 000 milliards de dollars',
 };
 
 export default blogMetaChFr;
