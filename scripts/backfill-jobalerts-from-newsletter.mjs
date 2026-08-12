@@ -1,16 +1,42 @@
 #!/usr/bin/env node
 /**
- * Backfill `job_alert_subscribers/{email}/alerts/backfill-newsletter` from
- * ALL `newsletter_subscribers` docs, regardless of `source_channel`.
+ * REPORT ONLY — THIS SCRIPT CANNOT CREATE AN ALERT (#5705).
  *
- * One-off batch pass over EXISTING docs. Going forward, new docs are covered
- * automatically by the `onDocumentWritten` trigger in
- * `functions/index.js` → `functions/src/jobAlertBackfillTrigger.js`, which
- * shares the exact same decision logic via `functions/src/jobAlertBackfillCore.js`
- * (re-exported here through `scripts/lib/jobalert-backfill-core.mjs` so both
- * paths can never drift apart).
+ * It used to write `job_alert_subscribers/{email}/alerts/backfill-newsletter`
+ * for every `newsletter_subscribers` doc carrying an inferred job signal. That
+ * pass, plus the two live triggers that share its logic, produced 7.167 alerts
+ * against 578 created by an actual person, 6.308 of them still active on
+ * 2026-08-12 — a daily mailing built out of a weekly-newsletter consent, and an
+ * nLPD complaint.
  *
- * Rationale: a subscriber who left a `job_category`/`job_location` signal
+ * Two independent things now stop it, so that neither one alone is load-bearing:
+ *
+ *  1. the shared consent gate — `shouldSkipSubscriber` requires an affirmative,
+ *     job-alert-scoped consent (`hasAffirmativeJobAlertConsent`,
+ *     functions/src/jobAlertBackfillCore.js), which nothing in this codebase
+ *     records today, so every subscriber returns `'no-job-alert-consent'`;
+ *  2. **by construction, here**: not one Firestore write call of any kind is
+ *     left in this file — no document write, no batch, no server timestamp.
+ *     Relaxing the gate, or calling this script with any flag whatsoever,
+ *     cannot resurrect 7.000 alerts, because the code that wrote them no
+ *     longer exists. `tests/backfill-jobalerts-from-newsletter.test.ts` pins
+ *     that absence token by token, so it cannot creep back unnoticed.
+ *
+ * The file keeps its historical name because three docblocks and one test
+ * reference it, and a rename would be churn without a reader; the first line
+ * says what it does now.
+ *
+ * What it still does, and why that is worth keeping: it counts the population
+ * per skip reason. `no-job-alert-consent` is, by the ordering in
+ * `shouldSkipSubscriber`, exactly the set that WOULD have been enrolled under
+ * the old rule — the live size of the travaso — and `consent names job alerts`
+ * measures one of the three questions issue #5705 asks the owner to decide on.
+ * Nothing here reads the `alerts` subcollection: the fate of the 6.308 already
+ * created is the owner's decision, not this script's.
+ *
+ * Historic rationale for the tiers, preserved because the tier code is still
+ * what classifies a subscriber (it just no longer authorises anything):
+ * a subscriber who left a `job_category`/`job_location` signal
  * behind — no matter which CTA captured their email (job-detail unlock,
  * social sign-in on the job board, One Tap, generic footer signup, …) — is
  * signalling job-search intent even though they never explicitly created an
@@ -50,15 +76,9 @@
  * NOT what an inferred, non-explicit alert should do — a subscriber with a
  * sparse job_category could end up matching nothing.
  *
- * Idempotent: fixed alert id `backfill-newsletter` per subscriber,
- * `merge:true`. Re-running never reactivates an alert the user disabled
- * (`deleteAlert`, services/jobAlertService.ts:269-275, sets `active:false` +
- * `unsubscribed_at`) — the payload only defaults `active:true` on first
- * creation and otherwise carries the existing doc's `active` forward as-is.
- *
- * Usage:
+ * Usage — read-only, and there is no flag that changes that:
  *   GOOGLE_APPLICATION_CREDENTIALS=/path/to/sa.json \
- *   node scripts/backfill-jobalerts-from-newsletter.mjs [--dry-run]
+ *   node scripts/backfill-jobalerts-from-newsletter.mjs
  */
 
 import fs from 'node:fs';
@@ -69,11 +89,11 @@ import {
   normalizeEmail,
   getSignalTier,
   shouldSkipSubscriber,
+  consentNamesJobAlerts,
+  hasAffirmativeJobAlertConsent,
   buildAlertPayload,
   resolveSignalTier,
 } from './lib/jobalert-backfill-core.mjs';
-
-const DRY_RUN = process.argv.includes('--dry-run');
 
 export {
   MAX_ALERTS_PER_USER,
@@ -81,6 +101,8 @@ export {
   normalizeEmail,
   getSignalTier,
   shouldSkipSubscriber,
+  consentNamesJobAlerts,
+  hasAffirmativeJobAlertConsent,
   buildAlertPayload,
   resolveSignalTier,
 };
@@ -104,20 +126,34 @@ async function getFirestoreAdmin() {
 
 async function main() {
   const db = await getFirestoreAdmin();
-  const { FieldValue } = await import('firebase-admin/firestore');
 
-  console.log(`🔎 Querying all newsletter_subscribers${DRY_RUN ? ' (dry-run)' : ''}`);
+  console.log('🔎 Querying all newsletter_subscribers (report only — this script never writes)');
   const snap = await db.collection('newsletter_subscribers').get();
   console.log(`   Found ${snap.size} subscribers`);
 
-  const counts = { created: 0, 'invalid-email': 0, suppressed: 0, 'no-signal': 0, capped: 0 };
+  const counts = {
+    eligible: 0,
+    'invalid-email': 0,
+    suppressed: 0,
+    'no-signal': 0,
+    'no-job-alert-consent': 0,
+  };
+  // The consent question issue #5705 puts to the owner, measured on the
+  // subscriber side: how many were ever told, in the formula stored on their
+  // own document, that job alerts were part of it — and of those, how many
+  // actually opted in affirmatively to a notice that was displayed.
+  const consent = { namesJobAlerts: 0, affirmative: 0, noConsentTextAtAll: 0 };
   const byChannel = {};
 
   for (const doc of snap.docs) {
     const data = doc.data();
     const email = normalizeEmail(data.email || doc.id);
     const channel = data.source_channel || 'unknown';
-    byChannel[channel] = byChannel[channel] || { created: 0, skipped: 0 };
+    byChannel[channel] = byChannel[channel] || { eligible: 0, skipped: 0 };
+
+    if (!data.consent_text) consent.noConsentTextAtAll++;
+    if (consentNamesJobAlerts(data.consent_text)) consent.namesJobAlerts++;
+    if (hasAffirmativeJobAlertConsent(data)) consent.affirmative++;
 
     // Lazy tier-3 lookup: only pay for the extra `private/personalization`
     // read when tiers 1/2 (flat job_category/location_interest/geo_city)
@@ -148,70 +184,33 @@ async function main() {
       continue;
     }
 
-    const subscriberRef = db.collection('job_alert_subscribers').doc(email);
-    const alertsRef = subscriberRef.collection('alerts');
-    // Read every alert doc (not just active:true) so a user-disabled
-    // backfill-newsletter doc is still found — otherwise it would look
-    // "missing" and get silently recreated as active on re-run.
-    const existingAlerts = await alertsRef.get();
-    const existingBackfillDoc = existingAlerts.docs.find((d) => d.id === ALERT_ID);
-    const activeOtherCount = existingAlerts.docs.filter((d) => d.id !== ALERT_ID && d.data().active === true).length;
-    if (!existingBackfillDoc && activeOtherCount >= MAX_ALERTS_PER_USER) {
-      counts.capped++;
-      byChannel[channel].skipped++;
-      continue;
-    }
-
-    const alertPayload = buildAlertPayload(email, data, existingBackfillDoc?.data(), personalization);
-    const { patch } = resolveSignalTier(data, personalization);
-    byChannel[channel].created++;
-
-    if (DRY_RUN) {
-      console.log(` [dry] ${existingBackfillDoc ? 'merge' : 'create'} job_alert_subscribers/${email}/alerts/${ALERT_ID} (${alertPayload.backfilled_from})`);
-    } else {
-      const parentPayload = {
-        email,
-        userId: alertPayload.userId,
-        locale: alertPayload.locale,
-        ...(patch || {}),
-        updated_at: FieldValue.serverTimestamp(),
-        created_at: FieldValue.serverTimestamp(),
-      };
-      const existingParent = await subscriberRef.get();
-      if (existingParent.exists) delete parentPayload.created_at;
-      await subscriberRef.set(parentPayload, { merge: true });
-
-      if (patch) {
-        // buildAlertProfile (services/jobAlertMatching.mjs) reads
-        // job_category/location_interest off newsletter_subscribers/{email},
-        // NOT the job_alert_subscribers container doc above — merge the
-        // patch there too so the derived signal is actually visible to
-        // matching (mirrors functions/src/jobAlertBackfillTrigger.js).
-        await db.collection('newsletter_subscribers').doc(email).set(patch, { merge: true });
-      }
-
-      await alertsRef.doc(ALERT_ID).set(
-        {
-          ...alertPayload,
-          backfilled_at: FieldValue.serverTimestamp(),
-          ...(existingBackfillDoc ? {} : { createdAt: FieldValue.serverTimestamp() }),
-        },
-        { merge: true },
-      );
-    }
-    counts.created++;
+    // Eligible under BOTH the tier and the consent gate. Nothing is written
+    // here — see the header: the write path was removed, not disabled.
+    // `buildAlertPayload` is still called so the report can name the tier the
+    // alert WOULD have carried, which is what makes this line auditable.
+    // The address is deliberately NOT printed: a report about who did not
+    // consent to being mailed is a poor place to put a list of addresses.
+    const alertPayload = buildAlertPayload(email, data, null, personalization);
+    console.log(`   would qualify for ${ALERT_ID} (${alertPayload.backfilled_from}, channel ${channel})`);
+    byChannel[channel].eligible++;
+    counts.eligible++;
   }
 
   console.log('');
-  console.log(` ✅ Alerts created/updated : ${counts.created}${DRY_RUN ? ' (dry)' : ''}`);
-  console.log(` ⏭️  Skipped (suppressed)   : ${counts.suppressed}`);
-  console.log(` ⏭️  Skipped (no signal)    : ${counts['no-signal']}`);
-  console.log(` ⏭️  Skipped (at cap)       : ${counts.capped}`);
-  console.log(` ⏭️  Skipped (invalid email): ${counts['invalid-email']}`);
+  console.log(` ✅ Eligible (tier + consent) : ${counts.eligible}  — nothing was written`);
+  console.log(` ⏭️  Skipped (no job-alert consent) : ${counts['no-job-alert-consent']}  ← the travaso this guard stops`);
+  console.log(` ⏭️  Skipped (suppressed)     : ${counts.suppressed}`);
+  console.log(` ⏭️  Skipped (no signal)      : ${counts['no-signal']}`);
+  console.log(` ⏭️  Skipped (invalid email)  : ${counts['invalid-email']}`);
   console.log('');
-  console.log(' By source_channel (created/skipped):');
-  for (const [channel, c] of Object.entries(byChannel).sort((a, b) => b[1].created - a[1].created)) {
-    console.log(`   ${channel.padEnd(20)} ${String(c.created).padStart(5)} / ${c.skipped}`);
+  console.log(' Consent coverage on newsletter_subscribers (issue #5705):');
+  console.log(`   consent_text names the job-alert channel : ${consent.namesJobAlerts}`);
+  console.log(`   affirmative job-alert consent on record  : ${consent.affirmative}`);
+  console.log(`   no consent_text stored at all            : ${consent.noConsentTextAtAll}`);
+  console.log('');
+  console.log(' By source_channel (eligible/skipped):');
+  for (const [channel, c] of Object.entries(byChannel).sort((a, b) => b[1].eligible - a[1].eligible)) {
+    console.log(`   ${channel.padEnd(20)} ${String(c.eligible).padStart(5)} / ${c.skipped}`);
   }
 }
 

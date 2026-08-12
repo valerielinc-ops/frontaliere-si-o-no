@@ -243,12 +243,15 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   const ctx = resolveWelcomeContext(data);
   const resolvedLocale = locale || data.preferred_locale || data.signup_locale || data.locale || 'it';
 
-  // Job alerts are created automatically by the backfillJobAlertOnNewsletterSignup
-  // Firestore trigger, so by the time this email lands most subscribers already
-  // have one. Telling them to "create a job alert" would ask for something already
-  // done. Prefer the alert doc as ground truth; when the trigger has not fired yet
-  // (it races this send) fall back to the SAME predicate the trigger uses, so the
-  // two can't disagree.
+  // Whether to say "your alert is active" or to OFFER one. Since #5705 the
+  // backfillJobAlertOnNewsletterSignup trigger creates nothing without an
+  // affirmative job-alert consent, so for a new subscriber this now resolves
+  // false and the email offers the alert instead of announcing it — which is
+  // the correct direction: an offer the reader can accept is a consent, an
+  // announcement of a subscription they never asked for is the defect.
+  // Prefer the alert doc as ground truth (a subscriber who really created one
+  // still gets the "active" copy); with no doc, fall back to the SAME predicate
+  // the trigger uses, so the email and the trigger can't disagree.
   // Only the `job` segment branches on this, so the sub-collection read is
   // skipped for the other four — no point paying a Firestore round-trip per
   // send for a value nothing downstream reads.

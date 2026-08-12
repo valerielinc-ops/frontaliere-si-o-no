@@ -8,8 +8,11 @@
 export {
   MAX_ALERTS_PER_USER,
   ALERT_ID,
+  AFFIRMATIVE_CONSENT_ACTS,
   normalizeEmail,
   shouldSkipSubscriber,
+  consentNamesJobAlerts,
+  hasAffirmativeJobAlertConsent,
   buildAlertPayload,
   getSignalTier,
   signalTierChanged,
