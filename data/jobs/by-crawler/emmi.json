@@ -8763,11 +8763,21 @@
           "• Nutze deine Erfahrung mit SAP, um effizient und präzise in der digitalen Arbeitsumgebung zu agieren."
         ]
       },
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-11T10:23:21.719Z",
       "previousSlugsByLocale": {
-        "de": [
-          "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
-          "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
-        ],
         "it": [
           "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
           "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-2",
@@ -8781,6 +8791,10 @@
           "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
           "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
           "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3"
+        ],
+        "de": [
+          "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
+          "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
         ],
         "fr": [
           "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
@@ -8796,21 +8810,7 @@
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
         "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:23:21.719Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "emmi-b50262fd89ea",
@@ -8965,14 +8965,6 @@
           "• Du sprichst fliessend Deutsch."
         ]
       },
-      "previousSlugs": [
-        "automatiker-in-betriebselektriker-in-emmi-ch",
-        "operatore-automatico-elettricista-operativo-emmi-kirchberg-ms3slx",
-        "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
-        "automated-electrician-plant-electrician-emmi-kirchberg",
-        "operatore-automatico-elettricista-operativo-emmi-kirchberg",
-        "automatiker-in-betriebselektriker-in-emmi-kirchberg"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-betriebselektriker-in-emmi-ch",
@@ -8991,8 +8983,14 @@
           "automatiker-in-betriebselektriker-in-emmi-kirchberg"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:23:21.714Z",
+      "previousSlugs": [
+        "automatiker-in-betriebselektriker-in-emmi-ch",
+        "operatore-automatico-elettricista-operativo-emmi-kirchberg-ms3slx",
+        "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
+        "automated-electrician-plant-electrician-emmi-kirchberg",
+        "operatore-automatico-elettricista-operativo-emmi-kirchberg",
+        "automatiker-in-betriebselektriker-in-emmi-kirchberg"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9004,7 +9002,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-11T10:23:21.714Z"
     },
     {
       "id": "emmi-7c736bb0c5a7",

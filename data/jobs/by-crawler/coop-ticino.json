@@ -212831,7 +212831,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-stafa-zurich-yhe18j",
-          "verkaufer-in-food-coop-genossenschaft-stafa-zurich"
+          "verkaufer-in-food-coop-genossenschaft-stafa-zurich",
+          "venditore-in-food-coop-genossenschaft-stafa"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-stafa-zurich-yhe18j",
@@ -212846,14 +212847,15 @@
         "verkaufer-in-food-coop-genossenschaft-stafa-zurich-yhe18j",
         "verkaufer-in-food-coop-genossenschaft-stafa-zurich",
         "seller-in-food-coop-genossenschaft-stafa",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-stafa"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-stafa",
+        "venditore-in-food-coop-genossenschaft-stafa"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-me5nmp",
@@ -213615,7 +213617,8 @@
           "kochin-koch-w-m-d-con-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
           "kochin-koch-w-m-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
           "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-ristorante-zurich",
-          "kochin-koch-f-m-d-with-stv-managing-director-location-zurich-region-coop-genossenschaft-zurich"
+          "kochin-koch-f-m-d-with-stv-managing-director-location-zurich-region-coop-genossenschaft-zurich",
+          "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich"
         ],
         "en": [
           "cook-f-m-d-with-deputy-managing-director-function-location-zurich-region-coop-genossenschaft-zurich",
@@ -213645,8 +213648,10 @@
         "kochin-koch-w-m-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
         "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-ristorante-zurich",
         "kochin-koch-f-m-d-with-stv-managing-director-location-zurich-region-coop-genossenschaft-zurich",
-        "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich-2xn0g4"
-      ]
+        "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich-2xn0g4",
+        "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-ve6m9m",
@@ -213710,7 +213715,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich"
+      ]
     },
     {
       "id": "company-v8e3nd",
@@ -214318,7 +214331,16 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-verkauf-abteilung-transgourmet-prodega-dubendorf-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-verkauf-abteilung-transgourmet-prodega-dubendorf-zurich"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-j3x5nw",
@@ -214526,10 +214548,14 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufsberater-in-parfumerie-coop-city-bern-ulm9sh"
+        ],
+        "it": [
+          "verkaufsberater-in-accessoires-coop-city-bern-2"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-parfumerie-coop-city-bern-ulm9sh"
+        "verkaufsberater-in-parfumerie-coop-city-bern-ulm9sh",
+        "verkaufsberater-in-accessoires-coop-city-bern-2"
       ]
     },
     {
@@ -215162,7 +215188,16 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-prodega-hinwil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-prodega-hinwil-zurich"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-b01m7u",
@@ -216598,7 +216633,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gastronomie-coop-ristorante-kreuzlingen-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-coop-ristorante-kreuzlingen-thurgau"
+      ]
     },
     {
       "id": "company-vbi89w",
@@ -216909,8 +216952,9 @@
       "crawledAt": "2026-08-11T13:12:21.038Z",
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
-        "de": "Verkäufer:in Frischprodukte (Bäckerei/ Käse)",
-        "fr": "Verkäufer:in Frischprodukte (Bäckerei/Käse)"
+        "de": "Verkäufer:in Frischprodukte (Bäckerei/Käse)",
+        "fr": "Verkäufer:in Frischprodukte (Bäckerei/Käse)",
+        "en": "Verkäufer:in Frischprodukte (Bäckerei/Käse)"
       },
       "descriptionByLocale": {
         "de": "Aufgaben - Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert. - Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet. - Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums. - Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt. \n• Anforderungen - Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich. - Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme. - Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Valeria Mazziari Randazzo HR Marketing",
@@ -217428,7 +217472,8 @@
       "crawledAt": "2026-08-11T13:12:21.038Z",
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
-        "de": "Verkäufer: in Frischprodukte inkl. Produktion"
+        "de": "Verkäufer: in Frischprodukte inkl. Produktion",
+        "fr": "Verkäufer:in Frischprodukte inkl. Production"
       },
       "descriptionByLocale": {
         "de": "Aufgaben - Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert. - Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet. - Frisch geschnitten und dressiert: Die Fleischwaren bereitest du fachgerecht sowie ansprechend auf und produzierst auch hausgemachte Produkte wie beispielsweise Wurstwaren. - Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums. - Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt. \n• Anforderungen - Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich. - Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme. - Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier. - Du bringst Freude/Flair in der Kundenberatung oder -bedienung, im Optimalfall im Lebensmittelbereich, mit und interessierst dich für Fleisch und Fisch. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Germann Steiner HR Marketing",
@@ -217523,7 +217568,16 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-kdxkwy",
@@ -217587,7 +217641,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-genossenschaft-allschwil"
+          "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-genossenschaft-allschwil",
+          "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil"
         ],
         "en": [
           "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil-kdxkwy"
@@ -217598,8 +217653,10 @@
       },
       "previousSlugs": [
         "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-genossenschaft-allschwil",
-        "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil-kdxkwy"
-      ]
+        "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil-kdxkwy",
+        "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-8p6htu",
@@ -217660,7 +217717,16 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-2"
+        ]
+      },
+      "previousSlugs": [
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-2"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "company-guzo9y",
