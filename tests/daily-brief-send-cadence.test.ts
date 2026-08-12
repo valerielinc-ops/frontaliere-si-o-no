@@ -15,8 +15,19 @@ const daysAgo = (n: number) => new Date(NOW - n * DAY).toISOString();
 const FULL_BRIEF = { counts: { availableBlocks: 4 } };
 const THIN_BRIEF = { counts: { availableBlocks: 3 } };
 
+// Since #5679 the consent ceiling clamps every tier, and a document that does
+// not carry `consent_max_frequency_days` defaults to weekly. These tests are
+// about the batching, so the helper pins the ceiling out of the way; the block
+// at the bottom passes `null` to exercise the default.
 const recipient = (email: string, nlDoc: Record<string, unknown> | null = {}, jaDoc: Record<string, unknown> | null = null) =>
-  ({ email, locale: 'it', name: null, source: 'newsletter', nlDoc, jaDoc });
+  ({
+    email,
+    locale: 'it',
+    name: null,
+    source: 'newsletter',
+    nlDoc: nlDoc === null ? null : { consent_max_frequency_days: 1, ...nlDoc },
+    jaDoc,
+  });
 
 const run = (recipients: unknown[], brief = FULL_BRIEF, briefClickAtByEmail: Map<string, number> | null = null) =>
   applyCadence(recipients, { brief, todayIso: TODAY, nowMs: NOW, briefClickAtByEmail });
@@ -101,13 +112,55 @@ describe('engagement attribution', () => {
   it('reads the job-alert doc when the person has no newsletter history', () => {
     const state = cadenceStateOf(recipient('ja@x.it', null, { last_click_at: daysAgo(2) }));
     expect(state.last_click_at).toBe(daysAgo(2));
-    // …which is what keeps a job-alert-only subscriber off the weekly floor.
-    expect(run([recipient('ja@x.it', null, { last_click_at: daysAgo(2) })]).due[0].cadence.tierDays).toBe(1);
+    // …which is what keeps a job-alert-only subscriber off the weekly floor —
+    // as an ENGINE estimate. Since #5679 the delivered cadence is still weekly
+    // for them, because there is no newsletter document to carry a consent
+    // ceiling and the absence is read as weekly.
+    const verdict = run([recipient('ja@x.it', null, { last_click_at: daysAgo(2) })]).due[0].cadence;
+    expect(verdict).toMatchObject({ tierDays: 7, consentCapped: true });
   });
 
   it('keeps the daily_brief_* state on the newsletter doc only', () => {
     const state = cadenceStateOf(recipient('x@x.it', { daily_brief_tier: 5 }, { daily_brief_tier: 1 }));
     expect(state.daily_brief_tier).toBe(5);
+  });
+
+  // #5674: the pair (`last_click_at`, `last_clicked_url`) is only usable if both
+  // halves come from the SAME document. Projecting the timestamp from one and
+  // the URL from the other would let a job-alert unsubscribe hide behind a
+  // newsletter click, or the reverse.
+  it('projects the clicked URL from the same document as the timestamp', () => {
+    const nlOnly = cadenceStateOf(recipient('a@x.it',
+      { last_click_at: daysAgo(1), last_clicked_url: 'https://frontaliereticino.ch/statistiche' },
+      { last_click_at: daysAgo(9), last_clicked_url: 'https://frontaliereticino.ch/?action=unsubscribe&email=a%40example.com' }));
+    expect(nlOnly.last_clicked_url).toBe('https://frontaliereticino.ch/statistiche');
+
+    const jaOnly = cadenceStateOf(recipient('b@x.it', {},
+      { last_click_at: daysAgo(1), last_clicked_url: 'https://frontaliereticino.ch/?action=unsubscribe&email=b%40example.com' }));
+    expect(jaOnly.last_clicked_url).toContain('action=unsubscribe');
+  });
+
+  // The whole #5674 chain, end to end through the sender: an unsubscribe click
+  // reaches `applyCadence` as the only click on file and must not read as
+  // engagement, because engagement promotes immediately.
+  it('does not report an unsubscribe click as engagement', () => {
+    const sub = {
+      daily_brief_tier: 3,
+      daily_brief_last_sent_at: daysAgo(3),
+      last_click_at: daysAgo(1),
+      last_clicked_url: 'https://frontaliereticino.ch/?action=unsubscribe&email=r%40example.com&token=x',
+    };
+    expect(run([recipient('r@x.it', sub)]).due[0].engaged).toBe(false);
+  });
+
+  it('forwards the consent ceiling so the engine can be clamped by it', () => {
+    const state = cadenceStateOf(recipient('c@x.it', { consent_max_frequency_days: 7, daily_brief_tier: 1 }));
+    expect(state.consent_max_frequency_days).toBe(7);
+    const { due, stats } = run([
+      recipient('weekly-consent@x.it', { consent_max_frequency_days: 7, daily_brief_tier: 1, daily_brief_last_sent_at: daysAgo(2) }),
+    ]);
+    expect(due).toEqual([]);
+    expect(stats.tierPopulation).toEqual({ 7: 1 });
   });
 });
 
