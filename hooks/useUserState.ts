@@ -50,11 +50,26 @@ export function useUserState(
  const authEmail = authUser ? getAuthEmail(authUser) : null;
  const isPrivilegedAdmin = ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? '');
 
- // Auto-subscribe to newsletter on auth sign-in
+ // Auto-subscribe to newsletter on auth sign-in.
+ // Sibling of the same effect in App.tsx and carries the identical guard:
+ // the localStorage flag alone is not one (the unsubscribe handler clears
+ // it), so the recipient's real state decides. See #5672.
  useEffect(() => {
  if (!authEmail) return;
  if (localStorage.getItem('newsletter_subscribed') === 'true') return;
- upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null).catch((e) => reportCaughtError(e, 'user.autoNewsletterSubscribe'));
+ let cancelled = false;
+ (async () => {
+ const [{ getFirestore }, { getApp }, { isNewsletterOptedOut }] = await Promise.all([
+ import('firebase/firestore'),
+ import('@/services/firebase'),
+ import('@/services/newsletterSubscribers'),
+ ]);
+ if (cancelled) return;
+ const db = getFirestore(await getApp() as any);
+ if (cancelled || await isNewsletterOptedOut(db, authEmail)) return;
+ await upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null);
+ })().catch((e) => reportCaughtError(e, 'user.autoNewsletterSubscribe'));
+ return () => { cancelled = true; };
  }, [authEmail]);
 
  // Load user profile for prefilling simulator inputs (deferred to idle)

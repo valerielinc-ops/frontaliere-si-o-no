@@ -117,8 +117,21 @@ export function useNewsletterState(): NewsletterState {
  const q = query(collection(db, 'newsletter_subscribers'), where('email', '==', email.toLowerCase()));
  const snap = await getDocs(q);
  if (action === 'unsubscribe') {
+ // Same single writer as App.tsx: an opt-out that sets only
+ // `isActive: false` leaves no `status`, no `unsubscribed_at` stamp and
+ // no `unsubscribe` event, i.e. nothing the scripts that must respect it
+ // can see (#5673). Legacy duplicate docs keep the flag-only write.
+ const { unsubscribeNewsletterSubscriber } = await import('@/services/newsletterSubscribers');
+ await unsubscribeNewsletterSubscriber(db, {
+ email: email.toLowerCase(),
+ sourceChannel: 'unsubscribe_link',
+ sourcePage: window.location.pathname,
+ });
  if (!snap.empty) {
- for (const d of snap.docs) await updateDoc(d.ref, { isActive: false });
+ for (const d of snap.docs) {
+ if (d.id === email.toLowerCase()) continue;
+ await updateDoc(d.ref, { isActive: false });
+ }
  }
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
