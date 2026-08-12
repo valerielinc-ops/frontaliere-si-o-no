@@ -2266,6 +2266,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.portale-informazione-svizzera-italiana.title': 'Online news and updates in Italian Switzerland',
     'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Daily updates on news, politics, economy, sport, culture and specialised sections in the online panorama of Italian Switzerland.',
     'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Information and news portal of Italian-speaking Switzerland',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Cantonal taxes in the Canton of Bern: rates and deductions',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Cantonal taxes in the Canton of Bern are managed by the cantonal administration and have different rates based on the income bracket.',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Editorial image related to: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
 };
 
 export default blogMetaChEn;

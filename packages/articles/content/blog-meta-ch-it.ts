@@ -2266,6 +2266,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.portale-informazione-svizzera-italiana.title': 'Notizie e aggiornamenti online nella Svizzera italiana',
     'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Aggiornamenti quotidiani su cronaca, politica, economia, sport, cultura e rubriche specializzate nel panorama online della Svizzera italiana.',
     'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Portale di informazione e attualità della Svizzera italiana',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.excerpt': 'Le imposte cantonali nel Cantone di Berna sono gestite dall\'amministrazione cantonale e hanno aliquote diverse in base allo scaglione di reddito.',
+    'blog.article.imposte-cantonal-berna-aliquote-deduzioni.imageAlt': 'Immagine editoriale relativa a: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
 };
 
 export default blogMetaChIt;
