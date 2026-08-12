@@ -2248,6 +2248,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-zurigo.title': 'Aprire un\'attività nel Canton Zurigo: registro di commercio e costi',
     'blog.article.aprire-un-attivita-canton-zurigo.excerpt': 'Costi di iscrizione al registro di commercio e requisiti per aprire un\'attività nel Canton Zurigo',
     'blog.article.aprire-un-attivita-canton-zurigo.imageAlt': 'Attività in Canton Zurigo',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Patente di guida a Zurigo: conversione e esami',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Conversione della patente di guida estera, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente nel Cantone di Zurigo.',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Immagine di un cartello stradale a Lugano con informazioni sulla conversione della patente di guida',
 };
 
 export default blogMetaChIt;

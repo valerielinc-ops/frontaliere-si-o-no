@@ -2248,6 +2248,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-zurigo.title': 'Geschäft im Kanton Zürich eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-un-attivita-canton-zurigo.excerpt': 'Kosten für die Eintragung ins Handelsregister und Voraussetzungen für die Aufnahme einer Tätigkeit im Kanton Zürich',
     'blog.article.aprire-un-attivita-canton-zurigo.imageAlt': 'Unternehmen in Kanton Zürich',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Führerschein in Zürich: Umwandlung und Prüfungen',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Austausch ausländischer Führerscheine, theoretische und praktische Prüfungen, Pflichtkurse und das zuständige Straßenverkehrsamt im Kanton Zürich.',
+    'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Bild eines Straßenschilds in Lugano mit Informationen zur Umstellung einer Führerschein',
 };
 
 export default blogMetaChDe;

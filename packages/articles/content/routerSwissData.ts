@@ -775,6 +775,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-e-prestazioni-complementari-canton-zurigo': { it: 'avs-e-prestazioni-complementari-canton-zurigo', en: 'avs-and-complementary-benefits-canton-zurich', de: 'avs-und-komplementaere-vorteile-kanton-zuerich', fr: 'avs-et-prestations-complementaires-canton-zurich' },
  'abbonamenti-trasporti-pubblici-canton-zurigo': { it: 'abbonamenti-trasporti-pubblici-canton-zurigo', en: 'public-transport-abonnements-canton-zurich', de: 'offentliche-verkehr-abonnements-kanton-zurich', fr: 'transport-public-abonnements-canton-de-zurich' },
  'aprire-un-attivita-canton-zurigo': { it: 'aprire-un-attivita-canton-zurigo', en: 'start-business-canton-zurich', de: 'unternehmen-gruenden-kanton-zuerich', fr: 'creer-entreprise-canton-de-zurich' },
+ 'patente-di-guida-canton-zurigo-conversione-ed-esami': { it: 'patente-di-guida-canton-zurigo-conversione-ed-esami', en: 'driving-license-canton-zurigo-conversion', de: 'fuehrerschein-kanton-zu-rich-conversion', fr: 'permis-de-conduire-canton-de-zurich-conversion' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
