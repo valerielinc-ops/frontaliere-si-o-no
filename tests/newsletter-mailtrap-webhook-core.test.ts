@@ -218,3 +218,33 @@ describe('newsletterMailtrapWebhookCore — malformed "Name <email>" recipient (
     expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
   });
 });
+
+describe('newsletterMailtrapWebhookCore — a provider opt-out leaves a COMPLETE opt-out (#5673)', () => {
+  it('sets the mailable flags and both stamp spellings, not `status` alone', async () => {
+    // This branch used to write `status: 'unsubscribed'` and nothing else,
+    // while the `suppressed` branch three lines below it wrote
+    // isActive/active too. That asymmetry is how a document ends up
+    // `unsubscribed` yet still active — 281 of them measured on 2026-08-12 —
+    // and how the same opt-out looked different depending on which of the
+    // three writers recorded it.
+    const db = createFakeDb();
+
+    const result = await persistMailtrapEvent(db as any, {
+      event: 'unsubscribe',
+      email: 'optout@example.com',
+      message_id: 'm-unsub',
+      timestamp: 1700000300,
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'unsubscribed' });
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'optout@example.com',
+    );
+    expect(subscriberSet).toBeTruthy();
+    expect(subscriberSet!.data.status).toBe('unsubscribed');
+    expect(subscriberSet!.data.isActive).toBe(false);
+    expect(subscriberSet!.data.active).toBe(false);
+    expect(subscriberSet!.data.unsubscribed_at).toBeTruthy();
+    expect(subscriberSet!.data.unsubscribedAt).toBeTruthy();
+  });
+});
