@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise } from 'lucide-react';
+import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -116,6 +116,25 @@ interface SectionStrings {
  briefAuto: string;
  briefAutoHint: string;
  briefOptions: Record<DailyBriefFrequency, string>;
+ /**
+  * #5684 point 2 — what "off" means. Every control in this cluster is
+  * channel-scoped: `daily_brief_frequency_override: 'off'` stops the bulletin
+  * and leaves the newsletter and the job alerts running. That was documented
+  * in the code and nowhere the reader could see it, so someone who flipped one
+  * switch believing they had unsubscribed from everything kept receiving the
+  * rest — and wrote to the provider's abuse desk instead of to us. Stated once,
+  * above the cards, rather than repeated inside each one.
+  */
+ scopeNote: string;
+ /** The "stop everything" shortcut that makes the all-off case a single action. */
+ stopAll: string;
+ stopAllHint: string;
+ stopAllWorking: string;
+ /** #5684 point 1 — the saved-jobs digest, previously switchable only from its own email. */
+ digestTitle: string;
+ digestDesc: string;
+ digestOn: string;
+ digestOff: string;
 }
 
 const STRINGS: Record<Locale, SectionStrings> = {
@@ -142,6 +161,17 @@ const STRINGS: Record<Locale, SectionStrings> = {
  locationsLabel: 'Luoghi',
  sectorsLabel: 'Settori',
  noFilters: 'Nessun filtro impostato',
+ scopeNote:
+ 'Ogni interruttore vale solo per il suo canale: spegnerne uno non ferma gli altri. Per non ricevere più nulla, usa «Ferma tutte le email».',
+ stopAll: 'Ferma tutte le email',
+ stopAllHint:
+ 'Disattiva newsletter, bollettino, avvisi lavoro e promemoria dei lavori salvati in una volta sola.',
+ stopAllWorking: 'Disattivo tutto…',
+ digestTitle: 'Promemoria dei lavori salvati',
+ digestDesc:
+ 'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
+ digestOn: 'Attivo',
+ digestOff: 'Disattivato',
  autologinTitle: 'Auto-login dai link email',
  autologinDesc:
  'Quando è attivo, i link nelle nostre email ti fanno entrare nel tuo profilo senza password. Disattivalo se inoltri o condividi le email.',
@@ -210,6 +240,17 @@ const STRINGS: Record<Locale, SectionStrings> = {
  locationsLabel: 'Locations',
  sectorsLabel: 'Sectors',
  noFilters: 'No filters set',
+ scopeNote:
+ 'Each switch covers its own channel only: turning one off does not stop the others. To receive nothing at all, use “Stop all emails”.',
+ stopAll: 'Stop all emails',
+ stopAllHint:
+ 'Turns off the newsletter, the daily brief, your job alerts and the saved-jobs reminder in one go.',
+ stopAllWorking: 'Turning everything off…',
+ digestTitle: 'Saved-jobs reminder',
+ digestDesc:
+ 'Once a week we email you the jobs you saved, plus a few similar ones. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
+ digestOn: 'On',
+ digestOff: 'Off',
  autologinTitle: 'Auto-login from email links',
  autologinDesc:
  'When enabled, links in our emails sign you in without a password. Disable it if you forward or share emails.',
@@ -278,6 +319,17 @@ const STRINGS: Record<Locale, SectionStrings> = {
  locationsLabel: 'Orte',
  sectorsLabel: 'Branchen',
  noFilters: 'Keine Filter gesetzt',
+ scopeNote:
+ 'Jeder Schalter gilt nur für seinen eigenen Kanal: einen abzuschalten stoppt die anderen nicht. Wenn du gar nichts mehr erhalten willst, nutze «Alle E-Mails stoppen».',
+ stopAll: 'Alle E-Mails stoppen',
+ stopAllHint:
+ 'Schaltet Newsletter, Tagesbulletin, Job-Alerts und die Erinnerung an gespeicherte Stellen auf einmal ab.',
+ stopAllWorking: 'Alles wird abgeschaltet…',
+ digestTitle: 'Erinnerung an gespeicherte Stellen',
+ digestDesc:
+ 'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
+ digestOn: 'Aktiv',
+ digestOff: 'Abgeschaltet',
  autologinTitle: 'Auto-Login über E-Mail-Links',
  autologinDesc:
  'Wenn aktiviert, melden dich Links in unseren E-Mails ohne Passwort an. Deaktiviere es, wenn du E-Mails weiterleitest oder teilst.',
@@ -346,6 +398,17 @@ const STRINGS: Record<Locale, SectionStrings> = {
  locationsLabel: 'Lieux',
  sectorsLabel: 'Secteurs',
  noFilters: 'Aucun filtre défini',
+ scopeNote:
+ 'Chaque interrupteur ne vaut que pour son propre canal : en désactiver un n’arrête pas les autres. Pour ne plus rien recevoir, utilise « Arrêter tous les emails ».',
+ stopAll: 'Arrêter tous les emails',
+ stopAllHint:
+ 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi et le rappel des offres enregistrées en une seule fois.',
+ stopAllWorking: 'Tout est en cours de désactivation…',
+ digestTitle: 'Rappel des offres enregistrées',
+ digestDesc:
+ 'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
+ digestOn: 'Actif',
+ digestOff: 'Désactivé',
  autologinTitle: 'Auto-connexion depuis les liens email',
  autologinDesc:
  'Quand c\u2019est activé, les liens dans nos emails te connectent sans mot de passe. Désactive-le si tu transfères ou partages tes emails.',
@@ -537,6 +600,71 @@ function briefTierToOption(days: number): DailyBriefFrequency {
  if (days <= 3) return 'every-3';
  if (days <= 5) return 'every-5';
  return 'weekly';
+}
+
+/**
+ * Saved-jobs digest opt-out (#5684 point 1).
+ *
+ * The channel's kill switch is `users/{uid}.savedJobsDigest.optedOut`, read by
+ * scripts/send-saved-jobs-digest.mjs and — until this change — written from
+ * exactly one place: functions/src/savedJobsDigestUnsubscribe.js, i.e. the link
+ * inside the digest itself. That is the situation the issue names as
+ * disqualifying: a channel that can only be switched off from its own email is
+ * invisible to anyone who arrives from the profile or deleted the message.
+ *
+ * Auth mode only, and that is sufficient rather than a compromise: the sender
+ * iterates `users/{uid}/savedJobs`, so every possible recipient of this channel
+ * is a signed-in account by construction. Token mode has an address and no uid,
+ * and Firestore rules key this doc by uid — bridging the two needs a Cloud
+ * Function, tracked separately. The digest's own "manage" link already points
+ * at the profile, so the loop closes there.
+ */
+async function authLoadSavedJobsDigest(userId: string): Promise<boolean> {
+ const { getFirestore, doc, getDoc } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const snap = await getDoc(doc(db, 'users', userId));
+ // Absent doc / absent field = receiving, matching the sender, which skips only
+ // on an explicit `optedOut === true`.
+ return snap.exists() ? (snap.data() || {}).savedJobsDigest?.optedOut !== true : true;
+}
+
+async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise<void> {
+ const { getFirestore, doc, setDoc, serverTimestamp } = await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ // Merge, and only under `savedJobsDigest` — services/savedJobsService.ts's
+ // ensureUserProfileDoc deliberately never rewrites this key after creation so
+ // a server-side unsubscribe cannot be clobbered by a re-login; a shallow
+ // overwrite here would reintroduce exactly that.
+ await setDoc(
+ doc(db, 'users', userId),
+ {
+ savedJobsDigest: {
+ optedOut: !enabled,
+ // Same provenance fields savedJobsDigestUnsubscribe.js records, so an
+ // LPD art. 25 request gets one answer regardless of which surface the
+ // reader used.
+ unsubscribe_method: enabled ? null : 'preference_center',
+ optedOutAt: enabled ? null : serverTimestamp(),
+ },
+ },
+ { merge: true },
+ );
 }
 
 async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
@@ -1197,6 +1325,11 @@ export function SubscriptionPreferencesController({
  mode,
  email,
  token,
+ // Declared in the props interface and passed by UserProfile.tsx since the
+ // component was written, but never destructured until #5684 — auth mode keyed
+ // everything off `email` alone. The saved-jobs digest is the first control
+ // whose document is keyed by uid, so this is where it starts being read.
+ userId,
  locale,
  onError,
 }: SubscriptionPreferencesControllerProps) {
@@ -1213,6 +1346,11 @@ export function SubscriptionPreferencesController({
  const [savingBrief, setSavingBrief] = useState(false);
  const [alerts, setAlerts] = useState<SubscriptionAlertSummary[]>([]);
 
+ const [digestEnabled, setDigestEnabled] = useState<boolean>(true);
+ /** Auth mode only — token mode has no uid to key `users/{uid}` by. See authLoadSavedJobsDigest. */
+ const [digestAvailable, setDigestAvailable] = useState<boolean>(false);
+ const [savingDigest, setSavingDigest] = useState(false);
+ const [stoppingAll, setStoppingAll] = useState(false);
  const [savingNewsletter, setSavingNewsletter] = useState(false);
  const [savingAutologin, setSavingAutologin] = useState(false);
  const [deletingAlertId, setDeletingAlertId] = useState<string | null>(null);
@@ -1272,6 +1410,20 @@ export function SubscriptionPreferencesController({
  setBriefFrequency(result.newsletter.dailyBriefFrequency ?? null);
  setBriefTier(result.newsletter.dailyBriefTier ?? null);
  setAlerts(result.alerts);
+ // The digest read is best-effort and deliberately non-fatal: it lives in a
+ // different collection under different rules, and a failure there must not
+ // cost the reader the newsletter and job-alert controls that did load.
+ if (userId) {
+ try {
+ const enabled = await authLoadSavedJobsDigest(userId);
+ if (!cancelled) {
+ setDigestEnabled(enabled);
+ setDigestAvailable(true);
+ }
+ } catch (digestErr: any) {
+ console.warn('[SubscriptionPreferencesController] Saved-jobs digest read failed:', digestErr?.message);
+ }
+ }
  setLoadStatus('ready');
  }
  } catch (err: any) {
@@ -1285,7 +1437,7 @@ export function SubscriptionPreferencesController({
  cancelled = true;
  };
  // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [mode, email, token]);
+ }, [mode, email, token, userId]);
 
  const flashSaved = (key: string) => {
  setSavedTickKey(key);
@@ -1462,6 +1614,113 @@ export function SubscriptionPreferencesController({
  }
  };
 
+ const handleToggleDigest = async () => {
+ if (!digestAvailable || !userId) return;
+ const next = !digestEnabled;
+ setDigestEnabled(next);
+ setSavingDigest(true);
+ setErrorMsg('');
+ try {
+ await authSetSavedJobsDigest(userId, next);
+ flashSaved('saved-jobs-digest');
+ } catch (err: any) {
+ console.warn('[SubscriptionPreferencesController] Toggle saved-jobs digest failed:', err?.message);
+ setDigestEnabled(!next);
+ reportError(S.saveError);
+ } finally {
+ setSavingDigest(false);
+ }
+ };
+
+ /**
+  * "Stop all emails" (#5684 point 2).
+  *
+  * Every other control here is channel-scoped on purpose, and the reader is now
+  * told so. That statement is only honest if the all-off case is also reachable
+  * — otherwise "off" means one thing in the copy and another in the reader's
+  * inbox, which is how someone ends up at the provider's abuse desk convinced
+  * they were ignored. Composed strictly from the primitives already used by the
+  * individual controls: no new endpoint, no new field, nothing this component
+  * could not already write.
+  *
+  * Job alerts are PAUSED, not deleted: pausing stops every send
+  * (scripts/send-job-alerts.mjs and, as of this change, send-company-alerts.mjs
+  * both skip `paused`) and is reversible, whereas the delete primitive here is a
+  * hard delete. Silence must not cost the reader their saved searches.
+  *
+  * Best-effort per channel, and deliberately so — a failure on one must not
+  * abandon the rest half-done. Anything that did not take is reported and stays
+  * visibly on in the UI.
+  */
+ const handleStopAll = async () => {
+ setStoppingAll(true);
+ setErrorMsg('');
+ const failed: string[] = [];
+
+ if (newsletterSubscribed) {
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await toggleNewsletterSubscription(email, token, false);
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ } else {
+ await authToggleNewsletter(email, false);
+ }
+ setNewsletterSubscribed(false);
+ } catch (err: any) {
+ failed.push('newsletter');
+ console.warn('[SubscriptionPreferencesController] Stop-all newsletter failed:', err?.message);
+ }
+ }
+
+ if (briefFrequency !== 'off') {
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await setDailyBriefFrequency(email, token, 'off');
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ } else {
+ await authSetBriefFrequency(email, 'off');
+ }
+ setBriefFrequency('off');
+ } catch (err: any) {
+ failed.push('daily-brief');
+ console.warn('[SubscriptionPreferencesController] Stop-all daily brief failed:', err?.message);
+ }
+ }
+
+ for (const alert of alerts) {
+ if (alert.paused) continue;
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await updateJobAlert(email, token, alert.id, { paused: true });
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ } else {
+ await authUpdateAlert(email, alert.id, { paused: true });
+ }
+ setAlerts((prev) => prev.map((a) => (a.id === alert.id ? { ...a, paused: true } : a)));
+ } catch (err: any) {
+ failed.push(`alert:${alert.id}`);
+ console.warn('[SubscriptionPreferencesController] Stop-all pause failed:', err?.message);
+ }
+ }
+
+ if (digestAvailable && userId && digestEnabled) {
+ try {
+ await authSetSavedJobsDigest(userId, false);
+ setDigestEnabled(false);
+ } catch (err: any) {
+ failed.push('saved-jobs-digest');
+ console.warn('[SubscriptionPreferencesController] Stop-all digest failed:', err?.message);
+ }
+ }
+
+ if (failed.length > 0) reportError(S.saveError);
+ else flashSaved('stop-all');
+ setStoppingAll(false);
+ };
+
  const handleTogglePause = async (alertId: string, nextPaused: boolean) => {
  // Issue #4298 follow-up fix: pause/resume flips the dedicated `paused`
  // field, never `active` (that stays SOLELY the soft-delete flag). Same
@@ -1607,6 +1866,26 @@ export function SubscriptionPreferencesController({
 
  return (
  <div className="space-y-5 pb-20 md:pb-0">
+ {/* ── What "off" means, stated once above the cards (#5684 point 2) ── */}
+ <section className="border border-edge rounded-xl p-4 bg-surface-subtle">
+ <p className="text-sm text-body leading-relaxed">{S.scopeNote}</p>
+ <button
+ type="button"
+ disabled={stoppingAll}
+ onClick={handleStopAll}
+ className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-danger-border text-sm font-semibold text-danger hover:bg-danger-subtle transition-colors disabled:opacity-60"
+ >
+ {stoppingAll ? <Loader2 size={14} className="animate-spin" /> : <BellOff size={14} />}
+ {stoppingAll ? S.stopAllWorking : S.stopAll}
+ </button>
+ <p className="mt-2 text-xs text-muted leading-relaxed">{S.stopAllHint}</p>
+ {savedTickKey === 'stop-all' && (
+ <span className="mt-2 inline-flex items-center gap-1 text-xs text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </section>
+
  {errorMsg && (
  <div
  role="alert"
@@ -1783,6 +2062,38 @@ export function SubscriptionPreferencesController({
  )}
  </div>
  </section>
+
+ {/* ── Saved-jobs digest card (#5684 point 1) ── */}
+ {digestAvailable && (
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Bookmark size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.digestTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.digestDesc}</p>
+ </div>
+ <Toggle
+ enabled={digestEnabled}
+ saving={savingDigest}
+ onClick={handleToggleDigest}
+ ariaLabel={S.digestTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span className={`font-semibold ${digestEnabled ? 'text-success' : 'text-muted'}`}>
+ {digestEnabled ? S.digestOn : S.digestOff}
+ </span>
+ {savedTickKey === 'saved-jobs-digest' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+ )}
 
  {/* ── Auto-login card ── */}
  <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
