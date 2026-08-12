@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-teufen-ar",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-teufen-ar",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-teufen-ar",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-teufen-ar"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       },
       "addressLocality": "Teufen AR",
       "addressRegion": "AR",
-      "firstSeenAt": "2026-08-11T21:59:30.224Z"
+      "firstSeenAt": "2026-08-11T21:59:30.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Abendzustellung/74486-de_DE",
@@ -87,12 +101,12 @@
         "en": "Delivery:in evening delivery",
         "fr": "Livraison:en soirée"
       },
-      "slug": "zusteller-in-abendzustellung-post",
+      "slug": "consegna-in-consegna-serale-die-schweizerische-post-wadenswil",
       "slugByLocale": {
-        "it": "zusteller-in-abendzustellung-post",
-        "en": "zusteller-in-abendzustellung-die-schweizerische-post-wadenswil",
+        "it": "consegna-in-consegna-serale-die-schweizerische-post-wadenswil",
+        "en": "delivery-in-evening-delivery-die-schweizerische-post-wadenswil",
         "de": "zusteller-in-abendzustellung-die-schweizerische-post-wadenswil",
-        "fr": "zusteller-in-abendzustellung-die-schweizerische-post-wadenswil"
+        "fr": "livraison-en-soiree-die-schweizerische-post-wadenswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -126,7 +140,22 @@
       },
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-11T21:59:30.224Z"
+      "firstSeenAt": "2026-08-11T21:59:30.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-abendzustellung-post"
+        ],
+        "en": [
+          "zusteller-in-abendzustellung-die-schweizerische-post-wadenswil"
+        ],
+        "fr": [
+          "zusteller-in-abendzustellung-die-schweizerische-post-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-abendzustellung-post",
+        "zusteller-in-abendzustellung-die-schweizerische-post-wadenswil"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Abend-Pakete/74478-de_DE",
@@ -1847,8 +1876,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-6cm90n"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ]
     },
     {
@@ -3470,7 +3498,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -3496,7 +3524,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -3510,7 +3537,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -4460,8 +4486,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "lehre-als-detailhandelsfachmann-frau-efz-post-5tg5ms"
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
       ],
       "id": "posta-svizzera-centro-regionale-aaa0b0e48c62",
       "salaryMin": 62000,
@@ -6613,8 +6638,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-1jzom3"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-e51d500967f4",
       "salaryMin": 62000,
@@ -6660,7 +6684,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -6684,7 +6708,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -6693,8 +6716,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -7232,12 +7254,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et paquets) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-ef405e",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-ef405e",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-effretikon",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-paquets-dans-efz-distribution-die-schweizerische-ef405e"
       },
       "sourceLang": "de",
       "department": "",
@@ -7270,7 +7292,21 @@
       },
       "addressLocality": "Effretikon",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-11T21:59:30.224Z"
+      "firstSeenAt": "2026-08-11T21:59:30.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Dienstleistung-und-Administration/73916-de_DE",
@@ -7577,12 +7613,12 @@
         "en": "Apprenticeship as a retail trade expert EFZ",
         "fr": "Apprentissage en tant qu'expert du commerce de détail EFZ"
       },
-      "slug": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-horgen",
       "slugByLocale": {
-        "it": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-horgen",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-horgen",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-du-commerce-de-detail-efz-die-schweizerische-post-horgen"
       },
       "sourceLang": "de",
       "department": "",
@@ -7615,7 +7651,21 @@
       },
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-11T21:59:30.224Z"
+      "firstSeenAt": "2026-08-11T21:59:30.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/73926-de_DE",
@@ -13764,7 +13814,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -13788,7 +13838,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

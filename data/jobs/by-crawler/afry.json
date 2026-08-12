@@ -1350,8 +1350,8 @@
       },
       "slugByLocale": {
         "it": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont",
-        "en": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont",
-        "de": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont",
+        "en": "civil-engineering-projector-m-f-d-80-100-delemont-afry-delemont",
+        "de": "bauprojektor-m-w-d-80-100-delemont-afry-delemont",
         "fr": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont"
       },
       "id": "afry-dec3fc266431",
@@ -1624,8 +1624,8 @@
       },
       "slugByLocale": {
         "it": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
-        "en": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
-        "de": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
+        "en": "civil-engineering-project-engineer-structure-orientation-80-100-m-f-d-fribourg-afry-fribourg",
+        "de": "tiefbauprojektingenieur-strukturorientierung-80-100-m-w-d-freiburg-afry-fribourg",
         "fr": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg"
       },
       "id": "afry-8bea64c7d661",
@@ -3526,7 +3526,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "candidatura-spontanea-svizzera-afry-zurich",
+        "en": "spontaneous-application-switzerland-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -3545,15 +3545,7 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-07-01T21:43:04.412Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "spontaneous-application-switzerland-afry-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "spontaneous-application-switzerland-afry-zurich"
-      ]
+      "firstSeenAt": "2026-07-01T21:43:04.412Z"
     },
     {
       "title": "Candidature spontanée - Suisse",

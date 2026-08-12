@@ -24,9 +24,9 @@
         "de": "Security Officer Kryptographie (w/m/d)",
         "fr": "Cryptographie des agents de sécurité (f/m/d)"
       },
-      "slug": "security-officer-kryptographie-m-w-d-postfinance-bern",
+      "slug": "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern",
       "slugByLocale": {
-        "it": "security-officer-kryptographie-m-w-d-postfinance-bern",
+        "it": "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern",
         "en": "security-officer-cryptography-f-m-d-postfinance-bern",
         "de": "security-officer-kryptographie-w-m-d-postfinance",
         "fr": "cryptographie-des-agents-de-securite-f-m-d-postfinance-bern"
@@ -54,7 +54,6 @@
         "security-officer-kryptographie-postfinance",
         "security-officer-kryptographie-w-m-d-postfinance",
         "cryptography-f-m-d-postfinance-bern",
-        "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern",
         "security-officer-kryptographie-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
@@ -62,7 +61,6 @@
           "security-officer-kryptographie-postfinance",
           "security-officer-kryptographie-w-m-d-postfinance",
           "cryptography-f-m-d-postfinance-bern",
-          "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern",
           "security-officer-kryptographie-m-w-d-postfinance-bern"
         ],
         "en": [
@@ -118,9 +116,9 @@
         "de": "Fachverantwortliche:r Data Leakage Prevention",
         "fr": "Responsable de la prévention des fuites de données"
       },
-      "slug": "fachverantwortliche-r-data-leakage-prevention-postfinance-bern",
+      "slug": "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-data-leakage-prevention-postfinance-bern",
+        "it": "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern",
         "en": "responsible-for-data-leakage-prevention-postfinance-bern",
         "de": "fachverantwortliche-r-data-leakage-prevention-postfinance",
         "fr": "responsable-de-la-prevention-des-fuites-de-donnees-postfinance-bern"
@@ -148,7 +146,6 @@
         "fachverantwortliche-r-data-leaking-prevention-postfinance",
         "responsabile-per-la-prevenzione-di-leaking-dati-postfinance-bern",
         "fachverantwortliche-r-data-leakage-prevention-postfinance",
-        "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern",
         "fachverantwortliche-r-data-leakage-prevention-postfinance-bern"
       ],
       "previousSlugsByLocale": {
@@ -156,7 +153,6 @@
           "fachverantwortliche-r-data-leaking-prevention-postfinance",
           "responsabile-per-la-prevenzione-di-leaking-dati-postfinance-bern",
           "fachverantwortliche-r-data-leakage-prevention-postfinance",
-          "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern",
           "fachverantwortliche-r-data-leakage-prevention-postfinance-bern"
         ],
         "en": [
@@ -212,9 +208,9 @@
         "de": "Kundenbetreuer:in Customer Center",
         "fr": "Gestionnaire client: dans le centre client"
       },
-      "slug": "kundenbetreuer-in-customer-center-postfinance-bellinzona",
+      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-bellinzona",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-customer-center-postfinance-bellinzona",
+        "it": "responsabile-clienti-nel-centro-clienti-postfinance-bellinzona",
         "en": "kundenbetreuer-in-customer-center-postfinance",
         "de": "kundenbetreuer-in-customer-center-postfinance",
         "fr": "gestionnaire-client-dans-le-centre-client-postfinance-bellinzona"
@@ -243,14 +239,14 @@
         "gestionnaire-client-centre-client-postfinance-zofingen",
         "responsabile-del-centro-clienti-postfinance-zofingen",
         "kundenbetreuer-in-customer-center-postfinance",
-        "responsabile-clienti-nel-centro-clienti-postfinance-bellinzona"
+        "kundenbetreuer-in-customer-center-postfinance-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-client-centre-client-postfinance-zofingen",
           "responsabile-del-centro-clienti-postfinance-zofingen",
           "kundenbetreuer-in-customer-center-postfinance",
-          "responsabile-clienti-nel-centro-clienti-postfinance-bellinzona"
+          "kundenbetreuer-in-customer-center-postfinance-bellinzona"
         ],
         "fr": [
           "kundenbetreuer-in-customer-center-postfinance"
@@ -324,13 +320,11 @@
       "id": "postfinance-51f060b33bd7",
       "previousSlugs": [
         "mitarbeiter-in-chargeback-postfinance",
-        "mitarbeiter-in-chargeback-postfinance-bern",
-        "collaboratore-trice-chargeback-postfinance-bern"
+        "mitarbeiter-in-chargeback-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-chargeback-postfinance",
-          "collaboratore-trice-chargeback-postfinance-bern"
+          "mitarbeiter-in-chargeback-postfinance"
         ],
         "en": [
           "mitarbeiter-in-chargeback-postfinance-bern"
@@ -646,9 +640,9 @@
         "de": "Fachspezialist:in Portfoliomanagement",
         "fr": "Spécialiste: en gestion de portefeuille"
       },
-      "slug": "fachspezialist-in-portfoliomanagement-postfinance-bern",
+      "slug": "specialista-nella-gestione-del-portafoglio-postfinance-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-portfoliomanagement-postfinance-bern",
+        "it": "specialista-nella-gestione-del-portafoglio-postfinance-bern",
         "en": "specialist-in-portfolio-management-postfinance-bern",
         "de": "fachspezialist-in-portfoliomanagement-postfinance-bern",
         "fr": "specialiste-en-gestion-de-portefeuille-postfinance-bern"
@@ -675,13 +669,11 @@
       "id": "postfinance-ed6bbe7820fb",
       "previousSlugs": [
         "fachspezialist-in-portfoliomanagement-postfinance",
-        "specialista-nella-gestione-del-portafoglio-postfinance-bern",
         "fachspezialist-in-portfoliomanagement-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-portfoliomanagement-postfinance",
-          "specialista-nella-gestione-del-portafoglio-postfinance-bern",
           "fachspezialist-in-portfoliomanagement-postfinance-bern"
         ],
         "en": [
@@ -760,13 +752,11 @@
       "id": "postfinance-6d5ae5db1a29",
       "previousSlugs": [
         "mitarbeiter-in-buchungsabwicklung-postfinance",
-        "mitarbeiter-in-buchungsabwicklung-postfinance-bern",
-        "collaboratore-trice-buchungsabwicklung-postfinance-bern"
+        "mitarbeiter-in-buchungsabwicklung-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-buchungsabwicklung-postfinance",
-          "collaboratore-trice-buchungsabwicklung-postfinance-bern"
+          "mitarbeiter-in-buchungsabwicklung-postfinance"
         ],
         "en": [
           "mitarbeiter-in-buchungsabwicklung-postfinance-bern"
@@ -815,9 +805,9 @@
         "de": "Fachspezialist:in Fondsmanagement",
         "fr": "Spécialiste de la gestion des fonds"
       },
-      "slug": "fachspezialist-in-fondsmanagement-postfinance-bern",
+      "slug": "specialista-in-gestione-del-fondo-postfinance-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-fondsmanagement-postfinance-bern",
+        "it": "specialista-in-gestione-del-fondo-postfinance-bern",
         "en": "specialist-in-fund-management-postfinance-bern",
         "de": "fachspezialist-in-fondsmanagement-postfinance-bern",
         "fr": "specialiste-de-la-gestion-des-fonds-postfinance-bern"
@@ -844,13 +834,11 @@
       "id": "postfinance-d61f5a277b5f",
       "previousSlugs": [
         "fachspezialist-in-fondsmanagement-postfinance",
-        "specialista-in-gestione-del-fondo-postfinance-bern",
         "fachspezialist-in-fondsmanagement-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-fondsmanagement-postfinance",
-          "specialista-in-gestione-del-fondo-postfinance-bern",
           "fachspezialist-in-fondsmanagement-postfinance-bern"
         ],
         "en": [
@@ -900,9 +888,9 @@
         "de": "Regionenleiter:in Zürich/Zentralschweiz",
         "fr": "Chef de la région: Zurich/Suisse centrale"
       },
-      "slug": "regionenleiter-in-zurich-zentralschweiz-postfinance-zurich",
+      "slug": "capo-della-regione-zurigo-svizzera-centrale-postfinance-zurich",
       "slugByLocale": {
-        "it": "regionenleiter-in-zurich-zentralschweiz-postfinance-zurich",
+        "it": "capo-della-regione-zurigo-svizzera-centrale-postfinance-zurich",
         "en": "head-of-region-zurich-central-switzerland-postfinance-zurich",
         "de": "regionenleiter-in-zurich-zentralschweiz-postfinance",
         "fr": "chef-de-la-region-zurich-suisse-centrale-postfinance-zurich"
@@ -928,13 +916,11 @@
       "id": "postfinance-9e71b03da306",
       "previousSlugs": [
         "regionenleiter-in-zurich-zentralschweiz-postfinance",
-        "capo-della-regione-zurigo-svizzera-centrale-postfinance-zurich",
         "regionenleiter-in-zurich-zentralschweiz-postfinance-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regionenleiter-in-zurich-zentralschweiz-postfinance",
-          "capo-della-regione-zurigo-svizzera-centrale-postfinance-zurich",
           "regionenleiter-in-zurich-zentralschweiz-postfinance-zurich"
         ],
         "en": [
@@ -1342,12 +1328,12 @@
         "en": "Customer Manager: in Customer Center",
         "fr": "Gestionnaire client: dans le centre client"
       },
-      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-niederurnen",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-customer-center-postfinance",
+        "it": "responsabile-clienti-nel-centro-clienti-postfinance-niederurnen",
         "en": "kundenbetreuer-in-customer-center-postfinance",
         "de": "kundenbetreuer-in-customer-center-postfinance",
-        "fr": "kundenbetreuer-in-customer-center-postfinance"
+        "fr": "gestionnaire-client-dans-le-centre-client-postfinance-niederurnen"
       },
       "sourceLang": "de",
       "department": [
@@ -1374,13 +1360,15 @@
         "it": [
           "kundenbetreuer-in-customer-center-postfinance-2",
           "kundenbetreuer-in-customer-center-postfinance-niederurnen",
-          "responsabile-clienti-nel-centro-clienti-postfinance-niederurnen"
+          "responsabile-clienti-nel-centro-clienti-postfinance-niederurnen",
+          "kundenbetreuer-in-customer-center-postfinance"
         ],
         "en": [
           "customer-manager-in-customer-center-postfinance-niederurnen"
         ],
         "fr": [
-          "gestionnaire-client-dans-le-centre-client-postfinance-niederurnen"
+          "gestionnaire-client-dans-le-centre-client-postfinance-niederurnen",
+          "kundenbetreuer-in-customer-center-postfinance"
         ]
       },
       "previousSlugs": [
@@ -1388,7 +1376,8 @@
         "kundenbetreuer-in-customer-center-postfinance-niederurnen",
         "responsabile-clienti-nel-centro-clienti-postfinance-niederurnen",
         "customer-manager-in-customer-center-postfinance-niederurnen",
-        "gestionnaire-client-dans-le-centre-client-postfinance-niederurnen"
+        "gestionnaire-client-dans-le-centre-client-postfinance-niederurnen",
+        "kundenbetreuer-in-customer-center-postfinance"
       ],
       "id": "postfinance-c8993d3e0261",
       "salaryMin": 65000,
