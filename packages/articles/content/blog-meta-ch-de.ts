@@ -2290,6 +2290,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvenzen auf dem höchsten Stand seit 30 Jahren',
     'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'Im ersten Halbjahr meldeten 7496 Unternehmen Insolvenz an, die höchste Zahl seit 1994.',
     'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Insolvenzen in der Schweiz: ein Rekord seit 1994',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Bundesrat lehnt Finanzplatz-Initiative ab',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'Der Bundesrat empfiehlt dem Parlament, die Finanzplatz-Initiative ohne Gegenvorschlag abzulehnen.',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'Das Bundeshaus in Bern Sitz des Bundesrates',
 };
 
 export default blogMetaChDe;

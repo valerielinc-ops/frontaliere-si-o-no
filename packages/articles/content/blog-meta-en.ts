@@ -9812,6 +9812,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casalzuigno-europei-badr-jaafari.title': 'Working athlete badr jaafari in light blue',
     'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, a working athlete from Casalzuigno, participates in the European marathon',
     'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari during the European Marathon',
+    'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.title': 'How Swiss road fines work for an Italian resident',
+    'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.excerpt': 'The Italian border agent must pay the Swiss road fines within the established deadline.',
+    'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.imageAlt': 'Il frontaliere italiano deve pagare le multe stradali svizzere.',
+    'blog.article.traversata-alpi-cani-adottati-cuveglio.title': 'Crossing the Alps with Adopted Dogs: Week 3',
+    'blog.article.traversata-alpi-cani-adottati-cuveglio.excerpt': 'Third week of walking for Cristian and Mara along the Great Alpine Crossing together with their adopted dogs in a kennel.',
+    'blog.article.traversata-alpi-cani-adottati-cuveglio.imageAlt': 'Couple walking in the Alps with adopted dogs',
 };
 
 export default blogMetaEn;

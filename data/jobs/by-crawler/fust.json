@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-12T10:36:55.933Z",
+  "assembledAt": "2026-08-12T09:05:34.060Z",
   "jobs": [
     {
       "id": "company-fl213j",
@@ -1058,6 +1058,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1087,8 +1089,7 @@
         "fachspezialist-in-prozessmanagement-technischer-dienst-coop-genossenschaft-pratteln-basel-landschaft-kb9idu",
         "fachspezialist-in-prozessmanagement-technischer-dienst-coop-genossenschaft-pratteln-basel-landschaft"
       ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "retranslationAttempts": 1
     },
     {
       "id": "company-bcxsq8",
@@ -6662,33 +6663,42 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-professional-solutions-fust-oberburen-tdw5z7",
-          "servicetechniker-in-professional-solutions-fust-oberburen",
-          "servicetechniker-in-professional-solutions-fust-oberburen-2",
-          "tecnico-di-servizio-in-soluzioni-professionali-fust-luzern-d19b20",
-          "service-technician-in-professional-solutions-fust-luzern",
-          "servicetechniker-in-professional-solutions-fust-luzern-8ywp4l",
-          "technicien-de-service-en-solutions-professionnelles-fust-luzern",
-          "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
-          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
-          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern",
-          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
-          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
-          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern-8ywp4l",
-          "servicetechniker-in-professional-solutions-fust-luzern"
+          "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-bern",
+          "service-technician-in-home-service-fust-swiss-household-services-ag-oberburen",
+          "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
+          "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
+          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern",
+          "servicetechniker-in-professional-solutions-fust-bern",
+          "service-technician-in-professional-solutions-fust-swiss-household-services-ag-luzern",
+          "service-technician-in-professional-solutions-fust-bern",
+          "technicien-de-service-en-solutions-professionnelles-fust-bern",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
+          "service-technician-in-professional-solutions-fust-oberburen",
+          "servicetechniker-in-professional-solutions-fust-oberburen-0jbfoy",
+          "technicien-de-service-solutions-professionnelles-fust-oberburen",
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-tdw5z7",
-          "service-technician-in-professional-solutions-fust-luzern"
+          "service-technician-in-professional-solutions-fust-luzern",
+          "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen"
         ],
         "de": [
-          "servicetechniker-in-professional-solutions-fust-luzern-8ywp4l"
+          "servicetechniker-in-professional-solutions-fust-luzern-8ywp4l",
+          "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c"
         ],
         "fr": [
           "servicetechniker-in-professional-solutions-fust-oberburen-tdw5z7",
           "technicien-de-service-en-solutions-professionnelles-fust-luzern",
           "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
-          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern-8ywp4l"
+          "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern-8ywp4l",
+          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen"
         ]
       },
       "previousSlugs": [
@@ -6705,7 +6715,31 @@
         "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
         "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern-8ywp4l",
-        "servicetechniker-in-professional-solutions-fust-luzern"
+        "servicetechniker-in-professional-solutions-fust-luzern",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
+        "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-bern",
+        "service-technician-in-home-service-fust-swiss-household-services-ag-oberburen",
+        "service-technician-in-professional-solutions-fust-swiss-household-services-ag-bern",
+        "servicetechniker-in-professional-solutions-fust-bern-3qkfr2",
+        "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-bern",
+        "servicetechniker-in-professional-solutions-fust-bern",
+        "service-technician-in-professional-solutions-fust-swiss-household-services-ag-luzern",
+        "service-technician-in-professional-solutions-fust-bern",
+        "technicien-de-service-en-solutions-professionnelles-fust-bern",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
+        "service-technician-in-professional-solutions-fust-oberburen",
+        "servicetechniker-in-professional-solutions-fust-oberburen-0jbfoy",
+        "technicien-de-service-solutions-professionnelles-fust-oberburen",
+        "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-bern-3qkfr2",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-bern",
+        "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
+        "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
+        "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-oberburen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9481,7 +9515,8 @@
       },
       "addressLocality": "Maur, Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-dm60u8",
@@ -9656,7 +9691,8 @@
       "addressLocality": "Samedan, Graubünden",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-u42on7",
@@ -17738,7 +17774,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -17747,7 +17784,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
