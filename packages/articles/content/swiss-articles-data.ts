@@ -6733,6 +6733,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-un-attivita-canton-zurigo',
+    category: 'fiscale',
+    date: '2026-08-12T01:30:57.607Z',
+    image: '/images/blog/aprire-un-attivita-canton-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

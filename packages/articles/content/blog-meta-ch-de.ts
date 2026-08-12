@@ -2245,6 +2245,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.title': 'Abos ÖV Kanton Zürich: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.excerpt': 'Die ÖV-Abos im Kanton Zürich wurden kürzlich geändert.',
     'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.imageAlt': 'Eine Karte der Öffentlichen Verkehr im Kanton Zürich',
+    'blog.article.aprire-un-attivita-canton-zurigo.title': 'Geschäft im Kanton Zürich eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-un-attivita-canton-zurigo.excerpt': 'Kosten für die Eintragung ins Handelsregister und Voraussetzungen für die Aufnahme einer Tätigkeit im Kanton Zürich',
+    'blog.article.aprire-un-attivita-canton-zurigo.imageAlt': 'Unternehmen in Kanton Zürich',
 };
 
 export default blogMetaChDe;
