@@ -6751,6 +6751,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salari-mercato-lavoro-zurigo',
+    category: 'pratico',
+    date: '2026-08-12T03:51:57.456Z',
+    image: '/images/blog/salari-mercato-lavoro-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

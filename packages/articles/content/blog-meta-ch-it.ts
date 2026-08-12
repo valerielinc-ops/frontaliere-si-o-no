@@ -2251,6 +2251,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Patente di guida a Zurigo: conversione e esami',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Conversione della patente di guida estera, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente nel Cantone di Zurigo.',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Immagine di un cartello stradale a Lugano con informazioni sulla conversione della patente di guida',
+    'blog.article.salari-mercato-lavoro-zurigo.title': 'Salari e mercato del lavoro a Zurigo: settori e livelli',
+    'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Analisi approfondita del mercato del lavoro nel Cantone di Zurigo, con focus sui settori chiave, i livelli salariali e le normative in vigore.',
+    'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Mercato del lavoro e salari nel Cantone di Zurigo',
 };
 
 export default blogMetaChIt;

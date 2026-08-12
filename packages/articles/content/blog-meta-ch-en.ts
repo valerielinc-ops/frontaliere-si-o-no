@@ -2251,6 +2251,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Driving licence in Zurich: conversion and exams',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Exchange of foreign driving licences, theoretical and practical examinations, compulsory courses and the competent road traffic office in the canton of Zurich.',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Image of a road sign at Lugano with information on converting a driving license',
+    'blog.article.salari-mercato-lavoro-zurigo.title': 'Wages and the labour market in Zurich: sectors and levels',
+    'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'In-depth analysis of the labour market in the Canton of Zurich, with a focus on key sectors, wage levels and regulations in force.',
+    'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Labor market and salaries in the Canton of Zurich',
 };
 
 export default blogMetaChEn;
