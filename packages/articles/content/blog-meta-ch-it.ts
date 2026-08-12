@@ -2254,6 +2254,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.title': 'Salari e mercato del lavoro a Zurigo: settori e livelli',
     'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Analisi approfondita del mercato del lavoro nel Cantone di Zurigo, con focus sui settori chiave, i livelli salariali e le normative in vigore.',
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Mercato del lavoro e salari nel Cantone di Zurigo',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Imposte di successione e donazione nel Cantone di Zurigo',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Nel Cantone di Zurigo, l\'imposta di successione e donazione è soggetta a aliquote diverse in base al grado di parentela.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
 };
 
 export default blogMetaChIt;

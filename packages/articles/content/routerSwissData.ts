@@ -777,6 +777,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-un-attivita-canton-zurigo': { it: 'aprire-un-attivita-canton-zurigo', en: 'start-business-canton-zurich', de: 'unternehmen-gruenden-kanton-zuerich', fr: 'creer-entreprise-canton-de-zurich' },
  'patente-di-guida-canton-zurigo-conversione-ed-esami': { it: 'patente-di-guida-canton-zurigo-conversione-ed-esami', en: 'driving-license-canton-zurigo-conversion', de: 'fuehrerschein-kanton-zu-rich-conversion', fr: 'permis-de-conduire-canton-de-zurich-conversion' },
  'salari-mercato-lavoro-zurigo': { it: 'salari-mercato-lavoro-zurigo', en: 'salaries-labor-market-canton-zurich', de: 'gehaelter-arbeitsmarkt-kanton-zuerich', fr: 'salaires-marche-travail-canton-zurich' },
+ 'imposta-di-succesione-e-donazione-canton-zurigo-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-zurigo-aliquote', en: 'inheritance-tax-and-donation-canton-zurich-rates', de: 'erbschaftssteuer-und-schenkungssteuer-kanton-zuerich-satz', fr: 'impot-de-succession-et-dons-canton-de-zurich-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

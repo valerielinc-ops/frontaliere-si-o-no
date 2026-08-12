@@ -2254,6 +2254,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.title': 'Löhne und Arbeitsmarkt in Zürich: Branchen und Niveaus',
     'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Gründliche Analyse des Arbeitsmarktes im Kanton Zürich mit Schwerpunkt auf Schlüsselbranchen, Lohnniveaus und geltenden Vorschriften.',
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Arbeitsmarkt und Gehälter im Kanton Zürich',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Zürich',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Im Kanton Zürich unterliegt die Erbschafts- und Schenkungssteuer je nach Verwandtschaftsgrad unterschiedlichen Sätzen.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
 };
 
 export default blogMetaChDe;
