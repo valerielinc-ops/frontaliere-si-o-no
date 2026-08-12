@@ -1,16 +1,16 @@
 {
   "key": "artificialy",
   "label": "Artificialy",
-  "generatedAt": "2026-08-12T10:24:49.804Z",
+  "generatedAt": "2026-08-12T22:15:20.131Z",
   "total": 6,
   "newCount": 5,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1465,
-  "avgDurationMs": 1465,
+  "durationMs": 1988,
+  "avgDurationMs": 1988,
   "durationHistory": [
-    1465
+    1988
   ],
   "newJobs": [
     {
@@ -192,6 +192,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-15T12:20:02.222Z",
+      "needsRetranslation": true,
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
