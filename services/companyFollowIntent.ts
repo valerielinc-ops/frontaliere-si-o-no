@@ -11,7 +11,9 @@
  * verbatim rather than inventing a second: `upsertNewsletterSubscriber` writes
  * `newsletter_subscribers/{email}` with `status: 'pending'` and fires
  * `newsletterSendConfirmation`; the link in that email carries
- * `?action=confirm_newsletter&email=…&token=<HMAC(email)>`; App.tsx's handler
+ * `?action=confirm_newsletter&email=…&token=<confirm-scoped, dated>` (#5704 —
+ * it used to be a bare HMAC over the address that also unsubscribed and opened
+ * the preferences API, and never expired); App.tsx's handler
  * confirms the subscriber and signs the user in with the custom token the
  * Cloud Function returns. Only THEN does a `userId` exist, and only then is
  * there recorded consent to email this address.

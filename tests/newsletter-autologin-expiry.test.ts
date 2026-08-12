@@ -327,8 +327,13 @@ describe('family 2 — the exit never closes', () => {
   it('verifyOptOutCredential takes the email token OR an autologin code, and says which', () => {
     const emailToken = createHmac('sha256', SECRET).update(EMAIL).digest('hex');
     const code = legacyAutologinCode(EMAIL, SECRET)!;
-    expect(verifyOptOutCredential(EMAIL, emailToken, SECRET)).toEqual({ ok: true, viaEmailToken: true, viaAutologin: false });
-    expect(verifyOptOutCredential(EMAIL, code, SECRET)).toEqual({ ok: true, viaEmailToken: false, viaAutologin: true });
+    // toMatchObject, not toEqual: since #5704 the graded verdicts ride along on
+    // the return value so the handler's refusal log can say WHICH credential
+    // failed and why. The three fields pinned here are the contract; the
+    // verdicts are diagnostics and are asserted in
+    // tests/newsletter-action-token.test.ts.
+    expect(verifyOptOutCredential(EMAIL, emailToken, SECRET)).toMatchObject({ ok: true, viaEmailToken: true, viaAutologin: false });
+    expect(verifyOptOutCredential(EMAIL, code, SECRET)).toMatchObject({ ok: true, viaEmailToken: false, viaAutologin: true });
     expect(verifyOptOutCredential(EMAIL, 'garbage', SECRET).ok).toBe(false);
     expect(verifyOptOutCredential('other@example.com', code, SECRET).ok).toBe(false);
   });

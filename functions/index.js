@@ -9,10 +9,11 @@ import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCor
 import { handleMailerooWebhookRequest } from './src/newsletterMailerooWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { resolveAutologinPolicy } from './src/lib/autologinCode.js';
+import { resolveNewsletterTokenPolicy } from './src/lib/newsletterActionToken.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { sendNewsletterWelcomeEmail } from './src/newsletterWelcomeEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
-import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig } from './src/remoteConfigSecrets.js';
+import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
@@ -503,13 +504,45 @@ export const newsletterManageSubscription = onRequest(
  const dailyBriefFrequency = params.daily_brief_frequency;
 
  try {
- const [{ newsletterSecret }, autologinPolicyEnv] = await Promise.all([
+ const [{ newsletterSecret }, autologinPolicyEnv, tokenPolicyEnv] = await Promise.all([
+ // NO catch on this one, and it is the deliberate half of the pair below.
+ // A POLICY has a good default; a SECRET does not. Degrading this read to
+ // `{}` would hand the verifier an empty secret, every credential would fail
+ // to verify, and somebody trying to leave would be told "Link non valido" —
+ // a lie, and precisely the message the LPD art. 25/32 complaint behind this
+ // wave was about. A 500 says "try again", which is both true and
+ // recoverable. Keeping the hard failure here is the safer answer, not the
+ // lazier one.
  getNewsletterSecrets(),
- // The `ac` lifetime policy (#5685). Both reads share the same 5-minute
- // Remote Config template cache, so this adds no round-trip in the warm
- // path — and it is what makes the expiry switchable (and revertible)
+ // The `ac` lifetime policy (#5685). All three reads share the same 5-minute
+ // Remote Config template cache, so they add no round-trip in the warm
+ // path — and they are what makes the expiry switchable (and revertible)
  // without redeploying this function.
- getAutologinPolicyConfig(),
+ //
+ // Catches to today's behaviour: an absent policy is what
+ // resolveAutologinPolicy already reads as the pre-#5685 never-expiring
+ // legacy code, so an unreadable Remote Config degrades to the widest, most
+ // permissive grading rather than taking the whole endpoint down with it.
+ getAutologinPolicyConfig().catch((err) => {
+ console.warn('[newsletterManageSubscription] autologin policy read failed, using defaults:', err?.message || err);
+ return {};
+ }),
+ // The `token` scope/lifetime policy (#5704), same cache and same purpose:
+ // the confirm window and the end of the legacy compatibility phase are a
+ // Remote Config edit, not a deploy. Absent parameters mean the built-in
+ // defaults — legacy still accepted, confirm tokens valid for the 7 days the
+ // confirmation email promises in four languages.
+ //
+ // Catches for the same reason as the policy above: an unreadable Remote
+ // Config must not become the reason somebody cannot unsubscribe. Without it
+ // a transient RC blip rejects the whole Promise.all and this endpoint
+ // answers 500 to every action, the exit included — a new failure mode
+ // introduced by a read that has a perfectly good default. `{}` resolves to
+ // exactly those defaults.
+ getNewsletterTokenPolicyConfig().catch((err) => {
+ console.warn('[newsletterManageSubscription] token policy read failed, using defaults:', err?.message || err);
+ return {};
+ }),
  ]);
  const result = await handleSubscriptionManagement({
  action,
@@ -529,6 +562,12 @@ export const newsletterManageSubscription = onRequest(
  // human with an expired one still cannot re-subscribe by pressing harder.
  method: req.method,
  autologinPolicy: resolveAutologinPolicy(autologinPolicyEnv),
+ // Which action each token may perform, and for how long (#5704). Threaded
+ // for the same reason as the line above: this runtime has no
+ // NEWSLETTER_TOKEN_* in process.env, so a handler left to read the
+ // environment would see the defaults and no Remote Config rollback would
+ // ever reach it.
+ tokenPolicy: resolveNewsletterTokenPolicy(tokenPolicyEnv),
  enabled,
  subscribed,
  alertId,
