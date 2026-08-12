@@ -9832,6 +9832,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-statistiche-2026.title': 'Wie viele Grenzgänger gibt es im Tessin? Statistiken 2026',
     'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'Die neuesten verfügbaren Daten zur Grenzgängerpopulation im Tessin mit Schwerpunkt auf den wichtigsten Einsatzgebieten.',
     'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'Ein Pendler wartet an der Bahnhof von Chiasso.',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.title': 'Zweisprachige Kinder großziehen Grenzgänger Italienisch Deutsch Französisch',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.excerpt': 'Schulen, außerschulische Aktivitäten und praktische Vorteile auf dem zukünftigen Arbeitsmarkt für Kinder aus Grenzfamilien',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.imageAlt': 'Redaktionelles Bild zu: Crescere figli bilingue frontaliere italiano tedesco francese',
 };
 
 export default blogMetaDe;

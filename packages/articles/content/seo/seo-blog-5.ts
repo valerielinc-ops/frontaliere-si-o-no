@@ -66449,6 +66449,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crescere-figli-bilingue-frontalieri-italiano-tedesco-francese': {
+    title: 'Crescere figli bilingue frontaliere italiano tedesco francese',
+    description: 'Scuole, attività extra-scolastiche e vantaggi pratici sul mercato del lavoro futuro per i bambini di famiglie frontaliere. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescere, figli, bilingue, italiano',
+    ogTitle: 'Crescere figli bilingue frontaliere italiano tedesco francese',
+    ogDescription: 'Le opportunità per i bambini di famiglie frontaliere includono scuole bilingui, attività extra-scolastiche e vantaggi pratici sul mercato del lavoro futuro.',
+    canonicalPath: '/articoli-frontaliere/crescere-figli-bilingue-frontalieri-italiano-tedesco-francese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crescere figli bilingue frontaliere italiano tedesco francese",
+      "description": "Scuole, attività extra-scolastiche e vantaggi pratici sul mercato del lavoro futuro per i bambini di famiglie frontaliere. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Crescere figli bilingue frontaliere italiano tedesco francese"
+      },
+      "datePublished": "2026-08-12T14:28:22+00:00",
+      "dateModified": "2026-08-12T14:28:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crescere-figli-bilingue-frontalieri-italiano-tedesco-francese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

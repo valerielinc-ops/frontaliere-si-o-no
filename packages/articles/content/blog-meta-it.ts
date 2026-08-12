@@ -9834,6 +9834,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-statistiche-2026.title': 'Quanti sono i frontalieri in Ticino? Statistiche 2026',
     'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'Gli ultimi dati disponibili sulla popolazione di frontaliere in Ticino, con focus sui principali settori di impiego.',
     'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'Un frontaliere in attesa alla stazione di Chiasso.',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.title': 'Crescere figli bilingue frontaliere italiano tedesco francese',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.excerpt': 'Scuole, attività extra-scolastiche e vantaggi pratici sul mercato del lavoro futuro per i bambini di famiglie frontaliere',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.imageAlt': 'Immagine editoriale relativa a: Crescere figli bilingue frontaliere italiano tedesco francese',
 };
 
 export default blogMetaIt;
