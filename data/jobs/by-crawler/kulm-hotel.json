@@ -359,7 +359,6 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sauna-master-m-w-d-kulm-hotel-st-moritz",
@@ -367,8 +366,7 @@
           "pool-attendant-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
-          "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz",
-          "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz-0bba8e"
+          "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
           "pool-attendant-m-w-d-kulm-hotel-st-moritz",
@@ -395,7 +393,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-a65316790942",
@@ -532,7 +531,6 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "laundry-employee-m-w-d-kulm-hotel-st-moritz",
@@ -571,7 +569,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-30d9a4628931",
@@ -909,7 +908,6 @@
       "requirementsByLocale": {},
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "florist-m-w-d-kulm-hotel-st-moritz",
@@ -926,9 +924,6 @@
         "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
         "florist-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2298,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-04T11:37:44.761Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -941,7 +936,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2298,
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-fe14f6cf94b1",
@@ -2372,9 +2371,9 @@
     },
     {
       "id": "kulm-hotel-0ee3898b990e",
-      "slug": "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz",
+      "slug": "assistente-direttore-food-and-beverage-m-w-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz",
+        "it": "assistente-direttore-food-and-beverage-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz",
         "fr": "gestionnaire-adjoint-des-aliments-et-des-boissons-m-m-j-kulm-hotel-st-moritz-st-moritz-cd9c0a"
@@ -2435,7 +2434,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz"
+      ]
     }
   ]
 }

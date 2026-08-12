@@ -8147,15 +8147,19 @@
           "• Gute Deutschkenntnisse und grundlegende MS-Office-Kenntnisse"
         ]
       },
-      "previousSlugs": [
-        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-kl1tuz",
-        "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen",
-        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch-kl1tuz",
-        "technician-heating-ventilation-air-conditioning-sanitation-hvac-emmi-dagmersellen",
-        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch",
-        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-egox1r",
-        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmersellen"
-      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-10T21:49:51.290Z",
       "previousSlugsByLocale": {
         "it": [
           "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-kl1tuz",
@@ -8176,20 +8180,16 @@
           "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch"
         ]
       },
-      "firstSeenAt": "2026-08-10T21:49:51.290Z",
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-kl1tuz",
+        "technicien-chauffage-ventilation-climatisation-hygiene-cvc-emmi-dagmersellen",
+        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch-kl1tuz",
+        "technician-heating-ventilation-air-conditioning-sanitation-hvac-emmi-dagmersellen",
+        "techniker-in-heizung-luftung-klima-sanitar-hlks-emmi-ch",
+        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmer-egox1r",
+        "tecnico-riscaldamento-ventilazione-aria-condizionata-sanificazione-hvac-emmi-dagmersellen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "emmi-7c61ad60bdec",
@@ -8658,15 +8658,20 @@
           "• Sehr gute MS-Office-Kenntnisse sowie Erfahrung im Umgang mti logistischen IT-Systemen runden dein Profil ab."
         ]
       },
-      "previousSlugs": [
-        "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
-        "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern",
-        "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg",
-        "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg",
-        "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides",
-        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch",
-        "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-11T10:23:21.720Z",
       "previousSlugsByLocale": {
         "it": [
           "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
@@ -8686,20 +8691,15 @@
           "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:23:21.720Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
+        "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern",
+        "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg",
+        "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg",
+        "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides",
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch",
+        "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern"
+      ]
     },
     {
       "id": "emmi-0bb6099efb1b",
@@ -8791,10 +8791,6 @@
           "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
           "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
           "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3"
-        ],
-        "de": [
-          "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
-          "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
         ],
         "fr": [
           "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
@@ -8906,9 +8902,9 @@
       "id": "emmi-5ce9878c66b7",
       "slug": "automatiker-in-betriebselektriker-in-emmi-kirchberg",
       "slugByLocale": {
+        "de": "automatiker-in-betriebselektriker-in-emmi-ch",
         "it": "automatiker-in-betriebselektriker-in-emmi-kirchberg",
         "en": "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-        "de": "automatiker-in-betriebselektriker-in-emmi-ch",
         "fr": "automatiker-in-betriebselektriker-in-emmi-kirchberg"
       },
       "company": "Emmi",
@@ -8975,12 +8971,10 @@
           "automatiker-in-betriebselektriker-in-emmi-kirchberg"
         ],
         "en": [
-          "automated-electrician-plant-electrician-emmi-kirchberg",
-          "automatiker-in-betriebselektriker-in-emmi-kirchberg"
+          "automated-electrician-plant-electrician-emmi-kirchberg"
         ],
         "fr": [
-          "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
-          "automatiker-in-betriebselektriker-in-emmi-kirchberg"
+          "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg"
         ]
       },
       "previousSlugs": [

@@ -87,12 +87,12 @@
     },
     {
       "id": "bachem-44266a71787a",
-      "slug": "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
+      "slug": "ingegnere-pi-server-data-historian-sviluppo-sito-sisslerfeld-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
-        "it": "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
+        "it": "ingegnere-pi-server-data-historian-sviluppo-sito-sisslerfeld-a-100-bachem-ag-stein-ag",
         "en": "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
         "de": "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
-        "fr": "pi-server-data-historian-engineer-a-100-bachem-stein-ag"
+        "fr": "ingenieur-pi-server-data-historian-developpement-du-site-sisslerfeld-a-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -147,7 +147,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "pi-server-data-historian-engineer-a-100-bachem-stein-ag"
+        ],
+        "fr": [
+          "pi-server-data-historian-engineer-a-100-bachem-stein-ag"
+        ]
+      },
+      "previousSlugs": [
+        "pi-server-data-historian-engineer-a-100-bachem-stein-ag"
+      ]
     },
     {
       "id": "bachem-737e2720b192",

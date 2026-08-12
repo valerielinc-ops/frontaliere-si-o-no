@@ -37,7 +37,7 @@
         "fr": ".just-padding{ rembourrage-gauche:15px !important; }\n\nSkyguide fournit des services de navigation aérienne en Suisse et dans certaines parties des pays voisins. Avec quelque 1500 employés de plus de 30 pays, nous poursuivons une stratégie d'innovation ambitieuse qui repose sur une solide culture de sécurité et d'apprentissage. Nous sommes guidés par quatre valeurs: Nous faisons équipe pour réussir, Nous conduisons l'innovation, Nous possédons ce que nous faisons et, enfin, Nous créons une grande valeur client. Tu veux en savoir plus ? Nous voulons que vous vous joigniez à nous en tant que ...\n\nLieu: Genève Quand: 1 octobre 2026 ou sur disponibilité\n\nVotre mission : Vous assurez que les systèmes de gestion du trafic aérien de Skyguide sont sûrs, fiables et prêts à fonctionner. En étroite collaboration avec les ingénieurs, les fournisseurs et les intervenants opérationnels, vous conduisez la vérification et la validation de bout en bout tout en améliorant continuellement les tests, l'automatisation et les normes de qualité. Vos tâches :\n• Concevoir et exécuter des tests d'intégration, de système et de bout en bout sur les interfaces logicielles, matérielles et externes, en assurant des opérations sûres et fiables\n• Développer et maintenir des suites de test automatisées, conduire l'innovation et améliorer continuellement les pratiques de test\n• Analyser les défauts, mener des enquêtes sur les causes profondes et collaborer avec les fournisseurs et les intervenants pour trouver des solutions durables\n• Définir et mettre en oeuvre des stratégies d'essai, s'approprier la couverture, la traçabilité et l'atténuation des risques\n• Améliorer les cadres d'essai, les outils et les méthodologies pour renforcer la validation au niveau du système et l'excellence opérationnelle\n• Coordonner les activités d'essai entre les équipes multidisciplinaires, en favorisant la collaboration et la transparence\n• Contribuer à l'amélioration continue des normes de qualité, des processus et des capacités d'automatisation Ce que nous cherchons :\n• Diplôme en informatique, en génie ou dans un domaine technique connexe, combiné à plusieurs années d'expérience dans l'intégration, la vérification et l'essai de systèmes complexes\n• Une solide expertise en automatisation des tests (p. ex. Squish et JMeter) et en langages de script/développement tels que Python ou Java, avec une passion pour l'innovation et l'amélioration continue\n• L'expérience de l'application des normes ISO 15288, ED-153/ED-109 ou DO-178C est hautement souhaitable.\n• Capacité éprouvée de s'approprier les stratégies d'essai, les activités de vérification et les résultats de qualité dans les projets à grande échelle\n• Résolution de problèmes: Vous analysez les problèmes complexes du système, identifiez les causes profondes et adoptez des solutions de manière structurée et systématique\n• Travail d'équipe : Vous collaborez efficacement avec les ingénieurs, les fournisseurs et les intervenants opérationnels, échangeant activement des connaissances, des idées et des idées pour atteindre des objectifs communs\n• Compétence en anglais parlé et écrit; bonne maîtrise du français et/ou de l'allemand est un avantage\n\nCe que nous offrons: Nous offrons des options de travail flexibles, selon le rôle, et un salaire compétitif avec des conditions de travail attrayantes et de nombreux avantages sociaux. Nos employés ont accès à un large éventail de possibilités de formation pour soutenir leur croissance et leur développement. En tant qu'employeur sur un pied d'égalité, nous nous engageons à constituer une équipe diversifiée et inclusive, réunissant des personnes de différentes identités et origines."
       },
       "slugByLocale": {
-        "it": "integrazione-del-sistema-e-test-engineer-80-100-skyguide-geneva",
+        "it": "system-integration-and-test-engineer-80-100-skyguide-geneva",
         "de": "systemintegration-und-test-engineer-80-100-skyguide-geneva",
         "fr": "ingenieur-d-integration-et-de-test-du-systeme-80-100-skyguide-geneva"
       },
@@ -60,7 +60,8 @@
       "previousSlugsByLocale": {
         "it": [
           "system-integration-and-test-engineer-80-100-skyguide-geneva",
-          "system-integration-and-test-engineer-80-100-skyguide-geneva-ch"
+          "system-integration-and-test-engineer-80-100-skyguide-geneva-ch",
+          "integrazione-del-sistema-e-test-engineer-80-100-skyguide-geneva"
         ],
         "de": [
           "systemintegration-und-testingenieur-80-100-skyguide-geneva"
@@ -73,7 +74,8 @@
         "system-integration-and-test-engineer-80-100-skyguide-geneva",
         "systemintegration-und-testingenieur-80-100-skyguide-geneva",
         "ingenieur-d-integration-et-d-essai-du-systeme-80-100-skyguide-geneva",
-        "system-integration-and-test-engineer-80-100-skyguide-geneva-ch"
+        "system-integration-and-test-engineer-80-100-skyguide-geneva-ch",
+        "integrazione-del-sistema-e-test-engineer-80-100-skyguide-geneva"
       ]
     },
     {
@@ -302,13 +304,11 @@
       "id": "skyguide-sa-b812681d7528",
       "previousSlugsByLocale": {
         "it": [
-          "network-architect-80-100-skyguide-wangen-b",
-          "network-architect-80-100-skyguide-wangen-b-dubendorf-ch"
+          "network-architect-80-100-skyguide-wangen-b"
         ]
       },
       "previousSlugs": [
-        "network-architect-80-100-skyguide-wangen-b",
-        "network-architect-80-100-skyguide-wangen-b-dubendorf-ch"
+        "network-architect-80-100-skyguide-wangen-b"
       ]
     },
     {
@@ -370,15 +370,7 @@
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
       "streetAddress": "",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
-        ]
-      },
-      "previousSlugs": [
-        "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
-      ]
+      "retranslationAttempts": 1
     },
     {
       "title": "Lernende:r Informatik EFZ (Plattformentwicklung)",
@@ -438,9 +430,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-informatik-efz-plattformentwicklung-skyguide-dubendorf",
-          "informatica-di-apprendimento-efz-sviluppo-della-piattaforma-skyguide-dubendorf",
-          "apprendista-in-informatica-efz-sviluppo-piattaforme-skyguide-dubendorf",
-          "lernende-r-informatik-efz-plattformentwicklung-skyguide-dubendorf-ch"
+          "apprendista-in-informatica-efz-sviluppo-piattaforme-skyguide-dubendorf"
         ],
         "en": [
           "apprentice-computer-science-efz-platform-development-skyguide-dubendorf",
@@ -528,13 +518,11 @@
       "localeMismatchSuppressedLen": 3423,
       "previousSlugsByLocale": {
         "it": [
-          "public-affairs-government-relations-manager-100-skyguide-wangen-b",
-          "public-affairs-government-relations-manager-100-skyguide-wangen-b-dub-or-geneva-ch"
+          "public-affairs-government-relations-manager-100-skyguide-wangen-b"
         ]
       },
       "previousSlugs": [
-        "public-affairs-government-relations-manager-100-skyguide-wangen-b",
-        "public-affairs-government-relations-manager-100-skyguide-wangen-b-dub-or-geneva-ch"
+        "public-affairs-government-relations-manager-100-skyguide-wangen-b"
       ],
       "id": "skyguide-sa-95fe2916d38b"
     },
@@ -601,15 +589,13 @@
           "aps-adc-rated-atco-instructor-100-skyguide-wangen-b"
         ],
         "it": [
-          "istruttore-aps-adc-atco-100-skyguide-wangen-b",
           "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
-          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+          "istruttore-aps-adc-atco-100-skyguide-wangen-b"
         ]
       },
       "previousSlugs": [
         "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
-        "istruttore-aps-adc-atco-100-skyguide-wangen-b",
-        "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+        "istruttore-aps-adc-atco-100-skyguide-wangen-b"
       ],
       "id": "skyguide-sa-e5d8423d725d"
     },
@@ -673,14 +659,10 @@
       "previousSlugsByLocale": {
         "en": [
           "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf"
-        ],
-        "it": [
-          "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
         ]
       },
       "previousSlugs": [
-        "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf",
-        "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
+        "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf"
       ]
     },
     {
@@ -751,8 +733,7 @@
       "id": "skyguide-sa-b96de90ca094",
       "previousSlugsByLocale": {
         "it": [
-          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
-          "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
+          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36"
         ],
         "en": [
           "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
@@ -841,8 +822,7 @@
       "id": "skyguide-sa-338538f51d4a",
       "previousSlugsByLocale": {
         "it": [
-          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
-          "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
+          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp"
         ],
         "en": [
           "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
@@ -918,15 +898,7 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-        ]
-      },
-      "previousSlugs": [
-        "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-      ]
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Genève",
@@ -984,15 +956,7 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-        ]
-      },
-      "previousSlugs": [
-        "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-      ]
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Payerne",
@@ -1050,15 +1014,7 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-        ]
-      },
-      "previousSlugs": [
-        "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-      ]
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     }
   ]
 }
