@@ -1,7 +1,6 @@
 import {
  addDoc,
  collection,
- deleteField,
  doc,
  getDoc,
  increment,
@@ -10,6 +9,7 @@ import {
  type Firestore,
 } from 'firebase/firestore';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
+import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { FUNCTIONS_BASE } from './functionsBase';
@@ -383,22 +383,17 @@ export function normalizeNewsletterEmail(raw: string): string {
 /**
  * Is a recorded opt-out still binding on this document?
  *
- * BOTH spellings of the stamp are read, and that is the whole point (#5673):
- * the Cloud Function path writes `unsubscribed_at` (snake_case) while the SPA
- * path wrote `unsubscribedAt` (camelCase) and nothing else. 458 production
- * documents measured on 2026-08-12 carry ONLY the camelCase spelling, so a
- * guard that reads one name honours half the opt-outs. No data migration is
- * needed — and none is performed — precisely because every reader accepts both.
+ * Re-exported rather than defined here since #5711: the same question is asked
+ * by the Node senders (scripts/send-newsletter.mjs, scripts/send-onboarding-drip.mjs)
+ * and by the Cloud Function's `get_full_status`, and the answer changed shape —
+ * an opt-out stamp is no longer deleted by a re-subscription, so "stamp present"
+ * stopped being the whole rule. Three copies of a rule that just changed is how
+ * the two spellings of #5673 drifted apart in the first place.
  *
- * `status` alone is not enough either: it is a single last-writer-wins field,
- * and the resurrection ring this exists to close overwrote it.
+ * The definition, the supersession rule and the reasoning live in
+ * services/newsletterOptOut.mjs.
  */
-export function isNewsletterOptOutBinding(existing: Record<string, any> | null | undefined): boolean {
- if (!existing) return false;
- return existing.status === 'unsubscribed'
- || existing.unsubscribed_at != null
- || existing.unsubscribedAt != null;
-}
+export { isNewsletterOptOutBinding };
 
 /**
  * The ONLY signals that may lift a recorded opt-out.
@@ -813,16 +808,21 @@ export async function captureNewsletterSubscriber(
  mergedData.unsubscribedAt = serverTimestamp();
  }
 
- // A granted re-opt-in must CLEAR both opt-out stamps, or the lift is
- // cosmetic: scripts/send-newsletter.mjs drops any row carrying either
- // spelling (`if (row.unsubscribedAt || row.unsubscribed_at) return null`)
- // whatever `status` says, so before this the win-back "riattiva" click made
- // someone `confirmed` and still permanently unmailable. Clearing is what
- // keeps `isNewsletterOptOutBinding` from re-blocking them on the next write
- // too — the escape hatch has to actually open.
+ // A granted re-opt-in must actually LIFT the opt-out, or the win-back
+ // "riattiva" click makes someone `confirmed` and permanently unmailable:
+ // scripts/send-newsletter.mjs drops any row carrying either spelling of the
+ // stamp, whatever `status` says.
+ //
+ // Until #5711 the lift was performed by DELETING both stamps, and that is
+ // what destroyed the evidence — the record of an opt-out is exactly what an
+ // art. 25 request asks for, and it is the signal the 186 resurrections of
+ // #5672 were found by. The lift is now the re-opt-in stamp WRITTEN BESIDE
+ // the opt-out: `isNewsletterOptOutBinding` compares the two and the newer
+ // one wins, so the escape hatch opens without paying for it in evidence.
+ //
+ // `serverTimestamp()` is strictly later than a stamp already on the
+ // document by construction, so the comparison cannot tie.
  if (subscriptionState.isActive && isNewsletterOptOutBinding(existingData)) {
- mergedData.unsubscribed_at = deleteField();
- mergedData.unsubscribedAt = deleteField();
  mergedData.resubscribed_at = serverTimestamp();
  mergedData.resubscribedAt = serverTimestamp();
  }
@@ -1351,7 +1351,12 @@ export async function toggleNewsletterSubscription(
  const normalizedEmail = email.toLowerCase().trim();
  const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
  const url = `${endpoint}?action=toggle_newsletter_subscription&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&subscribed=${subscribed ? 'true' : 'false'}&format=json`;
- const resp = await fetch(url);
+ // POST, not GET, and only because of the re-opt-in direction (#5711): the
+ // handler refuses `subscribed=true` on a GET so that no state change putting
+ // somebody BACK on a list can be produced by following a URL. The params stay
+ // on the query string — functions/index.js merges query and body for POST, so
+ // this is one verb changing, not a payload move.
+ const resp = await fetch(url, { method: 'POST' });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, subscribed: data.subscribed === true };

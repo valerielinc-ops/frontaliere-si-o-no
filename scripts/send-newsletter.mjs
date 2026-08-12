@@ -46,6 +46,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
+import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, shouldWrapAuthenticatedHref } from '../services/newsletterUrls.mjs';
 import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -1371,7 +1372,12 @@ async function fetchTargetSubscriber(email) {
   const row = doc.data();
   const status = (row.status || '').toLowerCase();
   if (EXCLUDED_STATUSES.has(status)) return null;
-  if (row.unsubscribedAt || row.unsubscribed_at) return null;
+  // Shared predicate, not a bare stamp check (#5711): the opt-out stamp is now
+  // append-only — a re-subscription no longer deletes it — so "carries a stamp"
+  // would mean "was never mailable again", including for the people who
+  // explicitly asked to come back. What lifts it is a STRICTLY LATER
+  // `resubscribed_at`, which only the explicit re-opt-in paths write.
+  if (isNewsletterOptOutBinding(row)) return null;
   return subscriberFromFirestoreRow({ ...row, email: row.email || normalized });
 }
 
@@ -1397,8 +1403,11 @@ async function fetchSubscribers() {
       if (!row.email || !/@/.test(String(row.email))) return;
       const status = (row.status || '').toLowerCase();
       if (EXCLUDED_STATUSES.has(status)) return;
-      // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)
-      if (row.unsubscribedAt || row.unsubscribed_at) return;
+      // Belt-and-suspenders: also exclude on the opt-out STAMPS, not just the
+      // status (frontend handler bug backfill). Same shared predicate as
+      // fetchTargetSubscriber above — a stamp superseded by a strictly later
+      // explicit re-opt-in is not binding (#5711).
+      if (isNewsletterOptOutBinding(row)) return;
       rawRows.push(row);
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and

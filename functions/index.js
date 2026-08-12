@@ -508,6 +508,12 @@ export const newsletterManageSubscription = onRequest(
  email,
  token,
  secret: newsletterSecret,
+ // The verb as a GATE, not as attribution (#5711): `resubscribe` and the
+ // re-opt-in half of `toggle_newsletter_subscription` require a POST, so a
+ // link-following scanner cannot put somebody back on a list they left.
+ // Unsubscribe is untouched — the RFC 8058 one-click POST and the plain
+ // footer GET both still opt out on the first request.
+ method: req.method,
  enabled,
  subscribed,
  alertId,

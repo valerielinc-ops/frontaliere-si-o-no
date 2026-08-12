@@ -689,11 +689,15 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  status: 'subscribed',
  isActive: true,
  active: true,
+ // Both spellings of the RE-OPT-IN stamp, and neither opt-out stamp is
+ // deleted (#5711). scripts/send-newsletter.mjs drops a row carrying
+ // either spelling of the opt-out, so the lift has to be visible to it —
+ // it now compares the two stamps (`isNewsletterOptOutBinding`,
+ // services/newsletterOptOut.mjs) instead of requiring the opt-out to be
+ // erased. Erasing it destroyed the only record that the person had
+ // unsubscribed, which is the half of the problem #5711 is about.
  resubscribed_at: serverTimestamp(),
- unsubscribed_at: deleteField(),
- // Both spellings — scripts/send-newsletter.mjs drops a row carrying
- // either one, so leaving the camelCase twin makes the toggle cosmetic.
- unsubscribedAt: deleteField(),
+ resubscribedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },
