@@ -2275,6 +2275,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.title': 'Krankenkassenprämien Kanton Bern und Prämienverbilligung',
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.excerpt': 'Hier finden Sie die wichtigsten Fakten zu den Prämien der obligatorischen Krankenversicherung im Kanton Bern.',
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.imageAlt': 'Schweizer Berge mit dem Lago di Lugano im Hintergrund.',
+    'blog.article.tetto-salari-manager-casse-malattia.title': 'Krankenkassen: Obergrenze für Managergehälter vom CF',
+    'blog.article.tetto-salari-manager-casse-malattia.excerpt': 'Der Bundesrat will die Krankenkassenkaderlöhne auf Basis von Bundesratsentgelten begrenzen.',
+    'blog.article.tetto-salari-manager-casse-malattia.imageAlt': 'Das Bundeshaus in Bern Sitz des Bundesrates',
 };
 
 export default blogMetaChDe;

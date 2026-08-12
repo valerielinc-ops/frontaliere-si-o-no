@@ -784,6 +784,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonal-berna-aliquote-deduzioni': { it: 'imposte-cantonal-berna-aliquote-deduzioni', en: 'imposte-cantonal-berna-aliquote-deduzioni', de: 'imposten-cantonal-berner-ertragssteuern-satz-berechnung', fr: 'impots-cantonaux-bernais-impots-surtaxes-berechnung' },
  'no-tutele-sindacalisti-bilaterali-iii': { it: 'no-tutele-sindacalisti-bilaterali-iii', en: 'no-trade-union-protections-bilaterals-iii', de: 'keine-gewerkschaftsschutz-bilaterale-iii', fr: 'aucune-protection-syndicale-bilaterale-iii' },
  'premi-cassa-malati-cantone-bern-riduzione': { it: 'premi-cassa-malati-cantone-bern-riduzione', en: 'health-insurance-premiums-cantonal-bern-reduction', de: 'kostenvoranschlag-kv-bern-kanton', fr: 'primes-assurance-maladie-canton-de-bourbourg' },
+ 'tetto-salari-manager-casse-malattia': { it: 'tetto-salari-manager-casse-malattia', en: 'health-insurance-manager-salary-cap', de: 'krankenkassen-managerloehne-deckel', fr: 'plafond-salaires-dirigeants-caisse-maladie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
