@@ -68,7 +68,14 @@ async function gscQuery(token, body, fetchImpl = fetch) {
  * families (e.g. `/guida-frontaliere/`, `/tasse-e-pensione/`) instead of
  * duplicating the OAuth2 + searchAnalytics/query plumbing — see
  * scripts/lib/seo-ctr-curve.mjs for the family registry that drives this.
+ *
+ * `pathContains = null` fetches ALL indexed pages site-wide (no filter) —
+ * used by the family-discovery pass in scripts/monitor-seo-ctr-by-template.mjs
+ * to find high-volume families that aren't in the registry yet.
  */
+const ROW_LIMIT = 25000;
+const MAX_PAGES = 10;
+
 export async function fetchGscByPage({
   windowDays = 30,
   pathContains = '/articoli-frontaliere/',
@@ -78,24 +85,45 @@ export async function fetchGscByPage({
   const token = await getTokenImpl({ fetchImpl });
   if (!token) throw new Error('no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)');
   const { start, end } = windowDates(windowDays);
-  const data = await gscQuery(
-    token,
-    {
-      startDate: start,
-      endDate: end,
-      dimensions: ['page'],
-      dimensionFilterGroups: [
-        {
-          filters: [
-            { dimension: 'page', operator: 'contains', expression: pathContains },
-          ],
-        },
-      ],
-      rowLimit: 25000,
-    },
-    fetchImpl,
-  );
-  const rows = data.rows || [];
+  // `rowLimit` alone caps a Search Analytics response at 25 000 rows with no
+  // "there is more" signal — a single request looks complete regardless of
+  // real row count. Safe when `pathContains` scopes to one family (well
+  // under 25k), but the `pathContains = null` site-wide discovery query has
+  // no such bound and GSC's default ordering is clicks-descending, which
+  // would silently truncate exactly the high-impression/low-CTR tail this
+  // discovery pass exists to surface. Paginate via `startRow` for both
+  // cases; a short page (< ROW_LIMIT rows) is the reliable end-of-data
+  // signal, mirroring scripts/refresh-indexed-cluster-urls.mjs:fetchGsc.
+  const rows = [];
+  let startRow = 0;
+  for (let page = 0; page < MAX_PAGES; page++) {
+    const data = await gscQuery(
+      token,
+      {
+        startDate: start,
+        endDate: end,
+        dimensions: ['page'],
+        ...(pathContains
+          ? {
+              dimensionFilterGroups: [
+                {
+                  filters: [
+                    { dimension: 'page', operator: 'contains', expression: pathContains },
+                  ],
+                },
+              ],
+            }
+          : {}),
+        rowLimit: ROW_LIMIT,
+        startRow,
+      },
+      fetchImpl,
+    );
+    const pageRows = data.rows || [];
+    rows.push(...pageRows);
+    if (pageRows.length < ROW_LIMIT) break;
+    startRow += pageRows.length;
+  }
   const perPath = new Map();
   for (const r of rows) {
     const page = r.keys?.[0] || '';

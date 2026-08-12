@@ -206,6 +206,51 @@ export function effectiveTargetCtr(family, avgPosition) {
   return family.targetCtr ?? null;
 }
 
+// Locale prefixes stripped before segmenting a path into a candidate family,
+// same set the `locale`-kind exemption in SEO_CTR_FAMILIES is pinned to
+// (`/en/`, `/de/`, `/fr/` — Italian has no prefix, it's the default locale).
+const LOCALE_PATH_PREFIXES = new Set(['en', 'de', 'fr']);
+
+/**
+ * Discover path segments carrying MIN_IMPRESSIONS_TO_MONITOR+ impressions
+ * that aren't covered by any `pathContains` already in the registry —
+ * the automated version of what issue #4300 did by hand for
+ * `/cerca-lavoro-ticino/` (911k impressions/90gg, invisible to the monitor
+ * for years). Pure function: takes raw GSC page rows in, returns candidates
+ * out, no I/O — the GSC fetch + issue-opening side effects live in
+ * scripts/monitor-seo-ctr-by-template.mjs.
+ *
+ * `pageRows` — [{ path, impressions }], one entry per indexed page (locale
+ * prefix included, e.g. `/en/cerca-lavoro-ticino/some-slug/`). A page's
+ * impressions roll up into the segment right after its locale prefix (if
+ * any), mirroring how the registry's substring `pathContains` already
+ * aggregates every locale of a template into one family.
+ */
+export function discoverUnregisteredFamilies(pageRows, {
+  families = SEO_CTR_FAMILIES,
+  minImpressions = MIN_IMPRESSIONS_TO_MONITOR,
+} = {}) {
+  const registeredPrefixes = new Set(families.map((f) => f.pathContains));
+  const bySegment = new Map();
+
+  for (const row of pageRows || []) {
+    const path = row?.path;
+    if (typeof path !== 'string' || !path) continue;
+    const parts = path.split('/').filter(Boolean);
+    if (parts.length === 0) continue;
+    const segment = LOCALE_PATH_PREFIXES.has(parts[0]) ? parts[1] : parts[0];
+    if (!segment) continue;
+    const prefix = `/${segment}/`;
+    if (registeredPrefixes.has(prefix)) continue;
+    bySegment.set(prefix, (bySegment.get(prefix) || 0) + Number(row.impressions || 0));
+  }
+
+  return [...bySegment.entries()]
+    .filter(([, impressions]) => impressions >= minImpressions)
+    .map(([pathContains, impressions90d]) => ({ pathContains, impressions90d }))
+    .sort((a, b) => b.impressions90d - a.impressions90d);
+}
+
 /**
  * Aggregate a list of GSC page rows ({clicks, impressions, ctr, position})
  * into family-level weighted metrics + a below-curve-page breakdown.

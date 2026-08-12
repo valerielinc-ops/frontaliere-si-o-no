@@ -16,6 +16,16 @@
  * State persisted in data/seo-ctr-monitor-state.json so consecutive-run
  * counting survives across scheduled workflow invocations.
  *
+ * Also runs a family-discovery pass each week: pulls site-wide GSC pages
+ * over a trailing 90-day window and flags any path segment carrying
+ * MIN_IMPRESSIONS_TO_MONITOR+ impressions that isn't in the registry yet
+ * (scripts/lib/seo-ctr-curve.mjs's discoverUnregisteredFamilies) — the
+ * automated version of what issue #4300 did by hand for
+ * `/cerca-lavoro-ticino/`, which sat unmonitored at 911k impressions/90gg
+ * for years before someone noticed. Opens/comments a GitHub issue per
+ * candidate for human triage (add to the registry, or dismiss); never
+ * mutates the registry itself.
+ *
  * Auth: Firebase service-account JSON via GOOGLE_APPLICATION_CREDENTIALS
  * (same as scripts/seo-ctr-baseline.mjs).
  *
@@ -28,7 +38,13 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
-import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr } from './lib/seo-ctr-curve.mjs';
+import {
+  SEO_CTR_FAMILIES,
+  MIN_IMPRESSIONS_TO_MONITOR,
+  aggregateFamilyRows,
+  effectiveTargetCtr,
+  discoverUnregisteredFamilies,
+} from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -36,6 +52,7 @@ const ROOT = resolve(__dirname, '..');
 const STATE_PATH = resolve(ROOT, 'data', 'seo-ctr-monitor-state.json');
 const WINDOW_DAYS = 14;
 const CONSECUTIVE_RUNS_TO_ESCALATE = 2;
+const DISCOVERY_WINDOW_DAYS = 90;
 
 const dryRun = process.argv.includes('--dry-run');
 
@@ -87,6 +104,62 @@ l'estensione dell'A/B SERP autopilot esistente.`,
     });
   } catch (e) {
     console.warn(`   ⚠️ impossibile creare/aggiornare issue: ${e.message}`);
+  }
+}
+
+async function reportUnregisteredFamily({ pathContains, impressions90d }) {
+  if (dryRun) {
+    console.log(`   [dry-run] avrei aperto/commentato issue per famiglia non censita ${pathContains}`);
+    return;
+  }
+  try {
+    const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+    await createGithubIssue({
+      title: `SEO CTR: famiglia ad alto volume non censita nel registro (${pathContains})`,
+      description: `## Famiglia CTR ad alto volume non censita — \`${pathContains}\`
+
+**Impressioni (90gg, tutte le locale):** ${impressions90d.toLocaleString('it-CH')}
+**Soglia di sorveglianza (MIN_IMPRESSIONS_TO_MONITOR):** ${MIN_IMPRESSIONS_TO_MONITOR.toLocaleString('it-CH')}
+
+La passata di scoperta automatica del monitor CTR-per-template
+(scripts/monitor-seo-ctr-by-template.mjs, scripts/lib/seo-ctr-curve.mjs
+\`discoverUnregisteredFamilies\`) ha rilevato che questa famiglia di pagine
+supera la soglia di sorveglianza ma non compare in \`SEO_CTR_FAMILIES\`
+(scripts/lib/seo-ctr-curve.mjs) — lo stesso blind-spot che per anni ha
+lasciato \`/cerca-lavoro-ticino/\` (911k impressioni/90gg) invisibile al
+monitor CTR (issue #4300, poi #5601).
+
+Prossimi passi suggeriti: verificare se \`${pathContains}\` è un vero
+template con un proprio title/description generator; se sì, aggiungere una
+entry a \`SEO_CTR_FAMILIES\` con \`monitored: true\` e una \`impressions90d\`
+misurata; se è un raggruppamento non attribuibile a un singolo generator
+(es. locale prefix, listing eterogeneo), marcarla \`kind: 'locale'\` /
+lasciarla fuori con una nota che lo giustifica.`,
+      priority: 3,
+      labels: ['seo'],
+      workflow: 'Monitor SEO CTR by Template',
+    });
+  } catch (e) {
+    console.warn(`   ⚠️ impossibile creare/aggiornare issue di discovery: ${e.message}`);
+  }
+}
+
+async function discoverNewFamilies() {
+  console.log(`\n🔎 Scoperta famiglie non censite (finestra ${DISCOVERY_WINDOW_DAYS}gg)`);
+  try {
+    const { perPath } = await fetchGscByPage({ windowDays: DISCOVERY_WINDOW_DAYS, pathContains: null });
+    const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
+    const candidates = discoverUnregisteredFamilies(pageRows);
+    if (candidates.length === 0) {
+      console.log('   ✅ nessuna famiglia non censita sopra soglia');
+      return;
+    }
+    for (const candidate of candidates) {
+      console.log(`   ⚠️ ${candidate.pathContains}: ${candidate.impressions90d} impressioni/90gg non censite`);
+      await reportUnregisteredFamily(candidate);
+    }
+  } catch (e) {
+    console.warn(`   ⚠️ errore GSC durante la scoperta, salto questo giro: ${e.message}`);
   }
 }
 
@@ -146,6 +219,8 @@ async function main() {
     writeJsonAtomic(STATE_PATH, state);
     console.log(`\n💾 Stato monitor salvato: ${STATE_PATH}`);
   }
+
+  await discoverNewFamilies();
 }
 
 main().catch((e) => {

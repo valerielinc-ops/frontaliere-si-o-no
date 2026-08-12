@@ -4,6 +4,7 @@ import {
   ctrGapRatio,
   aggregateFamilyRows,
   effectiveTargetCtr,
+  discoverUnregisteredFamilies,
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
@@ -157,6 +158,67 @@ describe('seo-ctr-curve (issue #4300)', () => {
       const target = effectiveTargetCtr(fam, 8.61)!;
       expect(0.0663).toBeGreaterThan(target);
       expect(0.0663 * 0.75).toBeLessThan(target);
+    });
+  });
+
+  describe('discoverUnregisteredFamilies (issue #5656)', () => {
+    const families = [
+      { id: 'articoli-frontaliere', pathContains: '/articoli-frontaliere/' },
+      { id: 'de', pathContains: '/de/' },
+    ];
+
+    it('flags an unregistered segment above the threshold', () => {
+      const rows = [
+        { path: '/cerca-lavoro-ticino/qualche-annuncio/', impressions: 40_000 },
+        { path: '/cerca-lavoro-ticino/altro-annuncio/', impressions: 20_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
+      expect(result).toEqual([{ pathContains: '/cerca-lavoro-ticino/', impressions90d: 60_000 }]);
+    });
+
+    it('rolls up locale-prefixed pages into the same segment as the default locale', () => {
+      const rows = [
+        { path: '/cerca-lavoro-ticino/annuncio-it/', impressions: 30_000 },
+        { path: '/en/cerca-lavoro-ticino/annuncio-en/', impressions: 25_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
+      expect(result).toEqual([{ pathContains: '/cerca-lavoro-ticino/', impressions90d: 55_000 }]);
+    });
+
+    it('excludes segments already covered by a registered pathContains', () => {
+      const rows = [{ path: '/articoli-frontaliere/qualche-post/', impressions: 1_000_000 }];
+      const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
+      expect(result).toEqual([]);
+    });
+
+    it('drops segments below the impressions threshold', () => {
+      const rows = [{ path: '/nuova-sezione/pagina/', impressions: 49_999 }];
+      const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
+      expect(result).toEqual([]);
+    });
+
+    it('sorts multiple candidates by descending impressions', () => {
+      const rows = [
+        { path: '/sezione-a/x/', impressions: 60_000 },
+        { path: '/sezione-b/x/', impressions: 90_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
+      expect(result.map((r) => r.pathContains)).toEqual(['/sezione-b/', '/sezione-a/']);
+    });
+
+    it('ignores rows with no path or root-only paths', () => {
+      const rows = [
+        { path: '/', impressions: 1_000_000 },
+        { path: '', impressions: 1_000_000 },
+        { impressions: 1_000_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
+      expect(result).toEqual([]);
+    });
+
+    it('defaults to SEO_CTR_FAMILIES and MIN_IMPRESSIONS_TO_MONITOR when not overridden', () => {
+      const result = discoverUnregisteredFamilies([]);
+      expect(result).toEqual([]);
     });
   });
 
