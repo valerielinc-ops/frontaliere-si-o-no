@@ -809,6 +809,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'amazon-capitalizzazione-3000-miliardi': { it: 'amazon-capitalizzazione-3000-miliardi', en: 'amazon-capitalization-3000-billion', de: 'amazon-kapitalisierung-3000-milliarden', fr: 'amazon-capitalisation-3000-milliards' },
  'permesso-di-domicilio-c-canton-berna-requisiti-e-domanda': { it: 'permesso-di-domicilio-c-canton-berna-requisiti-e-domanda', en: 'c-permit-bern-switzerland-requisites-and-application', de: 'c-bescheinigung-bern-schweiz-anforderungen-und-antragstellung', fr: 'permis-de-sejour-c-bourg-de-berne-requisits-et-demande' },
  'apple-vola-a-5000-miliardi-di-valore': { it: 'apple-vola-a-5000-miliardi-di-valore', en: 'apple-vola-a-5000-miliardi-di-valore', de: 'apple-vola-a-5000-miliardi-di-valore', fr: 'apple-vola-a-5000-miliardi-di-valore' },
+ 'bns-promuove-berna': { it: 'bns-promuove-berna', en: 'bns-promotes-berne', de: 'bns-foerdert-berne', fr: 'bns-promeut-berne' },
+ 'cultura-e-spettacoli-ticino-2026': { it: 'cultura-e-spettacoli-ticino-2026', en: 'culture-and-entertainment-ticino-2026', de: 'kultur-und-entertainment-ticino-2026', fr: 'culture-et-divertissement-ticino-2026' },
+ 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti': { it: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', en: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', de: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', fr: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

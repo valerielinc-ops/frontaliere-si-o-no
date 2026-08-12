@@ -7048,6 +7048,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'bns-promuove-berna',
+    category: 'fiscale',
+    date: '2026-08-12T21:48:51.413Z',
+    image: '/images/blog/bns-promuove-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'cultura-e-spettacoli-ticino-2026',
+    category: 'novita',
+    date: '2026-08-12T21:57:02.011Z',
+    image: '/images/blog/cultura-e-spettacoli-ticino-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti',
+    category: 'pratico',
+    date: '2026-08-12T22:05:46.444Z',
+    image: '/images/blog/climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

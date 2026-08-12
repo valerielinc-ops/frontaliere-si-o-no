@@ -2350,6 +2350,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple vola a 5.000 miliardi di valore, è la seconda dopo Nvidia',
     'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple sfonda quota 5.000 miliardi di dollari di capitalizzazione di mercato, divenendo la seconda società al mondo a raggiungere la storica soglia dopo Nvidia.',
     'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'Una scena con un Apple Store a Zurigo o a Berna con una targhetta che indica la quotazione a 5.000 miliardi di dollari',
+    'blog.article.bns-promuove-berna.title': 'La Banca nazionale svizzera \'promuove\' Berna con le misure \'too big to fail\'',
+    'blog.article.bns-promuove-berna.excerpt': 'Le misure proposte dal Consiglio federale sono state accolte favorevolmente dall\'Istituto centrale elvetico. La Banca nazionale svizzera ha promosso le misure proposte dall\'esecutivo federale.',
+    'blog.article.bns-promuove-berna.imageAlt': 'La Banca nazionale svizzera promuove le misure proposte dall\'esecutivo federale per rafforzare la stabilità del sistema finanziario svizzero.',
+    'blog.article.cultura-e-spettacoli-ticino-2026.title': 'Eurovision: se il Paese vincitore è in guerra, non ospiterà il concorso',
+    'blog.article.cultura-e-spettacoli-ticino-2026.excerpt': 'È stato aggiornato il regolamento della kermesse, anche con una novità sull\'età minima degli artisti: dovranno avere almeno 18 anni.',
+    'blog.article.cultura-e-spettacoli-ticino-2026.imageAlt': 'Locarno 2026 - La rassegna Le regole per scegliere i film di Locarno',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.title': 'Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.excerpt': 'I ricercatori della stazione di misurazione più alta d\'Europa hanno rilevato le tracce dei refrigeranti che si degradano in PFAS e vanno a inquinare l\'ambiente.',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Immagine editoriale relativa a: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
 };
 
 export default blogMetaChIt;

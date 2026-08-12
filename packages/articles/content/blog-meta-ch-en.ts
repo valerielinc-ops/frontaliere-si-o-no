@@ -2350,6 +2350,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apple-vola-a-5000-miliardi-di-valore.title': 'Apple flies at $5 trillion in value, second only to Nvidia',
     'blog.article.apple-vola-a-5000-miliardi-di-valore.excerpt': 'Apple breaks through $5 trillion in market capitalization, becoming the second company in the world to reach the historic threshold after Nvidia.',
     'blog.article.apple-vola-a-5000-miliardi-di-valore.imageAlt': 'A scene with an Apple Store in Zurich or Bern with a sign indicating the quotation at 5,000 billion dollars',
+    'blog.article.bns-promuove-berna.title': 'The Swiss National Bank \'promotes\' Bern with \'too big to fail\' measures',
+    'blog.article.bns-promuove-berna.excerpt': 'The measures proposed by the Federal Council were welcomed by the Swiss Central Institute. The Swiss National Bank has promoted the measures proposed by the federal executive.',
+    'blog.article.bns-promuove-berna.imageAlt': 'The Swiss National Bank promotes measures proposed by the Federal Executive to strengthen the stability of the Swiss financial system.',
+    'blog.article.cultura-e-spettacoli-ticino-2026.title': 'Eurovision: if the winning country is at war, it will not host the contest',
+    'blog.article.cultura-e-spettacoli-ticino-2026.excerpt': 'The rules of the festival have been updated, also with an update on the minimum age of artists: they must be at least 18 years old.',
+    'blog.article.cultura-e-spettacoli-ticino-2026.imageAlt': 'Locarno 2026 - The Festival The rules for choosing the films of Locarno',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.title': 'High altitude air conditioners: researchers detect traces of refrigerants',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.excerpt': 'Researchers at Europe\'s highest measuring station have detected traces of refrigerants degrading into PFAS and polluting the environment.',
+    'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Editorial image related to: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
 };
 
 export default blogMetaChEn;
