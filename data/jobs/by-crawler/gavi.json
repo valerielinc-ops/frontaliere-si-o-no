@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-08-12T10:21:51.540Z",
+  "assembledAt": "2026-08-12T21:59:13.100Z",
   "jobs": [
     {
       "id": "gavi-d99e316b3873",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2515&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:21:48.175Z",
+      "crawledAt": "2026-08-12T21:59:09.782Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -81,8 +81,8 @@
           "gestionnaire-principal-politiques-gavi-the-vaccine-alliance-le-grand-saconnex"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:32:42.148Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:32:42.148Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
