@@ -9770,6 +9770,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-a2-dibattito-traffico-ticino.title': 'Accident sur l\'A2 : débat ouvert sur la gestion du trafic au Tessin',
     'blog.article.incidente-a2-dibattito-traffico-ticino.excerpt': 'Le président central de l\'ACS, Simone Gianini, demande une communication plus efficace lors des urgences routières.',
     'blog.article.incidente-a2-dibattito-traffico-ticino.imageAlt': 'Trafic sur l\'autoroute A2 au Tessin suite à un accident',
+    'blog.article.incubo-lariana-traffico-e-code.title': 'L\'incubo Lariana: traffico e code',
+    'blog.article.incubo-lariana-traffico-e-code.excerpt': 'La route provinciale 583 Lariana est de plus en plus en proie à la circulation et pour les automobilistes, c\'est de plus en plus un cauchemar.',
+    'blog.article.incubo-lariana-traffico-e-code.imageAlt': 'La route provinciale 583 Lariana est une connexion cruciale entre Como et Lecco.',
 };
 
 export default blogMetaFr;

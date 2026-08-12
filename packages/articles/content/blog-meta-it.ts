@@ -9769,6 +9769,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-a2-dibattito-traffico-ticino.title': 'Incidente sull\'A2: dibattito aperto sulla gestione del traffico in Ticino',
     'blog.article.incidente-a2-dibattito-traffico-ticino.excerpt': 'Il presidente centrale dell\'Acs Simone Gianini chiede una comunicazione più efficace durante le emergenze stradali.',
     'blog.article.incidente-a2-dibattito-traffico-ticino.imageAlt': 'Traffico sull\'autostrada A2 in Ticino dopo un incidente',
+    'blog.article.incubo-lariana-traffico-e-code.title': 'Incubo Lariana, traffico e code: la strettoia di Nesso tra i punti critici',
+    'blog.article.incubo-lariana-traffico-e-code.excerpt': 'La strada provinciale 583 Lariana è sempre più preda del traffico e per gli automobilisti è sempre più un incubo.',
+    'blog.article.incubo-lariana-traffico-e-code.imageAlt': 'La strada provinciale 583 Lariana è un collegamento cruciale tra Como e Lecco.',
 };
 
 export default blogMetaIt;
