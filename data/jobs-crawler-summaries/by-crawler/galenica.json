@@ -1,55 +1,53 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-11T21:55:21.751Z",
+  "generatedAt": "2026-08-12T10:19:14.892Z",
   "total": 390,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 119158,
-  "avgDurationMs": 119158,
+  "unchangedCount": 0,
+  "durationMs": 121259,
+  "avgDurationMs": 121259,
   "durationHistory": [
-    119158
+    121259
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Pharma-Assistent / Pharma-Assistentin als Springer (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Sun Store Apotheke (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3119866.4033582",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692530",
+      "location": "Lugano",
+      "canton": "TI",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin als Springer (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "descriptionIt": "Assistente di farmacia AFC presso Sun Store Apotheke (Gruppo Galenica), con sede a Lugano, Via Beltramina 1, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692530-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lugano-ti-sun-store-apotheke?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "pharma-assistent-pharma-assistentin-come-springer-m-w-d-galenica-ag-galenica-bern",
-      "id": "galenica-09717376df96",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "slug": "assistente-di-farmacia-afc-sun-store-apotheke-galenica-bern",
+      "id": "galenica-29257811bbb7",
       "needsRetranslation": true,
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
