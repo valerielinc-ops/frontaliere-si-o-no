@@ -65,6 +65,7 @@ import {
   engagedSinceLastSend,
   estimateDailyVolume,
   isDueToday,
+  isOptOutLink,
   nextCadenceState,
   openedSinceLastSend,
   passesBlockGate,
@@ -389,6 +390,19 @@ export function cadenceStateOf(recipient) {
     daily_brief_last_send_provider: nl.daily_brief_last_send_provider,
     last_click_at: nl.last_click_at ?? ja.last_click_at ?? null,
     last_open_at: nl.last_open_at ?? ja.last_open_at ?? null,
+    // The URL travels WITH the timestamp or the pair is useless: a bare
+    // `last_click_at` cannot tell a read from an unsubscribe, and the cadence
+    // engine promotes on it (#5674). Both halves come from the same document,
+    // so the fallback to the job-alert doc has to move them together.
+    last_clicked_url: nl.last_click_at != null
+      ? (nl.last_clicked_url ?? null)
+      : (ja.last_clicked_url ?? null),
+    daily_brief_last_human_click_at: nl.daily_brief_last_human_click_at ?? null,
+    // The ceiling the accepted formula sets (#5679). Absent on almost every
+    // document until #5678 backfills it, and `consentCeilingDays` reads the
+    // absence as weekly — so forwarding the field costs nothing and forwarding
+    // `undefined` is what the tolerant default is for.
+    consent_max_frequency_days: nl.consent_max_frequency_days ?? null,
   };
 }
 
@@ -468,6 +482,11 @@ async function fetchBriefClicks(db, sinceMs) {
       const email = String(data.email || '').toLowerCase();
       const clickedAt = data.clicked_at?.toMillis?.() ?? new Date(data.clicked_at).getTime();
       if (!email || !Number.isFinite(clickedAt)) continue;
+      // A click on the way out is not engagement (#5674). `clicked_at` and
+      // `last_clicked_url` are written by the same webhook in the same update,
+      // so the URL here describes the timestamp here — and letting it through
+      // promotes, immediately, exactly the person who was trying to leave.
+      if (isOptOutLink(data.last_clicked_url)) continue;
       // Four of the five providers write their events to a doc id that differs
       // from the send path's (scripts/report-send-hour-impact.mjs), so the same
       // click can appear twice: keep the latest, as newsletter-ab-data.mjs does.
