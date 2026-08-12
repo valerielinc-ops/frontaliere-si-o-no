@@ -35,25 +35,15 @@
  * answer the question — which is the failure mode that produced both issues.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readdirSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { classifySunset } from '../scripts/lib/subscriberSunset.mjs';
 import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
-
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const read = (rel: string) => readFileSync(path.join(ROOT, rel), 'utf8');
-
-/**
- * Comments are where this invariant is DISCUSSED — the gate's own docblock
- * names every sender — so a scan that did not strip them would pass on a file
- * that only talks about the gate without calling it.
- */
-function stripComments(src: string): string {
-  return src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/.*$/gm, '$1');
-}
+// The sender population is shared with tests/no-channel-mails-opted-out.test.ts
+// — see tests/helpers/senders.ts for why it must not be discovered twice.
+import { ROOT, read, stripComments, discoverSenders } from './helpers/senders';
 
 const CALLS_GATE = /hasConfirmationProof\s*\(/;
 
@@ -131,22 +121,29 @@ const VERDICTS: Record<string, Verdict> = {
    * The real defect on this channel is not the missing stamp: it is that most
    * of these alerts were never requested at all — 7.167 of 7.745 born from a
    * backfill off the newsletter list, 6.308 still active (#5705, guarded in
-   * `shouldSkipSubscriber` by PR #5722), with cross-channel opt-out propagation
-   * tracked separately as #5688. Neither passes through this gate. The entries
+   * `shouldSkipSubscriber` by PR #5722) — and, until #5688, that a newsletter
+   * opt-out did not reach them. Neither passes through THIS gate: the opt-out
+   * half is asserted in tests/no-channel-mails-opted-out.test.ts, over the same
+   * sender population, with isCrossChannelStop as its predicate. The entries
    * below therefore describe a BOUNDARY that is policed elsewhere, not work
    * this PR postponed.
+   *
+   * Consent IN and consent OUT are not symmetric, and that asymmetry is the
+   * whole content of these two entries: an alert the user created carries its
+   * own opt-in, so the newsletter's opt-in must not govern it; but "stop
+   * emailing me" is not worded per-channel, so the newsletter's opt-OUT does.
    */
   'scripts/send-job-alerts.mjs': {
     verdict: 'known-gap',
-    why: 'consent here is the alert the user created, not the newsletter opt-in, so this gate does not belong here; the unrequested-alert problem is #5705 (PR #5722, guard in shouldSkipSubscriber) and opt-out propagation is #5688',
-    issue: '#5705 / #5688',
-    onFire: 'STOP — adding the newsletter consent gate here is the wrong fix: it lets one channel\'s consent govern another. Read #5705 and #5688 first',
+    why: 'consent here is the alert the user created, not the newsletter opt-in, so this gate does not belong here; the unrequested-alert problem is #5705 (PR #5722, guard in shouldSkipSubscriber). The newsletter OPT-OUT does reach this sender since #5688 — isCrossChannelStop, asserted in no-channel-mails-opted-out.test.ts',
+    issue: '#5705',
+    onFire: 'STOP — adding the newsletter consent gate here is the wrong fix: it lets one channel\'s consent govern another. Read #5705 first (the opt-out direction is already covered, and separately)',
   },
   'scripts/send-company-alerts.mjs': {
     verdict: 'known-gap',
-    why: 'same consent basis and same boundary as send-job-alerts: isAddressSuppressed + isJobAlertExcluded, deliberately no consultation of the newsletter doc',
-    issue: '#5705 / #5688',
-    onFire: 'STOP — same as send-job-alerts: the followed-employer alert is its own consent. Read #5705 and #5688 first',
+    why: 'same consent basis and same boundary as send-job-alerts: isCrossChannelStop on the newsletter doc + isJobAlertExcluded on its own, and deliberately no opt-IN gate',
+    issue: '#5705',
+    onFire: 'STOP — same as send-job-alerts: the followed-employer alert is its own consent. Read #5705 first',
   },
   'scripts/send-saved-jobs-digest.mjs': {
     verdict: 'not-a-broadcast',
@@ -169,21 +166,6 @@ const VERDICTS: Record<string, Verdict> = {
     why: 'internal notification',
   },
 };
-
-/**
- * The senders, derived from disk rather than listed.
- *
- * `sendEmailCascade` is the only way mail leaves this repo (every provider
- * client is behind scripts/lib/email-cascade.mjs), so importing it is what
- * makes a script a sender — a definition that cannot go stale the way a
- * hand-kept array does.
- */
-function discoverSenders(): string[] {
-  return readdirSync(path.join(ROOT, 'scripts'), { withFileTypes: true })
-    .filter((e) => e.isFile() && e.name.endsWith('.mjs'))
-    .map((e) => `scripts/${e.name}`)
-    .filter((rel) => /sendEmailCascade/.test(stripComments(read(rel))));
-}
 
 describe('every sender is classified', () => {
   const senders = discoverSenders();

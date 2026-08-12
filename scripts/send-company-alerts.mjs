@@ -68,7 +68,7 @@ import { fileURLToPath } from 'node:url';
 import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
 import { buildCompanyAlertEmail, COMPANY_ALERT_TEMPLATE_ID, COMPANY_ALERT_MAX_TOTAL_CARDS } from '../services/companyAlertEmail.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
-import { isAddressSuppressed, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { generateAutologinCode, makeAuthenticatedUrl } from '../services/newsletterUrls.mjs';
 import { normalizeSentMap, filterUnsentJobs, mergeSentJobs, DEDUP_WINDOW_MS } from './lib/alert-sent-jobs.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
@@ -459,9 +459,14 @@ async function main() {
   console.log(`   Immediate CompanyAlerts: ${alerts.length}`);
   if (alerts.length === 0) return;
 
-  // Hard address-level suppression (bounce / complaint / provider list). Same
-  // two-collection check the digest performs — a dead or hostile mailbox must
-  // not receive this channel either.
+  // Suppression, from both documents. The newsletter side is isCrossChannelStop:
+  // the address-level hard signals (dead or hostile mailbox) AND the explicit
+  // newsletter opt-out, in status or stamp. This sender had the same defect as
+  // send-job-alerts.mjs and for the same reason (#5688) — it read the newsletter
+  // document with isAddressSuppressed(), which asks whether the mailbox works,
+  // not whether the person asked us to stop. Followed-employer alerts are their
+  // own consent, so an alert-level opt-out does not reach back the other way;
+  // the asymmetry is deliberate.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const suppressed = new Set();
   const LOOKUP_CHUNK_SIZE = 200;
@@ -475,7 +480,7 @@ async function main() {
       const snaps = await db.getAll(...refs);
       chunk.forEach((e, idx) => {
         const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
-        if (nlDoc.exists && isAddressSuppressed((nlDoc.data() || {}).status)) suppressed.add(e);
+        if (nlDoc.exists && isCrossChannelStop(nlDoc.data() || {})) suppressed.add(e);
         if (jaDoc.exists && isJobAlertExcluded((jaDoc.data() || {}).status)) suppressed.add(e);
       });
     } catch (err) {
@@ -487,7 +492,7 @@ async function main() {
   if (suppressed.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressed.has(String(a.email || '').toLowerCase()));
-    console.log(`   🚫 Hard-suppressed: ${before - alerts.length} alert(s) skipped`);
+    console.log(`   🚫 Suppressed (newsletter opt-out / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
   }
 
   // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────
