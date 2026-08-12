@@ -11,7 +11,7 @@
  * Pure + dependency-light (only the shared HMAC URL builders) so it is unit
  * testable. Table-based inline-styled HTML for email-client compatibility.
  */
-import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl } from './newsletterUrls.mjs';
+import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 // Brand tokens — kept in sync with services/newsletter-template.mjs.
@@ -33,6 +33,7 @@ const COPY = {
     cta: '🚀 Sì, resto a bordo',
     keepNote: 'Se non fai nulla, la mettiamo in pausa tra qualche giorno. Puoi riattivarla quando vuoi — nessun rancore. 🙂',
     unsub: 'No grazie, preferisco salutarti',
+    prefs: 'Gestisci le preferenze',
     wordmarkSub: 'Ticino',
   },
   en: {
@@ -44,6 +45,7 @@ const COPY = {
     cta: '🚀 Yep, keep me aboard',
     keepNote: 'Do nothing and we’ll pause it in a few days. You can switch it back on anytime — no hard feelings. 🙂',
     unsub: 'No thanks, time to say goodbye',
+    prefs: 'Manage your preferences',
     wordmarkSub: 'Ticino',
   },
   de: {
@@ -55,6 +57,7 @@ const COPY = {
     cta: '🚀 Ja, ich bleibe an Bord',
     keepNote: 'Tust du nichts, pausieren wir ihn in ein paar Tagen. Du kannst ihn jederzeit wieder aktivieren — alles gut. 🙂',
     unsub: 'Nein danke, Zeit für ein Tschüss',
+    prefs: 'Einstellungen verwalten',
     wordmarkSub: 'Ticino',
   },
   fr: {
@@ -66,6 +69,7 @@ const COPY = {
     cta: '🚀 Oui, je reste à bord',
     keepNote: 'Sans action de ta part, nous la suspendrons dans quelques jours. Tu pourras la réactiver quand tu veux — sans rancune. 🙂',
     unsub: 'Non merci, je préfère partir',
+    prefs: 'Gérer mes préférences',
     wordmarkSub: 'Ticino',
   },
 };
@@ -89,6 +93,14 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
   // Header List-Unsubscribe uses the dedicated one-click endpoint (RFC 8058) —
   // proxied straight to the Cloud Function, bypassing the SPA's `ac` requirement.
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(email);
+  // #5684 — the preference centre must be reachable from EVERY recurring email,
+  // not just the weekly newsletter and the job alerts. A win-back that offers
+  // only "leave for good" forces an all-or-nothing choice on the reader who
+  // merely wanted a slower cadence, and that is the choice that ends at the
+  // provider's abuse desk. `fallbackUnsigned` mirrors send-newsletter.mjs: a
+  // missing HMAC secret degrades to the unsigned URL (the page then asks for
+  // the link again) instead of removing the way out entirely.
+  const preferencesUrl = makePreferencesUrl(email, l, { fallbackUnsigned: true });
 
   const html = `<!DOCTYPE html>
 <html lang="${l}">
@@ -119,6 +131,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
       <!-- footer -->
       <tr><td style="border-top:1px solid #eef2f7;padding:18px 32px 24px;text-align:center;">
         <a href="${footerUnsubUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
+        <div style="margin-top:6px;"><a href="${preferencesUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${BRAND_ORANGE};text-decoration:underline;">${s.prefs}</a></div>
       </td></tr>
     </table>
     <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
@@ -129,7 +142,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
 </html>`;
 
   // Plain-text part mirrors the message (emoji stripped from the CTA label).
-  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${footerUnsubUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
+  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${footerUnsubUrl}\n${s.prefs}: ${preferencesUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }
