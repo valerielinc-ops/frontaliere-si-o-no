@@ -8693,6 +8693,16 @@ ${staticAnalyticsHtml}
  // Recording the emission and reading it back makes the two answers the
  // SAME answer rather than two answers that happen to agree on today's
  // data. `tests/keyword-landing-sitemap-parity.test.ts` pins that shape.
+ // `shouldEmitLocale` is called here AND again in the sitemap block below
+ // (`kwSitemapLocales` loop) — issue #5655 item 3 asked whether the two
+ // calls could see different answers within the same build and silently
+ // re-diverge the emit/sitemap sets this section exists to keep in sync.
+ // Confirmed no: `shouldEmitLocale` (shared/localeEmitFilter.ts) reads only
+ // `EMIT_LOCALES`, a `ReadonlySet` computed ONCE at module load from
+ // `process.env.BUILD_LOCALE` and never reassigned — no branch in this file
+ // or its callees mutates it mid-build. Both call sites run synchronously
+ // within the same kwPage iteration, so they necessarily read the same
+ // frozen Set. Non-issue, closed.
  const kwEmittedLocales = new Set<typeof localeList[number]>();
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
