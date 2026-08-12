@@ -2251,6 +2251,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Führerschein in Zürich: Umwandlung und Prüfungen',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Austausch ausländischer Führerscheine, theoretische und praktische Prüfungen, Pflichtkurse und das zuständige Straßenverkehrsamt im Kanton Zürich.',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Bild eines Straßenschilds in Lugano mit Informationen zur Umstellung einer Führerschein',
+    'blog.article.salari-mercato-lavoro-zurigo.title': 'Löhne und Arbeitsmarkt in Zürich: Branchen und Niveaus',
+    'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Gründliche Analyse des Arbeitsmarktes im Kanton Zürich mit Schwerpunkt auf Schlüsselbranchen, Lohnniveaus und geltenden Vorschriften.',
+    'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Arbeitsmarkt und Gehälter im Kanton Zürich',
 };
 
 export default blogMetaChDe;

@@ -29150,6 +29150,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-zurigo': {
+    title: 'Salari e mercato del lavoro a Zurigo: settori e livelli',
+    description: 'Guida completa al mercato del lavoro nel Cantone di Zurigo: settori trainanti, livelli salariali, contratti collettivi e normative vigenti in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, zurigo',
+    ogTitle: 'Salari e mercato del lavoro a Zurigo: settori e livelli',
+    ogDescription: 'Approfondimento sul mercato del lavoro nel Cantone di Zurigo con analisi dei settori in crescita, livelli salariali, previdenza e tutele normative vigenti.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro a Zurigo: settori e livelli",
+      "description": "Guida completa al mercato del lavoro nel Cantone di Zurigo: settori trainanti, livelli salariali, contratti collettivi e normative vigenti in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato del lavoro e salari nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-08-12T03:51:57+00:00",
+      "dateModified": "2026-08-12T03:51:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

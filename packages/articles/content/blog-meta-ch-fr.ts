@@ -2251,6 +2251,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.title': 'Permis de conduire à Zurich : conversion et examens',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.excerpt': 'Échange de permis de conduire étrangers, examens théoriques et pratiques, cours obligatoires et le service de circulation routière compétent dans le canton de Zurich.',
     'blog.article.patente-di-guida-canton-zurigo-conversione-ed-esami.imageAlt': 'Image d\'un panneau routier à Lugano avec des informations sur la conversion du permis de conduire',
+    'blog.article.salari-mercato-lavoro-zurigo.title': 'Salaires et marché du travail à Zurich : secteurs et niveaux',
+    'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'Analyse approfondie du marché du travail dans le canton de Zurich, en mettant l\'accent sur les secteurs clés, les niveaux de salaire et les réglementations en vigueur.',
+    'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Marché du travail et salaires dans le canton de Zurich',
 };
 
 export default blogMetaChFr;
