@@ -9761,6 +9761,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Entrée en Suisse pour les frontaliers : documents et douane',
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'Pour les entrées en Suisse, les frontaliers doivent présenter les documents corrects et suivre les procédures douanières.',
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'Un travailleur frontalier en attente au poste frontalier de Chiasso.',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.title': 'La surveillance des banques en Suisse : une brève histoire des scandales',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.excerpt': 'L\'histoire de la surveillance bancaire suisse est marquée par des scandales et des pressions de l\'étranger. Cependant, l\'influence du lobby financier finit souvent par affaiblir les contrôles.',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.imageAlt': 'Un frontalière observe la ville de Lugano avec une expression sereine.',
 };
 
 export default blogMetaFr;
