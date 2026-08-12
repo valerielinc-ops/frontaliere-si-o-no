@@ -9833,6 +9833,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-statistiche-2026.title': 'How many border crossers are there in Ticino? Statistics 2026',
     'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'The latest data available on the border population in Ticino, with a focus on the main sectors of employment.',
     'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'A commuter waiting at Chiasso train station.',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.title': 'Raising children bilingual border Italian German French',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.excerpt': 'Schools, extra-curricular activities and practical advantages on the future labour market for children of border families',
+    'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.imageAlt': 'Editorial image related to: Crescere figli bilingue frontaliere italiano tedesco francese',
 };
 
 export default blogMetaEn;
