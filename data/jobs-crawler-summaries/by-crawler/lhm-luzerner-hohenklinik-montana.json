@@ -1,16 +1,16 @@
 {
   "key": "lhm-luzerner-hohenklinik-montana",
   "label": "Luzerner Höhenklinik Montana",
-  "generatedAt": "2026-08-11T22:08:39.966Z",
-  "total": 7,
+  "generatedAt": "2026-08-12T10:48:49.072Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6124,
-  "avgDurationMs": 6124,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5358,
+  "avgDurationMs": 5358,
   "durationHistory": [
-    6124
+    5358
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T22:08:34.961Z",
+      "crawledAt": "2026-08-12T10:48:44.769Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:08:35.383Z",
+      "crawledAt": "2026-08-12T10:48:45.154Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:08:35.796Z",
+      "crawledAt": "2026-08-12T10:48:45.540Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:08:36.208Z",
+      "crawledAt": "2026-08-12T10:48:45.923Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/leitender-arzt--leitende-aerztin-psychosomatik",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:08:36.619Z",
+      "crawledAt": "2026-08-12T10:48:46.305Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:08:37.031Z",
+      "crawledAt": "2026-08-12T10:48:46.689Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -237,8 +237,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-997b6621e435",
       "slug": "terapeuta-del-lavoro-luzerner-hohenklinik-montana-crans-montana",
@@ -278,5 +277,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
