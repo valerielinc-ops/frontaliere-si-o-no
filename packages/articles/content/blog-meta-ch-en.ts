@@ -2254,6 +2254,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.title': 'Wages and the labour market in Zurich: sectors and levels',
     'blog.article.salari-mercato-lavoro-zurigo.excerpt': 'In-depth analysis of the labour market in the Canton of Zurich, with a focus on key sectors, wage levels and regulations in force.',
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Labor market and salaries in the Canton of Zurich',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Inheritance and gift taxes in the Canton of Zurich',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'In the Canton of Zurich, inheritance and gift tax is subject to different rates depending on the degree of kinship.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
 };
 
 export default blogMetaChEn;

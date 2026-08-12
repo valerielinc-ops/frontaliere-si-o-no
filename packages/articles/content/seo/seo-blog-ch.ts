@@ -29189,6 +29189,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-di-succesione-e-donazione-canton-zurigo-aliquote': {
+    title: 'Imposte di successione e donazione nel Cantone di Zurigo',
+    description: 'L\'imposta di successione e donazione nel Cantone di Zurigo è soggetta a aliquote diverse in base al grado di parentela e si applica sul valore della successione',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Zurigo: aliquote per grado di parentela',
+    ogDescription: 'L\'imposta di successione e donazione nel Cantone di Zurigo è soggetta a aliquote diverse in base al grado di parentela e si applica sul valore della successione o donazione.',
+    canonicalPath: '/articoli-svizzera/imposta-di-succesione-e-donazione-canton-zurigo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte di successione e donazione nel Cantone di Zurigo",
+      "description": "L'imposta di successione e donazione nel Cantone di Zurigo è soggetta a aliquote diverse in base al grado di parentela e si applica sul valore della successione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-zurigo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri."
+      },
+      "datePublished": "2026-08-12T04:05:27+00:00",
+      "dateModified": "2026-08-12T04:05:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-succesione-e-donazione-canton-zurigo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
