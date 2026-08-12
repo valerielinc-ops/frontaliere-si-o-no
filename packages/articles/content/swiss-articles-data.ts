@@ -6895,6 +6895,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'accordi-svizzera-ue-consiglio-federale',
+    category: 'fiscale',
+    date: '2026-08-12T13:34:28.726Z',
+    image: '/images/blog/accordi-svizzera-ue-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

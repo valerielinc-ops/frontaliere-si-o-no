@@ -12,13 +12,33 @@
  * subscribers caused this way, none by a real bounce or complaint, some
  * suppressed seconds after a recorded delivery and open.
  *
- * The restored STATUS is not assumed. A subscriber suppressed while still
- * `pending` (signed up but never clicked the double opt-in link) must NOT come
- * back as `confirmed` — that would fabricate a consent they never gave, a worse
- * state than the bug being repaired. So the script restores `confirmed` only
- * with positive evidence of consent (a `confirmed_at` stamp, a `confirm` /
- * `subscribe_completed` event, or an origin that is auto-confirmed by design
- * such as a job-unlock gate or a social sign-in), and `pending` otherwise.
+ * ── THIS SCRIPT CANNOT CONFIRM ANYONE (#5677) ──────────────────────────────
+ *
+ * It restores to `pending`, ALWAYS, and there is no branch that writes
+ * `status: 'confirmed'`. Only a click on the double-opt-in link may do that
+ * (`action === 'confirm'` in functions/src/newsletterSubscriptionManagement.js,
+ * the one path that writes `confirmed_at` + the `confirm` event together).
+ * Undoing a mis-mapped suppression is a statement about the MAILBOX; consent
+ * is a statement about the PERSON, and this script has no evidence about the
+ * second.
+ *
+ * It used to decide via `hasConsentEvidence()`, i.e. to INFER the consent from
+ * the signup origin when no stamp and no `confirm` event existed. Measured on
+ * production 2026-08-12, that inference is not a weak signal, it is a broken
+ * one: `hasConsentEvidence(doc, [])` is already true for 1.442 of the 1.487
+ * documents whose own status says `pending` — 97% — because
+ * AUTO_CONFIRMED_ORIGIN_RE matches the bare `signup` origin, which is exactly
+ * the origin that DOES send an opt-in email. And `subscribe_completed`, the
+ * other accepted signal, is written by the ordinary subscribe upsert
+ * (services/newsletterSubscribers.ts) on the signup itself, so 57% of `pending`
+ * documents carry it. What the inference produced is visible in the data: 392
+ * documents sit at `status: 'confirmed'` with no `confirmed_at`, 380 of them
+ * bearing a restore marker, and ZERO of the 392 carrying a `confirm` event.
+ *
+ * `decideRestore()` still returns a `confirmed` flag and it is still reported
+ * below — as the size of the population the old inference WOULD have marked
+ * confirmed — but it no longer reaches a write. Two other callers of
+ * `recoveredStatus()` still consume that inference; see the PR.
  *
  * This restores ONLY the ones whose suppression is attributable purely to that
  * mis-mapping. A subscriber is restored when:
@@ -163,7 +183,6 @@ async function main() {
     if (verdict.confirmed) restoredConfirmed++; else restoredPending++;
     restore.push({
       ref: doc.ref,
-      confirmed: verdict.confirmed,
       previousStatus: String(data.status || ''),
       previousReason: suppressionReason(data),
     });
@@ -177,9 +196,10 @@ async function main() {
   console.log('\n📊 popolazione letta, per status:');
   for (const [status, count] of Object.entries(byStatus).sort()) console.log(`     ${status}: ${count}`);
 
-  console.log(`\n✅ RIPRISTINABILI (restore.length): ${restore.length}`);
-  console.log(`     restoredConfirmed (prova di consenso reale): ${restoredConfirmed}`);
-  console.log(`     restoredPending   (nessuna prova → resta in doppio opt-in): ${restoredPending}`);
+  console.log(`\n✅ RIPRISTINABILI (restore.length): ${restore.length} — TUTTI a 'pending'`);
+  console.log(`     nessuno viene scritto 'confirmed': solo un click sul link di conferma puo' farlo (#5677)`);
+  console.log(`     per confronto, la vecchia inferenza ne avrebbe marcati 'confirmed': ${restoredConfirmed}`);
+  console.log(`     e 'pending' anche allora: ${restoredPending}`);
 
   console.log(`\n🛑 LASCIATI SOPPRESSI: ${keptTotal} — di cui ${keptTerminal} dal gate terminal (hard bounce / decisione umana), MAI ripristinabili`);
   for (const [code, count] of Object.entries(keep).sort((a, b) => b[1] - a[1])) {
@@ -198,11 +218,14 @@ async function main() {
   const CHUNK = 400;
   for (let i = 0; i < targets.length; i += CHUNK) {
     const batch = db.batch();
-    for (const { ref, confirmed, previousStatus, previousReason } of targets.slice(i, i + CHUNK)) {
+    for (const { ref, previousStatus, previousReason } of targets.slice(i, i + CHUNK)) {
       const fields = {
-        status: confirmed ? 'confirmed' : 'pending',
-        isActive: confirmed,
-        active: confirmed,
+        // NEVER `confirmed` — see the header. `confirmed` is unreachable from
+        // this script by construction, not by a condition that a later edit
+        // could widen: the restored status is a literal.
+        status: 'pending',
+        isActive: false,
+        active: false,
         // Disarms the escalation counter. NOT cosmetic and NOT optional now
         // that `bounced` docs are in scope: `maybeEscalateSoftBounce()` writes
         // a DELIBERATELY permanent `bounce_severity: 'hard'` after 3

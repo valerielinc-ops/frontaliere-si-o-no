@@ -854,6 +854,17 @@ jobs:
       - name: Migrate all-known-job-slugs to canton-aware paths
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      # Report-only wiring (issue #5656 item 2): validate-page-seo-quality.mjs
+      # was discovered orphaned — only reachable via `npm run validate:page-seo`,
+      # invoked by zero workflows — so it never ran anywhere despite being
+      # written as deploy-blocking (`process.exit(1)` on any error). Surfacing
+      # it here first, non-blocking (`continue-on-error: true`), lets its
+      # findings accumulate real signal before the owner decides to promote it
+      # to deploy-blocking (a distinct risk decision, not this step's call).
+      - name: Validate page SEO quality (report-only)
+        continue-on-error: true
+        run: npm run validate:page-seo
+
       # Validation pool.
       # Runs dist/ HTML walkers plus the post-deploy live smoke in capped
       # parallel. This keeps the critical path close to the slowest dist audit

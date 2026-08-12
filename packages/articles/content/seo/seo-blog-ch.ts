@@ -29774,6 +29774,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordi-svizzera-ue-consiglio-federale': {
+    title: 'Consiglio federale: accordi Svizzera-Ue non al referendum',
+    description: 'Il Consiglio federale ha spiegato che le condizioni richieste dalla Commissione per le istituzioni politiche degli Stati non sono state soddisfatte.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, accordi, svizzera-ue',
+    ogTitle: 'Il Consiglio federale ha ribadito che gli accordi Svizzera-Ue non dovranno essere sottoposti a referendum obbligatorio.',
+    ogDescription: 'Il Consiglio federale ha spiegato che le condizioni richieste dalla Commissione per le istituzioni politiche degli Stati non sono state soddisfatte.',
+    canonicalPath: '/articoli-svizzera/accordi-svizzera-ue-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: accordi Svizzera-Ue non al referendum",
+      "description": "Il Consiglio federale ha spiegato che le condizioni richieste dalla Commissione per le istituzioni politiche degli Stati non sono state soddisfatte.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Svizzera e l'UE hanno negoziato un accordo per stabilizzare le relazioni tra i due paesi."
+      },
+      "datePublished": "2026-08-12T13:34:28+00:00",
+      "dateModified": "2026-08-12T13:34:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accordi-svizzera-ue-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

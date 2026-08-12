@@ -35,6 +35,30 @@ describe('seeding the population', () => {
     expect(skipped).toMatchObject({ alreadySeeded: 1, pinned: 1 });
   });
 
+  // #5674: the seed is the step that put 433 people on the daily tier, and 73
+  // of them got there on clicks that were all synthetic. The classifier runs on
+  // whatever evidence the row carries — the one click the document remembers,
+  // or the whole history when a caller has read it.
+  it('does not seed to daily on a click no human made', () => {
+    const optOutUrl = 'https://frontaliereticino.ch/?action=unsubscribe&email=a%40example.com&token=x';
+    const rows = [
+      { email: 'unsub@x.it', doc: { status: 'confirmed', last_click_at: daysAgo(2), last_clicked_url: optOutUrl } },
+      { email: 'reader@x.it', doc: { status: 'confirmed', last_click_at: daysAgo(2), last_clicked_url: 'https://frontaliereticino.ch/statistiche' } },
+      {
+        email: 'scanned@x.it',
+        doc: { status: 'confirmed', last_click_at: daysAgo(2), last_open_at: daysAgo(2) },
+        // A Safe Links sweep: every link of the message inside one second.
+        clickEvents: Array.from({ length: 6 }, (_, i) => ({
+          at: NOW - (2 * DAY) + (i * 120),
+          url: `https://frontaliereticino.ch/de/jobs-im-tessin/annuncio-${i}`,
+          metadata: { ip: '74.242.242.134' },
+        })),
+      },
+    ];
+    const { writes } = planSeed(rows, NOW);
+    expect(writes.map((w) => `${w.email}:${w.tier}`)).toEqual(['unsub@x.it:7', 'reader@x.it:1', 'scanned@x.it:3']);
+  });
+
   it('leaves out unsubscribed and suppressed addresses', () => {
     const rows = [
       { email: 'gone@x.it', doc: { status: 'unsubscribed', last_click_at: daysAgo(1) } },
