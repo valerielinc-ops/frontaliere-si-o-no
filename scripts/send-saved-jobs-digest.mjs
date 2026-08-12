@@ -33,6 +33,7 @@ import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.m
 import { isSavedJobsDigestExcluded } from '../services/emailSuppression.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 // localePathPrefix aliased to the local name this script has always used —
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
@@ -256,6 +257,7 @@ function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, u
           <div style="font-size:12px;color:#94a3b8;margin-top:16px;">
             ${escapeHtml(s.unsubLine)} <a href="${unsubUrl}" style="color:#94a3b8;">${escapeHtml(s.unsubLink)}</a>
           </div>
+          <div style="font-size:11px;color:#94a3b8;margin-top:10px;">${escapeHtml(dataControllerFooterLine(locale))}</div>
         </td></tr>
       </table>
     </td></tr>
@@ -264,7 +266,7 @@ function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, u
 </html>`;
 }
 
-function buildEmailText({ s, savedEntries, recommendations, manageUrl, unsubUrl }) {
+function buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl }) {
   const lines = [s.heroTitle, ''];
   for (const e of savedEntries) {
     lines.push(`- ${e.title} (${s.at} ${e.company})${e.expired ? ` [${s.expiredBadge}]` : ''}: ${e.expired ? `${BASE_URL}/cerca-lavoro-ticino/` : e.url}`);
@@ -273,7 +275,7 @@ function buildEmailText({ s, savedEntries, recommendations, manageUrl, unsubUrl 
     lines.push('', s.recoTitle);
     for (const e of recommendations) lines.push(`- ${e.title} (${s.at} ${e.company}): ${e.url}`);
   }
-  lines.push('', `${s.textViewAllLine} ${manageUrl}`, '', `${s.textUnsubLine} ${unsubUrl}`);
+  lines.push('', `${s.textViewAllLine} ${manageUrl}`, '', `${s.textUnsubLine} ${unsubUrl}`, '', dataControllerFooterLine(locale));
   return lines.join('\n');
 }
 
@@ -309,7 +311,7 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations, c
   const manageUrl = `${BASE_URL}${localePathPrefix(locale)}/area-personale/`;
   const unsubUrl = makeUnsubscribeUrl(uid, email);
   const html = buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl });
-  const text = buildEmailText({ s, savedEntries, recommendations, manageUrl, unsubUrl });
+  const text = buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl });
   const subject = s.subject(savedEntries.length);
 
   if (DRY_RUN) {

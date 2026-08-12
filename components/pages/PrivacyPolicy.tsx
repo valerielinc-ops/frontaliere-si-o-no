@@ -2,7 +2,14 @@ import React from 'react';
 import { Shield, Lock, Database, Eye, CheckCircle2, ArrowLeft, BarChart3, ExternalLink, Key, Globe, Scale, Clock, UserCheck, Mail } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 
-const PRIVACY_EMAIL = 'info@frontaliereticino.ch';
+// Titolare del trattamento (#5675) — dati forniti dal proprietario: nome +
+// contatto per l'esercizio dei diritti, deliberatamente NON `alerts@` (la
+// casella degli invii automatici, dove finivano le richieste LPD prima di
+// questa fix). Nessun indirizzo postale: scelta esplicita del proprietario,
+// non un dato mancante da dedurre — vedi issue #5675 per la valutazione
+// sulla copertura parziale dell'art. 19 nLPD che questo comporta.
+const DATA_CONTROLLER_NAME = 'Valerie Linc';
+const PRIVACY_EMAIL = 'valerie@frontaliereticino.ch';
 
 export const PrivacyPolicy: React.FC = () => {
   const nav = useNavigation();
@@ -25,7 +32,7 @@ export const PrivacyPolicy: React.FC = () => {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-light font-display text-heading">Privacy Policy</h1>
-            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 22 giugno 2026</p>
+            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 12 agosto 2026</p>
           </div>
         </div>
         <p className="text-subtle leading-relaxed">
@@ -55,8 +62,8 @@ export const PrivacyPolicy: React.FC = () => {
           <div className="space-y-3 text-subtle">
             <p>
               Titolare del trattamento (data controller ai sensi dell'art. 4, n. 7, GDPR e dell'art. 5, lett. j,
-              nLPD) è il gestore del sito <strong>Frontaliere Ticino</strong> (frontaliereticino.ch), progetto
-              informativo indipendente rivolto ai lavoratori frontalieri dell'area Svizzera–Italia.
+              nLPD) di <strong>Frontaliere Ticino</strong> (frontaliereticino.ch), progetto informativo
+              indipendente rivolto ai lavoratori frontalieri dell'area Svizzera–Italia, è <strong>{DATA_CONTROLLER_NAME}</strong>.
             </p>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2 flex items-center gap-2">
@@ -616,7 +623,7 @@ export const PrivacyPolicy: React.FC = () => {
               su questa pagina; in caso di modifiche sostanziali ne daremo evidenza aggiornando la data sottostante.
             </p>
             <p className="text-sm italic">
-              Data ultimo aggiornamento: <strong>22 giugno 2026</strong>
+              Data ultimo aggiornamento: <strong>12 agosto 2026</strong>
             </p>
           </div>
         </div>
