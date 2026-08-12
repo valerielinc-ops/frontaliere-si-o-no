@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-12T10:22:24.893Z",
+  "savedAt": "2026-08-12T10:36:53.313Z",
   "entries": [
     {
       "key": "f19d7f25c3040d261ce535b350060d78b9e73f92df16f52cd23a9dfba516a312",
@@ -215648,11 +215648,11 @@
     },
     {
       "key": "431c20d77882fab48dcfd392e5eafddf60ed3f3eb3dabbec68f71bd621138e08",
-      "touchedAt": 1786485254682,
+      "touchedAt": 1786530942566,
       "value": {
         "isJob": false,
-        "confidence": 0.6,
-        "reason": "The page appears to be a generic careers listing page for the company Fust, with multiple job openings and descriptions. However, it lacks a concrete role title and responsibilities/requirements for a single job, and instead provides a list of various job openings with similar descriptions. The application context is also not clearly defined. The page is likely a careers listing page rather than a single job detail page."
+        "confidence": 0.5,
+        "reason": "The page appears to be a generic career page with multiple job listings and information about the company's programs, but it does not provide a concrete role title, responsibilities, and application context for a single job. The page seems to be more focused on promoting the company's career opportunities and programs rather than providing a detailed job description."
       }
     },
     {
