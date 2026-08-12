@@ -9761,6 +9761,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vigilanza-sulle-banche-in-svizzera.title': 'Bankenaufsicht in der Schweiz: Eine kurze Geschichte der Skandale',
     'blog.article.vigilanza-sulle-banche-in-svizzera.excerpt': 'Die Geschichte der Schweizer Bankenaufsicht ist geprägt von Skandalen und Druck aus dem Ausland. Der Einfluss der Finanzlobby führt jedoch oft zu einer Schwächung der Kontrollen.',
     'blog.article.vigilanza-sulle-banche-in-svizzera.imageAlt': 'Ein Frontalier beobachtet die Stadt Lugano mit einer ruhigen Miene.',
+    'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.title': 'AHV- und NISF-Beiträge für Tessiner Grenzgänger summieren',
+    'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.excerpt': 'Die Zusammenrechnung der AHV- und INPS-Beiträge für Tessiner Grenzgänger ist ein komplexer Prozess, der die Einreichung eines Gesuchs bei den zuständigen Stellen erfordert',
+    'blog.article.totalizzazione-contributi-avs-inps-frontalieri-ticino.imageAlt': 'Frontalieri ticinesi che lavorano in Italia e risiedono in Svizzera',
 };
 
 export default blogMetaDe;
