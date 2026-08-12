@@ -6796,6 +6796,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-cantonal-berna-aliquote-deduzioni',
+    category: 'fiscale',
+    date: '2026-08-12T06:10:54.824Z',
+    image: '/images/blog/imposte-cantonal-berna-aliquote-deduzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -781,6 +781,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'caldo-prezzi-inflazione-climatica': { it: 'caldo-prezzi-inflazione-climatica', en: 'heat-prices-climate-inflation', de: 'hitze-preise-klimainflation', fr: 'chaleur-prix-inflation-climatique' },
  'come-usare-la-croce-svizzera-sui-prodotti-esteri': { it: 'come-usare-la-croce-svizzera-sui-prodotti-esteri', en: 'using-the-swiss-cross-on-imported-products', de: 'die-schweizer-kreuz-auf-importierten-produkten-verwenden', fr: 'utiliser-la-croix-suisse-sur-des-produits-importes' },
  'portale-informazione-svizzera-italiana': { it: 'portale-informazione-svizzera-italiana', en: 'information-portal-swiss-italians', de: 'informationsportal-schweiz', fr: 'portail-information-suisse-italienne' },
+ 'imposte-cantonal-berna-aliquote-deduzioni': { it: 'imposte-cantonal-berna-aliquote-deduzioni', en: 'imposte-cantonal-berna-aliquote-deduzioni', de: 'imposten-cantonal-berner-ertragssteuern-satz-berechnung', fr: 'impots-cantonaux-bernais-impots-surtaxes-berechnung' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
