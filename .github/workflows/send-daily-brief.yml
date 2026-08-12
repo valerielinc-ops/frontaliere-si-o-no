@@ -1,5 +1,25 @@
 name: Send Daily Brief Email
 
+# CHANNEL-STATUS: suspended
+#
+# Disabled on 2026-08-12 by the owner — the daily bulletin was what the
+# complaints were about. It is disabled the way GitHub disables a workflow
+# (`disabled_manually`, a flag on the Actions API), so nothing below changed
+# and nothing below can show it: the schedule is still written out, the sender
+# still exists, and every test that reads this file still passed.
+#
+# That is what this marker is for. `services/communicationChannels.ts` declares
+# `status: 'suspended'` for the `daily-brief` channel, and
+# `tests/consent-shown-at-signup.test.ts` fails unless the marker and the
+# declaration agree IN BOTH DIRECTIONS. So:
+#
+#   re-enabling this workflow means DELETING this comment, and the test then
+#   stays red until the channel registry says `live` again — which is what
+#   drags `/comunicazioni/` and the consent formula back into agreement with
+#   what is actually being sent.
+#
+# Do not delete it as tidying. It is the only place in the repo that knows.
+
 # The daily "Bollettino del Frontaliere" digest — the email half of the
 # corpus's dated daily edition (nanakokyobashi-rgb/frontaliere-articles,
 # generate-daily-brief.yml, ~05:05 UTC nominal). This job fetches the SAME
