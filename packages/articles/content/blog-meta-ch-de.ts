@@ -2323,6 +2323,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.livigno-idea-progetto-s-chanf.title': 'Graubünden unterstützt Bahnverbindung S-chanf Livigno',
     'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'Die Zusammenarbeit mit der Lombardei zielt darauf ab, die Reisezeiten zwischen dem Engadin und dem Oberen Veltlin zu verkürzen, wobei bis Dezember ein konkretes Projekt erwartet wird.',
     'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Ein Zug fährt durch die Schweizer Berge, mit Schwerpunkt auf die Verbindung Livigno-S-chanf.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Größere Verantwortung für die Bankspitze',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Bundesrat verhandelt über neue Massnahmen zur Stärkung der Eigenverantwortung von Bankmanagern',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Schweizer Banken',
 };
 
 export default blogMetaChDe;

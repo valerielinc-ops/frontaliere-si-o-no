@@ -2323,6 +2323,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.livigno-idea-progetto-s-chanf.title': 'Grigioni appoggia collegamento ferroviario S-chanf Livigno',
     'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
     'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Un treno attraversa le montagne svizzere, con enfasi sulla connessione Livigno-S-chanf.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Maggiori responsabilità per i vertici bancari',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Il Consiglio federale mette in consultazione nuove misure per aumentare la responsabilità dei dirigenti bancari',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Istituti bancari svizzeri',
 };
 
 export default blogMetaChIt;
