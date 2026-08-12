@@ -9839,6 +9839,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bernaribadisiposizionereferendumfacoltativo.title': 'Bilateral III, Bern reiterates its position: "Optional referendum"',
     'blog.article.bernaribadisiposizionereferendumfacoltativo.excerpt': 'The Swiss Federal Council reiterated its position on Bilateral III, in favour of an optional referendum.',
     'blog.article.bernaribadisiposizionereferendumfacoltativo.imageAlt': 'The Swiss Federal Council reaffirms its position on the Bilaterals III, in favor of a facultative referendum.',
+    'blog.article.amazon-malpensa-montichiari-2026.title': 'Amazon does not show up in Prefecture: a matter of company policy',
+    'blog.article.amazon-malpensa-montichiari-2026.excerpt': 'The table convened in Varese on the transfer of cargo activities from Malpensa to Montichiari closes without the main interlocutor.',
+    'blog.article.amazon-malpensa-montichiari-2026.imageAlt': 'Amazon absent from Prefettura meeting: company policy',
 };
 
 export default blogMetaEn;
