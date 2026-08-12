@@ -2332,6 +2332,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cf-urgenza-siccita.title': 'Cf : sécheresse, pas d\'urgence pour l\'instant pour des mesures supplémentaires',
     'blog.article.cf-urgenza-siccita.excerpt': 'Le Conseil fédéral n\'a pas encore décidé de nouvelles mesures pour faire face à la sécheresse',
     'blog.article.cf-urgenza-siccita.imageAlt': 'Situation de l\'eau en Suisse',
+    'blog.article.aeroporto-zurigo-luglio-2026.title': 'Aéroport de Zurich : juillet positif',
+    'blog.article.aeroporto-zurigo-luglio-2026.excerpt': 'L\'aéroport de Zurich a enregistré une augmentation de 2,4% du nombre de passagers en juillet, avec 3,3 millions de passagers au total.',
+    'blog.article.aeroporto-zurigo-luglio-2026.imageAlt': 'L\'aéroport de Zurich en été',
 };
 
 export default blogMetaChFr;

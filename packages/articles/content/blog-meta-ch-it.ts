@@ -2332,6 +2332,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cf-urgenza-siccita.title': 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
     'blog.article.cf-urgenza-siccita.excerpt': 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità',
     'blog.article.cf-urgenza-siccita.imageAlt': 'La situazione idrica in Svizzera',
+    'blog.article.aeroporto-zurigo-luglio-2026.title': 'Aeroporto Zurigo: luglio positivo; su passeggeri, voli e fatturato',
+    'blog.article.aeroporto-zurigo-luglio-2026.excerpt': 'L\'aeroporto di Zurigo ha registrato un aumento del 2,4% dei passeggeri in luglio, con 3,3 milioni di passeggeri totali.',
+    'blog.article.aeroporto-zurigo-luglio-2026.imageAlt': 'L\'aeroporto di Zurigo in estate',
 };
 
 export default blogMetaChIt;

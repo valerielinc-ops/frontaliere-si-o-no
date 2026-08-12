@@ -2332,6 +2332,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cf-urgenza-siccita.title': 'Cf: drought, there is no urgency for now for additional measures',
     'blog.article.cf-urgenza-siccita.excerpt': 'The Federal Council has not yet decided to take new measures to address the drought',
     'blog.article.cf-urgenza-siccita.imageAlt': 'Water situation in Switzerland',
+    'blog.article.aeroporto-zurigo-luglio-2026.title': 'Zurich Airport: positive July; on passengers, flights and turnover',
+    'blog.article.aeroporto-zurigo-luglio-2026.excerpt': 'Zurich Airport recorded a 2.4% increase in passengers in July, with 3.3 million total passengers.',
+    'blog.article.aeroporto-zurigo-luglio-2026.imageAlt': 'The Zurich Airport in summer',
 };
 
 export default blogMetaChEn;
