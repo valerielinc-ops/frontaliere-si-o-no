@@ -48,6 +48,7 @@
 import { calculateEngagementScore } from '../../functions/src/lib/engagementScore.js';
 import { SUNSET_MIN_SENDS, SUNSET_MIN_AGE_DAYS } from './subscriberSunset.mjs';
 import { toMillis } from './firestoreTimestamp.mjs';
+import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -107,6 +108,16 @@ function firstSeenMillis(sub) {
 export function classifyDormantWinback(sub, nowMs) {
   const status = norm(sub?.status);
   const { level } = calculateEngagementScore(sub);
+
+  // Same first question as classifySunset, for the same reason: MAILABLE_STATUSES
+  // keeps `status: 'unsubscribed'` out, but the stamp is the other half of the
+  // record and 458 documents carry only its camelCase spelling (#5673). A
+  // win-back is still mail, so a recorded opt-out ends the sequence here rather
+  // than at the status check further down (#5688). Via the shared predicate, so
+  // somebody who left and explicitly came back is not stranded (#5711).
+  if (isNewsletterOptOutBinding(sub)) {
+    return { action: 'none', reason: 'recorded opt-out — not a win-back candidate' };
+  }
 
   const stage1At = toMillis(sub?.dormant_winback_stage1_sent_at);
   const stage2At = toMillis(sub?.dormant_winback_stage2_sent_at);

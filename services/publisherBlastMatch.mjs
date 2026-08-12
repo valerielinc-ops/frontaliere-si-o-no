@@ -13,6 +13,7 @@
 
 // Shared, pure (browser-safe) suppression set — keeps every sender in agreement.
 import { isNewsletterExcluded } from './emailSuppression.mjs';
+import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import { hasConfirmationProof } from './subscriberConsent.mjs';
 
 function norm(s) {
@@ -88,7 +89,13 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
     // Respect unsubscribe + hard suppression (bounce/complaint/provider list).
     // Previously checked the literal 'complaint' — an event-type name, never a
     // subscriber status value — so complained/suppressed users were still mailed.
-    if (isNewsletterExcluded(sub.status)) continue;
+    // The stamp is the second half of the same record: `status` is one
+    // last-writer-wins field and 458 documents carry only the camelCase
+    // `unsubscribedAt` (#5673, #5688). Read through the shared predicate, which
+    // also owns the supersession rule the append-only stamp needs (#5711).
+    // `sub` is the raw doc — blast-publisher-ads.mjs passes `d.data()` straight
+    // through — so every field the predicate reads is present.
+    if (isNewsletterExcluded(sub.status) || isNewsletterOptOutBinding(sub)) continue;
     // ...and the other half of the question (#5686): the set above says who
     // opted OUT, this says who ever opted IN. A paid ad blast is ordinary
     // marketing sourced from the whole newsletter_subscribers collection —
