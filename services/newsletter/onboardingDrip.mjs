@@ -23,6 +23,7 @@
 
 import { localizedUrl } from '../newsletter-template.mjs';
 import { renderRecommendedBlock } from './recommendedBlock.mjs';
+import { dataControllerFooterLine } from '../../functions/src/lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -272,6 +273,7 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
         <tr><td class="section-pad" style="background:${BRAND_DARK};padding:24px 28px;text-align:center;">
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsub)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${loc === 'it' ? 'Disiscriviti' : loc === 'de' ? 'Abmelden' : loc === 'fr' ? 'Se désinscrire' : 'Unsubscribe'}</a></div>
+          <div style="font-size:11px;color:#475569;margin-top:8px;">${escapeHtml(dataControllerFooterLine(loc))}</div>
         </td></tr>
       </table>
     </td></tr>
