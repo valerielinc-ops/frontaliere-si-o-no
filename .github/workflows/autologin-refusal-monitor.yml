@@ -1,0 +1,224 @@
+name: autologin-refusal-monitor
+
+# La misura che deve esistere PRIMA di attivare la scadenza del codice `ac` (#5724).
+#
+# #5719/#5726 hanno dato al codice `ac` una vita e una revoca, entrambe dietro tre
+# parametri Remote Config oggi VUOTI — e vuoti significa esattamente il
+# comportamento di prima. Il flip non si fa finche' non esiste il numero che dice
+# se sta chiudendo fuori 3 persone o 3.000, perche' `exchange_auth_code` risponde
+# 403 e basta: nei log e' indistinguibile dai 403 che gli scanner antiphishing
+# generano tutto il giorno (misurati 25 fetch in 7 secondi da IP Microsoft su un
+# solo indirizzo).
+#
+# Questo workflow legge le righe strutturate che la function scrive, calcola
+# `lockout / (lockout + accepted)`, e apre una issue con dentro il runbook quando
+# supera la soglia.
+#
+# IL NUMERO E LE SOGLIE
+#   lockout = auth_code_expired + auth_code_revoked  — le UNICHE due famiglie che
+#             i tre parametri possono causare e che il rollback puo' annullare.
+#   Fuori dal rapporto per costruzione: invalid_auth_code (scanner),
+#   autologin_disabled (scelta dell'iscritto), auth_code_not_yet_valid (orologio
+#   del minter, e la sonda sintetica ne produce uno per run).
+#     >= 2%  -> priority 2, rollback entro il turno
+#     >= 5%  -> priority 1, rollback ora
+#     > 0 con baseline a zero -> priority 3, la scadenza ha iniziato a mordere
+#   Baseline pre-flip = 0 PER COSTRUZIONE: con i tre parametri vuoti ne' `expired`
+#   ne' `revoked` sono raggiungibili in verifyAutologinCode.
+#
+# ROLLBACK: svuotare NEWSLETTER_AC_SCHEME, NEWSLETTER_AC_TTL_DAYS e
+# NEWSLETTER_AC_LEGACY_SUNSET in Remote Config. Nessun deploy: la TTL e' applicata
+# in verifica, non incisa nel codice, quindi anche i codici gia' rifiutati tornano
+# validi al primo refresh della cache del template (<= 5 min).
+#
+# ATTESO AL PRIMO GIRO: finche' la function non e' ridistribuita con
+# `acceptAutologin`, il denominatore non esiste e il monitor apre
+# `denominator_missing` (p2). E' corretto — e' il check che verifica il deploy.
+
+on:
+  schedule:
+    # 07:10 UTC, dopo la finestra notturna europea: il picco di click sui link
+    # email e' al mattino, quindi la finestra di 24h che chiude qui contiene un
+    # ciclo intero invece di tagliarlo a meta'.
+    - cron: '10 7 * * *'
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Ampiezza della finestra in ore (default 24)'
+        required: false
+        default: '24'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: autologin-refusal-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+          # Stessa diagnosi di crawler-health-monitor.yml (#4120/#4266):
+          # fetch-depth: 0 da solo scarica ~1,36 GB di blob e si mangia il budget
+          # del job nel checkout. blob:none tiene la storia dei commit (serve al
+          # rebase sotto) e rimanda i blob.
+          filter: blob:none
+          persist-credentials: true
+        timeout-minutes: 7
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Serve google-auth-library (scripts/lib/ga4-service-account.mjs) per il
+      # token di Cloud Logging: a differenza di crawler-health qui la stdlib non
+      # basta. Flag come monitor-gsc-seo.yml, che ha lo stesso bisogno.
+      #
+      # Nota: google-auth-library e' una dipendenza TRANSITIVA (non e' in
+      # package.json), quindi una potatura dell'albero puo' toglierla. Non e' un
+      # guasto silenzioso: getServiceAccountToken torna null sull'import fallito
+      # e check-autologin-refusal-rate.mjs esce 1 dicendolo.
+      - name: Install dependencies
+        run: npm ci --omit=dev --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            # Fail-closed, al contrario di newsletter-qa.yml: senza credenziali
+            # questo monitor non degrada, e' cieco — e un monitor cieco che esce
+            # verde e' esattamente il guasto silenzioso per cui #5724 esiste.
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON mancante — impossibile leggere Cloud Logging."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        # continue-on-error: serve solo NEWSLETTER_SECRET, e solo alla sonda. Se
+        # manca, runAutologinProbe si dichiara `skipped` e la metrica gira lo
+        # stesso — la meta' che conta per il rollback e' la lettura dei log.
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Check refusal rate
+        id: check
+        continue-on-error: true
+        env:
+          HOURS: ${{ github.event.inputs.hours || '24' }}
+        run: node scripts/check-autologin-refusal-rate.mjs --hours="${HOURS}"
+
+      - name: Commit history and baseline
+        # `if: always()`: la baseline pre-flip e' cumulativa e va persistita anche
+        # (soprattutto) nei giri che hanno alzato un alert — senza commit-back
+        # ogni run riparte da `{baseline: null}` e la domanda "il rapporto e'
+        # cambiato dopo il flip?" resta senza il termine di paragone. Stesso
+        # motivo per cui crawler-health committa il suo stato.
+        if: always()
+        run: |
+          set -uo pipefail
+          # `|| ec=$?` e non `; ec=$?`: Actions lancia gli step con `bash -e {0}`,
+          # quindi un'uscita != 0 dello script ucciderebbe lo step prima che la
+          # riga successiva possa leggerne il codice — e il ramo del 42 qui sotto
+          # sarebbe codice morto.
+          ec=0
+          bash scripts/lib/git-commit-data.sh "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/ || ec=$?
+          # 42 e' il codice documentato di git-commit-data.sh per "contesa sul
+          # push, si risana al giro dopo" — l'unica classe che il suo header
+          # dichiara sicura da assorbire. Senza questa riga una corsa con un
+          # altro workflow che pusha su main farebbe fallire il job e aprirebbe
+          # una issue "Workflow Failure" per qualcosa che non e' rotto. Ogni
+          # altro codice != 0 resta rosso.
+          if [ "$ec" -eq 42 ]; then
+            echo "::warning::Push in contesa (42) — lo stato si ricommitta al prossimo giro."
+            exit 0
+          fi
+          exit "$ec"
+
+      - name: Open issue on threshold breach
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ ! -f docs/autologin-refusal/alert.json ]; then
+            echo "::error::Lo script e' uscito !=0 senza scrivere alert.json — crash, non soglia superata."
+            exit 1
+          fi
+          TITLE=$(jq -r '.title' docs/autologin-refusal/alert.json)
+          PRIORITY=$(jq -r '.priority' docs/autologin-refusal/alert.json)
+          jq -r '.body' docs/autologin-refusal/alert.json > /tmp/ac-alert-body.md
+
+          # github-issue-creator.mjs: dedup su ISSUES.md e sui primi 60 caratteri
+          # del titolo, quindi un rate che resta sopra soglia commenta sulla issue
+          # canonica invece di aprirne una al giorno. Il discriminante (il codice
+          # del finding) sta PRIMO nel titolo apposta — un suffisso finirebbe
+          # oltre il taglio dei 60 e farebbe collassare famiglie diverse.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "$TITLE" \
+            --description "$(cat /tmp/ac-alert-body.md)" \
+            --priority "$PRIORITY" \
+            --label autologin-rate \
+            --workflow "${{ github.workflow }}"
+
+      - name: Close recovered autologin-rate issues
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          # Senza questo, una issue di soglia resta aperta per sempre dopo il
+          # rollback: lo step sopra crea e basta. La condizione di chiusura e'
+          # l'assenza di alert.json, che lo script cancella quando il giro e'
+          # pulito.
+          if [ -f docs/autologin-refusal/alert.json ]; then
+            echo "Alert ancora attivo — nessuna chiusura."
+            exit 0
+          fi
+          gh issue list --state open --limit 200 \
+            --json number,title --jq '.[] | select(.title | test("^\\[autologin-rate\\] ")) | .number' \
+            > /tmp/ac-issues.txt || true
+          while read -r num; do
+            [ -n "$num" ] || continue
+            echo "Chiudo #$num — nessun alert nell'ultimo giro."
+            gh issue close "$num" --repo "$GH_REPO" \
+              --comment "✅ Auto-chiusa: l'ultimo giro di \`autologin-refusal-monitor\` non ha alert (lockout rate sotto soglia). Storico: \`docs/autologin-refusal/history.json\`." \
+              || echo "Chiusura di #$num fallita (continuo)."
+          done < /tmp/ac-issues.txt
+
+      - name: Fail if threshold breached
+        id: failgate
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Soglia superata — vedi la issue aperta sopra."
+          exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure() && steps.failgate.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash fuori dalla detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          Nota: il monitor e' fallito prima/fuori dallo step di misura — nessuna issue di soglia e' stata aperta, quindi il rapporto rifiuti/successi NON e' stato letto oggi." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
