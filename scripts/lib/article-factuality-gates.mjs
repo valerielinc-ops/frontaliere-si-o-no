@@ -1057,6 +1057,7 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
   'UEF',      // "Ufficio federale delle Entrate" → AFC/ESTV
   'UFEF',     // "Ufficio federale delle finanze" → AFF/EFV
   'UQJ',      // "Ufficio federale delle questioni giuridiche" → UFG/BJ
+  'UJF',      // same invention, letters transposed (#5661) → UFG/BJ
   'UJG',      // same invention, different acronym → UFG/BJ
   'UVMS',     // "Ufficio federale per la migrazione e il soggiorno" → SEM
   'UFIAI',    // "Ufficio federale per l'immigrazione e l'integrazione" → SEM
@@ -1083,6 +1084,7 @@ export const FABRICATED_INSTITUTION_ACRONYMS = new Set([
   'UVTTB',    // "Ufficio federale dei trasporti, ticche e brevetti" → UFT/BAV
   'USGC',     // "Ufficio di Stato per la Gestione dei Conti" — no such body
   'IUSM',     // "Istituto Universitario Svizzero di Santa Maria della Versa" — no such body
+  'OFOS',     // "Ufficio federale della svizzera" (#5661) — not a real office name, no such body
 
   // Invented federal departments. The Swiss federal departments are a closed
   // set of seven, all already in the allowlist (DFI, DFGP, DFF, DFAE, DDPS,
