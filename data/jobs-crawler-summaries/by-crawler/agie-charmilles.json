@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-12T10:25:35.141Z",
+  "generatedAt": "2026-08-12T22:15:54.313Z",
   "total": 35,
   "newCount": 0,
   "updatedCount": 31,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 55856,
-  "avgDurationMs": 55856,
+  "durationMs": 58514,
+  "avgDurationMs": 58514,
   "durationHistory": [
-    55856
+    58514
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -658,6 +658,7 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-21T12:42:20.384Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1114,45 +1115,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "HR Business Partner",
-      "slug": "hr-business-partner-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-business-partner/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/60217f111ab649bf079c1620e9e03104d83d49f91f9e1de9b057905ae8c2d4f91dcc6886e501f1e92e90b37dd59510e1b2b5ed19c0c24aad72c6bedd60cca8",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-d2a4e8f5b99f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Goldau 7",
-      "postalCode": "6616",
-      "firstSeenAt": "2026-07-08T11:32:45.917Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
