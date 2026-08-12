@@ -6904,6 +6904,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'effetto-domino-fallite-aziende-svizzera',
+    category: 'fiscale',
+    date: '2026-08-12T13:56:54.869Z',
+    image: '/images/blog/effetto-domino-fallite-aziende-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

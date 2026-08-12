@@ -2302,6 +2302,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Conseil fédéral : accords Suisse-UE non référendaires',
     'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'Le Conseil fédéral a expliqué que les conditions requises par la Commission pour les institutions politiques des Etats n\'ont pas été remplies.',
     'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'La Suisse et l\'UE ont négocié un accord pour stabiliser les relations entre les deux pays.',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Effet domino : plus d\'entreprises en faillite que jamais depuis 1994',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Par rapport à la même période de 2025, on enregistre une croissance de 54,7 % des échecs. Les entreprises ayant plus de dix ans d\'activité représentent 38 % des cas, suivies de celles âgées de 5 à 10 ans (27 %).',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Image d\'un lac suisse avec une digue en premier plan',
 };
 
 export default blogMetaChFr;

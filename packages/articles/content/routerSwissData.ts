@@ -793,6 +793,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'inflazione-climatica-prezzi-svizzera': { it: 'inflazione-climatica-prezzi-svizzera', en: 'climate-inflation-prices-switzerland', de: 'klimainflation-preise-schweiz', fr: 'inflation-climatique-prix-suisse' },
  'sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali': { it: 'sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali', en: 'security-at-a-high-price-a-proposed-0-5-per-cent-iva-increase', de: 'sicherheit-zum-preis-werden-ein-vorschlag-0-5-prozent-mehrwertsteigerhohung', fr: 'securite-a-chercher-un-augmentation-proposee-de-0-5-pour-cent-de-la-tva' },
  'accordi-svizzera-ue-consiglio-federale': { it: 'accordi-svizzera-ue-consiglio-federale', en: 'switzerland-eu-agreement-council-federal', de: 'schweiz-eu-abkommen-rat-foderal', fr: 'suisse-eu-accord-conseil-federal' },
+ 'effetto-domino-fallite-aziende-svizzera': { it: 'effetto-domino-fallite-aziende-svizzera', en: 'domino-effect-failed-companies-switzerland', de: 'domino-effekt-gefallene-unternehmen-schweiz', fr: 'effet-domino-filiale-dentreprise-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
