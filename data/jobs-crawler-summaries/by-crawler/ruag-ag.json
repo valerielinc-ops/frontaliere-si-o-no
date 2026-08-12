@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-08-12T10:40:26.526Z",
+  "generatedAt": "2026-08-12T22:17:25.934Z",
   "total": 57,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 56,
-  "durationMs": 138945,
-  "avgDurationMs": 138945,
+  "unchangedCount": 57,
+  "durationMs": 85727,
+  "avgDurationMs": 85727,
   "durationHistory": [
-    138945
+    85727
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,6 +43,7 @@
       "salaryMax": 146000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-29T23:02:14.767Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -331,6 +332,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-01T23:08:13.002Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -440,6 +442,7 @@
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -733,7 +736,7 @@
     },
     {
       "title": "ICT System Administrator C5I 100 (w/m/d)",
-      "slug": "amministratore-di-sistema-ict-c5i-100-m-f-d-ruag-ag-dubendorf-zh",
+      "slug": "ict-system-administrator-c5i-100-w-m-d-ruag-ag-dubendorf-zh",
       "url": "https://jobs.ruag.ch/offene-stellen/ict-system-administrator-c5i/eb0c421b-aeb4-4b83-80a3-20586766217c",
       "applyUrl": "https://jobs.ruag.ch/apply/ats/eb0c421b-aeb4-4b83-80a3-20586766217c",
       "company": "RUAG AG",
@@ -758,6 +761,7 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-13T22:22:37.217Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
