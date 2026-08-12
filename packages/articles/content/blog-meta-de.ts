@@ -9817,6 +9817,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traversata-alpi-cani-adottati-cuveglio.title': 'Alpenüberquerung mit adoptierten Hunden: dritte Woche',
     'blog.article.traversata-alpi-cani-adottati-cuveglio.excerpt': 'Dritte Wanderwoche für Cristian und Mara entlang der Großen Alpenüberquerung mit ihren adoptierten Hunden im Zwinger.',
     'blog.article.traversata-alpi-cani-adottati-cuveglio.imageAlt': 'Paar beim Wandern in den Alpen mit adoptierten Hunden',
+    'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Wechsel des Arbeitskantons für Grenzgänger',
+    'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Auswirkungen des Stellenwechsels für Grenzgänger zwischen Tessin, Graubünden und anderen Regionen: Regeln und Besteuerung.',
+    'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Arbeitskantonswechsel für Grenzgänger',
 };
 
 export default blogMetaDe;

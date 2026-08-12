@@ -9818,6 +9818,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traversata-alpi-cani-adottati-cuveglio.title': 'Crossing the Alps with Adopted Dogs: Week 3',
     'blog.article.traversata-alpi-cani-adottati-cuveglio.excerpt': 'Third week of walking for Cristian and Mara along the Great Alpine Crossing together with their adopted dogs in a kennel.',
     'blog.article.traversata-alpi-cani-adottati-cuveglio.imageAlt': 'Couple walking in the Alps with adopted dogs',
+    'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Changing the working canton for the border guards',
+    'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Impact of the change of working canton for border workers between Ticino, Graubünden and other regions: rules and taxation.',
+    'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Job canton change for cross-border worker',
 };
 
 export default blogMetaEn;
