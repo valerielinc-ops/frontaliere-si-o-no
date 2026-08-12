@@ -1,16 +1,16 @@
 {
   "key": "staubli",
   "label": "Stäubli",
-  "generatedAt": "2026-08-11T22:06:41.026Z",
+  "generatedAt": "2026-08-12T10:21:48.623Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9182,
-  "avgDurationMs": 9182,
+  "durationMs": 9301,
+  "avgDurationMs": 9301,
   "durationHistory": [
-    9182
+    9301
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000142111489-global-learning-development-lead?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:35.329Z",
+      "crawledAt": "2026-08-12T10:21:43.191Z",
       "addressLocality": "Pfaffikon",
       "addressRegion": "ZH",
       "streetAddress": "Poststrasse 5",
@@ -66,7 +66,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:06:35.331Z",
+      "crawledAt": "2026-08-12T10:21:43.193Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -105,7 +105,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670020-head-of-product-management-power-transmission-distribution?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:35.333Z",
+      "crawledAt": "2026-08-12T10:21:43.195Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -132,48 +132,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "staubli-9807e3159686",
-      "slug": "process-ingegnere-operational-excellence-staubli-allschwil",
-      "company": "Stäubli",
-      "companyKey": "staubli",
-      "companyDomain": "staubli.com",
-      "title": "Process Engineer Operational Excellence",
-      "location": "Allschwil, , Switzerland",
-      "canton": "BL",
-      "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670799-process-engineer-operational-excellence?oga=true",
-      "source": "Stäubli Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-10T10:40:44.514Z",
-      "addressLocality": "Allschwil",
-      "addressRegion": "BL",
-      "streetAddress": "Stockbrunnenrain 8",
-      "postalCode": "4123",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccatronica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670799-process-engineer-operational-excellence?oga=true",
-      "jobReqId": "744000135670799",
-      "firstSeenAt": "2026-07-03T23:34:24.712Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
