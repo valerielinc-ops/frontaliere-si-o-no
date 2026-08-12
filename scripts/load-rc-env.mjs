@@ -71,6 +71,19 @@ const RC_TO_ENV = {
   RESEND_API_KEY:                 ['RESEND_API_KEY'],
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
+  // `ac` autologin credential policy (#5685). The MINTING half of the switch —
+  // the verifier reads the same three parameters through
+  // functions/src/remoteConfigSecrets.js's getAutologinPolicyConfig(). All
+  // three are optional: absent RC params are skipped, and resolveAutologinPolicy
+  // reads "absent" as the pre-#5685 behaviour (never-expiring legacy code), so
+  // nothing changes until they are created.
+  //   NEWSLETTER_AC_SCHEME        'legacy' (default) | 'v1'
+  //   NEWSLETTER_AC_TTL_DAYS      integer, 0/absent = no expiry (v1 codes)
+  //   NEWSLETTER_AC_LEGACY_SUNSET ISO date after which a legacy code stops
+  //                               minting sessions (it never stops opting out)
+  NEWSLETTER_AC_SCHEME:           ['NEWSLETTER_AC_SCHEME'],
+  NEWSLETTER_AC_TTL_DAYS:         ['NEWSLETTER_AC_TTL_DAYS'],
+  NEWSLETTER_AC_LEGACY_SUNSET:    ['NEWSLETTER_AC_LEGACY_SUNSET'],
 
   // Email cascade providers (newsletter + job alerts)
   MAILJET_API_KEY:                ['MAILJET_API_KEY'],

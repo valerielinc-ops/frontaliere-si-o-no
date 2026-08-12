@@ -1152,15 +1152,22 @@ export async function confirmNewsletterSubscription(
 }
 
 /**
- * Exchange an HMAC-based autologin code for a fresh Firebase custom token.
- * The code never expires — it's HMAC("autologin:"+email, NEWSLETTER_SECRET).
- * The Cloud Function validates the HMAC, finds/creates the user, and returns
- * a fresh custom token that's valid for 1 hour (but generated on-demand).
+ * Exchange an autologin code for a fresh Firebase custom token.
+ *
+ * The Cloud Function validates the code, finds/creates the user, and returns a
+ * custom token valid for 1 hour (generated on demand).
+ *
+ * Since #5685 it can refuse an AUTHENTIC code: `auth_code_expired` past the
+ * TTL, `auth_code_revoked` past the subscriber's revocation watermark,
+ * `autologin_disabled` when they opted out of being signed in by a link. Those
+ * three come back with `optOutEligible: true` — the code cannot open a session
+ * but is still good enough to record an opt-out, which is why an unsubscribe
+ * must be routed to unsubscribeViaCloudFunction instead of giving up.
  */
 export async function exchangeNewsletterAuthCode(
  email: string,
  code: string,
-): Promise<{ success: boolean; authToken?: string; error?: string }> {
+): Promise<{ success: boolean; authToken?: string; error?: string; optOutEligible?: boolean }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
  const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
@@ -1170,9 +1177,48 @@ export async function exchangeNewsletterAuthCode(
  if (resp.ok && data.success && data.authToken) {
  return { success: true, authToken: data.authToken };
  }
- return { success: false, error: data.error || 'exchange_failed' };
+ return { success: false, error: data.error || 'exchange_failed', optOutEligible: data.optOutEligible === true };
  } catch (error: any) {
  console.warn('[newsletter] Auth code exchange failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Record an opt-out through the Cloud Function, with no session at all (#5685).
+ *
+ * THE FALLBACK THAT KEEPS THE EXIT OPEN. The footer unsubscribe link built by
+ * makeUnsubscribeUrl / makeAuthenticatedActionUrl lands on the site root and is
+ * decided by App.tsx, which needs a signed-in session for its client-side
+ * Firestore write. When the autologin exchange refuses — the code expired, was
+ * revoked, the subscriber turned autologin off, the link never carried an `ac`
+ * at all (the #5672 shape), the network failed — the old code showed "Link non
+ * valido" and the person could not leave. That is the defect the LPD art. 25/32
+ * complaint behind this whole wave was about.
+ *
+ * `credential` is whatever the URL carries: the `token` email HMAC first, an
+ * `ac` autologin code second. handleSubscriptionManagement accepts EITHER for
+ * `action=unsubscribe` (verifyOptOutCredential), and neither has to be live.
+ *
+ * Deliberately unsubscribe-only. There is no resubscribe twin: putting somebody
+ * BACK on a list from a stale credential is the #5672 resurrection, and the
+ * asymmetry is the point.
+ */
+export async function unsubscribeViaCloudFunction(
+ email: string,
+ credential: string,
+): Promise<{ success: boolean; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ if (!normalizedEmail || !credential) return { success: false, error: 'missing_credential' };
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=unsubscribe&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(credential)}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json().catch(() => ({}));
+ if (resp.ok && data?.success !== false) return { success: true };
+ return { success: false, error: data?.error || `http_${resp.status}` };
+ } catch (error: any) {
+ console.warn('[newsletter] Cloud Function unsubscribe failed:', error?.message);
  return { success: false, error: error?.message || 'unknown_error' };
  }
 }
@@ -1224,6 +1270,35 @@ export async function toggleAutologin(
  return { success: false, error: data.error || 'write_failed' };
  } catch (error: any) {
  console.warn('[newsletter] Toggle autologin failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Invalidate every autologin link ALREADY SENT to this address (#5685).
+ *
+ * Stamps the `autologin_revoked_before` watermark, after which no code issued
+ * earlier can open a session — the answer to "I forwarded one of your emails
+ * and it signs the recipient in as me". Needs the email HMAC `token`, the same
+ * credential the rest of the preference centre uses.
+ *
+ * Does NOT affect the ability to unsubscribe: the opt-out credential check is
+ * revocation-blind on purpose (verifyOptOutCredential).
+ */
+export async function revokeAutologinLinks(
+ email: string,
+ token: string,
+): Promise<{ success: boolean; revokedAt?: string; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=revoke_autologin&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) return { success: true, revokedAt: data.revokedAt };
+ return { success: false, error: data.error || 'write_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] Revoke autologin failed:', error?.message);
  return { success: false, error: error?.message || 'unknown_error' };
  }
 }
