@@ -9838,6 +9838,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bernaribadisiposizionereferendumfacoltativo.title': 'Bilateral III, Bern bekräftigt seine Position: "Fakultatives Referendum"',
     'blog.article.bernaribadisiposizionereferendumfacoltativo.excerpt': 'Der Schweizer Bundesrat hat seine Haltung zu den Bilateralen III bekräftigt und sich für ein fakultatives Referendum ausgesprochen.',
     'blog.article.bernaribadisiposizionereferendumfacoltativo.imageAlt': 'Der Schweizer Bundesrat wiederholt seine Position zu den Bilateralen III, in Favour eines fakultativen Referendums.',
+    'blog.article.amazon-malpensa-montichiari-2026.title': 'Amazon erscheint nicht in der Präfektur: eine Frage der Unternehmenspolitik',
+    'blog.article.amazon-malpensa-montichiari-2026.excerpt': 'Der in Varese einberufene Tisch für die Verlagerung der Frachtgeschäfte von Malpensa nach Montichiari schließt ohne den Hauptansprechpartner.',
+    'blog.article.amazon-malpensa-montichiari-2026.imageAlt': 'Amazon fehlt bei der Prefettura-Besprechung: Firmenpolitik',
 };
 
 export default blogMetaDe;
