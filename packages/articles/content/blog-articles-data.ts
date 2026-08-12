@@ -29433,6 +29433,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'traversata-alpi-cani-adottati-cuveglio',
+ category: 'pratico',
+ date: '2026-08-12T11:57:45.942Z',
+ image: '/images/blog/traversata-alpi-cani-adottati-cuveglio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

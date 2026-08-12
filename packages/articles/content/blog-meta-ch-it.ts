@@ -2290,6 +2290,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvenze ai massimi da 30 anni',
     'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'Nel primo semestre 7496 aziende hanno dichiarato fallimento per insolvenza, il numero più alto dal 1994.',
     'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Insolvenze in Svizzera: un aumento record dal 1994',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.title': 'Consiglio federale boccia l\'Iniziativa sulla piazza finanziaria',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.excerpt': 'Il Consiglio federale raccomanda al Parlamento di respingere senza controprogetto l\'iniziativa sulla piazza finanziaria svizzera.',
+    'blog.article.consiglio-federale-no-iniziativa-finanziaria.imageAlt': 'Il Palazzo federale a Berna sede del Consiglio federale',
 };
 
 export default blogMetaChIt;
