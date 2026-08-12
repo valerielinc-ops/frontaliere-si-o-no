@@ -3499,10 +3499,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-eiken",
+        "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-eiken",
+        "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-eiken",
         "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-eiken",
-        "de": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-eiken",
-        "fr": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-eiken"
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-eiken"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-eiken",
@@ -3516,6 +3516,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

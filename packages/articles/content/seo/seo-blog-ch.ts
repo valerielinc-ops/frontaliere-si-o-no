@@ -28955,6 +28955,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canton-zurigo-naturalizzazione-requisiti-e-procedura': {
+    title: 'Naturalizzazione Canton Zurigo requisiti e procedura',
+    description: 'La procedura di naturalizzazione nel Canton di Zurigo richiede 10 anni di residenza e una serie di requisiti e test di integrazione e lingua. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, zurigo, requisiti',
+    ogTitle: 'Naturalizzazione Canton Zurigo requisiti e procedura',
+    ogDescription: 'La procedura di naturalizzazione nel Canton di Zurigo richiede 10 anni di residenza e una serie di requisiti e test di integrazione e lingua.',
+    canonicalPath: '/articoli-svizzera/canton-zurigo-naturalizzazione-requisiti-e-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Canton Zurigo requisiti e procedura",
+      "description": "La procedura di naturalizzazione nel Canton di Zurigo richiede 10 anni di residenza e una serie di requisiti e test di integrazione e lingua. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canton-zurigo-naturalizzazione-requisiti-e-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, Svizzera, con un focus sulla procedura di naturalizzazione per il Canton di Zurigo"
+      },
+      "datePublished": "2026-08-11T23:23:31+00:00",
+      "dateModified": "2026-08-11T23:23:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canton-zurigo-naturalizzazione-requisiti-e-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-e-prestazioni-complementari-canton-zurigo': {
+    title: 'Pilastro AVS: lacune contributive e copertura minima',
+    description: 'La cassa di compensazione cantonale di Zurigo è un\'istituzione cruciale per la previdenza svizzera. Il calcolo della rendita AVS è fondamentale per garantire',
+    keywords: 'frontalieri, ticino, svizzera, italia, pilastro, lacune, contributive, copertura',
+    ogTitle: 'Il primo pilastro del Cantone di Zurigo: cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
+    ogDescription: 'La cassa di compensazione cantonale di Zurigo è un\'istituzione cruciale per la previdenza svizzera. Il calcolo della rendita AVS è fondamentale per garantire il minimo vitale. Le lacune contributive e le prestazioni complementari sono essenziali',
+    canonicalPath: '/articoli-svizzera/avs-e-prestazioni-complementari-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pilastro AVS: lacune contributive e copertura minima",
+      "description": "La cassa di compensazione cantonale di Zurigo è un'istituzione cruciale per la previdenza svizzera. Il calcolo della rendita AVS è fondamentale per garantire",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-e-prestazioni-complementari-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La cassa di compensazione cantonale di Zurigo: un'istituzione cruciale per la previdenza svizzera."
+      },
+      "datePublished": "2026-08-12T00:29:35+00:00",
+      "dateModified": "2026-08-12T00:29:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-e-prestazioni-complementari-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-abbonamenti-trasporti-pubblici-canton-zurigo': {
+    title: 'Abbonamenti trasporti pubblici Canton Zurigo: zone e tariffe',
+    description: 'Gli abbonamenti trasporti pubblici nel Canton Zurigo sono stati recentemente modificati. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, pubblici, canton',
+    ogTitle: 'Abbonamenti trasporti pubblici Canton Zurigo: zone e tariffe',
+    ogDescription: 'Gli abbonamenti trasporti pubblici nel Canton Zurigo sono stati recentemente modificati.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-pubblici-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti pubblici Canton Zurigo: zone e tariffe",
+      "description": "Gli abbonamenti trasporti pubblici nel Canton Zurigo sono stati recentemente modificati. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-pubblici-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una mappa dei trasporti pubblici nel Canton Zurigo"
+      },
+      "datePublished": "2026-08-12T01:15:30+00:00",
+      "dateModified": "2026-08-12T01:15:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-pubblici-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-un-attivita-canton-zurigo': {
+    title: 'Aprire un\'attività nel Canton Zurigo: registro di commercio e costi',
+    description: 'Costi di iscrizione al registro di commercio e requisiti per aprire un\'attività nel Canton Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, zurigo',
+    ogTitle: 'Aprire un\'attività nel Canton Zurigo: registro di commercio e costi',
+    ogDescription: 'Costi di iscrizione al registro di commercio e requisiti per aprire un\'attività nel Canton Zurigo',
+    canonicalPath: '/articoli-svizzera/aprire-un-attivita-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Zurigo: registro di commercio e costi",
+      "description": "Costi di iscrizione al registro di commercio e requisiti per aprire un'attività nel Canton Zurigo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-un-attivita-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Attività in Canton Zurigo"
+      },
+      "datePublished": "2026-08-12T01:30:57+00:00",
+      "dateModified": "2026-08-12T01:30:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-un-attivita-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-di-guida-canton-zurigo-conversione-ed-esami': {
+    title: 'Patente di guida a Zurigo: conversione e esami',
+    description: 'Conversione della patente di guida estera nel Cantone di Zurigo: requisiti, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, zurigo, conversione, esami',
+    ogTitle: 'Patente di guida nel Cantone di Zurigo: conversione della licenza estera',
+    ogDescription: 'Conversione della patente di guida estera nel Cantone di Zurigo: requisiti, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.',
+    canonicalPath: '/articoli-svizzera/patente-di-guida-canton-zurigo-conversione-ed-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida a Zurigo: conversione e esami",
+      "description": "Conversione della patente di guida estera nel Cantone di Zurigo: requisiti, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-di-guida-canton-zurigo-conversione-ed-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un cartello stradale a Lugano con informazioni sulla conversione della patente di guida"
+      },
+      "datePublished": "2026-08-12T02:57:47+00:00",
+      "dateModified": "2026-08-12T02:57:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-di-guida-canton-zurigo-conversione-ed-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-mercato-lavoro-zurigo': {
+    title: 'Salari e mercato del lavoro a Zurigo: settori e livelli',
+    description: 'Guida completa al mercato del lavoro nel Cantone di Zurigo: settori trainanti, livelli salariali, contratti collettivi e normative vigenti in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, zurigo',
+    ogTitle: 'Salari e mercato del lavoro a Zurigo: settori e livelli',
+    ogDescription: 'Approfondimento sul mercato del lavoro nel Cantone di Zurigo con analisi dei settori in crescita, livelli salariali, previdenza e tutele normative vigenti.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro a Zurigo: settori e livelli",
+      "description": "Guida completa al mercato del lavoro nel Cantone di Zurigo: settori trainanti, livelli salariali, contratti collettivi e normative vigenti in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato del lavoro e salari nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-08-12T03:51:57+00:00",
+      "dateModified": "2026-08-12T03:51:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-di-succesione-e-donazione-canton-zurigo-aliquote': {
+    title: 'Imposte di successione e donazione nel Cantone di Zurigo',
+    description: 'L\'imposta di successione e donazione nel Cantone di Zurigo è soggetta a aliquote diverse in base al grado di parentela e si applica sul valore della successione',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Zurigo: aliquote per grado di parentela',
+    ogDescription: 'L\'imposta di successione e donazione nel Cantone di Zurigo è soggetta a aliquote diverse in base al grado di parentela e si applica sul valore della successione o donazione.',
+    canonicalPath: '/articoli-svizzera/imposta-di-succesione-e-donazione-canton-zurigo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte di successione e donazione nel Cantone di Zurigo",
+      "description": "L'imposta di successione e donazione nel Cantone di Zurigo è soggetta a aliquote diverse in base al grado di parentela e si applica sul valore della successione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-zurigo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri."
+      },
+      "datePublished": "2026-08-12T04:05:27+00:00",
+      "dateModified": "2026-08-12T04:05:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-succesione-e-donazione-canton-zurigo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

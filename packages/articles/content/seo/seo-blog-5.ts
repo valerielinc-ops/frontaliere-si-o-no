@@ -65435,6 +65435,279 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassazione-frontalieri-nuovo-accordo': {
+    title: 'Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera',
+    description: 'Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, nuovo, accordo, firmato',
+    ogTitle: 'Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera',
+    ogDescription: 'Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020.',
+    canonicalPath: '/articoli-frontaliere/tassazione-frontalieri-nuovo-accordo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassazione frontalieri 2026: nuovo accordo tra Italia e Svizzera",
+      "description": "Nuovo accordo per la tassazione dei frontalieri, firmato il 23 dicembre 2020. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassazione-frontalieri-nuovo-accordo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in fila al valico di Brogeda."
+      },
+      "datePublished": "2026-08-11T23:13:56+00:00",
+      "dateModified": "2026-08-11T23:13:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-frontalieri-nuovo-accordo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ingresso-in-svizzera-frontalieri-documenti-dogana': {
+    title: 'Ingresso in Svizzera per i frontalieri: documenti e dogana',
+    description: 'Per gli ingressi in Svizzera, i frontaliere devono presentare i documenti corretti e seguire le procedure di dogana. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ingresso, documenti, dogana, ingressi',
+    ogTitle: 'Ingresso in Svizzera per i frontaliere: documenti e dogana',
+    ogDescription: 'Per gli ingressi in Svizzera, i frontaliere devono presentare i documenti corretti e seguire le procedure di dogana.',
+    canonicalPath: '/articoli-frontaliere/ingresso-in-svizzera-frontalieri-documenti-dogana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ingresso in Svizzera per i frontalieri: documenti e dogana",
+      "description": "Per gli ingressi in Svizzera, i frontaliere devono presentare i documenti corretti e seguire le procedure di dogana. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ingresso-in-svizzera-frontalieri-documenti-dogana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa al valico di Chiasso."
+      },
+      "datePublished": "2026-08-11T23:30:16+00:00",
+      "dateModified": "2026-08-11T23:30:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ingresso-in-svizzera-frontalieri-documenti-dogana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vigilanza-sulle-banche-in-svizzera': {
+    title: 'La vigilanza sulle banche in Svizzera: una breve storia degli scandali',
+    description: 'La storia della vigilanza bancaria svizzera è segnata da scandali e pressioni dall\'estero. L\'influsso della lobby finanziaria finisce tuttavia spesso',
+    keywords: 'frontalieri, ticino, svizzera, italia, vigilanza, sulle, banche, breve',
+    ogTitle: 'La vigilanza bancaria svizzera: una breve storia degli scandali',
+    ogDescription: 'La storia della vigilanza bancaria svizzera è segnata da scandali e pressioni dall\'estero. L\'influsso della lobby finanziaria finisce tuttavia spesso per indebolire i controlli.',
+    canonicalPath: '/articoli-frontaliere/vigilanza-sulle-banche-in-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La vigilanza sulle banche in Svizzera: una breve storia degli scandali",
+      "description": "La storia della vigilanza bancaria svizzera è segnata da scandali e pressioni dall'estero. L'influsso della lobby finanziaria finisce tuttavia spesso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vigilanza-sulle-banche-in-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere osserva la città di Lugano con un'espressione serena."
+      },
+      "datePublished": "2026-08-12T01:20:48+00:00",
+      "dateModified": "2026-08-12T01:20:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vigilanza-sulle-banche-in-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-totalizzazione-contributi-avs-inps-frontalieri-ticino': {
+    title: 'Totalizzazione contributi AVS e INPS per i frontalieri ticinesi',
+    description: 'La totalizzazione dei contributi AVS e INPS per i frontalieri ticinesi è un processo complesso che richiede la presentazione di una domanda agli uffici',
+    keywords: 'frontalieri, ticino, svizzera, italia, totalizzazione, contributi, inps, ticinesi',
+    ogTitle: 'Totalizzazione contributi AVS e INPS per i frontalieri ticinesi',
+    ogDescription: 'La totalizzazione dei contributi AVS e INPS per i frontalieri ticinesi è un processo complesso che richiede la presentazione di una domanda agli uffici di competenza',
+    canonicalPath: '/articoli-frontaliere/totalizzazione-contributi-avs-inps-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Totalizzazione contributi AVS e INPS per i frontalieri ticinesi",
+      "description": "La totalizzazione dei contributi AVS e INPS per i frontalieri ticinesi è un processo complesso che richiede la presentazione di una domanda agli uffici",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/totalizzazione-contributi-avs-inps-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri ticinesi che lavorano in Italia e risiedono in Svizzera"
+      },
+      "datePublished": "2026-08-12T02:47:34+00:00",
+      "dateModified": "2026-08-12T02:47:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/totalizzazione-contributi-avs-inps-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incidente-a2-dibattito-traffico-ticino': {
+    title: 'Incidente sull\'A2: dibattito aperto sulla gestione del traffico in Ticino',
+    description: 'L\'incidente sull\'A2 riapre il dibattito sulla gestione del traffico in Ticino. Richieste di Acs e Lega su comunicazione, deviazioni e assistenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, sull, dibattito, aperto',
+    ogTitle: 'Incidente sull\'A2 riapre il dibattito sul traffico in Ticino',
+    ogDescription: 'Il presidente dell\'Acs Simone Gianini e la Lega intervengono sulla gestione delle emergenze viarie e del traffico lungo l\'autostrada A2 in Ticino.',
+    canonicalPath: '/articoli-frontaliere/incidente-a2-dibattito-traffico-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sull'A2: dibattito aperto sulla gestione del traffico in Ticino",
+      "description": "L'incidente sull'A2 riapre il dibattito sulla gestione del traffico in Ticino. Richieste di Acs e Lega su comunicazione, deviazioni e assistenza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-a2-dibattito-traffico-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico sull'autostrada A2 in Ticino dopo un incidente"
+      },
+      "datePublished": "2026-08-12T03:45:27+00:00",
+      "dateModified": "2026-08-12T03:45:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-a2-dibattito-traffico-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incubo-lariana-traffico-e-code': {
+    title: 'Incubo Lariana, traffico e code: la strettoia di Nesso tra i punti critici',
+    description: 'La strada provinciale 583 Lariana è sempre più preda del traffico e per gli automobilisti è sempre più un incubo. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, incubo, lariana, traffico, code',
+    ogTitle: 'Incubo Lariana, traffico e code: la strettoia di Nesso tra i punti critici',
+    ogDescription: 'La strada provinciale 583 Lariana è sempre più preda del traffico e per gli automobilisti è sempre più un incubo.',
+    canonicalPath: '/articoli-frontaliere/incubo-lariana-traffico-e-code',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incubo Lariana, traffico e code: la strettoia di Nesso tra i punti critici",
+      "description": "La strada provinciale 583 Lariana è sempre più preda del traffico e per gli automobilisti è sempre più un incubo. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incubo-lariana-traffico-e-code.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La strada provinciale 583 Lariana è un collegamento cruciale tra Como e Lecco."
+      },
+      "datePublished": "2026-08-12T03:56:25+00:00",
+      "dateModified": "2026-08-12T03:56:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incubo-lariana-traffico-e-code/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-quadro-rw-dichiarazione-conto-corrente-svizzero': {
+    title: 'Quadro RW: obblighi di dichiarazione per conti correnti svizzeri',
+    description: 'I frontalieri devono dichiarare i propri conti correnti svizzeri all\'Agenzia Entrate. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quadro, obblighi, dichiarazione, conti',
+    ogTitle: 'Quadro RW: obblighi di dichiarazione per conti correnti svizzeri',
+    ogDescription: 'I frontalieri devono dichiarare i propri conti correnti svizzeri all\'Agenzia Entrate.',
+    canonicalPath: '/articoli-frontaliere/quadro-rw-dichiarazione-conto-corrente-svizzero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quadro RW: obblighi di dichiarazione per conti correnti svizzeri",
+      "description": "I frontalieri devono dichiarare i propri conti correnti svizzeri all'Agenzia Entrate. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quadro-rw-dichiarazione-conto-corrente-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Lago di Lugano visto dal Monte San Salvatore."
+      },
+      "datePublished": "2026-08-12T04:16:41+00:00",
+      "dateModified": "2026-08-12T04:16:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quadro-rw-dichiarazione-conto-corrente-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
