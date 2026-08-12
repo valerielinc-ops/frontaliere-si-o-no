@@ -17,7 +17,7 @@
       "title": "CUSTOMER QUALITY ENGINEER",
       "titleByLocale": {
         "it": "CUSTOMER QUALITY Ingegnere",
-        "en": "CUSTOMER QUALITY ENGINEER",
+        "en": "CUSTOMER QUALITY ENGINE",
         "de": "CUSTOMER Qualität Ingenieur",
         "fr": "CUSTOMER Qualité Ingénieur"
       },
@@ -51,7 +51,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-14T11:22:37.214Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -63,7 +62,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

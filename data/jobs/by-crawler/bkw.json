@@ -27141,7 +27141,7 @@
       "title": "Finance Systems Analyst FP&A",
       "titleByLocale": {
         "it": "Finanza Systems Analista FP&A",
-        "en": "Finance Systems Analyst FP&A",
+        "en": "Financial Systems Analyst FP&A",
         "de": "Finanzen Systems Analyst FP&A",
         "fr": "Finance Systems Analyste FP&A"
       },
@@ -27186,7 +27186,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:33:38.723Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -27198,7 +27197,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-a1a8374f408e",
