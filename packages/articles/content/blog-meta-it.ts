@@ -9831,6 +9831,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontalieri e remoto: le implicazioni fiscali',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'La nuova normativa sul lavoro da remoto dei frontalieri ha cambiato le regole fiscali e assicurative per i frontalieri che lavorano da remoto da un terzo paese durante una vacanza in Svizzera',
     'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'un frontaliere che lavora da remoto da un terzo paese durante una vacanza in Svizzera',
+    'blog.article.frontalieri-ticino-statistiche-2026.title': 'Quanti sono i frontalieri in Ticino? Statistiche 2026',
+    'blog.article.frontalieri-ticino-statistiche-2026.excerpt': 'Gli ultimi dati disponibili sulla popolazione di frontaliere in Ticino, con focus sui principali settori di impiego.',
+    'blog.article.frontalieri-ticino-statistiche-2026.imageAlt': 'Un frontaliere in attesa alla stazione di Chiasso.',
 };
 
 export default blogMetaIt;
