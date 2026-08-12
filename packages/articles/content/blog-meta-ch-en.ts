@@ -2341,6 +2341,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel (former CEO UBS and CS):',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.excerpt': 'Banker Criticizes American Power Policy and Propaganda Campaign Around Ukraine',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.imageAlt': 'Oswald Grübel, former CEO of UBS and CS',
+    'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon surpasses $3 trillion in market capitalization for the first time',
+    'blog.article.amazon-capitalizzazione-3000-miliardi.excerpt': 'Amazon Shares Fly 4.6% After Q2 Results',
+    'blog.article.amazon-capitalizzazione-3000-miliardi.imageAlt': 'Amazon enters the group of five giants after the second-quarter results',
 };
 
 export default blogMetaChEn;

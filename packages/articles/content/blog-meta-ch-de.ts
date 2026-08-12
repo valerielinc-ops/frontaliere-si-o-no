@@ -2341,6 +2341,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel (ehemals CEO UBS und CS):',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.excerpt': 'Der Bankier kritisiert die amerikanische Machtpolitik und die Propagandakampagne rund um die Ukraine',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.imageAlt': 'Oswald Grübel, ehemaliger CEO von UBS und CS',
+    'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon überschreitet erstmals die 3 Billionen Marktkapitalisierung',
+    'blog.article.amazon-capitalizzazione-3000-miliardi.excerpt': 'Die Amazon-Aktie steigt nach den Ergebnissen des zweiten Quartals um 4,6%',
+    'blog.article.amazon-capitalizzazione-3000-miliardi.imageAlt': 'Amazon tritt in den Kreis der fünf Giganten nach den zweiten Quartalsergebnissen',
 };
 
 export default blogMetaChDe;
