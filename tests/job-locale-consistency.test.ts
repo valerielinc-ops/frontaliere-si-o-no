@@ -209,6 +209,22 @@ describe('job-locale-consistency', () => {
    *   · main @10:59 UTC (efd6faf8): 19,843 / 67,987 = 29.19%
    * (CI the same day: 68,306 and 67,844 slots — a 1.1% spread over the day.)
    *
+   * RE-MEASURED 2026-08-12 (issue #5653 item 3), same procedure, three points
+   * across ~24h to bound composition drift instead of a single 90-minute pair:
+   *   · main @2026-08-11 01:19 UTC (27735292): 22,220 / 68,488 = 32.44%
+   *   · main @2026-08-11 23:41 UTC (3a73cb00): 20,247 / 68,046 = 29.75%
+   *   · main @2026-08-12 01:37 UTC (abf514e9, HEAD here): 20,065 / 68,121 = 29.45%
+   * Worst point over the window is 2.99pp above the current reading — smaller
+   * than the 3.71pp/90min swing the original 35.50% cap was sized on, but this
+   * window is 16x longer, so it is the more representative figure. The audit's
+   * `topEvidence` leaderboard (checked by hand: `von`, `im`, `der`, `Metzger`,
+   * the binnen-i families) was re-inspected for detector-lexicon false
+   * positives of the "des"/"installateur"/"sous" kind and none were found —
+   * every high-count marker traces to a genuinely partial machine translation
+   * (source-language words left standing next to translated ones, e.g.
+   * "Gestalten von Einkaufserlebnissen" inside an otherwise-Italian title).
+   * The lexicon needed no further cleanup this round; only the cap moves.
+   *
    * POPULATION — this ratchet was ALREADY queue-free, deliberately: it does not
    * exclude `needsRetranslation` from either side of the ratio, because the site
    * serves those titles regardless, so merge order cannot move the number on its
@@ -230,15 +246,21 @@ describe('job-locale-consistency', () => {
    *
    * A "meaningful" threshold — anywhere near the ~3% one would want — would be
    * red on day one for a defect that predates this test by months, which is a
-   * broken gate, not a gate. So this LOCKS IN THE STATUS QUO at 35.50%, i.e.
-   * 6.3pp over the current measurement:
+   * broken gate, not a gate. This LOCKED IN THE STATUS QUO at 35.50% on
+   * 2026-08-11 and is now TIGHTENED to 33.00% on 2026-08-12 (issue #5653 item
+   * 3), 3.55pp over the current measurement:
    *   · counting noise is the SMALL term — sigma on the count is
-   *     sqrt(67987 * 0.2919 * 0.7081) = 118 slots = 0.17pp, so 3 sigma is
+   *     sqrt(68121 * 0.2945 * 0.7055) = 119 slots = 0.17pp, so 3 sigma is
    *     0.52pp;
-   *   · composition drift is the binding one — 3.71pp between the two
-   *     measurements above, in ninety minutes, at a stable population size.
-   * The margin is sized to measured movement, not to a round number, and can
-   * only ever be tightened.
+   *   · composition drift is the binding one — 2.99pp, the worst of three
+   *     points spanning ~24h (see MEASURED BASELINE above), not the 90-minute
+   *     pair the original cap used. The 24h window is the more representative
+   *     figure because it actually contains a full daily dedicated-crawler
+   *     wave rather than half of one.
+   * 33.00% leaves 0.56pp above the worst point measured, i.e. the same
+   * "worst-observed-drift plus a noise cushion" method as before, re-run with
+   * a longer and therefore more trustworthy window. The margin is sized to
+   * measured movement, not to a round number, and can only ever be tightened.
    *
    * Tightening is tracked work, not a TODO to forget: the alert threshold in
    * `.github/workflows/job-title-locale-audit.yml` is 20%, and every weekly run
@@ -246,19 +268,26 @@ describe('job-locale-consistency', () => {
    * the repair path (`scripts/mark-mistranslated-jobs.mjs` in
    * translate-pending.yml) drains the backlog.
    *
-   * NOTE for whoever tightens it: part of the rate is DETECTOR noise, not
-   * broken pages — the audit's `topEvidence` table isolates it (e.g. the German
-   * article `des` firing on correct French titles). Fix the lexicon in
-   * `scripts/lib/job-locale-utils.mjs` first, re-measure ON THE ASSEMBLED
-   * ARTEFACT, then lower this.
+   * NOTE for whoever tightens it next: part of the rate is DETECTOR noise, not
+   * broken pages — the audit's `topEvidence` table isolates it, and that is
+   * where the "des"/"installateur"/"sous" homographs were found and removed
+   * from `scripts/lib/job-locale-utils.mjs` on 2026-08-10. Re-checked on
+   * 2026-08-12: every current top-evidence marker (`von`, `im`, `der`,
+   * `Metzger`, the `binnen-i` families) was sampled by hand against its source
+   * title and traces to a genuinely partial machine translation, not a
+   * lexicon false positive — so this round tightened the cap without further
+   * lexicon changes. Re-run `npm run audit:job-title-locale` and sample
+   * `topEvidence` again before assuming the same is still true; a single token
+   * dominating one locale is the tell.
    */
   it.skipIf(!hasDataset)(
     'non-source job titles are not left in the source language',
     { timeout: 180000 },
     () => {
-      // 35.50% — measured 29.19% on the ASSEMBLED data/jobs.json, 2026-08-11,
-      // on TITLE_POPULATION (68,200 slots ±15%).
-      const MAX_RATE = 0.355;
+      // 33.00% — measured 29.45% on the ASSEMBLED data/jobs.json, 2026-08-12,
+      // on TITLE_POPULATION (68,200 slots ±15%). See the docstring above for
+      // the margin derivation.
+      const MAX_RATE = 0.33;
 
       const { slots, flagged, offenders } = measureTitleLocales(
         jobs!,
