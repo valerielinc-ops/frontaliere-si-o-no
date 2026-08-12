@@ -2317,6 +2317,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Federal Council: new measures for banks',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'The Swiss National Bank and the supervisory authority Finma welcome the measures proposed today by the Federal Council on banking regulation.',
     'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Editorial image related to: Consiglio federale: nuove misure per le banche',
+    'blog.article.iva-aumento-governo-difesa-2026.title': 'Government: 0.5 percentage point increase over 12 years',
+    'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'The VAT increase of 0.5 percentage points will be applied from 2028 and for a period of 12 years.',
+    'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'A scene of a Swiss politician presenting a budget to the Parliament, with a background of the Swiss Alps.',
 };
 
 export default blogMetaChEn;
