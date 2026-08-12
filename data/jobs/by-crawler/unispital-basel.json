@@ -358,7 +358,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+        "fr": "dipl-soins-infirmiers-professionnels-hf-fh-imc-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -422,6 +422,9 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
         ]
       },
@@ -3018,6 +3021,37 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27649",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-intern-amministrazione-paziente-universitatsspital-basel-basel",
+          "intern-intern-patient-administration-universitatsspital-basel-basel",
+          "administration-patiente-stagiaire-stagiaire-universitatsspital-basel-basel",
+          "staff-in-patient-administration-universitatsspital-basel-basel",
+          "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel",
+          "mitarbeiter-in-administration-kursadministration-universitatsspital-basel-basel",
+          "mitarbeiter-in-administration-kursadministration-unispital-basel-ch",
+          "mitarbeiter-in-patientenadministration-unispital-basel-ch",
+          "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
+          "praktikantin-praktikant-patientenadministration-unispital-basel-ch",
+          "personnel-en-administration-de-patients-universitatsspital-basel-basel",
+          "collaboratore-trice-in-patientenadministration-universitatsspital-basel",
+          "fachfrau-fachmann-ressources-humaines-administration-universitatsspital-basel-basel",
+          "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel-wdnqfm",
+          "fachfrau-fachmann-hr-administration-unispital-basel-ch-2",
+          "personale-nell-amministrazione-dei-pazienti-universitatsspital-basel-basel",
+          "administrative-r-collaboratore-trice-in-universitatsspital-basel-qe5qcp",
+          "administrative-r-mitarbeiter-in-unispital-basel-ch",
+          "professional-hr-administration-universitatsspital-basel-basel",
+          "administrative-r-collaboratore-trice-in-universitatsspital-basel"
+        ],
+        "en": [
+          "administrative-staff-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "administrative-r-mitarbeiter-in-universitatsspital-basel"
+        ]
+      },
       "previousSlugs": [
         "administrative-r-mitarbeiter-in-unispital-basel-ch",
         "professional-hr-administration-universitatsspital-basel-basel",
@@ -3063,38 +3097,6 @@
         "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel",
         "administrative-r-collaboratore-trice-in-universitatsspital-basel"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-intern-amministrazione-paziente-universitatsspital-basel-basel",
-          "intern-intern-patient-administration-universitatsspital-basel-basel",
-          "administration-patiente-stagiaire-stagiaire-universitatsspital-basel-basel",
-          "staff-in-patient-administration-universitatsspital-basel-basel",
-          "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel",
-          "mitarbeiter-in-administration-kursadministration-universitatsspital-basel-basel",
-          "mitarbeiter-in-administration-kursadministration-unispital-basel-ch",
-          "mitarbeiter-in-patientenadministration-unispital-basel-ch",
-          "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
-          "praktikantin-praktikant-patientenadministration-unispital-basel-ch",
-          "personnel-en-administration-de-patients-universitatsspital-basel-basel",
-          "collaboratore-trice-in-patientenadministration-universitatsspital-basel",
-          "fachfrau-fachmann-ressources-humaines-administration-universitatsspital-basel-basel",
-          "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel-wdnqfm",
-          "fachfrau-fachmann-hr-administration-unispital-basel-ch-2",
-          "personale-nell-amministrazione-dei-pazienti-universitatsspital-basel-basel",
-          "administrative-r-collaboratore-trice-in-universitatsspital-basel-qe5qcp",
-          "administrative-r-mitarbeiter-in-unispital-basel-ch",
-          "professional-hr-administration-universitatsspital-basel-basel",
-          "administrative-r-collaboratore-trice-in-universitatsspital-basel"
-        ],
-        "en": [
-          "administrative-staff-universitatsspital-basel-basel"
-        ],
-        "fr": [
-          "administrative-r-mitarbeiter-in-universitatsspital-basel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:35:04.450Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3106,7 +3108,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-11T10:35:04.450Z"
     },
     {
       "id": "unispital-basel-215ab77a2845",
@@ -6001,7 +6004,6 @@
           "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:20:41.060Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6014,7 +6016,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-c8ddda1db683",
@@ -6082,7 +6085,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6094,7 +6096,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2ea997803c7d",
@@ -8781,7 +8784,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8793,7 +8795,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-449cc81478e8",

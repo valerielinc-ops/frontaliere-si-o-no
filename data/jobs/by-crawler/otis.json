@@ -63,12 +63,12 @@
     },
     {
       "id": "otis-49b47cfb2d75",
-      "slug": "group-leader-svc-otis-belp",
+      "slug": "leader-di-gruppo-otis-sa-belp",
       "slugByLocale": {
         "en": "group-leader-svc-otis-belp",
-        "it": "group-leader-svc-otis-belp",
+        "it": "leader-di-gruppo-otis-sa-belp",
         "de": "group-leader-svc-otis-belp",
-        "fr": "group-leader-svc-otis-belp"
+        "fr": "leader-du-groupe-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -118,7 +118,18 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-11T21:48:44.010Z"
+      "firstSeenAt": "2026-08-11T21:48:44.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-svc-otis-belp"
+        ],
+        "fr": [
+          "group-leader-svc-otis-belp"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-svc-otis-belp"
+      ]
     },
     {
       "id": "otis-2404c66980ca",
@@ -181,10 +192,10 @@
     },
     {
       "id": "otis-02054c9c6fce",
-      "slug": "aufzugsreparateur-in-service-m-w-d-otis-belp",
+      "slug": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
       "slugByLocale": {
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "it": "aufzugsreparateur-in-service-m-w-d-otis-belp",
+        "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "de": "aufzugsreparateur-in-service-m-w-d-otis-belp",
         "fr": "aufzugsreparateur-in-service-m-w-d-otis-belp"
       },
@@ -237,7 +248,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-11T21:48:43.487Z"
+      "firstSeenAt": "2026-08-11T21:48:43.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufzugsreparateur-in-service-m-w-d-otis-belp"
+        ]
+      },
+      "previousSlugs": [
+        "aufzugsreparateur-in-service-m-w-d-otis-belp"
+      ]
     },
     {
       "id": "otis-f3e78dcbf0b7",
@@ -315,10 +334,10 @@
       "id": "otis-a1b15ef2b1ad",
       "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-kriens",
       "slugByLocale": {
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
+        "en": "elevator-fitter-modernization-and-replacement-equipment-m-f-d-otis-sa-kriens",
         "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-kriens",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
+        "fr": "equipement-de-modernisation-et-de-remplacement-de-l-installation-d-ascenseur-h-f-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -359,6 +378,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
+        ],
+        "en": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
+        ],
+        "fr": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
         ]
       },
       "previousSlugs": [
@@ -381,12 +406,12 @@
     },
     {
       "id": "otis-751c733aa0d2",
-      "slug": "montageleiter-neuanlagen-m-w-d-otis-kriens",
+      "slug": "direttore-di-assemblaggio-nuovi-impianti-m-f-d-otis-sa-kriens",
       "slugByLocale": {
-        "en": "montageleiter-neuanlagen-m-w-d-otis-kriens",
-        "it": "montageleiter-neuanlagen-m-w-d-otis-kriens",
+        "en": "assembly-manager-new-plants-m-f-d-otis-sa-kriens",
+        "it": "direttore-di-assemblaggio-nuovi-impianti-m-f-d-otis-sa-kriens",
         "de": "montageleiter-neuanlagen-m-w-d-otis-kriens",
-        "fr": "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        "fr": "gestionnaire-d-assemblage-nouvelles-usines-h-f-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -436,16 +461,30 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-08-11T21:48:42.716Z"
+      "firstSeenAt": "2026-08-11T21:48:42.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        ],
+        "en": [
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        ],
+        "fr": [
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "montageleiter-neuanlagen-m-w-d-otis-kriens"
+      ]
     },
     {
       "id": "otis-f1a46c1f3807",
       "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
       "slugByLocale": {
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
+        "en": "elevator-fitter-modernization-and-replacement-equipment-m-f-d-otis-sa-reinach",
         "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        "fr": "equipement-de-modernisation-et-de-remplacement-de-l-installation-d-ascenseur-h-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -485,6 +524,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        ],
+        "en": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        ],
+        "fr": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
         ]
       },
@@ -568,12 +613,12 @@
     },
     {
       "id": "otis-6333a7749b2a",
-      "slug": "gruppenleiter-reparatur-svc-m-w-d-otis-belp",
+      "slug": "gruppo-leader-riparazione-svc-m-f-d-otis-sa-belp",
       "slugByLocale": {
-        "en": "gruppenleiter-reparatur-svc-m-w-d-otis-belp",
-        "it": "gruppenleiter-reparatur-svc-m-w-d-otis-belp",
+        "en": "group-leader-repair-svc-m-f-d-otis-sa-belp",
+        "it": "gruppo-leader-riparazione-svc-m-f-d-otis-sa-belp",
         "de": "gruppenleiter-reparatur-svc-m-w-d-otis-belp",
-        "fr": "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
+        "fr": "chef-de-groupe-reparation-svc-h-f-d-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -623,7 +668,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-11T21:48:41.979Z"
+      "firstSeenAt": "2026-08-11T21:48:41.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
+        ],
+        "en": [
+          "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
+        ],
+        "fr": [
+          "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
+      ]
     },
     {
       "id": "otis-fac57f232730",
@@ -926,12 +985,12 @@
     },
     {
       "id": "otis-34ce3d492240",
-      "slug": "servicetechniker-m-w-d-otis-sa-reinach",
+      "slug": "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0",
       "slugByLocale": {
-        "en": "servicetechniker-m-w-d-otis-reinach",
-        "it": "servicetechniker-m-w-d-otis-sa-reinach",
+        "en": "service-technician-m-f-d-otis-sa-reinach-289ae0",
+        "it": "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0",
         "de": "servicetechniker-m-w-d-otis-reinach",
-        "fr": "servicetechniker-m-w-d-otis-reinach"
+        "fr": "technicien-de-service-h-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -970,11 +1029,19 @@
       "crawledAt": "2026-08-11T21:48:40.546Z",
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-m-w-d-otis-reinach",
+          "servicetechniker-m-w-d-otis-sa-reinach"
+        ],
+        "en": [
+          "servicetechniker-m-w-d-otis-reinach"
+        ],
+        "fr": [
           "servicetechniker-m-w-d-otis-reinach"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-m-w-d-otis-reinach"
+        "servicetechniker-m-w-d-otis-reinach",
+        "servicetechniker-m-w-d-otis-sa-reinach"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -993,12 +1060,12 @@
     },
     {
       "id": "otis-3bf81849ecb5",
-      "slug": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
+      "slug": "talent-community-st-gallen-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-oberburen",
       "slugByLocale": {
-        "en": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
-        "it": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
+        "en": "talent-community-st-gallen-elevator-installer-repairer-service-technician-m-f-d-otis-sa-oberburen",
+        "it": "talent-community-st-gallen-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-oberburen",
         "de": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
-        "fr": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen"
+        "fr": "talent-community-st-gallen-installateur-d-ascenseur-reparateur-technicien-de-service-h-f-d-otis-sa-oberburen"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1037,11 +1104,19 @@
       "crawledAt": "2026-08-11T21:48:40.311Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
+        ],
+        "en": [
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen"
+        ],
+        "fr": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen"
         ]
       },
       "previousSlugs": [
-        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen"
+        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
+        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -1060,12 +1135,12 @@
     },
     {
       "id": "otis-e3f7573dfe9a",
-      "slug": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
+      "slug": "talent-community-bern-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-belp",
       "slugByLocale": {
-        "en": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
-        "it": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
+        "en": "talent-community-bern-elevator-installer-repairer-service-technician-m-f-d-otis-sa-belp",
+        "it": "talent-community-bern-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-belp",
         "de": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
-        "fr": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp"
+        "fr": "talent-community-bern-installateur-d-ascenseur-reparateur-technicien-de-service-h-f-d-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1104,11 +1179,19 @@
       "crawledAt": "2026-08-11T21:48:40.061Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
+        ],
+        "en": [
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp"
+        ],
+        "fr": [
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp"
         ]
       },
       "previousSlugs": [
-        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp"
+        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
+        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -1127,12 +1210,12 @@
     },
     {
       "id": "otis-01bdc2de815f",
-      "slug": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
+      "slug": "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon",
       "slugByLocale": {
-        "en": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
-        "it": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
+        "en": "talent-community-zurich-elevator-installer-repairer-service-technician-m-f-d-otis-sa-dietlikon",
+        "it": "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon",
         "de": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
-        "fr": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
+        "fr": "talent-community-zurich-installateur-d-ascenseur-reparateur-technicien-de-service-h-f-d-otis-sa-dietlikon"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1171,11 +1254,19 @@
       "crawledAt": "2026-08-11T21:48:39.808Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon"
+        ],
+        "en": [
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
+        ],
+        "fr": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
         ]
       },
       "previousSlugs": [
-        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
+        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
+        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -1194,12 +1285,12 @@
     },
     {
       "id": "otis-c7aeafd3c96b",
-      "slug": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
+      "slug": "talent-community-chur-installatore-di-ascensore-repairer-ingegnere-di-servizio-m-f-d-otis-sa-chur",
       "slugByLocale": {
-        "en": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
-        "it": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
+        "en": "talent-community-chur-elevator-installer-repairer-service-engineer-m-f-d-otis-sa-chur",
+        "it": "talent-community-chur-installatore-di-ascensore-repairer-ingegnere-di-servizio-m-f-d-otis-sa-chur",
         "de": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
-        "fr": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur"
+        "fr": "talent-community-chur-installateur-d-ascenseur-reparateur-ingenieur-de-service-h-f-d-otis-sa-chur"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1238,11 +1329,19 @@
       "crawledAt": "2026-08-11T21:48:39.564Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur"
+        ],
+        "en": [
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur"
+        ],
+        "fr": [
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur"
         ]
       },
       "previousSlugs": [
-        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur"
+        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
+        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -1261,12 +1360,12 @@
     },
     {
       "id": "otis-9dc1a8458e35",
-      "slug": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens",
+      "slug": "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens",
       "slugByLocale": {
-        "en": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
-        "it": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens",
+        "en": "talent-community-lucerne-elevator-installer-repairer-service-technician-m-f-d-otis-sa-kriens",
+        "it": "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens",
         "de": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
-        "fr": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens"
+        "fr": "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-h-f-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1305,11 +1404,19 @@
       "crawledAt": "2026-08-11T21:48:39.317Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens"
+        ],
+        "en": [
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens"
+        ],
+        "fr": [
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens"
         ]
       },
       "previousSlugs": [
-        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens"
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -1328,12 +1435,12 @@
     },
     {
       "id": "otis-c12e7eb631f9",
-      "slug": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
+      "slug": "talent-community-basel-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-reinach",
       "slugByLocale": {
-        "en": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
-        "it": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
+        "en": "talent-community-basel-elevator-installer-repairer-service-technician-m-f-d-otis-sa-reinach",
+        "it": "talent-community-basel-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-reinach",
         "de": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
-        "fr": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach"
+        "fr": "talent-community-basel-installateur-d-ascenseur-reparateur-technicien-de-service-h-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1372,11 +1479,19 @@
       "crawledAt": "2026-08-11T21:48:39.064Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
+        ],
+        "en": [
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach"
+        ],
+        "fr": [
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach"
         ]
       },
       "previousSlugs": [
-        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach"
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -1400,7 +1515,7 @@
         "en": "manager-ehs-switzerland-otis-fribourg",
         "it": "manager-ehs-switzerland-otis-fribourg",
         "de": "manager-ehs-switzerland-otis-fribourg",
-        "fr": "manager-ehs-switzerland-otis-fribourg"
+        "fr": "directeur-ehs-suisse-otis-sa-fribourg-b0d196"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -2573,7 +2688,7 @@
         "it": "tecnico-di-servizio-m-f-d-otis-sa-reinach",
         "en": "service-technician-m-f-d-otis-sa-reinach",
         "de": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "fr": "servicetechniker-m-w-d-otis-sa-reinach-5oydqb"
+        "fr": "technicien-des-services-m-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -2622,8 +2737,8 @@
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
         "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
         "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "technicien-des-services-m-f-d-otis-sa-reinach",
-        "servicetechniker-m-w-d-otis-sa-reinach"
+        "servicetechniker-m-w-d-otis-sa-reinach",
+        "servicetechniker-m-w-d-otis-sa-reinach-5oydqb"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2647,8 +2762,8 @@
         ],
         "fr": [
           "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-          "technicien-des-services-m-f-d-otis-sa-reinach",
-          "servicetechniker-m-w-d-otis-sa-reinach"
+          "servicetechniker-m-w-d-otis-sa-reinach",
+          "servicetechniker-m-w-d-otis-sa-reinach-5oydqb"
         ]
       },
       "firstSeenAt": "2026-05-12T11:48:59.892Z",
