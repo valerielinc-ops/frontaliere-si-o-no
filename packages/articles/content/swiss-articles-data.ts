@@ -6922,6 +6922,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'banche-sotto-la-lente-bern-stringe-sui-bonus',
+    category: 'fiscale',
+    date: '2026-08-12T15:17:38.689Z',
+    image: '/images/blog/banche-sotto-la-lente-bern-stringe-sui-bonus.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

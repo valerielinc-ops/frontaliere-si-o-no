@@ -2308,6 +2308,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aumento-iva-per-la-difesa.title': 'Auf dem Weg zu einer Mehrwertsteuererhöhung für die Verteidigung',
     'blog.article.aumento-iva-per-la-difesa.excerpt': 'Die Regierung hält an dem Vorschlag einer Erhöhung um 0,5 Prozentpunkte über einen Zeitraum von 12 Jahren fest.',
     'blog.article.aumento-iva-per-la-difesa.imageAlt': 'Ein Schweizer Luftwaffenpilot in Flug über den Luganersee.',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Berna stringe sui bonus',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'Der Bundesrat will die Führung der Banken stärker in die Verantwortung nehmen und Risiken durch hohe Boni vermeiden.',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Bank unter der Lupe: Bern strengt die Bonus und stärkt die Anti-Krisenregeln.',
 };
 
 export default blogMetaChDe;

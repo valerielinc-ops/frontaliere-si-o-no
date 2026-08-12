@@ -795,6 +795,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'accordi-svizzera-ue-consiglio-federale': { it: 'accordi-svizzera-ue-consiglio-federale', en: 'switzerland-eu-agreement-council-federal', de: 'schweiz-eu-abkommen-rat-foderal', fr: 'suisse-eu-accord-conseil-federal' },
  'effetto-domino-fallite-aziende-svizzera': { it: 'effetto-domino-fallite-aziende-svizzera', en: 'domino-effect-failed-companies-switzerland', de: 'domino-effekt-gefallene-unternehmen-schweiz', fr: 'effet-domino-filiale-dentreprise-suisse' },
  'aumento-iva-per-la-difesa': { it: 'aumento-iva-per-la-difesa', en: 'iva-increase-for-defense', de: 'iva-steigerung-fuer-verteidigung', fr: 'augmentation-de-la-iva-pour-la-defense' },
+ 'banche-sotto-la-lente-bern-stringe-sui-bonus': { it: 'banche-sotto-la-lente-bern-stringe-sui-bonus', en: 'banks-under-the-microscope-berna-reduces-bonuses-and-strenghtens-anti-crisis-rul', de: 'bank-unter-der-lupe-bern-stringt-die-bonus-und-staerkt-die-anti-krisenregeln', fr: 'banque-sous-la-loupe-berne-reduit-les-bonuses-et-renforce-les-regles-anti-crise' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
