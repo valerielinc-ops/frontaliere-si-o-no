@@ -9847,6 +9847,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malpensa-m5s-contre-spostamento-amazon.title': 'M5S contre le déplacement d\'Amazon de Malpensa',
     'blog.article.malpensa-m5s-contre-spostamento-amazon.excerpt': 'Le Mouvement 5 étoiles de la province de Varèse annonce un engagement à tous les niveaux institutionnels pour protéger les près de deux cents travailleurs impliqués dans la décision d\'Amazon de quitter, dès début septembre, l\'escale de Malpensa et de transférer ses activités à l\'aéroport de Montichiari, à Bresciano.',
     'blog.article.malpensa-m5s-contre-spostamento-amazon.imageAlt': 'Image éditoriale relative à: M5S contro lo spostamento di Amazon da Malpensa',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Augmentation frontalière : +0,64 %',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'L\'Office fédéral de la statistique (BFS) note une augmentation du nombre de frontaliers du Tessin au cours du trimestre 2026-Q2.',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano vue, septembre 2022.',
 };
 
 export default blogMetaFr;
