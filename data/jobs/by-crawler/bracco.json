@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bracco",
-  "assembledAt": "2026-08-11T22:04:38.274Z",
+  "assembledAt": "2026-08-12T10:32:27.496Z",
   "jobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST_JR100238",
@@ -28,7 +28,7 @@
       "slugByLocale": {
         "it": "specialista-in-dispositivi-medici-bracco-suisse-s-a-cadempino",
         "en": "medical-device-specialist-bracco-suisse",
-        "de": "medical-device-spezialist-bracco-suisse-s-a-cadempino",
+        "de": "specialist-medizinsches-geschaft-bracco-suisse-s-a-cadempino",
         "fr": "specialiste-en-dispositifs-medicaux-bracco-suisse-s-a-cadempino"
       },
       "category": "general",
@@ -48,15 +48,19 @@
         "medical-device-specialist-bracco-suisse",
         "medical-device-specialista-bracco-suisse-s-a-cadempino",
         "medical-device-specialiste-bracco-suisse-s-a-cadempino",
+        "medical-device-spezialist-bracco-suisse-s-a-cadempino",
+        "specialista-in-dispositivi-medici-bracco-suisse-s-a-cadempino",
         "specialist-medizinsches-geschaft-bracco-suisse-s-a-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-device-specialist-bracco-suisse",
-          "medical-device-specialista-bracco-suisse-s-a-cadempino"
+          "medical-device-specialista-bracco-suisse-s-a-cadempino",
+          "specialista-in-dispositivi-medici-bracco-suisse-s-a-cadempino"
         ],
         "de": [
           "medical-device-specialist-bracco-suisse",
+          "medical-device-spezialist-bracco-suisse-s-a-cadempino",
           "specialist-medizinsches-geschaft-bracco-suisse-s-a-cadempino"
         ],
         "fr": [
@@ -126,11 +130,13 @@
       "jobReqId": "JR100215",
       "id": "bracco-94972aa9a99d",
       "previousSlugs": [
-        "qa-operations-specialist-bracco-suisse"
+        "qa-operations-specialist-bracco-suisse",
+        "qa-operations-specialista-bracco-suisse-s-a-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-operations-specialist-bracco-suisse"
+          "qa-operations-specialist-bracco-suisse",
+          "qa-operations-specialista-bracco-suisse-s-a-plan-les-ouates"
         ],
         "de": [
           "qa-operations-specialist-bracco-suisse"
@@ -141,6 +147,7 @@
       },
       "firstSeenAt": "2026-06-12T22:00:54.047Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
