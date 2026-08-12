@@ -2242,6 +2242,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.title': 'AVS Pillar: Contribution gaps and minimum coverage',
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.excerpt': 'The Zurich Cantonal Compensation Fund is a crucial institution for Swiss pensions. Here\'s how it works.',
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.imageAlt': 'The cantonal compensation fund of Zurich: a crucial institution for Swiss pension.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.title': 'Public transport tickets Canton Zurich: zones and fares',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.excerpt': 'Public transport passes in the Canton of Zurich have recently been changed.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.imageAlt': 'A map of public transportation in the Canton of Zurich',
 };
 
 export default blogMetaChEn;

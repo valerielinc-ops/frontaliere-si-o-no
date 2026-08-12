@@ -773,6 +773,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-zurigo-canoni-medi-e-diritto-di-locazione': { it: 'affitti-zurigo-canoni-medi-e-diritto-di-locazione', en: 'zurich-rent-prices-and-tenant-rights', de: 'zuerich-mietpreise-und-mieterrechte', fr: 'prix-de-location-a-zurich-et-droits-des-locataires' },
  'canton-zurigo-naturalizzazione-requisiti-e-procedura': { it: 'canton-zurigo-naturalizzazione-requisiti-e-procedura', en: 'canton-zurigo-naturalization-requirements-and-procedure', de: 'kanton-zurich-naturalisierung-anforderungen-und-verfahren', fr: 'canton-de-zurich-naturalisation-exigences-et-procedure' },
  'avs-e-prestazioni-complementari-canton-zurigo': { it: 'avs-e-prestazioni-complementari-canton-zurigo', en: 'avs-and-complementary-benefits-canton-zurich', de: 'avs-und-komplementaere-vorteile-kanton-zuerich', fr: 'avs-et-prestations-complementaires-canton-zurich' },
+ 'abbonamenti-trasporti-pubblici-canton-zurigo': { it: 'abbonamenti-trasporti-pubblici-canton-zurigo', en: 'public-transport-abonnements-canton-zurich', de: 'offentliche-verkehr-abonnements-kanton-zurich', fr: 'transport-public-abonnements-canton-de-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

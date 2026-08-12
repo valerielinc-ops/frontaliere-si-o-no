@@ -2242,6 +2242,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.title': 'Pilastro AVS: lacune contributive e copertura minima',
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.excerpt': 'La cassa di compensazione cantonale di Zurigo è un\'istituzione cruciale per la previdenza svizzera. Ecco come funziona.',
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.imageAlt': 'La cassa di compensazione cantonale di Zurigo: un\'istituzione cruciale per la previdenza svizzera.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.title': 'Abbonamenti trasporti pubblici Canton Zurigo: zone e tariffe',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.excerpt': 'Gli abbonamenti trasporti pubblici nel Canton Zurigo sono stati recentemente modificati.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.imageAlt': 'Una mappa dei trasporti pubblici nel Canton Zurigo',
 };
 
 export default blogMetaChIt;
