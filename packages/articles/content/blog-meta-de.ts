@@ -9773,6 +9773,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Übersicht RW: Meldepflichten für Schweizer Girokonten',
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'Grenzgänger müssen ihre Schweizer Girokonten bei der Agentur für Einnahmen anmelden.',
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'Der See von Lugano gesehen vom Monte San Salvatore.',
+    'blog.article.leventina-traffico-problema-cupra-airolo.title': 'Leventina als Verkehrsgeisel: CUPRA überfällt den Kanton',
+    'blog.article.leventina-traffico-problema-cupra-airolo.excerpt': 'Das Verkehrsproblem in der Leventina ist ein hochaktuelles Thema. Der CUPRA, eine Vorzugsspur, scheint sein Ziel nicht ganz zu erreichen.',
+    'blog.article.leventina-traffico-problema-cupra-airolo.imageAlt': 'Die Leventina ist ein Gebirgsgebiet im schweizerischen Kanton Tessin, das zwischen dem Lago Maggiore und dem Lago di Lugano liegt.',
 };
 
 export default blogMetaDe;

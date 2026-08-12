@@ -65708,6 +65708,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-leventina-traffico-problema-cupra-airolo': {
+    title: 'Leventina ostaggio del traffico: la CUPRA invasa la cantonale',
+    description: 'Il problema di traffico nella Leventina è un tema di grande attualità. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, leventina, ostaggio, traffico, cupra',
+    ogTitle: 'Leventina ostaggio del traffico: «A cosa serve la CUPRA se le auto invadono la cantonale?»',
+    ogDescription: 'Il problema di traffico nella Leventina è un tema di grande attualità.',
+    canonicalPath: '/articoli-frontaliere/leventina-traffico-problema-cupra-airolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Leventina ostaggio del traffico: la CUPRA invasa la cantonale",
+      "description": "Il problema di traffico nella Leventina è un tema di grande attualità. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/leventina-traffico-problema-cupra-airolo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Leventina è un territorio alpino del Canton Ticino, che si trova tra il Lago Maggiore e il Lago di Lugano."
+      },
+      "datePublished": "2026-08-12T04:58:46+00:00",
+      "dateModified": "2026-08-12T04:58:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/leventina-traffico-problema-cupra-airolo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
