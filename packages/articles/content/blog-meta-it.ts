@@ -9781,6 +9781,17 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Quadro RW dichiarazione conto corrente svizzero Agenzia Entrate',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Guida completa al monitoraggio fiscale per i frontalieri con conto in Svizzera: obblighi di compilazione e IVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Vista di Lugano e dei suoi istituti bancari e finanziari',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Matrimonio frontaliere italiano cittadino svizzero: regime fiscale',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Impostazione imposta alla fonte e ristorni per i frontalieri dopo il matrimonio con un cittadino svizzero.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'Un frontaliere italiano si sposa con un cittadino svizzero a Lugano.',
+    'blog.article.bollettino-frontaliere-2026-08-12.title': 'Bollettino del frontaliere – 12 agosto 2026: 762 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-12.excerpt': 'I numeri di oggi, 12 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-12.imageAlt': 'I numeri del giorno per i frontalieri – 12 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-12.seoDescription': 'Bollettino frontalieri del 12 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-12.ogDescription': 'I numeri del 12 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.conversione-patente-guida-frontaliere.title': 'Conversione patente italiana in Svizzera per frontalieri',
+    'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Guida pratica alla conversione della patente di guida italiana in Svizzera per i lavoratori con permesso G: procedure e validità.',
+    'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Conversione patente di guida in Svizzera per frontalieri a Chiasso',
 };
 
 export default blogMetaIt;

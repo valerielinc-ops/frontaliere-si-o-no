@@ -29345,6 +29345,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonal-berna-aliquote-deduzioni': {
+    title: 'Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    description: 'Le imposte cantonali nel Cantone di Berna sono gestite dall\'amministrazione cantonale e hanno aliquote diverse in base allo scaglione di reddito.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, cantone, berna',
+    ogTitle: 'Imposte cantonali nel Cantone di Berna: aliquote e deduzioni',
+    ogDescription: 'Le imposte cantonali nel Cantone di Berna sono gestite dall\'amministrazione cantonale e hanno aliquote diverse in base allo scaglione di reddito.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonal-berna-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali nel Cantone di Berna: aliquote e deduzioni",
+      "description": "Le imposte cantonali nel Cantone di Berna sono gestite dall'amministrazione cantonale e hanno aliquote diverse in base allo scaglione di reddito.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonal-berna-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Imposte cantonali nel Cantone di Berna: aliquote e deduzioni"
+      },
+      "datePublished": "2026-08-12T06:10:54+00:00",
+      "dateModified": "2026-08-12T06:10:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonal-berna-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

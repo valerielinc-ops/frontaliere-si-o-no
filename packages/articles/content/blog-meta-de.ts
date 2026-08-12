@@ -9779,6 +9779,17 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Übersicht RW Erklärung Schweizer Girokonto Agentur Einnahmen',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Vollständiger Leitfaden zur Steuerüberwachung für Grenzgänger mit Konto in der Schweiz: Ausfüllpflichten und IVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Blick auf Lugano und seine Bank- und Finanzinstitute',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Italienische Grenzehe mit Schweizer Staatsangehörigkeit: Steuerregelung',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Quellensteuer und Rückerstattungen für Grenzgänger nach der Heirat mit einem Schweizer Staatsbürger.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'Ein italienischer Grenzgänger heiratet einen Schweizer Bürger in Lugano.',
+    'blog.article.bollettino-frontaliere-2026-08-12.title': 'Grenzgänger-Tagesbulletin – 12. August 2026: 762 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-12.excerpt': 'Die Zahlen von heute, 12. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-12.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 12. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-12.seoDescription': 'Grenzgänger-Bulletin vom 12. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-12.ogDescription': 'Die Zahlen vom 12. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.conversione-patente-guida-frontaliere.title': 'Umtausch italienischer Führerschein in die Schweiz für Grenzgänger',
+    'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Praktischer Leitfaden zur Umwandlung des italienischen Führerscheins in der Schweiz für Arbeitnehmer mit Führerschein G: Verfahren und Gültigkeit.',
+    'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Umtausch des italienischen Führerscheins in der Schweiz für Grenzgänger',
 };
 
 export default blogMetaDe;

@@ -29334,6 +29334,33 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale',
+ category: 'fiscale',
+ date: '2026-08-12T06:04:30.597Z',
+ image: '/images/blog/matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-08-12',
+ category: 'novita',
+ date: '2026-08-12T06:17:47.403Z',
+ image: '/images/blog/bollettino-frontaliere-2026-08-12.webp',
+ hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'conversione-patente-guida-frontaliere',
+ category: 'pratico',
+ date: '2026-08-12T06:42:32.209Z',
+ image: '/images/blog/conversione-patente-guida-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
