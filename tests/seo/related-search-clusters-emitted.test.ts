@@ -69,20 +69,31 @@ function listClusterDirs(locale: Locale): string[] {
   return out;
 }
 
-function loadClusterPages(locale: Locale, limit?: number): ClusterPage[] {
+/**
+ * Streams cluster pages one at a time (read → yield → caller discards)
+ * instead of materializing every matched page's full HTML into one array
+ * up front. At real production scale (thousands of cluster pages across
+ * four locales) an eager `.map()` here held the entire corpus's HTML text
+ * in memory simultaneously — the odd one out among this gate pool's sibling
+ * files (`dist-duplicate-meta-description.test.ts` etc.), which all read
+ * file-by-file and let each page's string get GC'd before the next read.
+ * That eager batch-load was the dist:quality-tests OOM (issue #5729):
+ * `Worker terminated due to reaching memory limit: JS heap out of memory`.
+ */
+function* loadClusterPages(locale: Locale, limit?: number): IterableIterator<ClusterPage> {
   const files = listClusterDirs(locale);
   const slice = typeof limit === 'number' ? files.slice(0, limit) : files;
   const prefixHyphen = `${getSearchSlugPrefix(locale)}-`;
-  return slice.map((file) => {
+  for (const file of slice) {
     const dirName = file.split('/').slice(-2)[0];
     const slug = dirName.startsWith(prefixHyphen) ? dirName : '';
-    return {
+    yield {
       locale,
       file,
       slug,
       html: readFileSync(file, 'utf-8'),
     };
-  });
+  }
 }
 
 function extractTag(html: string, tag: string): string[] {
