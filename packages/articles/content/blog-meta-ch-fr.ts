@@ -2260,6 +2260,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Parce que la chaleur fait grimper les prix et l\'inflation climatique',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'De la sécheresse du Rhin au panier de la ménagère, le changement climatique crée une nouvelle inflation et contraint les banques centrales à agir.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impact de la sécheresse et de la chaleur sur les prix en Suisse',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Comment utiliser la croix suisse sur les produits étrangers ?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'La Suisse a des règles pour utiliser la croix suisse sur les produits étrangers.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Une boîte de chocolats suisses avec la croix suisse',
 };
 
 export default blogMetaChFr;

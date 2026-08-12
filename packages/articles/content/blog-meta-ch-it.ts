@@ -2260,6 +2260,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'Dalla siccità del Reno al carrello della spesa, i cambiamenti climatici creano una nuova inflazione e costringono le banche centrali ad agire.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impatto della siccità e del caldo sui prezzi in Svizzera',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Come utilizzare la croce svizzera sui prodotti esteri?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Una scatola di cioccolatini con la croce svizzera',
 };
 
 export default blogMetaChIt;
