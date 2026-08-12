@@ -1,16 +1,16 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-08-12T10:20:12.131Z",
-  "total": 6,
+  "generatedAt": "2026-08-12T21:51:52.298Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10764,
-  "avgDurationMs": 10764,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10579,
+  "avgDurationMs": 10579,
   "durationHistory": [
-    10764
+    10579
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-536&cHash=322704e990587b9fa1cceb748f0b757e",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:20:03.448Z",
+      "crawledAt": "2026-08-12T21:51:43.790Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-540&cHash=22b577b4c069c8eaf0ea8744b6b727e1",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:20:04.407Z",
+      "crawledAt": "2026-08-12T21:51:44.809Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-545&cHash=ddc6a12ed98a5820256f03d135d63013",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:20:05.358Z",
+      "crawledAt": "2026-08-12T21:51:45.820Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-547&cHash=38a5c966d2c75a5e139852370a2fcc58",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:20:06.746Z",
+      "crawledAt": "2026-08-12T21:51:46.903Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:20:07.783Z",
+      "crawledAt": "2026-08-12T21:51:47.871Z",
       "addressLocality": "Bauma",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,8 +200,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "wagerenhof-a1e5d1b96407",
       "slug": "diplomierte-pflegefachperson-hf-fh-come-co-teamleitung-per-unseren-nachtdienst-80-100-stiftung-wagerenhof-uster",
@@ -242,5 +241,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
