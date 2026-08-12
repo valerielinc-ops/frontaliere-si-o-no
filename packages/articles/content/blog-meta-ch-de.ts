@@ -2368,6 +2368,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.medicina-genetica-in-svizzera.title': 'Genetische Medizin, der Sommer der guten Nachrichten',
     'blog.article.medicina-genetica-in-svizzera.excerpt': 'Gentherapien kommen aus den Labors und behandeln echte Patienten.',
     'blog.article.medicina-genetica-in-svizzera.imageAlt': 'Genetische Medizin in der Schweiz: ein neuer Anfang',
+    'blog.article.assegni-familiari-canton-berna.title': 'Familienzulagen im Kanton Bern: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-berna.excerpt': 'Die Familienzulagen im Kanton Bern werden von den kantonalen Verwaltungen verwaltet und bedürfen der Antragstellung.',
+    'blog.article.assegni-familiari-canton-berna.imageAlt': 'Ein Frontalier mit einem Kind in Lugano',
 };
 
 export default blogMetaChDe;

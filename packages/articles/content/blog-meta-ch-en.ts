@@ -2368,6 +2368,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.medicina-genetica-in-svizzera.title': 'Genetic medicine, the summer of good news',
     'blog.article.medicina-genetica-in-svizzera.excerpt': 'Gene therapies come out of the labs and treat real patients.',
     'blog.article.medicina-genetica-in-svizzera.imageAlt': 'Genetic medicine in Switzerland: a new beginning',
+    'blog.article.assegni-familiari-canton-berna.title': 'Family allowances in the Canton of Bern: amounts and application',
+    'blog.article.assegni-familiari-canton-berna.excerpt': 'Family allowances in the Canton of Bern are administered by the cantonal administrations and require the submission of an application.',
+    'blog.article.assegni-familiari-canton-berna.imageAlt': 'A frontaliere with a child in Lugano',
 };
 
 export default blogMetaChEn;

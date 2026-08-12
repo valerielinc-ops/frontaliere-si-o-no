@@ -7102,6 +7102,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assegni-familiari-canton-berna',
+    category: 'fiscale',
+    date: '2026-08-12T23:05:57.220Z',
+    image: '/images/blog/assegni-familiari-canton-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
