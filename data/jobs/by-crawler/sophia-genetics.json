@@ -1,7 +1,74 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-08-11T22:06:41.919Z",
+  "assembledAt": "2026-08-12T10:21:50.465Z",
   "jobs": [
+    {
+      "id": "sophia-genetics-a85899187eab",
+      "slug": "senior-platform-designer-sophia-genetics-rolle",
+      "slugByLocale": {
+        "en": "senior-platform-product-designer-sophia-genetics-rolle",
+        "fr": "conception-de-produits-de-la-plate-forme-senior-sophia-genetics-rolle",
+        "it": "senior-platform-designer-sophia-genetics-rolle",
+        "de": "senior-platform-designer-sophia-genetics-rolle"
+      },
+      "company": "SOPHiA GENETICS",
+      "companyKey": "sophia-genetics",
+      "companyDomain": "sophiagenetics.com",
+      "title": "Senior Platform Designer",
+      "titleByLocale": {
+        "en": "Senior Platform Designer",
+        "it": "Senior Platform Designer",
+        "de": "Senior Platform Designer",
+        "fr": "Senior Platform Designer"
+      },
+      "description": "Are you a senior designer who wants to shape how a complex clinical platform evolves across genomics, oncology, imaging, and real-world data? Join our Platform Design & Innovation team to own cross-cutting design problems across SOPHiA DDM™: a multimodal platform serving geneticists, pathologists, oncologists, bioinformaticians, and pharma researchers in one of the most consequential domains in healthcare.\n You'll design for expert users operating under clinical pressure, not for consumer simplicity, and your work will directly influence what gets built across variant interpretation, oncology decision support, radiomics, and research data access. This is a role where design changes outcomes, and where the complexity is the point.\n If you are a designer who earns trust with engineers and PMs from your credible technical background, moves fast from research to prototype to validation, and wants a clear path toward leading a design function — join the SOPHiA GENETICS Platform Design & Innovation team as our new Senior Platform Designer, and help us make a positive impact on the outcomes for cancer and rare disease patients worldwide. This is a senior individual contributor role with a clear path to team leadership.\n\nEnjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH or Bidart, FR corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As our Senior Platform Product Designer, you will combine genuine product design depth with rapid prototyping capability and the product judgment to drive design decisions from user research through to shipped features.\n The Platform Design & Innovation (PDI) is the team responsible for how DDM evolves as a platform: cross-cutting design patterns, the design system, high-value product initiatives, and the translation of complex clinical requirements into coherent product experiences across all application teams.\n This is not a role for someone whose strength is visual polish. It is a role for a designer who thinks in workflows and mental models, who holds product judgment conversations with engineering and PM, and who produces work that changes what gets built.\n The value you bring:\n Work at expert-user depth - across diverse user groups\n\n• Conduct research with users across the platform’s range: genomics experts operating at high information density (geneticists, pathologists, bioinformaticians), oncologists and clinicians using Carepath for treatment decision support, and pharma researchers accessing real-world data through DataHub. These are not the same user; designing well for each without fragmenting the platform is the hard problem.\n\n• Design for appropriate complexity, not for consumer simplicity. Expert users read variant tables and imaging reports under clinical pressure; pharma researchers need research-grade data access with audit controls; oncologists need actionable summaries without losing access to underlying evidence. Your designs must match the cognitive model of whoever is in front of the screen.\n\n• Balance clinical workflow fidelity with IVD regulatory constraints: traceability, audit trail, accessibility, and the interaction patterns that survive regulatory review.\n Own cross-platform design problems\n\n• Lead the design of major DDM platform workflows across the full product surface: variant triage and interpretation in the genomics platform, oncology decision-support workflows in Carepath, multimodal data views that combine genomic and imaging signals, and DataHub experiences for clinical and pharma research users.\n\n• Define and evolve the cross-surface interaction patterns that give the platform coherence: how data from different modalities is presented together, how classification decisions are recorded and traced, how clinical and research users with different expertise levels navigate the same underlying data.\n\n• Govern and evolve the DDM design system in collaboration with engineering: component usage, token standards, interaction primitives, and the documentation that makes the system usable across teams.\n Prototype and validate\n\n• Build interactive prototypes to compress the time between concept and clinical feedback. Use whatever tooling compresses that cycle, (AI-assisted code, low-code scaffolding, or hand-crafted HTML) with the goal of getting something real in front of users quickly.\n\n• Run validation sessions with clinical users, oncologists, and pharma partners early and continuously. Treat user research as a design input, not a sign-off step.\n Partner with engineering, product, and cross-team stakeholders\n\n• Work alongside platform engineering as a peer. Translate between the language of design (workflows, mental models, jobs-to-be-done) and the language of engineering (APIs, data models, performance, security). The role succeeds when both teams move faster because of how well you operate at that boundary.\n\n• Collaborate with Product Owners and Product Managers across application teams — HemOnc, Solid Tumor & LBx, RID, Carepath, DataHub. PDI’s mandate is transversal: you do not sit within one team’s scope, you influence platform-level decisions across all of them. That requires earning trust with POs and PMs who have their own roadmaps and priorities, and shaping shared vision without direct authority.\n Grow towards team leadership\n\n• Build influence across engineering, product, data science, clinical stakeholders, and executive leadership. Raise the quality bar for design artifacts across teams. Develop readiness for team leadership: mentoring junior designers, shaping team process, and taking ownership of a design function.",
+      "descriptionByLocale": {
+        "en": "Are you a senior designer who wants to shape how a complex clinical platform evolves across genomics, oncology, imaging, and real-world data? Join our Platform Design & Innovation team to own cross-cutting design problems across SOPHiA DDM™: a multimodal platform serving geneticists, pathologists, oncologists, bioinformaticians, and pharma researchers in one of the most consequential domains in healthcare.\n You'll design for expert users operating under clinical pressure, not for consumer simplicity, and your work will directly influence what gets built across variant interpretation, oncology decision support, radiomics, and research data access. This is a role where design changes outcomes, and where the complexity is the point.\n If you are a designer who earns trust with engineers and PMs from your credible technical background, moves fast from research to prototype to validation, and wants a clear path toward leading a design function — join the SOPHiA GENETICS Platform Design & Innovation team as our new Senior Platform Designer, and help us make a positive impact on the outcomes for cancer and rare disease patients worldwide. This is a senior individual contributor role with a clear path to team leadership.\n\nEnjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH or Bidart, FR corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As our Senior Platform Product Designer, you will combine genuine product design depth with rapid prototyping capability and the product judgment to drive design decisions from user research through to shipped features.\n The Platform Design & Innovation (PDI) is the team responsible for how DDM evolves as a platform: cross-cutting design patterns, the design system, high-value product initiatives, and the translation of complex clinical requirements into coherent product experiences across all application teams.\n This is not a role for someone whose strength is visual polish. It is a role for a designer who thinks in workflows and mental models, who holds product judgment conversations with engineering and PM, and who produces work that changes what gets built.\n The value you bring:\n Work at expert-user depth - across diverse user groups\n\n• Conduct research with users across the platform’s range: genomics experts operating at high information density (geneticists, pathologists, bioinformaticians), oncologists and clinicians using Carepath for treatment decision support, and pharma researchers accessing real-world data through DataHub. These are not the same user; designing well for each without fragmenting the platform is the hard problem.\n\n• Design for appropriate complexity, not for consumer simplicity. Expert users read variant tables and imaging reports under clinical pressure; pharma researchers need research-grade data access with audit controls; oncologists need actionable summaries without losing access to underlying evidence. Your designs must match the cognitive model of whoever is in front of the screen.\n\n• Balance clinical workflow fidelity with IVD regulatory constraints: traceability, audit trail, accessibility, and the interaction patterns that survive regulatory review.\n Own cross-platform design problems\n\n• Lead the design of major DDM platform workflows across the full product surface: variant triage and interpretation in the genomics platform, oncology decision-support workflows in Carepath, multimodal data views that combine genomic and imaging signals, and DataHub experiences for clinical and pharma research users.\n\n• Define and evolve the cross-surface interaction patterns that give the platform coherence: how data from different modalities is presented together, how classification decisions are recorded and traced, how clinical and research users with different expertise levels navigate the same underlying data.\n\n• Govern and evolve the DDM design system in collaboration with engineering: component usage, token standards, interaction primitives, and the documentation that makes the system usable across teams.\n Prototype and validate\n\n• Build interactive prototypes to compress the time between concept and clinical feedback. Use whatever tooling compresses that cycle, (AI-assisted code, low-code scaffolding, or hand-crafted HTML) with the goal of getting something real in front of users quickly.\n\n• Run validation sessions with clinical users, oncologists, and pharma partners early and continuously. Treat user research as a design input, not a sign-off step.\n Partner with engineering, product, and cross-team stakeholders\n\n• Work alongside platform engineering as a peer. Translate between the language of design (workflows, mental models, jobs-to-be-done) and the language of engineering (APIs, data models, performance, security). The role succeeds when both teams move faster because of how well you operate at that boundary.\n\n• Collaborate with Product Owners and Product Managers across application teams — HemOnc, Solid Tumor & LBx, RID, Carepath, DataHub. PDI’s mandate is transversal: you do not sit within one team’s scope, you influence platform-level decisions across all of them. That requires earning trust with POs and PMs who have their own roadmaps and priorities, and shaping shared vision without direct authority.\n Grow towards team leadership\n\n• Build influence across engineering, product, data science, clinical stakeholders, and executive leadership. Raise the quality bar for design artifacts across teams. Develop readiness for team leadership: mentoring junior designers, shaping team process, and taking ownership of a design function.",
+        "it": "Are you a senior designer who wants to shape how a complex clinical platform evolves across genomics, oncology, imaging, and real-world data? Join our Platform Design & Innovation team to own cross-cutting design problems across SOPHiA DDM™: a multimodal platform serving geneticists, pathologists, oncologists, bioinformaticians, and pharma researchers in one of the most consequential domains in healthcare.\n You'll design for expert users operating under clinical pressure, not for consumer simplicity, and your work will directly influence what gets built across variant interpretation, oncology decision support, radiomics, and research data access. This is a role where design changes outcomes, and where the complexity is the point.\n If you are a designer who earns trust with engineers and PMs from your credible technical background, moves fast from research to prototype to validation, and wants a clear path toward leading a design function — join the SOPHiA GENETICS Platform Design & Innovation team as our new Senior Platform Designer, and help us make a positive impact on the outcomes for cancer and rare disease patients worldwide. This is a senior individual contributor role with a clear path to team leadership.\n\nEnjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH or Bidart, FR corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As our Senior Platform Product Designer, you will combine genuine product design depth with rapid prototyping capability and the product judgment to drive design decisions from user research through to shipped features.\n The Platform Design & Innovation (PDI) is the team responsible for how DDM evolves as a platform: cross-cutting design patterns, the design system, high-value product initiatives, and the translation of complex clinical requirements into coherent product experiences across all application teams.\n This is not a role for someone whose strength is visual polish. It is a role for a designer who thinks in workflows and mental models, who holds product judgment conversations with engineering and PM, and who produces work that changes what gets built.\n The value you bring:\n Work at expert-user depth - across diverse user groups\n\n• Conduct research with users across the platform’s range: genomics experts operating at high information density (geneticists, pathologists, bioinformaticians), oncologists and clinicians using Carepath for treatment decision support, and pharma researchers accessing real-world data through DataHub. These are not the same user; designing well for each without fragmenting the platform is the hard problem.\n\n• Design for appropriate complexity, not for consumer simplicity. Expert users read variant tables and imaging reports under clinical pressure; pharma researchers need research-grade data access with audit controls; oncologists need actionable summaries without losing access to underlying evidence. Your designs must match the cognitive model of whoever is in front of the screen.\n\n• Balance clinical workflow fidelity with IVD regulatory constraints: traceability, audit trail, accessibility, and the interaction patterns that survive regulatory review.\n Own cross-platform design problems\n\n• Lead the design of major DDM platform workflows across the full product surface: variant triage and interpretation in the genomics platform, oncology decision-support workflows in Carepath, multimodal data views that combine genomic and imaging signals, and DataHub experiences for clinical and pharma research users.\n\n• Define and evolve the cross-surface interaction patterns that give the platform coherence: how data from different modalities is presented together, how classification decisions are recorded and traced, how clinical and research users with different expertise levels navigate the same underlying data.\n\n• Govern and evolve the DDM design system in collaboration with engineering: component usage, token standards, interaction primitives, and the documentation that makes the system usable across teams.\n Prototype and validate\n\n• Build interactive prototypes to compress the time between concept and clinical feedback. Use whatever tooling compresses that cycle, (AI-assisted code, low-code scaffolding, or hand-crafted HTML) with the goal of getting something real in front of users quickly.\n\n• Run validation sessions with clinical users, oncologists, and pharma partners early and continuously. Treat user research as a design input, not a sign-off step.\n Partner with engineering, product, and cross-team stakeholders\n\n• Work alongside platform engineering as a peer. Translate between the language of design (workflows, mental models, jobs-to-be-done) and the language of engineering (APIs, data models, performance, security). The role succeeds when both teams move faster because of how well you operate at that boundary.\n\n• Collaborate with Product Owners and Product Managers across application teams — HemOnc, Solid Tumor & LBx, RID, Carepath, DataHub. PDI’s mandate is transversal: you do not sit within one team’s scope, you influence platform-level decisions across all of them. That requires earning trust with POs and PMs who have their own roadmaps and priorities, and shaping shared vision without direct authority.\n Grow towards team leadership\n\n• Build influence across engineering, product, data science, clinical stakeholders, and executive leadership. Raise the quality bar for design artifacts across teams. Develop readiness for team leadership: mentoring junior designers, shaping team process, and taking ownership of a design function.",
+        "de": "Are you a senior designer who wants to shape how a complex clinical platform evolves across genomics, oncology, imaging, and real-world data? Join our Platform Design & Innovation team to own cross-cutting design problems across SOPHiA DDM™: a multimodal platform serving geneticists, pathologists, oncologists, bioinformaticians, and pharma researchers in one of the most consequential domains in healthcare.\n You'll design for expert users operating under clinical pressure, not for consumer simplicity, and your work will directly influence what gets built across variant interpretation, oncology decision support, radiomics, and research data access. This is a role where design changes outcomes, and where the complexity is the point.\n If you are a designer who earns trust with engineers and PMs from your credible technical background, moves fast from research to prototype to validation, and wants a clear path toward leading a design function — join the SOPHiA GENETICS Platform Design & Innovation team as our new Senior Platform Designer, and help us make a positive impact on the outcomes for cancer and rare disease patients worldwide. This is a senior individual contributor role with a clear path to team leadership.\n\nEnjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH or Bidart, FR corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As our Senior Platform Product Designer, you will combine genuine product design depth with rapid prototyping capability and the product judgment to drive design decisions from user research through to shipped features.\n The Platform Design & Innovation (PDI) is the team responsible for how DDM evolves as a platform: cross-cutting design patterns, the design system, high-value product initiatives, and the translation of complex clinical requirements into coherent product experiences across all application teams.\n This is not a role for someone whose strength is visual polish. It is a role for a designer who thinks in workflows and mental models, who holds product judgment conversations with engineering and PM, and who produces work that changes what gets built.\n The value you bring:\n Work at expert-user depth - across diverse user groups\n\n• Conduct research with users across the platform’s range: genomics experts operating at high information density (geneticists, pathologists, bioinformaticians), oncologists and clinicians using Carepath for treatment decision support, and pharma researchers accessing real-world data through DataHub. These are not the same user; designing well for each without fragmenting the platform is the hard problem.\n\n• Design for appropriate complexity, not for consumer simplicity. Expert users read variant tables and imaging reports under clinical pressure; pharma researchers need research-grade data access with audit controls; oncologists need actionable summaries without losing access to underlying evidence. Your designs must match the cognitive model of whoever is in front of the screen.\n\n• Balance clinical workflow fidelity with IVD regulatory constraints: traceability, audit trail, accessibility, and the interaction patterns that survive regulatory review.\n Own cross-platform design problems\n\n• Lead the design of major DDM platform workflows across the full product surface: variant triage and interpretation in the genomics platform, oncology decision-support workflows in Carepath, multimodal data views that combine genomic and imaging signals, and DataHub experiences for clinical and pharma research users.\n\n• Define and evolve the cross-surface interaction patterns that give the platform coherence: how data from different modalities is presented together, how classification decisions are recorded and traced, how clinical and research users with different expertise levels navigate the same underlying data.\n\n• Govern and evolve the DDM design system in collaboration with engineering: component usage, token standards, interaction primitives, and the documentation that makes the system usable across teams.\n Prototype and validate\n\n• Build interactive prototypes to compress the time between concept and clinical feedback. Use whatever tooling compresses that cycle, (AI-assisted code, low-code scaffolding, or hand-crafted HTML) with the goal of getting something real in front of users quickly.\n\n• Run validation sessions with clinical users, oncologists, and pharma partners early and continuously. Treat user research as a design input, not a sign-off step.\n Partner with engineering, product, and cross-team stakeholders\n\n• Work alongside platform engineering as a peer. Translate between the language of design (workflows, mental models, jobs-to-be-done) and the language of engineering (APIs, data models, performance, security). The role succeeds when both teams move faster because of how well you operate at that boundary.\n\n• Collaborate with Product Owners and Product Managers across application teams — HemOnc, Solid Tumor & LBx, RID, Carepath, DataHub. PDI’s mandate is transversal: you do not sit within one team’s scope, you influence platform-level decisions across all of them. That requires earning trust with POs and PMs who have their own roadmaps and priorities, and shaping shared vision without direct authority.\n Grow towards team leadership\n\n• Build influence across engineering, product, data science, clinical stakeholders, and executive leadership. Raise the quality bar for design artifacts across teams. Develop readiness for team leadership: mentoring junior designers, shaping team process, and taking ownership of a design function.",
+        "fr": "Are you a senior designer who wants to shape how a complex clinical platform evolves across genomics, oncology, imaging, and real-world data? Join our Platform Design & Innovation team to own cross-cutting design problems across SOPHiA DDM™: a multimodal platform serving geneticists, pathologists, oncologists, bioinformaticians, and pharma researchers in one of the most consequential domains in healthcare.\n You'll design for expert users operating under clinical pressure, not for consumer simplicity, and your work will directly influence what gets built across variant interpretation, oncology decision support, radiomics, and research data access. This is a role where design changes outcomes, and where the complexity is the point.\n If you are a designer who earns trust with engineers and PMs from your credible technical background, moves fast from research to prototype to validation, and wants a clear path toward leading a design function — join the SOPHiA GENETICS Platform Design & Innovation team as our new Senior Platform Designer, and help us make a positive impact on the outcomes for cancer and rare disease patients worldwide. This is a senior individual contributor role with a clear path to team leadership.\n\nEnjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH or Bidart, FR corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As our Senior Platform Product Designer, you will combine genuine product design depth with rapid prototyping capability and the product judgment to drive design decisions from user research through to shipped features.\n The Platform Design & Innovation (PDI) is the team responsible for how DDM evolves as a platform: cross-cutting design patterns, the design system, high-value product initiatives, and the translation of complex clinical requirements into coherent product experiences across all application teams.\n This is not a role for someone whose strength is visual polish. It is a role for a designer who thinks in workflows and mental models, who holds product judgment conversations with engineering and PM, and who produces work that changes what gets built.\n The value you bring:\n Work at expert-user depth - across diverse user groups\n\n• Conduct research with users across the platform’s range: genomics experts operating at high information density (geneticists, pathologists, bioinformaticians), oncologists and clinicians using Carepath for treatment decision support, and pharma researchers accessing real-world data through DataHub. These are not the same user; designing well for each without fragmenting the platform is the hard problem.\n\n• Design for appropriate complexity, not for consumer simplicity. Expert users read variant tables and imaging reports under clinical pressure; pharma researchers need research-grade data access with audit controls; oncologists need actionable summaries without losing access to underlying evidence. Your designs must match the cognitive model of whoever is in front of the screen.\n\n• Balance clinical workflow fidelity with IVD regulatory constraints: traceability, audit trail, accessibility, and the interaction patterns that survive regulatory review.\n Own cross-platform design problems\n\n• Lead the design of major DDM platform workflows across the full product surface: variant triage and interpretation in the genomics platform, oncology decision-support workflows in Carepath, multimodal data views that combine genomic and imaging signals, and DataHub experiences for clinical and pharma research users.\n\n• Define and evolve the cross-surface interaction patterns that give the platform coherence: how data from different modalities is presented together, how classification decisions are recorded and traced, how clinical and research users with different expertise levels navigate the same underlying data.\n\n• Govern and evolve the DDM design system in collaboration with engineering: component usage, token standards, interaction primitives, and the documentation that makes the system usable across teams.\n Prototype and validate\n\n• Build interactive prototypes to compress the time between concept and clinical feedback. Use whatever tooling compresses that cycle, (AI-assisted code, low-code scaffolding, or hand-crafted HTML) with the goal of getting something real in front of users quickly.\n\n• Run validation sessions with clinical users, oncologists, and pharma partners early and continuously. Treat user research as a design input, not a sign-off step.\n Partner with engineering, product, and cross-team stakeholders\n\n• Work alongside platform engineering as a peer. Translate between the language of design (workflows, mental models, jobs-to-be-done) and the language of engineering (APIs, data models, performance, security). The role succeeds when both teams move faster because of how well you operate at that boundary.\n\n• Collaborate with Product Owners and Product Managers across application teams — HemOnc, Solid Tumor & LBx, RID, Carepath, DataHub. PDI’s mandate is transversal: you do not sit within one team’s scope, you influence platform-level decisions across all of them. That requires earning trust with POs and PMs who have their own roadmaps and priorities, and shaping shared vision without direct authority.\n Grow towards team leadership\n\n• Build influence across engineering, product, data science, clinical stakeholders, and executive leadership. Raise the quality bar for design artifacts across teams. Develop readiness for team leadership: mentoring junior designers, shaping team process, and taking ownership of a design function."
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
+      "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-12T10:21:43.616Z",
+      "addressLocality": "Rolle",
+      "addressRegion": "Vaud",
+      "streetAddress": "La Pièce 12",
+      "postalCode": "1180",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Health-Tech / Genomica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
+      "jobReqId": "8FED2C584F",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T10:21:43.616Z"
+    },
     {
       "id": "sophia-genetics-3058ea293ded",
       "slug": "senior-ngs-bioinformatician-sophia-genetics-rolle",
@@ -33,7 +100,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/E4102E5646/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:35.166Z",
+      "crawledAt": "2026-08-12T10:21:43.362Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -97,7 +164,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D92BC8459B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:35.065Z",
+      "crawledAt": "2026-08-12T10:21:43.225Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -133,6 +200,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:25:48.183Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -177,7 +245,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:34.743Z",
+      "crawledAt": "2026-08-12T10:21:42.922Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -242,7 +310,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:34.643Z",
+      "crawledAt": "2026-08-12T10:21:42.654Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -321,7 +389,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8E7597EE55/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:34.382Z",
+      "crawledAt": "2026-08-12T10:21:42.367Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -357,6 +425,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:15.168Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -401,7 +470,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0D9E533066/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:34.252Z",
+      "crawledAt": "2026-08-12T10:21:42.242Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -437,6 +506,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:54.577Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -481,7 +551,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:34.032Z",
+      "crawledAt": "2026-08-12T10:21:41.985Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -519,6 +589,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:10:52.959Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -563,7 +634,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/A5F8F7F93B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:33.740Z",
+      "crawledAt": "2026-08-12T10:21:41.559Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -628,7 +699,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:06:32.887Z",
+      "crawledAt": "2026-08-12T10:21:40.386Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -648,6 +719,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:46.924Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
