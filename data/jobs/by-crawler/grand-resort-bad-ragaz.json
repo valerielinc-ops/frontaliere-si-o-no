@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-resort-bad-ragaz",
-  "assembledAt": "2026-08-11T22:20:40.733Z",
+  "assembledAt": "2026-08-12T10:21:09.691Z",
   "jobs": [
     {
       "id": "grand-resort-bad-ragaz-8508666a48e2",
@@ -17,7 +17,7 @@
       "title": "Lehre als Informatiker/-in EFZ (w/m/i)",
       "titleByLocale": {
         "it": "Apprendistato come Informatiker/-in CFC (w/m/i)",
-        "en": "Teaching as a computer scientist/in EFZ (f/m/i)",
+        "en": "Lehre als Informatiker/-in EFZ (w/m/i)",
         "de": "Lehre als Informatiker/-in EFZ (w/m/i)",
         "fr": "Enseignement en tant qu ' informaticien/in EFZ (f/m/i)"
       },
@@ -34,7 +34,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-informatiker-in-efz-w-m-i/b7f5a5e3-3166-4f1b-b17a-1105fd42e620",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.508Z",
+      "crawledAt": "2026-08-12T10:21:05.542Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-informatiker-in-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "lehre-als-informatiker-in-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "apprendistato-come-informatiker-in-cfc-w-m-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-informatiker-in-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "lehre-als-informatiker-in-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+          "apprendistato-come-informatiker-in-cfc-w-m-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "lehre-als-informatiker-in-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -112,7 +114,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i/f87d101b-fa57-41fc-a2ce-8542adc50d6a",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.506Z",
+      "crawledAt": "2026-08-12T10:21:05.540Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -131,11 +133,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "apprendistato-come-hotel-kommunikationsfachfrau-mann-cfc-w-m-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+          "apprendistato-come-hotel-kommunikationsfachfrau-mann-cfc-w-m-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "lehre-als-hotel-kommunikationsfachfrau-mann-efz-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -145,84 +149,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:49:04.311Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "grand-resort-bad-ragaz-36477b7d0e47",
-      "slug": "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-golf-tamina-therme-grand-resort-bad-ragaz",
-      "slugByLocale": {
-        "it": "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-golf-tamina-therme-grand-resort-bad-ragaz",
-        "en": "apprenticeship-as-merchant-merchant-hgt-efz-m-f-i-golf-tamina-therme-grand-resort-bad-ragaz-bad-ragaz",
-        "de": "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz",
-        "fr": "apprentissage-en-tant-que-marchand-marchand-hgt-efz-m-f-i-golf-tamina-therme-grand-resort-bad-ragaz-bad-ragaz"
-      },
-      "company": "Grand Resort Bad Ragaz",
-      "companyKey": "grand-resort-bad-ragaz",
-      "companyDomain": "resortragaz.ch",
-      "title": "Lehre als Kauffrau / Kaufmann HGT EFZ (m/w/i) Golf & Tamina Therme",
-      "titleByLocale": {
-        "it": "Apprendistato come Kauffrau / Kaufmann HGT CFC (m/w/i) Golf & Tamina Therme",
-        "en": "Apprenticeship as merchant / merchant HGT EFZ (m/f/i) Golf & Tamina Therme",
-        "de": "Lehre als Kauffrau / Kaufmann HGT EFZ (m/w/i) Golf & Tamina Therme",
-        "fr": "Apprentissage en tant que marchand / marchand HGT EFZ (m/f/i) Golf & Tamina Therme"
-      },
-      "description": "Aufgaben:\n• Während der Lehre arbeitest du während der Sommersaison im Golf Sekretariat und in der Wintersaison im Marketing der Tamina Therme\n\n• Kommunizierst gerne täglich mit unseren Gästen, externen Partnern und Mitarbeitenden\n\n• Du arbeitest am Empfang oder im Büro\n\n• Du lernst, wie man Flyer gastaltet, eingehende Rechnungen bearbeitet und noch vieles mehr\n\nAnforderungen:\n• Hast du ein freundliches und sicheres Auftreten?\n\n• Bist du auch bereit, an Sonntagen zu arbeiten?\n\n• Bringst du Interesse an Golf mit oder wärst du offen, dich dafür zu begeistern?\n\n• Kannst du mit deinen Sprachkenntnissen überzeugen?\n\n• Sind gute Umgangsformen für dich selbstverständlich?\n\n• Bist du ein Organisationstalent?\n\n• Hast du Freude am Umgang mit Zahlen?\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Durante l'apprendistato lavorerai nel Segretariato del Golf durante la stagione estiva e nel marketing della Tamina Therme durante la stagione invernale\n• Comunicare con i nostri ospiti, partner esterni e dipendenti ogni giorno\n• Lavori alla reception o all'ufficio\n• Imparerai come volare ospiti, elaborare fatture in arrivo e molto altro ancora Requisiti\n• Hai un aspetto amichevole e sicuro?\n• Sei pronto a lavorare la domenica?\n• Sei interessato a golf o saresti aperto ad eccitarti?\n• Puoi convincere con le tue competenze linguistiche?\n• Le buone maniere sono certamente una questione per voi?\n• Sei un talento organizzativo?\n• Ti piace trattare con i numeri? Offriamo:\n• Serate e pergamene al Thermal Spa\n• Biglietti gratuiti Tamina Gorge\n• Prova il sonno dopo aver superato il periodo di prova\n• Fino al 50% di sconto nei ristoranti\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme Il Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni. Circa 800 dipendenti plasmano ogni giorno l'esperienza dei nostri ospiti. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
-        "en": "Tasks:\n• During the apprenticeship you will work in the Golf Secretariat during the summer season and in the marketing of the Tamina Therme during the winter season\n• Communicate with our guests, external partners and employees on a daily basis\n• You work at the reception or office\n• You will learn how to guest flyers, process incoming invoices and much more Requirements\n• Do you have a friendly and safe appearance?\n• Are you ready to work on Sundays?\n• Are you interested in golf or would you be open to getting excited about it?\n• Can you convince with your language skills?\n• Are good manners a matter of course for you?\n• Are you an organizational talent?\n• Do you enjoy dealing with numbers? We offer:\n• Taster evenings and perks at Thermal Spa\n• Free Tickets Tamina Gorge\n• Test sleep after passing the test period\n• Up to 50% discount in restaurants\n• Up to 50% discount in the Fitness Center and Tamina Therme The Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations. Around 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
-        "de": "Aufgaben:\n• Während der Lehre arbeitest du während der Sommersaison im Golf Sekretariat und in der Wintersaison im Marketing der Tamina Therme\n\n• Kommunizierst gerne täglich mit unseren Gästen, externen Partnern und Mitarbeitenden\n\n• Du arbeitest am Empfang oder im Büro\n\n• Du lernst, wie man Flyer gastaltet, eingehende Rechnungen bearbeitet und noch vieles mehr\n\nAnforderungen:\n• Hast du ein freundliches und sicheres Auftreten?\n\n• Bist du auch bereit, an Sonntagen zu arbeiten?\n\n• Bringst du Interesse an Golf mit oder wärst du offen, dich dafür zu begeistern?\n\n• Kannst du mit deinen Sprachkenntnissen überzeugen?\n\n• Sind gute Umgangsformen für dich selbstverständlich?\n\n• Bist du ein Organisationstalent?\n\n• Hast du Freude am Umgang mit Zahlen?\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
-        "fr": "Tâches :\n• Pendant l'apprentissage, vous travaillerez au Secrétariat du Golf pendant la saison estivale et dans la commercialisation de la Tamina Therme pendant la saison hivernale.\n• Communiquer quotidiennement avec nos clients, partenaires externes et employés\n• Vous travaillez à la réception ou au bureau\n• Vous apprendrez comment les prospectus invités, traiter les factures entrantes et beaucoup plus Exigences\n• Avez-vous une apparence amicale et sûre?\n• Êtes-vous prêt à travailler le dimanche ?\n• Êtes-vous intéressé par le golf ou seriez-vous ouvert à être excité à ce sujet?\n• Pouvez-vous convaincre avec vos compétences linguistiques?\n• Les bonnes manières sont-elles bien sûr une question pour vous ?\n• Êtes-vous un talent organisationnel ?\n• Vous aimez traiter avec les chiffres? Nous offrons:\n• Soirées taster et avantages au Thermal Spa\n• Billets gratuits Tamina Gorge\n• Sommeil d ' essai après avoir passé la période d ' essai\n• Jusqu'à 50% de réduction dans les restaurants\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme Le Grand Resort Bad Ragaz a ses origines dans l'eau thermale de guérison du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations. Environ 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
-      },
-      "needsRetranslation": true,
-      "location": "Bad Ragaz",
-      "canton": "SG",
-      "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-tamina-therme/6c485175-0ab6-42f6-a17f-b43ee4bf83e6",
-      "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.504Z",
-      "addressLocality": "Bad Ragaz",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7310",
-      "streetAddress": "Bernhard-Simonstrasse 20",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-tamina-therme/6c485175-0ab6-42f6-a17f-b43ee4bf83e6",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz"
-        ],
-        "en": [
-          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz"
-        ],
-        "fr": [
-          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:49:04.310Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -268,7 +194,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel/c874a005-39fe-4b08-856b-f607253f1685",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.502Z",
+      "crawledAt": "2026-08-12T10:21:05.539Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -287,17 +213,99 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel-grand-resort-bad-ragaz-bad-ragaz"
+        "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel-grand-resort-bad-ragaz-bad-ragaz",
+        "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-hotel-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel-grand-resort-bad-ragaz-bad-ragaz"
+          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel-grand-resort-bad-ragaz-bad-ragaz",
+          "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-hotel-grand-resort-bad-ragaz"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-hotel-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:49:04.310Z",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "grand-resort-bad-ragaz-36477b7d0e47",
+      "slug": "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-golf-tamina-therme-grand-resort-bad-ragaz",
+      "slugByLocale": {
+        "it": "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-golf-tamina-therme-grand-resort-bad-ragaz",
+        "en": "apprenticeship-as-merchant-merchant-hgt-efz-m-f-i-golf-tamina-therme-grand-resort-bad-ragaz-bad-ragaz",
+        "de": "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz",
+        "fr": "apprentissage-en-tant-que-marchand-marchand-hgt-efz-m-f-i-golf-tamina-therme-grand-resort-bad-ragaz-bad-ragaz"
+      },
+      "company": "Grand Resort Bad Ragaz",
+      "companyKey": "grand-resort-bad-ragaz",
+      "companyDomain": "resortragaz.ch",
+      "title": "Lehre als Kauffrau / Kaufmann HGT EFZ (m/w/i) Golf & Tamina Therme",
+      "titleByLocale": {
+        "it": "Apprendistato come Kauffrau / Kaufmann HGT CFC (m/w/i) Golf & Tamina Therme",
+        "en": "Apprenticeship as merchant / merchant HGT EFZ (m/f/i) Golf & Tamina Therme",
+        "de": "Lehre als Kauffrau / Kaufmann HGT EFZ (m/w/i) Golf & Tamina Therme",
+        "fr": "Apprentissage en tant que marchand / marchand HGT EFZ (m/f/i) Golf & Tamina Therme"
+      },
+      "description": "Aufgaben:\n• Während der Lehre arbeitest du während der Sommersaison im Golf Sekretariat und in der Wintersaison im Marketing der Tamina Therme\n\n• Kommunizierst gerne täglich mit unseren Gästen, externen Partnern und Mitarbeitenden\n\n• Du arbeitest am Empfang oder im Büro\n\n• Du lernst, wie man Flyer gastaltet, eingehende Rechnungen bearbeitet und noch vieles mehr\n\nAnforderungen:\n• Hast du ein freundliches und sicheres Auftreten?\n\n• Bist du auch bereit, an Sonntagen zu arbeiten?\n\n• Bringst du Interesse an Golf mit oder wärst du offen, dich dafür zu begeistern?\n\n• Kannst du mit deinen Sprachkenntnissen überzeugen?\n\n• Sind gute Umgangsformen für dich selbstverständlich?\n\n• Bist du ein Organisationstalent?\n\n• Hast du Freude am Umgang mit Zahlen?\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Durante l'apprendistato lavorerai nel Segretariato del Golf durante la stagione estiva e nel marketing della Tamina Therme durante la stagione invernale\n• Comunicare con i nostri ospiti, partner esterni e dipendenti ogni giorno\n• Lavori alla reception o all'ufficio\n• Imparerai come volare ospiti, elaborare fatture in arrivo e molto altro ancora Requisiti\n• Hai un aspetto amichevole e sicuro?\n• Sei pronto a lavorare la domenica?\n• Sei interessato a golf o saresti aperto ad eccitarti?\n• Puoi convincere con le tue competenze linguistiche?\n• Le buone maniere sono certamente una questione per voi?\n• Sei un talento organizzativo?\n• Ti piace trattare con i numeri? Offriamo:\n• Serate e pergamene al Thermal Spa\n• Biglietti gratuiti Tamina Gorge\n• Prova il sonno dopo aver superato il periodo di prova\n• Fino al 50% di sconto nei ristoranti\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme Il Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni. Circa 800 dipendenti plasmano ogni giorno l'esperienza dei nostri ospiti. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
+        "en": "Tasks:\n• During the apprenticeship you will work in the Golf Secretariat during the summer season and in the marketing of the Tamina Therme during the winter season\n• Communicate with our guests, external partners and employees on a daily basis\n• You work at the reception or office\n• You will learn how to guest flyers, process incoming invoices and much more Requirements\n• Do you have a friendly and safe appearance?\n• Are you ready to work on Sundays?\n• Are you interested in golf or would you be open to getting excited about it?\n• Can you convince with your language skills?\n• Are good manners a matter of course for you?\n• Are you an organizational talent?\n• Do you enjoy dealing with numbers? We offer:\n• Taster evenings and perks at Thermal Spa\n• Free Tickets Tamina Gorge\n• Test sleep after passing the test period\n• Up to 50% discount in restaurants\n• Up to 50% discount in the Fitness Center and Tamina Therme The Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations. Around 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
+        "de": "Aufgaben:\n• Während der Lehre arbeitest du während der Sommersaison im Golf Sekretariat und in der Wintersaison im Marketing der Tamina Therme\n\n• Kommunizierst gerne täglich mit unseren Gästen, externen Partnern und Mitarbeitenden\n\n• Du arbeitest am Empfang oder im Büro\n\n• Du lernst, wie man Flyer gastaltet, eingehende Rechnungen bearbeitet und noch vieles mehr\n\nAnforderungen:\n• Hast du ein freundliches und sicheres Auftreten?\n\n• Bist du auch bereit, an Sonntagen zu arbeiten?\n\n• Bringst du Interesse an Golf mit oder wärst du offen, dich dafür zu begeistern?\n\n• Kannst du mit deinen Sprachkenntnissen überzeugen?\n\n• Sind gute Umgangsformen für dich selbstverständlich?\n\n• Bist du ein Organisationstalent?\n\n• Hast du Freude am Umgang mit Zahlen?\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+        "fr": "Tâches :\n• Pendant l'apprentissage, vous travaillerez au Secrétariat du Golf pendant la saison estivale et dans la commercialisation de la Tamina Therme pendant la saison hivernale.\n• Communiquer quotidiennement avec nos clients, partenaires externes et employés\n• Vous travaillez à la réception ou au bureau\n• Vous apprendrez comment les prospectus invités, traiter les factures entrantes et beaucoup plus Exigences\n• Avez-vous une apparence amicale et sûre?\n• Êtes-vous prêt à travailler le dimanche ?\n• Êtes-vous intéressé par le golf ou seriez-vous ouvert à être excité à ce sujet?\n• Pouvez-vous convaincre avec vos compétences linguistiques?\n• Les bonnes manières sont-elles bien sûr une question pour vous ?\n• Êtes-vous un talent organisationnel ?\n• Vous aimez traiter avec les chiffres? Nous offrons:\n• Soirées taster et avantages au Thermal Spa\n• Billets gratuits Tamina Gorge\n• Sommeil d ' essai après avoir passé la période d ' essai\n• Jusqu'à 50% de réduction dans les restaurants\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme Le Grand Resort Bad Ragaz a ses origines dans l'eau thermale de guérison du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations. Environ 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
+      },
+      "needsRetranslation": true,
+      "location": "Bad Ragaz",
+      "canton": "SG",
+      "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-tamina-therme/6c485175-0ab6-42f6-a17f-b43ee4bf83e6",
+      "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T10:21:05.537Z",
+      "addressLocality": "Bad Ragaz",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7310",
+      "streetAddress": "Bernhard-Simonstrasse 20",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-tamina-therme/6c485175-0ab6-42f6-a17f-b43ee4bf83e6",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz",
+        "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-golf-tamina-therme-grand-resort-bad-ragaz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz",
+          "apprendistato-come-kauffrau-kaufmann-hgt-cfc-m-w-i-golf-tamina-therme-grand-resort-bad-ragaz"
+        ],
+        "en": [
+          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz"
+        ],
+        "fr": [
+          "lehre-als-kauffrau-kaufmann-hgt-efz-m-w-i-golf-amp-tamina-therme-grand-resort-bad-ragaz"
         ]
       },
       "firstSeenAt": "2026-07-04T10:49:04.310Z",
@@ -346,7 +354,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-koch-koechin-efz-m-w-i/9f27d947-d836-44a0-b032-6767663f7625",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.500Z",
+      "crawledAt": "2026-08-12T10:21:05.536Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -365,11 +373,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-koch-kochin-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "lehre-als-koch-kochin-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "apprendistato-come-koch-kochin-cfc-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-koch-kochin-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "lehre-als-koch-kochin-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "apprendistato-come-koch-kochin-cfc-m-w-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "lehre-als-koch-kochin-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -409,7 +419,7 @@
         "it": "Apprendistato come Restaurantfachfrau/-mann CFC (m/w/i)",
         "en": "Apprenticeship as a restaurant specialist EFZ (m/f/i)",
         "de": "Lehre als Restaurantfachfrau/-mann EFZ (m/w/i)",
-        "fr": "Apprentissage en tant que spécialiste des restaurants EFZ (m/f/i)"
+        "fr": "Lehre als Restaurantfachfrau/-mann EFZ (m/w/i)"
       },
       "description": "Aufgaben:\n• Du sorgst dafür, dass sich unsere Gäste von Anfang an wohlfühlen\n\n• Du begrüsst die Gäste herzlich und begleitest sie zu ihrem Tisch\n\n• Du kennst dich mit unseren Speisen und Getränken aus und hilfst den Gästen, das Passende zu finden\n Im zweiten Lehrjahr darfst du dich für eine Ergänzungskompetenz entscheiden:\n• Jung-Barista (Kaffee-Kreationen, Kaffee-Beratung)\n\n• Jung-Barkeeperin / Barkeeper (Cocktails mixen, Spirituosen)\n\n• Jung-Sommelière / Sommelier(vertiefte Weinkenntnisse)\n\n• Jung-Chef de rang (Flambieren, Tranchieren)\n\nAnforderungen:\n• Begegnest du dem Gast mit Einfühlungsvermögen?\n\n• Sind für dich gute Umgangsformen selbstverständlich?\n\n• Erfüllst du Kundenwünsche zuvorkommend und zuverlässig?\n\n• Bist du ein Kommunikationstalent?\n\n• Bleibst du auch in hektischen Zeiten ruhig und freundlich?\n\n• Du bist dir bewusst, dass in der Gastro auch abends und am Wochenende gearbeitet wird?\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
       "descriptionByLocale": {
@@ -424,7 +434,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-restaurantfachfrau-mann-efz-m-w-i/b0cc0197-1c18-44b2-881a-314a23a19c94",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.497Z",
+      "crawledAt": "2026-08-12T10:21:05.535Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -444,11 +454,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehre-als-restaurantfachfrau-mann-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "apprentissage-en-tant-que-specialiste-des-restaurants-efz-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+        "apprentissage-en-tant-que-specialiste-des-restaurants-efz-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "apprendistato-come-restaurantfachfrau-mann-cfc-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-restaurantfachfrau-mann-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "lehre-als-restaurantfachfrau-mann-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "apprendistato-come-restaurantfachfrau-mann-cfc-m-w-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "lehre-als-restaurantfachfrau-mann-efz-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -504,7 +516,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i/254fb6de-ba3e-4131-a86d-02218cb990fd",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.495Z",
+      "crawledAt": "2026-08-12T10:21:05.533Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -523,11 +535,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i-grand-resort-bad-ragaz-bad"
+        "lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i-grand-resort-bad-ragaz-bad",
+        "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i-grand-resort-bad-ragaz-bad"
+          "lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i-grand-resort-bad-ragaz-bad",
+          "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "lehre-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-i-grand-resort-bad-ragaz-bad"
@@ -567,7 +581,7 @@
         "it": "Ricordi da stagista in cucina al 100% (m/f/i)",
         "en": "Restaurant Memories 100% (m/f/i)",
         "de": "Küchenpraktikant Restaurant Memories 100% (m/w/i)",
-        "fr": "Souvenirs du restaurant 100% (m/f/i)"
+        "fr": "Küchenpraktikant Restaurant Memories 100% (m/w/i)"
       },
       "description": "Aufgaben:\n• Unterstützung des Küchenteams bei der täglichen Mise en Place\n\n• Mithilfe bei der Vorbereitung und Verarbeitung hochwertiger Produkte\n\n• Unterstützung bei einfachen Zubereitungen nach Vorgaben des Küchenteams\n\n• Einblick in die Abläufe eines Fine-Dining-Restaurants während Vorbereitung und Service\n\n• Sorgfältiges Arbeiten nach den internen Qualitäts-, Hygiene- und Sicherheitsstandards\n\n• Unterstützung bei der Ordnung, Sauberkeit und Organisation des eigenen Arbeitsbereichs\n\n• Mithilfe bei Warenkontrollen, Lagerarbeiten und einfachen administrativen Aufgaben in der Küche\n\n• Aktives Lernen im Arbeitsalltag und schrittweise Übernahme von Aufgaben entsprechend dem Ausbildungsstand\n\nAnforderungen:\n• Aktuelles Studium an einer vom LGAV anerkannten Hotelfachschule\n\n• Suche nach einem 6-monatigen Praktikum im Bereich Küche\n\n• Interesse an alpiner Küche, Fine Dining und hochwertigem Küchenhandwerk\n\n• Erste praktische Erfahrung in der Küche oder Gastronomie von Vorteil\n\n• Freude am Lernen und an einem präzisen, sauberen Arbeitsstil\n\n• Zuverlässige, motivierte und belastbare Persönlichkeit\n\n• Teamorientierte Haltung und Bereitschaft, sich aktiv in den Küchenalltag einzubringen\n\n• Gute Deutsch- oder Englischkenntnisse\n\n• Bereitschaft, in einem anspruchsvollen kulinarischen Umfeld Verantwortung im Rahmen des Praktikums zu übernehmen\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
       "descriptionByLocale": {
@@ -576,12 +590,13 @@
         "de": "Aufgaben:\n• Unterstützung des Küchenteams bei der täglichen Mise en Place\n\n• Mithilfe bei der Vorbereitung und Verarbeitung hochwertiger Produkte\n\n• Unterstützung bei einfachen Zubereitungen nach Vorgaben des Küchenteams\n\n• Einblick in die Abläufe eines Fine-Dining-Restaurants während Vorbereitung und Service\n\n• Sorgfältiges Arbeiten nach den internen Qualitäts-, Hygiene- und Sicherheitsstandards\n\n• Unterstützung bei der Ordnung, Sauberkeit und Organisation des eigenen Arbeitsbereichs\n\n• Mithilfe bei Warenkontrollen, Lagerarbeiten und einfachen administrativen Aufgaben in der Küche\n\n• Aktives Lernen im Arbeitsalltag und schrittweise Übernahme von Aufgaben entsprechend dem Ausbildungsstand\n\nAnforderungen:\n• Aktuelles Studium an einer vom LGAV anerkannten Hotelfachschule\n\n• Suche nach einem 6-monatigen Praktikum im Bereich Küche\n\n• Interesse an alpiner Küche, Fine Dining und hochwertigem Küchenhandwerk\n\n• Erste praktische Erfahrung in der Küche oder Gastronomie von Vorteil\n\n• Freude am Lernen und an einem präzisen, sauberen Arbeitsstil\n\n• Zuverlässige, motivierte und belastbare Persönlichkeit\n\n• Teamorientierte Haltung und Bereitschaft, sich aktiv in den Küchenalltag einzubringen\n\n• Gute Deutsch- oder Englischkenntnisse\n\n• Bereitschaft, in einem anspruchsvollen kulinarischen Umfeld Verantwortung im Rahmen des Praktikums zu übernehmen\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\n• Soutien de l'équipe de cuisine dans le quotidien Mise en Place\n• Assistance à la préparation et à la transformation de produits de haute qualité\n• Soutien aux préparations simples telles que spécifiées par l'équipe de cuisine\n• Regard sur les processus d'un restaurant gastronomique pendant la préparation et le service\n• Travail soigné selon les normes internes de qualité, d'hygiène et de sécurité\n• Soutien dans l'ordre, la propreté et l'organisation de votre propre domaine de travail\n• Assistance pour les contrôles physiques, les travaux d'entrepôt et les tâches administratives simples dans la cuisine\n• L'apprentissage actif dans le travail quotidien et la prise en charge progressive des tâches selon le niveau de formation Exigences\n• Études en cours dans une école hôtelière reconnue par le LGAV\n• Rechercher un stage de 6 mois dans la cuisine\n• Intérêt pour la cuisine alpine, la cuisine fine et l'artisanat de cuisine de haute qualité\n• Première expérience pratique dans la cuisine ou la gastronomie est bénéfique\n• Joy d'apprentissage et un style de travail précis et propre\n• Personnalité fiable, motivée et résistante\n• attitude d'équipe et volonté de participer activement à la vie quotidienne de la cuisine\n• Bonne connaissance de l'allemand ou de l'anglais\n• Volonté de prendre la responsabilité dans un environnement culinaire exigeant dans le cadre du stage Nous offrons:\n• Soirées taster et avantages au Thermal Spa\n• Billets gratuits Tamina Gorge\n• Sommeil d ' essai après avoir passé la période d ' essai\n• Jusqu'à 50% de réduction dans les restaurants\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme Le Grand Resort Bad Ragaz a ses origines dans l'eau thermale de guérison du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations. Environ 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/kuechenpraktikant-restaurant-memories-m-w-i/53a71bb5-1be4-4d42-85b7-b27cbd345a00",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.493Z",
+      "crawledAt": "2026-08-12T10:21:05.532Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -603,13 +618,15 @@
         "kuchenpraktikant-restaurant-memories-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "commissione-di-cucina-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "commis-de-cuisine-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "souvenirs-du-restaurant-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+        "souvenirs-du-restaurant-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "ricordi-da-stagista-in-cucina-al-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kuchenpraktikant-restaurant-memories-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
           "commissione-di-cucina-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
-          "commis-de-cuisine-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "commis-de-cuisine-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "ricordi-da-stagista-in-cucina-al-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "commis-de-cuisine-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
@@ -645,7 +662,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Chef de Partie Restaurant Memories 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Chef de Partie Restaurant Memories 100% (f/m/i)",
+        "it": "Chef de Partie Restaurant Memories 100% (w/m/i)",
         "en": "Chef de Partie Restaurant Memories 100% (f/m/i)",
         "de": "Chef de Partie Restaurant Memories 100% (w/m/i)",
         "fr": "Chef de Partie Restaurant Souvenirs 100% (f/m/i)"
@@ -663,7 +680,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-partie-restaurant-memories-w-m-i/8551e1da-7f61-4b52-87e1-b587165c3a74",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.491Z",
+      "crawledAt": "2026-08-12T10:21:05.530Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -718,7 +735,7 @@
       "title": "F&B Training Manager 100% (w/m/i)",
       "titleByLocale": {
         "it": "Responsabile Formazione F&B al 100% (f/m/i)",
-        "en": "F&B Training Manager 100% (f/m/i)",
+        "en": "F&B Training Manager 100% (w/m/i)",
         "de": "F&B Training Manager 100% (w/m/i)",
         "fr": "Gestionnaire de la formation F&B 100 % (f/m/i)"
       },
@@ -729,12 +746,13 @@
         "de": "Aufgaben:\nAls F&B Training Manager stellst du die nachhaltige Entwicklung unserer Mitarbeitenden sowie die Qualität im gesamten Food & Beverage Bereich sicher.\n• Durchführung von Coaching-on-the-Floor Sessions, Qualitätsbegleitungen und Service Checks in den einzelnen Restaurants\n\n• Verantwortung für die operative Trainingsstrategie im Food & Beverage Bereich in enger Abstimmung mit den operativen Führungskräften nach aktuellem Bedarf\n\n• Planung und Durchführung von Trainings, individuellen Entwicklungsplänen, sowie Onboarding von neuen Mitarbeitenden\n\n• Umsetzung und Einhaltung von Forbes-, LQA- und SDH-Standards unter Berücksichtigung interner Prozesse und ISO-Richtlinien\n\n• Erstellung und Auswertung monatlicher Trainingspläne sowie kontinuierliche Optimierung der Trainingsstruktur\n\n• Erstellung, Pflege und laufende Aktualisierung von SOPs, Arbeitsanweisungen, sowie Unterstützung bei unterschiedlichen Projekten\n\n• Im Rahmen der Neueröffnung unserer drei Restaurants im Dezember 2026 übernimmst du eine zentrale Rolle im strukturierten Onboarding neuer Mitarbeitender und stellst gemeinsam mit den operativen Führungskräften eine reibungslose Einarbeitung sowie die konsequente Umsetzung unserer Qualitäts- und Servicestandards von Beginn an sicher\n\nAnforderungen:\nDu verfügst über fundierte Erfahrung im Food & Beverage Bereich und bewegst dich sicher zwischen operativer Umsetzung, Mitarbeiterentwicklung und Qualitätsmanagement:\n• Mehrjährige Berufserfahrung im Food & Beverage Bereich, idealerweise in der gehobenen Hotellerie oder Gastronomie\n\n• Praktische Erfahrung in Training, Mitarbeiterentwicklung, Coaching oder Qualitätsmanagement von Vorteil\n\n• Strukturierte, selbständige und verantwortungsbewusste Arbeitsweise mit hoher Eigeninitiative\n\n• Freude daran, Mitarbeitende zu fördern, Servicequalität weiterzuentwickeln und operativ präsent zu sein\n\n• Gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches : En tant que gestionnaire de la formation F&B, vous veillez au développement durable de nos employés ainsi qu'à la qualité dans l'ensemble du secteur des aliments et boissons.\n• Organisation de séances de coaching à l'étage, d'accompagnements de qualité et de contrôles de service dans les différents restaurants\n• Responsabilité de la stratégie de formation opérationnelle dans le domaine des aliments et boissons en étroite coordination avec les gestionnaires opérationnels en fonction des besoins actuels\n• Planification et mise en oeuvre de la formation, des plans de perfectionnement individuel et de l'embarquement des nouveaux employés\n• Mise en œuvre et conformité aux normes Forbes, LQA et SDH, en tenant compte des processus internes et des directives ISO\n• Création et évaluation de plans de formation mensuels et optimisation continue de la structure de formation\n• Création, maintenance et mise à jour continue des SOP, instructions de travail et soutien à divers projets\n• Dans le cadre de la nouvelle ouverture de nos trois restaurants en décembre 2026, vous jouerez un rôle central dans l'intégration structurée des nouveaux employés et, avec les gestionnaires opérationnels, assurerez une formation en douceur et la mise en œuvre cohérente de nos normes de qualité et de service dès le départ. Exigences Vous avez une expérience approfondie dans le secteur des aliments et boissons et vous déplacez en toute sécurité entre la mise en oeuvre opérationnelle, le perfectionnement des employés et la gestion de la qualité :\n• Plusieurs années d'expérience professionnelle dans le secteur de l'alimentation et des boissons, idéalement dans l'hôtellerie ou la gastronomie haut de gamme\n• Une expérience pratique dans la formation, le perfectionnement des employés, le coaching ou la gestion de la qualité est bénéfique\n• Méthode de travail structurée, indépendante et responsable avec un haut niveau d'initiative\n• Profitez de la promotion des employés, du développement de la qualité du service et de la présence opérationnelle\n• Bonne connaissance de l'allemand et de l'anglais, autres langues bénéfiques Nous offrons:\n• Soirées taster et avantages au Thermal Spa\n• Billets gratuits Tamina Gorge\n• Sommeil d ' essai après avoir passé la période d ' essai\n• Jusqu'à 50% de réduction dans les restaurants\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme Le Grand Resort Bad Ragaz a ses origines dans l'eau thermale de guérison du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations. Environ 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-training-manager-w-m-i/431eeb9c-6923-4f6d-a824-aa295db06a1f",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.488Z",
+      "crawledAt": "2026-08-12T10:21:05.529Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -753,11 +771,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "responsabile-formazione-f-b-al-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+          "responsabile-formazione-f-b-al-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "f-amp-b-training-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -803,12 +823,13 @@
         "de": "Aufgaben:\n• Unterstützung im Service, an der Bar, im Housekeeping oder in der Reinigung\n\n• Gästebetreuung und Sicherstellung eines reibungslosen Ablaufs\n\n• Servieren von Speisen und Getränken\n\n• Mithilfe bei Reinigungsarbeiten\n\n• Einhaltung unserer Qualitäts- und Hygienestandards\n\n• Einsätze auf Abruf je nach Bedarf des Hotels\n\nAnforderungen:\n• Du bist flexibel, zuverlässig und arbeitest gerne im Team\n\n• Du hast Freude am Umgang mit Gästen\n\n• Erste Erfahrung in der Hotellerie/Gastronomie ist von Vorteil, aber kein Muss\n\n• Du packst gerne mit an und behältst auch in stressigen Situationen den Überblick\n\n• Deutsch- oder Englischkenntnisse, weitere Sprachen sind ein Plus\n\n• Bereitschaft für Einsätze auf Abruf (inkl. Wochenenden und Feiertage)\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\n• Soutien en service, au bar ou au nettoyage\n• Soutien aux invités et garantie d'un processus en douceur\n• Service de nourriture et de boissons\n• Aide au nettoyage\n• Respect de nos normes de qualité et d'hygiène\n• Affectations à la demande de l'hôtel Exigences\n• Vous êtes flexible, fiable et aimez travailler en équipe\n• Vous aimez traiter avec les invités\n• La première expérience en hospitalité/gastronomie est un avantage, mais pas un must\n• Vous aimez vous impliquer et garder un aperçu même dans des situations stressantes\n• Connaissance de l'allemand ou de l'anglais, d'autres langues sont un plus\n• Préparation aux affectations sur demande (y compris les week-ends et jours fériés) Le Grand Resort Bad Ragaz a ses origines dans l'eau thermale de guérison du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations. Environ 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-im-service-bar-housekeeping-m-w-d-stundenbasis/597f3589-5386-4724-8984-af548441730f",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.486Z",
+      "crawledAt": "2026-08-12T10:21:05.527Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -829,7 +850,8 @@
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-im-service-bar-amp-reinigung-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad-ragaz",
-          "aushilfe-im-service-bar-amp-housekeeping-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad"
+          "aushilfe-im-service-bar-amp-housekeeping-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad",
+          "assistente-nel-servizio-bar-e-pulizie-lunedi-venerdi-a-orario-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "en": [
           "aushilfe-im-service-bar-amp-reinigung-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad-ragaz"
@@ -838,12 +860,14 @@
           "aushilfe-im-service-bar-amp-reinigung-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "de": [
-          "aushilfe-im-service-bar-amp-housekeeping-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad"
+          "aushilfe-im-service-bar-amp-housekeeping-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad",
+          "aushilfe-im-service-bar-amp-reinigung-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad-ragaz"
         ]
       },
       "previousSlugs": [
         "aushilfe-im-service-bar-amp-reinigung-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad-ragaz",
-        "aushilfe-im-service-bar-amp-housekeeping-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad"
+        "aushilfe-im-service-bar-amp-housekeeping-m-w-d-stundenbasis-grand-resort-bad-ragaz-bad",
+        "assistente-nel-servizio-bar-e-pulizie-lunedi-venerdi-a-orario-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "firstSeenAt": "2026-07-04T10:49:04.297Z",
       "salaryMin": 57500,
@@ -873,7 +897,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Hair Stylist 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Stylist capelli 100% (f/m/i)",
+        "it": "Hair Stylist 100% (w/m/i)",
         "en": "Hair Stylist 100% (f/m/i)",
         "de": "Hair Stylist 100% (w/m/i)",
         "fr": "Styliste capillaire 100% (f/m/i)"
@@ -885,12 +909,13 @@
         "de": "Aufgaben:\nAls Hair-Stylistin stellst du die professionelle Durchführung der Dienstleistungen unter Berücksichtigung der individuellen Gästewünsche sicher. Dazu gehören ebenfalls\n• Betreuung von Stamm- und Laufkundschaft (Hotel-Gäste) entlang des gesamten Serviceprozesses; von der Beratung bis zur Umsetzung in den Bereichen Cut, Color und Styling\n\n• Beratung und Verkauf exklusiver Haarpflege- und Stylingprodukte\n\n• Sorgfältige Kassenführung und -abrechnung im Tagesgeschäft\n\n• Unterstützung im Empfangsbereich sowie Organisation und Pflege der Terminplanung\n\n• Souveräner und lösungsorientierter Umgang mit anspruchsvollen Gästerückmeldungen\n\nAnforderungen:\nDu verfügst über eine abgeschlossene Ausbildung als Coiffeuse / Coiffeur EFZ und bringst mehrjährige Berufserfahrung in einem anspruchsvollen, idealerweise luxuriösen Salonumfeld mit. Zusätzlich bringst du mit\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse, weitere Sprachen sind von Vorteil\n\n• Sicherer Umgang mit gängigen PC-Anwendungen und Reservierungssystemen\n\n• Ausgeprägte Leidenschaft für hochwertige Produkte, exzellentes Styling und ein feines Gespür für Ästhetik und Trends\n\n• Selbstständige, strukturierte und organisierte Arbeitsweise mit hohem Qualitätsanspruch\n\n• Respektvoller und diskreter Umgang mit Gästen sowie eine lösungsorientierte Haltung\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\nEn tant que coiffeur, vous assurez la mise en œuvre professionnelle des services en tenant compte des souhaits individuels des clients. Cela comprend également:\n• Soutien des clients réguliers et réguliers (invités d'hôtel) tout au long du processus de service; de la consultation à la mise en œuvre dans les domaines de la coupe, de la couleur et du style\n\n• Conseil et vente de produits exclusifs de soins capillaires et de coiffage\n\n• Gestion prudente de la trésorerie et règlement dans les affaires quotidiennes\n\n• Appui à la réception et organisation et entretien des horaires\n\n• Gestion souveraine et axée sur la solution des commentaires des clients exigeants\n\nExigences\nVous avez terminé votre formation en tant que Coiffeuse / Coiffeur EFZ et apportez plusieurs années d'expérience professionnelle dans un environnement de salon exigeant et idéalement luxueux. En outre, vous apportez avec vous\n• Très bonne connaissance de l'allemand ainsi que bonne connaissance de l'anglais, d'autres langues sont avantageuses\n\n• Gestion sûre des applications PC communes et des systèmes de réservation\n\n• Une forte passion pour les produits de haute qualité, un excellent style et un sens aigu de l'esthétique et des tendances\n\n• Méthodes de travail indépendantes, structurées et organisées avec des normes de qualité élevées\n\n• Traitement respectueux et discret des clients ainsi qu'une attitude orientée vers la solution\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/hair-stylist-w-m-i/e9a1c1e1-86e5-41b3-a3a6-aec0946c17b9",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.483Z",
+      "crawledAt": "2026-08-12T10:21:05.526Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -954,7 +979,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/mitarbeiter-gaesteservice-verkauf-m-w-i/af885492-6396-4e7e-b9c6-b87d47465f71",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.481Z",
+      "crawledAt": "2026-08-12T10:21:05.525Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -982,7 +1007,8 @@
         "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
         "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+        "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -995,7 +1021,8 @@
           "salarie-mauvais-sauna-80-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
           "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz",
           "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-          "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+          "employes-des-services-d-etage-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+          "collaboratore-trice-gasteservice-vendita-40-80-m-w-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "mitarbeiter-gasteservice-amp-verkauf-40-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1037,7 +1064,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Aushilfe Réception Spa Services 30-50% (w/m/i)",
       "titleByLocale": {
-        "it": "Servizi di accoglienza Spa 30-50% (f/m/i)",
+        "it": "Aushilfe Réception Spa Services 30-50% (w/m/i)",
         "en": "Reception Spa Services 30-50% (f/m/i)",
         "de": "Aushilfe Réception Spa Services 30-50% (w/m/i)",
         "fr": "Services de spa d'accueil 30-50% (f/m/i)"
@@ -1049,12 +1076,13 @@
         "de": "Aufgaben:\n• Kundenberatung und Verkauf von Behandlungen in Deutsch und Englisch\n\n• Termindisposition und Koordination mit anderen Bereichen\n\n• Up-, Cross-, More-Selling\n\n• Gästebetreuung\n\n• Kundenfreundliche und effiziente Gestaltung sowie Abwicklung administrativer Tätigkeiten wie z.B. die Verwaltung der Adress- und Kundendatei\n\n• Bedienung der Telefonanlage\n\n• Betreuung der Spa Lounge (Getränke-Service, Tee-Service, Ordnung halten)\n\nAnforderungen:\n• Erfahrung am Empfang sowie im direkten Kundenkontakt, Erfahrung in der gehobenen Hotellerie von Vorteil\n\n• Hohe Dienstleistungsqualität und hohes Qualitätsbewusstsein\n\n• Fliessende Deutsch- sowie gute Englischkenntnisse (weitere Sprachen von Vorteil)\n\n• Gepflegtes, seriöses Auftreten sowie einwandfreie Umgangsformen\n\n• Erfahrung mit den gängigen Office-Applikationen\n\n• Bereitschaft für Wochenenddienste\n\n• Freude im Umgang mit internationaler Kundschaft, diskrete und charmante Persönlichkeit\n\n• Teamfähigkeit, Verkaufs- und Organisationstalent sowie Belastbarkeit\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\n• Conseils clients et ventes de traitements en allemand et en anglais\n\n• Calendrier et coordination avec d'autres domaines\n\n• Haut, croisé, plus vendu\n\n• Services de soins aux clients\n\n• Conception et gestion efficaces et conviviales des activités administratives telles que la gestion de l'adresse et du dossier client\n\n• Fonctionnement du système téléphonique\n\n• Soins du Spa Lounge (service de boissons, service de thé, garde de commande)\n\nExigences\n• Expérience à la réception ainsi qu'en contact direct avec le client, expérience dans l'hôtellerie haut de gamme est avantageux\n\n• Service de haute qualité et sensibilisation de haute qualité\n\n• L'allemand et de bonnes compétences en anglais (d'autres langues sont bénéfiques)\n\n• De bonnes manières et respectables\n\n• Expérience des applications communes de bureau\n\n• Préparation aux services du week-end\n\n• La joie de traiter avec des clients internationaux, une personnalité discrète et charmante\n\n• Travail d'équipe, ventes et talent organisationnel et résilience\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nGrand Resort Bad Ragaz est synonyme de qualité, d'excellent service et a reçu six étoiles Michelin, une étoile Michelin verte et 76 points GaultMillau. La combinaison unique d'hôtels de luxe, de gastronomie, de spa, de santé, d'affaires, d'événements et de golf rend le Grand Resort unique.\n\nNos 800 employés aspirent à l'excellence grâce à nos valeurs de responsabilité personnelle, de pleine conscience et d'innovation. Devenez membre de l'équipe et de la culture ? Alors, profitez absolument de l'occasion de grandir avec nous en Europe."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-reception-spa-services-w-m-i/4b555b1e-5290-4c03-869b-d890e19769a6",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.479Z",
+      "crawledAt": "2026-08-12T10:21:05.523Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1073,11 +1101,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-reception-spa-services-30-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "aushilfe-reception-spa-services-30-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "servizi-di-accoglienza-spa-30-50-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-reception-spa-services-30-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "aushilfe-reception-spa-services-30-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+          "servizi-di-accoglienza-spa-30-50-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "aushilfe-reception-spa-services-30-50-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1111,7 +1141,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Chef de Partie Restaurant verve by sven 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Chef de Partie Ristorante verve by sven 100% (f/m/i)",
+        "it": "Chef de Partie Restaurant verve by sven 100% (w/m/i)",
         "en": "Chef de Partie Restaurant verve by sven 100% (f/m/i)",
         "de": "Chef de Partie Restaurant verve by sven 100% (w/m/i)",
         "fr": "Chef de Partie Restaurant verve par sven 100% (f/m/i)"
@@ -1129,7 +1159,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-partie-restaurant-verve-by-sven-w-m-i/d735025c-7875-427a-b786-302964ea4191",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.474Z",
+      "crawledAt": "2026-08-12T10:21:05.522Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1175,7 +1205,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Demi Chef de Partie verve by sven 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Demi Chef de Partie verve by sven 100% (f/m/i)",
+        "it": "Demi Chef de Partie verve by sven 100% (w/m/i)",
         "en": "Demi Chef de Partie verve by sven 100% (f/m/i)",
         "de": "Demi Chef de Partie verve by sven 100% (w/m/i)",
         "fr": "Demi Chef de Partie verve par sven 100% (f/m/i)"
@@ -1193,7 +1223,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/demi-chef-de-partie-verve-by-sven-w-m-i/98604d82-0769-483f-93da-f63c57435f9f",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.471Z",
+      "crawledAt": "2026-08-12T10:21:05.521Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1240,7 +1270,7 @@
       "title": "Betriebselektriker / Gebäudetechniker 100% (w/m/i)",
       "titleByLocale": {
         "it": "Elettricista / tecnico edile 100% (f/m/i)",
-        "en": "Company electrician / building technician 100% (f/m/i)",
+        "en": "Betriebselektriker / Gebäudetechniker 100% (w/m/i)",
         "de": "Betriebselektriker / Gebäudetechniker 100% (w/m/i)",
         "fr": "Entreprise électricienne / technicien en bâtiment 100% (f/m/i)"
       },
@@ -1251,12 +1281,13 @@
         "de": "Aufgaben:\nDu trägst dazu bei, dass unser Resort technisch auf höchstem Niveau funktioniert und unsere Gäste einwandfreie Qualität erleben.\n• Sicherst den Betrieb aller technischen Anlagen in einem komplexen, abwechslungsreichen Umfeld\n\n• Führst Instandhaltungen und Instandsetzungen an sämtlichen betriebstechnischen Anlagen und Geräten im gesamten Resort durch\n\n• Findest eigenständig Lösungen bei besonderen Anfragen und Problemstellungen – intern oder in Zusammenarbeit mit externen Partnern\n\nAnforderungen:\nFür diese Rolle zählt neben deinem Fachwissen auch die Bereitschaft, Verantwortung zu übernehmen und mit Engagement zu handeln.\n• Bringst eine abgeschlossene Grundausbildung EFZ im Bereich Elektro, Sanitär, Gebäudetechnik oder vergleichbar mit\n\n• Verfügst über IT-Affinität und sehr gute Kenntnisse in MS Office\n\n• Zeigst dich belastbar, flexibel, zuverlässig und lösungsorientiert\n\n• Bist bereit für unregelmässige Arbeitszeiten (Pikettdienst)\n\n• Arbeitest selbständig, übernimmst Verantwortung und bringst Leistungsbereitschaft mit\n\n• Gehst dienstleistungsorientiert auf verschiedene Anspruchsgruppen ein\n\n• Besitzt einen Führerausweis Kat. B\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\nVous vous assurerez que notre station fonctionne au plus haut niveau technique et que nos clients bénéficient d'une qualité impeccable.\n• Assurer le fonctionnement de toutes les installations techniques dans un environnement complexe et varié\n\n• Effectue l'entretien et les réparations de tout l'équipement opérationnel dans tout le complexe\n\n• Trouver des solutions aux demandes et aux problèmes particuliers – en interne ou en coopération avec des partenaires extérieurs\n\nExigences\nEn plus de votre expertise, ce rôle comprend également une volonté de prendre des responsabilités et d'agir avec engagement.\n• Apporter une formation de base complète EFZ dans le domaine de la technologie électrique, sanitaire, du bâtiment ou comparable avec\n\n• A affinité informatique et très bonne connaissance dans MS Office\n\n• Montrez-vous résilient, flexible, fiable et orienté vers la solution\n\n• Prêt pour des heures de travail irrégulières (service de picquet)\n\n• Travaillez en toute indépendance, prenez vos responsabilités et faites preuve de la volonté nécessaire\n\n• Approche axée sur les services pour les différentes parties prenantes\n\n• Titulaire d'un permis de conduire Cat. B\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242, ce lieu est synonyme de régénération, de nouvelle énergie et de qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/betriebselektriker-gebaeudetechniker-w-m-i/e330814a-9f49-49af-b48a-54f0b402dc64",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.468Z",
+      "crawledAt": "2026-08-12T10:21:05.519Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1275,11 +1306,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "elettricista-tecnico-edile-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+          "elettricista-tecnico-edile-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "en": [
           "betriebselektriker-gebaudetechniker-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1316,7 +1349,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Assistant Executive Housekeeper 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Assistant Executive Housekeeper 100% (f/m/i)",
+        "it": "Assistant Executive Housekeeper 100% (w/m/i)",
         "en": "Assistant Executive Housekeeper 100% (f/m/i)",
         "de": "Assistent Executive Housekeeper 100% (w/m/i)",
         "fr": "Chef de ménage adjoint 100% (f/m/i)"
@@ -1328,12 +1361,13 @@
         "de": "Aufgaben:\nAls Assistant Executive Housekeeper unterstützt du die professionelle Führung des gesamten Housekeepings und stellst gemeinsam mit dem Director of Housekeeping einen reibungslosen Tagesablauf auf höchstem Niveau sicher, dazu gehören ebenfalls\n• Unterstütze den Director of Housekeeping im täglichen Betrieb und übernimm bei Abwesenheit die Stellvertretung\n\n• Organisiere und überwache sämtliche Reinigungsarbeiten in den Gästezimmern und öffentlichen Bereichen\n\n• Führe die Floor Supervisor im Tagesgeschäft und stelle die konsequente Einhaltung unserer Qualitätsstandards nach LQA, SDA und den internen ISO-Richtlinien sicher\n\n• Plane und führe abteilungsrelevante Trainings durch, begleite die Umsetzung der Inhalte und übernimm die Einarbeitung neuer Mitarbeitender sowie die Betreuung der Lernenden\n\n• Erstelle Dienst- und Ferienpläne, kontrolliere die Zeiterfassung in Eurotime und plane den Personaleinsatz entsprechend der Belegung und der anfallenden Kosten\n\n• Koordiniere Bestellungen, pflege Prozesse und Dokumente in Consens, nutze Knowcross als Poweruser und stelle die reibungslose Zusammenarbeit mit den angrenzenden Bereichen sowie den Abendservice sicher\n\nAnforderungen:\nEine Ausbildung im Hotelfach hast du abgeschlossen und bringst Erfahrung in einer führenden Position im Housekeeping der 4- oder 5-Sterne-Hotellerie mit. Zusätzlich bringst du mit\n• Eine Weiterbildung als Leiterin oder Leiter Housekeeping mit eidgenössischem Fachausweis ist von Vorteil\n\n• Mehrjährige Führungserfahrung als Etagengouvernante oder in einer vergleichbaren Position in der gehobenen Hotellerie\n\n• Fundierte Kenntnisse der operativen Housekeeping-Abläufe sowie Sicherheit im Umgang mit Word, Excel und Outlook\n\n• Eine strukturierte, selbstständige und verantwortungsbewusste Arbeitsweise sowie einen ausgeprägten Blick für Details\n\n• Ein hohes Qualitätsbewusstsein, Eigeninitiative, Durchsetzungsvermögen, Teamfähigkeit und Flexibilität\n\n• Sehr gute Deutsch- und Englischkenntnisse für die Zusammenarbeit in einem internationalen Umfeld sowie idealerweise weitere Fremdsprachen\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\nEn tant qu'adjoint à la haute direction, vous soutenez la gestion professionnelle de l'ensemble de l'entretien ménager et, en collaboration avec le directeur de l'entretien ménager, vous assurez une routine quotidienne harmonieuse au plus haut niveau.\n• Soutenir le directeur du ménage dans les opérations quotidiennes et prendre en charge le député en absence\n\n• Organiser et surveiller tous les nettoyages dans les chambres et les espaces publics\n\n• Diriger les superviseurs de plancher dans les activités quotidiennes et assurer la conformité à nos normes de qualité selon LQA, SDA et les lignes directrices internes ISO\n\n• Planifier et exécuter une formation adaptée au département, accompagner la mise en œuvre du contenu et reprendre la formation des nouveaux employés ainsi que le soutien des apprenants\n\n• Créer des plans de service et de vacances, vérifier le temps d'enregistrement en Eurotime et planifier le personnel en fonction de l'occupation et des coûts encourus\n\n• Coordonner les commandes, maintenir les processus et les documents en consensus, utiliser le knowcross comme un utilisateur de puissance et assurer une coopération harmonieuse avec les zones adjacentes ainsi qu'un service en soirée\n\nExigences\nVous avez suivi un apprentissage dans le secteur hôtelier et vous avez acquis une expérience de premier plan dans l'entretien ménager de l'industrie hôtelière 4 ou 5 étoiles. En outre, vous apportez avec vous\n• Une formation complémentaire en tant que directeur ou chef de ménage avec un certificat suisse est avantageuse\n\n• Plusieurs années d'expérience en gestion en tant que gouvernante de plancher ou dans une position comparable dans l'industrie hôtelière haut de gamme\n\n• Bonne connaissance des processus de gestion des opérations ainsi que de la sécurité dans le traitement de Word, Excel et Outlook\n\n• Une façon structurée, indépendante et responsable de travailler ainsi qu'un œil attentif pour les détails\n\n• Sensibilisation, initiative, assurance, travail d'équipe et flexibilité de haute qualité\n\n• Très bonne connaissance de l'allemand et de l'anglais pour la coopération dans un environnement international et idéalement d'autres langues étrangères\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/assistant-executive-housekeeper-w-m-i/9f506fc6-1b6d-4d37-8590-b28dc2065c0e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.466Z",
+      "crawledAt": "2026-08-12T10:21:05.518Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1379,7 +1413,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Public Area Cleaner 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Pulitore di area pubblica 100% (f/m/i)",
+        "it": "Public Area Cleaner 100% (w/m/i)",
         "en": "Public Area Cleaner 100% (f/m/i)",
         "de": "Public Area Cleaner 100% (w/m/i)",
         "fr": "Nettoyeur des aires publiques 100 % (f/m/i)"
@@ -1391,12 +1425,13 @@
         "de": "Aufgaben:\n• Reinigung der öffentlichen Bereiche im Innen- und Aussenbereich\n\n• Reinigung von Fenstern, Leuchten, Böden und Oberflächen\n\n• Auffüllen von Verbrauchsmaterialien wie Seife, Papier und Hygieneartikeln\n\n• Ordnungsgemässer Umgang mit Reinigungsmitteln und Geräten\n\n• Mithilfe bei der Reinigung der Gästezimmer bei Bedarf\n\nAnforderungen:\n• Erfahrung in einer ähnlichen Position, idealerweise in der 4 oder 5* Hotellerie\n\n• Gute mündliche Deutschkenntnisse\n\n• Englischkenntnisse und weitere Fremdsprachen von Vorteil\n\n• Körperlich fit und belastbar\n\n• Teamfähigkeit und Flexibilität (Wochenenddienste)\n\n• Idealerweise wohnst du in der Region\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\n• Nettoyage des espaces publics intérieurs et extérieurs\n\n• Services de nettoyage de fenêtres, d'éclairage, de sol et de surface\n\n• Remplir des articles consommables comme le savon, le papier et les articles sanitaires\n\n• Manipulation adéquate des produits et équipements de nettoyage\n\n• Assistance pour le nettoyage des chambres si nécessaire\n\nExigences\n• Expérience dans une position similaire, idéalement dans l'industrie hôtelière 4 ou 5*\n\n• Bonnes compétences orales en allemand\n\n• Les compétences en anglais et autres langues étrangères sont bénéfiques\n\n• En forme physique et résilient\n\n• Travail d'équipe et flexibilité (services de fin de semaine)\n\n• Idéalement vous vivez dans la région\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/public-area-cleaner-w-m-i/9b356590-b021-473f-b246-098af06bba73",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.462Z",
+      "crawledAt": "2026-08-12T10:21:05.515Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1415,98 +1450,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "pulitore-di-area-pubblica-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+          "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+          "pulitore-di-area-pubblica-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "public-area-cleaner-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
         ]
       },
       "firstSeenAt": "2026-07-30T11:20:12.769Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "grand-resort-bad-ragaz-040aeb4870c7",
-      "slug": "bellman-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-      "slugByLocale": {
-        "it": "bellman-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "bellman-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "de": "bellman-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "bellman-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
-      },
-      "company": "Grand Resort Bad Ragaz",
-      "companyKey": "grand-resort-bad-ragaz",
-      "companyDomain": "resortragaz.ch",
-      "title": "Bellman 100% (w/m/i)",
-      "titleByLocale": {
-        "it": "Bellman 100% (f/m/i)",
-        "en": "Bellman 100% (f/m/i)",
-        "de": "Bellman 100% (w/m/i)",
-        "fr": "Bellman 100% (f/m/i)"
-      },
-      "description": "Aufgaben:\nIn dieser Funktion stellst du einen persönlichen, zuverlässigen und gepflegten Empfang unserer Gäste sicher, dazu gehören ebenfalls:\n• Gäste vor dem Hotel begrüsst und verabschiedest du herzlich, aufmerksam und professionell\n\n• Gepäck begleitest du bei An- und Abreise sorgfältig, zuverlässig und mit einem hohen Serviceverständnis\n\n• Gästefahrzeuge parkierst du sicher und verantwortungsbewusst\n\n• Den Eingangs- und Lobbybereich kontrollierst du regelmässig auf Sauberkeit, Sicherheit und Ordnung\n\n• Botengänge in der Umgebung erledigst du effizient und vorausschauend\n\n• Gästetransporte in der näheren Umgebung führst du freundlich, sicher und serviceorientiert durch\n\nAnforderungen:\nDu hast eine dienstleistungsorientierte Ausbildung oder praktische Erfahrung in der Hotellerie und bringst Erfahrung in einer ähnlichen Position mit. Zusätzlich bringst du mit:\n• Berufserfahrung in einer vergleichbaren Funktion bildet eine gute Grundlage für diese Aufgabe\n\n• Ein gültiger Führerschein gehört zwingend zu deinem Profil\n\n• Sicheres Auftreten im direkten Gästekontakt sowie ein gutes Verständnis für Abläufe in der Luxushotellerie zeichnen dich aus\n\n• Flexibilität, Zuverlässigkeit und die Bereitschaft zu Wochenenddiensten passen zu deiner Arbeitsweise\n\n• Eine charmante, herzliche und aufgestellte Persönlichkeit sowie Freude am Umgang mit internationaler Kundschaft bringst du mit\n\n• Gute Deutsch- und Englischkenntnisse sind für diese Funktion zwingend erforderlich\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
-      "descriptionByLocale": {
-        "it": "Compiti:\nIn questa funzione, si garantisce una reception personale, affidabile e ben tenuta dei nostri ospiti, che comprende anche:\n• Gli ospiti di fronte all'hotel accolgono e salutano calorosamente, attentamente e professionalmente\n\n• Si accompagnano i bagagli durante l'arrivo e la partenza con attenzione, in modo affidabile e con un alto livello di comprensione del servizio.\n\n• Veicoli ospiti parcheggiare in modo sicuro e responsabile\n\n• L'ingresso e la lobby si controlla regolarmente per pulizia, sicurezza e ordine\n\n• Incoraggiamento nella zona è possibile fare in modo efficiente e prevedibile\n\n• Il trasporto degli ospiti nelle immediate vicinanze è amichevole, sicuro e orientato al servizio\n\nRequisiti\nHai una formazione orientata al servizio o un'esperienza pratica nel settore dell'ospitalità e portare esperienza in una posizione simile. Inoltre, si porta con voi:\n• L'esperienza professionale in una funzione comparabile costituisce una buona base per questo compito\n\n• Una patente valida è obbligatoria per il tuo profilo\n\n• L'aspetto sicuro in contatto diretto con gli ospiti e una buona comprensione dei processi nel settore alberghiero di lusso ti distinguono\n\n• Flessibilità, affidabilità e disponibilità per i servizi del fine settimana si adattano al tuo modo di lavorare\n\n• Una personalità affascinante, calda e robusta, così come la gioia di trattare con i clienti internazionali che portate con voi\n\n• Buone competenze in tedesco e inglese sono obbligatori per questa funzione\n\nOffriamo:\n• Serate e pergamene al Thermal Spa\n\n• Biglietti gratis Tamina Gorge\n\n• Prova il sonno dopo aver superato il periodo di prova\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme\n\nIl Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni.\n\nCirca 800 dipendenti plasmano l'esperienza dei nostri ospiti ogni giorno. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
-        "en": "Tasks:\nIn this function, you ensure a personal, reliable and well-kept reception of our guests, which also includes:\n• Guests in front of the hotel welcome and say goodbye warmly, attentively and professionally\n\n• You accompany your luggage during arrival and departure carefully, reliably and with a high level of understanding of service.\n\n• Guest vehicles you park safely and responsibly\n\n• The entrance and lobby area you check regularly for cleanliness, safety and order\n\n• Encouragement in the area you can do efficiently and predictively\n\n• Guest transport in the immediate vicinity is friendly, safe and service-oriented\n\nRequirements\nYou have a service-oriented education or practical experience in the hospitality industry and bring experience in a similar position. In addition, you bring with you:\n• Professional experience in a comparable function forms a good basis for this task\n\n• A valid driver’s license is mandatory for your profile\n\n• Secure appearance in direct contact with guests as well as a good understanding of processes in the luxury hotel industry distinguish you\n\n• Flexibility, reliability and readiness for weekend services fit your way of working\n\n• A charming, warm and upstanding personality as well as the joy of dealing with international customers you bring with you\n\n• Good German and English skills are mandatory for this function\n\nWe offer:\n• Taster evenings and perks at Thermal Spa\n\n• Free Tickets Tamina Gorge\n\n• Test sleep after passing the test period\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the Fitness Center and Tamina Therme\n\nThe Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations.\n\nAround 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
-        "de": "Aufgaben:\nIn dieser Funktion stellst du einen persönlichen, zuverlässigen und gepflegten Empfang unserer Gäste sicher, dazu gehören ebenfalls:\n• Gäste vor dem Hotel begrüsst und verabschiedest du herzlich, aufmerksam und professionell\n\n• Gepäck begleitest du bei An- und Abreise sorgfältig, zuverlässig und mit einem hohen Serviceverständnis\n\n• Gästefahrzeuge parkierst du sicher und verantwortungsbewusst\n\n• Den Eingangs- und Lobbybereich kontrollierst du regelmässig auf Sauberkeit, Sicherheit und Ordnung\n\n• Botengänge in der Umgebung erledigst du effizient und vorausschauend\n\n• Gästetransporte in der näheren Umgebung führst du freundlich, sicher und serviceorientiert durch\n\nAnforderungen:\nDu hast eine dienstleistungsorientierte Ausbildung oder praktische Erfahrung in der Hotellerie und bringst Erfahrung in einer ähnlichen Position mit. Zusätzlich bringst du mit:\n• Berufserfahrung in einer vergleichbaren Funktion bildet eine gute Grundlage für diese Aufgabe\n\n• Ein gültiger Führerschein gehört zwingend zu deinem Profil\n\n• Sicheres Auftreten im direkten Gästekontakt sowie ein gutes Verständnis für Abläufe in der Luxushotellerie zeichnen dich aus\n\n• Flexibilität, Zuverlässigkeit und die Bereitschaft zu Wochenenddiensten passen zu deiner Arbeitsweise\n\n• Eine charmante, herzliche und aufgestellte Persönlichkeit sowie Freude am Umgang mit internationaler Kundschaft bringst du mit\n\n• Gute Deutsch- und Englischkenntnisse sind für diese Funktion zwingend erforderlich\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
-        "fr": "Tâches :\nDans cette fonction, vous assurez une réception personnelle, fiable et bien entretenue de nos invités, qui comprend également:\n• Les clients devant l'accueil de l'hôtel et dire au revoir chaleureusement, attentivement et professionnellement\n\n• Vous accompagnez vos bagages pendant l'arrivée et le départ avec soin, fiabilité et un haut niveau de compréhension du service.\n\n• Véhicules invités que vous garez de manière sûre et responsable\n\n• L'entrée et le hall que vous vérifiez régulièrement pour la propreté, la sécurité et la commande\n\n• Encouragement dans le domaine que vous pouvez faire efficacement et prédictivement\n\n• Le transport des clients dans les environs immédiats est amical, sûr et axé sur le service\n\nExigences\nVous avez une éducation axée sur le service ou une expérience pratique dans l'industrie de l'hôtellerie et apportez de l'expérience dans une position similaire. En outre, vous apportez avec vous:\n• L'expérience professionnelle dans une fonction comparable constitue une bonne base pour cette tâche\n\n• Un permis de conduire valide est obligatoire pour votre profil\n\n• L'apparence sécurisée en contact direct avec les clients ainsi qu'une bonne compréhension des processus dans l'industrie hôtelière de luxe vous distinguent\n\n• Flexibilité, fiabilité et disponibilité pour les services du week-end s'adaptent à votre façon de travailler\n\n• Une personnalité charmante, chaleureuse et exemplaire ainsi que la joie de traiter avec des clients internationaux que vous apportez avec vous\n\n• De bonnes compétences en allemand et en anglais sont obligatoires pour cette fonction\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
-      },
-      "location": "Bad Ragaz",
-      "canton": "SG",
-      "url": "https://jobs.resortragaz.ch/offene-stellen/bellman-w-m-i/4eaced46-c78b-4e3d-91ef-c5136ab61796",
-      "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.457Z",
-      "addressLocality": "Bad Ragaz",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7310",
-      "streetAddress": "Bernhard-Simonstrasse 20",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/bellman-w-m-i/4eaced46-c78b-4e3d-91ef-c5136ab61796",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "in-camera-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "salle-d-assistance-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "in-camera-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
-          "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-          "salle-d-assistance-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
-        ],
-        "de": [
-          "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
-        ],
-        "fr": [
-          "salle-d-assistance-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:43:20.598Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1534,7 +1490,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Rezeptionist Thermal Spa 60% (w/m/i)",
       "titleByLocale": {
-        "it": "Receptionist Thermal Spa 60% (f/m/i)",
+        "it": "Rezeptionist Thermal Spa 60% (w/m/i)",
         "en": "Receptionist Thermal Spa 60% (f/m/i)",
         "de": "Rezeptionist Thermal Spa 60% (w/m/i)",
         "fr": "Réceptionniste Thermal Spa 60% (f/m/i)"
@@ -1546,12 +1502,13 @@
         "de": "Aufgaben:\n• Reservationen, Auskünfte & Korrespondenz auf Deutsch und Englisch\n\n• Verkauf sämtlicher Spa-Angebote (Massagen & Beauty-Treatments) sowie Spa- und Beauty-Produkten\n\n• Gästebetreuung\n\n• Bedienung der Telefonanlage\n\n• Kundenfreundliche und effiziente Gestaltung sowie Abwicklung administrativer Tätigkeiten wie z.B. die Verwaltung der Adress- und Kundendatei\n\nAnforderungen:\n• Kaufmännische Grundausbildung sowie idealerweise mehrere Jahre Berufserfahrung im gehobenen Wellness-Hotelbereich\n\n• Sehr gute Sprachkenntnisse mündlich und schriftlich (d/e)\n\n• Gute EDV-Kenntnisse (MS-Office)\n\n• Gepflegte Umgangsformen mit einer guten Portion Herzlichkeit\n\n• Flexibilität, Verantwortungsbewusstsein und Organisationstalent sowie ein ausgeprägtes Verkaufstalent\n\n• Einsatzbereitschaft (inkl. Teil- und Wochenenddienste) sowie ein gepflegtes Auftreten runden dein Profil ab\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\n• Réservations, informations et correspondance en allemand et en anglais\n\n• Vente de toutes les offres de spa (massage et soins de beauté) ainsi que de produits de spa et de beauté\n\n• Services de soins aux clients\n\n• Fonctionnement du système téléphonique\n\n• Conception et gestion efficaces et conviviales des activités administratives telles que la gestion de l'adresse et du dossier client\n\nExigences\n• Formation commerciale de base et idéalement plusieurs années d'expérience professionnelle dans le secteur hôtelier de bien-être haut de gamme\n\n• Très bonnes compétences linguistiques verbales et écrites (d/e)\n\n• Bonnes compétences en informatique (MS-Office)\n\n• Les bonnes manières avec une bonne portion de chaleur\n\n• Flexibilité, sens des responsabilités et talent organisationnel, ainsi qu'un fort talent commercial\n\n• Volonté de travailler (y compris les services en partie et le week-end) ainsi qu'une apparence bien gardée complètent votre profil\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/rezeptionist-thermal-spa-w-m-i/20dc5960-fcbd-4576-846b-e4720910a853",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.454Z",
+      "crawledAt": "2026-08-12T10:21:05.514Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1585,9 +1542,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-f4c9ae321dbd",
-      "slug": "tempo-di-pulizia-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "tempo-di-pulizia-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz",
         "en": "housekeeping-hour-basis-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "nombre-d-heures-de-menage-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1597,7 +1554,7 @@
       "companyDomain": "resortragaz.ch",
       "title": "Aushilfe Housekeeping Stundenbasis (m/w/i)",
       "titleByLocale": {
-        "it": "Tempo di pulizia (m/f/i)",
+        "it": "Aushilfe Housekeeping Stundenbasis (m/w/i)",
         "en": "Housekeeping hour basis (m/f/i)",
         "de": "Aushilfe Housekeeping Stundenbasis (m/w/i)",
         "fr": "Nombre d'heures de ménage (m/f/i)"
@@ -1609,12 +1566,13 @@
         "de": "Aufgaben:\n• Unterstützt bei der Reinigung unserer Gästezimmer\n\n• Reinigst und pflegst die öffentlichen Bereiche\n\n• Wechselst Bettwäsche und Handtücher\n\n• Füllst Pflegeprodukte und Gästeartikel auf\n\n• Hilfst bei weiteren Arbeiten im Housekeeping mit\n\n• Hältst unsere Hygiene- und Qualitätsstandards ein\n\nAnforderungen:\n• Du arbeitest sorgfältig und zuverlässig\n\n• Du bist körperlich belastbar und packst gerne mit an\n\n• Du bist flexibel für Einsätze unter der Woche sowie an Wochenenden\n\n• Du verfügst über einfache Deutsch- oder Englischkenntnisse\n\n• Erfahrung in der Reinigung ist von Vorteil, aber keine Voraussetzung\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\n• Aide au nettoyage de nos chambres\n\n• Nettoyer et entretenir les espaces publics\n\n• Changement de linge de lit et de serviettes\n\n• Produits d'entretien et articles pour invités\n\n• Aide à la poursuite du travail ménager\n\n• Maintenir nos normes d'hygiène et de qualité\n\nExigences\n• Vous travaillez avec soin et fiabilité\n\n• Vous êtes physiquement résistant et aimez participer\n\n• Vous êtes flexible pour les affectations pendant la semaine et le week-end\n\n• Vous avez une connaissance simple de l'allemand ou de l'anglais\n\n• L'expérience du nettoyage est avantageuse, mais pas une exigence\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-housekeeping-stundenbasis-m-w-i/d1df5059-465c-4f51-96f8-0c49057f602d",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.451Z",
+      "crawledAt": "2026-08-12T10:21:05.512Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1635,12 +1593,14 @@
       "previousSlugs": [
         "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "base-dell-ora-di-pulizia-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "tempo-di-pulizia-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
           "base-dell-ora-di-pulizia-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+          "tempo-di-pulizia-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
           "aushilfe-housekeeping-stundenbasis-m-w-i-grand-resort-bad-ragaz"
         ],
         "en": [
@@ -1690,12 +1650,13 @@
         "de": "Aufgaben:\n• Überwachung/Aufsicht des Bad- und Saunabereiches auf Sicherheit\n• Durchführung von Sauna-Aufgüssen und Ritualen\n• Erste Hilfeleistung und lebensrettende Sofortmassnahmen im Notfall\n• Kompetente Auskunft zu bereichsrelevanter Infrastruktur und Angeboten\n• Aktive Gästebetreuung, Beratung, Information und Tücherservice\n• Tägliche Entnahme von Wasserproben & Führen der\ndienstrelevanten Protokolle\n• Bereitstellen und Versorgung von Wäschewagen\n• Durchführungsarbeiten nach Wochenreinigungsplan\nBad / Sauna\n\nAnforderungen:\n• Berufliche Grundausbildung erwünscht\n• Schwimmbrevet IGBA Pro oder SLRG Pool Plus vorausgesetzt\n• Fachspezifische Ausbildungen und Weiterbildungen im\nmedizinischen u/o Bäderbetriebe- und Sauna-Bereich\nvon Vorteil\n• Berufserfahrung in der Wellness Branche u/o Bad- und\nSauna Bereich vorausgesetzt\n• Weiterbildungen in der Wedel-Technik von Vorteil\n• Sehr gute Deutschkenntnisse vorausgesetzt, gute Englischkenntnisse wünschenswert\n• PC-Grundanwenderkenntnisse sowie technisches Verständnis\n• Hohe Sauna- /Wellness- Affinität\n\nWir bieten:\n• Kostenfreier Eintritt in die Tamina Therme\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center\n\nDie Tamina Therme in Bad Ragaz ist seit Jahrzehnten ein Leuchtturm in der Wellnessbranche und ein unvergleichbarer Ort zur Entspannung und Regeneration. Das \"blaue\" Gold aus der wildromantischen Taminaschlucht ist seit Jahrhunderten ein Geschenk der Natur und der Ursprung unseres Unternehmens. Die Tamina Therme in Bad Ragaz ist ein architektonisches Meisterwerk und steht auf 115 Säulen. Die Unternehmenskultur ist von Erfolg, Dynamik, Innovation und Natürlichkeit geprägt.",
         "fr": "Tâches :\n• Surveillance/surveillance de la sécurité du bain et du sauna\n• Effectuer des infusions et des rituels de sauna\n• Premiers secours et mesures d'urgence vitales\n• Informations pertinentes sur les infrastructures et les offres sectorielles\n• Service actif de soins, conseils, informations et essuie-tout\n• Collecte quotidienne d'échantillons d'eau et gestion\nprotocoles relatifs aux services\n• Fourniture et fourniture de camions de blanchisserie\n• Travaux de mise en œuvre par plan de nettoyage hebdomadaire\nBain / Sauna\n\nExigences\n• Formation professionnelle de base requise\n• IGBA Pro ou SLRG Pool Plus\n• Formation spécialisée et perfectionnement\nfonctionnement médical et/ou de bain et espace sauna\nPrestations\n• Expérience professionnelle dans l'industrie du bien-être et/ou salle de bains et\nZone de Sauna fournie\n• D'autres développements dans la technologie Wedel sont avantageux\n• Très bonne connaissance de l'allemand à condition qu'une bonne connaissance de l'anglais soit souhaitable\n• Connaissances des utilisateurs de PC de base et compréhension technique\n• Haute affinité sauna/wellness\n\nNous offrons:\n• Entrée gratuite à Tamina Therme\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness\n\nLe Tamina Therme de Bad Ragaz est un phare de l'industrie du bien-être depuis des décennies et un lieu incomparable pour la relaxation et la régénération. L'or \"bleu\" de la gorge romantique sauvage de Tamina a été un cadeau de la nature et l'origine de notre compagnie depuis des siècles. Le Tamina Therme à Bad Ragaz est un chef-d'œuvre architectural et se dresse sur 115 colonnes. La culture d'entreprise se caractérise par la réussite, le dynamisme, l'innovation et la nature."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/mitarbeiter-bad-sauna-m-w-i/c40e4b33-0b09-49a4-827f-99bceb4dc441",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.443Z",
+      "crawledAt": "2026-08-12T10:21:05.511Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1714,11 +1675,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "collaboratore-trice-bad-sauna-80-m-w-i-grand-resort-bad-ragaz"
         ],
         "en": [
           "mitarbeiter-bad-sauna-80-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1767,12 +1730,13 @@
         "de": "Aufgaben:\nAls Room Service Mitarbeiter stellst du einen reibungslosen Ablauf im Zimmerservice sicher, dazu gehören ebenfalls\n• Entgegennahme von Bestellungen am Telefon und einfache Beratung der Gäste\n\n• Service von Speisen und Getränken im Hotelzimmer\n\n• Vorbereitung von Mise en place für den täglichen Ablauf\n\n• Zubereitung von einfachen Getränken für den Service\n\n• Weitergabe von Gästerückmeldungen und Unterstützung bei Anliegen\n\n• Einhaltung von Sauberkeit, Standards und täglichen Aufgaben gemäss Vorgaben\n\nAnforderungen:\nDu hast Interesse an der Arbeit im Service und bist gerne im Kontakt mit Gästen. Zusätzlich bringst du mit\n• Erste Erfahrung im Service oder in der Hotellerie ist von Vorteil\n\n• Bereitschaft einfache Serviceaufgaben zuverlässig auszuführen\n\n• Sorgfältige und strukturierte Arbeitsweise\n\n• Teamfähigkeit und eine freundliche Art im Umgang mit Gästen\n\n• Gute Deutschkenntnisse oder gute Englischkenntnisse\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
         "fr": "Tâches :\nEn tant qu'employé du service d'étage, vous assurez un processus en douceur dans le service d'étage, ceci comprend également\n• Acceptation des commandes au téléphone et conseils simples pour les clients\n\n• Service de restauration et de boissons dans la chambre d'hôtel\n\n• Préparation de Mise en place pour le processus quotidien\n\n• Préparation de boissons simples pour le service\n\n• Divulgation des commentaires des invités et aide à répondre aux préoccupations\n\n• Respect de la propreté, des normes et des tâches quotidiennes selon les spécifications\n\nExigences\nVous êtes intéressé à travailler dans le service et êtes heureux d'être en contact avec les invités. En outre, vous apportez avec vous\n• Première expérience en service ou dans l'hôtellerie est un avantage\n\n• Volonté d'effectuer des tâches de service simples de manière fiable\n\n• Méthodes de travail prudentes et structurées\n\n• Travail d'équipe et une façon amicale de traiter avec les invités\n\n• Bonne connaissance de l'allemand ou de l'anglais\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
       },
+      "needsRetranslation": true,
       "location": "Bad Ragaz",
       "canton": "SG",
       "url": "https://jobs.resortragaz.ch/offene-stellen/room-service-mitarbeiter-m-w-i/09e8f0c6-803b-4950-9760-f26f1321fe9e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:20:36.420Z",
+      "crawledAt": "2026-08-12T10:21:05.507Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1791,11 +1755,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "room-service-collaboratore-trice-100-m-w-i-grand-resort-bad-ragaz"
         ],
         "fr": [
           "room-service-mitarbeiter-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1814,6 +1780,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "grand-resort-bad-ragaz-ede099027728",
+      "slug": "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slugByLocale": {
+        "de": "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "fr": "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      },
+      "company": "Grand Resort Bad Ragaz",
+      "companyKey": "grand-resort-bad-ragaz",
+      "companyDomain": "resortragaz.ch",
+      "title": "Concierge 100% (w/m/i)",
+      "titleByLocale": {
+        "de": "Concierge 100% (w/m/i)",
+        "it": "Concierge 100% (w/m/i)",
+        "en": "Concierge 100% (w/m/i)",
+        "fr": "Concierge 100% (w/m/i)"
+      },
+      "description": "Aufgaben:\nSie sorgen dafür, dass unsere Gäste von der ersten Begegnung bis zur Abreise bestens betreut werden und geniessen dabei die Vielfalt unseres Hauses.\n• Begrüssung und Verabschiedung der Gäste sowie Aussprechen von Empfehlungen für Ausflüge und die Region\n\n• Disposition, Verantwortung und Betreuung des Gästegepäcks bei Ankunft und Abreise\n\n• Verantwortung und Verteilung der Eingangs- und Ausgangspost im Concierge-Bereich\n\n• Organisation von Gästetransfers und Botengängen\n\n• Führung der Concierge-Kasse\n\n• Bedienung der Telefonzentrale morgens und abends\n\n• Interne und externe Buchungen für Gäste (Tische, Flüge, Zug, Tennis etc.)\n\n• Überprüfen und Quittieren von Alarmauslösungen (Feueralarm und Einbruch)\n\nAnforderungen:\nSie bringen Leidenschaft für exzellenten Service und ein Gespür für die Bedürfnisse anspruchsvoller Gäste mit.\n• Abgeschlossene Lehre in der Hotellerie\n\n• Berufserfahrung auf ähnlicher Position in der gehobenen Hotellerie wird vorausgesetzt\n\n• Sehr gutes Allgemeinwissen\n\n• Begeisterung für die Luxushotellerie und Freude am Umgang mit internationaler Kundschaft\n\n• Flexibilität und Einsatzbereitschaft, auch an Wochenenden und Feiertagen\n\n• Kompetentes, sicheres und freundliches Auftreten\n\n• Zuvorkommend, gewandt und kommunikativ im Umgang mit unseren anspruchsvollen Gästen\n\n• Fliessende Deutsch- und sehr gute Englischkenntnisse zwingend, weitere Sprachen von Vorteil\n\n• Versiert im Umgang mit dem Computer und Microsoft Office\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\nSie sorgen dafür, dass unsere Gäste von der ersten Begegnung bis zur Abreise bestens betreut werden und geniessen dabei die Vielfalt unseres Hauses.\n• Begrüssung und Verabschiedung der Gäste sowie Aussprechen von Empfehlungen für Ausflüge und die Region\n\n• Disposition, Verantwortung und Betreuung des Gästegepäcks bei Ankunft und Abreise\n\n• Verantwortung und Verteilung der Eingangs- und Ausgangspost im Concierge-Bereich\n\n• Organisation von Gästetransfers und Botengängen\n\n• Führung der Concierge-Kasse\n\n• Bedienung der Telefonzentrale morgens und abends\n\n• Interne und externe Buchungen für Gäste (Tische, Flüge, Zug, Tennis etc.)\n\n• Überprüfen und Quittieren von Alarmauslösungen (Feueralarm und Einbruch)\n\nAnforderungen:\nSie bringen Leidenschaft für exzellenten Service und ein Gespür für die Bedürfnisse anspruchsvoller Gäste mit.\n• Abgeschlossene Lehre in der Hotellerie\n\n• Berufserfahrung auf ähnlicher Position in der gehobenen Hotellerie wird vorausgesetzt\n\n• Sehr gutes Allgemeinwissen\n\n• Begeisterung für die Luxushotellerie und Freude am Umgang mit internationaler Kundschaft\n\n• Flexibilität und Einsatzbereitschaft, auch an Wochenenden und Feiertagen\n\n• Kompetentes, sicheres und freundliches Auftreten\n\n• Zuvorkommend, gewandt und kommunikativ im Umgang mit unseren anspruchsvollen Gästen\n\n• Fliessende Deutsch- und sehr gute Englischkenntnisse zwingend, weitere Sprachen von Vorteil\n\n• Versiert im Umgang mit dem Computer und Microsoft Office\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+        "it": "Aufgaben:\nSie sorgen dafür, dass unsere Gäste von der ersten Begegnung bis zur Abreise bestens betreut werden und geniessen dabei die Vielfalt unseres Hauses.\n• Begrüssung und Verabschiedung der Gäste sowie Aussprechen von Empfehlungen für Ausflüge und die Region\n\n• Disposition, Verantwortung und Betreuung des Gästegepäcks bei Ankunft und Abreise\n\n• Verantwortung und Verteilung der Eingangs- und Ausgangspost im Concierge-Bereich\n\n• Organisation von Gästetransfers und Botengängen\n\n• Führung der Concierge-Kasse\n\n• Bedienung der Telefonzentrale morgens und abends\n\n• Interne und externe Buchungen für Gäste (Tische, Flüge, Zug, Tennis etc.)\n\n• Überprüfen und Quittieren von Alarmauslösungen (Feueralarm und Einbruch)\n\nAnforderungen:\nSie bringen Leidenschaft für exzellenten Service und ein Gespür für die Bedürfnisse anspruchsvoller Gäste mit.\n• Abgeschlossene Lehre in der Hotellerie\n\n• Berufserfahrung auf ähnlicher Position in der gehobenen Hotellerie wird vorausgesetzt\n\n• Sehr gutes Allgemeinwissen\n\n• Begeisterung für die Luxushotellerie und Freude am Umgang mit internationaler Kundschaft\n\n• Flexibilität und Einsatzbereitschaft, auch an Wochenenden und Feiertagen\n\n• Kompetentes, sicheres und freundliches Auftreten\n\n• Zuvorkommend, gewandt und kommunikativ im Umgang mit unseren anspruchsvollen Gästen\n\n• Fliessende Deutsch- und sehr gute Englischkenntnisse zwingend, weitere Sprachen von Vorteil\n\n• Versiert im Umgang mit dem Computer und Microsoft Office\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+        "en": "Aufgaben:\nSie sorgen dafür, dass unsere Gäste von der ersten Begegnung bis zur Abreise bestens betreut werden und geniessen dabei die Vielfalt unseres Hauses.\n• Begrüssung und Verabschiedung der Gäste sowie Aussprechen von Empfehlungen für Ausflüge und die Region\n\n• Disposition, Verantwortung und Betreuung des Gästegepäcks bei Ankunft und Abreise\n\n• Verantwortung und Verteilung der Eingangs- und Ausgangspost im Concierge-Bereich\n\n• Organisation von Gästetransfers und Botengängen\n\n• Führung der Concierge-Kasse\n\n• Bedienung der Telefonzentrale morgens und abends\n\n• Interne und externe Buchungen für Gäste (Tische, Flüge, Zug, Tennis etc.)\n\n• Überprüfen und Quittieren von Alarmauslösungen (Feueralarm und Einbruch)\n\nAnforderungen:\nSie bringen Leidenschaft für exzellenten Service und ein Gespür für die Bedürfnisse anspruchsvoller Gäste mit.\n• Abgeschlossene Lehre in der Hotellerie\n\n• Berufserfahrung auf ähnlicher Position in der gehobenen Hotellerie wird vorausgesetzt\n\n• Sehr gutes Allgemeinwissen\n\n• Begeisterung für die Luxushotellerie und Freude am Umgang mit internationaler Kundschaft\n\n• Flexibilität und Einsatzbereitschaft, auch an Wochenenden und Feiertagen\n\n• Kompetentes, sicheres und freundliches Auftreten\n\n• Zuvorkommend, gewandt und kommunikativ im Umgang mit unseren anspruchsvollen Gästen\n\n• Fliessende Deutsch- und sehr gute Englischkenntnisse zwingend, weitere Sprachen von Vorteil\n\n• Versiert im Umgang mit dem Computer und Microsoft Office\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
+        "fr": "Aufgaben:\nSie sorgen dafür, dass unsere Gäste von der ersten Begegnung bis zur Abreise bestens betreut werden und geniessen dabei die Vielfalt unseres Hauses.\n• Begrüssung und Verabschiedung der Gäste sowie Aussprechen von Empfehlungen für Ausflüge und die Region\n\n• Disposition, Verantwortung und Betreuung des Gästegepäcks bei Ankunft und Abreise\n\n• Verantwortung und Verteilung der Eingangs- und Ausgangspost im Concierge-Bereich\n\n• Organisation von Gästetransfers und Botengängen\n\n• Führung der Concierge-Kasse\n\n• Bedienung der Telefonzentrale morgens und abends\n\n• Interne und externe Buchungen für Gäste (Tische, Flüge, Zug, Tennis etc.)\n\n• Überprüfen und Quittieren von Alarmauslösungen (Feueralarm und Einbruch)\n\nAnforderungen:\nSie bringen Leidenschaft für exzellenten Service und ein Gespür für die Bedürfnisse anspruchsvoller Gäste mit.\n• Abgeschlossene Lehre in der Hotellerie\n\n• Berufserfahrung auf ähnlicher Position in der gehobenen Hotellerie wird vorausgesetzt\n\n• Sehr gutes Allgemeinwissen\n\n• Begeisterung für die Luxushotellerie und Freude am Umgang mit internationaler Kundschaft\n\n• Flexibilität und Einsatzbereitschaft, auch an Wochenenden und Feiertagen\n\n• Kompetentes, sicheres und freundliches Auftreten\n\n• Zuvorkommend, gewandt und kommunikativ im Umgang mit unseren anspruchsvollen Gästen\n\n• Fliessende Deutsch- und sehr gute Englischkenntnisse zwingend, weitere Sprachen von Vorteil\n\n• Versiert im Umgang mit dem Computer und Microsoft Office\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team."
+      },
+      "needsRetranslation": true,
+      "location": "Bad Ragaz",
+      "canton": "SG",
+      "url": "https://jobs.resortragaz.ch/offene-stellen/concierge-w-m-i/a3e0098b-99de-4014-8459-51855e8e2209",
+      "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T10:21:05.489Z",
+      "addressLocality": "Bad Ragaz",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7310",
+      "streetAddress": "Bernhard-Simonstrasse",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/concierge-w-m-i/a3e0098b-99de-4014-8459-51855e8e2209",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T10:21:05.489Z"
     }
   ]
 }

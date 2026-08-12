@@ -29379,6 +29379,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casse-pensioni-rendimento-luglio-2026',
+ category: 'pensione',
+ date: '2026-08-12T10:07:25.052Z',
+ image: '/images/blog/casse-pensioni-rendimento-luglio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

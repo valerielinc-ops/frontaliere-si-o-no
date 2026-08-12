@@ -2272,6 +2272,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.title': 'Bilaterali III: no a tutele specifiche per i sindacalisti',
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio degli Stati esclude la norma che avrebbe rafforzato le protezioni per i rappresentanti sindacali nelle aziende.',
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.imageAlt': 'Una riunione sindacale in Svizzera',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.title': 'Premi cassa malati Cantone Berna e riduzione premi',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.excerpt': 'Ecco i fatti chiave per i premi dell\'assicurazione malattia obbligatoria nel Cantone di Berna.',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.imageAlt': 'Swiss mountains with the Lake Lugano in the background.',
+    'blog.article.tetto-salari-manager-casse-malattia.title': 'Casse malattia: tetto ai salari dei manager fissato dal CF',
+    'blog.article.tetto-salari-manager-casse-malattia.excerpt': 'Il Consiglio federale vuole porre un limite ai salari dei quadri delle casse malattia basandosi sui compensi dei consiglieri federali.',
+    'blog.article.tetto-salari-manager-casse-malattia.imageAlt': 'Il Palazzo federale a Berna sede del Consiglio federale',
 };
 
 export default blogMetaChIt;

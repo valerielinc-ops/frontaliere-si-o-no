@@ -1,18 +1,19 @@
 {
   "key": "klinik-arlesheim",
   "label": "Klinik Arlesheim",
-  "generatedAt": "2026-08-11T21:56:14.365Z",
+  "generatedAt": "2026-08-12T10:41:05.762Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7331,
-  "avgDurationMs": 7331,
+  "durationMs": 5900,
+  "avgDurationMs": 5900,
   "durationHistory": [
-    7331
+    5900
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-arlesheim-d9e1612b7d04",
       "slug": "pflegefachperson-diagnostik-im-tagesdienst-80-90-klinik-arlesheim-arlesheim",
@@ -20,13 +21,13 @@
       "companyKey": "klinik-arlesheim",
       "companyDomain": "klinik-arlesheim.ch",
       "title": "Pflegefachperson Diagnostik im Tagesdienst 80-90%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Arlesheim",
       "canton": "BL",
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:08.216Z",
+      "crawledAt": "2026-08-12T10:41:00.902Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-11T21:56:08.216Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-arlesheim-fe5b826200df",
       "slug": "arztsekretar-in-mpa-60-klinik-arlesheim-arlesheim",
@@ -64,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:09.630Z",
+      "crawledAt": "2026-08-12T10:41:02.067Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/67b062dc-16f8-45a9-9956-955827d888fe/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:09.169Z",
+      "crawledAt": "2026-08-12T10:41:01.673Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/3fafd798-a9a1-446d-b137-26fea2c62f99/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:08.687Z",
+      "crawledAt": "2026-08-12T10:41:01.295Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:10.088Z",
+      "crawledAt": "2026-08-12T10:41:02.458Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:56:10.549Z",
+      "crawledAt": "2026-08-12T10:41:02.836Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
