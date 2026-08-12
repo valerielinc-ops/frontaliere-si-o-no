@@ -188,7 +188,11 @@ export function generateAutologinCode(email, { secret, scheme, now } = {}) {
  *
  * @param {'resubscribe'|'unsubscribe'} action
  * @param {string} email
- * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number}} [opts] see makeUnsubscribeUrl.
+ * @param {{secret?: string}} [opts] `secret` only, and deliberately: this
+ * builder mints no `token` at all (see the note above), so the token format
+ * options the other builders take would document a parameter that does not
+ * exist. The `ac` scheme is the autologin policy's, threaded by
+ * generateAutologinCode.
  * @returns {string}
  */
 export function makeAuthenticatedActionUrl(action, email, { secret } = {}) {

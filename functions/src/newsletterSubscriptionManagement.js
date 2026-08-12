@@ -147,15 +147,28 @@ function escapeHtmlAttr(value) {
  *   process.env", which is right for tests and for the scripts/ side. It cannot
  *   change the verdict for an authentic token — see above — only the reason
  *   string a forged one comes back with.
- * @returns {{ok: boolean, viaEmailToken: boolean, viaAutologin: boolean}}
+ * @returns {{ok: boolean, viaEmailToken: boolean, viaAutologin: boolean,
+ *   verdict: object, autologinVerdict?: object}} both graded verdicts ride
+ *   along, and they are the point of the refusal log in the handler: the exit is
+ *   the action the LPD complaint was about, so "why exactly did this one get
+ *   refused" has to be answerable HERE too. Without them every unsubscribe
+ *   refusal — bad signature, malformed token, wrong address, an `ac` past its
+ *   TTL — logs as the same generic `no_credential`, which is the one shape that
+ *   tells an operator nothing.
  */
 export function verifyOptOutCredential(email, token, secret, { policy } = {}) {
  const verdict = verifyNewsletterActionToken(email, token, TOKEN_SCOPES.UNSUBSCRIBE, { secret, policy });
- if (verdict.canPerform) return { ok: true, viaEmailToken: true, viaAutologin: false };
+ if (verdict.canPerform) return { ok: true, viaEmailToken: true, viaAutologin: false, verdict };
  // No policy argument, deliberately: nothing configurable may reach this
  // decision. verifyAutologinCode's `canOptOut` is `authentic` and nothing else.
  const acVerdict = verifyAutologinCode(email, token, { secret });
- return { ok: acVerdict.canOptOut, viaEmailToken: false, viaAutologin: acVerdict.canOptOut };
+ return {
+ ok: acVerdict.canOptOut,
+ viaEmailToken: false,
+ viaAutologin: acVerdict.canOptOut,
+ verdict,
+ autologinVerdict: acVerdict,
+ };
 }
 
 /**
@@ -531,6 +544,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
    required_scope: requiredScope,
    reason: optOut.verdict?.reason || 'no_credential',
    scheme: optOut.verdict?.scheme || 'unparsed',
+   // Only `unsubscribe` has a second credential to fall back on, so this key
+   // appears only there — and it is the half that matters, because it is the
+   // one that says whether somebody holding a real but stale `ac` was turned
+   // away from the exit.
+   ac_reason: optOut.autologinVerdict?.reason,
    mint_scheme: tokenPol.scheme,
    confirm_ttl_days: tokenPol.confirmTtlDays,
  }));

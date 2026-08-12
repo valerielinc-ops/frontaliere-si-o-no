@@ -181,6 +181,21 @@ describe('the exit never closes', () => {
     expect(verifyOptOutCredential(EMAIL, 'not-a-token', SECRET, { policy: V1 }).ok).toBe(false);
   });
 
+  it('a refused exit says WHY, on both credentials — the log is the only way to see it happening', () => {
+    // The exit is the action the LPD complaint was about: "is this refusing
+    // nobody or three thousand people?" has to be answerable for it too, and a
+    // verdict that never leaves this function makes every refusal look like the
+    // same generic "no credential".
+    const wrongScope = mint(TOKEN_SCOPES.CONFIRM)!;
+    const refused = verifyOptOutCredential(EMAIL, wrongScope, SECRET, { policy: V1 });
+    expect(refused.ok).toBe(false);
+    expect(refused.verdict.reason).toBe('wrong_scope');
+    expect(refused.autologinVerdict.reason).toBe('malformed');
+
+    const accepted = verifyOptOutCredential(EMAIL, mint(TOKEN_SCOPES.UNSUBSCRIBE)!, SECRET, { policy: V1 });
+    expect(accepted.verdict.reason).toBe('ok');
+  });
+
   it('the handler unsubscribes on a decade-old v1 token', async () => {
     const db = createFakeDb({ 'newsletter_subscribers/recipient@example.com': { status: 'confirmed', isActive: true } });
     const result = await handleSubscriptionManagement({

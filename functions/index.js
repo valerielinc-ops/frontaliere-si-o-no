@@ -516,7 +516,17 @@ export const newsletterManageSubscription = onRequest(
  // Remote Config edit, not a deploy. Absent parameters mean the built-in
  // defaults — legacy still accepted, confirm tokens valid for the 7 days the
  // confirmation email promises in four languages.
- getNewsletterTokenPolicyConfig(),
+ //
+ // Its own catch, unlike the two reads above: an unreadable Remote Config
+ // must not become the reason somebody cannot unsubscribe. Without it a
+ // transient RC failure rejects the whole Promise.all and this endpoint
+ // answers 500 to every action, the exit included — a new failure mode
+ // introduced by a policy read that has a perfectly good default. `{}`
+ // resolves to exactly those defaults.
+ getNewsletterTokenPolicyConfig().catch((err) => {
+ console.warn('[newsletterManageSubscription] token policy read failed, using defaults:', err?.message || err);
+ return {};
+ }),
  ]);
  const result = await handleSubscriptionManagement({
  action,
