@@ -2239,6 +2239,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Naturalization Canton Zurich requirements and procedure',
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'The naturalization procedure in the Canton of Zurich: requirements, integration and language tests, fees to be paid and duration of the procedure.',
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'View of Lugano, Switzerland, with a focus on the naturalization process for the Canton of Zurich',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.title': 'AVS Pillar: Contribution gaps and minimum coverage',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.excerpt': 'The Zurich Cantonal Compensation Fund is a crucial institution for Swiss pensions. Here\'s how it works.',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.imageAlt': 'The cantonal compensation fund of Zurich: a crucial institution for Swiss pension.',
 };
 
 export default blogMetaChEn;
