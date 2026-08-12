@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-80-100_2026-2243/",
+    "https://www.rhb.ch/it/job/projektingenieur-in-kabelanlagen-50-100_2026-2217/",
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-sud_2026-2241/",
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/",
     "https://www.rhb.ch/it/job/projektleiter-in-tiefbau-50-100_2026-2238/",
@@ -15,11 +17,17 @@
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2195/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2091/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2107/",
-    "https://www.rhb.ch/it/job/erwachsenenlehre-gleisbauer-in-efz_2025-2099/",
-    "https://www.rhb.ch/it/job/erwachsenenlehre-netzelektriker-in-efz_2025-2100/",
-    "https://www.rhb.ch/it/job/anlage-apparatebauer-in_2026-2239/"
+    "https://www.rhb.ch/it/job/erwachsenenlehre-gleisbauer-in-efz_2025-2099/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-80-100_2026-2243/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/projektingenieur-in-kabelanlagen-50-100_2026-2217/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-sud_2026-2241/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -51,16 +59,8 @@
     "https://www.rhb.ch/it/job/erwachsenenlehre-gleisbauer-in-efz_2025-2099/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/erwachsenenlehre-netzelektriker-in-efz_2025-2100/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/anlage-apparatebauer-in_2026-2239/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-08-12T10:26:08.767Z"
+  "updatedAt": "2026-08-12T21:52:16.470Z"
 }
