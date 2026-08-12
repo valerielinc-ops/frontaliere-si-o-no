@@ -70,12 +70,17 @@ type Verdict =
   /** Does not choose recipients from the subscriber collections at all. */
   | { verdict: 'not-a-broadcast'; why: string }
   /**
-   * Reaches unconfirmed addresses today and should not. Recorded as a FACT
-   * with its tracking issue, in the shape the precedent file uses for its
-   * blind spot: when somebody fixes one, this entry fails and has to move to
-   * `gated`, which is how the fix gets noticed instead of forgotten.
+   * Reaches an address this file cannot vouch for, and is recorded as a FACT
+   * rather than tolerated in silence — the shape the precedent file uses for
+   * its blind spot. The entry fails the day the file starts calling the gate,
+   * which is how the change gets noticed instead of absorbed.
+   *
+   * `onFire` says what to do WHEN it fails, and it is not the same answer
+   * everywhere: for the drip the answer is "good, move it to `gated`", for the
+   * alert channels it is "stop — that is the wrong fix". A single generic
+   * message would push somebody toward the wrong one.
    */
-  | { verdict: 'known-gap'; why: string; issue: string };
+  | { verdict: 'known-gap'; why: string; issue: string; onFire: string };
 
 /**
  * Every top-level sender, with the verdict that lets it past this file.
@@ -108,18 +113,40 @@ const VERDICTS: Record<string, Verdict> = {
   },
   'scripts/send-onboarding-drip.mjs': {
     verdict: 'known-gap',
-    why: 'admits `pending` whenever isActive/active is true, and anchors enrollment on created_at when no stamp exists',
+    why: 'admits `pending` whenever isActive/active is true — the shape mailtrap-suppression-retry.mjs writes — and anchors enrollment on created_at when no stamp exists',
     issue: '#5700',
+    onFire: 'good — move its entry from known-gap to gated',
   },
+  /**
+   * The two alert channels, and the reason they are NOT simply "the newsletter
+   * defect, unfixed".
+   *
+   * A job alert somebody really created has a consent basis of its OWN: the act
+   * of creating it. Refusing to send it because the same address's NEWSLETTER
+   * document carries no stamp would let one channel's consent govern another —
+   * the same confusion between channels that produced #5705, pointing the other
+   * way. So the gate does not belong here, and an entry that only cited #5686
+   * would read as an invitation to add it.
+   *
+   * The real defect on this channel is not the missing stamp: it is that most
+   * of these alerts were never requested at all — 7.167 of 7.745 born from a
+   * backfill off the newsletter list, 6.308 still active (#5705, guarded in
+   * `shouldSkipSubscriber` by PR #5722), with cross-channel opt-out propagation
+   * tracked separately as #5688. Neither passes through this gate. The entries
+   * below therefore describe a BOUNDARY that is policed elsewhere, not work
+   * this PR postponed.
+   */
   'scripts/send-job-alerts.mjs': {
     verdict: 'known-gap',
-    why: 'consent here is the alert the user created, not the newsletter opt-in — but an EXISTING unconfirmed newsletter doc is never consulted, which is the hole #5677 closed on the brief and left open here',
-    issue: '#5686',
+    why: 'consent here is the alert the user created, not the newsletter opt-in, so this gate does not belong here; the unrequested-alert problem is #5705 (PR #5722, guard in shouldSkipSubscriber) and opt-out propagation is #5688',
+    issue: '#5705 / #5688',
+    onFire: 'STOP — adding the newsletter consent gate here is the wrong fix: it lets one channel\'s consent govern another. Read #5705 and #5688 first',
   },
   'scripts/send-company-alerts.mjs': {
     verdict: 'known-gap',
-    why: 'same shape as send-job-alerts: isAddressSuppressed + isJobAlertExcluded, no consultation of the newsletter doc',
-    issue: '#5686',
+    why: 'same consent basis and same boundary as send-job-alerts: isAddressSuppressed + isJobAlertExcluded, deliberately no consultation of the newsletter doc',
+    issue: '#5705 / #5688',
+    onFire: 'STOP — same as send-job-alerts: the followed-employer alert is its own consent. Read #5705 and #5688 first',
   },
   'scripts/send-saved-jobs-digest.mjs': {
     verdict: 'not-a-broadcast',
@@ -199,11 +226,13 @@ describe('the verdicts hold', () => {
   });
 
   it.each(gaps)('%s is still the gap it is declared to be', (file, v) => {
-    // Asserted as a fact, not tolerated in silence. When this fails, the gap
-    // was closed: move the entry to `gated` in the same commit.
+    // Asserted as a fact, not tolerated in silence — and the message says what
+    // to DO when it fires, which differs by channel: for the drip closing the
+    // gap is the fix, for the alert channels closing it IS the bug.
+    const g = v as Extract<Verdict, { verdict: 'known-gap' }>;
     expect(
       stripComments(read(file)),
-      `${file} now consults the gate — move its entry from known-gap to gated (${(v as { issue: string }).issue})`,
+      `${file} now consults the gate — ${g.onFire} (${g.issue})`,
     ).not.toMatch(CALLS_GATE);
   });
 
