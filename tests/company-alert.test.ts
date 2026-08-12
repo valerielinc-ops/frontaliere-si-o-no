@@ -37,6 +37,7 @@ vi.mock('firebase/firestore', () => ({
   getDocs: (...args: unknown[]) => getDocsMock(...args),
   orderBy: vi.fn(() => ({})),
   serverTimestamp: vi.fn(() => new Date()),
+  deleteField: vi.fn(() => '__delete_field__'),
   getFirestore: vi.fn(() => ({})),
 }));
 

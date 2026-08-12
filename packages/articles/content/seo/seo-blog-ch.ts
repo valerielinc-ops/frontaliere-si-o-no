@@ -29462,6 +29462,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tetto-salari-manager-casse-malattia': {
+    title: 'Casse malattia: tetto ai salari dei manager fissato dal CF',
+    description: 'Il Consiglio federale propone un tetto ai salari dei manager delle casse malattia basato sui compensi dei ministri e maggiore trasparenza. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malattia, tetto, salari',
+    ogTitle: 'Casse malattia in Svizzera: tetto ai salari dei manager',
+    ogDescription: 'Il governo svizzero sostiene l\'introduzione di un tetto salariale per i quadri delle casse malattia e obblighi di trasparenza rafforzati per i dirigenti.',
+    canonicalPath: '/articoli-svizzera/tetto-salari-manager-casse-malattia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malattia: tetto ai salari dei manager fissato dal CF",
+      "description": "Il Consiglio federale propone un tetto ai salari dei manager delle casse malattia basato sui compensi dei ministri e maggiore trasparenza. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tetto-salari-manager-casse-malattia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-08-12T10:04:21+00:00",
+      "dateModified": "2026-08-12T10:04:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tetto-salari-manager-casse-malattia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassa-utili-immobiliari-comuni': {
+    title: 'Tassa utili immobiliari: quota del 40% ai Comuni ticinesi',
+    description: 'Iniziativa parlamentare in Ticino per redistribuire il 40% del gettito della TUI ai Comuni. Cifre, impatti finanziari e dettagli della proposta PLR.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, utili, immobiliari, quota',
+    ogTitle: 'Tassa sugli utili immobiliari: una quota del 40% ai Comuni ticinesi',
+    ogDescription: 'Scopri i dettagli dell\'iniziativa parlamentare presentata in Ticino per destinare il 40% del gettito della TUI ai Comuni dove si trova l\'immobile.',
+    canonicalPath: '/articoli-svizzera/tassa-utili-immobiliari-comuni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa utili immobiliari: quota del 40% ai Comuni ticinesi",
+      "description": "Iniziativa parlamentare in Ticino per redistribuire il 40% del gettito della TUI ai Comuni. Cifre, impatti finanziari e dettagli della proposta PLR.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-utili-immobiliari-comuni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Bellinzona con edifici istituzionali e scorcio urbano"
+      },
+      "datePublished": "2026-08-12T10:09:35+00:00",
+      "dateModified": "2026-08-12T10:09:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassa-utili-immobiliari-comuni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zone-30-kmh-intervento-consiglio-federale': {
+    title: 'Zone 30 km/h nelle città, interviene il Consiglio federale',
+    description: 'Il Consiglio federale ha deciso di modificare l\'ordinanza sulla segnaletica stradale per introdurre limiti di velocità a 30 km/h nelle città. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, zone, nelle, città, interviene',
+    ogTitle: 'Zone 30 km/h nelle città, interviene il Consiglio federale',
+    ogDescription: 'Il Consiglio federale ha deciso di modificare l\'ordinanza sulla segnaletica stradale per introdurre limiti di velocità a 30 km/h nelle città.',
+    canonicalPath: '/articoli-svizzera/zone-30-kmh-intervento-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zone 30 km/h nelle città, interviene il Consiglio federale",
+      "description": "Il Consiglio federale ha deciso di modificare l'ordinanza sulla segnaletica stradale per introdurre limiti di velocità a 30 km/h nelle città. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zone-30-kmh-intervento-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Limiti di velocità a 30 km/h nelle città svizzere"
+      },
+      "datePublished": "2026-08-12T10:17:14+00:00",
+      "dateModified": "2026-08-12T10:17:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zone-30-kmh-intervento-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tre-banche-cantonali-be-sg-bl-profitti-in-crescita': {
+    title: 'Tre banche cantonali svizzere: tre volte profitti in crescita',
+    description: 'Le tre banche cantonali svizzere presentano i conti semestrali con profitti in crescita. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, cantonali, svizzere, volte',
+    ogTitle: 'Tre banche cantonali svizzere: tre volte profitti in crescita',
+    ogDescription: 'Le tre banche cantonali svizzere presentano i conti semestrali con profitti in crescita',
+    canonicalPath: '/articoli-svizzera/tre-banche-cantonali-be-sg-bl-profitti-in-crescita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre banche cantonali svizzere: tre volte profitti in crescita",
+      "description": "Le tre banche cantonali svizzere presentano i conti semestrali con profitti in crescita. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tre-banche-cantonali-be-sg-bl-profitti-in-crescita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tre banche cantonali svizzere presentano i conti semestrali con profitti in crescita"
+      },
+      "datePublished": "2026-08-12T10:32:20+00:00",
+      "dateModified": "2026-08-12T10:32:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tre-banche-cantonali-be-sg-bl-profitti-in-crescita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-insolvenze-ai-massimi-da-30-anni': {
+    title: 'Insolvenze ai massimi da 30 anni | Frontaliere Ticino',
+    description: 'Nel primo semestre 2025, 7496 aziende hanno dichiarato fallimento per insolvenza, il numero più alto dal 1994. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, insolvenze, massimi, anni, primo',
+    ogTitle: 'Insolvenze ai massimi da 30 anni',
+    ogDescription: 'Nel primo semestre 2025, 7496 aziende hanno dichiarato fallimento per insolvenza, il numero più alto dal 1994.',
+    canonicalPath: '/articoli-svizzera/insolvenze-ai-massimi-da-30-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Insolvenze ai massimi da 30 anni",
+      "description": "Nel primo semestre 2025, 7496 aziende hanno dichiarato fallimento per insolvenza, il numero più alto dal 1994. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/insolvenze-ai-massimi-da-30-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Insolvenze in Svizzera: un aumento record dal 1994"
+      },
+      "datePublished": "2026-08-12T10:50:54+00:00",
+      "dateModified": "2026-08-12T10:50:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/insolvenze-ai-massimi-da-30-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-no-iniziativa-finanziaria': {
+    title: 'Consiglio federale boccia l\'Iniziativa sulla piazza finanziaria',
+    description: 'Il Consiglio federale respinge l\'iniziativa sulla piazza finanziaria senza controprogetto. Scopri i dettagli e la scadenza del DFF al 16 aprile 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, boccia, iniziativa',
+    ogTitle: 'Consiglio federale: no all\'Iniziativa sulla piazza finanziaria',
+    ogDescription: 'Il governo svizzero raccomanda al Parlamento di bocciare l\'iniziativa per una piazza finanziaria sostenibile senza presentare controprogetti.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-no-iniziativa-finanziaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale boccia l'Iniziativa sulla piazza finanziaria",
+      "description": "Il Consiglio federale respinge l'iniziativa sulla piazza finanziaria senza controprogetto. Scopri i dettagli e la scadenza del DFF al 16 aprile 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-no-iniziativa-finanziaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-08-12T12:00:07+00:00",
+      "dateModified": "2026-08-12T12:00:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-no-iniziativa-finanziaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

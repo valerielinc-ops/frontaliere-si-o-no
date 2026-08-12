@@ -16,6 +16,7 @@
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 
 const BASE_URL = 'https://afry.com';
 
@@ -122,9 +123,9 @@ export function parseAfryDetailPage(html = '') {
     if (fieldMatch) {
       description = stripHtml(fieldMatch[1]);
     } else {
-      const metaMatch = html.match(/<meta\s+name="description"\s+content="([^"]*)"/i);
-      if (metaMatch) {
-        description = metaMatch[1].replace(/&amp;/g, '&').replace(/&#039;/g, "'");
+      const metaRaw = extractMetaDescriptionRaw(html);
+      if (metaRaw !== null) {
+        description = metaRaw.replace(/&amp;/g, '&').replace(/&#039;/g, "'");
       }
     }
   }
