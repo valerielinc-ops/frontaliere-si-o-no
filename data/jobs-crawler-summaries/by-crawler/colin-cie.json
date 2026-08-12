@@ -1,18 +1,19 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-08-11T22:15:03.779Z",
+  "generatedAt": "2026-08-12T10:24:09.484Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7914,
-  "avgDurationMs": 7914,
+  "durationMs": 8569,
+  "avgDurationMs": 8569,
   "durationHistory": [
-    7914
+    8569
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Mitarbeiter (m/w/d) im Business Management am Standort Zürich (60-80%)",
       "slug": "mitarbeiter-m-w-d-im-business-management-am-standort-zurich-60-80-colin-cie-zurich",
@@ -35,16 +36,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 65,
+      "id": "colin-cie-93d34925ab66",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "currency": "CHF",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T22:15:03.774Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus Schweizer Kunden",
       "slug": "berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-schweizer-kunden-colin-cie-zurich",
@@ -372,7 +377,6 @@
       "postalCode": "8001",
       "id": "colin-cie-e1022f4d588f",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
