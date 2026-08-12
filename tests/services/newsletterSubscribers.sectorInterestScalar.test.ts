@@ -57,6 +57,8 @@ describe('captureNewsletterSubscriber — sector_interest stays scalar (issue #4
         // Bypasses the `string | null` type — simulates a hypothetical
         // caller that doesn't respect NewsletterUpsertInput.
         sectorInterest: ['health', 'tech'] as unknown as string,
+        // #5678: a NEW subscriber cannot be created without a consent text.
+        consentText: 'formula di prova',
       },
     );
 

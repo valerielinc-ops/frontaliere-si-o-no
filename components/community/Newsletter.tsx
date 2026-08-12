@@ -13,6 +13,7 @@ import {
  openEmailProvider,
  requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -172,6 +173,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  locale: navigator.language || 'it-IT',
  isActive: false, // pending until double opt-in confirmed
  status: 'pending',
+ // #5678. This form has no consent checkbox (unlike SubscriptionCTA), so
+ // `consentGiven` stays unset and the recorded text describes what the
+ // submit actually was.
+ ...consentProof('newsletterForm', 'email_submit'),
  }),
  8000,
  'newsletter_upsert',

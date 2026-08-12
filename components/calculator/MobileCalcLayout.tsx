@@ -5,6 +5,7 @@ import { useTranslation, getCantonI18nParams } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
 import { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 import { SkeletonMobileResultCard } from '@/components/shared/Skeletons';
@@ -156,7 +157,13 @@ const MobileCalcLayout: React.FC<Props> = ({
  import('@/services/gamificationService'),
  ]);
  const db = getFirestore(await getApp());
- await upsertNewsletterSubscriber(db, { email, source: 'analysis_gate' });
+ await upsertNewsletterSubscriber(db, {
+ email,
+ source: 'analysis_gate',
+ // #5678: this gate exchanged the full salary analysis for the address,
+ // and until now recorded nothing at all about what was disclosed.
+ ...consentProof('analysisGate', 'email_submit'),
+ });
  await requestConfirmationEmail(email);
  markNewsletterSubscribedLocally();
  unlockAchievement('newsletter_subscriber');

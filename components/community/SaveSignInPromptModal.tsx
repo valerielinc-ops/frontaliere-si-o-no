@@ -32,14 +32,11 @@ import { useTranslation } from '@/services/i18n';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
-
-/** GDPR consent proof recorded when a visitor signs in through this gate. */
-const SAVE_SIGNIN_CONSENT_TEXT =
-  'Accedendo per salvare un annuncio, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.';
 
 interface SaveSignInPromptModalProps {
   locale: string;
@@ -75,9 +72,8 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
         sourceRouteFamily: 'community',
         locale: navigator.language || 'it-IT',
         consentGiven: true,
-        consentText: SAVE_SIGNIN_CONSENT_TEXT,
-        consentMethod: 'email_checkbox',
-        consentUserAgent: navigator.userAgent,
+        // Text now lives in the versioned register (#5678) — moved verbatim.
+        ...consentProof('saveJobSignIn', 'email_checkbox'),
       });
       if (upsert.existed) {
         await requestConfirmationEmail(trimmed, 'login');

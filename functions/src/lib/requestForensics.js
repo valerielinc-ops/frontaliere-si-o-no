@@ -228,3 +228,53 @@ export function forensicsFields(forensics) {
     return {};
   }
 }
+
+/**
+ * The same stamp, for the OTHER end of the relationship: the moment somebody
+ * subscribes (#5676).
+ *
+ * Until now this module only recorded the IP of people LEAVING. Measured
+ * 2026-08-12 over 8.605 `newsletter_subscribers` documents: `unsubscribe_ip`
+ * on 28, and no IP field at all on the other 8.577 — we knew the network of
+ * everyone who left and of nobody who arrived, which is the inverse of what
+ * art. 25 nLPD asks for (date, time, IP, form URL).
+ *
+ * WHY THIS LIVES IN A CLOUD FUNCTION AND NOT IN THE CLIENT WRITE
+ * -------------------------------------------------------------
+ * `newsletter_subscribers` documents are written straight from the browser
+ * (services/newsletterSubscribers.ts), and a browser cannot see its own public
+ * address. It could be told — an edge endpoint echoing the IP back — but then
+ * the value on the document would be one the SUBSCRIBER supplied, which is
+ * worthless as proof of anything precisely when it matters. Every genuinely
+ * new subscriber already reaches a Cloud Function on the way out of signup
+ * (`newsletterSendConfirmation` for double opt-in, `newsletterSendWelcome` for
+ * the ~82% that are pre-confirmed), and there `cf-connecting-ip` is set by our
+ * own Worker and is not forgeable from outside. So the stamp is server-side,
+ * costs no extra round trip, and reuses the truncation already proven here.
+ *
+ * TRUNCATED, for the reasons argued at the top of this file, and one more that
+ * is specific to consent: a full address kept for years against a possible
+ * future dispute is more retention than the dispute needs. /24 still answers
+ * "was this a residential Italian line or a datacenter range?" — which is the
+ * question a contested subscription actually turns on — while not singling out
+ * a household. Choosing the weaker-but-smaller datum is only defensible because
+ * the alternative on the table was, and is, nothing at all.
+ *
+ * @param {object} req Express-style request (Cloud Functions onRequest).
+ * @param {string} nowIso Timestamp to record alongside it.
+ * @returns {{ consent_ip: string, consent_ip_recorded_at: string }|null}
+ */
+export function buildConsentIpStamp(req, nowIso) {
+  try {
+    const anonymized = anonymizeIp(extractClientIp(req));
+    if (!anonymized) return null;
+    return {
+      consent_ip: anonymized,
+      consent_ip_recorded_at: typeof nowIso === 'string' && nowIso
+        ? nowIso
+        : new Date().toISOString(),
+    };
+  } catch {
+    return null;
+  }
+}
