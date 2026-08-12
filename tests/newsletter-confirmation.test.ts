@@ -49,7 +49,11 @@ describe('newsletterConfirmationEmail', () => {
     const token1 = generateConfirmationToken('test@example.com', 'secret123');
     const token2 = generateConfirmationToken('TEST@EXAMPLE.COM', 'secret123');
     expect(token1).toBe(token2); // case-insensitive
-    expect(token1).toHaveLength(64); // SHA-256 hex
+    // Scoped to `confirm` and dated since #5704 — it is no longer the bare
+    // 64-hex HMAC over the address that also unsubscribed, re-subscribed and
+    // opened the preferences API. Scope binding and expiry are pinned in
+    // tests/newsletter-action-token.test.ts.
+    expect(token1).toMatch(/^n1\.confirm\.[0-9a-z]+\.[0-9a-f]{32}$/);
 
     const token3 = generateConfirmationToken('test@example.com', 'different_secret');
     expect(token3).not.toBe(token1);

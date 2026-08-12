@@ -84,6 +84,23 @@ const RC_TO_ENV = {
   NEWSLETTER_AC_SCHEME:           ['NEWSLETTER_AC_SCHEME'],
   NEWSLETTER_AC_TTL_DAYS:         ['NEWSLETTER_AC_TTL_DAYS'],
   NEWSLETTER_AC_LEGACY_SUNSET:    ['NEWSLETTER_AC_LEGACY_SUNSET'],
+  // `token` action-credential policy (#5704). Same split as above — this is the
+  // MINTING half, read by the scripts/ senders through
+  // functions/src/lib/newsletterUrls.js; the verifier reads the same three
+  // parameters via functions/src/remoteConfigSecrets.js's
+  // getNewsletterTokenPolicyConfig(). All three optional.
+  //   NEWSLETTER_TOKEN_SCHEME           unset = per-scope defaults (legacy for
+  //                                     the three long-lived scopes, v1 for
+  //                                     confirm) | 'legacy' (full rollback) |
+  //                                     'v1' (full rollout)
+  //   NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS unset = 7 (what the confirmation email
+  //                                     promises in four languages), 0 = off
+  //   NEWSLETTER_TOKEN_LEGACY_SUNSET    ISO date after which an unscoped legacy
+  //                                     token stops working — for everything
+  //                                     EXCEPT unsubscribe, which never expires
+  NEWSLETTER_TOKEN_SCHEME:            ['NEWSLETTER_TOKEN_SCHEME'],
+  NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS:  ['NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS'],
+  NEWSLETTER_TOKEN_LEGACY_SUNSET:     ['NEWSLETTER_TOKEN_LEGACY_SUNSET'],
 
   // Email cascade providers (newsletter + job alerts)
   MAILJET_API_KEY:                ['MAILJET_API_KEY'],

@@ -18,8 +18,9 @@
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
-import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv, getAutologinPolicyConfig } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
 import { resolveAutologinPolicy } from './lib/autologinCode.js';
+import { resolveNewsletterTokenPolicy } from './lib/newsletterActionToken.js';
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
@@ -267,8 +268,26 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     ? await hasOrWillHaveJobAlert(db, normalizedEmail, data)
     : false;
 
-  const unsubscribeUrl = makeOneClickUnsubscribeUrl(normalizedEmail, { secret: newsletterSecret });
-  const preferencesUrl = makePreferencesUrl(normalizedEmail, resolvedLocale, { secret: newsletterSecret });
+  // The `token` policy, threaded for exactly the reason the `ac` scheme is
+  // threaded 30 lines below (#5685, and now #5704): this is a Cloud Functions
+  // minter, NEWSLETTER_TOKEN_* is not in process.env here, and a builder left to
+  // read the environment resolves the built-in defaults no matter what Remote
+  // Config says. It would therefore keep minting legacy tokens past
+  // NEWSLETTER_TOKEN_LEGACY_SUNSET — at which point the preferences link in the
+  // ONE email most subscribers ever receive stops verifying, silently, with
+  // nothing red anywhere. (The unsubscribe link would survive: the exit ignores
+  // the sunset by construction. That is the asymmetry working, not a reason to
+  // skip this.) Same Remote Config template cache, no extra round-trip warm.
+  let tokenPolicy;
+  try {
+    tokenPolicy = resolveNewsletterTokenPolicy(await getNewsletterTokenPolicyConfig());
+  } catch (policyErr) {
+    // Fail towards the defaults, never block a welcome email on a policy read.
+    console.warn('[newsletterWelcomeEmail] Token policy read failed:', policyErr?.message || policyErr);
+    tokenPolicy = undefined;
+  }
+  const unsubscribeUrl = makeOneClickUnsubscribeUrl(normalizedEmail, { secret: newsletterSecret, policy: tokenPolicy });
+  const preferencesUrl = makePreferencesUrl(normalizedEmail, resolvedLocale, { secret: newsletterSecret, policy: tokenPolicy });
 
   const built = buildWelcomeEmail({
     ...ctx,

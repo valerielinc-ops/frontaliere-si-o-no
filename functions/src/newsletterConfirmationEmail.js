@@ -10,13 +10,17 @@
  * is the normal state for this email and must never be blocked.
  */
 
-import { createHmac } from 'node:crypto';
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
-import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { bridgeEmailCascadeCredentialsToEnv, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
+import {
+  mintNewsletterActionToken,
+  resolveNewsletterTokenPolicy,
+  TOKEN_SCOPES,
+} from './lib/newsletterActionToken.js';
 import { dataControllerFooterLine } from './lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -39,8 +43,32 @@ function escapeHtml(str) {
  .replace(/'/g, '&#039;');
 }
 
-export function generateConfirmationToken(email, secret) {
- return createHmac('sha256', secret).update(email.toLowerCase().trim()).digest('hex');
+/**
+ * The confirmation link's credential — scoped to `confirm` and dated (#5704).
+ *
+ * It used to be `HMAC(secret, email)`: the same string the unsubscribe link, the
+ * re-subscribe link and the whole preferences API accepted, and it never
+ * expired. A June confirmation email was still a working re-subscribe button in
+ * August — one of the three resurrection paths #5704 was opened for — and the
+ * email's own "the link is valid for 7 days", in four languages, had nothing
+ * behind it. The token now names its action and carries its issue date, and
+ * handleSubscriptionManagement refuses it past that window.
+ *
+ * @param {string} email
+ * @param {string} secret
+ * @param {{policy?: object, scheme?: 'legacy'|'v1', now?: number}} [opts] `policy`
+ *   MUST be threaded by Cloud Functions callers: NEWSLETTER_TOKEN_* is not in
+ *   process.env there, so an omitted policy means the built-in defaults and a
+ *   Remote Config rollback would never reach this minter.
+ * @returns {string|null} null when there is no secret
+ */
+export function generateConfirmationToken(email, secret, { policy, scheme, now } = {}) {
+  return mintNewsletterActionToken(email, TOKEN_SCOPES.CONFIRM, {
+    secret,
+    policy,
+    scheme,
+    ...(now === undefined ? {} : { now }),
+  });
 }
 
 export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') {
@@ -176,7 +204,22 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  // Only fall back to subscriber's stored locale if no locale was provided.
  const emailLocale = lang || normalizeLocale(data.preferred_locale || data.signup_locale || 'it');
 
- const token = generateConfirmationToken(normalizedEmail, secret);
+ // Read the token policy from Remote Config, exactly like the welcome email
+ // reads the `ac` policy (#5726): NEWSLETTER_TOKEN_* is not in this runtime's
+ // process.env, so without this read the minter always sees the built-in
+ // defaults — and the Remote Config ROLLBACK (`NEWSLETTER_TOKEN_SCHEME=legacy`,
+ // `NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS=0`) would silently never reach the one
+ // scope that is v1-by-default. Same 5-minute template cache as the secret read
+ // above, so it costs no round-trip in the warm path; a failure falls back to
+ // the defaults rather than blocking a transactional email.
+ let tokenPolicy;
+ try {
+   tokenPolicy = resolveNewsletterTokenPolicy(await getNewsletterTokenPolicyConfig());
+ } catch (policyErr) {
+   console.warn('[newsletterConfirmation] token policy read failed, using defaults:', policyErr?.message || policyErr);
+   tokenPolicy = resolveNewsletterTokenPolicy({});
+ }
+ const token = generateConfirmationToken(normalizedEmail, secret, { policy: tokenPolicy });
  const returnPath = (sourcePath && sourcePath !== '/') ? sourcePath : '';
  // No auth token embedded in the URL — the confirm action's Cloud Function
  // response returns a fresh custom token for auto-login. This avoids the
