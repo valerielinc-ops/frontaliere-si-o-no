@@ -9774,7 +9774,9 @@
     "canton": "AG",
     "createdAt": "2026-06-09",
     "slugByLocale": {
-      "de": "pi-server-data-historian-engineer-a-100-bachem-stein-ag"
+      "de": "pi-server-data-historian-engineer-a-100-bachem-stein-ag",
+      "it": "ingegnere-pi-server-data-historian-sviluppo-sito-sisslerfeld-a-100-bachem-ag-stein-ag",
+      "fr": "ingenieur-pi-server-data-historian-developpement-du-site-sisslerfeld-a-100-bachem-ag-stein-ag"
     }
   },
   "id|bachem.com|1402497333": {
@@ -10013,7 +10015,8 @@
     "createdAt": "2026-07-02",
     "slugByLocale": {
       "fr": "gestionnaire-principal-transformation-globale-du-sgq-a-100-bachem-ag-bubendorf",
-      "en": "senior-manager-global-qms-transformation-a-100-bachem-bubendorf"
+      "en": "senior-manager-global-qms-transformation-a-100-bachem-bubendorf",
+      "it": "senior-manager-trasformazione-globale-qms-a-100-bachem-ag-bubendorf"
     }
   },
   "id|bachem.com|1410427533": {
@@ -10269,7 +10272,9 @@
     "createdAt": "2026-05-21",
     "slugByLocale": {
       "en": "specialist-in-chiropractic-supervisor-male-female-10-thursday-afternoon-universitatsklinik-balgrist-zurich",
-      "fr": "specialiste-en-chiropratique-superviseur-homme-femme-10-apres-midi-du-jeudi-universitatsklinik-balgrist-zurich"
+      "fr": "specialiste-en-chiropratique-superviseur-homme-femme-10-apres-midi-du-jeudi-universitatsklinik-balgrist-zurich",
+      "it": "fachchiropraktor-in-supervisor-in-w-m-d-10-dienstagnachmittag-balgrist-zurich",
+      "de": "fachchiropraktor-in-supervisor-in-w-m-d-10-mittwochnachmittag-donnerstag-oder"
     }
   },
   "id|balgrist.ch|0e41025f-c6f6-4582-b9bf-81c35604d6d4": {
@@ -10461,7 +10466,12 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
     "canton": "ZH",
     "createdAt": "2026-06-16",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "dipl-professionista-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-e74e77",
+      "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+      "fr": "dipl-professionnel-de-soins-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+    }
   },
   "id|balgrist.ch|4ba1d24d-bec7-437a-847f-d13c7017362d": {
     "canonicalSlug": "hr-controllerin-controller-m-w-d-80-100-balgrist-zurich",
@@ -10689,8 +10699,8 @@
     "createdAt": "2026-06-05",
     "slugByLocale": {
       "de": "leitung-sanitatsshop-retail-m-w-d-100-balgrist-zurich",
-      "en": "leitung-sanitatsshop-retail-m-w-d-100-balgrist-zurich",
-      "fr": "leitung-sanitatsshop-retail-m-w-d-100-balgrist-zurich",
+      "en": "senior-consultant-m-w-d-universitatsklinik-balgrist-zurich",
+      "fr": "consultant-principal-m-m-j-universitatsklinik-balgrist-zurich",
       "it": "direzione-negozio-sanitario-e-vendita-al-dettaglio-m-f-d-100-universitatsklinik-balgrist-zurich"
     }
   },
@@ -10722,8 +10732,8 @@
     "createdAt": "2026-06-13",
     "slugByLocale": {
       "de": "oberarztin-oberarzt-anasthesiologie-und-intensivmedizin-m-w-d-80-100-balgrist-zurich",
-      "en": "oberarztin-oberarzt-anasthesiologie-und-intensivmedizin-m-w-d-80-100-balgrist-zurich",
-      "fr": "oberarztin-oberarzt-anasthesiologie-und-intensivmedizin-m-w-d-80-100-balgrist-zurich",
+      "en": "senior-physician-anesthesiology-and-intensive-care-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "fr": "anesthesiologie-et-soins-intensifs-m-f-j-universitatsklinik-balgrist-zurich",
       "it": "oberarztin-oberarzt-anasthesiologie-e-intensivmedizin-m-w-d-80-100-universitatsklinik-balgrist-zurich"
     }
   },
@@ -10750,8 +10760,8 @@
     "createdAt": "2026-06-12",
     "slugByLocale": {
       "de": "dipl-experten-intensivpflege-oder-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d",
-      "en": "dipl-experten-intensivpflege-oder-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d",
-      "fr": "dipl-experten-intensivpflege-oder-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-w-m-d",
+      "en": "dipl-expert-intensive-care-or-dipl-nurses-hf-ndk-monitoring-care-w-m-d-50-100-universitatsklinik-balgrist-zurich",
+      "fr": "dipl-expert-soins-intensifs-ou-dipl-infirmieres-hf-ndk-soins-de-surveillance-m-j-50-100-universitatsklinik-balgrist",
       "it": "dipl-experten-intensivpflege-o-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-m-w-d-50-100-universitatsklinik-balgrist-zurich"
     }
   },
@@ -10882,7 +10892,10 @@
     "canton": "ZH",
     "createdAt": "2026-05-21",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+      "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+      "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+      "en": "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+      "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
     }
   },
   "id|balgrist.ch|fc6d3914-bd9b-4e5d-8dac-6e64178f9f1c": {
@@ -52319,7 +52332,8 @@
     "slugByLocale": {
       "fr": "associate-scientist-senior-laboratory-specialiste-csl-behring-bern",
       "it": "associate-scientist-senior-laboratory-specialista-csl-behring-bern",
-      "de": "associate-scientist-senior-laboratory-specialist-csl-behring-ch"
+      "de": "associate-scientist-senior-laboratory-specialist-csl-behring-ch",
+      "en": "laboratory-specialist-tech-ops-csl-behring-bern"
     }
   },
   "id|csl.wd1.myworkdayjobs.com|r-283446": {
@@ -157078,8 +157092,8 @@
     "createdAt": "2026-05-21",
     "slugByLocale": {
       "de": "manager-fur-cookie-einwilligungen-schindler-bern",
-      "en": "manager-fur-cookie-einwilligungen-schindler-bern",
-      "fr": "manager-fur-cookie-einwilligungen-schindler-bern",
+      "en": "manager-per-cookie-einwilligungen-schindler-bern",
+      "fr": "manager-per-cookie-einwilligungen-schindler-bern",
       "it": "manager-per-cookie-einwilligungen-schindler-bern"
     }
   },
@@ -190996,7 +191010,7 @@
     "slugByLocale": {
       "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
       "en": "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
-      "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+      "fr": "dipl-soins-infirmiers-professionnels-hf-fh-imc-universitatsspital-basel-basel",
       "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
     }
   },
@@ -327647,7 +327661,8 @@
     "canonicalSlug": "chef-de-rang-chesa-al-parc-m-w-d-kulm-hotel-st-moritz-st-moritz-693",
     "slugByLocale": {
       "en": "chef-de-rang-chesa-al-parc-m-w-d-kulm-hotel-st-moritz-st-moritz-693",
-      "de": "kuchenchef-chesa-al-parc-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      "de": "kuchenchef-chesa-al-parc-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "fr": "chef-de-rang-chesa-dans-le-parc-h-f-d-kulm-hotel-st-moritz-st-moritz"
     },
     "createdAt": "2026-07-14",
     "canton": "GR"
@@ -337532,7 +337547,8 @@
     "slugByLocale": {
       "en": "commis-de-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina-698",
       "it": "commissione-di-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina",
-      "fr": "commission-de-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina"
+      "fr": "commission-de-cuisine-patisserie-m-w-d-grand-hotel-kronenhof-pontresina",
+      "de": "kuchenhilfe-patisserie-m-w-d-grand-hotel-kronenhof-pontresina"
     },
     "createdAt": "2026-07-16",
     "canton": "GR"
@@ -355043,7 +355059,8 @@
     "canonicalSlug": "80-100-allenatore-tecnico-elettronica-di-potenza-abb-svizzera-sede-ticino-quartino-ticino",
     "slugByLocale": {
       "it": "80-100-allenatore-tecnico-elettronica-di-potenza-abb-svizzera-sede-ticino-quartino-ticino",
-      "en": "80-100-technical-trainer-power-electronics-abb-svizzera-sede-ticino-quartino-ticino-46ubs3"
+      "en": "80-100-technical-trainer-power-electronics-abb-svizzera-sede-ticino-quartino-ticino-46ubs3",
+      "fr": "80-100-formateur-technique-electronique-de-puissance-abb-svizzera-sede-ticino-quartino-ticino"
     },
     "createdAt": "2026-07-20",
     "canton": "TI"
@@ -367052,7 +367069,8 @@
     "canonicalSlug": "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz",
     "slugByLocale": {
       "en": "assistant-food-and-beverage-manager-m-w-d-kulm-hotel-st-moritz",
-      "fr": "gestionnaire-adjoint-des-aliments-et-des-boissons-m-m-j-kulm-hotel-st-moritz-st-moritz-cd9c0a"
+      "fr": "gestionnaire-adjoint-des-aliments-et-des-boissons-m-m-j-kulm-hotel-st-moritz-st-moritz-cd9c0a",
+      "it": "assistente-direttore-food-and-beverage-m-w-d-kulm-hotel-st-moritz-st-moritz"
     },
     "createdAt": "2026-07-20",
     "canton": "GR"
@@ -380373,7 +380391,8 @@
     "slugByLocale": {
       "it": "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland",
       "en": "senior-wealth-planner-zurich-ubp-ch",
-      "de": "senior-wealth-planner-zurich-union-bancaire-privee-zurich-switzerland"
+      "de": "senior-wealth-planner-zurich-union-bancaire-privee-zurich-switzerland",
+      "fr": "planificateur-principal-de-gestion-patrimoniale-zurich-union-bancaire-privee-zurich-switzerland"
     },
     "createdAt": "2026-07-21",
     "canton": "ZH"
@@ -425655,7 +425674,8 @@
     "slugByLocale": {
       "en": "global-product-manager-abb-svizzera-sede-ticino-quartino-ticino-sk5fye",
       "de": "globaler-produktmanager-abb-svizzera-sede-ticino-quartino-ticino",
-      "fr": "gestionnaire-de-produits-mondial-abb-svizzera-sede-ticino-quartino-ticino"
+      "fr": "gestionnaire-de-produits-mondial-abb-svizzera-sede-ticino-quartino-ticino",
+      "it": "responsabile-prodotto-globale-abb-svizzera-sede-ticino-ticino"
     },
     "createdAt": "2026-07-30",
     "canton": "VD"
@@ -446658,7 +446678,9 @@
     "canonicalSlug": "manager-tech-m-a-advisory-deloitte-zurich",
     "slugByLocale": {
       "en": "manager-tech-m-a-advisory-deloitte-zurich",
-      "fr": "gestionnaire-services-consultatifs-de-m-et-a-techniques-deloitte-zurich"
+      "fr": "gestionnaire-services-consultatifs-de-m-et-a-techniques-deloitte-zurich",
+      "it": "manager-consulenza-tech-m-a-deloitte-zurich",
+      "de": "manager-tech-m-a-beratung-deloitte-zurich"
     },
     "createdAt": "2026-08-02",
     "canton": "ZH"
@@ -446971,7 +446993,9 @@
     "canonicalSlug": "senior-manager-swiss-payroll-advisory-tax-legal-deloitte-geneva",
     "slugByLocale": {
       "en": "senior-manager-swiss-payroll-advisory-tax-legal-deloitte-geneva",
-      "fr": "aine-directeur-swiss-payroll-advisory-fiscalite-droit-deloitte-geneva"
+      "fr": "aine-directeur-swiss-payroll-advisory-fiscalite-droit-deloitte-geneva",
+      "it": "senior-manager-swiss-payroll-advisory-fiscalita-e-legale-deloitte-geneva",
+      "de": "senior-manager-swiss-payroll-advisory-steuern-recht-deloitte-geneva"
     },
     "createdAt": "2026-08-02",
     "canton": "GE"
@@ -465361,7 +465385,9 @@
     "canonicalSlug": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712",
     "slugByLocale": {
       "en": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-712",
-      "fr": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      "fr": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+      "it": "addetto-alle-prenotazioni-m-f-d-kulm-hotel-st-moritz-st-moritz",
+      "de": "mitarbeiter-in-reservierung-m-w-d-kulm-hotel-st-moritz-st-moritz"
     },
     "createdAt": "2026-08-06",
     "canton": "GR"
@@ -465403,7 +465429,8 @@
     "slugByLocale": {
       "it": "florist-m-w-d-grand-hotel-kronenhof-pontresina",
       "en": "florist-m-w-d-grand-hotel-kronenhof-pontresina-714",
-      "fr": "fleuriste-m-w-d-grand-hotel-kronenhof-pontresina"
+      "fr": "fleuriste-m-w-d-grand-hotel-kronenhof-pontresina",
+      "de": "risikopositionen-m-w-d-grand-hotel-kronenhof-pontresina"
     },
     "createdAt": "2026-08-06",
     "canton": "GR"
@@ -465451,7 +465478,8 @@
   "id|kronenhof.com|705": {
     "canonicalSlug": "barman-chef-de-rang-kulm-altitude-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-705",
     "slugByLocale": {
-      "en": "barman-chef-de-rang-kulm-altitude-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-705"
+      "en": "barman-chef-de-rang-kulm-altitude-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-705",
+      "de": "barman-chef-de-rang-kulm-hohe-bar-m-w-d-kulm-hotel-st-moritz-st-moritz"
     },
     "createdAt": "2026-08-06",
     "canton": "GR"
@@ -470824,7 +470852,9 @@
   "url|https://jobs.zfv.ch/koechin-koch-60-de-j4658.html": {
     "canonicalSlug": "kochin-koch-60-zfv-unternehmungen-dubendorf",
     "slugByLocale": {
-      "de": "kochin-koch-60-zfv-unternehmungen-dubendorf"
+      "de": "kochin-koch-60-zfv-unternehmungen-dubendorf",
+      "it": "cucinare-cucinare-60-zfv-unternehmungen-dubendorf",
+      "fr": "cuisiniere-60-zfv-unternehmungen-dubendorf"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -470833,7 +470863,9 @@
     "canonicalSlug": "office-collaboratore-trice-50-zfv-unternehmungen-zurich",
     "slugByLocale": {
       "de": "office-mitarbeiter-in-50-zfv-unternehmungen-zurich",
-      "it": "office-collaboratore-trice-50-zfv-unternehmungen-zurich"
+      "it": "office-collaboratore-trice-50-zfv-unternehmungen-zurich",
+      "en": "office-associate-50-zfv-unternehmungen-zurich",
+      "fr": "office-collaborateur-trice-50-zfv-unternehmungen-zurich"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -475585,7 +475617,8 @@
     "slugByLocale": {
       "en": "assistant-abb-svizzera-sede-ticino-schaffhausen-y5exrd",
       "de": "assistent-abb-svizzera-sede-ticino-schaffhausen-y5exrd",
-      "it": "assistente-abb-svizzera-sede-ticino-schaffhausen"
+      "it": "assistente-abb-svizzera-sede-ticino-schaffhausen",
+      "fr": "assistant-abb-svizzera-sede-ticino-schaffhausen"
     },
     "createdAt": "2026-08-08",
     "canton": "SH"
@@ -477628,7 +477661,9 @@
   "id|swica.ch|3ebbe9e0-4252-4a11-b4d9-e2262c587c36": {
     "canonicalSlug": "senior-software-engineer-integration-amp-platform-owner-alle-swica-winterthur",
     "slugByLocale": {
-      "de": "senior-software-engineer-integration-amp-platform-owner-alle-swica-winterthur"
+      "de": "senior-software-engineer-integration-amp-platform-owner-alle-swica-winterthur",
+      "it": "senior-software-ingegnere-integration-platform-owner-alle-swica-gesundheitsorganisation-winterthur",
+      "fr": "senior-software-ingenieur-integration-platform-owner-alle-swica-gesundheitsorganisation-winterthur"
     },
     "createdAt": "2026-08-08",
     "canton": "ZH"
@@ -477636,7 +477671,9 @@
   "id|swica.ch|96a5872e-0819-4463-95cf-9cdb48427046": {
     "canonicalSlug": "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
     "slugByLocale": {
-      "de": "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
+      "de": "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
+      "it": "senior-cyber-security-ingegnere-schwerpunkt-incident-response-and-threat-intelligence-alle-swica-gesundheitsorganisation",
+      "fr": "senior-cyber-security-ingenieur-schwerpunkt-incident-response-and-threat-intelligence-alle-swica-gesundheitsorganisation"
     },
     "createdAt": "2026-08-08",
     "canton": "ZH"
@@ -484209,7 +484246,9 @@
     "canonicalSlug": "apprendista-kauffrau-mann-con-lehrbeginn-2027-berufsmaturitat-ist-moglich-caritas-schweiz-luzern",
     "slugByLocale": {
       "de": "lernende-r-kauffrau-mann-mit-lehrbeginn-2027-berufsmaturitat-ist-moglich-caritas-schweiz",
-      "it": "apprendista-kauffrau-mann-con-lehrbeginn-2027-berufsmaturitat-ist-moglich-caritas-schweiz-luzern"
+      "it": "apprendista-kauffrau-mann-con-lehrbeginn-2027-berufsmaturitat-ist-moglich-caritas-schweiz-luzern",
+      "en": "apprentice-kauffrau-mann-mit-lehrbeginn-2027-berufsmaturitat-ist-moglich-caritas-schweiz-luzern",
+      "fr": "apprenti-e-kauffrau-mann-mit-lehrbeginn-2027-berufsmaturitat-ist-moglich-caritas-schweiz-luzern"
     },
     "createdAt": "2026-08-11",
     "canton": "LU"
@@ -485585,7 +485624,9 @@
     "canonicalSlug": "global-principal-clinical-scientist-cardiorenal-csl-behring-ch",
     "slugByLocale": {
       "en": "global-principal-clinical-scientist-cardiorenal-csl-behring-ch",
-      "fr": "chercheur-clinique-principal-mondial-cardiorenal-csl-behring-glattbrugg"
+      "fr": "chercheur-clinique-principal-mondial-cardiorenal-csl-behring-glattbrugg",
+      "it": "scienziato-clinico-principale-globale-cardiorenale-csl-behring-glattbrugg",
+      "de": "globaler-leitender-klinischer-wissenschaftler-kardiorenal-csl-behring-glattbrugg"
     },
     "createdAt": "2026-08-11",
     "canton": "ZH"
@@ -485639,7 +485680,8 @@
     "slugByLocale": {
       "it": "partner-senior-talent-acquisizione-csl-behring-bern",
       "en": "senior-talent-acquisition-partner-csl-behring-ch",
-      "fr": "senior-talent-acquisition-partner-csl-behring-bern"
+      "fr": "senior-talent-acquisition-partner-csl-behring-bern",
+      "de": "senior-partner-fur-talentakquise-csl-behring-bern"
     },
     "createdAt": "2026-08-11",
     "canton": "BE"
@@ -485704,7 +485746,8 @@
     "slugByLocale": {
       "en": "clinical-trial-supply-cts-study-manager-csl-behring-ch",
       "de": "clinical-trial-supply-cts-studienleiter-csl-behring-bern",
-      "fr": "gestionnaire-de-l-etude-sur-l-approvisionnement-en-essais-cliniques-csl-behring-bern"
+      "fr": "gestionnaire-de-l-etude-sur-l-approvisionnement-en-essais-cliniques-csl-behring-bern",
+      "it": "responsabile-dello-studio-per-la-fornitura-di-studi-clinici-cts-csl-behring-bern"
     },
     "createdAt": "2026-08-11",
     "canton": "BE"
@@ -485713,7 +485756,8 @@
     "canonicalSlug": "senior-regional-facilities-manager-vendor-contract-management-csl-behring-ch",
     "slugByLocale": {
       "en": "senior-regional-facilities-manager-vendor-contract-management-csl-behring-ch",
-      "fr": "gestionnaire-regional-principal-des-installations-et-gestion-des-contrats-des-fournisseurs-csl-behring-bern"
+      "fr": "gestionnaire-regional-principal-des-installations-et-gestion-des-contrats-des-fournisseurs-csl-behring-bern",
+      "it": "senior-regional-facilities-manager-e-gestione-dei-contratti-con-i-fornitori-csl-behring-bern"
     },
     "createdAt": "2026-08-11",
     "canton": "BE"
@@ -485761,7 +485805,8 @@
     "canonicalSlug": "senior-application-manager-dynamics-365-crm-bkw-ch",
     "slugByLocale": {
       "de": "senior-application-manager-dynamics-365-crm-bkw-ch",
-      "fr": "gestionnaire-d-applications-principal-dynamics-365-crm-bkw-bern"
+      "fr": "gestionnaire-d-applications-principal-dynamics-365-crm-bkw-bern",
+      "it": "responsabile-applicativo-senior-dynamics-365-crm-bkw-bern"
     },
     "createdAt": "2026-08-11",
     "canton": "BE"
@@ -487779,7 +487824,8 @@
     "canonicalSlug": "manager-fsi-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
     "slugByLocale": {
       "en": "manager-fsi-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
-      "fr": "gestionnaire-avis-sur-la-transformation-et-l-integration-apres-fusion-de-l-isf-deloitte-zurich"
+      "fr": "gestionnaire-avis-sur-la-transformation-et-l-integration-apres-fusion-de-l-isf-deloitte-zurich",
+      "it": "responsabile-fsi-deal-transformation-and-post-merger-integration-advisor-deloitte-zurich"
     },
     "createdAt": "2026-08-11",
     "canton": "ZH"
@@ -487843,7 +487889,8 @@
     "canonicalSlug": "batchdocument-reviewer-a-100-bachem-bubendorf",
     "slugByLocale": {
       "de": "batchdocument-reviewer-a-100-bachem-bubendorf",
-      "fr": "reviseur-de-documents-par-lots-a-100-bachem-ag-bubendorf"
+      "fr": "reviseur-de-documents-par-lots-a-100-bachem-ag-bubendorf",
+      "it": "recensione-di-batchdocument-a-100-bachem-ag-bubendorf"
     },
     "createdAt": "2026-08-11",
     "canton": "BL"
@@ -487945,7 +487992,9 @@
     "canonicalSlug": "senior-pricing-actuarial-associate-life-insurance-zurich-insurance-sede-ticino-lugano-2xroex",
     "slugByLocale": {
       "en": "senior-pricing-actuarial-associate-life-insurance-zurich-insurance-sede-ticino-lugano-2xroex",
-      "fr": "actuariat-principal-des-prix-assurance-vie-zurich-insurance-sede-ticino-lugano"
+      "fr": "actuariat-principal-des-prix-assurance-vie-zurich-insurance-sede-ticino-lugano",
+      "it": "senior-pricing-actuarial-associate-assicurazione-vita-zurich-insurance-sede-ticino-lugano",
+      "de": "senior-pricing-actuarial-associate-lebensversicherung-zurich-insurance-sede-ticino-lugano-2xroex"
     },
     "createdAt": "2026-08-11",
     "canton": "TI"
@@ -487964,7 +488013,10 @@
   "id|zurich.com|1369143757": {
     "canonicalSlug": "gestor-a-de-projetos-negocio-vida-zurich-insurance-sede-ticino-lugano-2zd58f",
     "slugByLocale": {
-      "fr": "gestor-a-de-projetos-negocio-vida-zurich-insurance-sede-ticino-lugano-2zd58f"
+      "fr": "gestor-a-de-projetos-negocio-vida-zurich-insurance-sede-ticino-lugano-2zd58f",
+      "it": "projectos-gestor-a-negocio-vida-zurich-insurance-sede-ticino-lugano",
+      "en": "projectos-gestor-a-negocio-vida-zurich-insurance-sede-ticino-lugano-2zd58f",
+      "de": "projectos-gestor-a-negocio-vida-zurich-insurance-sede-ticino-lugano-2zd58f"
     },
     "createdAt": "2026-08-11",
     "canton": "TI"
@@ -487995,7 +488047,9 @@
     "canonicalSlug": "senior-underwriter-haftpflicht-international-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-2yuo3i",
     "slugByLocale": {
       "de": "senior-underwriter-haftpflicht-international-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-2yuo3i",
-      "fr": "aine-responsabilite-des-assureurs-international-h-f-d-70-100-zurich-insurance-sede-ticino-zurich"
+      "fr": "aine-responsabilite-des-assureurs-international-h-f-d-70-100-zurich-insurance-sede-ticino-zurich",
+      "it": "senior-underwriter-liability-international-m-f-d-70-100-zurich-insurance-sede-ticino-zurich",
+      "en": "senior-underwriter-liability-international-m-w-d-70-100-zurich-insurance-sede-ticino-zurich-2yuo3i"
     },
     "createdAt": "2026-08-11",
     "canton": "ZH"
@@ -488013,7 +488067,10 @@
   "id|oraclecloud.eu|1465": {
     "canonicalSlug": "fees-specialist-6-months-mission-ubp-ch",
     "slugByLocale": {
-      "en": "fees-specialist-6-months-mission-ubp-ch"
+      "en": "fees-specialist-6-months-mission-ubp-ch",
+      "it": "fees-specialista-6-months-mission-union-bancaire-privee-geneva-switzerland",
+      "de": "fees-spezialist-6-months-mission-union-bancaire-privee-geneva-switzerland",
+      "fr": "fees-specialiste-6-months-mission-union-bancaire-privee-geneva-switzerland"
     },
     "createdAt": "2026-08-11",
     "canton": "GE"
@@ -488021,7 +488078,9 @@
   "id|oraclecloud.eu|1390": {
     "canonicalSlug": "core-banking-business-analyst-ba-ubp-ch",
     "slugByLocale": {
-      "en": "core-banking-business-analyst-ba-ubp-ch"
+      "en": "core-banking-business-analyst-ba-ubp-ch",
+      "it": "core-banking-business-analista-ba-union-bancaire-privee-geneva-switzerland",
+      "fr": "core-banking-business-analyste-ba-union-bancaire-privee-geneva-switzerland"
     },
     "createdAt": "2026-08-11",
     "canton": "GE"
@@ -488031,7 +488090,8 @@
     "slugByLocale": {
       "de": "mitarbeiter-in-pelletproduktion-alle-bkw-ch",
       "it": "collaboratore-trice-pelletproduktion-alle-bkw-balsthal",
-      "fr": "collaborateur-trice-pelletproduktion-alle-bkw-balsthal"
+      "fr": "collaborateur-trice-pelletproduktion-alle-bkw-balsthal",
+      "en": "associate-pelletproduktion-alle-bkw-balsthal"
     },
     "createdAt": "2026-08-11",
     "canton": "SO"
@@ -488085,7 +488145,8 @@
     "slugByLocale": {
       "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch",
       "en": "dipl-nursing-professional-dipl-nursing-professional-hf-fh-orthopedics-traumatology-universitatsspital-basel-basel",
-      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-orthopedie-traumatologie"
+      "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-orthopedie-traumatologie",
+      "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopala-traumatologie-universitatsspital-basel-basel"
     },
     "createdAt": "2026-08-11",
     "canton": "BS"
@@ -488308,9 +488369,9 @@
     "canonicalSlug": "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern",
     "slugByLocale": {
       "it": "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-7isxrm",
-      "en": "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-7isxrm",
+      "en": "verkaufsberateri-in-kosmetik-coop-city-bern-7isxrm",
       "de": "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-7isxrm",
-      "fr": "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-7isxrm"
+      "fr": "verkaufsberateri-a-kosmetik-coop-city-bern-7isxrm"
     },
     "createdAt": "2026-08-11",
     "canton": "BE"
@@ -489450,6 +489511,2088 @@
       "it": "medico-r-assistente-pratico-in-centro-di-fertilita-kantonsspital-graubunden-chur",
       "en": "medical-r-practical-assistant-in-fertility-center-kantonsspital-graubunden-chur",
       "fr": "medical-r-assistant-pratique-dans-le-centre-de-fertilite-kantonsspital-graubunden-chur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "id|kronenhof.com|719": {
+    "canonicalSlug": "events-planning-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-719",
+    "slugByLocale": {
+      "en": "events-planning-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-719"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "id|kronenhof.com|718": {
+    "canonicalSlug": "driver-m-w-d-grand-hotel-kronenhof-pontresina-718",
+    "slugByLocale": {
+      "en": "driver-m-w-d-grand-hotel-kronenhof-pontresina-718"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "id|kulm.com|719": {
+    "canonicalSlug": "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
+    "slugByLocale": {
+      "en": "events-planning-manager-m-w-d-kulm-hotel-st-moritz"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "id|kulm.com|718": {
+    "canonicalSlug": "driver-m-w-d-kulm-hotel-st-moritz",
+    "slugByLocale": {
+      "en": "driver-m-w-d-kulm-hotel-st-moritz"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "id|concordia.ch|200abc82-9ffe-4439-80f9-4cb3e3dc5ec5": {
+    "canonicalSlug": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern",
+    "slugByLocale": {
+      "de": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|concordia.ch|3f6e53d4-6499-4062-a506-d48dd32824de": {
+    "canonicalSlug": "versicherungsberater-in-100-in-baar-concordia-baar",
+    "slugByLocale": {
+      "de": "versicherungsberater-in-100-in-baar-concordia-baar"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|5517d1d6-1a9c-459a-98c2-3af541d2ecbd": {
+    "canonicalSlug": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-kusnacht-zurich",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-division-der-coop-genossenschaft-kusnacht-zurich-2l5pol",
+      "en": "associate-sales-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-kusnacht-zurich-2l5pol",
+      "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-kusnacht-zurich-2l5pol",
+      "fr": "collaborateur-trice-vente-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-kusnacht-zurich-2l5pol"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|acc1ee10-1dbe-44c0-80e0-1ebe63715756": {
+    "canonicalSlug": "verkaufer-in-food-to-go-coop-genossenschaft-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-to-go-coop-genossenschaft-zurich-thjcvz"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|c2cad2d3-a519-4fea-b038-e251460351e0": {
+    "canonicalSlug": "verkaufer-in-food-coop-genossenschaft-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-genossenschaft-zurich-70a1u3"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|fb4b5bf8-e0e6-487a-96ed-f98faf35836b": {
+    "canonicalSlug": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-volketswil-zurich",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-volketswil-zurich-f6tqzf"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|61e18fea-18a9-4048-891f-8709d5a6e854": {
+    "canonicalSlug": "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-heimtextilien-coop-genossenschaft-zurich-9ksoq1"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|3c94b0d3-b8c5-4d87-81d0-5e3468347818": {
+    "canonicalSlug": "backer-in-konditor-in-hausbackerei-coop-lenzburg-aargau",
+    "slugByLocale": {
+      "de": "backer-in-konditor-in-hausbackerei-coop-lenzburg-aargau-ingc7n"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|21791975-c39e-401d-96f3-87c3dd1f2c59": {
+    "canonicalSlug": "backer-in-konditor-in-coop-kussnacht-schwyz",
+    "slugByLocale": {
+      "de": "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz-23vyy2"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SZ"
+  },
+  "id|coopjobs.ch|73191192-3d2a-4a12-8c85-bea6144ba248": {
+    "canonicalSlug": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern",
+    "slugByLocale": {
+      "it": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern-195e42",
+      "en": "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern-195e42",
+      "de": "junior-lieferkette-manager-distribution-interdiscount-jegenstorf-bern-195e42",
+      "fr": "junior-chaine-d-approvisionnement-manager-distribution-interdiscount-jegenstorf-bern-195e42"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|653a5b9c-a24e-47a6-96db-44bc9751142b": {
+    "canonicalSlug": "kochin-koch-m-w-d-coop-genossenschaft-bern",
+    "slugByLocale": {
+      "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-dw8m6e"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|ab39fd21-cabf-4525-906b-af3e31630072": {
+    "canonicalSlug": "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
+    "slugByLocale": {
+      "de": "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-qhgtnn"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|d7d1bc17-f2ac-42bd-a524-9d3acebd542a": {
+    "canonicalSlug": "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau",
+    "slugByLocale": {
+      "de": "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-0gzv17"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TG"
+  },
+  "id|coopjobs.ch|042cf22b-5b8d-4918-82c3-a6864d09f1fd": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-dagmersellen-luzern",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-dagmersellen-luzern-duvn24"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|0d6692e0-5d47-4878-a6c9-8c8094655c7d": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-steinhausen-zug",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-steinhausen-zug-co6qt7"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|41c9e6c3-dc65-41a2-8c9d-48e33e69377a": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-tafers-freiburg",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-tafers-freiburg-bv3pbk"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "FR"
+  },
+  "id|coopjobs.ch|7f71abb6-86b5-49fd-bd4b-b0b474a1e799": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-ag-aargau",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-ag-aargau-f7vbbo"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|990ed4ca-20ee-47c4-8000-8992edbf8367": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-meilen-zurich",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-meilen-zurich-38ovyf"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|ef22ffe7-7e44-4d4d-9809-99ffef672deb": {
+    "canonicalSlug": "mitarbeiter-in-gastronomie-take-it-coop-genossenschaft-bern",
+    "slugByLocale": {
+      "it": "collaboratore-trice-gastronomie-take-it-coop-genossenschaft-bern-s2uih1",
+      "en": "associate-gastronomie-take-it-coop-genossenschaft-bern-s2uih1",
+      "de": "mitarbeiter-in-gastronomie-take-it-coop-genossenschaft-bern-s2uih1",
+      "fr": "collaborateur-trice-gastronomie-take-it-coop-genossenschaft-bern-s2uih1"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|8454586c-7864-473d-b23d-5b2e60865efb": {
+    "canonicalSlug": "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau",
+    "slugByLocale": {
+      "it": "addetto-a-alla-logistica-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
+      "en": "associate-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
+      "de": "mitarbeiter-in-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
+      "fr": "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|a3d50302-dbe8-4db2-ae0a-e79ebcaf94e4": {
+    "canonicalSlug": "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau",
+    "slugByLocale": {
+      "it": "addetto-a-alla-logistica-jumbo-wurenlingen-aargau-iogi71",
+      "en": "associate-logistik-jumbo-wurenlingen-aargau-iogi71",
+      "de": "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau-iogi71",
+      "fr": "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|1f2caa23-22ed-47a5-ae3b-ad87f2b51c0b": {
+    "canonicalSlug": "polydesigner-in-3d-coop-city-luzern",
+    "slugByLocale": {
+      "de": "polydesigner-in-3d-coop-city-luzern-ukijwi"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|73562265-fb50-4f18-b88d-6e2f77074a2b": {
+    "canonicalSlug": "rayonleiter-in-brot-backwaren-coop-kusnacht-zurich",
+    "slugByLocale": {
+      "de": "rayonleiter-in-brot-backwaren-coop-kusnacht-zurich-ehqwcw"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|f84a3905-31ee-4c06-89a6-ef2c6d4ca38b": {
+    "canonicalSlug": "rayonleiter-in-convenience-fleisch-coop-murten-freiburg",
+    "slugByLocale": {
+      "de": "rayonleiter-in-convenience-fleisch-coop-murten-freiburg-la9jc3",
+      "fr": "rayonleiter-en-pratique-fleisch-coop-murten-freiburg"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "FR"
+  },
+  "id|coopjobs.ch|6b1b95a2-3103-44ab-9082-d2cd6d5a4bdb": {
+    "canonicalSlug": "rayonleiter-in-frische-insel-coop-kriens-luzern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-frische-insel-coop-kriens-luzern-1dz0g5"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|500ed94d-4ab9-4dcd-8cd1-47ffe1378b7a": {
+    "canonicalSlug": "rayonleiter-in-kassen-services-coop-kussnacht-schwyz",
+    "slugByLocale": {
+      "de": "rayonleiter-in-kassen-services-coop-kussnacht-schwyz-5vipjy",
+      "fr": "rayonleiter-dans-kassen-services-coop-kussnacht-schwyz-5vipjy"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SZ"
+  },
+  "id|coopjobs.ch|4f28a911-d0b9-42de-a83d-affaf2080c87": {
+    "canonicalSlug": "rayonleiter-in-molkerei-eier-kase-coop-koniz-bern",
+    "slugByLocale": {
+      "de": "rayonleiter-in-molkerei-eier-kase-coop-koniz-bern-ldh7ah"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|70fc727b-1ecb-48e1-acd2-3d3ca666708c": {
+    "canonicalSlug": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-3ihok0"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|4c0dc991-f574-415a-a962-af4348640020": {
+    "canonicalSlug": "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern",
+    "slugByLocale": {
+      "it": "stv-rayonleiter-in-fruchte-e-gemuse-coop-burgdorf-bern-hd8cwl",
+      "de": "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-hd8cwl"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|b085ad9f-543c-4d56-b1bc-05affe62957e": {
+    "canonicalSlug": "verkaufer-in-food-brot-molkerei-fruchte-gemuse-neueroffnung-coop-affoltern-am-albis-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-brot-molkerei-fruchte-gemuse-neueroffnung-coop-affoltern-am-albis-zurich-d7wqi1"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|7a22826f-31c4-4f51-8934-840218dfe189": {
+    "canonicalSlug": "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|079d2833-6ea7-41b3-a769-ca2e574e1105": {
+    "canonicalSlug": "verkaufer-in-food-metzgerei-coop-egg-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-metzgerei-coop-egg-zurich-r6bi3i"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|4ea9c127-4628-45be-a191-2852ef6b181a": {
+    "canonicalSlug": "verkaufer-in-food-non-food-coop-goschenen-uri",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-non-food-coop-goschenen-uri-vbi89w",
+      "fr": "verkaufer-dans-la-nourriture-non-alimentaire-coop-goschenen-uri"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "UR"
+  },
+  "id|coopjobs.ch|34bccc1a-b002-41d8-8422-d67a34d60417": {
+    "canonicalSlug": "verkaufer-in-food-springer-coop-ostermundigen-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-springer-coop-ostermundigen-bern-8cj3i5"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|0e2e441f-d9da-4832-8417-8045ea5cc702": {
+    "canonicalSlug": "verkaufer-in-food-coop-buren-an-der-aare-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-buren-an-der-aare-bern-4qyfym"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|107856ec-fc8b-4892-979f-90e2d5bccb79": {
+    "canonicalSlug": "verkaufer-in-food-coop-lachen-schwyz",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-lachen-schwyz-3d49la",
+      "en": "verkaufer-in-food-coop-lachen-schwyz-3d49la",
+      "de": "verkaufer-in-lebensmittel-coop-lachen-schwyz",
+      "fr": "verkaufer-dans-les-aliments-coop-lachen-schwyz"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SZ"
+  },
+  "id|coopjobs.ch|218d12f4-9baa-4348-b0ef-3d16bfedd670": {
+    "canonicalSlug": "verkaufer-in-food-coop-frutigen-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-frutigen-bern-cl5pme",
+      "en": "verkaufer-in-food-coop-frutigen-bern-cl5pme",
+      "de": "verkaufer-in-lebensmittel-coop-frutigen-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-frutigen-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|2c86986b-d1d0-48dd-aab3-879dea20ae03": {
+    "canonicalSlug": "verkaufer-in-food-coop-toffen-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-toffen-bern-ejcbn0",
+      "en": "verkaufer-in-food-coop-toffen-bern-ejcbn0",
+      "de": "verkaufer-in-lebensmittel-coop-toffen-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-toffen-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|3b6c5935-89b3-4342-a29a-7f78b3ff1be9": {
+    "canonicalSlug": "verkaufer-in-food-coop-city-baden-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-city-baden-aargau-duwww7"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|3ddebce4-d7cb-4a57-9b08-814ab07f84dd": {
+    "canonicalSlug": "verkaufer-in-food-coop-grindelwald-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-grindelwald-bern-qsvo9y"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|3e47de26-58f3-44f6-b7b3-fcde06548040": {
+    "canonicalSlug": "verkaufer-in-food-coop-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-bern-9avdeg"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|42a4475d-6c42-4585-a909-5e2ed9a725e6": {
+    "canonicalSlug": "verkaufer-in-food-coop-genossenschaft-bulach-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-genossenschaft-bulach-zurich-351y10"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|456f1188-7351-4aa6-828c-cec265c9a390": {
+    "canonicalSlug": "verkaufer-in-food-coop-bern-2",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-bern-h2c8pa"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|62c0ef79-7bdf-435c-bd35-7b53ed407f21": {
+    "canonicalSlug": "verkaufer-in-food-coop-batterkinden-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-batterkinden-bern-kuz9eh"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|65791743-2a81-47f6-b7b6-7740a3153c37": {
+    "canonicalSlug": "verkaufer-in-food-coop-affoltern-am-albis-zurich",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-affoltern-am-albis-zurich-1y5k05",
+      "en": "verkaufer-in-food-coop-affoltern-am-albis-zurich-1y5k05",
+      "de": "verkaufer-in-lebensmittel-coop-affoltern-am-albis-zurich",
+      "fr": "verkaufer-dans-les-aliments-coop-affoltern-am-albis-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|70192c45-bcf1-4b91-af64-c4f1a2be6480": {
+    "canonicalSlug": "verkaufer-in-food-coop-ostermundigen-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-ostermundigen-bern-fjy35p"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|74978d10-4088-4759-a5c1-4adfb8ee3922": {
+    "canonicalSlug": "verkaufer-in-food-coop-beromunster-luzern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-genossenschaft-beromunster-luzern-v8e3nd",
+      "en": "verkaufer-in-food-coop-genossenschaft-beromunster-luzern-v8e3nd",
+      "de": "verkaufer-in-lebensmittel-coop-genossenschaft-beromunster-luzern",
+      "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-beromunster-luzern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|8ec2ca99-5f49-4dd7-85c3-c64bde90d809": {
+    "canonicalSlug": "verkaufer-in-food-coop-lotzwil-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-lotzwil-bern-1rmk8z",
+      "en": "verkaufer-in-food-coop-lotzwil-bern-1rmk8z",
+      "de": "verkaufer-in-lebensmittel-coop-lotzwil-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-lotzwil-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|981409da-1f0f-4753-9cc8-44edc1d73490": {
+    "canonicalSlug": "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern-mfbuak"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|de7f1d1e-a245-49d4-bde6-ae4359840a58": {
+    "canonicalSlug": "verkaufer-in-food-coop-belp-bern",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-belp-bern-qc3mut",
+      "en": "verkaufer-in-food-coop-belp-bern-qc3mut",
+      "de": "verkaufer-in-lebensmittel-coop-belp-bern",
+      "fr": "verkaufer-dans-les-aliments-coop-belp-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|f35323b9-4c34-46f4-a251-79cd1a1ac8f3": {
+    "canonicalSlug": "verkaufer-in-food-coop-langnau-am-albis-zurich",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-langnau-am-albis-zurich-hszxig",
+      "en": "verkaufer-in-food-coop-langnau-am-albis-zurich-hszxig",
+      "de": "verkaufer-in-lebensmittel-coop-langnau-am-albis-zurich",
+      "fr": "verkaufer-dans-les-aliments-coop-langnau-am-albis-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|d20029a9-28c7-4b9c-833a-3aff6102d2ff": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-backwaren-coop-hunenberg-zug",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-backwaren-coop-hunenberg-zug-d0yfo8",
+      "fr": "verkaufer-dans-frischprodukte-backwaren-coop-hunenberg-zug-d0yfo8"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|e50a3682-7aef-4532-bd42-908ca53cd0a3": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-backerei-kase-coop-lenzburg-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-backerei-kase-coop-lenzburg-aargau-2h898c"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|b95b1e71-d7db-4c69-9a16-058d968ed437": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau",
+    "slugByLocale": {
+      "it": "verkaufer-in-frischprodukte-brot-e-backwaren-coop-killwangen-aargau-uurgta",
+      "de": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau-uurgta"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|a153200c-6914-4e47-be97-f0cdb35954f6": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|166d7afa-ceef-45fe-bb07-e8626cf79511": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-metzgerei-coop-steinhausen-zug",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-metzgerei-coop-steinhausen-zug-n3luzo"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|480d4f78-4666-4435-bed6-423e0f26c6d4": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-diessenhofen-thurgau",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-diessenhofen-thurgau-vkffww"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TG"
+  },
+  "id|coopjobs.ch|2a8b529f-68bf-46ba-8fdf-84e5f0528bf1": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-grosshochstetten-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-grosshochstetten-bern-9bn22r"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|444794e1-1b3c-46ed-8726-24ceb241f07a": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-bern-0oqs5j"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|494988bc-3658-49ec-bf0e-150e1019d9b9": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-wadenswil-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-wadenswil-zurich-03mzw8"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|90529d2b-0abd-4860-8de6-74f95b0b09ba": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-horgen-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-horgen-zurich-ne6n7j"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|92414361-6391-4d9d-92b6-47f7526980ee": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-oberageri-zug",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-oberageri-zug-knaao2"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|9b51bcf0-42ac-451c-98c1-6e748c888dbd": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-grenchen-solothurn",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-grenchen-solothurn-355tqg"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|6bd2af5c-3747-436d-83d4-33fb835c3c87": {
+    "canonicalSlug": "verkaufberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-q82pe1"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|3078fd46-7fa3-481a-8cdf-f42f71693f26": {
+    "canonicalSlug": "verkaufberater-in-non-food-coop-city-zug",
+    "slugByLocale": {
+      "de": "verkaufberater-in-non-food-coop-city-zug-seusc9"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|2edfc2ae-6ea8-43d3-897e-c67a630177fa": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-2",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-mjlxfg"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|312d75fe-408d-418e-b8e7-14f09451bc2a": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-4",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-5jyniw"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|72c67238-9883-4926-a9e2-c34e6c8a1fbc": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-mjkp82"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|7a08f2c0-b733-4728-bbaf-cc2037cc37b7": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-eyholz-wallis",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-eyholz-wallis-aoukzm"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "VS"
+  },
+  "id|coopjobs.ch|854abf2c-e54f-444d-b04c-44f5ea323c3c": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-schattdorf-uri",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-schattdorf-uri-vqjzq1"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "UR"
+  },
+  "id|coopjobs.ch|f2c72f2a-9fe4-40af-9fad-c4f93e451d43": {
+    "canonicalSlug": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-3",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-solothurn-jsuir2"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|db55c1ad-11af-4043-a28e-58fbfff025f3": {
+    "canonicalSlug": "verkaufsberater-in-garden-jumbo-suhr-aargau",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-garden-jumbo-suhr-aargau-xps3g3"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|8cc86070-e535-4460-9d05-bb756a3e0d42": {
+    "canonicalSlug": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-lyssach-bern",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-lyssach-bern-ygorlx"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|94a95a2d-fdfe-4d79-924c-6b07c14396ce": {
+    "canonicalSlug": "verkaufsberater-in-im-aussendienst-coop-genossenschaft-genf",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-im-aussendienst-coop-genossenschaft-genf-0j74mu"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GE"
+  },
+  "id|coopjobs.ch|1e95e923-e4c8-4b90-8545-49e5cde45e9f": {
+    "canonicalSlug": "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-christ-orologi-gioielli-winterthur-zurich",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-inklusive-stellvertretung-der-geschaftsfuhrung-christ-orologi-gioielli-winterthur-zurich-51px1z"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|20fb641f-849c-4706-b521-9630b3b29c76": {
+    "canonicalSlug": "verkaufsberater-in-kosmetik-coop-city-aarau-aargau",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-klipnz"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|8220793b-4d36-466f-ab44-6fc8bf9a9e78": {
+    "canonicalSlug": "verkaufsberater-in-import-parfumerie-wurenlingen-aargau",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-import-parfumerie-wurenlingen-aargau-oinfea"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|ddc9b814-cc3d-4745-bfd5-b1ab88476094": {
+    "canonicalSlug": "weindegustantin-weindegustant-coop-schafisheim-aargau",
+    "slugByLocale": {
+      "de": "weindegustantin-weindegustant-coop-schafisheim-aargau-x4flcy"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|transgourmet.ch|3ec92414-23c5-4653-9f52-fbbfc874ef5a": {
+    "canonicalSlug": "kommissioniererin-kommissionierer-bern-100-transgourmet-prodega-bern",
+    "slugByLocale": {
+      "de": "kommissioniererin-kommissionierer-bern-100-transgourmet-prodega-bern-l61yg8"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|transgourmet.ch|b7694678-1dc6-4210-97a4-171c86c06cd9": {
+    "canonicalSlug": "leiterin-leiter-payroll-transgourmet-prodega-moosseedorf-bern",
+    "slugByLocale": {
+      "de": "leiterin-leiter-payroll-transgourmet-prodega-moosseedorf-bern-mr2w2n"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|transgourmet.ch|885b3458-b5fa-4d3c-876f-419a6b986b6c": {
+    "canonicalSlug": "nachtlogistikerin-nachtlogistiker-transgourmet-prodega-chur-graubunden",
+    "slugByLocale": {
+      "de": "nachtlogistikerin-nachtlogistiker-transgourmet-prodega-chur-graubunden-sk7hbq"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "id|coopjobs.ch|ae7191e1-36c0-468e-88b4-5eb8c15b6049": {
+    "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-aarau-aargau",
+    "slugByLocale": {
+      "it": "rayonleiter-in-grundnahrungsmittel-coop-aarau-aargau-cz6li4",
+      "en": "rayonleiter-coop-aarau-aargau",
+      "de": "strahlenleiter-coop-aarau-aargau",
+      "fr": "rayonleiter-in-grundnahrungsmittel-coop-aarau-aargau-cz6li4"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|dba60f44-1669-4fcc-ab25-8b2bda67bd48": {
+    "canonicalSlug": "stv-rayonleiter-in-convenience-metzgerei-coop-zumikon-zurich",
+    "slugByLocale": {
+      "de": "stv-rayonleiter-in-convenience-metzgerei-coop-zumikon-zurich-kotphi",
+      "fr": "stv-rayonleiter-en-pratique-metzgerei-coop-zumikon-zurich-kotphi"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|e73d3474-e13b-485a-96f7-07e0d6c0e9a8": {
+    "canonicalSlug": "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern",
+    "slugByLocale": {
+      "de": "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl",
+      "fr": "stv-rayonleiter-dans-grundnahrungsmittel-coop-lyss-bern-xwhivl"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|00359658-9b82-4351-84fc-344313666ead": {
+    "canonicalSlug": "verkaufer-in-food-befristet-01-09-26-31-08-27-coop-uetikon-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-befristet-01-09-26-31-08-27-coop-uetikon-zurich-26bbcu",
+      "fr": "legumes-et-legumes-frais-coop-uetikon-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|6e5846d9-a6d9-4573-8610-94e7e1a672b8": {
+    "canonicalSlug": "verkaufer-in-food-coop-monchaltorf-zurich",
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-monchaltorf-zurich-jzq585",
+      "en": "verkaufer-in-food-coop-monchaltorf-zurich-jzq585",
+      "de": "verkaufer-in-lebensmittel-coop-monchaltorf-zurich",
+      "fr": "verkaufer-dans-les-aliments-coop-monchaltorf-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|5fa7ea8a-2862-4204-b76b-878b46ceda88": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-metzgerei-frischeinsel-coop-affoltern-am-albis-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-metzgerei-frischeinsel-coop-affoltern-am-albis-zurich-s1hlpa"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|6261c3fb-5169-4e16-9ad4-f0c897d6017e": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-feldmeilen-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-feldmeilen-zurich-avqrxv"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|746308d8-d19b-44a1-871c-61f1dc1fd0de": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-kusnacht-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-kusnacht-zurich-tsvx83"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|swica.ch|faff4124-e17e-4b16-bb85-82359163e858": {
+    "canonicalSlug": "sachbearbeiter-kundensupport-sante24-con-sehr-guten-deutsch-franzosisch-e-italienischkenntnissen-alle-sante24-winterthur",
+    "slugByLocale": {
+      "de": "sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzosisch-und",
+      "it": "sachbearbeiter-kundensupport-sante24-con-sehr-guten-deutsch-franzosisch-e-italienischkenntnissen-alle-sante24-winterthur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/aide-de-cuisine-de-j4656.html": {
+    "canonicalSlug": "aiuto-alimentare-zfv-unternehmungen-carouge",
+    "slugByLocale": {
+      "it": "aiuto-alimentare-zfv-unternehmungen-carouge",
+      "en": "cooking-aid-zfv-unternehmungen-carouge",
+      "fr": "aide-de-cuisine-zfv-unternehmungen-carouge"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GE"
+  },
+  "url|https://jobs.zfv.ch/buffet-mitarbeiterin-50-60-de-j4664.html": {
+    "canonicalSlug": "buffet-collaboratore-trice-50-60-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "buffet-mitarbeiter-in-50-60-zfv-unternehmungen-zurich",
+      "it": "buffet-collaboratore-trice-50-60-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/cafeteria-mitarbeiterin-50-de-j4662.html": {
+    "canonicalSlug": "cafeteria-collaboratore-trice-50-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
+      "it": "cafeteria-collaboratore-trice-50-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/cafeteria-mitarbeiterin-80-100-de-j4661.html": {
+    "canonicalSlug": "cafeteria-collaboratore-trice-80-100-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "cafeteria-mitarbeiter-in-80-100-zfv-unternehmungen-zurich",
+      "it": "cafeteria-collaboratore-trice-80-100-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/koechin-koch-efz-lehrstelle-2027-de-j4674.html": {
+    "canonicalSlug": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-luzern",
+    "slugByLocale": {
+      "de": "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-luzern",
+      "it": "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-luzern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "url|https://jobs.zfv.ch/leiterin-marketing-digital-de-j4626.html": {
+    "canonicalSlug": "responsabile-marketing-digital-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "it": "responsabile-marketing-digital-zfv-unternehmungen-zurich",
+      "de": "leiter-in-marketing-digital-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/office-mitarbeiterin-80-de-j4663.html": {
+    "canonicalSlug": "office-collaboratore-trice-80-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "office-mitarbeiter-in-80-zfv-unternehmungen-zurich",
+      "it": "office-collaboratore-trice-80-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14419m-ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg": {
+    "canonicalSlug": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
+    "slugByLocale": {
+      "fr": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "FR"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14755f-dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont": {
+    "canonicalSlug": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont",
+    "slugByLocale": {
+      "fr": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "JU"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15263m-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-chur": {
+    "canonicalSlug": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-chur-afry-chur",
+    "slugByLocale": {
+      "it": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-chur-afry-chur",
+      "en": "apprenticeship-as-a-draftsman-in-the-field-of-engineering-construction-efz-chur-afry-chur",
+      "de": "lehrstelle-als-zeichner-in-mit-fachrichtung-ingenieurbau-efz-chur-afry-chur",
+      "fr": "apprentissage-en-tant-que-rapporteur-pour-avis-dans-le-domaine-de-la-construction-d-ingenierie-efz-chur-afry-chur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15264k-apprentissage-dessinateur-cfc-en-genie-civil-f-h-d-delemont": {
+    "canonicalSlug": "apprentissage-dessinateur-cfc-en-genie-civil-m-w-d-delemont-afry-delemont",
+    "slugByLocale": {
+      "it": "apprentissage-dessinateur-cfc-en-genie-civil-f-m-d-delemont-afry-delemont",
+      "en": "apprenticeship-swc-drafter-in-civil-engineering-f-h-d-delemont-afry-delemont",
+      "de": "lehrling-swc-drafter-in-bauingenieurwesen-f-h-d-delemont-afry-delemont",
+      "fr": "apprentissage-dessinateur-cfc-en-genie-civil-f-h-d-delemont-afry-delemont"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "JU"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15326o-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-zurich": {
+    "canonicalSlug": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-zurich-afry-zurich",
+      "en": "apprenticeship-as-a-draftsman-in-engineering-construction-efz-zurich-afry-zurich",
+      "de": "lehrstelle-als-zeichner-in-mit-fachrichtung-ingenieurbau-efz-zurich-afry-zurich",
+      "fr": "apprentissage-en-tant-que-dessinateur-en-construction-d-ingenierie-efz-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15328v-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-winterthur": {
+    "canonicalSlug": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-winterthur-afry-winterthur",
+    "slugByLocale": {
+      "it": "apprendistato-come-disegnatore-trice-con-specializzazione-ingegneria-civile-cfc-winterthur-afry-winterthur",
+      "en": "apprenticeship-as-a-draftsman-in-the-field-of-engineering-construction-efz-winterthur-afry-winterthur",
+      "de": "lehrstelle-als-zeichner-in-mit-fachrichtung-ingenieurbau-efz-winterthur-afry-winterthur",
+      "fr": "apprentissage-en-tant-que-dessinateur-dans-le-domaine-de-la-construction-d-ingenierie-efz-winterthur-afry-winterthur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14084i-junior-projektingenieurin-leitungsbau-80-100-zurich": {
+    "canonicalSlug": "junior-project-engineer-a-leitbau-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "junior-project-engineer-a-leitbau-80-100-zurigo-afry-zurich",
+      "en": "junior-project-engineer-in-leitbau-80-100-zurich-afry-zurich",
+      "de": "junior-projektingenieur-in-leitungsbau-80-100-zurich-afry-zurich",
+      "fr": "ingenieur-de-projet-junior-a-leitbau-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14362k-teamleiterin-tunnelbau-80-100-zurich": {
+    "canonicalSlug": "teamleiter-in-costruzione-gallerie-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "teamleiter-in-costruzione-gallerie-80-100-zurich-afry-zurich",
+      "en": "team-leader-in-tunnelbau-80-100-zurich-afry-zurich",
+      "de": "teamleiter-in-tunnelbau-80-100-zurich-afry-zurich",
+      "fr": "chef-d-equipe-a-tunnelbau-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15251g-projektleiterin-umwelt-60-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-umwelt-60-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-umwelt-60-100-zurich-afry-zurich",
+      "en": "project-manager-umwelt-60-100-zurich-afry-zurich",
+      "de": "projektleiter-in-umwelt-60-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-umwelt-60-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15249m-projektleiterin-im-bereich-wasser-abwasser-80-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-im-bereich-wasser-abwasser-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-im-bereich-wasser-abwasser-80-100-zurich-afry-zurich",
+      "en": "project-manager-im-bereich-wasser-abwasser-80-100-zurich-afry-zurich",
+      "de": "projektleiter-in-im-bereich-wasser-abwasser-80-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-im-bereich-wasser-abwasser-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15236t-elektroplanerin-bim-junior-projektleiterin-elektrotechnik-80-100-zurich": {
+    "canonicalSlug": "progettista-elettrico-a-in-bim-junior-responsabile-di-progetto-elektrotechnik-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "progettista-elettrico-a-in-bim-junior-responsabile-di-progetto-elektrotechnik-80-100-zurich-afry-zurich",
+      "en": "electrical-planner-in-bim-junior-project-manager-elektrotechnik-80-100-zurich-afry-zurich",
+      "de": "elektroplaner-in-bim-junior-projektleiter-in-elektrotechnik-80-100-zurich-afry-zurich",
+      "fr": "planificateur-trice-electrique-in-bim-junior-chef-de-projet-elektrotechnik-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15112t-bauleiterin-hochbau-gesamtplanung-80-100-zurich": {
+    "canonicalSlug": "direttore-trice-lavori-hochbau-gesamtplanung-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "direttore-trice-lavori-hochbau-gesamtplanung-80-100-zurich-afry-zurich",
+      "en": "construction-manager-in-building-construction-overall-planning-80-100-zurich-afry-zurich",
+      "de": "bauleiter-in-hochbau-gesamtplanung-80-100-zurich-afry-zurich",
+      "fr": "directeur-de-la-construction-dans-la-construction-la-planification-globale-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15189t-junior-projektleiterin-tiefbau-strassenbau-80-100-zurich": {
+    "canonicalSlug": "junior-responsabile-di-progetto-genio-civile-strassenbau-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "junior-responsabile-di-progetto-genio-civile-strassenbau-80-100-zurich-afry-zurich",
+      "en": "junior-project-manager-tiefbau-strassenbau-80-100-zurich-afry-zurich",
+      "de": "junior-projektleiter-in-tiefbau-strassenbau-80-100-zurich-afry-zurich",
+      "fr": "junior-chef-de-projet-tiefbau-strassenbau-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref15190u-projektleiterin-tief-und-strassenbau-60-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-tief-e-strassenbau-60-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-tief-e-strassenbau-60-100-zurich-afry-zurich",
+      "en": "project-manager-tief-und-strassenbau-60-100-zurich-afry-zurich",
+      "de": "projektleiter-in-tief-und-strassenbau-60-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-tief-und-strassenbau-60-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13075m-projektleiterin-tragwerksplanung-ingenieurbau-80-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-tragwerksplanung-ingegneria-civile-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-tragwerksplanung-ingegneria-civile-80-100-zurich-afry-zurich",
+      "en": "project-manager-tragwerksplanung-ingenieurbau-80-100-zurich-afry-zurich",
+      "de": "projektleiter-in-tragwerksplanung-ingenieurbau-80-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-tragwerksplanung-ingenieurbau-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref10081w-hlks-planerin-gebaudetechnik-80-100-zurich": {
+    "canonicalSlug": "hlks-planner-in-building-technology-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "hlks-planner-in-building-technology-80-100-zurigo-afry-zurich",
+      "en": "hlks-planner-in-building-technology-80-100-zurich-afry-zurich",
+      "de": "hlks-planer-in-gebaudetechnik-80-100-zurich-afry-zurich",
+      "fr": "planificateur-hlks-en-technologie-du-batiment-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref10433h-senior-projektleiterin-bauherrenunterstutzung-80-100-zurich-oder-chur": {
+    "canonicalSlug": "responsabile-di-progetto-senior-supporto-alla-committenza-80-100-zurich-o-chur-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-senior-supporto-alla-committenza-80-100-zurich-o-chur-afry-zurich",
+      "en": "senior-project-manager-client-support-80-100-zurich-oder-chur-afry-zurich",
+      "de": "senior-projektleiter-in-bauherrenunterstutzung-80-100-zurich-oder-chur-afry-zurich",
+      "fr": "senior-chef-de-projet-assistance-a-la-maitrise-d-ouvrage-80-100-zurich-oder-chur-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref10630u-projektingenieurin-bau-und-projektleiterin-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig": {
+    "canonicalSlug": "projektingenieur-in-bau-e-responsabile-di-progetto-bau-con-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
+    "slugByLocale": {
+      "it": "projektingenieur-in-bau-e-responsabile-di-progetto-bau-con-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
+      "de": "projektingenieur-in-bau-und-projektleiter-in-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "VS"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref11389o-ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona": {
+    "canonicalSlug": "ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona-afry-bellinzona",
+    "slugByLocale": {
+      "it": "ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona-afry-bellinzona"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TI"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref11645j-pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona": {
+    "canonicalSlug": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona",
+    "slugByLocale": {
+      "it": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona",
+      "en": "afc-electrician-planner-f-m-d-second-apprentice-bellinzona-afry-bellinzona",
+      "de": "afc-electrician-planner-w-m-d-zweiter-lehrling-bellinzona-afry-bellinzona",
+      "fr": "afc-electrician-planner-f-m-d-deuxieme-apprenti-bellinzona-afry-bellinzona"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TI"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref11845p-projektleiterin-projektingenieurin-tragwerk-hochbau-80-100-rapperswil": {
+    "canonicalSlug": "responsabile-di-progetto-projektingenieur-in-tragwerk-hochbau-80-100-rapperswil-afry-rapperswil-jona",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-projektingenieur-in-tragwerk-hochbau-80-100-rapperswil-afry-rapperswil-jona",
+      "de": "projektleiter-in-projektingenieur-in-tragwerk-hochbau-80-100-rapperswil-afry-rapperswil-jona"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SG"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref1211x-candidature-spontanee-suisse": {
+    "canonicalSlug": "applicazione-non-richiesta-svizzera-afry-zurich",
+    "slugByLocale": {
+      "it": "applicazione-non-richiesta-svizzera-afry-zurich",
+      "en": "unsolicited-application-switzerland-afry-zurich",
+      "de": "unerbetene-bewerbung-schweiz-afry-zurich",
+      "fr": "candidature-spontanee-suisse-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref1212e-candidatura-spontanea-svizzera": {
+    "canonicalSlug": "candidatura-spontanea-svizzera-afry-zurich",
+    "slugByLocale": {
+      "it": "candidatura-spontanea-svizzera-afry-zurich",
+      "de": "spontane-anwendung-schweiz-afry-zurich",
+      "fr": "demande-spontanee-suisse-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref12295h-ingenieur-en-genie-civil-chef-de-projet-orientation-infrastructure-hydraulique-80-100-f-h-d-delemont": {
+    "canonicalSlug": "ingenieur-en-genie-civil-chef-de-projet-orientation-infrastructure-hydraulique-80-100-f-h-d-delemont-afry-delemont",
+    "slugByLocale": {
+      "en": "civil-engineering-engineer-project-leader-infrastructure-orientation-hydraulic-80-100-f-h-d-delemont-afry-delemont",
+      "de": "bauingenieur-projektleiter-infrastrukturorientierung-hydraulisch-80-100-f-h-d-delemont-afry-delemont",
+      "fr": "ingenieur-en-genie-civil-chef-de-projet-orientation-infrastructure-hydraulique-80-100-f-h-d-delemont-afry-delemont"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "JU"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref1238c-chefbauleiterin-infrastrukturbau-80-100-zurich": {
+    "canonicalSlug": "chief-construction-manager-in-infrastructure-construction-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "chief-construction-manager-in-infrastructure-construction-80-100-zurigo-afry-zurich",
+      "en": "chief-construction-manager-in-infrastructure-construction-80-100-zurich-afry-zurich",
+      "de": "chefbauleiter-in-infrastrukturbau-80-100-zurich-afry-zurich",
+      "fr": "chef-de-la-construction-dans-la-construction-d-infrastructures-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref1239z-projektleiterin-bahnbau-80-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-costruzione-ferroviaria-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-costruzione-ferroviaria-80-100-zurich-afry-zurich",
+      "en": "project-manager-bahnbau-80-100-zurich-afry-zurich",
+      "de": "projektleiter-in-bahnbau-80-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-bahnbau-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref1241c-gesamtprojektleiterin-infrastruktur-80-100-zurich": {
+    "canonicalSlug": "responsabile-del-progetto-complessivo-in-infrastructure-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-del-progetto-complessivo-in-infrastructure-80-100-zurigo-afry-zurich",
+      "en": "overall-project-manager-in-infrastructure-80-100-zurich-afry-zurich",
+      "de": "gesamtprojektleiter-in-infrastruktur-80-100-zurich-afry-zurich",
+      "fr": "directeur-de-projet-global-dans-infrastructure-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13151x-projektleiterin-kunstbauten-80-100-winterthur": {
+    "canonicalSlug": "responsabile-di-progetto-opere-d-arte-80-100-winterthur-afry-winterthur",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-opere-d-arte-80-100-winterthur-afry-winterthur",
+      "en": "project-manager-kunstbauten-80-100-winterthur-afry-winterthur",
+      "de": "projektleiter-in-kunstbauten-80-100-winterthur-afry-winterthur",
+      "fr": "chef-de-projet-kunstbauten-80-100-winterthur-afry-winterthur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13331f-leiterin-abteilung-bahnbau-bahntiefbau-80-100-zurich": {
+    "canonicalSlug": "responsabile-abteilung-bahnbau-bahntiefbau-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-abteilung-bahnbau-bahntiefbau-80-100-zurich-afry-zurich",
+      "en": "head-in-the-railway-construction-ground-construction-department-80-100-zurich-afry-zurich",
+      "de": "leiter-in-abteilung-bahnbau-bahntiefbau-80-100-zurich-afry-zurich",
+      "fr": "responsable-dans-le-departement-construction-ferroviaire-terrain-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13427f-projektingenieurin-wasserkraft-und-tragwerksplanung-80-100-zurich": {
+    "canonicalSlug": "projektingenieur-in-wasserkraft-e-tragwerksplanung-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "projektingenieur-in-wasserkraft-e-tragwerksplanung-80-100-zurich-afry-zurich",
+      "en": "project-engineer-in-hydropower-and-structural-engineering-80-100-zurich-afry-zurich",
+      "de": "projektingenieur-in-wasserkraft-und-tragwerksplanung-80-100-zurich-afry-zurich",
+      "fr": "ingenieur-de-projet-en-hydroelectricite-et-ingenierie-structurale-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13487c-leiterin-abteilung-gesamtplanung-80-100-zurich": {
+    "canonicalSlug": "responsabile-abteilung-gesamtplanung-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-abteilung-gesamtplanung-80-100-zurich-afry-zurich",
+      "en": "head-in-department-total-planning-80-100-zurich-afry-zurich",
+      "de": "leiter-in-abteilung-gesamtplanung-80-100-zurich-afry-zurich",
+      "fr": "chef-dans-le-departement-planification-totale-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13490z-leiterin-bereich-bahntiefbau-strassenbau-80-100-zurich": {
+    "canonicalSlug": "responsabile-bereich-bahntiefbau-strassenbau-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-bereich-bahntiefbau-strassenbau-80-100-zurich-afry-zurich",
+      "en": "head-in-the-area-of-railway-construction-road-construction-80-100-zurich-afry-zurich",
+      "de": "leiter-in-bereich-bahntiefbau-strassenbau-80-100-zurich-afry-zurich",
+      "fr": "tete-dans-le-domaine-de-la-construction-ferroviaire-et-de-la-construction-routiere-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13706s-projektingenieurin-civil-70-100-brunnen": {
+    "canonicalSlug": "ingegnere-del-progetto-in-civile-70-100-fontana-afry-ingenbohl",
+    "slugByLocale": {
+      "it": "ingegnere-del-progetto-in-civile-70-100-fontana-afry-ingenbohl",
+      "en": "project-engineer-in-civil-70-100-fountain-afry-ingenbohl",
+      "de": "projektingenieur-in-civil-70-100-brunnen-afry-ingenbohl",
+      "fr": "ingenieur-de-projet-dans-civil-70-100-fontaine-afry-ingenbohl"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SZ"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13707m-projektleiterin-kunstbauten-80-100-brunnen": {
+    "canonicalSlug": "responsabile-di-progetto-opere-d-arte-80-100-brunnen-afry-ingenbohl",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-opere-d-arte-80-100-brunnen-afry-ingenbohl",
+      "en": "project-manager-kunstbauten-80-100-brunnen-afry-ingenbohl",
+      "de": "projektleiter-in-kunstbauten-80-100-brunnen-afry-ingenbohl",
+      "fr": "chef-de-projet-kunstbauten-80-100-brunnen-afry-ingenbohl"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SZ"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13708l-teamleiterin-infrastruktur-und-stv-niederlassungsleiterin-80-100-brunnen": {
+    "canonicalSlug": "teamleiter-in-infrastruktur-e-stv-niederlassungsleiter-in-80-100-brunnen-afry-ingenbohl",
+    "slugByLocale": {
+      "it": "teamleiter-in-infrastruktur-e-stv-niederlassungsleiter-in-80-100-brunnen-afry-ingenbohl",
+      "en": "team-leader-in-infrastructure-and-stv-branch-manager-in-80-100-fountain-afry-ingenbohl",
+      "de": "teamleiter-in-infrastruktur-und-stv-niederlassungsleiter-in-80-100-brunnen-afry-ingenbohl",
+      "fr": "chef-d-equipe-dans-infrastructure-et-stv-gestionnaire-dans-80-100-fontaine-afry-ingenbohl"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SZ"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref13856b-chef-de-projet-cvcs-experimente-f-h-d-80-100-lausanne-fribourg": {
+    "canonicalSlug": "chef-de-projet-cvcs-experimente-f-h-d-80-100-lausanne-fribourg-afry-lausanne",
+    "slugByLocale": {
+      "en": "experienced-cvcs-project-manager-f-h-d-80-100-lausanne-fribourg-afry-lausanne",
+      "de": "erfahrener-cvcs-projektleiter-w-h-d-80-100-lausanne-freiburg-afry-lausanne",
+      "fr": "chef-de-projet-cvcs-experimente-f-h-d-80-100-lausanne-fribourg-afry-lausanne"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "VD"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14083f-junior-projektingenieurin-leitungsbau-pls-cadd-80-100-zurich": {
+    "canonicalSlug": "junior-project-engineer-pls-cadd-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "junior-project-engineer-pls-cadd-80-100-zurigo-afry-zurich",
+      "en": "junior-project-engineer-pls-cadd-80-100-zurich-afry-zurich",
+      "de": "junior-projektingenieur-in-leitungsbau-pls-cadd-80-100-zurich-afry-zurich",
+      "fr": "ingenieur-de-projet-junior-pls-cadd-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14227h-projektingenieurin-im-bereich-strassen-und-bahnbau-80-100-brig": {
+    "canonicalSlug": "projektingenieur-in-im-bereich-strassen-e-bahnbau-80-100-brig-afry-brig",
+    "slugByLocale": {
+      "it": "projektingenieur-in-im-bereich-strassen-e-bahnbau-80-100-brig-afry-brig",
+      "en": "project-engineer-in-the-field-of-road-and-railway-construction-80-100-brig-afry-brig",
+      "de": "projektingenieur-in-im-bereich-strassen-und-bahnbau-80-100-brig-afry-brig",
+      "fr": "ingenieur-de-projet-dans-le-domaine-de-la-construction-routiere-et-ferroviaire-80-100-brig-afry-brig"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "VS"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14230l-projektingenieurin-bahnbau-80-100-zurich": {
+    "canonicalSlug": "ingegnere-del-progetto-nella-costruzione-ferroviaria-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "ingegnere-del-progetto-nella-costruzione-ferroviaria-80-100-zurigo-afry-zurich",
+      "en": "project-engineer-in-railway-construction-80-100-zurich-afry-zurich",
+      "de": "projektingenieur-in-bahnbau-80-100-zurich-afry-zurich",
+      "fr": "ingenieur-de-projet-dans-la-construction-ferroviaire-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14322c-projektleiterin-nationalstrassenbau-region-deutschschweiz-80-100-zurich-oder-chur": {
+    "canonicalSlug": "responsabile-di-progetto-costruzione-strade-nazionali-region-deutschschweiz-80-100-zurich-o-chur-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-costruzione-strade-nazionali-region-deutschschweiz-80-100-zurich-o-chur-afry-zurich",
+      "de": "projektleiter-in-nationalstrassenbau-region-deutschschweiz-80-100-zurich-oder-chur-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14339y-junior-bauingenieurin-80-100-zurich": {
+    "canonicalSlug": "junior-civil-engineer-in-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "junior-civil-engineer-in-80-100-zurigo-afry-zurich",
+      "en": "junior-civil-engineer-in-80-100-zurich-afry-zurich",
+      "de": "junior-bauingenieur-in-80-100-zurich-afry-zurich",
+      "fr": "ingenieur-civil-junior-en-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14461k-bauleiterin-elektro-80-100-zurich": {
+    "canonicalSlug": "direttore-trice-lavori-elektro-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "direttore-trice-lavori-elektro-80-100-zurich-afry-zurich",
+      "en": "construction-manager-in-elektro-80-100-zurich-afry-zurich",
+      "de": "bauleiter-in-elektro-80-100-zurich-afry-zurich",
+      "fr": "directeur-de-construction-en-elektro-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14462g-teamleiterin-bsa-80-100-zurich": {
+    "canonicalSlug": "team-leader-in-bsa-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "team-leader-in-bsa-80-100-zurigo-afry-zurich",
+      "en": "team-leader-in-bsa-80-100-zurich-afry-zurich",
+      "de": "teamleiter-in-bsa-80-100-zurich-afry-zurich",
+      "fr": "chef-d-equipe-en-bsa-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14710w-chef-de-projet-senior-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg": {
+    "canonicalSlug": "chef-de-projet-senior-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
+    "slugByLocale": {
+      "en": "senior-civil-engineering-project-manager-structure-orientation-80-100-e-h-d-fribourg-afry-fribourg",
+      "de": "senior-civil-engineering-project-manager-strukturorientierung-80-100-e-h-d-freiburg-afry-fribourg",
+      "fr": "chef-de-projet-senior-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "FR"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14773i-senior-projektleiterin-brandschutz-60-100-zurich": {
+    "canonicalSlug": "senior-responsabile-di-progetto-brandschutz-60-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "senior-responsabile-di-progetto-brandschutz-60-100-zurich-afry-zurich",
+      "en": "senior-project-manager-brandschutz-60-100-zurich-afry-zurich",
+      "de": "senior-projektleiter-in-brandschutz-60-100-zurich-afry-zurich",
+      "fr": "senior-chef-de-projet-brandschutz-60-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref14796j-elektroplanerin-60-100-chur": {
+    "canonicalSlug": "progettista-elettrico-a-in-60-100-chur-afry-chur",
+    "slugByLocale": {
+      "it": "progettista-elettrico-a-in-60-100-chur-afry-chur",
+      "en": "electrical-planner-in-60-100-chur-afry-chur",
+      "de": "elektroplaner-in-60-100-chur-afry-chur",
+      "fr": "planificateur-trice-electrique-in-60-100-chur-afry-chur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "GR"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref2564d-projektingenieurin-infrastrukturbau-80-100-zurich": {
+    "canonicalSlug": "ingegnere-del-progetto-nella-costruzione-di-infrastrutture-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "ingegnere-del-progetto-nella-costruzione-di-infrastrutture-80-100-zurigo-afry-zurich",
+      "en": "project-engineer-in-infrastructure-construction-80-100-zurich-afry-zurich",
+      "de": "projektingenieur-in-infrastrukturbau-80-100-zurich-afry-zurich",
+      "fr": "ingenieur-de-projet-dans-la-construction-d-infrastructures-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref3908p-praktikantin-ethz-epfl-civil-80-100-zurich": {
+    "canonicalSlug": "stage-in-ethz-epfl-civil-80-100-zurigo-afry-zurich",
+    "slugByLocale": {
+      "it": "stage-in-ethz-epfl-civil-80-100-zurigo-afry-zurich",
+      "de": "praktikant-in-ethz-epfl-civil-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref5755a-ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne": {
+    "canonicalSlug": "ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne-afry-lausanne",
+    "slugByLocale": {
+      "en": "civil-engineer-epf-hes-project-manager-infrastructure-80-100-e-h-d-lausanne-afry-lausanne",
+      "de": "bauingenieur-epf-hes-projektleiter-infrastruktur-80-100-e-h-d-lausanne-afry-lausanne",
+      "fr": "ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne-afry-lausanne"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "VD"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref65z-spontanbewerbung-schweiz": {
+    "canonicalSlug": "applicazione-spontanea-svizzera-afry-zurich",
+    "slugByLocale": {
+      "it": "applicazione-spontanea-svizzera-afry-zurich",
+      "en": "spontaneous-application-switzerland-afry-zurich-5c74c2",
+      "de": "spontanbewerbung-schweiz-afry-zurich",
+      "fr": "demande-spontanee-suisse-afry-zurich-5c74c2"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref6761i-projektleiterin-tiefbau-bahnbau-80-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-genio-civile-bahnbau-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-genio-civile-bahnbau-80-100-zurich-afry-zurich",
+      "en": "project-manager-tiefbau-bahnbau-80-100-zurich-afry-zurich",
+      "de": "projektleiter-in-tiefbau-bahnbau-80-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-tiefbau-bahnbau-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref8919b-projektleiterin-hlks-gebaudetechnik-80-100-zurich": {
+    "canonicalSlug": "responsabile-di-progetto-hlks-gebaudetechnik-80-100-zurich-afry-zurich",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-hlks-gebaudetechnik-80-100-zurich-afry-zurich",
+      "en": "project-manager-hlks-gebaudetechnik-80-100-zurich-afry-zurich",
+      "de": "projektleiter-in-hlks-gebaudetechnik-80-100-zurich-afry-zurich",
+      "fr": "chef-de-projet-hlks-gebaudetechnik-80-100-zurich-afry-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://afry.com/en/career/available-jobs/ref9083h-projektleiterin-tief-strassen-und-bahnbau-80-100-brig": {
+    "canonicalSlug": "responsabile-di-progetto-tief-strassen-e-bahnbau-80-100-brig-afry-brig",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-tief-strassen-e-bahnbau-80-100-brig-afry-brig",
+      "en": "project-manager-tief-strassen-und-bahnbau-80-100-brig-afry-brig",
+      "de": "projektleiter-in-tief-strassen-und-bahnbau-80-100-brig-afry-brig",
+      "fr": "chef-de-projet-tief-strassen-und-bahnbau-80-100-brig-afry-brig"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "VS"
+  },
+  "url|https://app.reflinejobs.io/1531/0270/pub/476/index.html": {
+    "canonicalSlug": "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten",
+    "slugByLocale": {
+      "de": "teamleitung-fur-unsere-wohngruppe-zugang-zum-park-pigna-kloten",
+      "it": "teamleitung-per-unsere-wohngruppe-zugang-zum-park-stiftung-pigna-kloten"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/126757/2319/pub/4/index.html": {
+    "canonicalSlug": "application-manager-service-family-owner-application-business-support-80-100-m-w-d-caritas",
+    "slugByLocale": {
+      "de": "application-manager-service-family-owner-application-business-support-80-100-m-w-d-caritas"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|careers.abb|global-early-talent-program--getp----strategy-and-m-a": {
+    "canonicalSlug": "global-early-talent-program-getp-strategy-and-m-a-abb-svizzera-sede-ticino-remote-zurich-mzjehf",
+    "slugByLocale": {
+      "en": "global-early-talent-program-getp-strategy-and-m-a-abb-svizzera-sede-ticino-remote-zurich-mzjehf"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|careers.abb|r-d-engineer-firmware--80--100": {
+    "canonicalSlug": "r-d-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-dhxtuh",
+    "slugByLocale": {
+      "it": "r-d-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-dhxtuh",
+      "en": "r-d-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-dhxtuh",
+      "de": "r-d-ingenieur-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-dhxtuh",
+      "fr": "r-d-ingenieur-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-dhxtuh"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TI"
+  },
+  "id|careers.abb|production-operator--80-100": {
+    "canonicalSlug": "production-operatore-80-100-abb-svizzera-sede-ticino-uster-zurich-oc6sht",
+    "slugByLocale": {
+      "it": "production-operatore-80-100-abb-svizzera-sede-ticino-uster-zurich-oc6sht",
+      "en": "production-operator-80-100-abb-svizzera-sede-ticino-uster-zurich-oc6sht",
+      "fr": "production-operateur-80-100-abb-svizzera-sede-ticino-uster-zurich-oc6sht"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|mediclinic.com|1425341833": {
+    "canonicalSlug": "ausbildung-zur-pflegefachperson-hf-ab-september-2027-verkurzt-hirslanden-st-gallen",
+    "slugByLocale": {
+      "de": "ausbildung-zur-pflegefachperson-hf-ab-september-2027-verkurzt-hirslanden-st-gallen"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1425311333": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-a-per-nachtdienst-60-80-hirslanden-klinik-aarau",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau",
+      "it": "dipl-pflegefachfrau-pflegefachmann-a-per-nachtdienst-60-80-hirslanden-klinik-aarau"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|mediclinic.com|1425315133": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1425227433": {
+    "canonicalSlug": "versorgungsassistentin-versorgungsassistent-im-bereich-op-spezialgebiete-a-80-hirslanden",
+    "slugByLocale": {
+      "de": "versorgungsassistentin-versorgungsassistent-im-bereich-op-spezialgebiete-a-80-hirslanden"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1425180233": {
+    "canonicalSlug": "studierende-r-fachmann-fachfrau-operationstechnik-a-100-hirslanden-st-gallen",
+    "slugByLocale": {
+      "de": "studierende-r-fachmann-fachfrau-operationstechnik-a-100-hirslanden-st-gallen"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SG"
+  },
+  "id|zurich.com|1369173057": {
+    "canonicalSlug": "senior-aktuar-pricing-motor-flotte-m-w-d-zurich-insurance-sede-ticino-lugano-310dtn",
+    "slugByLocale": {
+      "de": "senior-aktuar-pricing-motor-flotte-m-w-d-zurich-insurance-sede-ticino-lugano-310dtn"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TI"
+  },
+  "id|zurich.com|1369196657": {
+    "canonicalSlug": "sr-compliance-complaints-officer-18-month-contract-zurich-insurance-sede-ticino-lugano-3260f4",
+    "slugByLocale": {
+      "en": "sr-compliance-complaints-officer-18-month-contract-zurich-insurance-sede-ticino-lugano-3260f4"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TI"
+  },
+  "id|zurich.com|1369203657": {
+    "canonicalSlug": "assessor-comercial-zurich-insurance-sede-ticino-lugano-3e7kih",
+    "slugByLocale": {
+      "fr": "assessor-comercial-zurich-insurance-sede-ticino-lugano-3e7kih"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "TI"
+  },
+  "id|csl.wd1.myworkdayjobs.com|r-285319": {
+    "canonicalSlug": "senior-manager-clinical-operations-fsp-resource-vendor-management-csl-behring-ch",
+    "slugByLocale": {
+      "en": "senior-manager-clinical-operations-fsp-resource-vendor-management-csl-behring-ch"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|bkw.com|707623ef-0d70-4d61-ad9e-65d8fb5a82db": {
+    "canonicalSlug": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch",
+    "slugByLocale": {
+      "de": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "SO"
+  },
+  "id|bkw.com|e6eb17b6-ead4-495c-bf32-8a3c44ddc3e1": {
+    "canonicalSlug": "quereinstieg-netzelektriker-in-alle-bkw-ch",
+    "slugByLocale": {
+      "de": "quereinstieg-netzelektriker-in-alle-bkw-ch"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|unispital-basel.ch|6cc353ad-be36-418a-96f0-45b0f4f8cef1": {
+    "canonicalSlug": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
+    "slugByLocale": {
+      "de": "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|7b6f2a30-468a-4d37-bbc2-892465bdb6cf": {
+    "canonicalSlug": "betreuungsassistenz-kita-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "de": "betreuungsassistenz-kita-unispital-basel-ch",
+      "it": "betreuungsassistenz-kita-universitatsspital-basel-basel",
+      "en": "betreuungsassistenz-kita-universitatsspital-basel-basel",
+      "fr": "betreuungsassistenz-kita-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|1ae11de5-88da-448c-a5c9-4c5ae1929e12": {
+    "canonicalSlug": "praktikant-in-klinikadministration-universitatsspital-basel-basel",
+    "slugByLocale": {
+      "de": "praktikant-in-klinikadministration-unispital-basel-ch",
+      "it": "praktikant-in-klinikadministration-universitatsspital-basel-basel",
+      "en": "praktikant-in-klinikadministration-universitatsspital-basel-basel",
+      "fr": "praktikant-in-klinikadministration-universitatsspital-basel-basel"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BS"
+  },
+  "id|unispital-basel.ch|b8b2e14f-535d-426a-9c99-8579fe81a1d8": {
+    "canonicalSlug": "facharzt-facharztin-pathologie-unispital-basel-ch",
+    "slugByLocale": {
+      "de": "facharzt-facharztin-pathologie-unispital-basel-ch"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BS"
+  },
+  "id|admin.ch|5e9a2512-8aa5-4e7b-9f05-8108960d56f7": {
+    "canonicalSlug": "apprendista-automobil-fachmann-frau-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart",
+    "slugByLocale": {
+      "it": "apprendista-automobil-fachmann-frau-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart",
+      "en": "apprentice-automobil-fachmann-frau-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-qh1x44",
+      "de": "lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-qh1x44",
+      "fr": "apprenti-e-automobil-fachmann-frau-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-qh1x44"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|854d0114-c988-4ced-ae82-406e0782affd": {
+    "canonicalSlug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-nutzfahrzeuge-swiss-armed-forces-vtg-wylerringstrasse-36-y98ro1",
+    "slugByLocale": {
+      "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-nutzfahrzeuge-swiss-armed-forces-vtg-wylerringstrasse-36-y98ro1",
+      "en": "apprentice-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge-swiss-armed-forces-vtg-wylerringstrasse-36-y98ro1",
+      "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge-swiss-armed-forces-vtg-wylerringstrasse-36-y98ro1",
+      "fr": "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge-swiss-armed-forces-vtg-wylerringstrasse-36-y98ro1"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|da1a6c4c-41fe-4c63-b526-cf6afb9884e4": {
+    "canonicalSlug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-nutzfahrzeuge-swiss-armed-forces-vtg-2027-anstellungsart-aecs8d",
+    "slugByLocale": {
+      "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-nutzfahrzeuge-swiss-armed-forces-vtg-2027-anstellungsart-aecs8d",
+      "en": "apprentice-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge-swiss-armed-forces-vtg-2027-anstellungsart-aecs8d",
+      "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge-swiss-armed-forces-vtg-2027-anstellungsart-aecs8d",
+      "fr": "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge-swiss-armed-forces-vtg-2027-anstellungsart-aecs8d"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|351b2faf-e2bb-4006-87e0-687686b46cb6": {
+    "canonicalSlug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-wbv4lc",
+    "slugByLocale": {
+      "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-wbv4lc",
+      "en": "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-wbv4lc",
+      "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-wbv4lc",
+      "fr": "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-2027-anstellungsart-wbv4lc"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|68e9c3ca-f1ac-441f-8ef6-a5294923ac6e": {
+    "canonicalSlug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-wylerringstrasse-36-74l3aw",
+    "slugByLocale": {
+      "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-wylerringstrasse-36-74l3aw",
+      "en": "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-wylerringstrasse-36-74l3aw",
+      "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-wylerringstrasse-36-74l3aw",
+      "fr": "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-wylerringstrasse-36-74l3aw"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|73e98ccd-de81-4df6-8640-8ca10b84f42c": {
+    "canonicalSlug": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-swiss-armed-forces-vtg-2027-anstellungsart-io95zt",
+    "slugByLocale": {
+      "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-swiss-armed-forces-vtg-2027-anstellungsart-io95zt",
+      "en": "apprentice-logistiker-in-efz-berufsfeld-lager-swiss-armed-forces-vtg-2027-anstellungsart-io95zt",
+      "de": "lernende-r-logistiker-in-efz-berufsfeld-lager-swiss-armed-forces-vtg-2027-anstellungsart-io95zt",
+      "fr": "apprenti-e-logistiker-in-efz-berufsfeld-lager-swiss-armed-forces-vtg-2027-anstellungsart-io95zt"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|8dd67f11-2027-4512-b017-3495312bd166": {
+    "canonicalSlug": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-swiss-armed-forces-vtg-2027-anstellungsart-40bljb",
+    "slugByLocale": {
+      "it": "apprendista-impiegato-a-in-logistica-cfc-berufsfeld-magazzino-swiss-armed-forces-vtg-2027-anstellungsart-40bljb",
+      "en": "apprentice-logistiker-in-efz-berufsfeld-lager-swiss-armed-forces-vtg-2027-anstellungsart-40bljb",
+      "de": "lernende-r-logistiker-in-efz-berufsfeld-lager-swiss-armed-forces-vtg-2027-anstellungsart-40bljb",
+      "fr": "apprenti-e-logistiker-in-efz-berufsfeld-lager-swiss-armed-forces-vtg-2027-anstellungsart-40bljb"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|918d4fca-9d44-4c12-94fb-0dbb2e37e841": {
+    "canonicalSlug": "apprendista-polymechaniker-in-cfc-swiss-armed-forces-vtg-2027-anstellungsart-dssh4k",
+    "slugByLocale": {
+      "it": "apprendista-polymechaniker-in-cfc-swiss-armed-forces-vtg-2027-anstellungsart-dssh4k",
+      "en": "apprentice-polymechaniker-in-efz-swiss-armed-forces-vtg-2027-anstellungsart-dssh4k",
+      "de": "lernende-r-polymechaniker-in-efz-swiss-armed-forces-vtg-2027-anstellungsart-dssh4k",
+      "fr": "apprenti-e-polymechaniker-in-efz-swiss-armed-forces-vtg-2027-anstellungsart-dssh4k"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|b8f11a4e-5951-4e63-8022-dd19c40d1659": {
+    "canonicalSlug": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-2027-anstellungsart-ebtwf9",
+    "slugByLocale": {
+      "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-2027-anstellungsart-ebtwf9",
+      "en": "apprentice-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-2027-anstellungsart-ebtwf9",
+      "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-2027-anstellungsart-ebtwf9",
+      "fr": "apprenti-e-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-2027-anstellungsart-ebtwf9"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|708ae449-9ac6-418d-95c9-b1eb2ad81057": {
+    "canonicalSlug": "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r",
+    "slugByLocale": {
+      "de": "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|746e5638-7821-4c65-800c-25d5cbff662c": {
+    "canonicalSlug": "hochschulpraktikant-in-frieden-e-menschenrechte-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "hochschulpraktikant-in-frieden-und-menschenrechte-confederazione-bern",
+      "it": "hochschulpraktikant-in-frieden-e-menschenrechte-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|cb71902c-a583-49ae-8ac0-4abce6b9f568": {
+    "canonicalSlug": "automobilmechatroniker-in-confederazione-svizzera-othmarsingen",
+    "slugByLocale": {
+      "de": "automobilmechatroniker-in-confederazione-svizzera-othmarsingen"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "AG"
+  },
+  "id|admin.ch|1388f1f2-b5b0-4182-b814-738add1dde8c": {
+    "canonicalSlug": "responsabile-abteilung-kommunikation-stv-bundesratssprecher-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "leiter-in-abteilung-kommunikation-stv-bundesratssprecher-in-confederazione-bern",
+      "it": "responsabile-abteilung-kommunikation-stv-bundesratssprecher-in-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|admin.ch|c2784a0f-7baa-4114-9d34-93379ff4be07": {
+    "canonicalSlug": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "lernende-r-kauffrau-mann-efz-confederazione-bern",
+      "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "BE"
+  },
+  "id|balgrist.ch|c3fcf76e-f47b-4513-94f3-7c9f5fa6d86f": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-auf-abruf-m-w-d-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-auf-abruf-m-w-d-universitatsklinik-balgrist-zurich",
+      "en": "employee-housekeeping-on-demand-f-m-d-universitatsklinik-balgrist-zurich",
+      "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-auf-abruf-w-m-d-balgrist-zurich",
+      "fr": "menage-des-employes-sur-demande-f-m-d-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|98024f14-0468-4e66-8a43-33c3b96cd9ed": {
+    "canonicalSlug": "specialista-gestione-delle-prestazioni-specialistiche-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "specialista-gestione-delle-prestazioni-specialistiche-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "en": "specialist-specialist-performance-management-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "de": "fachspezialistin-fachspezialist-leistungsmanagement-m-w-d-80-100-balgrist-zurich",
+      "fr": "specialiste-specialiste-gestion-du-rendement-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|ae1e460e-385e-4cc0-a512-4406717ec04b": {
+    "canonicalSlug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+      "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+      "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|c1d3e5a8-301b-4565-8acb-0c4e6bc90fcd": {
+    "canonicalSlug": "pflegeassistenz-o-assistenz-gesundheit-e-soziales-m-w-d-80-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "pflegeassistenz-o-assistenz-gesundheit-e-soziales-m-w-d-80-universitatsklinik-balgrist-zurich",
+      "en": "nursing-assistant-or-health-and-social-assistance-m-f-d-80-universitatsklinik-balgrist-zurich",
+      "de": "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-m-w-d-80-balgrist-zurich",
+      "fr": "assistant-infirmier-ou-aide-sanitaire-et-sociale-m-f-j-80-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|c2fd5b13-baef-4aed-ad41-f240961ee70c": {
+    "canonicalSlug": "oberarztin-oberarzt-mev-fachnotfall-orthopadie-traumatologie-60-80-balgrist-zurich",
+    "slugByLocale": {
+      "en": "oberarzttin-obarzt-mev-fachnotfall-orthopadie-traumatologie-60-80-universitatsklinik-balgrist-zurich",
+      "de": "oberarztin-oberarzt-mev-fachnotfall-orthopadie-traumatologie-60-80-balgrist-zurich",
+      "fr": "oberarzttin-obarzt-mev-fachnotfall-orthopadie-traumatologie-60-80-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|4b7ad2d6-3e85-40da-9d82-a179aa910b10": {
+    "canonicalSlug": "collaboratore-trice-hauswirtschaft-im-abenddienst-m-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "collaboratore-trice-hauswirtschaft-im-abenddienst-m-100-universitatsklinik-balgrist-zurich",
+      "en": "evening-service-staff-m-100-universitatsklinik-balgrist-zurich",
+      "de": "mitarbeiter-hauswirtschaft-im-abenddienst-m-100-balgrist-zurich",
+      "fr": "personnel-de-service-en-soiree-m-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|5ff9077b-1b64-467e-912d-28ed3afc01a2": {
+    "canonicalSlug": "dipl-professionista-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "dipl-professionista-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich",
+      "de": "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich",
+      "fr": "dipl-professionnel-de-soins-hf-fh-50-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|3aee9b77-e6c7-45d2-a2a4-da8990065662": {
+    "canonicalSlug": "apprendistato-come-orthopala-schuhmacherin-schumacher-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "apprendistato-come-orthopala-schuhmacherin-schumacher-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+      "en": "apprenticeship-as-orthopaedic-shoemaker-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich",
+      "de": "lehrstelle-als-orthopadie-schuhmacherin-schumacher-efz-m-w-d-balgrist-zurich",
+      "fr": "apprentissage-en-tant-que-cordonnier-orthopedique-schumacher-efz-m-f-d-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|f911dc99-a4ba-4e4f-bc91-2b23651516b1": {
+    "canonicalSlug": "dipl-expert-dipl-anestesia-esperta-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "dipl-expert-dipl-anestesia-esperta-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "en": "dipl-expert-dipl-expert-anesthesia-care-nds-hf-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "de": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-m-w-d-80-100-balgrist-zurich",
+      "fr": "dipl-expert-dipl-expert-anesthesie-soins-nds-hf-m-f-j-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|8dbba373-95d7-4566-a544-d7f9f23eedd2": {
+    "canonicalSlug": "terapeuta-professionale-f-m-d-90-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "terapeuta-professionale-f-m-d-90-universitatsklinik-balgrist-zurich",
+      "en": "ergotherapeutin-ergotherapeut-m-w-d-90-universitatsklinik-balgrist-zurich",
+      "de": "ergotherapeutin-ergotherapeut-w-m-d-90-balgrist-zurich",
+      "fr": "ergotherapie-f-m-j-90-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|11886ef1-0c7d-48da-b341-faa720768adb": {
+    "canonicalSlug": "academic-fellow-neuro-urology-m-w-d-80-100-balgrist-zurich",
+    "slugByLocale": {
+      "de": "academic-fellow-neuro-urology-m-w-d-80-100-balgrist-zurich",
+      "fr": "professeur-de-neuro-urologie-m-f-j-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|48a4269d-ef3c-4e0d-9469-7ffe7f6e7581": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-40-m-w-d-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-40-m-w-d-universitatsklinik-balgrist-zurich",
+      "en": "employee-reception-telephone-centre-40-m-f-d-universitatsklinik-balgrist-zurich",
+      "de": "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-40-m-w-d-balgrist-zurich",
+      "fr": "reception-des-employes-centre-telephonique-40-m-f-d-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|aa4fa954-9cf0-40bb-9d35-51a60dfdaa9b": {
+    "canonicalSlug": "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich",
+      "en": "dipl-nurse-hf-fh-80-100-m-f-d-in-ambulatory-neuro-urology-universitatsklinik-balgrist-zurich",
+      "de": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
+      "fr": "c-est-quoi-infirmiere-hf-fh-80-100-m-f-j-en-neuro-urologie-ambulatoire-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|65cb049d-6e5e-438a-98c1-4397400b33e1": {
+    "canonicalSlug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-2a686d",
+    "slugByLocale": {
+      "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-2a686d",
+      "en": "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+      "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+      "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-2a686d"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|db02633e-8a28-4066-af1d-ceedf73acc1f": {
+    "canonicalSlug": "testa-di-sviluppo-della-cura-m-f-d-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "testa-di-sviluppo-della-cura-m-f-d-100-universitatsklinik-balgrist-zurich",
+      "en": "head-of-care-development-m-f-d-100-universitatsklinik-balgrist-zurich",
+      "de": "leitung-pflegeentwicklung-m-w-d-100-balgrist-zurich",
+      "fr": "chef-du-developpement-des-soins-m-f-j-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|af1884e6-f27c-4efe-86b6-56988aabfbae": {
+    "canonicalSlug": "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "regolatore-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "en": "controller-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "de": "controllerin-controller-m-w-d-80-100-balgrist-zurich",
+      "fr": "controleur-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|3c494a6b-6453-4e27-ba30-e5219d189a5b": {
+    "canonicalSlug": "lehrstellen-come-fachfrau-fachmann-gesundheit-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "lehrstellen-come-fachfrau-fachmann-gesundheit-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+      "en": "apprenticeships-as-a-specialist-health-efz-m-f-d-universitatsklinik-balgrist-zurich",
+      "de": "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-m-w-d-balgrist-zurich",
+      "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-efz-m-f-d-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|a94010f0-792d-4b7c-bc23-905ea76e2915": {
+    "canonicalSlug": "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich",
+      "en": "b-apprenticeship-as-cook-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich",
+      "de": "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich",
+      "fr": "b-apprentissage-en-tant-que-cuisinier-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|2f61d401-5bdf-4b49-9867-80e102d3be34": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-stationare-patientenaufnahme-kostensicherung-m-w-d-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-stationare-patientenaufnahme-kostensicherung-m-w-d-100-universitatsklinik-balgrist-zurich",
+      "en": "employee-inpatient-admission-cost-assurance-m-f-d-100-universitatsklinik-balgrist-zurich",
+      "de": "mitarbeiterin-mitarbeiter-stationare-patientenaufnahme-kostensicherung-m-w-d-100-balgrist",
+      "fr": "admission-des-patients-hospitalises-assurance-couts-m-f-d-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|aac49a0f-de2b-4429-8bf8-4dda02da103c": {
+    "canonicalSlug": "ict-service-desk-specialista-m-w-d-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "ict-service-desk-specialista-m-w-d-100-universitatsklinik-balgrist-zurich",
+      "de": "ict-service-desk-specialist-m-w-d-100-balgrist-zurich",
+      "fr": "ict-service-desk-specialiste-m-w-d-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|c8e65f4a-1e4c-4aa6-875d-fb2bbb676720": {
+    "canonicalSlug": "assistente-di-pratica-medica-assistente-medico-mpa-f-m-d-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "assistente-di-pratica-medica-assistente-medico-mpa-f-m-d-100-universitatsklinik-balgrist-zurich",
+      "en": "medical-practice-assistant-medical-practice-assistant-mpa-f-m-d-100-universitatsklinik-balgrist-zurich",
+      "de": "medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-w-m-d-100-balgrist",
+      "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-f-m-d-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|3c673f5e-1aee-408f-88db-52056b52a822": {
+    "canonicalSlug": "apprendistato-come-informatikerin-informatiker-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "apprendistato-come-informatikerin-informatiker-cfc-m-w-d-universitatsklinik-balgrist-zurich",
+      "en": "apprenticeship-as-computer-scientist-informatician-efz-m-f-d-universitatsklinik-balgrist-zurich",
+      "de": "lehrstelle-als-informatikerin-informatiker-efz-m-w-d-balgrist-zurich",
+      "fr": "apprentissage-en-tant-que-informaticiens-informaticiens-efz-m-f-d-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|5bd4cb22-a15e-4170-8297-213e82bb7291": {
+    "canonicalSlug": "salute-professionale-fage-f-m-d-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "salute-professionale-fage-f-m-d-100-universitatsklinik-balgrist-zurich",
+      "en": "professional-health-fage-f-m-d-100-universitatsklinik-balgrist-zurich",
+      "de": "fachfrau-fachmann-gesundheit-fage-w-m-d-100-balgrist-zurich",
+      "fr": "sante-professionnelle-fage-f-m-d-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|5bc57c91-d8a1-4b8f-a8ed-126b4f596436": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-empfang-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-empfang-patientenservice-m-w-d-60-80-universitatsklinik-balgrist-zurich",
+      "en": "employee-reception-patient-service-m-f-d-60-80-universitatsklinik-balgrist-zurich",
+      "de": "mitarbeiterin-mitarbeiter-empfang-patientenservice-m-w-d-60-80-balgrist-zurich",
+      "fr": "reception-des-employes-et-service-aux-patients-m-f-j-60-80-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|8546ebc6-b61d-4746-9299-50d8ad2494af": {
+    "canonicalSlug": "specialista-di-radiologia-m-f-d-40-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "specialista-di-radiologia-m-f-d-40-100-universitatsklinik-balgrist-zurich",
+      "en": "radiology-specialist-m-f-d-40-100-universitatsklinik-balgrist-zurich",
+      "de": "radiologiefachfrau-radiologiefachmann-m-w-d-40-100-balgrist-zurich",
+      "fr": "specialiste-de-radiologie-m-f-d-40-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|3aa498dd-8c76-43a1-8374-e42cbdfd68c5": {
+    "canonicalSlug": "esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "en": "nursing-expert-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+      "de": "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
+      "fr": "expert-en-soins-infirmiers-snc-m-f-d-80-100-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|609127e3-3a23-489a-bc05-d642ce12d524": {
+    "canonicalSlug": "stv-leitung-bildung-pflege-m-w-d-100-balgrist-zurich",
+    "slugByLocale": {
+      "de": "stv-leitung-bildung-pflege-m-w-d-100-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|5c6240aa-8d69-42f5-83ca-73e878074105": {
+    "canonicalSlug": "kochin-koch-100-m-w-d-balgrist-zurich",
+    "slugByLocale": {
+      "de": "kochin-koch-100-m-w-d-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|balgrist.ch|79217906-8c14-4a05-9143-10a811e00562": {
+    "canonicalSlug": "dipendente-del-servizio-m-f-d-80-universitatsklinik-balgrist-zurich",
+    "slugByLocale": {
+      "it": "dipendente-del-servizio-m-f-d-80-universitatsklinik-balgrist-zurich",
+      "en": "service-employee-m-f-d-80-universitatsklinik-balgrist-zurich",
+      "de": "servicemitarbeiterin-servicemitarbeiter-m-w-d-80-balgrist-zurich",
+      "fr": "employes-m-f-j-80-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|brackalltron.ch|1511e978-195d-4995-9efd-fb01e453e0f7": {
+    "canonicalSlug": "specialista-operational-planning-control-brack-alltron-ag-willisau",
+    "slugByLocale": {
+      "it": "specialista-operational-planning-control-brack-alltron-ag-willisau",
+      "de": "specialist-operational-planning-amp-control-brack-alltron-willisau",
+      "fr": "specialiste-operational-planning-control-brack-alltron-ag-willisau"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "LU"
+  },
+  "id|brackalltron.ch|2da2aba1-a86d-4623-a3f7-def0dac6c507": {
+    "canonicalSlug": "coiffeur-in-efz-60-100-winterthur-perfecthair-ag-brack-alltron-winterthur",
+    "slugByLocale": {
+      "de": "coiffeur-in-efz-60-100-winterthur-perfecthair-ag-brack-alltron-winterthur"
+    },
+    "createdAt": "2026-08-12",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|5531f750-9adc-4fa0-8c5f-5b6a5b45739a": {
+    "canonicalSlug": "lagerist-in-jumbo-chur",
+    "slugByLocale": {
+      "de": "lagerist-in-jumbo-chur"
     },
     "createdAt": "2026-08-12",
     "canton": "GR"
