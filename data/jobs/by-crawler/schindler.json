@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-08-12T10:19:56.501Z",
+  "assembledAt": "2026-08-12T09:37:36.278Z",
   "jobs": [
     {
       "id": "schindler-76c469d8faf2",
@@ -6227,21 +6227,22 @@
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "cookie-consent-manager-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr",
+          "cookie-consent-manager-schindler-bussigny"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -6253,7 +6254,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",

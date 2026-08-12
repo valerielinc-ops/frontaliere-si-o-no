@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-08-12T10:38:50.331Z",
+  "assembledAt": "2026-08-12T09:59:29.871Z",
   "jobs": [
     {
       "id": "company-4z4i3r",
@@ -51,25 +51,33 @@
         "it": [
           "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern",
           "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-confederazione-hinwil",
-          "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r"
+          "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r",
+          "capo-di-transmission-communication-electronic-systems-general-workshops-ukea-confederazione-svizzera-hinwil"
         ],
         "en": [
           "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-confederazione-hinwil",
-          "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r"
+          "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r",
+          "head-of-transmission-communication-electronic-systems-general-workshops-ukea-confederazione-svizzera-hinwil"
         ],
         "de": [
           "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-confederazione-hinwil"
         ],
         "fr": [
           "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-confederazione-hinwil",
-          "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r"
+          "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r",
+          "chef-de-la-transmission-communication-systemes-electroniques-ateliers-generaux-ukea-confederazione-svizzera-hinwil"
         ]
       },
       "previousSlugs": [
         "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern",
         "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-confederazione-hinwil",
-        "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r"
+        "chef-in-ubermittlung-kommunikation-elektronische-systeme-allgemeine-werkstatten-ukea-swiss-armed-forces-vtg-bern-4z4i3r",
+        "capo-di-transmission-communication-electronic-systems-general-workshops-ukea-confederazione-svizzera-hinwil",
+        "head-of-transmission-communication-electronic-systems-general-workshops-ukea-confederazione-svizzera-hinwil",
+        "chef-de-la-transmission-communication-systemes-electroniques-ateliers-generaux-ukea-confederazione-svizzera-hinwil"
       ],
+      "salaryMin": 105500,
+      "salaryMax": 185000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -82,9 +90,7 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 105500,
-      "salaryMax": 185000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-cupr4v",
@@ -4305,7 +4311,8 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
-          "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern"
+          "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern",
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
@@ -4316,7 +4323,8 @@
       },
       "previousSlugs": [
         "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
-        "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern"
+        "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern",
+        "elektroniker-in-avionik-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4333,7 +4341,8 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }

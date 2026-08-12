@@ -3900,13 +3900,15 @@
       "previousSlugs": [
         "chef-fe-de-projet-etat-de-vaud-lausanne",
         "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "chef-fe-de-projet-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "chef-fe-de-projet-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-etat-de-vaud-lausanne",
           "responsabile-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "chef-fe-de-projet-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "chef-fe-de-projet-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-de-projet-etat-de-vaud-lausanne"
@@ -3916,7 +3918,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3928,7 +3929,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5674",

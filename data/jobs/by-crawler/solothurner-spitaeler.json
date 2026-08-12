@@ -1,6 +1,6 @@
 {
   "crawlerKey": "solothurner-spitaeler",
-  "assembledAt": "2026-08-12T10:21:21.889Z",
+  "assembledAt": "2026-08-12T09:41:25.029Z",
   "jobs": [
     {
       "id": "solothurner-spitaeler-96e6529d74c4",
@@ -15187,17 +15187,30 @@
       "department": "Chirurgische Sprechstunden",
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
-        "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+        "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
+        "orari-di-consultazione-medica-mpa-w-m-d-solothurner-spitaler-soh-olten",
+        "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten",
+        "mpa-medizinische-sprechstunden-w-m-d-soh-ch",
+        "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
+          "orari-di-consultazione-medica-mpa-w-m-d-solothurner-spitaler-soh-olten",
+          "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten",
+          "mpa-medizinische-sprechstunden-w-m-d-soh-ch",
+          "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
-          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
+          "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
-          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch"
+          "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
+          "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten"
+        ],
+        "de": [
+          "mpa-medizinische-sprechstunden-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:06.642Z",

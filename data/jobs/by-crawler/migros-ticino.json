@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-08-12T10:48:41.764Z",
+  "assembledAt": "2026-08-12T09:26:55.938Z",
   "jobs": [
     {
       "id": "company-7zzm2s",
@@ -20751,18 +20751,47 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen",
-          "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs"
+          "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs",
+          "panificio-da-forno-horgen-fresh-food-beverage-group-horgen",
+          "baker-s-pastry-bakery-horgen-fresh-food-beverage-group-horgen",
+          "backer-konditor-hausbackerei-horgen-fresh-food-beverage-group-horgen-4vnce3",
+          "boulangerie-de-patisserie-de-baker-horgen-fresh-food-beverage-group-horgen",
+          "backer-konditor-hausbackerei-horgen-fresh-food-beverage-group-horgen",
+          "pasticceria-pasticceria-casalinga-langenthal-fresh-food-beverage-group-langenthal",
+          "baker-pastry-bakery-langenthal-fresh-food-beverage-group-langenthal",
+          "backer-konditor-hausbackerei-langenthal-fresh-food-beverage-group-langenthal-tz42p9",
+          "boulangerie-et-confiseur-maison-langenthal-fresh-food-beverage-group-langenthal",
+          "backer-konditor-hausbackerei-langenthal-fresh-food-beverage-group-langenthal",
+          "panificio-pasticceria-langenthal-fresh-food-beverage-group-langenthal",
+          "boulangerie-baker-langenthal-fresh-food-beverage-group-langenthal"
         ],
         "en": [
-          "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs"
+          "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs",
+          "baker-s-pastry-bakery-horgen-fresh-food-beverage-group-horgen"
         ],
         "fr": [
-          "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs"
+          "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs",
+          "boulangerie-de-patisserie-de-baker-horgen-fresh-food-beverage-group-horgen"
+        ],
+        "de": [
+          "backer-konditor-hausbackerei-horgen-fresh-food-beverage-group-horgen-4vnce3"
         ]
       },
       "previousSlugs": [
         "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen",
-        "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs"
+        "backer-konditor-hausbackerei-ostermundigen-fresh-food-beverage-group-ostermundigen-1l3zjs",
+        "panificio-da-forno-horgen-fresh-food-beverage-group-horgen",
+        "baker-s-pastry-bakery-horgen-fresh-food-beverage-group-horgen",
+        "backer-konditor-hausbackerei-horgen-fresh-food-beverage-group-horgen-4vnce3",
+        "boulangerie-de-patisserie-de-baker-horgen-fresh-food-beverage-group-horgen",
+        "backer-konditor-hausbackerei-horgen-fresh-food-beverage-group-horgen",
+        "pasticceria-pasticceria-casalinga-langenthal-fresh-food-beverage-group-langenthal",
+        "baker-pastry-bakery-langenthal-fresh-food-beverage-group-langenthal",
+        "backer-konditor-hausbackerei-langenthal-fresh-food-beverage-group-langenthal-tz42p9",
+        "boulangerie-et-confiseur-maison-langenthal-fresh-food-beverage-group-langenthal",
+        "backer-konditor-hausbackerei-langenthal-fresh-food-beverage-group-langenthal",
+        "panificio-pasticceria-langenthal-fresh-food-beverage-group-langenthal",
+        "boulangerie-baker-langenthal-fresh-food-beverage-group-langenthal"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -20779,9 +20808,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-yhf7j9",
