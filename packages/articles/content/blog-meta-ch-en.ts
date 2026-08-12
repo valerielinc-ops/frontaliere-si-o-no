@@ -2272,6 +2272,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.title': 'Bilateral III: no specific protections for trade unionists',
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.excerpt': 'The Economic and Taxation Commission of the Council of States excludes the rule that would have strengthened protections for union representatives in companies.',
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.imageAlt': 'A Swiss trade union meeting',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.title': 'Health insurance premiums Canton Bern and premium reductions',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.excerpt': 'Here are the key facts for compulsory health insurance premiums in the Canton of Bern.',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.imageAlt': 'Swiss mountains with the Lake Lugano in the background.',
 };
 
 export default blogMetaChEn;

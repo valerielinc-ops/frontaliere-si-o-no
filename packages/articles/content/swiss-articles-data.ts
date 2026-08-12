@@ -6814,6 +6814,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'premi-cassa-malati-cantone-bern-riduzione',
+    category: 'fiscale',
+    date: '2026-08-12T09:20:30.193Z',
+    image: '/images/blog/premi-cassa-malati-cantone-bern-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
