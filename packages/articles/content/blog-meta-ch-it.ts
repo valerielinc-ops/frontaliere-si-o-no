@@ -2368,6 +2368,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.medicina-genetica-in-svizzera.title': 'Medicina genetica, l\'estate delle buone notizie',
     'blog.article.medicina-genetica-in-svizzera.excerpt': 'Le terapie genetiche escono dai laboratori e curano pazienti reali.',
     'blog.article.medicina-genetica-in-svizzera.imageAlt': 'La medicina genetica in Svizzera: un nuovo inizio',
+    'blog.article.assegni-familiari-canton-berna.title': 'Assegni familiari nel Cantone di Berna: importi e domanda',
+    'blog.article.assegni-familiari-canton-berna.excerpt': 'Gli assegni familiari nel Cantone di Berna sono gestiti dalle amministrazioni cantonali e richiedono la presentazione di una domanda.',
+    'blog.article.assegni-familiari-canton-berna.imageAlt': 'Un frontaliere con il figlio a Lugano',
 };
 
 export default blogMetaChIt;
