@@ -1,16 +1,16 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-08-12T10:24:20.596Z",
+  "generatedAt": "2026-08-12T22:14:48.819Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 39208,
-  "avgDurationMs": 39208,
+  "durationMs": 35601,
+  "avgDurationMs": 35601,
   "durationHistory": [
-    39208
+    35601
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 127500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-17T12:00:46.733Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
