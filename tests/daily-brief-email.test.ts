@@ -1,11 +1,21 @@
-// The daily brief's own email — issue #5415 §2b, §4.7, §4.8.
+// The daily brief's own email — issue #5415 §2b, §4.7, §4.8, and the restyle of
+// issue #5683.
 //
-// Two things are asserted here that no eyeball on a rendered preview can check:
-// that nothing of the WEEKLY newsletter's dress survived the split, and that the
-// headers are the RFC 8058 ones Gmail and Yahoo require of a bulk sender.
+// Everything asserted here is something no eyeball on a rendered preview can
+// check: that nothing of the WEEKLY newsletter's dress survived the split, that
+// the headers are the RFC 8058 ones Gmail and Yahoo require of a bulk sender,
+// that exactly one block leads and it is the one that MOVED, that the message
+// contains nothing a mail client will refuse to render (no flexbox, no grid, no
+// image), and that the footer's controller identity comes from the shared
+// module rather than from a string typed here.
+import { readFileSync } from 'node:fs';
+
 import { describe, expect, it } from 'vitest';
 
-import { buildDailyBriefEmail, briefSections, cadenceSentence, formatEditionDate } from '@/services/daily-brief-template.mjs';
+import {
+  buildDailyBriefEmail, briefSections, cadenceSentence, dailyHighlight, formatEditionDate, markLead,
+} from '@/services/daily-brief-template.mjs';
+import { DATA_CONTROLLER_NAME, dataControllerFooterLine } from '@/functions/src/lib/dataControllerIdentity.js';
 import { buildBriefEmail, buildBriefHeaders } from '@/scripts/send-daily-brief.mjs';
 
 const BRIEF = {
@@ -23,6 +33,37 @@ const BRIEF = {
     },
     exchange: { available: true, rate: 1.0695, prevRate: 1.0695, delta1d: 0 },
     jobs: { available: true, activeJobs: 22645, activeCompanies: 857, yesterdayAdded: 1188 },
+  },
+};
+
+// The real 2026-08-12 payload, trimmed: an ordinary morning where NOTHING moved
+// enough to lead — EUR/CHF 1,0695 → 1,0694 (0,009 %) and 762 new listings
+// against a 7-day mean of 598 (+27 %). It is the case the lead rule has to get
+// right, because it is almost every morning.
+const ORDINARY = {
+  ...BRIEF,
+  dateIso: '2026-08-12',
+  blocks: {
+    ...BRIEF.blocks,
+    exchange: { available: true, rate: 1.0694, prevRate: 1.0695, delta1d: -0.0001, rate7dAgo: 1.0727 },
+    jobs: { available: true, activeJobs: 22798, activeCompanies: 846, yesterdayAdded: 762, last7dAdded: 4183 },
+  },
+};
+
+/** Same morning, but the job board doubled overnight: +101 % on the 7-day mean. */
+const JOBS_SURGE = {
+  ...ORDINARY,
+  blocks: { ...ORDINARY.blocks, jobs: { ...ORDINARY.blocks.jobs, yesterdayAdded: 1200 } },
+};
+
+/** Same morning, a real franc day: +0,005 is 0,47 % — over the 0,3 % threshold. */
+const FX_SHOCK = {
+  ...ORDINARY,
+  blocks: {
+    ...ORDINARY.blocks,
+    exchange: { available: true, rate: 1.0745, prevRate: 1.0695, delta1d: 0.005, rate7dAgo: 1.0727 },
+    // No `last7dAdded`: jobs then has no baseline and cannot compete.
+    jobs: { available: true, activeJobs: 22798, activeCompanies: 846, yesterdayAdded: 762 },
   },
 };
 
@@ -137,6 +178,225 @@ describe('the cadence disclosure', () => {
     expect(html).toContain('preferenze-newsletter');
     expect(html).toContain('disiscrivi-newsletter');
     expect(text).toContain('Disiscriviti:');
+  });
+});
+
+// ── The restyle (#5683) ─────────────────────────────────────────────────────
+
+describe('the hierarchy: one lead, the rest as support', () => {
+  it('marks exactly one block as the lead', () => {
+    for (const brief of [BRIEF, ORDINARY, JOBS_SURGE, FX_SHOCK]) {
+      expect(briefSections(brief, 'it').filter((s) => s.lead)).toHaveLength(1);
+    }
+  });
+
+  // The defect this closes: four blocks at the same type size, so nothing in the
+  // message told the reader where to look first.
+  it('sets the lead twice the size of every other block', () => {
+    const { html } = build({ brief: ORDINARY });
+    expect(html.match(/font:800 40px/g)).toHaveLength(1);
+    // The other three blocks, all at the support size.
+    expect(html.match(/font:800 20px/g)).toHaveLength(3);
+  });
+
+  it('hands the lead to the block that moved past its own threshold', () => {
+    expect(briefSections(JOBS_SURGE, 'it').find((s) => s.lead)?.key).toBe('jobs');
+    expect(briefSections(FX_SHOCK, 'it').find((s) => s.lead)?.key).toBe('exchange');
+  });
+
+  // 1,0695 → 1,0694 is 0,009 % — the movement the issue quotes. It still gets a
+  // signed, coloured treatment in its own row, but it must not become the day's
+  // headline just because it is the only number with a delta attached.
+  it('does not let a rounding-scale move take the lead', () => {
+    const sections = briefSections(ORDINARY, 'it');
+    expect(sections.find((s) => s.lead)?.key).toBe('borderWait');
+    expect(sections.find((s) => s.key === 'exchange')?.move?.pct).toBeLessThan(0.02);
+  });
+
+  // `daily-brief.json` gives fuel and border waits today's figure and nothing to
+  // compare it with. Inventing a baseline so they could compete would be the
+  // fabricated placeholder this template was split off to get rid of.
+  it('never lets a block without a previous-day baseline claim a movement', () => {
+    const byKey = Object.fromEntries(briefSections(ORDINARY, 'it').map((s) => [s.key, s]));
+    expect(byKey.fuel.move).toBeUndefined();
+    expect(byKey.borderWait.move).toBeUndefined();
+    expect(byKey.exchange.move).toBeDefined();
+    expect(byKey.jobs.move).toBeDefined();
+  });
+
+  it('applies the threshold at its boundary, and falls back to reading order below it', () => {
+    const at = (pct: number) => markLead([
+      { key: 'fuel' }, { key: 'exchange', move: { pct } },
+    ] as Parameters<typeof markLead>[0]);
+    expect(at(0.3).find((s) => s.lead)?.key).toBe('exchange');
+    expect(at(0.299).find((s) => s.lead)?.key).toBe('fuel');
+  });
+});
+
+describe('the movement', () => {
+  // Colour alone would be invisible to a colour-blind reader and unreliable
+  // under a mail client's forced dark-mode colour transform.
+  it('carries its direction as a glyph and a sign, never by colour alone', () => {
+    const { html } = build({ brief: ORDINARY });
+    expect(html).toContain('▼ -0,0001');   // exchange, down
+    expect(html).toContain('▲ +28%');      // jobs, up on the 7-day mean
+  });
+
+  it('spells the comparison out instead of leaving a bare delta', () => {
+    const { html } = build({ brief: ORDINARY });
+    expect(html).toContain('da 1,0695 di ieri');
+    expect(html).toContain('contro una media di 598 al giorno');
+    expect(build({ brief: ORDINARY, locale: 'en' }).html).toContain('from 1.0695 yesterday');
+  });
+
+  it('says «invariato» rather than printing a signed zero', () => {
+    // The base fixture's exchange block is flat (delta1d: 0).
+    const { html } = build();
+    expect(html).toContain('■ invariato');
+    expect(html).not.toContain('+0,0000');
+  });
+
+  // The movement used to be spelled into the block's own sentence AND appended
+  // by the plain-text renderer, so the exchange line printed its delta twice.
+  it('prints each movement once in the plain-text part', () => {
+    const { text } = build({ brief: ORDINARY });
+    expect(text.match(/-0,0001/g)).toHaveLength(1);
+    expect(text).toContain('(-0,0001, da 1,0695 di ieri)');
+  });
+});
+
+describe('the one line that is not a number', () => {
+  it('turns a figure buried in a support line into a sentence', () => {
+    // Livigno's 25,25 € saving is candidate 0; 2026-08-08 selects it.
+    expect(dailyHighlight(BRIEF, 'it')).toBe('Un pieno da 50 litri a Livigno costa 25,25 € meno che in Svizzera.');
+  });
+
+  it('is a function of the edition date: same day same line, next day another', () => {
+    const day = (dateIso: string) => dailyHighlight({ ...BRIEF, dateIso }, 'it');
+    expect(day('2026-08-08')).toBe(day('2026-08-08'));
+    const week = new Set(['2026-08-08', '2026-08-09', '2026-08-10', '2026-08-11'].map(day));
+    expect(week.size).toBeGreaterThan(1);
+  });
+
+  it('drops the candidates whose block was not measured, and stays silent with none', () => {
+    const noFuel = { ...BRIEF, blocks: { ...BRIEF.blocks, fuel: { available: false } } };
+    for (const dateIso of ['2026-08-08', '2026-08-09', '2026-08-10']) {
+      expect(dailyHighlight({ ...noFuel, dateIso }, 'it')).not.toContain('Livigno');
+    }
+    expect(dailyHighlight({ dateIso: '2026-08-08', blocks: {} }, 'it')).toBeNull();
+    expect(build({ brief: { dateIso: '2026-08-08', blocks: {} } }).html).not.toContain('Buono a sapersi');
+  });
+
+  it('is localized like everything else', () => {
+    expect(dailyHighlight(BRIEF, 'de')).toContain('Eine 50-Liter-Tankfüllung');
+    expect(dailyHighlight(BRIEF, 'fr')).toContain('Un plein de 50 litres');
+  });
+});
+
+describe('what a real mail client can actually render', () => {
+  const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+  // Outlook's Word engine supports neither; a flex row collapses to stacked text.
+  it('uses no flexbox and no grid, in any locale', () => {
+    for (const locale of LOCALES) {
+      expect(build({ locale, brief: ORDINARY }).html)
+        .not.toMatch(/display\s*:\s*(inline-)?(flex|grid)|flex-(direction|wrap|basis|grow)|grid-template/i);
+    }
+  });
+
+  // Most clients block images on first receipt, and this one goes out daily to
+  // thousands of addresses. Every figure, glyph and rule is text or a border.
+  it('embeds no image at all, so nothing is lost with images blocked', () => {
+    for (const locale of LOCALES) {
+      expect(build({ locale, brief: ORDINARY }).html).not.toMatch(/<img|background-image|url\(/i);
+    }
+  });
+
+  // Gmail's and Outlook's forced dark modes flip a declared background and leave
+  // an undeclared text colour where it was — which is how dark-on-dark happens.
+  // Declaring both on the same element makes them move together.
+  it('declares a colour wherever it declares a background', () => {
+    const html = build({ brief: ORDINARY }).html;
+    const styles = [...html.matchAll(/style="([^"]*)"/g)].map((m) => m[1]);
+    const withBackground = styles.filter((style) => /(^|;)\s*background\s*:/.test(style));
+    expect(withBackground.length).toBeGreaterThan(4);
+    for (const style of withBackground) expect(style).toMatch(/(^|;)\s*color\s*:/);
+  });
+});
+
+describe('dark mode', () => {
+  const html = build({ brief: ORDINARY }).html;
+  const darkBlock = html.match(/@media \(prefers-color-scheme: dark\) \{([\s\S]*?)\n {2}\}/)?.[1] ?? '';
+  const markup = html.slice(html.indexOf('</style>'));
+
+  it('announces that it handles both schemes', () => {
+    expect(html).toContain('<meta name="color-scheme" content="light dark">');
+    expect(html).toContain('<meta name="supported-color-schemes" content="light dark">');
+  });
+
+  // Every class the markup paints with has to be restated here, or that element
+  // keeps its light inline colour on a dark background. Both directions are
+  // asserted: a class added to the markup without a dark rule fails, and a rule
+  // left behind for a class nobody uses fails too.
+  it('restates every painted class, and paints nothing it does not use', () => {
+    const painted = ['fb-page', 'fb-card', 'fb-lead', 'fb-panel', 'fb-note', 'fb-foot',
+      'fb-ink', 'fb-text', 'fb-muted', 'fb-link', 'fb-good', 'fb-warn', 'fb-pill', 'fb-rule'];
+    for (const cls of painted) {
+      expect(markup, `${cls} missing from the markup`).toContain(`${cls}`);
+      expect(darkBlock, `${cls} missing from the dark block`).toContain(`.${cls}`);
+    }
+  });
+
+  // An inline style beats an embedded rule; only !important beats an inline style.
+  it('marks every dark declaration !important, or the inline light value wins', () => {
+    const declarations = darkBlock.match(/[a-z-]+\s*:\s*[^;{}]+;/g) ?? [];
+    expect(declarations.length).toBeGreaterThan(10);
+    for (const declaration of declarations) expect(declaration).toContain('!important');
+  });
+});
+
+describe('the footer', () => {
+  const SOURCE = readFileSync(new URL('../services/daily-brief-template.mjs', import.meta.url), 'utf-8');
+
+  // #5675 made the identity a single source. A copy typed into this template
+  // would keep rendering the right thing today and go stale on the next change.
+  it('takes the controller identity from the shared module, in every locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html, text } = build({ locale });
+      expect(html).toContain(dataControllerFooterLine(locale));
+      expect(text).toContain(dataControllerFooterLine(locale));
+    }
+    expect(SOURCE).toContain('dataControllerFooterLine');
+    expect(SOURCE).not.toContain(DATA_CONTROLLER_NAME);
+  });
+
+  // The complaint of 2026-08-12 reached the provider's abuse desk because the
+  // link was 11px #94a3b8 on #f1f5f9 — 1,9:1, effectively invisible.
+  it('shows the unsubscribe as a readable link, not grey on grey', () => {
+    const { html } = build();
+    const style = html.match(/<a class="fb-pill" href="[^"]*disiscrivi-newsletter[^"]*"[^>]*style="([^"]*)"/)?.[1] ?? '';
+    expect(Number(style.match(/font:\d+ (\d+)px/)?.[1])).toBeGreaterThanOrEqual(14);
+    expect(style).not.toMatch(/color:\s*#(94a3b8|64748b)/);
+    expect(style).toContain('text-decoration:underline');
+  });
+
+  // Both doors the same size: the recipient who only wants it less often should
+  // not have to hunt for the smaller one.
+  it('gives preferences and unsubscribe the same prominence', () => {
+    const { html } = build();
+    const sizes = [...html.matchAll(/<a class="fb-pill"[^>]*style="([^"]*)"/g)]
+      .map((m) => m[1].match(/font:\d+ (\d+)px/)?.[1]);
+    expect(sizes).toHaveLength(2);
+    expect(new Set(sizes).size).toBe(1);
+  });
+
+  // makeOneClickUnsubscribeUrl's output works with no JS and no autologin code;
+  // the SPA-root form needs both. Making the link more visible must not make it
+  // less reliable, so the template renders the URL it is handed, verbatim.
+  it('renders the unsubscribe URL it was handed, without rewriting it', () => {
+    const { html } = build({ unsubscribeUrl: 'https://frontaliereticino.ch/disiscrivi-newsletter/?action=unsubscribe&email=x&token=y' });
+    expect(html).toContain('href="https://frontaliereticino.ch/disiscrivi-newsletter/?action=unsubscribe&amp;email=x&amp;token=y"');
+    expect(html).not.toContain('frontaliereticino.ch/?action=unsubscribe');
   });
 });
 
