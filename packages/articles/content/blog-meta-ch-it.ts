@@ -2344,6 +2344,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon supera per la prima volta i 3000 miliardi di capitalizzazione di mercato',
     'blog.article.amazon-capitalizzazione-3000-miliardi.excerpt': 'Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre',
     'blog.article.amazon-capitalizzazione-3000-miliardi.imageAlt': 'Amazon entra nel gruppo di cinque giganti dopo i risultati del secondo trimestre',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Permesso di domicilio C nel Canton Berna: requisiti e domanda',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Il permesso di domicilio C nel Canton Berna: requisiti, domanda e procedura di applicazione',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'Un cittadino straniero con permesso di domicilio C nel Canton Berna',
 };
 
 export default blogMetaChIt;

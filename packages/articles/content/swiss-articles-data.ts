@@ -7030,6 +7030,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-di-domicilio-c-canton-berna-requisiti-e-domanda',
+    category: 'fiscale',
+    date: '2026-08-12T20:41:31.313Z',
+    image: '/images/blog/permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
