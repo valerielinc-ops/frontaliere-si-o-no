@@ -208600,7 +208600,7 @@
       },
       "slugByLocale": {
         "it": "baker-in-confectioner-in-coop-genossenschaft-kussnacht",
-        "en": "baker-confectioner-coop-genossenschaft-kussnacht",
+        "en": "baker-pastry-chef-coop-genossenschaft-kussnacht",
         "de": "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz-23vyy2",
         "fr": "baker-in-configeur-in-coop-genossenschaft-kussnacht"
       },
@@ -208625,7 +208625,8 @@
         "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz",
         "backer-in-konditor-in-coop-genossenschaft-schwyz",
         "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz-23vyy2",
-        "backer-in-konditor-in-coop-kussnacht-schwyz"
+        "backer-in-konditor-in-coop-kussnacht-schwyz",
+        "baker-confectioner-coop-genossenschaft-kussnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -208638,7 +208639,8 @@
           "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz-23vyy2"
         ],
         "en": [
-          "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz-23vyy2"
+          "backer-in-konditor-in-coop-genossenschaft-kussnacht-schwyz-23vyy2",
+          "baker-confectioner-coop-genossenschaft-kussnacht"
         ]
       },
       "sourceLang": "de",
@@ -211460,7 +211462,7 @@
         "it": "chef-chef-m-f-d-coop-genossenschaft-kreuzlingen",
         "en": "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-0gzv17",
         "de": "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-0gzv17",
-        "fr": "cuisiniere-cuisinier-h-f-coop-genossenschaft-kreuzlingen"
+        "fr": "cuisiniere-h-f-d-coop-genossenschaft-kreuzlingen"
       },
       "needsRetranslation": true,
       "addressLocality": "Kreuzlingen",
@@ -211484,12 +211486,14 @@
           "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau"
         ],
         "fr": [
-          "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-0gzv17"
+          "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-0gzv17",
+          "cuisiniere-cuisinier-h-f-coop-genossenschaft-kreuzlingen"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-0gzv17",
-        "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau"
+        "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau",
+        "cuisiniere-cuisinier-h-f-coop-genossenschaft-kreuzlingen"
       ],
       "retranslationAttempts": 1
     },
@@ -211624,7 +211628,7 @@
         "it": "chef-chef-m-f-d-coop-genossenschaft-volketswil",
         "en": "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-qhgtnn",
         "de": "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-qhgtnn",
-        "fr": "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-volketswil"
+        "fr": "cuisiniere-cuisinier-f-h-div-coop-genossenschaft-volketswil"
       },
       "needsRetranslation": true,
       "addressLocality": "Volketswil",
@@ -211648,12 +211652,14 @@
           "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
         ],
         "fr": [
-          "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-qhgtnn"
+          "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-qhgtnn",
+          "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-volketswil"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-qhgtnn",
-        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
+        "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-volketswil"
       ],
       "retranslationAttempts": 1
     },
@@ -213213,7 +213219,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "franchising-partner-in-coop-pronto-con-tankstelle-coop-pronto-allschwil-n2mrjm",
-        "en": "franchise-partner-coop-pronto-with-gas-station-coop-genossenschaft-allschwil",
+        "en": "think-here-s-a-thinking-process-1-analyze-user-input-input-title-franchising-partner-in-coop-pronto-mit-tankstelle",
         "de": "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-n2mrjm",
         "fr": "partenaire-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
       },
@@ -213238,7 +213244,8 @@
           "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
         ],
         "en": [
-          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-n2mrjm"
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-n2mrjm",
+          "franchise-partner-coop-pronto-with-gas-station-coop-genossenschaft-allschwil"
         ],
         "fr": [
           "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-n2mrjm"
@@ -213246,7 +213253,8 @@
       },
       "previousSlugs": [
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil",
-        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-n2mrjm"
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-n2mrjm",
+        "franchise-partner-coop-pronto-with-gas-station-coop-genossenschaft-allschwil"
       ],
       "retranslationAttempts": 2
     },
@@ -213375,7 +213383,7 @@
         "it": "franchising-partner-in-coop-pronto-con-tankstelle-coop-pronto-allschwil-8p6htu",
         "en": "franchise-partner-coop-pronto-with-petrol-station-coop-genossenschaft-allschwil",
         "de": "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu",
-        "fr": "partenaire-en-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
+        "fr": "partenaire-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
       },
       "addressLocality": "Allschwil",
       "sourceLang": "de",
@@ -213401,12 +213409,14 @@
           "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu"
         ],
         "fr": [
-          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu"
+          "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu",
+          "partenaire-en-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
         ]
       },
       "previousSlugs": [
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-2",
-        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu"
+        "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu",
+        "partenaire-en-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
       ],
       "retranslationAttempts": 2
     },

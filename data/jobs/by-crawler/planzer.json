@@ -9,7 +9,7 @@
         "it": "scelta-logistica-m-f-d-planzer-kallnach",
         "en": "logistics-picking-m-f-d-planzer-kallnach",
         "de": "logistiker-kommissionierung-m-w-d-planzer-kallnach",
-        "fr": "logistiker-kommissionierung-m-w-d-planzer-kallnach"
+        "fr": "recherche-logistique-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -54,21 +54,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "logistiker-kommissionierung-m-w-d-planzer-kallnach",
-        "collecte-logistique-m-f-d-planzer-kallnach",
-        "recherche-logistique-h-f-d-planzer-kallnach",
-        "scelta-logistica-m-f-d-planzer-kallnach"
+        "collecte-logistique-m-f-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-kommissionierung-m-w-d-planzer-kallnach",
-          "scelta-logistica-m-f-d-planzer-kallnach"
+          "logistiker-kommissionierung-m-w-d-planzer-kallnach"
         ],
         "en": [
           "logistiker-kommissionierung-m-w-d-planzer-kallnach"
         ],
         "fr": [
           "collecte-logistique-m-f-d-planzer-kallnach",
-          "recherche-logistique-h-f-d-planzer-kallnach",
           "logistiker-kommissionierung-m-w-d-planzer-kallnach"
         ]
       },
@@ -138,13 +134,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-paket-m-w-d-planzer-st-gallen",
-        "pacchetto-personale-m-f-d-planzer-st-gallen"
+        "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-paket-m-w-d-planzer-st-gallen",
-          "pacchetto-personale-m-f-d-planzer-st-gallen"
+          "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
         ],
         "en": [
           "sachbearbeiter-paket-m-w-d-planzer-st-gallen"
@@ -219,13 +213,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon",
-        "collaboratore-trice-flottenmanagement-m-w-d-planzer-dallikon"
+        "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon",
-          "collaboratore-trice-flottenmanagement-m-w-d-planzer-dallikon"
+          "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
         ],
         "en": [
           "mitarbeiter-flottenmanagement-m-w-d-planzer-dallikon"
@@ -300,13 +292,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-buchs",
-        "carico-generale-m-f-d-planzer-buchs"
+        "disponent-stuckgut-m-w-d-planzer-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-stuckgut-m-w-d-planzer-buchs",
-          "carico-generale-m-f-d-planzer-buchs"
+          "disponent-stuckgut-m-w-d-planzer-buchs"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-buchs"
@@ -381,22 +371,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chauffeur-cat-c-m-f-d-planzer-chavornay",
-        "katzenfahrer-c-m-w-d-planzer-chavornay",
-        "guidatore-di-gatti-c-m-f-d-planzer-chavornay",
-        "chauffeur-cat-c-m-w-d-planzer-chavornay"
+        "katzenfahrer-c-m-w-d-planzer-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-cat-c-m-f-d-planzer-chavornay",
-          "guidatore-di-gatti-c-m-f-d-planzer-chavornay"
+          "chauffeur-cat-c-m-f-d-planzer-chavornay"
         ],
         "en": [
           "chauffeur-cat-c-m-f-d-planzer-chavornay"
         ],
         "de": [
           "chauffeur-cat-c-m-f-d-planzer-chavornay",
-          "katzenfahrer-c-m-w-d-planzer-chavornay",
-          "chauffeur-cat-c-m-w-d-planzer-chavornay"
+          "katzenfahrer-c-m-w-d-planzer-chavornay"
         ]
       },
       "firstSeenAt": "2026-08-11T10:09:17.082Z",
@@ -415,12 +401,12 @@
     },
     {
       "id": "planzer-8c2ea3d2247f",
-      "slug": "personalverantwortlicher-m-w-d-planzer-winterthur",
+      "slug": "responsabile-personale-m-f-d-planzer-winterthur",
       "slugByLocale": {
         "de": "personalverantwortlicher-m-w-d-planzer-winterthur",
-        "it": "personalverantwortlicher-m-w-d-planzer-winterthur",
-        "en": "personalverantwortlicher-m-w-d-planzer-winterthur",
-        "fr": "personalverantwortlicher-m-w-d-planzer-winterthur"
+        "it": "responsabile-personale-m-f-d-planzer-winterthur",
+        "en": "personnel-manager-m-f-d-planzer-winterthur",
+        "fr": "gestionnaire-de-personnel-h-f-d-planzer-winterthur"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -477,7 +463,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T10:16:29.613Z"
+      "firstSeenAt": "2026-08-12T10:16:29.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalverantwortlicher-m-w-d-planzer-winterthur"
+        ],
+        "en": [
+          "personalverantwortlicher-m-w-d-planzer-winterthur"
+        ],
+        "fr": [
+          "personalverantwortlicher-m-w-d-planzer-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "personalverantwortlicher-m-w-d-planzer-winterthur"
+      ]
     },
     {
       "id": "planzer-a8c3968e3073",
@@ -485,8 +485,8 @@
       "slugByLocale": {
         "de": "chauffeur-kat-ce-mit-anhangerzug-erfahrung-m-w-d-planzer-kallnach",
         "it": "chauffeur-kat-ce-mit-anhangerzug-erfahrung-m-w-d-planzer-kallnach",
-        "en": "chauffeur-kat-ce-mit-anhangerzug-erfahrung-m-w-d-planzer-kallnach",
-        "fr": "chauffeur-kat-ce-mit-anhangerzug-erfahrung-m-w-d-planzer-kallnach"
+        "en": "chauffeur-cat-ce-with-trailer-train-experience-m-f-d-planzer-kallnach",
+        "fr": "chauffeur-cat-ce-avec-experience-de-train-remorque-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -548,12 +548,12 @@
     },
     {
       "id": "planzer-d18c40f4405a",
-      "slug": "chauffeur-kat-c-m-w-d-planzer-seewen",
+      "slug": "chauffeur-cat-c-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "chauffeur-kat-c-m-w-d-planzer-seewen",
-        "it": "chauffeur-kat-c-m-w-d-planzer-seewen",
+        "it": "chauffeur-cat-c-m-f-d-planzer-seewen",
         "en": "chauffeur-kat-c-m-w-d-planzer-seewen",
-        "fr": "chauffeur-kat-c-m-w-d-planzer-seewen"
+        "fr": "chauffeur-cat-c-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -610,16 +610,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T10:16:28.153Z"
+      "firstSeenAt": "2026-08-12T10:16:28.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "chauffeur-kat-c-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-dbcdb777495d",
-      "slug": "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
+      "slug": "chauffeur-cat-be-night-m-f-d-planzer-kolliken",
       "slugByLocale": {
         "de": "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
-        "it": "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
+        "it": "chauffeur-cat-be-night-m-f-d-planzer-kolliken",
         "en": "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
-        "fr": "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
+        "fr": "chauffeur-cat-be-nuit-h-f-d-planzer-kolliken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -676,16 +687,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T10:16:27.426Z"
+      "firstSeenAt": "2026-08-12T10:16:27.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
+        ],
+        "fr": [
+          "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken"
+      ]
     },
     {
       "id": "planzer-fb93f7b9a065",
       "slug": "autista-cat-ce-m-f-d-planzer-bioggio",
       "slugByLocale": {
         "it": "autista-cat-ce-m-f-d-planzer-bioggio",
-        "en": "autista-cat-ce-m-f-d-planzer-bioggio",
-        "de": "autista-cat-ce-m-f-d-planzer-bioggio",
-        "fr": "autista-cat-ce-m-f-d-planzer-bioggio"
+        "en": "driver-cat-ce-m-f-d-planzer-bioggio",
+        "de": "fahrerkatze-ce-m-w-d-planzer-bioggio",
+        "fr": "pilote-cat-ce-h-f-d-planzer-bioggio"
       },
       "company": "Planzer",
       "companyKey": "planzer",

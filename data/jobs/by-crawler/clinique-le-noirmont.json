@@ -366,7 +366,7 @@
     },
     {
       "title": "Places d'apprentissage 2027",
-      "slug": "places-d-apprentissage-2027-clinique-le-noirmont",
+      "slug": "luoghi-di-apprendimento-2027-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1037",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -402,9 +402,9 @@
       },
       "slugByLocale": {
         "fr": "places-d-apprentissage-2027-clinique-le-noirmont",
-        "it": "places-d-apprentissage-2027-clinique-le-noirmont-le-noirmont",
+        "it": "luoghi-di-apprendimento-2027-clinique-le-noirmont-le-noirmont",
         "en": "places-d-apprentissage-2027-clinique-le-noirmont",
-        "de": "places-d-apprentissage-2027-clinique-le-noirmont"
+        "de": "lernorte-2027-clinique-le-noirmont-le-noirmont"
       },
       "_meta": {
         "sourceIdentifier": "dl:1037"
@@ -423,7 +423,20 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T10:17:37.356Z"
+      "firstSeenAt": "2026-08-12T10:17:37.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "places-d-apprentissage-2027-clinique-le-noirmont-le-noirmont",
+          "places-d-apprentissage-2027-clinique-le-noirmont"
+        ],
+        "de": [
+          "places-d-apprentissage-2027-clinique-le-noirmont"
+        ]
+      },
+      "previousSlugs": [
+        "places-d-apprentissage-2027-clinique-le-noirmont-le-noirmont",
+        "places-d-apprentissage-2027-clinique-le-noirmont"
+      ]
     },
     {
       "title": "Médecin chef réadaptation cardiovasculaire (F/H)",
