@@ -74,8 +74,14 @@ if (ownedSet.has('it')) {
     }
   }
 } else {
-  // Pure locale shard: keep ONLY the owned locale subtree(s) + homepage(s).
-  const keep = new Set(owned.flatMap(localeEntries)); // en/de/fr only here
+  // Pure locale shard: keep the owned locale subtree(s) + homepage(s), PLUS
+  // `404.html` (issue #5709). It is locale-agnostic (a static SPA-fallback
+  // page — same content served at the main shard's root) and is the ONLY
+  // thing that makes push-locale-shard.sh able to stage it at the shard
+  // repo's root; dropping it here left frontaliere-en/de/fr with no 404.html
+  // at all, so GitHub Pages served its own generic 404 for every
+  // non-prerendered SPA route under /en|/de|/fr instead of rebooting the app.
+  const keep = new Set([...owned.flatMap(localeEntries), '404.html']);
   for (const entry of fs.readdirSync(distDir)) {
     if (keep.has(entry)) continue;
     rm(path.join(distDir, entry));

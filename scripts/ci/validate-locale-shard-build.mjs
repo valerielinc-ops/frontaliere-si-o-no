@@ -102,6 +102,12 @@ function countRootPagesByLocale() {
   if (!fs.existsSync(distDir)) return n;
   for (const e of fs.readdirSync(distDir, { withFileTypes: true })) {
     if (['en', 'de', 'fr', 'assets', 'data', 'og'].includes(e.name)) continue;
+    // 404.html is locale-agnostic shard-root infra (#5709: kept through the
+    // prune step on purpose so push-locale-shard.sh can stage it), not an
+    // `it`-owned page — counting it toward `it` would trip assertion (2)
+    // ("filter leak") on every en/de/fr leg now that it legitimately survives
+    // the prune for those legs too.
+    if (e.name === '404.html') continue;
     const full = path.join(distDir, e.name);
     if (e.isDirectory()) n.it += countPages(full);
     else if (e.isFile() && e.name.endsWith('.html')) n[localeOfRootFile(e.name)] += 1;

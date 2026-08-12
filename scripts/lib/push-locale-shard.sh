@@ -194,6 +194,14 @@ push_shard() {
     printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain
     cp -al "$dist_dir/$loc" "$stage/$loc" 2>/dev/null || cp -r "$dist_dir/$loc" "$stage/$loc"
     if [ -f "$dist_dir/$loc.html" ]; then cp "$dist_dir/$loc.html" "$stage/$loc.html"; fi  # homepage at /{loc}
+    # Shard-root SPA-fallback for hard 404s (#5709): GitHub Pages only honours
+    # a repo-root 404.html, and prune-locale-shard.mjs now preserves it
+    # through the per-locale build's prune step precisely so it survives to
+    # here. Without it, any non-prerendered SPA route under /en|/de|/fr (e.g.
+    # newsletter preferences) hit GitHub Pages' own generic 404 instead of
+    # rebooting the app — the main (it) shard never had this gap because its
+    # 404.html already lives at dist's root, which IS the shard root there.
+    if [ -f "$dist_dir/404.html" ]; then cp "$dist_dir/404.html" "$stage/404.html"; fi
     printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
     n="$(find "$stage/$loc" -type f | wc -l)"
     # BUILT size = the shard as EMITTED by the build, before the "Strip section
