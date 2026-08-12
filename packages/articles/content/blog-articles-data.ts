@@ -29379,6 +29379,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casse-pensioni-rendimento-luglio-2026',
+ category: 'pensione',
+ date: '2026-08-12T10:07:25.052Z',
+ image: '/images/blog/casse-pensioni-rendimento-luglio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'fallimenti-aziende-svizzera-1994',
+ category: 'novita',
+ date: '2026-08-12T10:12:40.403Z',
+ image: '/images/blog/fallimenti-aziende-svizzera-1994.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'rc-auto-svizzera-frontaliere',
+ category: 'pratico',
+ date: '2026-08-12T10:28:45.459Z',
+ image: '/images/blog/rc-auto-svizzera-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

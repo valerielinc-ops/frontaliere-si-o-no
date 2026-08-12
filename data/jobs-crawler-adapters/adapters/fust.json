@@ -10,6 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/9a8b83d2-42a6-4eb2-a7f7-be0f7bc6cb85",
+    "https://jobs.fust.ch/offene-stellen/business-project-manager/1a7f6069-30a6-4390-9c3b-49699e400ff7",
     "https://jobs.fust.ch/postes-vacants/conseillere-ou-conseiller-de-vente-secteur-electromenager-multimedia/87dba4bc-a071-44f0-96fa-9fa56ec055f0",
     "https://jobs.fust.ch/offene-stellen/stellvertretung-leitung-wareneingang/a1a206e9-e793-4438-880e-1acf330c7b9a",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/6f0c26b8-a1e2-49ce-8bf9-9d602e25bc07",
@@ -84,10 +86,21 @@
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-retouren/8b886821-9e57-4651-95d1-fb39475d00a7",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/602bc6d5-b85c-487a-a9fc-97d11f6cefde",
     "https://jobs.fust.ch/postes-vacants/visual-merchandiser/d05e974b-a91b-4150-8bed-c1a5ab2ef8b7",
-    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/8f537667-e488-45e9-b7b9-ecc8745a6c94",
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/4f3ad91e-a3d4-4b53-8d1a-a8f046c7046f"
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/8f537667-e488-45e9-b7b9-ecc8745a6c94"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/9a8b83d2-42a6-4eb2-a7f7-be0f7bc6cb85": {
+      "location": "Zurigo",
+      "canton": "ZH",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/business-project-manager/1a7f6069-30a6-4390-9c3b-49699e400ff7": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/postes-vacants/conseillere-ou-conseiller-de-vente-secteur-electromenager-multimedia/87dba4bc-a071-44f0-96fa-9fa56ec055f0": {
       "location": "Friburgo",
       "canton": "FR",
@@ -537,14 +550,8 @@
       "canton": "BE",
       "company": "Fust",
       "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/4f3ad91e-a3d4-4b53-8d1a-a8f046c7046f": {
-      "location": "San Gallo",
-      "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-11T21:49:04.103Z"
+  "updatedAt": "2026-08-12T10:27:26.003Z"
 }

@@ -2275,6 +2275,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.title': 'Health insurance premiums Canton Bern and premium reductions',
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.excerpt': 'Here are the key facts for compulsory health insurance premiums in the Canton of Bern.',
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.imageAlt': 'Swiss mountains with the Lake Lugano in the background.',
+    'blog.article.tetto-salari-manager-casse-malattia.title': 'Sickness funds: cap on managers\' salaries set by the CF',
+    'blog.article.tetto-salari-manager-casse-malattia.excerpt': 'The Federal Council wants to put a limit on the salaries of sickness fund managers based on the remuneration of federal councillors.',
+    'blog.article.tetto-salari-manager-casse-malattia.imageAlt': 'The Federal Palace in Bern seat of the Federal Council',
+    'blog.article.tassa-utili-immobiliari-comuni.title': 'Real estate profits tax: 40% share to the municipalities of Ticino',
+    'blog.article.tassa-utili-immobiliari-comuni.excerpt': 'A parliamentary initiative presented by Patrick Rusconi calls for allocating 40% of TUI\'s revenue to the municipalities where the property is located.',
+    'blog.article.tassa-utili-immobiliari-comuni.imageAlt': 'View of Bellinzona with institutional buildings and urban view',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.title': '30 km/h zones in cities, Federal Council intervenes',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.excerpt': 'The Federal Council has decided to amend the Traffic Signs Ordinance to introduce speed limits of 30 km/h in cities.',
+    'blog.article.zone-30-kmh-intervento-consiglio-federale.imageAlt': '30 km/h speed limits in Swiss cities',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.title': 'Three Swiss cantonal banks: three times higher profits',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.excerpt': 'The cantonal banks of Bern, St. Gallen and Basel Countryside present half-yearly accounts with growing profits',
+    'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.imageAlt': 'Three Swiss cantonal banks present their semiannual accounts with profits in growth',
 };
 
 export default blogMetaChEn;
