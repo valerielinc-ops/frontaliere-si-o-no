@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-12T10:15:28.055Z",
+  "assembledAt": "2026-08-12T09:21:38.399Z",
   "jobs": [
     {
       "id": "ksw-67d0a4e982b5",
@@ -787,27 +787,39 @@
         "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
         "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "infermieristica-specialista-infermieristica-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur",
+        "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
+        "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw",
+        "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-ksw-ch",
           "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "infermieristica-specialista-infermieristica-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur",
+          "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
+          "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw",
+          "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur"
+          "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur",
+          "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
-          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
+          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
+          "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch"
         ],
         "fr": [
           "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-          "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur"
+          "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur",
+          "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw"
         ]
       },
       "firstSeenAt": "2026-08-07T21:41:46.470Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -819,7 +831,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-5717343f0696",
@@ -1998,7 +2011,8 @@
           "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-b47uuf",
           "pflegefachfrau-pflegefachmann-oder-med-praxisassistentin-praxisassistent-ksw-ch",
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
         ],
         "it": [
           "assistente-di-ambulatorio-medico-assistente-di-ambulatorio-medico-kantonsspital-winterthur-ksw-winterthur",
@@ -2020,18 +2034,24 @@
           "med-assistente-in-coordinatore-in-pratica-kantonsspital-winterthur-ksw-winterthur",
           "medical-practice-assistant-in-the-medical-outpatient-clinic-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-oder-med-praxisassistentin-praxisassistent-ksw-ch",
-          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325"
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-del-policlinico-medico-kantonsspital-winterthur-ksw",
+          "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw",
+          "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital",
+          "assistente-medico-assistente-medico-in-area-poliklinico-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
           "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-59812c",
-          "med-practice-assistant-in-practice-coordinator-in-kantonsspital-winterthur-ksw-winterthur"
+          "med-practice-assistant-in-practice-coordinator-in-kantonsspital-winterthur-ksw-winterthur",
+          "medical-practice-assistant-medical-practice-assistant-in-the-medical-poliklinik-area-kantonsspital-winterthur-ksw"
         ],
         "fr": [
           "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur-08021e",
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
           "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur-59812c",
-          "medicament-assistant-in-coordonnateur-in-kantonsspital-winterthur-ksw-winterthur"
+          "medicament-assistant-in-coordonnateur-in-kantonsspital-winterthur-ksw-winterthur",
+          "assistante-medicale-assistante-medicale-dans-le-domaine-poliklinique-medicale-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
@@ -2055,10 +2075,16 @@
         "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-b47uuf",
         "medical-practice-assistant-in-the-medical-outpatient-clinic-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-oder-med-praxisassistentin-praxisassistent-ksw-ch",
-        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325"
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-del-policlinico-medico-kantonsspital-winterthur-ksw",
+        "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw",
+        "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital",
+        "assistente-medico-assistente-medico-in-area-poliklinico-medico-kantonsspital-winterthur-ksw-winterthur",
+        "medical-practice-assistant-medical-practice-assistant-in-the-medical-poliklinik-area-kantonsspital-winterthur-ksw",
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
+        "assistante-medicale-assistante-medicale-dans-le-domaine-poliklinique-medicale-kantonsspital-winterthur-ksw-winterthur"
       ],
       "firstSeenAt": "2026-07-28T22:07:05.114Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2070,7 +2096,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-58fd221ee193",
@@ -4649,17 +4676,30 @@
       "requirementsByLocale": {},
       "department": "Pflege Chirurgie",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch"
+        "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch",
+        "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur",
+        "professional-health-urology-and-orthopaedics-kantonsspital-winterthur-ksw-winterthur",
+        "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch",
+        "urologie-professionnelle-sante-et-orthopedie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch"
+          "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch",
+          "fachfrau-fachmann-gesundheit-urologie-e-orthopala-kantonsspital-winterthur-ksw-winterthur",
+          "professional-health-urology-and-orthopaedics-kantonsspital-winterthur-ksw-winterthur",
+          "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch",
+          "urologie-professionnelle-sante-et-orthopedie-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch"
+          "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch",
+          "professional-health-urology-and-orthopaedics-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch"
+          "fachfrau-fachmann-gesundheit-viszeral-und-thoraxchirurgie-ksw-ch",
+          "urologie-professionnelle-sante-et-orthopedie-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch"
         ]
       },
       "needsRetranslation": true,
@@ -5903,7 +5943,10 @@
         "segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
         "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-d039fa",
         "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
-        "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
+        "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
+        "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-4ae054",
+        "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-4ae054",
+        "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-4ae054"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5911,22 +5954,26 @@
           "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-d039fa",
           "personale-di-ricezione-segretario-del-medico-segretario-del-medico-kantonsspital-winterthur-ksw-winterthur",
           "segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
-          "segretario-medico-kantonsspital-winterthur-ksw-winterthur"
+          "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
+          "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-4ae054",
+          "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-4ae054",
+          "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-4ae054"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch",
           "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-d039fa",
-          "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
+          "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
+          "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-4ae054"
         ],
         "de": [
           "arztsekretarin-arztsekretar-ksw-ch-b3mqqz"
         ],
         "fr": [
-          "arztsekretarin-arztsekretar-ksw-ch"
+          "arztsekretarin-arztsekretar-ksw-ch",
+          "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-4ae054"
         ]
       },
       "firstSeenAt": "2026-07-02T11:28:45.670Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5938,7 +5985,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-930d3fafa8d4",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-08-12T10:18:48.014Z",
+  "assembledAt": "2026-08-12T09:22:20.325Z",
   "jobs": [
     {
       "id": "company-nhtvfc",
@@ -13472,18 +13472,39 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran",
-          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4"
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4",
+          "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran",
+          "seller-h-f-d-40-matran-lidl-svizzera-matran",
+          "verkaufer-h-w-d-40-matran-lidl-svizzera-matran",
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1yw6nk",
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran",
+          "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran-1k4xg6",
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1k4xg6",
+          "salesperson-m-f-d-40-matran-lidl-svizzera-matran"
         ],
         "en": [
-          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4"
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4",
+          "seller-h-f-d-40-matran-lidl-svizzera-matran"
         ],
         "de": [
-          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4"
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4",
+          "verkaufer-h-w-d-40-matran-lidl-svizzera-matran"
+        ],
+        "fr": [
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1yw6nk"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran",
-        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4"
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-matran-xg8se4",
+        "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran",
+        "seller-h-f-d-40-matran-lidl-svizzera-matran",
+        "verkaufer-h-w-d-40-matran-lidl-svizzera-matran",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1yw6nk",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran",
+        "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran-1k4xg6",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1k4xg6",
+        "salesperson-m-f-d-40-matran-lidl-svizzera-matran"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17256,7 +17277,12 @@
         "seller-m-f-d-20-80-zurich-lidl-svizzera-zurich",
         "vendeur-m-f-j-20-80-zurich-lidl-svizzera-zurich",
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
-        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8"
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
+        "ch-venditore-venditrice-m-f-d-20-80-zurigo-lidl-svizzera-zurich",
+        "venditore-m-f-d-20-80-1-zurigo-lidl-svizzera-zurich-1263ee",
+        "venditore-venditore-m-f-d-20-80-zurigo-lidl-svizzera-zurich-163fce",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-4seppg",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-54lato"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17265,7 +17291,12 @@
           "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-zurich",
           "venditore-m-f-d-20-80-zurigo-lidl-svizzera-zurich",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
+          "ch-venditore-venditrice-m-f-d-20-80-zurigo-lidl-svizzera-zurich",
+          "venditore-m-f-d-20-80-1-zurigo-lidl-svizzera-zurich-1263ee",
+          "venditore-venditore-m-f-d-20-80-zurigo-lidl-svizzera-zurich-163fce",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-4seppg",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-54lato"
         ],
         "en": [
           "seller-m-f-d-20-80-lidl-svizzera-zurich",
@@ -18069,18 +18100,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf",
+          "venditore-m-f-d-20-80-1-regensdorf-lidl-svizzera-regensdorf",
+          "seller-m-f-d-20-80-1-regensdorf-lidl-svizzera-regensdorf",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-regensdorf-r2rmcv",
+          "vendeur-m-f-j-20-80-1-regensdorf-lidl-svizzera-regensdorf",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-regensdorf"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf-3zncj0"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf-3zncj0",
+          "seller-m-f-d-20-80-1-regensdorf-lidl-svizzera-regensdorf"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf-3zncj0"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf-3zncj0",
+          "vendeur-m-f-j-20-80-1-regensdorf-lidl-svizzera-regensdorf"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-regensdorf-r2rmcv"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf-3zncj0"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-regensdorf-3zncj0",
+        "venditore-m-f-d-20-80-1-regensdorf-lidl-svizzera-regensdorf",
+        "seller-m-f-d-20-80-1-regensdorf-lidl-svizzera-regensdorf",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-regensdorf-r2rmcv",
+        "vendeur-m-f-j-20-80-1-regensdorf-lidl-svizzera-regensdorf",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-regensdorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -19543,23 +19589,38 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h"
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-lef4fi",
+          "seller-with-shift-responsibility-m-f-d-60-80-1-1-schlieren-lidl-svizzera-schlieren",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-lef4fi",
+          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-1-schlieren-lidl-svizzera-schlieren",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-2"
         ],
         "en": [
-          "seller-with-shift-responsibility-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren"
+          "seller-with-shift-responsibility-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
+          "seller-with-shift-responsibility-m-f-d-60-80-1-1-schlieren-lidl-svizzera-schlieren"
         ],
         "de": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-lef4fi"
         ],
         "fr": [
-          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren"
+          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
+          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-1-schlieren-lidl-svizzera-schlieren"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h",
         "seller-with-shift-responsibility-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-pt3c1h",
-        "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren"
+        "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-schlieren-lidl-svizzera-schlieren",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-lef4fi",
+        "seller-with-shift-responsibility-m-f-d-60-80-1-1-schlieren-lidl-svizzera-schlieren",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-lef4fi",
+        "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-1-schlieren-lidl-svizzera-schlieren",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-schlieren-2"
       ],
       "needsRetranslation": true,
       "salaryMin": 58800,
@@ -22989,18 +23050,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach",
+          "venditore-m-f-d-20-60-1-lidl-svizzera-spreitenbach",
+          "seller-m-f-d-20-60-1-lidl-svizzera-spreitenbach",
+          "verkaufer-verkauferin-m-w-d-20-60-1-lidl-svizzera-spreitenbach-vzls6v",
+          "vendeur-m-f-j-20-60-1-lidl-svizzera-spreitenbach",
+          "verkaufer-verkauferin-m-w-d-20-60-1-lidl-svizzera-spreitenbach"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach-6y1ijc"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach-6y1ijc",
+          "seller-m-f-d-20-60-1-lidl-svizzera-spreitenbach"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach-6y1ijc"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach-6y1ijc",
+          "vendeur-m-f-j-20-60-1-lidl-svizzera-spreitenbach"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-20-60-1-lidl-svizzera-spreitenbach-vzls6v"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach-6y1ijc"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-spreitenbach-6y1ijc",
+        "venditore-m-f-d-20-60-1-lidl-svizzera-spreitenbach",
+        "seller-m-f-d-20-60-1-lidl-svizzera-spreitenbach",
+        "verkaufer-verkauferin-m-w-d-20-60-1-lidl-svizzera-spreitenbach-vzls6v",
+        "vendeur-m-f-j-20-60-1-lidl-svizzera-spreitenbach",
+        "verkaufer-verkauferin-m-w-d-20-60-1-lidl-svizzera-spreitenbach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -23071,11 +23147,15 @@
         "en": [
           "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
           "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+        ],
+        "it": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren"
         ]
       },
       "previousSlugs": [
         "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren",
-        "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren"
+        "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-schlieren"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -23148,12 +23228,37 @@
           "verkaufer-verkauferin-m-w-d-20-80-1-schlieren-lidl-svizzera-schlieren"
         ],
         "it": [
-          "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-d1aff0"
+          "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-d1aff0",
+          "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren",
+          "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+          "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+          "venditore-venditrice-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+          "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+          "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+          "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+          "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52"
         ]
       },
       "previousSlugs": [
         "assistente-alle-vendite-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-d1aff0",
-        "verkaufer-verkauferin-m-w-d-20-80-1-schlieren-lidl-svizzera-schlieren"
+        "verkaufer-verkauferin-m-w-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+        "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+        "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren",
+        "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren-5j5m52",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-schlieren",
+        "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+        "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+        "venditore-venditrice-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren",
+        "seller-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+        "vendeur-m-f-j-20-80-1-schlieren-lidl-svizzera-schlieren-41781d",
+        "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-3ad6eb",
+        "venditore-m-f-d-20-80-1-schlieren-lidl-svizzera-schlieren-41781d"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -24555,19 +24660,34 @@
         "it": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag-yhm50p",
-          "venditore-m-f-d-20-80-raggiungere-ag-lidl-svizzera-reinach-ag-2"
+          "venditore-m-f-d-20-80-raggiungere-ag-lidl-svizzera-reinach-ag-2",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag-0hupfj",
+          "seller-with-shift-responsibility-m-f-d-60-80-reinach-ag-lidl-svizzera-reinach-ag",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag-0hupfj",
+          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-reinach-ag-lidl-svizzera-reinach-ag",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag"
         ],
         "en": [
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag-yhm50p"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag-yhm50p",
+          "seller-with-shift-responsibility-m-f-d-60-80-reinach-ag-lidl-svizzera-reinach-ag"
         ],
         "fr": [
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag-yhm50p"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag-yhm50p",
+          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-reinach-ag-lidl-svizzera-reinach-ag"
+        ],
+        "de": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag-0hupfj"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag",
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-reinach-ag-yhm50p",
-        "venditore-m-f-d-20-80-raggiungere-ag-lidl-svizzera-reinach-ag-2"
+        "venditore-m-f-d-20-80-raggiungere-ag-lidl-svizzera-reinach-ag-2",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag-0hupfj",
+        "seller-with-shift-responsibility-m-f-d-60-80-reinach-ag-lidl-svizzera-reinach-ag",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag-0hupfj",
+        "vendeur-a-responsabilite-de-quart-m-f-d-60-80-reinach-ag-lidl-svizzera-reinach-ag",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-reinach-ag"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
