@@ -6787,6 +6787,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'portale-informazione-svizzera-italiana',
+    category: 'novita',
+    date: '2026-08-12T05:52:47.671Z',
+    image: '/images/blog/portale-informazione-svizzera-italiana.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2263,6 +2263,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Wie benutzt man das Schweizer Kreuz auf ausländischen Produkten?',
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'Die Schweiz hat Regeln für die Verwendung des Schweizerkreuzes auf ausländischen Produkten.',
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Eine Schachtel Schweizer Schokolade mit dem Schweizer Kreuz',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Online News und Updates in der italienischen Schweiz',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Tägliche Updates zu Nachrichten, Politik, Wirtschaft, Sport, Kultur und Rubriken, die sich auf die Online-Landschaft der italienischsprachigen Schweiz spezialisiert haben.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Nachrichtenportal der italienischsprachigen Schweiz',
 };
 
 export default blogMetaChDe;

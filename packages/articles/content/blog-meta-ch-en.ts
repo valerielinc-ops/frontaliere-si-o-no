@@ -2263,6 +2263,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'How to use the Swiss cross on foreign products?',
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'Switzerland has rules for using the Swiss cross on foreign products.',
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'A box of Swiss chocolates with the Swiss cross',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Online news and updates in Italian Switzerland',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Daily updates on news, politics, economy, sport, culture and specialised sections in the online panorama of Italian Switzerland.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Information and news portal of Italian-speaking Switzerland',
 };
 
 export default blogMetaChEn;
