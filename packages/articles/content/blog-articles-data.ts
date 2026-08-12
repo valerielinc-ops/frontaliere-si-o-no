@@ -29469,6 +29469,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavoro-remoto-frontaliere-terzo-paese',
+ category: 'fiscale',
+ date: '2026-08-12T13:23:09.701Z',
+ image: '/images/blog/lavoro-remoto-frontaliere-terzo-paese.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

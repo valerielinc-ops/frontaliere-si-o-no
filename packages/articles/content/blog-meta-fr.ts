@@ -9829,6 +9829,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.title': 'Accident de trajet à la frontière : couverture LAA et procédure de plainte',
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.excerpt': 'Les frontaliers qui subissent un accident en voyageant à la frontière entre la Suisse et l\'Italie doivent déposer une plainte dans les 24 heures et obtenir un certificat de maladie.',
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.imageAlt': 'Un travailleur frontalier en vélo le long de la route de frontière entre la Suisse et l\'Italie, avec une blessure au thorax',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontières et à distance : les implications fiscales',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'La nouvelle réglementation sur le travail à distance des frontaliers a modifié les règles fiscales et d\'assurance pour les frontaliers travaillant à distance depuis un pays tiers lors de vacances en Suisse',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'un frontalière qui travaille à distance d\'un pays tiers pendant un voyage de vacances en Suisse',
 };
 
 export default blogMetaFr;

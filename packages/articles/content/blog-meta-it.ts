@@ -9828,6 +9828,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.title': 'Infortunio in itinere al confine: copertura LAINF e procedura di denuncia',
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.excerpt': 'I frontalieri che subiscono un infortunio in itinere al confine tra Svizzera e Italia devono presentare denuncia entro 24 ore e ottenere un certificato di malattia.',
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.imageAlt': 'Un frontaliere in bicicletta lungo la strada di confine tra Svizzera e Italia, con un infortunio al petto',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontalieri e remoto: le implicazioni fiscali',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'La nuova normativa sul lavoro da remoto dei frontalieri ha cambiato le regole fiscali e assicurative per i frontalieri che lavorano da remoto da un terzo paese durante una vacanza in Svizzera',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'un frontaliere che lavora da remoto da un terzo paese durante una vacanza in Svizzera',
 };
 
 export default blogMetaIt;

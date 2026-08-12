@@ -9826,6 +9826,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.title': 'Verkehrsunfall an der Grenze: UVG-Deckung und Meldeverfahren',
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.excerpt': 'Grenzgänger, die auf dem Weg an die schweizerisch-italienische Grenze verunfallt sind, müssen innerhalb von 24 Stunden Anzeige erstatten und ein Krankheitszeugnis erhalten.',
     'blog.article.infortunio-in-itinere-confine-assicurazione-frontaliere.imageAlt': 'Ein Grenzgänger in Fahrrad entlang der Grenzstraße zwischen Schweiz und Italien, mit einer Verletzung am Brustkorb',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.title': 'Frontier und Remote: die steuerlichen Auswirkungen',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.excerpt': 'Die neuen Vorschriften über die Fernarbeit von Grenzgängern haben die Steuer- und Versicherungsvorschriften für Grenzgänger geändert, die während eines Urlaubs in der Schweiz von einem Drittland aus arbeiten',
+    'blog.article.lavoro-remoto-frontaliere-terzo-paese.imageAlt': 'ein Frontaliere, der von einem Drittland während einer Urlaubsreise in der Schweiz fernarbeitet',
 };
 
 export default blogMetaDe;
