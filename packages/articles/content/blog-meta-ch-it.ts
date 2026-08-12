@@ -2359,6 +2359,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.title': 'Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.excerpt': 'I ricercatori della stazione di misurazione più alta d\'Europa hanno rilevato le tracce dei refrigeranti che si degradano in PFAS e vanno a inquinare l\'ambiente.',
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Immagine editoriale relativa a: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
+    'blog.article.trenino-rossoschanf-livigno.title': 'Da S-chanf a Livigno in treno, Coira dice sì',
+    'blog.article.trenino-rossoschanf-livigno.excerpt': 'Il Canton Grigioni vuole lavorare assieme ai partner della Lombardia per realizzare un collegamento ferroviario tra Engadina e Alta Valtellina.',
+    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Una galleria ferroviaria in Svizzera con una vista panoramica del lago di Lugano, con un treno in arrivo o in partenza. Max 125 char.',
 };
 
 export default blogMetaChIt;

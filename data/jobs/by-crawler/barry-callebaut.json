@@ -1,6 +1,6 @@
 {
   "crawlerKey": "barry-callebaut",
-  "assembledAt": "2026-08-12T08:24:17.236Z",
+  "assembledAt": "2026-08-12T22:23:53.294Z",
   "jobs": [
     {
       "id": "barry-callebaut-9d49e2b2a306",
@@ -33,7 +33,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Executive-Assistant-CPCO-8005/1405562000/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.439Z",
+      "crawledAt": "2026-08-12T22:23:50.940Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -58,8 +58,8 @@
           "assistente-esecutivo-cpco-barry-callebaut-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-03T21:24:25.530Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:24:25.530Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -69,6 +69,79 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "barry-callebaut-506449d097ad",
+      "slug": "manager-fp-a-fornitura-di-cacao-barry-callebaut-zurich",
+      "slugByLocale": {
+        "it": "manager-fp-a-fornitura-di-cacao-barry-callebaut-zurich",
+        "en": "manager-fp-a-cocoa-sourcing-barry-callebaut-ch",
+        "de": "manager-fp-a-kakaobeschaffung-barry-callebaut-zurich",
+        "fr": "gestionnaire-fp-a-coca-sourcing-barry-callebaut-zurich"
+      },
+      "company": "Barry Callebaut",
+      "companyKey": "barry-callebaut",
+      "companyDomain": "barry-callebaut.com",
+      "title": "Manager FP&A Cocoa Sourcing",
+      "titleByLocale": {
+        "it": "Manager FP&A Fornitura di Cacao",
+        "en": "Manager FP&A Cocoa Sourcing",
+        "de": "Manager FP&A Kakaobeschaffung",
+        "fr": "Gestionnaire FP&A Coca Sourcing"
+      },
+      "description": "About the Role\n\nThe Manager FP&A Cocoa Sourcing is a key member of the Global Cocoa Finance organization and is responsible for financial analysis, performance reporting, forecasting and valuation activities supporting Barry Callebaut (BC) Sourcing.\n\nThe role works closely with trading, logistics, risk management, accounting and finance teams to provide transparency on financial performance and support informed decision-making. Through exposure to commodity markets, derivatives, supply chain finance and international trade, the position offers a unique opportunity to develop deep finance expertise within one of the world’s leading cocoa sourcing organizations.\n\nWith increasing experience, the role is expected to take on broader responsibility for complex analyses, key finance processes, and the identification and implementation of continuous improvement opportunities.\n\nKey Responsibilities Include\n\n• Owns the monthly financial closing and reporting activities for BC Sourcing\n\n• Responsible for daily commodity valuation activities and weekly mark-to-market reporting\n\n• Supports financial analysis related to trading performance and commodity market developments\n\n• Supports forecasting and budgeting activities by providing reliable financial insights and recommendations\n\n• Analyzes supply chain costs and operational performance drivers across the sourcing organization\n\n• Translates complex financial information into clear and actionable insights for stakeholders for business partners and trading team\n\n• Contributes to the broader Global Trading & Sourcing (GT&S) financial planning and performance management processes\n\n• Continuously improves valuation methodologies, reporting quality and analytical tools\n\nAbout You\n\n• University degree in Finance, Accounting, Economics or related discipline, or equivalent professional experience\n\n• 5–8 years of experience in FP&A, controlling, audit, transaction advisory, corporate finance or other analytical finance functions\n\n• In depth understanding of derivatives finance and financial markets. Interest in commodity markets\n\n• Strong analytical and problem-solving capabilities\n\n• Advanced Excel and PowerPoint skills\n\n• Experience with SAP or similar ERP systems\n\n• Experience with Power BI, SQL, data analytics or programming would be an advantage\n\n• Fluent English is required; additional languages are considered a plus",
+      "descriptionByLocale": {
+        "it": "Informazioni sul ruolo\n\nIl Manager FP&A Cocoa Sourcing è un membro chiave dell'organizzazione Global Cocoa Finance ed è responsabile delle attività di analisi finanziaria, reportistica delle prestazioni, previsione e valutazione che supportano Barry Callebaut (BC) Sourcing.\n\nIl ruolo lavora a stretto contatto con i team di trading, logistica, gestione dei rischi, contabilità e finanza per fornire trasparenza sulle prestazioni finanziarie e sostenere il processo decisionale informato. Attraverso l’esposizione ai mercati delle materie prime, ai derivati, alla finanza della supply chain e al commercio internazionale, la posizione offre un’opportunità unica per sviluppare competenze di finanza profonda all’interno di una delle principali organizzazioni di approvvigionamento del cacao.\n\nCon una maggiore esperienza, il ruolo dovrebbe assumere una più ampia responsabilità per analisi complesse, processi finanziari chiave, e l'identificazione e l'attuazione di continue opportunità di miglioramento.\n\nResponsabilità chiave\n\n• Possiede la chiusura finanziaria mensile e le attività di reporting per BC Sourcing\n\n• Responsabile delle attività quotidiane di valutazione delle materie prime e della segnalazione settimanale del marchio sul mercato\n\n• Supporta l'analisi finanziaria relativa alle prestazioni di trading e agli sviluppi del mercato delle materie prime\n\n• Supporta le attività di previsione e di bilancio fornendo informazioni finanziarie affidabili e raccomandazioni\n\n• Analizza i costi della supply chain e i driver delle prestazioni operative nell'organizzazione di approvvigionamento\n\n• Traduci informazioni finanziarie complesse intuizioni chiare e attuabili per gli stakeholder per i partner commerciali e il team di trading\n\n• Contribuisce al più ampio Global Trading & Sourcing (GT&S) pianificazione finanziaria e processi di gestione delle prestazioni\n\n• Migliora costantemente le metodologie di valutazione, segnalando qualità e strumenti analitici\n\nA proposito di te\n\n• Laurea in finanza, contabilità, economia o disciplina correlata, o esperienza professionale equivalente\n\n• 5-8 anni di esperienza in FP&A, controllo, audit, consulente delle transazioni, finanza aziendale o altre funzioni di finanza analitica\n\n• In profonda comprensione dei derivati finanziari e dei mercati finanziari. Interessi nei mercati delle materie prime\n\n• Forte capacità analitiche e di problem solving\n\n• Avanzate competenze Excel e PowerPoint\n\n• Esperienza con sistemi SAP o simili ERP\n\n• Esperienza con Power BI, SQL, data analytics o programmazione sarebbe un vantaggio\n\n• L'inglese fluente è richiesto; le lingue aggiuntive sono considerate un plus",
+        "en": "About the Role\n\nThe Manager FP&A Cocoa Sourcing is a key member of the Global Cocoa Finance organization and is responsible for financial analysis, performance reporting, forecasting and valuation activities supporting Barry Callebaut (BC) Sourcing.\n\nThe role works closely with trading, logistics, risk management, accounting and finance teams to provide transparency on financial performance and support informed decision-making. Through exposure to commodity markets, derivatives, supply chain finance and international trade, the position offers a unique opportunity to develop deep finance expertise within one of the world’s leading cocoa sourcing organizations.\n\nWith increasing experience, the role is expected to take on broader responsibility for complex analyses, key finance processes, and the identification and implementation of continuous improvement opportunities.\n\nKey Responsibilities Include\n\n• Owns the monthly financial closing and reporting activities for BC Sourcing\n\n• Responsible for daily commodity valuation activities and weekly mark-to-market reporting\n\n• Supports financial analysis related to trading performance and commodity market developments\n\n• Supports forecasting and budgeting activities by providing reliable financial insights and recommendations\n\n• Analyzes supply chain costs and operational performance drivers across the sourcing organization\n\n• Translates complex financial information into clear and actionable insights for stakeholders for business partners and trading team\n\n• Contributes to the broader Global Trading & Sourcing (GT&S) financial planning and performance management processes\n\n• Continuously improves valuation methodologies, reporting quality and analytical tools\n\nAbout You\n\n• University degree in Finance, Accounting, Economics or related discipline, or equivalent professional experience\n\n• 5–8 years of experience in FP&A, controlling, audit, transaction advisory, corporate finance or other analytical finance functions\n\n• In depth understanding of derivatives finance and financial markets. Interest in commodity markets\n\n• Strong analytical and problem-solving capabilities\n\n• Advanced Excel and PowerPoint skills\n\n• Experience with SAP or similar ERP systems\n\n• Experience with Power BI, SQL, data analytics or programming would be an advantage\n\n• Fluent English is required; additional languages are considered a plus",
+        "de": "Über die Rolle\n\nDer Manager FP&A Cocoa Sourcing ist ein wichtiges Mitglied der Global Cocoa Finance Organisation und verantwortlich für Finanzanalyse, Performance Reporting, Prognose und Bewertungsaktivitäten, die Barry Callebaut (BC) Sourcing unterstützen.\n\nDie Rolle arbeitet eng mit Handels-, Logistik-, Risikomanagement-, Buchhaltungs- und Finanzteams zusammen, um Transparenz über die finanzielle Leistung zu bieten und eine fundierte Entscheidungsfindung zu unterstützen. Durch das Engagement in Rohstoffmärkten, Derivaten, Supply Chain Finance und internationalem Handel bietet die Position eine einzigartige Gelegenheit, umfassende Finanzexpertise in einer der weltweit führenden Kakao-Sourcing-Organisationen zu entwickeln.\n\nMit zunehmender Erfahrung wird erwartet, dass die Rolle eine breitere Verantwortung für komplexe Analysen, wichtige Finanzierungsprozesse und die Identifizierung und Umsetzung kontinuierlicher Verbesserungsmöglichkeiten übernimmt.\n\nZu den wichtigsten Aufgaben gehören\n\n• Eigentümer der monatlichen Finanzabschluss- und Berichtsaktivitäten für BC Sourcing\n\n• Verantwortlich für die täglichen Rohstoffbewertungsaktivitäten und die wöchentliche Mark-to-Market-Berichterstattung\n\n• Unterstützt Finanzanalysen im Zusammenhang mit Handelsperformance und Rohstoffmarktentwicklungen\n\n• Unterstützt Prognose- und Budgetierungsaktivitäten durch zuverlässige finanzielle Erkenntnisse und Empfehlungen\n\n• Analysiert Lieferkettenkosten und operative Leistungstreiber in der gesamten Sourcing-Organisation\n\n• Übersetzt komplexe Finanzinformationen in klare und umsetzbare Erkenntnisse für Stakeholder für Geschäftspartner und Handelsteam\n\n• Trägt zu den breiteren Global Trading & Sourcing (GT & S) Finanzplanung und Performance-Management-Prozesse\n\n• Kontinuierliche Verbesserung der Bewertungsmethoden, der Berichtsqualität und der Analysewerkzeuge\n\nÜber dich\n\n• Universitätsabschluss in Finanzen, Rechnungswesen, Wirtschaft oder verwandten Disziplinen oder gleichwertige Berufserfahrung\n\n• 5–8 Jahre Erfahrung in FP&A, Controlling, Audit, Transaktionsberatung, Corporate Finance oder anderen analytischen Finanzfunktionen\n\n• Vertieftes Verständnis von Derivaten und Finanzmärkten. Interesse an Rohstoffmärkten\n\n• Starke analytische und Problemlösungsfähigkeiten\n\n• Erweiterte Excel und PowerPoint Fähigkeiten\n\n• Erfahrung mit SAP oder ähnlichen ERP Systemen\n\n• Erfahrung mit Power BI, SQL, Data Analytics oder Programmierung wäre von Vorteil\n\n• Fließendes Englisch ist erforderlich; zusätzliche Sprachen gelten als Plus",
+        "fr": "À propos du rôle\n\nLe gestionnaire FP&A Cocoa Sourcing est un membre clé de l'organisation Global Cocoa Finance et est responsable de l'analyse financière, des rapports sur le rendement, des prévisions et des activités d'évaluation appuyant Barry Callebaut (BC) Sourcing.\n\nCe rôle travaille en étroite collaboration avec les équipes du commerce, de la logistique, de la gestion des risques, de la comptabilité et des finances pour assurer la transparence des résultats financiers et appuyer la prise de décisions éclairées. Grâce à l'exposition aux marchés des produits de base, aux produits dérivés, au financement de la chaîne d'approvisionnement et au commerce international, la position offre une occasion unique de développer une expertise financière profonde au sein de l'une des principales organisations d'approvisionnement en cacao du monde.\n\nCompte tenu de l'expérience acquise, on s'attend à ce que ce rôle assume une plus grande responsabilité en ce qui concerne les analyses complexes, les principaux processus financiers et l'identification et la mise en oeuvre de possibilités d'amélioration continue.\n\nResponsabilités clés\n\n• Posséder les activités mensuelles de clôture financière et de rapport pour BC Sourcing\n\n• Responsable des activités quotidiennes d ' évaluation des produits de base et de l ' établissement de rapports hebdomadaires\n\n• Appuie l'analyse financière liée à la performance commerciale et à l'évolution des marchés des produits de base\n\n• Appuie les activités de prévision et de budgétisation en fournissant des informations et des recommandations financières fiables\n\n• Analyse des coûts de la chaîne d'approvisionnement et des facteurs de performance opérationnelle dans l'ensemble de l'organisation d'approvisionnement\n\n• Traduit des informations financières complexes en informations claires et exploitables pour les parties prenantes pour les partenaires commerciaux et l'équipe de négociation\n\n• Contribue aux processus plus généraux de planification financière et de gestion du rendement de la Société mondiale de négociation et d'approvisionnement (GT&S)\n\n• Amélioration continue des méthodes d ' évaluation, de la qualité des rapports et des outils d ' analyse\n\nÀ propos de toi\n\n• Diplôme universitaire en finance, comptabilité, économie ou discipline connexe, ou expérience professionnelle équivalente\n\n• 5 à 8 ans d'expérience dans les fonctions de contrôle, d'audit, de conseil en opérations, de financement d'entreprise ou d'autres fonctions de financement analytique\n\n• Compréhension approfondie du financement des produits dérivés et des marchés financiers. Intérêts sur les marchés des produits de base\n\n• Fortes capacités d'analyse et de résolution de problèmes\n\n• Compétences avancées Excel et PowerPoint\n\n• Expérience avec SAP ou des systèmes ERP similaires\n\n• L'expérience avec Power BI, SQL, l'analyse de données ou la programmation serait un avantage\n\n• L'anglais est nécessaire; d'autres langues sont considérées comme un plus"
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
+      "source": "Barry Callebaut Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-12T22:23:50.939Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "manager-fp-a-cocoa-sourcing-barry-callebaut-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-fp-a-cocoa-sourcing-barry-callebaut-ch"
+        ],
+        "de": [
+          "manager-fp-a-cocoa-sourcing-barry-callebaut-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:30:18.202Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -105,7 +178,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Area-Sales-Manager-8005/1410029700/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:38:30.438Z",
+      "crawledAt": "2026-08-12T22:23:50.939Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,64 +228,67 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "barry-callebaut-506449d097ad",
-      "slug": "manager-fp-a-fornitura-di-cacao-barry-callebaut-zurich",
+      "id": "barry-callebaut-14d29300df73",
+      "slug": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
       "slugByLocale": {
-        "it": "manager-fp-a-fornitura-di-cacao-barry-callebaut-zurich",
-        "en": "manager-fp-a-cocoa-sourcing-barry-callebaut-ch",
-        "de": "manager-fp-a-kakaobeschaffung-barry-callebaut-zurich",
-        "fr": "gestionnaire-fp-a-coca-sourcing-barry-callebaut-zurich"
+        "it": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
+        "en": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch",
+        "de": "fsqr-kundenwert-systeme-compliance-manager-barry-callebaut-zurich",
+        "fr": "responsable-des-systemes-de-valeur-client-et-de-la-conformite-fsqr-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
       "companyDomain": "barry-callebaut.com",
-      "title": "Manager FP&A Cocoa Sourcing",
+      "title": "FSQR Customer Value Systems & Compliance Manager",
       "titleByLocale": {
-        "it": "Manager FP&A Fornitura di Cacao",
-        "en": "Manager FP&A Cocoa Sourcing",
-        "de": "Manager FP&A Kakaobeschaffung",
-        "fr": "Gestionnaire FP&A Coca Sourcing"
+        "it": "Responsabile del valore e della conformità dei clienti FSQR",
+        "en": "FSQR Customer Value Systems & Compliance Manager",
+        "de": "FSQR Kundenwert-Systeme & Compliance Manager",
+        "fr": "Responsable des systèmes de valeur client et de la conformité FSQR"
       },
-      "description": "About the Role\n\nThe Manager FP&A Cocoa Sourcing is a key member of the Global Cocoa Finance organization and is responsible for financial analysis, performance reporting, forecasting and valuation activities supporting Barry Callebaut (BC) Sourcing.\n\nThe role works closely with trading, logistics, risk management, accounting and finance teams to provide transparency on financial performance and support informed decision-making. Through exposure to commodity markets, derivatives, supply chain finance and international trade, the position offers a unique opportunity to develop deep finance expertise within one of the world’s leading cocoa sourcing organizations.\n\nWith increasing experience, the role is expected to take on broader responsibility for complex analyses, key finance processes, and the identification and implementation of continuous improvement opportunities.\n\nKey Responsibilities Include\n\n• Owns the monthly financial closing and reporting activities for BC Sourcing\n\n• Responsible for daily commodity valuation activities and weekly mark-to-market reporting\n\n• Supports financial analysis related to trading performance and commodity market developments\n\n• Supports forecasting and budgeting activities by providing reliable financial insights and recommendations\n\n• Analyzes supply chain costs and operational performance drivers across the sourcing organization\n\n• Translates complex financial information into clear and actionable insights for stakeholders for business partners and trading team\n\n• Contributes to the broader Global Trading & Sourcing (GT&S) financial planning and performance management processes\n\n• Continuously improves valuation methodologies, reporting quality and analytical tools\n\nAbout You\n\n• University degree in Finance, Accounting, Economics or related discipline, or equivalent professional experience\n\n• 5–8 years of experience in FP&A, controlling, audit, transaction advisory, corporate finance or other analytical finance functions\n\n• In depth understanding of derivatives finance and financial markets. Interest in commodity markets\n\n• Strong analytical and problem-solving capabilities\n\n• Advanced Excel and PowerPoint skills\n\n• Experience with SAP or similar ERP systems\n\n• Experience with Power BI, SQL, data analytics or programming would be an advantage\n\n• Fluent English is required; additional languages are considered a plus",
+      "description": "About the Role\n\nThe Global Customer Quality Systems & Compliance Manager is responsible for leading customer-focused quality systems and compliance programs globally, ensuring alignment with internal quality standards, regulatory requirements, and customer expectations. Acting as a key link between customers and the global quality organization, this role drives compliance, performance, and continuous improvement while strengthening customer trust and business continuity.\n\nKey Responsibilities Include\n\n• Own and maintain customer-facing quality systems and ensure alignment with the global QMS framework.\n\n• Harmonize customer quality requirements across regions, products, and categories.\n\n• Lead customer compliance programs, including audits, assessments, certifications, approvals, and corrective action management.\n\n• Monitor customer-specific requirements and ensure timely resolution of compliance gaps.\n\n• Define, track, and report customer quality KPIs, identifying trends, risks, and improvement opportunities.\n\n• Drive continuous improvement initiatives to reduce complaints, improve audit performance, and strengthen compliance.\n\n• Act as a key quality contact for customers and support the resolution of complaints, incidents, and escalations.\n\n• Collaborate with cross-functional teams across Operations, R&D, Regulatory, Supply Chain, and Quality to ensure effective issue resolution.\n\n• Establish governance and risk management processes for customer quality compliance across all regions.\n\n• Support crisis management activities and contribute to global customer quality strategies and initiatives.\n\n• Serve as a back-up to the Senior Director, Global Customer Quality as required.\n\nAbout You\n\n• Bachelor’s or Master’s degree in Food Science, Food Technology, Quality Management, or a related discipline.\n\n• Minimum 3 years’ experience in quality, food safety, compliance, or a related field within a global organization.\n\n• Strong knowledge of food safety and quality standards, QMS, audit management, risk management, and incident handling.\n\n• Experience working with multinational customers and managing complex stakeholder relationships.\n\n• Strong analytical mindset with the ability to use data and insights to drive performance improvements.\n\n• Proven ability to influence and lead cross-functional teams without direct authority.\n\n• Excellent problem-solving, communication, and stakeholder management skills.\n\n• Fluent in English; an additional European language is an advantage.\n\n• Occasional travel required.",
       "descriptionByLocale": {
-        "it": "Informazioni sul ruolo\n\nIl Manager FP&A Cocoa Sourcing è un membro chiave dell'organizzazione Global Cocoa Finance ed è responsabile delle attività di analisi finanziaria, reportistica delle prestazioni, previsione e valutazione che supportano Barry Callebaut (BC) Sourcing.\n\nIl ruolo lavora a stretto contatto con i team di trading, logistica, gestione dei rischi, contabilità e finanza per fornire trasparenza sulle prestazioni finanziarie e sostenere il processo decisionale informato. Attraverso l’esposizione ai mercati delle materie prime, ai derivati, alla finanza della supply chain e al commercio internazionale, la posizione offre un’opportunità unica per sviluppare competenze di finanza profonda all’interno di una delle principali organizzazioni di approvvigionamento del cacao.\n\nCon una maggiore esperienza, il ruolo dovrebbe assumere una più ampia responsabilità per analisi complesse, processi finanziari chiave, e l'identificazione e l'attuazione di continue opportunità di miglioramento.\n\nResponsabilità chiave\n\n• Possiede la chiusura finanziaria mensile e le attività di reporting per BC Sourcing\n\n• Responsabile delle attività quotidiane di valutazione delle materie prime e della segnalazione settimanale del marchio sul mercato\n\n• Supporta l'analisi finanziaria relativa alle prestazioni di trading e agli sviluppi del mercato delle materie prime\n\n• Supporta le attività di previsione e di bilancio fornendo informazioni finanziarie affidabili e raccomandazioni\n\n• Analizza i costi della supply chain e i driver delle prestazioni operative nell'organizzazione di approvvigionamento\n\n• Traduci informazioni finanziarie complesse intuizioni chiare e attuabili per gli stakeholder per i partner commerciali e il team di trading\n\n• Contribuisce al più ampio Global Trading & Sourcing (GT&S) pianificazione finanziaria e processi di gestione delle prestazioni\n\n• Migliora costantemente le metodologie di valutazione, segnalando qualità e strumenti analitici\n\nA proposito di te\n\n• Laurea in finanza, contabilità, economia o disciplina correlata, o esperienza professionale equivalente\n\n• 5-8 anni di esperienza in FP&A, controllo, audit, consulente delle transazioni, finanza aziendale o altre funzioni di finanza analitica\n\n• In profonda comprensione dei derivati finanziari e dei mercati finanziari. Interessi nei mercati delle materie prime\n\n• Forte capacità analitiche e di problem solving\n\n• Avanzate competenze Excel e PowerPoint\n\n• Esperienza con sistemi SAP o simili ERP\n\n• Esperienza con Power BI, SQL, data analytics o programmazione sarebbe un vantaggio\n\n• L'inglese fluente è richiesto; le lingue aggiuntive sono considerate un plus",
-        "en": "About the Role\n\nThe Manager FP&A Cocoa Sourcing is a key member of the Global Cocoa Finance organization and is responsible for financial analysis, performance reporting, forecasting and valuation activities supporting Barry Callebaut (BC) Sourcing.\n\nThe role works closely with trading, logistics, risk management, accounting and finance teams to provide transparency on financial performance and support informed decision-making. Through exposure to commodity markets, derivatives, supply chain finance and international trade, the position offers a unique opportunity to develop deep finance expertise within one of the world’s leading cocoa sourcing organizations.\n\nWith increasing experience, the role is expected to take on broader responsibility for complex analyses, key finance processes, and the identification and implementation of continuous improvement opportunities.\n\nKey Responsibilities Include\n\n• Owns the monthly financial closing and reporting activities for BC Sourcing\n\n• Responsible for daily commodity valuation activities and weekly mark-to-market reporting\n\n• Supports financial analysis related to trading performance and commodity market developments\n\n• Supports forecasting and budgeting activities by providing reliable financial insights and recommendations\n\n• Analyzes supply chain costs and operational performance drivers across the sourcing organization\n\n• Translates complex financial information into clear and actionable insights for stakeholders for business partners and trading team\n\n• Contributes to the broader Global Trading & Sourcing (GT&S) financial planning and performance management processes\n\n• Continuously improves valuation methodologies, reporting quality and analytical tools\n\nAbout You\n\n• University degree in Finance, Accounting, Economics or related discipline, or equivalent professional experience\n\n• 5–8 years of experience in FP&A, controlling, audit, transaction advisory, corporate finance or other analytical finance functions\n\n• In depth understanding of derivatives finance and financial markets. Interest in commodity markets\n\n• Strong analytical and problem-solving capabilities\n\n• Advanced Excel and PowerPoint skills\n\n• Experience with SAP or similar ERP systems\n\n• Experience with Power BI, SQL, data analytics or programming would be an advantage\n\n• Fluent English is required; additional languages are considered a plus",
-        "de": "Über die Rolle\n\nDer Manager FP&A Cocoa Sourcing ist ein wichtiges Mitglied der Global Cocoa Finance Organisation und verantwortlich für Finanzanalyse, Performance Reporting, Prognose und Bewertungsaktivitäten, die Barry Callebaut (BC) Sourcing unterstützen.\n\nDie Rolle arbeitet eng mit Handels-, Logistik-, Risikomanagement-, Buchhaltungs- und Finanzteams zusammen, um Transparenz über die finanzielle Leistung zu bieten und eine fundierte Entscheidungsfindung zu unterstützen. Durch das Engagement in Rohstoffmärkten, Derivaten, Supply Chain Finance und internationalem Handel bietet die Position eine einzigartige Gelegenheit, umfassende Finanzexpertise in einer der weltweit führenden Kakao-Sourcing-Organisationen zu entwickeln.\n\nMit zunehmender Erfahrung wird erwartet, dass die Rolle eine breitere Verantwortung für komplexe Analysen, wichtige Finanzierungsprozesse und die Identifizierung und Umsetzung kontinuierlicher Verbesserungsmöglichkeiten übernimmt.\n\nZu den wichtigsten Aufgaben gehören\n\n• Eigentümer der monatlichen Finanzabschluss- und Berichtsaktivitäten für BC Sourcing\n\n• Verantwortlich für die täglichen Rohstoffbewertungsaktivitäten und die wöchentliche Mark-to-Market-Berichterstattung\n\n• Unterstützt Finanzanalysen im Zusammenhang mit Handelsperformance und Rohstoffmarktentwicklungen\n\n• Unterstützt Prognose- und Budgetierungsaktivitäten durch zuverlässige finanzielle Erkenntnisse und Empfehlungen\n\n• Analysiert Lieferkettenkosten und operative Leistungstreiber in der gesamten Sourcing-Organisation\n\n• Übersetzt komplexe Finanzinformationen in klare und umsetzbare Erkenntnisse für Stakeholder für Geschäftspartner und Handelsteam\n\n• Trägt zu den breiteren Global Trading & Sourcing (GT & S) Finanzplanung und Performance-Management-Prozesse\n\n• Kontinuierliche Verbesserung der Bewertungsmethoden, der Berichtsqualität und der Analysewerkzeuge\n\nÜber dich\n\n• Universitätsabschluss in Finanzen, Rechnungswesen, Wirtschaft oder verwandten Disziplinen oder gleichwertige Berufserfahrung\n\n• 5–8 Jahre Erfahrung in FP&A, Controlling, Audit, Transaktionsberatung, Corporate Finance oder anderen analytischen Finanzfunktionen\n\n• Vertieftes Verständnis von Derivaten und Finanzmärkten. Interesse an Rohstoffmärkten\n\n• Starke analytische und Problemlösungsfähigkeiten\n\n• Erweiterte Excel und PowerPoint Fähigkeiten\n\n• Erfahrung mit SAP oder ähnlichen ERP Systemen\n\n• Erfahrung mit Power BI, SQL, Data Analytics oder Programmierung wäre von Vorteil\n\n• Fließendes Englisch ist erforderlich; zusätzliche Sprachen gelten als Plus",
-        "fr": "À propos du rôle\n\nLe gestionnaire FP&A Cocoa Sourcing est un membre clé de l'organisation Global Cocoa Finance et est responsable de l'analyse financière, des rapports sur le rendement, des prévisions et des activités d'évaluation appuyant Barry Callebaut (BC) Sourcing.\n\nCe rôle travaille en étroite collaboration avec les équipes du commerce, de la logistique, de la gestion des risques, de la comptabilité et des finances pour assurer la transparence des résultats financiers et appuyer la prise de décisions éclairées. Grâce à l'exposition aux marchés des produits de base, aux produits dérivés, au financement de la chaîne d'approvisionnement et au commerce international, la position offre une occasion unique de développer une expertise financière profonde au sein de l'une des principales organisations d'approvisionnement en cacao du monde.\n\nCompte tenu de l'expérience acquise, on s'attend à ce que ce rôle assume une plus grande responsabilité en ce qui concerne les analyses complexes, les principaux processus financiers et l'identification et la mise en oeuvre de possibilités d'amélioration continue.\n\nResponsabilités clés\n\n• Posséder les activités mensuelles de clôture financière et de rapport pour BC Sourcing\n\n• Responsable des activités quotidiennes d ' évaluation des produits de base et de l ' établissement de rapports hebdomadaires\n\n• Appuie l'analyse financière liée à la performance commerciale et à l'évolution des marchés des produits de base\n\n• Appuie les activités de prévision et de budgétisation en fournissant des informations et des recommandations financières fiables\n\n• Analyse des coûts de la chaîne d'approvisionnement et des facteurs de performance opérationnelle dans l'ensemble de l'organisation d'approvisionnement\n\n• Traduit des informations financières complexes en informations claires et exploitables pour les parties prenantes pour les partenaires commerciaux et l'équipe de négociation\n\n• Contribue aux processus plus généraux de planification financière et de gestion du rendement de la Société mondiale de négociation et d'approvisionnement (GT&S)\n\n• Amélioration continue des méthodes d ' évaluation, de la qualité des rapports et des outils d ' analyse\n\nÀ propos de toi\n\n• Diplôme universitaire en finance, comptabilité, économie ou discipline connexe, ou expérience professionnelle équivalente\n\n• 5 à 8 ans d'expérience dans les fonctions de contrôle, d'audit, de conseil en opérations, de financement d'entreprise ou d'autres fonctions de financement analytique\n\n• Compréhension approfondie du financement des produits dérivés et des marchés financiers. Intérêts sur les marchés des produits de base\n\n• Fortes capacités d'analyse et de résolution de problèmes\n\n• Compétences avancées Excel et PowerPoint\n\n• Expérience avec SAP ou des systèmes ERP similaires\n\n• L'expérience avec Power BI, SQL, l'analyse de données ou la programmation serait un avantage\n\n• L'anglais est nécessaire; d'autres langues sont considérées comme un plus"
+        "it": "Informazioni sul ruolo\n\nIl Global Customer Quality Systems & Compliance Manager è responsabile per i principali sistemi di qualità focalizzati sul cliente e programmi di conformità a livello globale, garantendo l'allineamento con gli standard di qualità interni, requisiti normativi e aspettative dei clienti. Agendo come un collegamento chiave tra i clienti e l'organizzazione di qualità globale, questo ruolo guida la conformità, le prestazioni e il miglioramento continuo, rafforzando la fiducia dei clienti e la continuità aziendale.\n\nResponsabilità chiave\n\n• Avere e mantenere i sistemi di qualità orientati al cliente e garantire l'allineamento con il quadro QMS globale.\n\n• Armonizzare i requisiti di qualità del cliente in regioni, prodotti e categorie.\n\n• Guidare i programmi di conformità dei clienti, tra cui audit, valutazioni, certificazioni, approvazioni e gestione delle azioni correttive.\n\n• Monitorare i requisiti specifici del cliente e garantire la risoluzione tempestiva dei gap di conformità.\n\n• Definire, tracciare e segnalare i KPI di qualità del cliente, identificare tendenze, rischi e opportunità di miglioramento.\n\n• Promuovere iniziative di miglioramento continuo per ridurre i reclami, migliorare le prestazioni di audit e rafforzare la conformità.\n\n• Agire come un contatto di qualità chiave per i clienti e sostenere la risoluzione di reclami, incidenti, escalations.\n\n• Collabora con i team interfunzionali di Operazioni, R&D, Regolazione, Supply Chain e Qualità per garantire una risoluzione efficace dei problemi.\n\n• Stabilire processi di governance e gestione dei rischi per la conformità della qualità del cliente in tutte le regioni.\n\n• Sostenere le attività di gestione della crisi e contribuire a strategie e iniziative globali di qualità del cliente.\n\n• Servire come supporto al Direttore Senior, Global Customer Quality come richiesto.\n\nA proposito di te\n\n• Corso di laurea o Master in Scienze alimentari, Tecnologia alimentare, Gestione della qualità, o una disciplina relativa.\n\n• Esperienza minima di 3 anni in qualità, sicurezza alimentare, conformità o un campo correlato all’interno di un’organizzazione globale.\n\n• Forte conoscenza degli standard di sicurezza alimentare e di qualità, QMS, gestione dell'audit, gestione del rischio e gestione degli incidenti.\n\n• Esperienza di lavoro con clienti multinazionali e gestione di relazioni complesse stakeholder.\n\n• Forte mentalità analitica con la capacità di utilizzare dati e intuizioni per migliorare le prestazioni.\n\n• Prove capacità di influenzare e guidare squadre interfunzionali senza autorità diretta.\n\n• Eccellente capacità di problem solving, comunicazione e gestione degli stakeholder.\n\n• Fluente in inglese; una lingua europea aggiuntiva è un vantaggio.\n\n• Viaggi occasionali richiesti.",
+        "en": "About the Role\n\nThe Global Customer Quality Systems & Compliance Manager is responsible for leading customer-focused quality systems and compliance programs globally, ensuring alignment with internal quality standards, regulatory requirements, and customer expectations. Acting as a key link between customers and the global quality organization, this role drives compliance, performance, and continuous improvement while strengthening customer trust and business continuity.\n\nKey Responsibilities Include\n\n• Own and maintain customer-facing quality systems and ensure alignment with the global QMS framework.\n\n• Harmonize customer quality requirements across regions, products, and categories.\n\n• Lead customer compliance programs, including audits, assessments, certifications, approvals, and corrective action management.\n\n• Monitor customer-specific requirements and ensure timely resolution of compliance gaps.\n\n• Define, track, and report customer quality KPIs, identifying trends, risks, and improvement opportunities.\n\n• Drive continuous improvement initiatives to reduce complaints, improve audit performance, and strengthen compliance.\n\n• Act as a key quality contact for customers and support the resolution of complaints, incidents, and escalations.\n\n• Collaborate with cross-functional teams across Operations, R&D, Regulatory, Supply Chain, and Quality to ensure effective issue resolution.\n\n• Establish governance and risk management processes for customer quality compliance across all regions.\n\n• Support crisis management activities and contribute to global customer quality strategies and initiatives.\n\n• Serve as a back-up to the Senior Director, Global Customer Quality as required.\n\nAbout You\n\n• Bachelor’s or Master’s degree in Food Science, Food Technology, Quality Management, or a related discipline.\n\n• Minimum 3 years’ experience in quality, food safety, compliance, or a related field within a global organization.\n\n• Strong knowledge of food safety and quality standards, QMS, audit management, risk management, and incident handling.\n\n• Experience working with multinational customers and managing complex stakeholder relationships.\n\n• Strong analytical mindset with the ability to use data and insights to drive performance improvements.\n\n• Proven ability to influence and lead cross-functional teams without direct authority.\n\n• Excellent problem-solving, communication, and stakeholder management skills.\n\n• Fluent in English; an additional European language is an advantage.\n\n• Occasional travel required.",
+        "de": "Über die Rolle\n\nDer Global Customer Quality Systems & Compliance Manager ist verantwortlich für die Leitung von kundenorientierten Qualitätssystemen und Compliance-Programmen weltweit und stellt die Übereinstimmung mit internen Qualitätsstandards, regulatorischen Anforderungen und Kundenerwartungen sicher. Als wichtiges Bindeglied zwischen Kunden und der globalen Qualitätsorganisation fördert diese Rolle Compliance, Leistung und kontinuierliche Verbesserung und stärkt gleichzeitig das Vertrauen der Kunden und die Geschäftskontinuität.\n\nZu den wichtigsten Aufgaben gehören\n\n• Eigene und Pflege von kundenorientierten Qualitätssystemen und Sicherstellung der Ausrichtung auf das globale QMS-Framework.\n\n• Harmonisierung der Kundenqualitätsanforderungen über Regionen, Produkte und Kategorien hinweg.\n\n• Führen Sie Compliance-Programme für Kunden, einschließlich Audits, Bewertungen, Zertifizierungen, Zulassungen und Management von Korrekturmaßnahmen.\n\n• Überwachen Sie kundenspezifische Anforderungen und stellen Sie sicher, dass Compliance-Lücken rechtzeitig behoben werden.\n\n• Definieren, verfolgen und berichten Sie KPIs für die Kundenqualität und identifizieren Sie Trends, Risiken und Verbesserungsmöglichkeiten.\n\n• Förderung kontinuierlicher Verbesserungsinitiativen zur Reduzierung von Beschwerden, zur Verbesserung der Auditleistung und zur Stärkung der Compliance.\n\n• Handeln Sie als wichtiger Qualitätskontakt für Kunden und unterstützen Sie die Lösung von Beschwerden, Vorfällen und Eskalationen.\n\n• Arbeiten Sie mit funktionsübergreifenden Teams in den Bereichen Operations, R&D, Regulatory, Supply Chain und Quality zusammen, um eine effektive Problemlösung zu gewährleisten.\n\n• Etablierung von Governance- und Risikomanagementprozessen für die Einhaltung der Kundenqualität in allen Regionen.\n\n• Unterstützung von Krisenmanagementaktivitäten und Beitrag zu globalen Strategien und Initiativen zur Kundenqualität.\n\n• Als Backup für den Senior Director, Global Customer Quality nach Bedarf.\n\nÜber dich\n\n• Bachelor- oder Master-Abschluss in Food Science, Food Technology, Qualitätsmanagement oder einer verwandten Disziplin.\n\n• Mindestens 3 Jahre Erfahrung in Qualität, Lebensmittelsicherheit, Compliance oder einem verwandten Bereich innerhalb einer globalen Organisation.\n\n• Ein fundiertes Wissen über Lebensmittelsicherheit und Qualitätsstandards, QMS, Auditmanagement, Risikomanagement und Incident Handling.\n\n• Erfahrung in der Zusammenarbeit mit multinationalen Kunden und der Verwaltung komplexer Stakeholder-Beziehungen.\n\n• Starke analytische Denkweise mit der Fähigkeit, Daten und Erkenntnisse zu nutzen, um Leistungsverbesserungen voranzutreiben.\n\n• Nachgewiesene Fähigkeit, funktionsübergreifende Teams ohne direkte Autorität zu beeinflussen und zu führen.\n\n• Hervorragende Fähigkeiten in den Bereichen Problemlösung, Kommunikation und Stakeholdermanagement.\n\n• Fließend Englisch; eine zusätzliche europäische Sprache ist von Vorteil.\n\n• Gelegentliche Reisen erforderlich.",
+        "fr": "À propos du rôle\n\nLe Global Customer Quality Systems & Compliance Manager est responsable des systèmes de qualité et des programmes de conformité axés sur la clientèle à l'échelle mondiale, assurant l'alignement sur les normes de qualité internes, les exigences réglementaires et les attentes des clients. Agissant comme un lien clé entre les clients et l'organisation de qualité mondiale, ce rôle favorise la conformité, la performance et l'amélioration continue tout en renforçant la confiance des clients et la continuité des activités.\n\nResponsabilités clés\n\n• Posséder et entretenir des systèmes de qualité orientés vers le client et assurer l'alignement sur le cadre global de QMS.\n\n• Harmoniser les exigences de qualité des clients entre les régions, les produits et les catégories.\n\n• Diriger les programmes de conformité des clients, y compris les vérifications, les évaluations, les certifications, les approbations et la gestion des mesures correctives.\n\n• Surveiller les exigences propres aux clients et veiller à ce que les lacunes en matière de conformité soient comblées en temps opportun.\n\n• Définir, suivre et rendre compte de la qualité des ICR clients, en identifiant les tendances, les risques et les possibilités d'amélioration.\n\n• Mener des initiatives d'amélioration continue pour réduire les plaintes, améliorer le rendement des vérifications et renforcer la conformité.\n\n• Agir comme un contact de qualité clé pour les clients et appuyer le règlement des plaintes, des incidents et des escalades.\n\n• Collaborer avec des équipes interfonctionnelles à l'échelle des opérations, de la R-D, de la réglementation, de la chaîne d'approvisionnement et de la qualité pour assurer une résolution efficace des problèmes.\n\n• Établir des processus de gouvernance et de gestion des risques pour la conformité à la qualité des clients dans toutes les régions.\n\n• Soutenir les activités de gestion de crise et contribuer aux stratégies et initiatives mondiales de qualité de la clientèle.\n\n• Servir de soutien au directeur principal, Qualité globale de la clientèle au besoin.\n\nÀ propos de toi\n\n• Baccalauréat ou maîtrise en sciences alimentaires, technologie alimentaire, gestion de la qualité ou une discipline connexe.\n\n• Au moins 3 ans d'expérience dans la qualité, la salubrité des aliments, la conformité ou un domaine connexe au sein d'une organisation mondiale.\n\n• Bonne connaissance des normes de salubrité et de qualité des aliments, SGQ, gestion de la vérification, gestion des risques et gestion des incidents.\n\n• Expérience de travail avec des clients multinationaux et gestion de relations complexes avec les parties prenantes.\n\n• Un état d'esprit analytique solide, capable d'utiliser les données et les idées pour améliorer le rendement.\n\n• Capacité éprouvée d'influencer et de diriger des équipes interfonctionnelles sans autorité directe.\n\n• Excellentes compétences en résolution de problèmes, en communication et en gestion des intervenants.\n\n• Une langue européenne supplémentaire est un avantage.\n\n• Voyages occasionnels requis."
       },
       "location": "Zurich",
       "canton": "ZH",
-      "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
+      "url": "https://jobs.barry-callebaut.com/job/Zurich-FSQR-Customer-Value-Systems-&-Compliance-Manager-8005/1416955300/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.437Z",
+      "crawledAt": "2026-08-12T22:23:50.938Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Amministrazione",
+      "category": "Ingegneria",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Alimentare",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
+      "postedDate": "2026-08-07",
+      "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-FSQR-Customer-Value-Systems-&-Compliance-Manager-8005/1416955300/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-fp-a-cocoa-sourcing-barry-callebaut-ch"
+        "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fp-a-cocoa-sourcing-barry-callebaut-ch"
+          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
         ],
         "de": [
-          "manager-fp-a-cocoa-sourcing-barry-callebaut-ch"
+          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
+        ],
+        "fr": [
+          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
         ]
       },
-      "firstSeenAt": "2026-07-23T22:30:18.202Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T22:05:50.337Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -258,7 +334,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Business-Development-Manager-CEE&MEA-8005/1407656600/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.436Z",
+      "crawledAt": "2026-08-12T22:23:50.938Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,84 +349,8 @@
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Business-Development-Manager-CEE&MEA-8005/1407656600/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:07:06.825Z",
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "barry-callebaut-14d29300df73",
-      "slug": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
-      "slugByLocale": {
-        "it": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
-        "en": "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch",
-        "de": "fsqr-kundenwert-systeme-compliance-manager-barry-callebaut-zurich",
-        "fr": "responsable-des-systemes-de-valeur-client-et-de-la-conformite-fsqr-barry-callebaut-zurich"
-      },
-      "company": "Barry Callebaut",
-      "companyKey": "barry-callebaut",
-      "companyDomain": "barry-callebaut.com",
-      "title": "FSQR Customer Value Systems & Compliance Manager",
-      "titleByLocale": {
-        "it": "Responsabile del valore e della conformità dei clienti FSQR",
-        "en": "FSQR Customer Value Systems & Compliance Manager",
-        "de": "FSQR Kundenwert-Systeme & Compliance Manager",
-        "fr": "Responsable des systèmes de valeur client et de la conformité FSQR"
-      },
-      "description": "About the Role\n\nThe Global Customer Quality Systems & Compliance Manager is responsible for leading customer-focused quality systems and compliance programs globally, ensuring alignment with internal quality standards, regulatory requirements, and customer expectations. Acting as a key link between customers and the global quality organization, this role drives compliance, performance, and continuous improvement while strengthening customer trust and business continuity.\n\nKey Responsibilities Include\n\n• Own and maintain customer-facing quality systems and ensure alignment with the global QMS framework.\n\n• Harmonize customer quality requirements across regions, products, and categories.\n\n• Lead customer compliance programs, including audits, assessments, certifications, approvals, and corrective action management.\n\n• Monitor customer-specific requirements and ensure timely resolution of compliance gaps.\n\n• Define, track, and report customer quality KPIs, identifying trends, risks, and improvement opportunities.\n\n• Drive continuous improvement initiatives to reduce complaints, improve audit performance, and strengthen compliance.\n\n• Act as a key quality contact for customers and support the resolution of complaints, incidents, and escalations.\n\n• Collaborate with cross-functional teams across Operations, R&D, Regulatory, Supply Chain, and Quality to ensure effective issue resolution.\n\n• Establish governance and risk management processes for customer quality compliance across all regions.\n\n• Support crisis management activities and contribute to global customer quality strategies and initiatives.\n\n• Serve as a back-up to the Senior Director, Global Customer Quality as required.\n\nAbout You\n\n• Bachelor’s or Master’s degree in Food Science, Food Technology, Quality Management, or a related discipline.\n\n• Minimum 3 years’ experience in quality, food safety, compliance, or a related field within a global organization.\n\n• Strong knowledge of food safety and quality standards, QMS, audit management, risk management, and incident handling.\n\n• Experience working with multinational customers and managing complex stakeholder relationships.\n\n• Strong analytical mindset with the ability to use data and insights to drive performance improvements.\n\n• Proven ability to influence and lead cross-functional teams without direct authority.\n\n• Excellent problem-solving, communication, and stakeholder management skills.\n\n• Fluent in English; an additional European language is an advantage.\n\n• Occasional travel required.",
-      "descriptionByLocale": {
-        "it": "Informazioni sul ruolo\n\nIl Global Customer Quality Systems & Compliance Manager è responsabile per i principali sistemi di qualità focalizzati sul cliente e programmi di conformità a livello globale, garantendo l'allineamento con gli standard di qualità interni, requisiti normativi e aspettative dei clienti. Agendo come un collegamento chiave tra i clienti e l'organizzazione di qualità globale, questo ruolo guida la conformità, le prestazioni e il miglioramento continuo, rafforzando la fiducia dei clienti e la continuità aziendale.\n\nResponsabilità chiave\n\n• Avere e mantenere i sistemi di qualità orientati al cliente e garantire l'allineamento con il quadro QMS globale.\n\n• Armonizzare i requisiti di qualità del cliente in regioni, prodotti e categorie.\n\n• Guidare i programmi di conformità dei clienti, tra cui audit, valutazioni, certificazioni, approvazioni e gestione delle azioni correttive.\n\n• Monitorare i requisiti specifici del cliente e garantire la risoluzione tempestiva dei gap di conformità.\n\n• Definire, tracciare e segnalare i KPI di qualità del cliente, identificare tendenze, rischi e opportunità di miglioramento.\n\n• Promuovere iniziative di miglioramento continuo per ridurre i reclami, migliorare le prestazioni di audit e rafforzare la conformità.\n\n• Agire come un contatto di qualità chiave per i clienti e sostenere la risoluzione di reclami, incidenti, escalations.\n\n• Collabora con i team interfunzionali di Operazioni, R&D, Regolazione, Supply Chain e Qualità per garantire una risoluzione efficace dei problemi.\n\n• Stabilire processi di governance e gestione dei rischi per la conformità della qualità del cliente in tutte le regioni.\n\n• Sostenere le attività di gestione della crisi e contribuire a strategie e iniziative globali di qualità del cliente.\n\n• Servire come supporto al Direttore Senior, Global Customer Quality come richiesto.\n\nA proposito di te\n\n• Corso di laurea o Master in Scienze alimentari, Tecnologia alimentare, Gestione della qualità, o una disciplina relativa.\n\n• Esperienza minima di 3 anni in qualità, sicurezza alimentare, conformità o un campo correlato all’interno di un’organizzazione globale.\n\n• Forte conoscenza degli standard di sicurezza alimentare e di qualità, QMS, gestione dell'audit, gestione del rischio e gestione degli incidenti.\n\n• Esperienza di lavoro con clienti multinazionali e gestione di relazioni complesse stakeholder.\n\n• Forte mentalità analitica con la capacità di utilizzare dati e intuizioni per migliorare le prestazioni.\n\n• Prove capacità di influenzare e guidare squadre interfunzionali senza autorità diretta.\n\n• Eccellente capacità di problem solving, comunicazione e gestione degli stakeholder.\n\n• Fluente in inglese; una lingua europea aggiuntiva è un vantaggio.\n\n• Viaggi occasionali richiesti.",
-        "en": "About the Role\n\nThe Global Customer Quality Systems & Compliance Manager is responsible for leading customer-focused quality systems and compliance programs globally, ensuring alignment with internal quality standards, regulatory requirements, and customer expectations. Acting as a key link between customers and the global quality organization, this role drives compliance, performance, and continuous improvement while strengthening customer trust and business continuity.\n\nKey Responsibilities Include\n\n• Own and maintain customer-facing quality systems and ensure alignment with the global QMS framework.\n\n• Harmonize customer quality requirements across regions, products, and categories.\n\n• Lead customer compliance programs, including audits, assessments, certifications, approvals, and corrective action management.\n\n• Monitor customer-specific requirements and ensure timely resolution of compliance gaps.\n\n• Define, track, and report customer quality KPIs, identifying trends, risks, and improvement opportunities.\n\n• Drive continuous improvement initiatives to reduce complaints, improve audit performance, and strengthen compliance.\n\n• Act as a key quality contact for customers and support the resolution of complaints, incidents, and escalations.\n\n• Collaborate with cross-functional teams across Operations, R&D, Regulatory, Supply Chain, and Quality to ensure effective issue resolution.\n\n• Establish governance and risk management processes for customer quality compliance across all regions.\n\n• Support crisis management activities and contribute to global customer quality strategies and initiatives.\n\n• Serve as a back-up to the Senior Director, Global Customer Quality as required.\n\nAbout You\n\n• Bachelor’s or Master’s degree in Food Science, Food Technology, Quality Management, or a related discipline.\n\n• Minimum 3 years’ experience in quality, food safety, compliance, or a related field within a global organization.\n\n• Strong knowledge of food safety and quality standards, QMS, audit management, risk management, and incident handling.\n\n• Experience working with multinational customers and managing complex stakeholder relationships.\n\n• Strong analytical mindset with the ability to use data and insights to drive performance improvements.\n\n• Proven ability to influence and lead cross-functional teams without direct authority.\n\n• Excellent problem-solving, communication, and stakeholder management skills.\n\n• Fluent in English; an additional European language is an advantage.\n\n• Occasional travel required.",
-        "de": "Über die Rolle\n\nDer Global Customer Quality Systems & Compliance Manager ist verantwortlich für die Leitung von kundenorientierten Qualitätssystemen und Compliance-Programmen weltweit und stellt die Übereinstimmung mit internen Qualitätsstandards, regulatorischen Anforderungen und Kundenerwartungen sicher. Als wichtiges Bindeglied zwischen Kunden und der globalen Qualitätsorganisation fördert diese Rolle Compliance, Leistung und kontinuierliche Verbesserung und stärkt gleichzeitig das Vertrauen der Kunden und die Geschäftskontinuität.\n\nZu den wichtigsten Aufgaben gehören\n\n• Eigene und Pflege von kundenorientierten Qualitätssystemen und Sicherstellung der Ausrichtung auf das globale QMS-Framework.\n\n• Harmonisierung der Kundenqualitätsanforderungen über Regionen, Produkte und Kategorien hinweg.\n\n• Führen Sie Compliance-Programme für Kunden, einschließlich Audits, Bewertungen, Zertifizierungen, Zulassungen und Management von Korrekturmaßnahmen.\n\n• Überwachen Sie kundenspezifische Anforderungen und stellen Sie sicher, dass Compliance-Lücken rechtzeitig behoben werden.\n\n• Definieren, verfolgen und berichten Sie KPIs für die Kundenqualität und identifizieren Sie Trends, Risiken und Verbesserungsmöglichkeiten.\n\n• Förderung kontinuierlicher Verbesserungsinitiativen zur Reduzierung von Beschwerden, zur Verbesserung der Auditleistung und zur Stärkung der Compliance.\n\n• Handeln Sie als wichtiger Qualitätskontakt für Kunden und unterstützen Sie die Lösung von Beschwerden, Vorfällen und Eskalationen.\n\n• Arbeiten Sie mit funktionsübergreifenden Teams in den Bereichen Operations, R&D, Regulatory, Supply Chain und Quality zusammen, um eine effektive Problemlösung zu gewährleisten.\n\n• Etablierung von Governance- und Risikomanagementprozessen für die Einhaltung der Kundenqualität in allen Regionen.\n\n• Unterstützung von Krisenmanagementaktivitäten und Beitrag zu globalen Strategien und Initiativen zur Kundenqualität.\n\n• Als Backup für den Senior Director, Global Customer Quality nach Bedarf.\n\nÜber dich\n\n• Bachelor- oder Master-Abschluss in Food Science, Food Technology, Qualitätsmanagement oder einer verwandten Disziplin.\n\n• Mindestens 3 Jahre Erfahrung in Qualität, Lebensmittelsicherheit, Compliance oder einem verwandten Bereich innerhalb einer globalen Organisation.\n\n• Ein fundiertes Wissen über Lebensmittelsicherheit und Qualitätsstandards, QMS, Auditmanagement, Risikomanagement und Incident Handling.\n\n• Erfahrung in der Zusammenarbeit mit multinationalen Kunden und der Verwaltung komplexer Stakeholder-Beziehungen.\n\n• Starke analytische Denkweise mit der Fähigkeit, Daten und Erkenntnisse zu nutzen, um Leistungsverbesserungen voranzutreiben.\n\n• Nachgewiesene Fähigkeit, funktionsübergreifende Teams ohne direkte Autorität zu beeinflussen und zu führen.\n\n• Hervorragende Fähigkeiten in den Bereichen Problemlösung, Kommunikation und Stakeholdermanagement.\n\n• Fließend Englisch; eine zusätzliche europäische Sprache ist von Vorteil.\n\n• Gelegentliche Reisen erforderlich.",
-        "fr": "À propos du rôle\n\nLe Global Customer Quality Systems & Compliance Manager est responsable des systèmes de qualité et des programmes de conformité axés sur la clientèle à l'échelle mondiale, assurant l'alignement sur les normes de qualité internes, les exigences réglementaires et les attentes des clients. Agissant comme un lien clé entre les clients et l'organisation de qualité mondiale, ce rôle favorise la conformité, la performance et l'amélioration continue tout en renforçant la confiance des clients et la continuité des activités.\n\nResponsabilités clés\n\n• Posséder et entretenir des systèmes de qualité orientés vers le client et assurer l'alignement sur le cadre global de QMS.\n\n• Harmoniser les exigences de qualité des clients entre les régions, les produits et les catégories.\n\n• Diriger les programmes de conformité des clients, y compris les vérifications, les évaluations, les certifications, les approbations et la gestion des mesures correctives.\n\n• Surveiller les exigences propres aux clients et veiller à ce que les lacunes en matière de conformité soient comblées en temps opportun.\n\n• Définir, suivre et rendre compte de la qualité des ICR clients, en identifiant les tendances, les risques et les possibilités d'amélioration.\n\n• Mener des initiatives d'amélioration continue pour réduire les plaintes, améliorer le rendement des vérifications et renforcer la conformité.\n\n• Agir comme un contact de qualité clé pour les clients et appuyer le règlement des plaintes, des incidents et des escalades.\n\n• Collaborer avec des équipes interfonctionnelles à l'échelle des opérations, de la R-D, de la réglementation, de la chaîne d'approvisionnement et de la qualité pour assurer une résolution efficace des problèmes.\n\n• Établir des processus de gouvernance et de gestion des risques pour la conformité à la qualité des clients dans toutes les régions.\n\n• Soutenir les activités de gestion de crise et contribuer aux stratégies et initiatives mondiales de qualité de la clientèle.\n\n• Servir de soutien au directeur principal, Qualité globale de la clientèle au besoin.\n\nÀ propos de toi\n\n• Baccalauréat ou maîtrise en sciences alimentaires, technologie alimentaire, gestion de la qualité ou une discipline connexe.\n\n• Au moins 3 ans d'expérience dans la qualité, la salubrité des aliments, la conformité ou un domaine connexe au sein d'une organisation mondiale.\n\n• Bonne connaissance des normes de salubrité et de qualité des aliments, SGQ, gestion de la vérification, gestion des risques et gestion des incidents.\n\n• Expérience de travail avec des clients multinationaux et gestion de relations complexes avec les parties prenantes.\n\n• Un état d'esprit analytique solide, capable d'utiliser les données et les idées pour améliorer le rendement.\n\n• Capacité éprouvée d'influencer et de diriger des équipes interfonctionnelles sans autorité directe.\n\n• Excellentes compétences en résolution de problèmes, en communication et en gestion des intervenants.\n\n• Une langue européenne supplémentaire est un avantage.\n\n• Voyages occasionnels requis."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.barry-callebaut.com/job/Zurich-FSQR-Customer-Value-Systems-&-Compliance-Manager-8005/1416955300/",
-      "source": "Barry Callebaut Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.435Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-07",
-      "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-FSQR-Customer-Value-Systems-&-Compliance-Manager-8005/1416955300/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
-        ],
-        "de": [
-          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
-        ],
-        "fr": [
-          "fsqr-customer-value-systems-compliance-manager-barry-callebaut-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T22:05:50.337Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -396,7 +396,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Forest-Risk-&-Monitoring-Manager-8005/1407527300/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.434Z",
+      "crawledAt": "2026-08-12T22:23:50.936Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -471,7 +471,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager%2C-Group-Accounting-&-Reporting-8005/1399308500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.433Z",
+      "crawledAt": "2026-08-12T22:23:50.935Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,8 +500,8 @@
           "manager-group-accounting-reporting-barry-callebaut-ch"
         ]
       },
-      "firstSeenAt": "2026-07-03T21:24:25.535Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:24:25.535Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -547,7 +547,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Commercial-Excellence-Manager-FM-&-Specialties-8005/1387640800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:38:30.428Z",
+      "crawledAt": "2026-08-12T22:23:50.932Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
