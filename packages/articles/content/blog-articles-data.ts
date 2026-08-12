@@ -29415,6 +29415,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casalzuigno-europei-badr-jaafari',
+ category: 'fiscale',
+ date: '2026-08-12T10:56:32.456Z',
+ image: '/images/blog/casalzuigno-europei-badr-jaafari.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

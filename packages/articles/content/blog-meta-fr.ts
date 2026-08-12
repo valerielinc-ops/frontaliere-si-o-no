@@ -9811,6 +9811,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multe-stradali-svizzere.title': 'Amende routière suisse',
     'blog.article.multe-stradali-svizzere.excerpt': 'Comment fonctionnent les amendes routières suisses pour les résidents italiens',
     'blog.article.multe-stradali-svizzere.imageAlt': 'Amende de trafic suisse à la frontière de Brogeda',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'L\'athlète travailleur badr jaafari en bleu clair',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, athlète travailleur de Casalzuigno, participe au marathon européen',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari pendant la course à pied européenne',
 };
 
 export default blogMetaFr;

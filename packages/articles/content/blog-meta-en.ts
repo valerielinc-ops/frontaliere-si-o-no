@@ -9809,6 +9809,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multe-stradali-svizzere.title': 'Swiss traffic fine',
     'blog.article.multe-stradali-svizzere.excerpt': 'How Swiss road fines work for Italian residents',
     'blog.article.multe-stradali-svizzere.imageAlt': 'Swiss traffic fine at Brogeda border crossing',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'Working athlete badr jaafari in light blue',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, a working athlete from Casalzuigno, participates in the European marathon',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari during the European Marathon',
 };
 
 export default blogMetaEn;
