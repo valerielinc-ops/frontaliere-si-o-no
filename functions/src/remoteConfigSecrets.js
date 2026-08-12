@@ -38,6 +38,44 @@ export async function getRemoteConfigValue(key) {
 }
 
 /**
+ * The `ac` autologin credential policy (#5685), read from Remote Config.
+ *
+ * THREE reasons this is Remote Config and not a constant:
+ *
+ *  1. It is the rollout switch. `NEWSLETTER_AC_SCHEME` stays `legacy` — an
+ *     absent parameter yields '' here, which resolveAutologinPolicy reads as
+ *     today's behaviour — until the Cloud Function carrying the v1 verifier is
+ *     confirmed deployed. Senders and verifier deploy on different schedules,
+ *     and minting a format the verifier does not know yet would sign everybody
+ *     out.
+ *  2. It is the rollback. Emptying the three parameters restores the
+ *     never-expiring credential for every link in every inbox within one cache
+ *     TTL (5 minutes) and WITHOUT a deploy — the only kind of rollback worth
+ *     having when the failure mode is "subscribers cannot get in".
+ *  3. The TTL is applied at verification time, so changing
+ *     `NEWSLETTER_AC_TTL_DAYS` re-judges codes ALREADY SENT, in both
+ *     directions. Nothing has to be re-minted to widen or narrow the window.
+ *
+ * Same parameter names scripts/load-rc-env.mjs bridges into process.env for the
+ * senders, so the minting and verifying sides read one source of truth.
+ *
+ * @returns {Promise<{NEWSLETTER_AC_SCHEME: string, NEWSLETTER_AC_TTL_DAYS: string, NEWSLETTER_AC_LEGACY_SUNSET: string}>}
+ *   env-shaped, to be handed straight to resolveAutologinPolicy()
+ */
+export async function getAutologinPolicyConfig() {
+ const [scheme, ttlDays, legacySunset] = await Promise.all([
+ getRemoteConfigValue('NEWSLETTER_AC_SCHEME'),
+ getRemoteConfigValue('NEWSLETTER_AC_TTL_DAYS'),
+ getRemoteConfigValue('NEWSLETTER_AC_LEGACY_SUNSET'),
+ ]);
+ return {
+ NEWSLETTER_AC_SCHEME: scheme,
+ NEWSLETTER_AC_TTL_DAYS: ttlDays,
+ NEWSLETTER_AC_LEGACY_SUNSET: legacySunset,
+ };
+}
+
+/**
  * Fetch all three newsletter secrets at once.
  * Returns { resendApiKey, resendWebhookSecret, newsletterSecret }.
  */

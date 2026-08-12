@@ -20,6 +20,7 @@ import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { forensicsFields } from './lib/requestForensics.js';
+import { verifyAutologinCode, resolveAutologinPolicy, revokedBeforeMs } from './lib/autologinCode.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -49,6 +50,41 @@ export function verifyHmacToken(email, token, secret) {
  } catch {
  return false;
  }
+}
+
+/**
+ * Is this credential good enough to record an OPT-OUT? (#5685)
+ *
+ * Two shapes are accepted, and only for leaving:
+ *  - the plain email HMAC (`token`), which is what the RFC 8058 one-click link
+ *    and every /disiscrivi-newsletter/ URL carry;
+ *  - an AUTHENTIC autologin code (`ac`) of ANY age and ANY revocation state,
+ *    including one belonging to a subscriber with `autologin_enabled:false`.
+ *
+ * The second is the separation of powers. Once `ac` can expire, the footer
+ * unsubscribe link of every email already sitting in every inbox would stop
+ * working at the moment of expiry — the SPA rejects a bare email+token link, so
+ * `ac` is the only credential most of those links have. Expiring the exit is
+ * the one outcome this wave must not produce: it exists because of an LPD art.
+ * 25/32 complaint about an unsubscribe link that did not work.
+ *
+ * Accepting a stale code here costs nothing. The only thing its holder can do
+ * is remove that address from our lists — which the eternal one-click token has
+ * always allowed anyone holding the link to do. Refusing is the actual harm.
+ *
+ * NOT symmetric: `resubscribe` never takes this path. An authentic-but-stale
+ * code must not be able to put somebody back on a list (that is the #5672
+ * resurrection loop). Opt-out only, forever; opt-in only with a live session.
+ *
+ * @returns {{ok: boolean, viaEmailToken: boolean, viaAutologin: boolean}}
+ */
+export function verifyOptOutCredential(email, token, secret) {
+ const viaEmailToken = verifyHmacToken(email, token, secret);
+ if (viaEmailToken) return { ok: true, viaEmailToken: true, viaAutologin: false };
+ // No policy argument, deliberately: nothing configurable may reach this
+ // decision. verifyAutologinCode's `canOptOut` is `authentic` and nothing else.
+ const verdict = verifyAutologinCode(email, token, { secret });
+ return { ok: verdict.canOptOut, viaEmailToken: false, viaAutologin: verdict.canOptOut };
 }
 
 function buildResponseHtml({ title, message, showResubscribe, email, token, locale }) {
@@ -201,7 +237,7 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, autologinPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Allowlist-copied and error-swallowing by construction (see forensicsFields):
  // a hostile or broken forensics object contributes {} and every action below
@@ -221,7 +257,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency'];
+ const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'revoke_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -230,30 +266,59 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorMissingParams'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
 
- // ── exchange_auth_code: verify HMAC autologin code, return fresh custom token ──
+ // ── exchange_auth_code: grade the autologin code, return a fresh custom token ──
+ //
+ // This is the ONLY place an `ac` string becomes a Firebase session, so it is
+ // the only place the credential's lifetime can be enforced (#5685). The
+ // grading itself lives in lib/autologinCode.js; what happens here is the
+ // policy read, the per-subscriber state read, and the refusal.
  if (action === 'exchange_auth_code') {
- // The autologin code uses a different HMAC derivation than unsubscribe tokens
- const expectedCode = createHmac('sha256', secret)
- .update('autologin:' + normalizedEmail)
- .digest('hex');
- let codeValid = false;
- try {
- codeValid = timingSafeEqual(Buffer.from(token, 'hex'), Buffer.from(expectedCode, 'hex'));
- } catch { /* invalid hex → codeValid stays false */ }
+ const policy = autologinPolicy || resolveAutologinPolicy();
 
- if (!codeValid) {
+ // Signature first, WITHOUT touching Firestore: a forged code must cost a
+ // hash and nothing else, or this endpoint becomes a free read amplifier for
+ // anyone who can guess an address.
+ const verdict = verifyAutologinCode(normalizedEmail, token, { secret, policy });
+ if (!verdict.authentic) {
  return { status: 403, json: { success: false, error: 'invalid_auth_code' } };
  }
 
- // Enforce opt-out: even with a valid HMAC, refuse to mint a custom token
+ // ONE read of the subscriber document serves both per-subscriber gates — the
+ // pre-existing `autologin_enabled` opt-out and the new
+ // `autologin_revoked_before` watermark — so revocation costs no extra read.
+ let optedOut = false;
+ let revokedBefore = null;
+ try {
+ const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+ if (subDoc.exists) {
+ const data = subDoc.data() || {};
+ optedOut = data.autologin_enabled === false;
+ revokedBefore = revokedBeforeMs(data.autologin_revoked_before);
+ }
+ } catch { /* read failure: signature verdict alone, exactly as before */ }
+
+ // A legacy code carries no issue date, so ANY watermark revokes it — that is
+ // what "revoke every link already sent" has to mean.
+ const revoked = revokedBefore !== null
+ && (verdict.issuedAtMs === null || verdict.issuedAtMs < revokedBefore);
+
+ // Enforce opt-out: even with an authentic code, refuse to mint a custom token
  // when the subscriber has disabled autologin. This invalidates previously
  // sent links (forwarded/archived) the moment the flag flips.
- try {
- const optOutDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
- if (optOutDoc.exists && optOutDoc.data()?.autologin_enabled === false) {
- return { status: 403, json: { success: false, error: 'autologin_disabled' } };
+ //
+ // `optOutEligible: true` on every refusal below is the contract the SPA
+ // needs: the code cannot open a session, but it is still good enough to
+ // record an opt-out (verifyOptOutCredential), so App.tsx must offer the exit
+ // instead of "Link non valido".
+ if (optedOut) {
+ return { status: 403, json: { success: false, error: 'autologin_disabled', optOutEligible: true } };
  }
- } catch { /* read failure → HMAC already authed, fall through */ }
+ if (revoked) {
+ return { status: 403, json: { success: false, error: 'auth_code_revoked', optOutEligible: true } };
+ }
+ if (verdict.expired) {
+ return { status: 403, json: { success: false, error: 'auth_code_expired', optOutEligible: true } };
+ }
 
  try {
  ensureAdminApp();
@@ -276,11 +341,20 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  }
 
- if (!verifyHmacToken(normalizedEmail, token, secret)) {
+ // The opt-out is the one action whose credential check is WIDER than the
+ // email HMAC: an authentic autologin code of any age also gets somebody out
+ // (verifyOptOutCredential, #5685). Every other action — resubscribe and the
+ // whole preferences API — still needs the email HMAC and nothing else.
+ const optOut = action === 'unsubscribe'
+ ? verifyOptOutCredential(normalizedEmail, token, secret)
+ : { ok: verifyHmacToken(normalizedEmail, token, secret), viaEmailToken: true, viaAutologin: false };
+
+ if (!optOut.ok) {
  // JSON-returning actions (called from SPA) report invalid_token as JSON.
  const jsonActions = new Set([
  'get_autologin_status',
  'toggle_autologin',
+ 'revoke_autologin',
  'get_full_status',
  'toggle_newsletter_subscription',
  'delete_alert',
@@ -326,6 +400,49 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 200, json: { success: true, enabled: desired } };
  } catch (err) {
  console.error('[toggle_autologin] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'write_failed' } };
+ }
+ }
+
+ // ── revoke_autologin: kill every autologin link ALREADY SENT (#5685) ──
+ //
+ // The second half of the credential fix. Expiry bounds how long a leaked `ac`
+ // stays useful; this ends it now, for one subscriber, without waiting for the
+ // TTL and without rotating NEWSLETTER_SECRET — which is shared by every
+ // recipient AND by the unsubscribe tokens, so rotating it would invalidate
+ // everybody's exit at once, the one thing this wave must not do.
+ //
+ // A watermark, not the counter #5685 proposed: a counter would have to be read
+ // by all EIGHT senders that mint a code before minting it, and any sender that
+ // did not would emit permanently-dead codes for that recipient. Every code
+ // issued after the watermark is newer than it and works, so the next email
+ // repairs autologin by itself.
+ //
+ // Known and deliberate: while NEWSLETTER_AC_SCHEME is `legacy`, codes carry no
+ // issue date, so a revoke is PERMANENT for that subscriber until the scheme
+ // flips to v1 — a legacy code can never be newer than the watermark. That is
+ // why revocation and the v1 scheme are one rollout step.
+ if (action === 'revoke_autologin') {
+ try {
+ const now = new Date();
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ autologin_revoked_before: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: 'autologin_revoked',
+ source_channel: 'preferences_link',
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: now.toISOString(),
+ });
+
+ return { status: 200, json: { success: true, revokedAt: now.toISOString() } };
+ } catch (err) {
+ console.error('[revoke_autologin] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'write_failed' } };
  }
  }
@@ -696,6 +813,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: 'unsubscribe',
  source_channel: 'unsubscribe_link',
+ // Which of the two credentials got them out (#5685). Attribution only —
+ // nothing reads it back — but it is the measurement that says how many
+ // people would have hit "Link non valido" without the fallback.
+ credential: optOut.viaAutologin ? 'autologin_code' : 'email_token',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  ...forensicFields,
@@ -706,7 +827,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  html: buildResponseHtml({
  title: `${t(lang, 'manageUnsubscribeTitle')} ✅`,
  message: `${t(lang, 'manageUnsubscribeBody')} <strong>${normalizedEmail}</strong>. ${t(lang, 'manageUnsubscribeNote')}.`,
- showResubscribe: true,
+ // The confirmation page's resubscribe button re-enters this function with
+ // `token` and action=resubscribe, which accepts ONLY the email HMAC.
+ // Rendering it after an autologin-code opt-out would offer a button that
+ // answers "Link non valido" — the same defect, one click later.
+ showResubscribe: optOut.viaEmailToken,
  email: normalizedEmail,
  token,
  locale: lang,

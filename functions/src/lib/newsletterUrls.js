@@ -39,6 +39,7 @@
  *    original process.env-only implementation.
  */
 import { createHmac } from 'node:crypto';
+import { mintAutologinCode } from './autologinCode.js';
 
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs.
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -97,23 +98,44 @@ export function makeResubscribeUrl(email, { secret } = {}) {
 }
 
 /**
- * Deterministic, never-expiring autologin code (HMAC over `autologin:<email>`).
- * The SPA's unsubscribe/resubscribe action handler (App.tsx) REQUIRES this `ac`
- * credential to authenticate the recipient — a bare email+token link is rejected
- * with "Link non valido". Mirrors generateAutologinCode in send-newsletter.mjs.
+ * The `ac` autologin code. The SPA's unsubscribe/resubscribe action handler
+ * (App.tsx) uses this credential to authenticate the recipient.
+ *
+ * Format and lifetime now live in lib/autologinCode.js (#5685). It used to be a
+ * deterministic, never-expiring HMAC over `autologin:<email>` — a permanent
+ * password mailed to the recipient and copied verbatim into the provider's
+ * click log, into every anti-phishing scanner's log, into every forward and
+ * every mail archive. Which scheme is minted is a Remote Config policy
+ * (NEWSLETTER_AC_SCHEME) that defaults to `legacy`, so this call stays
+ * byte-identical to the pre-#5685 implementation until the policy is flipped.
+ *
  * @param {string} email
- * @param {{secret?: string}} [opts] see makeUnsubscribeUrl.
- * @returns {string|null} 64-char hex code, or null when NEWSLETTER_SECRET is unset
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', now?: number}} [opts] see
+ *   makeUnsubscribeUrl for `secret`; `scheme`/`now` are policy overrides used by
+ *   tests and by senders pinning one code for a whole send.
+ * @returns {string|null} the code, or null when NEWSLETTER_SECRET is unset
  */
-export function generateAutologinCode(email, { secret } = {}) {
+export function generateAutologinCode(email, { secret, scheme, now } = {}) {
   const resolved = secret || process.env.NEWSLETTER_SECRET;
   if (!resolved) return null;
-  return createHmac('sha256', resolved).update('autologin:' + email.toLowerCase().trim()).digest('hex');
+  return mintAutologinCode(email, { secret: resolved, scheme, ...(now === undefined ? {} : { now }) });
 }
 
 /**
- * Authenticated newsletter action link the SPA accepts: carries `email` + the
- * `ac` autologin code so App.tsx can sign the recipient in and apply the action.
+ * Authenticated newsletter action link the SPA accepts: carries `email`, the
+ * `ac` autologin code so App.tsx can sign the recipient in, AND the plain email
+ * HMAC as `token`.
+ *
+ * `token` is there for the separation of powers (#5685). `ac` is a
+ * session-minting credential with a lifetime; `token` only ever proves "this
+ * address was sent this link" and is what the Cloud Function accepts to record
+ * an opt-out. Carrying both is what lets App.tsx fall back to the Cloud Function
+ * when the autologin exchange refuses — expired, revoked, or
+ * `autologin_enabled:false` — instead of showing "Link non valido" to somebody
+ * trying to leave. Without it the four callers of this builder (win-back,
+ * dormant win-back, onboarding drip, publisher blast) would have had no second
+ * credential once `ac` starts expiring.
+ *
  * @param {'resubscribe'|'unsubscribe'} action
  * @param {string} email
  * @param {{secret?: string}} [opts] see makeUnsubscribeUrl.
@@ -121,8 +143,9 @@ export function generateAutologinCode(email, { secret } = {}) {
  */
 export function makeAuthenticatedActionUrl(action, email, { secret } = {}) {
   const code = generateAutologinCode(email, { secret });
+  const token = signedEmailToken(email, secret);
   const base = `${BASE_URL}/?action=${action}&email=${encodeURIComponent(email)}&utm_medium=newsletter`;
-  return code ? `${base}&ac=${code}` : base;
+  return `${base}${code ? `&ac=${code}` : ''}${token ? `&token=${token}` : ''}`;
 }
 
 /**
@@ -186,8 +209,9 @@ export function makeAuthenticatedUrl(
 
 /**
  * Rewrite every eligible href in an email body to its autologin form. One
- * code is generated per recipient and reused across links (it never expires),
- * so this costs a single HMAC regardless of link count.
+ * code is generated per recipient and reused across every link in the message,
+ * so this costs a single HMAC regardless of link count. The v1 code's issue
+ * stamp is day-granular precisely so that stays true (lib/autologinCode.js).
  *
  * @param {string} html
  * @param {string} email
