@@ -846,6 +846,14 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  source: `lead_magnet_${variant}`,
  locale: navigator.language || 'it-IT',
  isActive: true,
+ // The recipient typed their address into this form and pressed the
+ // button — a deliberate act, the one thing that may lift a recorded
+ // opt-out (#5672). Without it an unsubscribed reader would see the
+ // success state and receive nothing: `isActive: true` makes this a
+ // promotion, which the guard declines, and neither the confirmation nor
+ // the welcome email fires for a document left `unsubscribed`. Never set
+ // it from an authentication event.
+ reconsent: true,
  leadMagnet: variant,
  }),
  8000,

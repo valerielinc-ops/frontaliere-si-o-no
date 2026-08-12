@@ -35,6 +35,8 @@
  */
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { createHmac } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
 const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({ id: 'evt-1' }));
@@ -388,5 +390,42 @@ describe('the two unsubscribe paths leave the same observable state', () => {
       nowMs,
     });
     expect(verdict.restore).toBe(false);
+  });
+});
+
+// ── Who may lift an opt-out, at the call sites ───────────────────────────────
+
+describe('reconsent is wired to deliberate acts and to nothing else', () => {
+  // `isActive: true` makes an upsert a PROMOTION, which is the only thing the
+  // guard declines. So exactly the callers passing it have to be classified:
+  // a typed-address form is a deliberate act and gets `reconsent`, an effect
+  // that fires off an authentication does not. Getting this wrong is silent
+  // in both directions — a missing flag shows the reader a success state and
+  // sends them nothing, a spurious one reopens the ring — so the classification
+  // is pinned here rather than left to a reviewer's memory.
+  const read = (rel: string) => readFileSync(path.resolve(__dirname, '..', rel), 'utf8');
+
+  it('the two subscribe FORMS that promote to active carry it', () => {
+    for (const rel of ['components/shared/LeadMagnetCTA.tsx', 'components/community/WeeklyDigest.tsx']) {
+      const src = read(rel);
+      expect(src, `${rel} promotes to active`).toMatch(/isActive:\s*true/);
+      expect(src, `${rel} must declare the deliberate act`).toMatch(/reconsent:\s*true/);
+    }
+  });
+
+  it('the publisher gate\'s sign-in effect does NOT', () => {
+    // PublisherPublishPage's social branch runs from a useEffect on the auth
+    // user, behind the same localStorage flag as the other three
+    // auto-subscribe effects — a fourth sibling of the ring, not a form.
+    // Its "implicit consent" is not consent to resume refused mail.
+    const src = read('components/pages/PublisherPublishPage.tsx');
+    expect(src).toMatch(/source:\s*'publisher_gate_social'/);
+    expect(src).not.toMatch(/reconsent/);
+  });
+
+  it('no sign-in path grants it', () => {
+    for (const rel of ['App.tsx', 'hooks/useUserState.ts', 'services/authService.ts']) {
+      expect(read(rel), `${rel} must never assert re-consent from an auth event`).not.toMatch(/reconsent/);
+    }
   });
 });
