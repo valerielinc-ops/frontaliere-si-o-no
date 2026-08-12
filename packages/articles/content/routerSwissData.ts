@@ -775,6 +775,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-e-prestazioni-complementari-canton-zurigo': { it: 'avs-e-prestazioni-complementari-canton-zurigo', en: 'avs-and-complementary-benefits-canton-zurich', de: 'avs-und-komplementaere-vorteile-kanton-zuerich', fr: 'avs-et-prestations-complementaires-canton-zurich' },
  'abbonamenti-trasporti-pubblici-canton-zurigo': { it: 'abbonamenti-trasporti-pubblici-canton-zurigo', en: 'public-transport-abonnements-canton-zurich', de: 'offentliche-verkehr-abonnements-kanton-zurich', fr: 'transport-public-abonnements-canton-de-zurich' },
  'aprire-un-attivita-canton-zurigo': { it: 'aprire-un-attivita-canton-zurigo', en: 'start-business-canton-zurich', de: 'unternehmen-gruenden-kanton-zuerich', fr: 'creer-entreprise-canton-de-zurich' },
+ 'patente-di-guida-canton-zurigo-conversione-ed-esami': { it: 'patente-di-guida-canton-zurigo-conversione-ed-esami', en: 'driving-license-canton-zurigo-conversion', de: 'fuehrerschein-kanton-zu-rich-conversion', fr: 'permis-de-conduire-canton-de-zurich-conversion' },
+ 'salari-mercato-lavoro-zurigo': { it: 'salari-mercato-lavoro-zurigo', en: 'salaries-labor-market-canton-zurich', de: 'gehaelter-arbeitsmarkt-kanton-zuerich', fr: 'salaires-marche-travail-canton-zurich' },
+ 'imposta-di-succesione-e-donazione-canton-zurigo-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-zurigo-aliquote', en: 'inheritance-tax-and-donation-canton-zurich-rates', de: 'erbschaftssteuer-und-schenkungssteuer-kanton-zuerich-satz', fr: 'impot-de-succession-et-dons-canton-de-zurich-taux' },
+ 'caldo-prezzi-inflazione-climatica': { it: 'caldo-prezzi-inflazione-climatica', en: 'heat-prices-climate-inflation', de: 'hitze-preise-klimainflation', fr: 'chaleur-prix-inflation-climatique' },
+ 'come-usare-la-croce-svizzera-sui-prodotti-esteri': { it: 'come-usare-la-croce-svizzera-sui-prodotti-esteri', en: 'using-the-swiss-cross-on-imported-products', de: 'die-schweizer-kreuz-auf-importierten-produkten-verwenden', fr: 'utiliser-la-croix-suisse-sur-des-produits-importes' },
+ 'portale-informazione-svizzera-italiana': { it: 'portale-informazione-svizzera-italiana', en: 'information-portal-swiss-italians', de: 'informationsportal-schweiz', fr: 'portail-information-suisse-italienne' },
+ 'imposte-cantonal-berna-aliquote-deduzioni': { it: 'imposte-cantonal-berna-aliquote-deduzioni', en: 'imposte-cantonal-berna-aliquote-deduzioni', de: 'imposten-cantonal-berner-ertragssteuern-satz-berechnung', fr: 'impots-cantonaux-bernais-impots-surtaxes-berechnung' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
