@@ -15,6 +15,9 @@ import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/sha
 // module's own importers (nlNormLocale/directUrl/localizedUrl) are unaffected.
 import { nlNormLocale, directUrl, localizedUrl } from '../functions/src/lib/newsletterUrlPaths.js';
 export { nlNormLocale, directUrl, localizedUrl };
+// Data-controller identity for the footer (#5675) — see that file's header
+// for why the canonical home is functions/src/lib/, not services/.
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -652,6 +655,7 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${unsubLine}</div>
       ${prefsLine}
       <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 ${nlT(locale, 'copyright')}</div>
+      <div style="font-size:11px;color:#475569;margin-top:6px;">${dataControllerFooterLine(locale)}</div>
     </td></tr>`;
 }
 

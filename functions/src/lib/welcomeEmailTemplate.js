@@ -35,6 +35,7 @@
 
 import { LOCALE_PATH_MAP } from './newsletterUrlPaths.js';
 import { renderRecommendedBlock } from './recommendedBlock.js';
+import { dataControllerFooterLine } from './dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -349,6 +350,7 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
   return `
     <tr><td class="footer-pad" bgcolor="${BRAND_DARK}" style="background:${BRAND_DARK};padding:28px;text-align:center;">
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${escapeHtml(FOOTER_REASON[lang])} <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}/" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
+      <div style="font-size:11px;color:#475569;margin-top:8px;">${escapeHtml(dataControllerFooterLine(lang))}</div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsubscribeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${escapeHtml(UNSUB_LABEL[lang])}</a></div>
       ${prefsLine}
       <div style="font-size:12px;color:#475569;margin-top:12px;">Frontaliere Ticino</div>

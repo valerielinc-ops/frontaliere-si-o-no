@@ -44,6 +44,7 @@
  */
 
 import { nlNormLocale } from './newsletter-template.mjs';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 
 /** ESP tag / campaign namespace. The `company_alert.*` identity of this template. */
 export const COMPANY_ALERT_TEMPLATE_ID = 'company_alert';
@@ -491,6 +492,7 @@ ${body}${monoCta}
           <div style="margin-top:8px;">${escHtml(s.intendedFor(email))}</div>
           <div style="margin-top:8px;">${footerUnsub}
           </div>
+          <div style="margin-top:8px;">${escHtml(dataControllerFooterLine(loc))}</div>
         </td></tr>
 
       </table>
@@ -521,6 +523,8 @@ ${body}${monoCta}
     ...(multi ? [] : [`${s.unsubThis(headline.company)}: ${headline.unsubscribeUrl || ''}`]),
     `${s.unsubAll}: ${unsubscribeAllUrl}`,
     s.intendedFor(email),
+    '',
+    dataControllerFooterLine(loc),
   ].join('\n');
 
   return { subject, html, text, sections: shownSections };
