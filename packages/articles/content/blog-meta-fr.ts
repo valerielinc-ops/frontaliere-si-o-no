@@ -9773,6 +9773,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incubo-lariana-traffico-e-code.title': 'L\'incubo Lariana: traffico e code',
     'blog.article.incubo-lariana-traffico-e-code.excerpt': 'La route provinciale 583 Lariana est de plus en plus en proie à la circulation et pour les automobilistes, c\'est de plus en plus un cauchemar.',
     'blog.article.incubo-lariana-traffico-e-code.imageAlt': 'La route provinciale 583 Lariana est une connexion cruciale entre Como et Lecco.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Cadre RW : obligations de déclaration pour les comptes courants suisses',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'Les frontaliers doivent déclarer leurs comptes courants suisses à l\'Agence du revenu.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'Le lac de Lugano vu du mont San Salvatore.',
 };
 
 export default blogMetaFr;

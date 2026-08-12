@@ -9770,6 +9770,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incubo-lariana-traffico-e-code.title': 'Lariana-Strengspitze: Nesso im Verkehr',
     'blog.article.incubo-lariana-traffico-e-code.excerpt': 'Die Provinzstraße 583 Lariana wird immer mehr zum Opfer des Verkehrs und wird für Autofahrer immer mehr zum Albtraum.',
     'blog.article.incubo-lariana-traffico-e-code.imageAlt': 'Die Provinzialstraße 583 Lariana ist eine wichtige Verbindung zwischen Como und Lecco.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Übersicht RW: Meldepflichten für Schweizer Girokonten',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'Grenzgänger müssen ihre Schweizer Girokonten bei der Agentur für Einnahmen anmelden.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'Der See von Lugano gesehen vom Monte San Salvatore.',
 };
 
 export default blogMetaDe;

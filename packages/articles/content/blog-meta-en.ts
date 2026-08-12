@@ -9771,6 +9771,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incubo-lariana-traffico-e-code.title': 'Lariana Nightmare: Nesso Bottleneck',
     'blog.article.incubo-lariana-traffico-e-code.excerpt': 'The provincial road 583 Lariana is increasingly prey to traffic and for motorists it is increasingly a nightmare.',
     'blog.article.incubo-lariana-traffico-e-code.imageAlt': 'The provincial road 583 Lariana is a crucial connection between Como and Lecco.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Box RW: reporting obligations for Swiss current accounts',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'Border workers must declare their Swiss current accounts to the Revenue Agency.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'The Lake of Lugano seen from Mount San Salvatore.',
 };
 
 export default blogMetaEn;
