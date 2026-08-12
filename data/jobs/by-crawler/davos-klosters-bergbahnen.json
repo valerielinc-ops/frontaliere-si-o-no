@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-08-12T10:29:11.045Z",
+  "assembledAt": "2026-08-12T22:04:16.584Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-7616c1c8e0b7",
@@ -43,7 +43,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Koch-in-Restaurant-Bolgen-Plaza_j_2532814",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:07.895Z",
+      "crawledAt": "2026-08-12T22:04:13.517Z",
       "previousSlugs": [
         "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
         "cucina-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
@@ -111,7 +111,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hilfskoch-in-am-Rinerhorn_j_3022542",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:07.606Z",
+      "crawledAt": "2026-08-12T22:04:13.212Z",
       "previousSlugs": [
         "hilfskoch-in-am-rinerhorn-davos-klosters-bergbahnen-davos",
         "assistente-cuoco-in-am-rinerhorn-davos-klosters-bergbahnen-ag-davos"
@@ -185,7 +185,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:07.326Z",
+      "crawledAt": "2026-08-12T22:04:12.932Z",
       "previousSlugs": [
         "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-ag-davos",
         "capopartita-hotel-waldhuus-davos-klosters-bergbahnen-ag-davos",
@@ -265,7 +265,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:07.038Z",
+      "crawledAt": "2026-08-12T22:04:12.657Z",
       "previousSlugs": [
         "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
         "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
@@ -339,7 +339,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:06.772Z",
+      "crawledAt": "2026-08-12T22:04:12.378Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "azienda-carpenter-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
@@ -428,7 +428,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Beschneier-in_j_2425565",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:06.493Z",
+      "crawledAt": "2026-08-12T22:04:12.107Z",
       "previousSlugs": [
         "beschneier-in-davos-klosters-bergbahnen-davos",
         "neve-in-davos-klosters-bergbahnen-ag-davos"
@@ -462,33 +462,35 @@
       "addressRegion": "GR"
     },
     {
-      "id": "davos-klosters-bergbahnen-d95b5ed0bba3",
-      "slug": "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos",
+      "id": "davos-klosters-bergbahnen-76fd4fc4bd14",
+      "slug": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
       "slugByLocale": {
-        "it": "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos",
-        "en": "allrounder-in-mountain-restaurant-jatzmeder-davos-klosters-bergbahnen-ag-davos",
         "de": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
-        "fr": "allrounder-dans-le-restaurant-de-montagne-jatzmeder-davos-klosters-bergbahnen-ag-davos"
+        "it": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
+        "en": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
+        "fr": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
       "companyDomain": "davosklosters.ch",
       "title": "Allrounder:in Bergrestaurant Jatzmeder",
       "titleByLocale": {
-        "it": "Allrounder: nel ristorante di montagna Jatzmeder",
-        "en": "Allrounder: in mountain restaurant Jatzmeder",
         "de": "Allrounder:in Bergrestaurant Jatzmeder",
-        "fr": "Allrounder: dans le restaurant de montagne Jatzmeder"
+        "it": "Allrounder:in Bergrestaurant Jatzmeder",
+        "en": "Allrounder:in Bergrestaurant Jatzmeder",
+        "fr": "Allrounder:in Bergrestaurant Jatzmeder"
       },
-      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel.\nAb sofort bis zum Ende der Sommersaison 2026 suchen wir für das\nBergrestaurant Jatzmeder eine Person als:\nAllrounder:in / Küchenhilfe 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem\nherrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser\nSonnenterrasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
       "descriptionByLocale": {
-        "it": "Le montagne di Davos Klosters sono cinque stazioni di montagna e sci nel Bundner Alpen. Oltre al\nDavos Klosters Bergbahnen AG gestisce alberghi di montagna e\nResorts oltre 23 alloggi dalla semplice casa di gruppo al upscale quattro stelle superior\nHotel.\nPer la prossima stagione invernale 2026/27 stiamo cercando il ristorante di montagna Jatzmeder\nnella zona sportiva invernale di Rinerhorn, una persona come:\nAllrounder: in 80 - 100%\nIl ristorante\nIl ristorante di montagna Jatzmeder si trova ad un’altitudine di 2’054 metri sopra il mare in un magnifico\nZona sciistica ed escursionistica. Il ristorante dispone di 600 posti a sedere, tra cui una grande terrazza solarium.\nI tuoi compiti\n• Assumere lavori di pulizia generale come lavandini o tavoli\n• Assistenza con lavoro in cucina\n• Preparazione della terrazza per il servizio giornaliero\n• Attuazione della consegna e stoccaggio dei prodotti\n• implementazione generale del lavoro di pulizia secondo le linee guida HACCP\nIl tuo profilo\n• Metodo di lavoro: Hai una rapida ammissione, come lavorare indipendentemente, sono\nAffidabile e flessibile\n• Giocatore di squadra: Ti piace lavorare in una squadra e sono anche pronti in altri compiti\nAiuto\n• Assegnazione: Tieni traccia delle situazioni frenetiche, gli incarichi sono nel fine settimana\nVa bene per te\n• Lingua: hai buone competenze in lingua tedesca e inglese per iscritto e\nLingua e capire il dialetto\nOffriamo\n• Squadra forte con un'atmosfera di lavoro flessibile e positiva\n• Lavoro interessante e vario con un alto livello di indipendenza\n• Ore lavorative regolate principalmente con i servizi diurni\n• Mappa stagionale delle ferrovie di montagna Davos Klosters\n• Posizionamento di appartamenti o camere del personale\n• Sala fitness per condizioni speciali\n• Vantaggi interessanti per le offerte e i servizi interni\nSe siete interessati, non vediamo l'ora di ricevere i documenti della domanda.",
-        "en": "The Davos Klosters Mountains are five mountain and ski resorts in the Bundner Alpen. In addition to the\nDavos Klosters Bergbahnen AG operates mountain hotels and\nResorts over 23 accommodations from the simple group house to the upscale four-star superior\nHotel.\nFor the upcoming winter season 2026/27 we are looking for the mountain restaurant Jatzmeder\nin the Rinerhorn winter sports area, one person as:\nAllrounder: in 80 - 100%\nThe restaurant\nThe mountain restaurant Jatzmeder is located at an altitude of 2’054 meters above the sea in a magnificent\nSki and hiking area. The restaurant has 600 seats including a large sun terrace.\nYour tasks\n• Taking over general cleaning work such as sinks or tables\n• Assistance with work in the kitchen\n• Preparation of the terrace for day service\n• Implementation of delivery and storage of products\n• General implementation of cleaning work according to HACCP guidelines\nYour profile\n• Working method: You have a quick apprehension, like to work independently, are\nReliable and flexible\n• Team player: You like working in a team and are also ready in other tasks\nHelping\n• Assignment: You keep track of hectic situations, assignments are on the weekend\nAll right for you\n• Language: You have good German and English language skills in writing and\nLanguage and understand dialect\nWe offer\n• Strong team with a flexible and positive working atmosphere\n• Interesting and varied job with a high level of independence\n• Mainly regulated working hours with day services\n• Seasonal map of Davos Klosters mountain railways\n• Placement of staff apartments or rooms\n• Fitness room for special conditions\n• Attractive benefits for internal offers and services\nIf you are interested, we look forward to receiving the application documents.",
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior\nHotel.\nFür die kommende Wintersaison 2026/27 suchen wir für das Bergrestaurant Jatzmeder\nim Wintersportgebiet Rinerhorn eine Person als:\nAllrounder:in 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem herrlichen\nSki- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser Sonnenterasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Les monts Davos Klosters sont cinq stations de montagne et de ski dans le Bundner Alpen. En plus de\nDavos Klosters Bergbahnen AG exploite des hôtels de montagne et\nResorts plus de 23 hébergements de la simple maison de groupe au haut de gamme quatre étoiles supérieur\nHôtel.\nPour la prochaine saison d'hiver 2026/27 nous sommes à la recherche du restaurant de montagne Jatzmeder\ndans la zone de sports d'hiver Rinerhorn, une personne comme:\nAllrounder: dans 80 - 100%\nLe restaurant\nLe restaurant de montagne Jatzmeder est situé à une altitude de 2'054 mètres au-dessus de la mer dans un magnifique\nStation de ski et de randonnée. Le restaurant dispose de 600 places, dont une grande terrasse bien exposée.\nVos tâches\n• Reprise des travaux généraux de nettoyage tels que des éviers ou des tables\n• Assistance au travail dans la cuisine\n• Préparation de la terrasse pour le service de jour\n• Mise en œuvre de la livraison et du stockage des produits\n• Mise en œuvre générale des travaux de nettoyage conformément aux directives HACCP\nVotre profil\n• Méthode de travail: Vous avez une appréhension rapide, comme travailler indépendamment, sont\nFiabilité et flexibilité\n• Joueur d'équipe: Vous aimez travailler en équipe et êtes également prêt dans d'autres tâches\nAide\n• Affectation: Vous gardez une trace des situations agitées, les affectations sont le week-end\nTrès bien pour toi.\n• Langue: Vous avez de bonnes compétences en allemand et en anglais dans l'écriture et\nLangue et compréhension du dialecte\nNous offrons\n• Forte équipe avec une atmosphère de travail flexible et positive\n• Emploi intéressant et varié avec un haut niveau d'indépendance\n• Heures de travail essentiellement réglementées avec services de jour\n• Carte saisonnière des chemins de fer de montagne de Davos Klosters\n• Emplacement des appartements ou chambres du personnel\n• Salle de fitness pour conditions spéciales\n• Avantages attrayants pour les offres et services internes\nSi vous êtes intéressé, nous sommes impatients de recevoir les documents de demande."
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel.\nAb sofort bis zum Ende der Sommersaison 2026 suchen wir für das\nBergrestaurant Jatzmeder eine Person als:\nAllrounder:in / Küchenhilfe 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem\nherrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser\nSonnenterrasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel.\nAb sofort bis zum Ende der Sommersaison 2026 suchen wir für das\nBergrestaurant Jatzmeder eine Person als:\nAllrounder:in / Küchenhilfe 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem\nherrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser\nSonnenterrasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel.\nAb sofort bis zum Ende der Sommersaison 2026 suchen wir für das\nBergrestaurant Jatzmeder eine Person als:\nAllrounder:in / Küchenhilfe 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem\nherrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser\nSonnenterrasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
+        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel.\nAb sofort bis zum Ende der Sommersaison 2026 suchen wir für das\nBergrestaurant Jatzmeder eine Person als:\nAllrounder:in / Küchenhilfe 80 - 100%\nDas Restaurant\nDas Bergrestaurant Jatzmeder liegt auf einer Höhe von 2‘054 Metern über Meer in einem\nherrlichen Ski- und Wandergebiet. Das Restaurant verfügt über 600 Sitzplätze inklusive grosser\nSonnenterrasse.\nDeine Aufgaben\n• Übernahme von allgemeinen Reinigungsarbeiten wie Spülen oder Tische abräumen\n• Mithilfe bei Arbeiten in der Küche\n• Vorbereitung der Terrasse für den Tagesservice\n• Umsetzung der Anlieferung und Verstauung von Produkten\n• Allgemeine Umsetzung von Reinigungsarbeiten nach HACCP-Richtlinien\nDein Profil\n• Arbeitsweise: Du hast eine schnelle Auffassungsgabe, arbeitest gerne selbstständig, bist\nzuverlässig und flexibel\n• Teamplayer: Du arbeitest gerne im Team und bist bereit auch in anderen Aufgabenbereichen\nmitzuhelfen\n• Einsatz: Du behältst in hektischen Situationen den Überblick, Einsätze am Wochenende sind\nfür dich in Ordnung\n• Sprache: Du verfügst über gute deutsche sowie englische Sprachkenntnisse in Schrift und\nSprache und verstehst Dialekt\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Vorwiegend geregelte Arbeitszeiten mit Tagdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen."
       },
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "location": "Davos",
       "canton": "GR",
       "addressLocality": "Davos",
@@ -499,28 +501,27 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-24",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3004218",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:06.241Z",
+      "crawledAt": "2026-08-12T22:04:11.827Z",
       "previousSlugs": [
-        "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
-        "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos"
+        "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos",
+        "allrounder-in-mountain-restaurant-jatzmeder-davos-klosters-bergbahnen-ag-davos",
+        "allrounder-dans-le-restaurant-de-montagne-jatzmeder-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
           "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
-          "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
+          "allrounder-in-mountain-restaurant-jatzmeder-davos-klosters-bergbahnen-ag-davos"
         ],
         "fr": [
-          "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos"
+          "allrounder-dans-le-restaurant-de-montagne-jatzmeder-davos-klosters-bergbahnen-ag-davos"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T21:56:17.794Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -533,7 +534,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-12T22:04:11.827Z"
     },
     {
       "id": "davos-klosters-bergbahnen-7fd2202b6ea7",
@@ -576,7 +578,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:29:05.668Z",
+      "crawledAt": "2026-08-12T22:04:11.259Z",
       "previousSlugs": [
         "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
         "tuttofare-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
@@ -602,143 +604,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "davos-klosters-bergbahnen-351e8fcd1983",
-      "slug": "collaboratore-trice-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
-      "slugByLocale": {
-        "it": "collaboratore-trice-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
-        "en": "collaboratore-trice-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-ag-davos",
-        "de": "mitarbeiter-in-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-        "fr": "collaboratore-trice-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
-      },
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen",
-      "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Bar Restaurant Bolgen Plaza",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Bar Restaurant Bolgen Plaza",
-        "en": "Associate Bar Restaurant Bolgen Plaza",
-        "de": "Mitarbeiter:in Bar Restaurant Bolgen Plaza",
-        "fr": "Collaborateur/trice Bar Restaurant Bolgen Plaza"
-      },
-      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel\nFür die kommende Wintersaison 2026/27 suchen wir für das Restaurant Bolgen Plaza bei\nder Talstation Jakobshorn eine Person als:\nMitarbeiter:in Bar 100%\nDas Restaurant\nDas Bolgen Plaza am Fusse des Jakobshorns ist ein Treffpunkt über das ganze Jahr und verfügt\nüber 150 Sitzplätze und eine grosse Sonnenterasse. Das Restaurant besticht mit seiner sehr\nzentralen Lage und der gutbürgerlichen Küche.\nDeine Aufgaben\n• Mise en place der Bar\n• Zubereitung und Ausschank aller Getränke\n• Unterhalt der Bar während des ganzen Abends (Reinigung von Theke, Aschenbechern und\nGläser)\n• Kontaktpflege der Gäste\n• Bedienen der Kasse sowie des Kreditkartenterminals inkl. Abrechnung aller Kassen sowie\nSicherstellung des gesamten Geldflusses\n• Auffüllen des Getränkesortiments an der Bar\n• Reinigung des gesamten Lokals\n• Kontrolle und Einhaltung der Hygienevorschriften\nDein Profil\n• Ausbildung: Du besitzt Erfahrung im Bereich der Gastronomie oder einem ähnlichen Bereich\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Zahlenbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich und aufmerksam\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse.\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagesdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Le montagne di Davos Klosters sono cinque stazioni di montagna e sci nel Bundner Alpen. Oltre al\nDavos Klosters Bergbahnen AG opera alberghi di montagna e\nResorts oltre 23 alloggi dalla semplice casa di gruppo a quattro stelle\nHotel Superior\nPer la prossima stagione invernale 2026/27 stiamo cercando il ristorante Bolgen Plaza\nla stazione di valle Jakobshorn una persona come:\nDipendente: 100% bar\nIl ristorante\nIl Bolgen Plaza ai piedi del Jakobshorn è un punto di incontro durante tutto l'anno e ha\nOltre 150 posti a sedere e una grande terrazza solarium. Il ristorante affascina con la sua\nPosizione centrale e buona cucina borghese.\nI tuoi compiti\n• Mise en place del bar\n• Preparazione e distribuzione di tutte le bevande\n• Manutenzione del bar per tutta la sera (pulizia di contatori, posacenere e\nVetro\n• Gestione dei contatti degli ospiti\n• Operazione del checkout e del terminal della carta di credito, incl. contabilità di tutti i fondi e\nAssicurare l'intero flusso di denaro\n• Riempire la gamma di bevande al bar\n• Pulizia di tutto il posto\n• Controllo e conformità alle norme igieniche\nIl tuo profilo\n• Istruzione: Hai esperienza nel campo della gastronomia o un campo simile\n• Metodo di lavoro: Si lavora in modo affidabile e indipendente, sono motivati e hanno un alto\nServizio e consapevolezza numerica\n• Personalità: Sei aperta, amichevole e attento\n• Lingua: Hai una buona conoscenza orale e scritta del tedesco.\nOffriamo\n• Un team forte con un ambiente di lavoro flessibile e positivo\n• Lavoro interessante e vario con un alto livello di indipendenza\n• Ore lavorative regolate principalmente con i servizi diurni\n• Mappa stagionale delle ferrovie di montagna Davos Klosters\n• Posizionamento di appartamenti o camere del personale\n• Sala fitness per condizioni speciali\n• Vantaggi interessanti per le offerte e i servizi interni\nSe siete interessati, non vediamo l'ora di ricevere i documenti della domanda.",
-        "en": "The Davos Klosters Mountains are five mountain and ski resorts in the Bundner Alpen. In addition to the\nDavos Klosters Bergbahnen AG operates mountain hotels and\nResorts over 23 accommodations from the simple group house to the upscale four-star\nSuperior Hotel\nFor the upcoming winter season 2026/27 we are looking for the restaurant Bolgen Plaza\nthe valley station Jakobshorn a person as:\nEmployee: 100% bar\nThe restaurant\nThe Bolgen Plaza at the foot of the Jakobshorn is a meeting point throughout the year and has\nOver 150 seats and a large sun terrace. The restaurant captivates with its very\nCentral location and good bourgeois cuisine.\nYour tasks\n• Mise en place of the bar\n• Preparation and distribution of all drinks\n• Maintenance of the bar throughout the evening (cleaning of counters, ashtrays and\nGlasses\n• Contact management of guests\n• Operation of the checkout and the credit card terminal incl. accounting of all funds and\nEnsuring the entire flow of money\n• Filling up the drink range at the bar\n• Cleaning the whole place\n• Control and compliance with hygiene rules\nYour profile\n• Education: You have experience in the field of gastronomy or a similar field\n• Working method: You work reliably and independently, are motivated and have a high\nService and numerical awareness\n• Personality: You are open-minded, friendly and attentive\n• Language: You have good oral and written knowledge of German.\nWe offer\n• Strong team with a flexible and positive working environment\n• Interesting and varied job with a high level of independence\n• Mainly regulated working hours with day services\n• Seasonal map of Davos Klosters mountain railways\n• Placement of staff apartments or rooms\n• Fitness room for special conditions\n• Attractive benefits for internal offers and services\nIf you are interested, we look forward to receiving the application documents.",
-        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und\nResorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-\nSuperior Hotel\nFür die kommende Wintersaison 2026/27 suchen wir für das Restaurant Bolgen Plaza bei\nder Talstation Jakobshorn eine Person als:\nMitarbeiter:in Bar 100%\nDas Restaurant\nDas Bolgen Plaza am Fusse des Jakobshorns ist ein Treffpunkt über das ganze Jahr und verfügt\nüber 150 Sitzplätze und eine grosse Sonnenterasse. Das Restaurant besticht mit seiner sehr\nzentralen Lage und der gutbürgerlichen Küche.\nDeine Aufgaben\n• Mise en place der Bar\n• Zubereitung und Ausschank aller Getränke\n• Unterhalt der Bar während des ganzen Abends (Reinigung von Theke, Aschenbechern und\nGläser)\n• Kontaktpflege der Gäste\n• Bedienen der Kasse sowie des Kreditkartenterminals inkl. Abrechnung aller Kassen sowie\nSicherstellung des gesamten Geldflusses\n• Auffüllen des Getränkesortiments an der Bar\n• Reinigung des gesamten Lokals\n• Kontrolle und Einhaltung der Hygienevorschriften\nDein Profil\n• Ausbildung: Du besitzt Erfahrung im Bereich der Gastronomie oder einem ähnlichen Bereich\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Zahlenbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich und aufmerksam\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse.\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Interessante und abwechslungsreiche Arbeitsstelle mit hoher Selbstständigkeit\n• Vorwiegend geregelte Arbeitszeiten mit Tagesdiensten\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Les monts Davos Klosters sont cinq stations de montagne et de ski dans le Bundner Alpen. En plus de\nDavos Klosters Bergbahnen AG exploite des hôtels de montagne et\nResorts plus de 23 hébergements de la simple maison de groupe à la haute quatre étoiles\nHôtel Supérieur\nPour la prochaine saison d'hiver 2026/27 nous cherchons le restaurant Bolgen Plaza\nla station de la vallée Jakobshorn une personne comme:\nEmployé: 100% bar\nLe restaurant\nLe Bolgen Plaza au pied du Jakobshorn est un point de rencontre tout au long de l'année et a\nPlus de 150 places et une grande terrasse ensoleillée. Le restaurant captive avec son\nSituation centrale et bonne cuisine bourgeoise.\nVos tâches\n• Mise en place du bar\n• Préparation et distribution de toutes les boissons\n• Entretien du bar tout au long de la soirée (nettoyage des comptoirs, cendriers et\nVerres\n• Contact gestion des invités\n• Fonctionnement de la caisse et du terminal de carte de crédit y compris la comptabilité de tous les fonds et\nAssurer la totalité des flux d'argent\n• Remplir la gamme de boissons au bar\n• Nettoyer tout l'endroit\n• Contrôle et respect des règles d'hygiène\nVotre profil\n• Éducation: Vous avez une expérience dans le domaine de la gastronomie ou un domaine similaire\n• Méthode de travail: Vous travaillez de manière fiable et indépendante, sont motivés et ont un haut\nService et sensibilisation numérique\n• Personnalité : Vous êtes ouvert d'esprit, amical et attentif\n• Langue: Vous avez une bonne connaissance orale et écrite de l'allemand.\nNous offrons\n• Une équipe forte avec un environnement de travail flexible et positif\n• Emploi intéressant et varié avec un haut niveau d'indépendance\n• Heures de travail principalement réglementées avec services de jour\n• Carte saisonnière des chemins de fer de montagne de Davos Klosters\n• Placement des appartements ou chambres du personnel\n• Salle de fitness pour conditions spéciales\n• Avantages attrayants pour les offres et services internes\nSi vous êtes intéressé, nous espérons recevoir les documents de demande."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bar-Restaurant-Bolgen-Plaza_j_3308568",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:29:49.232Z",
-      "previousSlugs": [
-        "mitarbeiter-in-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-bar-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T23:10:28.217Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
-      "id": "davos-klosters-bergbahnen-5e1cfaff22c3",
-      "slug": "collaboratore-trice-abendkasse-rinerhorn-davos-klosters-bergbahnen-ag-davos",
-      "slugByLocale": {
-        "it": "collaboratore-trice-abendkasse-rinerhorn-davos-klosters-bergbahnen-ag-davos",
-        "en": "mitarbeiter-in-abendkasse-rinerhorn-davos-klosters-bergbahnen-davos",
-        "de": "mitarbeiter-in-abendkasse-rinerhorn-davos-klosters-bergbahnen-davos",
-        "fr": "collaborateur-trice-abendkasse-rinerhorn-davos-klosters-bergbahnen-ag-davos"
-      },
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen",
-      "companyDomain": "davosklosters.ch",
-      "title": "Mitarbeiter:in Abendkasse Rinerhorn",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Abendkasse Rinerhorn",
-        "en": "Associate Abendkasse Rinerhorn",
-        "de": "Mitarbeiter:in Abendkasse Rinerhorn",
-        "fr": "Collaborateur/trice Abendkasse Rinerhorn"
-      },
-      "description": "Die Bergbahnen Rinerhorn AG ist eines von fünf Ski- sowie Wander- und Bikegebieten der Region Davos\nKlosters. Das Angebot besteht aus einer Sechser-Gondelbahn und sechs Skiliften, mehreren Gastronomie-\nbetrieben und einem Campingplatz bei der Talstation. Im Winter ist das Rinerhorn ein sehr schneesicheres\nSkigebiet mit einer attraktiven Schlittelpiste.\nFür die kommende Wintersaison 2026/27 ab 14. Dezember 2026\n(immer am Mittwoch- und Freitagabend) suchen wir für den Betrieb Rinerhorn eine Person als\nMitarbeiter:in Abendkasse 20%\nDeine Aufgaben\n• Verkauf von Bergbahntickets während dem Nachtskifahren und -schlitteln am Rinerhorn\n• Direkter Gästekontakt und -betreuung unserer Kunden\n• Information der Gäste über das Wintersportgebiet Rinerhorn\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Zahlenbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und magst den Kontakt mit\nKunden\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse sowie\nEnglischkenntnisse\n• Einsatz: Du bist bereit am Mittwoch- und Freitagabend zwischen 18.30 – 22.30 Uhr zu arbeiten\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen/ oder -zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-      "descriptionByLocale": {
-        "it": "Bergbahnen Rinerhorn AG è una delle cinque aree sciistiche, escursionistiche e mountain bike della regione di Davos Klosters. L'offerta è composta da sei cabinovie e sei impianti di risalita, diversi ristoranti e un campeggio vicino alla stazione a valle. In inverno il Rinerhorn è un comprensorio sciistico molto innevato con una pista da sci attraente. Per la prossima stagione invernale 2026/27 dal 14 dicembre 2026 (sempre mercoledì e venerdì sera) stiamo cercando una persona come dipendente per la società Rinerhorn: in box office 20% I vostri compiti\n• Vendita di biglietti ferroviari di montagna durante lo sci notturno e pattinaggio sul Rinerhorn\n• Contatto diretto e supporto dei nostri clienti\n• Informazioni per gli ospiti sulla zona sportiva invernale Rinerhorn Il tuo profilo\n• Metodo di lavoro: Si lavora in modo affidabile e indipendente, sono motivati e hanno un'alta consapevolezza di servizi e numeri\n• Personalità: Sei aperto, amichevole, attento e come contatto con i clienti\n• Lingua: Hai una buona conoscenza orale e scritta di tedesco e inglese\n• Assegnazione: Siete pronti a lavorare mercoledì e venerdì sera tra le 18.30 e le 22.30 Offriamo\n• Stabilito, giovane squadra con un'atmosfera di lavoro positiva\n• Mappa stagionale delle ferrovie di montagna Davos Klosters\n• Posizionamento degli appartamenti/camere del personale\n• Sala fitness per condizioni speciali\n• Vantaggi interessanti per le offerte e i servizi interni Se siete interessati, siamo lieti di ricevere i documenti della domanda.",
-        "en": "Bergbahnen Rinerhorn AG is one of five skiing, hiking and biking areas in the Davos Klosters region. The offer consists of a six gondola railway and six ski lifts, several restaurants and a campsite near the valley station. In winter, the Rinerhorn is a very snowproof ski area with an attractive ski slope. For the coming winter season 2026/27 from 14 December 2026 (always on Wednesday and Friday evenings) we are looking for a person as an employee for the company Rinerhorn: in box office 20% Your tasks\n• Sale of mountain railway tickets during night skiing and skating on the Rinerhorn\n• Direct guest contact and support of our customers\n• Information for guests about the Rinerhorn winter sports area Your profile\n• Working method: You work reliably and independently, are motivated and have a high awareness of services and numbers\n• Personality: You are open-minded, friendly, attentive and like contact with customers\n• Language: You have good oral and written knowledge of German and English\n• Assignment: You are ready to work on Wednesday and Friday evenings between 18.30 and 22.30 We offer\n• Established, young team with a positive working atmosphere\n• Seasonal map of Davos Klosters mountain railways\n• Placement of staff apartments/rooms\n• Fitness room for special conditions\n• Attractive benefits for internal offers and services If you are interested, we are pleased to receive the application documents.",
-        "de": "Die Bergbahnen Rinerhorn AG ist eines von fünf Ski- sowie Wander- und Bikegebieten der Region Davos\nKlosters. Das Angebot besteht aus einer Sechser-Gondelbahn und sechs Skiliften, mehreren Gastronomie-\nbetrieben und einem Campingplatz bei der Talstation. Im Winter ist das Rinerhorn ein sehr schneesicheres\nSkigebiet mit einer attraktiven Schlittelpiste.\nFür die kommende Wintersaison 2026/27 ab 14. Dezember 2026\n(immer am Mittwoch- und Freitagabend) suchen wir für den Betrieb Rinerhorn eine Person als\nMitarbeiter:in Abendkasse 20%\nDeine Aufgaben\n• Verkauf von Bergbahntickets während dem Nachtskifahren und -schlitteln am Rinerhorn\n• Direkter Gästekontakt und -betreuung unserer Kunden\n• Information der Gäste über das Wintersportgebiet Rinerhorn\nDein Profil\n• Arbeitsweise: Du arbeitest zuverlässig und selbstständig, bist motiviert und besitzt ein hohes\nDienstleistungs- und Zahlenbewusstsein\n• Persönlichkeit: Du bist aufgeschlossen, freundlich, aufmerksam und magst den Kontakt mit\nKunden\n• Sprache: Du verfügst über gute mündliche und schriftliche Deutschkenntnisse sowie\nEnglischkenntnisse\n• Einsatz: Du bist bereit am Mittwoch- und Freitagabend zwischen 18.30 – 22.30 Uhr zu arbeiten\nWir bieten\n• Aufgestelltes, junges Team mit positivem Arbeitsklima\n• Saisonkarte der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen/ oder -zimmern\n• Fitnessraum zu Spezialkonditionen\n• Attraktive Benefits für interne Angebote und Leistungen\nBei Interesse freuen wir uns über die Zusendung der Bewerbungsunterlagen.",
-        "fr": "Bergbahnen Rinerhorn AG est l'un des cinq domaines de ski, de randonnée et de vélo dans la région de Davos Klosters. L'offre comprend six télécabines et six remontées mécaniques, plusieurs restaurants et un camping près de la station de la vallée. En hiver, le Rinerhorn est un domaine skiable très enneigé avec une belle piste de ski. Pour la prochaine saison d'hiver 2026/27 du 14 décembre 2026 (toujours le mercredi et vendredi soirs) nous recherchons une personne en tant qu'employé pour l'entreprise Rinerhorn: à la billetterie 20% Vos tâches\n• Vente de billets de train de montagne pendant le ski de nuit et le patinage sur le Rinerhorn\n• Contact client direct et support de nos clients\n• Informations pour les clients sur l'aire de sports d'hiver Rinerhorn Votre profil\n• Méthode de travail : Vous travaillez de manière fiable et indépendante, vous êtes motivé et vous êtes très conscient des services et des chiffres\n• Personnalité: Vous êtes ouvert d'esprit, amical, attentif et comme contact avec les clients\n• Langue: Vous avez une bonne connaissance orale et écrite de l'allemand et de l'anglais\n• Affectation: Vous êtes prêt à travailler le mercredi et le vendredi soir entre 18.30 et 22.30 Nous offrons\n• Etabli, jeune équipe avec une atmosphère de travail positive\n• Carte saisonnière des chemins de fer de montagne de Davos Klosters\n• Placement des appartements/chambres du personnel\n• Salle de fitness pour conditions spéciales\n• Avantages attrayants pour les offres et services internes Si vous êtes intéressé, nous sommes heureux de recevoir les documents de candidature."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Abendkasse-Rinerhorn_j_3902372",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:29:48.912Z",
-      "previousSlugs": [
-        "mitarbeiter-in-abendkasse-rinerhorn-davos-klosters-bergbahnen-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-abendkasse-rinerhorn-davos-klosters-bergbahnen-davos"
-        ],
-        "fr": [
-          "mitarbeiter-in-abendkasse-rinerhorn-davos-klosters-bergbahnen-davos"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:17:04.845Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }
