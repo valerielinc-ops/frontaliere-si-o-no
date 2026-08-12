@@ -1,18 +1,55 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-08-11T21:50:23.755Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-12T10:17:27.412Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 26927,
-  "avgDurationMs": 26927,
+  "unchangedCount": 1,
+  "durationMs": 23484,
+  "avgDurationMs": 23484,
   "durationHistory": [
-    26927
+    23484
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vitrea-gesundheit-d31e216ef397",
+      "slug": "physiotherapeutin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "PhysiotherapeutIn (a) 80-100%",
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/qdmiaqy8io593p97jxyjgg9yx6xgekx",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T10:17:08.799Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/qdmiaqy8io593p97jxyjgg9yx6xgekx",
+      "_qualityScore": 53,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "vitrea-gesundheit-276219928cc5",
@@ -27,7 +64,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/vdnphaddx35mq5afxy85knsqykfnjky",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:02.645Z",
+      "crawledAt": "2026-08-12T10:17:10.531Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/pvbf9h8flu8qlee7n4m0z1gqordzdnu",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:04.401Z",
+      "crawledAt": "2026-08-12T10:17:12.646Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/hm53jr8wku71z4o2adru1vd2z2elqxz",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:06.586Z",
+      "crawledAt": "2026-08-12T10:17:14.324Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/zlzq7od0acoxzegwlgctykh1iocnblc",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:08.835Z",
+      "crawledAt": "2026-08-12T10:17:16.116Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ur56n6k0jkpkt14fhi6m4k1oujhtskk",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:10.607Z",
+      "crawledAt": "2026-08-12T10:17:18.315Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/rw70b75ijl93j57a9vq0c5iwvdadimc",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:12.822Z",
+      "crawledAt": "2026-08-12T10:17:19.545Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/e5nuihlksolkupnw27z0wsa2ilw559a",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:14.582Z",
+      "crawledAt": "2026-08-12T10:17:20.840Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/20tht1mi5zj9ye6h9ukd9453uutlpya",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:16.746Z",
+      "crawledAt": "2026-08-12T10:17:22.985Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/px5f1dtlxxb4v4qoydpxw5tryzkzbgg",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:50:18.428Z",
+      "crawledAt": "2026-08-12T10:17:24.735Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -346,15 +383,17 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "vitrea-gesundheit-8a8220f8b413",
-      "slug": "assistenzarzt-assistenzarztin-a-geriatrie-100-vitrea-gesundheit-dussnang",
+      "slug": "assistente-medico-a-100-da-settembre-2026-vitrea-gesundheit-dussnang",
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
       "companyDomain": "vitrea-gesundheit.ch",
       "title": "Assistenzarzt / Assistenzärztin (a) Geriatrie 100%",
-      "needsRetranslation": false,
       "location": "Dussnang",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/k23npeejp3xs5w8cib4zq9l7lxpvxwi",
@@ -376,15 +415,16 @@
       "postedDate": "2026-07-21",
       "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/k23npeejp3xs5w8cib4zq9l7lxpvxwi",
       "firstSeenAt": "2026-07-21T22:05:02.594Z",
-      "_qualityScore": 74,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
