@@ -2362,6 +2362,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trenino-rossoschanf-livigno.title': 'De S-chanf à Livigno en train, Coire dit oui',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'Le canton des Grisons souhaite travailler avec des partenaires de Lombardie pour réaliser une liaison ferroviaire entre l\'Engadine et la Haute-Valtelline.',
     'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Une galerie ferroviaire suisse avec une vue panoramique sur le lac de Lugano, avec un train en arrivée ou en partance. Max 125 char.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Permis L de courte durée Canton de Berne : validité et prorogation',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Le permis L de courte durée dans le canton de Berne : validité, prorogation, conditions et contraintes liées à l\'employeur.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Une vue panoramique de Lugano avec le lac de Lugano',
+    'blog.article.medicina-genetica-in-svizzera.title': 'Médecine génétique, l\'été des bonnes nouvelles',
+    'blog.article.medicina-genetica-in-svizzera.excerpt': 'Les thérapies génétiques sortent des laboratoires et soignent de vrais patients.',
+    'blog.article.medicina-genetica-in-svizzera.imageAlt': 'Médecine génétique en Suisse: un nouveau départ',
+    'blog.article.assegni-familiari-canton-berna.title': 'Allocations familiales dans le canton de Berne : montants et demande',
+    'blog.article.assegni-familiari-canton-berna.excerpt': 'Les allocations familiales dans le canton de Berne sont gérées par les administrations cantonales et nécessitent le dépôt d\'une demande.',
+    'blog.article.assegni-familiari-canton-berna.imageAlt': 'Un frontalier avec un enfant à Lugano',
 };
 
 export default blogMetaChFr;

@@ -7084,6 +7084,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-di-breve-durata-canton-berna',
+    category: 'pratico',
+    date: '2026-08-12T22:43:09.514Z',
+    image: '/images/blog/permesso-l-di-breve-durata-canton-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'medicina-genetica-in-svizzera',
+    category: 'novita',
+    date: '2026-08-12T22:50:30.312Z',
+    image: '/images/blog/medicina-genetica-in-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'assegni-familiari-canton-berna',
+    category: 'fiscale',
+    date: '2026-08-12T23:05:57.220Z',
+    image: '/images/blog/assegni-familiari-canton-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2362,6 +2362,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trenino-rossoschanf-livigno.title': 'From S-chanf to Livigno by train, Chur says yes',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'The Canton of Graubünden wants to work together with the partners of Lombardy to create a railway connection between the Engadine and Alta Valtellina.',
     'blog.article.trenino-rossoschanf-livigno.imageAlt': 'A Swiss railway gallery with a panoramic view of Lake Lugano, with a train arriving or departing. Max 125 char.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Short-term permit L Canton Bern: validity and extension',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'The short-term L permit in the Canton of Bern: validity, extension, conditions and constraints related to the employer.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'A panoramic view of Lugano with Lake Lugano',
+    'blog.article.medicina-genetica-in-svizzera.title': 'Genetic medicine, the summer of good news',
+    'blog.article.medicina-genetica-in-svizzera.excerpt': 'Gene therapies come out of the labs and treat real patients.',
+    'blog.article.medicina-genetica-in-svizzera.imageAlt': 'Genetic medicine in Switzerland: a new beginning',
+    'blog.article.assegni-familiari-canton-berna.title': 'Family allowances in the Canton of Bern: amounts and application',
+    'blog.article.assegni-familiari-canton-berna.excerpt': 'Family allowances in the Canton of Bern are administered by the cantonal administrations and require the submission of an application.',
+    'blog.article.assegni-familiari-canton-berna.imageAlt': 'A frontaliere with a child in Lugano',
 };
 
 export default blogMetaChEn;
