@@ -9814,6 +9814,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casalzuigno-europei-badr-jaafari.title': 'L\'athlète travailleur badr jaafari en bleu clair',
     'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, athlète travailleur de Casalzuigno, participe au marathon européen',
     'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari pendant la course à pied européenne',
+    'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.title': 'Comment fonctionnent les amendes routières suisses pour un résident italien',
+    'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.excerpt': 'Le frontalier italien doit payer les amendes routières suisses dans le délai imparti.',
+    'blog.article.mpute-stradali-svizzere-pagamento-da-residente-italiano.imageAlt': 'Le frontalier italien doit payer les amendes de circulation suisses.',
 };
 
 export default blogMetaFr;

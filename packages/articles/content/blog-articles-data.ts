@@ -29424,6 +29424,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'mpute-stradali-svizzere-pagamento-da-residente-italiano',
+ category: 'pratico',
+ date: '2026-08-12T11:44:16.756Z',
+ image: '/images/blog/mpute-stradali-svizzere-pagamento-da-residente-italiano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
