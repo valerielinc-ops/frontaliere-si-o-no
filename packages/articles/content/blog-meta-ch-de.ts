@@ -2335,6 +2335,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aeroporto-zurigo-luglio-2026.title': 'Flughafen Zürich: Juli positiv; bei Passagieren, Flügen und Umsatz',
     'blog.article.aeroporto-zurigo-luglio-2026.excerpt': 'Der Flughafen Zürich verzeichnete im Juli einen Passagierzuwachs von 2,4% auf insgesamt 3,3 Millionen Passagiere.',
     'blog.article.aeroporto-zurigo-luglio-2026.imageAlt': 'Der Flughafen Zürich im Sommer',
+    'blog.article.federer-patrimonio-on-borsa-calo.title': 'Roger Federer verliert seinen Milliardärsstatus durch den Zusammenbruch von On',
+    'blog.article.federer-patrimonio-on-borsa-calo.excerpt': 'Das Vermögen des ehemaligen Champions sinkt auf 949 Millionen Dollar, nachdem die Aktie On an der Wall Street um 19% gefallen ist.',
+    'blog.article.federer-patrimonio-on-borsa-calo.imageAlt': 'Blick auf den Schweizer Finanzdistrikt, der den Aktienmarkt und Unternehmen wie On repräsentiert.',
 };
 
 export default blogMetaChDe;

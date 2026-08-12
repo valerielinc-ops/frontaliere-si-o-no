@@ -2335,6 +2335,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aeroporto-zurigo-luglio-2026.title': 'Aéroport de Zurich : juillet positif',
     'blog.article.aeroporto-zurigo-luglio-2026.excerpt': 'L\'aéroport de Zurich a enregistré une augmentation de 2,4% du nombre de passagers en juillet, avec 3,3 millions de passagers au total.',
     'blog.article.aeroporto-zurigo-luglio-2026.imageAlt': 'L\'aéroport de Zurich en été',
+    'blog.article.federer-patrimonio-on-borsa-calo.title': 'Roger Federer perd son statut de milliardaire à cause de l\'effondrement d\'On',
+    'blog.article.federer-patrimonio-on-borsa-calo.excerpt': 'Le patrimoine de l\'ancien champion tombe à 949 millions de dollars après la baisse de 19 % du titre On à Wall Street.',
+    'blog.article.federer-patrimonio-on-borsa-calo.imageAlt': 'Vue du quartier financier suisse représentant le marché boursiero et les entreprises comme On.',
 };
 
 export default blogMetaChFr;

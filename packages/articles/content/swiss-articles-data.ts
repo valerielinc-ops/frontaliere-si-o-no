@@ -7003,6 +7003,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'federer-patrimonio-on-borsa-calo',
+    category: 'novita',
+    date: '2026-08-12T19:25:34.687Z',
+    image: '/images/blog/federer-patrimonio-on-borsa-calo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

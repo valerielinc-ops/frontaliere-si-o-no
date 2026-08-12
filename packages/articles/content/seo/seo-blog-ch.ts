@@ -30242,6 +30242,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-federer-patrimonio-on-borsa-calo': {
+    title: 'Roger Federer perde lo status di miliardario per il crollo di On',
+    description: 'Patrimonio di Roger Federer scende a 949 milioni di dollari. Il titolo On perde il 19% a Wall Street. Scopri l\'impatto finanziario per l\'ex campione svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, roger, federer, perde, status',
+    ogTitle: 'Roger Federer non è più miliardario: pesa il crollo di On',
+    ogDescription: 'Il patrimonio dell\'ex tennista svizzero scende sotto il miliardo di dollari dopo il calo del 19% delle azioni On. Tutti i dettagli sulla situazione finanziaria del campione.',
+    canonicalPath: '/articoli-svizzera/federer-patrimonio-on-borsa-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roger Federer perde lo status di miliardario per il crollo di On",
+      "description": "Patrimonio di Roger Federer scende a 949 milioni di dollari. Il titolo On perde il 19% a Wall Street. Scopri l'impatto finanziario per l'ex campione svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/federer-patrimonio-on-borsa-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del distretto finanziario svizzero che richiama il mercato azionario e le grandi aziende come On."
+      },
+      "datePublished": "2026-08-12T19:25:34+00:00",
+      "dateModified": "2026-08-12T19:25:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/federer-patrimonio-on-borsa-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
