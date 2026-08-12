@@ -477,7 +477,14 @@ export async function isNewsletterOptedOut(db: Firestore, email: string): Promis
  const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
  if (!snap.exists()) return false;
  return isNewsletterOptOutBinding(snap.data());
- } catch {
+ } catch (err) {
+ // Reported, not swallowed. `true` here and `true` for a real opt-out are
+ // the same value and the same silence, so without this line a Firestore
+ // outage or a rules change would suppress every auto-subscribe on the
+ // site and look exactly like a quiet week — the failure mode of a
+ // fail-closed default is that it is invisible while it is wrong. The
+ // decision stays fail-closed; only its cause becomes visible.
+ reportCaughtError(err, 'newsletter.optOutCheckUnavailable');
  return true;
  }
 }

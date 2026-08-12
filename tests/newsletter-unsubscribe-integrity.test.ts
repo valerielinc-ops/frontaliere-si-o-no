@@ -424,8 +424,98 @@ describe('reconsent is wired to deliberate acts and to nothing else', () => {
   });
 
   it('no sign-in path grants it', () => {
-    for (const rel of ['App.tsx', 'hooks/useUserState.ts', 'services/authService.ts']) {
+    for (const rel of ['App.tsx', 'hooks/useUserState.ts', 'services/authService.ts', 'components/community/JobBoard.tsx']) {
       expect(read(rel), `${rel} must never assert re-consent from an auth event`).not.toMatch(/reconsent/);
+    }
+  });
+});
+
+describe('an opted-out recipient signing in produces NO write at all', () => {
+  const read = (rel: string) => readFileSync(path.resolve(__dirname, '..', rel), 'utf8');
+
+  beforeEach(() => {
+    setDocMock.mockClear();
+    addDocMock.mockClear();
+    getDocMock.mockReset();
+  });
+
+  it('the upsert would write a subscribe_completed event even when the guard declines', async () => {
+    // WHY the four sign-in paths must skip the call instead of relying on the
+    // guard. `inferNewsletterSubscriptionState` refuses the promotion — the
+    // document stays `unsubscribed` — but `captureNewsletterSubscriber` runs
+    // to completion and records an event on the way out regardless. That
+    // event is the signal a genuine re-subscription is recognised by (it is
+    // how 95 real returns were separated from the 281), so one forged by a
+    // login corrupts the only evidence there is. This test pins the damage,
+    // so the guards below are not arbitrary.
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'publisher_gate_social',
+      isActive: true,
+      status: 'confirmed',
+    });
+
+    expect(result.status).toBe('unsubscribed');
+    expect(setDocMock).toHaveBeenCalledTimes(1);
+    expect(addDocMock).toHaveBeenCalledTimes(1);
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(event.event_type).toBe('subscribe_completed');
+  });
+
+  it('the pre-check itself writes nothing — it is safe to run on every sign-in', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
+
+    await expect(isNewsletterOptedOut({} as any, EMAIL)).resolves.toBe(true);
+
+    // The whole point of gating on this: no document write, no event, nothing
+    // added to the log that a later analysis would have to explain away.
+    expect(setDocMock).not.toHaveBeenCalled();
+    expect(addDocMock).not.toHaveBeenCalled();
+  });
+
+  it('all FIVE auto-subscribe-on-sign-in paths gate the upsert on it', () => {
+    // The guard has to precede the call, not merely appear in the file: an
+    // `isNewsletterOptedOut` that runs after the upsert would read as fixed
+    // and write the event anyway.
+    //
+    // FIVE, not the four the issue implies. JobBoard's autoNewsletterSubscribe
+    // is the one nothing pointed at: two of its four callers are social
+    // sign-in job unlocks that promote to confirmed/active, which is the ring
+    // verbatim.
+    const paths = [
+      'App.tsx',
+      'hooks/useUserState.ts',
+      'services/authService.ts',
+      'components/pages/PublisherPublishPage.tsx',
+      'components/community/JobBoard.tsx',
+    ];
+    for (const rel of paths) {
+      const src = read(rel);
+      const guardAt = src.indexOf('isNewsletterOptedOut(');
+      const upsertAt = src.search(/upsertNewsletterSubscriber(Record)?\(/);
+      expect(guardAt, `${rel} must consult the recipient's real state`).toBeGreaterThan(-1);
+      expect(upsertAt, `${rel} must still perform the upsert`).toBeGreaterThan(-1);
+      expect(src.slice(guardAt), `${rel} must return early before upserting`)
+        .toMatch(/isNewsletterOptedOut\([^)]*\)\)\s*return;/);
+    }
+  });
+
+  it('none of them relies on the localStorage flag alone', () => {
+    // The flag the unsubscribe handler itself removes. It may stay as a cheap
+    // early exit, but never as the only thing between a login and a write.
+    for (const rel of [
+      'App.tsx',
+      'hooks/useUserState.ts',
+      'services/authService.ts',
+      'components/pages/PublisherPublishPage.tsx',
+      'components/community/JobBoard.tsx',
+    ]) {
+      const src = read(rel);
+      if (!src.includes("getItem('newsletter_subscribed')")) continue;
+      expect(src, `${rel} still guards a sign-in write with localStorage alone`)
+        .toMatch(/isNewsletterOptedOut\(/);
     }
   });
 });
