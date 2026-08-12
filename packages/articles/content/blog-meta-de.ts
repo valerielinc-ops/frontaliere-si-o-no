@@ -9790,6 +9790,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conversione-patente-guida-frontaliere.title': 'Umtausch italienischer Führerschein in die Schweiz für Grenzgänger',
     'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Praktischer Leitfaden zur Umwandlung des italienischen Führerscheins in der Schweiz für Arbeitnehmer mit Führerschein G: Verfahren und Gültigkeit.',
     'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Umtausch des italienischen Führerscheins in der Schweiz für Grenzgänger',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Einheitliche Zollstelle für Mendrisio und Sopraceneri',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'Neuigkeiten aus der Reorganisation des Bundesamtes für Zoll und Grenzsicherheit mit der Eingliederung Graubündens in die Region Süd.',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Einziges Zollbüro für Mendrisio und das Sopraceneri',
 };
 
 export default blogMetaDe;

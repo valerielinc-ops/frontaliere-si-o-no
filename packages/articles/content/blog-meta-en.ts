@@ -9791,6 +9791,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conversione-patente-guida-frontaliere.title': 'Conversion of Italian licence in Switzerland for frontier workers',
     'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Practical guide to the conversion of the Italian driving licence in Switzerland for workers with a G permit: procedures and validity.',
     'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Italian driving license conversion in Switzerland for cross-border workers',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Single customs office for Mendrisio and Sopraceneri',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'New from the reorganization of the Federal Office of Customs and Border Security with the merger of the Graubünden with the Southern Region.',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Single customs office for Mendrisio and Sopraceneri',
 };
 
 export default blogMetaEn;

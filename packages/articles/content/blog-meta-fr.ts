@@ -9793,6 +9793,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.conversione-patente-guida-frontaliere.title': 'Conversion du permis italien en Suisse pour les frontaliers',
     'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Guide pratique pour la conversion du permis de conduire italien en Suisse pour les travailleurs titulaires d\'un permis G : procédures et validité.',
     'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Conversion du permis de conduire italien en Suisse pour frontaliers',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Bureau de douane unique pour Mendrisio et Sopraceneri',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'Nouveauté de la réorganisation de l\'Office fédéral des douanes et de la sécurité des frontières avec le rattachement des Grisons à la Région Sud.',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Bureau douanier unique pour Mendrisio et le Sopraceneri',
 };
 
 export default blogMetaFr;
