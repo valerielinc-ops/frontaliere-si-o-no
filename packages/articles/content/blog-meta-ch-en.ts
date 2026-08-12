@@ -2275,6 +2275,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.title': 'Health insurance premiums Canton Bern and premium reductions',
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.excerpt': 'Here are the key facts for compulsory health insurance premiums in the Canton of Bern.',
     'blog.article.premi-cassa-malati-cantone-bern-riduzione.imageAlt': 'Swiss mountains with the Lake Lugano in the background.',
+    'blog.article.tetto-salari-manager-casse-malattia.title': 'Sickness funds: cap on managers\' salaries set by the CF',
+    'blog.article.tetto-salari-manager-casse-malattia.excerpt': 'The Federal Council wants to put a limit on the salaries of sickness fund managers based on the remuneration of federal councillors.',
+    'blog.article.tetto-salari-manager-casse-malattia.imageAlt': 'The Federal Palace in Bern seat of the Federal Council',
 };
 
 export default blogMetaChEn;

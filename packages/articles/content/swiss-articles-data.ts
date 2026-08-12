@@ -6823,6 +6823,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'tetto-salari-manager-casse-malattia',
+    category: 'novita',
+    date: '2026-08-12T10:04:20.991Z',
+    image: '/images/blog/tetto-salari-manager-casse-malattia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

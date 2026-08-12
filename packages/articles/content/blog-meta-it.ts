@@ -9798,6 +9798,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoratori-frontalieri-novita-2026.title': 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
     'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime dei frontalieri.',
     'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalieri in attesa al valico di Brogeda',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Casse pensioni: in luglio rendimento negativo per UBS',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Le casse pensioni svizzere registrano un rendimento medio al netto delle spese del -0,2% nel mese di luglio, secondo l\'analisi periodica di UBS.',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Casse pensioni in Svizzera con rendimento negativo a luglio',
 };
 
 export default blogMetaIt;
