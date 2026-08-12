@@ -67,6 +67,23 @@ function isCompanyJob(job) {
   return key.includes(COMPANY_KEY) || url.includes('otis.wd504.myworkdayjobs.com') || url.includes('otis.wd5.myworkdayjobs.com');
 }
 
+// Otis migrated their Workday pod from wd5 to wd504 (observed 2026-08-11,
+// issue #5597) — wd5 now 500s permanently, a genuine tenant move, not
+// transient bot-blocking. mergePreserveLocaleData's match key is host-prefixed
+// (job-url-key.mjs Rule W, by design, to stop distinct Workday tenants from
+// colliding on a bare requisition id), so the same requisition under the old
+// wd5 host and the new wd504 host never matches — the wd5 copy just sits in
+// the 2-run grace period meant for transient fetch failures, showing up as a
+// same-title/same-body duplicate of its wd504 replacement (issue #5657). We
+// know wd5 is dead for good (fetchOtisJobUrls only ever queries wd504), so
+// there is nothing transient left to protect: drop wd5 rows immediately
+// instead of waiting out the grace period. computeCrawlDiff still sees them
+// vanish from `published` and files them as removedJobs, same archive path
+// a real 2-miss expiry would take.
+function isLegacyTenantJob(job) {
+  return String(job?.url || '').toLowerCase().includes('otis.wd5.myworkdayjobs.com');
+}
+
 function writeJobsFiles(jobs) {
   writeJsonAtomic(DATA_JOBS, jobs);
   if (fs.existsSync(PUBLIC_DATA_JOBS)) {
@@ -78,7 +95,7 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((job) => !isCompanyJob(job));
-  const companyExisting = allJobs.filter((job) => isCompanyJob(job));
+  const companyExisting = allJobs.filter((job) => isCompanyJob(job) && !isLegacyTenantJob(job));
   const byUrl = new Map();
   for (const job of parsedJobs) {
     const key = String(job?.url || '').trim().replace(/\/+$/, '');
