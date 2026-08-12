@@ -9775,6 +9775,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Quadro RW: obblighi di dichiarazione per conti correnti svizzeri',
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'I frontalieri devono dichiarare i propri conti correnti svizzeri all\'Agenzia Entrate.',
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'Il Lago di Lugano visto dal Monte San Salvatore.',
+    'blog.article.leventina-traffico-problema-cupra-airolo.title': 'Leventina ostaggio del traffico: la CUPRA invasa la cantonale',
+    'blog.article.leventina-traffico-problema-cupra-airolo.excerpt': 'Il problema di traffico nella Leventina è un tema di grande attualità. La CUPRA, una corsia di uscita preferenziale, non sembra raggiungere pienamente il suo obiettivo.',
+    'blog.article.leventina-traffico-problema-cupra-airolo.imageAlt': 'La Leventina è un territorio alpino del Canton Ticino, che si trova tra il Lago Maggiore e il Lago di Lugano.',
+    'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Quadro RW dichiarazione conto corrente svizzero Agenzia Entrate',
+    'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Guida completa al monitoraggio fiscale per i frontalieri con conto in Svizzera: obblighi di compilazione e IVAFE.',
+    'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Vista di Lugano e dei suoi istituti bancari e finanziari',
 };
 
 export default blogMetaIt;

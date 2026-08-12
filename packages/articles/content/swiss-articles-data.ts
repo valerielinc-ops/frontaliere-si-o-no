@@ -6769,6 +6769,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'caldo-prezzi-inflazione-climatica',
+    category: 'pratico',
+    date: '2026-08-12T04:21:49.899Z',
+    image: '/images/blog/caldo-prezzi-inflazione-climatica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'come-usare-la-croce-svizzera-sui-prodotti-esteri',
+    category: 'fiscale',
+    date: '2026-08-12T04:55:03.922Z',
+    image: '/images/blog/come-usare-la-croce-svizzera-sui-prodotti-esteri.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'portale-informazione-svizzera-italiana',
+    category: 'novita',
+    date: '2026-08-12T05:52:47.671Z',
+    image: '/images/blog/portale-informazione-svizzera-italiana.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

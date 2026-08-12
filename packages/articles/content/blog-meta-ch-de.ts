@@ -2257,6 +2257,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Zürich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Im Kanton Zürich unterliegt die Erbschafts- und Schenkungssteuer je nach Verwandtschaftsgrad unterschiedlichen Sätzen.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.caldo-prezzi-inflazione-climatica.title': 'Weil die Hitze die Preise in die Höhe treibt und die Klima-Inflation',
+    'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'Von der Rhein-Dürre bis zum Einkaufswagen führt der Klimawandel zu neuer Inflation und zwingt die Zentralbanken zum Handeln.',
+    'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Auswirkungen von Dürre und Hitze auf die Preise in der Schweiz',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Wie benutzt man das Schweizer Kreuz auf ausländischen Produkten?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'Die Schweiz hat Regeln für die Verwendung des Schweizerkreuzes auf ausländischen Produkten.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Eine Schachtel Schweizer Schokolade mit dem Schweizer Kreuz',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Online News und Updates in der italienischen Schweiz',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Tägliche Updates zu Nachrichten, Politik, Wirtschaft, Sport, Kultur und Rubriken, die sich auf die Online-Landschaft der italienischsprachigen Schweiz spezialisiert haben.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Nachrichtenportal der italienischsprachigen Schweiz',
 };
 
 export default blogMetaChDe;

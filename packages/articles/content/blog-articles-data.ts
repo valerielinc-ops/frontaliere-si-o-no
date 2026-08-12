@@ -29316,6 +29316,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'leventina-traffico-problema-cupra-airolo',
+ category: 'pratico',
+ date: '2026-08-12T04:58:46.908Z',
+ image: '/images/blog/leventina-traffico-problema-cupra-airolo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'quadro-rw-conto-corrente-svizzero',
+ category: 'fiscale',
+ date: '2026-08-12T05:50:14.750Z',
+ image: '/images/blog/quadro-rw-conto-corrente-svizzero.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

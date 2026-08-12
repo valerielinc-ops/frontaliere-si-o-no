@@ -2257,6 +2257,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Inheritance and gift taxes in the Canton of Zurich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'In the Canton of Zurich, inheritance and gift tax is subject to different rates depending on the degree of kinship.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.caldo-prezzi-inflazione-climatica.title': 'Because the heat drives up prices and climate inflation',
+    'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'From the Rhine drought to the shopping cart, climate change creates new inflation and forces central banks to act.',
+    'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impact of drought and heat on prices in Switzerland',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'How to use the Swiss cross on foreign products?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'Switzerland has rules for using the Swiss cross on foreign products.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'A box of Swiss chocolates with the Swiss cross',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Online news and updates in Italian Switzerland',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Daily updates on news, politics, economy, sport, culture and specialised sections in the online panorama of Italian Switzerland.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Information and news portal of Italian-speaking Switzerland',
 };
 
 export default blogMetaChEn;

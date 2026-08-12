@@ -9774,6 +9774,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Box RW: reporting obligations for Swiss current accounts',
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'Border workers must declare their Swiss current accounts to the Revenue Agency.',
     'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'The Lake of Lugano seen from Mount San Salvatore.',
+    'blog.article.leventina-traffico-problema-cupra-airolo.title': 'Leventina held hostage by traffic: the CUPRA invades the cantonal',
+    'blog.article.leventina-traffico-problema-cupra-airolo.excerpt': 'The traffic problem in Leventina is a very topical issue. The CUPRA, a preferential exit lane, does not seem to fully achieve its goal.',
+    'blog.article.leventina-traffico-problema-cupra-airolo.imageAlt': 'The Leventina is a mountainous region of the Swiss canton of Ticino, located between Lake Maggiore and Lake Lugano.',
+    'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Schedule RW Swiss current account statement Revenue Agency',
+    'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Complete guide to tax monitoring for border workers with an account in Switzerland: compilation obligations and IVAFE.',
+    'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'View of Lugano and its banking and financial institutions',
 };
 
 export default blogMetaEn;

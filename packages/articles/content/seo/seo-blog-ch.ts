@@ -29228,6 +29228,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caldo-prezzi-inflazione-climatica': {
+    title: 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
+    description: 'Scopri come la siccità e il cambiamento climatico influenzano l\'inflazione, i prezzi dei generi alimentari e dei carburanti in Svizzera e in Europa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, perché, caldo, salire, prezzi',
+    ogTitle: 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
+    ogDescription: 'Analisi approfondita sull\'impatto della siccità e del cambiamento climatico sui prezzi dei generi alimentari, dei carburanti e sulle strategie delle banche centrali.',
+    canonicalPath: '/articoli-svizzera/caldo-prezzi-inflazione-climatica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perché il caldo fa salire i prezzi e l'inflazione climatica",
+      "description": "Scopri come la siccità e il cambiamento climatico influenzano l'inflazione, i prezzi dei generi alimentari e dei carburanti in Svizzera e in Europa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-prezzi-inflazione-climatica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impatto della siccità e del caldo sui prezzi in Svizzera"
+      },
+      "datePublished": "2026-08-12T04:21:49+00:00",
+      "dateModified": "2026-08-12T04:21:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caldo-prezzi-inflazione-climatica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-come-usare-la-croce-svizzera-sui-prodotti-esteri': {
+    title: 'Come utilizzare la croce svizzera sui prodotti esteri?',
+    description: 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, utilizzare, croce, prodotti, esteri',
+    ogTitle: 'Come utilizzare la croce svizzera sui prodotti esteri?',
+    ogDescription: 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri. Segui le regole per utilizzare la croce svizzera sui prodotti esteri.',
+    canonicalPath: '/articoli-svizzera/come-usare-la-croce-svizzera-sui-prodotti-esteri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come utilizzare la croce svizzera sui prodotti esteri?",
+      "description": "La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/come-usare-la-croce-svizzera-sui-prodotti-esteri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scatola di cioccolatini con la croce svizzera"
+      },
+      "datePublished": "2026-08-12T04:55:03+00:00",
+      "dateModified": "2026-08-12T04:55:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/come-usare-la-croce-svizzera-sui-prodotti-esteri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-portale-informazione-svizzera-italiana': {
+    title: 'Notizie e aggiornamenti online nella Svizzera italiana',
+    description: 'Aggiornamenti quotidiani su cronaca, politica, economia, sport e cultura nel panorama informativo online della Svizzera italiana e del Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, notizie, aggiornamenti, online, nella',
+    ogTitle: 'Notizie e aggiornamenti online nella Svizzera italiana',
+    ogDescription: 'Tutte le notizie di cronaca, politica, economia, sport e cultura nella Svizzera italiana. Aggiornamenti continui e approfondimenti dal Ticino e dai Grigioni.',
+    canonicalPath: '/articoli-svizzera/portale-informazione-svizzera-italiana/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Notizie e aggiornamenti online nella Svizzera italiana",
+      "description": "Aggiornamenti quotidiani su cronaca, politica, economia, sport e cultura nel panorama informativo online della Svizzera italiana e del Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/portale-informazione-svizzera-italiana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Portale di informazione e attualità della Svizzera italiana"
+      },
+      "datePublished": "2026-08-12T05:52:47+00:00",
+      "dateModified": "2026-08-12T05:52:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/portale-informazione-svizzera-italiana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
