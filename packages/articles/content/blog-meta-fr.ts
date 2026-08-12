@@ -9838,6 +9838,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.title': 'Élever des enfants bilingues frontaliers italien allemand français',
     'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.excerpt': 'Écoles, activités extrascolaires et avantages pratiques sur le marché du travail futur pour les enfants de familles frontalières',
     'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.imageAlt': 'Image éditoriale relative à: Crescere figli bilingue frontaliere italiano tedesco francese',
+    'blog.article.bernaribadisiposizionereferendumfacoltativo.title': 'Bilatérales III, Berne réitère sa position : « Référendum facultatif »',
+    'blog.article.bernaribadisiposizionereferendumfacoltativo.excerpt': 'Le Conseil fédéral suisse a réitéré sa position sur les Bilatérales III, favorable à un référendum facultatif.',
+    'blog.article.bernaribadisiposizionereferendumfacoltativo.imageAlt': 'Le Conseil fédéral suisse réaffirme sa position sur les Bilatéraux III, en faveur d\'un référendum facultatif.',
 };
 
 export default blogMetaFr;

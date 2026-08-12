@@ -29496,6 +29496,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bernaribadisiposizionereferendumfacoltativo',
+ category: 'fiscale',
+ date: '2026-08-12T16:06:48.285Z',
+ image: '/images/blog/bernaribadisiposizionereferendumfacoltativo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
