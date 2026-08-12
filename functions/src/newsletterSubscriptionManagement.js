@@ -812,6 +812,28 @@ export async function handleSubscriptionManagement({ action, email, token, local
  isActive: true,
  active: true,
  resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ // The proof of consent, written HERE too and not only in the `confirm`
+ // branch (#5677). This branch wrote `confirmed` with no stamp, and the
+ // token that reaches it is an HMAC(email) checked without ever looking
+ // at the previous status — so a subscriber who had NEVER confirmed
+ // could unsubscribe (the link rides every transactional email, not
+ // just post-confirmation ones), then click "riattiva" on the response
+ // page, and land on `confirmed` with nothing backing it: the exact
+ // fabricated consent #5677 exists to stop, through a live path.
+ //
+ // Writing the stamp is the right repair rather than refusing the
+ // promotion, because a "riattiva" click IS an explicit act by the
+ // recipient — which is why #5690 made `resubscribe_link` one of only
+ // two signals allowed to lift a recorded opt-out
+ // (isExplicitNewsletterReOptIn in services/newsletterSubscribers.ts).
+ // This records the evidence for that act; it does not widen who may
+ // perform it, and the opt-out guard there is untouched.
+ //
+ // It never went noticed because the `unsubscribe` branch above does NOT
+ // delete `confirmed_at`: anyone who HAD confirmed once kept an old
+ // stamp across the cycle, so only the never-confirmed were affected.
+ confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+ confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
  // Same reason as the confirm branch: an explicit "riattiva" click has
  // to clear BOTH stamps or the row stays permanently unmailable (#5673).
  unsubscribed_at: admin.firestore.FieldValue.delete(),
