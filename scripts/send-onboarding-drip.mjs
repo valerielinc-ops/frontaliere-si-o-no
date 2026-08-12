@@ -37,7 +37,7 @@ import {
   computeNextStep,
   DRIP_STEP_COUNT,
 } from '../services/newsletter/onboardingDrip.mjs';
-import { makeUnsubscribeUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
+import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { buildLifecycleEmailHeaders } from '../functions/src/lib/lifecycleEmailHeaders.js';
 import {
   perUserSendTimeEnabled,
@@ -163,7 +163,17 @@ async function buildQueue(globalHour, now) {
       locale,
       interest,
       acquisitionSource,
-      unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
+      // NOT the SPA-handled builder: that one points at the site root and is
+      // handled by App.tsx, which rejects it with "Link non valido" unless the
+      // URL carries the `ac` autologin code. This sender never had any
+      // autologin wrapping — no generateAutologinCode, no makeAuthenticatedUrl,
+      // no wrapAuthenticatedHrefs — so every drip footer unsubscribe link
+      // shipped without `ac` and could not work. The #5672 shape, on a channel
+      // the weekly newsletter's single-sample QA never looked at (#5682 point
+      // 4). makeAuthenticatedActionUrl is the builder that carries `ac`, and is
+      // what winbackEmail.mjs / dormantWinbackStage1Email.mjs already use for
+      // the same footer link.
+      unsubscribeUrl: makeAuthenticatedActionUrl('unsubscribe', subscriber.email),
       // #5684 — the drip footer carries the preference centre alongside the
       // one-way unsubscribe, same as the weekly newsletter and the job alerts.
       preferencesUrl: makePreferencesUrl(subscriber.email, locale, { fallbackUnsigned: true }),
@@ -245,7 +255,9 @@ async function runTest() {
     locale: opt('locale', 'it'),
     interest: opt('interest', null),
     acquisitionSource: opt('acquisition-source', null),
-    unsubscribeUrl: makeUnsubscribeUrl(TARGET_EMAIL),
+    // Same builder as the production path above, so --test exercises the link
+    // the recipient actually gets rather than a shape only this mode produces.
+    unsubscribeUrl: makeAuthenticatedActionUrl('unsubscribe', TARGET_EMAIL),
     preferencesUrl: makePreferencesUrl(TARGET_EMAIL, opt('locale', 'it'), { fallbackUnsigned: true }),
   });
   console.log(`🧪 Test drip: step ${TEST_STEP} (${cardId}) → ${TARGET_EMAIL}`);
