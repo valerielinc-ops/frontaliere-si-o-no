@@ -9794,6 +9794,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Single customs office for Mendrisio and Sopraceneri',
     'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'New from the reorganization of the Federal Office of Customs and Border Security with the merger of the Graubünden with the Southern Region.',
     'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Single customs office for Mendrisio and Sopraceneri',
+    'blog.article.lavoratori-frontalieri-novita-2026.title': 'Frontier workers: the 2026 novelties between the IT-CH Protocol and interviews',
+    'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'The ratification of the Protocol amending the Italy-Switzerland Agreement and the clarifications of the Revenue Agency redefine the scope of the border regime.',
+    'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalieri waiting at Brogeda border crossing',
 };
 
 export default blogMetaEn;

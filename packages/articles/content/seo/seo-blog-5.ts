@@ -65942,6 +65942,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoratori-frontalieri-novita-2026': {
+    title: 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
+    description: 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, novità, protocollo, it-ch',
+    ogTitle: 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
+    ogDescription: 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lavoratori-frontalieri-novita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli",
+      "description": "La ratifica del Protocollo di modifica dell'Accordo Italia-Svizzera e i chiarimenti dell'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoratori-frontalieri-novita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa al valico di Brogeda"
+      },
+      "datePublished": "2026-08-12T09:05:57+00:00",
+      "dateModified": "2026-08-12T09:05:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoratori-frontalieri-novita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
