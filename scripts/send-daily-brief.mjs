@@ -10,13 +10,16 @@
  * 2026-08: 6.854 of 6.864 job-alert addresses also sit in the newsletter
  * collection — summing the two overstates by ~45%). This script unions them
  * by lowercased email:
- *   - newsletter side: status `confirmed` ONLY. (send-newsletter.mjs includes
- *     `pending` deliberately for its weekly campaign; a NEW daily channel is
- *     held to the stricter bar — double-opt-in confirmed.)
+ *   - newsletter side: status `confirmed` AND the recorded proof of the
+ *     double-opt-in click. (send-newsletter.mjs includes `pending`
+ *     deliberately for its weekly campaign; a NEW daily channel is held to the
+ *     stricter bar.)
  *   - job-alert side: root docs not excluded by isJobAlertExcluded().
  *   - anyone whose newsletter status is excluded (unsubscribed/inactive or
  *     address-suppressed) is OUT even if they sit in the job-alert
  *     collection: an explicit broadcast opt-out wins over membership.
+ *   - anyone whose newsletter doc carries NO confirmation stamp is OUT of
+ *     every channel, job alert included — see hasConfirmationProof() (#5677).
  *
  * WHAT THIS SCRIPT DELIBERATELY DOES NOT DO
  *   - No `last_sent_at` WRITE. The newsletter and job-alert senders exclude
@@ -161,6 +164,42 @@ export async function loadDayPayload(todayIso, { dryRun = false, fetchImpl = fet
 // ── Recipients: the deduplicated union ─────────────────────────────────────
 
 /**
+ * The recorded proof that this address ever completed the double opt-in.
+ *
+ * `confirmed_at` / `confirmedAt` are written by exactly ONE path — the
+ * `action === 'confirm'` branch of functions/src/newsletterSubscriptionManagement.js,
+ * in the same `.set()` that writes `status: 'confirmed'` and adds the `confirm`
+ * event. It is therefore a record of a click, not an inference from the signup
+ * form, and that distinction is the whole of #5677: `status` alone is NOT
+ * proof, in BOTH directions, and both directions were measured on production
+ * (2026-08-12, 8.617 docs):
+ *
+ *   - `status: 'confirmed'` WITHOUT the stamp: 392 docs, of which 380 carry a
+ *     restore marker (183 explicitly `mailtrap_suspension_mismapped`). ZERO of
+ *     the 392 carry a `confirm` event. They were marked confirmed by a
+ *     recovery procedure that DEDUCED consent from the signup origin — the
+ *     fabricated consent this gate refuses to honour.
+ *   - `status: 'pending'` WITH the stamp: 847 docs, 823 of them also carrying
+ *     `suppressed_at` + `reactivated_at`. These people DID click:
+ *     scripts/mailtrap-suppression-retry.mjs:176 writes
+ *     `status: 'pending', isActive: true` on a previously-confirmed address as
+ *     a DELIVERABILITY re-probe, so the send cascade retries the mailbox. The
+ *     word `pending` there means "re-probe me", not "never consented".
+ *
+ * So the gate keys on the stamp and never on the word. Blocking every
+ * `pending` row instead would have silently dropped 535 people who had
+ * confirmed (496 of them with the `confirm` event still in their event log)
+ * along with the 561 who never did.
+ *
+ * @param {{doc?: object, confirmed_at?: unknown, confirmedAt?: unknown}} row
+ * @returns {boolean}
+ */
+export function hasConfirmationProof(row) {
+  const d = row?.doc || {};
+  return !!(d.confirmed_at || d.confirmedAt || row?.confirmed_at || row?.confirmedAt);
+}
+
+/**
  * Pure dedup: union the two collections' rows by lowercased email.
  * @param {Array<{email: string, status?: string, locale?: string, name?: string, doc?: object}>} newsletterRows
  * @param {Array<{email: string, status?: string, doc?: object}>} jobAlertRows
@@ -173,8 +212,16 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     jobAlertSeen: jobAlertRows.length,
     newsletterConfirmed: 0,
     newsletterExcluded: 0,
+    // Rows held back for want of a confirmation stamp — split by what the
+    // `status` field claimed, because the two halves are different defects and
+    // the run log has to keep them apart: `status: 'confirmed'` with no stamp
+    // is fabricated consent (a recovery procedure wrote it), while `pending`
+    // with no stamp is a signup that never completed.
+    unconfirmedClaimedConfirmed: 0,
+    unconfirmedPending: 0,
     jobAlertEligible: 0,
     jobAlertExcluded: 0,
+    jobAlertBlockedUnconfirmed: 0,
     optOutWins: 0,
     union: 0,
     overlap: 0,
@@ -190,14 +237,27 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
 
   for (const [email, row] of nlByEmail) {
     const status = String(row.status || '').trim().toLowerCase();
+    if (isNewsletterExcluded(status)) {
+      stats.newsletterExcluded++;
+      continue;
+    }
+    // NO STAMP → OUT OF EVERY CHANNEL. Not "neutral", not "let the job-alert
+    // side decide": an address that never completed the double opt-in is not
+    // reachable by this email, and the job-alert loop below re-checks the same
+    // predicate so membership in job_alert_subscribers cannot route around it.
+    if (!hasConfirmationProof(row)) {
+      if (status === 'confirmed') stats.unconfirmedClaimedConfirmed++;
+      else stats.unconfirmedPending++;
+      continue;
+    }
     if (status === 'confirmed') {
       stats.newsletterConfirmed++;
       byEmail.set(email, { email, locale: nlNormLocale(row.locale), name: row.name || null, source: 'newsletter', nlDoc: row.doc || null, jaDoc: null });
-    } else if (isNewsletterExcluded(status)) {
-      stats.newsletterExcluded++;
     }
-    // pending and other non-statuses: neither in nor counted as excluded —
-    // they can still enter through the job-alert side below (unless excluded).
+    // `pending` WITH the stamp falls through deliberately: it is not admitted
+    // from the newsletter side (that side stays confirmed-only) but it does
+    // not block the job-alert side either — it is a confirmed subscriber whose
+    // status was flipped by the deliverability re-probe, not a missing consent.
   }
 
   for (const row of jobAlertRows) {
@@ -209,6 +269,16 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     // job-alert membership.
     if (nlStatus && (isNewsletterExcluded(nlStatus) || isAddressSuppressed(nlStatus))) {
       stats.optOutWins++;
+      continue;
+    }
+    // The consent gate, restated on this side — this is the hole #5677 was
+    // filed for. A newsletter doc that exists but carries no confirmation
+    // stamp keeps the address out, however eligible the job alert is; only an
+    // address with NO newsletter doc at all enters on job-alert membership
+    // alone (job alerts have no double opt-in: the doc exists because the user
+    // created the alert).
+    if (nlRow && !hasConfirmationProof(nlRow)) {
+      stats.jobAlertBlockedUnconfirmed++;
       continue;
     }
     if (isJobAlertExcluded(row.status)) {
@@ -530,6 +600,13 @@ async function main() {
   console.log(
     `👥 dedup: newsletter ${stats.newsletterSeen} (confirmed ${stats.newsletterConfirmed}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
     ` → UNION ${stats.union} (overlap ${stats.overlap}, opt-out wins ${stats.optOutWins})`,
+  );
+  // Printed unconditionally, including when it is zero: this is the LPD-facing
+  // number (#5677) and a silent gate is how the previous one stayed open.
+  console.log(
+    `🔒 double opt-in: trattenuti ${stats.unconfirmedClaimedConfirmed + stats.unconfirmedPending}` +
+    ` senza timbro di conferma (status 'confirmed' senza prova: ${stats.unconfirmedClaimedConfirmed},` +
+    ` non confermati: ${stats.unconfirmedPending}) — di cui ${stats.jobAlertBlockedUnconfirmed} avevano un job alert che li avrebbe fatti entrare`,
   );
 
   const nowMs = Date.now();
