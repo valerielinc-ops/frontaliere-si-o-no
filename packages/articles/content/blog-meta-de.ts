@@ -9808,6 +9808,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multe-stradali-svizzere.title': 'Schweizer Strassenbusse',
     'blog.article.multe-stradali-svizzere.excerpt': 'Wie funktionieren Schweizer Bußgelder für italienische Einwohner?',
     'blog.article.multe-stradali-svizzere.imageAlt': 'Schweizer Verkehrsbuße an der Grenze Brogeda',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'Der arbeitende Athlet Badr Jaafari in Blau',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, Sportler aus Casalzuigno, nimmt am europäischen Marathon teil',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari während der Europäischen Marathon',
 };
 
 export default blogMetaDe;

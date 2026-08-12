@@ -9810,6 +9810,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.multe-stradali-svizzere.title': 'Multa stradale svizzera',
     'blog.article.multe-stradali-svizzere.excerpt': 'Come funzionano le multe stradali svizzere per i residenti italiani',
     'blog.article.multe-stradali-svizzere.imageAlt': 'Multa stradale svizzera al valico di Brogeda',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'L\'atleta lavoratore badr jaafari in azzurro',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, atleta lavoratore di Casalzuigno, partecipa alla maratona europea',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari durante la maratona europea',
 };
 
 export default blogMetaIt;
