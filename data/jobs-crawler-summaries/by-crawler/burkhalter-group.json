@@ -1,52 +1,18 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-08-11T22:37:48.299Z",
+  "generatedAt": "2026-08-12T10:30:47.903Z",
   "total": 244,
-  "newCount": 2,
-  "updatedCount": 205,
+  "newCount": 1,
+  "updatedCount": 206,
   "removedCount": 0,
   "unchangedCount": 37,
-  "durationMs": 542185,
-  "avgDurationMs": 542185,
+  "durationMs": 518386,
+  "avgDurationMs": 518386,
   "durationHistory": [
-    542185
+    518386
   ],
   "newJobs": [
-    {
-      "title": "Mitarbeiter/in Administration und Finanzen (50 - 100%)",
-      "slug": "mitarbeiter-in-administration-und-finanzen-50-100-imwinkelried-luftung-und-klima-ag-visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/mitarbeiter-in-administration-und-finanzen-1589",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/mitarbeiter-in-administration-und-finanzen-1589",
-      "company": "Imwinkelried Lüftung und Klima AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Visp",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Amministrazione & Risorse Umane",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.642Z",
-      "coordinates": [
-        46.2942876,
-        7.8924291
-      ],
-      "_qualityScore": 52,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 0,
-        "completeness": 14
-      }
-    },
     {
       "title": "Teamleiter/in Fotovoltaik (100%)",
       "slug": "teamleiter-in-fotovoltaik-100-elektro-hunziker-ag-gwatt",
@@ -68,7 +34,7 @@
       "postedDate": "2026-07-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.646Z",
+      "crawledAt": "2026-08-12T10:30:46.335Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -83,6 +49,45 @@
     }
   ],
   "updatedJobs": [
+    {
+      "title": "Mitarbeiter/in Administration und Finanzen (50 - 100%)",
+      "slug": "mitarbeiter-in-administration-und-finanzen-50-100-imwinkelried-luftung-und-klima-ag-visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/mitarbeiter-in-administration-und-finanzen-1589",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/mitarbeiter-in-administration-und-finanzen-1589",
+      "company": "Imwinkelried Lüftung und Klima AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Visp",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "Amministrazione & Risorse Umane",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-11",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-08-12T10:30:46.331Z",
+      "coordinates": [
+        46.2942876,
+        7.8924291
+      ],
+      "id": "burkhalter-group-ad2db6368376",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-11T22:37:46.642Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "title": "Mitarbeiter Magazin (20 - 30%)",
       "slug": "mitarbeiter-magazin-20-30-willi-gebaudetechnik-ag-chur",
@@ -104,7 +109,7 @@
       "postedDate": "2026-08-11",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-08-11T22:37:46.644Z",
+      "crawledAt": "2026-08-12T10:30:46.333Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -143,7 +148,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.645Z",
+      "crawledAt": "2026-08-12T10:30:46.334Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -182,7 +187,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.645Z",
+      "crawledAt": "2026-08-12T10:30:46.334Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -221,7 +226,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.648Z",
+      "crawledAt": "2026-08-12T10:30:46.336Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -262,7 +267,7 @@
       "postedDate": "2026-07-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.649Z",
+      "crawledAt": "2026-08-12T10:30:46.337Z",
       "coordinates": [
         47.0656402,
         8.2903717
@@ -301,7 +306,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.650Z",
+      "crawledAt": "2026-08-12T10:30:46.338Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -340,7 +345,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.651Z",
+      "crawledAt": "2026-08-12T10:30:46.339Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -381,7 +386,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.651Z",
+      "crawledAt": "2026-08-12T10:30:46.340Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -422,7 +427,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.652Z",
+      "crawledAt": "2026-08-12T10:30:46.340Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -462,7 +467,7 @@
       "postedDate": "2026-07-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.652Z",
+      "crawledAt": "2026-08-12T10:30:46.341Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -502,7 +507,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.653Z",
+      "crawledAt": "2026-08-12T10:30:46.341Z",
       "coordinates": [
         46.7204645,
         9.5593501
@@ -542,7 +547,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.677Z",
+      "crawledAt": "2026-08-12T10:30:46.364Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -582,7 +587,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.699Z",
+      "crawledAt": "2026-08-12T10:30:46.384Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -622,7 +627,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.700Z",
+      "crawledAt": "2026-08-12T10:30:46.385Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -663,7 +668,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.703Z",
+      "crawledAt": "2026-08-12T10:30:46.385Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -673,10 +678,10 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-17T22:38:12.643Z",
-      "_qualityScore": 69,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
+        "cleanliness": 20,
+        "richness": 18,
         "translation": 25,
         "completeness": 19
       }
@@ -698,11 +703,11 @@
       "category": "Ingegneria & Tecnica",
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
+      "sourceLang": "fr",
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.703Z",
+      "crawledAt": "2026-08-12T10:30:46.387Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -714,10 +719,10 @@
       "postalCode": "7302",
       "id": "burkhalter-group-4a4ae67a6c69",
       "firstSeenAt": "2026-04-13T10:09:28.530Z",
-      "_qualityScore": 82,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 18,
+        "richness": 0,
         "translation": 25,
         "completeness": 22
       }
@@ -743,7 +748,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.703Z",
+      "crawledAt": "2026-08-12T10:30:46.387Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -784,7 +789,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.704Z",
+      "crawledAt": "2026-08-12T10:30:46.387Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -825,7 +830,7 @@
       "postedDate": "2026-05-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.706Z",
+      "crawledAt": "2026-08-12T10:30:46.389Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -867,7 +872,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.706Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -908,7 +913,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.706Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -949,7 +954,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.706Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         47.2541809,
         7.002328
@@ -990,7 +995,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1031,7 +1036,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1072,7 +1077,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1113,7 +1118,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1154,7 +1159,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.390Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1195,7 +1200,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.391Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -1236,7 +1241,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.391Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -1248,47 +1253,6 @@
       "postalCode": "7270",
       "id": "burkhalter-group-310a3e18471e",
       "firstSeenAt": "2026-04-13T10:09:28.518Z",
-      "_qualityScore": 72,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
-      "slug": "bauleitende-r-heizungsinstallateur-in-100-m-kunz-ag-davos-davos-platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866-1",
-      "company": "M. Kunz AG Davos",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Davos Platz",
-      "addressLocality": "Davos Platz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.708Z",
-      "coordinates": [
-        46.7895975,
-        9.8161975
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "7270",
-      "id": "burkhalter-group-77e245629893",
-      "firstSeenAt": "2026-04-13T10:09:28.517Z",
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1321,7 +1285,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.700Z",
+      "crawledAt": "2026-08-12T10:30:46.384Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1361,7 +1325,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.706Z",
+      "crawledAt": "2026-08-12T10:30:46.389Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -1402,7 +1366,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.706Z",
+      "crawledAt": "2026-08-12T10:30:46.389Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -1443,7 +1407,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.707Z",
+      "crawledAt": "2026-08-12T10:30:46.391Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -1484,7 +1448,7 @@
       "postedDate": "2026-02-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.712Z",
+      "crawledAt": "2026-08-12T10:30:46.395Z",
       "coordinates": [
         46.2496614,
         10.1292791
@@ -1525,7 +1489,7 @@
       "postedDate": "2026-01-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.713Z",
+      "crawledAt": "2026-08-12T10:30:46.396Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -1538,6 +1502,7 @@
       "postalCode": "8500",
       "firstSeenAt": "2026-05-17T09:50:14.852Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1567,7 +1532,7 @@
       "postedDate": "2025-11-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.715Z",
+      "crawledAt": "2026-08-12T10:30:46.398Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -1608,7 +1573,7 @@
       "postedDate": "2025-07-29",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.717Z",
+      "crawledAt": "2026-08-12T10:30:46.399Z",
       "coordinates": [
         46.7204645,
         9.5593501
@@ -1649,7 +1614,7 @@
       "postedDate": "2025-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.717Z",
+      "crawledAt": "2026-08-12T10:30:46.399Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -1662,6 +1627,7 @@
       "postalCode": "5400",
       "firstSeenAt": "2026-05-17T09:50:14.871Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1691,7 +1657,7 @@
       "postedDate": "2025-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.720Z",
+      "crawledAt": "2026-08-12T10:30:46.402Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -1704,6 +1670,7 @@
       "postalCode": "8500",
       "firstSeenAt": "2026-05-17T09:50:14.875Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1733,7 +1700,7 @@
       "postedDate": "2025-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.723Z",
+      "crawledAt": "2026-08-12T10:30:46.405Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1746,6 +1713,7 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T09:50:14.877Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1775,7 +1743,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.724Z",
+      "crawledAt": "2026-08-12T10:30:46.406Z",
       "coordinates": [
         46.4615857,
         6.842294
@@ -1816,7 +1784,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.724Z",
+      "crawledAt": "2026-08-12T10:30:46.406Z",
       "coordinates": [
         46.5432538,
         6.6239502
@@ -1857,7 +1825,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.724Z",
+      "crawledAt": "2026-08-12T10:30:46.406Z",
       "coordinates": [
         46.5084544,
         6.8486817
@@ -1898,7 +1866,7 @@
       "postedDate": "2024-10-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.726Z",
+      "crawledAt": "2026-08-12T10:30:46.408Z",
       "coordinates": [
         46.4681047,
         7.2859582
@@ -1939,7 +1907,7 @@
       "postedDate": "2024-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.730Z",
+      "crawledAt": "2026-08-12T10:30:46.411Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -1952,6 +1920,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T09:50:14.925Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1981,7 +1950,7 @@
       "postedDate": "2023-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.731Z",
+      "crawledAt": "2026-08-12T10:30:46.412Z",
       "coordinates": [
         46.7635608,
         9.7937703
@@ -1993,7 +1962,6 @@
       "postalCode": "7000",
       "id": "burkhalter-group-0c67f3c4434a",
       "firstSeenAt": "2026-04-13T21:18:02.670Z",
-      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2023,7 +1991,7 @@
       "postedDate": "2023-05-11",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.732Z",
+      "crawledAt": "2026-08-12T10:30:46.413Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -2036,6 +2004,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T09:50:14.943Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2065,7 +2034,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.734Z",
+      "crawledAt": "2026-08-12T10:30:46.414Z",
       "coordinates": [
         47.2975064,
         7.955018
@@ -2106,7 +2075,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.735Z",
+      "crawledAt": "2026-08-12T10:30:46.414Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -2147,7 +2116,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.735Z",
+      "crawledAt": "2026-08-12T10:30:46.415Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -2160,6 +2129,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T09:50:14.955Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2189,7 +2159,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.735Z",
+      "crawledAt": "2026-08-12T10:30:46.415Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -2230,7 +2200,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.735Z",
+      "crawledAt": "2026-08-12T10:30:46.415Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -2271,7 +2241,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.735Z",
+      "crawledAt": "2026-08-12T10:30:46.415Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -2312,7 +2282,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.735Z",
+      "crawledAt": "2026-08-12T10:30:46.415Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -2353,7 +2323,7 @@
       "postedDate": "2023-03-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.736Z",
+      "crawledAt": "2026-08-12T10:30:46.416Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -2393,7 +2363,7 @@
       "postedDate": "2023-02-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.736Z",
+      "crawledAt": "2026-08-12T10:30:46.416Z",
       "coordinates": [
         46.6339999,
         8.5919979
@@ -2434,7 +2404,7 @@
       "postedDate": "2023-02-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.736Z",
+      "crawledAt": "2026-08-12T10:30:46.416Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -2447,6 +2417,7 @@
       "postalCode": "5400",
       "firstSeenAt": "2026-05-17T09:50:14.963Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2476,7 +2447,7 @@
       "postedDate": "2023-02-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.737Z",
+      "crawledAt": "2026-08-12T10:30:46.416Z",
       "coordinates": [
         46.856205,
         8.6389353
@@ -2517,7 +2488,7 @@
       "postedDate": "2022-11-09",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-08-11T22:37:46.737Z",
+      "crawledAt": "2026-08-12T10:30:46.417Z",
       "coordinates": [
         46.6052123,
         6.233473
