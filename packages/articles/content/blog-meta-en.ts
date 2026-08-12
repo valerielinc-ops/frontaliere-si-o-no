@@ -9759,6 +9759,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Entry into Switzerland for border workers: documents and customs',
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'For entries into Switzerland, border guards must present the correct documents and follow customs procedures.',
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'A frontier worker waiting at the Chiasso border crossing.',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.title': 'Banking supervision in Switzerland: a brief history of scandals',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.excerpt': 'The history of Swiss banking supervision is marked by scandals and pressures from abroad. However, the influence of the financial lobby often ends up weakening controls.',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.imageAlt': 'A frontaliere observes the city of Lugano with a serene expression.',
 };
 
 export default blogMetaEn;

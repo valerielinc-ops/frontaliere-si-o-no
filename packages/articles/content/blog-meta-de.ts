@@ -9758,6 +9758,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.title': 'Einreise in die Schweiz für Grenzgänger: Dokumente und Zoll',
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.excerpt': 'Für die Einreise in die Schweiz müssen die Grenzgänger die richtigen Dokumente vorlegen und die Zollverfahren einhalten.',
     'blog.article.ingresso-in-svizzera-frontalieri-documenti-dogana.imageAlt': 'Ein Grenzgänger wartet am Chiasso-Grenzübergang.',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.title': 'Bankenaufsicht in der Schweiz: Eine kurze Geschichte der Skandale',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.excerpt': 'Die Geschichte der Schweizer Bankenaufsicht ist geprägt von Skandalen und Druck aus dem Ausland. Der Einfluss der Finanzlobby führt jedoch oft zu einer Schwächung der Kontrollen.',
+    'blog.article.vigilanza-sulle-banche-in-svizzera.imageAlt': 'Ein Frontalier beobachtet die Stadt Lugano mit einer ruhigen Miene.',
 };
 
 export default blogMetaDe;
