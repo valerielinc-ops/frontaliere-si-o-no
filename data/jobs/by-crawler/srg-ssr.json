@@ -1,7 +1,385 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-11T21:54:34.992Z",
+  "assembledAt": "2026-08-12T21:50:26.659Z",
   "jobs": [
+    {
+      "id": "srg-ssr-25dd75af254b",
+      "slug": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
+      "slugByLocale": {
+        "it": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
+        "en": "fufragnadi-trial-entrepreneurship-srg-ssr-cuira",
+        "de": "fufragnadi-testunternehmertum-srg-ssr-cuira",
+        "fr": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Fufragnadi - emprendissadi da prova",
+      "titleByLocale": {
+        "it": "Fufragnadi - imprenditoria di prova",
+        "en": "Fufragnadi - trial entrepreneurship",
+        "de": "Fufragnadi - Testunternehmertum",
+        "fr": "Fufragnadi - emprendissadi da prova"
+      },
+      "description": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+      "descriptionByLocale": {
+        "it": "Quali sono le possibilità? RTR offre opportunità di imprenditoria per giovani e giovanissimi che vogliono intraprendere un'attività commerciale o informatica. L'imprenditoria si organizza volentieri secondo le scadenze concordate per 1 giorno. Quali sono le nostre aspettative? Tu parli in lingua romancia e sai anche scrivere in romancio. Hai almeno completato il primo anno della scuola superiore. Per informazioni sul processo di candidatura, contatta Flurina Foppa, Responsabile risorse umane, +41 58 136 31 08.",
+        "en": "What are the opportunities? RTR offers entrepreneurship opportunities for young people who want to engage in commercial or IT entrepreneurship. The entrepreneurship is gladly organized according to the agreed deadlines for 1 day. What are our expectations? You speak in the Romansh language and can also write in Romansh. You have at least completed the first year of high school. For information about the application process, contact Flurina Foppa, Human Resources Manager, +41 58 136 31 08.",
+        "de": "Was sind die Möglichkeiten? RTR bietet Unternehmungsmöglichkeiten für junge Menschen, die ein Handels- oder IT-Unternehmen gründen möchten. Das Unternehmertum wird gerne nach den vereinbarten Fristen für 1 Tag organisiert. Was sind unsere Erwartungen? Du sprichst Rätoromanisch und kannst auch Rätoromanisch schreiben. Du hast mindestens das erste Jahr der Oberstufe abgeschlossen. Für Informationen zum Bewerbungsprozess kontaktiere Flurina Foppa, Personalverantwortliche, +41 58 136 31 08.",
+        "fr": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08"
+      },
+      "location": "Cuira",
+      "canton": "",
+      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-12T21:50:23.000Z",
+      "addressLocality": "Cuira",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Via da Masans 2",
+      "category": "Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2022-09-14",
+      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_srgMeta": {
+        "uuid": "b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
+        "org": "rtr",
+        "orgLabel": "RTR"
+      },
+      "firstSeenAt": "2026-06-29T11:35:51.857Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "srg-ssr-4295227a1917",
+      "slug": "praticanta-praticant-srg-ssr-cuira",
+      "slugByLocale": {
+        "it": "praticanta-praticant-srg-ssr-cuira",
+        "en": "intern-srg-ssr-cuira",
+        "de": "praktikant-srg-ssr-cuira",
+        "fr": "praticanta-praticant-srg-ssr-cuira"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Praticanta / praticant",
+      "titleByLocale": {
+        "it": "Praticanta / praticant",
+        "en": "Intern",
+        "de": "Praktikant",
+        "fr": "Praticanta / praticant"
+      },
+      "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+      "descriptionByLocale": {
+        "it": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+        "en": "Description - Do you want to become a journalist? Or work as a technician? - Are you curious and eager to be where things happen - are you interested in the Romansh language, Graubünden, the world - do you enjoy working with language, images, sound, or technology? - We support and train you! You can do an internship with us for 3 to 6 months. - During this time, you will learn about the media industry and our company with its extensive offerings. - From the very beginning, you will be part of the team and can develop your skills in practice with support and internal training.\n• Requirements - Age: approximately 18 to 30 years - Education: apprenticeship, high school diploma or vocational training, studies or equivalent education - Duration: ideally 6 months; positions are limited, usually 1 intern for half a year. Contact - And after the internship? About the application process - Flurina Foppa - Human Resources Manager - +41 58 136 31 08",
+        "de": "Beschreibung - Möchtest du Journalist oder Journalistin werden? Oder als Techniker oder Technikerin arbeiten? - Bist du neugierig und möchtest dort sein, wo die Dinge passieren - interessierst du dich für die Rätoromanische Sprache, Graubünden, die Welt - arbeitest du gerne mit Sprache, Bildern, Ton oder Technik? - Wir unterstützen und bilden dich aus! Du kannst ein Praktikum bei uns für 3 bis 6 Monate machen. - In dieser Zeit lernst du die Medienbranche und unser Unternehmen mit seinen umfangreichen Angeboten kennen. - Von Anfang an bist du Teil des Teams und kannst deine Fähigkeiten in der Praxis mit Unterstützung und interner Schulung entwickeln.\n• Anforderungen - Alter: etwa 18 bis 30 Jahre - Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung - Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr. Kontakt - Und nach dem Praktikum? Über den Bewerbungsprozess - Flurina Foppa - Leiterin Human Resources - +41 58 136 31 08",
+        "fr": "Description - Voulez-vous devenir journaliste ? Ou travailler comme technicien ? - Êtes-vous curieux et souhaitez-vous être là où les choses se passent - vous intéressez-vous à la langue romanche, aux Grisons, au monde - aimez-vous travailler avec la langue, les images, le son ou la technique ? - Nous vous soutenons et vous formons ! Vous pouvez faire un stage chez nous pendant 3 à 6 mois. - Pendant cette période, vous découvrirez le secteur des médias et notre entreprise avec ses vastes offres. - Dès le début, vous ferez partie de l'équipe et pourrez développer vos compétences en pratique avec un soutien et une formation interne.\n• Exigences - Âge : environ 18 à 30 ans - Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente - Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre. Contact - Et après le stage ? À propos du processus de candidature - Flurina Foppa - Responsable des ressources humaines - +41 58 136 31 08"
+      },
+      "location": "Cuira",
+      "canton": "",
+      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-12T21:50:16.250Z",
+      "addressLocality": "Cuira",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Via da Masans 2",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2022-09-15",
+      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": [
+          "Age: approximately 18 to 30 years",
+          "Education: apprenticeship, high school diploma or vocational training, studies or equivalent education",
+          "Duration: ideally 6 months; positions are limited, usually 1 intern for half a year."
+        ],
+        "de": [
+          "Alter: etwa 18 bis 30 Jahre",
+          "Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung",
+          "Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr."
+        ],
+        "fr": [
+          "Âge : environ 18 à 30 ans",
+          "Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente",
+          "Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "4a660497-3bdc-452a-ab3f-d9b8493cc46f",
+        "org": "rtr",
+        "orgLabel": "RTR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "srg-ssr-d9ec5b9a657a",
+      "slug": "service-operator-srg-ssr-bern",
+      "slugByLocale": {
+        "it": "service-operator-srg-ssr-bern",
+        "en": "service-operator-srg-ssr-bern",
+        "de": "service-operator-srg-ssr-bern",
+        "fr": "operateur-de-service-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Service Operator",
+      "titleByLocale": {
+        "it": "Service Operator",
+        "en": "Service",
+        "de": "Service Operator",
+        "fr": "Opérateur de Service"
+      },
+      "description": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
+      "descriptionByLocale": {
+        "it": "Descrizione - Nel settore del Monitoraggio dei Servizi, ci si impegna nei seguenti temi:\n• Monitoraggio centrale dei servizi ICT nazionali e delle infrastrutture, nonché di tutti i programmi SRG SSR con i vari canali di diffusione nei turni di mattina, pomeriggio e sera.\n• Coordinamento generale e assicurazione dei processi di supporto ai servizi con le unità di supporto all'interno della SRG e fornitori esterni.\n• Gestione di incidenti, cambiamenti, accessi ed eventi, inclusa la loro documentazione nel sistema di gestione dei servizi.\n• Inizio delle prime misure di continuità per i servizi di broadcast e broadband e escalation ai team interni SRG o ai nostri partner esterni.\n• Coordinamento e comunicazione delle misure di risoluzione dei problemi in caso di \"Incidenti Maggiori\" con impatto nazionale e loro follow-up.\n• Assicurazione della qualità nel processo di gestione dei problemi. Requisiti - Formazione completata in informatica, elettronica o ingegneria elettrica. - Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati. - Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti. - Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano. - Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia. - Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi. Cosa offriamo - Funzione versatile e interessante in un ambiente dinamico dei media elettronici e del servizio pubblico. - Ambiente estremamente stimolante e collaborativo. - Condizioni di assunzione avanzate e opportunità di formazione. Contatto - Nils Hirschi Consulente HR - Telefono +41 58 136 43 36 Il settore Operazioni - Assume il ruolo strategico e di controllo centrale per l'orientamento tecnologico e la produzione della SRG SSR. - Il dipartimento IT supporta tutti i dipendenti, le aree tecnologiche e le funzioni di supporto con servizi IT efficienti, affidabili e moderni, per soddisfare le esigenze strategiche e operative dell'organizzazione.",
+        "en": "Description - In the area of Service Monitoring, you will engage in the following topics:\n• Central monitoring of national ICT and infrastructure services as well as all SRG SSR programs with various distribution channels in early, mid, and late shifts.\n• Overall coordination and assurance of the service support processes with the support units within SRG and external suppliers.\n• Incident, change, access, and event handling including their documentation in the service management system.\n• Initiation of initial continuity measures for broadcast and broadband services and escalations to internal SRG teams or our external partners.\n• Coordination and communication of troubleshooting measures in the event of \"Major Incidents\" with national impact as well as their follow-up.\n• Quality assurance in the incident process. Requirements - Completed apprenticeship in computer science, electronics, or electrical engineering. - Broad ICT and/or broadcast knowledge and interest desirable. - Strong communication and coordination skills in dealing with business partners, suppliers, and customers. - Language skills in German and English, as well as ideally in French or Italian. - Willingness to work shifts and weekends as well as on-call duty. - Practical and theoretical ITIL knowledge in the area of service support and service operation. What we offer - Versatile and interesting role in a dynamic environment of electronic media and public service. - Extremely exciting and collegial environment. - Progressive employment conditions and training opportunities. Contact - Nils Hirschi HR Consultant - Phone +41 58 136 43 36 The Operations Area - Takes on the central strategic and controlling role for the technological orientation and production of SRG SSR. - The IT department supports all employees, technological areas, and support functions with efficient, reliable, and modern IT services to meet the strategic and operational needs of the organization.",
+        "de": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
+        "fr": "Description - Dans le domaine de la surveillance des services, vous vous engagerez dans les sujets suivants :\n• Surveillance centrale des services ICT nationaux et des infrastructures ainsi que de tous les programmes SRG SSR avec les différents canaux de diffusion dans les équipes de matin, d'après-midi et de soir.\n• Coordination générale et assurance des processus de support des services avec les unités de support au sein de la SRG et les fournisseurs externes.\n• Gestion des incidents, des changements, des accès et des événements, y compris leur documentation dans le système de gestion des services.\n• Initiation des premières mesures de continuité pour les services de diffusion et de large bande et escalades vers les équipes internes de la SRG ou nos partenaires externes.\n• Coordination et communication des mesures de résolution des problèmes en cas de \"grands incidents\" ayant un impact national ainsi que leur suivi.\n• Assurance qualité dans le processus de gestion des incidents. Exigences - Formation achevée en informatique, électronique ou ingénierie électrique. - Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités. - Solides compétences en communication et en coordination dans les relations avec les partenaires commerciaux, les fournisseurs et les clients. - Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien. - Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte. - Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services. Ce que nous offrons - Rôle polyvalent et intéressant dans un environnement dynamique des médias électroniques et du service public. - Environnement extrêmement stimulant et collégial. - Conditions d'emploi progressistes et opportunités de formation. Contact - Nils Hirschi Consultant RH - Téléphone +41 58 136 43 36 Le domaine des opérations - Prend le rôle stratégique et de contrôle central pour l'orientation technologique et la production de la SRG SSR. - Le département IT soutient tous les employés, les domaines technologiques et les fonctions de support avec des services informatiques efficaces, fiables et modernes pour répondre aux besoins stratégiques et opérationnels de l'organisation."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T21:50:11.858Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
+      "requirements": [
+        "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
+        "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
+        "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
+        "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
+        "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
+        "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione completata in informatica, elettronica o ingegneria elettrica.",
+          "Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati.",
+          "Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti.",
+          "Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano.",
+          "Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia.",
+          "Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi."
+        ],
+        "en": [
+          "Completed apprenticeship in computer science, electronics, or electrical engineering.",
+          "Broad ICT and/or broadcast knowledge and interest desirable.",
+          "Strong communication and coordination skills in dealing with business partners, suppliers, and customers.",
+          "Language skills in German and English, as well as ideally in French or Italian.",
+          "Willingness to work shifts and weekends as well as on-call duty.",
+          "Practical and theoretical ITIL knowledge in the area of service support and service operation."
+        ],
+        "de": [
+          "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
+          "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
+          "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
+          "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
+          "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
+          "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
+        ],
+        "fr": [
+          "Formation achevée en informatique, électronique ou ingénierie électrique.",
+          "Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités.",
+          "Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien.",
+          "Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte.",
+          "Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "b7aea4ab-5915-4645-a639-79a98c2543ff",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 80
+      },
+      "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-fc3f7a723214",
+      "slug": "emprendista-commerziala-emprendist-commerzial-srg-ssr-cuira",
+      "slugByLocale": {
+        "it": "emprendista-commerziala-emprendist-commerzial-srg-ssr-cuira",
+        "en": "commercial-entrepreneur-srg-ssr-cuira",
+        "de": "kaufmannischer-unternehmer-srg-ssr-cuira",
+        "fr": "entrepreneur-commercial-srg-ssr-cuira"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Emprendista commerziala / emprendist commerzial",
+      "titleByLocale": {
+        "it": "Emprendista commerziala / emprendist commerzial",
+        "en": "Commercial Entrepreneur",
+        "de": "Kaufmännischer Unternehmer",
+        "fr": "Entrepreneur Commercial"
+      },
+      "description": "Tge èn las incumbensas?\n• mintg'onn lavuras ti per in'autra partiziun da RTR sco per exempel program, marketing e communicaziun, persunal e contabilitad\n• ti fas differentas lavurs administrativas en in turnus atras differentas partiziuns\n• ti has contact cun clientas e clients al retschaviment, per telefon e per e-mail\n• ti gidas ad organisar ed a realisar events ed occurrenzas en l'entir chantun Tge spetgain nus?\n• ti has gust da surpigliar responsabladad\n• ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR\n• ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala\n• ti lavuras gugent en in team ed es pront:a da lavurar autonomamain Tge offrin nus?\n• ina scolaziun interessanta e multifara en in ambient dinamic da las medias electronicas e dal service public\n• ina tgira persunala ed in clima da lavur collegial en ina cultura da manaschi averta cun ierarchias bassas ed ina mentalitad dal \"ti\"\n• incumbensas variadas cun spazi per atgnas ideas\n• 6 emnas vacanzas ed ina paja d'emprendissadi attractiva\n• renconuschientscha per bunas prestaziuns en scola\n• ti pos far il profil E ubain M (cun matura professiunala) branscha: servetschs ed administraziun\n• cumenzament da l'emprendissadi: avust 2027\n• durada: 3 onns davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+      "descriptionByLocale": {
+        "it": "Tge èn las incumbensas?\n• mintg'onn lavuras ti per in'autra partiziun da RTR sco per exempel program, marketing e communicaziun, persunal e contabilitad\n• ti fas differentas lavurs administrativas en in turnus atras differentas partiziuns\n• ti has contact cun clientas e clients al retschaviment, per telefon e per e-mail\n• ti gidas ad organisar ed a realisar events ed occurrenzas en l'entir chantun Tge spetgain nus?\n• ti has gust da surpigliar responsabladad\n• ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR\n• ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala\n• ti lavuras gugent en in team ed es pront:a da lavurar autonomamain Tge offrin nus?\n• ina scolaziun interessanta e multifara en in ambient dinamic da las medias electronicas e dal service public\n• ina tgira persunala ed in clima da lavur collegial en ina cultura da manaschi averta cun ierarchias bassas ed ina mentalitad dal \"ti\"\n• incumbensas variadas cun spazi per atgnas ideas\n• 6 emnas vacanzas ed ina paja d'emprendissadi attractiva\n• renconuschientscha per bunas prestaziuns en scola\n• ti pos far il profil E ubain M (cun matura professiunala) branscha: servetschs ed administraziun\n• cumenzament da l'emprendissadi: avust 2027\n• durada: 3 onns davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
+        "en": "Description\n• Responsibilities - Every year you work for another department of RTR, such as program, marketing and communication, personnel, and accounting. - You perform various administrative tasks in a rotation through different departments. - You have contact with clients upon reception, by phone, and by email. - You assist in organizing and executing events and occurrences throughout the entire canton.\n• Requirements - You enjoy taking on responsibility. - You are motivated to develop and undertake, with support from RTR. - You have a passion for Romansh and using the language in professional life. - You enjoy working in a team and are ready to work autonomously. What We Offer - An interesting and diverse training in a dynamic environment of electronic media and public service. - Personal care and a collegial work atmosphere in an open business culture with low hierarchies and a \"you\" mentality. - Varied tasks with space for your own ideas. - 6 weeks of vacation and an attractive apprenticeship salary. - Recognition for good performance in school. - You can take the E profile or M (with vocational maturity) in the field: services and administration. Contact - Start of the apprenticeship: August 2027 - Duration: 3 years regarding the application process. - Flurina Foppa Human Resources Manager +41 58 136 31 08",
+        "de": "Beschreibung\n• Aufgaben - Jedes Jahr arbeiten Sie für eine andere Abteilung von RTR, wie zum Beispiel Programm, Marketing und Kommunikation, Personal und Buchhaltung. - Sie führen verschiedene administrative\n• Aufgaben in einem Turnus durch verschiedene Abteilungen aus. - Sie haben Kontakt mit Kunden am Empfang, per Telefon und per E-Mail. - Sie helfen bei der Organisation und Durchführung von Veranstaltungen und Ereignissen im gesamten Kanton.\n• Anforderungen - Sie haben Freude daran, Verantwortung zu übernehmen. - Sie sind motiviert, sich zu entwickeln und zu unternehmen, mit Unterstützung von RTR. - Sie haben Freude an Rätoromanisch und daran, die Sprache im Berufsleben zu verwenden. - Sie arbeiten gerne im Team und sind bereit, autonom zu arbeiten.\n• Was wir bieten - Eine interessante und vielfältige Ausbildung in einem dynamischen Umfeld der elektronischen Medien und des öffentlichen Dienstes. - Persönliche Betreuung und ein kollegiales Arbeitsklima in einer offenen Unternehmenskultur mit flachen Hierarchien und einer \"Du\"-Mentalität. - Abwechslungsreiche\n• Aufgaben mit Raum für eigene Ideen. - 6 Wochen Urlaub und ein attraktives Ausbildungsgehalt. - Anerkennung für gute Leistungen in der Schule. - Sie können das E-Profil oder M (mit beruflicher Maturität) im Bereich: Dienstleistungen und Verwaltung machen. Kontakt - Beginn der Ausbildung: August 2027 - Dauer: 3 Jahre bezüglich des Bewerbungsprozesses. - Flurina Foppa Personalverantwortliche +41 58 136 31 08",
+        "fr": "Description Responsabilités - Chaque année, vous travaillez pour un autre département de RTR, comme par exemple le programme, le marketing et la communication, le personnel et la comptabilité. - Vous effectuez diverses tâches administratives dans un roulement à travers différents départements. - Vous avez contact avec les clients à la réception, par téléphone et par e-mail. - Vous aidez à organiser et à réaliser des événements et des occurrences dans tout le canton.\n• Exigences - Vous aimez prendre des responsabilités. - Vous êtes motivé(e) à vous développer et à entreprendre, avec le soutien de RTR. - Vous avez un plaisir pour le romanche et à utiliser la langue dans la vie professionnelle. - Vous aimez travailler en équipe et êtes prêt(e) à travailler de manière autonome. Ce que nous offrons - Une formation intéressante et variée dans un environnement dynamique des médias électroniques et du service public. - Un suivi personnel et une atmosphère de travail collégiale dans une culture d'entreprise ouverte avec de faibles hiérarchies et une mentalité du \"tu\". - Des tâches variées avec de l'espace pour vos propres idées. - 6 semaines de vacances et un salaire d'apprentissage attractif. - Reconnaissance pour de bonnes performances à l'école. - Vous pouvez faire le profil E ou M (avec maturité professionnelle) dans le domaine : services et administration. Contact - Début de l'apprentissage : août 2027 - Durée : 3 ans concernant le processus de candidature. - Flurina Foppa Responsable des ressources humaines +41 58 136 31 08"
+      },
+      "location": "Cuira",
+      "canton": "",
+      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-12T21:50:09.433Z",
+      "addressLocality": "Cuira",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Via da Masans 2",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
+      "requirements": [
+        "ti has gust da surpigliar responsabladad",
+        "ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR",
+        "ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala",
+        "ti lavuras gugent en in team ed es pront:a da lavurar autonomamain"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "ti has gust da surpigliar responsabladad",
+          "ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR",
+          "ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala",
+          "ti lavuras gugent en in team ed es pront:a da lavurar autonomamain"
+        ],
+        "en": [
+          "You enjoy taking on responsibility.",
+          "You are motivated to develop and undertake, with support from RTR.",
+          "You have a passion for Romansh and using the language in professional life.",
+          "You enjoy working in a team and are ready to work autonomously."
+        ],
+        "de": [
+          "Sie haben Freude daran, Verantwortung zu übernehmen.",
+          "Sie sind motiviert, sich zu entwickeln und zu unternehmen, mit Unterstützung von RTR.",
+          "Sie haben Freude an Rätoromanisch und daran, die Sprache im Berufsleben zu verwenden.",
+          "Sie arbeiten gerne im Team und sind bereit, autonom zu arbeiten."
+        ],
+        "fr": [
+          "Vous aimez prendre des responsabilités.",
+          "Vous êtes motivé(e) à vous développer et à entreprendre, avec le soutien de RTR.",
+          "Vous avez un plaisir pour le romanche et à utiliser la langue dans la vie professionnelle.",
+          "Vous aimez travailler en équipe et êtes prêt(e) à travailler de manière autonome."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "c7a3bf5e-4660-4325-baee-e0cc14f79df0",
+        "org": "rtr",
+        "orgLabel": "RTR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "firstSeenAt": "2026-06-29T11:35:10.780Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "srg-ssr-1ec471defa96",
       "slug": "assistente-finanze-srg-ssr-bern",
@@ -33,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:54:29.458Z",
+      "crawledAt": "2026-08-12T21:50:07.325Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,6 +451,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -118,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:54:23.402Z",
+      "crawledAt": "2026-08-12T21:50:05.795Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,11 +538,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -219,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-musicale-rete-due/3cc6c92a-0f29-4989-b512-dcdd43e54ec7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:54:17.267Z",
+      "crawledAt": "2026-08-12T21:50:04.494Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,6 +668,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:23:16.448Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -332,7 +714,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:54:10.598Z",
+      "crawledAt": "2026-08-12T21:50:03.426Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,11 +748,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -426,7 +810,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/mediendokumentalist-in-musik/2219975b-2326-406c-b1d9-89c2d03e456d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:54:03.899Z",
+      "crawledAt": "2026-08-12T21:50:02.452Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -456,11 +840,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "mediendokumentalist-in-musik-srg-ssr-zurich"
+        "mediendokumentalist-in-musik-srg-ssr-zurich",
+        "documentalist-multimediale-in-musica-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mediendokumentalist-in-musik-srg-ssr-zurich"
+          "mediendokumentalist-in-musik-srg-ssr-zurich",
+          "documentalist-multimediale-in-musica-srg-ssr-zurich"
         ],
         "en": [
           "mediendokumentalist-in-musik-srg-ssr-zurich"
@@ -516,7 +902,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-in-regia-videomaker-monocamera/ea400b57-4196-457a-a9eb-22b349dc9919",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:53:57.976Z",
+      "crawledAt": "2026-08-12T21:50:01.641Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -559,6 +945,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-15T10:58:07.877Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -604,7 +991,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-stato-maggiore/312922c1-41bd-4b74-a89e-54b77905f23d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:53:51.446Z",
+      "crawledAt": "2026-08-12T21:50:00.549Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -644,6 +1031,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-21T22:06:20.958Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -689,7 +1077,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistant-e-etat-major/4049e873-37dd-4fbf-b77a-1ab7f5ae0654",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T21:53:44.970Z",
+      "crawledAt": "2026-08-12T21:49:59.525Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -729,17 +1117,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "assistant-e-etat-major-srg-ssr-geneve-8"
+        "assistant-e-etat-major-srg-ssr-geneve-8",
+        "assistente-del-personale-srg-ssr-geneve-8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-etat-major-srg-ssr-geneve-8"
+          "assistant-e-etat-major-srg-ssr-geneve-8",
+          "assistente-del-personale-srg-ssr-geneve-8"
         ],
         "en": [
           "assistant-e-etat-major-srg-ssr-geneve-8"
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:36.450Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -785,7 +1176,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-stab/49ebb65c-5a8e-4eb1-a9af-4be275b513b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:53:38.411Z",
+      "crawledAt": "2026-08-12T21:49:58.719Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -825,11 +1216,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "assistent-in-stab-srg-ssr-geneve-8"
+        "assistent-in-stab-srg-ssr-geneve-8",
+        "assistente-personale-srg-ssr-geneve-8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-stab-srg-ssr-geneve-8"
+          "assistent-in-stab-srg-ssr-geneve-8",
+          "assistente-personale-srg-ssr-geneve-8"
         ],
         "en": [
           "assistent-in-stab-srg-ssr-geneve-8"
@@ -839,6 +1232,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:30.387Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -884,7 +1278,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/organisationsentwickler-in/04541eea-808a-4631-8796-d5085e1cc384",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:53:31.999Z",
+      "crawledAt": "2026-08-12T21:49:57.929Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,11 +1317,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "organisationsentwickler-in-srg-ssr-lausanne"
+        "organisationsentwickler-in-srg-ssr-lausanne",
+        "organizzatore-in-srg-ssr-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "organisationsentwickler-in-srg-ssr-lausanne"
+          "organisationsentwickler-in-srg-ssr-lausanne",
+          "organizzatore-in-srg-ssr-lausanne"
         ],
         "en": [
           "organisationsentwickler-in-srg-ssr-lausanne"
@@ -983,7 +1379,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/developpeur-d-organisation-f-h-d/cb912a2d-4362-4131-a5ae-ca75e2eb505e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T21:53:26.988Z",
+      "crawledAt": "2026-08-12T21:49:57.042Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1024,6 +1420,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T11:51:24.572Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1069,7 +1466,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/sviluppatore-trice-organizzativo-a/62516d8b-57dc-4038-a3ef-e7a0c98fd9d2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:53:23.525Z",
+      "crawledAt": "2026-08-12T21:49:55.997Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1108,6 +1505,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T11:51:23.727Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1153,7 +1551,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/prozessanalyst-in/ba2e34a8-f6d3-4190-9557-30f463c1420d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:53:21.414Z",
+      "crawledAt": "2026-08-12T21:49:55.120Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1193,11 +1591,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "prozessanalyst-in-srg-ssr-bern"
+        "prozessanalyst-in-srg-ssr-bern",
+        "analista-di-processo-srg-ssr-bern-fc3b83"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prozessanalyst-in-srg-ssr-bern"
+          "prozessanalyst-in-srg-ssr-bern",
+          "analista-di-processo-srg-ssr-bern-fc3b83"
         ],
         "en": [
           "prozessanalyst-in-srg-ssr-bern"
@@ -1207,6 +1607,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:26.556Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1252,7 +1653,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analyste-processus-f-h-d/c995c8d0-ced2-41f8-b350-9f3cf248296f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-11T21:53:19.431Z",
+      "crawledAt": "2026-08-12T21:49:54.331Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1292,6 +1693,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T22:02:25.739Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1337,7 +1739,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analista-di-processo/e0464443-452e-4079-be1f-94ae62f7e1d7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:53:17.947Z",
+      "crawledAt": "2026-08-12T21:49:53.490Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1376,6 +1778,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T22:02:24.891Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1407,7 +1810,7 @@
         "it": "Stage intrattenimento, cultura e società: infotainment, magazine, show e quiz",
         "en": "Entertainment, culture and society: infotainment, magazine, show and quiz",
         "de": "Unterhaltung, Kultur und Gesellschaft: Infotainment, Magazin, Show und Quiz",
-        "fr": "Divertissement, culture et société: divertissement, magazine, spectacle et quiz"
+        "fr": "Stage intrattenimento, cultura e società: infotainment, magazine, show e quiz"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Esperienza nella redazione di programmi di infotainment e dirette TV.\n• Coinvolgimento nella redazione dei quiz RSI.\n• Collaborazione con le redazioni Cultura, Società & Scienza e Intrattenimento.\n• Possibilità di contribuire creativamente all'ideazione e alla realizzazione di puntate TV.\n• Contatto diretto con le diverse figure professionali che compongono un team di produzione. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai uno spiccato interesse per il mondo dello spettacolo, dei quiz e della cultura?\n• Ti piacerebbe lavorare all'interno di una redazione TV?\n• Possiedi buone capacità di scrittura e sintesi?\n• Sei una persona curiosa, aperta e dinamica?\n• Hai facilità nel relazionarti con altre persone?\n• Hai buone conoscenze del territorio nazionale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 17 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
@@ -1421,7 +1824,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-intrattenimento-cultura-e-societa-infotainment-magazine-show-e-quiz/e70d234c-38d4-4a09-9f15-d153b82f1dd4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:53:16.942Z",
+      "crawledAt": "2026-08-12T21:49:52.690Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1466,6 +1869,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-21T22:06:01.637Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1511,7 +1915,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:53:15.981Z",
+      "crawledAt": "2026-08-12T21:49:51.698Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1577,6 +1981,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:13.924Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1622,7 +2027,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-plattformentwicklung-efz/6fcf847a-745c-45d0-a119-9b0822815df2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:53:11.003Z",
+      "crawledAt": "2026-08-12T21:49:50.831Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1658,11 +2063,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich"
+        "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich",
+        "grundausbildung-come-informatiker-in-plattformentwicklung-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich"
+          "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich",
+          "grundausbildung-come-informatiker-in-plattformentwicklung-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich"
@@ -1718,7 +2125,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-mediamatiker-in-efz/fc54677f-395d-495c-8698-8281912ea042",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:53:01.570Z",
+      "crawledAt": "2026-08-12T21:49:42.448Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1761,7 +2168,8 @@
         "basic-training-as-ict-specialist-efz-srg-ssr-zurich",
         "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich",
         "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich",
-        "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1770,7 +2178,8 @@
           "basic-training-as-ict-specialist-efz-srg-ssr-zurich",
           "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich",
           "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich",
-          "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich",
@@ -1831,7 +2240,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-efz-applikationsentwicklung/a5855233-f2ce-492c-8d91-f8ba68bf1913",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:53:00.614Z",
+      "crawledAt": "2026-08-12T21:49:36.313Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1868,11 +2277,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
+        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
+        "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
+          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
+          "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
@@ -1928,7 +2339,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:52:59.462Z",
+      "crawledAt": "2026-08-12T21:49:35.451Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1964,12 +2375,14 @@
       },
       "previousSlugs": [
         "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -2025,7 +2438,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-multimediaelektroniker-in-efz/4d9c0d6d-3dd5-4080-87c2-aeff2808f4db",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:52:58.624Z",
+      "crawledAt": "2026-08-12T21:49:34.627Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2064,11 +2477,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
+          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+          "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
         ],
         "it": [
           "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
+          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+          "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
         ],
         "en": [
           "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
@@ -2079,7 +2494,8 @@
       },
       "previousSlugs": [
         "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
-        "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
+        "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+        "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:41.118Z",
@@ -2128,7 +2544,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:52:57.610Z",
+      "crawledAt": "2026-08-12T21:49:33.678Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2165,11 +2581,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
           "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
@@ -2180,7 +2598,8 @@
       },
       "previousSlugs": [
         "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:44.368Z",
@@ -2213,7 +2632,7 @@
       "title": "Stage Digital Marketing Specialist",
       "titleByLocale": {
         "it": "Stage Digital Marketing Specialista",
-        "en": "Digital Marketing Specialist",
+        "en": "Stage Digital Marketing Specialist",
         "de": "Stage Digital Marketing Spezialist",
         "fr": "Stage Digital Marketing Spécialiste"
       },
@@ -2229,7 +2648,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-11T21:52:56.784Z",
+      "crawledAt": "2026-08-12T21:49:32.510Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2272,6 +2691,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-04T22:16:04.757Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2317,7 +2737,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T21:52:55.771Z",
+      "crawledAt": "2026-08-12T21:49:31.542Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2352,11 +2772,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+        "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+          "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
@@ -2380,370 +2802,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "srg-ssr-25dd75af254b",
-      "slug": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
-      "slugByLocale": {
-        "it": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
-        "en": "fufragnadi-trial-entrepreneurship-srg-ssr-cuira",
-        "de": "fufragnadi-testunternehmertum-srg-ssr-cuira",
-        "fr": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Fufragnadi - emprendissadi da prova",
-      "titleByLocale": {
-        "it": "Fufragnadi - imprenditoria di prova",
-        "en": "Fufragnadi - trial entrepreneurship",
-        "de": "Fufragnadi - Testunternehmertum",
-        "fr": "Fufragnadi - emprendissadi da prova"
-      },
-      "description": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-      "descriptionByLocale": {
-        "it": "Quali sono le possibilità? RTR offre opportunità di imprenditoria per giovani e giovanissimi che vogliono intraprendere un'attività commerciale o informatica. L'imprenditoria si organizza volentieri secondo le scadenze concordate per 1 giorno. Quali sono le nostre aspettative? Tu parli in lingua romancia e sai anche scrivere in romancio. Hai almeno completato il primo anno della scuola superiore. Per informazioni sul processo di candidatura, contatta Flurina Foppa, Responsabile risorse umane, +41 58 136 31 08.",
-        "en": "What are the opportunities? RTR offers entrepreneurship opportunities for young people who want to engage in commercial or IT entrepreneurship. The entrepreneurship is gladly organized according to the agreed deadlines for 1 day. What are our expectations? You speak in the Romansh language and can also write in Romansh. You have at least completed the first year of high school. For information about the application process, contact Flurina Foppa, Human Resources Manager, +41 58 136 31 08.",
-        "de": "Was sind die Möglichkeiten? RTR bietet Unternehmungsmöglichkeiten für junge Menschen, die ein Handels- oder IT-Unternehmen gründen möchten. Das Unternehmertum wird gerne nach den vereinbarten Fristen für 1 Tag organisiert. Was sind unsere Erwartungen? Du sprichst Rätoromanisch und kannst auch Rätoromanisch schreiben. Du hast mindestens das erste Jahr der Oberstufe abgeschlossen. Für Informationen zum Bewerbungsprozess kontaktiere Flurina Foppa, Personalverantwortliche, +41 58 136 31 08.",
-        "fr": "Tge èn las pussaivladads? RTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica Il fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di Tge èn nossas spetgas? Ti discurras in idiom rumantsch e sas era scriver rumantsch Ti has almain terminà l'emprima classa dal stgalim superiur Per infurmaziun davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08"
-      },
-      "location": "Cuira",
-      "canton": "",
-      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-11T10:09:55.297Z",
-      "addressLocality": "Cuira",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Via da Masans 2",
-      "category": "Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2022-09-14",
-      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_srgMeta": {
-        "uuid": "b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
-        "org": "rtr",
-        "orgLabel": "RTR"
-      },
-      "firstSeenAt": "2026-06-29T11:35:51.857Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-4295227a1917",
-      "slug": "praticanta-praticant-srg-ssr-cuira",
-      "slugByLocale": {
-        "it": "praticanta-praticant-srg-ssr-cuira",
-        "en": "intern-srg-ssr-cuira",
-        "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Praticanta / praticant",
-      "titleByLocale": {
-        "it": "Praticanta / praticant",
-        "en": "Intern",
-        "de": "Praktikant",
-        "fr": "Pratique / Pratique"
-      },
-      "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-      "descriptionByLocale": {
-        "it": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-        "en": "Description - Do you want to become a journalist? Or work as a technician? - Are you curious and eager to be where things happen - are you interested in the Romansh language, Graubünden, the world - do you enjoy working with language, images, sound, or technology? - We support and train you! You can do an internship with us for 3 to 6 months. - During this time, you will learn about the media industry and our company with its extensive offerings. - From the very beginning, you will be part of the team and can develop your skills in practice with support and internal training.\n• Requirements - Age: approximately 18 to 30 years - Education: apprenticeship, high school diploma or vocational training, studies or equivalent education - Duration: ideally 6 months; positions are limited, usually 1 intern for half a year. Contact - And after the internship? About the application process - Flurina Foppa - Human Resources Manager - +41 58 136 31 08",
-        "de": "Beschreibung - Möchtest du Journalist oder Journalistin werden? Oder als Techniker oder Technikerin arbeiten? - Bist du neugierig und möchtest dort sein, wo die Dinge passieren - interessierst du dich für die Rätoromanische Sprache, Graubünden, die Welt - arbeitest du gerne mit Sprache, Bildern, Ton oder Technik? - Wir unterstützen und bilden dich aus! Du kannst ein Praktikum bei uns für 3 bis 6 Monate machen. - In dieser Zeit lernst du die Medienbranche und unser Unternehmen mit seinen umfangreichen Angeboten kennen. - Von Anfang an bist du Teil des Teams und kannst deine Fähigkeiten in der Praxis mit Unterstützung und interner Schulung entwickeln.\n• Anforderungen - Alter: etwa 18 bis 30 Jahre - Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung - Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr. Kontakt - Und nach dem Praktikum? Über den Bewerbungsprozess - Flurina Foppa - Leiterin Human Resources - +41 58 136 31 08",
-        "fr": "Description - Voulez-vous devenir journaliste ? Ou travailler comme technicien ? - Êtes-vous curieux et souhaitez-vous être là où les choses se passent - vous intéressez-vous à la langue romanche, aux Grisons, au monde - aimez-vous travailler avec la langue, les images, le son ou la technique ? - Nous vous soutenons et vous formons ! Vous pouvez faire un stage chez nous pendant 3 à 6 mois. - Pendant cette période, vous découvrirez le secteur des médias et notre entreprise avec ses vastes offres. - Dès le début, vous ferez partie de l'équipe et pourrez développer vos compétences en pratique avec un soutien et une formation interne.\n• Exigences - Âge : environ 18 à 30 ans - Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente - Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre. Contact - Et après le stage ? À propos du processus de candidature - Flurina Foppa - Responsable des ressources humaines - +41 58 136 31 08"
-      },
-      "location": "Cuira",
-      "canton": "",
-      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:54.571Z",
-      "addressLocality": "Cuira",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Via da Masans 2",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2022-09-15",
-      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": [
-          "Age: approximately 18 to 30 years",
-          "Education: apprenticeship, high school diploma or vocational training, studies or equivalent education",
-          "Duration: ideally 6 months; positions are limited, usually 1 intern for half a year."
-        ],
-        "de": [
-          "Alter: etwa 18 bis 30 Jahre",
-          "Ausbildung: Lehre, Matura oder Berufsausbildung, Studium oder gleichwertige Ausbildung",
-          "Dauer: idealerweise 6 Monate; die Plätze sind begrenzt, in der Regel 1 Praktikant für ein halbes Jahr."
-        ],
-        "fr": [
-          "Âge : environ 18 à 30 ans",
-          "Éducation : apprentissage, diplôme de maturité ou formation professionnelle, études ou formation équivalente",
-          "Durée : idéalement 6 mois ; les places sont limitées, généralement 1 stagiaire pour un semestre."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "4a660497-3bdc-452a-ab3f-d9b8493cc46f",
-        "org": "rtr",
-        "orgLabel": "RTR",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-d9ec5b9a657a",
-      "slug": "service-operator-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
-        "en": "service-operator-srg-ssr-bern",
-        "de": "service-operator-srg-ssr-bern",
-        "fr": "operateur-de-service-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Service Operator",
-      "titleByLocale": {
-        "it": "Operatore di servizio",
-        "en": "Service",
-        "de": "Service Operator",
-        "fr": "Opérateur de Service"
-      },
-      "description": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Nel settore del Monitoraggio dei Servizi, ci si impegna nei seguenti temi:\n• Monitoraggio centrale dei servizi ICT nazionali e delle infrastrutture, nonché di tutti i programmi SRG SSR con i vari canali di diffusione nei turni di mattina, pomeriggio e sera.\n• Coordinamento generale e assicurazione dei processi di supporto ai servizi con le unità di supporto all'interno della SRG e fornitori esterni.\n• Gestione di incidenti, cambiamenti, accessi ed eventi, inclusa la loro documentazione nel sistema di gestione dei servizi.\n• Inizio delle prime misure di continuità per i servizi di broadcast e broadband e escalation ai team interni SRG o ai nostri partner esterni.\n• Coordinamento e comunicazione delle misure di risoluzione dei problemi in caso di \"Incidenti Maggiori\" con impatto nazionale e loro follow-up.\n• Assicurazione della qualità nel processo di gestione dei problemi. Requisiti - Formazione completata in informatica, elettronica o ingegneria elettrica. - Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati. - Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti. - Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano. - Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia. - Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi. Cosa offriamo - Funzione versatile e interessante in un ambiente dinamico dei media elettronici e del servizio pubblico. - Ambiente estremamente stimolante e collaborativo. - Condizioni di assunzione avanzate e opportunità di formazione. Contatto - Nils Hirschi Consulente HR - Telefono +41 58 136 43 36 Il settore Operazioni - Assume il ruolo strategico e di controllo centrale per l'orientamento tecnologico e la produzione della SRG SSR. - Il dipartimento IT supporta tutti i dipendenti, le aree tecnologiche e le funzioni di supporto con servizi IT efficienti, affidabili e moderni, per soddisfare le esigenze strategiche e operative dell'organizzazione.",
-        "en": "Description - In the area of Service Monitoring, you will engage in the following topics:\n• Central monitoring of national ICT and infrastructure services as well as all SRG SSR programs with various distribution channels in early, mid, and late shifts.\n• Overall coordination and assurance of the service support processes with the support units within SRG and external suppliers.\n• Incident, change, access, and event handling including their documentation in the service management system.\n• Initiation of initial continuity measures for broadcast and broadband services and escalations to internal SRG teams or our external partners.\n• Coordination and communication of troubleshooting measures in the event of \"Major Incidents\" with national impact as well as their follow-up.\n• Quality assurance in the incident process. Requirements - Completed apprenticeship in computer science, electronics, or electrical engineering. - Broad ICT and/or broadcast knowledge and interest desirable. - Strong communication and coordination skills in dealing with business partners, suppliers, and customers. - Language skills in German and English, as well as ideally in French or Italian. - Willingness to work shifts and weekends as well as on-call duty. - Practical and theoretical ITIL knowledge in the area of service support and service operation. What we offer - Versatile and interesting role in a dynamic environment of electronic media and public service. - Extremely exciting and collegial environment. - Progressive employment conditions and training opportunities. Contact - Nils Hirschi HR Consultant - Phone +41 58 136 43 36 The Operations Area - Takes on the central strategic and controlling role for the technological orientation and production of SRG SSR. - The IT department supports all employees, technological areas, and support functions with efficient, reliable, and modern IT services to meet the strategic and operational needs of the organization.",
-        "de": "Das ist Ihr Beitrag Im Bereich Service Monitoring engagieren Sie sich für folgende Themen:\n• Zentrales Monitoring der nationalen ICT und Infrastruktur Services sowie aller SRG SSR Programme mit den verschiedenen Verbreitungswegen in Früh-, Mittel- und Spätschicht.\n• Gesamtkoordination und Sicherstellung der Service Support Prozesse mit den Supporteinheiten innerhalb der SRG und externen Lieferanten.\n• Incident-, Change-, Access- und Eventhandling inkl. deren Dokumentation im Service Management System\n• Einleitung von ersten Continuity Massnahmen für Broadcast- und Broadband-Services und Eskalationen an interne SRG-Teams oder unsere externen Partner.\n• Koordination und Kommunikation der Störungsbehebungsmassnahmen im Falle von \"Major Incidents\" mit nationaler Auswirkung sowie deren Nachbearbeitung\n• Qualitätssicherung im Störungsprozess Damit begeistern Sie uns\n• Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich\n• Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert\n• Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden\n• Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch\n• Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst\n• Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation Damit begeistern wir Sie\n• Vielseitige und interessante Funktion in einem dynamischen Umfeld der elektronischen Medien und des Service Public\n• Äusserst spannendes und kollegiales Umfeld\n• Fortschrittliche Anstellungsbedingungen und Weiterbildungsmöglichkeiten Noch Fragen? zum Bewerbungsprozess Nils Hirschi HR Berater Telefon +41 58 136 43 36 Der Bereich Operationen übernimmt die zentrale strategische und steuernde Rolle für die technologische Ausrichtung und die Produktion der SRG SSR. Die Abteilung IT unterstützt alle Mitarbeitenden, Technologiebereiche und Supportfunktionen mit effizienten, verlässlichen und modernen IT-Services, um die strategischen und operativen Bedürfnisse der Organisation zu erfüllen.",
-        "fr": "Description - Dans le domaine de la surveillance des services, vous vous engagerez dans les sujets suivants :\n• Surveillance centrale des services ICT nationaux et des infrastructures ainsi que de tous les programmes SRG SSR avec les différents canaux de diffusion dans les équipes de matin, d'après-midi et de soir.\n• Coordination générale et assurance des processus de support des services avec les unités de support au sein de la SRG et les fournisseurs externes.\n• Gestion des incidents, des changements, des accès et des événements, y compris leur documentation dans le système de gestion des services.\n• Initiation des premières mesures de continuité pour les services de diffusion et de large bande et escalades vers les équipes internes de la SRG ou nos partenaires externes.\n• Coordination et communication des mesures de résolution des problèmes en cas de \"grands incidents\" ayant un impact national ainsi que leur suivi.\n• Assurance qualité dans le processus de gestion des incidents. Exigences - Formation achevée en informatique, électronique ou ingénierie électrique. - Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités. - Solides compétences en communication et en coordination dans les relations avec les partenaires commerciaux, les fournisseurs et les clients. - Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien. - Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte. - Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services. Ce que nous offrons - Rôle polyvalent et intéressant dans un environnement dynamique des médias électroniques et du service public. - Environnement extrêmement stimulant et collégial. - Conditions d'emploi progressistes et opportunités de formation. Contact - Nils Hirschi Consultant RH - Téléphone +41 58 136 43 36 Le domaine des opérations - Prend le rôle stratégique et de contrôle central pour l'orientation technologique et la production de la SRG SSR. - Le département IT soutient tous les employés, les domaines technologiques et les fonctions de support avec des services informatiques efficaces, fiables et modernes pour répondre aux besoins stratégiques et opérationnels de l'organisation."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T10:09:53.821Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
-      "requirements": [
-        "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
-        "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
-        "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
-        "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
-        "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
-        "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione completata in informatica, elettronica o ingegneria elettrica.",
-          "Ampia conoscenza e interesse nel settore ICT e/o Broadcast desiderati.",
-          "Forti capacità di comunicazione e coordinamento nel rapporto con partner commerciali, fornitori e clienti.",
-          "Conoscenze linguistiche in tedesco e inglese, e idealmente in francese o italiano.",
-          "Disponibilità a lavorare su turni e nei fine settimana, nonché a partecipare a servizi di guardia.",
-          "Conoscenze pratiche e teoriche di ITIL nel campo del supporto ai servizi e dell'operazione dei servizi."
-        ],
-        "en": [
-          "Completed apprenticeship in computer science, electronics, or electrical engineering.",
-          "Broad ICT and/or broadcast knowledge and interest desirable.",
-          "Strong communication and coordination skills in dealing with business partners, suppliers, and customers.",
-          "Language skills in German and English, as well as ideally in French or Italian.",
-          "Willingness to work shifts and weekends as well as on-call duty.",
-          "Practical and theoretical ITIL knowledge in the area of service support and service operation."
-        ],
-        "de": [
-          "Abgeschlossene Lehre in der Informatik, der Elektronik oder Elektrotechnik-Bereich",
-          "Breite ICT und/oder Broadcast Kenntnisse und Interesse wünschenswert",
-          "Starke Kommunikations- und Koordinationsfähigkeiten im Umgang mit Business Partnern, Lieferanten und Kunden",
-          "Sprachkenntnisse in Deutsch und Englisch, sowie idealerweise in Französisch oder Italienisch",
-          "Bereitschaft für Schicht- und Wochenendarbeit sowie Pikettdienst",
-          "Praktische und theoretische ITIL Kenntnisse im Bereich Service Support und Service Operation"
-        ],
-        "fr": [
-          "Formation achevée en informatique, électronique ou ingénierie électrique.",
-          "Large connaissance et intérêt pour le secteur ICT et/ou Broadcast souhaités.",
-          "Compétences linguistiques en allemand et en anglais, ainsi qu'idéalement en français ou en italien.",
-          "Disponibilité pour travailler en équipes et le week-end ainsi que pour des services d'astreinte.",
-          "Connaissances pratiques et théoriques d'ITIL dans le domaine du support des services et de l'exploitation des services."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "b7aea4ab-5915-4645-a639-79a98c2543ff",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 80,
-        "pensumMax": 80
-      },
-      "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "srg-ssr-fc3f7a723214",
-      "slug": "emprendista-commerziala-emprendist-commerzial-srg-ssr-cuira",
-      "slugByLocale": {
-        "it": "emprendista-commerziala-emprendist-commerzial-srg-ssr-cuira",
-        "en": "commercial-entrepreneur-srg-ssr-cuira",
-        "de": "kaufmannischer-unternehmer-srg-ssr-cuira",
-        "fr": "entrepreneur-commercial-srg-ssr-cuira"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Emprendista commerziala / emprendist commerzial",
-      "titleByLocale": {
-        "it": "Emprendista commerziala / emprendist commerzial",
-        "en": "Commercial Entrepreneur",
-        "de": "Kaufmännischer Unternehmer",
-        "fr": "Entrepreneur Commercial"
-      },
-      "description": "Tge èn las incumbensas?\n• mintg'onn lavuras ti per in'autra partiziun da RTR sco per exempel program, marketing e communicaziun, persunal e contabilitad\n• ti fas differentas lavurs administrativas en in turnus atras differentas partiziuns\n• ti has contact cun clientas e clients al retschaviment, per telefon e per e-mail\n• ti gidas ad organisar ed a realisar events ed occurrenzas en l'entir chantun Tge spetgain nus?\n• ti has gust da surpigliar responsabladad\n• ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR\n• ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala\n• ti lavuras gugent en in team ed es pront:a da lavurar autonomamain Tge offrin nus?\n• ina scolaziun interessanta e multifara en in ambient dinamic da las medias electronicas e dal service public\n• ina tgira persunala ed in clima da lavur collegial en ina cultura da manaschi averta cun ierarchias bassas ed ina mentalitad dal \"ti\"\n• incumbensas variadas cun spazi per atgnas ideas\n• 6 emnas vacanzas ed ina paja d'emprendissadi attractiva\n• renconuschientscha per bunas prestaziuns en scola\n• ti pos far il profil E ubain M (cun matura professiunala) branscha: servetschs ed administraziun\n• cumenzament da l'emprendissadi: avust 2027\n• durada: 3 onns davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-      "descriptionByLocale": {
-        "it": "Tge èn las incumbensas?\n• mintg'onn lavuras ti per in'autra partiziun da RTR sco per exempel program, marketing e communicaziun, persunal e contabilitad\n• ti fas differentas lavurs administrativas en in turnus atras differentas partiziuns\n• ti has contact cun clientas e clients al retschaviment, per telefon e per e-mail\n• ti gidas ad organisar ed a realisar events ed occurrenzas en l'entir chantun Tge spetgain nus?\n• ti has gust da surpigliar responsabladad\n• ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR\n• ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala\n• ti lavuras gugent en in team ed es pront:a da lavurar autonomamain Tge offrin nus?\n• ina scolaziun interessanta e multifara en in ambient dinamic da las medias electronicas e dal service public\n• ina tgira persunala ed in clima da lavur collegial en ina cultura da manaschi averta cun ierarchias bassas ed ina mentalitad dal \"ti\"\n• incumbensas variadas cun spazi per atgnas ideas\n• 6 emnas vacanzas ed ina paja d'emprendissadi attractiva\n• renconuschientscha per bunas prestaziuns en scola\n• ti pos far il profil E ubain M (cun matura professiunala) branscha: servetschs ed administraziun\n• cumenzament da l'emprendissadi: avust 2027\n• durada: 3 onns davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
-        "en": "Description\n• Responsibilities - Every year you work for another department of RTR, such as program, marketing and communication, personnel, and accounting. - You perform various administrative tasks in a rotation through different departments. - You have contact with clients upon reception, by phone, and by email. - You assist in organizing and executing events and occurrences throughout the entire canton.\n• Requirements - You enjoy taking on responsibility. - You are motivated to develop and undertake, with support from RTR. - You have a passion for Romansh and using the language in professional life. - You enjoy working in a team and are ready to work autonomously. What We Offer - An interesting and diverse training in a dynamic environment of electronic media and public service. - Personal care and a collegial work atmosphere in an open business culture with low hierarchies and a \"you\" mentality. - Varied tasks with space for your own ideas. - 6 weeks of vacation and an attractive apprenticeship salary. - Recognition for good performance in school. - You can take the E profile or M (with vocational maturity) in the field: services and administration. Contact - Start of the apprenticeship: August 2027 - Duration: 3 years regarding the application process. - Flurina Foppa Human Resources Manager +41 58 136 31 08",
-        "de": "Beschreibung\n• Aufgaben - Jedes Jahr arbeiten Sie für eine andere Abteilung von RTR, wie zum Beispiel Programm, Marketing und Kommunikation, Personal und Buchhaltung. - Sie führen verschiedene administrative\n• Aufgaben in einem Turnus durch verschiedene Abteilungen aus. - Sie haben Kontakt mit Kunden am Empfang, per Telefon und per E-Mail. - Sie helfen bei der Organisation und Durchführung von Veranstaltungen und Ereignissen im gesamten Kanton.\n• Anforderungen - Sie haben Freude daran, Verantwortung zu übernehmen. - Sie sind motiviert, sich zu entwickeln und zu unternehmen, mit Unterstützung von RTR. - Sie haben Freude an Rätoromanisch und daran, die Sprache im Berufsleben zu verwenden. - Sie arbeiten gerne im Team und sind bereit, autonom zu arbeiten.\n• Was wir bieten - Eine interessante und vielfältige Ausbildung in einem dynamischen Umfeld der elektronischen Medien und des öffentlichen Dienstes. - Persönliche Betreuung und ein kollegiales Arbeitsklima in einer offenen Unternehmenskultur mit flachen Hierarchien und einer \"Du\"-Mentalität. - Abwechslungsreiche\n• Aufgaben mit Raum für eigene Ideen. - 6 Wochen Urlaub und ein attraktives Ausbildungsgehalt. - Anerkennung für gute Leistungen in der Schule. - Sie können das E-Profil oder M (mit beruflicher Maturität) im Bereich: Dienstleistungen und Verwaltung machen. Kontakt - Beginn der Ausbildung: August 2027 - Dauer: 3 Jahre bezüglich des Bewerbungsprozesses. - Flurina Foppa Personalverantwortliche +41 58 136 31 08",
-        "fr": "Description Responsabilités - Chaque année, vous travaillez pour un autre département de RTR, comme par exemple le programme, le marketing et la communication, le personnel et la comptabilité. - Vous effectuez diverses tâches administratives dans un roulement à travers différents départements. - Vous avez contact avec les clients à la réception, par téléphone et par e-mail. - Vous aidez à organiser et à réaliser des événements et des occurrences dans tout le canton.\n• Exigences - Vous aimez prendre des responsabilités. - Vous êtes motivé(e) à vous développer et à entreprendre, avec le soutien de RTR. - Vous avez un plaisir pour le romanche et à utiliser la langue dans la vie professionnelle. - Vous aimez travailler en équipe et êtes prêt(e) à travailler de manière autonome. Ce que nous offrons - Une formation intéressante et variée dans un environnement dynamique des médias électroniques et du service public. - Un suivi personnel et une atmosphère de travail collégiale dans une culture d'entreprise ouverte avec de faibles hiérarchies et une mentalité du \"tu\". - Des tâches variées avec de l'espace pour vos propres idées. - 6 semaines de vacances et un salaire d'apprentissage attractif. - Reconnaissance pour de bonnes performances à l'école. - Vous pouvez faire le profil E ou M (avec maturité professionnelle) dans le domaine : services et administration. Contact - Début de l'apprentissage : août 2027 - Durée : 3 ans concernant le processus de candidature. - Flurina Foppa Responsable des ressources humaines +41 58 136 31 08"
-      },
-      "location": "Cuira",
-      "canton": "",
-      "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-11T10:09:52.985Z",
-      "addressLocality": "Cuira",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Via da Masans 2",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-23",
-      "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
-      "requirements": [
-        "ti has gust da surpigliar responsabladad",
-        "ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR",
-        "ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala",
-        "ti lavuras gugent en in team ed es pront:a da lavurar autonomamain"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "ti has gust da surpigliar responsabladad",
-          "ti es motiva:da da ta sviluppar e d'emprender, cun sustegn da RTR",
-          "ti has plaschair dal rumantsch e da duvrar la lingua en la vita professiunala",
-          "ti lavuras gugent en in team ed es pront:a da lavurar autonomamain"
-        ],
-        "en": [
-          "You enjoy taking on responsibility.",
-          "You are motivated to develop and undertake, with support from RTR.",
-          "You have a passion for Romansh and using the language in professional life.",
-          "You enjoy working in a team and are ready to work autonomously."
-        ],
-        "de": [
-          "Sie haben Freude daran, Verantwortung zu übernehmen.",
-          "Sie sind motiviert, sich zu entwickeln und zu unternehmen, mit Unterstützung von RTR.",
-          "Sie haben Freude an Rätoromanisch und daran, die Sprache im Berufsleben zu verwenden.",
-          "Sie arbeiten gerne im Team und sind bereit, autonom zu arbeiten."
-        ],
-        "fr": [
-          "Vous aimez prendre des responsabilités.",
-          "Vous êtes motivé(e) à vous développer et à entreprendre, avec le soutien de RTR.",
-          "Vous avez un plaisir pour le romanche et à utiliser la langue dans la vie professionnelle.",
-          "Vous aimez travailler en équipe et êtes prêt(e) à travailler de manière autonome."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "c7a3bf5e-4660-4325-baee-e0cc14f79df0",
-        "org": "rtr",
-        "orgLabel": "RTR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "firstSeenAt": "2026-06-29T11:35:10.780Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }
