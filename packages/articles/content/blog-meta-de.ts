@@ -9790,6 +9790,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conversione-patente-guida-frontaliere.title': 'Umtausch italienischer Führerschein in die Schweiz für Grenzgänger',
     'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Praktischer Leitfaden zur Umwandlung des italienischen Führerscheins in der Schweiz für Arbeitnehmer mit Führerschein G: Verfahren und Gültigkeit.',
     'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Umtausch des italienischen Führerscheins in der Schweiz für Grenzgänger',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.title': 'Einheitliche Zollstelle für Mendrisio und Sopraceneri',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.excerpt': 'Neuigkeiten aus der Reorganisation des Bundesamtes für Zoll und Grenzsicherheit mit der Eingliederung Graubündens in die Region Süd.',
+    'blog.article.ufficio-doganale-unico-mendrisio-sopraceneri.imageAlt': 'Einziges Zollbüro für Mendrisio und das Sopraceneri',
+    'blog.article.lavoratori-frontalieri-novita-2026.title': 'Grenzgänger: Die Neuheiten 2026 zwischen IT-CH-Protokoll und Interpelli',
+    'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'Die Ratifizierung des Änderungsprotokolls zum Abkommen Italien-Schweiz und die Klarstellungen der Agentur der Einnahmen definieren den Anwendungsbereich der Grenzgängerregelung neu.',
+    'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalier am Brogeda-Pass',
 };
 
 export default blogMetaDe;

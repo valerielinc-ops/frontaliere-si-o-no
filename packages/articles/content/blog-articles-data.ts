@@ -29361,6 +29361,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ufficio-doganale-unico-mendrisio-sopraceneri',
+ category: 'pratico',
+ date: '2026-08-12T08:18:46.588Z',
+ image: '/images/blog/ufficio-doganale-unico-mendrisio-sopraceneri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'lavoratori-frontalieri-novita-2026',
+ category: 'fiscale',
+ date: '2026-08-12T09:05:57.614Z',
+ image: '/images/blog/lavoratori-frontalieri-novita-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
