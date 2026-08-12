@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-08-11T22:12:45.450Z",
+  "generatedAt": "2026-08-12T10:38:54.277Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 1551,
-  "avgDurationMs": 1551,
+  "durationMs": 1664,
+  "avgDurationMs": 1664,
   "durationHistory": [
-    1551
+    1664
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,10 +32,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-11",
+      "postedDate": "2026-08-12",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-08-11",
+      "validThrough": "2026-08-12",
       "id": "board-international-2a78e3e57c3b",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -116,7 +116,6 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
