@@ -74,11 +74,12 @@ function stripComments(src: string): string {
  * What makes a file a signup path.
  *
  * The two service functions are the obvious half. The second pattern is the
- * half that mattered: `hooks/useNewsletterState.ts` writes the collection
- * directly with `addDoc`, so it never reaches `captureNewsletterSubscriber`
- * and the `consent-text-required` guard added by #5695 does not run on it. A
- * rule that only looked for the function calls would have declared that file
- * covered.
+ * half that mattered: a raw `addDoc`/`setDoc` on the collection never
+ * reaches `captureNewsletterSubscriber`, so the `consent-text-required`
+ * guard added by #5695 does not run on it (the file that motivated this
+ * pattern, `hooks/useNewsletterState.ts`, was itself dead code and has since
+ * been removed — see #5698). A rule that only looked for the function calls
+ * would have declared such a file covered.
  */
 const CREATES_SUBSCRIBER =
   /(upsert|capture)NewsletterSubscriber\s*\(|(addDoc|setDoc)\(\s*(collection|doc)\([^)]*'newsletter_subscribers'/;
@@ -206,11 +207,6 @@ const VERDICTS: Record<string, Verdict> = {
     issue: '#5712',
     onFire:
       'STOP unless the notice is genuinely on screen BEFORE the One Tap prompt — a notice rendered after the credential is returned is not a disclosure at collection',
-  },
-  'hooks/useNewsletterState.ts': {
-    verdict: 'unreachable',
-    why: 'raw addDoc that bypasses captureNewsletterSubscriber and therefore its consent-text guard; App.tsx carries its own copy of this logic and nothing imports the hook',
-    issue: '#5712',
   },
   'hooks/useUserState.ts': {
     verdict: 'unreachable',
@@ -479,17 +475,6 @@ describe('the verdicts hold', () => {
     ).toEqual([]);
   });
 
-  it('the raw addDoc that bypasses the creation guard still writes the register fields', () => {
-    // `hooks/useNewsletterState.ts` does not go through
-    // `captureNewsletterSubscriber`, so the `consent-text-required` guard
-    // added by #5695 never runs on it. Unreachable today, but a document born
-    // there would be the 8.506th with no record of what was disclosed.
-    const src = stripComments(read('hooks/useNewsletterState.ts'));
-    expect(src).toMatch(/consent_text:/);
-    expect(src).toMatch(/consent_text_version:/);
-    expect(src).toMatch(/consent_text_displayed:/);
-    expect(src).toMatch(/consent_act:/);
-  });
 });
 
 describe('ConsentNotice renders the bytes that get stored', () => {

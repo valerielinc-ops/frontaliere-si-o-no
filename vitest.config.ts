@@ -120,7 +120,6 @@ const JSDOM_TS_FILES = [
   'tests/gamification.test.ts',
   'tests/hooks/seo-first-paint-deferral.test.ts',
   'tests/hooks/useNavigationState.test.ts',
-  'tests/hooks/useNewsletterState.test.ts',
   'tests/hooks/useSimulationState.test.ts',
   'tests/hooks/useUIState.test.ts',
   'tests/hooks/useUserState.test.ts',
