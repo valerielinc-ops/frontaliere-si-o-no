@@ -2239,6 +2239,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Einbürgerung Kanton Zürich Anforderungen und Verfahren',
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'Das Einbürgerungsverfahren im Kanton Zürich: Voraussetzungen, Integrationstest und Sprache, zu entrichtende Gebühren und Dauer des Verfahrens.',
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'Ansicht von Lugano, Schweiz, mit einem Schwerpunkt auf die Naturalisierungsverfahren für den Kanton Zürich',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.title': 'AHV-Säule: Beitragslücken und Mindestdeckung',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.excerpt': 'Die kantonale Ausgleichskasse Zürich ist eine zentrale Institution für die Schweizer Vorsorge. So funktioniert es.',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.imageAlt': 'Die kantonale Kompensationskasse von Zürich: eine entscheidende Institution für die Schweizer Pension.',
 };
 
 export default blogMetaChDe;

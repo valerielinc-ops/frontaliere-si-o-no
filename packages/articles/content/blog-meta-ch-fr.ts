@@ -2239,6 +2239,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.title': 'Naturalisation canton Zurich exigences et procédure',
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.excerpt': 'La procédure de naturalisation dans le canton de Zurich : exigences, tests d\'intégration et langue, taxes à payer et durée de la procédure.',
     'blog.article.canton-zurigo-naturalizzazione-requisiti-e-procedura.imageAlt': 'Vue de Lugano, Suisse, avec un focus sur le processus de naturalisation pour le Canton de Zurich',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.title': 'Pilier AVS : lacunes en matière de cotisations et couverture minimale',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.excerpt': 'La caisse de compensation cantonale de Zurich est une institution cruciale pour la prévoyance suisse. Voici comment cela fonctionne.',
+    'blog.article.avs-e-prestazioni-complementari-canton-zurigo.imageAlt': 'Le fonds de compensation cantonal de Zurich: une institution cruciale pour la pension suisse.',
 };
 
 export default blogMetaChFr;

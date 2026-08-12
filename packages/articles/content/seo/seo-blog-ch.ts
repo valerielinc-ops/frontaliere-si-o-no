@@ -28994,6 +28994,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-e-prestazioni-complementari-canton-zurigo': {
+    title: 'Pilastro AVS: lacune contributive e copertura minima',
+    description: 'La cassa di compensazione cantonale di Zurigo è un\'istituzione cruciale per la previdenza svizzera. Il calcolo della rendita AVS è fondamentale per garantire',
+    keywords: 'frontalieri, ticino, svizzera, italia, pilastro, lacune, contributive, copertura',
+    ogTitle: 'Il primo pilastro del Cantone di Zurigo: cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
+    ogDescription: 'La cassa di compensazione cantonale di Zurigo è un\'istituzione cruciale per la previdenza svizzera. Il calcolo della rendita AVS è fondamentale per garantire il minimo vitale. Le lacune contributive e le prestazioni complementari sono essenziali',
+    canonicalPath: '/articoli-svizzera/avs-e-prestazioni-complementari-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pilastro AVS: lacune contributive e copertura minima",
+      "description": "La cassa di compensazione cantonale di Zurigo è un'istituzione cruciale per la previdenza svizzera. Il calcolo della rendita AVS è fondamentale per garantire",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-e-prestazioni-complementari-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La cassa di compensazione cantonale di Zurigo: un'istituzione cruciale per la previdenza svizzera."
+      },
+      "datePublished": "2026-08-12T00:29:35+00:00",
+      "dateModified": "2026-08-12T00:29:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-e-prestazioni-complementari-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
