@@ -12734,6 +12734,93 @@
       ]
     },
     {
+      "slug": "bure",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-jura/bure/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-jura/bure/"
+      },
+      "queries": [
+        {
+          "query": "emploi jura suisse",
+          "clicks": 1,
+          "impressions": 10
+        },
+        {
+          "query": "emplois jura suisse",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job jura suisse",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
+          "query": "canton du jura emploi",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "emploi canton du jura",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "emploi canton jura",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offre d'emploi jura suisse",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 17,
+      "totalClicks": 2,
+      "topQuery": "emploi jura suisse",
+      "title": "Bure",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "bure",
+        "en": "bure",
+        "de": "bure",
+        "fr": "bure"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/bure",
+        "en": "/en/find-jobs-jura/bure",
+        "de": "/de/jobs-im-jura/bure",
+        "fr": "/fr/trouver-emploi-jura/bure"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "business-engineer-m-d-axpo-group-glarus-sud",
       "locale": "de",
       "path": "/de/jobs-im-tessin/business-engineer-m-d-axpo-group-glarus-sud",
