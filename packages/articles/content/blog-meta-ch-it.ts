@@ -2302,6 +2302,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Consiglio federale: accordi Svizzera-Ue non al referendum',
     'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'Il Consiglio federale ha spiegato che le condizioni richieste dalla Commissione per le istituzioni politiche degli Stati non sono state soddisfatte.',
     'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'La Svizzera e l\'UE hanno negoziato un accordo per stabilizzare le relazioni tra i due paesi.',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Effetto domino: fallite più aziende che mai dal 1994',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Rispetto allo stesso periodo del 2025 si registra una crescita del 54,7% delle fallite. Le aziende con più di dieci anni di attività rappresentano il 38% dei casi, seguite da quelle con un\'età compresa tra i 5 e i 10 anni (27%).',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Immagine di un lago svizzero con una diga in primo piano',
 };
 
 export default blogMetaChIt;

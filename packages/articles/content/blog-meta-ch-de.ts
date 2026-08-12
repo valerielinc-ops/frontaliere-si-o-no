@@ -2302,6 +2302,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Bundesrat: Abkommen Schweiz-EU nicht im Referendum',
     'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'Der Bundesrat erklärte, dass die von der Kommission geforderten Voraussetzungen für die politischen Institutionen der Staaten nicht erfüllt seien.',
     'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'Die Schweiz und die EU haben ein Abkommen zur Stabilisierung der Beziehungen zwischen den beiden Ländern verhandelt.',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Dominoeffekt: Mehr Unternehmen als je zuvor seit 1994 bankrott',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Gegenüber dem gleichen Zeitraum 2025 ist ein Anstieg der Insolvenzen um 54,7% zu verzeichnen. Unternehmen mit mehr als zehnjähriger Tätigkeit machen 38% der Fälle aus, gefolgt von Unternehmen zwischen 5 und 10 Jahren (27%).',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Bild eines Schweizer Sees mit einer Damm in der Vordergrund',
 };
 
 export default blogMetaChDe;

@@ -2302,6 +2302,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Federal Council: Switzerland-EU agreements not in the referendum',
     'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'The Federal Council explained that the conditions required by the Commission for the political institutions of the States were not met.',
     'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'The Switzerland and EU have negotiated an agreement to stabilize the relations between the two countries.',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Domino effect: more companies have failed than ever since 1994',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Compared to the same period in 2025, there was a 54.7% growth in bankruptcies. Companies with more than ten years of activity represent 38% of cases, followed by those between the ages of 5 and 10 (27%).',
+    'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Image of a Swiss lake with a dam in the foreground',
 };
 
 export default blogMetaChEn;
