@@ -16,9 +16,12 @@
  *     same module. It stays stricter only in the `confirmed`-only admission
  *     below, which is about this channel's cadence, not about consent.)
  *   - job-alert side: root docs not excluded by isJobAlertExcluded().
- *   - anyone whose newsletter status is excluded (unsubscribed/inactive or
- *     address-suppressed) is OUT even if they sit in the job-alert
- *     collection: an explicit broadcast opt-out wins over membership.
+ *   - anyone whose newsletter document records an exclusion — the status
+ *     (unsubscribed/inactive or address-suppressed) OR the opt-out stamp in
+ *     either spelling — is OUT even if they sit in the job-alert collection:
+ *     an explicit broadcast opt-out wins over membership. That rule is now
+ *     the system's, not this channel's: #5688 gave the alert senders their
+ *     own reading of it (isCrossChannelStop, services/emailSuppression.mjs).
  *   - anyone whose newsletter doc carries NO confirmation stamp is OUT of
  *     every channel, job alert included — see hasConfirmationProof() (#5677).
  *
@@ -59,7 +62,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isNewsletterExcluded, isJobAlertExcluded, isAddressSuppressed } from '../services/emailSuppression.mjs';
+import { isNewsletterExcluded, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildDailyBriefEmail } from '../services/daily-brief-template.mjs';
@@ -215,7 +219,13 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
 
   for (const [email, row] of nlByEmail) {
     const status = String(row.status || '').trim().toLowerCase();
-    if (isNewsletterExcluded(status)) {
+    // Status AND stamp. `status` is one last-writer-wins field: #5672's
+    // resurrection ring overwrote it on 186 documents, 49 of which received
+    // that day's brief — this channel is where that was measured. The stamp
+    // survives it, in whichever of the two spellings the writer used (#5673),
+    // and since #5711 it is append-only — so the shared predicate, never a bare
+    // presence check, because only a strictly later re-opt-in lifts it.
+    if (isNewsletterExcluded(status) || isNewsletterOptOutBinding(row.doc || row)) {
       stats.newsletterExcluded++;
       continue;
     }
@@ -244,8 +254,13 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     const nlRow = nlByEmail.get(email);
     const nlStatus = nlRow ? String(nlRow.status || '').trim().toLowerCase() : null;
     // Explicit broadcast opt-out (or a bounced/complained address) wins over
-    // job-alert membership.
-    if (nlStatus && (isNewsletterExcluded(nlStatus) || isAddressSuppressed(nlStatus))) {
+    // job-alert membership. isNewsletterExcluded already contains every status
+    // isAddressSuppressed does, so the second call this line used to make was
+    // dead; what was genuinely missing is the stamp, same as the newsletter
+    // side above. `nlRow` is null for an address with no newsletter document at
+    // all, and the predicate reads that as "nothing recorded" — which is right:
+    // job-alert membership is its own basis, and there is no opt-out to honour.
+    if (isNewsletterExcluded(nlStatus) || isNewsletterOptOutBinding(nlRow?.doc || nlRow)) {
       stats.optOutWins++;
       continue;
     }

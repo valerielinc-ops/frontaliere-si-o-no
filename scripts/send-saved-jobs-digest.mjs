@@ -11,10 +11,15 @@
  *
  * Opt-out, not opt-in: any user with ≥1 saved job receives it, unless
  * `users/{uid}.savedJobsDigest.optedOut === true` (set by
- * functions/src/savedJobsDigestUnsubscribe.js) or their email is address-
- * suppressed. This channel's unsubscribe is scoped to `savedJobsDigest`
- * only — it must never touch `newsletter_subscribers` or
- * `job_alert_subscribers/*` (see functions/src/lib/emailSuppression.js).
+ * functions/src/savedJobsDigestUnsubscribe.js) or the newsletter document
+ * records a cross-channel stop — a bounce/complaint/provider suppression, or
+ * the explicit newsletter opt-out (isCrossChannelStop, #5688).
+ *
+ * The propagation runs ONE way and that is deliberate. This channel's
+ * unsubscribe is scoped to `savedJobsDigest` and must never touch
+ * `newsletter_subscribers` or `job_alert_subscribers/*`; a newsletter opt-out,
+ * which is worded as "stop emailing me" and not as "stop one of the emails",
+ * reaches here (see functions/src/lib/emailSuppression.js).
  *
  * Env:
  *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account for Firestore
@@ -30,7 +35,7 @@ import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
-import { isSavedJobsDigestExcluded } from '../services/emailSuppression.mjs';
+import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
@@ -405,11 +410,18 @@ async function main() {
       continue;
     }
 
-    // Address-suppression cross-check (bounces/complaints) — same principle
-    // as isNewsletterExcluded/isJobAlertExcluded, one shared suppression list.
+    // Newsletter-document cross-check. Two things, not one: the address-level
+    // hard signals (bounce / complaint / provider list) and the explicit
+    // newsletter opt-out. Until #5688 this read only the first half, so a
+    // person who clicked "disiscriviti" kept getting this weekly reminder —
+    // the same defect the two alert senders had, from the same cause (the
+    // predicate answered "does this mailbox work", not "did they ask us to
+    // stop"). The channel's OWN opt-out is separate and checked above
+    // (`users/{uid}.savedJobsDigest.optedOut`); it does not propagate back to
+    // the newsletter, which is why savedJobsDigestUnsubscribe.js writes only
+    // under `users/{uid}`.
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
-    const subscriberStatus = subscriberDoc.exists ? subscriberDoc.data()?.status : null;
-    if (isSavedJobsDigestExcluded(subscriberStatus)) {
+    if (subscriberDoc.exists && isCrossChannelStop(subscriberDoc.data() || {})) {
       skippedCount++;
       continue;
     }
