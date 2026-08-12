@@ -13,6 +13,7 @@
 
 // Shared, pure (browser-safe) suppression set — keeps every sender in agreement.
 import { isNewsletterExcluded } from './emailSuppression.mjs';
+import { hasConfirmationProof } from './subscriberConsent.mjs';
 
 function norm(s) {
   return String(s ?? '').trim().toLowerCase();
@@ -88,6 +89,12 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
     // Previously checked the literal 'complaint' — an event-type name, never a
     // subscriber status value — so complained/suppressed users were still mailed.
     if (isNewsletterExcluded(sub.status)) continue;
+    // ...and the other half of the question (#5686): the set above says who
+    // opted OUT, this says who ever opted IN. A paid ad blast is ordinary
+    // marketing sourced from the whole newsletter_subscribers collection —
+    // exactly the shape that let the weekly newsletter mail 1.488 addresses
+    // that never completed the double opt-in. The stamp decides, not `status`.
+    if (!hasConfirmationProof(sub)) continue;
     const score = scoreSubscriberForAd(ad, sub);
     if (score >= minScore) {
       scored.push({ email: String(sub.email), locale: sub.locale || 'it', score });
