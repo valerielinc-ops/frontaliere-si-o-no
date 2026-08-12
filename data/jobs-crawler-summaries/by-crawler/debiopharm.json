@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-08-12T10:18:30.979Z",
+  "generatedAt": "2026-08-12T21:50:34.547Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 3333,
-  "avgDurationMs": 3333,
+  "durationMs": 2976,
+  "avgDurationMs": 2976,
   "durationHistory": [
-    3333
+    2976
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -93,6 +93,7 @@
       "salaryMax": 162500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -135,6 +136,7 @@
       "salaryMax": 77500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -177,6 +179,7 @@
       "salaryMax": 306000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -220,6 +223,7 @@
       "salaryMax": 126500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -256,6 +260,7 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -293,6 +298,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-06-04T14:51:15.077Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -330,6 +336,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -411,6 +418,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
