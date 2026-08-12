@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 12 Aug 2026 04:58:46 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 05:50:14 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -16,6 +16,40 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Tableau RW déclaration compte courant suisse Agence du revenu</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/compte-bancaire-suisse-formulaire-rw/</link>
+      <description><![CDATA[Guide complet de suivi fiscal pour les frontaliers titulaires d'un compte en Suisse : obligations de déclaration et TVAFE.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Obligation de suivi fiscal pour les comptes suisses
+- Compilation du tableau RW dans le modèle Revenus
+- Application de la TVAFE sur les activités financières étrangères
+- Pertinence pour les travailleurs frontaliers au Tessin
+
+## Faits clés
+- **Quoi** : Suivi fiscal des activités étrangères
+- Quand : Période de dépôt de la déclaration de revenus
+- Où : Italie par l'intermédiaire de l'Agence du revenu
+- Qui : Résidents fiscaux en Italie avec des comptes en Suisse
+- Montant : Seuils et taux de TVA fixés par la loi
+
+Le suivi fiscal des activités financières étrangères est une obligation fondamentale pour toutes les personnes résidant fiscalement en Italie qui détiennent des comptes courants ou des dépôts en dehors du territoire national. Pour les travailleurs frontaliers qui opèrent régulièrement dans le canton du Tessin et entretiennent des relations bancaires avec des institutions suisses, la bonne gestion des obligations déclaratives nécessite une attention particulière aux dispositions établies par l'Agence du revenu. La législation italienne impose en effet l'indication de ces activités dans la déclaration des revenus à travers l'établissement de cadres appropriés, quel que soit le type de revenu perçu En plus du revenu salarié, qui pour les frontaliers trouve une réglementation spécifique à travers l'impôt à la source retenu en Suisse et les mécanismes d'élimination de la double imposition en Italie avec le crédit d'impôt dans le cadre CE de 730, les
+La gestion pratique du cadre RW au sein du modèle Revenus PF nécessite une série d'évaluations techniques très précises de la part du contribuable ou du professionnel en charge de la transmission télématique. Un élément central concerne le calcul de l'encours moyen et de la valeur à la fin de la période d'imposition pour chaque compte courant ou dépôt titres détenu auprès d'établissements bancaires suisses. La réglementation prévoit l'application de l'impôt sur la valeur des actifs financiers détenus à l'étranger, connu sous le nom de IVAFE, qui est calculé en appliquant un pourcentage établi par la loi sur la valeur totale des produits financiers et des comptes courants. Pour les comptes courants et les livrets d'épargne, l'impôt est généralement déterminé de manière fixe si la valeur moyenne du stock total ne dépasse pas un certain seuil de franchise établi par les dispositions en vigueur, alors qu'il est appliqué proportionnellement à la valeur en cas de dépassement de ce seuil.
+
+### Scénarios d'application et calcul de la TVAFE
+Dans le cadre des relations bancaires transfrontalières entre l'Italie et la Suisse, le contribuable doit accorder la plus grande attention à la conversion des sommes libellées en francs suisses en euros. La conversion doit être effectuée en utilisant le taux de change officiel publié par la Banque centrale européenne ou par les autorités compétentes, valable pour le dernier jour de la période d'imposition de référence pour la valeur finale, ou le taux de change
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+Pour s'acquitter correctement des obligations fiscales relatives au compte bancaire suisse, le contribuable doit suivre une procédure méthodique à partir de la collecte de la documentation bancaire délivrée par l'établissement de crédit helvétique. La première étape fondamentale consiste à demander et analyser le relevé de compte récapitulatif de fin décembre, qui atteste du solde au trente et un décembre, ainsi que l'état pour le calcul du solde moyen annuel de chaque relation financière active au cours de l'année civile. Ensuite, il faut procéder à la conversion des valeurs exprimées en francs suisses dans la monnaie nationale italienne en appliquant les taux de change officiels établis pour l'année d'imposition de référence. Une fois toutes les données comptables recueillies, on procède au remplissage matériel du cadre RW à l'intérieur du modèle Redditi, en veillant à indiquer correctement le code de l'État étranger de détention, qui pour la Suisse correspond au code d'identification spécifique prévu par les instructions ministérielles, la nature de l'activité financière ainsi que les valeurs patrimoniales initiales, finales et moyennes correspondantes.
+
+### Outils et calcul pour les frontaliers
+Compte tenu de la complexité de la fiscalité transfrontalière, les travailleurs peuvent utiliser des outils numériques dédiés pour simuler leur situation contributive et fiscale globale, en tenant compte à la fois des retenues à la source opérées en Suisse et des obligations déclaratives en Italie. Pour une estimation détaillée du traitement économique et des impôts, il est possible d'utiliser le [calculateur](nav:calculator) mis à disposition pour vérifier l'impact global des revenus de travail salarié perçus au-delà de la frontière. Il est en outre conseillé de s'adresser à un CAF ou à des professionnels agréés pour la vérification ponctuelle des échéances et pour la transmission télématique correcte du modèle Redditi dans les délais fixés par la réglementation en vigueur. La planification proactive de sa déclaration permet d'éviter des sanctions administratives et de gérer en toute sérénité les relations avec l'administration financière italienne en ce qui concerne les actifs financiers détenus à l'étranger.]]></content:encoded>
+      <pubDate>Wed, 12 Aug 2026 05:50:14 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/quadro-rw-conto-corrente-svizzero</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/quadro-rw-conto-corrente-svizzero.webp" medium="image"/>
+    </item>
     <item>
       <title>Leventina otage du trafic : la CUPRA envahit le cantonal</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/leventina-probleme-de-circulation-cupra-airolo/</link>
@@ -2583,79 +2617,6 @@ Offre d'emploi au Tessin? Simulez votre [fiche de paie nette](nav:payslip) : sal
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/trasferirsi-a-teglio-da-frontaliere-pro-e-contro</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/trasferirsi-a-teglio-da-frontaliere-pro-e-contro.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Déménager à Stelvio en tant que frontalier : avantages et inconvénients</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/se-deplacer-a-stelvio-en-tant-que-frontalier-pros-et-cons/</link>
-      <description><![CDATA[Le nouvel accord frontalier prévoit de nouvelles règles pour les frontaliers. Quels sont les avantages et les inconvénients de déménager à Stelvio ?]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le nouvel accord frontalier a été signé le 23 décembre 2020 et entre en vigueur le 1er janvier 2024.
-- Le permis G est exonéré d'impôt pour les anciens frontaliers, tandis que les nouveaux frontaliers bénéficient d'une franchise de 10000 € .
-- La Suisse n'est pas membre de l'UE/EEE.
-
-## Se déplacer à Stelvio en tant que frontalier : avantages et inconvénients
-
-Situées à la frontière avec l'Italie, les communes des Grisons telles que Stelvio, Bernina et Poschiavo ont toujours été un pont entre la Suisse et l'Italie. La possibilité de s'installer dans ces zones en tant que frontalier est une option attrayante pour de nombreux travailleurs. Cependant, il est important de prendre en compte les avantages et les inconvénients de ce type de transfert.
-
-### I pro
-
-- **Facilité de transfert** : en tant que frontalier, vous n'avez pas besoin de visa pour travailler en Suisse ou en Italie.
-- Accès à de meilleures conditions de travail : les travailleurs frontaliers peuvent accéder à de meilleures conditions de travail et à de meilleurs salaires que les citoyens non frontaliers.
-- Franchise fiscale : les nouveaux frontaliers bénéficient d'une franchise de 10'000 € sur l'impôt sur le revenu, tandis que les anciens frontaliers sont exonérés d'impôt.
-
-### I contre
-
-- Règles et réglementations complexes : le nouvel accord frontalier est entré en vigueur le 1er janvier 2024, et les règles et réglementations sont complexes et peuvent être difficiles à comprendre.
-- Conditions de résidence : les frontaliers doivent résider dans l'une des zones délimitées par l'État limitrophe (dans ce cas, l'Italie) pendant au moins
-## Faits clés
-- **Chose** : Le nouvel accord frontalier
-- Quand : 23 décembre 2020 (signature) et 1er janvier 2024 (en vigueur)
-- Où : Suisse et Italie
-- Qui : Frontalier
-- Montant : 10'000 € ( franchise pour les nouveaux frontaliers)
-
-## Se déplacer à Stelvio en tant que frontalier : avantages et inconvénients
-
-Le 23 décembre 2020, le nouvel accord frontalier entre la Suisse et l'Italie a été signé et est entré en vigueur le 1er janvier 2024. Cet accord a introduit de nouvelles règles pour les frontaliers, c'est-à-dire ceux qui vivent dans une région limitrophe d'une autre nation.
-
-### Se déplacer à Stelvio en tant que frontalier : pro
-
-Si vous êtes un frontalier à la recherche d'un nouveau défi, déménager à Stelvio pourrait être un choix intéressant. Voici quelques avantages :
-
-- Franchise : Avec le nouvel accord, vous pouvez bénéficier d'une franchise de 10000 € si vous êtes un nouveau frontalier.
-- Simplification : Le nouvel accord a simplifié les processus bureaucratiques pour les frontaliers, facilitant ainsi le transfert.
-- Opportunités d'emploi : Stelvio est une région riche en opportunités d'emploi, grâce à sa position stratégique entre la Suisse et l'Italie.
-
-### Se déplacer à Stelvio en tant que frontalier : contre
-
-Cependant, tout n'est pas que roses et fleurs. En voici quelques-uns contre :
-
-- Frais : Bien qu'il y ait une franchise, vous devrez peut-être faire face à des frais de transfert, tels que les frais d'enregistrement et d'immatriculation.
-- Bureaucratie : Bien que le nouvel accord ait simplifié les processus bureaucratiques,
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-Déménager à Stelvio en tant que frontalier : avantages et inconvénients
-
-Le nouvel accord frontalier prévoit de nouvelles règles pour les frontaliers. Le permis G est exonéré d'impôt pour les anciens frontaliers, tandis que les nouveaux frontaliers bénéficient d'une franchise de 10000 € . La Suisse n'est pas membre de l'UE/EEE. Il est important de noter que le nouvel accord frontalier n'est pas encore en vigueur et qu'il n'est donc pas encore possible de déménager à Stelvio avec les nouveaux règlements.
-
-Qui sont les frontaliers ?
-
-Les frontaliers sont ceux qui résident en Suisse et ont une relation de travail ou d'étude en Italie. Ils sont soumis à des règles fiscales et de travail spécifiques, qui peuvent varier en fonction de leur statut de frontalier. Les frontaliers peuvent être divisés en deux catégories : les anciens frontaliers et les nouveaux frontaliers.
-
-Anciens frontaliers :
-
-Les anciens frontaliers sont ceux qui ont déjà obtenu le permis G avant le 1er janvier 2023. Ces frontaliers sont exonérés d'impôt pour les revenus provenant de leur activité professionnelle en Italie. Par exemple, si un frontalier italien travaille comme comptable dans une société suisse basée à Bellinzone et gagne un revenu de 80'000 € , il ne sera pas soumis à l'impôt en Suisse.
-
-Nouvelles frontières :
-
-Les nouveaux frontaliers sont ceux qui ont obtenu le permis G après le 1er janvier 2023. Ces frontaliers bénéficient d'une franchise de 10'000 € pour les revenus provenant de leur activité professionnelle en Italie. Par exemple, si un frontalier italien travaille comme ingénieur en
-
-Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.]]></content:encoded>
-      <pubDate>Tue, 11 Aug 2026 03:34:02 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/trasferirsi-a-stelvio-da-frontaliere-pro-e-contro</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/trasferirsi-a-stelvio-da-frontaliere-pro-e-contro.webp" medium="image"/>
     </item>
   </channel>
 </rss>
