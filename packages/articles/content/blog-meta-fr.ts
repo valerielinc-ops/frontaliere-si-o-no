@@ -9820,6 +9820,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traversata-alpi-cani-adottati-cuveglio.title': 'Traversée des Alpes avec chiens adoptés : 3ème semaine',
     'blog.article.traversata-alpi-cani-adottati-cuveglio.excerpt': 'Troisième semaine de marche pour Cristian et Mara le long de la Grande Traversée des Alpes avec leurs chiens adoptés en chenil.',
     'blog.article.traversata-alpi-cani-adottati-cuveglio.imageAlt': 'Couple marchant dans les Alpes avec des chiens adoptés',
+    'blog.article.cambio-cantone-lavoro-frontaliere.title': 'Changement de canton de travail pour le frontalier',
+    'blog.article.cambio-cantone-lavoro-frontaliere.excerpt': 'Impact du changement de canton de travail pour les frontaliers entre le Tessin, les Grisons et d\'autres régions : règles et fiscalité.',
+    'blog.article.cambio-cantone-lavoro-frontaliere.imageAlt': 'Changement de canton de travail pour frontalier',
 };
 
 export default blogMetaFr;
