@@ -6724,6 +6724,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'abbonamenti-trasporti-pubblici-canton-zurigo',
+    category: 'pratico',
+    date: '2026-08-12T01:15:30.759Z',
+    image: '/images/blog/abbonamenti-trasporti-pubblici-canton-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

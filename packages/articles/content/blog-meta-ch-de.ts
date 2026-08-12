@@ -2242,6 +2242,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.title': 'AHV-Säule: Beitragslücken und Mindestdeckung',
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.excerpt': 'Die kantonale Ausgleichskasse Zürich ist eine zentrale Institution für die Schweizer Vorsorge. So funktioniert es.',
     'blog.article.avs-e-prestazioni-complementari-canton-zurigo.imageAlt': 'Die kantonale Kompensationskasse von Zürich: eine entscheidende Institution für die Schweizer Pension.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.title': 'Abos ÖV Kanton Zürich: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.excerpt': 'Die ÖV-Abos im Kanton Zürich wurden kürzlich geändert.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-zurigo.imageAlt': 'Eine Karte der Öffentlichen Verkehr im Kanton Zürich',
 };
 
 export default blogMetaChDe;
