@@ -9788,6 +9788,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-12.imageAlt': 'The day\'s numbers for cross-border commuters – August 12, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-12.seoDescription': 'Cross-border brief, August 12, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-12.ogDescription': 'The numbers for August 12, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.conversione-patente-guida-frontaliere.title': 'Conversion of Italian licence in Switzerland for frontier workers',
+    'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Practical guide to the conversion of the Italian driving licence in Switzerland for workers with a G permit: procedures and validity.',
+    'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Italian driving license conversion in Switzerland for cross-border workers',
 };
 
 export default blogMetaEn;
