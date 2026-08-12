@@ -18,6 +18,16 @@
  * exists that the registry does not list. The page cannot quietly under-report
  * what leaves this repo.
  *
+ * A CADENCE IS A PROMISE, SO A DEAD CHANNEL MAY NOT SHOW ONE (#5745)
+ * ------------------------------------------------------------------
+ * The daily brief was disabled on 2026-08-12 at the Actions API level, which
+ * changes no file — its cron is still written out, so every check this page
+ * relies on stayed green while the page went on saying "ogni giorno, in due
+ * finestre di invio". Rows therefore render `status` from the registry: a
+ * suspended channel keeps its place under its category and is labelled as not
+ * being sent, rather than dropped (dropping it would deny a capability that is
+ * one click from returning) or left looking live.
+ *
  * ROUTING. Emitted outside `#root` by `buildSeoPageHtml`, so `services/router.ts`
  * carries a `staticOverlay` branch for these four paths — without it the SPA
  * treats the URL as unknown on hydrate, hides `main.seo-static-content` and
@@ -71,10 +81,10 @@ const DESCRIPTION: Record<PageLocale, string> = {
 };
 
 const LEDE: Record<PageLocale, string> = {
-  it: 'Questa pagina è l’elenco completo. È generata dalla configurazione degli invii: se un canale non compare qui, non parte; se una frequenza cambia, cambia qui.',
-  en: 'This page is the complete list. It is generated from the send configuration: a channel that is not here does not go out, and a cadence that changes, changes here.',
-  de: 'Diese Seite ist die vollständige Liste. Sie wird aus der Versandkonfiguration erzeugt: Ein Kanal, der hier fehlt, wird nicht versendet, und eine geänderte Häufigkeit ändert sich hier.',
-  fr: 'Cette page est la liste complète. Elle est générée depuis la configuration des envois : un canal absent d’ici ne part pas, et une fréquence qui change, change ici.',
+  it: 'Questa pagina è l’elenco completo. È generata dalla configurazione degli invii: se un canale non compare qui, non parte; se una frequenza cambia, cambia qui. I canali sospesi restano elencati e segnalati come tali, così si vede anche ciò che per ora non ricevi.',
+  en: 'This page is the complete list. It is generated from the send configuration: a channel that is not here does not go out, and a cadence that changes, changes here. Suspended channels stay listed and are marked as such, so you can also see what you are not receiving for now.',
+  de: 'Diese Seite ist die vollständige Liste. Sie wird aus der Versandkonfiguration erzeugt: Ein Kanal, der hier fehlt, wird nicht versendet, und eine geänderte Häufigkeit ändert sich hier. Ausgesetzte Kanäle bleiben aufgeführt und sind als solche gekennzeichnet, damit auch sichtbar ist, was Sie derzeit nicht erhalten.',
+  fr: 'Cette page est la liste complète. Elle est générée depuis la configuration des envois : un canal absent d’ici ne part pas, et une fréquence qui change, change ici. Les canaux suspendus restent listés et sont signalés comme tels, afin que vous voyiez aussi ce que vous ne recevez pas pour l’instant.',
 };
 
 const CATEGORY_HEADING: Record<Exclude<ConsentCategory, null>, Record<PageLocale, string>> = {
@@ -119,6 +129,23 @@ const CADENCE_LABEL: Record<PageLocale, string> = {
   fr: 'Fréquence',
 };
 
+/**
+ * The badge on a channel that is switched off (#5745).
+ *
+ * A suspended channel stays listed, and stays listed under its own category,
+ * for two reasons. Removing it would tell a reader the capability does not
+ * exist when it is one API click away; and the sender script would still be on
+ * disk, so the exhaustiveness check would fail — correctly. What changes is
+ * that the row states plainly that nothing is being sent, instead of a cadence
+ * the reader would take as a promise.
+ */
+const SUSPENDED_LABEL: Record<PageLocale, string> = {
+  it: 'Sospeso — non viene inviato',
+  en: 'Suspended — not being sent',
+  de: 'Ausgesetzt — wird nicht versendet',
+  fr: 'Suspendu — n’est pas envoyé',
+};
+
 const OPT_OUT_LABEL: Record<PageLocale, string> = {
   it: 'Per disattivarlo',
   en: 'To turn it off',
@@ -141,9 +168,13 @@ const PREFERENCES_CTA: Record<PageLocale, string> = {
 };
 
 function renderChannel(channel: CommunicationChannel, locale: PageLocale): string {
+  const suspended =
+    channel.status === 'suspended'
+      ? `\n        <p style="${BODY_STYLE}"><strong>${esc(SUSPENDED_LABEL[locale])}</strong></p>`
+      : '';
   return `
       <article id="${esc(channel.id)}">
-        <h3 style="${H3_STYLE}">${esc(channel.name[locale])}</h3>
+        <h3 style="${H3_STYLE}">${esc(channel.name[locale])}</h3>${suspended}
         <p style="${BODY_STYLE}">${esc(channel.what[locale])}</p>
         <p style="${BODY_STYLE}"><strong>${esc(CADENCE_LABEL[locale])}:</strong> ${esc(channel.cadence[locale])}</p>
         <p style="${BODY_STYLE}"><strong>${esc(OPT_OUT_LABEL[locale])}:</strong> <a href="${esc(PREFERENCES_PATH[locale])}">${esc(PREFERENCES_CTA[locale])}</a> — ${esc(OPT_OUT_TEXT[locale])}</p>

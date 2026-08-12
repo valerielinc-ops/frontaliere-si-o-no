@@ -50,6 +50,8 @@ import {
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
   NON_SUBSCRIBER_SENDERS,
+  SUSPENDED_WORKFLOW_MARKER,
+  hasLiveChannel,
 } from '@/services/communicationChannels';
 import { consentNamesJobAlerts } from '../functions/src/jobAlertBackfillCore.js';
 
@@ -646,6 +648,144 @@ describe('the channel list the formula points at cannot under-report what we sen
         wf.includes(`cron: '${c.cron}'`),
         `${c.id}: ${c.workflow} no longer schedules '${c.cron}' — update the cadence sentence too`,
       ).toBe(true);
+    }
+  });
+
+  it('declares, for every channel, whether it actually ships', () => {
+    for (const c of COMMUNICATION_CHANNELS) {
+      expect(['live', 'suspended'], `${c.id}.status`).toContain(c.status);
+    }
+  });
+
+  /**
+   * The half that a file CAN carry.
+   *
+   * A workflow disabled through the Actions API (`disabled_manually`) changes
+   * nothing on disk — that is exactly how the daily brief went off on
+   * 2026-08-12 while its cron, its sender and every check above stayed intact,
+   * and the page kept promising a bulletin twice a day. So the suspension is
+   * declared in the registry and anchored to a marker in the workflow file,
+   * and the two must agree BOTH WAYS: a marker with no `suspended` is a
+   * channel the page still advertises, and a `suspended` with no marker is a
+   * claim resting on nothing a reviewer of that workflow would ever see.
+   */
+  it('pairs every suspended channel with the marker in its workflow, in both directions', () => {
+    for (const c of COMMUNICATION_CHANNELS) {
+      const marked = read(c.workflow).includes(SUSPENDED_WORKFLOW_MARKER);
+      expect(
+        marked,
+        `${c.id}: status is '${c.status}' but ${c.workflow} ${marked ? 'carries' : 'does not carry'} "${SUSPENDED_WORKFLOW_MARKER}"`,
+      ).toBe(c.status === 'suspended');
+    }
+  });
+
+  it('makes a suspended channel say so, in all four locales, where the cadence would be', () => {
+    // The cadence line is what a reader takes as the promise. On a channel
+    // that is off it has to read as a suspension and not as a schedule.
+    const SAYS_SUSPENDED: Record<(typeof CONSENT_LOCALES)[number], RegExp> = {
+      it: /sospes/i,
+      en: /suspend/i,
+      de: /ausgesetzt/i,
+      fr: /suspend/i,
+    };
+    for (const c of COMMUNICATION_CHANNELS.filter((x) => x.status === 'suspended')) {
+      for (const locale of CONSENT_LOCALES) {
+        expect(
+          c.cadence[locale],
+          `${c.id}/${locale}: a suspended channel must not publish a cadence that reads like a promise`,
+        ).toMatch(SAYS_SUSPENDED[locale]);
+      }
+    }
+  });
+
+  it('renders that status on the page rather than only in the registry', () => {
+    // Read as text, never imported: importing a build plugin pulls ~12 files
+    // under data/ and public/assets/ at module scope, which is green in CI and
+    // red in a sparse worktree. Same reason the assertions above scan source.
+    const plugin = read('build-plugins/communicationsPagePlugin.ts');
+    expect(plugin, 'the row must branch on status or a dead channel still looks live')
+      .toMatch(/channel\.status === 'suspended'/);
+    expect(plugin, 'and it must print a label saying so').toMatch(/SUSPENDED_LABEL/);
+  });
+
+  /**
+   * The category-level version of the same question, and the one that matters
+   * for the formula rather than the page: consent is asked for a CATEGORY, so
+   * a category behind which nothing ships is a request to agree to mail that
+   * does not come.
+   */
+  it('leaves no consent category the formula names standing empty', () => {
+    for (const category of ['editorial', 'jobs', 'service'] as const) {
+      expect(
+        hasLiveChannel(category),
+        `no live channel remains under '${category}' — the formula must stop naming it`,
+      ).toBe(true);
+    }
+  });
+
+  it('stops the formula promising what only a suspended channel carried', () => {
+    /**
+     * The two items the editorial clause used to name — the live rate and the
+     * border traffic — came from the daily brief alone. The weekly newsletter,
+     * the only editorial channel still live, carries neither.
+     *
+     * Guarded on the status rather than pinned unconditionally, so this reads
+     * the right way round when the channel returns: switching it back on makes
+     * these phrases legitimate again, and putting them back is then a version
+     * bump, which is the correct price for widening what people agreed to.
+     */
+    const brief = COMMUNICATION_CHANNELS.find((c) => c.id === 'daily-brief');
+    if (brief?.status !== 'suspended') return;
+
+    const SUSPENDED_ONLY: Record<(typeof CONSENT_LOCALES)[number], readonly string[]> = {
+      it: ['cambio CHF/EUR', 'traffico ai valichi'],
+      en: ['CHF/EUR exchange rate', 'traffic at the border crossings'],
+      de: ['CHF/EUR-Kurs', 'Verkehr an den Grenzübergängen'],
+      fr: ['taux CHF/EUR', 'trafic aux postes-frontière'],
+    };
+    const displayedEntries = Object.values(CONSENT_TEXTS).filter((p) => p.displayed);
+    expect(displayedEntries.length, 'nothing to check means the guard has rotted').toBeGreaterThan(0);
+
+    for (const proof of displayedEntries) {
+      for (const locale of CONSENT_LOCALES) {
+        for (const phrase of SUSPENDED_ONLY[locale]) {
+          expect(
+            proof.texts?.[locale],
+            `${proof.id}/${locale} promises "${phrase}", which only the suspended daily brief delivered`,
+          ).not.toContain(phrase);
+        }
+      }
+    }
+  });
+
+  /**
+   * The same promise, made by the UI instead of by the formula.
+   *
+   * Found in review on this PR: the preferences page — the very page the
+   * formula sends people to in order to choose — described the newsletter
+   * toggle as "cambio CHF/EUR, novità fiscali, traffico alle dogane e nuovi
+   * annunci di lavoro" in all four locales. Two of those were daily-brief
+   * content, and the fourth was the JOB ALERTS category, which is a separate
+   * consent and a separate toggle three rows further down the same screen.
+   *
+   * A consent formula corrected while the screen next to it keeps the old
+   * claim has not fixed the thing that misleads people, so the guard covers
+   * the copy too. `CHF/EUR` is the discriminator because it is the one token
+   * that survives translation unchanged in all four locales.
+   */
+  it('keeps the suspended channel’s content out of the live preferences copy', () => {
+    const brief = COMMUNICATION_CHANNELS.find((c) => c.id === 'daily-brief');
+    if (brief?.status !== 'suspended') return;
+
+    const src = read('components/preferences/SubscriptionPreferencesController.tsx');
+    const descriptions = [...src.matchAll(/newsletterDesc:\s*\n?\s*'([^']*)'/g)].map((m) => m[1]);
+    expect(descriptions.length, 'newsletterDesc strings not found — the regex has rotted').toBe(4);
+
+    for (const desc of descriptions) {
+      expect(desc, 'the newsletter toggle must not promise the suspended brief’s content')
+        .not.toMatch(/CHF\/EUR/i);
+      expect(desc, 'nor border traffic, which no live channel emails')
+        .not.toMatch(/dogan|valich|border traffic|Grenzverkehr|douane/i);
     }
   });
 

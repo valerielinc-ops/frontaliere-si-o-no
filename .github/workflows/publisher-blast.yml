@@ -1,5 +1,29 @@
 name: Publisher Ad Blast (targeted newsletter)
 
+# CHANNEL-STATUS: suspended
+#
+# Disabled on 2026-08-12 by the owner. The reason is the one this channel has
+# carried in the registry since #5712: third-party advertising is a different
+# PURPOSE from editorial content, and no consent formula this site collects
+# admits it — `consentCategory: null` in services/communicationChannels.ts.
+# It was the only active workflow able to mail subscribers under no consent.
+#
+# Measured before disabling it: zero paid ads in `publisher_jobs` (tier
+# sponsored/azienda with status paid), zero already blasted, zero pending. The
+# channel had never sent anything and had nothing to send, so switching it off
+# removed a path, not a sold service — the path that would have mailed
+# unconsented subscribers the moment somebody paid.
+#
+# Same mechanism as send-daily-brief.yml: `disabled_manually` is a flag on the
+# Actions API and changes no byte of this repo, so the suspension is declared
+# in the channel registry and anchored here.
+# `tests/consent-shown-at-signup.test.ts` fails unless the marker and the
+# declared `status` agree IN BOTH DIRECTIONS — re-enabling means deleting this
+# comment, and the test then stays red until the registry says `live` again.
+#
+# Do not delete it as tidying. Re-enabling this one also needs the owner to
+# decide the consent question first.
+
 # Sends a targeted newsletter blast for newly-paid SPONSORED ads to matching
 # subscribers (idempotent via blastSentAt). Free ads are never blasted.
 # Manual + daily; the script enforces per-ad + per-run caps (free-tier ESP safety).
