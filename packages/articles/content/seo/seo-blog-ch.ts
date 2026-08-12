@@ -29969,6 +29969,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scherzi-nuove-misure-del-consiglio-federale': {
+    title: 'Consiglio federale: nuove misure per le banche',
+    description: 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, nuove, misure',
+    ogTitle: 'La BNS e la Finma accolgono favorevolmente le nuove misure del Consiglio federale sulle banche',
+    ogDescription: 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia di regolamentazione bancaria.',
+    canonicalPath: '/articoli-svizzera/scherzi-nuove-misure-del-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: nuove misure per le banche",
+      "description": "La Banca nazionale svizzera e l'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scherzi-nuove-misure-del-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Consiglio federale: nuove misure per le banche"
+      },
+      "datePublished": "2026-08-12T17:44:46+00:00",
+      "dateModified": "2026-08-12T17:44:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scherzi-nuove-misure-del-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iva-aumento-governo-difesa-2026': {
+    title: 'Governo: 0,5 punti percentuali di aumento per 12 anni',
+    description: 'L\'aumento dell\'IVA di 0,5 punti percentuali sarà applicato dal 2028 e per un periodo di 12 anni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, governo, punti, percentuali, aumento',
+    ogTitle: 'Aumento dell\'IVA di 0,5 punti percentuali per un periodo di 12 anni',
+    ogDescription: 'L\'aumento dell\'IVA di 0,5 punti percentuali sarà applicato dal 2028 e per un periodo di 12 anni.',
+    canonicalPath: '/articoli-svizzera/iva-aumento-governo-difesa-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Governo: 0,5 punti percentuali di aumento per 12 anni",
+      "description": "L'aumento dell'IVA di 0,5 punti percentuali sarà applicato dal 2028 e per un periodo di 12 anni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iva-aumento-governo-difesa-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un politico svizzero che presenta il bilancio al Parlamento, con un fondo delle Alpi svizzere."
+      },
+      "datePublished": "2026-08-12T17:52:09+00:00",
+      "dateModified": "2026-08-12T17:52:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iva-aumento-governo-difesa-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-livigno-idea-progetto-s-chanf': {
+    title: 'Grigioni appoggia collegamento ferroviario S-chanf Livigno',
+    description: 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, appoggia, collegamento, ferroviario',
+    ogTitle: 'Il Canton Grigioni appoggia l\'idea di un collegamento ferroviario tra S-chanf e Livigno',
+    ogDescription: 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    canonicalPath: '/articoli-svizzera/livigno-idea-progetto-s-chanf/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni appoggia collegamento ferroviario S-chanf Livigno",
+      "description": "La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/livigno-idea-progetto-s-chanf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un treno attraversa le montagne svizzere, con enfasi sulla connessione Livigno-S-chanf."
+      },
+      "datePublished": "2026-08-12T17:59:03+00:00",
+      "dateModified": "2026-08-12T17:59:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/livigno-idea-progetto-s-chanf/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2314,6 +2314,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'Teureres Obst und Gemüse zu produzieren, aber die Preise steigen nicht',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Schweizer Gemüsegärtner haben aufgrund der Trockenheit mit zusätzlichen Mehrkosten von 25% zu kämpfen, aber die Preise steigen nicht.',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'Ein Schweizer Bauern kämpft mit der Trockenheit.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Bundesrat: Neue Massnahmen für Banken',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'Die Schweizerische Nationalbank und die Finma-Aufsichtsbehörde begrüssen die heute vom Bundesrat vorgeschlagenen Massnahmen zur Bankenregulierung.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Redaktionelles Bild zu: Consiglio federale: nuove misure per le banche',
+    'blog.article.iva-aumento-governo-difesa-2026.title': 'Regierung: 0,5 Prozentpunkte Anstieg über 12 Jahre',
+    'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'Die Mehrwertsteuererhöhung von 0,5 Prozentpunkten wird ab 2028 und für einen Zeitraum von 12 Jahren angewendet.',
+    'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Eine Szene eines Schweizer Politikers, der einen Haushalt dem Parlament vorstellt, mit einem Hintergrund der Schweizer Alpen.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Graubünden unterstützt Bahnverbindung S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'Die Zusammenarbeit mit der Lombardei zielt darauf ab, die Reisezeiten zwischen dem Engadin und dem Oberen Veltlin zu verkürzen, wobei bis Dezember ein konkretes Projekt erwartet wird.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Ein Zug fährt durch die Schweizer Berge, mit Schwerpunkt auf die Verbindung Livigno-S-chanf.',
 };
 
 export default blogMetaChDe;

@@ -2314,6 +2314,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.title': 'Frutta e verdura più care da produrre, ma prezzi non salgono',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.excerpt': 'Gli orticoltori svizzeri devono affrontare costi straordinari aggiuntivi del 25% a causa della siccità, ma i prezzi non aumentano.',
     'blog.article.frutta-ve-25-per-cento-piu-costi-3-sconto-migros.imageAlt': 'Un orticoltore in Svizzera lotta contro la siccità.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.title': 'Consiglio federale: nuove misure per le banche',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.excerpt': 'La Banca nazionale svizzera e l\'autorità di vigilanza Finma accolgono favorevolmente le misure proposte oggi dal Consiglio federale in materia di regolamentazione bancaria.',
+    'blog.article.scherzi-nuove-misure-del-consiglio-federale.imageAlt': 'Immagine editoriale relativa a: Consiglio federale: nuove misure per le banche',
+    'blog.article.iva-aumento-governo-difesa-2026.title': 'Governo: 0,5 punti percentuali di aumento per 12 anni',
+    'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'L\'incremento dell\'IVA di 0,5 punti percentuali sarà applicato dal 2028 e per un periodo di 12 anni.',
+    'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Una scena di un politico svizzero che presenta il bilancio al Parlamento, con un fondo delle Alpi svizzere.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Grigioni appoggia collegamento ferroviario S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Un treno attraversa le montagne svizzere, con enfasi sulla connessione Livigno-S-chanf.',
 };
 
 export default blogMetaChIt;
