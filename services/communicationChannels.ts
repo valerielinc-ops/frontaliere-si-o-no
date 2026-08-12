@@ -35,6 +35,29 @@
  *   - the followed-company alert is push-triggered on new crawler data, with
  *     an hourly cron only as a safety net.
  *
+ * A CHANNEL CAN BE OFF WITHOUT A SINGLE BYTE OF THIS REPO CHANGING (#5745)
+ * -----------------------------------------------------------------------
+ * `Send Daily Brief Email` was disabled on 2026-08-12 — the owner's decision,
+ * the daily bulletin being what the complaints were about. It was disabled the
+ * way GitHub disables a workflow: `disabled_manually`, a flag on the Actions
+ * API. The FILE still reads `cron: '33 6,9 * * *'`, so the cron assertion above
+ * still passed, the sender still existed, and this page went on telling readers
+ * they would get a bulletin "ogni giorno, in due finestre di invio".
+ *
+ * That is the whole reason `status` exists. Enablement is state no file in this
+ * repo carries, so it has to be DECLARED here, and the declaration has to be
+ * anchored to something a test can read: `send-daily-brief.yml` carries the
+ * literal marker `CHANNEL-STATUS: suspended`, and
+ * `tests/consent-shown-at-signup.test.ts` fails unless the marker and the
+ * `status` below agree in both directions. Re-enabling the workflow therefore
+ * means deleting the marker, which turns the test red until this registry — and
+ * with it the page, and with it the consent formula — is brought back in line.
+ *
+ * `cron` stays on a suspended channel on purpose: it is still the schedule the
+ * file carries, and blanking it would lose the fact that the job is one API
+ * click away from running again. `cadence` is the field that must stop
+ * promising, and it does.
+ *
  * WHAT IS DELIBERATELY LISTED BUT NOT CONSENTED
  * ---------------------------------------------
  * `publisher-blast` carries `consentCategory: null`. It is third-party
@@ -59,6 +82,19 @@ export type ConsentCategory = 'editorial' | 'jobs' | 'service' | null;
 
 export type LocalizedText = Readonly<Record<ConsentLocale, string>>;
 
+/**
+ * Whether the channel actually ships today.
+ *
+ * `suspended` means the workflow is disabled at the Actions API level — the
+ * file and its cron are untouched and one click restores it. It is NOT
+ * "removed": a removed channel would lose its sender and fail the
+ * existence check, and a reader would stop being told the capability exists.
+ */
+export type ChannelStatus = 'live' | 'suspended';
+
+/** The marker a suspended channel's workflow file must carry. See the header. */
+export const SUSPENDED_WORKFLOW_MARKER = 'CHANNEL-STATUS: suspended';
+
 export interface CommunicationChannel {
   /** Stable id, used as the anchor on the page. */
   readonly id: string;
@@ -71,6 +107,11 @@ export interface CommunicationChannel {
    * no schedule of its own (push-triggered, or manual only).
    */
   readonly cron: string | null;
+  /**
+   * Does it ship today? `suspended` requires the marker in the workflow file —
+   * the one half of this that a test can verify from disk.
+   */
+  readonly status: ChannelStatus;
   /** The consent sentence that covers it, or `null` when none does. */
   readonly consentCategory: ConsentCategory;
   readonly name: LocalizedText;
@@ -90,6 +131,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-daily-brief.mjs',
     workflow: '.github/workflows/send-daily-brief.yml',
     cron: '33 6,9 * * *',
+    status: 'suspended',
     consentCategory: 'editorial',
     name: {
       it: 'Bollettino del Frontaliere',
@@ -104,10 +146,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Taux CHF/EUR, temps d’attente aux postes-frontière, prix des carburants et les nouvelles du jour pour les frontaliers.',
     },
     cadence: {
-      it: 'Ogni giorno, in due finestre di invio (06:33 e 09:33 UTC).',
-      en: 'Every day, in two send windows (06:33 and 09:33 UTC).',
-      de: 'Täglich, in zwei Versandfenstern (06:33 und 09:33 UTC).',
-      fr: 'Chaque jour, en deux fenêtres d’envoi (06:33 et 09:33 UTC).',
+      it: 'Sospeso dal 12 agosto 2026: non viene inviato. Il workflow che lo spediva è disattivato; la pianificazione resta scritta nel file, quindi il canale può essere riattivato, ma finché questa riga non cambia non parte nulla.',
+      en: 'Suspended since 12 August 2026: it is not being sent. The workflow that sent it is disabled; the schedule is still written in the file, so the channel can be switched back on, but nothing goes out until this line changes.',
+      de: 'Seit dem 12. August 2026 ausgesetzt: es wird nicht versendet. Der Workflow ist deaktiviert; der Zeitplan steht weiterhin in der Datei, der Kanal kann also wieder eingeschaltet werden — bis diese Zeile sich ändert, geht nichts hinaus.',
+      fr: 'Suspendu depuis le 12 août 2026 : il n’est pas envoyé. Le workflow qui l’expédiait est désactivé ; la planification reste inscrite dans le fichier, le canal peut donc être réactivé, mais tant que cette ligne ne change pas, rien ne part.',
     },
   }),
   Object.freeze({
@@ -115,6 +157,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-newsletter.mjs',
     workflow: '.github/workflows/send-newsletter.yml',
     cron: '33 3 * * *',
+    status: 'live',
     consentCategory: 'editorial',
     name: {
       it: 'Newsletter',
@@ -140,6 +183,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-job-alerts.mjs',
     workflow: '.github/workflows/send-job-alerts.yml',
     cron: '33 0 * * *',
+    status: 'live',
     consentCategory: 'jobs',
     name: {
       it: 'Avvisi di lavoro',
@@ -165,6 +209,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-company-alerts.mjs',
     workflow: '.github/workflows/send-company-alerts.yml',
     cron: null,
+    status: 'live',
     consentCategory: 'jobs',
     name: {
       it: 'Avvisi delle aziende seguite',
@@ -190,6 +235,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-saved-jobs-digest.mjs',
     workflow: '.github/workflows/send-saved-jobs-digest.yml',
     cron: '33 7 * * 1',
+    status: 'live',
     consentCategory: 'jobs',
     name: {
       it: 'Digest degli annunci salvati',
@@ -215,6 +261,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-onboarding-drip.mjs',
     workflow: '.github/workflows/send-onboarding-drip.yml',
     cron: '23 4 * * *',
+    status: 'live',
     consentCategory: 'service',
     name: {
       it: 'Messaggi di benvenuto',
@@ -240,6 +287,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/newsletter-winback-campaign.mjs',
     workflow: '.github/workflows/newsletter-dormant-winback.yml',
     cron: '21 4 * * 4',
+    status: 'live',
     consentCategory: 'service',
     name: {
       it: 'Messaggio di riattivazione',
@@ -265,6 +313,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/newsletter-sunset.mjs',
     workflow: '.github/workflows/newsletter-sunset.yml',
     cron: '11 4 * * 1',
+    status: 'live',
     consentCategory: 'service',
     name: {
       it: 'Ultimo messaggio prima della chiusura',
@@ -290,6 +339,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/blast-publisher-ads.mjs',
     workflow: '.github/workflows/publisher-blast.yml',
     cron: '17 7 * * *',
+    status: 'live',
     consentCategory: null,
     name: {
       it: 'Annunci di inserzionisti',
@@ -351,4 +401,22 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
 export function channelsByCategory(category: ConsentCategory): CommunicationChannel[] {
   return COMMUNICATION_CHANNELS.filter((c) => c.consentCategory === category);
+}
+
+/** The ones that actually ship today. */
+export function liveChannels(): CommunicationChannel[] {
+  return COMMUNICATION_CHANNELS.filter((c) => c.status === 'live');
+}
+
+/**
+ * Does anything still ship under this consent sentence?
+ *
+ * The invariant behind it: a category the formula asks people to agree to must
+ * have at least one live channel behind it. A category with none is a promise
+ * of mail that no longer comes — the same defect as an unnamed channel, facing
+ * the other way, and `tests/consent-shown-at-signup.test.ts` asserts it for
+ * every category the formula names.
+ */
+export function hasLiveChannel(category: ConsentCategory): boolean {
+  return COMMUNICATION_CHANNELS.some((c) => c.consentCategory === category && c.status === 'live');
 }

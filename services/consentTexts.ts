@@ -210,12 +210,33 @@ const entry = (e: ConsentProofEntry): ConsentProofEntry =>
  * here create a job alert without any change to that fail-closed guard — and
  * why an edit that softened these words back to "offerte" would silently shut
  * the channel again.
+ *
+ * WHY THE EDITORIAL CLAUSE LOST TWO ITEMS AT `2026-08-12.3` (#5745)
+ * ----------------------------------------------------------------
+ * It used to read "cambio CHF/EUR, traffico ai valichi, fisco, previdenza e
+ * novità normative". The first two were carried by ONE channel — the daily
+ * brief — and the owner disabled it on 2026-08-12. What remains live under
+ * `editorial` is the weekly newsletter, whose contents are tax and pension
+ * explainers, a featured article and a tool: no live rate, no border traffic.
+ *
+ * So the formula was promising, at the moment of the act, mail that no longer
+ * comes. That is the same defect as an undisclosed channel pointing the other
+ * way, and it does not become harmless for pointing that way: a notice is
+ * evidence of what the person was led to expect, and one that oversells is
+ * still one that misdescribes. The clause now names only what a live channel
+ * delivers.
+ *
+ * It stays a CATEGORY and not a product list — that is what makes a future
+ * feature inside it covered without re-collecting anything. What it may not do
+ * is name a specific thing nothing sends. Turning the daily brief back on
+ * therefore takes a bump, which is the correct price: today's subscribers
+ * agreed to today's sentence.
  */
 const CATEGORIES: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'aggiornamenti redazionali — cambio CHF/EUR, traffico ai valichi, fisco, previdenza e novità normative; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato.',
-  en: 'editorial updates — CHF/EUR exchange rate, traffic at the border crossings, tax, pensions and regulatory news; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved.',
-  de: 'redaktionelle Updates — CHF/EUR-Kurs, Verkehr an den Grenzübergängen, Steuern, Vorsorge und Neuerungen der Rechtslage; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen.',
-  fr: 'mises à jour éditoriales — taux CHF/EUR, trafic aux postes-frontière, fiscalité, prévoyance et nouveautés réglementaires ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées.',
+  it: 'aggiornamenti redazionali — fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato.',
+  en: 'editorial updates — tax, pensions, regulatory news and explainers for people who work across the border; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved.',
+  de: 'redaktionelle Updates — Steuern, Vorsorge, Neuerungen der Rechtslage und Hintergrundberichte für Grenzgängerinnen und Grenzgänger; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen.',
+  fr: 'mises à jour éditoriales — fiscalité, prévoyance, nouveautés réglementaires et analyses pour celles et ceux qui travaillent de l’autre côté de la frontière ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées.',
 });
 
 /**
@@ -281,7 +302,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-12.2',
+    version: '2026-08-12.3',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -299,7 +320,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-12.2',
+    version: '2026-08-12.3',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
