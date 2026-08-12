@@ -127,7 +127,25 @@ jobs:
         # cambiato dopo il flip?" resta senza il termine di paragone. Stesso
         # motivo per cui crawler-health committa il suo stato.
         if: always()
-        run: bash scripts/lib/git-commit-data.sh "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/
+        run: |
+          set -uo pipefail
+          # `|| ec=$?` e non `; ec=$?`: Actions lancia gli step con `bash -e {0}`,
+          # quindi un'uscita != 0 dello script ucciderebbe lo step prima che la
+          # riga successiva possa leggerne il codice — e il ramo del 42 qui sotto
+          # sarebbe codice morto.
+          ec=0
+          bash scripts/lib/git-commit-data.sh "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/ || ec=$?
+          # 42 e' il codice documentato di git-commit-data.sh per "contesa sul
+          # push, si risana al giro dopo" — l'unica classe che il suo header
+          # dichiara sicura da assorbire. Senza questa riga una corsa con un
+          # altro workflow che pusha su main farebbe fallire il job e aprirebbe
+          # una issue "Workflow Failure" per qualcosa che non e' rotto. Ogni
+          # altro codice != 0 resta rosso.
+          if [ "$ec" -eq 42 ]; then
+            echo "::warning::Push in contesa (42) — lo stato si ricommitta al prossimo giro."
+            exit 0
+          fi
+          exit "$ec"
 
       - name: Open issue on threshold breach
         if: steps.check.outcome == 'failure'
