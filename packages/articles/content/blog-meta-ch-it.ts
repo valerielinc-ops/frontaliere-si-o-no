@@ -2263,6 +2263,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Come utilizzare la croce svizzera sui prodotti esteri?',
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri.',
     'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Una scatola di cioccolatini con la croce svizzera',
+    'blog.article.portale-informazione-svizzera-italiana.title': 'Notizie e aggiornamenti online nella Svizzera italiana',
+    'blog.article.portale-informazione-svizzera-italiana.excerpt': 'Aggiornamenti quotidiani su cronaca, politica, economia, sport, cultura e rubriche specializzate nel panorama online della Svizzera italiana.',
+    'blog.article.portale-informazione-svizzera-italiana.imageAlt': 'Portale di informazione e attualità della Svizzera italiana',
 };
 
 export default blogMetaChIt;
