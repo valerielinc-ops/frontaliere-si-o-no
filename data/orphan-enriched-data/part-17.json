@@ -30344,9 +30344,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey",
-        "en": "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey",
-        "de": "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey",
-        "fr": "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+        "en": "nurse-in-cdi-at-100-dmpc-fondation-de-nant-corsier-sur-vevey",
+        "de": "krankenschwester-in-cdi-bei-100-dmpc-fondation-de-nant-corsier-sur-vevey",
+        "fr": "infirmier-ere-en-cdi-a-100-dmpc-nant-corsier-sur-vevey"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vaud/infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey",
@@ -30354,12 +30354,13 @@
         "de": "/de/jobs-im-waadt/infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey",
         "fr": "/fr/trouver-emploi-vaud/infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://app.beehire.com/invite/uhll2gdvq",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
