@@ -802,6 +802,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'livigno-idea-progetto-s-chanf': { it: 'livigno-idea-progetto-s-chanf', en: 'livigno-idea-project-s-chanf', de: 'livigno-idee-projekt-s-chanf', fr: 'livigno-idee-projet-s-chanf' },
  'maggiori-responsabilita-peri-vertici-bancari': { it: 'maggiori-responsabilita-peri-vertici-bancari', en: 'greater-responsibilities-for-bank-executives', de: 'mehr-verantwortung-fur-bankfuhrungskrafte', fr: 'plus-grand-responsabilite-pour-les-executifs-de-banques' },
  'la-siccita-sale-al-grado-2-a-breggia': { it: 'la-siccita-sale-al-grado-2-a-breggia', en: 'la-siccita-sale-al-grado-2-a-breggia', de: 'die-duerre-steigt-auf-grad-2-in-breggia', fr: 'la-secheresse-grimpe-au-degre-2-a-breggia' },
+ 'cf-urgenza-siccita': { it: 'cf-urgenza-siccita', en: 'cf-urgenza-siccita', de: 'cf-notstand-ursache', fr: 'cf-situation-urgence' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

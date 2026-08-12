@@ -2329,6 +2329,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'Die Dürre steigt in Breggia auf Grad 2: Das können Sie nicht tun',
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'Die Trockenheit steigt in Breggia auf Grad 2. Die Gemeinde hat die Erhöhung der Wasserkrisenskala für die Fraktionen Morbio Superiore und Sagno mitgeteilt. Hier ist, was Sie nicht tun können.',
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Redaktionelles Bild zu: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Vgl.: Dürre, keine Dringlichkeit für zusätzliche Massnahmen vorerst',
+    'blog.article.cf-urgenza-siccita.excerpt': 'Der Bundesrat hat noch keine neuen Massnahmen zur Bewältigung der Dürre beschlossen',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'Wasserstand in der Schweiz',
 };
 
 export default blogMetaChDe;
