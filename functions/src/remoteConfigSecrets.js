@@ -76,6 +76,42 @@ export async function getAutologinPolicyConfig() {
 }
 
 /**
+ * The `token` action-credential policy (#5704), read from Remote Config.
+ *
+ * Same three reasons as getAutologinPolicyConfig above — rollout switch,
+ * rollback without a deploy, and a TTL applied at verification time so it
+ * re-judges tokens ALREADY SENT in both directions — with one difference worth
+ * stating: here an ABSENT `NEWSLETTER_TOKEN_SCHEME` does not mean "legacy
+ * everywhere". It means each scope takes its own default, and `confirm` defaults
+ * to the dated v1 format because the confirmation email tells the recipient, in
+ * four languages, that its link expires in 7 days. Shipping that switched off
+ * would leave the sentence false, which is the half of #5704 that is a statement
+ * to people who never asked to be subscribed.
+ *
+ * Rolling back is still one Remote Config edit: `NEWSLETTER_TOKEN_SCHEME=legacy`
+ * mints exactly what was minted before #5704, and
+ * `NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS=0` un-ages every confirm token already out.
+ *
+ * Same parameter names scripts/load-rc-env.mjs bridges into process.env for the
+ * senders, so the minting and verifying sides read one source of truth.
+ *
+ * @returns {Promise<{NEWSLETTER_TOKEN_SCHEME: string, NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS: string, NEWSLETTER_TOKEN_LEGACY_SUNSET: string}>}
+ *   env-shaped, to be handed straight to resolveNewsletterTokenPolicy()
+ */
+export async function getNewsletterTokenPolicyConfig() {
+ const [scheme, confirmTtlDays, legacySunset] = await Promise.all([
+   getRemoteConfigValue('NEWSLETTER_TOKEN_SCHEME'),
+   getRemoteConfigValue('NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS'),
+   getRemoteConfigValue('NEWSLETTER_TOKEN_LEGACY_SUNSET'),
+ ]);
+ return {
+   NEWSLETTER_TOKEN_SCHEME: scheme,
+   NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS: confirmTtlDays,
+   NEWSLETTER_TOKEN_LEGACY_SUNSET: legacySunset,
+ };
+}
+
+/**
  * Fetch all three newsletter secrets at once.
  * Returns { resendApiKey, resendWebhookSecret, newsletterSecret }.
  */

@@ -18,9 +18,19 @@
  * dormantWinbackStage1Email.mjs, ...) keeps resolving to the exact same
  * module, zero edits required.
  *
- * The token is HMAC-SHA256 over the lowercased email keyed by
- * NEWSLETTER_SECRET; when the secret is absent the link degrades gracefully
- * to an unsigned URL — identical to the historical inline behavior.
+ * The token is minted by lib/newsletterActionToken.js and is SCOPED TO THE
+ * ACTION of the link it rides in (#5704): the string in an unsubscribe URL is
+ * not the string in a preferences URL, and neither is the one in the
+ * confirmation email. It used to be one HMAC over the bare address, accepted by
+ * every action the Cloud Function exposes — see that module's header for what
+ * that credential could do. When the secret is absent the link still degrades
+ * gracefully to an unsigned URL, identical to the historical inline behavior.
+ *
+ * `policy` on every builder: Cloud Functions have no NEWSLETTER_TOKEN_* in
+ * process.env (the same gap wrapAuthenticatedHrefs documents for `scheme`), so a
+ * CF-side caller that omits it mints the defaults no matter what Remote Config
+ * says — including through a rollback. The scripts/ senders read the policy from
+ * process.env via scripts/load-rc-env.mjs and need no argument.
  *
  * Secret resolution — two call sites, two timings:
  *  - scripts/ callers (send-newsletter.mjs etc.) import this module BEFORE
@@ -38,8 +48,8 @@
  *    process.env read; when omitted, behavior is byte-identical to the
  *    original process.env-only implementation.
  */
-import { createHmac } from 'node:crypto';
 import { mintAutologinCode } from './autologinCode.js';
+import { mintNewsletterActionToken, normalizeEmail, TOKEN_SCOPES } from './newsletterActionToken.js';
 
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs.
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -50,50 +60,78 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // both a mail client's automated POST and a manual GET click work end-to-end.
 const ONE_CLICK_BASE_URL = `${BASE_URL}/disiscrivi-newsletter/`;
 
-function signedEmailToken(email, explicitSecret) {
-  const secret = explicitSecret || process.env.NEWSLETTER_SECRET;
-  if (!secret) return null;
-  return createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
+/**
+ * The signed token for ONE action's link.
+ *
+ * The address is normalised HERE, with the same function the verifier uses
+ * (newsletterActionToken.js `normalizeEmail`), and the callers below put the
+ * SAME normalised string in the URL. Three of the four builders used to sign
+ * `email.toLowerCase()` and emit the raw address, while the confirmation email
+ * signed `.toLowerCase().trim()` and the Cloud Function verified
+ * `.trim().toLowerCase()` — so a stored address with stray whitespace was signed
+ * over one string and verified against another, and its unsubscribe link
+ * answered "Link non valido" for ever. One normalisation, one derivation.
+ *
+ * @param {string} email
+ * @param {string} scope one of TOKEN_SCOPES
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number}} [opts]
+ */
+function signedActionToken(email, scope, { secret, scheme, policy, now } = {}) {
+  const resolved = secret || process.env.NEWSLETTER_SECRET;
+  if (!resolved) return null;
+  return mintNewsletterActionToken(email, scope, {
+    secret: resolved,
+    scheme,
+    policy,
+    ...(now === undefined ? {} : { now }),
+  });
 }
 
 /**
  * @param {string} email
- * @param {{secret?: string}} [opts] explicit secret override (Cloud Functions
- * runtime, where NEWSLETTER_SECRET is resolved via getNewsletterSecrets()
- * instead of process.env). Omit for the scripts/ call-time process.env
- * behavior.
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number}} [opts]
+ * `secret` is the explicit override for the Cloud Functions runtime, where
+ * NEWSLETTER_SECRET is resolved via getNewsletterSecrets() instead of
+ * process.env; omit it for the scripts/ call-time process.env behavior.
+ * `policy`/`scheme` pick the token format (lib/newsletterActionToken.js) and
+ * matter for the same reason: a Cloud Functions caller that omits them mints the
+ * built-in defaults whatever Remote Config says. `now` pins the issue stamp,
+ * for tests and for a whole send.
  * @returns {string} unsubscribe URL for links the SPA processes client-side
  * (e.g. the email body footer link, which gets the `ac` autologin code
  * injected separately at send time). NOT a valid List-Unsubscribe header
  * target — use makeOneClickUnsubscribeUrl for that.
  */
-export function makeUnsubscribeUrl(email, { secret } = {}) {
-  const token = signedEmailToken(email, secret);
-  const base = `${BASE_URL}/?action=unsubscribe&email=${encodeURIComponent(email)}`;
+export function makeUnsubscribeUrl(email, { secret, scheme, policy, now } = {}) {
+  const normalized = normalizeEmail(email);
+  const token = signedActionToken(normalized, TOKEN_SCOPES.UNSUBSCRIBE, { secret, scheme, policy, now });
+  const base = `${BASE_URL}/?action=unsubscribe&email=${encodeURIComponent(normalized)}`;
   return token ? `${base}&token=${token}` : base;
 }
 
 /**
  * @param {string} email
- * @param {{secret?: string}} [opts] see makeUnsubscribeUrl.
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number}} [opts] see makeUnsubscribeUrl.
  * @returns {string} the actual RFC 8058 List-Unsubscribe one-click target —
  * routed directly to the Cloud Function (GET and POST), no SPA/autologin
  * dependency. Use this for the List-Unsubscribe header only.
  */
-export function makeOneClickUnsubscribeUrl(email, { secret } = {}) {
-  const token = signedEmailToken(email, secret);
-  const base = `${ONE_CLICK_BASE_URL}?action=unsubscribe&email=${encodeURIComponent(email)}`;
+export function makeOneClickUnsubscribeUrl(email, { secret, scheme, policy, now } = {}) {
+  const normalized = normalizeEmail(email);
+  const token = signedActionToken(normalized, TOKEN_SCOPES.UNSUBSCRIBE, { secret, scheme, policy, now });
+  const base = `${ONE_CLICK_BASE_URL}?action=unsubscribe&email=${encodeURIComponent(normalized)}`;
   return token ? `${base}&token=${token}` : base;
 }
 
 /**
  * @param {string} email
- * @param {{secret?: string}} [opts] see makeUnsubscribeUrl.
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number}} [opts] see makeUnsubscribeUrl.
  * @returns {string} one-click resubscribe / "stay subscribed" URL
  */
-export function makeResubscribeUrl(email, { secret } = {}) {
-  const token = signedEmailToken(email, secret);
-  const base = `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}`;
+export function makeResubscribeUrl(email, { secret, scheme, policy, now } = {}) {
+  const normalized = normalizeEmail(email);
+  const token = signedActionToken(normalized, TOKEN_SCOPES.RESUBSCRIBE, { secret, scheme, policy, now });
+  const base = `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(normalized)}`;
   return token ? `${base}&token=${token}` : base;
 }
 
@@ -136,10 +174,13 @@ export function generateAutologinCode(email, { secret, scheme, now } = {}) {
  *  - `token` is the WIDER credential, not the narrower one. It is the gate on
  *    the entire preferences API — get_full_status (keywords, locations, sectors,
  *    cadence), create/update/delete_alert, toggle_newsletter_subscription,
- *    toggle_autologin, revoke_autologin — and unlike `ac` it never expires, has
- *    no revocation watermark, no opt-out, and is untouched by all three policy
- *    parameters. Adding it to a link would have widened the exposure #5685 is
- *    about, in the same commit that narrows `ac`.
+ *    toggle_autologin, revoke_autologin. When #5685 was written it was ALSO one
+ *    string for all of them, eternal, with no revocation watermark and no opt-out.
+ *    Adding it to a link would have widened the exposure #5685 is about, in the
+ *    same commit that narrows `ac`. Since #5704 the string is scoped to one
+ *    action, which is what makes each of the two links below carry only the power
+ *    it needs — but a preferences token is still the preference centre, so it
+ *    still does not belong in a link whose job is unsubscribing.
  *
  * Where `token` legitimately belongs is the links whose ONLY power is the one it
  * grants: makeOneClickUnsubscribeUrl (RFC 8058) and makePreferencesUrl, which is
@@ -147,7 +188,7 @@ export function generateAutologinCode(email, { secret, scheme, now } = {}) {
  *
  * @param {'resubscribe'|'unsubscribe'} action
  * @param {string} email
- * @param {{secret?: string}} [opts] see makeUnsubscribeUrl.
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number}} [opts] see makeUnsubscribeUrl.
  * @returns {string}
  */
 export function makeAuthenticatedActionUrl(action, email, { secret } = {}) {
@@ -272,8 +313,9 @@ const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
 /**
  * @param {string} email
  * @param {string} locale
- * @param {{secret?: string, fallbackUnsigned?: boolean}} [opts] `secret` as
- * in makeUnsubscribeUrl. `fallbackUnsigned` (default false, matching the
+ * @param {{secret?: string, scheme?: 'legacy'|'v1', policy?: object, now?: number, fallbackUnsigned?: boolean}} [opts]
+ * `secret`/`scheme`/`policy`/`now` as in makeUnsubscribeUrl.
+ * `fallbackUnsigned` (default false, matching the
  * welcome-email Cloud Function's "never ship an unverifiable link" posture)
  * — set true to instead return the unsigned base URL when there's no secret,
  * matching the historical inline behavior of the weekly newsletter and job
@@ -282,15 +324,17 @@ const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
  * @returns {string|null} newsletter-preferences URL; null when there's no
  * secret and `fallbackUnsigned` is false.
  */
-export function makePreferencesUrl(email, locale, { secret, fallbackUnsigned = false } = {}) {
+export function makePreferencesUrl(email, locale, { secret, scheme, policy, now, fallbackUnsigned = false } = {}) {
   // The `email` param must carry the SAME normalized form the token is signed
   // over, otherwise the handler verifies an HMAC of the lowercased address
   // against a differently-cased param. Both pre-consolidation implementations
   // (scripts/send-newsletter.mjs, scripts/send-job-alerts.mjs) normalized here;
   // dropping it would have silently broken the link for any stored address
-  // that is not already lowercase.
-  const normalized = String(email || '').toLowerCase().trim();
-  const token = signedEmailToken(normalized, secret);
+  // that is not already lowercase. Since #5704 the normalisation is the
+  // verifier's own (newsletterActionToken.js) and the other three builders share
+  // it, so the two sides cannot drift apart again.
+  const normalized = normalizeEmail(email);
+  const token = signedActionToken(normalized, TOKEN_SCOPES.PREFERENCES, { secret, scheme, policy, now });
   const slug = PREFERENCES_SLUG[locale] || PREFERENCES_SLUG.it;
   const prefix = localePathPrefix(locale);
   const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(normalized)}`;

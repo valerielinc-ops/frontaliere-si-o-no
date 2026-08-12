@@ -9,10 +9,11 @@ import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCor
 import { handleMailerooWebhookRequest } from './src/newsletterMailerooWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { resolveAutologinPolicy } from './src/lib/autologinCode.js';
+import { resolveNewsletterTokenPolicy } from './src/lib/newsletterActionToken.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { sendNewsletterWelcomeEmail } from './src/newsletterWelcomeEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
-import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig } from './src/remoteConfigSecrets.js';
+import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig, getNewsletterTokenPolicyConfig } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
@@ -503,13 +504,19 @@ export const newsletterManageSubscription = onRequest(
  const dailyBriefFrequency = params.daily_brief_frequency;
 
  try {
- const [{ newsletterSecret }, autologinPolicyEnv] = await Promise.all([
+ const [{ newsletterSecret }, autologinPolicyEnv, tokenPolicyEnv] = await Promise.all([
  getNewsletterSecrets(),
  // The `ac` lifetime policy (#5685). Both reads share the same 5-minute
  // Remote Config template cache, so this adds no round-trip in the warm
  // path — and it is what makes the expiry switchable (and revertible)
  // without redeploying this function.
  getAutologinPolicyConfig(),
+ // The `token` scope/lifetime policy (#5704), same cache and same purpose:
+ // the confirm window and the end of the legacy compatibility phase are a
+ // Remote Config edit, not a deploy. Absent parameters mean the built-in
+ // defaults — legacy still accepted, confirm tokens valid for the 7 days the
+ // confirmation email promises in four languages.
+ getNewsletterTokenPolicyConfig(),
  ]);
  const result = await handleSubscriptionManagement({
  action,
@@ -529,6 +536,12 @@ export const newsletterManageSubscription = onRequest(
  // human with an expired one still cannot re-subscribe by pressing harder.
  method: req.method,
  autologinPolicy: resolveAutologinPolicy(autologinPolicyEnv),
+ // Which action each token may perform, and for how long (#5704). Threaded
+ // for the same reason as the line above: this runtime has no
+ // NEWSLETTER_TOKEN_* in process.env, so a handler left to read the
+ // environment would see the defaults and no Remote Config rollback would
+ // ever reach it.
+ tokenPolicy: resolveNewsletterTokenPolicy(tokenPolicyEnv),
  enabled,
  subscribed,
  alertId,
