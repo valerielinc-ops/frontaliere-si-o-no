@@ -9798,6 +9798,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoratori-frontalieri-novita-2026.title': 'Lavoratori frontalieri: le novità 2026 tra Protocollo IT-CH e interpelli',
     'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'La ratifica del Protocollo di modifica dell\'Accordo Italia-Svizzera e i chiarimenti dell\'Agenzia delle Entrate ridefiniscono il perimetro applicativo del regime dei frontalieri.',
     'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalieri in attesa al valico di Brogeda',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Casse pensioni: in luglio rendimento negativo per UBS',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Le casse pensioni svizzere registrano un rendimento medio al netto delle spese del -0,2% nel mese di luglio, secondo l\'analisi periodica di UBS.',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Casse pensioni in Svizzera con rendimento negativo a luglio',
+    'blog.article.fallimenti-aziende-svizzera-1994.title': 'Svizzera, fallimenti aziendali record: livelli mai visti dal 1994',
+    'blog.article.fallimenti-aziende-svizzera-1994.excerpt': 'Nel primo semestre 7496 aziende hanno dichiarato fallimento per insolvenza in Svizzera, con un incremento del 54,7% rispetto allo stesso periodo precedente.',
+    'blog.article.fallimenti-aziende-svizzera-1994.imageAlt': 'Panoramica di un distretto economico in Svizzera con edifici commerciali',
+    'blog.article.rc-auto-svizzera-frontaliere.title': 'RC auto svizzera e frontalieri: differenze con l\'Italia',
+    'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Guida pratica all\'assicurazione RC auto in Svizzera per il frontaliere, con focus sulle differenze rispetto all\'Italia, bonus-malus e immatricolazione.',
+    'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Assicurazione RC auto in Svizzera per frontalieri tra differenze e immatricolazione',
+    'blog.article.multe-stradali-svizzere.title': 'Multa stradale svizzera',
+    'blog.article.multe-stradali-svizzere.excerpt': 'Come funzionano le multe stradali svizzere per i residenti italiani',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Multa stradale svizzera al valico di Brogeda',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'L\'atleta lavoratore badr jaafari in azzurro',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, atleta lavoratore di Casalzuigno, partecipa alla maratona europea',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari durante la maratona europea',
 };
 
 export default blogMetaIt;
