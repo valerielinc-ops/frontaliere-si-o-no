@@ -6913,6 +6913,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'aumento-iva-per-la-difesa',
+    category: 'fiscale',
+    date: '2026-08-12T14:18:43.517Z',
+    image: '/images/blog/aumento-iva-per-la-difesa.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
