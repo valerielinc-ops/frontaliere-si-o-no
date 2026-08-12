@@ -806,6 +806,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aeroporto-zurigo-luglio-2026': { it: 'aeroporto-zurigo-luglio-2026', en: 'zurich-airport-july-2026', de: 'flughafen-zurich-juli-2026', fr: 'aeroport-de-zurich-juillet-2026' },
  'federer-patrimonio-on-borsa-calo': { it: 'federer-patrimonio-on-borsa-calo', en: 'roger-federer-wealth-on-stock-market', de: 'roger-federer-vermoegen-on-aktien', fr: 'roger-federer-fortune-on-bourse' },
  'grubel-ubb-intromettersi-in-ucraina': { it: 'grubel-ubb-intromettersi-in-ucraina', en: 'grubel-ubb-intervene-in-ukraine', de: 'grubel-ubb-eingreifen-in-ukraine', fr: 'grubel-ubb-intervenir-en-ukraine' },
+ 'amazon-capitalizzazione-3000-miliardi': { it: 'amazon-capitalizzazione-3000-miliardi', en: 'amazon-capitalization-3000-billion', de: 'amazon-kapitalisierung-3000-milliarden', fr: 'amazon-capitalisation-3000-milliards' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -30320,6 +30320,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-amazon-capitalizzazione-3000-miliardi': {
+    title: 'Amazon supera per la prima volta i 3000 miliardi di capitalizzazione di mercato',
+    description: 'Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre e Amazon entra nel gruppo di cinque giganti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, amazon, supera, prima, volta',
+    ogTitle: 'Amazon supera i 3000 miliardi di capitalizzazione di mercato',
+    ogDescription: 'Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre e Amazon entra nel gruppo di cinque giganti',
+    canonicalPath: '/articoli-svizzera/amazon-capitalizzazione-3000-miliardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amazon supera per la prima volta i 3000 miliardi di capitalizzazione di mercato",
+      "description": "Le azioni di Amazon volano del 4,6% dopo i risultati del secondo trimestre e Amazon entra nel gruppo di cinque giganti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amazon-capitalizzazione-3000-miliardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Amazon entra nel gruppo di cinque giganti dopo i risultati del secondo trimestre"
+      },
+      "datePublished": "2026-08-12T20:03:02+00:00",
+      "dateModified": "2026-08-12T20:03:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amazon-capitalizzazione-3000-miliardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

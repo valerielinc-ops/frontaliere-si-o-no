@@ -7021,6 +7021,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'amazon-capitalizzazione-3000-miliardi',
+    category: 'fiscale',
+    date: '2026-08-12T20:03:02.730Z',
+    image: '/images/blog/amazon-capitalizzazione-3000-miliardi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
