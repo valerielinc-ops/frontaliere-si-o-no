@@ -6967,6 +6967,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'maggiori-responsabilita-peri-vertici-bancari',
+    category: 'fiscale',
+    date: '2026-08-12T18:05:46.316Z',
+    image: '/images/blog/maggiori-responsabilita-peri-vertici-bancari.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

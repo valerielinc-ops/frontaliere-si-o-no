@@ -2323,6 +2323,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.livigno-idea-progetto-s-chanf.title': 'Grisons supports railway connection S-chanf Livigno',
     'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'The collaboration with Lombardy aims to reduce travel times between Engadine and Alta Valtellina, with a concrete project expected by December.',
     'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'A train travels through the Swiss mountains, with a focus on the Livigno and S-chanf connection.',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Greater responsibility for bank top management',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Federal Council consults on new measures to increase accountability of bank managers',
+    'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Swiss banks',
 };
 
 export default blogMetaChEn;

@@ -800,6 +800,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scherzi-nuove-misure-del-consiglio-federale': { it: 'scherzi-nuove-misure-del-consiglio-federale', en: 'jokes-new-measures-of-the-federal-council', de: 'witz-new-measures-of-the-federal-council', fr: 'blagues-new-measures-of-the-federal-council' },
  'iva-aumento-governo-difesa-2026': { it: 'iva-aumento-governo-difesa-2026', en: 'iva-increase-government-defense-2026', de: 'iva-steigerung-regierung-verteidigung-2026', fr: 'augmentation-de-la-iva-pour-la-defense-2026' },
  'livigno-idea-progetto-s-chanf': { it: 'livigno-idea-progetto-s-chanf', en: 'livigno-idea-project-s-chanf', de: 'livigno-idee-projekt-s-chanf', fr: 'livigno-idee-projet-s-chanf' },
+ 'maggiori-responsabilita-peri-vertici-bancari': { it: 'maggiori-responsabilita-peri-vertici-bancari', en: 'greater-responsibilities-for-bank-executives', de: 'mehr-verantwortung-fur-bankfuhrungskrafte', fr: 'plus-grand-responsabilite-pour-les-executifs-de-banques' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
