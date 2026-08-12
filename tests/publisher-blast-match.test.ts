@@ -99,6 +99,20 @@ describe('matchSubscribersForAd', () => {
       expect(emails).toEqual(['stamped@example.com']);
     });
 
+    it('follows the toggle: `subscribed` passes with the stamp, not with resubscribed_at alone', () => {
+      // The #5686 review finding, checked on THIS channel rather than assumed:
+      // the blast shares the gate, so the authenticated preferences toggle had
+      // to start writing `confirmed_at` for these people to keep matching. The
+      // resubscribe LINK writes only `resubscribed_at` — a bare GET a scanner
+      // follows — and must stay out.
+      const rows = [
+        { email: 'toggled@example.com', ...strongMatch, status: 'subscribed', resubscribed_at: STAMP, confirmed_at: STAMP },
+        { email: 'link-only@example.com', ...strongMatch, status: 'subscribed', resubscribed_at: STAMP },
+      ];
+      const emails = matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
+      expect(emails).toEqual(['toggled@example.com']);
+    });
+
     it('keeps a `pending` row that DOES carry the stamp — the deliverability re-probe', () => {
       // scripts/mailtrap-suppression-retry.mjs writes status:'pending' on a
       // previously-confirmed address to make the cascade retry the mailbox.

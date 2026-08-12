@@ -690,6 +690,19 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  isActive: true,
  active: true,
  resubscribed_at: serverTimestamp(),
+ // The consent stamp, because THIS path earns it (#5686). It is reached
+ // only from UserProfile with email = getAuthEmail(user): a signed-in
+ // person flipping the switch on their own address — an affirmative act
+ // by an identified human. So the send gate in
+ // services/subscriberConsent.mjs may read it as proof, and without it
+ // that gate drops these people as "never confirmed" the moment they opt
+ // back in.
+ //
+ // `resubscribed_at` on the line above is NOT that proof and must never
+ // be promoted to it: the same field is written by the resubscribe LINK,
+ // a bare GET that anti-phishing scanners follow (#5711/#5720).
+ confirmed_at: serverTimestamp(),
+ confirmedAt: serverTimestamp(),
  unsubscribed_at: deleteField(),
  // Both spellings — scripts/send-newsletter.mjs drops a row carrying
  // either one, so leaving the camelCase twin makes the toggle cosmetic.

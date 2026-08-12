@@ -308,6 +308,7 @@ describe('send-newsletter.mjs: both recipient paths, not just the bulk one', () 
 });
 
 describe('the fix that was NOT made, and why it must stay unmade', () => {
+  const STAMP = '2026-01-01T00:00:00.000Z';
   it('`pending` is not in NEWSLETTER_EXCLUDED_STATUSES', () => {
     // The obvious fix, and the wrong one. That Set is shared with
     // newsletter-sunset, the dormant win-back, the onboarding drip and the
@@ -323,7 +324,6 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
   });
 
   it('the gate reads the stamp and never the word, in both directions', () => {
-    const STAMP = '2026-01-01T00:00:00.000Z';
     // OUT: the shape the 1.488 unconfirmed rows have.
     expect(hasConfirmationProof({ status: 'pending' })).toBe(false);
     // OUT: fabricated consent — 392 rows claim `confirmed` with nothing behind it.
@@ -334,6 +334,94 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
     // Both spellings, on the row or on the raw doc a projection carries.
     expect(hasConfirmationProof({ doc: { confirmed_at: STAMP } })).toBe(true);
     expect(hasConfirmationProof(null)).toBe(false);
+  });
+
+  /**
+   * THE REVIEW FINDING ON #5686, and the fork it opened.
+   *
+   * The reviewer was right: the "riattiva newsletter" toggle writes
+   * `status: 'subscribed'` + `resubscribed_at` and NO stamp, so after this gate
+   * those people are held back although they had just opted in explicitly. The
+   * two remedies offered were not equivalent, and only one of them is safe.
+   *
+   * REJECTED — accept `resubscribed_at` as proof. The same field is written by
+   * the resubscribe LINK (`action=resubscribe`, and the
+   * `source_channel: 'resubscribe_link'` upsert), which is a bare GET carrying
+   * a never-expiring HMAC(email) that rides in every email ever sent to that
+   * address. Anti-phishing scanners follow it — measured on this system:
+   * `unsubscribe` at 12:40:53, `subscribe_completed` at 12:40:55. Promoting
+   * that field to proof would let a scanner's timestamp count as consent,
+   * which is the exact defect #5711/#5720 is open to close.
+   *
+   * TAKEN — make the path that EARNS the stamp write it. But only one of the
+   * two toggle paths earns it, and the difference is the credential:
+   *   - the SPA toggle (components/preferences/SubscriptionPreferencesController
+   *     .tsx, authToggleNewsletter) runs behind a live Firebase session on the
+   *     signed-in user's own address. A scanner does not produce that. STAMPED.
+   *   - the Cloud Function toggle (`action=toggle_newsletter_subscription`) is
+   *     authenticated by the SAME eternal email HMAC as the resubscribe link,
+   *     over GET (services/newsletterSubscribers.ts calls it with a plain
+   *     `fetch(url)`). Stamping there would hand the forgery path we just
+   *     refused a second door, onto the one field the whole architecture
+   *     trusts. NOT STAMPED — recorded below, tracked as #5720.
+   */
+  describe('who may write the proof', () => {
+    it('the authenticated in-app toggle writes the stamp, so its users keep receiving', () => {
+      const src = stripComments(read('components/preferences/SubscriptionPreferencesController.tsx'));
+      const fn = src.slice(src.indexOf('async function authToggleNewsletter'));
+      const subscribeBranch = fn.slice(0, fn.indexOf('} else {'));
+      expect(subscribeBranch).toMatch(/confirmed_at:\s*serverTimestamp\(\)/);
+      expect(subscribeBranch).toMatch(/confirmedAt:\s*serverTimestamp\(\)/);
+      // And the gate agrees with the write: the row that toggle produces passes.
+      expect(hasConfirmationProof({
+        status: 'subscribed',
+        resubscribed_at: STAMP,
+        confirmed_at: STAMP,
+        confirmedAt: STAMP,
+      })).toBe(true);
+    });
+
+    it('a `subscribed` row with only resubscribed_at does NOT pass', () => {
+      // The shape the Cloud Function toggle and the resubscribe link both
+      // leave. Indistinguishable from a scanner's fetch, so it is not proof.
+      expect(hasConfirmationProof({ status: 'subscribed', resubscribed_at: STAMP })).toBe(false);
+      expect(hasConfirmationProof({ status: 'subscribed', resubscribedAt: STAMP })).toBe(false);
+    });
+
+    it('the gate reads neither resubscribed_at nor reactivated_at, in any spelling', () => {
+      // `reactivated_at` is the more dangerous of the two aliases: it is
+      // written PURELY automatically by six scripts (subscriberReactivation on
+      // a delivered/open/click webhook, the sunset passes, the mailtrap
+      // re-probe, the suppression decay, the restore pass). Nothing a person
+      // did is recorded in it. scripts/lib/subscriberSunset.mjs already treats
+      // it as interchangeable with `resubscribed_at` for ITS purposes, which
+      // is fine there and would be fatal here — so the coupling is refused in
+      // the source, not just in the docblock.
+      const gateSrc = stripComments(read('services/subscriberConsent.mjs'));
+      expect(gateSrc).not.toMatch(/resubscribed_?[Aa]t/);
+      expect(gateSrc).not.toMatch(/reactivated_?[Aa]t/);
+      expect(hasConfirmationProof({ reactivated_at: STAMP })).toBe(false);
+      expect(hasConfirmationProof({ doc: { resubscribed_at: STAMP } })).toBe(false);
+    });
+
+    it('the Cloud Function toggle still writes no stamp — recorded, not overlooked', () => {
+      // Asserted as a FACT so the decision is visible where it was made. If
+      // this fires, somebody added the stamp there: that is a consent-policy
+      // change, not a cleanup — the credential is the eternal email HMAC over
+      // GET, so read #5720 before keeping it.
+      const src = read('functions/src/newsletterSubscriptionManagement.js');
+      const start = src.indexOf("if (action === 'toggle_newsletter_subscription')");
+      expect(
+        start,
+        'the toggle branch moved — re-point this test (that file is being rewritten by #5720)',
+      ).toBeGreaterThan(-1);
+      const branch = stripComments(src.slice(start, start + 2000));
+      expect(branch).toMatch(/status:\s*'subscribed'/);
+      expect(
+        branch,
+        'the CF toggle now writes the consent stamp — see #5720 before accepting this',
+      ).not.toMatch(/confirmed_?[Aa]t\s*:/);
+    });
   });
 
   it('the gate has exactly one definition', () => {
