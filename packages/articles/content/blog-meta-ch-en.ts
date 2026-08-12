@@ -2308,6 +2308,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aumento-iva-per-la-difesa.title': 'Towards an increase in VAT for defence',
     'blog.article.aumento-iva-per-la-difesa.excerpt': 'The Government maintains the proposal of an increase of 0.5 percentage points for a period of 12 years.',
     'blog.article.aumento-iva-per-la-difesa.imageAlt': 'A Swiss Air Force pilot in flight over Lake Lugano.',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Banks under the lens: Bern tightens on bonuses and strengthens anti-crisis rules',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'The Federal Council intends to make the top management of banks more responsible and avoid the risks deriving from high bonuses.',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Banque under the microscope: Berna stringe sui bonus e rafforza le regole anti-crisi.',
 };
 
 export default blogMetaChEn;

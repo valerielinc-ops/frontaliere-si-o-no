@@ -2308,6 +2308,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aumento-iva-per-la-difesa.title': 'Verso un aumento dell\'IVA per la difesa',
     'blog.article.aumento-iva-per-la-difesa.excerpt': 'Il Governo mantiene la proposta di un incremento di 0,5 punti percentuali per un periodo di 12 anni.',
     'blog.article.aumento-iva-per-la-difesa.imageAlt': 'Un pilota di caccia della Swiss Air Force in volo sopra il Lago di Lugano.',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.title': 'Banche sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.excerpt': 'Il Consiglio federale intende responsabilizzare maggiormente i vertici delle banche ed evitare i rischi derivanti da bonus elevati.',
+    'blog.article.banche-sotto-la-lente-bern-stringe-sui-bonus.imageAlt': 'Banca sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi.',
 };
 
 export default blogMetaChIt;

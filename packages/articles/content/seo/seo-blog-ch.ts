@@ -29891,6 +29891,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-sotto-la-lente-bern-stringe-sui-bonus': {
+    title: 'Banche sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi',
+    description: 'Il Consiglio federale intende responsabilizzare maggiormente i vertici delle banche ed evitare i rischi derivanti da bonus elevati. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, sotto, lente, berna',
+    ogTitle: 'Banche sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi',
+    ogDescription: 'Il Consiglio federale intende responsabilizzare maggiormente i vertici delle banche ed evitare i rischi derivanti da bonus elevati.',
+    canonicalPath: '/articoli-svizzera/banche-sotto-la-lente-bern-stringe-sui-bonus/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi",
+      "description": "Il Consiglio federale intende responsabilizzare maggiormente i vertici delle banche ed evitare i rischi derivanti da bonus elevati. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banche-sotto-la-lente-bern-stringe-sui-bonus.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banca sotto la lente: Berna stringe sui bonus e rafforza le regole anti-crisi."
+      },
+      "datePublished": "2026-08-12T15:17:38+00:00",
+      "dateModified": "2026-08-12T15:17:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banche-sotto-la-lente-bern-stringe-sui-bonus/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
