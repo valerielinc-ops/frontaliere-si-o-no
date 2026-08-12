@@ -9805,6 +9805,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rc-auto-svizzera-frontaliere.title': 'RC Auto Schweiz und Grenzgänger: Unterschiede zu Italien',
     'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Praktischer Leitfaden zur Auto-Haftpflichtversicherung in der Schweiz für Grenzgänger, mit Fokus auf Unterschiede zu Italien, Bonus-Malus und Zulassung.',
     'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Schweizer Kfz-Haftpflichtversicherung für Grenzgänger Unterschiede und Zulassung',
+    'blog.article.multe-stradali-svizzere.title': 'Schweizer Strassenbusse',
+    'blog.article.multe-stradali-svizzere.excerpt': 'Wie funktionieren Schweizer Bußgelder für italienische Einwohner?',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Schweizer Verkehrsbuße an der Grenze Brogeda',
 };
 
 export default blogMetaDe;

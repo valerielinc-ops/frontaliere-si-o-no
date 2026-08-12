@@ -2287,6 +2287,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.title': 'Drei Schweizer Kantonalbanken: Dreimal höhere Gewinne',
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.excerpt': 'Die Kantonalbanken Bern, St. Gallen und Basel-Landschaft präsentieren Halbjahresabschlüsse mit steigenden Gewinnen',
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.imageAlt': 'Drei schweizerische Kantonalbanken präsentieren ihre halbjährlichen Konten mit Gewinnen im Wachstum',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvenzen auf dem höchsten Stand seit 30 Jahren',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'Im ersten Halbjahr meldeten 7496 Unternehmen Insolvenz an, die höchste Zahl seit 1994.',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Insolvenzen in der Schweiz: ein Rekord seit 1994',
 };
 
 export default blogMetaChDe;

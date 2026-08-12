@@ -2287,6 +2287,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.title': 'Three Swiss cantonal banks: three times higher profits',
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.excerpt': 'The cantonal banks of Bern, St. Gallen and Basel Countryside present half-yearly accounts with growing profits',
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.imageAlt': 'Three Swiss cantonal banks present their semiannual accounts with profits in growth',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvencies at 30-year highs',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'In the first half of the year, 7,496 companies declared bankruptcy due to insolvency, the highest number since 1994.',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Switzerland\'s insolvency rate: a record high since 1994',
 };
 
 export default blogMetaChEn;
