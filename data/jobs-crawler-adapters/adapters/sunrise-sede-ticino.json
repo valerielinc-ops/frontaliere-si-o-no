@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-08-12T10:21:51.044Z",
+  "updatedAt": "2026-08-12T21:59:11.567Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -35,12 +35,6 @@
     "https://careers.sunrise.ch/it/it/job/REQ_30036631/agentic-ai-engineer-80-100": {
       "location": "Zurich",
       "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-07"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036670/agent-support-technique-2%E1%B5%89-niveau-80-100": {
-      "location": "Bussigny",
-      "canton": "VD",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-07"
     },
@@ -86,6 +80,12 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-10"
     },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036788/store-manager-zurich-altstetten-80-100": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-10"
+    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036830/sales-agent-st-gallen-shopping-arena-60-100": {
       "location": "St. Gallen",
       "canton": "SG",
@@ -94,12 +94,6 @@
     },
     "https://careers.sunrise.ch/it/it/job/REQ_30036826/sales-agent-adliswil-60-100": {
       "location": "Adliswil",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-10"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036788/store-manager-zurich-altstetten-80-100": {
-      "location": "Zürich",
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-10"
@@ -125,18 +119,6 @@
     "https://careers.sunrise.ch/it/it/job/REQ_30036738/sales-agent-rapperswil-60-100": {
       "location": "Rapperswil",
       "canton": "SG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-10"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-06-02"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036764/marketing-project-manager-fixed-term-contract-for-9-months-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-10"
     },
