@@ -2305,6 +2305,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Domino effect: more companies have failed than ever since 1994',
     'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Compared to the same period in 2025, there was a 54.7% growth in bankruptcies. Companies with more than ten years of activity represent 38% of cases, followed by those between the ages of 5 and 10 (27%).',
     'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Image of a Swiss lake with a dam in the foreground',
+    'blog.article.aumento-iva-per-la-difesa.title': 'Towards an increase in VAT for defence',
+    'blog.article.aumento-iva-per-la-difesa.excerpt': 'The Government maintains the proposal of an increase of 0.5 percentage points for a period of 12 years.',
+    'blog.article.aumento-iva-per-la-difesa.imageAlt': 'A Swiss Air Force pilot in flight over Lake Lugano.',
 };
 
 export default blogMetaChEn;

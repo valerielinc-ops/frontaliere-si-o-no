@@ -29852,6 +29852,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-iva-per-la-difesa': {
+    title: 'Verso un aumento dell\'IVA per la difesa | Frontaliere Ticino',
+    description: 'Il Governo mantiene la proposta di un aumento dell\'IVA di 0,5 punti percentuali per un periodo di 12 anni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, verso, aumento, dell, difesa',
+    ogTitle: 'Aumento IVA per la difesa | Frontaliere Ticino',
+    ogDescription: 'Il Governo mantiene la proposta di un aumento dell\'IVA di 0,5 punti percentuali per un periodo di 12 anni.',
+    canonicalPath: '/articoli-svizzera/aumento-iva-per-la-difesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verso un aumento dell'IVA per la difesa",
+      "description": "Il Governo mantiene la proposta di un aumento dell'IVA di 0,5 punti percentuali per un periodo di 12 anni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-iva-per-la-difesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un pilota di caccia della Swiss Air Force in volo sopra il Lago di Lugano."
+      },
+      "datePublished": "2026-08-12T14:18:43+00:00",
+      "dateModified": "2026-08-12T14:18:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aumento-iva-per-la-difesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

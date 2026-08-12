@@ -2305,6 +2305,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Effetto domino: fallite più aziende che mai dal 1994',
     'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Rispetto allo stesso periodo del 2025 si registra una crescita del 54,7% delle fallite. Le aziende con più di dieci anni di attività rappresentano il 38% dei casi, seguite da quelle con un\'età compresa tra i 5 e i 10 anni (27%).',
     'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Immagine di un lago svizzero con una diga in primo piano',
+    'blog.article.aumento-iva-per-la-difesa.title': 'Verso un aumento dell\'IVA per la difesa',
+    'blog.article.aumento-iva-per-la-difesa.excerpt': 'Il Governo mantiene la proposta di un incremento di 0,5 punti percentuali per un periodo di 12 anni.',
+    'blog.article.aumento-iva-per-la-difesa.imageAlt': 'Un pilota di caccia della Swiss Air Force in volo sopra il Lago di Lugano.',
 };
 
 export default blogMetaChIt;

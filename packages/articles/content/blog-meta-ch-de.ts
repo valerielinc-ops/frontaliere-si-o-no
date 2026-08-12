@@ -2305,6 +2305,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.effetto-domino-fallite-aziende-svizzera.title': 'Dominoeffekt: Mehr Unternehmen als je zuvor seit 1994 bankrott',
     'blog.article.effetto-domino-fallite-aziende-svizzera.excerpt': 'Gegenüber dem gleichen Zeitraum 2025 ist ein Anstieg der Insolvenzen um 54,7% zu verzeichnen. Unternehmen mit mehr als zehnjähriger Tätigkeit machen 38% der Fälle aus, gefolgt von Unternehmen zwischen 5 und 10 Jahren (27%).',
     'blog.article.effetto-domino-fallite-aziende-svizzera.imageAlt': 'Bild eines Schweizer Sees mit einer Damm in der Vordergrund',
+    'blog.article.aumento-iva-per-la-difesa.title': 'Auf dem Weg zu einer Mehrwertsteuererhöhung für die Verteidigung',
+    'blog.article.aumento-iva-per-la-difesa.excerpt': 'Die Regierung hält an dem Vorschlag einer Erhöhung um 0,5 Prozentpunkte über einen Zeitraum von 12 Jahren fest.',
+    'blog.article.aumento-iva-per-la-difesa.imageAlt': 'Ein Schweizer Luftwaffenpilot in Flug über den Luganersee.',
 };
 
 export default blogMetaChDe;
