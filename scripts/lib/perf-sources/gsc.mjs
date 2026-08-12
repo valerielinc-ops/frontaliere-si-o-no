@@ -68,6 +68,10 @@ async function gscQuery(token, body, fetchImpl = fetch) {
  * families (e.g. `/guida-frontaliere/`, `/tasse-e-pensione/`) instead of
  * duplicating the OAuth2 + searchAnalytics/query plumbing — see
  * scripts/lib/seo-ctr-curve.mjs for the family registry that drives this.
+ *
+ * `pathContains = null` fetches ALL indexed pages site-wide (no filter) —
+ * used by the family-discovery pass in scripts/monitor-seo-ctr-by-template.mjs
+ * to find high-volume families that aren't in the registry yet.
  */
 export async function fetchGscByPage({
   windowDays = 30,
@@ -84,13 +88,17 @@ export async function fetchGscByPage({
       startDate: start,
       endDate: end,
       dimensions: ['page'],
-      dimensionFilterGroups: [
-        {
-          filters: [
-            { dimension: 'page', operator: 'contains', expression: pathContains },
-          ],
-        },
-      ],
+      ...(pathContains
+        ? {
+            dimensionFilterGroups: [
+              {
+                filters: [
+                  { dimension: 'page', operator: 'contains', expression: pathContains },
+                ],
+              },
+            ],
+          }
+        : {}),
       rowLimit: 25000,
     },
     fetchImpl,
