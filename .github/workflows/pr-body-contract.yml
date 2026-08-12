@@ -351,8 +351,25 @@ jobs:
           " >> "$GITHUB_OUTPUT"
       - name: Post sibling-check comment (advisory)
         if: ${{ !cancelled() && github.event.action != 'edited' }}
+        # ADVISORY: posta un commento sticky, non decide nulla. Senza le due
+        # righe qui sotto una 500 TRANSITORIA dell'API GitHub sulla
+        # `listComments` faceva fallire lo step e con lui l'INTERO job
+        # `contract` — cioe' il gate di merge — su una PR il cui body era
+        # gia' conforme. Misurato il 2026-08-12: #5663 e #5667 rosse nello
+        # stesso minuto con `HttpError: fetch failed / status: 500` su
+        # GET /issues/<n>/comments. Costo reale: un giro di review in piu',
+        # che qui vuole una vitest da ~18 minuti, ed e' una delle vie per cui
+        # una PR sana finisce etichettata `stale-review`.
+        #
+        # `retries` copre il caso transitorio: github-script NON esenta i 5xx
+        # (retry-exempt-status-codes = 400/401/403/404/422), quindi una 500
+        # viene ritentata. `continue-on-error` e' la rete sotto: nemmeno un
+        # guasto persistente dell'API deve poter arrossare un gate di merge
+        # per un commento consultivo.
+        continue-on-error: true
         uses: actions/github-script@v8
         with:
+          retries: 3
           script: |
             const STICKY = '<!-- sibling-check -->';
             const fs = require('fs');
@@ -444,8 +461,13 @@ jobs:
           " >> "$GITHUB_OUTPUT"
       - name: Post below-floor-bridge comment (advisory)
         if: ${{ !cancelled() && github.event.action != 'edited' }}
+        # Stessa classe dello step sibling-check qui sopra, stessa fix: e'
+        # advisory, quindi non deve poter far cadere il gate `contract`.
+        # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
+        continue-on-error: true
         uses: actions/github-script@v8
         with:
+          retries: 3
           script: |
             const STICKY = '<!-- below-floor-bridge-check -->';
             const fs = require('fs');
