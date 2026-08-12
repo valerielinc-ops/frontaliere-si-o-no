@@ -9843,6 +9843,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.amazon-malpensa-montichiari-2026.title': 'Amazon non si presenta in Prefettura: questione di policy aziendale',
     'blog.article.amazon-malpensa-montichiari-2026.excerpt': 'Il tavolo convocato a Varese sul trasferimento delle attività cargo da Malpensa a Montichiari si chiude senza l\'interlocutore principale.',
     'blog.article.amazon-malpensa-montichiari-2026.imageAlt': 'Amazon non si presenta in Prefettura: questione di policy aziendale',
+    'blog.article.malpensa-m5s-contre-spostamento-amazon.title': 'M5S contro lo spostamento di Amazon da Malpensa',
+    'blog.article.malpensa-m5s-contre-spostamento-amazon.excerpt': 'Il Movimento 5 Stelle della provincia di Varese annuncia un impegno a tutti i livelli istituzionali per tutelare i quasi duecento lavoratori coinvolti nella decisione di Amazon di lasciare, già dall\'inizio di settembre, lo scalo di Malpensa e trasferire le proprie attività all\'aeroporto di Montichiari, nel Bresciano.',
+    'blog.article.malpensa-m5s-contre-spostamento-amazon.imageAlt': 'Immagine editoriale relativa a: M5S contro lo spostamento di Amazon da Malpensa',
 };
 
 export default blogMetaIt;

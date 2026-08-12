@@ -29514,6 +29514,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malpensa-m5s-contre-spostamento-amazon',
+ category: 'pratico',
+ date: '2026-08-12T19:31:27.150Z',
+ image: '/images/blog/malpensa-m5s-contre-spostamento-amazon.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
