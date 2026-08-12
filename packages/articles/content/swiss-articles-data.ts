@@ -6940,6 +6940,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'scherzi-nuove-misure-del-consiglio-federale',
+    category: 'novita',
+    date: '2026-08-12T17:44:46.301Z',
+    image: '/images/blog/scherzi-nuove-misure-del-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
