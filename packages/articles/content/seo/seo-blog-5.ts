@@ -65747,6 +65747,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quadro-rw-conto-corrente-svizzero': {
+    title: 'Quadro RW dichiarazione conto corrente svizzero Agenzia Entrate',
+    description: 'Guida al monitoraggio fiscale quadro RW per conti correnti in Svizzera: obblighi dichiarativi, calcolo IVAFE e sanzioni per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, quadro, dichiarazione, conto, corrente',
+    ogTitle: 'Quadro RW dichiarazione conto corrente svizzero Agenzia Entrate',
+    ogDescription: 'Tutto quello che i frontalieri devono sapere sul monitoraggio fiscale dei conti in Svizzera, compilazione del quadro RW e calcolo IVAFE.',
+    canonicalPath: '/articoli-frontaliere/quadro-rw-conto-corrente-svizzero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quadro RW dichiarazione conto corrente svizzero Agenzia Entrate",
+      "description": "Guida al monitoraggio fiscale quadro RW per conti correnti in Svizzera: obblighi dichiarativi, calcolo IVAFE e sanzioni per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quadro-rw-conto-corrente-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano e dei suoi istituti bancari e finanziari"
+      },
+      "datePublished": "2026-08-12T05:50:14+00:00",
+      "dateModified": "2026-08-12T05:50:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quadro-rw-conto-corrente-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

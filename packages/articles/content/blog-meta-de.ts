@@ -9776,6 +9776,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.leventina-traffico-problema-cupra-airolo.title': 'Leventina als Verkehrsgeisel: CUPRA überfällt den Kanton',
     'blog.article.leventina-traffico-problema-cupra-airolo.excerpt': 'Das Verkehrsproblem in der Leventina ist ein hochaktuelles Thema. Der CUPRA, eine Vorzugsspur, scheint sein Ziel nicht ganz zu erreichen.',
     'blog.article.leventina-traffico-problema-cupra-airolo.imageAlt': 'Die Leventina ist ein Gebirgsgebiet im schweizerischen Kanton Tessin, das zwischen dem Lago Maggiore und dem Lago di Lugano liegt.',
+    'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Übersicht RW Erklärung Schweizer Girokonto Agentur Einnahmen',
+    'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Vollständiger Leitfaden zur Steuerüberwachung für Grenzgänger mit Konto in der Schweiz: Ausfüllpflichten und IVAFE.',
+    'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Blick auf Lugano und seine Bank- und Finanzinstitute',
 };
 
 export default blogMetaDe;
