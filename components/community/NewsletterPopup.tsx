@@ -13,6 +13,8 @@ import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import ConsentNotice from '@/components/shared/ConsentNotice';
+import { consentProof } from '@/services/consentTexts';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -350,8 +352,6 @@ const NewsletterPopup: React.FC = () => {
 
  const validateEmail = (emailStr: string) => validateEmailStrict(emailStr).valid;
 
- const CONSENT_TEXT = 'Accetto di ricevere la newsletter settimanale con aggiornamenti su cambio CHF/EUR, traffico di frontiera e novità fiscali per frontalieri. Posso disiscrivermi in qualsiasi momento.';
-
  const handleSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
  if (!validateEmail(email)) {
@@ -387,10 +387,12 @@ const NewsletterPopup: React.FC = () => {
  locale: navigator.language || 'it-IT',
  isActive: false,
  status: 'pending',
+ // The checkbox above rendered THIS string, in THIS locale, and it is
+ // the one stored — same function on both sides (#5712/#5718).
+ ...consentProof('communicationsOptIn', 'email_checkbox', locale),
+ // Set here and not by the register: this gate really does have a
+ // ticked box, which is the fact `consent_given` asserts.
  consentGiven: true,
- consentText: CONSENT_TEXT,
- consentMethod: 'email_checkbox',
- consentUserAgent: navigator.userAgent,
  }),
  8000,
  'newsletter_upsert',
@@ -616,9 +618,8 @@ const NewsletterPopup: React.FC = () => {
  onChange={(e) => { setConsentChecked(e.target.checked); setStatus('idle'); }}
  className="mt-0.5 w-4 h-4 rounded text-info focus-visible:ring-info shrink-0"
  />
- <span className="text-xs text-muted leading-relaxed">
- {t('newsletter.consentLabel')}
- </span>
+ {/* The sentence that gets STORED, not a translation of it (#5712). */}
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
  </label>
 
  {status === 'error' && (

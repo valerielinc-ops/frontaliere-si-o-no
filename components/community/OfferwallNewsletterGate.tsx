@@ -21,6 +21,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import ConsentNotice from '@/components/shared/ConsentNotice';
+import { consentProof } from '@/services/consentTexts';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -40,7 +42,6 @@ const COPY: Record<OfferwallLocale, {
   title: string;
   body: string;
   orWithEmail: string;
-  consent: string;
   submit: string;
   dismiss: string;
   invalidEmail: string;
@@ -52,7 +53,6 @@ const COPY: Record<OfferwallLocale, {
     title: 'Continua a leggere gratis',
     body: 'Iscriviti alla newsletter dei frontalieri (cambio CHF, fisco, lavoro) e accedi subito al contenuto. Niente spam, disiscrizione con un clic.',
     orWithEmail: 'oppure con email',
-    consent: 'Acconsento a ricevere la newsletter e accetto la privacy policy.',
     submit: 'Iscriviti e leggi',
     dismiss: 'No grazie',
     invalidEmail: 'Inserisci un indirizzo email valido.',
@@ -64,7 +64,6 @@ const COPY: Record<OfferwallLocale, {
     title: 'Keep reading for free',
     body: 'Subscribe to the cross-border workers newsletter (CHF rate, tax, jobs) and unlock this content now. No spam, one-click unsubscribe.',
     orWithEmail: 'or with email',
-    consent: 'I agree to receive the newsletter and accept the privacy policy.',
     submit: 'Subscribe & read',
     dismiss: 'No thanks',
     invalidEmail: 'Please enter a valid email address.',
@@ -76,7 +75,6 @@ const COPY: Record<OfferwallLocale, {
     title: 'Kostenlos weiterlesen',
     body: 'Abonnieren Sie den Grenzgänger-Newsletter (CHF-Kurs, Steuern, Jobs) und schalten Sie diesen Inhalt sofort frei. Kein Spam, Abmeldung mit einem Klick.',
     orWithEmail: 'oder mit E-Mail',
-    consent: 'Ich willige ein, den Newsletter zu erhalten, und akzeptiere die Datenschutzerklärung.',
     submit: 'Abonnieren & lesen',
     dismiss: 'Nein danke',
     invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
@@ -88,7 +86,6 @@ const COPY: Record<OfferwallLocale, {
     title: 'Continuez à lire gratuitement',
     body: 'Abonnez-vous à la newsletter des frontaliers (cours CHF, fiscalité, emploi) et accédez immédiatement au contenu. Pas de spam, désinscription en un clic.',
     orWithEmail: 'ou par e-mail',
-    consent: 'J’accepte de recevoir la newsletter et la politique de confidentialité.',
     submit: 'S’abonner et lire',
     dismiss: 'Non merci',
     invalidEmail: 'Veuillez saisir une adresse e-mail valide.',
@@ -96,13 +93,6 @@ const COPY: Record<OfferwallLocale, {
     error: 'Échec de l’inscription. Veuillez réessayer.',
     success: 'Terminé ! Vérifiez votre boîte mail pour confirmer.',
   },
-};
-
-const CONSENT_TEXT_BY_LOCALE: Record<OfferwallLocale, string> = {
-  it: 'Offerwall: consenso esplicito a ricevere la newsletter Frontaliere Ticino in cambio dell’accesso al contenuto.',
-  en: 'Offerwall: explicit consent to receive the Frontaliere Ticino newsletter in exchange for content access.',
-  de: 'Offerwall: ausdrückliche Einwilligung zum Erhalt des Frontaliere-Ticino-Newsletters im Austausch für den Zugang zum Inhalt.',
-  fr: 'Offerwall: consentement explicite à recevoir la newsletter Frontaliere Ticino en échange de l’accès au contenu.',
 };
 
 let firestoreDb: any = null;
@@ -330,10 +320,11 @@ const OfferwallNewsletterGate: React.FC = () => {
         // Deliberately NOT in CONFIRMED_NEWSLETTER_SOURCES → starts `pending`
         // and triggers the double opt-in confirmation email. Page access (the
         // Offerwall reward) is granted immediately regardless.
+        // Same string the checkbox rendered, same locale, one function
+        // (#5712/#5718). The four-locale table this replaced described only
+        // the newsletter, which was never all the visitor would receive.
+        ...consentProof('communicationsOptIn', 'email_checkbox', activeLocale),
         consentGiven: true,
-        consentText: CONSENT_TEXT_BY_LOCALE[activeLocale],
-        consentMethod: 'email_checkbox',
-        consentUserAgent: navigator.userAgent,
       });
       markNewsletterSubscribedLocally();
       try { Analytics.trackUIInteraction('offerwall_gate', 'form', 'subscribe', 'success'); } catch { /* no-op */ }
@@ -414,7 +405,7 @@ const OfferwallNewsletterGate: React.FC = () => {
                 onChange={(e) => setConsentChecked(e.target.checked)}
                 className="mt-0.5"
               />
-              <span>{copy.consent}</span>
+              <ConsentNotice consentKey="communicationsOptIn" locale={activeLocale} />
             </label>
 
             {status === 'error' && errorMessage && (

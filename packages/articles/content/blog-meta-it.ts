@@ -9846,6 +9846,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensa-m5s-contre-spostamento-amazon.title': 'M5S contro lo spostamento di Amazon da Malpensa',
     'blog.article.malpensa-m5s-contre-spostamento-amazon.excerpt': 'Il Movimento 5 Stelle della provincia di Varese annuncia un impegno a tutti i livelli istituzionali per tutelare i quasi duecento lavoratori coinvolti nella decisione di Amazon di lasciare, già dall\'inizio di settembre, lo scalo di Malpensa e trasferire le proprie attività all\'aeroporto di Montichiari, nel Bresciano.',
     'blog.article.malpensa-m5s-contre-spostamento-amazon.imageAlt': 'Immagine editoriale relativa a: M5S contro lo spostamento di Amazon da Malpensa',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Aumento frontalieri: +0,64%',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'L\'Ufficio Federale di Statistica (BFS) rileva un aumento dei frontalieri Ticino nel trimestre 2026-Q2.',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano vista dal lago, settembre 2022.',
 };
 
 export default blogMetaIt;

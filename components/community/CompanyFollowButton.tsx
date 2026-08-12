@@ -12,6 +12,7 @@ import {
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -198,9 +199,12 @@ export default function CompanyFollowButton({
           sourceComponent: 'CompanyFollowButton',
           sourceRouteFamily: 'community',
           locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
-          consentGiven: true,
-          // Text now lives in the versioned register (#5678) — moved verbatim.
-          ...consentProof('companyFollow', 'email_checkbox'),
+          // #5712/#5718: the notice under this form renders the same string
+          // in the same locale, so what is stored is what was read.
+          ...consentProof('communicationsOptIn', 'email_submit', locale),
+          // No `consentGiven`: this form has no consent checkbox, so nothing here
+          // is an affirmative opt-in — only "was shown" is true. See the
+          // `consentGiven` section of services/consentTexts.ts (#5712).
         });
         if (upsert.existed) await requestConfirmationEmail(trimmed, 'login');
       }
@@ -293,6 +297,7 @@ export default function CompanyFollowButton({
             {t('jobAlert.companyFollow.cta')}
           </button>
         </div>
+        <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="mt-2 text-[11px] text-muted leading-relaxed block" />
         {captureError && <p className="mt-2 text-xs text-danger">{captureError}</p>}
       </form>
     );

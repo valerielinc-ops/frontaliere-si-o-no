@@ -9845,6 +9845,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensa-m5s-contre-spostamento-amazon.title': 'M5S against Amazon\'s move from Malpensa',
     'blog.article.malpensa-m5s-contre-spostamento-amazon.excerpt': 'The 5-Star Movement of the province of Varese announces a commitment at all institutional levels to protect the almost two hundred workers involved in Amazon\'s decision to leave the Malpensa airport at the beginning of September and transfer its activities to the Montichiari airport in Bresciano.',
     'blog.article.malpensa-m5s-contre-spostamento-amazon.imageAlt': 'Editorial image related to: M5S contro lo spostamento di Amazon da Malpensa',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Frontier increase: +0.64%',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'The Federal Statistical Office (BFS) notes an increase in border crossers Ticino in the 2026-Q2 quarter.',
+    'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano view, September 2022.',
 };
 
 export default blogMetaEn;
