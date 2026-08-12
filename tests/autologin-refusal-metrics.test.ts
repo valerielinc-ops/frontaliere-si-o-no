@@ -312,17 +312,25 @@ describe('#5724 — the synthetic probe', () => {
     status,
     json: async () => body,
   });
+  // The probe only ever calls `fetchImpl(url, init)` and reads `.status`/`.json()`,
+  // so the stubs model exactly that. The cast is at the boundary, not on the
+  // stub itself — casting the whole `vi.fn` erases `.mock` and with it the
+  // ability to assert on what was requested.
+  const asFetch = (stub: unknown) => stub as unknown as typeof fetch;
 
   it('passes when the endpoint answers with the expected refusals', async () => {
+    // `url` is declared so `mock.calls` is typed as carrying one — the assertion
+    // at the end of this test is the point: it pins that the probe asks
+    // `exchange_auth_code`, not some other action.
     const fetchImpl = vi.fn(async (url: string) => (
       // Two cases: the authentic future-dated code, then the tampered one. The
       // stub replies by position, so the assertion below also pins the order.
-      fetchImpl.mock.calls.length === 1
+      String(url) && fetchImpl.mock.calls.length === 1
         ? okResponse(403, { success: false, error: 'auth_code_not_yet_valid' })
         : okResponse(403, { success: false, error: 'invalid_auth_code' })
-    )) as never;
+    ));
 
-    const results = await runAutologinProbe({ secret, fetchImpl });
+    const results = await runAutologinProbe({ secret, fetchImpl: asFetch(fetchImpl) });
     expect(results).toHaveLength(2);
     expect(results.every((r) => r.passed)).toBe(true);
     // Reserved address only — this hits the live production endpoint from CI.
@@ -333,8 +341,8 @@ describe('#5724 — the synthetic probe', () => {
   it('FAILS when the endpoint accepts a code it had to refuse', async () => {
     // A 200 means the probe just minted a production Auth user for a reserved
     // address, i.e. an unconditional gate has been switched off. Never tolerable.
-    const fetchImpl = vi.fn(async () => okResponse(200, { success: true, authToken: 'x' })) as never;
-    const results = await runAutologinProbe({ secret, fetchImpl });
+    const fetchImpl = vi.fn(async () => okResponse(200, { success: true, authToken: 'x' }));
+    const results = await runAutologinProbe({ secret, fetchImpl: asFetch(fetchImpl) });
     expect(results.every((r) => !r.passed)).toBe(true);
     expect(results[0].error).toMatch(/ACCETTATO/);
   });
@@ -345,8 +353,8 @@ describe('#5724 — the synthetic probe', () => {
     // invalid_auth_code to a code this repo minted — every autologin link in the
     // next send is dead, and the refusal rate would show it inside the one family
     // it deliberately discounts as scanner noise.
-    const fetchImpl = vi.fn(async () => okResponse(403, { success: false, error: 'invalid_auth_code' })) as never;
-    const results = await runAutologinProbe({ secret, fetchImpl });
+    const fetchImpl = vi.fn(async () => okResponse(403, { success: false, error: 'invalid_auth_code' }));
+    const results = await runAutologinProbe({ secret, fetchImpl: asFetch(fetchImpl) });
     expect(results[0].passed).toBe(false);
     expect(results[0].error).toContain('auth_code_not_yet_valid');
     expect(results[1].passed).toBe(true); // the negative control still holds
@@ -360,8 +368,8 @@ describe('#5724 — the synthetic probe', () => {
     expect(noSecret[0].skipped).toBe(true);
     expect(noSecret[0].passed).toBe(true);
 
-    const flaky = vi.fn(async () => { throw new Error('ECONNRESET'); }) as never;
-    const results = await runAutologinProbe({ secret, fetchImpl: flaky });
+    const flaky = vi.fn(async () => { throw new Error('ECONNRESET'); });
+    const results = await runAutologinProbe({ secret, fetchImpl: asFetch(flaky) });
     expect(results.every((r) => r.passed && r.skipped)).toBe(true);
   });
 
