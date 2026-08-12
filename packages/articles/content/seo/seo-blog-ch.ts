@@ -29267,6 +29267,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-come-usare-la-croce-svizzera-sui-prodotti-esteri': {
+    title: 'Come utilizzare la croce svizzera sui prodotti esteri?',
+    description: 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, utilizzare, croce, prodotti, esteri',
+    ogTitle: 'Come utilizzare la croce svizzera sui prodotti esteri?',
+    ogDescription: 'La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri. Segui le regole per utilizzare la croce svizzera sui prodotti esteri.',
+    canonicalPath: '/articoli-svizzera/come-usare-la-croce-svizzera-sui-prodotti-esteri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come utilizzare la croce svizzera sui prodotti esteri?",
+      "description": "La Svizzera ha delle regole per utilizzare la croce svizzera sui prodotti esteri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/come-usare-la-croce-svizzera-sui-prodotti-esteri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scatola di cioccolatini con la croce svizzera"
+      },
+      "datePublished": "2026-08-12T04:55:03+00:00",
+      "dateModified": "2026-08-12T04:55:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/come-usare-la-croce-svizzera-sui-prodotti-esteri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

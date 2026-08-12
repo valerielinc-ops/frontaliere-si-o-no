@@ -2260,6 +2260,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Because the heat drives up prices and climate inflation',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'From the Rhine drought to the shopping cart, climate change creates new inflation and forces central banks to act.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impact of drought and heat on prices in Switzerland',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'How to use the Swiss cross on foreign products?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'Switzerland has rules for using the Swiss cross on foreign products.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'A box of Swiss chocolates with the Swiss cross',
 };
 
 export default blogMetaChEn;

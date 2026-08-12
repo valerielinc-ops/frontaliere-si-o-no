@@ -2260,6 +2260,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Weil die Hitze die Preise in die Höhe treibt und die Klima-Inflation',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'Von der Rhein-Dürre bis zum Einkaufswagen führt der Klimawandel zu neuer Inflation und zwingt die Zentralbanken zum Handeln.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Auswirkungen von Dürre und Hitze auf die Preise in der Schweiz',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.title': 'Wie benutzt man das Schweizer Kreuz auf ausländischen Produkten?',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.excerpt': 'Die Schweiz hat Regeln für die Verwendung des Schweizerkreuzes auf ausländischen Produkten.',
+    'blog.article.come-usare-la-croce-svizzera-sui-prodotti-esteri.imageAlt': 'Eine Schachtel Schweizer Schokolade mit dem Schweizer Kreuz',
 };
 
 export default blogMetaChDe;
