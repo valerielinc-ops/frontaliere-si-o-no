@@ -668,7 +668,10 @@ async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise
 }
 
 async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
+ // No `deleteField` here any more (#5711): this function used to clear the
+ // opt-out stamps to perform the lift, and clearing them destroyed the record
+ // that the person had unsubscribed at all.
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -689,7 +692,15 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  status: 'subscribed',
  isActive: true,
  active: true,
+ // Both spellings of the RE-OPT-IN stamp, and neither opt-out stamp is
+ // deleted (#5711). scripts/send-newsletter.mjs drops a row carrying
+ // either spelling of the opt-out, so the lift has to be visible to it —
+ // it now compares the two stamps (`isNewsletterOptOutBinding`,
+ // services/newsletterOptOut.mjs) instead of requiring the opt-out to be
+ // erased. Erasing it destroyed the only record that the person had
+ // unsubscribed, which is the half of the problem #5711 is about.
  resubscribed_at: serverTimestamp(),
+ resubscribedAt: serverTimestamp(),
  // The consent stamp, because THIS path earns it (#5686). It is reached
  // only from UserProfile with email = getAuthEmail(user): a signed-in
  // person flipping the switch on their own address — an affirmative act
@@ -698,15 +709,14 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  // that gate drops these people as "never confirmed" the moment they opt
  // back in.
  //
- // `resubscribed_at` on the line above is NOT that proof and must never
- // be promoted to it: the same field is written by the resubscribe LINK,
- // a bare GET that anti-phishing scanners follow (#5711/#5720).
+ // `resubscribed_at` on the lines above is NOT that proof and must never
+ // be promoted to it. The two answer different questions — "did they come
+ // back?" and "did they ever consent?" — and only the second is evidence
+ // of consent. (The resubscribe LINK that also writes `resubscribed_at`
+ // is no longer a bare GET since #5720, but that changes who can press
+ // it, not what the field means.)
  confirmed_at: serverTimestamp(),
  confirmedAt: serverTimestamp(),
- unsubscribed_at: deleteField(),
- // Both spellings — scripts/send-newsletter.mjs drops a row carrying
- // either one, so leaving the camelCase twin makes the toggle cosmetic.
- unsubscribedAt: deleteField(),
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },

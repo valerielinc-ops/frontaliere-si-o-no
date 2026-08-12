@@ -824,6 +824,12 @@ const App: React.FC = () => {
  const [newsletterActionEmail, setNewsletterActionEmail] = useState<string | null>(null);
  const [showNewsletterWelcome, setShowNewsletterWelcome] = useState(false);
  const [newsletterActionType, setNewsletterActionType] = useState<'unsubscribe' | 'resubscribe' | null>(null);
+ // The SPA half of #5711's asymmetry. Leaving happens on the request; COMING
+ // BACK waits for a real gesture, and this holds the already-authenticated
+ // write until one arrives. Stored as a thunk (hence the `() => fn` setter
+ // shape) so the whole authenticated closure — db handle, normalised address,
+ // legacy-duplicate sync — survives out of the effect without being rebuilt.
+ const [pendingResubscribe, setPendingResubscribe] = useState<null | (() => Promise<void>)>(null);
  useEffect(() => {
  const urlParams = new URLSearchParams(window.location.search);
  const action = urlParams.get('action');
@@ -1006,6 +1012,34 @@ const App: React.FC = () => {
  );
  };
 
+ // The re-subscription itself, deferred (#5711). Defined here rather than
+ // executed here: everything it needs is authenticated and resolved by this
+ // point, but NOTHING may be written until a person presses the button —
+ // see the two call sites below and the toast that renders it.
+ const performResubscribe = async (): Promise<void> => {
+ try {
+ await upsertNewsletterSubscriberRecord(db, {
+ email: normalizedEmail,
+ name: null,
+ preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+ source: 'resubscribe_link',
+ locale: navigator.language || 'it-IT',
+ isActive: true,
+ // Names what actually happened: the link was opened AND the button on
+ // the resulting page was pressed. Corporate anti-phishing scanners
+ // fetch every link we send (35 hits, 25 inside 7 seconds, Microsoft
+ // ranges — measured on this domain) and produce the first half only,
+ // which is why the first half alone no longer reaches this write.
+ ...consentProof('resubscribeLink', 'email_link_click_confirmed'),
+ });
+ await syncLegacyDuplicates(false, 'resubscribe_link');
+ markNewsletterSubscribedLocally();
+ setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
+ } catch {
+ setUnsubscribeMsg('Errore durante la riattivazione. Riprova più tardi.');
+ }
+ };
+
  if (action === 'unsubscribe') {
  // Single writer, shared with nothing else and importable by tests:
  // services/newsletterSubscribers.ts owns the field set AND the
@@ -1021,23 +1055,53 @@ const App: React.FC = () => {
  await syncLegacyDuplicates(false, 'unsubscribe_link');
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
+ // The way back, offered as a BUTTON on this same page instead of the
+ // `<a href="/?action=resubscribe&…">` that used to sit in the toast. That
+ // link was the SPA twin of the one #5711 removed from the Cloud
+ // Function's confirmation page; here it is also the fix for a dead end,
+ // because the link it rendered carried no credential and always answered
+ // "Link non valido".
+ setPendingResubscribe(() => performResubscribe);
+ } else if (await isNewsletterOptedOut(db, normalizedEmail)) {
+ // ── REVERSING a recorded opt-out does NOT happen on arrival (#5711) ──
+ //
+ // `action=resubscribe` is ONE parameter covering two situations that only
+ // look alike, and the difference decides whether a bare GET may write:
+ //
+ //   • the document carries a BINDING opt-out — this branch. The arrival
+ //     is asking to override a refusal the person recorded, which is the
+ //     single exception #5690 left in the opt-out wall
+ //     (`isExplicitNewsletterReOptIn` → `resubscribe_link`). A scanner
+ //     walked straight through it: measured 2026-08-12, opt-out 12:40:53,
+ //     `confirmed`/active 12:40:55. So it now only ASKS, and nothing is
+ //     written until the button below is pressed. Same asymmetry as the
+ //     Cloud Function's confirmation page, expressed as a click rather
+ //     than a POST because there is no server round-trip here.
+ //
+ //   • no binding opt-out — the branch below. That is the win-back
+ //     "Resta iscritto" CTA, which CONFIRMS the state the document is
+ //     already in and cancels a pending sunset. Nothing is being
+ //     overridden, so gating it would only cost retention: #5726 measured
+ //     25 subscribers whose click was already being dropped, and a second
+ //     tap is another place to lose them.
+ //
+ // The discriminator is the DOCUMENT, never a URL parameter — a scanner
+ // fetches whatever parameters the link carries, so anything in the URL
+ // would classify the machine exactly as it classifies the person.
+ // `isNewsletterOptedOut` fails CLOSED (a read error asks for the press).
+ setPendingResubscribe(() => performResubscribe);
+ setUnsubscribeMsg('Conferma la riattivazione: premi il pulsante qui sotto. Nessuna modifica è stata ancora applicata.');
  } else {
- await upsertNewsletterSubscriberRecord(db, {
- email: normalizedEmail,
- name: null,
- preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
- source: 'resubscribe_link',
- locale: navigator.language || 'it-IT',
- isActive: true,
- // Records that the act was a LINK OPEN, not a form submission. Corporate
- // anti-phishing scanners fetch every link we send (35 hits, 25 inside 7
- // seconds, Microsoft ranges — measured on this domain), so the stored
- // proof has to name what actually happened instead of promoting it.
- ...consentProof('resubscribeLink', 'email_link_click'),
- });
- await syncLegacyDuplicates(false, 'resubscribe_link');
- markNewsletterSubscribedLocally();
- setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
+ // Win-back re-engagement: no refusal on record to override, one tap, as
+ // before. See the branch above for why the two are not the same act.
+ //
+ // KNOWN AND NOT FIXED HERE: this link is fetched by the same corporate
+ // scanners, so a sunset cancelled by a `GET` may be measuring the
+ // scanner's reactivity rather than the reader's. That is a defect in what
+ // `subscriberSunset` MEASURES, not a consent violation, and it needs its
+ // own measurement before anyone changes the retention funnel — tracked as
+ // chained work on #5711.
+ await performResubscribe();
  }
  // Clean URL
  window.history.replaceState({}, '', window.location.pathname);
@@ -2077,13 +2141,25 @@ const App: React.FC = () => {
  {unsubscribeMsg && (
  <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-surface border border-edge rounded-xl shadow-xl px-6 py-4 max-w-md text-center animate-fade-in">
  <p className="text-sm text-body">{unsubscribeMsg}</p>
- {newsletterActionType === 'unsubscribe' && newsletterActionEmail && (
- <a
- href={`/?action=resubscribe&email=${encodeURIComponent(newsletterActionEmail)}`}
- className="inline-block mt-2 text-xs text-accent hover:underline"
+ {/* #5711 — the re-subscription is a BUTTON, never a link. A link is
+ something a crawler follows; a press is something a person does.
+ Rendered only when the arriving credential was good enough to
+ perform the write, so it is never a control that answers "Link non
+ valido" when pressed. */}
+ {pendingResubscribe && newsletterActionEmail && (
+ <button
+ type="button"
+ onClick={() => {
+ const run = pendingResubscribe;
+ setPendingResubscribe(null);
+ void run();
+ }}
+ className="mt-2 min-h-[44px] inline-flex items-center px-4 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-xs font-medium transition-colors"
  >
- Re-iscriviti alla newsletter
- </a>
+ {newsletterActionType === 'resubscribe'
+ ? 'Conferma la riattivazione'
+ : 'Re-iscriviti alla newsletter'}
+ </button>
  )}
  <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 min-h-[44px] inline-flex items-center text-xs text-accent hover:underline">{t('common.close')}</button>
  </div>

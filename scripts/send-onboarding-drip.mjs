@@ -45,6 +45,7 @@ import {
   computeScheduledSendAt,
 } from './lib/send-schedule.mjs';
 import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
+import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -100,10 +101,14 @@ function isUnsubscribedOrInactive(data) {
   // already-suppressed addresses).
   if (isNewsletterExcluded(data.status)) return true;
   // BOTH spellings (#5673): the SPA "Disiscriviti" link wrote only
-  // `unsubscribedAt` (camelCase) until this PR, and 458 documents measured on
+  // `unsubscribedAt` (camelCase) until #5673, and 458 documents measured on
   // 2026-08-12 still carry only that one. Reading the snake_case name alone
   // kept dripping onboarding mail at people who had opted out.
-  if (data.unsubscribed_at || data.unsubscribedAt) return true;
+  //
+  // Via the shared predicate since #5711, because the stamp is now append-only:
+  // a re-subscription stamps `resubscribed_at` beside the opt-out instead of
+  // deleting it, and it is the strictly-later of the two that decides.
+  if (isNewsletterOptOutBinding(data)) return true;
   if (data.isActive === false) return true;
   if (data.active === false) return true;
   return false;

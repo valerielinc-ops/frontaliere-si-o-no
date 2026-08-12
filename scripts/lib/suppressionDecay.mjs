@@ -504,8 +504,24 @@ export function classifySuppressionDecay(sub, nowMs) {
     // binding. 227 of the 268 above are exactly this, and 1 of the 3
     // suppressed-and-stamped docs is too — without this branch that person
     // stays deleted forever on the strength of a decision they reversed.
+    //
+    // `resubscribed_at` is read alongside it since #5711, and it is the
+    // NARROWER of the two signals — only the explicit re-opt-in paths write it,
+    // where `confirmed_at` is written by anything landing on `confirmed`. It
+    // matters here because the preference-centre toggle re-subscribes WITHOUT
+    // writing `confirmed_at`, and since #5711 stopped deleting the opt-out
+    // stamp that document would otherwise read as terminal forever.
+    //
+    // NOTE — the broader `confirmed_at` rule stays deliberately confined to
+    // this file. services/newsletterOptOut.mjs refuses it on purpose: all 186
+    // resurrections of #5672 carry a newer `confirmed_at`, so using it to
+    // decide MAILABILITY would exempt exactly the cohort that guard exists for.
+    // The decision here is different — whether to decay a machine-inferred
+    // suppression — and never whether to mail anyone.
     const confirmedAt = toMillis(sub?.confirmed_at) ?? toMillis(sub?.confirmedAt);
-    if (confirmedAt == null || confirmedAt <= unsubscribedAt) {
+    const resubscribedAt = toMillis(sub?.resubscribed_at) ?? toMillis(sub?.resubscribedAt);
+    const revivedAt = Math.max(confirmedAt ?? -Infinity, resubscribedAt ?? -Infinity);
+    if (!Number.isFinite(revivedAt) || revivedAt <= unsubscribedAt) {
       return verdict('terminal', 'human-unsubscribe-stamp', false, 'human decision: unsubscribed_at is recorded and never superseded by a later confirmation');
     }
   }

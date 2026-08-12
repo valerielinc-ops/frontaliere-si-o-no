@@ -217,10 +217,17 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     expect(payload.unsubscribedAt).toBe('__server_timestamp__');
   });
 
-  it('clears both stamps when a re-opt-in is granted, so the lift is not cosmetic', async () => {
+  it('lifts the opt-out by STAMPING the re-opt-in, never by deleting the opt-out (#5711)', async () => {
     // scripts/send-newsletter.mjs drops any row carrying EITHER spelling
     // whatever `status` says, so a "riattiva" click that left the stamp
-    // produced a subscriber who was confirmed and permanently unmailable.
+    // unaccompanied produced a subscriber who was confirmed and permanently
+    // unmailable. Until #5711 the lift was performed by DELETING the stamps —
+    // which also destroyed the record that the person had ever opted out, the
+    // evidence an art. 25 request asks for and the signal the 186
+    // resurrections of #5672 were found by.
+    //
+    // The lift is now a strictly-later `resubscribed_at` written BESIDE the
+    // opt-out; `isNewsletterOptOutBinding` compares the two.
     getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
 
     const result = await captureNewsletterSubscriber({} as any, {
@@ -231,9 +238,32 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
 
     expect(result.status).toBe('confirmed');
     const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
-    expect(payload.unsubscribed_at).toBe('__delete_field__');
-    expect(payload.unsubscribedAt).toBe('__delete_field__');
     expect(payload.resubscribed_at).toBe('__server_timestamp__');
+    expect(payload.resubscribedAt).toBe('__server_timestamp__');
+    // Not deleted, and not overwritten either: the merge simply does not
+    // mention the field, so whatever the document already recorded survives.
+    expect(payload).not.toHaveProperty('unsubscribed_at');
+    expect(payload).not.toHaveProperty('unsubscribedAt');
+  });
+
+  it('and the resulting document is mailable again — the lift is not cosmetic', () => {
+    // The half the deletion used to buy. Same document, plus the two stamps the
+    // write above adds, run back through the predicate every sender consults.
+    const lifted = {
+      ...UNSUBSCRIBED_DOC,
+      status: 'confirmed',
+      isActive: true,
+      active: true,
+      resubscribed_at: '2026-08-02T09:00:00.000Z',
+      resubscribedAt: '2026-08-02T09:00:00.000Z',
+    };
+    expect(isNewsletterOptOutBinding(lifted)).toBe(false);
+    // …and an OLDER re-opt-in stamp does not lift anything.
+    expect(isNewsletterOptOutBinding({
+      ...lifted,
+      resubscribed_at: '2026-07-01T09:00:00.000Z',
+      resubscribedAt: '2026-07-01T09:00:00.000Z',
+    })).toBe(true);
   });
 });
 

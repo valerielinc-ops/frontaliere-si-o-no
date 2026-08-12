@@ -104,7 +104,10 @@ describe('handleSubscriptionManagement', () => {
     expect(event!.data.event_type).toBe('unsubscribe');
   });
 
-  it('resubscribes with valid HMAC token', async () => {
+  it('resubscribes with valid HMAC token on a POST', async () => {
+    // POST since #5711: the token is necessary but no longer sufficient, because
+    // a link-following scanner gets the token for free — it is in the URL of the
+    // page it is scanning. See tests/newsletter-resubscribe-post.test.ts.
     const db = createFakeDb({
       newsletter_subscribers: {
         [TEST_EMAIL]: { status: 'unsubscribed', isActive: false },
@@ -117,6 +120,7 @@ describe('handleSubscriptionManagement', () => {
       token: VALID_TOKEN,
       locale: 'it',
       secret: TEST_SECRET,
+      method: 'POST',
       db: db as any,
     });
 

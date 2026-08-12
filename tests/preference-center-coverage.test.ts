@@ -234,7 +234,13 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
     // when asking "does the centre remember?", and the answer has to be
     // complete. The per-path proof lives in newsletter-unsubscribe-integrity.
     const src = read('services/newsletterSubscribers.ts');
-    expect(src).toContain('export function isNewsletterOptOutBinding');
+    // The predicate moved to services/newsletterOptOut.mjs in #5711 — the same
+    // question is now asked by the Node senders and by the Cloud Function's
+    // `get_full_status`, and three copies of a rule that had just changed shape
+    // is how the two spellings of #5673 drifted apart. It is still re-exported
+    // from here, so every existing importer is unaffected.
+    expect(read('services/newsletterOptOut.mjs')).toContain('export function isNewsletterOptOutBinding');
+    expect(src).toContain('export { isNewsletterOptOutBinding }');
     expect(src).toContain('export async function isNewsletterOptedOut');
     for (const p of ['App.tsx', 'services/authService.ts', 'components/community/JobBoard.tsx']) {
       expect(read(p), `${p} must consult the opt-out before auto-subscribing`).toContain(
