@@ -2344,6 +2344,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon dépasse 3 000 milliards',
     'blog.article.amazon-capitalizzazione-3000-miliardi.excerpt': 'L\'action Amazon s\'envole de 4,6 % après les résultats du deuxième trimestre',
     'blog.article.amazon-capitalizzazione-3000-miliardi.imageAlt': 'Amazon entre dans le groupe des cinq géants après les résultats du deuxième trimestre',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Permis de séjour C dans le canton de Berne : exigences et demande',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Le permis de séjour C dans le canton de Berne : exigences, demande et procédure d\'application',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'Un étranger avec un permis de séjour C dans le canton de Berne',
 };
 
 export default blogMetaChFr;

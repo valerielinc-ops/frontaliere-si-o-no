@@ -30359,6 +30359,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-di-domicilio-c-canton-berna-requisiti-e-domanda': {
+    title: 'Permesso di domicilio C nel Canton Berna: requisiti e domanda',
+    description: 'Il permesso di domicilio C nel Canton Berna: requisiti, domanda e procedura di applicazione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, canton, berna',
+    ogTitle: 'Permesso di domicilio C nel Canton Berna: requisiti e domanda',
+    ogDescription: 'Il permesso di domicilio C nel Canton Berna: requisiti, domanda e procedura di applicazione',
+    canonicalPath: '/articoli-svizzera/permesso-di-domicilio-c-canton-berna-requisiti-e-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C nel Canton Berna: requisiti e domanda",
+      "description": "Il permesso di domicilio C nel Canton Berna: requisiti, domanda e procedura di applicazione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un cittadino straniero con permesso di domicilio C nel Canton Berna"
+      },
+      "datePublished": "2026-08-12T20:41:31+00:00",
+      "dateModified": "2026-08-12T20:41:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-domicilio-c-canton-berna-requisiti-e-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

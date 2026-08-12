@@ -2344,6 +2344,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon surpasses $3 trillion in market capitalization for the first time',
     'blog.article.amazon-capitalizzazione-3000-miliardi.excerpt': 'Amazon Shares Fly 4.6% After Q2 Results',
     'blog.article.amazon-capitalizzazione-3000-miliardi.imageAlt': 'Amazon enters the group of five giants after the second-quarter results',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Residence permit C in Canton Bern: requirements and application',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Residence permit C in the Canton of Bern: requirements, application and application procedure',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'A foreigner with a C permit in the Canton of Bern',
 };
 
 export default blogMetaChEn;

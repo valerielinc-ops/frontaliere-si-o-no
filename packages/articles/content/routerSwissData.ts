@@ -807,6 +807,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'federer-patrimonio-on-borsa-calo': { it: 'federer-patrimonio-on-borsa-calo', en: 'roger-federer-wealth-on-stock-market', de: 'roger-federer-vermoegen-on-aktien', fr: 'roger-federer-fortune-on-bourse' },
  'grubel-ubb-intromettersi-in-ucraina': { it: 'grubel-ubb-intromettersi-in-ucraina', en: 'grubel-ubb-intervene-in-ukraine', de: 'grubel-ubb-eingreifen-in-ukraine', fr: 'grubel-ubb-intervenir-en-ukraine' },
  'amazon-capitalizzazione-3000-miliardi': { it: 'amazon-capitalizzazione-3000-miliardi', en: 'amazon-capitalization-3000-billion', de: 'amazon-kapitalisierung-3000-milliarden', fr: 'amazon-capitalisation-3000-milliards' },
+ 'permesso-di-domicilio-c-canton-berna-requisiti-e-domanda': { it: 'permesso-di-domicilio-c-canton-berna-requisiti-e-domanda', en: 'c-permit-bern-switzerland-requisites-and-application', de: 'c-bescheinigung-bern-schweiz-anforderungen-und-antragstellung', fr: 'permis-de-sejour-c-bourg-de-berne-requisits-et-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
