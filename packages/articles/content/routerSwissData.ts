@@ -783,6 +783,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'portale-informazione-svizzera-italiana': { it: 'portale-informazione-svizzera-italiana', en: 'information-portal-swiss-italians', de: 'informationsportal-schweiz', fr: 'portail-information-suisse-italienne' },
  'imposte-cantonal-berna-aliquote-deduzioni': { it: 'imposte-cantonal-berna-aliquote-deduzioni', en: 'imposte-cantonal-berna-aliquote-deduzioni', de: 'imposten-cantonal-berner-ertragssteuern-satz-berechnung', fr: 'impots-cantonaux-bernais-impots-surtaxes-berechnung' },
  'no-tutele-sindacalisti-bilaterali-iii': { it: 'no-tutele-sindacalisti-bilaterali-iii', en: 'no-trade-union-protections-bilaterals-iii', de: 'keine-gewerkschaftsschutz-bilaterale-iii', fr: 'aucune-protection-syndicale-bilaterale-iii' },
+ 'premi-cassa-malati-cantone-bern-riduzione': { it: 'premi-cassa-malati-cantone-bern-riduzione', en: 'health-insurance-premiums-cantonal-bern-reduction', de: 'kostenvoranschlag-kv-bern-kanton', fr: 'primes-assurance-maladie-canton-de-bourbourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

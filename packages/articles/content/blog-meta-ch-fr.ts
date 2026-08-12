@@ -2272,6 +2272,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.title': 'Bilatérales III : non à des protections spécifiques pour les syndicalistes',
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.excerpt': 'La Commission de l\'économie et des redevances du Conseil des Etats exclut la règle qui aurait renforcé les protections pour les représentants syndicaux dans les entreprises.',
     'blog.article.no-tutele-sindacalisti-bilaterali-iii.imageAlt': 'Une réunion syndicale en Suisse',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.title': 'Primes caisse-maladie canton de Berne et réduction des primes',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.excerpt': 'Voici les faits clés pour les primes de l\'assurance maladie obligatoire dans le canton de Berne.',
+    'blog.article.premi-cassa-malati-cantone-bern-riduzione.imageAlt': 'Montagnes suisses avec le lac de Lugano à l\'arrière-plan.',
 };
 
 export default blogMetaChFr;
