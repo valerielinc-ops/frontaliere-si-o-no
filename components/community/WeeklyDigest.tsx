@@ -106,6 +106,10 @@ const WeeklyDigest: React.FC = () => {
  source: 'weekly_digest',
  type: 'weekly_digest',
  isActive: true,
+ // Typed address + explicit submit: the deliberate act that may lift a
+ // recorded opt-out (#5672). Same reason as LeadMagnetCTA — without it an
+ // unsubscribed reader gets the success state and no mail at all.
+ reconsent: true,
  });
  markNewsletterSubscribedLocally();
  localStorage.setItem('weekly_digest_subscribed', 'true');

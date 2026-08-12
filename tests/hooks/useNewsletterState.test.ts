@@ -35,6 +35,13 @@ vi.mock('@/services/newsletterSubscribers', () => ({
   confirmNewsletterSubscription: vi.fn(() => Promise.resolve({ success: true })),
   clearNewsletterPendingLocally: vi.fn(),
   markNewsletterSubscribedLocally: vi.fn(),
+  // The URL-param effect resolves this module dynamically and destructures
+  // both of these. It stays dormant in these tests (no ?action= in the test
+  // URL), but a mock missing a name a dynamic import destructures fails at
+  // call time rather than at import time — i.e. only once someone adds a case
+  // that navigates. Stubbed here so that trap is not left armed.
+  normalizeNewsletterEmail: vi.fn((raw: string) => String(raw || '').trim().toLowerCase()),
+  unsubscribeNewsletterSubscriber: vi.fn(() => Promise.resolve({ ok: true, email: '', fields: {} })),
 }));
 
 import { useNewsletterState } from '@/hooks/useNewsletterState';

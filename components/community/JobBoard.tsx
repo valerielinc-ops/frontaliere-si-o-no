@@ -5878,6 +5878,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return;
+ // Fifth sibling of the auto-subscribe guard (App.tsx, hooks/useUserState.ts,
+ // services/authService.ts, PublisherPublishPage) and the same reasoning
+ // (#5672). Two of this function's four callers are social sign-in unlocks
+ // that promote (`isActive`/`status: 'confirmed'` below when the source is
+ // Google/Facebook), which is the ring exactly: open an old email → the
+ // never-expiring `ac` code signs you in → unlock a job → subscribed again.
+ // The other two land `pending` and so are never promoted, but the upsert
+ // still records a `subscribe_completed` event on an opted-out document, and
+ // that event is the signal a genuine re-subscription is recognised by. The
+ // localStorage flag above cannot cover either case: the unsubscribe handler
+ // deletes it.
+ //
+ // Returning here also skips `markNewsletterSubscribedLocally()` below, which
+ // is intended: that flag is what grants offerwall access, and granting a
+ // subscriber perk to someone who is not a subscriber is the lie that made
+ // this guard necessary. The job unlock itself is unaffected — every caller
+ // grants it (JOB_EMAIL_ACCESS_KEY / setEmailAccessGranted) after the await,
+ // independently of what happens in here.
+ const { isNewsletterOptedOut } = await import('@/services/newsletterSubscribers');
+ if (await isNewsletterOptedOut(firestore, email)) return;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');
  const focusedJob = selectedJob || sortedJobs[0] || null;

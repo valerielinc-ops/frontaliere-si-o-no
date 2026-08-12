@@ -1,6 +1,7 @@
 import {
  addDoc,
  collection,
+ deleteField,
  doc,
  getDoc,
  increment,
@@ -136,6 +137,13 @@ export type NewsletterUpsertInput = {
  consentText?: string | null;
  consentMethod?: 'email_checkbox' | 'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | string;
  consentUserAgent?: string | null;
+ /**
+  * The caller asserts this write carries a DELIBERATE re-opt-in act by the
+  * recipient — the only thing that may lift a recorded opt-out (see
+  * `inferNewsletterSubscriptionState`). Never set it from an authentication
+  * event: signing in is not consent to receive mail you already refused.
+  */
+ reconsent?: boolean;
 };
 
 export type NewsletterEventInput = {
@@ -346,7 +354,85 @@ export function normalizeNewsletterEmail(raw: string): string {
  return String(raw || '').trim().toLowerCase();
 }
 
+/**
+ * Is a recorded opt-out still binding on this document?
+ *
+ * BOTH spellings of the stamp are read, and that is the whole point (#5673):
+ * the Cloud Function path writes `unsubscribed_at` (snake_case) while the SPA
+ * path wrote `unsubscribedAt` (camelCase) and nothing else. 458 production
+ * documents measured on 2026-08-12 carry ONLY the camelCase spelling, so a
+ * guard that reads one name honours half the opt-outs. No data migration is
+ * needed — and none is performed — precisely because every reader accepts both.
+ *
+ * `status` alone is not enough either: it is a single last-writer-wins field,
+ * and the resurrection ring this exists to close overwrote it.
+ */
+export function isNewsletterOptOutBinding(existing: Record<string, any> | null | undefined): boolean {
+ if (!existing) return false;
+ return existing.status === 'unsubscribed'
+ || existing.unsubscribed_at != null
+ || existing.unsubscribedAt != null;
+}
+
+/**
+ * The ONLY signals that may lift a recorded opt-out.
+ *
+ * `resubscribe_link` is the win-back / "riattiva" click — the recipient
+ * deliberately asked to come back. `reconsent` is the explicit escape hatch
+ * for any future caller that can prove the same thing. Everything else,
+ * INCLUDING every `CONFIRMED_NEWSLETTER_SOURCES` entry, is an authentication
+ * or a link click: neither is consent to resume mail the recipient refused.
+ */
+function isExplicitNewsletterReOptIn(input: NewsletterUpsertInput): boolean {
+ if (input.reconsent === true) return true;
+ return normalizeSourceChannel(input) === 'resubscribe_link';
+}
+
 export function inferNewsletterSubscriptionState(
+ input: NewsletterUpsertInput,
+ existing: Record<string, any> | undefined,
+): { status: NewsletterSubscriberStatus; isActive: boolean } {
+ const inferred = inferSubscriptionStateIgnoringOptOut(input, existing);
+
+ // ── The opt-out is binding against EVERY write path (#5672) ───────────────
+ //
+ // Applied as a post-filter, and deliberately so: it can only ever DECLINE a
+ // promotion to active, never invent a demotion. A write that already lands
+ // inactive (an explicit `status: 'bounced'`, an `isActive: false`) passes
+ // through byte-identically, so no webhook or suppression path changes.
+ //
+ // The ring it closes: unsubscribe → click any link in any old email → the
+ // never-expiring `ac` autologin code signs the reader in → App.tsx's
+ // auto-subscribe effect fires → `upsertNewsletterSubscriber(..., 'signup')`
+ // → `confirmed`/active again. Measured 2026-08-12: 186 opt-outs resurrected
+ // with no action by the recipient, 49 of whom received that day's brief.
+ //
+ // NOTE for anyone tempted to add `confirmed_at > unsubscribed_at`
+ // supersession here, the way scripts/lib/suppressionDecay.mjs has it: those
+ // 186 documents ALL carry a `confirmed_at` newer than their opt-out, because
+ // the resurrection wrote one (`status === 'confirmed' && !wasConfirmed`
+ // below). Such a rule would exempt exactly the cohort this guard exists for.
+ // Only `resubscribe_link` / `reconsent` lift it.
+ if (!inferred.isActive) return inferred;
+ if (isExplicitNewsletterReOptIn(input)) return inferred;
+ if (!isNewsletterOptOutBinding(existing)) return inferred;
+
+ // Preserve what the document already says rather than inventing a state.
+ // The one correction made is on `isActive`, and only in the direction the
+ // opt-out demands: the 281 documents measured as `status: 'unsubscribed'`
+ // yet still active are repaired on their next write instead of being
+ // carried forward.
+ const existingStatus = typeof existing?.status === 'string'
+ ? (existing.status as NewsletterSubscriberStatus)
+ : 'unsubscribed';
+ const existingActive = existing?.isActive === true || existing?.active === true;
+ return {
+ status: existingStatus,
+ isActive: existingStatus === 'unsubscribed' ? false : existingActive,
+ };
+}
+
+function inferSubscriptionStateIgnoringOptOut(
  input: NewsletterUpsertInput,
  existing: Record<string, any> | undefined,
 ): { status: NewsletterSubscriberStatus; isActive: boolean } {
@@ -369,6 +455,110 @@ export function inferNewsletterSubscriptionState(
  }
 
  return { status: 'pending', isActive: false };
+}
+
+/**
+ * Reads the recipient's REAL state to answer "may we (re)subscribe them?".
+ *
+ * Exists because the auto-subscribe-on-sign-in effect was guarded by a
+ * localStorage flag alone — client-side, clearable, and cleared by the
+ * unsubscribe handler itself, so the guard was always open for exactly the
+ * people it had to protect.
+ *
+ * FAIL-CLOSED on a read error: the same `getDoc` runs inside
+ * `captureNewsletterSubscriber`, so a failure here means the upsert would
+ * fail too. The cost of a false positive is one missed auto-subscribe; the
+ * cost of a false negative is mailing someone who opted out.
+ */
+export async function isNewsletterOptedOut(db: Firestore, email: string): Promise<boolean> {
+ const normalized = normalizeNewsletterEmail(email);
+ if (!normalized || !normalized.includes('@')) return false;
+ try {
+ const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
+ if (!snap.exists()) return false;
+ return isNewsletterOptOutBinding(snap.data());
+ } catch (err) {
+ // Reported, not swallowed. `true` here and `true` for a real opt-out are
+ // the same value and the same silence, so without this line a Firestore
+ // outage or a rules change would suppress every auto-subscribe on the
+ // site and look exactly like a quiet week — the failure mode of a
+ // fail-closed default is that it is invisible while it is wrong. The
+ // decision stays fail-closed; only its cause becomes visible.
+ reportCaughtError(err, 'newsletter.optOutCheckUnavailable');
+ return true;
+ }
+}
+
+/**
+ * The canonical field set an unsubscribe leaves on the subscriber document.
+ *
+ * Single definition on purpose: the SPA footer link and the RFC 8058 one-click
+ * Cloud Function are two writers of the same fact, and until #5673 they wrote
+ * different things — the SPA `unsubscribedAt` and no event, the function
+ * `unsubscribed_at` plus an `unsubscribe` event. Everything that has to
+ * RESPECT an opt-out (scripts/lib/suppressionDecay.mjs,
+ * scripts/lib/mailtrapSuspensionClassify.mjs, scripts/send-newsletter.mjs)
+ * reads the snake_case stamp, so the SPA path was invisible to all of them and
+ * `restore-mailtrap-suspension-suppressions.mjs` put those people back to
+ * `confirmed`.
+ *
+ * BOTH spellings are written: snake_case is what the scripts read, camelCase
+ * keeps the 458 historic documents and every existing camelCase reader working
+ * without a data migration.
+ */
+function buildNewsletterUnsubscribeFields(
+ email: string,
+ occurredAtIso: string,
+ sourceChannel = 'unsubscribe_link',
+): Record<string, any> {
+ return {
+ email,
+ status: 'unsubscribed' as NewsletterSubscriberStatus,
+ isActive: false,
+ active: false,
+ source: sourceChannel,
+ unsubscribed_at: occurredAtIso,
+ unsubscribedAt: occurredAtIso,
+ updated_at: occurredAtIso,
+ updatedAt: occurredAtIso,
+ };
+}
+
+/**
+ * SPA unsubscribe writer (the "Disiscriviti" link in the email body).
+ *
+ * Extracted out of App.tsx so the client half of the client↔scripts contract
+ * finally HAS an import form: it was a contract nothing could reference, which
+ * is why no guard noticed the two paths had drifted apart.
+ *
+ * The event is best-effort — the opt-out itself must land even if the
+ * subcollection write fails — but it is written, which the SPA path never did.
+ */
+export async function unsubscribeNewsletterSubscriber(
+ db: Firestore,
+ input: { email: string; sourceChannel?: string; sourcePage?: string | null },
+): Promise<{ ok: boolean; email: string; fields: Record<string, any> }> {
+ const email = normalizeNewsletterEmail(input.email);
+ const sourceChannel = sanitizeString(input.sourceChannel) || 'unsubscribe_link';
+ if (!email || !email.includes('@')) {
+ return { ok: false, email, fields: {} };
+ }
+
+ const fields = buildNewsletterUnsubscribeFields(email, nowIso(), sourceChannel);
+ await setDoc(doc(collection(db, 'newsletter_subscribers'), email), fields, { merge: true });
+
+ try {
+ await recordNewsletterEvent(db, {
+ email,
+ eventType: 'unsubscribe',
+ sourceChannel,
+ sourcePage: input.sourcePage ?? null,
+ });
+ } catch (err) {
+ reportCaughtError(err, 'newsletter.unsubscribeEvent');
+ }
+
+ return { ok: true, email, fields };
 }
 
 export function markNewsletterSubscribedLocally(): void {
@@ -554,6 +744,21 @@ export async function captureNewsletterSubscriber(
 
  if (subscriptionState.status === 'unsubscribed') {
  mergedData.unsubscribed_at = serverTimestamp();
+ mergedData.unsubscribedAt = serverTimestamp();
+ }
+
+ // A granted re-opt-in must CLEAR both opt-out stamps, or the lift is
+ // cosmetic: scripts/send-newsletter.mjs drops any row carrying either
+ // spelling (`if (row.unsubscribedAt || row.unsubscribed_at) return null`)
+ // whatever `status` says, so before this the win-back "riattiva" click made
+ // someone `confirmed` and still permanently unmailable. Clearing is what
+ // keeps `isNewsletterOptOutBinding` from re-blocking them on the next write
+ // too — the escape hatch has to actually open.
+ if (subscriptionState.isActive && isNewsletterOptOutBinding(existingData)) {
+ mergedData.unsubscribed_at = deleteField();
+ mergedData.unsubscribedAt = deleteField();
+ mergedData.resubscribed_at = serverTimestamp();
+ mergedData.resubscribedAt = serverTimestamp();
  }
 
  // Explicit re-consent via the win-back "stay subscribed" link (App.tsx

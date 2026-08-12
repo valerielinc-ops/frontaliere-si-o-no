@@ -33,6 +33,7 @@ vi.mock('firebase/firestore', () => ({
   addDoc: (...args: unknown[]) => addDocMock(...args),
   increment: vi.fn((n: number) => ({ __increment: n })),
   serverTimestamp: vi.fn(() => '__server_timestamp__'),
+  deleteField: vi.fn(() => '__delete_field__'),
 }));
 
 import { captureNewsletterSubscriber } from '@/services/newsletterSubscribers';

@@ -113,12 +113,34 @@ export function useNewsletterState(): NewsletterState {
  try {
  const { getFirestore, collection, query, where, getDocs, updateDoc, addDoc } = await import('firebase/firestore');
  const { app } = await import('@/services/firebase');
+ const newsletterModule = await import('@/services/newsletterSubscribers');
  const db = getFirestore(app);
- const q = query(collection(db, 'newsletter_subscribers'), where('email', '==', email.toLowerCase()));
+ // ONE normalization, and it is the service's — `email` comes from a URL
+ // query parameter, where URLSearchParams decodes `%20`/`+` to a real
+ // space, so an untrimmed address reaches here. `normalizeNewsletterEmail`
+ // trims AND lowercases; `.toLowerCase()` alone does not, so the two
+ // disagreed on exactly those addresses: the canonical write would land on
+ // the trimmed doc id while the loop below, comparing against the untrimmed
+ // string, would fail to recognise it as the primary document and overwrite
+ // it with the legacy flag-only payload immediately afterwards.
+ const normalizedEmail = newsletterModule.normalizeNewsletterEmail(email);
+ const q = query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail));
  const snap = await getDocs(q);
  if (action === 'unsubscribe') {
+ // Same single writer as App.tsx: an opt-out that sets only
+ // `isActive: false` leaves no `status`, no `unsubscribed_at` stamp and
+ // no `unsubscribe` event, i.e. nothing the scripts that must respect it
+ // can see (#5673). Legacy duplicate docs keep the flag-only write.
+ await newsletterModule.unsubscribeNewsletterSubscriber(db, {
+ email: normalizedEmail,
+ sourceChannel: 'unsubscribe_link',
+ sourcePage: window.location.pathname,
+ });
  if (!snap.empty) {
- for (const d of snap.docs) await updateDoc(d.ref, { isActive: false });
+ for (const d of snap.docs) {
+ if (d.id === normalizedEmail) continue;
+ await updateDoc(d.ref, { isActive: false });
+ }
  }
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
@@ -127,7 +149,7 @@ export function useNewsletterState(): NewsletterState {
  for (const d of snap.docs) await updateDoc(d.ref, { isActive: true, reSubscribedAt: new Date().toISOString() });
  } else {
  await addDoc(collection(db, 'newsletter_subscribers'), {
- email: email.toLowerCase(),
+ email: normalizedEmail,
  name: null,
  preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
  subscribedAt: new Date().toISOString(),

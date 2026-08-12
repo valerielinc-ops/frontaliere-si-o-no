@@ -47,7 +47,18 @@ export function classify(events) {
   for (const e of events) {
     const type = String(e.event_type || '');
     const raw = String(e.mailtrap_event || e.provider_event || '').toLowerCase();
-    if (type === 'unsubscribed' || raw === 'unsubscribe') sawUnsubscribe = true;
+    // Every spelling an opt-out event is actually written under, because they
+    // are all in production and only the first was matched here:
+    //   'unsubscribed'              — provider webhook normalisation
+    //   'unsubscribe'               — functions/src/newsletterSubscriptionManagement.js
+    //                                 (both the one-click and the manage-page
+    //                                 branches) and, since #5673, the SPA path
+    //   'subscription_unsubscribed' — the preferences page toggle
+    // `event_type: 'unsubscribe'` is the CANONICAL name in
+    // services/newsletterSubscribers.ts's NewsletterEventType, and it was the
+    // one this line missed: it only ever matched on the `mailtrap_event` /
+    // `provider_event` raw field, which a first-party write does not carry.
+    if (type === 'unsubscribed' || type === 'unsubscribe' || type === 'subscription_unsubscribed' || raw === 'unsubscribe') sawUnsubscribe = true;
     if (type !== 'suppressed') continue;
     // Anything that is not a suspension counts as a real recipient-level
     // failure, INCLUDING an empty/unknown raw event: an unrecognised cause must

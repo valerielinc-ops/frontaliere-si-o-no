@@ -24,6 +24,7 @@ import {
  upsertNewsletterSubscriber,
  requestConfirmationEmail,
  markNewsletterSubscribedLocally,
+ isNewsletterOptedOut,
 } from '@/services/newsletterSubscribers';
 import { recaptchaService } from '@/services/recaptchaService';
 import { Analytics } from '@/services/analytics';
@@ -565,6 +566,20 @@ const PublisherPublishPage: React.FC = () => {
  void (async () => {
  try {
  const firestore = getFirestore(await getApp());
+ // Fourth sibling of the auto-subscribe-on-sign-in guard (App.tsx,
+ // hooks/useUserState.ts, services/authService.ts are the other three),
+ // and it needs the same pre-check for the same reason (#5672). The
+ // localStorage flag above is not one: the unsubscribe handler removes it.
+ //
+ // `inferNewsletterSubscriptionState` already refuses the promotion, so no
+ // resurrection — but the upsert would still RUN, and
+ // `captureNewsletterSubscriber` records a `subscribe_completed` event on
+ // the way out whatever state it resolved. That event is the signal used to
+ // tell a genuine re-subscription from a resurrection (it is how the 95
+ // legitimate returns were separated from the 281), so writing one for
+ // someone who did nothing but sign in corrupts the only evidence we have.
+ // Declining to promote is not enough; the write must not happen at all.
+ if (await isNewsletterOptedOut(firestore, email)) return;
  const providerId = String(user?.providerData?.[0]?.providerId || '').toLowerCase();
  const consentMethod = providerId.includes('google')
  ? 'google_oauth'

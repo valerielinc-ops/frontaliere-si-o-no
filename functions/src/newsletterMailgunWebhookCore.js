@@ -119,6 +119,15 @@ export async function persistMailgunEvent(db, eventData) {
  } else if (type === 'unsubscribed') {
  subscriberUpdate.status = 'unsubscribed';
  subscriberUpdate.unsubscribed_at = FieldValue.serverTimestamp();
+ // Both spellings, and the mailable flags, so a provider-reported opt-out
+ // leaves the SAME observable state as the one-click function and the SPA
+ // link (#5673). Setting `status` alone — as this branch did, unlike the
+ // `suppressed` branch three lines below — is how a document ends up
+ // `unsubscribed` yet still `isActive: true`: 281 of them, measured
+ // 2026-08-12.
+ subscriberUpdate.unsubscribedAt = FieldValue.serverTimestamp();
+ subscriberUpdate.isActive = false;
+ subscriberUpdate.active = false;
  } else if (type === 'complaint') {
  subscriberUpdate.status = 'complained';
  subscriberUpdate.complained_at = FieldValue.serverTimestamp();

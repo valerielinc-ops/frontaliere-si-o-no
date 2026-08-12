@@ -1341,6 +1341,12 @@ async function persistOneTapSubscriber(user: { email?: string | null; displayNam
  const db = getFirestore(await getApp());
  const normalizedEmail = newsletterModule.normalizeNewsletterEmail(rawEmail);
  if (!normalizedEmail) return;
+ // Third sibling of the auto-subscribe-on-sign-in guard (App.tsx and
+ // hooks/useUserState.ts are the other two): the localStorage flag above is
+ // not a guard, because the unsubscribe handler clears it. One Tap signs the
+ // reader in from any link in any email we ever sent, so without this a
+ // single One Tap prompt undid a recorded opt-out (#5672).
+ if (await newsletterModule.isNewsletterOptedOut(db, normalizedEmail)) return;
  const savedJobContext = typeof window !== 'undefined' ? consumeAuthJobContext() : null;
  await newsletterModule.upsertNewsletterSubscriber(db, {
  email: normalizedEmail,

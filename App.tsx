@@ -219,6 +219,8 @@ import {
  recordNewsletterEvent,
  confirmNewsletterSubscription,
  clearNewsletterPendingLocally,
+ isNewsletterOptedOut,
+ unsubscribeNewsletterSubscriber,
 } from '@/services/newsletterSubscribers';
 // Icons used directly in App.tsx for tab navigation and UI chrome.
 // NOTE: All lucide-react icons (including those only used by lazy components) are
@@ -923,7 +925,7 @@ const App: React.FC = () => {
  return;
  }
 
- const [{ getFirestore, collection, doc, setDoc, query, where, getDocs }, { getApp }] = await Promise.all([
+ const [{ getFirestore, collection, setDoc, query, where, getDocs }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
@@ -955,20 +957,17 @@ const App: React.FC = () => {
  };
 
  if (action === 'unsubscribe') {
- const nowIso = new Date().toISOString();
- await setDoc(
- doc(collection(db, 'newsletter_subscribers'), normalizedEmail),
- {
+ // Single writer, shared with nothing else and importable by tests:
+ // services/newsletterSubscribers.ts owns the field set AND the
+ // `unsubscribe` event, so this path leaves the same observable state as
+ // the RFC 8058 one-click Cloud Function. Inline, it wrote only
+ // `unsubscribedAt` (camelCase) and no event at all — invisible to every
+ // script that has to respect an opt-out (#5673).
+ await unsubscribeNewsletterSubscriber(db, {
  email: normalizedEmail,
- status: 'unsubscribed',
- isActive: false,
- active: false,
- source: 'unsubscribe_link',
- unsubscribedAt: nowIso,
- updatedAt: nowIso,
- },
- { merge: true },
- );
+ sourceChannel: 'unsubscribe_link',
+ sourcePage: window.location.pathname,
+ });
  await syncLegacyDuplicates(false, 'unsubscribe_link');
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
@@ -1006,8 +1005,29 @@ const App: React.FC = () => {
  useEffect(() => {
  if (!authEmail) return;
  if (localStorage.getItem('newsletter_subscribed') === 'true') return;
+ let cancelled = false;
+ (async () => {
+ // The localStorage flag is NOT a guard for this: it is client-side,
+ // clearable, and the unsubscribe handler above removes it — so it was
+ // always absent for exactly the people it had to protect. Every link in
+ // every email we ever sent carries the never-expiring `ac` autologin
+ // code, so reading an old email signs the reader in and used to re-run
+ // this effect straight back into `confirmed`/active (#5672, 186
+ // resurrected opt-outs measured on 2026-08-12). Ask the recipient's real
+ // state instead, and write nothing when they have opted out — not even a
+ // no-op upsert, whose `subscribe_completed` event would forge the very
+ // signal used to tell a genuine re-subscription from a resurrection.
+ const [{ getFirestore }, { getApp }] = await Promise.all([
+ import('firebase/firestore'),
+ import('@/services/firebase'),
+ ]);
+ if (cancelled) return;
+ const db = getFirestore(await getApp());
+ if (cancelled || await isNewsletterOptedOut(db, authEmail)) return;
  const savedJobCtx = consumeAuthJobContext();
- upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null, savedJobCtx).catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
+ await upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null, savedJobCtx);
+ })().catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
+ return () => { cancelled = true; };
  }, [authEmail]);
 
  // ── Personalization feature flag (Firebase Remote Config) ──

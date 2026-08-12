@@ -99,7 +99,11 @@ function isUnsubscribedOrInactive(data) {
   // status hasn't actually cleared (#4679: onboarding drip kept retrying
   // already-suppressed addresses).
   if (isNewsletterExcluded(data.status)) return true;
-  if (data.unsubscribed_at) return true;
+  // BOTH spellings (#5673): the SPA "Disiscriviti" link wrote only
+  // `unsubscribedAt` (camelCase) until this PR, and 458 documents measured on
+  // 2026-08-12 still carry only that one. Reading the snake_case name alone
+  // kept dripping onboarding mail at people who had opted out.
+  if (data.unsubscribed_at || data.unsubscribedAt) return true;
   if (data.isActive === false) return true;
   if (data.active === false) return true;
   return false;
