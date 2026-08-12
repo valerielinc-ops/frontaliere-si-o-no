@@ -1,7 +1,80 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-08-03T12:37:52.421Z",
+  "assembledAt": "2026-08-12T10:23:00.578Z",
   "jobs": [
+    {
+      "id": "upd-234aa9be0f47",
+      "slug": "dipl-pflegefachperson-come-nachtwache-therapiezentrum-per-essstorungen-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern",
+        "it": "dipl-pflegefachperson-come-nachtwache-therapiezentrum-per-essstorungen-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern",
+        "fr": "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen",
+        "it": "Dipl. Pflegefachperson come Nachtwache Therapiezentrum per Essstörungen",
+        "en": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen",
+        "fr": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen"
+      },
+      "description": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "it": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Dipl. Pflegefachperson als Nachtwache Therapiezentrum für Essstörungen bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)"
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3025/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T10:22:36.360Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3025/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T10:22:36.360Z"
+    },
     {
       "id": "upd-5844add8cf9d",
       "slug": "specialista-di-salute-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -102,7 +175,9 @@
         "aktivierungsfachperson-upd-bern",
         "specialiste-en-activation-universitare-psychiatrische-dienste-bern-upd-bern",
         "aktivierungsfachkraft-universitare-psychiatrische-dienste-bern-upd-bern"
-      ]
+      ],
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "upd-f594a3e5a5c5",
@@ -234,85 +309,6 @@
         "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
         "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
         "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
-      ],
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "upd-e3603479ba20",
-      "slug": "msc-psicologo-psicologo-pedagoga-sociale-pedagoga-sociale-dipl-infermiera-in-ass-ifi-universitare-psychiatrische-dienste",
-      "slugByLocale": {
-        "de": "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi",
-        "it": "msc-psicologo-psicologo-pedagoga-sociale-pedagoga-sociale-dipl-infermiera-in-ass-ifi-universitare-psychiatrische-dienste",
-        "en": "msc-psychologist-psychologist-social-pedagogue-social-pedagogue-dipl-nurse-in-ass-ifi-universitare-psychiatrische",
-        "fr": "docteur-psychologue-psychologue-pedagogie-sociale-pedagogie-sociale-dipl-infirmiere-de-l-ass-ifi-universitare"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "MSc. Psychologe / Psychologin, Sozialpädagogin / Sozialpädagoge, Dipl. Pflegefachperson im ASS-IFI",
-      "titleByLocale": {
-        "de": "MSc. Psychologe / Psychologin, Sozialpädagogin / Sozialpädagoge, Dipl. Pflegefachperson im ASS-IFI",
-        "it": "MSc. Psicologo / Psicologo, pedagoga sociale / pedagoga sociale, Dipl. Infermiera in ASS-IFI",
-        "en": "MSc. Psychologist / Psychologist, social pedagogue / social pedagogue, Dipl. Nurse in ASS-IFI",
-        "fr": "Docteur. Psychologue / Psychologue, pédagogie sociale / pédagogie sociale, Dipl. Infirmière de l'ASS-IFI"
-      },
-      "description": "MSc. Psychologe / Psychologin, Sozialpädagogin / Sozialpädagoge, Dipl. Pflegefachperson im ASS-IFI bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "MSc. Psychologe / Psychologin, Sozialpädagogin / Sozialpädagoge, Dipl. Pflegefachperson im ASS-IFI bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "MSc. Psicologo / Psicologo, pedagogoga sociale / pedagogogogia sociale, specialista in allattamento presso la ASS-IFI presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Cura\n• Tipo: part-time\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "MSc. Psychologist / Psychologist, social pedagogue / social pedagogue, dipl. nursing specialist in the ASS-IFI at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Care\n• Type: part-time\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Docteur. Psychologue / Psychologue, pédagogue social / pédagogue social, dipl. spécialiste des soins infirmiers à l'ASS-IFI à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Soins\n• Type: temps partiel\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3070/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-28T11:38:41.396Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3070/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-28T11:38:41.396Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi"
-        ],
-        "en": [
-          "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi"
-        ],
-        "fr": [
-          "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi"
-        ]
-      },
-      "previousSlugs": [
-        "msc-psychologe-psychologin-sozialpadagogin-sozialpadagoge-dipl-pflegefachperson-im-ass-ifi"
       ],
       "crawlerMissStreak": 2
     }
