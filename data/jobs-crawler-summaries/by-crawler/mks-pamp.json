@@ -1,18 +1,21 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-08-11T22:04:16.282Z",
+  "generatedAt": "2026-08-12T10:29:06.927Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 23644,
-  "avgDurationMs": 23644,
+  "unchangedCount": 4,
+  "durationMs": 10843,
+  "avgDurationMs": 10843,
   "durationHistory": [
-    23644
+    10843
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di laboratorio",
       "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
@@ -35,18 +38,19 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "mks-pamp-3395fd98e7ed",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-11T22:04:16.279Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Operatore Trattamenti Reflui",
       "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
