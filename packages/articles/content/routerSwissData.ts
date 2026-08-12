@@ -812,6 +812,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bns-promuove-berna': { it: 'bns-promuove-berna', en: 'bns-promotes-berne', de: 'bns-foerdert-berne', fr: 'bns-promeut-berne' },
  'cultura-e-spettacoli-ticino-2026': { it: 'cultura-e-spettacoli-ticino-2026', en: 'culture-and-entertainment-ticino-2026', de: 'kultur-und-entertainment-ticino-2026', fr: 'culture-et-divertissement-ticino-2026' },
  'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti': { it: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', en: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', de: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', fr: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti' },
+ 'trenino-rossoschanf-livigno': { it: 'trenino-rossoschanf-livigno', en: 'red-train-schanf-livigno', de: 'rotter-zug-schanf-livigno', fr: 'train-rouge-schanf-livigno' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

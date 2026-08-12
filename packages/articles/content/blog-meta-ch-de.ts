@@ -2359,6 +2359,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.title': 'Klimaanlagen in großer Höhe: Forscher erkennen Spuren von Kältemitteln',
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.excerpt': 'Forscher der höchsten Messstation Europas haben Spuren von Kältemitteln entdeckt, die zu PFAS abgebaut werden und die Umwelt verschmutzen.',
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Redaktionelles Bild zu: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
+    'blog.article.trenino-rossoschanf-livigno.title': 'Von S-chanf nach Livigno mit dem Zug, Chur sagt ja',
+    'blog.article.trenino-rossoschanf-livigno.excerpt': 'Der Kanton Graubünden will mit Partnern aus der Lombardei zusammenarbeiten, um eine Bahnverbindung zwischen Engadin und Oberveltlin zu realisieren.',
+    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Eine Schweizer Eisenbahngalerie mit einem Panoramablick auf den Luganersee, mit einem ankommenden oder abfahrenden Zug. Max 125 Char.',
 };
 
 export default blogMetaChDe;

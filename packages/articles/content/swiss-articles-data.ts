@@ -7075,6 +7075,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'trenino-rossoschanf-livigno',
+    category: 'pratico',
+    date: '2026-08-12T22:12:43.667Z',
+    image: '/images/blog/trenino-rossoschanf-livigno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
