@@ -72,7 +72,7 @@ export interface PaywallGateInputs {
  *
  * Suppresses the paywall when the user has already given us their email via
  * any channel: job-board access (`ft_job_email`) or newsletter signup
- * (`newsletter_subscribed`, the canonical flag set by useNewsletterState +
+ * (`newsletter_subscribed`, the canonical flag set by App.tsx +
  * JobBoard newsletter opt-in). Avoids re-asking the same email we already have.
  */
 export function shouldShowPaywall(inputs: PaywallGateInputs): boolean {
