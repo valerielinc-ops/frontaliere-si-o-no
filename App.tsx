@@ -222,6 +222,7 @@ import {
  isNewsletterOptedOut,
  unsubscribeNewsletterSubscriber,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 // Icons used directly in App.tsx for tab navigation and UI chrome.
 // NOTE: All lucide-react icons (including those only used by lazy components) are
 // consolidated into a single 'vendor-icons' chunk via manualChunks in vite.config.ts.
@@ -484,6 +485,23 @@ const App: React.FC = () => {
  sourceRouteFamily: activeTab,
  locale: navigator.language || 'it-IT',
  isActive: true,
+ // What this person was told, recorded with the write (#5678). These paths
+ // are an authentication, not a subscription — the formulas say so in as
+ // many words, and none of them sets `consentGiven`. See services/consentTexts.ts.
+ ...consentProof(
+ source.startsWith('chatbot') ? 'chatbotSignIn' : 'signInAutoSubscribe',
+ source === 'signup_linkedin'
+ ? 'linkedin_oauth'
+ : source === 'chatbot_google'
+ ? 'google_oauth'
+ : source === 'chatbot_facebook'
+ ? 'facebook_oauth'
+ : source === 'chatbot_email'
+ ? 'email_submit'
+ // 'signup' fires from the shared auth listener for Google AND
+ // Facebook, so the provider is not knowable here.
+ : 'social_signin',
+ ),
  ...(jobContext ? {
  jobContext: { slug: jobContext.slug, company: jobContext.company, location: jobContext.location, category: jobContext.category },
  locationInterest: jobContext.location,
@@ -979,6 +997,11 @@ const App: React.FC = () => {
  source: 'resubscribe_link',
  locale: navigator.language || 'it-IT',
  isActive: true,
+ // Records that the act was a LINK OPEN, not a form submission. Corporate
+ // anti-phishing scanners fetch every link we send (35 hits, 25 inside 7
+ // seconds, Microsoft ranges — measured on this domain), so the stored
+ // proof has to name what actually happened instead of promoting it.
+ ...consentProof('resubscribeLink', 'email_link_click'),
  });
  await syncLegacyDuplicates(false, 'resubscribe_link');
  markNewsletterSubscribedLocally();

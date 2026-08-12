@@ -11,6 +11,7 @@ import {
 } from '@/services/jobAlertService';
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -26,16 +27,6 @@ export type CompanyFollowButtonStatus =
   | 'capture'
   /** Opt-in email sent; the follow is parked until the link is clicked. */
   | 'pendingOptIn';
-
-/**
- * GDPR consent proof recorded when an anonymous visitor follows an employer.
- * Same shape and register as SAVE_SIGNIN_CONSENT_TEXT in
- * SaveSignInPromptModal.tsx — the consent text must describe what the address
- * will actually be used for, and following an employer subscribes to the same
- * newsletter list every other email gate on the site does.
- */
-const COMPANY_FOLLOW_CONSENT_TEXT =
-  'Seguendo un\'azienda, accetto di ricevere una email quando pubblica nuovi annunci e la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.';
 
 export interface CompanyFollowButtonProps {
   /** Employer display name (`job.company`). */
@@ -208,9 +199,8 @@ export default function CompanyFollowButton({
           sourceRouteFamily: 'community',
           locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
           consentGiven: true,
-          consentText: COMPANY_FOLLOW_CONSENT_TEXT,
-          consentMethod: 'email_checkbox',
-          consentUserAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+          // Text now lives in the versioned register (#5678) — moved verbatim.
+          ...consentProof('companyFollow', 'email_checkbox'),
         });
         if (upsert.existed) await requestConfirmationEmail(trimmed, 'login');
       }

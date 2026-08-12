@@ -18,6 +18,11 @@ import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 import { handleSavedJobsDigestUnsubscribe } from './src/savedJobsDigestUnsubscribe.js';
 import { handleOutreachUnsubscribe } from './src/outreachUnsubscribe.js';
 import { buildUnsubscribeForensics } from './src/lib/requestForensics.js';
+// Separate statement, not merged into the line above:
+// tests/unsubscribe-forensics.test.ts asserts that exact import verbatim, and
+// its guard ("one helper, no drift" for the proxy chain) is worth more intact
+// than the cosmetic tidiness of a single line.
+import { buildConsentIpStamp } from './src/lib/requestForensics.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
 import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
@@ -540,6 +545,39 @@ export const newsletterManageSubscription = onRequest(
  },
 );
 
+/**
+ * Stamp `consent_ip` on a subscriber that does not have one yet (#5676).
+ *
+ * Called from the two endpoints every NEW subscriber reaches on the way out of
+ * signup. See `buildConsentIpStamp` in src/lib/requestForensics.js for why the
+ * IP is captured here rather than in the browser write, and why it is stored
+ * truncated.
+ *
+ * Three refusals, all deliberate:
+ *  - NEVER OVERWRITES. The first recorded address is the one that belongs to
+ *    the consent; a later call must not replace it with the network of
+ *    whatever happened most recently.
+ *  - NEVER CREATES the document. If there is no subscriber, there was no
+ *    consent here to attribute an address to.
+ *  - NEVER THROWS. These endpoints are funnel-critical — the welcome email is
+ *    the only touchpoint ~82% of signups get — and an evidence field must not
+ *    be able to cost somebody their subscription.
+ */
+async function stampConsentIp(req, email) {
+  try {
+    const stamp = buildConsentIpStamp(req, new Date().toISOString());
+    if (!stamp) return;
+    const ref = getAdminDb().collection('newsletter_subscribers').doc(email);
+    const snap = await ref.get();
+    if (!snap.exists) return;
+    const existing = snap.data()?.consent_ip;
+    if (typeof existing === 'string' && existing.trim()) return;
+    await ref.set(stamp, { merge: true });
+  } catch (error) {
+    console.warn('[stampConsentIp] non-blocking failure:', error?.message || error);
+  }
+}
+
 // FRO-24: Send newsletter confirmation email (HTTP endpoint)
 export const newsletterSendConfirmation = onRequest(
  {
@@ -562,6 +600,16 @@ export const newsletterSendConfirmation = onRequest(
  if (!email || !email.includes('@')) {
  res.status(400).json({ success: false, error: 'invalid_email' });
  return;
+ }
+
+ // `purpose === 'login'` is an autologin link requested FOR AN EXISTING
+ // subscriber (SaveSignInPromptModal / CompanyFollowButton call it when the
+ // upsert reports `existed`). Stamping there would attach today's network to
+ // a consent given months ago and dress a login up as an opt-in — the exact
+ // fabrication this field exists to avoid. Only the double-opt-in branch,
+ // which fires for a genuinely new `pending` subscriber, is stamped.
+ if (purpose === 'confirm') {
+ await stampConsentIp(req, email);
  }
 
  try {
@@ -609,6 +657,14 @@ export const newsletterSendWelcome = onRequest(
  res.status(400).json({ success: false, error: 'invalid_email' });
  return;
  }
+
+ // The pre-confirmed branch: Google One Tap, social sign-in and the job
+ // gates, ~82% of signups, which never reach a confirmation link and so have
+ // no other server-side moment where their address is observable. Stamped
+ // BEFORE the eligibility checks below, because a welcome email that is
+ // skipped (already_sent, too_old, suppressed…) is still a real signup whose
+ // consent needs a network of origin.
+ await stampConsentIp(req, email);
 
  try {
  const result = await sendNewsletterWelcomeEmail({ email, locale, trigger: 'presigned' });

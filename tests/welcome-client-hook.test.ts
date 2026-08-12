@@ -88,6 +88,8 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     const result = await upsertNewsletterSubscriber({} as any, {
       email: 'new-confirmed@example.com',
       status: 'confirmed',
+      // #5678: a NEW subscriber cannot be created without a consent text.
+      consentText: 'formula di prova',
     });
 
     expect(result).toEqual({ existed: false, id: 'new-confirmed@example.com', status: 'confirmed' });
@@ -121,6 +123,8 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     const result = await upsertNewsletterSubscriber({} as any, {
       email: 'new-pending@example.com',
       status: 'pending',
+      // #5678: a NEW subscriber cannot be created without a consent text.
+      consentText: 'formula di prova',
     });
 
     expect(result).toEqual({ existed: false, id: 'new-pending@example.com', status: 'pending' });
@@ -138,6 +142,8 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     const result = await upsertNewsletterSubscriber({} as any, {
       email: 'flaky@example.com',
       status: 'confirmed',
+      // #5678: a NEW subscriber cannot be created without a consent text.
+      consentText: 'formula di prova',
     });
 
     // The return value is byte-identical to the success case: the failing

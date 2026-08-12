@@ -138,6 +138,32 @@ export type NewsletterUpsertInput = {
  consentMethod?: 'email_checkbox' | 'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | string;
  consentUserAgent?: string | null;
  /**
+  * Version of the `consentText` formula (`services/consentTexts.ts`). The text
+  * itself is stored verbatim; this only says WHICH revision it is, so a later
+  * rewording is distinguishable instead of silently retroactive.
+  */
+ consentTextVersion?: string | null;
+ /**
+  * Was `consentText` actually rendered to the person at this gate? `false`
+  * everywhere today — see the header of `services/consentTexts.ts`. Recorded
+  * rather than assumed: a stored formula nobody saw must not read like one
+  * they did.
+  */
+ consentTextDisplayed?: boolean;
+ /** What the person physically did: authentication / typed_email_submit / email_link_click. */
+ consentAct?: string | null;
+ /**
+  * Network provenance of the consent, ALREADY TRUNCATED (/24 IPv4, /48 IPv6).
+  *
+  * The browser cannot see its own address, so this is normally absent on the
+  * client write and stamped afterwards by the Cloud Function the signup path
+  * already calls (`functions/index.js` → `newsletterSendConfirmation` /
+  * `newsletterSendWelcome`), which reads `cf-connecting-ip` — the one header
+  * an external caller cannot forge. The field is accepted here so there is a
+  * single owner for the name and a server-side caller can write it inline.
+  */
+ consentIp?: string | null;
+ /**
   * The caller asserts this write carries a DELIBERATE re-opt-in act by the
   * recipient — the only thing that may lift a recorded opt-out (see
   * `inferNewsletterSubscriptionState`). Never set it from an authentication
@@ -664,6 +690,30 @@ export async function captureNewsletterSubscriber(
  const ref = doc(collection(db, 'newsletter_subscribers'), email);
  const existing = await getDoc(ref);
  const existingData = existing.exists() ? existing.data() : undefined;
+
+ // No new subscriber without a record of what they were told (#5678).
+ //
+ // 8.505 of 8.605 documents carry no `consent_text`, and the cause was never
+ // this write — it was that most callers passed nothing. A guard here is what
+ // stops the count from growing: the next signup path physically cannot create
+ // a document without naming its formula, because it throws first.
+ //
+ // Scoped to CREATION on purpose, twice over:
+ //  - the 8.505 existing documents keep working. Their text is not
+ //    reconstructible and must not be invented, so a later write on one of
+ //    them carries the gap forward instead of papering over it;
+ //  - throwing is the safe failure. Every caller wraps this in try/catch and
+ //    degrades to "not subscribed", which is the outcome we want from a path
+ //    that cannot say what it disclosed.
+ const resolvedConsentText =
+ sanitizeString(input.consentText) || sanitizeString(existingData?.consent_text);
+ if (!existing.exists() && !resolvedConsentText) {
+ throw new Error(
+ `newsletter/consent-text-required: refusing to create ${email} without a consent text. ` +
+ 'Pass consentProof(<key>, <method>) from services/consentTexts.ts.',
+ );
+ }
+
  const subscriptionState = inferNewsletterSubscriptionState(input, existingData);
  const resolved = await resolveCaptureDefaults(input);
  const sourceChannel = resolved.sourceChannel;
@@ -726,10 +776,26 @@ export async function captureNewsletterSubscriber(
  consent_given_at: input.consentGiven
  ? (existingData?.consent_given_at || now)
  : (existingData?.consent_given_at || null),
- consent_text: sanitizeString(input.consentText) || sanitizeString(existingData?.consent_text),
+ consent_text: resolvedConsentText,
+ consent_text_version: sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.consent_text_version),
+ // Tri-state on purpose: `null` means "never recorded" (every document written
+ // before #5678) and must stay distinguishable from an explicit `false`.
+ consent_text_displayed: typeof input.consentTextDisplayed === 'boolean'
+ ? input.consentTextDisplayed
+ : (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null),
+ consent_act: sanitizeString(input.consentAct) || sanitizeString(existingData?.consent_act),
  consent_method: sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel,
  consent_source_url: sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || sanitizeString(existingData?.consent_source_url),
  consent_user_agent: sanitizeString(input.consentUserAgent) || sanitizeString(existingData?.consent_user_agent) || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
+ // EXISTING VALUE WINS — the inverse of every other field here, and
+ // deliberate. `consent_ip` must be the network the consent came from, not
+ // the network of whatever write happened last. A sign-in six months later
+ // from an office IP would otherwise overwrite the address that actually
+ // proves the subscription, which is the one an art. 25 request asks for.
+ consent_ip: sanitizeString(existingData?.consent_ip) || sanitizeString(input.consentIp),
+ consent_ip_recorded_at: sanitizeString(existingData?.consent_ip)
+ ? (sanitizeString(existingData?.consent_ip_recorded_at) || null)
+ : (sanitizeString(input.consentIp) ? now : sanitizeString(existingData?.consent_ip_recorded_at)),
  subscribedAt: existingData?.subscribedAt || serverTimestamp(),
  subscribed_at: existingData?.subscribed_at || serverTimestamp(),
  created_at: existingData?.created_at || serverTimestamp(),

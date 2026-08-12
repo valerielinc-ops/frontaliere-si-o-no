@@ -198,6 +198,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import type { Article } from '@/data/blog-articles-data';
@@ -5935,6 +5936,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locale: navigator.language || 'it-IT',
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
+ // Two different acts, two different formulas (#5678). The social branch
+ // promotes straight to confirmed/active with no double opt-in, so its
+ // text has to say that unlocking a job ad was the only thing the person
+ // did; the email branch lands `pending` and its text says so.
+ ...consentProof(
+ isTrustedAuthSource ? 'jobUnlockSocial' : 'jobUnlockEmail',
+ isTrustedAuthSource
+ ? (normalizedSource.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
+ : 'email_submit',
+ ),
  });
  markNewsletterSubscribedLocally();
  } catch { /* non-critical */ }

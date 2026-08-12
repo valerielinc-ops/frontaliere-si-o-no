@@ -19,6 +19,7 @@ import { useLocale } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -270,6 +271,9 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  sectorInterest: newsletterJobContext.category,
  isActive: false,
  status: 'pending',
+ // #5678: record the formula in force at this gate. `pending`, so the text
+ // states that the subscription waits for the confirmation link.
+ ...consentProof('jobUnlockEmail', 'email_submit'),
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = targetPath;

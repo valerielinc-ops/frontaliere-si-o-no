@@ -26,6 +26,7 @@ import {
  markNewsletterSubscribedLocally,
  isNewsletterOptedOut,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import { recaptchaService } from '@/services/recaptchaService';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -71,10 +72,6 @@ const GEMINI_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate';
 
 const VALID_EMPLOYMENT_TYPES = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN'];
-
-/** GDPR consent proof recorded when a publisher signs in through the gate. */
-const PUBLISHER_CONSENT_TEXT =
- 'Accedendo per pubblicare un\'offerta, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.';
 
 /** Minimum words required in the description (mirrors the projection content gate). */
 const DESCRIPTION_MIN_WORDS = 50;
@@ -603,9 +600,7 @@ const PublisherPublishPage: React.FC = () => {
  isActive: true,
  status: 'confirmed',
  consentGiven: true,
- consentText: PUBLISHER_CONSENT_TEXT,
- consentMethod,
- consentUserAgent: navigator.userAgent,
+ ...consentProof('publisherGateSocial', consentMethod),
  });
  markNewsletterSubscribedLocally();
  } catch (error) {
@@ -1300,9 +1295,7 @@ const PublisherPublishPage: React.FC = () => {
  // gate. Omitting them preserves a confirmed subscriber and defaults a new
  // address to 'pending' (→ auto opt-in/login email).
  consentGiven: true,
- consentText: PUBLISHER_CONSENT_TEXT,
- consentMethod: 'email_checkbox',
- consentUserAgent: navigator.userAgent,
+ ...consentProof('publisherGateEmail', 'email_checkbox'),
  });
  // New pending subscribers already received the opt-in (= login) email from
  // the upsert. Existing subscribers need an explicit login link.

@@ -19,6 +19,7 @@ import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, save
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -282,6 +283,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sectorInterest: newsletterJobContext.category,
  isActive: false,
  status: 'pending',
+ // #5678: record the formula in force at this gate. `pending`, so the text
+ // states that the subscription waits for the confirmation link.
+ ...consentProof('jobUnlockEmail', 'email_submit'),
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();

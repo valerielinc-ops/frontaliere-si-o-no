@@ -14,6 +14,10 @@ import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
 import { isNewsletterAutologinInFlight, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { resilientImport } from '@/services/resilientImport';
+// Static, unlike the Firestore/newsletter modules below: consentTexts.ts is a
+// frozen constant table with no dependencies, so there is nothing to defer —
+// and a consent proof that failed to load would silently un-fix #5678.
+import { consentProof } from '@/services/consentTexts';
 
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
@@ -1369,6 +1373,10 @@ async function persistOneTapSubscriber(user: { email?: string | null; displayNam
  sectorInterest: savedJobContext.category || null,
  } : {}),
  isActive: true,
+ // One Tap is an authentication, and the recorded formula says exactly
+ // that (#5678). Google is certain here — unlike App.tsx's shared
+ // listener, this helper only ever runs for a Google credential.
+ ...consentProof('signInAutoSubscribe', 'google_oauth'),
  });
  try { window.localStorage?.setItem('newsletter_subscribed', 'true'); } catch { /* ignore */ }
  } catch (err) {

@@ -17,6 +17,7 @@ import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
+import { consentProof } from '@/services/consentTexts';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import {
@@ -110,6 +111,10 @@ const WeeklyDigest: React.FC = () => {
  // recorded opt-out (#5672). Same reason as LeadMagnetCTA — without it an
  // unsubscribed reader gets the success state and no mail at all.
  reconsent: true,
+ // #5678: the typed address + submit is the act, and the recorded formula
+ // says so. `consentGiven` stays unset — there is no consent checkbox on
+ // this form, and claiming one would invent the fact being proved.
+ ...consentProof('weeklyDigest', 'email_submit'),
  });
  markNewsletterSubscribedLocally();
  localStorage.setItem('weekly_digest_subscribed', 'true');
