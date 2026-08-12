@@ -18,7 +18,8 @@
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
-import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv, getAutologinPolicyConfig } from './remoteConfigSecrets.js';
+import { resolveAutologinPolicy } from './lib/autologinCode.js';
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
@@ -283,9 +284,31 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   // alone by shouldWrapAuthenticatedHref's asset/host rules only insofar as they
   // are on-site — wrapping them is harmless (extra ne/ac params) and keeps a
   // single rule for the whole body.
+  //
+  // The `ac` SCHEME has to be passed explicitly here (#5685). This is the only
+  // minter that runs inside Cloud Functions, and the policy lives in Remote
+  // Config, not process.env: NEWSLETTER_AC_* is not in EMAIL_CASCADE_RC_KEYS and
+  // functions/ has no .env, which is the same reason newsletterSecret above is
+  // resolved with getNewsletterSecrets() instead of being read from the
+  // environment. Without this argument generateAutologinCode reads an empty env,
+  // resolves `legacy`, and keeps minting legacy after
+  // NEWSLETTER_AC_LEGACY_SUNSET — at which point the verifier refuses the codes
+  // in the ONE email most subscribers ever receive, silently and permanently,
+  // with nothing red anywhere. Same Remote Config template cache the secret read
+  // uses, so this costs no extra round-trip in the warm path.
+  let mintScheme;
+  try {
+    mintScheme = resolveAutologinPolicy(await getAutologinPolicyConfig()).mintScheme;
+  } catch (policyErr) {
+    // Fail towards today's behaviour: an unreadable policy mints legacy, which
+    // is what an absent policy means anyway. Never block a welcome email on it.
+    console.warn('[newsletterWelcomeEmail] Autologin policy read failed:', policyErr?.message || policyErr);
+    mintScheme = undefined;
+  }
   const html = wrapAuthenticatedHrefs(built.html, normalizedEmail, {
     secret: newsletterSecret,
     utmCampaign: `welcome_${ctx.segment}`,
+    scheme: mintScheme,
   });
 
   const campaignId = `welcome_${ctx.segment}`;
