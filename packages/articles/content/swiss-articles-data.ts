@@ -6931,6 +6931,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frutta-ve-25-per-cento-piu-costi-3-sconto-migros',
+    category: 'fiscale',
+    date: '2026-08-12T16:56:39.858Z',
+    image: '/images/blog/frutta-ve-25-per-cento-piu-costi-3-sconto-migros.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

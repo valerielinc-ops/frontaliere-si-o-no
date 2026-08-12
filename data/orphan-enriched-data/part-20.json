@@ -15544,9 +15544,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "conseiller-en-ventes-a-garden-jumbo-volketswil",
-        "en": "conseiller-en-ventes-a-garden-jumbo-volketswil",
-        "de": "conseiller-en-ventes-a-garden-jumbo-volketswil",
+        "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-volketswil-zurich-f6tqzf",
+        "it": "consulente-vendite-in-garden-jumbo-volketswil",
+        "en": "sales-advisor-in-garden-jumbo-volketswil",
         "fr": "conseiller-en-ventes-a-garden-jumbo-volketswil"
       },
       "localePaths": {
@@ -15561,6 +15561,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -54041,7 +54042,7 @@
         {
           "query": "lavoro zurigo ristoranti",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 12
         },
         {
           "query": "lavoro ticino ristorazione",
@@ -54129,7 +54130,7 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 231,
+      "totalImpressions": 233,
       "totalClicks": 6,
       "topQuery": "offerte di lavoro ticino ristorazione",
       "title": "Ristorazione",

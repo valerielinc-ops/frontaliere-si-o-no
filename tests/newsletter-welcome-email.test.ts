@@ -10,6 +10,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import admin from 'firebase-admin';
+import { JOB_ALERT_CONSENT } from './helpers/jobAlertConsent';
 
 const TEST_SECRET = 'test-newsletter-secret-key-2026';
 
@@ -619,11 +620,27 @@ describe('sendNewsletterWelcomeEmail — job alert awareness', () => {
     expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
   });
 
-  it('falls back to the trigger predicate when the alert doc has not been written yet', async () => {
-    // The trigger races this send. A signal-bearing subscriber WILL get an
-    // alert, so the copy may confirm it even before the doc lands.
+  it('offers instead of announcing when the subscriber never consented to job alerts (#5705)', async () => {
+    // This test used to read: "a signal-bearing subscriber WILL get an alert,
+    // so the copy may confirm it even before the doc lands" — and it passed,
+    // because the trigger did create one from a sector_interest field. That is
+    // the defect of #5705 in miniature: telling somebody their subscription to
+    // a daily mailing is active when they never asked for it. With the consent
+    // gate the predicate returns false, and the email offers the alert — an
+    // offer the reader can accept, which is what a consent is.
     const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
     const db = createFakeDb({ newsletter_subscribers: { [EMAIL]: jobDoc() } }, {});
+    await sendNewsletterWelcomeEmail({ email: EMAIL, locale: 'it', db, trigger: 'confirm' });
+    const { subject } = await sentHtml();
+    expect(subject).not.toBe('Sei dentro: gli avvisi lavoro sono attivi');
+  });
+
+  it('still falls back to the trigger predicate for a subscriber who DID consent', async () => {
+    // The race the fallback exists for is real and unchanged: the trigger runs
+    // beside this send, so an absent alert doc is not proof of absence. What
+    // changed is only which subscribers the predicate says yes to.
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { [EMAIL]: jobDoc(JOB_ALERT_CONSENT) } }, {});
     await sendNewsletterWelcomeEmail({ email: EMAIL, locale: 'it', db, trigger: 'confirm' });
     const { subject } = await sentHtml();
     expect(subject).toBe('Sei dentro: gli avvisi lavoro sono attivi');

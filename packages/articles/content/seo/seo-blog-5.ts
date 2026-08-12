@@ -66488,6 +66488,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bernaribadisiposizionereferendumfacoltativo': {
+    title: 'Bilaterali III, Berna ribadisce la sua posizione: "Referendum facoltativo"',
+    description: 'Il Consiglio federale svizzero ha ribadito la sua posizione sui Bilaterali III, favorevole a un referendum facoltativo. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, berna, ribadisce, posizione',
+    ogTitle: 'Bilaterali III, Berna ribadisce la sua posizione: "Referendum facoltativo"',
+    ogDescription: 'Il Consiglio federale svizzero ha ribadito la sua posizione sui Bilaterali III, favorevole a un referendum facoltativo.',
+    canonicalPath: '/articoli-frontaliere/bernaribadisiposizionereferendumfacoltativo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, Berna ribadisce la sua posizione: \"Referendum facoltativo\"",
+      "description": "Il Consiglio federale svizzero ha ribadito la sua posizione sui Bilaterali III, favorevole a un referendum facoltativo. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bernaribadisiposizionereferendumfacoltativo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Consiglio federale svizzero ribadisce la sua posizione sui Bilaterali III, favorevole a un referendum facoltativo."
+      },
+      "datePublished": "2026-08-12T16:06:48+00:00",
+      "dateModified": "2026-08-12T16:06:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bernaribadisiposizionereferendumfacoltativo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-amazon-malpensa-montichiari-2026': {
+    title: 'Amazon non si presenta in Prefettura: questione di policy aziendale',
+    description: 'Il tavolo convocato a Varese sul trasferimento delle attività cargo da Malpensa a Montichiari si chiude senza l\'interlocutore principale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, amazon, presenta, prefettura, questione',
+    ogTitle: 'Amazon absent from Prefettura meeting: company policy',
+    ogDescription: 'The meeting held in Prefettura in Varese on the transfer of cargo activities from Malpensa to Montichiari has ended without the main interlocutor.',
+    canonicalPath: '/articoli-frontaliere/amazon-malpensa-montichiari-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amazon non si presenta in Prefettura: questione di policy aziendale",
+      "description": "Il tavolo convocato a Varese sul trasferimento delle attività cargo da Malpensa a Montichiari si chiude senza l'interlocutore principale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amazon-malpensa-montichiari-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Amazon non si presenta in Prefettura: questione di policy aziendale"
+      },
+      "datePublished": "2026-08-12T16:52:16+00:00",
+      "dateModified": "2026-08-12T16:52:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/amazon-malpensa-montichiari-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

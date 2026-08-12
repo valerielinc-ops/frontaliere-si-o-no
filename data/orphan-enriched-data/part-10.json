@@ -1670,6 +1670,63 @@
       ]
     },
     {
+      "slug": "aegerten",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/aegerten/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/aegerten/"
+      },
+      "queries": [
+        {
+          "query": "annunci di lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "annunci di lavoro",
+      "title": "Aegerten",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "aegerten",
+        "en": "aegerten",
+        "de": "aegerten",
+        "fr": "aegerten"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/aegerten",
+        "en": "/en/find-jobs-bern/aegerten",
+        "de": "/de/jobs-im-bern/aegerten",
+        "fr": "/fr/trouver-emploi-berne/aegerten"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "afc-bank-commercial-trainee-efg-international-ag-lugano",
       "locale": "en",
       "path": "/en/find-jobs-ticino/afc-bank-commercial-trainee-efg-international-ag-lugano/",
@@ -14857,6 +14914,84 @@
         "en": "/en/find-jobs-ticino/career-start-in-audit-specialista-previdenziale-in-settembre-2026-pwc-switzerland-bern",
         "de": "/de/jobs-im-tessin/career-start-in-audit-specialista-previdenziale-in-settembre-2026-pwc-switzerland-bern",
         "fr": "/fr/trouver-emploi-tessin/career-start-in-audit-specialista-previdenziale-in-settembre-2026-pwc-switzerland-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern/"
+      },
+      "queries": [
+        {
+          "query": "siloah stellenangebote",
+          "clicks": 1,
+          "impressions": 3
+        },
+        {
+          "query": "case manager emploi",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "job case manager",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "siloah gümligen jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "siloah gümligen offene stellen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 1,
+      "topQuery": "siloah stellenangebote",
+      "title": "Case manager in dipl cura professionale hf fh privatklinik siloah",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+        "en": "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+        "de": "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+        "fr": "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+        "en": "/en/find-jobs-bern/case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+        "de": "/de/jobs-im-bern/case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
+        "fr": "/fr/trouver-emploi-berne/case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59949,16 +60084,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+        "de": "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta",
+        "it": "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
         "en": "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
-        "de": "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
-        "fr": "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
+        "fr": "vendeur-dans-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
-        "en": "/en/find-jobs-ticino/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
-        "de": "/de/jobs-im-tessin/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
+        "it": "/cerca-lavoro-san-gallo/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+        "en": "/en/find-jobs-st-gallen/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+        "de": "/de/jobs-in-st-gallen/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59966,6 +60101,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -75226,10 +75362,10 @@
         "fr": "verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen",
-        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen",
-        "de": "/de/jobs-in-bern/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen"
+        "it": "/cerca-lavoro-argovia/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen",
+        "en": "/en/find-jobs-aargau/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen",
+        "de": "/de/jobs-im-aargau/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen",
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-frischprodukte-brot-e-backwaren-coop-genossenschaft-killwangen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

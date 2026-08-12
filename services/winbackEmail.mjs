@@ -3,10 +3,28 @@
  *
  * Sent ONCE to a never-engaging long-term subscriber before they are soft-moved
  * to `inactive` (see scripts/lib/subscriberSunset.mjs). The single goal is a
- * re-engagement click: clicking the CTA hits ?action=resubscribe on our canonical
- * origin and resets engagement, cancelling the sunset. Localised in all four site
+ * re-engagement click: the CTA hits ?action=resubscribe on our canonical origin
+ * and resets engagement, cancelling the sunset. Localised in all four site
  * locales (it/en/de/fr), branded to match the newsletter (dark bar + orange
  * wordmark), with a deliberately playful CTA.
+ *
+ * STILL ONE TAP, and deliberately (#5711). App.tsx gates `action=resubscribe`
+ * behind an explicit press ONLY when the document carries a binding opt-out —
+ * i.e. when the arrival is asking to override a refusal somebody recorded. This
+ * CTA is the other case: it CONFIRMS the state the subscriber is already in and
+ * cancels a pending sunset, overriding nothing. Gating it too would have added
+ * a second place to lose the 25 subscribers #5726 measured as already dropped,
+ * for no consent gain. So the copy keeps its promise, and must keep it.
+ *
+ * WHAT IS NOT SOLVED, and is not a consent defect: this link is fetched by the
+ * same corporate anti-phishing scanners that produced #5674 (35 hits, 25 inside
+ * 7 seconds, Microsoft ranges — measured on this domain). If a bare fetch is
+ * enough to cancel a sunset, then for every reader behind such a scanner the
+ * sunset is measuring the SCANNER's reactivity, not theirs — it would never
+ * retire anybody in that population. That is a defect in what
+ * scripts/lib/subscriberSunset.mjs measures, it needs its own measurement
+ * before the retention funnel is changed, and it is tracked as chained work on
+ * #5711 rather than smuggled in here.
  *
  * Pure + dependency-light (only the shared HMAC URL builders) so it is unit
  * testable. Table-based inline-styled HTML for email-client compatibility.
@@ -88,6 +106,12 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
   const s = COPY[l];
   // Authenticated links (carry the `ac` autologin code) so the SPA accepts the
   // action instead of rejecting with "Link non valido".
+  //
+  // Authentic is NOT the same as intended (#5711): the `ac` this mints is fresh
+  // and valid, so a scanner fetching this URL clears every credential check
+  // there is. What stops it is on the other end — App.tsx's `resubscribe`
+  // branch now only ASKS, and writes nothing until the button on the landing
+  // page is pressed. Do not "simplify" that back into a write-on-arrival.
   const stayUrl = makeAuthenticatedActionUrl('resubscribe', email);
   const footerUnsubUrl = makeAuthenticatedActionUrl('unsubscribe', email);
   // Header List-Unsubscribe uses the dedicated one-click endpoint (RFC 8058) —

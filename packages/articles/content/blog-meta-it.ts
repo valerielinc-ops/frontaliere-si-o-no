@@ -9837,6 +9837,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.title': 'Crescere figli bilingue frontaliere italiano tedesco francese',
     'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.excerpt': 'Scuole, attività extra-scolastiche e vantaggi pratici sul mercato del lavoro futuro per i bambini di famiglie frontaliere',
     'blog.article.crescere-figli-bilingue-frontalieri-italiano-tedesco-francese.imageAlt': 'Immagine editoriale relativa a: Crescere figli bilingue frontaliere italiano tedesco francese',
+    'blog.article.bernaribadisiposizionereferendumfacoltativo.title': 'Bilaterali III, Berna ribadisce la sua posizione: "Referendum facoltativo"',
+    'blog.article.bernaribadisiposizionereferendumfacoltativo.excerpt': 'Il Consiglio federale svizzero ha ribadito la sua posizione sui Bilaterali III, favorevole a un referendum facoltativo.',
+    'blog.article.bernaribadisiposizionereferendumfacoltativo.imageAlt': 'Il Consiglio federale svizzero ribadisce la sua posizione sui Bilaterali III, favorevole a un referendum facoltativo.',
+    'blog.article.amazon-malpensa-montichiari-2026.title': 'Amazon non si presenta in Prefettura: questione di policy aziendale',
+    'blog.article.amazon-malpensa-montichiari-2026.excerpt': 'Il tavolo convocato a Varese sul trasferimento delle attività cargo da Malpensa a Montichiari si chiude senza l\'interlocutore principale.',
+    'blog.article.amazon-malpensa-montichiari-2026.imageAlt': 'Amazon non si presenta in Prefettura: questione di policy aziendale',
 };
 
 export default blogMetaIt;

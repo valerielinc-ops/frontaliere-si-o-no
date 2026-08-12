@@ -312,6 +312,82 @@ describe('toggle_newsletter_subscription — opt-IN needs a POST, opt-OUT does n
 
 // ── The plumbing the two invariants rest on ──────────────────────────────────
 
+// ── The SPA twin: same asymmetry, no server round-trip to hang it on ────────
+
+describe('the SPA re-subscription also waits for a real gesture', () => {
+  // App.tsx cannot be imported in a unit test (3.7k lines, the whole Firebase
+  // graph at module scope), so this is source-level — the same convention
+  // tests/newsletter-autologin-expiry.test.ts and
+  // tests/preference-center-coverage.test.ts already use for this file.
+  const appSrc = read('App.tsx');
+
+  it('REVERSING a recorded opt-out writes nothing on arrival — it stores the write and asks', () => {
+    // `action=resubscribe` covers two situations that only look alike, and the
+    // document decides which one arrived. This is the one #5711 is about: a
+    // refusal is on record and the arrival wants it overridden.
+    const from = appSrc.indexOf('const performResubscribe');
+    expect(from, 'the deferred re-subscribe closure is gone — re-point this test').toBeGreaterThan(-1);
+    const branch = appSrc.slice(appSrc.indexOf("if (action === 'unsubscribe') {", from), appSrc.indexOf('// Clean URL', from));
+    const optedOutBranch = branch.slice(
+      branch.indexOf('} else if (await isNewsletterOptedOut('),
+      branch.lastIndexOf('} else {'),
+    );
+    expect(optedOutBranch.length, 'the opt-out discriminator is gone').toBeGreaterThan(0);
+    expect(optedOutBranch).toContain('setPendingResubscribe');
+    // No write of any kind on arrival.
+    expect(optedOutBranch).not.toContain('upsertNewsletterSubscriberRecord');
+    expect(optedOutBranch).not.toContain('performResubscribe()');
+    expect(optedOutBranch).not.toContain('markNewsletterSubscribedLocally');
+  });
+
+  it('CONFIRMING an existing subscription still happens in one tap — the win-back CTA', () => {
+    // The other half, and the reason the gate is not blanket. The win-back
+    // "Resta iscritto" click cancels a pending sunset on a document that never
+    // recorded a refusal: nothing is being overridden, so a second tap would
+    // only cost retention. #5726 measured 25 subscribers whose click was
+    // already being dropped by the credential wave; this must not add another
+    // place to lose them.
+    const from = appSrc.indexOf('const performResubscribe');
+    const branch = appSrc.slice(from, appSrc.indexOf('// Clean URL', from));
+    const winbackBranch = branch.slice(branch.lastIndexOf('} else {'));
+    expect(winbackBranch).toContain('await performResubscribe()');
+    expect(winbackBranch).not.toContain('setPendingResubscribe');
+  });
+
+  it('the discriminator is the DOCUMENT, never a URL parameter', () => {
+    // A scanner fetches whatever the link carries, so any parameter-based rule
+    // classifies the machine exactly as it classifies the person. `token` is
+    // especially useless for it: #5726 records that it is the WIDEST credential
+    // we mint (the whole preferences API, no expiry, no revocation watermark).
+    const from = appSrc.indexOf('const performResubscribe');
+    const branch = appSrc.slice(from, appSrc.indexOf('// Clean URL', from));
+    expect(branch).toMatch(/await isNewsletterOptedOut\(db, normalizedEmail\)/);
+    expect(branch).not.toMatch(/urlParams\.get\(/);
+  });
+
+  it('the toast offers a button, and no `<a href>` carrying action=resubscribe survives', () => {
+    expect(appSrc).not.toMatch(/href=\{?`?\/\?action=resubscribe/);
+    const toast = appSrc.slice(appSrc.indexOf('{pendingResubscribe && newsletterActionEmail && ('));
+    expect(toast.slice(0, 800)).toMatch(/<button[\s\S]{0,200}onClick=/);
+  });
+
+  it('the unsubscribe branch arms the same button — the dead link it replaces never worked', () => {
+    // The old `<a href="/?action=resubscribe&email=…">` carried no credential at
+    // all, so pressing it always answered "Link non valido". The button reuses
+    // the session that just performed the unsubscribe.
+    const branch = appSrc.slice(appSrc.indexOf("if (action === 'unsubscribe') {", appSrc.indexOf('const performResubscribe')));
+    expect(branch.slice(0, branch.indexOf('} else {'))).toContain('setPendingResubscribe');
+  });
+
+  it('the win-back CTA still points at the SPA action — the fix is on the landing side', () => {
+    // Asserted so nobody "fixes" this by removing the CTA: the email is fine,
+    // it is the write-on-arrival that was not.
+    const winback = read('services/winbackEmail.mjs');
+    expect(winback).toContain("makeAuthenticatedActionUrl('resubscribe', email)");
+    expect(winback).toMatch(/#5711/);
+  });
+});
+
 describe('the verb reaches the handler at all', () => {
   it('functions/index.js threads req.method into handleSubscriptionManagement', () => {
     const src = read('functions/index.js');
