@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-08-12T10:40:18.912Z",
+  "generatedAt": "2026-08-12T22:00:59.870Z",
   "total": 22,
   "newCount": 0,
-  "updatedCount": 22,
+  "updatedCount": 21,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 128083,
-  "avgDurationMs": 128083,
+  "unchangedCount": 1,
+  "durationMs": 96640,
+  "avgDurationMs": 96640,
   "durationHistory": [
-    128083
+    96640
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -433,13 +433,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-functional-cancer-genomics-lab-techncian-2026.pdf",
-      "title": "Posizione di Tecnico di Laboratorio nel Laboratorio di Genomica Funzionale del Cancro",
+      "title": "Posizione di tecnico di laboratorio nel laboratorio di genomica del cancro funzionale",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-funzionale-del-cancro-usi-lugano",
+      "slug": "posizione-di-tecnico-di-laboratorio-nel-laboratorio-di-genomica-del-cancro-funzionale-usi-lugano",
       "department": "Institute of Oncology Research (IOR)",
       "category": "staff",
       "datePosted": "2026-07-27",
@@ -452,7 +452,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-07-27T12:40:12.918Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -591,38 +591,6 @@
       }
     },
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-sistemista-linux-junior.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-sistemista-linux-junior.pdf",
-      "title": "Sistemista Linux junior",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "sistemista-linux-junior-usi",
-      "department": "Servizio informatico",
-      "category": "staff",
-      "datePosted": "2026-06-23",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-0de774f92a84",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-06-23T12:50:35.068Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
       "title": "Bibliotecaria/o specializzata/o in risorse elettroniche E-resources librarian",
@@ -720,5 +688,46 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-sistemista-linux-junior.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-sistemista-linux-junior.pdf",
+      "title": "Sistemista Linux junior",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "sistemista-linux-junior-usi",
+      "department": "Servizio informatico",
+      "category": "staff",
+      "datePosted": "2026-06-23",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-0de774f92a84",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-06-23T12:50:35.068Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ]
 }
