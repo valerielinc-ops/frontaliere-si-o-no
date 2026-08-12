@@ -2299,6 +2299,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.title': 'Sicurezza a caro prezzo: IVA um 0,5%',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.excerpt': 'Der Bundesrat schlägt eine Erhöhung der Mehrwertsteuer um 0,5 Prozentpunkte für 12 Jahre vor, um die Verteidigungsfähigkeit der Schweiz zu stärken',
     'blog.article.sicurezza-a-caro-prezzo-proposto-un-aumento-dell-iva-di-0-5-punti-per-centuali.imageAlt': 'Ein 0,5%-iger Mehrwertsteigerhöhung, um die Schweiz\' Verteidigungsfähigkeit zu stärken',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.title': 'Bundesrat: Abkommen Schweiz-EU nicht im Referendum',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.excerpt': 'Der Bundesrat erklärte, dass die von der Kommission geforderten Voraussetzungen für die politischen Institutionen der Staaten nicht erfüllt seien.',
+    'blog.article.accordi-svizzera-ue-consiglio-federale.imageAlt': 'Die Schweiz und die EU haben ein Abkommen zur Stabilisierung der Beziehungen zwischen den beiden Ländern verhandelt.',
 };
 
 export default blogMetaChDe;
