@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-11T22:04:54.631Z",
+  "generatedAt": "2026-08-12T10:32:30.531Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4124,
-  "avgDurationMs": 4124,
+  "durationMs": 4716,
+  "avgDurationMs": 4716,
   "durationHistory": [
-    4124
+    4716
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -253,7 +253,6 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:16:02.455Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
