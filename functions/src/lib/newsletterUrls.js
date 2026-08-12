@@ -122,19 +122,28 @@ export function generateAutologinCode(email, { secret, scheme, now } = {}) {
 }
 
 /**
- * Authenticated newsletter action link the SPA accepts: carries `email`, the
- * `ac` autologin code so App.tsx can sign the recipient in, AND the plain email
- * HMAC as `token`.
+ * Authenticated newsletter action link the SPA accepts: carries `email` and the
+ * `ac` autologin code so App.tsx can sign the recipient in.
  *
- * `token` is there for the separation of powers (#5685). `ac` is a
- * session-minting credential with a lifetime; `token` only ever proves "this
- * address was sent this link" and is what the Cloud Function accepts to record
- * an opt-out. Carrying both is what lets App.tsx fall back to the Cloud Function
- * when the autologin exchange refuses — expired, revoked, or
- * `autologin_enabled:false` — instead of showing "Link non valido" to somebody
- * trying to leave. Without it the four callers of this builder (win-back,
- * dormant win-back, onboarding drip, publisher blast) would have had no second
- * credential once `ac` starts expiring.
+ * ONE credential, deliberately. A draft of #5685 also appended the plain email
+ * HMAC as `token`, reasoning that the exit needed a second credential once `ac`
+ * starts expiring. It does not, and the addition was a straight loss:
+ *
+ *  - it is not needed. `verifyOptOutCredential` accepts an AUTHENTIC `ac` of any
+ *    age, any revocation state, `autologin_enabled:false` included, precisely so
+ *    the exit survives expiry (newsletterSubscriptionManagement.js). The
+ *    fallback in App.tsx hands it the `ac` it already has;
+ *  - `token` is the WIDER credential, not the narrower one. It is the gate on
+ *    the entire preferences API — get_full_status (keywords, locations, sectors,
+ *    cadence), create/update/delete_alert, toggle_newsletter_subscription,
+ *    toggle_autologin, revoke_autologin — and unlike `ac` it never expires, has
+ *    no revocation watermark, no opt-out, and is untouched by all three policy
+ *    parameters. Adding it to a link would have widened the exposure #5685 is
+ *    about, in the same commit that narrows `ac`.
+ *
+ * Where `token` legitimately belongs is the links whose ONLY power is the one it
+ * grants: makeOneClickUnsubscribeUrl (RFC 8058) and makePreferencesUrl, which is
+ * the preference centre by definition.
  *
  * @param {'resubscribe'|'unsubscribe'} action
  * @param {string} email
@@ -143,9 +152,8 @@ export function generateAutologinCode(email, { secret, scheme, now } = {}) {
  */
 export function makeAuthenticatedActionUrl(action, email, { secret } = {}) {
   const code = generateAutologinCode(email, { secret });
-  const token = signedEmailToken(email, secret);
   const base = `${BASE_URL}/?action=${action}&email=${encodeURIComponent(email)}&utm_medium=newsletter`;
-  return `${base}${code ? `&ac=${code}` : ''}${token ? `&token=${token}` : ''}`;
+  return code ? `${base}&ac=${code}` : base;
 }
 
 /**
@@ -213,14 +221,25 @@ export function makeAuthenticatedUrl(
  * so this costs a single HMAC regardless of link count. The v1 code's issue
  * stamp is day-granular precisely so that stays true (lib/autologinCode.js).
  *
+ * `scheme` exists because this is the ONE minter that runs inside Cloud
+ * Functions (newsletterWelcomeEmail.js), where the policy is NOT in process.env
+ * — `NEWSLETTER_AC_*` is not in EMAIL_CASCADE_RC_KEYS and there is no .env in
+ * functions/, so a call without it mints `legacy` forever no matter what Remote
+ * Config says. Left implicit, the welcome email would have kept minting legacy
+ * past NEWSLETTER_AC_LEGACY_SUNSET: every newly confirmed subscriber clicking a
+ * link in the one email most of them ever get would land un-authenticated, in
+ * silence, with the CI green. The caller passes the resolved policy's
+ * mintScheme; the scripts/ senders read the same three parameters from
+ * process.env via scripts/load-rc-env.mjs and need no argument.
+ *
  * @param {string} html
  * @param {string} email
- * @param {{secret?: string, utmCampaign?: string|null}} [opts]
+ * @param {{secret?: string, utmCampaign?: string|null, scheme?: 'legacy'|'v1'}} [opts]
  * @returns {string}
  */
-export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign } = {}) {
+export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign, scheme } = {}) {
   if (!html || !email) return html;
-  const autologinCode = generateAutologinCode(email, { secret });
+  const autologinCode = generateAutologinCode(email, { secret, scheme });
   return html.replace(/href="([^"]+)"/g, (whole, rawHref) => {
     const href = rawHref.replace(/&amp;/g, '&');
     if (!shouldWrapAuthenticatedHref(href)) return whole;

@@ -54,8 +54,19 @@
  * ── Format ──────────────────────────────────────────────────────────────────
  *
  *   legacy  `<64 hex>`                 HMAC(secret, "autologin:<email>")
- *   v1      `a1.<day36>.<32 hex>`      HMAC(secret, "autologin:v1:<email>:<day36>")
+ *   v1      `a1.<day36>.<32 hex>`      HMAC(secret, "autologin-v1:<day36>:<email>")
  *                                      truncated to 128 bits
+ *
+ * The two signed messages are deliberately NOT prefix-composable. An earlier
+ * draft signed `autologin:v1:<email>:<stamp>`, which is a legacy message whose
+ * "email" happens to be `v1:<email>:<stamp>` — so a legacy code minted over the
+ * crafted address `v1:victim@example.com:<stamp>` had, as its first 32 hex
+ * characters, the victim's real v1 signature. Measured on this module before the
+ * fix: the forged `a1.<stamp>.<those 32 chars>` verified as the victim with
+ * `canMintSession: true`. Truncation does not help — the prefix is exactly what
+ * is kept. Two properties kill the whole family: the domain tag differs at a
+ * character legacy can never reach (`autologin:` vs `autologin-v1:`), and the
+ * free-form field (the address) is LAST, so no field boundary is ambiguous.
  *
  * `day36` is base36 days-since-epoch: the issue date, in the clear, signed. It
  * is what lets a verifier decide "too old" WITHOUT any per-recipient state and
@@ -81,10 +92,31 @@
  * counter mixed into the HMAC, and a counter would work — but every one of the
  * EIGHT senders that mint a code would then have to read the counter first, and
  * any sender that did not would emit permanently-dead codes for that recipient.
- * A watermark needs no sender to know anything: the next email's code is newer
- * than the watermark and works, so revoking is self-healing instead of one-shot.
- * A legacy code has no issue date and is therefore revoked by ANY watermark —
- * which is the correct reading of "revoke everything already sent".
+ * A watermark needs no sender to know anything, so revoking is self-healing
+ * instead of one-shot.
+ *
+ * Self-healing WITH A STATED DELAY, and the delay is not a detail. A v1 stamp is
+ * day-granular, so every code minted on day D carries D's midnight; a watermark
+ * anywhere inside day D therefore kills the codes minted LATER that same day
+ * too. That is the fail-safe direction and it is kept — but it means the repair
+ * arrives with the first email of the FOLLOWING UTC day, not with "the next
+ * email". `revocationWatermarkFor` writes the boundary explicitly rather than
+ * leaving it to whatever instant serverTimestamp() happened to produce, so the
+ * contract is exact and testable instead of emergent.
+ *
+ * A legacy code has no issue date, so it cannot be graded individually: while
+ * the policy mints v1, ANY watermark revokes it — the correct reading of "revoke
+ * everything already sent". While the policy mints LEGACY, the watermark does
+ * not touch legacy codes at all, and that is what makes the rollback complete:
+ * clearing the Remote Config parameters would otherwise leave every subscriber
+ * who had revoked with a permanently dead autologin, since every code they
+ * would ever receive again is legacy and no legacy code can be newer than a
+ * watermark. Revocation is a v1-era power; turning v1 off turns it off with it.
+ * (`revoke_autologin` refuses outright under the legacy scheme — see
+ * newsletterSubscriptionManagement.js — so the only way to reach that state is a
+ * rollback, which is exactly when it must not lock anybody out.) The permanent,
+ * user-reversible kill switch is `autologin_enabled:false`, untouched by any of
+ * this.
  *
  * ── Policy, and why it lives outside the code ───────────────────────────────
  *
@@ -151,10 +183,13 @@ function daysFromStamp(stamp) {
   return Number.isFinite(n) && n >= 0 ? n : null;
 }
 
+/** The v1 signed message. Domain-separated from the legacy one and with the
+ * only free-form field (the address) in terminal position — see the header note
+ * on why `autologin:v1:<email>:<stamp>` was a forgery primitive. */
 function v1Signature(email, stamp, secret) {
   return Buffer.from(
     createHmac('sha256', secret)
-      .update(`autologin:v1:${normalizeEmail(email)}:${stamp}`)
+      .update(`autologin-v1:${stamp}:${normalizeEmail(email)}`)
       .digest()
       .subarray(0, V1_SIG_BYTES),
   ).toString('hex');
@@ -251,6 +286,44 @@ export function revokedBeforeMs(value) {
 }
 
 /**
+ * The watermark to store for a revocation happening at `ms`: the start of the
+ * NEXT UTC day.
+ *
+ * Written explicitly instead of `serverTimestamp()` because the two quantities
+ * being compared have different granularities — an instant against a day — and
+ * leaving the boundary implicit made the contract unstatable. With this, the
+ * rule is one sentence: a revocation kills every code stamped on its own day or
+ * earlier, and the first code of the following UTC day works again.
+ *
+ * @param {number} ms epoch ms of the revocation
+ * @returns {number} epoch ms, always a UTC midnight
+ */
+export function revocationWatermarkFor(ms) {
+  return (Math.floor(ms / DAY_MS) + 1) * DAY_MS;
+}
+
+/**
+ * Is this code revoked by the subscriber's watermark? Exported because
+ * `exchange_auth_code` grades the signature BEFORE reading Firestore (so a
+ * forged code costs a hash and no read) and therefore has to apply the watermark
+ * separately — two call sites, one rule, no drift.
+ *
+ * @param {{scheme: 'legacy'|'v1'|null, issuedAtMs: number|null}} parsed
+ * @param {number|null} revokedBefore already coerced by revokedBeforeMs()
+ * @param {ReturnType<typeof resolveAutologinPolicy>} [policy]
+ * @returns {boolean}
+ */
+export function isAutologinRevoked(parsed, revokedBefore, policy) {
+  if (revokedBefore === null || revokedBefore === undefined) return false;
+  if (parsed?.scheme === 'v1') {
+    return parsed.issuedAtMs !== null && parsed.issuedAtMs < revokedBefore;
+  }
+  // Legacy: undatable, so it is all-or-nothing — and which of the two applies is
+  // the rollback lever documented in the header.
+  return (policy || resolveAutologinPolicy()).mintScheme === 'v1';
+}
+
+/**
  * Grade a code. THE function this module exists for.
  *
  * @param {string} email
@@ -263,14 +336,14 @@ export function revokedBeforeMs(value) {
  *   subscriber document, already coerced by revokedBeforeMs()
  * @returns {{
  *   authentic: boolean, scheme: 'legacy'|'v1'|null, issuedAtMs: number|null,
- *   expired: boolean, revoked: boolean, canMintSession: boolean,
- *   canOptOut: boolean, reason: string
+ *   expired: boolean, revoked: boolean, futureDated: boolean,
+ *   canMintSession: boolean, canOptOut: boolean, reason: string
  * }}
  */
 export function verifyAutologinCode(email, code, { secret, policy, now = Date.now(), revokedBefore = null } = {}) {
   const deny = (reason) => ({
     authentic: false, scheme: null, issuedAtMs: null, expired: false, revoked: false,
-    canMintSession: false, canOptOut: false, reason,
+    futureDated: false, canMintSession: false, canOptOut: false, reason,
   });
   if (!secret) return deny('no_secret');
   const normalized = normalizeEmail(email);
@@ -301,10 +374,19 @@ export function verifyAutologinCode(email, code, { secret, policy, now = Date.no
     expired = now >= pol.legacySunsetMs;
   }
 
-  // A legacy code has no issue date, so any watermark revokes it. That is the
-  // point of revoking: "nothing already sent may sign me in".
-  const revoked = revokedBefore !== null
-    && (parsed.issuedAtMs === null || parsed.issuedAtMs < revokedBefore);
+  // An UPPER bound on the issue date, and it is not theoretical tidiness. Both
+  // gates above are one-sided: expiry is `now - issuedAt >= ttl` (negative, so
+  // never true, for a future date) and revocation is `issuedAt < watermark`
+  // (false for a future date). A code stamped in the future is therefore immune
+  // to BOTH — a permanent credential that revocation, the only emergency valve
+  // this design has, cannot switch off. It costs one mis-set clock on one sender,
+  // or one caller passing the wrong `now` to generateAutologinCode, and nothing
+  // afterwards can undo it. The tolerance is a full extra day because the stamp
+  // is day-granular: "today's" code already reads as up to one day ahead of the
+  // instant it is verified at.
+  const futureDated = parsed.issuedAtMs !== null && parsed.issuedAtMs > now + DAY_MS;
+
+  const revoked = isAutologinRevoked(parsed, revokedBefore, pol);
 
   return {
     authentic: true,
@@ -312,8 +394,11 @@ export function verifyAutologinCode(email, code, { secret, policy, now = Date.no
     issuedAtMs: parsed.issuedAtMs,
     expired,
     revoked,
-    canMintSession: !expired && !revoked,
+    futureDated,
+    // Same asymmetry as everywhere else in this module: a mis-dated code is
+    // still AUTHENTIC, so it still gets its holder out. Only the session goes.
+    canMintSession: !expired && !revoked && !futureDated,
     canOptOut,
-    reason: revoked ? 'revoked' : (expired ? 'expired' : 'ok'),
+    reason: revoked ? 'revoked' : (expired ? 'expired' : (futureDated ? 'future' : 'ok')),
   };
 }

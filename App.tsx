@@ -912,6 +912,14 @@ const App: React.FC = () => {
  // `authenticated` gates the client-side Firestore path below, which needs a
  // real session. It is NOT the gate on leaving — see the fallback under it.
  let authenticated = false;
+ // Did the Cloud Function say the code's SIGNATURE does not verify? That is
+ // the only refusal that means "this link is not ours". Everything else —
+ // expired, revoked, autologin_disabled, a 500, a dropped connection — leaves
+ // an unproven code, and before #5685 all of them fell through to the
+ // session-less Firestore write below. Distinguishing them is what lets the
+ // resubscribe branch keep that fall-through without also honouring a forged
+ // link, which the pre-#5685 code did (it never checked the verdict at all).
+ let codeForged = false;
  if (autologinCode) {
  // Exchange the autologin code for a fresh token. Since #5685 this can
  // refuse an AUTHENTIC code: expired past the TTL, revoked by the
@@ -922,6 +930,8 @@ const App: React.FC = () => {
  const signedInUser = await signInWithCustomAuthToken(result.authToken);
  const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
  authenticated = !!signedInEmail && normalizeNewsletterEmail(signedInEmail) === normalizedEmail;
+ } else {
+ codeForged = result.error === 'invalid_auth_code';
  }
  } else if (legacyAuthToken) {
  const signedInUser = await signInWithCustomAuthToken(legacyAuthToken);
@@ -946,19 +956,23 @@ const App: React.FC = () => {
  // #5672 shape), the exchange 500'd, the network blinked — used to end
  // right here with "Link non valido": a person holding a genuine
  // unsubscribe link and unable to leave, which is the defect the LPD art.
- // 25/32 complaint behind this wave was about. So the opt-out now falls
- // back to the Cloud Function, which takes either the `token` email HMAC or
- // an authentic autologin code of ANY age and needs no session at all
+ // 25/32 complaint behind this wave was about. So the opt-out falls back to
+ // the Cloud Function, which takes either the `token` email HMAC or an
+ // authentic autologin code of ANY age and needs no session at all
  // (verifyOptOutCredential in
  // functions/src/newsletterSubscriptionManagement.js).
- //
- // No resubscribe twin, deliberately: putting somebody back on a list from
- // a stale credential is the #5672 resurrection. Leaving is always
- // honoured; joining always needs a live session.
  if (action === 'unsubscribe') {
- const credential = urlParams.get('token') || autologinCode || legacyAuthToken;
- if (credential) {
+ // EVERY distinct credential in the URL, in order, not just the first one
+ // present. A single `a || b` made one truncated parameter fatal: mail
+ // clients wrap long hrefs, and a half-copied `token` is non-empty, wins
+ // the `||`, gets refused, and the intact `ac` sitting in the same URL is
+ // never tried. `legacyAuthToken` is deliberately NOT in this list — it is
+ // a Firebase custom token, which neither verifyHmacToken nor
+ // verifyAutologinCode can ever accept, so sending it would only put live
+ // session material into the function's request log as a query parameter.
  const { unsubscribeViaCloudFunction } = await import('@/services/newsletterSubscribers');
+ for (const credential of [urlParams.get('token'), autologinCode]) {
+ if (!credential) continue;
  const out = await unsubscribeViaCloudFunction(normalizedEmail, credential);
  if (out.success) {
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
@@ -967,12 +981,41 @@ const App: React.FC = () => {
  return;
  }
  }
- }
- setUnsubscribeMsg(action === 'unsubscribe'
- ? 'Link non valido o scaduto. Riprova dalla newsletter.'
- : 'Link non valido o scaduto. Riprova dalla newsletter.');
+ // Cloud Function unreachable or refusing — DO NOT stop here. The
+ // client-side write below needs no session either (firestore.rules:
+ // `newsletter_subscribers/{email}` is publicly writable) and is what
+ // actually unsubscribed people before #5685, including while this
+ // function was down. Routing the exit through a single service and then
+ // showing an error when that service blinks would have made leaving
+ // strictly less reliable than it is today — in the wave that exists
+ // because leaving did not work.
+ //
+ // The fall-through carries the pre-#5685 precondition unchanged: an `ac`
+ // was present. A link with only `token` never reached the write before
+ // (it hit the "no credential" rejection), and letting it through here
+ // would let anyone unsubscribe any address by typing a URL whenever the
+ // function is unavailable. `codeForged` excludes the case where the
+ // function is demonstrably UP and has said the code is not ours.
+ if (!autologinCode || codeForged) {
+ setUnsubscribeMsg('Link non valido o scaduto. Riprova dalla newsletter.');
  window.history.replaceState({}, '', window.location.pathname);
  return;
+ }
+ } else if (codeForged || !autologinCode) {
+ // Resubscribe. No fall-through for a link whose code does not verify, or
+ // for one carrying no `ac` at all: putting somebody BACK on a list from
+ // an unproven credential is the #5672 resurrection, and the pre-#5685
+ // code did exactly that (it fell through on ANY exchange failure without
+ // ever checking the verdict). An authentic-but-refused code — expired,
+ // revoked, autologin_disabled — still falls through, because that is the
+ // "Resta iscritto" button of the win-back email and the 25 subscribers
+ // with autologin_enabled:false reach it on every single send. Failing
+ // that click closed would delete people who had just said they wanted to
+ // stay, which is the mirror image of the defect this wave repairs.
+ setUnsubscribeMsg('Link non valido o scaduto. Riprova dalla newsletter.');
+ window.history.replaceState({}, '', window.location.pathname);
+ return;
+ }
  }
 
  const [{ getFirestore, collection, setDoc, query, where, getDocs }, { getApp }] = await Promise.all([
