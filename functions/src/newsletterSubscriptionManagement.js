@@ -337,12 +337,62 @@ export async function handleSubscriptionManagement({ action, email, token, local
  //
  // Deliberately NOT logged: the address and the code. The reason and the scheme
  // are the whole diagnostic, and this is a public repo's production log.
+ //
+ // `legacy_sunset` was missing from the first version of this line and is not a
+ // nicety: with `mintScheme: legacy` and `ttlDays: 0` — today's state — setting
+ // NEWSLETTER_AC_LEGACY_SUNSET alone expires EVERY code in circulation on one
+ // date, and it is the only one of the three parameters that can do that. A
+ // monitor reading `mint_scheme` and `ttl_days` would have watched the whole
+ // population get locked out while reporting the policy unchanged.
+ const acPolicyFields = () => ({
+ mint_scheme: acPolicy.mintScheme,
+ ttl_days: acPolicy.ttlDays,
+ legacy_sunset: Number.isFinite(acPolicy.legacySunsetMs)
+ ? new Date(acPolicy.legacySunsetMs).toISOString().slice(0, 10)
+ : null,
+ });
  const refuseAutologin = (reason, scheme) => {
  console.warn('[exchange_auth_code] refused', JSON.stringify({
  reason,
  scheme: scheme || 'unparsed',
- mint_scheme: acPolicy.mintScheme,
- ttl_days: acPolicy.ttlDays,
+ ...acPolicyFields(),
+ }));
+ };
+
+ // The DENOMINATOR, and #5724's reason for existing.
+ //
+ // `refuseAutologin` above counts the codes turned away. On its own that count
+ // answers nothing: measured over the seven days before this line existed, this
+ // endpoint served 335-502 exchanges a day against 0-10 refusals, and the
+ // refusals are dominated by anti-phishing scanners rather than by policy. Only
+ // the RATIO says whether a policy change is locking people out, and a ratio
+ // needs both halves emitted by the same code path.
+ //
+ // The alternative denominator — Cloud Run's own request log — was rejected on
+ // purpose: it keys on a URL that carries the address AND the `ac` code in the
+ // clear, so the metric would be built on the one record this feature is trying
+ // to stop depending on.
+ //
+ // `scheme` is the second reason this line exists. It is the ONLY place the
+ // legacy → v1 migration is observable: on the day of the flip, "what share of
+ // the codes still in circulation is legacy?" decides whether a sunset date is
+ // safe to set, and nothing else in the system can answer it.
+ //
+ // `age_days` is the third. It is null for legacy by construction (a legacy code
+ // carries no issue date — see parseAutologinCode), and once v1 is minting it
+ // becomes the evidence for the TTL itself: the age distribution of ACCEPTED
+ // codes is exactly the population a given NEWSLETTER_AC_TTL_DAYS would have
+ // refused, measurable BEFORE the value is set.
+ //
+ // `console.log`, not `warn`: a success is INFO. Same redaction rule as the
+ // refusal — never the address, never the code.
+ const acceptAutologin = (verdict) => {
+ console.log('[exchange_auth_code] accepted', JSON.stringify({
+ scheme: verdict?.scheme || 'unparsed',
+ ...acPolicyFields(),
+ age_days: Number.isFinite(verdict?.issuedAtMs)
+ ? Math.floor((Date.now() - verdict.issuedAtMs) / 86_400_000)
+ : null,
  }));
  };
 
@@ -445,6 +495,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  if (uid) {
  const authToken = await admin.auth().createCustomToken(uid);
+ // AFTER the token is actually minted, not before: the metric counts sessions
+ // that were really handed out, so a `createCustomToken` failure lands in the
+ // catch below and inflates neither half of the ratio.
+ acceptAutologin(verdict);
  return { status: 200, json: { success: true, authToken } };
  }
  return { status: 500, json: { success: false, error: 'uid_not_found' } };
