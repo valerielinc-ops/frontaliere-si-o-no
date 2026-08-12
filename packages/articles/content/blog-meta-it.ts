@@ -9789,6 +9789,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-12.imageAlt': 'I numeri del giorno per i frontalieri – 12 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-12.seoDescription': 'Bollettino frontalieri del 12 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-12.ogDescription': 'I numeri del 12 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.conversione-patente-guida-frontaliere.title': 'Conversione patente italiana in Svizzera per frontalieri',
+    'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Guida pratica alla conversione della patente di guida italiana in Svizzera per i lavoratori con permesso G: procedure e validità.',
+    'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Conversione patente di guida in Svizzera per frontalieri a Chiasso',
 };
 
 export default blogMetaIt;

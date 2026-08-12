@@ -9790,6 +9790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-12.imageAlt': 'Les chiffres du jour pour les frontaliers – 12 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-12.seoDescription': 'Bulletin du frontalier du 12 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-12.ogDescription': 'Les chiffres du 12 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.conversione-patente-guida-frontaliere.title': 'Conversion du permis italien en Suisse pour les frontaliers',
+    'blog.article.conversione-patente-guida-frontaliere.excerpt': 'Guide pratique pour la conversion du permis de conduire italien en Suisse pour les travailleurs titulaires d\'un permis G : procédures et validité.',
+    'blog.article.conversione-patente-guida-frontaliere.imageAlt': 'Conversion du permis de conduire italien en Suisse pour frontaliers',
 };
 
 export default blogMetaFr;
