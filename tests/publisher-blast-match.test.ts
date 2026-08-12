@@ -34,12 +34,16 @@ describe('scoreSubscriberForAd', () => {
 });
 
 describe('matchSubscribersForAd', () => {
+  // Every fixture below carries the double-opt-in stamp, because since #5686 a
+  // row without one is not a recipient at all — see the consent-gate block at
+  // the bottom of this file.
+  const STAMP = '2026-01-01T00:00:00.000Z';
   const subs = [
-    { email: 'a@x.ch', job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health', locale: 'it' },
-    { email: 'b@x.ch', sector_interest: 'health', locale: 'de' },
-    { email: 'c@x.ch', job_search_query: 'muratore', sector_interest: 'construction' },
-    { email: 'd@x.ch', job_search_query: 'Fisioterapista', status: 'unsubscribed' },
-    { email: '', job_search_query: 'Fisioterapista' },
+    { email: 'a@x.ch', job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health', locale: 'it', confirmed_at: STAMP },
+    { email: 'b@x.ch', sector_interest: 'health', locale: 'de', confirmed_at: STAMP },
+    { email: 'c@x.ch', job_search_query: 'muratore', sector_interest: 'construction', confirmed_at: STAMP },
+    { email: 'd@x.ch', job_search_query: 'Fisioterapista', status: 'unsubscribed', confirmed_at: STAMP },
+    { email: '', job_search_query: 'Fisioterapista', confirmed_at: STAMP },
   ];
 
   it('returns matching subscribers sorted by score, excluding unsubscribed/blank', () => {
@@ -67,12 +71,55 @@ describe('matchSubscribersForAd', () => {
   // complained/suppressed recipients were still blasted. They must be excluded.
   it('excludes hard-suppressed statuses (bounced/complained/suppressed)', () => {
     const hard = [
-      { email: 'match@x.ch', job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health' },
-      { email: 'bounced@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'bounced' },
-      { email: 'complained@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'complained' },
-      { email: 'suppressed@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'SUPPRESSED' },
+      { email: 'match@x.ch', job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health', confirmed_at: STAMP },
+      { email: 'bounced@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'bounced', confirmed_at: STAMP },
+      { email: 'complained@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'complained', confirmed_at: STAMP },
+      { email: 'suppressed@x.ch', job_search_query: 'Fisioterapista diplomato/a', status: 'SUPPRESSED', confirmed_at: STAMP },
     ];
     const emails = matchSubscribersForAd(fisioAd, hard, { minScore: 3 }).map((r: { email: string }) => r.email);
     expect(emails).toEqual(['match@x.ch']);
+  });
+
+  /**
+   * The consent half (#5686). A paid-ad blast is ordinary marketing whose
+   * audience is the whole newsletter_subscribers collection, so it was reached
+   * by exactly the defect the weekly newsletter had: the suppression Set above
+   * says who opted OUT and says nothing about who ever opted IN.
+   */
+  describe('the consent gate', () => {
+    const strongMatch = { job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health' };
+
+    it('drops a perfect match that carries no confirmation stamp', () => {
+      const rows = [
+        { email: 'stamped@example.com', ...strongMatch, confirmed_at: STAMP },
+        { email: 'never-confirmed@example.com', ...strongMatch, status: 'pending' },
+        { email: 'claims-confirmed@example.com', ...strongMatch, status: 'confirmed' },
+      ];
+      const emails = matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
+      expect(emails).toEqual(['stamped@example.com']);
+    });
+
+    it('follows the toggle: `subscribed` passes with the stamp, not with resubscribed_at alone', () => {
+      // The #5686 review finding, checked on THIS channel rather than assumed:
+      // the blast shares the gate, so the authenticated preferences toggle had
+      // to start writing `confirmed_at` for these people to keep matching. The
+      // resubscribe LINK writes only `resubscribed_at` — a bare GET a scanner
+      // follows — and must stay out.
+      const rows = [
+        { email: 'toggled@example.com', ...strongMatch, status: 'subscribed', resubscribed_at: STAMP, confirmed_at: STAMP },
+        { email: 'link-only@example.com', ...strongMatch, status: 'subscribed', resubscribed_at: STAMP },
+      ];
+      const emails = matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
+      expect(emails).toEqual(['toggled@example.com']);
+    });
+
+    it('keeps a `pending` row that DOES carry the stamp — the deliverability re-probe', () => {
+      // scripts/mailtrap-suppression-retry.mjs writes status:'pending' on a
+      // previously-confirmed address to make the cascade retry the mailbox.
+      // Keying on the word instead of the stamp would drop those people.
+      const rows = [{ email: 'reprobe@example.com', ...strongMatch, status: 'pending', confirmedAt: STAMP }];
+      const emails = matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
+      expect(emails).toEqual(['reprobe@example.com']);
+    });
   });
 });
