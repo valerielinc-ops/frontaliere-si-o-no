@@ -9796,6 +9796,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoratori-frontalieri-novita-2026.title': 'Grenzgänger: Die Neuheiten 2026 zwischen IT-CH-Protokoll und Interpelli',
     'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'Die Ratifizierung des Änderungsprotokolls zum Abkommen Italien-Schweiz und die Klarstellungen der Agentur der Einnahmen definieren den Anwendungsbereich der Grenzgängerregelung neu.',
     'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalier am Brogeda-Pass',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Pensionskassen: im Juli negative Rendite für UBS',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Die Schweizer Pensionskassen verzeichnen laut regelmässiger Analyse der UBS im Juli eine durchschnittliche Rendite nach Aufwand von -0,2%.',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Pensionskassen in der Schweiz mit negativer Rendite im Juli',
 };
 
 export default blogMetaDe;

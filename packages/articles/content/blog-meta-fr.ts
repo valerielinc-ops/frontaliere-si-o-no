@@ -9799,6 +9799,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoratori-frontalieri-novita-2026.title': 'Lavoratori frontalieri : les changements 2026',
     'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'La ratification du Protocole de modification de l\'Accord Italie-Suisse et les clarifications de l\'Agence du revenu redéfinissent le périmètre d\'application du régime des frontaliers.',
     'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontaliers en attente au passage de Brogeda',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Caisses de retraite : rendement négatif pour UBS en juillet',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Les caisses de pension suisses enregistrent un rendement moyen hors charges de -0,2% en juillet, selon l\'analyse périodique d\'UBS.',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Caisses de pension en Suisse avec rendement négatif en juillet',
 };
 
 export default blogMetaFr;

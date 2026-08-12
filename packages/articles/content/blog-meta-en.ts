@@ -9797,6 +9797,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoratori-frontalieri-novita-2026.title': 'Frontier workers: the 2026 novelties between the IT-CH Protocol and interviews',
     'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'The ratification of the Protocol amending the Italy-Switzerland Agreement and the clarifications of the Revenue Agency redefine the scope of the border regime.',
     'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalieri waiting at Brogeda border crossing',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Pension funds: negative return for UBS in July',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Swiss pension funds recorded an average return after expenses of -0.2% in July, according to UBS\'s periodic analysis.',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Swiss pension funds negative return in July',
 };
 
 export default blogMetaEn;

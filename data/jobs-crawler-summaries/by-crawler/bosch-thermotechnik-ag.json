@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-11T22:16:27.897Z",
+  "generatedAt": "2026-08-12T10:20:16.775Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 17583,
-  "avgDurationMs": 17583,
+  "durationMs": 20035,
+  "avgDurationMs": 20035,
   "durationHistory": [
-    17583
+    20035
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "PreMaster im Produktmanagement (w/m/div.) REF293937G",
+      "slug": "premaster-im-produktmanagement-w-m-div-ref293937g-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF293937G-premaster-im-produktmanagement-w-m-div-ref293937g",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000143033436-premaster-im-produktmanagement-w-m-div-ref293937g?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-12",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "4- oder 5-Tage-Woche – Servicetechniker Wärmepumpen Region Ostschweiz (w/m/div.) REF293856U",
@@ -258,10 +289,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Sachbearbeiter Debitorenbuchhaltung 60% (w/m/div.) REF291116Z",
-      "slug": "sachbearbeiter-debitorenbuchhaltung-60-w-m-div-ref291116z-bosch-pratteln",
+      "slug": "conti-di-carica-60-f-m-div-ref-291116-z-bosch-thermotechnik-ag-pratteln",
       "url": "https://jobs.bosch.com/en/job/REF291116Z-sachbearbeiter-debitorenbuchhaltung-60-w-m-div-ref291116z",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136753131-sachbearbeiter-debitorenbuchhaltung-60-w-m-div-ref291116z?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -295,6 +328,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

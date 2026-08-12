@@ -1,18 +1,19 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-08-11T22:01:17.080Z",
+  "generatedAt": "2026-08-12T10:20:10.466Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8851,
-  "avgDurationMs": 8851,
+  "durationMs": 9304,
+  "avgDurationMs": 9304,
   "durationHistory": [
-    8851
+    9304
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "octapharma-c74bfee37f55",
       "slug": "expert-clinical-trial-documentation-clinical-trial-associate-cta-octapharma-lachen",
@@ -20,13 +21,13 @@
       "companyKey": "octapharma",
       "companyDomain": "octapharma.com",
       "title": "Expert Clinical Trial Documentation - Clinical Trial Associate (CTA)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lachen",
       "canton": "SZ",
       "url": "https://careers.octapharma.com/job/Lachen-Expert-Clinical-Trial-Documentation-Clinical-Trial-Associate-%28CTA%29/1425186833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:01:11.120Z",
+      "crawledAt": "2026-08-12T10:20:04.453Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-11",
       "applyUrl": "https://careers.octapharma.com/talentcommunity/apply/1425186833/?locale=en_GB",
-      "_qualityScore": 68,
+      "firstSeenAt": "2026-08-11T22:01:11.120Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "octapharma-5241de0c4928",
       "slug": "group-senior-manager-quality-applications-octapharma-lachen",
@@ -64,7 +64,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-Quality-Applications/1410853533/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:01:10.500Z",
+      "crawledAt": "2026-08-12T10:20:03.660Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://careers.octapharma.com/job/Wien-SAP-Solution-Architect-%28mfd%29-WMMM/1374416233/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:01:11.746Z",
+      "crawledAt": "2026-08-12T10:20:05.178Z",
       "addressLocality": "Wien",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://careers.octapharma.com/job/Wien-Supply-Chain-Planning-Solution-Architect-%28mfd%29/1389327133/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:01:12.348Z",
+      "crawledAt": "2026-08-12T10:20:05.928Z",
       "addressLocality": "Wien",
       "addressRegion": "SZ",
       "addressCountry": "CH",
