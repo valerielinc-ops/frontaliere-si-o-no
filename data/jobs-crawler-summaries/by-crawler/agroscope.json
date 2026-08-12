@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-12T10:32:30.531Z",
-  "total": 10,
+  "generatedAt": "2026-08-12T21:59:33.469Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
   "unchangedCount": 4,
-  "durationMs": 4716,
-  "avgDurationMs": 4716,
+  "durationMs": 5301,
+  "avgDurationMs": 5301,
   "durationHistory": [
-    4716
+    5301
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -120,41 +120,6 @@
       }
     },
     {
-      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
-      "slug": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Ins, Schweiz",
-      "addressLocality": "Ins",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-08-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-93b4d74bb39f",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-02T22:07:39.646Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
       "slug": "forschungsgruppenleiter-in-extension-gemusebau-agroscope-zurich",
       "url": "https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/31f941f6-bc14-4a00-a762-6efca0c1f85f",
@@ -225,7 +190,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
+      "slug": "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
+      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ins, Schweiz",
+      "addressLocality": "Ins",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-93b4d74bb39f",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-02T22:07:39.646Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "HR-Fachperson - Personalverwaltung",
