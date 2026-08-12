@@ -2344,6 +2344,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon überschreitet erstmals die 3 Billionen Marktkapitalisierung',
     'blog.article.amazon-capitalizzazione-3000-miliardi.excerpt': 'Die Amazon-Aktie steigt nach den Ergebnissen des zweiten Quartals um 4,6%',
     'blog.article.amazon-capitalizzazione-3000-miliardi.imageAlt': 'Amazon tritt in den Kreis der fünf Giganten nach den zweiten Quartalsergebnissen',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Bern: Voraussetzungen und Antrag',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.excerpt': 'Die Niederlassungsbewilligung C im Kanton Bern: Voraussetzungen, Antrag und Antragsverfahren',
+    'blog.article.permesso-di-domicilio-c-canton-berna-requisiti-e-domanda.imageAlt': 'Ein Ausländer mit einem C-Bescheinigung im Kanton Bern',
 };
 
 export default blogMetaChDe;
