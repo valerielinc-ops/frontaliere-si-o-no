@@ -64,7 +64,7 @@ describe('newsletter unsubscribe — one-click link routes to the Cloud Function
     expect(wrangler).toContain('frontaliereticino.ch/disiscrivi-newsletter*');
   });
 
-  it('the confirmation page\'s own resubscribe link also targets the dedicated path (no dead-end loop)', async () => {
+  it('the confirmation page\'s own resubscribe control also targets the dedicated path (no dead-end loop)', async () => {
     const db = {
       collection: () => ({
         doc: () => ({
@@ -85,8 +85,14 @@ describe('newsletter unsubscribe — one-click link routes to the Cloud Function
       secret: 'test-secret-for-unsub-urls',
       db: db as any,
     });
-    expect(result.html).toContain('/disiscrivi-newsletter/?action=resubscribe');
-    expect(result.html).not.toMatch(/href="https:\/\/frontaliereticino\.ch\/\?action=resubscribe/);
+    // Since #5711 the control is a POST form, not an `<a href>` — a crawler
+    // follows links and does not submit forms, which is the whole mechanism.
+    // The TARGET is unchanged and still asserted here: the dedicated
+    // /disiscrivi-newsletter/ path proxied straight to this function, never the
+    // SPA root (which rejects a plain token link for lack of an `ac`).
+    expect(result.html).toContain('<form method="POST" action="https://frontaliereticino.ch/disiscrivi-newsletter/"');
+    expect(result.html).toContain('name="action" value="resubscribe"');
+    expect(result.html).not.toMatch(/<a[^>]+href="[^"]*action=resubscribe/);
   });
 });
 
@@ -197,6 +203,9 @@ describe('newsletter unsubscribe — forensics recorded on the write', () => {
       token: token(),
       locale: 'it',
       secret: SECRET,
+      // The re-opt-in direction requires a POST since #5711 — same asymmetry as
+      // `resubscribe`. The opt-OUT direction below is untouched on every verb.
+      method: 'POST',
       forensics: { unsubscribe_method: 'POST' },
       db: db as any,
     });

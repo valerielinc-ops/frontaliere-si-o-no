@@ -289,10 +289,18 @@ describe('family 2 — the exit never closes', () => {
     // That button re-enters the function with `token` and action=resubscribe,
     // which accepts ONLY the email HMAC. Rendering it would offer a button
     // that answers "Link non valido" — the same defect, one click later.
+    //
+    // The control is a POST form since #5711, not an `<a href>`, so the marker
+    // is the hidden field rather than a query string. The two guards compose:
+    // #5685 decides WHICH credential may re-subscribe, #5711 decides HOW the
+    // request must arrive, and the page only renders the control when the
+    // credential in hand can actually complete it.
+    const RESUBSCRIBE_CONTROL = 'name="action" value="resubscribe"';
     const db = createFakeDb({ newsletter_subscribers: { [EMAIL]: { status: 'confirmed' } } });
     const viaCode = await handleSubscriptionManagement({
       action: 'unsubscribe', email: EMAIL, token: legacyAutologinCode(EMAIL, SECRET)!, secret: SECRET, locale: 'it', db,
     });
+    expect(viaCode.html).not.toContain(RESUBSCRIBE_CONTROL);
     expect(viaCode.html).not.toContain('action=resubscribe');
 
     const db2 = createFakeDb({ newsletter_subscribers: { [EMAIL]: { status: 'confirmed' } } });
@@ -300,7 +308,9 @@ describe('family 2 — the exit never closes', () => {
       action: 'unsubscribe', email: EMAIL, token: createHmac('sha256', SECRET).update(EMAIL).digest('hex'),
       secret: SECRET, locale: 'it', db: db2,
     });
-    expect(viaToken.html).toContain('action=resubscribe');
+    expect(viaToken.html).toContain(RESUBSCRIBE_CONTROL);
+    // …and never as a link, whatever the credential.
+    expect(viaToken.html).not.toMatch(/<a[^>]+href="[^"]*action=resubscribe/);
   });
 
   it('the widened credential is unsubscribe-ONLY — a stale code can never resubscribe anyone', async () => {

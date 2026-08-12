@@ -516,6 +516,18 @@ export const newsletterManageSubscription = onRequest(
  email,
  token,
  secret: newsletterSecret,
+ // The verb as a GATE, not as attribution (#5711): `resubscribe` and the
+ // re-opt-in half of `toggle_newsletter_subscription` require a POST, so a
+ // link-following scanner cannot put somebody back on a list they left.
+ // Unsubscribe is untouched — the RFC 8058 one-click POST and the plain
+ // footer GET both still opt out on the first request.
+ //
+ // Composes with the credential gate #5685 threads in just below rather than
+ // replacing it: that one says WHICH credential may re-subscribe (a live
+ // session, never a stale `ac`), this one says HOW the request must arrive.
+ // A scanner holding a perfectly valid credential still cannot use it, and a
+ // human with an expired one still cannot re-subscribe by pressing harder.
+ method: req.method,
  autologinPolicy: resolveAutologinPolicy(autologinPolicyEnv),
  enabled,
  subscribed,
