@@ -327,20 +327,44 @@ export const CONSENT_TEXTS = Object.freeze({
     act: 'authentication',
   }),
 
-  /** App.tsx / hooks/useUserState.ts / authService One Tap: sign-in auto-subscribe. */
+  /**
+   * App.tsx / hooks/useUserState.ts / authService One Tap: sign-in auto-subscribe.
+   *
+   * REWRITTEN AT `2026-08-12.2`, AND WHY THIS ONE AND NOT THE OTHERS (#5745)
+   * -----------------------------------------------------------------------
+   * It used to promise "la newsletter per frontalieri (cambio CHF/EUR,
+   * traffico di frontiera e novità fiscali)" — the same two items the
+   * `CATEGORIES` clause just lost, for the same reason: only the daily brief
+   * carried them and the owner disabled it on 2026-08-12.
+   *
+   * The register's standing rule is that a formula is NOT re-worded, because
+   * doing so changes what future subscribers are recorded as having been told
+   * for reasons unconnected to the fix — `saveJobSignIn`, `companyFollow` and
+   * the two publisher gates are kept byte-identical on exactly that ground.
+   * The distinguishing fact here is measurable, and was measured: of the
+   * fifteen `displayed: false` entries, only THIS one and `chatbotSignIn` are
+   * still reachable from code (3 call sites and 1; the other thirteen have
+   * zero and are historical records of what past subscribers were told).
+   *
+   * So these two are not history, they are the disclosure IN FORCE at a gate
+   * that still fires today — and a disclosure in force may not promise mail
+   * that no live channel sends. History stays frozen; what is still being
+   * handed out gets corrected, and the version bump is what keeps the two
+   * facts distinguishable on the stored documents.
+   */
   signInAutoSubscribe: entry({
     id: 'signin_auto_subscribe',
-    version: '2026-08-12.1',
-    text: 'Accedendo con Google, Facebook o LinkedIn a Frontaliere Ticino, l’indirizzo email dell’account viene iscritto alla newsletter per frontalieri (cambio CHF/EUR, traffico di frontiera e novità fiscali). L’accesso al sito è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
+    version: '2026-08-12.2',
+    text: `Accedendo con Google, Facebook o LinkedIn a Frontaliere Ticino, l’indirizzo email dell’account viene iscritto alle comunicazioni di Frontaliere Ticino: aggiornamenti redazionali (fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine) e messaggi di servizio sul mio account. L’accesso al sito è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. L’elenco completo, con la frequenza di ciascuna comunicazione, è su ${CONSENT_PAGE_LABEL}. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.`,
     displayed: false,
     act: 'authentication',
   }),
 
-  /** App.tsx chatbot sign-in (chatbot_google / chatbot_facebook / chatbot_email). */
+  /** App.tsx chatbot sign-in (chatbot_google / chatbot_facebook / chatbot_email). See `signInAutoSubscribe` for why this one was rewritten. */
   chatbotSignIn: entry({
     id: 'chatbot_signin',
-    version: '2026-08-12.1',
-    text: 'Accedendo dall’assistente di Frontaliere Ticino per continuare la conversazione, l’indirizzo email viene iscritto alla newsletter per frontalieri (cambio CHF/EUR, traffico di frontiera e novità fiscali). Proseguire con l’assistente è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
+    version: '2026-08-12.2',
+    text: `Accedendo dall’assistente di Frontaliere Ticino per continuare la conversazione, l’indirizzo email viene iscritto alle comunicazioni di Frontaliere Ticino: aggiornamenti redazionali (fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine) e messaggi di servizio sul mio account. Proseguire con l’assistente è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. L’elenco completo, con la frequenza di ciascuna comunicazione, è su ${CONSENT_PAGE_LABEL}. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.`,
     displayed: false,
     act: 'authentication',
   }),

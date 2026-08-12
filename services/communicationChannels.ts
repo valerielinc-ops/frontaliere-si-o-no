@@ -67,6 +67,13 @@
  * one: that choice belongs to the owner (see `ADVERTISING_NOT_COVERED` in
  * services/consentTexts.ts), and quietly filing it under "editorial" is the
  * shortcut that produced 6.308 unrequested job alerts (#5705).
+ *
+ * The owner took that decision on 2026-08-12 and took it the safe way: the
+ * channel is now `suspended` as well as uncategorised. It was the only ACTIVE
+ * workflow able to mail subscribers under no consent at all, and the cost of
+ * stopping it was measured first — zero paid ads in `publisher_jobs`, zero
+ * blasted, zero pending. It stays listed, because a reader is entitled to know
+ * the capability exists and under what condition it would return.
  */
 // Relative, not `@/`: `build-plugins/communicationsPagePlugin.ts` imports this
 // module and is itself reachable from vite.config.ts, which esbuild bundles
@@ -339,7 +346,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/blast-publisher-ads.mjs',
     workflow: '.github/workflows/publisher-blast.yml',
     cron: '17 7 * * *',
-    status: 'live',
+    status: 'suspended',
     consentCategory: null,
     name: {
       it: 'Annunci di inserzionisti',
@@ -354,10 +361,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat de ce site.',
     },
     cadence: {
-      it: 'Nessun consenso raccolto copre questo canale: finché la scelta non è presa, non deve partire. Il workflow esiste ed è schedulato alle 07:17 UTC.',
-      en: 'No consent we collect covers this channel: until that decision is made it must not go out. The workflow exists and is scheduled at 07:17 UTC.',
-      de: 'Keine erhobene Einwilligung deckt diesen Kanal: bis zur Entscheidung darf er nicht versendet werden. Der Workflow existiert und ist auf 07:17 UTC geplant.',
-      fr: 'Aucun consentement recueilli ne couvre ce canal : tant que la décision n’est pas prise, il ne doit pas partir. Le workflow existe et est planifié à 07:17 UTC.',
+      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Nessun consenso raccolto copre questo canale, ed è la ragione per cui è stato spento. Non aveva mai spedito: zero annunci a pagamento in coda al momento della sospensione.',
+      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. No consent we collect covers this channel, which is why it was switched off. It had never sent anything: zero paid ads queued at the time.',
+      de: 'Seit dem 12. August 2026 ausgesetzt: der Workflow ist deaktiviert, es geht nichts hinaus. Keine erhobene Einwilligung deckt diesen Kanal — deshalb wurde er abgeschaltet. Er hatte nie etwas versendet: null bezahlte Anzeigen in der Warteschlange.',
+      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Aucun consentement recueilli ne couvre ce canal, et c’est la raison de son arrêt. Il n’avait jamais rien envoyé : zéro annonce payante en attente.',
     },
   }),
 ]);

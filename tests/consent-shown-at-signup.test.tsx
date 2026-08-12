@@ -758,6 +758,37 @@ describe('the channel list the formula points at cannot under-report what we sen
     }
   });
 
+  /**
+   * The same promise, made by the UI instead of by the formula.
+   *
+   * Found in review on this PR: the preferences page — the very page the
+   * formula sends people to in order to choose — described the newsletter
+   * toggle as "cambio CHF/EUR, novità fiscali, traffico alle dogane e nuovi
+   * annunci di lavoro" in all four locales. Two of those were daily-brief
+   * content, and the fourth was the JOB ALERTS category, which is a separate
+   * consent and a separate toggle three rows further down the same screen.
+   *
+   * A consent formula corrected while the screen next to it keeps the old
+   * claim has not fixed the thing that misleads people, so the guard covers
+   * the copy too. `CHF/EUR` is the discriminator because it is the one token
+   * that survives translation unchanged in all four locales.
+   */
+  it('keeps the suspended channel’s content out of the live preferences copy', () => {
+    const brief = COMMUNICATION_CHANNELS.find((c) => c.id === 'daily-brief');
+    if (brief?.status !== 'suspended') return;
+
+    const src = read('components/preferences/SubscriptionPreferencesController.tsx');
+    const descriptions = [...src.matchAll(/newsletterDesc:\s*\n?\s*'([^']*)'/g)].map((m) => m[1]);
+    expect(descriptions.length, 'newsletterDesc strings not found — the regex has rotted').toBe(4);
+
+    for (const desc of descriptions) {
+      expect(desc, 'the newsletter toggle must not promise the suspended brief’s content')
+        .not.toMatch(/CHF\/EUR/i);
+      expect(desc, 'nor border traffic, which no live channel emails')
+        .not.toMatch(/dogan|valich|border traffic|Grenzverkehr|douane/i);
+    }
+  });
+
   it('describes every channel in all four locales', () => {
     for (const c of COMMUNICATION_CHANNELS) {
       for (const locale of CONSENT_LOCALES) {

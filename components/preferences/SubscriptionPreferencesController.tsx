@@ -141,7 +141,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  it: {
  newsletterTitle: 'Iscrizione alla newsletter',
  newsletterDesc:
- 'Ricevi gli aggiornamenti settimanali per i frontalieri: cambio CHF/EUR, novità fiscali, traffico alle dogane e nuovi annunci di lavoro.',
+ 'Ricevi la newsletter per chi lavora oltre confine: approfondimenti fiscali e previdenziali, un articolo in evidenza e uno strumento del sito.',
  newsletterStateOn: 'Iscritto',
  newsletterStateOff: 'Non iscritto',
  alertsTitle: 'I tuoi avvisi lavoro',
@@ -220,7 +220,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  en: {
  newsletterTitle: 'Newsletter subscription',
  newsletterDesc:
- 'Get the weekly cross-border worker briefing: CHF/EUR rate, tax changes, border traffic, and fresh job postings.',
+ 'Get the newsletter for people who work across the border: tax and pension explainers, a featured article and one of the site’s tools.',
  newsletterStateOn: 'Subscribed',
  newsletterStateOff: 'Not subscribed',
  alertsTitle: 'Your job alerts',
@@ -299,7 +299,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  de: {
  newsletterTitle: 'Newsletter-Abo',
  newsletterDesc:
- 'Wöchentlicher Überblick für Grenzgänger: CHF/EUR-Kurs, Steueränderungen, Grenzverkehr und neue Stellen.',
+ 'Newsletter für Grenzgängerinnen und Grenzgänger: Steuer- und Vorsorgethemen, ein hervorgehobener Artikel und ein Werkzeug der Website.',
  newsletterStateOn: 'Abonniert',
  newsletterStateOff: 'Nicht abonniert',
  alertsTitle: 'Deine Job-Alerts',
@@ -378,7 +378,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  fr: {
  newsletterTitle: 'Abonnement newsletter',
  newsletterDesc:
- 'Reçois le résumé hebdomadaire frontalier : taux CHF/EUR, fiscalité, douanes et nouvelles offres d\u2019emploi.',
+ 'Reçois la newsletter pour celles et ceux qui travaillent de l\u2019autre côté de la frontière : analyses fiscales et de prévoyance, un article en vedette et un outil du site.',
  newsletterStateOn: 'Abonné',
  newsletterStateOff: 'Non abonné',
  alertsTitle: 'Tes alertes emploi',

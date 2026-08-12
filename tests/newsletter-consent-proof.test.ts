@@ -353,12 +353,12 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
       text: 'Comunicazioni di Frontaliere Ticino. Accedendo, l’indirizzo email del mio account viene iscritto alle comunicazioni di Frontaliere Ticino: nessuna casella di consenso separata mi è stata proposta, l’accesso è l’unico gesto che compio. Ricevo: aggiornamenti redazionali — fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato. L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su frontaliereticino.ch/comunicazioni. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: Valerie Linc — valerie@frontaliereticino.ch',
     },
     signInAutoSubscribe: {
-      version: '2026-08-12.1',
-      text: 'Accedendo con Google, Facebook o LinkedIn a Frontaliere Ticino, l’indirizzo email dell’account viene iscritto alla newsletter per frontalieri (cambio CHF/EUR, traffico di frontiera e novità fiscali). L’accesso al sito è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
+      version: '2026-08-12.2',
+      text: 'Accedendo con Google, Facebook o LinkedIn a Frontaliere Ticino, l’indirizzo email dell’account viene iscritto alle comunicazioni di Frontaliere Ticino: aggiornamenti redazionali (fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine) e messaggi di servizio sul mio account. L’accesso al sito è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. L’elenco completo, con la frequenza di ciascuna comunicazione, è su frontaliereticino.ch/comunicazioni. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
     },
     chatbotSignIn: {
-      version: '2026-08-12.1',
-      text: 'Accedendo dall’assistente di Frontaliere Ticino per continuare la conversazione, l’indirizzo email viene iscritto alla newsletter per frontalieri (cambio CHF/EUR, traffico di frontiera e novità fiscali). Proseguire con l’assistente è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
+      version: '2026-08-12.2',
+      text: 'Accedendo dall’assistente di Frontaliere Ticino per continuare la conversazione, l’indirizzo email viene iscritto alle comunicazioni di Frontaliere Ticino: aggiornamenti redazionali (fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine) e messaggi di servizio sul mio account. Proseguire con l’assistente è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. L’elenco completo, con la frequenza di ciascuna comunicazione, è su frontaliereticino.ch/comunicazioni. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
     },
     jobUnlockSocial: {
       version: '2026-08-12.1',
