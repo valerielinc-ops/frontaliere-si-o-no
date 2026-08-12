@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-11T06:50:08.544Z",
+  "assembledAt": "2026-08-12T07:17:46.727Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -2674,48 +2674,6 @@
         "lng": 7.4597239
       },
       "recurring": false
-    },
-    {
-      "id": "guidle:AxDEYUC",
-      "title": "Voivod",
-      "titleByLocale": {
-        "it": "Voivod",
-        "en": "Voivod",
-        "de": "Voivod",
-        "fr": "Voivod"
-      },
-      "description": "VOIVOD (CAN) sind einzigartig. Verschroben, kauzig, Kult!",
-      "descriptionByLocale": {
-        "it": "VOIVOD (CAN) sind einzigartig. Verschroben, kauzig, Kult!",
-        "en": "VOIVOD (CAN) sind einzigartig. Verschroben, kauzig, Kult!",
-        "de": "VOIVOD (CAN) sind einzigartig. Verschroben, kauzig, Kult!",
-        "fr": "VOIVOD (CAN) sind einzigartig. Verschroben, kauzig, Kult!"
-      },
-      "startDate": "2026-08-11",
-      "endDate": "2026-08-11",
-      "startTime": "19:30",
-      "category": "Rock generalmente",
-      "venue": "KiFF - Kultur in der Futterfabrik",
-      "comune": "Aarau",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/aarau/voivod_AxDEYUC",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Tellistrasse 118",
-        "postalCode": "5000"
-      },
-      "geo": {
-        "lat": 47.3985618,
-        "lng": 8.0647273
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AxDEYUC.jpg"
     },
     {
       "id": "guidle:AbAhmeP",
@@ -12345,6 +12303,208 @@
         "lng": 7.564833
       },
       "recurring": true
+    },
+    {
+      "id": "guidle:AdukdfJ",
+      "title": "Kinderkunstklub \"Druckknöpfe\"",
+      "titleByLocale": {
+        "it": "Kinderkunstklub \"Druckknöpfe\"",
+        "en": "Kinderkunstklub\"Druckknp",
+        "de": "Kinderkunstklub „Druckknöpfe“",
+        "fr": "Kinderkunstklub « Druckknöpfe »"
+      },
+      "description": "Kinderkunstklub \"Druckknöpfe\" für Kinder zwischen sechs und zwölf Jahren.",
+      "descriptionByLocale": {
+        "it": "Kinderkunstklub \"Druckknöpfe\" für Kinder zwischen sechs und zwölf Jahren.",
+        "en": "Children's art club \"Druckknöpfe\" for children between the ages of six and twelve.",
+        "de": "Kinderkunstklub „Druckknöpfe“ für Kinder zwischen sechs und zwölf Jahren.",
+        "fr": "Kinderkunstklub « Druckknöpfe » für Kinder zwischen sechs und zwölf Jahren."
+      },
+      "startDate": "2026-08-15",
+      "endDate": "2026-11-14",
+      "startTime": "00:00",
+      "category": "L'arte in generale",
+      "venue": "Kunsthaus Grenchen",
+      "comune": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/grenchen/kinderkunstklub-druckknoepfe_AdukdfJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bahnhofstrasse 53",
+        "postalCode": "2540"
+      },
+      "geo": {
+        "lat": 47.1891204,
+        "lng": 7.3980619
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AdukdfJ.jpg"
+    },
+    {
+      "id": "guidle:AA48SfY",
+      "title": "Brennpunkt St. Johann",
+      "titleByLocale": {
+        "it": "Brennpunkt St. Johann",
+        "en": "Brennpunkt St.oh",
+        "de": "Brennpunkt St. ①hann",
+        "fr": "Brennpunkt St.Johann"
+      },
+      "description": "Vom Gefängnis «Schällemätteli» bis zur chemischen Industrie entdecken wir im St. Johann ein breites Panorama der Lebens- und Arbeitsbedingungen.",
+      "descriptionByLocale": {
+        "it": "Vom Gefängnis «Schällemätteli» bis zur chemischen Industrie entdecken wir im St. Johann ein breites Panorama der Lebens- und Arbeitsbedingungen.",
+        "en": "From the \"Schällemätteli\" prison to the chemical industry, we discover a broad panorama of living and working conditions in St. Johann.",
+        "de": "Vom Gefängnis „Schällemätteli“ bis zur chemischen Industrie entdecken wir im St. Johann ein breites Panorama der Lebens- und Arbeitsbedingungen.",
+        "fr": "Vom Gefängnis « Schällemätteli » bis zur chemischen Industrie entdecken wir im St. Johann ein breites Panorama der Lebens- und Arbeitsbedingungen."
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "14:00",
+      "category": "Balleto",
+      "venue": "St. Johanns-Tor",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/brennpunkt-st-johann_AA48SfY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "St. Johanns-Vorstadt 110",
+        "postalCode": "4056"
+      },
+      "geo": {
+        "lat": 47.5664425,
+        "lng": 7.5819901
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AA48SfY.jpg"
+    },
+    {
+      "id": "guidle:AMT7iqm",
+      "title": "Kunst in Kürze & saisonales Mittagsmenü",
+      "titleByLocale": {
+        "it": "Kunst in Kürze & saisonales Mittagsmenü",
+        "en": "Art in a nutshell & seasonal lunch menu",
+        "de": "Kunst in K ①rze & Saisons Mittagsmen",
+        "fr": "Kunst in Kürze & seasonales Mittagsmenü"
+      },
+      "description": "Nach einer Kurzführung durch die Ausstellung «The Threshold of Impermanence» von Caline Aoun in der Kunsthalle Appenzell gibt es am grossen Tisch im Kunshalle-Bistro oder in der lauschigen",
+      "descriptionByLocale": {
+        "it": "Nach einer Kurzführung durch die Ausstellung «The Threshold of Impermanence» von Caline Aoun in der Kunsthalle Appenzell gibt es am grossen Tisch im Kunshalle-Bistro oder in der lauschigen",
+        "en": "After a Kurzführung durch die Ausstellung «The Threshold of Impermanence» von Caline Aoun in der Kunsthalle Appenzell gibt es am granden Tisch im Kunshalle-Bistro oder in der lauschigen",
+        "de": "Nach einer Kurzführung durch die Ausstellung „The Threshold of Impermanence“ von Caline Aoun in der Kunsthalle Appenzell gibt es am granden Tisch im Kunsthalle-Bistro oder in der lauschigen",
+        "fr": "Nach einer Kurzführung durch die Ausstellung « The Threshold of Impermanence » von Caline Aoun in der Kunsthalle Appenzell gibt es am grossen Tisch im Kunshalle-Bistro oder in der lauschigen"
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-09-25",
+      "startTime": "12:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Kunsthalle Appenzell",
+      "comune": "Appenzell",
+      "canton": "AI",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/appenzell/kunst-in-kuerze-und-saisonales-mittagsmenue_AMT7iqm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Ziegeleistrasse 14",
+        "postalCode": "9050"
+      },
+      "geo": {
+        "lat": 47.3256513,
+        "lng": 9.4076803
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AMT7iqm.jpg"
+    },
+    {
+      "id": "guidle:A3jArUr",
+      "title": "Rundgang durch den Pavillon",
+      "titleByLocale": {
+        "it": "Rundgang durch den Pavillon",
+        "en": "Rundgang durch den Pavillon",
+        "de": "Rundgang durch den Pavillon",
+        "fr": "Rundgang durch den Pavillon"
+      },
+      "description": "Führung durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Einblicken in die gezeigten Objekte.",
+      "descriptionByLocale": {
+        "it": "Führung durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Einblicken in die gezeigten Objekte.",
+        "en": "Führung durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Einblicken in die gezeigten Objekte.",
+        "de": "Führung durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Einblicken in die gezeigten Objekte.",
+        "fr": "Führung durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Einblicken in die gezeigten Objekte."
+      },
+      "startDate": "2026-08-16",
+      "endDate": "2026-11-22",
+      "startTime": "14:00",
+      "category": "Architettura / Design",
+      "venue": "Pavillon Le Corbusier",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/rundgang-durch-den-pavillon_A3jArUr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Höschgasse 8",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3560992,
+        "lng": 8.5509078
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A3jArUr.jpg"
+    },
+    {
+      "id": "guidle:AmXCPtJ",
+      "title": "Tour of the Pavillon",
+      "titleByLocale": {
+        "it": "Tour of the Pavillon",
+        "en": "Tour of the Pavillon",
+        "de": "Tour of the Pavillon",
+        "fr": "Tour of the Pavillon"
+      },
+      "description": "Guided tour of the Le Corbusier Pavilion and the exhibition \"The Architecture of Power,\" with insights into the objects on display.",
+      "descriptionByLocale": {
+        "it": "Guided tour of the Le Corbusier Pavilion and the exhibition \"The Architecture of Power,\" with insights into the objects on display.",
+        "en": "Guided tour of the Le Corbusier Pavilion and the exhibition \"The Architecture of Power,\" with insights into the objects on display.",
+        "de": "Guided tour of the Le Corbusier Pavilion and the exhibition \"The Architecture of Power,\" with insights into the objects on display.",
+        "fr": "Guided tour of the Le Corbusier Pavilion and the exhibition \"The Architecture of Power,\" with insights into the objects on display."
+      },
+      "startDate": "2026-08-16",
+      "endDate": "2026-11-22",
+      "startTime": "15:00",
+      "category": "Architettura / Design",
+      "venue": "Pavillon Le Corbusier",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/tour-of-the-pavillon_AmXCPtJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Höschgasse 8",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3560992,
+        "lng": 8.5509078
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AmXCPtJ.jpg"
     }
   ]
 }
