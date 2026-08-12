@@ -11,7 +11,7 @@
     "https://karriere.rittmeyer.com/offene-stellen/?suche=&country=1"
   ],
   "notes": "Dedicated Rittmeyer crawler parses the Rittmeyer careers page and keeps the Ticino vacancy exposed on the filtered public listing.",
-  "updatedAt": "2026-08-12T10:29:08.426Z",
+  "updatedAt": "2026-08-12T22:07:28.932Z",
   "seedMetaByUrl": {
     "https://karriere.rittmeyer.com/offene-stellen/service-techniker-a-region-churer-rheintal-imboden-viamala-sarganserland-werdenberg/": {
       "location": "Baar",
@@ -22,6 +22,18 @@
     "https://karriere.rittmeyer.com/offene-stellen/projektingenieur-a-wasserkraftwerke/": {
       "location": "Baar",
       "canton": "ZG",
+      "company": "Rittmeyer AG",
+      "postedDate": "2026-08-12"
+    },
+    "https://karriere.rittmeyer.com/offene-stellen/technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ/": {
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "company": "Rittmeyer AG",
+      "postedDate": "2026-08-12"
+    },
+    "https://karriere.rittmeyer.com/offene-stellen/technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ/": {
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
       "company": "Rittmeyer AG",
       "postedDate": "2026-08-12"
     },

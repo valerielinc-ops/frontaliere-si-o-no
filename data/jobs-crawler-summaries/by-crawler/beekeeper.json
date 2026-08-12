@@ -1,16 +1,16 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-08-12T10:17:32.145Z",
+  "generatedAt": "2026-08-12T21:51:38.611Z",
   "total": 8,
   "newCount": 3,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3722,
-  "avgDurationMs": 3722,
+  "durationMs": 3828,
+  "avgDurationMs": 3828,
   "durationHistory": [
-    3722
+    3828
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://job.lumapps.com/jobs/7756277-product-director-communication-collaboration-f-m-paris-lyon-sophia-antipolis-krakow-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:17:28.884Z",
+      "crawledAt": "2026-08-12T21:51:35.674Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -64,7 +64,7 @@
       "url": "https://job.lumapps.com/jobs/7700748-business-development-representative-dach",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:17:28.886Z",
+      "crawledAt": "2026-08-12T21:51:35.677Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -102,7 +102,7 @@
       "url": "https://job.lumapps.com/jobs/7145531-account-manager-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:17:28.887Z",
+      "crawledAt": "2026-08-12T21:51:35.678Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -142,7 +142,7 @@
       "url": "https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:17:28.879Z",
+      "crawledAt": "2026-08-12T21:51:35.667Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -181,7 +181,7 @@
       "url": "https://job.lumapps.com/jobs/7854973-director-of-account-management-f-m-zurich-hybrid-or-germany-remote",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:17:28.881Z",
+      "crawledAt": "2026-08-12T21:51:35.669Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -242,7 +242,7 @@
       "firstSeenAt": "2026-08-09T21:41:11.829Z",
       "salaryMin": 63500,
       "salaryMax": 112500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -284,7 +284,7 @@
       "firstSeenAt": "2026-08-06T11:38:25.877Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -326,7 +326,7 @@
       "firstSeenAt": "2026-08-06T11:38:25.879Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

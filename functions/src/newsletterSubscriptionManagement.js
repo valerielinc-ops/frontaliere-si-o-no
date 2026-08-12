@@ -2,7 +2,9 @@
  * newsletterSubscriptionManagement.js — HMAC-verified unsubscribe/resubscribe handler
  *
  * Provides a Cloud Function endpoint that:
- * 1. Verifies HMAC tokens for unsubscribe/resubscribe URLs
+ * 1. Verifies HMAC tokens for unsubscribe/resubscribe URLs — since #5704 each
+ *    token is scoped to ONE action (lib/newsletterActionToken.js), so the string
+ *    that confirms a subscription is no longer the string that ends it
  * 2. Updates subscriber status in Firestore
  * 3. Returns a branded HTML confirmation page
  *
@@ -35,7 +37,7 @@
  * instead of one.
  */
 
-import { createHmac, timingSafeEqual } from 'node:crypto';
+import { timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
@@ -48,6 +50,14 @@ import {
  isAutologinRevoked,
  revocationWatermarkFor,
 } from './lib/autologinCode.js';
+import {
+ verifyNewsletterActionToken,
+ mintNewsletterActionToken,
+ resolveNewsletterTokenPolicy,
+ legacyEmailToken,
+ scopeForAction,
+ TOKEN_SCOPES,
+} from './lib/newsletterActionToken.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -67,11 +77,21 @@ function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
 }
 
+/**
+ * The LEGACY credential check: `HMAC(secret, <email>)`, unscoped and undated.
+ *
+ * Kept, exported and still true, because every email ever sent carries one of
+ * these and the compatibility phase is open (lib/newsletterActionToken.js). It
+ * is no longer the gate, though — `verifyNewsletterActionToken` is, and it
+ * applies this same derivation as one of two accepted shapes plus the sunset
+ * that ends it. The derivation itself now lives in that module so the three
+ * places that used to compute it (here, newsletterUrls.js,
+ * newsletterConfirmationEmail.js — with two different normalisations between
+ * them) cannot drift apart again.
+ */
 export function verifyHmacToken(email, token, secret) {
  if (!secret || !email || !token) return false;
- const expected = createHmac('sha256', secret)
- .update(normalizeEmail(email))
- .digest('hex');
+ const expected = legacyEmailToken(email, secret);
  try {
  return timingSafeEqual(Buffer.from(token, 'hex'), Buffer.from(expected, 'hex'));
  } catch {
@@ -112,15 +132,43 @@ function escapeHtmlAttr(value) {
  * code must not be able to put somebody back on a list (that is the #5672
  * resurrection loop). Opt-out only, forever; opt-in only with a live session.
  *
- * @returns {{ok: boolean, viaEmailToken: boolean, viaAutologin: boolean}}
+ * Since #5704 the first shape is `unsubscribe`-SCOPED — a confirm or preferences
+ * token no longer opts anybody out, and vice versa. What did not change, and
+ * must not: an authentic unsubscribe credential of EITHER shape, of any age,
+ * gets its holder out. `verifyNewsletterActionToken` decides the unsubscribe
+ * scope before it reads a single policy value, so neither the legacy sunset nor
+ * any TTL can close the exit; a legacy token from an archive of any age still
+ * works here. That is the same guarantee `canOptOut` gives on the `ac` side.
+ *
+ * @param {string} email
+ * @param {string} token
+ * @param {string} secret
+ * @param {{policy?: object}} [opts] resolved token policy; omitted means "read
+ *   process.env", which is right for tests and for the scripts/ side. It cannot
+ *   change the verdict for an authentic token — see above — only the reason
+ *   string a forged one comes back with.
+ * @returns {{ok: boolean, viaEmailToken: boolean, viaAutologin: boolean,
+ *   verdict: object, autologinVerdict?: object}} both graded verdicts ride
+ *   along, and they are the point of the refusal log in the handler: the exit is
+ *   the action the LPD complaint was about, so "why exactly did this one get
+ *   refused" has to be answerable HERE too. Without them every unsubscribe
+ *   refusal — bad signature, malformed token, wrong address, an `ac` past its
+ *   TTL — logs as the same generic `no_credential`, which is the one shape that
+ *   tells an operator nothing.
  */
-export function verifyOptOutCredential(email, token, secret) {
- const viaEmailToken = verifyHmacToken(email, token, secret);
- if (viaEmailToken) return { ok: true, viaEmailToken: true, viaAutologin: false };
+export function verifyOptOutCredential(email, token, secret, { policy } = {}) {
+ const verdict = verifyNewsletterActionToken(email, token, TOKEN_SCOPES.UNSUBSCRIBE, { secret, policy });
+ if (verdict.canPerform) return { ok: true, viaEmailToken: true, viaAutologin: false, verdict };
  // No policy argument, deliberately: nothing configurable may reach this
  // decision. verifyAutologinCode's `canOptOut` is `authentic` and nothing else.
- const verdict = verifyAutologinCode(email, token, { secret });
- return { ok: verdict.canOptOut, viaEmailToken: false, viaAutologin: verdict.canOptOut };
+ const acVerdict = verifyAutologinCode(email, token, { secret });
+ return {
+ ok: acVerdict.canOptOut,
+ viaEmailToken: false,
+ viaAutologin: acVerdict.canOptOut,
+ verdict,
+ autologinVerdict: acVerdict,
+ };
 }
 
 /**
@@ -309,7 +357,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', autologinPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -324,6 +372,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // One policy read for the whole call: exchange_auth_code grades against it and
  // revoke_autologin refuses under `legacy` (see there).
  const acPolicy = autologinPolicy || resolveAutologinPolicy();
+ // The `token` policy (#5704), same shape and same reasoning: the caller
+ // (functions/index.js) resolves it from Remote Config so the window can be
+ // widened, narrowed or switched off without a deploy. Omitted — tests, and the
+ // scripts/ side — it falls back to process.env.
+ const tokenPol = tokenPolicy || resolveNewsletterTokenPolicy();
 
  // The ONLY observable signal that the expiry is refusing anybody (#5685).
  //
@@ -337,12 +390,62 @@ export async function handleSubscriptionManagement({ action, email, token, local
  //
  // Deliberately NOT logged: the address and the code. The reason and the scheme
  // are the whole diagnostic, and this is a public repo's production log.
+ //
+ // `legacy_sunset` was missing from the first version of this line and is not a
+ // nicety: with `mintScheme: legacy` and `ttlDays: 0` — today's state — setting
+ // NEWSLETTER_AC_LEGACY_SUNSET alone expires EVERY code in circulation on one
+ // date, and it is the only one of the three parameters that can do that. A
+ // monitor reading `mint_scheme` and `ttl_days` would have watched the whole
+ // population get locked out while reporting the policy unchanged.
+ const acPolicyFields = () => ({
+ mint_scheme: acPolicy.mintScheme,
+ ttl_days: acPolicy.ttlDays,
+ legacy_sunset: Number.isFinite(acPolicy.legacySunsetMs)
+ ? new Date(acPolicy.legacySunsetMs).toISOString().slice(0, 10)
+ : null,
+ });
  const refuseAutologin = (reason, scheme) => {
  console.warn('[exchange_auth_code] refused', JSON.stringify({
  reason,
  scheme: scheme || 'unparsed',
- mint_scheme: acPolicy.mintScheme,
- ttl_days: acPolicy.ttlDays,
+ ...acPolicyFields(),
+ }));
+ };
+
+ // The DENOMINATOR, and #5724's reason for existing.
+ //
+ // `refuseAutologin` above counts the codes turned away. On its own that count
+ // answers nothing: measured over the seven days before this line existed, this
+ // endpoint served 335-502 exchanges a day against 0-10 refusals, and the
+ // refusals are dominated by anti-phishing scanners rather than by policy. Only
+ // the RATIO says whether a policy change is locking people out, and a ratio
+ // needs both halves emitted by the same code path.
+ //
+ // The alternative denominator — Cloud Run's own request log — was rejected on
+ // purpose: it keys on a URL that carries the address AND the `ac` code in the
+ // clear, so the metric would be built on the one record this feature is trying
+ // to stop depending on.
+ //
+ // `scheme` is the second reason this line exists. It is the ONLY place the
+ // legacy → v1 migration is observable: on the day of the flip, "what share of
+ // the codes still in circulation is legacy?" decides whether a sunset date is
+ // safe to set, and nothing else in the system can answer it.
+ //
+ // `age_days` is the third. It is null for legacy by construction (a legacy code
+ // carries no issue date — see parseAutologinCode), and once v1 is minting it
+ // becomes the evidence for the TTL itself: the age distribution of ACCEPTED
+ // codes is exactly the population a given NEWSLETTER_AC_TTL_DAYS would have
+ // refused, measurable BEFORE the value is set.
+ //
+ // `console.log`, not `warn`: a success is INFO. Same redaction rule as the
+ // refusal — never the address, never the code.
+ const acceptAutologin = (verdict) => {
+ console.log('[exchange_auth_code] accepted', JSON.stringify({
+ scheme: verdict?.scheme || 'unparsed',
+ ...acPolicyFields(),
+ age_days: Number.isFinite(verdict?.issuedAtMs)
+ ? Math.floor((Date.now() - verdict.issuedAtMs) / 86_400_000)
+ : null,
  }));
  };
 
@@ -445,6 +548,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  if (uid) {
  const authToken = await admin.auth().createCustomToken(uid);
+ // AFTER the token is actually minted, not before: the metric counts sessions
+ // that were really handed out, so a `createCustomToken` failure lands in the
+ // catch below and inflates neither half of the ratio.
+ acceptAutologin(verdict);
  return { status: 200, json: { success: true, authToken } };
  }
  return { status: 500, json: { success: false, error: 'uid_not_found' } };
@@ -454,15 +561,51 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  }
 
- // The opt-out is the one action whose credential check is WIDER than the
- // email HMAC: an authentic autologin code of any age also gets somebody out
- // (verifyOptOutCredential, #5685). Every other action — resubscribe and the
- // whole preferences API — still needs the email HMAC and nothing else.
+ // ── The credential gate, now READ AGAINST THE ACTION (#5704) ──────────────
+ //
+ // Every action below used to accept the same string: one HMAC over the bare
+ // address, minted identically by the confirmation email, the unsubscribe link,
+ // the re-subscribe link and the preferences link, and never expiring. Confirming
+ // a subscription and ending one were separated by nothing but the `action`
+ // parameter the holder of the link types for themselves.
+ //
+ // `scopeForAction` is a closed table: an action that ever gets added to
+ // `validActions` without an entry there arrives here with a null scope and is
+ // refused, rather than silently inheriting the universal credential.
+ //
+ // The opt-out keeps the WIDER check it got in #5685 — an authentic autologin
+ // code of any age also gets somebody out — and keeps it unconditionally: the
+ // unsubscribe scope is graded before any policy value is read, so no sunset and
+ // no TTL can reach it.
+ const requiredScope = scopeForAction(action);
  const optOut = action === 'unsubscribe'
- ? verifyOptOutCredential(normalizedEmail, token, secret)
- : { ok: verifyHmacToken(normalizedEmail, token, secret), viaEmailToken: true, viaAutologin: false };
+ ? verifyOptOutCredential(normalizedEmail, token, secret, { policy: tokenPol })
+ : (() => {
+   const verdict = verifyNewsletterActionToken(normalizedEmail, token, requiredScope, { secret, policy: tokenPol });
+   return { ok: verdict.canPerform, viaEmailToken: true, viaAutologin: false, verdict };
+ })();
 
  if (!optOut.ok) {
+ // The ONLY observable signal that the scoping or the expiry is refusing
+ // anybody, and the same reasoning as refuseAutologin above: without it, a
+ // mis-set TTL or a sunset date set a year early is an HTTP 403 that looks
+ // exactly like the ones anti-phishing scanners generate all day, so "is this
+ // refusing 0 people or 3.000?" has no answer and the rollback has no trigger.
+ // Deliberately NOT logged: the address and the token. This is a public repo's
+ // production log, and the reason plus the shape is the whole diagnostic.
+ console.warn('[newsletterManage] token refused', JSON.stringify({
+   action,
+   required_scope: requiredScope,
+   reason: optOut.verdict?.reason || 'no_credential',
+   scheme: optOut.verdict?.scheme || 'unparsed',
+   // Only `unsubscribe` has a second credential to fall back on, so this key
+   // appears only there — and it is the half that matters, because it is the
+   // one that says whether somebody holding a real but stale `ac` was turned
+   // away from the exit.
+   ac_reason: optOut.autologinVerdict?.reason,
+   mint_scheme: tokenPol.scheme,
+   confirm_ttl_days: tokenPol.confirmTtlDays,
+ }));
  // JSON-returning actions (called from SPA) report invalid_token as JSON.
  const jsonActions = new Set([
  'get_autologin_status',
@@ -479,6 +622,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  return { status: 403, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidToken'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
+
+ // The re-subscribe control on the pages below is a FORM (#5711), and the token
+ // it posts must be a RESUBSCRIBE token. The one that just arrived is scoped to
+ // `unsubscribe` on the opt-out page, so echoing it back — which is what this
+ // code did when there was only one token — would render a button that answers
+ // "Link non valido" one click later: the same defect #5685 removed from this
+ // page, in a new shape. Minted fresh instead.
+ //
+ // Handing a resubscribe token to whoever presented a valid unsubscribe one is
+ // not a widening: it is exactly what the single pre-#5704 token already did,
+ // and the misclick path this control exists for (opt out, read the page,
+ // realise it was the wrong list) is #5711's own design. What gates it is
+ // untouched — a POST, the 10-second burst window, and `showResubscribe:
+ // optOut.viaEmailToken`, which keeps the form off the page entirely when the
+ // opt-out came from an autologin code.
+ const resubscribeFormToken = () => (
+ mintNewsletterActionToken(normalizedEmail, TOKEN_SCOPES.RESUBSCRIBE, { secret, policy: tokenPol }) || token
+ );
 
  if (action === 'get_autologin_status') {
  try {
@@ -986,12 +1147,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
  title: `${t(lang, 'manageUnsubscribeTitle')} ✅`,
  message: `${t(lang, 'manageUnsubscribeBody')} <strong>${normalizedEmail}</strong>. ${t(lang, 'manageUnsubscribeNote')}.`,
  // The confirmation page's resubscribe button re-enters this function with
- // `token` and action=resubscribe, which accepts ONLY the email HMAC.
- // Rendering it after an autologin-code opt-out would offer a button that
- // answers "Link non valido" — the same defect, one click later.
+ // a `resubscribe`-scoped token, which is minted above and never accepts an
+ // autologin code. Rendering it after an autologin-code opt-out would offer
+ // a button that answers "Link non valido" — the same defect, one click later.
  showResubscribe: optOut.viaEmailToken,
  email: normalizedEmail,
- token,
+ token: resubscribeFormToken(),
  locale: lang,
  }),
  };
@@ -1116,7 +1277,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  message: `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageResubscribeConfirmBody')}`,
  showResubscribe: true,
  email: normalizedEmail,
- token,
+ token: resubscribeFormToken(),
  locale: lang,
  }),
  };
@@ -1185,7 +1346,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  message: `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageResubscribeRefusedBody')}`,
  showResubscribe: true,
  email: normalizedEmail,
- token,
+ token: resubscribeFormToken(),
  locale: lang,
  }),
  };

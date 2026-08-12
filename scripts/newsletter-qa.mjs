@@ -22,6 +22,7 @@ import { launchChromium } from './lib/ensure-chromium.mjs';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { runAutologinProbe } from './lib/autologinProbe.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -321,6 +322,26 @@ async function main() {
     }
   }
 
+  // 3b. Autologin mint/verify probe (#5724)
+  //
+  // Here, and not only in the daily monitor, because THIS artifact is what
+  // `send-newsletter.mjs --send` requires before a production send. Every
+  // newsletter carries an `ac` code in every link; if the code this repo mints
+  // and the code the deployed `exchange_auth_code` accepts have drifted apart —
+  // the exact risk #5726 created by moving the v1 signature onto its own HMAC
+  // domain — then every link in the send is already dead, and the first symptom
+  // without this check is a support inbox the next morning.
+  //
+  // The probe cannot succeed by construction (a future-dated code is refused by
+  // a one-sided gate no Remote Config value can disable), so it writes nothing
+  // to production. See scripts/lib/autologinProbe.mjs.
+  console.log('\n🔑 Running autologin mint/verify probe...');
+  const probeChecks = await runAutologinProbe({ secret: process.env.NEWSLETTER_SECRET });
+  for (const r of probeChecks) {
+    const icon = r.skipped ? '⏭️' : r.passed ? '✅' : '❌';
+    console.log(`  ${icon} ${r.label}${r.error ? ` [${r.error}]` : ''}`);
+  }
+
   // 4. Screenshots
   console.log('\n📸 Taking screenshots (Chromium)...');
   let screenshots = {};
@@ -333,7 +354,7 @@ async function main() {
   }
 
   // 5. Summary
-  const allChecks = [...checks, ...stressChecks];
+  const allChecks = [...checks, ...stressChecks, ...probeChecks];
   const failed = allChecks.filter((r) => !r.passed);
   const passed = allChecks.length - failed.length;
   const qaResult = failed.length === 0;

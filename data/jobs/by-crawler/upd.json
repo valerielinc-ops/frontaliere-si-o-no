@@ -1,7 +1,80 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-08-12T10:23:00.578Z",
+  "assembledAt": "2026-08-12T22:00:30.713Z",
   "jobs": [
+    {
+      "id": "upd-867180062d8e",
+      "slug": "mitarbeiterin-collaboratore-trice-patientenaufnahme-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "de": "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern",
+        "it": "mitarbeiterin-collaboratore-trice-patientenaufnahme-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern",
+        "fr": "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Mitarbeiterin / Mitarbeiter Patientenaufnahme",
+      "titleByLocale": {
+        "de": "Mitarbeiterin / Mitarbeiter Patientenaufnahme",
+        "it": "Mitarbeiterin / Collaboratore/trice Patientenaufnahme",
+        "en": "Mitarbeiterin / Mitarbeiter Patientenaufnahme",
+        "fr": "Mitarbeiterin / Mitarbeiter Patientenaufnahme"
+      },
+      "description": "Mitarbeiterin / Mitarbeiter Patientenaufnahme bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "descriptionByLocale": {
+        "de": "Mitarbeiterin / Mitarbeiter Patientenaufnahme bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "it": "Mitarbeiterin / Mitarbeiter Patientenaufnahme bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "Mitarbeiterin / Mitarbeiter Patientenaufnahme bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Mitarbeiterin / Mitarbeiter Patientenaufnahme bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)"
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3352/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T22:00:08.476Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3352/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T22:00:08.476Z"
+    },
     {
       "id": "upd-234aa9be0f47",
       "slug": "dipl-pflegefachperson-come-nachtwache-therapiezentrum-per-essstorungen-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -73,7 +146,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T10:22:36.360Z"
+      "firstSeenAt": "2026-08-12T10:22:36.360Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-5844add8cf9d",
@@ -176,141 +250,8 @@
         "specialiste-en-activation-universitare-psychiatrische-dienste-bern-upd-bern",
         "aktivierungsfachkraft-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
-    },
-    {
-      "id": "upd-f594a3e5a5c5",
-      "slug": "dipl-cura-professionale-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-fh-upd-bern",
-        "it": "dipl-cura-professionale-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-care-professional-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern",
-        "fr": "dipl-soins-professionnels-hf-fh-universitare-psychiatrische-dienste-bern-upd-bern"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Dipl. Pflegefachperson HF/FH",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF/FH",
-        "it": "Dipl. Cura professionale HF/FH",
-        "en": "Dipl. Care professional HF/FH",
-        "fr": "Dipl. Soins professionnels HF/FH"
-      },
-      "description": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "Dipl. Pflegefachperson HF/FH bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Dipl. Specialista HF/FH presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Cura\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "Dipl. Nursing specialist HF/FH at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Care\n• Type: Full-time\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Soins\n• Type: Temps plein\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis de l'Université Services psychiatriques Bern (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3340/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-01T22:04:53.028Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-01",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3340/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-01T22:04:53.028Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-          "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-          "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-          "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
-          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-          "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-          "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-upd-bern",
-          "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-upd-bern",
-          "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-station-marbach-upd-bern",
-          "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
-          "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
-        ],
-        "en": [
-          "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-          "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-upd-bern",
-          "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-          "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-upd-bern",
-          "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
-        ],
-        "de": [
-          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-          "dipl-pflegefachperson-upd-bern",
-          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
-        ],
-        "fr": [
-          "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-          "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-upd-bern",
-          "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-          "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-pflegefachperson-hf-fh-upd-bern",
-          "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
-          "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern"
-        ]
-      },
-      "previousSlugs": [
-        "formazione-dipl-infermieristica-professionale-hf-nel-lavoro-universitare-psychiatrische-dienste-bern-upd-bern",
-        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-upd-bern",
-        "training-dipl-nursing-professional-hf-in-employment-universitare-psychiatrische-dienste-bern-upd-bern",
-        "formation-dipl-infirmiere-hf-en-emploi-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-hf-fh-upd-bern",
-        "dipl-infermieristica-professionale-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-upd-bern",
-        "dipl-nursing-professional-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-professionnels-des-soins-infirmiers-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-stazione-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-station-marbach-upd-bern",
-        "gare-dipl-pflegefachperson-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
-        "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern",
-        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
-      ],
-      "crawlerMissStreak": 2
     }
   ]
 }

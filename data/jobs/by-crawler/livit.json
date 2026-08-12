@@ -1,6 +1,6 @@
 {
   "crawlerKey": "livit",
-  "assembledAt": "2026-08-12T10:17:25.746Z",
+  "assembledAt": "2026-08-12T21:51:31.353Z",
   "jobs": [
     {
       "id": "livit-a6a516699dfb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/vermietungsberater-in/84c3db00-63c2-4b7b-9aeb-3e76ef9400a7",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.695Z",
+      "crawledAt": "2026-08-12T21:51:27.889Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -59,7 +59,8 @@
         "manager-in-livit-ag-st-gallen",
         "bewirtschafter-in-livit-st-gallen",
         "directeur-livit-ag-st-gallen",
-        "gestionnaire-immobilier-livit-ag-st-gallen"
+        "gestionnaire-immobilier-livit-ag-st-gallen",
+        "consulente-di-noleggio-in-livit-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -69,7 +70,8 @@
           "manager-in-livit-ag-st-gallen",
           "bewirtschafter-in-livit-st-gallen",
           "directeur-livit-ag-st-gallen",
-          "gestionnaire-immobilier-livit-ag-st-gallen"
+          "gestionnaire-immobilier-livit-ag-st-gallen",
+          "consulente-di-noleggio-in-livit-ag-st-gallen"
         ],
         "en": [
           "vermietungsberater-in-livit-st-gallen",
@@ -103,7 +105,7 @@
       "slugByLocale": {
         "it": "specialista-in-contabilita-livit-ag-zurich",
         "en": "specialist-in-accounting-payment-transactions-livit-ag-zurich",
-        "de": "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich-k4a7np",
+        "de": "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
         "fr": "specialiste-en-comptabilite-operations-de-paiement-livit-ag-zurich"
       },
       "company": "Livit AG",
@@ -129,7 +131,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/fachspezialist-in-buchhaltung-zahlungsverkehr/ff236891-6bb2-4484-89fb-4bd436d0dcaf",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.694Z",
+      "crawledAt": "2026-08-12T21:51:27.888Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -148,19 +150,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
+        "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
+        "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich-k4a7np",
+        "specialista-in-contabilita-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
+          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
+          "specialista-in-contabilita-livit-ag-zurich"
         ],
         "en": [
           "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
         ],
-        "fr": [
+        "de": [
+          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich-k4a7np",
           "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
         ],
-        "de": [
+        "fr": [
           "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
         ]
       },
@@ -210,7 +216,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in-geschaeftsflaechen/068f2f8b-84c8-4f55-bf38-f6ecd3643085",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.693Z",
+      "crawledAt": "2026-08-12T21:51:27.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -231,13 +237,15 @@
       "previousSlugs": [
         "property-manager-in-business-premises-livit-ag-zurich",
         "directeur-immobilier-dans-les-locaux-commerciaux-livit-ag-zurich",
-        "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
+        "proprietario-nei-locali-commerciali-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "property-manager-in-business-premises-livit-ag-zurich",
           "directeur-immobilier-dans-les-locaux-commerciaux-livit-ag-zurich",
-          "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
+          "proprietario-nei-locali-commerciali-livit-ag-zurich"
         ],
         "en": [
           "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
@@ -292,7 +300,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/3e1b3c67-f4d1-43bf-bb1a-98daa60406c4",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.692Z",
+      "crawledAt": "2026-08-12T21:51:27.886Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -314,14 +322,16 @@
         "immobilienbewirtschafter-in-livit-basel",
         "responsabile-della-proprieta-in-livit-ag-basel",
         "property-manager-in-livit-ag-basel",
-        "gestionnaire-immobilier-in-livit-ag-basel"
+        "gestionnaire-immobilier-in-livit-ag-basel",
+        "responsabile-della-proprieta-in-livit-ag-basel-82c297"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-in-livit-basel",
           "responsabile-della-proprieta-in-livit-ag-basel",
           "property-manager-in-livit-ag-basel",
-          "gestionnaire-immobilier-in-livit-ag-basel"
+          "gestionnaire-immobilier-in-livit-ag-basel",
+          "responsabile-della-proprieta-in-livit-ag-basel-82c297"
         ],
         "en": [
           "immobilienbewirtschafter-in-livit-basel",
@@ -378,7 +388,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/mitarbeiter-in-muesliburg/48d4ca5e-c2a8-4732-94a2-6a3a0182cb8a",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.692Z",
+      "crawledAt": "2026-08-12T21:51:27.885Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -401,7 +411,8 @@
         "technische-r-collaboratore-trice-glatt-livit-ag-wallisellen",
         "technische-r-associate-glatt-livit-ag-wallisellen",
         "technische-r-mitarbeiter-in-glatt-livit-wallisellen",
-        "technische-r-collaborateur-trice-glatt-livit-ag-wallisellen"
+        "technische-r-collaborateur-trice-glatt-livit-ag-wallisellen",
+        "collaboratore-trice-musliburg-livit-ag-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -409,7 +420,8 @@
           "technische-r-collaboratore-trice-glatt-livit-ag-wallisellen",
           "technische-r-associate-glatt-livit-ag-wallisellen",
           "technische-r-mitarbeiter-in-glatt-livit-wallisellen",
-          "technische-r-collaborateur-trice-glatt-livit-ag-wallisellen"
+          "technische-r-collaborateur-trice-glatt-livit-ag-wallisellen",
+          "collaboratore-trice-musliburg-livit-ag-wallisellen"
         ],
         "en": [
           "mitarbeiter-in-musliburg-livit-wallisellen",
@@ -469,7 +481,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-sicherheit-und-hausleitzentrale-glatt/6a0cd8a0-85f0-4515-a2cc-176e1375dddf",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.684Z",
+      "crawledAt": "2026-08-12T21:51:27.877Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -547,7 +559,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in-geschaeftsflaechen/f297ed68-2ea6-4ef1-b1fb-d2cd3827dac9",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.669Z",
+      "crawledAt": "2026-08-12T21:51:27.862Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -573,7 +585,8 @@
         "property-manager-in-business-premises-livit-ag-zurich",
         "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
         "directeur-immobilier-dans-les-locaux-commerciaux-livit-ag-zurich",
-        "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
+        "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn",
+        "proprietario-nei-locali-commerciali-livit-ag-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -584,7 +597,8 @@
           "property-manager-in-business-premises-livit-ag-zurich",
           "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
           "directeur-immobilier-dans-les-locaux-commerciaux-livit-ag-zurich",
-          "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn",
+          "proprietario-nei-locali-commerciali-livit-ag-solothurn"
         ],
         "en": [
           "immobilienbewirtschafter-in-geschaftsflachen-livit-solothurn"
@@ -633,12 +647,13 @@
         "de": "Arbeiten am Puls der digitalen Transformation. Unsere Abteilung Digital Business macht's möglich. Gestalte zusammen mit uns die Zukunft der Immobilienbewirtschaftung, entwickle innovative Produkte und Prozesse und bring Livit gemeinsam mit uns voran. Im Digital Business erwartet dich ein grossartiges, interdisziplinäres Team, eine inspirierende Arbeitsatmosphäre und spannende Projekte, bei denen du dich aktiv einbringen kannst. Dich begeistern Innovationen, die neusten Systeme, ein agiles Setting und neue Herausforderungen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du unterstützt unser BI-Team von der Konzeption und dem Design bis zur Entwicklung, dem Betrieb und der Weiterentwicklung unserer BI- und Reporting-Lösungen\n\n• Du spezifizierst, entwickelst und wartest Kunden-Reports in enger Zusammenarbeit mit internen Fachbereichen sowie externen Partnern\n\n• Du stellst die fach- und termingerechte Bereitstellung von elektronischen Schnittstellen und Reports für interne und externe Empfänger sicher\n\n• Du dokumentierst, wartest und optimierst bestehende sowie neu entwickelte Schnittstellen, Datenflüsse und Reporting-Lösungen\n\n• Du arbeitest im Rahmen der Ablösung unseres Immobilien-ERP-Systems aktiv an der Migration und Neuentwicklung bestehender Data-Warehouse- und Reporting-Lösungen mit\n\n• Du analysierst fachliche Anforderungen und entwickelst nachhaltige Lösungen im Bereich Data Warehouse und Reporting\n\n• Du trägst mit Deiner Expertise zur kontinuierlichen Verbesserung und Weiterentwicklung unserer Business-Intelligence-Services bei\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Berufsbildung als Informatiker:in EFZ oder über eine entsprechende höhere Ausbildung (HF, FH oder Universität) mit Schwerpunkt Informatik\n\n• Du bringst mehrere Jahre Erfahrung in der Datenbankentwicklung mit MS SQL Server mit und verfügst über fundierte Kenntnisse in den Technologien SSRS, SSIS sowie in der Entwicklung von Stored Procedures\n\n• Du besitzt idealerweise Kenntnisse in PostgreSQL und bringst Erfahrung in der Arbeit mit unterschiedlichen Datenbanksystemen mit\n\n• Du hast praktische Erfahrung mit Entwicklungstools wie SQL Server Management Studio (SSMS), DBeaver, RedGate Toolbelt, Visual Studio sowie Confluence und JIRA\n\n• Du hast von Vorteil bereits Erfahrungen in der Immobilienbranche gesammelt, insbesondere in der Bewirtschaftung oder Liegenschaftsbuchhaltung\n\n• Du kennst idealerweise die Immobiliensoftware G-REM von GARAIO REM\n\n• Du kommunizierst stilsicher in Deutsch und verfügst über gute Englischkenntnisse in Wort und Schrift\n\n• Du zeichnest dich durch eine selbstständige, strukturierte und lösungsorientierte Arbeitsweise aus\n\n• Du übernimmst Verantwortung, bringst Eigeninitiative ein und arbeitest gerne in einem dynamischen Umfeld mit vielfältigen Anspruchsgruppen\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
         "fr": "Travailler sur le pouls de la transformation numérique. Notre département Digital Business le rend possible. Avec nous, façonner l'avenir de la gestion immobilière, développer des produits et des processus innovants et faire avancer Livit avec nous. Dans les affaires numériques, vous pouvez vous attendre à une grande équipe interdisciplinaire, une atmosphère de travail inspirante et des projets passionnants dans lesquels vous pouvez participer activement. Êtes-vous excité par les innovations, les derniers systèmes, un réglage agile et de nouveaux défis? Alors vous avez exactement raison avec Livit. Nous attendons avec impatience votre contribution personnelle.\n\nTâches :\n• Vous soutenez notre équipe BI depuis la conception et la conception jusqu'au développement, au fonctionnement et au développement de nos solutions BI et reporting\n\n• Vous spécifiez, développez et maintenez les rapports clients en étroite collaboration avec les services internes et les partenaires externes\n\n• Vous veillez à ce que des interfaces et des rapports électroniques soient fournis en temps opportun aux destinataires internes et externes.\n\n• Vous documentez, maintenez et optimisez les interfaces existantes et nouvellement développées, les flux de données et les solutions de reporting\n\n• Dans le cadre du remplacement de notre système ERP immobilier, vous participez activement à la migration et au développement de solutions de stockage de données et de reporting existantes.\n\n• Vous analyserez les exigences techniques et développerez des solutions durables dans le domaine de l'entrepôt de données et des rapports\n\n• Vous utilisez votre expertise pour améliorer et développer continuellement nos services de renseignement d'affaires\n\nExigences\n• Vous avez suivi une formation professionnelle en informatique: en EFZ ou dans un enseignement supérieur correspondant (HF, FH ou université) avec un accent sur l'informatique\n\n• Vous avez plusieurs années d'expérience dans le développement de bases de données avec MS SQL Server et avez une connaissance approfondie des technologies SSRS, SSIS et dans le développement des procédures stockées\n\n• Idéalement, vous avez la connaissance de PostgreSQLTM et l'expérience de travail avec différents systèmes de base de données\n\n• Vous avez une expérience pratique avec des outils de développement tels que SQL Server Management Studio (SSMS), DBeaver, RedGate Toolbelt, Visual Studio et Confluence et JIRA\n\n• Vous avez déjà acquis de l'expérience dans l'industrie immobilière, en particulier en gestion ou en comptabilité immobilière\n\n• Vous connaissez idéalement le logiciel immobilier G-REM de GARAIO REM\n\n• Vous communiquez élégamment en allemand et avez une bonne connaissance de l'anglais en paroles et en écriture\n\n• Vous vous distinguez par une méthode de travail indépendante, structurée et orientée vers la solution\n\n• Vous prenez vos responsabilités, apportez votre propre initiative et aimez travailler dans un environnement dynamique avec des intervenants divers\n\nNous offrons:\n• Offre interne de notre Académie de Livit pour les cours de spécialisation et de leadership\n\n• Appui financier et/ou en temps utile à la formation externe de spécialistes et accès aux plates-formes d'apprentissage électronique pour les cours de langues en ligne\n\n• planification des carrières et perspectives de développement\n\n• Accueil / Bureau mobile\n\n• Bonus selon le succès de l'entreprise et les performances personnelles\n\n• Au moins 5 semaines de vacances et achat de jusqu'à 10 jours de vacances supplémentaires (Ferienflex)\n\n• Au-delà de la moyenne, les prestations de retraite et les primes d'assurance maladie et d'assurance accidents sont couvertes à 100 % par la Livit\n\n• 14 jours de congé de paternité\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Parce que non seulement vos compétences et votre expérience, mais aussi vous en tant que personne sont importants pour nous. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.livit.ch/offene-stellen/business-intelligence-developer/9ab0be3b-219d-4c4c-bce7-c2d262513f47",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.668Z",
+      "crawledAt": "2026-08-12T21:51:27.861Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -657,11 +672,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-intelligence-developer-livit-zurich"
+        "business-intelligence-developer-livit-zurich",
+        "business-intelligence-sviluppatore-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-intelligence-developer-livit-zurich"
+          "business-intelligence-developer-livit-zurich",
+          "business-intelligence-sviluppatore-livit-ag-zurich"
         ],
         "fr": [
           "business-intelligence-developer-livit-zurich"
@@ -713,7 +730,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/senior-immobilienbewirtschafter-in/f3fc1f38-75fb-4d45-8734-0698fff5be84",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.667Z",
+      "crawledAt": "2026-08-12T21:51:27.859Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -736,7 +753,8 @@
         "gestore-immobiliare-livit-ag-zurich",
         "property-manager-in-livit-ag-zurich",
         "immobilienbewirtschafter-in-livit-zurich",
-        "gestionnaire-immobilier-in-livit-ag-zurich"
+        "gestionnaire-immobilier-in-livit-ag-zurich",
+        "senior-property-manager-in-livit-ag-zurich-923091"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -744,7 +762,8 @@
           "gestore-immobiliare-livit-ag-zurich",
           "property-manager-in-livit-ag-zurich",
           "immobilienbewirtschafter-in-livit-zurich",
-          "gestionnaire-immobilier-in-livit-ag-zurich"
+          "gestionnaire-immobilier-in-livit-ag-zurich",
+          "senior-property-manager-in-livit-ag-zurich-923091"
         ],
         "en": [
           "senior-immobilienbewirtschafter-in-livit-zurich",
@@ -759,113 +778,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:35:12.365Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "livit-858d60450097",
-      "slug": "senior-property-manager-in-livit-ag-zurich-a364b1",
-      "slugByLocale": {
-        "it": "senior-property-manager-in-livit-ag-zurich-a364b1",
-        "en": "senior-property-manager-in-livit-ag-zurich-a364b1",
-        "de": "senior-immobilienbewirtschafter-in-livit-zurich",
-        "fr": "directeur-immobilier-principal-en-livit-ag-zurich-a364b1"
-      },
-      "company": "Livit AG",
-      "companyKey": "livit",
-      "companyDomain": "livit.ch",
-      "title": "Senior Immobilienbewirtschafter:in",
-      "titleByLocale": {
-        "it": "Senior property manager:in",
-        "en": "Senior property manager:in",
-        "de": "Senior Immobilienbewirtschafter:in",
-        "fr": "Directeur immobilier principal: en"
-      },
-      "description": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist vollumfänglich verantwortlich für die Bewirtschaftung eines Portefeuilles einer spannenden Anlagestiftung von mehrheitlich Wohnliegenschaften im Raum Schaffhausen / Neuhausen / Winterthur und hast Direktzugriff auf Immopac\n\n• Du arbeitest eng mit der Eigentümerschaft zusammen und du kannst dein Fachwissen bei Bauprojekten, Mietrechtsfragen und bei der Mietzinsgestaltung aktiv einbringen\n\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst und kontierst Kreditoren\n\n• Du betreust und berätst Mieter und Eigentümer und steuerst die Facility Manager\n\n• Du bist zuständig für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inklusive Berichterstattung\n\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n\nAnforderungen:\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder eine adäquate Weiterbildung im Immobilienbereich\n\n• Du bringst mehrjährige Berufserfahrung in der Immobilienbranche mit, hast umfangreiche Erfahrung in Mietrecht, sowie sehr gute Baukenntnisse\n\n• Du arbeitest am Hauptsitz in Zürich und bist ca. 1 Tag pro Woche in der Region Schaffhausen / Neuhausen / Winterthur unterwegs\n\n• Deine Muttersprache ist Deutsch und du kannst idealerweise in weiteren Sprachen mündlich und schriftlich kommunizieren\n\n• Du arbeitest sehr selbstständig und hast Freude daran, Verantwortung zu übernehmen\n\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude am Umgang mit Menschen\n\n• Du bringst eine Affinität zur Technologie mit, kannst neue Technologien anwenden und bist offen für Neues\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
-      "descriptionByLocale": {
-        "it": "Sei aperta, ambiziosa e apprezza un modo di lavorare orientato al futuro sul polso dell'industria immobiliare? A Livit, vi impegnate per le preoccupazioni dei proprietari: interni e inquilini:in con un'esemplare orientamento del cliente e quindi contribuire in modo significativo ad un fidato, rapporto cliente di lunga durata e un'immagine aziendale positiva. Sei pronto ad affrontare le sfide di oggi e di domani e fare la differenza nel mondo immobiliare? Allora hai proprio ragione con Livit. Attendiamo con ansia il vostro contributo personale.\n\nCompiti:\n• Sei pienamente responsabile della gestione di un portafoglio di un'emozionante fondazione di investimento di proprietà prevalentemente residenziali nella zona di Schaffhausen / Neuhausen / Winterthur e hanno accesso diretto a Immopac\n\n• Si lavora a stretto contatto con la proprietà e si può contribuire attivamente la vostra competenza in progetti di costruzione, questioni di diritto di noleggio e tassi di interesse di noleggio\n\n• Sviluppi e controlli il bilancio annuale incl. Previsioni e controlli e contratti creditori\n\n• Si prende cura e consiglia inquilini e proprietari e controllare i gestori delle strutture\n\n• L'utente è responsabile di garantire, eseguire e accompagnare la manutenzione, nonché per le valutazioni periodiche delle condizioni, comprese le segnalazioni\n\n• Effettuare modifiche del contratto di locazione, cambiamenti degli interessi di noleggio e aggiustamenti indicizzati degli interessi di noleggio\n\n• Controllare la politica di noleggio attuale e consigliare i proprietari di casa quando si determinano i tassi di noleggio\n\nRequisiti\n• Hai un giuramento. Gestione immobiliare o formazione adeguata nel settore immobiliare\n\n• Porti diversi anni di esperienza professionale nel settore immobiliare, hanno una vasta esperienza nel diritto di noleggio, così come una buona conoscenza della costruzione\n\n• Lavorate presso la sede di Zurigo e siete circa 1 giorno a settimana nella regione di Schaffhausen / Neuhausen / Winterthur\n\n• La tua lingua madre è tedesca e puoi comunicare idealmente verbalmente e per iscritto in altre lingue\n\n• Lavorate molto in modo indipendente e godetevi la responsabilità\n\n• Hai un alto livello di socialità e di auto-competenza con la capacità di autocontrollo\n\n• Vivi i valori dell'orientamento del cliente, comunichi professionalmente e godi di trattare con le persone\n\n• Si porta un'affinità per la tecnologia, può applicare nuove tecnologie e sono aperti a nuove cose\n\n• Hai abilità di autoapprendimento e ti dà il piacere di trasmettere le tue conoscenze agli altri.\n\nOffriamo:\n• Offerta interna della nostra Livit Academy per corsi di specializzazione e leadership\n\n• Supporto finanziario e/o tempo per la formazione specialistica esterna e l'accesso a piattaforme di apprendimento elettronico per corsi di lingua online\n\n• pianificazione e prospettive di sviluppo della carriera individuale\n\n• Home / Ufficio mobile\n\n• Bonus a seconda del successo aziendale e delle prestazioni personali\n\n• Almeno 5 settimane di vacanza e di acquisto fino a 10 giorni di vacanza aggiuntivi (Ferienflex)\n\n• Prestazioni e premi per l'indennità di malattia e l'assicurazione infortuni sono coperti al 100% da Livit\n\n• 14 giorni di congedo di paternità\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Perché non solo le vostre abilità e la vostra esperienza, ma anche voi come persona sono importanti per noi. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
-        "en": "Are you open-minded, ambitious and value a future-oriented way of working on the pulse of the real estate industry? At Livit, you are committed to the concerns of owners:inside and tenants:in with an exemplary customer orientation and thus contribute significantly to a trusting, long-lasting customer relationship and a positive corporate image. Are you ready to tackle the challenges of today and tomorrow and make a difference in the real estate world? Then you are exactly right with Livit. We look forward to your personal contribution.\n\nTasks:\n• You are fully responsible for managing a portfolio of an exciting investment foundation of mostly residential properties in the Schaffhausen / Neuhausen / Winterthur area and have direct access to Immopac\n\n• You work closely with ownership and you can actively contribute your expertise in construction projects, rental law issues and rental interest rates\n\n• You develop and control the annual budget incl. Forecasts and controls and contracts creditors\n\n• You look after and advise tenants and owners and control the facility managers\n\n• You are responsible for ensuring, executing and accompaniing maintenance as well as for periodic condition assessments including reporting\n\n• You make lease contract changes, rental interest changes, and indexed rental interest adjustments\n\n• You monitor the current rental policy and advise homeowners when determining rental rates\n\nRequirements\n• You have an oath. Real estate management or adequate training in the real estate sector\n\n• You bring several years of professional experience in the real estate industry, have extensive experience in rental law, as well as very good building knowledge\n\n• You work at the headquarters in Zurich and are about 1 day per week in the region Schaffhausen / Neuhausen / Winterthur\n\n• Your mother tongue is German and you can ideally communicate verbally and in writing in other languages\n\n• You work very independently and enjoy taking responsibility\n\n• You have a high level of social and self-competence with the ability to self-control\n\n• You live the values of customer orientation, communicate professionally and enjoy dealing with people\n\n• You bring an affinity for technology, can apply new technologies and are open to new things\n\n• You have self-learning skills and it gives you pleasure to pass on your knowledge to others.\n\nWe offer:\n• Internal offer of our Livit Academy for specialist and leadership courses\n\n• Financial and/or time support for external specialist training and access to electronic learning platforms for online language courses\n\n• individual career planning and development prospects\n\n• Home / Mobile Office\n\n• Bonus depending on company success and personal performance\n\n• At least 5 weeks holiday and purchase of up to 10 additional days holiday (Ferienflex)\n\n• Above-average pension benefits and premiums for medical day allowance and accident insurance are 100% covered by Livit\n\n• 14 days paternity leave\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. Because not only your skills and your experience, but also you as a person are important to us. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
-        "de": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist vollumfänglich verantwortlich für die Bewirtschaftung eines Portefeuilles einer spannenden Anlagestiftung von mehrheitlich Wohnliegenschaften im Raum Schaffhausen / Neuhausen / Winterthur und hast Direktzugriff auf Immopac\n\n• Du arbeitest eng mit der Eigentümerschaft zusammen und du kannst dein Fachwissen bei Bauprojekten, Mietrechtsfragen und bei der Mietzinsgestaltung aktiv einbringen\n\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst und kontierst Kreditoren\n\n• Du betreust und berätst Mieter und Eigentümer und steuerst die Facility Manager\n\n• Du bist zuständig für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inklusive Berichterstattung\n\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n\nAnforderungen:\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder eine adäquate Weiterbildung im Immobilienbereich\n\n• Du bringst mehrjährige Berufserfahrung in der Immobilienbranche mit, hast umfangreiche Erfahrung in Mietrecht, sowie sehr gute Baukenntnisse\n\n• Du arbeitest am Hauptsitz in Zürich und bist ca. 1 Tag pro Woche in der Region Schaffhausen / Neuhausen / Winterthur unterwegs\n\n• Deine Muttersprache ist Deutsch und du kannst idealerweise in weiteren Sprachen mündlich und schriftlich kommunizieren\n\n• Du arbeitest sehr selbstständig und hast Freude daran, Verantwortung zu übernehmen\n\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude am Umgang mit Menschen\n\n• Du bringst eine Affinität zur Technologie mit, kannst neue Technologien anwenden und bist offen für Neues\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
-        "fr": "Êtes-vous ouvert d'esprit, ambitieux et valorisez-vous une façon prospective de travailler sur le pouls de l'industrie immobilière? Chez Livit, vous êtes engagé dans les préoccupations des propriétaires:à l'intérieur et des locataires:avec une orientation client exemplaire et ainsi contribuer significativement à une relation client confiante et durable et une image positive de l'entreprise. Êtes-vous prêt à relever les défis d'aujourd'hui et de demain et à faire une différence dans le monde immobilier? Alors vous avez exactement raison avec Livit. Nous attendons avec impatience votre contribution personnelle.\n\nTâches :\n• Vous êtes pleinement responsable de la gestion d'un portefeuille d'une fondation d'investissement passionnante de propriétés principalement résidentielles dans la région de Schaffhausen / Neuhausen / Winterthur et avez un accès direct à Immopac\n\n• Vous travaillez en étroite collaboration avec la propriété et vous pouvez apporter votre expertise dans les projets de construction, les questions de droit de location et les taux d'intérêt de location\n\n• Vous développez et contrôlez le budget annuel y compris. Prévisions et contrôles et contrats créanciers\n\n• Vous prenez soin et conseillez les locataires et les propriétaires et contrôlez les gestionnaires de l'installation\n\n• Vous êtes responsable de la maintenance, de l'exécution et de l'accompagnement ainsi que des évaluations périodiques des conditions, y compris les rapports\n\n• Vous changez de contrat de location, de loyer et de loyer indexé\n\n• Vous surveillez la politique de location actuelle et conseillez les propriétaires lors de la détermination des tarifs de location\n\nExigences\n• Vous avez un serment. Gestion immobilière ou formation adéquate dans le secteur immobilier\n\n• Vous apportez plusieurs années d'expérience professionnelle dans l'industrie immobilière, ont une vaste expérience dans le droit de location, ainsi que très bonne connaissance de la construction\n\n• Vous travaillez au siège social à Zurich et êtes environ 1 jour par semaine dans la région Schaffhausen / Neuhausen / Winterthur\n\n• Votre langue maternelle est l'allemand et vous pouvez idéalement communiquer verbalement et par écrit dans d'autres langues\n\n• Vous travaillez de manière très indépendante et aimez prendre des responsabilités\n\n• Vous avez un haut niveau de compétence sociale et de maîtrise de soi\n\n• Vous vivez les valeurs de l'orientation client, communiquez professionnellement et aimez traiter avec les gens\n\n• Vous apportez une affinité pour la technologie, pouvez appliquer de nouvelles technologies et sont ouverts à de nouvelles choses\n\n• Vous avez des compétences d'autoapprentissage et cela vous donne le plaisir de transmettre vos connaissances aux autres.\n\nNous offrons:\n• Offre interne de notre Académie de Livit pour les cours de spécialisation et de leadership\n\n• Appui financier et/ou en temps utile à la formation externe de spécialistes et accès aux plates-formes d'apprentissage électronique pour les cours de langues en ligne\n\n• planification des carrières et perspectives de développement\n\n• Accueil / Bureau mobile\n\n• Bonus selon le succès de l'entreprise et les performances personnelles\n\n• Au moins 5 semaines de vacances et achat de jusqu'à 10 jours de vacances supplémentaires (Ferienflex)\n\n• Au-delà de la moyenne, les prestations de retraite et les primes d'assurance maladie et d'assurance accidents sont couvertes à 100 % par la Livit\n\n• 14 jours de congé de paternité\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Parce que non seulement vos compétences et votre expérience, mais aussi vous en tant que personne sont importants pour nous. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.livit.ch/offene-stellen/senior-immobilienbewirtschafter-in/b4ec90e6-719f-4c29-b69d-09811bdebb49",
-      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.666Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8048",
-      "streetAddress": "Altstetterstrasse 124",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Zrich/Senior-Immobilienbewirtschafter-in--Schaffhausen-Neuhausen-Winterthur-_R12220/apply",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-immobilienbewirtschafter-in-livit-zurich",
-        "senior-immobilienbewirtschafter-in-livit-zurich-2",
-        "senior-real-estate-manager-livit-ag-zurich-8dab2d",
-        "senior-property-manager-in-livit-ag-zurich-8dab2d",
-        "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d",
-        "senior-immobilienbewirtschafter-in-livit-zurich-s3oct1",
-        "senior-property-manager-in-livit-ag-zurich",
-        "directeur-immobilier-principal-en-livit-ag-zurich-074430",
-        "senior-real-estate-manager-livit-ag-zurich",
-        "directeur-immobilier-principal-en-livit-ag-zurich",
-        "senior-immobilienbewirtschafter-in-livit-zurich-0a8qdh",
-        "senior-property-manager-in-livit-ag-zurich-0a8qdh",
-        "responsable-senior-gestion-immobiliere-livit-ag-zurich",
-        "senior-immobilienbewirtschafter-in-livit-zurich-ntlg4g"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-immobilienbewirtschafter-in-livit-zurich",
-          "senior-immobilienbewirtschafter-in-livit-zurich-2",
-          "senior-real-estate-manager-livit-ag-zurich-8dab2d",
-          "senior-property-manager-in-livit-ag-zurich-8dab2d",
-          "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d",
-          "senior-immobilienbewirtschafter-in-livit-zurich-s3oct1",
-          "senior-property-manager-in-livit-ag-zurich",
-          "directeur-immobilier-principal-en-livit-ag-zurich-074430",
-          "senior-real-estate-manager-livit-ag-zurich",
-          "directeur-immobilier-principal-en-livit-ag-zurich",
-          "senior-immobilienbewirtschafter-in-livit-zurich-0a8qdh",
-          "senior-property-manager-in-livit-ag-zurich-0a8qdh",
-          "responsable-senior-gestion-immobiliere-livit-ag-zurich",
-          "senior-immobilienbewirtschafter-in-livit-zurich-ntlg4g"
-        ],
-        "en": [
-          "senior-immobilienbewirtschafter-in-livit-zurich-2",
-          "senior-property-manager-in-livit-ag-zurich-8dab2d"
-        ],
-        "fr": [
-          "senior-immobilienbewirtschafter-in-livit-zurich-2",
-          "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d",
-          "directeur-immobilier-principal-en-livit-ag-zurich-074430"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T11:19:00.862Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -911,7 +823,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in-geschaeftsflaechen/1f1d98c9-7605-4d29-a2d0-a9e43d2ea6bc",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.666Z",
+      "crawledAt": "2026-08-12T21:51:27.858Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -930,11 +842,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "immobilienbewirtschafter-in-geschaftsflachen-livit-st-gallen"
+        "immobilienbewirtschafter-in-geschaftsflachen-livit-st-gallen",
+        "proprietario-nei-locali-commerciali-livit-ag-st-gallen-341d11"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-in-geschaftsflachen-livit-st-gallen"
+          "immobilienbewirtschafter-in-geschaftsflachen-livit-st-gallen",
+          "proprietario-nei-locali-commerciali-livit-ag-st-gallen-341d11"
         ],
         "en": [
           "immobilienbewirtschafter-in-geschaftsflachen-livit-st-gallen"
@@ -958,11 +872,120 @@
       }
     },
     {
+      "id": "livit-858d60450097",
+      "slug": "senior-property-manager-in-livit-ag-zurich-a364b1",
+      "slugByLocale": {
+        "it": "senior-property-manager-in-livit-ag-zurich-a364b1",
+        "en": "senior-property-manager-in-livit-ag-zurich-a364b1",
+        "de": "senior-immobilienbewirtschafter-in-livit-zurich",
+        "fr": "directeur-immobilier-principal-en-livit-ag-zurich-a364b1"
+      },
+      "company": "Livit AG",
+      "companyKey": "livit",
+      "companyDomain": "livit.ch",
+      "title": "Senior Immobilienbewirtschafter:in",
+      "titleByLocale": {
+        "it": "Senior property manager:in",
+        "en": "Senior property manager:in",
+        "de": "Senior Immobilienbewirtschafter:in",
+        "fr": "Directeur immobilier principal: en"
+      },
+      "description": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist vollumfänglich verantwortlich für die Bewirtschaftung eines Portefeuilles einer spannenden Anlagestiftung von mehrheitlich Wohnliegenschaften im Raum Schaffhausen / Neuhausen / Winterthur und hast Direktzugriff auf Immopac\n\n• Du arbeitest eng mit der Eigentümerschaft zusammen und du kannst dein Fachwissen bei Bauprojekten, Mietrechtsfragen und bei der Mietzinsgestaltung aktiv einbringen\n\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst und kontierst Kreditoren\n\n• Du betreust und berätst Mieter und Eigentümer und steuerst die Facility Manager\n\n• Du bist zuständig für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inklusive Berichterstattung\n\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n\nAnforderungen:\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder eine adäquate Weiterbildung im Immobilienbereich\n\n• Du bringst mehrjährige Berufserfahrung in der Immobilienbranche mit, hast umfangreiche Erfahrung in Mietrecht, sowie sehr gute Baukenntnisse\n\n• Du arbeitest am Hauptsitz in Zürich und bist ca. 1 Tag pro Woche in der Region Schaffhausen / Neuhausen / Winterthur unterwegs\n\n• Deine Muttersprache ist Deutsch und du kannst idealerweise in weiteren Sprachen mündlich und schriftlich kommunizieren\n\n• Du arbeitest sehr selbstständig und hast Freude daran, Verantwortung zu übernehmen\n\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude am Umgang mit Menschen\n\n• Du bringst eine Affinität zur Technologie mit, kannst neue Technologien anwenden und bist offen für Neues\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
+      "descriptionByLocale": {
+        "it": "Sei aperta, ambiziosa e apprezza un modo di lavorare orientato al futuro sul polso dell'industria immobiliare? A Livit, vi impegnate per le preoccupazioni dei proprietari: interni e inquilini:in con un'esemplare orientamento del cliente e quindi contribuire in modo significativo ad un fidato, rapporto cliente di lunga durata e un'immagine aziendale positiva. Sei pronto ad affrontare le sfide di oggi e di domani e fare la differenza nel mondo immobiliare? Allora hai proprio ragione con Livit. Attendiamo con ansia il vostro contributo personale.\n\nCompiti:\n• Sei pienamente responsabile della gestione di un portafoglio di un'emozionante fondazione di investimento di proprietà prevalentemente residenziali nella zona di Schaffhausen / Neuhausen / Winterthur e hanno accesso diretto a Immopac\n\n• Si lavora a stretto contatto con la proprietà e si può contribuire attivamente la vostra competenza in progetti di costruzione, questioni di diritto di noleggio e tassi di interesse di noleggio\n\n• Sviluppi e controlli il bilancio annuale incl. Previsioni e controlli e contratti creditori\n\n• Si prende cura e consiglia inquilini e proprietari e controllare i gestori delle strutture\n\n• L'utente è responsabile di garantire, eseguire e accompagnare la manutenzione, nonché per le valutazioni periodiche delle condizioni, comprese le segnalazioni\n\n• Effettuare modifiche del contratto di locazione, cambiamenti degli interessi di noleggio e aggiustamenti indicizzati degli interessi di noleggio\n\n• Controllare la politica di noleggio attuale e consigliare i proprietari di casa quando si determinano i tassi di noleggio\n\nRequisiti\n• Hai un giuramento. Gestione immobiliare o formazione adeguata nel settore immobiliare\n\n• Porti diversi anni di esperienza professionale nel settore immobiliare, hanno una vasta esperienza nel diritto di noleggio, così come una buona conoscenza della costruzione\n\n• Lavorate presso la sede di Zurigo e siete circa 1 giorno a settimana nella regione di Schaffhausen / Neuhausen / Winterthur\n\n• La tua lingua madre è tedesca e puoi comunicare idealmente verbalmente e per iscritto in altre lingue\n\n• Lavorate molto in modo indipendente e godetevi la responsabilità\n\n• Hai un alto livello di socialità e di auto-competenza con la capacità di autocontrollo\n\n• Vivi i valori dell'orientamento del cliente, comunichi professionalmente e godi di trattare con le persone\n\n• Si porta un'affinità per la tecnologia, può applicare nuove tecnologie e sono aperti a nuove cose\n\n• Hai abilità di autoapprendimento e ti dà il piacere di trasmettere le tue conoscenze agli altri.\n\nOffriamo:\n• Offerta interna della nostra Livit Academy per corsi di specializzazione e leadership\n\n• Supporto finanziario e/o tempo per la formazione specialistica esterna e l'accesso a piattaforme di apprendimento elettronico per corsi di lingua online\n\n• pianificazione e prospettive di sviluppo della carriera individuale\n\n• Home / Ufficio mobile\n\n• Bonus a seconda del successo aziendale e delle prestazioni personali\n\n• Almeno 5 settimane di vacanza e di acquisto fino a 10 giorni di vacanza aggiuntivi (Ferienflex)\n\n• Prestazioni e premi per l'indennità di malattia e l'assicurazione infortuni sono coperti al 100% da Livit\n\n• 14 giorni di congedo di paternità\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Perché non solo le vostre abilità e la vostra esperienza, ma anche voi come persona sono importanti per noi. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
+        "en": "Are you open-minded, ambitious and value a future-oriented way of working on the pulse of the real estate industry? At Livit, you are committed to the concerns of owners:inside and tenants:in with an exemplary customer orientation and thus contribute significantly to a trusting, long-lasting customer relationship and a positive corporate image. Are you ready to tackle the challenges of today and tomorrow and make a difference in the real estate world? Then you are exactly right with Livit. We look forward to your personal contribution.\n\nTasks:\n• You are fully responsible for managing a portfolio of an exciting investment foundation of mostly residential properties in the Schaffhausen / Neuhausen / Winterthur area and have direct access to Immopac\n\n• You work closely with ownership and you can actively contribute your expertise in construction projects, rental law issues and rental interest rates\n\n• You develop and control the annual budget incl. Forecasts and controls and contracts creditors\n\n• You look after and advise tenants and owners and control the facility managers\n\n• You are responsible for ensuring, executing and accompaniing maintenance as well as for periodic condition assessments including reporting\n\n• You make lease contract changes, rental interest changes, and indexed rental interest adjustments\n\n• You monitor the current rental policy and advise homeowners when determining rental rates\n\nRequirements\n• You have an oath. Real estate management or adequate training in the real estate sector\n\n• You bring several years of professional experience in the real estate industry, have extensive experience in rental law, as well as very good building knowledge\n\n• You work at the headquarters in Zurich and are about 1 day per week in the region Schaffhausen / Neuhausen / Winterthur\n\n• Your mother tongue is German and you can ideally communicate verbally and in writing in other languages\n\n• You work very independently and enjoy taking responsibility\n\n• You have a high level of social and self-competence with the ability to self-control\n\n• You live the values of customer orientation, communicate professionally and enjoy dealing with people\n\n• You bring an affinity for technology, can apply new technologies and are open to new things\n\n• You have self-learning skills and it gives you pleasure to pass on your knowledge to others.\n\nWe offer:\n• Internal offer of our Livit Academy for specialist and leadership courses\n\n• Financial and/or time support for external specialist training and access to electronic learning platforms for online language courses\n\n• individual career planning and development prospects\n\n• Home / Mobile Office\n\n• Bonus depending on company success and personal performance\n\n• At least 5 weeks holiday and purchase of up to 10 additional days holiday (Ferienflex)\n\n• Above-average pension benefits and premiums for medical day allowance and accident insurance are 100% covered by Livit\n\n• 14 days paternity leave\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. Because not only your skills and your experience, but also you as a person are important to us. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
+        "de": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Bei Livit setzt du dich mit einer vorbildlichen Kundenorientierung für die Anliegen von Eigentümer:innen und Mieter:innen ein und trägst so massgeblich zu einer vertrauensvollen, langlebigen Kundenbeziehung und einem positiven Unternehmensimage bei. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist vollumfänglich verantwortlich für die Bewirtschaftung eines Portefeuilles einer spannenden Anlagestiftung von mehrheitlich Wohnliegenschaften im Raum Schaffhausen / Neuhausen / Winterthur und hast Direktzugriff auf Immopac\n\n• Du arbeitest eng mit der Eigentümerschaft zusammen und du kannst dein Fachwissen bei Bauprojekten, Mietrechtsfragen und bei der Mietzinsgestaltung aktiv einbringen\n\n• Du erarbeitest und steuerst das Jahresbudget inkl. Prognosen und kontrollierst und kontierst Kreditoren\n\n• Du betreust und berätst Mieter und Eigentümer und steuerst die Facility Manager\n\n• Du bist zuständig für die Sicherstellung, Ausführung und Begleitung des Unterhalts sowie für periodische Zustandsbeurteilungen inklusive Berichterstattung\n\n• Du führst Mietvertragsänderungen, Mietzinsänderungen sowie indexierte Mietzinsanpassungen durch\n\n• Du überwachst die aktuelle Mietzinspolitik und berätst Hauseigentümer bei der Festlegung der Mietzinsgestaltung\n\nAnforderungen:\n• Du verfügst über einen Eidg. Fachausweis Immobilienbewirtschaftung oder eine adäquate Weiterbildung im Immobilienbereich\n\n• Du bringst mehrjährige Berufserfahrung in der Immobilienbranche mit, hast umfangreiche Erfahrung in Mietrecht, sowie sehr gute Baukenntnisse\n\n• Du arbeitest am Hauptsitz in Zürich und bist ca. 1 Tag pro Woche in der Region Schaffhausen / Neuhausen / Winterthur unterwegs\n\n• Deine Muttersprache ist Deutsch und du kannst idealerweise in weiteren Sprachen mündlich und schriftlich kommunizieren\n\n• Du arbeitest sehr selbstständig und hast Freude daran, Verantwortung zu übernehmen\n\n• Du verfügst über eine hohe Sozial- und Selbstkompetenz mit der Fähigkeit der Selbststeuerung\n\n• Du lebst die Werte der Kundenorientierung, kommunizierst professionell und hast Freude am Umgang mit Menschen\n\n• Du bringst eine Affinität zur Technologie mit, kannst neue Technologien anwenden und bist offen für Neues\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
+        "fr": "Êtes-vous ouvert d'esprit, ambitieux et valorisez-vous une façon prospective de travailler sur le pouls de l'industrie immobilière? Chez Livit, vous êtes engagé dans les préoccupations des propriétaires:à l'intérieur et des locataires:avec une orientation client exemplaire et ainsi contribuer significativement à une relation client confiante et durable et une image positive de l'entreprise. Êtes-vous prêt à relever les défis d'aujourd'hui et de demain et à faire une différence dans le monde immobilier? Alors vous avez exactement raison avec Livit. Nous attendons avec impatience votre contribution personnelle.\n\nTâches :\n• Vous êtes pleinement responsable de la gestion d'un portefeuille d'une fondation d'investissement passionnante de propriétés principalement résidentielles dans la région de Schaffhausen / Neuhausen / Winterthur et avez un accès direct à Immopac\n\n• Vous travaillez en étroite collaboration avec la propriété et vous pouvez apporter votre expertise dans les projets de construction, les questions de droit de location et les taux d'intérêt de location\n\n• Vous développez et contrôlez le budget annuel y compris. Prévisions et contrôles et contrats créanciers\n\n• Vous prenez soin et conseillez les locataires et les propriétaires et contrôlez les gestionnaires de l'installation\n\n• Vous êtes responsable de la maintenance, de l'exécution et de l'accompagnement ainsi que des évaluations périodiques des conditions, y compris les rapports\n\n• Vous changez de contrat de location, de loyer et de loyer indexé\n\n• Vous surveillez la politique de location actuelle et conseillez les propriétaires lors de la détermination des tarifs de location\n\nExigences\n• Vous avez un serment. Gestion immobilière ou formation adéquate dans le secteur immobilier\n\n• Vous apportez plusieurs années d'expérience professionnelle dans l'industrie immobilière, ont une vaste expérience dans le droit de location, ainsi que très bonne connaissance de la construction\n\n• Vous travaillez au siège social à Zurich et êtes environ 1 jour par semaine dans la région Schaffhausen / Neuhausen / Winterthur\n\n• Votre langue maternelle est l'allemand et vous pouvez idéalement communiquer verbalement et par écrit dans d'autres langues\n\n• Vous travaillez de manière très indépendante et aimez prendre des responsabilités\n\n• Vous avez un haut niveau de compétence sociale et de maîtrise de soi\n\n• Vous vivez les valeurs de l'orientation client, communiquez professionnellement et aimez traiter avec les gens\n\n• Vous apportez une affinité pour la technologie, pouvez appliquer de nouvelles technologies et sont ouverts à de nouvelles choses\n\n• Vous avez des compétences d'autoapprentissage et cela vous donne le plaisir de transmettre vos connaissances aux autres.\n\nNous offrons:\n• Offre interne de notre Académie de Livit pour les cours de spécialisation et de leadership\n\n• Appui financier et/ou en temps utile à la formation externe de spécialistes et accès aux plates-formes d'apprentissage électronique pour les cours de langues en ligne\n\n• planification des carrières et perspectives de développement\n\n• Accueil / Bureau mobile\n\n• Bonus selon le succès de l'entreprise et les performances personnelles\n\n• Au moins 5 semaines de vacances et achat de jusqu'à 10 jours de vacances supplémentaires (Ferienflex)\n\n• Au-delà de la moyenne, les prestations de retraite et les primes d'assurance maladie et d'assurance accidents sont couvertes à 100 % par la Livit\n\n• 14 jours de congé de paternité\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Parce que non seulement vos compétences et votre expérience, mais aussi vous en tant que personne sont importants pour nous. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.livit.ch/offene-stellen/senior-immobilienbewirtschafter-in/b4ec90e6-719f-4c29-b69d-09811bdebb49",
+      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T21:51:27.857Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8048",
+      "streetAddress": "Altstetterstrasse 124",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Zrich/Senior-Immobilienbewirtschafter-in--Schaffhausen-Neuhausen-Winterthur-_R12220/apply",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-immobilienbewirtschafter-in-livit-zurich",
+        "senior-immobilienbewirtschafter-in-livit-zurich-2",
+        "senior-real-estate-manager-livit-ag-zurich-8dab2d",
+        "senior-property-manager-in-livit-ag-zurich-8dab2d",
+        "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d",
+        "senior-immobilienbewirtschafter-in-livit-zurich-s3oct1",
+        "senior-property-manager-in-livit-ag-zurich",
+        "directeur-immobilier-principal-en-livit-ag-zurich-074430",
+        "senior-real-estate-manager-livit-ag-zurich",
+        "directeur-immobilier-principal-en-livit-ag-zurich",
+        "senior-immobilienbewirtschafter-in-livit-zurich-0a8qdh",
+        "senior-property-manager-in-livit-ag-zurich-0a8qdh",
+        "responsable-senior-gestion-immobiliere-livit-ag-zurich",
+        "senior-immobilienbewirtschafter-in-livit-zurich-ntlg4g",
+        "senior-property-manager-in-livit-ag-zurich-a364b1"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-immobilienbewirtschafter-in-livit-zurich",
+          "senior-immobilienbewirtschafter-in-livit-zurich-2",
+          "senior-real-estate-manager-livit-ag-zurich-8dab2d",
+          "senior-property-manager-in-livit-ag-zurich-8dab2d",
+          "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d",
+          "senior-immobilienbewirtschafter-in-livit-zurich-s3oct1",
+          "senior-property-manager-in-livit-ag-zurich",
+          "directeur-immobilier-principal-en-livit-ag-zurich-074430",
+          "senior-real-estate-manager-livit-ag-zurich",
+          "directeur-immobilier-principal-en-livit-ag-zurich",
+          "senior-immobilienbewirtschafter-in-livit-zurich-0a8qdh",
+          "senior-property-manager-in-livit-ag-zurich-0a8qdh",
+          "responsable-senior-gestion-immobiliere-livit-ag-zurich",
+          "senior-immobilienbewirtschafter-in-livit-zurich-ntlg4g",
+          "senior-property-manager-in-livit-ag-zurich-a364b1"
+        ],
+        "en": [
+          "senior-immobilienbewirtschafter-in-livit-zurich-2",
+          "senior-property-manager-in-livit-ag-zurich-8dab2d"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-in-livit-zurich-2",
+          "directeur-immobilier-principal-en-livit-ag-zurich-8dab2d",
+          "directeur-immobilier-principal-en-livit-ag-zurich-074430"
+        ]
+      },
+      "firstSeenAt": "2026-07-30T11:19:00.862Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "livit-2fb099428b20",
       "slug": "contabilita-immobiliare-livit-ag-lausanne",
       "slugByLocale": {
         "it": "contabilita-immobiliare-livit-ag-lausanne",
-        "en": "real-estate-accountant-livit-ag-lausanne",
+        "en": "comptable-immobilier-livit-ag-lausanne",
         "de": "immobilienbuchhalter-livit-ag-lausanne",
         "fr": "comptable-immobilier-livit-lausanne"
       },
@@ -972,7 +995,7 @@
       "title": "Comptable Immobilier",
       "titleByLocale": {
         "it": "Contabilità immobiliare",
-        "en": "Real Estate Accountant",
+        "en": "Comptable Immobilier",
         "de": "Immobilienbuchhalter",
         "fr": "Comptable Immobilier"
       },
@@ -983,12 +1006,13 @@
         "de": "Sie sind aufgeschlossen, haben Ehrgeiz und nutzen eine zukunftsweisende und wegweisende Arbeitsweise im Immobilienbereich ist Ihnen wichtig? Durch Ihr Engagement können wir uns den Herausforderungen von heute und morgen gemeinsam stellen. Sie möchten teilnehmen und Dinge bewegen? Sie sind bei Livit's am richtigen Ort. Wir freuen uns auf Ihren persönlichen Beitrag.\n\nAufgaben:\n• Rechnungslegungsaufsicht über eine oder mehrere Stewardship-Gruppen\n\n• Erstellung von Zwischen- und Jahresabschlüssen (Bilanzen und Gewinn- und Verlustrechnungen) für Gebäude und Eigentümer\n\n• Verwaltung und Kontrolle der Nebenkosten\n\n• Ausführung von Extouren, Übergangsbuchungen in Bilanzen, Gewinn- und Verlustrechnungen, Belastungskorrekturen, in Absprache mit den Managern\n\n• Unterstützung und Beratung von Führungskräften bei der Ankunft neuer Mandate, einschließlich der Eingabe der Eröffnungsbilanz\n\n• Erstellung von Berichten für Eigentümer\n\n• Angleichung der EPS- und Verbindungskonten und der Finanzbuchhaltung\n\nAnforderungen:\n• SWC\n\n• Weiterbildung von SVIT-Spezialisten für Immobilienbuchhaltung, Treuhänder oder gleichwertige Berufserfahrung\n\n• Mehrjährige Berufserfahrung in Buchhaltung/Finanzierung/Schließung, vorzugsweise in der Immobilienbuchhaltung\n\n• Kenntnisse des Leasingrechts\n\n• Erfahrung in der Erstellung von Bilanzen/Verlust- und Gewinnrechnungen\n\n• Bedeutung von Zahlen, Affinität für einen digitalen Arbeitsmodus und Offenheit für Veränderungen\n\n• Wissen über G-REM und seine gewünschte Umgebung\n\n• Französische Muttersprache, Deutschkenntnisse sind ein Gewinn\n\n• Professionalität, Zuverlässigkeit, Teamgeist und gute Stressresistenz\n\n• Selbstständigkeitsmodus, genau, zuverlässig und ergebnisorientiert\n\nWir bieten:\n• Internes Angebot von Fachkursen und Managementkursen in unserer Livit Academy\n\n• Finanzielle Unterstützung und/oder Arbeitszeitregelungen für spezialisierte Ausbildungsmaßnahmen\nund Zugang zu E-Learning-Plattformen für Sprachkurse in\nLinie\n• Individueller Karriereplan und Entwicklungsperspektiven\n\n• Home-/Mobile Office\n\n• Bonus basierend auf Unternehmensleistung und persönlicher Leistung\n\n• 5 Wochen Urlaub Minimum und die Möglichkeit, bis zu 10 Tage Urlaub zu kaufen\n(Ferianflex)\n• Überdurchschnittliche Rentenleistungen: Versicherungsprämienzulagen\nDie Unfallversicherung ist vollständig von Livit abgedeckt.\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und verpflichten uns enthusiastisch, den Wert der Gebäude unserer Kunden zu erhalten.\n\nWenn Sie bei Livit arbeiten, sind Sie Teil der Familie Livit. Wir mögen dich für das, was du bist und was du tust. In der Tat sind Ihre Fähigkeiten und Erfahrungen entscheidend, aber auch die Person, die Sie zählen. Sie entwickeln sich in unserem angenehmen Arbeitsumfeld, in dem Sie gedeihen können. Dies liegt einerseits an der Vielfalt unserer Berufsbilder und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens und andererseits an seiner unvergleichlichen Unternehmenskultur, die in der Immobilienwelt noch unübertroffen ist.",
         "fr": "Tu es ouvert/e d'esprit, tu as de l'ambition et utiliser une méthode de travail tournée vers l'avenir et à la pointe du secteur immobilier est important pour toi? Grâce à ton engagement, nous pourrons relever ensemble les défis d'aujourd'hui et de demain. Tu veux participer et faire bouger les choses? Tu es au bon endroit chez Livit. Nous nous réjouissons de ta contribution personnelle.\n\nAufgaben:\n• Encadrement comptable d'un ou de plusieurs groupes de gérance\n\n• Etablissement des décomptes intermédiaires et annuels (bilans et comptes de pertes et profits) pour les immeubles et les propriétaires\n\n• Gestion et contrôle des décomptes de frais accessoires\n\n• Exécution des extournes, des écritures transitoires dans les bilans, des comptes de pertes et profits, des corrections de mise en débit, en concertation avec les gérants\n\n• Soutien et conseils aux gérants lors de l'arrivée de nouveaux mandats, comprenant la saisie du bilan d'ouverture\n\n• Etablissement de reportings pour les propriétaires\n\n• Egalisation des comptes EPS et des comptes de liaison ainsi que de la comptabilité financière\n\nAnforderungen:\n• CFC d'employé/e de commerce\n\n• Formation complémentaire de spécialiste en comptabilité immobilière SVIT, de fiduciaire ou expérience professionnelle équivalente\n\n• Expérience professionnelle de plusieurs années dans le domaine de la comptabilité/finances/bouclements, de préférence en comptabilité immobilière\n\n• Connaissances du droit du bail\n\n• Expérience dans l'établissement de bilans/comptes de pertes et profits\n\n• Sens des chiffres, affinité pour un mode de travail digital et ouverture au changement\n\n• Connaissance de G-REM et son environnement souhaité\n\n• Langue maternelle française, connaissances de l'allemand sont un atout\n\n• Professionnalisme, fiabilité, esprit d'équipe et bonne résistance au stress\n\n• Mode travail indépendant, précis, fiable et orienté résultats\n\nWir bieten:\n• Offre interne de cours spécialisés et cours de direction dans notre Académie Livit\n\n• Soutien financier et/ou aménagement du temps de travail pour les formations spécialisées\nexternes et accès à des plateformes d'apprentissage électroniques pour cours de langues en\nligne\n• Plan de carrière individuel et des perspectives d'évolution\n\n• Home- / Mobile Office\n\n• Bonus en fonction du résultat de l'entreprise et de la performance personnelle\n\n• 5 semaines de vacances au minimum et la possibilité d'acheter jusqu'à 10 jours de vacances\nsupplémentaires (Ferienflex)\n• Prestations de prévoyance supérieures à la moyenne : Les primes d'assurance indemnités\njournalières et d'assurance-accidents sont intégralement prises en charge par Livit.\n• 14 jours de congé paternité\n\nNous aimons l'immobilier et nous engageons avec enthousiasme à maintenir la valeur des immeubles de nos clients.\n\nSi tu travailles chez Livit, tu fais partie de la famille Livit. On t'apprécie pour ce que tu es et ce que tu fais. En effet, tes compétences et ton expérience sont certes déterminantes, mais la personne que tu es compte également. Tu évolues dans notre environnement de travail agréable, dans lequel tu peux t'épanouir. Cela est dû d'une part à la diversité de nos profils de poste et aux possibilités d'évolution au sein de notre établissement, et d'autre part à sa culture d'entreprise incomparable, encore inégalée dans le monde de l'immobilier."
       },
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.livit.ch/postes-vacantes/comptable-immobilier/c7fdd9d1-fa43-4dce-997f-d13d4e0ce805",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:17:22.665Z",
+      "crawledAt": "2026-08-12T21:51:27.856Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1011,7 +1035,8 @@
         "real-estate-accountant-livit-ag-lausanne",
         "immobilienbuchhalter-livit-ag-lausanne",
         "comptable-immobilier-livit-ag-lausanne",
-        "comptable-immobilier-livit-lausanne"
+        "comptable-immobilier-livit-lausanne",
+        "contabilita-immobiliare-livit-ag-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1019,10 +1044,12 @@
           "real-estate-accountant-livit-ag-lausanne",
           "immobilienbuchhalter-livit-ag-lausanne",
           "comptable-immobilier-livit-ag-lausanne",
-          "comptable-immobilier-livit-lausanne"
+          "comptable-immobilier-livit-lausanne",
+          "contabilita-immobiliare-livit-ag-lausanne"
         ],
         "en": [
           "comptable-immobilier-livit-lausanne",
+          "real-estate-accountant-livit-ag-lausanne",
           "comptable-immobilier-livit-ag-lausanne"
         ],
         "de": [
@@ -1075,7 +1102,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/8824858c-48c5-47a0-9f3b-812ee2e342af",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.664Z",
+      "crawledAt": "2026-08-12T21:51:27.855Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1097,14 +1124,16 @@
         "gestore-immobiliare-livit-ag-zurich",
         "property-manager-in-livit-ag-zurich",
         "gestionnaire-immobilier-in-livit-ag-zurich",
-        "immobilienbewirtschafter-in-livit-zurich"
+        "immobilienbewirtschafter-in-livit-zurich",
+        "responsabile-della-proprieta-in-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestore-immobiliare-livit-ag-zurich",
           "property-manager-in-livit-ag-zurich",
           "gestionnaire-immobilier-in-livit-ag-zurich",
-          "immobilienbewirtschafter-in-livit-zurich"
+          "immobilienbewirtschafter-in-livit-zurich",
+          "responsabile-della-proprieta-in-livit-ag-zurich"
         ],
         "en": [
           "immobilienbewirtschafter-in-livit-zurich"
@@ -1123,85 +1152,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "livit-22c9fa663a5d",
-      "slug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
-      "slugByLocale": {
-        "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
-        "en": "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
-        "de": "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
-        "fr": "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
-      },
-      "company": "Livit AG",
-      "companyKey": "livit",
-      "companyDomain": "livit.ch",
-      "title": "Kaufmann/-frau EFZ Immobilien (August 2027)",
-      "titleByLocale": {
-        "it": "Kaufmann/-frau CFC Immobilien (August 2027)",
-        "en": "Kaufmann/Mrs EFZ Immobilien (August 2027)",
-        "de": "Kaufmann/-frau EFZ Immobilien (August 2027)",
-        "fr": "Kaufmann/Mme EFZ Immobilien (août 2027)"
-      },
-      "description": "Bist du aufgeschlossen, motiviert und suchst einen modernen Ausbildungsbetrieb am Puls der Zeit? Livit bietet dir genau das. Unsere Lernenden sind ein wichtiger Teil der Livit-Family. Als Lernende/r arbeitest du in einem Team und engagierst dich zusammen mit deiner Betreuungsperson dafür, dass die Immobilien unserer Kunden sowie deren Mieter in guten Händen sind. Die Aufgaben bei Livit sind vielfältig und abwechslungsreich. Im Rahmen verschiedener Abteilungseinsätze während deiner Ausbildung, erwarten dich folgende Aufgaben:\n\nAufgaben:\n• Du unterstützt deine Betreuungsperson bei der Vermietung von Wohnungen sowie dem Erstellen von Mietverträgen und Inseraten\n\n• Du hast regen telefonischen Kontakt mit Mietinteressenten, Mietern, Handwerkern, etc.\n\n• Du bearbeitest verschiedensten Kundenanliegen\n\n• Du hilfst bei der Vorbereitung und Durchführung von Wohnungsabnahmen/-übergaben mit\n\n• Du erhältst einen umfassenden Einblick in die Immobilienbuchhaltung\n\n• Du erstellst diverse Korrespondenz und erledigst allgemeine administrative Aufgaben\n\nAnforderungen:\n• Du hast die Sekundarstufe I mit guten bis sehr guten Leistungen abgeschlossen\n\n• Du verfügst über gute Umgangsformen und drückst dich mündlich wie schriftlich gewandt in der deutschen Sprache aus\n\n• Du interessierst dich für die betriebswirtschaftlichen Abläufe und Zusammenhänge in der Branche Immobilien/Treuhand\n\n• Du hast Freude am Umgang mit Menschen, bist kommunikativ und arbeitest gerne im Team\n\n• Du lernst einfach und schnell, und arbeitest zuverlässig\n\n• Du bist ein Organisationstalent und übernimmst gerne Verantwortung\n\n• Du bist neugierig und offen gegenüber Veränderungen\n\n• Du hast Freude, neue Technologien und digitale Tools anzuwenden\n\nWir bieten:\n• Eine vielseitige, herausfordernde und interessante Ausbildung\n\n• Eine Betreuungsperson begleitet dich während der gesamten Ausbildungszeit\n\n• Einen persönlichen Ausbildungs- und Einsatzplan mit Einblicken in verschiedene Abteilungen\n\n• Interne Einstiegsmöglichkeiten sowie Entwicklungs-/Weiterbildungsmöglichkeiten im Anschluss an die Ausbildung\n\n• Finanzielle Belohnung für gute Schulnoten\n\n• Vergünstigter Bezug von SBB-Gutschein oder Vergünstigung auf den ZVV-BonusPass\n\n• 6 Wochen Ferien\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
-      "descriptionByLocale": {
-        "it": "Sei aperta, motivata e alla ricerca di una moderna società di formazione sul polso dei tempi? Livit ti offre solo questo. I nostri studenti sono una parte importante della famiglia Livit. Come studente, si lavora in una squadra e lavorare con il vostro caregiver per garantire che le proprietà dei nostri clienti e i loro inquilini sono in buone mani. I compiti di Livit sono varie e varie. Come parte di vari incarichi di reparto durante la vostra formazione, i seguenti compiti vi aspettano:\n\nCompiti:\n• Sostiene il vostro caregiver in affitto appartamenti così come la stesura di contratti di noleggio e elenchi\n\n• Avete contatto telefonico con pioggia con inquilini, inquilini, artigiani, ecc.\n\n• Si tratta di diverse preoccupazioni dei clienti\n\n• Si aiuta con la preparazione e l'attuazione di accettazioni appartamento / trasferimenti\n\n• Si ottiene una panoramica completa della contabilità immobiliare\n\n• Si creano varie corrispondenza e compiti amministrativi generali completi\n\nRequisiti\n• Hai completato la scuola secondaria I con buone prestazioni\n\n• Avete buone maniere ed esprimetevi verbalmente come scritto nella lingua tedesca\n\n• Sei interessato ai processi aziendali e alle relazioni nel settore immobiliare/trust\n\n• Ti piace trattare con le persone, sono comunicativi e godere di lavorare in una squadra\n\n• Si impara facilmente e rapidamente, e lavorare in modo affidabile\n\n• Sei un talento organizzativo e ti piace assumerti la responsabilità\n\n• Siete curiosi e aperti al cambiamento\n\n• Ti piace applicare nuove tecnologie e strumenti digitali\n\nOffriamo:\n• Una formazione versatile, impegnativa e interessante\n\n• Un caregiver ti accompagna durante il periodo di allenamento\n\n• Un piano di formazione e distribuzione personale con approfondimenti in vari dipartimenti\n\n• Possibilità di ingresso interno e opportunità di sviluppo/formazione a seguito della formazione\n\n• Ricompenso finanziario per buoni voti scolastici\n\n• Acquisto scontato del buono SBB o sconto sul ZVV BonusPass\n\n• 6 settimane di vacanza\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
-        "en": "Are you open-minded, motivated and looking for a modern training company on the pulse of the times? Livit offers you just that. Our learners are an important part of the Livit family. As a learner, you work in a team and work with your caregiver to ensure that our clients’ properties and their tenants are in good hands. The tasks at Livit are varied and varied. As part of various department assignments during your training, the following tasks await you:\n\nTasks:\n• You support your caregiver in renting apartments as well as drawing up rental contracts and listings\n\n• You have rain telephone contact with tenants, tenants, craftsmen, etc.\n\n• You deal with various customer concerns\n\n• You help with the preparation and implementation of apartment acceptances / transfers\n\n• You get a comprehensive insight into real estate accounting\n\n• You create various correspondence and complete general administrative tasks\n\nRequirements\n• You have completed secondary school I with good to very good performance\n\n• You have good manners and express yourself verbally as written in the German language\n\n• You are interested in business processes and relationships in the real estate/trust industry\n\n• You enjoy dealing with people, are communicative and enjoy working in a team\n\n• You learn easily and quickly, and work reliably\n\n• You are an organizational talent and like to take on responsibility\n\n• You are curious and open to change\n\n• You enjoy applying new technologies and digital tools\n\nWe offer:\n• A versatile, challenging and interesting education\n\n• A caregiver accompanies you throughout the training period\n\n• A personal training and deployment plan with insights into various departments\n\n• Internal entry opportunities as well as development/training opportunities following training\n\n• Financial reward for good school grades\n\n• Discounted purchase of SBB voucher or discount on the ZVV BonusPass\n\n• 6 weeks holiday\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
-        "de": "Bist du aufgeschlossen, motiviert und suchst einen modernen Ausbildungsbetrieb am Puls der Zeit? Livit bietet dir genau das. Unsere Lernenden sind ein wichtiger Teil der Livit-Family. Als Lernende/r arbeitest du in einem Team und engagierst dich zusammen mit deiner Betreuungsperson dafür, dass die Immobilien unserer Kunden sowie deren Mieter in guten Händen sind. Die Aufgaben bei Livit sind vielfältig und abwechslungsreich. Im Rahmen verschiedener Abteilungseinsätze während deiner Ausbildung, erwarten dich folgende Aufgaben:\n\nAufgaben:\n• Du unterstützt deine Betreuungsperson bei der Vermietung von Wohnungen sowie dem Erstellen von Mietverträgen und Inseraten\n\n• Du hast regen telefonischen Kontakt mit Mietinteressenten, Mietern, Handwerkern, etc.\n\n• Du bearbeitest verschiedensten Kundenanliegen\n\n• Du hilfst bei der Vorbereitung und Durchführung von Wohnungsabnahmen/-übergaben mit\n\n• Du erhältst einen umfassenden Einblick in die Immobilienbuchhaltung\n\n• Du erstellst diverse Korrespondenz und erledigst allgemeine administrative Aufgaben\n\nAnforderungen:\n• Du hast die Sekundarstufe I mit guten bis sehr guten Leistungen abgeschlossen\n\n• Du verfügst über gute Umgangsformen und drückst dich mündlich wie schriftlich gewandt in der deutschen Sprache aus\n\n• Du interessierst dich für die betriebswirtschaftlichen Abläufe und Zusammenhänge in der Branche Immobilien/Treuhand\n\n• Du hast Freude am Umgang mit Menschen, bist kommunikativ und arbeitest gerne im Team\n\n• Du lernst einfach und schnell, und arbeitest zuverlässig\n\n• Du bist ein Organisationstalent und übernimmst gerne Verantwortung\n\n• Du bist neugierig und offen gegenüber Veränderungen\n\n• Du hast Freude, neue Technologien und digitale Tools anzuwenden\n\nWir bieten:\n• Eine vielseitige, herausfordernde und interessante Ausbildung\n\n• Eine Betreuungsperson begleitet dich während der gesamten Ausbildungszeit\n\n• Einen persönlichen Ausbildungs- und Einsatzplan mit Einblicken in verschiedene Abteilungen\n\n• Interne Einstiegsmöglichkeiten sowie Entwicklungs-/Weiterbildungsmöglichkeiten im Anschluss an die Ausbildung\n\n• Finanzielle Belohnung für gute Schulnoten\n\n• Vergünstigter Bezug von SBB-Gutschein oder Vergünstigung auf den ZVV-BonusPass\n\n• 6 Wochen Ferien\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
-        "fr": "Êtes-vous ouvert d'esprit, motivé et à la recherche d'une entreprise de formation moderne sur le pouls de l'époque? Livit vous offre juste ça. Nos apprenants sont une partie importante de la famille Livit. En tant qu'apprenant, vous travaillez en équipe et travaillez avec votre soignant pour vous assurer que nos clients et leurs locataires sont entre de bonnes mains. Les tâches chez Livit sont variées et variées. Dans le cadre de diverses missions de service durant votre formation, les tâches suivantes vous attendent :\n\nTâches :\n• Vous aidez votre soignant à louer des appartements ainsi qu'à rédiger des contrats de location et des listes\n\n• Vous avez un contact téléphonique avec les locataires, locataires, artisans, etc.\n\n• Vous traitez avec des préoccupations diverses des clients\n\n• Vous aidez à la préparation et à la mise en œuvre des réceptions / transferts d'appartements\n\n• Vous obtenez un aperçu complet de la comptabilité immobilière\n\n• Vous créez diverses correspondances et accomplissez des tâches administratives générales\n\nExigences\n• Vous avez terminé l'école secondaire I avec de bonnes performances\n\n• Vous avez de bonnes manières et vous exprimez verbalement comme écrit en langue allemande\n\n• Vous êtes intéressé par les processus d'affaires et les relations dans l'industrie immobilière/trust\n\n• Vous aimez traiter avec les gens, êtes communicatif et aimez travailler en équipe\n\n• Vous apprenez facilement et rapidement, et travaillez de façon fiable\n\n• Vous êtes un talent organisationnel et vous aimez prendre des responsabilités\n\n• Vous êtes curieux et ouvert au changement\n\n• Vous aimez appliquer les nouvelles technologies et les outils numériques\n\nNous offrons:\n• Une éducation polyvalente, stimulante et intéressante\n\n• Un soignant vous accompagne pendant toute la période de formation\n\n• Un plan de formation et de déploiement personnel avec un aperçu des divers ministères\n\n• Possibilités d'entrée à l'interne ainsi que possibilités de développement/formation après la formation\n\n• Récompense financière pour les bonnes notes scolaires\n\n• Achat réduit de bon CFF ou réduction sur le BonusPass ZVV\n\n• 6 semaines de vacances\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
-      },
-      "needsRetranslation": true,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/9ec0069a-7ed9-4923-92d6-b98c6fce67e5",
-      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.663Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Solothurn/Kaufmann--frau-EFZ-Immobilien--August-2027-_R12879-1/apply",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
-        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn-kgo8ff",
-        "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
-          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn-kgo8ff",
-          "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
-        ],
-        "fr": [
-          "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T01:18:58.483Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1238,7 +1188,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/a84c204b-637d-4141-ac78-720158013ae4",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.663Z",
+      "crawledAt": "2026-08-12T21:51:27.854Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1259,13 +1209,15 @@
       "previousSlugs": [
         "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
         "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen-37upj0",
-        "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen"
+        "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen",
+        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
           "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen-37upj0",
-          "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen"
+          "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-st-gallen",
+          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen"
         ],
         "fr": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen"
@@ -1317,7 +1269,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/f33cf539-4386-46af-83e8-25b80ea06061",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.662Z",
+      "crawledAt": "2026-08-12T21:51:27.854Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1338,13 +1290,15 @@
       "previousSlugs": [
         "kaufmann-frau-efz-immobilien-august-2027-livit-zurich",
         "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich-6h6uiq",
-        "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich"
+        "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich",
+        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-zurich",
           "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich-6h6uiq",
-          "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich"
+          "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-zurich",
+          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-zurich"
         ],
         "fr": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-zurich"
@@ -1360,6 +1314,87 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "livit-22c9fa663a5d",
+      "slug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
+      "slugByLocale": {
+        "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn",
+        "en": "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
+        "de": "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
+        "fr": "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn"
+      },
+      "company": "Livit AG",
+      "companyKey": "livit",
+      "companyDomain": "livit.ch",
+      "title": "Kaufmann/-frau EFZ Immobilien (August 2027)",
+      "titleByLocale": {
+        "it": "Kaufmann/-frau CFC Immobilien (August 2027)",
+        "en": "Kaufmann/Mrs EFZ Immobilien (August 2027)",
+        "de": "Kaufmann/-frau EFZ Immobilien (August 2027)",
+        "fr": "Kaufmann/Mme EFZ Immobilien (août 2027)"
+      },
+      "description": "Bist du aufgeschlossen, motiviert und suchst einen modernen Ausbildungsbetrieb am Puls der Zeit? Livit bietet dir genau das. Unsere Lernenden sind ein wichtiger Teil der Livit-Family. Als Lernende/r arbeitest du in einem Team und engagierst dich zusammen mit deiner Betreuungsperson dafür, dass die Immobilien unserer Kunden sowie deren Mieter in guten Händen sind. Die Aufgaben bei Livit sind vielfältig und abwechslungsreich. Im Rahmen verschiedener Abteilungseinsätze während deiner Ausbildung, erwarten dich folgende Aufgaben:\n\nAufgaben:\n• Du unterstützt deine Betreuungsperson bei der Vermietung von Wohnungen sowie dem Erstellen von Mietverträgen und Inseraten\n\n• Du hast regen telefonischen Kontakt mit Mietinteressenten, Mietern, Handwerkern, etc.\n\n• Du bearbeitest verschiedensten Kundenanliegen\n\n• Du hilfst bei der Vorbereitung und Durchführung von Wohnungsabnahmen/-übergaben mit\n\n• Du erhältst einen umfassenden Einblick in die Immobilienbuchhaltung\n\n• Du erstellst diverse Korrespondenz und erledigst allgemeine administrative Aufgaben\n\nAnforderungen:\n• Du hast die Sekundarstufe I mit guten bis sehr guten Leistungen abgeschlossen\n\n• Du verfügst über gute Umgangsformen und drückst dich mündlich wie schriftlich gewandt in der deutschen Sprache aus\n\n• Du interessierst dich für die betriebswirtschaftlichen Abläufe und Zusammenhänge in der Branche Immobilien/Treuhand\n\n• Du hast Freude am Umgang mit Menschen, bist kommunikativ und arbeitest gerne im Team\n\n• Du lernst einfach und schnell, und arbeitest zuverlässig\n\n• Du bist ein Organisationstalent und übernimmst gerne Verantwortung\n\n• Du bist neugierig und offen gegenüber Veränderungen\n\n• Du hast Freude, neue Technologien und digitale Tools anzuwenden\n\nWir bieten:\n• Eine vielseitige, herausfordernde und interessante Ausbildung\n\n• Eine Betreuungsperson begleitet dich während der gesamten Ausbildungszeit\n\n• Einen persönlichen Ausbildungs- und Einsatzplan mit Einblicken in verschiedene Abteilungen\n\n• Interne Einstiegsmöglichkeiten sowie Entwicklungs-/Weiterbildungsmöglichkeiten im Anschluss an die Ausbildung\n\n• Finanzielle Belohnung für gute Schulnoten\n\n• Vergünstigter Bezug von SBB-Gutschein oder Vergünstigung auf den ZVV-BonusPass\n\n• 6 Wochen Ferien\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
+      "descriptionByLocale": {
+        "it": "Sei aperta, motivata e alla ricerca di una moderna società di formazione sul polso dei tempi? Livit ti offre solo questo. I nostri studenti sono una parte importante della famiglia Livit. Come studente, si lavora in una squadra e lavorare con il vostro caregiver per garantire che le proprietà dei nostri clienti e i loro inquilini sono in buone mani. I compiti di Livit sono varie e varie. Come parte di vari incarichi di reparto durante la vostra formazione, i seguenti compiti vi aspettano:\n\nCompiti:\n• Sostiene il vostro caregiver in affitto appartamenti così come la stesura di contratti di noleggio e elenchi\n\n• Avete contatto telefonico con pioggia con inquilini, inquilini, artigiani, ecc.\n\n• Si tratta di diverse preoccupazioni dei clienti\n\n• Si aiuta con la preparazione e l'attuazione di accettazioni appartamento / trasferimenti\n\n• Si ottiene una panoramica completa della contabilità immobiliare\n\n• Si creano varie corrispondenza e compiti amministrativi generali completi\n\nRequisiti\n• Hai completato la scuola secondaria I con buone prestazioni\n\n• Avete buone maniere ed esprimetevi verbalmente come scritto nella lingua tedesca\n\n• Sei interessato ai processi aziendali e alle relazioni nel settore immobiliare/trust\n\n• Ti piace trattare con le persone, sono comunicativi e godere di lavorare in una squadra\n\n• Si impara facilmente e rapidamente, e lavorare in modo affidabile\n\n• Sei un talento organizzativo e ti piace assumerti la responsabilità\n\n• Siete curiosi e aperti al cambiamento\n\n• Ti piace applicare nuove tecnologie e strumenti digitali\n\nOffriamo:\n• Una formazione versatile, impegnativa e interessante\n\n• Un caregiver ti accompagna durante il periodo di allenamento\n\n• Un piano di formazione e distribuzione personale con approfondimenti in vari dipartimenti\n\n• Possibilità di ingresso interno e opportunità di sviluppo/formazione a seguito della formazione\n\n• Ricompenso finanziario per buoni voti scolastici\n\n• Acquisto scontato del buono SBB o sconto sul ZVV BonusPass\n\n• 6 settimane di vacanza\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
+        "en": "Are you open-minded, motivated and looking for a modern training company on the pulse of the times? Livit offers you just that. Our learners are an important part of the Livit family. As a learner, you work in a team and work with your caregiver to ensure that our clients’ properties and their tenants are in good hands. The tasks at Livit are varied and varied. As part of various department assignments during your training, the following tasks await you:\n\nTasks:\n• You support your caregiver in renting apartments as well as drawing up rental contracts and listings\n\n• You have rain telephone contact with tenants, tenants, craftsmen, etc.\n\n• You deal with various customer concerns\n\n• You help with the preparation and implementation of apartment acceptances / transfers\n\n• You get a comprehensive insight into real estate accounting\n\n• You create various correspondence and complete general administrative tasks\n\nRequirements\n• You have completed secondary school I with good to very good performance\n\n• You have good manners and express yourself verbally as written in the German language\n\n• You are interested in business processes and relationships in the real estate/trust industry\n\n• You enjoy dealing with people, are communicative and enjoy working in a team\n\n• You learn easily and quickly, and work reliably\n\n• You are an organizational talent and like to take on responsibility\n\n• You are curious and open to change\n\n• You enjoy applying new technologies and digital tools\n\nWe offer:\n• A versatile, challenging and interesting education\n\n• A caregiver accompanies you throughout the training period\n\n• A personal training and deployment plan with insights into various departments\n\n• Internal entry opportunities as well as development/training opportunities following training\n\n• Financial reward for good school grades\n\n• Discounted purchase of SBB voucher or discount on the ZVV BonusPass\n\n• 6 weeks holiday\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
+        "de": "Bist du aufgeschlossen, motiviert und suchst einen modernen Ausbildungsbetrieb am Puls der Zeit? Livit bietet dir genau das. Unsere Lernenden sind ein wichtiger Teil der Livit-Family. Als Lernende/r arbeitest du in einem Team und engagierst dich zusammen mit deiner Betreuungsperson dafür, dass die Immobilien unserer Kunden sowie deren Mieter in guten Händen sind. Die Aufgaben bei Livit sind vielfältig und abwechslungsreich. Im Rahmen verschiedener Abteilungseinsätze während deiner Ausbildung, erwarten dich folgende Aufgaben:\n\nAufgaben:\n• Du unterstützt deine Betreuungsperson bei der Vermietung von Wohnungen sowie dem Erstellen von Mietverträgen und Inseraten\n\n• Du hast regen telefonischen Kontakt mit Mietinteressenten, Mietern, Handwerkern, etc.\n\n• Du bearbeitest verschiedensten Kundenanliegen\n\n• Du hilfst bei der Vorbereitung und Durchführung von Wohnungsabnahmen/-übergaben mit\n\n• Du erhältst einen umfassenden Einblick in die Immobilienbuchhaltung\n\n• Du erstellst diverse Korrespondenz und erledigst allgemeine administrative Aufgaben\n\nAnforderungen:\n• Du hast die Sekundarstufe I mit guten bis sehr guten Leistungen abgeschlossen\n\n• Du verfügst über gute Umgangsformen und drückst dich mündlich wie schriftlich gewandt in der deutschen Sprache aus\n\n• Du interessierst dich für die betriebswirtschaftlichen Abläufe und Zusammenhänge in der Branche Immobilien/Treuhand\n\n• Du hast Freude am Umgang mit Menschen, bist kommunikativ und arbeitest gerne im Team\n\n• Du lernst einfach und schnell, und arbeitest zuverlässig\n\n• Du bist ein Organisationstalent und übernimmst gerne Verantwortung\n\n• Du bist neugierig und offen gegenüber Veränderungen\n\n• Du hast Freude, neue Technologien und digitale Tools anzuwenden\n\nWir bieten:\n• Eine vielseitige, herausfordernde und interessante Ausbildung\n\n• Eine Betreuungsperson begleitet dich während der gesamten Ausbildungszeit\n\n• Einen persönlichen Ausbildungs- und Einsatzplan mit Einblicken in verschiedene Abteilungen\n\n• Interne Einstiegsmöglichkeiten sowie Entwicklungs-/Weiterbildungsmöglichkeiten im Anschluss an die Ausbildung\n\n• Finanzielle Belohnung für gute Schulnoten\n\n• Vergünstigter Bezug von SBB-Gutschein oder Vergünstigung auf den ZVV-BonusPass\n\n• 6 Wochen Ferien\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
+        "fr": "Êtes-vous ouvert d'esprit, motivé et à la recherche d'une entreprise de formation moderne sur le pouls de l'époque? Livit vous offre juste ça. Nos apprenants sont une partie importante de la famille Livit. En tant qu'apprenant, vous travaillez en équipe et travaillez avec votre soignant pour vous assurer que nos clients et leurs locataires sont entre de bonnes mains. Les tâches chez Livit sont variées et variées. Dans le cadre de diverses missions de service durant votre formation, les tâches suivantes vous attendent :\n\nTâches :\n• Vous aidez votre soignant à louer des appartements ainsi qu'à rédiger des contrats de location et des listes\n\n• Vous avez un contact téléphonique avec les locataires, locataires, artisans, etc.\n\n• Vous traitez avec des préoccupations diverses des clients\n\n• Vous aidez à la préparation et à la mise en œuvre des réceptions / transferts d'appartements\n\n• Vous obtenez un aperçu complet de la comptabilité immobilière\n\n• Vous créez diverses correspondances et accomplissez des tâches administratives générales\n\nExigences\n• Vous avez terminé l'école secondaire I avec de bonnes performances\n\n• Vous avez de bonnes manières et vous exprimez verbalement comme écrit en langue allemande\n\n• Vous êtes intéressé par les processus d'affaires et les relations dans l'industrie immobilière/trust\n\n• Vous aimez traiter avec les gens, êtes communicatif et aimez travailler en équipe\n\n• Vous apprenez facilement et rapidement, et travaillez de façon fiable\n\n• Vous êtes un talent organisationnel et vous aimez prendre des responsabilités\n\n• Vous êtes curieux et ouvert au changement\n\n• Vous aimez appliquer les nouvelles technologies et les outils numériques\n\nNous offrons:\n• Une éducation polyvalente, stimulante et intéressante\n\n• Un soignant vous accompagne pendant toute la période de formation\n\n• Un plan de formation et de déploiement personnel avec un aperçu des divers ministères\n\n• Possibilités d'entrée à l'interne ainsi que possibilités de développement/formation après la formation\n\n• Récompense financière pour les bonnes notes scolaires\n\n• Achat réduit de bon CFF ou réduction sur le BonusPass ZVV\n\n• 6 semaines de vacances\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
+      },
+      "needsRetranslation": true,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/9ec0069a-7ed9-4923-92d6-b98c6fce67e5",
+      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T21:51:27.853Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Solothurn/Kaufmann--frau-EFZ-Immobilien--August-2027-_R12879-1/apply",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
+        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn-kgo8ff",
+        "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn",
+        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn",
+          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn-kgo8ff",
+          "kaufmann-mme-efz-immobilien-aout-2027-livit-ag-solothurn",
+          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-solothurn"
+        ],
+        "fr": [
+          "kaufmann-frau-efz-immobilien-august-2027-livit-solothurn"
+        ]
+      },
+      "firstSeenAt": "2026-08-07T01:18:58.483Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1396,7 +1431,7 @@
       "url": "https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles/0e6419fe-dc4f-4dc5-b924-4ce01d41daba",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:17:22.661Z",
+      "crawledAt": "2026-08-12T21:51:27.852Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1416,12 +1451,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gerant-e-d-immeubles-livit-geneve",
-        "gerant-e-d-immeubles-livit-ag-geneve"
+        "gerant-e-d-immeubles-livit-ag-geneve",
+        "direttore-della-costruzione-livit-ag-geneve-28c4cc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gerant-e-d-immeubles-livit-geneve",
-          "gerant-e-d-immeubles-livit-ag-geneve"
+          "gerant-e-d-immeubles-livit-ag-geneve",
+          "direttore-della-costruzione-livit-ag-geneve-28c4cc"
         ],
         "en": [
           "gerant-e-d-immeubles-livit-geneve"
@@ -1470,12 +1507,13 @@
         "de": "Sie sind aufgeschlossen, haben Ehrgeiz und nutzen eine zukunftsweisende und wegweisende Arbeitsweise im Immobilienbereich ist Ihnen wichtig? Durch Ihr Engagement können wir uns den Herausforderungen von heute und morgen gemeinsam stellen. Sie möchten teilnehmen und Dinge bewegen? Sie sind bei Livit's am richtigen Ort. Wir freuen uns auf Ihren persönlichen Beitrag.\n\nAufgaben:\n• Leiter eines Immobilienportfolios mit Unterstützung eines Managers oder Gruppenleiters\n\n• Status der Ein- und Ausreiseorte bei der Entwicklung und dem Wechsel von Mietern\n\n• Persönliche und telefonische Überwachung von Mietern, Eigentümern und Concierges\n\n• Instandhaltung des Gebäudes gemäß Verwaltungsvertrag\n\n• Regelmäßige Inspektion von Flächen mit entsprechenden Statusberichten\n\n• Leasingänderungen vornehmen und Mieten und indexierte Mieten anpassen\n\n• Kodifizierung der Rechnungen\n\n• Überwachung der aktuellen Mietpolitik und Beratung des Eigentümers für die Festlegung der Marktmieten\n\nAnforderungen:\n• Mitarbeiter / Business Learning mit SWC oder gleichwertigem Training\n\n• Bundesbauleiter (oder in Bearbeitung) oder Weiterbildung in Immobilien\n\n• Mehrjährige Berufserfahrung als Assistant Manager oder als Junior Manager\n\n• Beherrschung der französischen Sprache in mündlicher und schriftlicher Form mit guten redaktionellen Qualitäten\n\n• Digitale Affinität und Fähigkeit, sich aktiv am Wandel zu beteiligen\n\n• Hohe Kundenorientierung und Partnerschaftsmanagement\n\n• Unternehmerisches Denken und Handeln mit entregent\n\nWir bieten:\n• Internes Angebot von Fachkursen und Managementkursen in unserer Livit Academy\n\n• Finanzielle Unterstützung und/oder Arbeitszeitregelungen für spezialisierte Ausbildungsmaßnahmen\nund Zugang zu E-Learning-Plattformen für Sprachkurse in\nLinie\n• Individueller Karriereplan und Entwicklungsperspektiven\n\n• Home-/Mobile Office\n\n• Bonus basierend auf Unternehmensleistung und persönlicher Leistung\n\n• 5 Wochen Urlaub Minimum und die Möglichkeit, bis zu 10 Tage Urlaub zu kaufen\n(Ferianflex)\n• Überdurchschnittliche Rentenleistungen: Versicherungsprämienzulagen\nDie Unfallversicherung ist vollständig von Livit abgedeckt.\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und verpflichten uns enthusiastisch, den Wert der Gebäude unserer Kunden zu erhalten.\n\nWenn Sie bei Livit arbeiten, sind Sie Teil der Familie Livit. Wir mögen dich für das, was du bist und was du tust. In der Tat sind Ihre Fähigkeiten und Erfahrungen entscheidend, aber auch die Person, die Sie zählen. Sie entwickeln sich in unserem angenehmen Arbeitsumfeld, in dem Sie gedeihen können. Dies liegt einerseits an der Vielfalt unserer Berufsbilder und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens und andererseits an seiner unvergleichlichen Unternehmenskultur, die in der Immobilienwelt noch unübertroffen ist.",
         "fr": "Tu es ouvert/e d'esprit, tu as de l'ambition et utiliser une méthode de travail tournée vers l'avenir et à la pointe du secteur immobilier est important pour toi? Grâce à ton engagement, nous pourrons relever ensemble les défis d'aujourd'hui et de demain. Tu veux participer et faire bouger les choses? Tu es au bon endroit chez Livit. Nous nous réjouissons de ta contribution personnelle.\n\nAufgaben:\n• Responsable d'un portefeuille immobilier avec le soutien d'un gérant ou d'un chef de groupe\n\n• Etats des lieux d'entrée et de sortie lors de mise en valeur et changement de locataires\n\n• Encadrement personnel et téléphonique des locataires, des propriétaires et des concierges\n\n• Assurer l'entretien de l'immeuble en accord avec le contrat de gestion\n\n• Inspection périodique des bien-fonds avec établissement des rapports d'état correspondants\n\n• Procéder aux modifications des baux et adaptation des loyers ainsi que des loyers indexés\n\n• Codification des factures créditeurs\n\n• Supervision de la politique actuelle des loyers et conseil au propriétaire pour l'établissement des loyers du marché\n\nAnforderungen:\n• Apprentissage d'employé/e commerce avec CFC ou formation équivalente\n\n• Brevet fédéral de gérant d'immeubles (ou en cours) ou formation continue dans le domaine immobilier\n\n• Expérience professionnelle de plusieurs années comme assistant/e de gérance ou comme gérant/e Junior\n\n• Maîtrise de la langue française à l'oral et à l'écrit avec de bonnes qualités rédactionnelle\n\n• Affinité digitale et capacité à participer activement au changement\n\n• Haute orientation clientèle et gestion des relations sur un mode partenarial\n\n• Mode de pensée et d'action entrepreneuriales avec entregent\n\nWir bieten:\n• Offre interne de cours spécialisés et cours de direction dans notre Académie Livit\n\n• Soutien financier et/ou aménagement du temps de travail pour les formations spécialisées\nexternes et accès à des plateformes d'apprentissage électroniques pour cours de langues en\nligne\n• Plan de carrière individuel et des perspectives d'évolution\n\n• Home- / Mobile Office\n\n• Bonus en fonction du résultat de l'entreprise et de la performance personnelle\n\n• 5 semaines de vacances au minimum et la possibilité d'acheter jusqu'à 10 jours de vacances\nsupplémentaires (Ferienflex)\n• Prestations de prévoyance supérieures à la moyenne : Les primes d'assurance indemnités\njournalières et d'assurance-accidents sont intégralement prises en charge par Livit.\n• 14 jours de congé paternité\n\nNous aimons l'immobilier et nous engageons avec enthousiasme à maintenir la valeur des immeubles de nos clients.\n\nSi tu travailles chez Livit, tu fais partie de la famille Livit. On t'apprécie pour ce que tu es et ce que tu fais. En effet, tes compétences et ton expérience sont certes déterminantes, mais la personne que tu es compte également. Tu évolues dans notre environnement de travail agréable, dans lequel tu peux t'épanouir. Cela est dû d'une part à la diversité de nos profils de poste et aux possibilités d'évolution au sein de notre établissement, et d'autre part à sa culture d'entreprise incomparable, encore inégalée dans le monde de l'immobilier."
       },
+      "needsRetranslation": true,
       "location": "Genève",
       "canton": "GE",
       "url": "https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles-junior-cdd-jusqu-au-31-12-2026/07ea293b-fa18-4a5a-abfc-f8eb50d75ee2",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:17:22.659Z",
+      "crawledAt": "2026-08-12T21:51:27.851Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1503,7 +1541,8 @@
         "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
         "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
         "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
-        "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve"
+        "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
+        "junior-building-manager-cdd-fino-al-31-12-2026-livit-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1516,7 +1555,8 @@
           "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
           "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
           "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
-          "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve"
+          "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
+          "junior-building-manager-cdd-fino-al-31-12-2026-livit-ag-geneve"
         ],
         "en": [
           "gerant-e-d-immeubles-junior-cdd-jusqu-au-31-12-2026-livit-geneve",
@@ -1540,6 +1580,88 @@
           "@type": "QuantitativeValue",
           "minValue": 51100,
           "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "livit-3dfcb2638daa",
+      "slug": "consulente-di-noleggio-in-temporaneo-fino-al-30-04-2027-livit-ag-bern",
+      "slugByLocale": {
+        "it": "consulente-di-noleggio-in-temporaneo-fino-al-30-04-2027-livit-ag-bern",
+        "en": "rental-consultant-in-temporary-until-30-04-2027-livit-ag-bern",
+        "de": "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
+        "fr": "consultant-en-location-temporaire-jusqu-au-30-04-2027-livit-ag-bern"
+      },
+      "company": "Livit AG",
+      "companyKey": "livit",
+      "companyDomain": "livit.ch",
+      "title": "Vermietungsberater:in (befristet bis 30.04.2027)",
+      "titleByLocale": {
+        "it": "Consulente di noleggio:in (temporaneo fino al 30.04.2027)",
+        "en": "Rental consultant:in (temporary until 30.04.2027)",
+        "de": "Vermietungsberater:in (befristet bis 30.04.2027)",
+        "fr": "Consultant en location (temporaire jusqu'au 30.04.2027)"
+      },
+      "description": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Im Vermietungsmanagement suchst du den perfekten Match und bringst Wohn- und Gewerbeimmobilien mit den richtigen Mieter:innen zusammen. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du berätst proaktiv Interessenten hinsichtlich der passenden Mietangebote\n\n• Du bearbeitest den digitalen Wiedervermietungsprozess und stehst in direktem Kontakt zu Mietinteressenten und Vermietern\n\n• Du führst Besichtigungen der Mietobjekte mit Interessenten durch\n\n• Du erstellst und verwaltest Objekt-, Liegenschaftsfotos und 360° Videotouren von Liegenschaften\n\n• Du wählst geeignete Mietinteressenten in Zusammenarbeit mit der Bewirtschaftung aus\n\n• Du erstellst Mietverträge und unterstützt bei der Erstellung von Mandatsofferten sowie bei der Entwicklung von Vermarktungsmassnahmen\n\n• Du organisierst und führst Vermietungsevents durch (inkl. Reporting)\n\n• Du unterstützt bei der Entmietung von Liegenschaften aufgrund Sanierung oder Abriss\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als EFZ Fachfrau:mann Kundendialog oder EFZ Kauffrau:mann\n\n• Du bringst Berufserfahrung in der direkten Kundenberatung mit\n\n• Du bist digital affin und hast von Vorteil Kenntnisse in Sales Force\n\n• Du besitzt einen Führerausweis Kat. B\n\n• Du hast Freude und Interesse an den Themen Wohnen und Immobilien\n\n• Du bist eine gewinnende, kommunikative und extrovertierte Persönlichkeit mit guten Umgangsformen\n\n• Deine Muttersprache ist Deutsch und du hast gute Französischkenntnisse\n\n• Du bist kundenorientiert und pflegst einen partnerschaftlichen Umgang\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
+      "descriptionByLocale": {
+        "it": "Sei aperta, ambiziosa e apprezza un modo di lavorare orientato al futuro sul polso dell'industria immobiliare? In gestione del noleggio, siete alla ricerca della corrispondenza perfetta e portare immobili residenziali e commerciali insieme con i giusti inquilini. Sei pronto ad affrontare le sfide di oggi e di domani e fare la differenza nel mondo immobiliare? Allora hai proprio ragione con Livit. Attendiamo con ansia il vostro contributo personale.\n\nCompiti:\n• Si consiglia attivamente le parti interessate per quanto riguarda le offerte di noleggio appropriate\n\n• Elabori il processo di re-letting digitale e sei in contatto diretto con inquilini e proprietari\n\n• Effettuare visite degli oggetti di affitto con le parti interessate\n\n• Crea e gestisci oggetti, foto di proprietà e tour video a 360°\n\n• Seleziona gli inquilini adatti in collaborazione con la direzione\n\n• Crea contratti di noleggio e supporto nella preparazione di offerte di mandato, nonché nello sviluppo di misure di marketing\n\n• Lei organizza e conduce eventi di noleggio (tra cui la segnalazione)\n\n• State assistendo nella rimozione della proprietà a causa di ristrutturazione o demolizione\n\nRequisiti\n• Hai completato la tua formazione come EFZ Fachfrau:mann Kundedialog o EFZ Kauffrau:mann\n\n• Porti esperienza professionale nel servizio clienti diretto\n\n• Sei digitalmente affine e hai una conoscenza vantaggiosa in Sales Force\n\n• Hai una patente Cat. B\n\n• Ti piace e sono interessati agli argomenti di alloggio e immobiliare\n\n• Sei una personalità vincente, comunicativa ed estroversa con buone maniere\n\n• La tua lingua madre è tedesca e hai una buona conoscenza del francese\n\n• Siete orientati al cliente e mantenere una partnership\n\nOffriamo:\n• Offerta interna della nostra Livit Academy per corsi di specializzazione e leadership\n\n• Supporto finanziario e/o tempo per la formazione specialistica esterna e l'accesso a piattaforme di apprendimento elettronico per corsi di lingua online\n\n• pianificazione e prospettive di sviluppo della carriera individuale\n\n• Home / Ufficio mobile\n\n• Bonus a seconda del successo aziendale e delle prestazioni personali\n\n• Almeno 5 settimane di vacanza e di acquisto fino a 10 giorni di vacanza aggiuntivi (Ferienflex)\n\n• Prestazioni e premi per l'indennità di malattia e l'assicurazione infortuni sono coperti al 100% da Livit\n\n• 14 giorni di congedo di paternità\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Perché non solo le vostre abilità e la vostra esperienza, ma anche voi come persona sono importanti per noi. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
+        "en": "Are you open-minded, ambitious and value a future-oriented way of working on the pulse of the real estate industry? In rental management, you are looking for the perfect match and bring residential and commercial properties together with the right tenants. Are you ready to tackle the challenges of today and tomorrow and make a difference in the real estate world? Then you are exactly right with Livit. We look forward to your personal contribution.\n\nTasks:\n• You proactively advise interested parties regarding the appropriate rental offers\n\n• You process the digital re-letting process and are in direct contact with tenants and landlords\n\n• You carry out visits of the rental objects with interested parties\n\n• You create and manage object, property photos and 360° video tours of properties\n\n• You select suitable tenants in cooperation with the management\n\n• You create rental contracts and support in the preparation of mandate offers as well as in the development of marketing measures\n\n• You organize and conduct rental events (including reporting)\n\n• You are assisting in the removal of property due to renovation or demolition\n\nRequirements\n• You have completed your training as an EFZ Fachfrau:mann Kundedialog or EFZ Kauffrau:mann\n\n• You bring professional experience in direct customer service\n\n• You are digitally affine and have an advantage knowledge in Sales Force\n\n• You have a driver's license Cat. B\n\n• You enjoy and are interested in the topics of housing and real estate\n\n• You are a winning, communicative and extroverted personality with good manners\n\n• Your mother tongue is German and you have a good knowledge of French\n\n• You are customer-oriented and maintain a partnership\n\nWe offer:\n• Internal offer of our Livit Academy for specialist and leadership courses\n\n• Financial and/or time support for external specialist training and access to electronic learning platforms for online language courses\n\n• individual career planning and development prospects\n\n• Home / Mobile Office\n\n• Bonus depending on company success and personal performance\n\n• At least 5 weeks holiday and purchase of up to 10 additional days holiday (Ferienflex)\n\n• Above-average pension benefits and premiums for medical day allowance and accident insurance are 100% covered by Livit\n\n• 14 days paternity leave\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. Because not only your skills and your experience, but also you as a person are important to us. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
+        "de": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Im Vermietungsmanagement suchst du den perfekten Match und bringst Wohn- und Gewerbeimmobilien mit den richtigen Mieter:innen zusammen. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du berätst proaktiv Interessenten hinsichtlich der passenden Mietangebote\n\n• Du bearbeitest den digitalen Wiedervermietungsprozess und stehst in direktem Kontakt zu Mietinteressenten und Vermietern\n\n• Du führst Besichtigungen der Mietobjekte mit Interessenten durch\n\n• Du erstellst und verwaltest Objekt-, Liegenschaftsfotos und 360° Videotouren von Liegenschaften\n\n• Du wählst geeignete Mietinteressenten in Zusammenarbeit mit der Bewirtschaftung aus\n\n• Du erstellst Mietverträge und unterstützt bei der Erstellung von Mandatsofferten sowie bei der Entwicklung von Vermarktungsmassnahmen\n\n• Du organisierst und führst Vermietungsevents durch (inkl. Reporting)\n\n• Du unterstützt bei der Entmietung von Liegenschaften aufgrund Sanierung oder Abriss\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als EFZ Fachfrau:mann Kundendialog oder EFZ Kauffrau:mann\n\n• Du bringst Berufserfahrung in der direkten Kundenberatung mit\n\n• Du bist digital affin und hast von Vorteil Kenntnisse in Sales Force\n\n• Du besitzt einen Führerausweis Kat. B\n\n• Du hast Freude und Interesse an den Themen Wohnen und Immobilien\n\n• Du bist eine gewinnende, kommunikative und extrovertierte Persönlichkeit mit guten Umgangsformen\n\n• Deine Muttersprache ist Deutsch und du hast gute Französischkenntnisse\n\n• Du bist kundenorientiert und pflegst einen partnerschaftlichen Umgang\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
+        "fr": "Êtes-vous ouvert d'esprit, ambitieux et valorisez-vous une façon prospective de travailler sur le pouls de l'industrie immobilière? Dans la gestion de la location, vous êtes à la recherche de la correspondance parfaite et d'apporter des propriétés résidentielles et commerciales avec les bons locataires. Êtes-vous prêt à relever les défis d'aujourd'hui et de demain et à faire une différence dans le monde immobilier? Alors vous avez exactement raison avec Livit. Nous attendons avec impatience votre contribution personnelle.\n\nTâches :\n• Vous conseillez proactivement les parties intéressées au sujet des offres de location appropriées\n\n• Vous traitez le processus de re-lettrage numérique et êtes en contact direct avec les locataires et les propriétaires\n\n• Vous effectuez des visites des objets de location avec les parties intéressées\n\n• Vous créez et gérez des objets, des photos de propriétés et des visites vidéo de propriétés à 360°\n\n• Vous choisissez des locataires appropriés en collaboration avec la direction\n\n• Vous créez des contrats de location et de soutien dans la préparation d'offres mandat ainsi que dans le développement de mesures marketing\n\n• Vous organisez et organisez des événements de location (y compris des rapports)\n\n• Vous aidez à l'enlèvement de biens en raison de la rénovation ou de la démolition\n\nExigences\n• Vous avez terminé votre formation en tant que Fachfrau:mann Kundedialog ou EFZ Kauffrau:mann\n\n• Vous apportez une expérience professionnelle dans le service à la clientèle directe\n\n• Vous êtes numériquement affine et avez une connaissance d'avantage dans Sales Force\n\n• Vous avez un permis de conduire Cat. B\n\n• Vous appréciez et êtes intéressé par les thèmes du logement et de l'immobilier\n\n• Vous êtes une personnalité gagnante, communicative et extravertie avec de bonnes manières\n\n• Votre langue maternelle est l'allemand et vous avez une bonne connaissance du français\n\n• Vous êtes orienté client et maintenez un partenariat\n\nNous offrons:\n• Offre interne de notre Académie de Livit pour les cours de spécialisation et de leadership\n\n• Appui financier et/ou en temps utile à la formation externe de spécialistes et accès aux plates-formes d'apprentissage électronique pour les cours de langues en ligne\n\n• planification des carrières et perspectives de développement\n\n• Accueil / Bureau mobile\n\n• Bonus selon le succès de l'entreprise et les performances personnelles\n\n• Au moins 5 semaines de vacances et achat de jusqu'à 10 jours de vacances supplémentaires (Ferienflex)\n\n• Au-delà de la moyenne, les prestations de retraite et les primes d'assurance maladie et d'assurance accidents sont couvertes à 100 % par la Livit\n\n• 14 jours de congé de paternité\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Parce que non seulement vos compétences et votre expérience, mais aussi vous en tant que personne sont importants pour nous. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.livit.ch/offene-stellen/vermietungsberater-in-befristet-bis-30-04-2027/6e046898-9e12-4b85-b068-69fddb5998ed",
+      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-12T21:51:27.849Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Bern/LV---Vermietungsberater--in_R12592/apply",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
+        "vermietungsberater-in-befristet-bis-30-04-2027-livit-ag-bern",
+        "consulente-di-noleggio-in-temporaneo-fino-al-30-04-2027-livit-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
+          "vermietungsberater-in-befristet-bis-30-04-2027-livit-ag-bern",
+          "consulente-di-noleggio-in-temporaneo-fino-al-30-04-2027-livit-ag-bern"
+        ],
+        "en": [
+          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
+        ],
+        "fr": [
+          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-10T10:30:30.822Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1576,7 +1698,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/junior-bewirtschafter-in-geschaeftsflaechen/c052c2f1-da96-43e9-83ed-3c9a0d760587",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.657Z",
+      "crawledAt": "2026-08-12T21:51:27.849Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1595,11 +1717,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-bewirtschafter-in-geschaftsflachen-livit-zurich"
+        "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
+        "junior-manager-nei-locali-aziendali-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-bewirtschafter-in-geschaftsflachen-livit-zurich"
+          "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
+          "junior-manager-nei-locali-aziendali-livit-ag-zurich"
         ],
         "en": [
           "junior-bewirtschafter-in-geschaftsflachen-livit-zurich"
@@ -1654,7 +1778,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/senior-immobilienbewirtschafter-in-geschaeftsliegenschaften/6e4a2f78-1759-4b78-83f3-8b33d1ec5098",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.654Z",
+      "crawledAt": "2026-08-12T21:51:27.846Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1673,11 +1797,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+        "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
+        "senior-property-manager-in-business-real-estate-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+          "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
+          "senior-property-manager-in-business-real-estate-livit-ag-zurich"
         ],
         "en": [
           "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
@@ -1696,86 +1822,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "livit-3dfcb2638daa",
-      "slug": "consulente-di-noleggio-in-temporaneo-fino-al-30-04-2027-livit-ag-bern",
-      "slugByLocale": {
-        "it": "consulente-di-noleggio-in-temporaneo-fino-al-30-04-2027-livit-ag-bern",
-        "en": "rental-consultant-in-temporary-until-30-04-2027-livit-ag-bern",
-        "de": "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
-        "fr": "consultant-en-location-temporaire-jusqu-au-30-04-2027-livit-ag-bern"
-      },
-      "company": "Livit AG",
-      "companyKey": "livit",
-      "companyDomain": "livit.ch",
-      "title": "Vermietungsberater:in (befristet bis 30.04.2027)",
-      "titleByLocale": {
-        "it": "Consulente di noleggio:in (temporaneo fino al 30.04.2027)",
-        "en": "Rental consultant:in (temporary until 30.04.2027)",
-        "de": "Vermietungsberater:in (befristet bis 30.04.2027)",
-        "fr": "Consultant en location (temporaire jusqu'au 30.04.2027)"
-      },
-      "description": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Im Vermietungsmanagement suchst du den perfekten Match und bringst Wohn- und Gewerbeimmobilien mit den richtigen Mieter:innen zusammen. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du berätst proaktiv Interessenten hinsichtlich der passenden Mietangebote\n\n• Du bearbeitest den digitalen Wiedervermietungsprozess und stehst in direktem Kontakt zu Mietinteressenten und Vermietern\n\n• Du führst Besichtigungen der Mietobjekte mit Interessenten durch\n\n• Du erstellst und verwaltest Objekt-, Liegenschaftsfotos und 360° Videotouren von Liegenschaften\n\n• Du wählst geeignete Mietinteressenten in Zusammenarbeit mit der Bewirtschaftung aus\n\n• Du erstellst Mietverträge und unterstützt bei der Erstellung von Mandatsofferten sowie bei der Entwicklung von Vermarktungsmassnahmen\n\n• Du organisierst und führst Vermietungsevents durch (inkl. Reporting)\n\n• Du unterstützt bei der Entmietung von Liegenschaften aufgrund Sanierung oder Abriss\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als EFZ Fachfrau:mann Kundendialog oder EFZ Kauffrau:mann\n\n• Du bringst Berufserfahrung in der direkten Kundenberatung mit\n\n• Du bist digital affin und hast von Vorteil Kenntnisse in Sales Force\n\n• Du besitzt einen Führerausweis Kat. B\n\n• Du hast Freude und Interesse an den Themen Wohnen und Immobilien\n\n• Du bist eine gewinnende, kommunikative und extrovertierte Persönlichkeit mit guten Umgangsformen\n\n• Deine Muttersprache ist Deutsch und du hast gute Französischkenntnisse\n\n• Du bist kundenorientiert und pflegst einen partnerschaftlichen Umgang\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
-      "descriptionByLocale": {
-        "it": "Sei aperta, ambiziosa e apprezza un modo di lavorare orientato al futuro sul polso dell'industria immobiliare? In gestione del noleggio, siete alla ricerca della corrispondenza perfetta e portare immobili residenziali e commerciali insieme con i giusti inquilini. Sei pronto ad affrontare le sfide di oggi e di domani e fare la differenza nel mondo immobiliare? Allora hai proprio ragione con Livit. Attendiamo con ansia il vostro contributo personale.\n\nCompiti:\n• Si consiglia attivamente le parti interessate per quanto riguarda le offerte di noleggio appropriate\n\n• Elabori il processo di re-letting digitale e sei in contatto diretto con inquilini e proprietari\n\n• Effettuare visite degli oggetti di affitto con le parti interessate\n\n• Crea e gestisci oggetti, foto di proprietà e tour video a 360°\n\n• Seleziona gli inquilini adatti in collaborazione con la direzione\n\n• Crea contratti di noleggio e supporto nella preparazione di offerte di mandato, nonché nello sviluppo di misure di marketing\n\n• Lei organizza e conduce eventi di noleggio (tra cui la segnalazione)\n\n• State assistendo nella rimozione della proprietà a causa di ristrutturazione o demolizione\n\nRequisiti\n• Hai completato la tua formazione come EFZ Fachfrau:mann Kundedialog o EFZ Kauffrau:mann\n\n• Porti esperienza professionale nel servizio clienti diretto\n\n• Sei digitalmente affine e hai una conoscenza vantaggiosa in Sales Force\n\n• Hai una patente Cat. B\n\n• Ti piace e sono interessati agli argomenti di alloggio e immobiliare\n\n• Sei una personalità vincente, comunicativa ed estroversa con buone maniere\n\n• La tua lingua madre è tedesca e hai una buona conoscenza del francese\n\n• Siete orientati al cliente e mantenere una partnership\n\nOffriamo:\n• Offerta interna della nostra Livit Academy per corsi di specializzazione e leadership\n\n• Supporto finanziario e/o tempo per la formazione specialistica esterna e l'accesso a piattaforme di apprendimento elettronico per corsi di lingua online\n\n• pianificazione e prospettive di sviluppo della carriera individuale\n\n• Home / Ufficio mobile\n\n• Bonus a seconda del successo aziendale e delle prestazioni personali\n\n• Almeno 5 settimane di vacanza e di acquisto fino a 10 giorni di vacanza aggiuntivi (Ferienflex)\n\n• Prestazioni e premi per l'indennità di malattia e l'assicurazione infortuni sono coperti al 100% da Livit\n\n• 14 giorni di congedo di paternità\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Perché non solo le vostre abilità e la vostra esperienza, ma anche voi come persona sono importanti per noi. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
-        "en": "Are you open-minded, ambitious and value a future-oriented way of working on the pulse of the real estate industry? In rental management, you are looking for the perfect match and bring residential and commercial properties together with the right tenants. Are you ready to tackle the challenges of today and tomorrow and make a difference in the real estate world? Then you are exactly right with Livit. We look forward to your personal contribution.\n\nTasks:\n• You proactively advise interested parties regarding the appropriate rental offers\n\n• You process the digital re-letting process and are in direct contact with tenants and landlords\n\n• You carry out visits of the rental objects with interested parties\n\n• You create and manage object, property photos and 360° video tours of properties\n\n• You select suitable tenants in cooperation with the management\n\n• You create rental contracts and support in the preparation of mandate offers as well as in the development of marketing measures\n\n• You organize and conduct rental events (including reporting)\n\n• You are assisting in the removal of property due to renovation or demolition\n\nRequirements\n• You have completed your training as an EFZ Fachfrau:mann Kundedialog or EFZ Kauffrau:mann\n\n• You bring professional experience in direct customer service\n\n• You are digitally affine and have an advantage knowledge in Sales Force\n\n• You have a driver's license Cat. B\n\n• You enjoy and are interested in the topics of housing and real estate\n\n• You are a winning, communicative and extroverted personality with good manners\n\n• Your mother tongue is German and you have a good knowledge of French\n\n• You are customer-oriented and maintain a partnership\n\nWe offer:\n• Internal offer of our Livit Academy for specialist and leadership courses\n\n• Financial and/or time support for external specialist training and access to electronic learning platforms for online language courses\n\n• individual career planning and development prospects\n\n• Home / Mobile Office\n\n• Bonus depending on company success and personal performance\n\n• At least 5 weeks holiday and purchase of up to 10 additional days holiday (Ferienflex)\n\n• Above-average pension benefits and premiums for medical day allowance and accident insurance are 100% covered by Livit\n\n• 14 days paternity leave\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. Because not only your skills and your experience, but also you as a person are important to us. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
-        "de": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Im Vermietungsmanagement suchst du den perfekten Match und bringst Wohn- und Gewerbeimmobilien mit den richtigen Mieter:innen zusammen. Bist du bereit, die Herausforderungen von heute und morgen anzupacken und in der Immobilienwelt etwas zu bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du berätst proaktiv Interessenten hinsichtlich der passenden Mietangebote\n\n• Du bearbeitest den digitalen Wiedervermietungsprozess und stehst in direktem Kontakt zu Mietinteressenten und Vermietern\n\n• Du führst Besichtigungen der Mietobjekte mit Interessenten durch\n\n• Du erstellst und verwaltest Objekt-, Liegenschaftsfotos und 360° Videotouren von Liegenschaften\n\n• Du wählst geeignete Mietinteressenten in Zusammenarbeit mit der Bewirtschaftung aus\n\n• Du erstellst Mietverträge und unterstützt bei der Erstellung von Mandatsofferten sowie bei der Entwicklung von Vermarktungsmassnahmen\n\n• Du organisierst und führst Vermietungsevents durch (inkl. Reporting)\n\n• Du unterstützt bei der Entmietung von Liegenschaften aufgrund Sanierung oder Abriss\n\nAnforderungen:\n• Du hast eine abgeschlossene Ausbildung als EFZ Fachfrau:mann Kundendialog oder EFZ Kauffrau:mann\n\n• Du bringst Berufserfahrung in der direkten Kundenberatung mit\n\n• Du bist digital affin und hast von Vorteil Kenntnisse in Sales Force\n\n• Du besitzt einen Führerausweis Kat. B\n\n• Du hast Freude und Interesse an den Themen Wohnen und Immobilien\n\n• Du bist eine gewinnende, kommunikative und extrovertierte Persönlichkeit mit guten Umgangsformen\n\n• Deine Muttersprache ist Deutsch und du hast gute Französischkenntnisse\n\n• Du bist kundenorientiert und pflegst einen partnerschaftlichen Umgang\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
-        "fr": "Êtes-vous ouvert d'esprit, ambitieux et valorisez-vous une façon prospective de travailler sur le pouls de l'industrie immobilière? Dans la gestion de la location, vous êtes à la recherche de la correspondance parfaite et d'apporter des propriétés résidentielles et commerciales avec les bons locataires. Êtes-vous prêt à relever les défis d'aujourd'hui et de demain et à faire une différence dans le monde immobilier? Alors vous avez exactement raison avec Livit. Nous attendons avec impatience votre contribution personnelle.\n\nTâches :\n• Vous conseillez proactivement les parties intéressées au sujet des offres de location appropriées\n\n• Vous traitez le processus de re-lettrage numérique et êtes en contact direct avec les locataires et les propriétaires\n\n• Vous effectuez des visites des objets de location avec les parties intéressées\n\n• Vous créez et gérez des objets, des photos de propriétés et des visites vidéo de propriétés à 360°\n\n• Vous choisissez des locataires appropriés en collaboration avec la direction\n\n• Vous créez des contrats de location et de soutien dans la préparation d'offres mandat ainsi que dans le développement de mesures marketing\n\n• Vous organisez et organisez des événements de location (y compris des rapports)\n\n• Vous aidez à l'enlèvement de biens en raison de la rénovation ou de la démolition\n\nExigences\n• Vous avez terminé votre formation en tant que Fachfrau:mann Kundedialog ou EFZ Kauffrau:mann\n\n• Vous apportez une expérience professionnelle dans le service à la clientèle directe\n\n• Vous êtes numériquement affine et avez une connaissance d'avantage dans Sales Force\n\n• Vous avez un permis de conduire Cat. B\n\n• Vous appréciez et êtes intéressé par les thèmes du logement et de l'immobilier\n\n• Vous êtes une personnalité gagnante, communicative et extravertie avec de bonnes manières\n\n• Votre langue maternelle est l'allemand et vous avez une bonne connaissance du français\n\n• Vous êtes orienté client et maintenez un partenariat\n\nNous offrons:\n• Offre interne de notre Académie de Livit pour les cours de spécialisation et de leadership\n\n• Appui financier et/ou en temps utile à la formation externe de spécialistes et accès aux plates-formes d'apprentissage électronique pour les cours de langues en ligne\n\n• planification des carrières et perspectives de développement\n\n• Accueil / Bureau mobile\n\n• Bonus selon le succès de l'entreprise et les performances personnelles\n\n• Au moins 5 semaines de vacances et achat de jusqu'à 10 jours de vacances supplémentaires (Ferienflex)\n\n• Au-delà de la moyenne, les prestations de retraite et les primes d'assurance maladie et d'assurance accidents sont couvertes à 100 % par la Livit\n\n• 14 jours de congé de paternité\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Parce que non seulement vos compétences et votre expérience, mais aussi vous en tant que personne sont importants pour nous. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et les opportunités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde immobilier."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.livit.ch/offene-stellen/vermietungsberater-in-befristet-bis-30-04-2027/6e046898-9e12-4b85-b068-69fddb5998ed",
-      "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.654Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Bern/LV---Vermietungsberater--in_R12592/apply",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
-        "vermietungsberater-in-befristet-bis-30-04-2027-livit-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern",
-          "vermietungsberater-in-befristet-bis-30-04-2027-livit-ag-bern"
-        ],
-        "en": [
-          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
-        ],
-        "fr": [
-          "vermietungsberater-in-befristet-bis-30-04-2027-livit-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:30:30.822Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1812,7 +1858,7 @@
       "url": "https://jobs.livit.ch/posti-vacanti/impiegata-impiegato-di-commercio-afc-stage-smc-pm-52-settimane-inizio-agosto-2027/5aa2dd8b-3654-4886-b4a8-6f5688390631",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T10:17:22.653Z",
+      "crawledAt": "2026-08-12T21:51:27.844Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1876,7 +1922,7 @@
       "url": "https://jobs.livit.ch/postes-vacantes/stagiaire-en-maturite-commerciale-mpc-3+1-debut-aout-2027/02ef33ec-8f6e-4b87-b579-f20fe2867b02",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:17:22.637Z",
+      "crawledAt": "2026-08-12T21:51:27.827Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1895,11 +1941,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
+        "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve",
+        "addestramento-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
+          "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve",
+          "addestramento-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve"
         ],
         "en": [
           "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
@@ -1954,7 +2002,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-bewirtschaftung-empfang/a8515da0-9b1a-490a-8677-85306d399387",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.626Z",
+      "crawledAt": "2026-08-12T21:51:27.816Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1973,11 +2021,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-bewirtschaftung-empfang-livit-st-gallen"
+        "sachbearbeiter-in-bewirtschaftung-empfang-livit-st-gallen",
+        "personale-in-gestione-ricezione-livit-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-bewirtschaftung-empfang-livit-st-gallen"
+          "sachbearbeiter-in-bewirtschaftung-empfang-livit-st-gallen",
+          "personale-in-gestione-ricezione-livit-ag-st-gallen"
         ],
         "en": [
           "sachbearbeiter-in-bewirtschaftung-empfang-livit-st-gallen"
@@ -2004,9 +2054,9 @@
       "id": "livit-0844c45c1d2d",
       "slug": "specialista-in-contabilita-livit-ag-zurich-f104d7",
       "slugByLocale": {
-        "de": "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
         "it": "specialista-in-contabilita-livit-ag-zurich-f104d7",
         "en": "specialist-in-accounting-payment-transactions-livit-ag-zurich-f104d7",
+        "de": "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
         "fr": "specialiste-en-comptabilite-operations-de-paiement-livit-ag-zurich-f104d7"
       },
       "company": "Livit AG",
@@ -2014,16 +2064,16 @@
       "companyDomain": "livit.ch",
       "title": "Fachspezialist:in Buchhaltung Zahlungsverkehr",
       "titleByLocale": {
-        "de": "Fachspezialist:in Buchhaltung Zahlungsverkehr",
         "it": "Specialista: in contabilità",
         "en": "Specialist: in accounting Payment transactions",
+        "de": "Fachspezialist:in Buchhaltung Zahlungsverkehr",
         "fr": "Spécialiste: en comptabilité Opérations de paiement"
       },
       "description": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Mit deinem Engagement stellen wir uns gemeinsam den Herausforderungen von heute und morgen. Du möchtest mitwirken und etwas bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist verantwortlich für die Kontoführung und den elektronischen Zahlungsverkehr für eine definierte Anzahl Kontokorrente bei Banken/der Postfinance\n\n• Du verbuchst die Zahlungsaus- und Zahlungseingänge und übernimmst die Kontoabstimmungen\n\n• Du verantwortest die Erstellung von Auszahlungsfiles und Einzelzahlungen\n\n• Du bearbeitest und prüfst eingegangene, automatisch nicht verbuchbare Mieterzahlungen für verantwortliche Kontokorrente\n\n• Du unterstützt bei der Aufbereitung von LSV/DD-Files Mietzinseinzüge, bei der Kontrolle von Sicherheitsleistungen (Mietzinsdepots) sowie Projekten für den Zahlungsverkehr und/oder den Finanzbereich\n\nAnforderungen:\n• Du besitzt eine kaufmännische Grundausbildung sowie eine Weiterbildung im Rechnungswesen\n\n• Du hast ausgewiesene Kenntnisse in der Buchhaltung und im Zahlungsverkehr, von Vorteil in der Immobilienbranche\n\n• Du hast ein gutes Verständnis von Soll/Haben, Bilanz/Erfolgsrechnung und Aufwand/Ertrag\n\n• Du kannst in Deutsch gewandt mündlich und schriftlich kommunizieren, mündliche und schriftliche Französisch- und/oder Italienischkenntnisse sind von Vorteil\n\n• Du bist versiert im Umgang mit den Office-Applikationen (Excel, Word und Outlook) und hast von Vorteil Kenntnisse in Mammut LION und REM\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
       "descriptionByLocale": {
-        "de": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Mit deinem Engagement stellen wir uns gemeinsam den Herausforderungen von heute und morgen. Du möchtest mitwirken und etwas bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist verantwortlich für die Kontoführung und den elektronischen Zahlungsverkehr für eine definierte Anzahl Kontokorrente bei Banken/der Postfinance\n\n• Du verbuchst die Zahlungsaus- und Zahlungseingänge und übernimmst die Kontoabstimmungen\n\n• Du verantwortest die Erstellung von Auszahlungsfiles und Einzelzahlungen\n\n• Du bearbeitest und prüfst eingegangene, automatisch nicht verbuchbare Mieterzahlungen für verantwortliche Kontokorrente\n\n• Du unterstützt bei der Aufbereitung von LSV/DD-Files Mietzinseinzüge, bei der Kontrolle von Sicherheitsleistungen (Mietzinsdepots) sowie Projekten für den Zahlungsverkehr und/oder den Finanzbereich\n\nAnforderungen:\n• Du besitzt eine kaufmännische Grundausbildung sowie eine Weiterbildung im Rechnungswesen\n\n• Du hast ausgewiesene Kenntnisse in der Buchhaltung und im Zahlungsverkehr, von Vorteil in der Immobilienbranche\n\n• Du hast ein gutes Verständnis von Soll/Haben, Bilanz/Erfolgsrechnung und Aufwand/Ertrag\n\n• Du kannst in Deutsch gewandt mündlich und schriftlich kommunizieren, mündliche und schriftliche Französisch- und/oder Italienischkenntnisse sind von Vorteil\n\n• Du bist versiert im Umgang mit den Office-Applikationen (Excel, Word und Outlook) und hast von Vorteil Kenntnisse in Mammut LION und REM\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
         "it": "Sei aperta, ambiziosa e apprezza un modo di lavorare orientato al futuro sul polso dell'industria immobiliare? Con il vostro impegno, affrontiamo le sfide di oggi e di domani insieme. Vuoi partecipare e fare la differenza? Allora hai ragione con Livit. Attendiamo con ansia il vostro contributo personale.\n\nCompiti:\n• Sei responsabile della gestione del conto e dei pagamenti elettronici per un numero definito di conti correnti presso banche/Postfinance\n\n• Prenoti le ricevute di pagamento e di pagamento e prendi in carico le conciliazioni del conto\n\n• Sei responsabile della creazione di file di pagamento e pagamenti individuali\n\n• Elabori e controlli in arrivo, pagamenti inquilini automaticamente non contabili per i conti correnti responsabili\n\n• L'utente supporta nella preparazione della raccolta di interessi per il noleggio di file LSV/DD, nel controllo delle garanzie (recensioni di interessi) e dei progetti per operazioni di pagamento e/o finanza\n\nRequisiti\n• Hai una formazione commerciale di base e un'ulteriore istruzione nella contabilità\n\n• Hai dimostrato la conoscenza in contabilità e pagamenti, un vantaggio nel settore immobiliare\n\n• Hai una buona comprensione del debito / avere, bilancio / rendicontazione e sforzo / ragazzo\n\n• È possibile comunicare verbalmente e per iscritto in tedesco, orale e scritta conoscenza del francese e/o italiano è un vantaggio\n\n• Sei ben versato nel trattare con le applicazioni Office (Excel, Word e Outlook) e avere una conoscenza vantaggiosa di Mammut LION e REM\n\n• Hai abilità di autoapprendimento e ti piace condividere le tue conoscenze con gli altri.\n\nOffriamo:\n• Offerta interna della nostra Livit Academy per corsi di specializzazione e leadership\n\n• Supporto finanziario e/o tempo per la formazione specialistica esterna e l'accesso a piattaforme di apprendimento elettronico per corsi di lingua online\n\n• Prospettive individuali di pianificazione e sviluppo della carriera\n\n• Home / Ufficio mobile\n\n• Bonus a seconda del successo aziendale e delle prestazioni personali\n\n• Almeno 5 settimane di vacanza e di acquisto fino a 10 giorni di vacanza aggiuntivi (Ferienflex)\n\n• Prestazioni e premi per l'indennità di malattia e l'assicurazione infortuni sono coperti al 100% da Livit\n\n• 14 giorni di congedo di paternità\n\nAmiamo la proprietà immobiliare e siamo entusiasti di preservare il valore delle proprietà dei nostri clienti.\n\nQuando lavori a Livit, appartieni alla famiglia Livit. Sei apprezzato per quello che sei e quello che fai. Perché non solo le vostre abilità e la vostra esperienza, ma anche voi come persona sono importanti per noi. Nel nostro ambiente di lavoro ti senti a tuo agio e puoi svilupparti. Da un lato, questo è dovuto ai nostri profili di lavoro versatili e alle opportunità di sviluppo all'interno della nostra azienda. D'altra parte, c'è anche la cultura aziendale distintiva che è senza pari nel mondo immobiliare.",
         "en": "Are you open-minded, ambitious and value a future-oriented way of working on the pulse of the real estate industry? With your commitment, we face the challenges of today and tomorrow together. Do you want to participate and make a difference? Then you are exactly right with Livit. We look forward to your personal contribution.\n\nTasks:\n• You are responsible for account management and electronic payments for a defined number of current accounts at banks/Postfinance\n\n• You book the payment and payment receipts and take over the account reconciliations\n\n• You are responsible for creating payout files and individual payments\n\n• You process and check incoming, automatically non-accountable tenant payments for responsible current accounts\n\n• You support in the preparation of LSV/DD files rental interest collection, in the control of collateral (rental interest deposits) as well as projects for payment transactions and/or finance\n\nRequirements\n• You have a basic commercial education and a further education in accounting\n\n• You have proven knowledge in accounting and payments, an advantage in the real estate industry\n\n• You have a good understanding of debt/have, balance sheet/performance statement and effort/yield\n\n• You can communicate verbally and in writing in German, oral and written knowledge of French and/or Italian is an advantage\n\n• You are well versed in dealing with the Office applications (Excel, Word and Outlook) and have an advantage knowledge of Mammut LION and REM\n\n• You have self-learning skills and you enjoy sharing your knowledge with others.\n\nWe offer:\n• Internal offer of our Livit Academy for specialist and leadership courses\n\n• Financial and/or time support for external specialist training and access to electronic learning platforms for online language courses\n\n• Individual career planning and development prospects\n\n• Home / Mobile Office\n\n• Bonus depending on company success and personal performance\n\n• At least 5 weeks holiday and purchase of up to 10 additional days holiday (Ferienflex)\n\n• Above-average pension benefits and premiums for medical day allowance and accident insurance are 100% covered by Livit\n\n• 14 days paternity leave\n\nWe love real estate and are enthusiastic about preserving the value of our clients’ properties.\n\nWhen you work at Livit, you belong to the Livit Family. You are appreciated for what you are and what you do. Because not only your skills and your experience, but also you as a person are important to us. In our working environment you feel comfortable and can develop. On the one hand, this is due to our versatile job profiles and the development opportunities within our company. On the other hand, there is also the distinctive corporate culture that is unparalleled in the real estate world.",
+        "de": "Du bist aufgeschlossen, ambitioniert und legst Wert auf eine zukunftsorientierte Arbeitsweise am Puls der Immobilienbranche? Mit deinem Engagement stellen wir uns gemeinsam den Herausforderungen von heute und morgen. Du möchtest mitwirken und etwas bewegen? Dann bist du bei Livit genau richtig. Wir freuen uns auf deinen persönlichen Beitrag.\n\nAufgaben:\n• Du bist verantwortlich für die Kontoführung und den elektronischen Zahlungsverkehr für eine definierte Anzahl Kontokorrente bei Banken/der Postfinance\n\n• Du verbuchst die Zahlungsaus- und Zahlungseingänge und übernimmst die Kontoabstimmungen\n\n• Du verantwortest die Erstellung von Auszahlungsfiles und Einzelzahlungen\n\n• Du bearbeitest und prüfst eingegangene, automatisch nicht verbuchbare Mieterzahlungen für verantwortliche Kontokorrente\n\n• Du unterstützt bei der Aufbereitung von LSV/DD-Files Mietzinseinzüge, bei der Kontrolle von Sicherheitsleistungen (Mietzinsdepots) sowie Projekten für den Zahlungsverkehr und/oder den Finanzbereich\n\nAnforderungen:\n• Du besitzt eine kaufmännische Grundausbildung sowie eine Weiterbildung im Rechnungswesen\n\n• Du hast ausgewiesene Kenntnisse in der Buchhaltung und im Zahlungsverkehr, von Vorteil in der Immobilienbranche\n\n• Du hast ein gutes Verständnis von Soll/Haben, Bilanz/Erfolgsrechnung und Aufwand/Ertrag\n\n• Du kannst in Deutsch gewandt mündlich und schriftlich kommunizieren, mündliche und schriftliche Französisch- und/oder Italienischkenntnisse sind von Vorteil\n\n• Du bist versiert im Umgang mit den Office-Applikationen (Excel, Word und Outlook) und hast von Vorteil Kenntnisse in Mammut LION und REM\n\n• Du verfügst über Selbstlernkompetenz und es macht dir Freude, dein Wissen auch an andere weiterzugeben\n\nWir bieten:\n• Internes Angebot unserer Livit Akademie für Fach- und Führungskurse\n\n• Finanzielle und/oder zeitliche Unterstützung bei externen Fachausbildungen sowie Zugang zu elektronischen Lernplattformen für online Sprachkursen\n\n• individuelle Karriereplanung und Entwicklungsperspektiven\n\n• Home- / Mobile Office\n\n• Bonus in Abhängigkeit des Unternehmenserfolgs und der persönlichen Leistung\n\n• Mindestens 5 Wochen Ferien und Kauf von bis zu 10 zusätzlichen Tagen Ferien (Ferienflex)\n\n• Überdurchschnittliche Vorsorgeleistungen und Prämien für Krankentaggeld- und Unfallversicherung werden zu 100% von Livit übernommen\n\n• 14 Tage Vaterschaftsurlaub\n\nWir lieben Immobilien und setzen uns mit Begeisterung für die Werterhaltung der Liegenschaften unserer Kunden ein.\n\nWenn du bei Livit arbeitest, gehörst du zur Livit Family. Du wirst geschätzt für das, was du bist und was du tust. Denn nicht nur deine Skills und deine Erfahrung, sondern auch du als Mensch bist uns wichtig. In unserem Arbeitsumfeld fühlst du dich wohl und kannst dich entfalten. Das liegt einerseits an unseren vielseitigen Jobprofilen und den Entwicklungsmöglichkeiten innerhalb unseres Unternehmens. Andererseits aber auch an der unverwechselbaren Unternehmenskultur, die in der Immobilienwelt ihresgleichen sucht.",
         "fr": "Êtes-vous ouvert d'esprit, ambitieux et valorisez-vous une façon prospective de travailler sur le pouls de l'industrie immobilière? Avec votre engagement, nous sommes confrontés ensemble aux défis d'aujourd'hui et de demain. Voulez-vous participer et faire une différence? Alors tu as exactement raison avec Livit. Nous attendons avec impatience votre contribution personnelle.\n\nTâches :\n• Vous êtes responsable de la gestion des comptes et des paiements électroniques pour un nombre défini de comptes courants auprès des banques/Postfinance\n\n• Vous enregistrez les reçus de paiement et de paiement et prenez en charge les rapprochements de compte\n\n• Vous êtes responsable de la création des fichiers de paiement et des paiements individuels\n\n• Vous traitez et vérifiez l'arrivée, automatiquement non-responsable paiements de locataire pour les comptes courants responsables\n\n• Vous aidez à la préparation de fichiers LSV/DD pour le recouvrement des intérêts de location, au contrôle des garanties (dépôts d'intérêts de location) ainsi que des projets pour les transactions de paiement et/ou les financements\n\nExigences\n• Vous avez une formation commerciale de base et une formation complémentaire en comptabilité\n\n• Vous avez prouvé vos connaissances en comptabilité et en paiements, un avantage dans l'industrie immobilière\n\n• Vous avez une bonne compréhension de la dette/avoir, bilan/rapport de performance et effort/rendement\n\n• Vous pouvez communiquer verbalement et par écrit en allemand, la connaissance orale et écrite du français et/ou de l'italien est un avantage\n\n• Vous êtes bien renseigné dans le traitement des applications Office (Excel, Word et Outlook) et avez une connaissance d'avantage de Mammut LION et REM\n\n• Vous avez des compétences d'autoapprentissage et vous aimez partager vos connaissances avec d'autres.\n\nNous offrons:\n• Offre interne de notre Académie de Livit pour des cours spécialisés et de leadership\n\n• Appui financier et/ou en temps utile à la formation externe de spécialistes et accès à des plates-formes d'apprentissage électronique pour les cours de langues en ligne\n\n• Planification de carrière et perspectives de perfectionnement\n\n• Accueil / Bureau mobile\n\n• Bonus selon le succès de l'entreprise et les performances personnelles\n\n• Au moins 5 semaines de vacances et l'achat de jusqu'à 10 jours de vacances supplémentaires (Ferienflex)\n\n• Prestations de retraite et primes supérieures à la moyenne pour l'allocation de jour médical et l'assurance accident sont 100% couverts par Livit\n\n• 14 jours de congé de paternité\n\nNous aimons l'immobilier et sommes enthousiastes à préserver la valeur de nos clients.\n\nQuand vous travaillez chez Livit, vous appartenez à la famille Livit. Vous êtes apprécié pour ce que vous êtes et ce que vous faites. Parce que non seulement vos compétences et votre expérience, mais aussi vous en tant que personne sont importantes pour nous. Dans notre environnement de travail, vous vous sentez à l'aise et vous pouvez vous développer. D'une part, cela est dû à nos profils d'emploi polyvalents et aux possibilités de développement au sein de notre entreprise. D'autre part, il y a aussi la culture d'entreprise distinctive qui est inégalée dans le monde de l'immobilier."
       },
       "needsRetranslation": true,
@@ -2032,7 +2082,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/fachspezialist-in-buchhaltung-zahlungsverkehr/e7225afd-c538-4ceb-a8ed-19882be2575a",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:17:22.621Z",
+      "crawledAt": "2026-08-12T21:51:27.813Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2049,9 +2099,24 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/livit-ag-career-stellenboerse/job/Zrich/Fachspezialist-in-Buchhaltung-Zahlungsverkehr_R12955/apply",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
+        "specialista-in-contabilita-livit-ag-zurich-f104d7"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich",
+          "specialista-in-contabilita-livit-ag-zurich-f104d7"
+        ],
+        "en": [
+          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
+        ],
+        "fr": [
+          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
+        ]
       },
+      "firstSeenAt": "2026-08-12T10:17:22.621Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2063,22 +2128,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-12T10:17:22.621Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
-        ],
-        "en": [
-          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
-        ],
-        "fr": [
-          "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "fachspezialist-in-buchhaltung-zahlungsverkehr-livit-zurich"
-      ]
+      }
     }
   ]
 }

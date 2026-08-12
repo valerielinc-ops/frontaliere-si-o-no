@@ -30398,6 +30398,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apple-vola-a-5000-miliardi-di-valore': {
+    title: 'Apple vola a 5.000 miliardi di valore, è la seconda dopo Nvidia',
+    description: 'Apple sfonda quota 5.000 miliardi di dollari di capitalizzazione di mercato, divenendo la seconda società al mondo a raggiungere la storica soglia dopo Nvidia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apple, vola, miliardi, valore',
+    ogTitle: 'Apple sfonda quota 5.000 miliardi di dollari di capitalizzazione di mercato',
+    ogDescription: 'Apple sfonda quota 5.000 miliardi di dollari di capitalizzazione di mercato, divenendo la seconda società al mondo a raggiungere la storica soglia dopo Nvidia.',
+    canonicalPath: '/articoli-svizzera/apple-vola-a-5000-miliardi-di-valore/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apple vola a 5.000 miliardi di valore, è la seconda dopo Nvidia",
+      "description": "Apple sfonda quota 5.000 miliardi di dollari di capitalizzazione di mercato, divenendo la seconda società al mondo a raggiungere la storica soglia dopo Nvidia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apple-vola-a-5000-miliardi-di-valore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena con un Apple Store a Zurigo o a Berna con una targhetta che indica la quotazione a 5.000 miliardi di dollari"
+      },
+      "datePublished": "2026-08-12T21:36:14+00:00",
+      "dateModified": "2026-08-12T21:36:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apple-vola-a-5000-miliardi-di-valore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-promuove-berna': {
+    title: 'La Banca nazionale svizzera \'promuove\' Berna con le misure \'too big to fail\'',
+    description: 'Le misure proposte dal Consiglio federale sono state accolte favorevolmente dall\'Istituto centrale elvetico. La Banca nazionale svizzera ha promosso le misure',
+    keywords: 'frontalieri, ticino, svizzera, italia, banca, nazionale, promuove, berna',
+    ogTitle: 'La Banca nazionale svizzera \'promuove\' Berna con le misure \'too big to fail\'',
+    ogDescription: 'Le misure proposte dal Consiglio federale sono state accolte favorevolmente dall\'Istituto centrale elvetico. La Banca nazionale svizzera ha promosso le misure proposte dall\'esecutivo federale.',
+    canonicalPath: '/articoli-svizzera/bns-promuove-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Banca nazionale svizzera 'promuove' Berna con le misure 'too big to fail'",
+      "description": "Le misure proposte dal Consiglio federale sono state accolte favorevolmente dall'Istituto centrale elvetico. La Banca nazionale svizzera ha promosso le misure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-promuove-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Banca nazionale svizzera promuove le misure proposte dall'esecutivo federale per rafforzare la stabilità del sistema finanziario svizzero."
+      },
+      "datePublished": "2026-08-12T21:48:51+00:00",
+      "dateModified": "2026-08-12T21:48:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-promuove-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cultura-e-spettacoli-ticino-2026': {
+    title: 'Eurovision: se il Paese vincitore è in guerra, non ospiterà il concorso',
+    description: 'È stato aggiornato il regolamento della kermesse, anche con una novità sull\'età minima degli artisti: dovranno avere almeno 18 anni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, eurovision, paese, vincitore, guerra',
+    ogTitle: 'Eurovision: se il Paese vincitore è in guerra, non ospiterà il concorso',
+    ogDescription: 'È stato aggiornato il regolamento della kermesse, anche con una novità sull\'età minima degli artisti: dovranno avere almeno 18 anni.',
+    canonicalPath: '/articoli-svizzera/cultura-e-spettacoli-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eurovision: se il Paese vincitore è in guerra, non ospiterà il concorso",
+      "description": "È stato aggiornato il regolamento della kermesse, anche con una novità sull'età minima degli artisti: dovranno avere almeno 18 anni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cultura-e-spettacoli-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locarno 2026 - La rassegna Le regole per scegliere i film di Locarno"
+      },
+      "datePublished": "2026-08-12T21:57:02+00:00",
+      "dateModified": "2026-08-12T21:57:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cultura-e-spettacoli-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti': {
+    title: 'Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
+    description: 'I ricercatori della stazione di misurazione più alta d\'Europa hanno rilevato le tracce dei refrigeranti che si degradano in PFAS e vanno a inquinare l\'ambiente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, climatizzatori, alta, quota, ricercatori',
+    ogTitle: 'Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
+    ogDescription: 'I ricercatori della stazione di misurazione più alta d\'Europa hanno rilevato le tracce dei refrigeranti che si degradano in PFAS e vanno a inquinare l\'ambiente.',
+    canonicalPath: '/articoli-svizzera/climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti",
+      "description": "I ricercatori della stazione di misurazione più alta d'Europa hanno rilevato le tracce dei refrigeranti che si degradano in PFAS e vanno a inquinare l'ambiente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti"
+      },
+      "datePublished": "2026-08-12T22:05:46+00:00",
+      "dateModified": "2026-08-12T22:05:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

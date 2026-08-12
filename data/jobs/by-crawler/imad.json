@@ -1,85 +1,7 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-08-12T10:22:02.339Z",
+  "assembledAt": "2026-08-12T21:59:53.714Z",
   "jobs": [
-    {
-      "id": "imad-df86166e23b2",
-      "slug": "candidatura-spontanea-altro-imad-geneva",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-altro-imad-geneva",
-        "en": "candidature-spontanee-autres-imad-geneva",
-        "de": "initiativbewerbung-sonstiges-imad-geneva",
-        "fr": "candidature-spontanee-autres-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Candidature spontanée / Autres",
-      "titleByLocale": {
-        "it": "Candidatura spontanea / Altro",
-        "en": "Candidature spontanée / Autres",
-        "de": "Initiativbewerbung / Sonstiges",
-        "fr": "Candidature spontanée / Autres"
-      },
-      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
-      "descriptionByLocale": {
-        "it": "• Si prega di allegare al vostro fascicolo: un curriculum vitae aggiornato, una lettera di presentazione, una copia dei vostri diplomi e dei certificati di lavoro.",
-        "en": "• Please attach to your file: an up-to-date curriculum vitae, a cover letter, a copy of your diplomas and your work certificates.",
-        "de": "• Bitte fügen Sie Ihrer Akte einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen bei.",
-        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
-      },
-      "needsRetranslation": true,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.993Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-09-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "jobReqId": "744000079253489",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "candidature-spontanee-autres-imad-geneva",
-        "spontaneous-application-others-imad-geneva",
-        "candidatura-spontanea-altro-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-autres-imad-geneva",
-          "candidatura-spontanea-altro-imad-geneva"
-        ],
-        "en": [
-          "spontaneous-application-others-imad-geneva",
-          "candidature-spontanee-autres-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T19:53:28.560Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "imad-80417f5a809e",
       "slug": "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva",
@@ -112,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.992Z",
+      "crawledAt": "2026-08-12T21:59:50.847Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -143,6 +65,84 @@
         ],
         "de": [
           "assc-in-heimpflege-80-100-cdi-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "imad-df86166e23b2",
+      "slug": "candidatura-spontanea-altro-imad-geneva",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-altro-imad-geneva",
+        "en": "candidature-spontanee-autres-imad-geneva",
+        "de": "initiativbewerbung-sonstiges-imad-geneva",
+        "fr": "candidature-spontanee-autres-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Candidature spontanée / Autres",
+      "titleByLocale": {
+        "it": "Candidatura spontanea / Altro",
+        "en": "Candidature spontanée / Autres",
+        "de": "Initiativbewerbung / Sonstiges",
+        "fr": "Candidature spontanée / Autres"
+      },
+      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
+      "descriptionByLocale": {
+        "it": "• Si prega di allegare al vostro fascicolo: un curriculum vitae aggiornato, una lettera di presentazione, una copia dei vostri diplomi e dei certificati di lavoro.",
+        "en": "• Please attach to your file: an up-to-date curriculum vitae, a cover letter, a copy of your diplomas and your work certificates.",
+        "de": "• Bitte fügen Sie Ihrer Akte einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen bei.",
+        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-12T21:59:50.846Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-09-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "jobReqId": "744000079253489",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "candidature-spontanee-autres-imad-geneva",
+        "spontaneous-application-others-imad-geneva",
+        "candidatura-spontanea-altro-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-autres-imad-geneva",
+          "candidatura-spontanea-altro-imad-geneva"
+        ],
+        "en": [
+          "spontaneous-application-others-imad-geneva",
+          "candidature-spontanee-autres-imad-geneva"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:28.560Z",
@@ -191,7 +191,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.991Z",
+      "crawledAt": "2026-08-12T21:59:50.845Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.990Z",
+      "crawledAt": "2026-08-12T21:59:50.844Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141841408-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.989Z",
+      "crawledAt": "2026-08-12T21:59:50.843Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -401,85 +401,6 @@
       }
     },
     {
-      "id": "imad-70e132dcf92b",
-      "slug": "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva",
-      "slugByLocale": {
-        "it": "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva",
-        "en": "training-officer-human-resources-directorate-100-in-6-month-hom-imad-geneva",
-        "de": "training-officer-personaldirektion-100-in-6-monaten-hom-imad-geneva",
-        "fr": "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Chargé.e de formation / direction des ressources humaines / à 100% / en CDM de 6 mois",
-      "titleByLocale": {
-        "it": "Responsabile della formazione / Direzione Risorse umane / 100% / in 6 mesi HOM",
-        "en": "Training Officer / Human Resources Directorate / 100% / in 6-month HOM",
-        "de": "Training Officer / Personaldirektion / 100% / in 6 Monaten HOM",
-        "fr": "Chargé.e de formation / direction des ressources humaines / à 100% / en CDM de 6 mois"
-      },
-      "description": "Rattaché·e au Campus IMAD, au sein du pôle relève de la Direction des ressources humaines, vous pilotez et développez l’ensemble des activités liées à la formation de la relève, en cohérence avec la stratégie institutionnelle et la politique RH. À ce titre, vous contribuez activement au développement des formations initiales et en emploi aux niveaux secondaire II et tertiaire, tout en assurant la coordination avec les partenaires de formation, les directions, les responsables RH et les équipes opérationnelles.\n Vos missions et responsabilités\n Au sein du Campus IMAD et en collaboration avec vos collègues, vous avez pour mission de développer et de gérer les activités en lien avec les apprentis (~60 prévus pour 2026) et les stagiaires. Vous pilotez la formation des apprenants en coordination avec les partenaires externes, les directions et les responsables RH. Vos activités sont les suivantes :\n\n• Analyser les besoins en relève de l’institution, proposer des stratégies de formation, assurer leur mise en œuvre et leur évaluation\n\n• Piloter et mettre en œuvre le cadre pédagogique avec les lignes hiérarchiques et les responsables RH (plan d’encadrement, règles de gestion interne des formateurs en entreprise/praticiens formateurs)\n\n• Coordonner les enseignements et la planification des volées avec les organismes de formation (école professionnelle, OFPC, etc…)\n\n• Mettre en œuvre le processus de recrutement des apprentis (ASSC et autres) et la sélection des stagiaires en collaboration avec les chargés de recrutement, les responsables RH et le management\n\n• Définir et planifier les effectifs et coordonner la planification au sein de l’institution\n\n• Coordonner, superviser et soutenir l’organisation de l’encadrement dans les équipes en faisant appliquer le cadre réglementaire des formations et les règles institutionnelles\n\n• Conseiller et soutenir les lignes hiérarchiques ainsi que les responsables RH dans le suivi des apprentis et stagiaires (évaluation, absence, etc…)\n\n• Développer des mesures de formation et d’accompagnement innovantes et adaptées dans le cadre des deux filières notamment pour les apprentis et les formateurs\n\n• Participer aux groupes de travail et commissions liés à la formation de la relève.\n\n• Formation supérieure dans le domaine RH et/ou dans la formation d’adultes\n\n• Expérience réussie de 5 ans minimum dans le domaine de la formation et/ou des ressources humaines en entreprise\n\n• Très bonnes connaissances du système de formation suisse et en particulier la formation professionnelle\n\n• Connaissance du domaine de la santé et de l’accompagnement au changement\n\n• Excellente expression orale et présentation en public\n\n• Proactivité, leadership et aptitudes à la négociation\n\n• Capacité d’analyse et de conceptualisation\n\n• Orientation clients et capacité à fonctionner de manière transversale et en équipe pluridisciplinaire\n\n• Méthodologie, bon sens des priorités et excellentes facultés d’organisation.\n Ce que nous offrons\n Chez l’ IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n Un équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche, diversifié et stimulant , au plus proche des réalités humaines\n\n• Délai de postulation : 15.08.2026\n\n• Entrée en fonction :    A convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "Attaccato al Campus IMAD, all'interno della divisione della Direzione Risorse Umane, pilotate e sviluppate tutte le attività legate alla formazione di successione, in linea con la strategia istituzionale e la politica HR. In quanto tale, contribuisce attivamente allo sviluppo della formazione iniziale e occupazionale a livello secondario e terziario, assicurando al contempo il coordinamento con partner di formazione, direttori, responsabili delle risorse umane e team operativi.\nLe vostre missioni e responsabilità\nAll'interno del Campus IMAD e in collaborazione con i vostri colleghi, la vostra missione è quella di sviluppare e gestire attività legate agli apprendisti (~60 previsti per il 2026) e agli apprendisti. Conduci la formazione degli studenti in coordinamento con partner esterni, direttori e responsabili delle risorse umane. Le vostre attività sono le seguenti:\n\n• Analizzare le esigenze dell'istituzione, proporre strategie di formazione, assicurare la loro attuazione e valutazione\n\n• Pilota e implementa il quadro pedagogico con i direttori delle linee e i responsabili delle risorse umane (piano di inquadramento, regole di gestione interna per i formatori/esecutori interni)\n\n• Coordinare l'insegnamento e la pianificazione dei voli con gli organismi di formazione (scuola professionale, OFPC, ecc...)\n\n• Implementare il processo di reclutamento di apprendistato (CASS et al.) e la selezione di tirocinanti in collaborazione con Recruitment Officers, HR Managers e Management\n\n• Definizione e pianificazione del personale e coordinamento della pianificazione all'interno dell'istituzione\n\n• Coordinare, supervisionare e sostenere l'organizzazione di coaching in team rafforzando il quadro normativo della formazione e delle regole istituzionali\n\n• Per consigliare e sostenere i direttori di linea e i responsabili delle risorse umane nel follow-up di apprendisti e tirocinanti (valutazione, assenza, ecc...)\n\n• Sviluppare misure di formazione e di sostegno innovative e appropriate in entrambi i settori, in particolare per gli apprendisti e i formatori\n\n• Partecipa a gruppi di lavoro e commissioni di formazione di successione.\n\n• Formazione avanzata delle risorse umane e/o degli adulti\n\n• Esperienza riuscita di 5 anni minimo nel campo della formazione e/o delle risorse umane nell'impresa\n\n• Ottima conoscenza del sistema di formazione svizzero e in particolare della formazione professionale\n\n• Conoscenza della salute e del sostegno al cambiamento\n\n• Eccellente espressione orale e presentazione pubblica\n\n• Proattività, leadership e competenze di negoziazione\n\n• Capacità di analisi e concettualizzazione\n\n• L'orientamento del cliente e la capacità di funzionare in modo trasversale e multidisciplinare\n\n• Metodologia, buon senso delle priorità e eccellenti capacità organizzative.\nCosa offriamo\nA IMAD, pensiamo che sia un professionista. la diffusione è un professionista. la performance.e. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente:\nUn equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo\nRetribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value\nUn campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione\nUna cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda\nImpegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive\nL'Happ\nUn ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n\n• Termine ultimo per l'applicazione: 15.08.2026\n\n• Entrata in ufficio: Da concordare\n\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro\n\n• Consideriamo solo applicazioni complete\n\n• Garantiamo la completa riservatezza nel trattamento del tuo file.",
-        "en": "Attached to the IMAD Campus, within the division of the Human Resources Directorate, you pilot and develop all the activities related to succession training, in line with the institutional strategy and HR policy. As such, you are actively contributing to the development of initial and employment training at the secondary and tertiary levels, while ensuring coordination with training partners, directorates, HR managers and operational teams.\nYour missions and responsibilities\nWithin the IMAD Campus and in collaboration with your colleagues, your mission is to develop and manage activities related to apprentices (~60 planned for 2026) and trainees. You lead the training of learners in coordination with external partners, directorates and HR leaders. Your activities are as follows:\n\n• Analysing the needs of the institution, proposing training strategies, ensuring their implementation and evaluation\n\n• Pilot and implement the pedagogical framework with line managers and HR managers (framework plan, internal management rules for in-house trainers/trainers practitioners)\n\n• Coordinate the teaching and planning of flights with training bodies (vocational school, OFPC, etc...)\n\n• Implement the Apprenticeship Recruitment Process (CASS et al.) and Trainee Selection in collaboration with Recruitment Officers, HR Managers and Management\n\n• Defining and planning staff and coordinating planning within the institution\n\n• Coordinate, supervise and support the organisation of coaching in teams by enforcing the regulatory framework of training and institutional rules\n\n• To advise and support line managers and HR managers in the follow-up of apprentices and trainees (evaluation, absence, etc...)\n\n• Develop innovative and appropriate training and support measures in both fields, particularly for apprentices and trainers\n\n• Participate in succession training working groups and commissions.\n\n• Advanced HR and/or Adult Training\n\n• Successful experience of 5 years minimum in the field of training and/or human resources in enterprise\n\n• Very good knowledge of the Swiss training system and in particular vocational training\n\n• Knowledge of health and support for change\n\n• Excellent oral expression and public presentation\n\n• Proactivity, leadership and negotiation skills\n\n• Analysis and conceptualization capability\n\n• Customer orientation and ability to function in a cross-cutting and multidisciplinary manner\n\n• Methodology, common sense of priorities and excellent organisational abilities.\nWhat We Offer\nAt IMAD , we think that a professional.the spread is a professional.the performance.e. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering:\nA balance between privacy and working life, with flexible working arrangements thought to keep your pace\nBeneficial salaries and social insurance, so that your commitment is recognized at its fair value\nAn IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession\nA corporate culture based on strong values , driven by a management combining goodwill and demand\nCommitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices\nThe Happ\nA rich, diverse and stimulating professional environment, closer to human realities\n\n• Deadline for application: 15.08.2026\n\n• Entry into office: To be agreed\n\n• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates\n\n• We only consider full applications\n\n• We guarantee complete confidentiality in the processing of your file.",
-        "de": "Angebunden an den IMAD Campus, in der Abteilung der Personaldirektion, pilotieren und entwickeln Sie alle Aktivitäten im Zusammenhang mit der Nachfolgeausbildung im Einklang mit der institutionellen Strategie und der Personalpolitik. Als solche tragen Sie aktiv zur Entwicklung der Erst- und Beschäftigungsausbildung auf der Sekundar- und Tertiärstufe bei und gewährleisten gleichzeitig die Koordination mit Schulungspartnern, Direktionen, HR-Managern und operativen Teams.\nIhre Missionen und Verantwortlichkeiten\nInnerhalb des IMAD Campus und in Zusammenarbeit mit Ihren Kollegen ist es Ihre Aufgabe, Aktivitäten im Zusammenhang mit Auszubildenden (~60 geplant für 2026) und Auszubildenden zu entwickeln und zu verwalten. Sie leiten die Ausbildung der Lernenden in Abstimmung mit externen Partnern, Direktionen und Personalleitern. Ihre Aktivitäten sind wie folgt:\n\n• Analyse der Bedürfnisse der Institution, Vorschlag von Schulungsstrategien, Gewährleistung ihrer Umsetzung und Bewertung\n\n• Pilotierung und Umsetzung des pädagogischen Rahmens mit Vorgesetzten und Personalverantwortlichen (Rahmenplan, interne Managementregeln für interne Trainer/Trainer)\n\n• Koordination des Unterrichts und der Planung von Flügen mit Ausbildungseinrichtungen (Berufsschule, OFPC, etc...)\n\n• Implementierung des Apprenticeship Recruitment Process (CASS et al.) und der Trainee Selection in Zusammenarbeit mit Recruitment Officers, HR Managers und Management\n\n• Festlegung und Planung des Personals und Koordinierung der Planung innerhalb des Organs\n\n• Koordination, Überwachung und Unterstützung der Organisation von Coachings in Teams durch Durchsetzung des regulatorischen Rahmens für Schulungen und institutionelle Regeln\n\n• Beratung und Unterstützung von Vorgesetzten und Personalverantwortlichen bei der Nachverfolgung von Auszubildenden und Auszubildenden (Bewertung, Abwesenheit, etc...)\n\n• Entwicklung innovativer und geeigneter Ausbildungs- und Unterstützungsmaßnahmen in beiden Bereichen, insbesondere für Auszubildende und Ausbilder\n\n• Teilnahme an Arbeitsgruppen und Kommissionen zur Nachfolgeausbildung.\n\n• Fortgeschrittene HR- und/oder Erwachsenenausbildung\n\n• Erfolgreiche Erfahrung von mindestens 5 Jahren im Bereich Ausbildung und / oder Personal in Unternehmen\n\n• Sehr gute Kenntnisse des Schweizer Ausbildungssystems und insbesondere der Berufsausbildung\n\n• Wissen über Gesundheit und Unterstützung für Veränderungen\n\n• Ausgezeichneter mündlicher Ausdruck und öffentliche Präsentation\n\n• Proaktivität, Führung und Verhandlungsgeschick\n\n• Analyse- und Konzeptionsfähigkeit\n\n• Kundenorientierung und Fähigkeit, bereichsübergreifend und multidisziplinär zu funktionieren\n\n• Methodik, gesunder Sinn für Prioritäten und ausgezeichnete organisatorische Fähigkeiten.\nWas wir anbieten\nBei IMAD denken wir, dass ein Profi. Der Spread ist ein Profi. Leistung.e. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umfeld entwickeln können, das Folgendes bietet:\nEin Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen, die Ihr Tempo halten sollen\nWohltätige Gehälter und Sozialversicherung, damit Ihr Engagement zum beizulegenden Zeitwert angesetzt wird\nEin IMAD-Trainingscampus, um weiter zu lernen, sich weiterzuentwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren\nEine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage kombiniert\nEngagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\nDas Happ\nEin reiches, vielfältiges und anregendes professionelles Umfeld, näher an den menschlichen Realitäten\n\n• Bewerbungsfrist: 15.08.2026\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei: einen aktualisierten Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse\n\n• Wir berücksichtigen nur vollständige Anwendungen\n\n• Wir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
-        "fr": "Rattaché·e au Campus IMAD, au sein du pôle relève de la Direction des ressources humaines, vous pilotez et développez l’ensemble des activités liées à la formation de la relève, en cohérence avec la stratégie institutionnelle et la politique RH. À ce titre, vous contribuez activement au développement des formations initiales et en emploi aux niveaux secondaire II et tertiaire, tout en assurant la coordination avec les partenaires de formation, les directions, les responsables RH et les équipes opérationnelles.\nVos missions et responsabilités\nAu sein du Campus IMAD et en collaboration avec vos collègues, vous avez pour mission de développer et de gérer les activités en lien avec les apprentis (~60 prévus pour 2026) et les stagiaires. Vous pilotez la formation des apprenants en coordination avec les partenaires externes, les directions et les responsables RH. Vos activités sont les suivantes :\n\n• Analyser les besoins en relève de l’institution, proposer des stratégies de formation, assurer leur mise en œuvre et leur évaluation\n\n• Piloter et mettre en œuvre le cadre pédagogique avec les lignes hiérarchiques et les responsables RH (plan d’encadrement, règles de gestion interne des formateurs en entreprise/praticiens formateurs)\n\n• Coordonner les enseignements et la planification des volées avec les organismes de formation (école professionnelle, OFPC, etc…)\n\n• Mettre en œuvre le processus de recrutement des apprentis (ASSC et autres) et la sélection des stagiaires en collaboration avec les chargés de recrutement, les responsables RH et le management\n\n• Définir et planifier les effectifs et coordonner la planification au sein de l’institution\n\n• Coordonner, superviser et soutenir l’organisation de l’encadrement dans les équipes en faisant appliquer le cadre réglementaire des formations et les règles institutionnelles\n\n• Conseiller et soutenir les lignes hiérarchiques ainsi que les responsables RH dans le suivi des apprentis et stagiaires (évaluation, absence, etc…)\n\n• Développer des mesures de formation et d’accompagnement innovantes et adaptées dans le cadre des deux filières notamment pour les apprentis et les formateurs\n\n• Participer aux groupes de travail et commissions liés à la formation de la relève.\n\n• Formation supérieure dans le domaine RH et/ou dans la formation d’adultes\n\n• Expérience réussie de 5 ans minimum dans le domaine de la formation et/ou des ressources humaines en entreprise\n\n• Très bonnes connaissances du système de formation suisse et en particulier la formation professionnelle\n\n• Connaissance du domaine de la santé et de l’accompagnement au changement\n\n• Excellente expression orale et présentation en public\n\n• Proactivité, leadership et aptitudes à la négociation\n\n• Capacité d’analyse et de conceptualisation\n\n• Orientation clients et capacité à fonctionner de manière transversale et en équipe pluridisciplinaire\n\n• Méthodologie, bon sens des priorités et excellentes facultés d’organisation.\nCe que nous offrons\nChez l’ IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche, diversifié et stimulant , au plus proche des réalités humaines\n\n• Délai de postulation : 15.08.2026\n\n• Entrée en fonction :    A convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "needsRetranslation": false,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000140904529-charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.988Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000140904529-charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-?oga=true",
-      "jobReqId": "744000140904529",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva",
-        "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva",
-          "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva"
-        ],
-        "en": [
-          "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva"
-        ],
-        "de": [
-          "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:10:32.984Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "imad-256034dd0739",
       "slug": "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo",
       "slugByLocale": {
@@ -511,7 +432,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141447514-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.986Z",
+      "crawledAt": "2026-08-12T21:59:50.841Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -600,7 +521,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000140419269-responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.983Z",
+      "crawledAt": "2026-08-12T21:59:50.840Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -679,7 +600,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000142822529-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T10:21:58.976Z",
+      "crawledAt": "2026-08-12T21:59:50.838Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -722,6 +643,85 @@
           "@type": "QuantitativeValue",
           "minValue": 48400,
           "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "imad-70e132dcf92b",
+      "slug": "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva",
+      "slugByLocale": {
+        "it": "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva",
+        "en": "training-officer-human-resources-directorate-100-in-6-month-hom-imad-geneva",
+        "de": "training-officer-personaldirektion-100-in-6-monaten-hom-imad-geneva",
+        "fr": "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Chargé.e de formation / direction des ressources humaines / à 100% / en CDM de 6 mois",
+      "titleByLocale": {
+        "it": "Responsabile della formazione / Direzione Risorse umane / 100% / in 6 mesi HOM",
+        "en": "Training Officer / Human Resources Directorate / 100% / in 6-month HOM",
+        "de": "Training Officer / Personaldirektion / 100% / in 6 Monaten HOM",
+        "fr": "Chargé.e de formation / direction des ressources humaines / à 100% / en CDM de 6 mois"
+      },
+      "description": "Rattaché·e au Campus IMAD, au sein du pôle relève de la Direction des ressources humaines, vous pilotez et développez l’ensemble des activités liées à la formation de la relève, en cohérence avec la stratégie institutionnelle et la politique RH. À ce titre, vous contribuez activement au développement des formations initiales et en emploi aux niveaux secondaire II et tertiaire, tout en assurant la coordination avec les partenaires de formation, les directions, les responsables RH et les équipes opérationnelles.\n Vos missions et responsabilités\n Au sein du Campus IMAD et en collaboration avec vos collègues, vous avez pour mission de développer et de gérer les activités en lien avec les apprentis (~60 prévus pour 2026) et les stagiaires. Vous pilotez la formation des apprenants en coordination avec les partenaires externes, les directions et les responsables RH. Vos activités sont les suivantes :\n\n• Analyser les besoins en relève de l’institution, proposer des stratégies de formation, assurer leur mise en œuvre et leur évaluation\n\n• Piloter et mettre en œuvre le cadre pédagogique avec les lignes hiérarchiques et les responsables RH (plan d’encadrement, règles de gestion interne des formateurs en entreprise/praticiens formateurs)\n\n• Coordonner les enseignements et la planification des volées avec les organismes de formation (école professionnelle, OFPC, etc…)\n\n• Mettre en œuvre le processus de recrutement des apprentis (ASSC et autres) et la sélection des stagiaires en collaboration avec les chargés de recrutement, les responsables RH et le management\n\n• Définir et planifier les effectifs et coordonner la planification au sein de l’institution\n\n• Coordonner, superviser et soutenir l’organisation de l’encadrement dans les équipes en faisant appliquer le cadre réglementaire des formations et les règles institutionnelles\n\n• Conseiller et soutenir les lignes hiérarchiques ainsi que les responsables RH dans le suivi des apprentis et stagiaires (évaluation, absence, etc…)\n\n• Développer des mesures de formation et d’accompagnement innovantes et adaptées dans le cadre des deux filières notamment pour les apprentis et les formateurs\n\n• Participer aux groupes de travail et commissions liés à la formation de la relève.\n\n• Formation supérieure dans le domaine RH et/ou dans la formation d’adultes\n\n• Expérience réussie de 5 ans minimum dans le domaine de la formation et/ou des ressources humaines en entreprise\n\n• Très bonnes connaissances du système de formation suisse et en particulier la formation professionnelle\n\n• Connaissance du domaine de la santé et de l’accompagnement au changement\n\n• Excellente expression orale et présentation en public\n\n• Proactivité, leadership et aptitudes à la négociation\n\n• Capacité d’analyse et de conceptualisation\n\n• Orientation clients et capacité à fonctionner de manière transversale et en équipe pluridisciplinaire\n\n• Méthodologie, bon sens des priorités et excellentes facultés d’organisation.\n Ce que nous offrons\n Chez l’ IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n Un équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche, diversifié et stimulant , au plus proche des réalités humaines\n\n• Délai de postulation : 15.08.2026\n\n• Entrée en fonction :    A convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
+      "descriptionByLocale": {
+        "it": "Attaccato al Campus IMAD, all'interno della divisione della Direzione Risorse Umane, pilotate e sviluppate tutte le attività legate alla formazione di successione, in linea con la strategia istituzionale e la politica HR. In quanto tale, contribuisce attivamente allo sviluppo della formazione iniziale e occupazionale a livello secondario e terziario, assicurando al contempo il coordinamento con partner di formazione, direttori, responsabili delle risorse umane e team operativi.\nLe vostre missioni e responsabilità\nAll'interno del Campus IMAD e in collaborazione con i vostri colleghi, la vostra missione è quella di sviluppare e gestire attività legate agli apprendisti (~60 previsti per il 2026) e agli apprendisti. Conduci la formazione degli studenti in coordinamento con partner esterni, direttori e responsabili delle risorse umane. Le vostre attività sono le seguenti:\n\n• Analizzare le esigenze dell'istituzione, proporre strategie di formazione, assicurare la loro attuazione e valutazione\n\n• Pilota e implementa il quadro pedagogico con i direttori delle linee e i responsabili delle risorse umane (piano di inquadramento, regole di gestione interna per i formatori/esecutori interni)\n\n• Coordinare l'insegnamento e la pianificazione dei voli con gli organismi di formazione (scuola professionale, OFPC, ecc...)\n\n• Implementare il processo di reclutamento di apprendistato (CASS et al.) e la selezione di tirocinanti in collaborazione con Recruitment Officers, HR Managers e Management\n\n• Definizione e pianificazione del personale e coordinamento della pianificazione all'interno dell'istituzione\n\n• Coordinare, supervisionare e sostenere l'organizzazione di coaching in team rafforzando il quadro normativo della formazione e delle regole istituzionali\n\n• Per consigliare e sostenere i direttori di linea e i responsabili delle risorse umane nel follow-up di apprendisti e tirocinanti (valutazione, assenza, ecc...)\n\n• Sviluppare misure di formazione e di sostegno innovative e appropriate in entrambi i settori, in particolare per gli apprendisti e i formatori\n\n• Partecipa a gruppi di lavoro e commissioni di formazione di successione.\n\n• Formazione avanzata delle risorse umane e/o degli adulti\n\n• Esperienza riuscita di 5 anni minimo nel campo della formazione e/o delle risorse umane nell'impresa\n\n• Ottima conoscenza del sistema di formazione svizzero e in particolare della formazione professionale\n\n• Conoscenza della salute e del sostegno al cambiamento\n\n• Eccellente espressione orale e presentazione pubblica\n\n• Proattività, leadership e competenze di negoziazione\n\n• Capacità di analisi e concettualizzazione\n\n• L'orientamento del cliente e la capacità di funzionare in modo trasversale e multidisciplinare\n\n• Metodologia, buon senso delle priorità e eccellenti capacità organizzative.\nCosa offriamo\nA IMAD, pensiamo che sia un professionista. la diffusione è un professionista. la performance.e. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente:\nUn equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo\nRetribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value\nUn campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione\nUna cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda\nImpegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive\nL'Happ\nUn ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n\n• Termine ultimo per l'applicazione: 15.08.2026\n\n• Entrata in ufficio: Da concordare\n\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro\n\n• Consideriamo solo applicazioni complete\n\n• Garantiamo la completa riservatezza nel trattamento del tuo file.",
+        "en": "Attached to the IMAD Campus, within the division of the Human Resources Directorate, you pilot and develop all the activities related to succession training, in line with the institutional strategy and HR policy. As such, you are actively contributing to the development of initial and employment training at the secondary and tertiary levels, while ensuring coordination with training partners, directorates, HR managers and operational teams.\nYour missions and responsibilities\nWithin the IMAD Campus and in collaboration with your colleagues, your mission is to develop and manage activities related to apprentices (~60 planned for 2026) and trainees. You lead the training of learners in coordination with external partners, directorates and HR leaders. Your activities are as follows:\n\n• Analysing the needs of the institution, proposing training strategies, ensuring their implementation and evaluation\n\n• Pilot and implement the pedagogical framework with line managers and HR managers (framework plan, internal management rules for in-house trainers/trainers practitioners)\n\n• Coordinate the teaching and planning of flights with training bodies (vocational school, OFPC, etc...)\n\n• Implement the Apprenticeship Recruitment Process (CASS et al.) and Trainee Selection in collaboration with Recruitment Officers, HR Managers and Management\n\n• Defining and planning staff and coordinating planning within the institution\n\n• Coordinate, supervise and support the organisation of coaching in teams by enforcing the regulatory framework of training and institutional rules\n\n• To advise and support line managers and HR managers in the follow-up of apprentices and trainees (evaluation, absence, etc...)\n\n• Develop innovative and appropriate training and support measures in both fields, particularly for apprentices and trainers\n\n• Participate in succession training working groups and commissions.\n\n• Advanced HR and/or Adult Training\n\n• Successful experience of 5 years minimum in the field of training and/or human resources in enterprise\n\n• Very good knowledge of the Swiss training system and in particular vocational training\n\n• Knowledge of health and support for change\n\n• Excellent oral expression and public presentation\n\n• Proactivity, leadership and negotiation skills\n\n• Analysis and conceptualization capability\n\n• Customer orientation and ability to function in a cross-cutting and multidisciplinary manner\n\n• Methodology, common sense of priorities and excellent organisational abilities.\nWhat We Offer\nAt IMAD , we think that a professional.the spread is a professional.the performance.e. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering:\nA balance between privacy and working life, with flexible working arrangements thought to keep your pace\nBeneficial salaries and social insurance, so that your commitment is recognized at its fair value\nAn IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession\nA corporate culture based on strong values , driven by a management combining goodwill and demand\nCommitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices\nThe Happ\nA rich, diverse and stimulating professional environment, closer to human realities\n\n• Deadline for application: 15.08.2026\n\n• Entry into office: To be agreed\n\n• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates\n\n• We only consider full applications\n\n• We guarantee complete confidentiality in the processing of your file.",
+        "de": "Angebunden an den IMAD Campus, in der Abteilung der Personaldirektion, pilotieren und entwickeln Sie alle Aktivitäten im Zusammenhang mit der Nachfolgeausbildung im Einklang mit der institutionellen Strategie und der Personalpolitik. Als solche tragen Sie aktiv zur Entwicklung der Erst- und Beschäftigungsausbildung auf der Sekundar- und Tertiärstufe bei und gewährleisten gleichzeitig die Koordination mit Schulungspartnern, Direktionen, HR-Managern und operativen Teams.\nIhre Missionen und Verantwortlichkeiten\nInnerhalb des IMAD Campus und in Zusammenarbeit mit Ihren Kollegen ist es Ihre Aufgabe, Aktivitäten im Zusammenhang mit Auszubildenden (~60 geplant für 2026) und Auszubildenden zu entwickeln und zu verwalten. Sie leiten die Ausbildung der Lernenden in Abstimmung mit externen Partnern, Direktionen und Personalleitern. Ihre Aktivitäten sind wie folgt:\n\n• Analyse der Bedürfnisse der Institution, Vorschlag von Schulungsstrategien, Gewährleistung ihrer Umsetzung und Bewertung\n\n• Pilotierung und Umsetzung des pädagogischen Rahmens mit Vorgesetzten und Personalverantwortlichen (Rahmenplan, interne Managementregeln für interne Trainer/Trainer)\n\n• Koordination des Unterrichts und der Planung von Flügen mit Ausbildungseinrichtungen (Berufsschule, OFPC, etc...)\n\n• Implementierung des Apprenticeship Recruitment Process (CASS et al.) und der Trainee Selection in Zusammenarbeit mit Recruitment Officers, HR Managers und Management\n\n• Festlegung und Planung des Personals und Koordinierung der Planung innerhalb des Organs\n\n• Koordination, Überwachung und Unterstützung der Organisation von Coachings in Teams durch Durchsetzung des regulatorischen Rahmens für Schulungen und institutionelle Regeln\n\n• Beratung und Unterstützung von Vorgesetzten und Personalverantwortlichen bei der Nachverfolgung von Auszubildenden und Auszubildenden (Bewertung, Abwesenheit, etc...)\n\n• Entwicklung innovativer und geeigneter Ausbildungs- und Unterstützungsmaßnahmen in beiden Bereichen, insbesondere für Auszubildende und Ausbilder\n\n• Teilnahme an Arbeitsgruppen und Kommissionen zur Nachfolgeausbildung.\n\n• Fortgeschrittene HR- und/oder Erwachsenenausbildung\n\n• Erfolgreiche Erfahrung von mindestens 5 Jahren im Bereich Ausbildung und / oder Personal in Unternehmen\n\n• Sehr gute Kenntnisse des Schweizer Ausbildungssystems und insbesondere der Berufsausbildung\n\n• Wissen über Gesundheit und Unterstützung für Veränderungen\n\n• Ausgezeichneter mündlicher Ausdruck und öffentliche Präsentation\n\n• Proaktivität, Führung und Verhandlungsgeschick\n\n• Analyse- und Konzeptionsfähigkeit\n\n• Kundenorientierung und Fähigkeit, bereichsübergreifend und multidisziplinär zu funktionieren\n\n• Methodik, gesunder Sinn für Prioritäten und ausgezeichnete organisatorische Fähigkeiten.\nWas wir anbieten\nBei IMAD denken wir, dass ein Profi. Der Spread ist ein Profi. Leistung.e. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umfeld entwickeln können, das Folgendes bietet:\nEin Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen, die Ihr Tempo halten sollen\nWohltätige Gehälter und Sozialversicherung, damit Ihr Engagement zum beizulegenden Zeitwert angesetzt wird\nEin IMAD-Trainingscampus, um weiter zu lernen, sich weiterzuentwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren\nEine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage kombiniert\nEngagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\nDas Happ\nEin reiches, vielfältiges und anregendes professionelles Umfeld, näher an den menschlichen Realitäten\n\n• Bewerbungsfrist: 15.08.2026\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei: einen aktualisierten Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse\n\n• Wir berücksichtigen nur vollständige Anwendungen\n\n• Wir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
+        "fr": "Rattaché·e au Campus IMAD, au sein du pôle relève de la Direction des ressources humaines, vous pilotez et développez l’ensemble des activités liées à la formation de la relève, en cohérence avec la stratégie institutionnelle et la politique RH. À ce titre, vous contribuez activement au développement des formations initiales et en emploi aux niveaux secondaire II et tertiaire, tout en assurant la coordination avec les partenaires de formation, les directions, les responsables RH et les équipes opérationnelles.\nVos missions et responsabilités\nAu sein du Campus IMAD et en collaboration avec vos collègues, vous avez pour mission de développer et de gérer les activités en lien avec les apprentis (~60 prévus pour 2026) et les stagiaires. Vous pilotez la formation des apprenants en coordination avec les partenaires externes, les directions et les responsables RH. Vos activités sont les suivantes :\n\n• Analyser les besoins en relève de l’institution, proposer des stratégies de formation, assurer leur mise en œuvre et leur évaluation\n\n• Piloter et mettre en œuvre le cadre pédagogique avec les lignes hiérarchiques et les responsables RH (plan d’encadrement, règles de gestion interne des formateurs en entreprise/praticiens formateurs)\n\n• Coordonner les enseignements et la planification des volées avec les organismes de formation (école professionnelle, OFPC, etc…)\n\n• Mettre en œuvre le processus de recrutement des apprentis (ASSC et autres) et la sélection des stagiaires en collaboration avec les chargés de recrutement, les responsables RH et le management\n\n• Définir et planifier les effectifs et coordonner la planification au sein de l’institution\n\n• Coordonner, superviser et soutenir l’organisation de l’encadrement dans les équipes en faisant appliquer le cadre réglementaire des formations et les règles institutionnelles\n\n• Conseiller et soutenir les lignes hiérarchiques ainsi que les responsables RH dans le suivi des apprentis et stagiaires (évaluation, absence, etc…)\n\n• Développer des mesures de formation et d’accompagnement innovantes et adaptées dans le cadre des deux filières notamment pour les apprentis et les formateurs\n\n• Participer aux groupes de travail et commissions liés à la formation de la relève.\n\n• Formation supérieure dans le domaine RH et/ou dans la formation d’adultes\n\n• Expérience réussie de 5 ans minimum dans le domaine de la formation et/ou des ressources humaines en entreprise\n\n• Très bonnes connaissances du système de formation suisse et en particulier la formation professionnelle\n\n• Connaissance du domaine de la santé et de l’accompagnement au changement\n\n• Excellente expression orale et présentation en public\n\n• Proactivité, leadership et aptitudes à la négociation\n\n• Capacité d’analyse et de conceptualisation\n\n• Orientation clients et capacité à fonctionner de manière transversale et en équipe pluridisciplinaire\n\n• Méthodologie, bon sens des priorités et excellentes facultés d’organisation.\nCe que nous offrons\nChez l’ IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche, diversifié et stimulant , au plus proche des réalités humaines\n\n• Délai de postulation : 15.08.2026\n\n• Entrée en fonction :    A convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
+      },
+      "needsRetranslation": false,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000140904529-charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-12T21:59:50.833Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000140904529-charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-?oga=true",
+      "jobReqId": "744000140904529",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva",
+        "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva",
+          "responsabile-della-formazione-direzione-risorse-umane-100-in-6-mesi-hom-imad-geneva"
+        ],
+        "en": [
+          "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva"
+        ],
+        "de": [
+          "charge-e-de-formation-direction-des-ressources-humaines-a-100-en-cdm-de-6-mois-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:10:32.984Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       }

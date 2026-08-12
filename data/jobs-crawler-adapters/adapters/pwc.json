@@ -11,8 +11,44 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-12T10:21:41.110Z",
+  "updatedAt": "2026-08-12T21:54:14.417Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core/9f1d39d1-7967-45b1-ae85-512edece5fe9": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-12"
+    },
+    "https://jobs.pwc.ch/job-vacancies/manager-cloud-data-ai-cloud-data-platform-architect/1465dfdf-1e79-4899-912c-67e6663c30cc": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-11"
+    },
+    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-cloud-data-ai-cd-ai-data-engineering/931df2d7-6039-4a4a-9c2d-95e3d0aee75c": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-11"
+    },
+    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-cloud-data-ai-data-engineering/54c4e9eb-43d9-4789-87b9-5f55b4eb88ef": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-11"
+    },
+    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/98495a25-14b4-43ac-92af-fd233db47d86": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-11"
+    },
+    "https://jobs.pwc.ch/job-vacancies/senior-associate-manager-cybersecurity-berater-und-pruefer/5fa12f0c-bdf7-43b9-bed2-4f0d054cd837": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-11"
+    },
     "https://jobs.pwc.ch/job-vacancies/intern-trainee-corporate-tax/02fe70e9-66f5-44b6-92a1-c599f69741a1": {
       "location": "Neuchâtel",
       "canton": "NE",
