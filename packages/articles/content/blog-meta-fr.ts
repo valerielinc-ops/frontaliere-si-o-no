@@ -9802,6 +9802,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Caisses de retraite : rendement négatif pour UBS en juillet',
     'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Les caisses de pension suisses enregistrent un rendement moyen hors charges de -0,2% en juillet, selon l\'analyse périodique d\'UBS.',
     'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Caisses de pension en Suisse avec rendement négatif en juillet',
+    'blog.article.fallimenti-aziende-svizzera-1994.title': 'Suisse, faillites d\'entreprises records : des niveaux jamais vus depuis 1994',
+    'blog.article.fallimenti-aziende-svizzera-1994.excerpt': 'Au premier semestre, 7496 entreprises ont déclaré faillite pour cause d\'insolvabilité en Suisse, soit une augmentation de 54,7 % par rapport à la même période précédente.',
+    'blog.article.fallimenti-aziende-svizzera-1994.imageAlt': 'Vue d\'un quartier d\'affaires en Suisse avec des bâtiments commerciaux',
+    'blog.article.rc-auto-svizzera-frontaliere.title': 'RC voitures suisses et frontalières : différences avec l\'Italie',
+    'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Guide pratique de l\'assurance RC auto en Suisse pour le frontalier, en mettant l\'accent sur les différences par rapport à l\'Italie, le bonus-malus et l\'immatriculation.',
+    'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Assurance RC auto suisse pour frontaliers entre différences et immatriculation',
+    'blog.article.multe-stradali-svizzere.title': 'Amende routière suisse',
+    'blog.article.multe-stradali-svizzere.excerpt': 'Comment fonctionnent les amendes routières suisses pour les résidents italiens',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Amende de trafic suisse à la frontière de Brogeda',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'L\'athlète travailleur badr jaafari en bleu clair',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, athlète travailleur de Casalzuigno, participe au marathon européen',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari pendant la course à pied européenne',
 };
 
 export default blogMetaFr;

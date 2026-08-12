@@ -6832,6 +6832,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassa-utili-immobiliari-comuni',
+    category: 'fiscale',
+    date: '2026-08-12T10:09:35.091Z',
+    image: '/images/blog/tassa-utili-immobiliari-comuni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'zone-30-kmh-intervento-consiglio-federale',
+    category: 'novita',
+    date: '2026-08-12T10:17:14.115Z',
+    image: '/images/blog/zone-30-kmh-intervento-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'tre-banche-cantonali-be-sg-bl-profitti-in-crescita',
+    category: 'fiscale',
+    date: '2026-08-12T10:32:20.257Z',
+    image: '/images/blog/tre-banche-cantonali-be-sg-bl-profitti-in-crescita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'insolvenze-ai-massimi-da-30-anni',
+    category: 'fiscale',
+    date: '2026-08-12T10:50:54.052Z',
+    image: '/images/blog/insolvenze-ai-massimi-da-30-anni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
