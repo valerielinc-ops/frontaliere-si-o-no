@@ -9806,6 +9806,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rc-auto-svizzera-frontaliere.title': 'RC Swiss and frontier cars: differences with Italy',
     'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Practical guide to car liability insurance in Switzerland for the border worker, with a focus on the differences compared to Italy, bonus-malus and registration.',
     'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Swiss car insurance liability for cross-border workers differences and registration',
+    'blog.article.multe-stradali-svizzere.title': 'Swiss traffic fine',
+    'blog.article.multe-stradali-svizzere.excerpt': 'How Swiss road fines work for Italian residents',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Swiss traffic fine at Brogeda border crossing',
 };
 
 export default blogMetaEn;

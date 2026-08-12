@@ -788,6 +788,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tassa-utili-immobiliari-comuni': { it: 'tassa-utili-immobiliari-comuni', en: 'real-estate-gains-tax-municipalities-ticino', de: 'immobilienkauf-gewinnsteuer-gemeinden-tessin', fr: 'taxe-plus-values-immobilieres-communes-tessin' },
  'zone-30-kmh-intervento-consiglio-federale': { it: 'zone-30-kmh-intervento-consiglio-federale', en: 'zone-30-kmh-intervention-council-federal', de: 'zone-30-kmh-eingreifen-bundesrat', fr: 'zone-30-kmh-intervention-conseil-federal' },
  'tre-banche-cantonali-be-sg-bl-profitti-in-crescita': { it: 'tre-banche-cantonali-be-sg-bl-profitti-in-crescita', en: 'three-swiss-cantonal-banks-profits-in-growth', de: 'drei-schweizerische-kantonalbanken-gewinne-im-wachstum', fr: 'trois-banques-cantonales-suisses-profits-en-croissance' },
+ 'insolvenze-ai-massimi-da-30-anni': { it: 'insolvenze-ai-massimi-da-30-anni', en: 'insolvencies-at-30-year-high', de: 'insolvenzen-bei-30-jahres-hochststand', fr: 'insolvabilite-en-suisse-a-t-30-ans' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

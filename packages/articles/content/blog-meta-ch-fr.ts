@@ -2287,6 +2287,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.title': 'Trois banques cantonales suisses : trois fois plus de profits',
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.excerpt': 'Les banques cantonales de Berne, Saint-Gall et Bâle-Campagne présentent leurs comptes semestriels avec des bénéfices en hausse',
     'blog.article.tre-banche-cantonali-be-sg-bl-profitti-in-crescita.imageAlt': 'Trois banques cantonales suisses présentent leurs comptes semestriels avec des profits en croissance',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.title': 'Insolvabilité au plus haut depuis 30 ans',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.excerpt': 'Au premier semestre, 7496 entreprises ont déclaré faillite pour cause d\'insolvabilité, le nombre le plus élevé depuis 1994.',
+    'blog.article.insolvenze-ai-massimi-da-30-anni.imageAlt': 'Taux d\'insolvabilité en Suisse: un record depuis 1994',
 };
 
 export default blogMetaChFr;

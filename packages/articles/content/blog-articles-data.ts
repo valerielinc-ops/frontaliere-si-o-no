@@ -29406,6 +29406,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'multe-stradali-svizzere',
+ category: 'pratico',
+ date: '2026-08-12T10:45:24.119Z',
+ image: '/images/blog/multe-stradali-svizzere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

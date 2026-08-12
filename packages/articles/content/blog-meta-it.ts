@@ -9807,6 +9807,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rc-auto-svizzera-frontaliere.title': 'RC auto svizzera e frontalieri: differenze con l\'Italia',
     'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Guida pratica all\'assicurazione RC auto in Svizzera per il frontaliere, con focus sulle differenze rispetto all\'Italia, bonus-malus e immatricolazione.',
     'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Assicurazione RC auto in Svizzera per frontalieri tra differenze e immatricolazione',
+    'blog.article.multe-stradali-svizzere.title': 'Multa stradale svizzera',
+    'blog.article.multe-stradali-svizzere.excerpt': 'Come funzionano le multe stradali svizzere per i residenti italiani',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Multa stradale svizzera al valico di Brogeda',
 };
 
 export default blogMetaIt;

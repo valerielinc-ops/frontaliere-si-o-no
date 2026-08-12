@@ -9808,6 +9808,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rc-auto-svizzera-frontaliere.title': 'RC voitures suisses et frontalières : différences avec l\'Italie',
     'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Guide pratique de l\'assurance RC auto en Suisse pour le frontalier, en mettant l\'accent sur les différences par rapport à l\'Italie, le bonus-malus et l\'immatriculation.',
     'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Assurance RC auto suisse pour frontaliers entre différences et immatriculation',
+    'blog.article.multe-stradali-svizzere.title': 'Amende routière suisse',
+    'blog.article.multe-stradali-svizzere.excerpt': 'Comment fonctionnent les amendes routières suisses pour les résidents italiens',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Amende de trafic suisse à la frontière de Brogeda',
 };
 
 export default blogMetaFr;
