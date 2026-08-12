@@ -30047,6 +30047,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-livigno-idea-progetto-s-chanf': {
+    title: 'Grigioni appoggia collegamento ferroviario S-chanf Livigno',
+    description: 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, appoggia, collegamento, ferroviario',
+    ogTitle: 'Il Canton Grigioni appoggia l\'idea di un collegamento ferroviario tra S-chanf e Livigno',
+    ogDescription: 'La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.',
+    canonicalPath: '/articoli-svizzera/livigno-idea-progetto-s-chanf/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni appoggia collegamento ferroviario S-chanf Livigno",
+      "description": "La collaborazione con la Lombardia mira a ridurre i tempi di percorrenza tra Engadina e Alta Valtellina, con un progetto concreto atteso entro dicembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/livigno-idea-progetto-s-chanf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un treno attraversa le montagne svizzere, con enfasi sulla connessione Livigno-S-chanf."
+      },
+      "datePublished": "2026-08-12T17:59:03+00:00",
+      "dateModified": "2026-08-12T17:59:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/livigno-idea-progetto-s-chanf/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

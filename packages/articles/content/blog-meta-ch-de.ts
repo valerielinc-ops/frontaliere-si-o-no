@@ -2320,6 +2320,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-governo-difesa-2026.title': 'Regierung: 0,5 Prozentpunkte Anstieg über 12 Jahre',
     'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'Die Mehrwertsteuererhöhung von 0,5 Prozentpunkten wird ab 2028 und für einen Zeitraum von 12 Jahren angewendet.',
     'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Eine Szene eines Schweizer Politikers, der einen Haushalt dem Parlament vorstellt, mit einem Hintergrund der Schweizer Alpen.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Graubünden unterstützt Bahnverbindung S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'Die Zusammenarbeit mit der Lombardei zielt darauf ab, die Reisezeiten zwischen dem Engadin und dem Oberen Veltlin zu verkürzen, wobei bis Dezember ein konkretes Projekt erwartet wird.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Ein Zug fährt durch die Schweizer Berge, mit Schwerpunkt auf die Verbindung Livigno-S-chanf.',
 };
 
 export default blogMetaChDe;

@@ -2320,6 +2320,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-governo-difesa-2026.title': 'Gouvernement : 0,5 point de pourcentage d\'augmentation sur 12 ans',
     'blog.article.iva-aumento-governo-difesa-2026.excerpt': 'L\'augmentation de la TVA de 0,5 point de pourcentage sera appliquée à partir de 2028 et pour une période de 12 ans.',
     'blog.article.iva-aumento-governo-difesa-2026.imageAlt': 'Une scène d\'un politicien suisse présentant un budget au Parlement, avec un fond des Alpes suisses.',
+    'blog.article.livigno-idea-progetto-s-chanf.title': 'Grisons soutient la liaison ferroviaire S-chanf Livigno',
+    'blog.article.livigno-idea-progetto-s-chanf.excerpt': 'La collaboration avec la Lombardie vise à réduire les temps de trajet entre l\'Engadine et la Haute-Valtelline, avec un projet concret attendu d\'ici décembre.',
+    'blog.article.livigno-idea-progetto-s-chanf.imageAlt': 'Un train traverse les montagnes suisses, avec un focus sur la connexion Livigno-S-chanf.',
 };
 
 export default blogMetaChFr;

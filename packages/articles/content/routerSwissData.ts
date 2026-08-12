@@ -799,6 +799,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'frutta-ve-25-per-cento-piu-costi-3-sconto-migros': { it: 'frutta-ve-25-per-cento-piu-costi-3-sconto-migros', en: 'fruit-ve-25-percent-more-costs-3-discount-migros', de: 'frucht-ve-25-prozent-mehr-kosten-3-rabatt-migros', fr: 'fruits-ve-25-pour-cent-plus-de-couts-3-rabais-migros' },
  'scherzi-nuove-misure-del-consiglio-federale': { it: 'scherzi-nuove-misure-del-consiglio-federale', en: 'jokes-new-measures-of-the-federal-council', de: 'witz-new-measures-of-the-federal-council', fr: 'blagues-new-measures-of-the-federal-council' },
  'iva-aumento-governo-difesa-2026': { it: 'iva-aumento-governo-difesa-2026', en: 'iva-increase-government-defense-2026', de: 'iva-steigerung-regierung-verteidigung-2026', fr: 'augmentation-de-la-iva-pour-la-defense-2026' },
+ 'livigno-idea-progetto-s-chanf': { it: 'livigno-idea-progetto-s-chanf', en: 'livigno-idea-project-s-chanf', de: 'livigno-idee-projekt-s-chanf', fr: 'livigno-idee-projet-s-chanf' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
