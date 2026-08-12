@@ -20,7 +20,13 @@ import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { forensicsFields } from './lib/requestForensics.js';
-import { verifyAutologinCode, resolveAutologinPolicy, revokedBeforeMs } from './lib/autologinCode.js';
+import {
+ verifyAutologinCode,
+ resolveAutologinPolicy,
+ revokedBeforeMs,
+ isAutologinRevoked,
+ revocationWatermarkFor,
+} from './lib/autologinCode.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -244,6 +250,30 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // behaves exactly as it did before.
  const forensicFields = forensicsFields(forensics);
  const normalizedEmail = normalizeEmail(email);
+ // One policy read for the whole call: exchange_auth_code grades against it and
+ // revoke_autologin refuses under `legacy` (see there).
+ const acPolicy = autologinPolicy || resolveAutologinPolicy();
+
+ // The ONLY observable signal that the expiry is refusing anybody (#5685).
+ //
+ // Without it the first symptom of a mis-set TTL is a complaint: every refusal
+ // is an HTTP 403 indistinguishable in Cloud Logging from the `invalid_auth_code`
+ // that anti-phishing scanners generate all day (35 hits, 25 inside 7 seconds,
+ // measured on this domain), so "are 0 or 3.000 people locked out?" has no
+ // answer and the rollback has no trigger. One structured line per refusal makes
+ // it a log-based metric — refused-by-reason over exchanges — which is the
+ // number the rollback decision needs.
+ //
+ // Deliberately NOT logged: the address and the code. The reason and the scheme
+ // are the whole diagnostic, and this is a public repo's production log.
+ const refuseAutologin = (reason, scheme) => {
+ console.warn('[exchange_auth_code] refused', JSON.stringify({
+ reason,
+ scheme: scheme || 'unparsed',
+ mint_scheme: acPolicy.mintScheme,
+ ttl_days: acPolicy.ttlDays,
+ }));
+ };
 
  // Try to get locale from subscriber record
  let lang = normalizeLocale(locale);
@@ -273,13 +303,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // grading itself lives in lib/autologinCode.js; what happens here is the
  // policy read, the per-subscriber state read, and the refusal.
  if (action === 'exchange_auth_code') {
- const policy = autologinPolicy || resolveAutologinPolicy();
+ const policy = acPolicy;
 
  // Signature first, WITHOUT touching Firestore: a forged code must cost a
  // hash and nothing else, or this endpoint becomes a free read amplifier for
  // anyone who can guess an address.
  const verdict = verifyAutologinCode(normalizedEmail, token, { secret, policy });
  if (!verdict.authentic) {
+ refuseAutologin('invalid_auth_code', verdict.scheme);
  return { status: 403, json: { success: false, error: 'invalid_auth_code' } };
  }
 
@@ -297,10 +328,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  } catch { /* read failure: signature verdict alone, exactly as before */ }
 
- // A legacy code carries no issue date, so ANY watermark revokes it — that is
- // what "revoke every link already sent" has to mean.
- const revoked = revokedBefore !== null
- && (verdict.issuedAtMs === null || verdict.issuedAtMs < revokedBefore);
+ // Same rule the module applies, from the same function — this branch grades
+ // the signature BEFORE the Firestore read, so the watermark has to be applied
+ // here rather than inside verifyAutologinCode. Two call sites, one rule.
+ const revoked = isAutologinRevoked(verdict, revokedBefore, policy);
 
  // Enforce opt-out: even with an authentic code, refuse to mint a custom token
  // when the subscriber has disabled autologin. This invalidates previously
@@ -311,13 +342,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // record an opt-out (verifyOptOutCredential), so App.tsx must offer the exit
  // instead of "Link non valido".
  if (optedOut) {
+ refuseAutologin('autologin_disabled', verdict.scheme);
  return { status: 403, json: { success: false, error: 'autologin_disabled', optOutEligible: true } };
  }
  if (revoked) {
+ refuseAutologin('auth_code_revoked', verdict.scheme);
  return { status: 403, json: { success: false, error: 'auth_code_revoked', optOutEligible: true } };
  }
  if (verdict.expired) {
+ refuseAutologin('auth_code_expired', verdict.scheme);
  return { status: 403, json: { success: false, error: 'auth_code_expired', optOutEligible: true } };
+ }
+ // Stamped in the future: authentic, but immune to both gates above, so it is
+ // refused on its own terms rather than silently trusted (see the futureDated
+ // note in lib/autologinCode.js). Named distinctly because the operator
+ // response is different — this one says a MINTER has a wrong clock.
+ if (verdict.futureDated) {
+ refuseAutologin('auth_code_not_yet_valid', verdict.scheme);
+ return { status: 403, json: { success: false, error: 'auth_code_not_yet_valid', optOutEligible: true } };
  }
 
  try {
@@ -414,20 +456,38 @@ export async function handleSubscriptionManagement({ action, email, token, local
  //
  // A watermark, not the counter #5685 proposed: a counter would have to be read
  // by all EIGHT senders that mint a code before minting it, and any sender that
- // did not would emit permanently-dead codes for that recipient. Every code
- // issued after the watermark is newer than it and works, so the next email
- // repairs autologin by itself.
+ // did not would emit permanently-dead codes for that recipient. A watermark
+ // repairs itself with no sender knowing anything — but with a DELAY worth
+ // stating: the v1 stamp is day-granular, so the repair arrives with the first
+ // email of the following UTC day, not with the next email. See
+ // revocationWatermarkFor.
  //
- // Known and deliberate: while NEWSLETTER_AC_SCHEME is `legacy`, codes carry no
- // issue date, so a revoke is PERMANENT for that subscriber until the scheme
- // flips to v1 — a legacy code can never be newer than the watermark. That is
- // why revocation and the v1 scheme are one rollout step.
+ // REFUSED under the legacy scheme, by construction rather than by comment.
+ // A legacy code carries no issue date, so it can never be newer than a
+ // watermark: revoking while `legacy` is minted would be an IRREVERSIBLE
+ // lockout of that subscriber's own autologin — no future email can repair it
+ // and there is no un-revoke API. Refusing here is what makes "revocation and
+ // the v1 scheme are one rollout step" true instead of aspirational, and it is
+ // also why a rollback is clean: the watermark cannot exist before v1, and
+ // isAutologinRevoked stops applying it to legacy codes the moment the policy
+ // goes back to `legacy` (lib/autologinCode.js). The permanent, user-reversible
+ // kill switch under either scheme is `autologin_enabled:false`.
  if (action === 'revoke_autologin') {
+ if (acPolicy.mintScheme !== 'v1') {
+ return { status: 409, json: { success: false, error: 'revocation_requires_v1' } };
+ }
  try {
  const now = new Date();
+ // Start of the next UTC day, not this instant. The stamp being revoked is
+ // day-granular, so an instant mid-day is being compared against a midnight
+ // and the boundary was emergent; this states it. Consequence, and it is the
+ // honest one: the codes minted LATER on the day of the revocation die too,
+ // and autologin returns with the first email of the following UTC day.
+ const watermarkMs = revocationWatermarkFor(now.getTime());
  await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
  email: normalizedEmail,
- autologin_revoked_before: admin.firestore.FieldValue.serverTimestamp(),
+ autologin_revoked_before: admin.firestore.Timestamp.fromMillis(watermarkMs),
+ autologin_revoked_at: admin.firestore.FieldValue.serverTimestamp(),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  }, { merge: true });
@@ -436,11 +496,21 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: 'autologin_revoked',
  source_channel: 'preferences_link',
+ effective_from: new Date(watermarkMs).toISOString(),
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: now.toISOString(),
  });
 
- return { status: 200, json: { success: true, revokedAt: now.toISOString() } };
+ return {
+ status: 200,
+ json: {
+ success: true,
+ revokedAt: now.toISOString(),
+ // What the caller has to be told, because it is not "immediately, and
+ // then the next email works".
+ effectiveFrom: new Date(watermarkMs).toISOString(),
+ },
+ };
  } catch (err) {
  console.error('[revoke_autologin] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'write_failed' } };
