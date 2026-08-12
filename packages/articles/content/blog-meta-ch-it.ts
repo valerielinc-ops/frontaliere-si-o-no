@@ -2362,6 +2362,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trenino-rossoschanf-livigno.title': 'Da S-chanf a Livigno in treno, Coira dice sì',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'Il Canton Grigioni vuole lavorare assieme ai partner della Lombardia per realizzare un collegamento ferroviario tra Engadina e Alta Valtellina.',
     'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Una galleria ferroviaria in Svizzera con una vista panoramica del lago di Lugano, con un treno in arrivo o in partenza. Max 125 char.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Permesso L di breve durata Canton Berna: validità e proroga',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Il permesso L di breve durata nel Canton di Berna: validità, proroga, condizioni e vincoli legati al datore di lavoro.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Una vista panoramica di Lugano con il Lago di Lugano',
 };
 
 export default blogMetaChIt;
