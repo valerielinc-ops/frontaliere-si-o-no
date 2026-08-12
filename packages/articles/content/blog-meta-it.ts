@@ -9772,6 +9772,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incubo-lariana-traffico-e-code.title': 'Incubo Lariana, traffico e code: la strettoia di Nesso tra i punti critici',
     'blog.article.incubo-lariana-traffico-e-code.excerpt': 'La strada provinciale 583 Lariana è sempre più preda del traffico e per gli automobilisti è sempre più un incubo.',
     'blog.article.incubo-lariana-traffico-e-code.imageAlt': 'La strada provinciale 583 Lariana è un collegamento cruciale tra Como e Lecco.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.title': 'Quadro RW: obblighi di dichiarazione per conti correnti svizzeri',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.excerpt': 'I frontalieri devono dichiarare i propri conti correnti svizzeri all\'Agenzia Entrate.',
+    'blog.article.quadro-rw-dichiarazione-conto-corrente-svizzero.imageAlt': 'Il Lago di Lugano visto dal Monte San Salvatore.',
 };
 
 export default blogMetaIt;
