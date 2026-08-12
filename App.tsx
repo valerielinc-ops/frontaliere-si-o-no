@@ -909,36 +909,68 @@ const App: React.FC = () => {
  // Same shared parser as the primary autologin effect — credential param names
  // live only in services/newsletterAutologinSignal.ts (no drift).
  const { code: autologinCode, legacyToken: legacyAuthToken } = parseNewsletterAutologin(urlParams);
+ // `authenticated` gates the client-side Firestore path below, which needs a
+ // real session. It is NOT the gate on leaving — see the fallback under it.
+ let authenticated = false;
  if (autologinCode) {
- // New flow: exchange HMAC code for fresh token
+ // Exchange the autologin code for a fresh token. Since #5685 this can
+ // refuse an AUTHENTIC code: expired past the TTL, revoked by the
+ // subscriber's watermark, or autologin_disabled.
  const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
  const result = await exchangeNewsletterAuthCode(normalizedEmail, autologinCode);
  if (result.success && result.authToken) {
  const signedInUser = await signInWithCustomAuthToken(result.authToken);
  const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
- if (!signedInEmail || normalizeNewsletterEmail(signedInEmail) !== normalizedEmail) {
- setUnsubscribeMsg(action === 'unsubscribe'
- ? 'Link non valido o scaduto. Riprova dalla newsletter.'
- : 'Link non valido o scaduto. Riprova dalla newsletter.');
- window.history.replaceState({}, '', window.location.pathname);
- return;
- }
+ authenticated = !!signedInEmail && normalizeNewsletterEmail(signedInEmail) === normalizedEmail;
  }
  } else if (legacyAuthToken) {
  const signedInUser = await signInWithCustomAuthToken(legacyAuthToken);
  const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
- if (!signedInEmail || normalizeNewsletterEmail(signedInEmail) !== normalizedEmail) {
- setUnsubscribeMsg(action === 'unsubscribe'
- ? 'Link non valido o scaduto. Riprova dalla newsletter.'
- : 'Link non valido o scaduto. Riprova dalla newsletter.');
- window.history.replaceState({}, '', window.location.pathname);
- return;
- }
- } else {
- // No authToken — reject the action to prevent unauthorized unsubscribe
+ authenticated = !!signedInEmail && normalizeNewsletterEmail(signedInEmail) === normalizedEmail;
+ } else if (!(action === 'unsubscribe' && urlParams.get('token'))) {
+ // No credential of any kind — reject the action to prevent an
+ // unauthorized unsubscribe. An unsubscribe link carrying only the `token`
+ // email HMAC is NOT credential-less: it is the makeUnsubscribeUrl shape,
+ // and the fallback below can honour it (#5672 used to dead-end here).
  setUnsubscribeMsg(action === 'unsubscribe'
  ? 'Link non valido. Usa il link dalla newsletter per disiscriverti.'
  : 'Link non valido. Usa il link dalla newsletter per riattivare.');
+ window.history.replaceState({}, '', window.location.pathname);
+ return;
+ }
+
+ if (!authenticated) {
+ // ── The exit does not depend on the session (#5685) ──────────────────
+ // Every way the block above can fail — the `ac` expired, it was revoked,
+ // the subscriber turned autologin off, the link carries only `token` (the
+ // #5672 shape), the exchange 500'd, the network blinked — used to end
+ // right here with "Link non valido": a person holding a genuine
+ // unsubscribe link and unable to leave, which is the defect the LPD art.
+ // 25/32 complaint behind this wave was about. So the opt-out now falls
+ // back to the Cloud Function, which takes either the `token` email HMAC or
+ // an authentic autologin code of ANY age and needs no session at all
+ // (verifyOptOutCredential in
+ // functions/src/newsletterSubscriptionManagement.js).
+ //
+ // No resubscribe twin, deliberately: putting somebody back on a list from
+ // a stale credential is the #5672 resurrection. Leaving is always
+ // honoured; joining always needs a live session.
+ if (action === 'unsubscribe') {
+ const credential = urlParams.get('token') || autologinCode || legacyAuthToken;
+ if (credential) {
+ const { unsubscribeViaCloudFunction } = await import('@/services/newsletterSubscribers');
+ const out = await unsubscribeViaCloudFunction(normalizedEmail, credential);
+ if (out.success) {
+ setUnsubscribeMsg(t('newsletter.unsubscribed'));
+ localStorage.removeItem('newsletter_subscribed');
+ window.history.replaceState({}, '', window.location.pathname);
+ return;
+ }
+ }
+ }
+ setUnsubscribeMsg(action === 'unsubscribe'
+ ? 'Link non valido o scaduto. Riprova dalla newsletter.'
+ : 'Link non valido o scaduto. Riprova dalla newsletter.');
  window.history.replaceState({}, '', window.location.pathname);
  return;
  }

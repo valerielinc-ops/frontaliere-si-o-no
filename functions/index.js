@@ -8,10 +8,11 @@ import { handleMailjetWebhookRequest } from './src/newsletterMailjetWebhookCore.
 import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCore.js';
 import { handleMailerooWebhookRequest } from './src/newsletterMailerooWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
+import { resolveAutologinPolicy } from './src/lib/autologinCode.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { sendNewsletterWelcomeEmail } from './src/newsletterWelcomeEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
-import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
+import { getNewsletterSecrets, getRemoteConfigValue, getAutologinPolicyConfig } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
@@ -502,12 +503,20 @@ export const newsletterManageSubscription = onRequest(
  const dailyBriefFrequency = params.daily_brief_frequency;
 
  try {
- const { newsletterSecret } = await getNewsletterSecrets();
+ const [{ newsletterSecret }, autologinPolicyEnv] = await Promise.all([
+ getNewsletterSecrets(),
+ // The `ac` lifetime policy (#5685). Both reads share the same 5-minute
+ // Remote Config template cache, so this adds no round-trip in the warm
+ // path — and it is what makes the expiry switchable (and revertible)
+ // without redeploying this function.
+ getAutologinPolicyConfig(),
+ ]);
  const result = await handleSubscriptionManagement({
  action,
  email,
  token,
  secret: newsletterSecret,
+ autologinPolicy: resolveAutologinPolicy(autologinPolicyEnv),
  enabled,
  subscribed,
  alertId,
