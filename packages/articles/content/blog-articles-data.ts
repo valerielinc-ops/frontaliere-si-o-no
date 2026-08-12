@@ -29388,6 +29388,42 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'fallimenti-aziende-svizzera-1994',
+ category: 'novita',
+ date: '2026-08-12T10:12:40.403Z',
+ image: '/images/blog/fallimenti-aziende-svizzera-1994.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'rc-auto-svizzera-frontaliere',
+ category: 'pratico',
+ date: '2026-08-12T10:28:45.459Z',
+ image: '/images/blog/rc-auto-svizzera-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'multe-stradali-svizzere',
+ category: 'pratico',
+ date: '2026-08-12T10:45:24.119Z',
+ image: '/images/blog/multe-stradali-svizzere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'casalzuigno-europei-badr-jaafari',
+ category: 'fiscale',
+ date: '2026-08-12T10:56:32.456Z',
+ image: '/images/blog/casalzuigno-europei-badr-jaafari.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
