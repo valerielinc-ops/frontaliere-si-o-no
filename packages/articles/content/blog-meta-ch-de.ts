@@ -2365,6 +2365,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Kurzaufenthaltsbewilligung L Kanton Bern: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Bern: Gültigkeit, Verlängerung, Bedingungen und an den Arbeitgeber geknüpfte Auflagen.',
     'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Eine Panoramabild von Lugano mit dem Luganersee',
+    'blog.article.medicina-genetica-in-svizzera.title': 'Genetische Medizin, der Sommer der guten Nachrichten',
+    'blog.article.medicina-genetica-in-svizzera.excerpt': 'Gentherapien kommen aus den Labors und behandeln echte Patienten.',
+    'blog.article.medicina-genetica-in-svizzera.imageAlt': 'Genetische Medizin in der Schweiz: ein neuer Anfang',
 };
 
 export default blogMetaChDe;

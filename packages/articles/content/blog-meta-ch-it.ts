@@ -2365,6 +2365,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Permesso L di breve durata Canton Berna: validità e proroga',
     'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Il permesso L di breve durata nel Canton di Berna: validità, proroga, condizioni e vincoli legati al datore di lavoro.',
     'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Una vista panoramica di Lugano con il Lago di Lugano',
+    'blog.article.medicina-genetica-in-svizzera.title': 'Medicina genetica, l\'estate delle buone notizie',
+    'blog.article.medicina-genetica-in-svizzera.excerpt': 'Le terapie genetiche escono dai laboratori e curano pazienti reali.',
+    'blog.article.medicina-genetica-in-svizzera.imageAlt': 'La medicina genetica in Svizzera: un nuovo inizio',
 };
 
 export default blogMetaChIt;
