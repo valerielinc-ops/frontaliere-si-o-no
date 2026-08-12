@@ -2326,6 +2326,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.maggiori-responsabilita-peri-vertici-bancari.title': 'Plus grande responsabilité pour les sommets bancaires',
     'blog.article.maggiori-responsabilita-peri-vertici-bancari.excerpt': 'Le Conseil fédéral met en consultation de nouvelles mesures pour accroître la responsabilité des dirigeants bancaires',
     'blog.article.maggiori-responsabilita-peri-vertici-bancari.imageAlt': 'Banques suisses',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'La sécheresse monte au grade 2 à Breggia : voici ce que vous ne pouvez pas faire',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'La sécheresse monte au grade 2 à Breggia. La municipalité a communiqué l\'augmentation de l\'échelle de crise de l\'eau pour les hameaux de Morbio Superiore et Sagno. Voici ce que vous ne pouvez pas faire.',
+    'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Image éditoriale relative à: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
 };
 
 export default blogMetaChFr;

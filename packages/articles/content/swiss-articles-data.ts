@@ -6976,6 +6976,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'la-siccita-sale-al-grado-2-a-breggia',
+    category: 'pratico',
+    date: '2026-08-12T18:14:38.857Z',
+    image: '/images/blog/la-siccita-sale-al-grado-2-a-breggia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
