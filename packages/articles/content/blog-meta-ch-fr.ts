@@ -2257,6 +2257,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Droits de succession et de donation dans le canton de Zurich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Dans le canton de Zurich, l\'impôt sur les successions et les donations est soumis à des taux différents en fonction du degré de parenté.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.caldo-prezzi-inflazione-climatica.title': 'Parce que la chaleur fait grimper les prix et l\'inflation climatique',
+    'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'De la sécheresse du Rhin au panier de la ménagère, le changement climatique crée une nouvelle inflation et contraint les banques centrales à agir.',
+    'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impact de la sécheresse et de la chaleur sur les prix en Suisse',
 };
 
 export default blogMetaChFr;

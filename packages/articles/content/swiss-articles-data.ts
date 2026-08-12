@@ -6769,6 +6769,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'caldo-prezzi-inflazione-climatica',
+    category: 'pratico',
+    date: '2026-08-12T04:21:49.899Z',
+    image: '/images/blog/caldo-prezzi-inflazione-climatica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
