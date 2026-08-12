@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { extractMetaDescription as extractKispiMetaDescription } from '../scripts/lib/kispi-job-parser.mjs';
 import { extractMetaDescription as extractSolinaMetaDescription } from '../scripts/lib/solina-job-parser.mjs';
+import { parseAfryDetailPage } from '../scripts/lib/afry-job-parser.mjs';
+import { parseHitachiEnergyDetailPage } from '../scripts/lib/hitachi-energy-job-parser.mjs';
+import { parseHilconaDetailHtml } from '../scripts/lib/hilcona-job-parser.mjs';
+import { parsePradaDetailHtml } from '../scripts/lib/prada-job-parser.mjs';
 
 /**
  * Both funnel-critical hospital parsers used to read `<meta name=description>`
@@ -122,5 +126,109 @@ describe('solina parser — meta description reader', () => {
     // pensum token that parseMetaDescription splits on.
     expect(extractSolinaMetaDescription(SOLINA_LIVE_HEAD))
       .toBe('ab&nbsp;60%, Steffisburg Ziegelei, ab November 2026 oder nach Vereinbarung');
+  });
+});
+
+/**
+ * afry, hitachi-energy, hilcona and prada used to read `<meta name=description>`
+ * with the SAME quote-strict, order-strict regex the tests above pin the fix
+ * for — but as their meta description is a lower-priority FALLBACK (used only
+ * when the primary HTML selector finds nothing), each block below forces the
+ * primary path to miss so the meta reader is what actually runs.
+ */
+
+describe('afry parser — meta description fallback reader', () => {
+  const withMeta = (metaTag: string) => `<head>${metaTag}</head><body></body>`;
+
+  it('reads the quoted shape served today', () => {
+    const html = withMeta('<meta name="description" content="AFRY engineering role, 100%, Zürich.">');
+    expect(parseAfryDetailPage(html).description).toBe('AFRY engineering role, 100%, Zürich.');
+  });
+
+  it('reads an UNQUOTED name= attribute (returned "" before this change)', () => {
+    const html = withMeta('<meta name=description content="AFRY engineering role, 100%, Zürich.">');
+    expect(parseAfryDetailPage(html).description).toBe('AFRY engineering role, 100%, Zürich.');
+  });
+
+  it('reads a content-before-name tag (returned "" before this change)', () => {
+    const html = withMeta('<meta content="AFRY reordered role, 100%, Zürich." name="description">');
+    expect(parseAfryDetailPage(html).description).toBe('AFRY reordered role, 100%, Zürich.');
+  });
+
+  it('reads single-quoted attributes (returned "" before this change)', () => {
+    const html = withMeta("<meta name='description' content='AFRY single-quoted role, 100%, Zürich.'>");
+    expect(parseAfryDetailPage(html).description).toBe('AFRY single-quoted role, 100%, Zürich.');
+  });
+});
+
+describe('hitachi-energy parser — meta description fallback reader', () => {
+  const withMeta = (metaTag: string) => `<head>${metaTag}</head><body></body>`;
+
+  it('reads the quoted shape served today', () => {
+    const html = withMeta('<meta name="description" content="Hitachi Energy engineer role, 100%, Zug.">');
+    expect(parseHitachiEnergyDetailPage(html)).toBe('Hitachi Energy engineer role, 100%, Zug.');
+  });
+
+  it('reads an UNQUOTED name= attribute (returned "" before this change)', () => {
+    const html = withMeta('<meta name=description content="Hitachi Energy engineer role, 100%, Zug.">');
+    expect(parseHitachiEnergyDetailPage(html)).toBe('Hitachi Energy engineer role, 100%, Zug.');
+  });
+
+  it('reads a content-before-name tag (returned "" before this change)', () => {
+    const html = withMeta('<meta content="Hitachi Energy reordered role, 100%, Zug." name="description">');
+    expect(parseHitachiEnergyDetailPage(html)).toBe('Hitachi Energy reordered role, 100%, Zug.');
+  });
+
+  it('reads single-quoted attributes (returned "" before this change)', () => {
+    const html = withMeta("<meta name='description' content='Hitachi Energy single-quoted role, 100%, Zug.'>");
+    expect(parseHitachiEnergyDetailPage(html)).toBe('Hitachi Energy single-quoted role, 100%, Zug.');
+  });
+});
+
+describe('hilcona parser — meta description fallback reader', () => {
+  const withMeta = (metaTag: string) => `<head>${metaTag}</head><body></body>`;
+
+  it('reads the quoted shape served today', () => {
+    const html = withMeta('<meta name="description" content="Pflegefachperson HF, 80-100%, Zürich, ab sofort.">');
+    expect(parseHilconaDetailHtml(html).description).toBe('Pflegefachperson HF, 80-100%, Zürich, ab sofort.');
+  });
+
+  it('reads an UNQUOTED name= attribute (returned "" before this change)', () => {
+    const html = withMeta('<meta name=description content="Pflegefachperson HF, 80-100%, Zürich, ab sofort.">');
+    expect(parseHilconaDetailHtml(html).description).toBe('Pflegefachperson HF, 80-100%, Zürich, ab sofort.');
+  });
+
+  it('reads a content-before-name tag (returned "" before this change)', () => {
+    const html = withMeta('<meta content="Fachfrau Gesundheit EFZ, 60-80%, Thun, ab sofort." name="description">');
+    expect(parseHilconaDetailHtml(html).description).toBe('Fachfrau Gesundheit EFZ, 60-80%, Thun, ab sofort.');
+  });
+
+  it('reads single-quoted attributes (returned "" before this change)', () => {
+    const html = withMeta("<meta name='description' content='Assistenzarzt Pädiatrie, 100%, Zürich, ab sofort.'>");
+    expect(parseHilconaDetailHtml(html).description).toBe('Assistenzarzt Pädiatrie, 100%, Zürich, ab sofort.');
+  });
+});
+
+describe('prada parser — meta description fallback reader', () => {
+  const withMeta = (metaTag: string) => `<head>${metaTag}</head><body></body>`;
+
+  it('reads the quoted shape served today', () => {
+    const html = withMeta('<meta name="description" content="Prada Group retail role, Mendrisio.">');
+    expect(parsePradaDetailHtml(html).description).toBe('Prada Group retail role, Mendrisio.');
+  });
+
+  it('reads an UNQUOTED name= attribute (returned "" before this change)', () => {
+    const html = withMeta('<meta name=description content="Prada Group retail role, Mendrisio.">');
+    expect(parsePradaDetailHtml(html).description).toBe('Prada Group retail role, Mendrisio.');
+  });
+
+  it('reads a content-before-name tag (returned "" before this change)', () => {
+    const html = withMeta('<meta content="Prada Group reordered role, Mendrisio." name="description">');
+    expect(parsePradaDetailHtml(html).description).toBe('Prada Group reordered role, Mendrisio.');
+  });
+
+  it('reads single-quoted attributes (returned "" before this change)', () => {
+    const html = withMeta("<meta name='description' content='Prada Group single-quoted role, Mendrisio.'>");
+    expect(parsePradaDetailHtml(html).description).toBe('Prada Group single-quoted role, Mendrisio.');
   });
 });

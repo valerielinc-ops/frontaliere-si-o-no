@@ -22,6 +22,7 @@
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 
 const HQ = getCompanyDefaults('prada');
 
@@ -257,8 +258,8 @@ export function parsePradaDetailHtml(html) {
     if (ogDescMatch) description = normalizeSpace(ogDescMatch[1]);
   }
   if (!description || description.length < 30) {
-    const metaDescMatch = html.match(/<meta\s+name="description"\s+content="([^"]*)"/i);
-    if (metaDescMatch) description = normalizeSpace(metaDescMatch[1]);
+    const metaRaw = extractMetaDescriptionRaw(html);
+    if (metaRaw !== null) description = normalizeSpace(metaRaw);
   }
 
   // Extract title from the detail page
