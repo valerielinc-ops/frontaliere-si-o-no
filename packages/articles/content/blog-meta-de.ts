@@ -9796,6 +9796,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoratori-frontalieri-novita-2026.title': 'Grenzgänger: Die Neuheiten 2026 zwischen IT-CH-Protokoll und Interpelli',
     'blog.article.lavoratori-frontalieri-novita-2026.excerpt': 'Die Ratifizierung des Änderungsprotokolls zum Abkommen Italien-Schweiz und die Klarstellungen der Agentur der Einnahmen definieren den Anwendungsbereich der Grenzgängerregelung neu.',
     'blog.article.lavoratori-frontalieri-novita-2026.imageAlt': 'Frontalier am Brogeda-Pass',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.title': 'Pensionskassen: im Juli negative Rendite für UBS',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.excerpt': 'Die Schweizer Pensionskassen verzeichnen laut regelmässiger Analyse der UBS im Juli eine durchschnittliche Rendite nach Aufwand von -0,2%.',
+    'blog.article.casse-pensioni-rendimento-luglio-2026.imageAlt': 'Pensionskassen in der Schweiz mit negativer Rendite im Juli',
+    'blog.article.fallimenti-aziende-svizzera-1994.title': 'Schweiz, rekordverdächtige Unternehmensinsolvenzen: seit 1994 nie dagewesene',
+    'blog.article.fallimenti-aziende-svizzera-1994.excerpt': 'Im ersten Halbjahr meldeten 7496 Unternehmen in der Schweiz Insolvenz an, was einem Anstieg von 54,7% gegenüber dem Vorquartal entspricht.',
+    'blog.article.fallimenti-aziende-svizzera-1994.imageAlt': 'Übersicht über ein Geschäftsviertel in der Schweiz mit Gewerbegebäuden',
+    'blog.article.rc-auto-svizzera-frontaliere.title': 'RC Auto Schweiz und Grenzgänger: Unterschiede zu Italien',
+    'blog.article.rc-auto-svizzera-frontaliere.excerpt': 'Praktischer Leitfaden zur Auto-Haftpflichtversicherung in der Schweiz für Grenzgänger, mit Fokus auf Unterschiede zu Italien, Bonus-Malus und Zulassung.',
+    'blog.article.rc-auto-svizzera-frontaliere.imageAlt': 'Schweizer Kfz-Haftpflichtversicherung für Grenzgänger Unterschiede und Zulassung',
+    'blog.article.multe-stradali-svizzere.title': 'Schweizer Strassenbusse',
+    'blog.article.multe-stradali-svizzere.excerpt': 'Wie funktionieren Schweizer Bußgelder für italienische Einwohner?',
+    'blog.article.multe-stradali-svizzere.imageAlt': 'Schweizer Verkehrsbuße an der Grenze Brogeda',
+    'blog.article.casalzuigno-europei-badr-jaafari.title': 'Der arbeitende Athlet Badr Jaafari in Blau',
+    'blog.article.casalzuigno-europei-badr-jaafari.excerpt': 'Badr Jaafari, Sportler aus Casalzuigno, nimmt am europäischen Marathon teil',
+    'blog.article.casalzuigno-europei-badr-jaafari.imageAlt': 'Badr Jaafari während der Europäischen Marathon',
 };
 
 export default blogMetaDe;
