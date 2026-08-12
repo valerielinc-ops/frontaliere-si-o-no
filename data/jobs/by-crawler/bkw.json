@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bkw",
-  "assembledAt": "2026-08-12T10:25:36.399Z",
+  "assembledAt": "2026-08-12T08:27:26.312Z",
   "jobs": [
     {
       "id": "bkw-4f0a6bacc40f",
@@ -3809,7 +3809,12 @@
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-langenthal",
         "electrical-installation-technician-efz-all-bkw-langenthal",
         "poste-d-installation-electrique-efz-tous-bkw-langenthal",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-ormalingen"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-ormalingen",
+        "installatore-trice-elettrico-a-in-cfc-serviceinstallateur-in-alle-bkw-ormalingen",
+        "electrician-efz-service-installer-all-bkw-ormalingen",
+        "elektroinstallateur-in-efz-serviceinstallateur-in-alle-bkw-ch",
+        "electricien-efz-installateur-de-service-tous-bkw-ormalingen",
+        "elettricista-efz-installatore-di-assistenza-tutti-bkw-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3821,13 +3826,23 @@
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-langenthal",
           "electrical-installation-technician-efz-all-bkw-langenthal",
           "poste-d-installation-electrique-efz-tous-bkw-langenthal",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-ormalingen"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-ormalingen",
+          "installatore-trice-elettrico-a-in-cfc-serviceinstallateur-in-alle-bkw-ormalingen",
+          "electrician-efz-service-installer-all-bkw-ormalingen",
+          "elektroinstallateur-in-efz-serviceinstallateur-in-alle-bkw-ch",
+          "electricien-efz-installateur-de-service-tous-bkw-ormalingen",
+          "elettricista-efz-installatore-di-assistenza-tutti-bkw-ormalingen"
         ],
         "en": [
-          "electrical-installation-technician-efz-all-bkw-langenthal"
+          "electrical-installation-technician-efz-all-bkw-langenthal",
+          "electrician-efz-service-installer-all-bkw-ormalingen"
         ],
         "fr": [
-          "poste-d-installation-electrique-efz-tous-bkw-langenthal"
+          "poste-d-installation-electrique-efz-tous-bkw-langenthal",
+          "electricien-efz-installateur-de-service-tous-bkw-ormalingen"
+        ],
+        "de": [
+          "elektroinstallateur-in-efz-serviceinstallateur-in-alle-bkw-ch"
         ]
       },
       "needsRetranslation": true,
@@ -15236,7 +15251,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "bkw-46c61d340030",

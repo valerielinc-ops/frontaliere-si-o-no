@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-08-12T10:26:41.236Z",
+  "assembledAt": "2026-08-12T09:47:44.338Z",
   "jobs": [
     {
       "id": "swiss-re-eb683c9f7002",
@@ -8684,44 +8684,6 @@
       "applyUrl": "https://www.swissre.com/careers/job/Application-Engineer-II/1418339933",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "application-engineer-ii-swiss-re-ch",
-        "application-ingegnere-i-swiss-re-hyderabad-in",
-        "application-engineer-i-swiss-re-ch",
-        "application-ingenieur-i-swiss-re-hyderabad-in",
-        "application-engineer-ii-swiss-re-ch-2",
-        "senior-application-ingegnere-swiss-re-hyderabad-in",
-        "application-ingegnere-ii-pl-sql-swiss-re-hyderabad-in",
-        "application-engineer-ii-pl-sql-swiss-re-ch",
-        "application-ingenieur-ii-pl-sql-swiss-re-hyderabad-in",
-        "application-ingegnere-ii-swiss-re-hyderabad-in"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "application-engineer-ii-swiss-re-ch",
-          "application-ingegnere-i-swiss-re-hyderabad-in",
-          "application-engineer-i-swiss-re-ch",
-          "application-ingenieur-i-swiss-re-hyderabad-in",
-          "application-engineer-ii-swiss-re-ch-2",
-          "senior-application-ingegnere-swiss-re-hyderabad-in",
-          "application-ingegnere-ii-pl-sql-swiss-re-hyderabad-in",
-          "application-engineer-ii-pl-sql-swiss-re-ch",
-          "application-ingenieur-ii-pl-sql-swiss-re-hyderabad-in",
-          "application-ingegnere-ii-swiss-re-hyderabad-in"
-        ],
-        "en": [
-          "application-engineer-i-swiss-re-ch",
-          "application-engineer-ii-pl-sql-swiss-re-ch"
-        ],
-        "de": [
-          "application-engineer-ii-swiss-re-ch-2"
-        ],
-        "fr": [
-          "application-ingenieur-i-swiss-re-hyderabad-in",
-          "application-ingenieur-ii-pl-sql-swiss-re-hyderabad-in"
-        ]
-      },
-      "firstSeenAt": "2026-08-11T10:26:16.022Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8734,7 +8696,59 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-11T10:26:16.022Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-engineer-ii-swiss-re-ch",
+          "application-ingegnere-i-swiss-re-hyderabad-in",
+          "application-engineer-i-swiss-re-ch",
+          "application-ingenieur-i-swiss-re-hyderabad-in",
+          "application-engineer-ii-swiss-re-ch-2",
+          "senior-application-ingegnere-swiss-re-hyderabad-in",
+          "application-ingegnere-ii-pl-sql-swiss-re-hyderabad-in",
+          "application-engineer-ii-pl-sql-swiss-re-ch",
+          "application-ingenieur-ii-pl-sql-swiss-re-hyderabad-in",
+          "application-ingegnere-ii-swiss-re-hyderabad-in",
+          "analytics-ingegnere-ii-swiss-re-zurich",
+          "analytics-engineer-ii-swiss-re-ch",
+          "analytics-ingenieur-ii-swiss-re-zurich",
+          "qa-ingegnere-ii-swiss-re-hyderabad-in",
+          "qa-engineer-ii-swiss-re-ch",
+          "qa-ingenieur-ii-swiss-re-hyderabad-in"
+        ],
+        "en": [
+          "application-engineer-i-swiss-re-ch",
+          "application-engineer-ii-pl-sql-swiss-re-ch",
+          "analytics-engineer-ii-swiss-re-ch"
+        ],
+        "fr": [
+          "application-ingenieur-i-swiss-re-hyderabad-in",
+          "application-ingenieur-ii-pl-sql-swiss-re-hyderabad-in",
+          "analytics-ingenieur-ii-swiss-re-zurich"
+        ],
+        "de": [
+          "application-engineer-ii-swiss-re-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "application-engineer-ii-swiss-re-ch",
+        "application-ingegnere-i-swiss-re-hyderabad-in",
+        "application-engineer-i-swiss-re-ch",
+        "application-ingenieur-i-swiss-re-hyderabad-in",
+        "application-engineer-ii-swiss-re-ch-2",
+        "senior-application-ingegnere-swiss-re-hyderabad-in",
+        "application-ingegnere-ii-pl-sql-swiss-re-hyderabad-in",
+        "application-engineer-ii-pl-sql-swiss-re-ch",
+        "application-ingenieur-ii-pl-sql-swiss-re-hyderabad-in",
+        "application-ingegnere-ii-swiss-re-hyderabad-in",
+        "analytics-ingegnere-ii-swiss-re-zurich",
+        "analytics-engineer-ii-swiss-re-ch",
+        "analytics-ingenieur-ii-swiss-re-zurich",
+        "qa-ingegnere-ii-swiss-re-hyderabad-in",
+        "qa-engineer-ii-swiss-re-ch",
+        "qa-ingenieur-ii-swiss-re-hyderabad-in"
+      ]
     },
     {
       "id": "swiss-re-e5cdbc5c2266",
@@ -23414,14 +23428,33 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-underwriting-portfolio-engineering-swiss-re-ch"
+        "manager-underwriting-portfolio-engineering-swiss-re-ch",
+        "gestione-dell-ingegneria-swiss-re-bratislava-sk-18811b",
+        "engineering-manager-swiss-re-ch",
+        "engineering-manager-swiss-re-ch-3",
+        "directeur-technique-swiss-re-bratislava-sk-18811b",
+        "engineering-manager-swiss-re-ch-2",
+        "engineering-manager-swiss-re-ch-mcigid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-underwriting-portfolio-engineering-swiss-re-ch"
+          "manager-underwriting-portfolio-engineering-swiss-re-ch",
+          "gestione-dell-ingegneria-swiss-re-bratislava-sk-18811b",
+          "engineering-manager-swiss-re-ch",
+          "engineering-manager-swiss-re-ch-3",
+          "directeur-technique-swiss-re-bratislava-sk-18811b",
+          "engineering-manager-swiss-re-ch-2",
+          "engineering-manager-swiss-re-ch-mcigid"
         ],
         "en": [
-          "manager-underwriting-portfolio-engineering-swiss-re-ch"
+          "manager-underwriting-portfolio-engineering-swiss-re-ch",
+          "engineering-manager-swiss-re-ch"
+        ],
+        "de": [
+          "engineering-manager-swiss-re-ch-3"
+        ],
+        "fr": [
+          "directeur-technique-swiss-re-bratislava-sk-18811b"
         ]
       },
       "needsRetranslation": true,
