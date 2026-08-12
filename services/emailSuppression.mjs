@@ -9,9 +9,10 @@ export {
   ADDRESS_SUPPRESSED_STATUSES,
   NEWSLETTER_EXCLUDED_STATUSES,
   JOB_ALERT_EXCLUDED_STATUSES,
+  CROSS_CHANNEL_STOP_STATUSES,
   isAddressSuppressed,
   isNewsletterExcluded,
   isJobAlertExcluded,
-  isSavedJobsDigestExcluded,
+  isCrossChannelStop,
   isTransactionalHardBlock,
 } from '../functions/src/lib/emailSuppression.js';

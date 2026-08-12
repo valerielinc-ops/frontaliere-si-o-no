@@ -29,6 +29,7 @@
 
 import { toMillis } from './firestoreTimestamp.mjs';
 import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
+import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -110,6 +111,19 @@ function reprobeOrNone(sub, nowMs, noneReason) {
 export function classifySunset(sub, nowMs) {
   const status = norm(sub?.status);
   const engaged = num(sub?.open_count ?? sub?.openCount) > 0 || num(sub?.click_count ?? sub?.clickCount) > 0;
+
+  // A recorded opt-out outranks every branch below, including the `inactive`
+  // one, which can otherwise return 'reactivate'/'reprobe' and make the address
+  // mailable again. MAILABLE_STATUSES already keeps `status: 'unsubscribed'`
+  // out, but the status is not the whole record: 458 documents carry only the
+  // camelCase `unsubscribedAt` stamp and no matching status (#5673), and #5672
+  // overwrote the status on 186 more. The shared predicate reads both, and
+  // lifts the opt-out on a strictly later explicit re-opt-in (#5711) — the
+  // reason it is not a bare stamp check. Asked first, so no lifecycle action
+  // can step over it (#5688).
+  if (isNewsletterOptOutBinding(sub)) {
+    return { action: 'none', reason: 'recorded opt-out — not a lifecycle candidate' };
+  }
 
   // Already sunset: only ever resurrect on real engagement; otherwise leave be.
   if (status === 'inactive') {

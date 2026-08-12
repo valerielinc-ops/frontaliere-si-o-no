@@ -36,7 +36,8 @@
  */
 
 import fs from 'node:fs';
-import { isNewsletterExcluded, isAddressSuppressed } from '../services/emailSuppression.mjs';
+import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
+import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { estimateDailyVolume, seedTier } from './lib/dailyBriefCadence.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -64,7 +65,13 @@ export function planSeed(rows, nowMs) {
   for (const row of rows) {
     const doc = row.doc || {};
     const status = String(doc.status || '').trim().toLowerCase();
-    if (isNewsletterExcluded(status) || isAddressSuppressed(status)) { skipped.excluded++; continue; }
+    // isNewsletterExcluded already contains every status isAddressSuppressed
+    // does, so the second call was dead. What was genuinely missing is the
+    // stamp: a document that opted out through the SPA keeps `status:
+    // 'confirmed'` on 458 production rows (#5673), and seeding it a cadence
+    // tier is planning a send to someone who asked us to stop (#5688). Shared
+    // predicate, so an explicit re-opt-in still gets seeded (#5711).
+    if (isNewsletterExcluded(status) || isNewsletterOptOutBinding(doc)) { skipped.excluded++; continue; }
     if (doc.daily_brief_frequency_override != null) { skipped.pinned++; continue; }
     if (doc.daily_brief_tier != null) { skipped.alreadySeeded++; continue; }
     const { tierDays, reason } = seedTier(doc, nowMs, { clickEvents: row.clickEvents ?? null });

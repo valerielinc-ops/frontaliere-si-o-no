@@ -20,6 +20,7 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import { getRemoteConfigValue, getNewsletterSecrets, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
+import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
 import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
@@ -122,7 +123,13 @@ class WelcomeNotEligibleError extends Error {
  * @returns {{ ok: true } | { ok: false, skipped: string }}
  */
 function evaluateWelcomeEligibility(data, isPreview) {
-  if (isNewsletterExcluded(data?.status)) {
+  // The stamp as well as the status, and for exactly the reason stated above:
+  // the race this guard is re-evaluated inside the transaction to close is an
+  // unsubscribe landing mid-flight, and the SPA writer leaves only the
+  // camelCase stamp on 458 documents (#5673, #5688). Via the shared predicate,
+  // which lifts the opt-out on an explicit re-opt-in (#5711) — a welcome mail
+  // after a deliberate re-subscription is exactly what should still go out.
+  if (isNewsletterExcluded(data?.status) || isNewsletterOptOutBinding(data)) {
     return { ok: false, skipped: 'suppressed' };
   }
   const isConfirmed = data?.status === 'confirmed' || data?.isActive === true || data?.active === true;

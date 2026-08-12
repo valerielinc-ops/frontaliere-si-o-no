@@ -111,6 +111,7 @@
  */
 
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
+import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
 
@@ -317,7 +318,15 @@ export function hasAffirmativeJobAlertConsent(data) {
  */
 export function shouldSkipSubscriber(email, data, personalization = null) {
   if (!email || !email.includes('@')) return 'invalid-email';
-  if (isNewsletterExcluded(data?.status)) return 'suppressed';
+  // Status AND stamp. This is the path that MANUFACTURES an alert out of a
+  // newsletter subscription, so reading `status` alone is the worst place to do
+  // it: the 458 documents that carry only the camelCase `unsubscribedAt` (#5673)
+  // still say `confirmed`, and the alert created from one of them would then
+  // outlive the opt-out that was supposed to end the relationship — exactly the
+  // pairing #5688 measured (127 of 127 backfilled alerts still active after the
+  // newsletter side was suppressed). The shared predicate, so a subscriber who
+  // left and explicitly came back is eligible again (#5711).
+  if (isNewsletterExcluded(data?.status) || isNewsletterOptOutBinding(data)) return 'suppressed';
   if (resolveSignalTier(data, personalization).tier === 'none') return 'no-signal';
   return hasAffirmativeJobAlertConsent(data) ? null : 'no-job-alert-consent';
 }
