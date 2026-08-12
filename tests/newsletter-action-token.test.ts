@@ -213,6 +213,19 @@ describe('the confirm window', () => {
     expect(stale.reason).toBe('expired');
   });
 
+  it('the promised days are a FLOOR — an email sent at 23:59 still works seven days later', () => {
+    // The stamp is day-granular, so it is the UTC midnight of the issue day. If
+    // the window were measured from there with no rounding, an email sent in the
+    // evening would die after six days and change while saying seven.
+    const midnight = Math.floor(Date.now() / DAY_MS) * DAY_MS;
+    const sentAt = midnight + 23 * 3_600_000 + 59 * 60_000;
+    const token = mint(TOKEN_SCOPES.CONFIRM, { now: sentAt, policy: DEFAULTS })!;
+    const justUnderSevenDays = sentAt + 7 * DAY_MS - 60_000;
+    expect(verifyNewsletterActionToken(EMAIL, token, TOKEN_SCOPES.CONFIRM, { secret: SECRET, policy: DEFAULTS, now: justUnderSevenDays }).canPerform).toBe(true);
+    // And it does die — the rounding is one day, not an amnesty.
+    expect(verifyNewsletterActionToken(EMAIL, token, TOKEN_SCOPES.CONFIRM, { secret: SECRET, policy: DEFAULTS, now: sentAt + 9 * DAY_MS }).canPerform).toBe(false);
+  });
+
   it('is switchable off from Remote Config without a deploy, and re-judges tokens already sent', () => {
     const now = Date.now();
     const old = mint(TOKEN_SCOPES.CONFIRM, { now: now - 30 * DAY_MS })!;

@@ -425,8 +425,17 @@ export function verifyNewsletterActionToken(email, token, scope, { secret, polic
     // rather than a parameter: nothing in Remote Config can add a second one, and
     // in particular nothing can add `unsubscribe` — which the branch above has
     // already returned for anyway. Belt and braces, deliberately.
+    //
+    // The `+ 1` makes the promised window a FLOOR. The stamp is day-granular, so
+    // `issuedAtMs` is the UTC MIDNIGHT of the issue day, not the send instant:
+    // measured from there, a confirmation sent at 23:00 would stop working after
+    // 6 days and 1 hour while the email in the recipient's hand says seven. The
+    // extra day is the rounding, and it rounds towards the statement being true —
+    // every link lives at least the days the email claims, and at most one more.
+    // Erring the other way would make the sentence false again, in the same four
+    // languages, for everybody who receives an email in the evening.
     if (scope === TOKEN_SCOPES.CONFIRM && pol.confirmTtlDays > 0) {
-      expired = now - parsed.issuedAtMs >= pol.confirmTtlDays * DAY_MS;
+      expired = now - parsed.issuedAtMs >= (pol.confirmTtlDays + 1) * DAY_MS;
     }
   } else if (pol.legacySunsetMs !== null) {
     // A legacy token cannot say when it was issued, so it cannot be aged
