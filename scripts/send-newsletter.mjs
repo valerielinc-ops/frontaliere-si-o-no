@@ -47,6 +47,7 @@ import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js'
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
+import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, shouldWrapAuthenticatedHref } from '../services/newsletterUrls.mjs';
 import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -1364,21 +1365,41 @@ function enrichSubscriberJobContext(subscriber, jobIndex) {
 // Shared source of truth (services/emailSuppression.mjs) so all senders agree.
 const EXCLUDED_STATUSES = NEWSLETTER_EXCLUDED_STATUSES;
 
+/**
+ * Resolve the single-address target of --test / --dry-run.
+ *
+ * Three outcomes, kept apart deliberately. `--test` may legitimately fall back
+ * to a synthetic profile for an address that has NO document — the owner's own
+ * mailbox, a seed address — but it must NOT fall back for an address whose
+ * document exists and fails the gate below: that fallback is the only path
+ * that would still reach an unconfirmed subscriber after #5686, and a gate
+ * with a bypass beside it is not a gate.
+ *
+ * @param {string} email
+ * @returns {Promise<{subscriber: object|null, refusal: string|null}>}
+ *   `refusal` is null when the address simply has no document.
+ */
 async function fetchTargetSubscriber(email) {
   const normalized = normalizeEmail(email);
-  if (!normalized) return null;
+  if (!normalized) return { subscriber: null, refusal: 'not a parseable address' };
   const doc = await db.collection('newsletter_subscribers').doc(normalized).get();
-  if (!doc.exists) return null;
+  if (!doc.exists) return { subscriber: null, refusal: null };
   const row = doc.data();
   const status = (row.status || '').toLowerCase();
-  if (EXCLUDED_STATUSES.has(status)) return null;
+  if (EXCLUDED_STATUSES.has(status)) return { subscriber: null, refusal: `status '${status}' is excluded` };
   // Shared predicate, not a bare stamp check (#5711): the opt-out stamp is now
   // append-only — a re-subscription no longer deletes it — so "carries a stamp"
   // would mean "was never mailable again", including for the people who
   // explicitly asked to come back. What lifts it is a STRICTLY LATER
   // `resubscribed_at`, which only the explicit re-opt-in paths write.
-  if (isNewsletterOptOutBinding(row)) return null;
-  return subscriberFromFirestoreRow({ ...row, email: row.email || normalized });
+  //
+  // Orthogonal to the confirmation gate below (#5686), and both are needed:
+  // this one answers "did they leave?", that one "did they ever arrive?".
+  if (isNewsletterOptOutBinding(row)) return { subscriber: null, refusal: 'unsubscribed' };
+  if (!hasConfirmationProof(row)) {
+    return { subscriber: null, refusal: 'no confirmation stamp — the double opt-in was never completed (#5686)' };
+  }
+  return { subscriber: subscriberFromFirestoreRow({ ...row, email: row.email || normalized }), refusal: null };
 }
 
 async function fetchSubscribers() {
@@ -1388,10 +1409,34 @@ async function fetchSubscribers() {
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
   // Firestore field names directly off the row, so keep the rows around too.
   const rawRows = [];
+  // Held back for want of the double-opt-in stamp, split by what `status`
+  // claimed — the two halves are different defects and the run log has to keep
+  // them apart (same split as send-daily-brief.mjs's dedupeRecipients stats).
+  let heldUnconfirmedPending = 0;
+  let heldClaimedConfirmed = 0;
 
   try {
-    // Fetch ALL subscribers (including pending) — clicking a link auto-confirms them.
-    // Exclude only those who explicitly opted out or have delivery issues.
+    // Two filters, and they answer different questions.
+    //
+    // EXCLUDED_STATUSES answers "has this address opted OUT, or is it
+    // undeliverable?" — the shared denylist, identical across every sender.
+    //
+    // hasConfirmationProof() answers "did this address ever opt IN?", and it
+    // is the half that was missing until #5686. What stood here instead was a
+    // comment asserting that "clicking a link auto-confirms them", so the
+    // weekly campaign could safely take every non-excluded row, `pending`
+    // included. Nothing implements that: the only writers of `status:
+    // 'confirmed'` are the `confirm` and `resubscribe` click handlers in
+    // functions/src/newsletterSubscriptionManagement.js, and neither is
+    // reachable from a link inside a newsletter. 1.488 addresses that never
+    // confirmed were receiving the weekly send indefinitely (measured
+    // 2026-08-12).
+    //
+    // The gate keys on the STAMP, never on the word `pending` — see
+    // services/subscriberConsent.mjs for the measurement behind that. Adding
+    // `pending` to EXCLUDED_STATUSES instead would drop the 847 re-probe rows
+    // that DID confirm, and would silently disarm the sunset and win-back
+    // channels, which share that Set and exist to reach exactly those people.
     const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
@@ -1408,6 +1453,11 @@ async function fetchSubscribers() {
       // fetchTargetSubscriber above — a stamp superseded by a strictly later
       // explicit re-opt-in is not binding (#5711).
       if (isNewsletterOptOutBinding(row)) return;
+      if (!hasConfirmationProof(row)) {
+        if (status === 'confirmed') heldClaimedConfirmed++;
+        else heldUnconfirmedPending++;
+        return;
+      }
       rawRows.push(row);
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
@@ -1417,6 +1467,17 @@ async function fetchSubscribers() {
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
+  }
+
+  if (heldUnconfirmedPending || heldClaimedConfirmed) {
+    // Printed every run, not only when it changes: this number IS the size of
+    // the list #5681's re-permission campaign has to work through, and a
+    // silent gate is how the previous arrangement lasted this long.
+    console.log(
+      `🔒 Consent gate: ${heldUnconfirmedPending + heldClaimedConfirmed} held back for want of a confirmation stamp `
+      + `(${heldUnconfirmedPending} never completed the double opt-in, `
+      + `${heldClaimedConfirmed} claim 'confirmed' with no stamp)`,
+    );
   }
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
@@ -2046,8 +2107,18 @@ async function main() {
   // don't need — nor compute — the site-wide aggregate).
   let globalPreferredHour = { hourUtc: null, sampleUsers: 0 };
   if (mode === 'test') {
-    const targetSubscriber = targetEmail ? await fetchTargetSubscriber(targetEmail) : null;
-    subscribers = targetSubscriber ? [targetSubscriber] : [{
+    const target = targetEmail
+      ? await fetchTargetSubscriber(targetEmail)
+      : { subscriber: null, refusal: null };
+    // A refusal is a REFUSAL here too, not a cue to invent a profile: the
+    // synthetic fallback exists for an address with NO document (the owner's
+    // own mailbox, a seed address), and letting it stand in for a document
+    // that failed the consent gate would reopen #5686 through --test.
+    if (target.refusal) {
+      console.error(`❌ Test target not eligible: ${targetEmail} — ${target.refusal}. Use --preview for the HTML.`);
+      process.exit(1);
+    }
+    subscribers = target.subscriber ? [target.subscriber] : [{
       email: targetEmail || ADMIN_EMAIL,
       locale: 'it',
       sourceChannel: 'newsletter_page',
@@ -2055,11 +2126,11 @@ async function main() {
       sectorInterest: null,
       preferences: { jobs: true, taxUpdates: true },
     }];
-    console.log(`\ud83d\udce8 Test mode: ${subscribers[0].email}${targetSubscriber ? ' (Firestore profile)' : ' (fallback profile)'}`);
+    console.log(`\ud83d\udce8 Test mode: ${subscribers[0].email}${target.subscriber ? ' (Firestore profile)' : ' (fallback profile)'}`);
   } else if (mode === 'dry-run') {
-    const subscriber = await fetchTargetSubscriber(targetEmail);
+    const { subscriber, refusal } = await fetchTargetSubscriber(targetEmail);
     if (!subscriber) {
-      console.error(`❌ Dry-run target not found or not eligible: ${targetEmail}`);
+      console.error(`❌ Dry-run target not found or not eligible: ${targetEmail}${refusal ? ` — ${refusal}` : ''}`);
       process.exit(1);
     }
     subscribers = [subscriber];

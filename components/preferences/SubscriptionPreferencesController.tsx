@@ -668,7 +668,10 @@ async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise
 }
 
 async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
+ // No `deleteField` here any more (#5711): this function used to clear the
+ // opt-out stamps to perform the lift, and clearing them destroyed the record
+ // that the person had unsubscribed at all.
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -698,6 +701,22 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  // unsubscribed, which is the half of the problem #5711 is about.
  resubscribed_at: serverTimestamp(),
  resubscribedAt: serverTimestamp(),
+ // The consent stamp, because THIS path earns it (#5686). It is reached
+ // only from UserProfile with email = getAuthEmail(user): a signed-in
+ // person flipping the switch on their own address — an affirmative act
+ // by an identified human. So the send gate in
+ // services/subscriberConsent.mjs may read it as proof, and without it
+ // that gate drops these people as "never confirmed" the moment they opt
+ // back in.
+ //
+ // `resubscribed_at` on the lines above is NOT that proof and must never
+ // be promoted to it. The two answer different questions — "did they come
+ // back?" and "did they ever consent?" — and only the second is evidence
+ // of consent. (The resubscribe LINK that also writes `resubscribed_at`
+ // is no longer a bare GET since #5720, but that changes who can press
+ // it, not what the field means.)
+ confirmed_at: serverTimestamp(),
+ confirmedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
  updatedAt: serverTimestamp(),
  },
