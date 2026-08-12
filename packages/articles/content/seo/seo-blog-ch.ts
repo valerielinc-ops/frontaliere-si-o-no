@@ -29228,6 +29228,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caldo-prezzi-inflazione-climatica': {
+    title: 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
+    description: 'Scopri come la siccità e il cambiamento climatico influenzano l\'inflazione, i prezzi dei generi alimentari e dei carburanti in Svizzera e in Europa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, perché, caldo, salire, prezzi',
+    ogTitle: 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
+    ogDescription: 'Analisi approfondita sull\'impatto della siccità e del cambiamento climatico sui prezzi dei generi alimentari, dei carburanti e sulle strategie delle banche centrali.',
+    canonicalPath: '/articoli-svizzera/caldo-prezzi-inflazione-climatica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perché il caldo fa salire i prezzi e l'inflazione climatica",
+      "description": "Scopri come la siccità e il cambiamento climatico influenzano l'inflazione, i prezzi dei generi alimentari e dei carburanti in Svizzera e in Europa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-prezzi-inflazione-climatica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impatto della siccità e del caldo sui prezzi in Svizzera"
+      },
+      "datePublished": "2026-08-12T04:21:49+00:00",
+      "dateModified": "2026-08-12T04:21:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caldo-prezzi-inflazione-climatica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
