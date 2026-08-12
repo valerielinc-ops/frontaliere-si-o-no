@@ -29334,6 +29334,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale',
+ category: 'fiscale',
+ date: '2026-08-12T06:04:30.597Z',
+ image: '/images/blog/matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

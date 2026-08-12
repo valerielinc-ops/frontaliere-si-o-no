@@ -9781,6 +9781,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Quadro RW dichiarazione conto corrente svizzero Agenzia Entrate',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Guida completa al monitoraggio fiscale per i frontalieri con conto in Svizzera: obblighi di compilazione e IVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Vista di Lugano e dei suoi istituti bancari e finanziari',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Matrimonio frontaliere italiano cittadino svizzero: regime fiscale',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Impostazione imposta alla fonte e ristorni per i frontalieri dopo il matrimonio con un cittadino svizzero.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'Un frontaliere italiano si sposa con un cittadino svizzero a Lugano.',
 };
 
 export default blogMetaIt;

@@ -9779,6 +9779,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Übersicht RW Erklärung Schweizer Girokonto Agentur Einnahmen',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Vollständiger Leitfaden zur Steuerüberwachung für Grenzgänger mit Konto in der Schweiz: Ausfüllpflichten und IVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Blick auf Lugano und seine Bank- und Finanzinstitute',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Italienische Grenzehe mit Schweizer Staatsangehörigkeit: Steuerregelung',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Quellensteuer und Rückerstattungen für Grenzgänger nach der Heirat mit einem Schweizer Staatsbürger.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'Ein italienischer Grenzgänger heiratet einen Schweizer Bürger in Lugano.',
 };
 
 export default blogMetaDe;

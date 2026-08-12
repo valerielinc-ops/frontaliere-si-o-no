@@ -9780,6 +9780,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Schedule RW Swiss current account statement Revenue Agency',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Complete guide to tax monitoring for border workers with an account in Switzerland: compilation obligations and IVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'View of Lugano and its banking and financial institutions',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Italian border marriage, Swiss citizen: tax regime',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Setting tax at source and refreshments for border crossers after marriage to a Swiss citizen.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'An Italian frontier worker marries a Swiss citizen in Lugano.',
 };
 
 export default blogMetaEn;

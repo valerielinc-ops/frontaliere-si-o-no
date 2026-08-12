@@ -9782,6 +9782,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quadro-rw-conto-corrente-svizzero.title': 'Tableau RW déclaration compte courant suisse Agence du revenu',
     'blog.article.quadro-rw-conto-corrente-svizzero.excerpt': 'Guide complet de suivi fiscal pour les frontaliers titulaires d\'un compte en Suisse : obligations de déclaration et TVAFE.',
     'blog.article.quadro-rw-conto-corrente-svizzero.imageAlt': 'Vue de Lugano et de ses institutions bancaires et financieres',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.title': 'Mariage frontalier italien ressortissant suisse : régime fiscal',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.excerpt': 'Réglage à la source et restauration pour les frontaliers après le mariage avec un ressortissant suisse.',
+    'blog.article.matrimonio-frontaliere-italiano-cittadino-svizzero-regime-fiscale.imageAlt': 'Un travailleur frontalier italien se marie à un citoyen suisse à Lugano.',
 };
 
 export default blogMetaFr;
