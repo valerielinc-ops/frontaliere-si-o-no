@@ -4491,10 +4491,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-eiken",
+        "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-eiken",
+        "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-eiken",
         "en": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-eiken",
-        "de": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-eiken",
-        "fr": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-eiken"
+        "fr": "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-eiken"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-eiken",
@@ -4508,6 +4508,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
