@@ -1,5 +1,6 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { CONSENT_TEXTS } from '@/services/consentTexts';
 import { render, screen, fireEvent, cleanup, waitFor, act } from '@testing-library/react';
 import PdfDownloadGate from '@/components/shared/PdfDownloadGate';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
@@ -124,7 +125,10 @@ describe('PdfDownloadGate', () => {
     const anchor = renderGatedAnchor('self_cert_health_ch', 'Questionario svizzero — stato di salute');
     fireEvent.click(anchor);
     fireEvent.change(screen.getByLabelText('Email per scaricare il PDF'), { target: { value: 'candidato@aziendaticino.ch' } });
-    fireEvent.click(screen.getByLabelText(/Acconsento/));
+    // The checkbox label is now the register formula itself, rendered by
+    // ConsentNotice — the string this gate also STORES (#5712). Matching on it
+    // is therefore matching on the consent proof, not on decorative copy.
+    fireEvent.click(screen.getByLabelText(/Accetto di ricevere via email le comunicazioni/));
     fireEvent.click(screen.getByRole('button', { name: 'Registrati e scarica' }));
 
     await vi.waitFor(() => expect(upsertNewsletterSubscriberMock).toHaveBeenCalledTimes(1));
@@ -133,6 +137,10 @@ describe('PdfDownloadGate', () => {
     expect(input.source).toBe('lead_magnet_self_cert_health_ch');
     expect(input.sourceChannel).toBe('lead_magnet');
     expect(input.consentGiven).toBe(true);
+    // …and what was ticked is what is kept: same string, same locale.
+    expect(input.consentText).toBe(CONSENT_TEXTS.communicationsOptIn.text);
+    expect(input.consentTextDisplayed).toBe(true);
+    expect(input.consentAct).toBe('typed_email_submit');
 
     await vi.advanceTimersByTimeAsync(1000);
     expect(markNewsletterSubscribedLocallyMock).toHaveBeenCalledTimes(1);

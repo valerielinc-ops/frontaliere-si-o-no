@@ -325,6 +325,14 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    * subscribers are recorded as having been shown.
    */
   const PINNED: Record<string, { version: string; text: string }> = {
+    communicationsOptIn: {
+      version: '2026-08-12.2',
+      text: 'Comunicazioni di Frontaliere Ticino. Accetto di ricevere via email le comunicazioni di Frontaliere Ticino dedicate a chi lavora oltre confine: aggiornamenti redazionali — cambio CHF/EUR, traffico ai valichi, fisco, previdenza e novità normative; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato. L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su frontaliereticino.ch/comunicazioni. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: Valerie Linc — valerie@frontaliereticino.ch',
+    },
+    communicationsSignIn: {
+      version: '2026-08-12.2',
+      text: 'Comunicazioni di Frontaliere Ticino. Accedendo, l’indirizzo email del mio account viene iscritto alle comunicazioni di Frontaliere Ticino: nessuna casella di consenso separata mi è stata proposta, l’accesso è l’unico gesto che compio. Ricevo: aggiornamenti redazionali — cambio CHF/EUR, traffico ai valichi, fisco, previdenza e novità normative; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato. L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su frontaliereticino.ch/comunicazioni. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: Valerie Linc — valerie@frontaliereticino.ch',
+    },
     signInAutoSubscribe: {
       version: '2026-08-12.1',
       text: 'Accedendo con Google, Facebook o LinkedIn a Frontaliere Ticino, l’indirizzo email dell’account viene iscritto alla newsletter per frontalieri (cambio CHF/EUR, traffico di frontiera e novità fiscali). L’accesso al sito è l’unico gesto compiuto: nessuna casella di consenso è stata proposta. Posso disiscrivermi in qualsiasi momento dal link in fondo a ogni email.',
@@ -387,6 +395,31 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
     },
   };
 
+
+  /**
+   * The three non-Italian strings of every entry that claims `displayed:
+   * true`, pinned as literally as the Italian ones above.
+   *
+   * Not decoration. Before #5712 the popup RENDERED `newsletter.consentLabel`
+   * (translated four ways) and STORED an Italian literal, so a German
+   * visitor's document recorded a sentence they had never seen. `displayed:
+   * true` is only true if the string the person actually read is the string
+   * that was kept — which means the translations are part of the proof, and
+   * editing one without bumping `version` has to fail here.
+   */
+  const PINNED_LOCALES: Record<string, Record<'en' | 'de' | 'fr', string>> = {
+    communicationsOptIn: {
+      en: 'Frontaliere Ticino communications. I agree to receive by email the Frontaliere Ticino communications for people who work across the border: editorial updates — CHF/EUR exchange rate, traffic at the border crossings, tax, pensions and regulatory news; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved. The complete, up-to-date list of every communication, with how often each one is sent, is at frontaliereticino.ch/comunicazioni. I can choose which ones to receive and how often, or stop them all, at any time and without giving a reason, from my preferences or the link at the bottom of every email. Data controller: Valerie Linc — valerie@frontaliereticino.ch',
+      de: 'Mitteilungen von Frontaliere Ticino. Ich stimme zu, die E-Mail-Mitteilungen von Frontaliere Ticino für Grenzgängerinnen und Grenzgänger zu erhalten: redaktionelle Updates — CHF/EUR-Kurs, Verkehr an den Grenzübergängen, Steuern, Vorsorge und Neuerungen der Rechtslage; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen. Die vollständige und aktuelle Liste aller Mitteilungen, mit der Häufigkeit jeder einzelnen, steht auf frontaliereticino.ch/comunicazioni. Ich kann jederzeit und ohne Begründung wählen, welche ich erhalte und wie oft, oder alle abbestellen — in meinen Einstellungen oder über den Link am Ende jeder E-Mail. Verantwortliche Person: Valerie Linc — valerie@frontaliereticino.ch',
+      fr: 'Communications de Frontaliere Ticino. J’accepte de recevoir par e-mail les communications de Frontaliere Ticino destinées à celles et ceux qui travaillent de l’autre côté de la frontière : mises à jour éditoriales — taux CHF/EUR, trafic aux postes-frontière, fiscalité, prévoyance et nouveautés réglementaires ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées. La liste complète et à jour de toutes les communications, avec la fréquence de chacune, se trouve sur frontaliereticino.ch/comunicazioni. Je peux à tout moment et sans motif choisir lesquelles recevoir et à quelle fréquence, ou toutes les résilier, depuis mes préférences ou le lien en bas de chaque e-mail. Responsable du traitement : Valerie Linc — valerie@frontaliereticino.ch',
+    },
+    communicationsSignIn: {
+      en: 'Frontaliere Ticino communications. By signing in, my account email address is subscribed to the Frontaliere Ticino communications: no separate consent box was offered to me, signing in is the only thing I do. I receive: editorial updates — CHF/EUR exchange rate, traffic at the border crossings, tax, pensions and regulatory news; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved. The complete, up-to-date list of every communication, with how often each one is sent, is at frontaliereticino.ch/comunicazioni. I can choose which ones to receive and how often, or stop them all, at any time and without giving a reason, from my preferences or the link at the bottom of every email. Data controller: Valerie Linc — valerie@frontaliereticino.ch',
+      de: 'Mitteilungen von Frontaliere Ticino. Mit der Anmeldung wird die E-Mail-Adresse meines Kontos für die Mitteilungen von Frontaliere Ticino registriert: es wurde mir kein separates Einwilligungskästchen angeboten, die Anmeldung ist die einzige Handlung, die ich vornehme. Ich erhalte: redaktionelle Updates — CHF/EUR-Kurs, Verkehr an den Grenzübergängen, Steuern, Vorsorge und Neuerungen der Rechtslage; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen. Die vollständige und aktuelle Liste aller Mitteilungen, mit der Häufigkeit jeder einzelnen, steht auf frontaliereticino.ch/comunicazioni. Ich kann jederzeit und ohne Begründung wählen, welche ich erhalte und wie oft, oder alle abbestellen — in meinen Einstellungen oder über den Link am Ende jeder E-Mail. Verantwortliche Person: Valerie Linc — valerie@frontaliereticino.ch',
+      fr: 'Communications de Frontaliere Ticino. En me connectant, l’adresse e-mail de mon compte est inscrite aux communications de Frontaliere Ticino : aucune case de consentement distincte ne m’a été proposée, la connexion est le seul geste que j’accomplis. Je reçois : mises à jour éditoriales — taux CHF/EUR, trafic aux postes-frontière, fiscalité, prévoyance et nouveautés réglementaires ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées. La liste complète et à jour de toutes les communications, avec la fréquence de chacune, se trouve sur frontaliereticino.ch/comunicazioni. Je peux à tout moment et sans motif choisir lesquelles recevoir et à quelle fréquence, ou toutes les résilier, depuis mes préférences ou le lien en bas de chaque e-mail. Responsable du traitement : Valerie Linc — valerie@frontaliereticino.ch',
+    },
+  };
+
   it('pins every formula and its version literally', () => {
     for (const [key, expected] of Object.entries(PINNED)) {
       const actual = (CONSENT_TEXTS as any)[key];
@@ -398,6 +431,27 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
 
   it('covers the whole register, so a new entry cannot arrive unpinned', () => {
     expect(Object.keys(CONSENT_TEXTS).sort()).toEqual(Object.keys(PINNED).sort());
+  });
+
+  it('pins the other three locales of every displayed formula', () => {
+    for (const [key, expected] of Object.entries(PINNED_LOCALES)) {
+      const texts = (CONSENT_TEXTS as any)[key].texts;
+      expect(texts, `${key}.texts missing`).toBeTruthy();
+      for (const loc of ['en', 'de', 'fr'] as const) {
+        expect(texts[loc], `CONSENT_TEXTS.${key}.texts.${loc} changed — bump .version`)
+          .toBe(expected[loc]);
+      }
+      // `texts.it` is the same string as `text`, so the Italian pin above
+      // covers it and a divergence between the two is itself a failure.
+      expect(texts.it).toBe((CONSENT_TEXTS as any)[key].text);
+    }
+    // Every entry that claims to have been shown has all four locales pinned:
+    // a fifth displayed entry cannot arrive with three of them unpinned.
+    const displayed = Object.entries(CONSENT_TEXTS)
+      .filter(([, p]) => p.displayed)
+      .map(([k]) => k)
+      .sort();
+    expect(displayed).toEqual(Object.keys(PINNED_LOCALES).sort());
   });
 
   it('keeps the three pre-existing formulas byte-identical to what they replaced', () => {
@@ -412,12 +466,27 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
     expect(CONSENT_TEXTS.publisherGateEmail.act).toBe('typed_email_submit');
   });
 
-  it('states, rather than assumes, that no formula is rendered on screen today', () => {
-    // Verified while writing this: not one of these strings is referenced from
-    // any JSX. `displayed` records that instead of leaving a reader of the
-    // stored document to infer the flattering version.
+  it('states which formulas are rendered and which are not, entry by entry', () => {
+    // This assertion USED to read "no formula is rendered on screen today",
+    // and it was true: not one of these strings was referenced from any JSX.
+    // #5712 rendered two of them. The list is enumerated rather than
+    // computed, so flipping a third entry to `true` fails here and has to be
+    // justified next to the call site that renders it — which is what
+    // tests/consent-shown-at-signup.test.ts then checks.
+    const RENDERED = new Set(['communicationsOptIn', 'communicationsSignIn']);
     for (const [key, proof] of Object.entries(CONSENT_TEXTS)) {
-      expect(proof.displayed, `${key}.displayed`).toBe(false);
+      expect(proof.displayed, `${key}.displayed`).toBe(RENDERED.has(key));
+    }
+  });
+
+  it('never claims a formula was displayed without having it in all four locales', () => {
+    // A notice in a language the reader does not speak is not a notice.
+    for (const [key, proof] of Object.entries(CONSENT_TEXTS)) {
+      if (!proof.displayed) continue;
+      expect(proof.texts, `${key} is displayed but has no locale table`).toBeTruthy();
+      for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+        expect(proof.texts?.[loc]?.length, `${key}.texts.${loc}`).toBeGreaterThan(80);
+      }
     }
   });
 
@@ -499,21 +568,42 @@ describe('every signup path names its formula — the census that keeps it that 
     }
   });
 
-  it('gives the sign-in paths their own formula, never the newsletter popup one', () => {
-    // The trap this fix exists to avoid: on these paths the person was signing
-    // in or unlocking a job ad. Recording "accetto di ricevere la newsletter
-    // settimanale…" — the popup's formula, still used verbatim in
-    // NewsletterPopup.tsx and SubscriptionCTA.tsx — would describe a decision
-    // nobody made.
-    const popupFormula = read('components/community/NewsletterPopup.tsx')
-      .match(/const CONSENT_TEXT = '([^']+)'/)?.[1];
-    expect(popupFormula, 'popup formula still findable').toBeTruthy();
-
-    for (const key of ['signInAutoSubscribe', 'chatbotSignIn', 'jobUnlockSocial'] as const) {
-      expect(CONSENT_TEXTS[key].text).not.toBe(popupFormula);
+  it('leaves no consent formula inlined in a component, in any of the five files that had one', () => {
+    // The five literals #5712 removed. Two of them (NewsletterPopup,
+    // SubscriptionCTA) were the "newsletter settimanale" sentence that named
+    // a cadence we stopped keeping — the wording that made the move to a
+    // daily brief contestable (#5679) — and all five stored a string
+    // unrelated to whatever the component rendered. A sixth inline formula
+    // fails here rather than reaching a subscriber's document.
+    const HAD_A_LITERAL = [
+      'components/community/NewsletterPopup.tsx',
+      'components/shared/SubscriptionCTA.tsx',
+      'components/shared/PdfDownloadGate.tsx',
+      'components/community/OfferwallNewsletterGate.tsx',
+    ];
+    for (const rel of HAD_A_LITERAL) {
+      const src = read(rel);
+      expect(src, `${rel} still declares a local consent constant`)
+        .not.toMatch(/const CONSENT_TEXT(_BY_LOCALE)? *[:=]/);
+      expect(src, `${rel} must take its formula from the register`)
+        .toMatch(/from '@\/services\/consentTexts'/);
     }
-    for (const rel of ['App.tsx', 'services/authService.ts', 'components/community/JobBoard.tsx']) {
-      expect(read(rel), `${rel} must not inline the popup formula`)
+  });
+
+  it('keeps the retired cadence claim out of every signup path', () => {
+    // "settimanale" is a promise about frequency, and the weekly newsletter
+    // workflow now triggers daily (`33 3 * * *`, deduped per week-campaign)
+    // while a separate daily brief ships twice a day. No formula may state a
+    // cadence: `/comunicazioni/` states them, generated from the crons.
+    for (const rel of [
+      'App.tsx',
+      'services/authService.ts',
+      'services/consentTexts.ts',
+      'components/community/JobBoard.tsx',
+      'components/community/NewsletterPopup.tsx',
+      'components/shared/SubscriptionCTA.tsx',
+    ]) {
+      expect(read(rel), `${rel} must not inline the retired popup formula`)
         .not.toContain('Accetto di ricevere la newsletter settimanale');
     }
   });

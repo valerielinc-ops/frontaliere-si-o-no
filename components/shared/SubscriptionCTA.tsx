@@ -32,6 +32,8 @@ import {
  requestConfirmationEmail,
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import ConsentNotice from '@/components/shared/ConsentNotice';
+import { consentProof } from '@/services/consentTexts';
 import { useAuth } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 
@@ -94,8 +96,6 @@ const SubscriptionCTA: React.FC = () => {
  Analytics.trackUIInteraction('newsletter_cta', 'banner', 'dismiss', 'closed');
  };
 
- const CONSENT_TEXT = 'Accetto di ricevere la newsletter settimanale con aggiornamenti su cambio CHF/EUR, traffico di frontiera e novità fiscali per frontalieri. Posso disiscrivermi in qualsiasi momento.';
-
  const handleSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
  if (!validateEmailStrict(email).valid) {
@@ -131,10 +131,10 @@ const SubscriptionCTA: React.FC = () => {
  locale: navigator.language || 'it-IT',
  isActive: false,
  status: 'pending',
+ // Shown by the ConsentNotice on the checkbox below, in this same
+ // locale, and stored from the same function (#5712/#5718).
+ ...consentProof('communicationsOptIn', 'email_checkbox', locale),
  consentGiven: true,
- consentText: CONSENT_TEXT,
- consentMethod: 'email_checkbox',
- consentUserAgent: navigator.userAgent,
  }),
  8000,
  'newsletter_upsert',
@@ -309,9 +309,7 @@ const SubscriptionCTA: React.FC = () => {
  onChange={(e) => { setConsentChecked(e.target.checked); setStatus('idle'); }}
  className="mt-0.5 w-4 h-4 rounded text-info focus-visible:ring-info shrink-0"
  />
- <span className="text-xs text-muted leading-relaxed">
- {t('newsletter.consentLabel')}
- </span>
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
  </label>
  </form>
 

@@ -746,7 +746,15 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     const button = readRepoFile('components/community/CompanyFollowButton.tsx');
     expect(button).toContain('upsertNewsletterSubscriber');
     expect(button).toContain("requestConfirmationEmail(trimmed, 'login')");
-    expect(button).toContain('consentGiven: true');
+    // Was `consentGiven: true` until #5712, which removed the claim: this form
+    // has no consent checkbox, so nothing here is an affirmative opt-in and
+    // asserting one would let `hasAffirmativeJobAlertConsent` create job
+    // alerts for people who only typed an address to follow an employer. The
+    // shared mechanism this test is really about is the register: one formula,
+    // rendered and stored by the same function.
+    expect(button).toContain("consentProof('communicationsOptIn'");
+    expect(button).toContain('<ConsentNotice consentKey="communicationsOptIn"');
+    expect(button).not.toContain('consentGiven: true');
     // No bespoke token, no bespoke confirmation endpoint.
     expect(button.includes('createHmac')).toBe(false);
 
