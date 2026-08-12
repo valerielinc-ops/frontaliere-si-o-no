@@ -814,6 +814,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti': { it: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', en: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', de: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti', fr: 'climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti' },
  'trenino-rossoschanf-livigno': { it: 'trenino-rossoschanf-livigno', en: 'red-train-schanf-livigno', de: 'rotter-zug-schanf-livigno', fr: 'train-rouge-schanf-livigno' },
  'permesso-l-di-breve-durata-canton-berna': { it: 'permesso-l-di-breve-durata-canton-berna', en: 'permesso-l-of-short-duration-canton-berna', de: 'ermessigung-l-von-kurzer-dauer-kanton-bern', fr: 'permis-l-de-breve-duree-canton-de-bour-enne' },
+ 'medicina-genetica-in-svizzera': { it: 'medicina-genetica-in-svizzera', en: 'genetic-medicine-in-switzerland', de: 'genetische-medizin-in-schweiz', fr: 'medecine-genetique-en-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

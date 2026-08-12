@@ -2365,6 +2365,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Short-term permit L Canton Bern: validity and extension',
     'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'The short-term L permit in the Canton of Bern: validity, extension, conditions and constraints related to the employer.',
     'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'A panoramic view of Lugano with Lake Lugano',
+    'blog.article.medicina-genetica-in-svizzera.title': 'Genetic medicine, the summer of good news',
+    'blog.article.medicina-genetica-in-svizzera.excerpt': 'Gene therapies come out of the labs and treat real patients.',
+    'blog.article.medicina-genetica-in-svizzera.imageAlt': 'Genetic medicine in Switzerland: a new beginning',
 };
 
 export default blogMetaChEn;
