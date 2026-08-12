@@ -1388,6 +1388,52 @@ jobs:
             awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(report-only)\", $end-$start}" \
               >> /tmp/post-build-timings.txt
           ) &
+
+          # dist:quality-tests — REAL GATE (issue #5656 item 1). Five vitest
+          # files (`npm run gate:dist-quality`) each assert a dist/**/*.html
+          # invariant — duplicate meta descriptions, duplicate page-scoped
+          # JSON-LD types, anchor-text accessibility budget, single-H1-per-
+          # page, related-search-cluster contract — and were all written
+          # behind an opt-in switch, `RUN_DIST_GATES=1`, that no workflow or
+          # npm script ever set (tests/gate-wiring.test.ts baseline: 7 files
+          # skipping on a switch nobody flips). They never ran against real
+          # output. This job already has dist/ downloaded and extracted (see
+          # "Extract dist/" above), same reasoning that put the
+          # seo/meta-description-audit report just above onto this job.
+          #
+          # Unlike that report, this one is a REAL gate: non-zero rc is
+          # appended to /tmp/post-build-failures.txt like every spawn_capped
+          # entry, so it reaches `failed_gates` below.
+          #
+          # Classified QUALITY, not blocking (see
+          # scripts/ci/classify-validate-dist-failures.mjs): all five defects
+          # describe a page that RENDERS AND SERVES correctly — the same
+          # class as audit:all/content-duplicates and
+          # audit:all/h1-title-duplicates, both already QUALITY_GATES — and
+          # this is the FIRST time any of the five has ever run against
+          # production dist/, so an unreviewed red must not sequester the
+          # indexing notification of an already-live, valid deploy.
+          #
+          # tests/seo/faqpage-validity.test.ts and tests/seo/image-object-
+          # license-fields.test.ts sit behind the same RUN_DIST_GATES switch
+          # and are deliberately NOT in `gate:dist-quality`: both docstrings
+          # say "Mirror of scripts/audit-<name>.mjs", and that script sibling
+          # already runs inside `npm run audit:all` above, blocking, against
+          # this same dist/ — running the vitest mirror too would be a
+          # second full-corpus walk asserting an already-enforced invariant.
+          wait_slot
+          (
+            set +e
+            start=$(date +%s.%N)
+            npm run gate:dist-quality > /tmp/g-dist-quality.log 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"dist:quality-tests\", $end-$start, $rc}" \
+              >> /tmp/post-build-timings.txt
+            if [ $rc -ne 0 ]; then
+              echo "dist:quality-tests /tmp/g-dist-quality.log" >> /tmp/post-build-failures.txt
+            fi
+          ) &
           # audit:image-object-license migrated into `npm run audit:all`
           # (see scripts/audit-all.mjs REGISTRY). Single dist walk, in-process
           # JSON-LD parse — removes 34 s of standalone wall time from the

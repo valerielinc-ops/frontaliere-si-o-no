@@ -81,11 +81,16 @@ describe('validate-dist failure classification', () => {
     // Raised 6 → 14 deliberately when `audit:all` was expanded into
     // `audit:all/<auditor>` (#4828). The bundle used to arrive as ONE opaque
     // name and blocked publish for any of its 12 auditors, cosmetic included.
-    // Eight of the twelve are now classified individually; the top-level
-    // gates are unchanged at four.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(14);
+    // Eight of the twelve are now classified individually.
+    //
+    // Raised 4 → 5 top-level deliberately for `dist:quality-tests` (issue
+    // #5656 item 1): five vitest RUN_DIST_GATES files, newly wired into
+    // post-deploy-validate-dist.yml, running for the first time ever against
+    // production dist/ — same "page renders and serves" class as
+    // content-duplicates/h1-title-duplicates below.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(15);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
-    expect(topLevel).toHaveLength(4);
+    expect(topLevel).toHaveLength(5);
     // Every entry carries a rationale string, not a bare flag.
     for (const [gate, why] of Object.entries(QUALITY_GATES)) {
       expect(String(why).length, `${gate} needs a rationale`).toBeGreaterThan(10);

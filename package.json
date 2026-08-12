@@ -32,6 +32,7 @@
     "test:articles": "vitest run tests/article-seo-fallback.test.ts tests/static-pages-blog-skip.test.ts tests/article-duplicate-detection.test.ts tests/article-tax-content-guard.test.ts tests/related-articles.test.ts tests/whats-new.test.tsx",
     "test:seo-gates": "vitest run tests/title-length.test.ts tests/h1-not-equal-title.test.ts tests/url-max-length.test.ts tests/hreflang-no-broken.test.ts tests/dist-single-h1-per-page.test.ts tests/dist-link-anchor-text.test.ts tests/seo-html-lang-sync.test.ts tests/seo/software-application-jsonld.test.ts",
     "gate:seo-source": "vitest run tests/seo/ --reporter=dot",
+    "gate:dist-quality": "RUN_DIST_GATES=1 vitest run tests/dist-duplicate-meta-description.test.ts tests/dist-duplicate-structured-data.test.ts tests/dist-link-anchor-text.test.ts tests/dist-single-h1-per-page.test.ts tests/seo/related-search-clusters-emitted.test.ts --reporter=dot",
     "audit:title-uniqueness": "node --expose-gc scripts/audit-title-uniqueness.mjs",
     "audit:job-locations": "node scripts/audit-job-locations.mjs",
     "audit:job-title-locale": "node scripts/audit-job-title-locale.mjs",
