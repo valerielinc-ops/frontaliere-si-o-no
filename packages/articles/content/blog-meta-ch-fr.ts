@@ -2329,6 +2329,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'La sécheresse monte au grade 2 à Breggia : voici ce que vous ne pouvez pas faire',
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'La sécheresse monte au grade 2 à Breggia. La municipalité a communiqué l\'augmentation de l\'échelle de crise de l\'eau pour les hameaux de Morbio Superiore et Sagno. Voici ce que vous ne pouvez pas faire.',
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Image éditoriale relative à: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Cf : sécheresse, pas d\'urgence pour l\'instant pour des mesures supplémentaires',
+    'blog.article.cf-urgenza-siccita.excerpt': 'Le Conseil fédéral n\'a pas encore décidé de nouvelles mesures pour faire face à la sécheresse',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'Situation de l\'eau en Suisse',
 };
 
 export default blogMetaChFr;

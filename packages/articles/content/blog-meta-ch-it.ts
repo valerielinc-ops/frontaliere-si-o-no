@@ -2329,6 +2329,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.title': 'La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.excerpt': 'La siccità sale al grado 2 a Breggia. Il Municipio ha comunicato l\'aumento nella scala di crisi idrica per le frazioni di Morbio Superiore e Sagno. Ecco cosa non potete fare.',
     'blog.article.la-siccita-sale-al-grado-2-a-breggia.imageAlt': 'Immagine editoriale relativa a: La siccità sale al grado 2 a Breggia: ecco cosa non potete fare',
+    'blog.article.cf-urgenza-siccita.title': 'Cf: siccità, non c\'è urgenza per ora per misure aggiuntive',
+    'blog.article.cf-urgenza-siccita.excerpt': 'Il Consiglio federale non ha ancora deciso di adottare nuove misure per affrontare la siccità',
+    'blog.article.cf-urgenza-siccita.imageAlt': 'La situazione idrica in Svizzera',
 };
 
 export default blogMetaChIt;
