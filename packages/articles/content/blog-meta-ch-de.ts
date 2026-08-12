@@ -2362,6 +2362,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trenino-rossoschanf-livigno.title': 'Von S-chanf nach Livigno mit dem Zug, Chur sagt ja',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'Der Kanton Graubünden will mit Partnern aus der Lombardei zusammenarbeiten, um eine Bahnverbindung zwischen Engadin und Oberveltlin zu realisieren.',
     'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Eine Schweizer Eisenbahngalerie mit einem Panoramablick auf den Luganersee, mit einem ankommenden oder abfahrenden Zug. Max 125 Char.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Kurzaufenthaltsbewilligung L Kanton Bern: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Bern: Gültigkeit, Verlängerung, Bedingungen und an den Arbeitgeber geknüpfte Auflagen.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Eine Panoramabild von Lugano mit dem Luganersee',
 };
 
 export default blogMetaChDe;

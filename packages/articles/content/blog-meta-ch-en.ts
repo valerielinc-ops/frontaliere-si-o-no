@@ -2362,6 +2362,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trenino-rossoschanf-livigno.title': 'From S-chanf to Livigno by train, Chur says yes',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'The Canton of Graubünden wants to work together with the partners of Lombardy to create a railway connection between the Engadine and Alta Valtellina.',
     'blog.article.trenino-rossoschanf-livigno.imageAlt': 'A Swiss railway gallery with a panoramic view of Lake Lugano, with a train arriving or departing. Max 125 char.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Short-term permit L Canton Bern: validity and extension',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'The short-term L permit in the Canton of Bern: validity, extension, conditions and constraints related to the employer.',
+    'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'A panoramic view of Lugano with Lake Lugano',
 };
 
 export default blogMetaChEn;
