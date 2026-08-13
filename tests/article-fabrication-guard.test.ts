@@ -10,10 +10,28 @@
  *
  * This test acts as a permanent safety net: any article containing
  * fabricated content will fail the test suite and block deployment.
+ *
+ * IT ONLY RUNS IN THE FULL SUITE (`npm test`), which never sees article
+ * bodies landing through `sync-articles-sitemaps.yml` — that job commits
+ * straight to `main` with no PR (verified 2026-08-11: zero `push` check-runs
+ * on a sync commit). Issue #5671: two fabricated-institution incidents shipped
+ * through exactly that gap in one day and only surfaced as `main` going red on
+ * unrelated PRs, hours later. The patterns below now also run at sync time,
+ * scoped to the delta, via scripts/ci/report-synced-article-fabrication.mjs —
+ * both import scripts/lib/article-fabrication-patterns.mjs so there is one
+ * definition, not two that can drift apart (AGENTS.md #6).
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import {
+  FABRICATED_INSTITUTIONS,
+  FABRICATED_ACRONYMS,
+  INCORRECT_FACTS,
+  VAGUE_SOURCING,
+  FABRICATED_LABOR_OFFICE,
+  extractTextContentFromSource,
+} from '../scripts/lib/article-fabrication-patterns.mjs';
 
 const BODY_ROOTS = ['blog-body', 'blog-body-ch'];
 const LOCALES = ['it', 'de', 'en', 'fr'];
@@ -55,61 +73,8 @@ function extractTextContent(filePath: string): string {
   // pattern of the exact fabrication it exists to catch (confirmed live: 2
   // articles with the fabricated institution sitting immediately after an
   // escaped apostrophe passed this test undetected until this fix).
-  const stringMatches = raw.match(/'(?:[^'\\]|\\.)*'/g) || [];
-  return stringMatches.join(' ');
+  return extractTextContentFromSource(raw);
 }
-
-// Fabricated institution patterns
-const FABRICATED_INSTITUTIONS = [
-  { pattern: /Codice\s+federale\s+del\s+lavoro/i, desc: '"Codice federale del lavoro" non esiste (reale: Legge sul lavoro LL/ArG)' },
-  { pattern: /\bCFL\b(?!\s*[A-Z])/, desc: '"CFL" è un acronimo inventato' },
-  { pattern: /Dipartimento\s+delle\s+Entrate\b/i, desc: '"Dipartimento delle Entrate" non esiste' },
-  { pattern: /Codice\s+federale\s+(?:della\s+)?(?:salute|sanità)/i, desc: '"Codice federale della salute" non esiste' },
-  { pattern: /Ministero\s+(?:federale|cantonale)\s+del(?:la)?\s+(?:lavoro|salute|finanz)/i, desc: 'Ministero federale/cantonale non esiste in Svizzera (reale: Dipartimento)' },
-  { pattern: /Ufficio\s+federale\s+del(?:la)?\s+(?:lavoro\s+transfrontaliero|migrazione\s+lavorativa)/i, desc: '"Ufficio federale del lavoro transfrontaliero" non esiste' },
-  { pattern: /Legge\s+cantonale\s+(?:sui|del)\s+frontalier/i, desc: '"Legge cantonale sui frontalieri" non esiste' },
-  { pattern: /Regolamento\s+ticinese\s+(?:del|sul)\s+lavoro/i, desc: '"Regolamento ticinese del lavoro" non esiste' },
-  { pattern: /Commissione\s+(?:federale|cantonale)\s+(?:per\s+i\s+)?frontalier/i, desc: '"Commissione federale per i frontalieri" non esiste' },
-  { pattern: /Osservatorio\s+nazionale\s+(?:del|sulla)\s+sicurezza\s+(?:sul\s+)?lavoro/i, desc: '"Osservatorio nazionale sulla sicurezza sul lavoro" non esiste (reale: SUVA)' },
-];
-
-// Fabricated Swiss acronyms
-const FABRICATED_ACRONYMS = [
-  { pattern: /\bUFOL\b/, desc: '"UFOL" non esiste (reale: SECO)' },
-  { pattern: /\bUWL\b/, desc: '"UWL" non esiste (reale: SECO)' },
-  { pattern: /\bUSTTI\b/, desc: '"USTTI" non esiste (reale: USTAT)' },
-  { pattern: /\bUBSP\b/, desc: '"UBSP" non esiste (reale: UFSP/BAG)' },
-  { pattern: /\bONSSL\b/, desc: '"ONSSL" non esiste (reale: SUVA)' },
-  { pattern: /\bROSSL\b/, desc: '"ROSSL" non esiste' },
-  { pattern: /\bLCFL\b/, desc: '"LCFL" non esiste (reale: LL/ArG)' },
-  { pattern: /\bLTL\b/, desc: '"LTL" non esiste' },
-  { pattern: /\bCCFL\b/, desc: '"CCFL" non esiste' },
-  { pattern: /\bUFML\b/, desc: '"UFML" non esiste (reale: SEM)' },
-];
-
-// Known incorrect facts (proximity-constrained patterns)
-const INCORRECT_FACTS = [
-  { pattern: /convenzione.*9\s+marzo\s+1976/i, desc: 'Convenzione italo-svizzera: 9 DICEMBRE 1976, non marzo' },
-  { pattern: /9\s+marzo\s+1976.*convenzione/i, desc: 'Convenzione italo-svizzera: 9 DICEMBRE 1976, non marzo' },
-  { pattern: /tassa\s+(?:sulla\s+)?salute\s+(?:\w+\s+){0,5}(?:del\s+)?10\s*%/i, desc: '"Tassa sulla salute del 10%" è un dato inventato' },
-];
-
-// Vague source attributions that are red flags for fabricated stats
-const VAGUE_SOURCING = [
-  { pattern: /secondo\s+(?:uno\s+)?studio\s+(?:recente|del\s+20\d{2})[^.]{0,40}\d{2,3}[.,]\d+\s*%/i, desc: 'Percentuale precisa attribuita a "uno studio" senza nome specifico' },
-  { pattern: /secondo\s+(?:un(?:a|')\s+)?(?:indagine|ricerca|sondaggio)[^.]{0,40}\d{2,3}[.,]\d+\s*%/i, desc: 'Percentuale precisa attribuita a indagine/ricerca senza fonte' },
-];
-
-// Cross-locale: the same fabricated "federal labour office" institution
-// (real: SECO) recurs under a different fake acronym per article — matching
-// the institution NAME itself (not a fixed acronym list) catches every
-// variant regardless of what acronym a future auto-generated article invents.
-const FABRICATED_LABOR_OFFICE: Partial<Record<string, RegExp>> = {
-  it: /\b[Uu]fficio federale(?: svizzero)? del lavoro\b/i,
-  de: /\b([Bb]undesamt(?:es)? für Arbeit|[Bb]undesarbeitsamt)\b/,
-  fr: /\b(?:[Oo]ffice|[Bb]ureau) fédéral du travail\b/,
-  en: /\b[Ff]ederal (?:Labou?r Office|Office of Labou?r)\b/,
-};
 
 describe('article fabrication guard', () => {
   const files = getArticleFiles();
