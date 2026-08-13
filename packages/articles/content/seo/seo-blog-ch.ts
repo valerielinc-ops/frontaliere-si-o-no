@@ -31763,6 +31763,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-governo-dice-no-iniziativa-alimentazione': {
+    title: 'Il Governo dice no all’iniziativa sull’alimentazione',
+    description: 'Il Consiglio federale ha respinto l’iniziativa popolare sull’alimentazione, affermando che le richieste avanzate sono eccessive e irrealizzabili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, governo, dice, iniziativa, sull',
+    ogTitle: 'Governo svizzero respinge iniziativa alimentazione',
+    ogDescription: 'Il Consiglio federale ha respinto l’iniziativa popolare sull’alimentazione, affermando che le richieste avanzate sono eccessive e irrealizzabili.',
+    canonicalPath: '/articoli-svizzera/governo-dice-no-iniziativa-alimentazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Governo dice no all’iniziativa sull’alimentazione",
+      "description": "Il Consiglio federale ha respinto l’iniziativa popolare sull’alimentazione, affermando che le richieste avanzate sono eccessive e irrealizzabili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/governo-dice-no-iniziativa-alimentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine della Svizzera con cornici di verdura e un secchio di frutta"
+      },
+      "datePublished": "2026-08-13T04:06:31+00:00",
+      "dateModified": "2026-08-13T04:06:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/governo-dice-no-iniziativa-alimentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc': {
+    title: 'Autorità argoviesi sotto indagine per il caso dell’ex parlamentare UDC',
+    description: 'Il Cantone di Argovia ha disposto un’indagine esterna in merito ai reati sessuali avvenuti a Untersiggenthal che hanno coinvolto un ex parlamentare UDC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autorità, argoviesi, sotto, indagine',
+    ogTitle: 'Autorità argoviesi sotto indagine per il caso dell’ex parlamentare UDC',
+    ogDescription: 'Il Cantone di Argovia ha disposto un’indagine esterna in merito ai reati sessuali avvenuti a Untersiggenthal che hanno coinvolto un ex parlamentare UDC.',
+    canonicalPath: '/articoli-svizzera/autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autorità argoviesi sotto indagine per il caso dell’ex parlamentare UDC",
+      "description": "Il Cantone di Argovia ha disposto un’indagine esterna in merito ai reati sessuali avvenuti a Untersiggenthal che hanno coinvolto un ex parlamentare UDC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione a Lugano contro la violenza sessuale"
+      },
+      "datePublished": "2026-08-13T04:15:26+00:00",
+      "dateModified": "2026-08-13T04:15:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-berna-guida-mutuo': {
+    title: 'Comprare casa nel Canton Berna: guida ai prezzi e mutui',
+    description: 'Guida pratica all\'acquisto di casa nel Canton Berna: requisiti per il mutuo, fondi propri, sostenibilità e imposte. Informazioni essenziali per il mercato',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, berna',
+    ogTitle: 'Comprare casa nel Canton Berna: guida ai prezzi e mutui',
+    ogDescription: 'Tutto quello che devi sapere per acquistare un immobile nel Canton Berna: dal calcolo dei fondi propri alla sostenibilità del mutuo ipotecario.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-berna-guida-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Canton Berna: guida ai prezzi e mutui",
+      "description": "Guida pratica all'acquisto di casa nel Canton Berna: requisiti per il mutuo, fondi propri, sostenibilità e imposte. Informazioni essenziali per il mercato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-berna-guida-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Abitazione moderna nel Cantone di Berna"
+      },
+      "datePublished": "2026-08-13T04:29:52+00:00",
+      "dateModified": "2026-08-13T04:29:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-berna-guida-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gianotti-delegata-geneva-ai-summit-2027': {
+    title: 'Summit sull’intelligenza artificiale, Gianotti delegata',
+    description: 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull\'intelligenza artificiale e ha nominato l\'ex direttrice generale',
+    keywords: 'frontalieri, ticino, svizzera, italia, summit, sull, intelligenza, artificiale',
+    ogTitle: 'Summit sull’intelligenza artificiale, Gianotti delegata',
+    ogDescription: 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull\'intelligenza artificiale e ha nominato l\'ex direttrice generale del CERN Fabiola Gianotti come sua delegata.',
+    canonicalPath: '/articoli-svizzera/gianotti-delegata-geneva-ai-summit-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Summit sull’intelligenza artificiale, Gianotti delegata",
+      "description": "Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull'intelligenza artificiale e ha nominato l'ex direttrice generale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gianotti-delegata-geneva-ai-summit-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fabiola Gianotti, ex direttrice generale del CERN, in una riunione con funzionari svizzeri, legata al Summit sull'intelligenza artificiale di Ginevra 2027."
+      },
+      "datePublished": "2026-08-13T04:36:09+00:00",
+      "dateModified": "2026-08-13T04:36:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/gianotti-delegata-geneva-ai-summit-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario': {
+    title: 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
+    description: 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, cantone, berna',
+    ogTitle: 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
+    ogDescription: 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti",
+      "description": "I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una casa nel Cantone di Berna"
+      },
+      "datePublished": "2026-08-13T04:41:19+00:00",
+      "dateModified": "2026-08-13T04:41:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

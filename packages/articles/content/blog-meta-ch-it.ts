@@ -2452,6 +2452,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Giovani polpi contro il granchio blu: lotta biologica nel Mediterraneo',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'Il progetto Octo-Blu prevede il rilascio controllato di circa mezzo milione di piccoli polpi (Octopus vulgaris) allevati in laboratorio nelle acque antistanti Riccione e Cesenatico.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'Un progetto sperimentale nel Mediterraneo punta sulla lotta biologica per contenere la specie invasiva del granchio blu che sta devastando gli ecosistemi marini e la pesca di vongole e cozze.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Il Governo dice no all’iniziativa sull’alimentazione',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Il Consiglio federale respinge l’iniziativa popolare sull’alimentazione, sostenendo che le richieste avanzate sono eccessive e irrealizzabili.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Immagine della Svizzera con cornici di verdura e un secchio di frutta',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Autorità argoviesi sotto indagine per il caso dell’ex parlamentare UDC',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Il Cantone intende chiarire se la tutela delle due vittime straniere è stata garantita dalle autorità coinvolte',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestazione a Lugano contro la violenza sessuale',
+    'blog.article.comprare-casa-berna-guida-mutuo.title': 'Comprare casa nel Canton Berna: guida ai prezzi e mutui',
+    'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Scopri i fattori chiave per l\'acquisto di un immobile nel Canton Berna: sostenibilità del mutuo, fondi propri necessari e gestione delle spese accessorie.',
+    'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Abitazione moderna nel Cantone di Berna',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Summit sull’intelligenza artificiale, Gianotti delegata',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra e ha nominato l\'ex direttrice generale del CERN Fabiola Gianotti come sua delegata.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ex direttrice generale del CERN, in una riunione con funzionari svizzeri, legata al Summit sull\'intelligenza artificiale di Ginevra 2027.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Immagine di una casa nel Cantone di Berna',
 };
 
 export default blogMetaChIt;

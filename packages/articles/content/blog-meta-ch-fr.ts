@@ -2452,6 +2452,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Jeunes poulpes contre le crabe bleu : lutte biologique en Méditerranée',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'Le projet Octo-Blu prévoit la libération contrôlée d\'environ un demi-million de petits poulpes (Octopus vulgaris) élevés en laboratoire dans les eaux situées devant Riccione et Cesenatico.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'Un projet de lutte biologique dans le bassin méditerranéen vise à contenir l\'espèce invasive de crabes bleus qui dévaste les écosystèmes marins et la pêche de moules et d\'huîtres.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Le gouvernement dit non à l\'initiative sur l\'alimentation',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Le Conseil fédéral rejette l’initiative populaire sur l\'alimentation au motif que les demandes formulées sont excessives et irréalisables.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Image de la Suisse avec des images vertes et des fruits',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Les autorités argoviennes sous enquête dans le cas de l\'ancien parlementaire UDC',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Le canton souhaite préciser si la protection des deux victimes étrangères a été garantie par les autorités concernées',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestation à Lugano contre la violence sexuelle',
+    'blog.article.comprare-casa-berna-guida-mutuo.title': 'Acheter une maison dans le canton de Berne : guide des prix et des prêts',
+    'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Découvrez les facteurs clés pour l\'achat d\'un bien immobilier dans le canton de Berne : viabilité du prêt, fonds propres nécessaires et gestion des frais accessoires.',
+    'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Maison moderne dans le canton de Berne',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Sommet sur l\'intelligence artificielle, Gianotti déléguée',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Le Conseil fédéral a défini les orientations stratégiques du sommet de Genève et a nommé l\'ancienne directrice générale du CERN Fabiola Gianotti comme sa déléguée.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ancienne directrice-générale du CERN, dans une réunion avec des fonctionnaires suisses, liée au Summit de l\'intelligence artificielle de Genève 2027.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Acheter une maison dans le canton de Berne : prix moyens et fonds propres requis',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'Les prix moyens des maisons dans le canton de Berne sont d\'environ CHF 730 000, selon les données de 2022.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Image d\'une maison dans le Canton de Berne',
 };
 
 export default blogMetaChFr;

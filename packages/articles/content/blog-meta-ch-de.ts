@@ -2452,6 +2452,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Junger Oktopus gegen blaue Krabbe: Biologischer Kampf im Mittelmeer',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'Das Projekt Octo-Blu sieht die kontrollierte Freisetzung von etwa einer halben Million kleiner Oktopusse (Octopus vulgaris) vor, die im Labor in den Gewässern vor Riccione und Cesenatico gezüchtet werden.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'Ein sperimentelles Projekt im Mittelmeer zielt darauf ab, die invasive Blaue Krabbe zu kontrollieren, die die marinen Ökosysteme und die Muschel- und Austernzucht devastiert.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Regierung sagt Nein zur Ernährungsinitiative',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Der Bundesrat lehnt die Ernährungsinitiative mit der Begründung ab, die Forderungen seien übertrieben und unrealisierbar.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Bild der Schweiz mit grünen und Obst-Bildern',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Aargauer Behörden untersuchen den Fall des ehemaligen SVP-Parlamentariers',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Der Kanton will klären, ob der Schutz der beiden ausländischen Opfer durch die beteiligten Behörden gewährleistet wurde',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Demonstration in Lugano gegen sexuelle Gewalt',
+    'blog.article.comprare-casa-berna-guida-mutuo.title': 'Haus kaufen im Kanton Bern: Preisleitfaden und Hypotheken',
+    'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Entdecken Sie die Schlüsselfaktoren für den Kauf einer Immobilie im Kanton Bern: Tragbarkeit der Hypothek, notwendige Eigenmittel und Verwaltung der Nebenkosten.',
+    'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Modernes Wohnhaus im Kanton Bern',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Gipfel über künstliche Intelligenz, Delegierte Gianotti',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Der Bundesrat hat die strategischen Leitlinien des Genfer Gipfels festgelegt und die ehemalige CERN-Generaldirektorin Fabiola Gianotti zu seiner Delegierten ernannt.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ehemalige Direktorin des CERN, in einer Besprechung mit Schweizer Regierungsbeamten, verbunden mit dem Geneva AI Summit 2027.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Haus kaufen im Kanton Bern: Durchschnittspreise und geforderte Eigenmittel',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'Die durchschnittlichen Hauspreise im Kanton Bern betragen gemäss den Daten von 2022 rund CHF 730 \'000.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Bild einer Wohnung im Kanton Bern',
 };
 
 export default blogMetaChDe;

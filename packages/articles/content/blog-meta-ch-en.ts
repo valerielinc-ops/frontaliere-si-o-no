@@ -2452,6 +2452,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Young octopuses against blue crab: biological fight in the Mediterranean',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'The Octo-Blu project involves the controlled release of about half a million small octopuses (Octopus vulgaris) bred in the laboratory in the waters in front of Riccione and Cesenatico.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'A biological control project in the Mediterranean aims to contain the invasive blue crab species that is devastating marine ecosystems and mussel and oyster fishing.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Government says no to food initiative',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'The Federal Council rejects the popular initiative on food, arguing that the demands made are excessive and unfeasible.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Svissera with green and vegetable and fruit images',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Argovia probes ex-UDC MP case',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'The Canton intends to clarify whether the protection of the two foreign victims has been guaranteed by the authorities involved',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestation in Lugano against sexual violence',
+    'blog.article.comprare-casa-berna-guida-mutuo.title': 'Buying a house in the Canton of Bern: a guide to prices and mortgages',
+    'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Discover the key factors for buying a property in the Canton of Bern: sustainability of the mortgage, necessary own funds and management of ancillary expenses.',
+    'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Modern residential building in Canton Bern',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Summit on artificial intelligence, Gianotti delegate',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'The Federal Council defined the strategic guidelines of the Geneva Summit and appointed former CERN Director General Fabiola Gianotti as its delegate.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, former director-general of CERN, in a meeting with Swiss government officials, related to the Geneva AI Summit 2027.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Buying a house in the Canton of Bern: average prices and own funds required',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'Average house prices in the Canton of Bern are around CHF 730,000, according to 2022 data.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Image of a house in the Canton of Bern',
 };
 
 export default blogMetaChEn;
