@@ -839,6 +839,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salute-sessuale-ticino': { it: 'salute-sessuale-ticino', en: 'sexual-health-ticino', de: 'sexuelle-gesundheit-tessin', fr: 'sante-sexuelle-tesin' },
  'borse-studio-berna-guida': { it: 'borse-studio-berna-guida', en: 'scholarships-canton-bern-requirements', de: 'stipendien-kanton-bern-voraussetzungen', fr: 'bourses-etudes-canton-berne-conditions' },
  'costi-asilo-nido-custodia-berna': { it: 'costi-asilo-nido-custodia-berna', en: 'childcare-costs-bern-canton', de: 'kinderbetreuungskosten-kanton-bern', fr: 'couts-creche-garde-enfants-canton-berne' },
+ 'eclissi-solare-svizzera-conclusa': { it: 'eclissi-solare-svizzera-conclusa', en: 'solar-eclipse-switzerland-ended', de: 'sonnenfinsternis-schweiz-beendet', fr: 'eclipsesolaire-suisse-terminee' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
