@@ -2452,6 +2452,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Young octopuses against blue crab: biological fight in the Mediterranean',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'The Octo-Blu project involves the controlled release of about half a million small octopuses (Octopus vulgaris) bred in the laboratory in the waters in front of Riccione and Cesenatico.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'A biological control project in the Mediterranean aims to contain the invasive blue crab species that is devastating marine ecosystems and mussel and oyster fishing.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Government says no to food initiative',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'The Federal Council rejects the popular initiative on food, arguing that the demands made are excessive and unfeasible.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Svissera with green and vegetable and fruit images',
 };
 
 export default blogMetaChEn;

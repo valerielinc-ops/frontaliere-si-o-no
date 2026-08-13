@@ -2452,6 +2452,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Giovani polpi contro il granchio blu: lotta biologica nel Mediterraneo',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'Il progetto Octo-Blu prevede il rilascio controllato di circa mezzo milione di piccoli polpi (Octopus vulgaris) allevati in laboratorio nelle acque antistanti Riccione e Cesenatico.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'Un progetto sperimentale nel Mediterraneo punta sulla lotta biologica per contenere la specie invasiva del granchio blu che sta devastando gli ecosistemi marini e la pesca di vongole e cozze.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Il Governo dice no all’iniziativa sull’alimentazione',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Il Consiglio federale respinge l’iniziativa popolare sull’alimentazione, sostenendo che le richieste avanzate sono eccessive e irrealizzabili.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Immagine della Svizzera con cornici di verdura e un secchio di frutta',
 };
 
 export default blogMetaChIt;

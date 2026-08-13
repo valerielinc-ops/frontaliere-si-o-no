@@ -7354,6 +7354,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'governo-dice-no-iniziativa-alimentazione',
+    category: 'fiscale',
+    date: '2026-08-13T04:06:31.529Z',
+    image: '/images/blog/governo-dice-no-iniziativa-alimentazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
