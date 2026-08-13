@@ -12,6 +12,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   latestCompletedVitestConclusion,
+  latestCompletedRunByName,
+  latestCompletedConclusionByName,
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
 } from '../scripts/ci/lib/vitestCheck.mjs';
@@ -379,5 +381,75 @@ describe('vitestFailureIsNotAttributableToPr (stato assorbente stuck-red)', () =
     expect(
       vitestFailureIsNotAttributableToPr({ checkRuns: redHead, mainTestsRuns: null, staleHours: 0 }),
     ).toEqual({ rescue: false, reason: '' });
+  });
+});
+
+/**
+ * La generalizzazione a un check-run name arbitrario (corpus #242/#252).
+ *
+ * PERCHE' STA QUI, e non solo sul corpus. `scripts/ci/lib/vitestCheck.mjs` e'
+ * `mode: identical` in `scripts/ci/loop-sync-manifest.json`: la sorgente di
+ * verita' e' QUESTO repo, e il mirror copia il sito sul corpus. La
+ * generalizzazione era nata di la' per far gattare l'auto-merge sul check
+ * `test` di `generator-ci.yml` — che qui non esiste — ma il file su cui era
+ * scritta e' dichiarato uguale ai due lati: al mirror successivo sarebbe stata
+ * cancellata, senza errori e senza segnale, e `auto-merge-eval.mjs` del corpus
+ * (che importa `latestCompletedConclusionByName`) sarebbe rimasto senza il suo
+ * import.
+ *
+ * Il consumer resta di la' (il gate `generator-ci` dipende da
+ * `GENERATOR_CI_TRIGGER_PATHS`, che include `package.json` — qui verrebbe
+ * attivato di continuo per attendere un check-run che non esiste). Il
+ * MECCANISMO sta qui, e non deve ripetere il bug del `[0]` arbitrario che
+ * questo modulo esiste per chiudere.
+ */
+describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', () => {
+  const named = (name: string, conclusion: string | null, completed_at: string | null, status = 'completed') => ({
+    name,
+    status,
+    conclusion,
+    completed_at,
+  });
+
+  it('stessa selezione del gemello vitest: ultimo COMPLETATO, non `[0]`', () => {
+    const runs = [
+      named('test', 'failure', '2026-08-10T07:59:55Z'), // dispatch stantio, PRIMO per ordine API
+      named('test', 'success', '2026-08-10T08:07:03Z'), // il verdetto vero
+    ];
+    expect(latestCompletedConclusionByName(runs, 'test')).toBe('success');
+    expect(latestCompletedRunByName(runs, 'test')?.completed_at).toBe('2026-08-10T08:07:03Z');
+  });
+
+  it('filtra per nome: un altro check-run non contamina il verdetto', () => {
+    const runs = [
+      named('test', 'success', '2026-08-10T08:00:00Z'),
+      named('lint', 'failure', '2026-08-10T09:00:00Z'),
+    ];
+    expect(latestCompletedConclusionByName(runs, 'test')).toBe('success');
+    expect(latestCompletedConclusionByName(runs, 'lint')).toBe('failure');
+  });
+
+  it('nessun run concluso → `\'\'`, che il gate legge come "in attesa" (invariante #1454)', () => {
+    expect(latestCompletedConclusionByName([named('test', null, null, 'in_progress')], 'test')).toBe('');
+    expect(latestCompletedConclusionByName([], 'test')).toBe('');
+    expect(latestCompletedRunByName([], 'test')).toBeNull();
+  });
+
+  it('input non-array → null/`\'\'`, mai un throw dentro il gate di merge', () => {
+    expect(latestCompletedRunByName(undefined, 'test')).toBeNull();
+    expect(latestCompletedConclusionByName(null, 'test')).toBe('');
+  });
+
+  it('il gemello vitest e\' ora un caso particolare di questa funzione', () => {
+    // La prova che la generalizzazione non ha biforcato la selezione: se
+    // `latestCompletedVitestRun` smettesse di delegare, questa uguaglianza
+    // resterebbe vera solo per caso.
+    const runs = [
+      vitest('failure', '2026-06-17T07:59:55Z'),
+      vitest('success', '2026-06-17T08:07:03Z'),
+    ];
+    expect(latestCompletedConclusionByName(runs, VITEST_CHECK_NAME)).toBe(
+      latestCompletedVitestConclusion(runs),
+    );
   });
 });
