@@ -97,7 +97,7 @@ describe('no scheduled functions/ trigger bulk-mails newsletter_subscribers unco
   });
 
   it.each(triggers)('$name: every function it calls that bulk-reads newsletter_subscribers consults the gate', ({ body }) => {
-    const calledNames = [...body.matchAll(/\b(\w+)\(\)/g)].map((m) => m[1]);
+    const calledNames = [...body.matchAll(/\b(\w+)\(/g)].map((m) => m[1]);
     const files = new Set(
       calledNames.map((n) => importMap.get(n)).filter((f): f is string => Boolean(f)),
     );
