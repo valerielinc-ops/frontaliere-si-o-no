@@ -111,6 +111,30 @@ describe('localeEmitFilter — single-locale shard', () => {
     expect(f.shouldEmitPath(`${DIST}/sitemap.xml`, DIST)).toBe(false);
   });
 
+  it('emits dist/404.html from EVERY shard — the SPA trampoline Pages honours only at the root (#5709)', async () => {
+    // Not a page: `public/404.html` reboots the SPA (`sessionStorage.redirect`
+    // + `location.replace('/')`) for any path with no file behind it, and
+    // GitHub Pages serves it ONLY from the repo root — which for
+    // frontaliere-en|de|fr IS the shard root, not `dist/<loc>/`. Treated as an
+    // ordinary it-root file it was non-owned on those legs, so the prune
+    // deleted it and every non-prerendered SPA route under /en|/de|/fr
+    // (newsletter preferences, /email-confirmed/, …) got Pages' generic 404.
+    for (const loc of ['it', 'en', 'de', 'fr']) {
+      const f = await loadFilter(loc);
+      expect(f.shouldEmitPath(`${DIST}/404.html`, DIST), `BUILD_LOCALE=${loc}`).toBe(true);
+    }
+    const en = await loadFilter('en');
+    // Ownership is untouched — only the emit decision is shared, so every
+    // consumer that classifies BY LOCALE still sees a root file.
+    expect(en.localeOfDistPath(`${DIST}/404.html`, DIST)).toBe('it');
+    // Exact root match only, like `<loc>.html`: a nested or lookalike file has
+    // no Pages role, and keeping it would ship non-owned bytes on the shard.
+    expect(en.shouldEmitPath(`${DIST}/de/404.html`, DIST)).toBe(false);
+    expect(en.shouldEmitPath(`${DIST}/blog/404.html`, DIST)).toBe(false);
+    expect(en.shouldEmitPath(`${DIST}/404.html.bak`, DIST)).toBe(false);
+    expect(en.shouldEmitPath(`${DIST}/not-404.html`, DIST)).toBe(false);
+  });
+
   it('BUILD_LOCALE=it owns the root + shared files, drops en/de/fr', async () => {
     const f = await loadFilter('it');
     expect(f.shouldEmitPath(`${DIST}/cerca-lavoro-ticino/x/index.html`, DIST)).toBe(true);

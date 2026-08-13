@@ -136,14 +136,18 @@ export function ownerEmitLocale(locale: string): string {
  * 404 in production (verified live) while the trunk kept re-emitting them.
  * Owning `<loc>.html` by `<loc>` closes both halves at once.
  */
-export function localeOfDistPath(filePath: string, distDir: string): EmitLocale {
+function relOfDistPath(filePath: string, distDir: string): string {
   let rel = filePath.split(path.sep).join('/');
   if (distDir) {
     const dnorm = distDir.split(path.sep).join('/').replace(/\/+$/, '');
     if (rel === dnorm) rel = '';
     else if (rel.startsWith(`${dnorm}/`)) rel = rel.slice(dnorm.length + 1);
   }
-  rel = rel.replace(/^\/+/, '');
+  return rel.replace(/^\/+/, '');
+}
+
+export function localeOfDistPath(filePath: string, distDir: string): EmitLocale {
+  const rel = relOfDistPath(filePath, distDir);
   // Exact match only: `dist/en.html` is EN's homepage, but `dist/enigma.html`
   // is an IT page and `dist/foo/en.html` is a nested file with no such role.
   if (rel === 'en' || rel.startsWith('en/') || rel === 'en.html') return 'en';
@@ -152,8 +156,36 @@ export function localeOfDistPath(filePath: string, distDir: string): EmitLocale 
   return 'it';
 }
 
+/**
+ * Dist-ROOT files that are not owned by one locale but shipped by EVERY shard.
+ *
+ * `404.html` is the only member (issue #5709). It is not a page: it is the SPA
+ * boot trampoline that GitHub Pages serves for any path with no file behind it
+ * (`sessionStorage.redirect` + `location.replace('/')`), and Pages honours it
+ * ONLY at the repo root — which, for `frontaliere-en|de|fr`, is the shard root,
+ * not `dist/<loc>/`. Owning it by prefix put it in `it`, so the en/de/fr legs
+ * classified it as non-owned and `prune-locale-shard.mjs` deleted it: every
+ * non-prerendered SPA route under `/en|/de|/fr` (newsletter preferences,
+ * `/email-confirmed/`, …) got GitHub Pages' own generic 404 instead of the app.
+ *
+ * The file itself is copied by Vite from `public/` and never goes through
+ * `WriteCollector`, so it reaches `dist/` on every leg regardless of this
+ * function. What this exception buys is the two things that follow from it:
+ * the post-build passes gated on `shouldEmitPath` (postWalkCoordinator,
+ * blogImageCdnFinalize, cfHot404Bridge) still process a file that now ships —
+ * without it the shards would serve an un-post-processed copy — and the
+ * invariant `survivors === shouldEmitPath` that
+ * `tests/build-perf-output-invariance-5130.test.ts` pins over the real prune
+ * script keeps holding, which is what makes those skips provably safe.
+ *
+ * Exact root match only, for the same reason `<loc>.html` is exact: a nested
+ * `en/404.html` has no Pages role, and matching it would keep a non-owned file.
+ */
+const SHARD_ROOT_SHARED_FILES: ReadonlySet<string> = new Set(['404.html']);
+
 /** Whether a dist output path should be written by this shard build. */
 export function shouldEmitPath(filePath: string, distDir: string): boolean {
   if (EMIT_ALL_LOCALES) return true;
+  if (SHARD_ROOT_SHARED_FILES.has(relOfDistPath(filePath, distDir))) return true;
   return EMIT_LOCALES.has(localeOfDistPath(filePath, distDir));
 }
