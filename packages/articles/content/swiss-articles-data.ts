@@ -7363,6 +7363,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc',
+    category: 'novita',
+    date: '2026-08-13T04:15:26.963Z',
+    image: '/images/blog/autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2455,6 +2455,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Il Governo dice no all’iniziativa sull’alimentazione',
     'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Il Consiglio federale respinge l’iniziativa popolare sull’alimentazione, sostenendo che le richieste avanzate sono eccessive e irrealizzabili.',
     'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Immagine della Svizzera con cornici di verdura e un secchio di frutta',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Autorità argoviesi sotto indagine per il caso dell’ex parlamentare UDC',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Il Cantone intende chiarire se la tutela delle due vittime straniere è stata garantita dalle autorità coinvolte',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestazione a Lugano contro la violenza sessuale',
 };
 
 export default blogMetaChIt;
