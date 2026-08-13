@@ -2590,6 +2590,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.chiusura-piscina-uzwil-siccita.title': 'Extreme Trockenheit: Das städtische Schwimmbad in Uzwil wird geschlossen',
     'blog.article.chiusura-piscina-uzwil-siccita.excerpt': 'Der Trinkwassermangel in der Ostschweiz schränkt ein: Uzwil schliesst den Pool, um bis zu 150\'000 Liter pro Tag einzusparen.',
     'blog.article.chiusura-piscina-uzwil-siccita.imageAlt': 'Panoramablick auf einen Schweizer See an einem Sommertag',
+    'blog.article.siccita-claro-2026.title': 'Claro: Siccità auf Grad 2, neue Wasserbeschränkungen',
+    'blog.article.siccita-claro-2026.excerpt': 'Die Dürre steigt in Claro auf Grad 2, neue Einschränkungen für die Wassernutzung.',
+    'blog.article.siccita-claro-2026.imageAlt': 'Ein Foto eines Schweizer Sees während einer Dürre.',
 };
 
 export default blogMetaChDe;

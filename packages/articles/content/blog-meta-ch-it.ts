@@ -2590,6 +2590,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.chiusura-piscina-uzwil-siccita.title': 'Siccità estrema: chiude la piscina comunale di Uzwil',
     'blog.article.chiusura-piscina-uzwil-siccita.excerpt': 'La carenza d\'acqua potabile in Svizzera orientale impone restrizioni: Uzwil chiude la piscina per risparmiare fino a 150\'000 litri al giorno.',
     'blog.article.chiusura-piscina-uzwil-siccita.imageAlt': 'Vista panoramica di un lago svizzero in una giornata estiva',
+    'blog.article.siccita-claro-2026.title': 'A Claro la siccità sale al grado 2: nuove limitazioni per l\'uso dell\'acqua',
+    'blog.article.siccita-claro-2026.excerpt': 'La siccità sale al grado 2 a Claro, nuove limitazioni per l\'uso dell\'acqua.',
+    'blog.article.siccita-claro-2026.imageAlt': 'Una foto di un lago svizzero durante una siccità.',
 };
 
 export default blogMetaChIt;

@@ -2590,6 +2590,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.chiusura-piscina-uzwil-siccita.title': 'Extreme drought: Uzwil municipal swimming pool closes',
     'blog.article.chiusura-piscina-uzwil-siccita.excerpt': 'Potable water shortages in eastern Switzerland impose restrictions: Uzwil closes the pool to save up to 150,000 litres per day.',
     'blog.article.chiusura-piscina-uzwil-siccita.imageAlt': 'Panoramic view of a Swiss lake on a summer day',
+    'blog.article.siccita-claro-2026.title': 'In Claro, drought rises to grade 2: new limitations on water use',
+    'blog.article.siccita-claro-2026.excerpt': 'Drought rises to grade 2 in Claro, new limitations on water use.',
+    'blog.article.siccita-claro-2026.imageAlt': 'A photo of a Swiss lake during a drought.',
 };
 
 export default blogMetaChEn;
