@@ -66917,6 +66917,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swissquote-crollo-azienda': {
+    title: 'Swissquote, forte calo in borsa | Frontaliere Ticino',
+    description: 'La società di servizi finanziari Swissquote ha subito un forte calo in borsa, influenzato dalla debolezza delle criptovalute e dai profitti in flessione',
+    keywords: 'frontalieri, ticino, svizzera, italia, swissquote, forte, calo, borsa',
+    ogTitle: 'Swissquote, forte calo in borsa',
+    ogDescription: 'La società di servizi finanziari Swissquote ha subito un forte calo in borsa, influenzato dalla debolezza delle criptovalute e dai profitti in flessione rispetto alle stime degli analisti.',
+    canonicalPath: '/articoli-frontaliere/swissquote-crollo-azienda',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swissquote, forte calo in borsa",
+      "description": "La società di servizi finanziari Swissquote ha subito un forte calo in borsa, influenzato dalla debolezza delle criptovalute e dai profitti in flessione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swissquote-crollo-azienda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un computer con un crollo dei valori di Swissquote"
+      },
+      "datePublished": "2026-08-13T09:03:12+00:00",
+      "dateModified": "2026-08-13T09:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swissquote-crollo-azienda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
