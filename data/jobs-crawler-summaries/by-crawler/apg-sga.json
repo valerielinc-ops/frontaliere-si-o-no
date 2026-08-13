@@ -1,16 +1,16 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-08-12T22:28:30.276Z",
+  "generatedAt": "2026-08-13T10:44:51.926Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6505,
-  "avgDurationMs": 6505,
+  "durationMs": 6447,
+  "avgDurationMs": 6447,
   "durationHistory": [
-    6505
+    6447
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-st-gallen/d54gb1dntc7fxfdn0rc7os0h00w5cikgfy33eobs8dly2ddtfuxdpck4q2uqfl5m",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:28:27.414Z",
+      "crawledAt": "2026-08-13T10:44:49.196Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:28:28.067Z",
+      "crawledAt": "2026-08-13T10:44:49.888Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T22:32:51.344Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
