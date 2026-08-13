@@ -261,14 +261,20 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  await subscriberRef.firestore.runTransaction(async (tx) => {
  // Read current subscriber status to avoid promoting pending users, plus
  // `bounce_severity` — the suppression-recovery decision below needs both
- // (a 'bounced' doc is recoverable only when the bounce was NOT hard).
+ // (a 'bounced' doc is recoverable only when the bounce was NOT hard) — plus
+ // the whole document, because the opt-out stamp that outranks `status`
+ // lives in fields no projection was carrying (#5741). `.data()` is called
+ // once and kept: the recovery decision must see the DATA, never the
+ // snapshot, which reads `undefined` for every field it asks about.
+ let currentData = null;
  let currentStatus = null;
  let currentBounceSeverity = null;
  try {
  const subscriberDoc = await tx.get(subscriberRef);
  if (subscriberDoc.exists) {
- currentStatus = subscriberDoc.data()?.status || null;
- currentBounceSeverity = subscriberDoc.data()?.bounce_severity || null;
+ currentData = subscriberDoc.data() || null;
+ currentStatus = currentData?.status || null;
+ currentBounceSeverity = currentData?.bounce_severity || null;
  }
  } catch {
  // If read fails, proceed without status — safe default
@@ -297,6 +303,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  // recoverable suppression from a permanent one. This can.
  if (type === 'delivered' || type === 'open' || type === 'click') {
  Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+ subscriber: currentData,
  currentStatus,
  bounceSeverity: currentBounceSeverity,
  event: type,
@@ -454,6 +461,7 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  if (type === 'delivered' || type === 'open' || type === 'click') {
  const current = (await subscriberRef.get()).data() || {};
  Object.assign(topUpdate, positiveEventStatusFields({
+ subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
