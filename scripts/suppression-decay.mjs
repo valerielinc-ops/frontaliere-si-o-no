@@ -233,9 +233,15 @@ async function scanCollection(name, nowMs) {
  *
  * The `events` subcollection is read only here, for the ≤LIMIT docs actually
  * being written, not during the 15k-doc scan: consent evidence can live in a
- * `confirm` / `subscribe_completed` event, and skipping that read would demote
- * genuinely-confirmed subscribers to `pending`. Bounded by the run cap, so the
- * extra reads are a couple hundred at worst.
+ * `confirm` event, and skipping that read would demote genuinely-confirmed
+ * subscribers to `pending`. Bounded by the run cap, so the extra reads are a
+ * couple hundred at worst.
+ *
+ * `subscribe_completed` was in that sentence until #5717 and is not evidence:
+ * the signup writes it, so it recorded the request and was read as the answer.
+ * This path runs weekly with `--apply` (suppression-hygiene.yml) and writes
+ * `status: restoredStatus`, which is why the disjunct mattered here more than
+ * anywhere — see hasConsentEvidence() in scripts/lib/suppressionDecay.mjs.
  *
  * Non-newsletter collections need no event read at all — `recoveredStatus()`
  * answers unconditionally for them.

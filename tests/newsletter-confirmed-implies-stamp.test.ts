@@ -25,19 +25,29 @@
  *      (tests/daily-brief-recipients.test.ts).
  *
  * WHAT THIS FILE DOES **NOT** PROVE, so nobody reads a wider promise into it:
- * `scripts/suppression-decay.mjs:150` writes `status: restoredStatus`, which
- * can still resolve to `'confirmed'` through `recoveredStatus()` →
- * `hasConsentEvidence()`, and it runs weekly with `--apply` from
- * suppression-hygiene.yml. The scanner below does not see it — the value is a
- * bare identifier with no `'confirmed'` literal anywhere near it — and this
- * file makes no claim about it. Closing that one means changing
- * `hasConsentEvidence()` itself, which has other callers; it is tracked as
- * chained work on #5677, not silently covered here.
+ * `scripts/suppression-decay.mjs` writes `status: restoredStatus`, which the
+ * scanner below cannot see — the value is a bare identifier with no
+ * `'confirmed'` literal anywhere near it — and no widening of the regex fixes
+ * that. The claim this file makes stops at the literal and the ternary.
+ *
+ * That path is no longer the hole it was when the paragraph above was written.
+ * `restoredStatus` resolves through `recoveredStatus()` → `hasConsentEvidence()`,
+ * and #5717 reduced that function to the stamp plus an explicit `confirm`
+ * event, so the weekly `--apply` run can no longer mint `confirmed` off a
+ * `subscribe_completed` or a signup origin. It is asserted where it can be
+ * asserted — behaviourally, over the predicate, in
+ * tests/mailtrap-suppression-recovery.test.ts and
+ * tests/no-channel-mails-unconfirmed.test.ts — and NOT here, because a source
+ * scan is the wrong instrument for a value computed at runtime. The blind spot
+ * in the SCANNER is still real and still recorded below; what changed is that
+ * nothing dangerous is hiding in it.
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
+import { recoveredStatus } from '../scripts/lib/suppressionDecay.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (rel: string) => readFileSync(path.join(ROOT, rel), 'utf8');
@@ -101,13 +111,23 @@ describe('no top-level script writes the literal or ternary status: confirmed', 
   });
 
   it('and it has a known blind spot, recorded here so nobody rediscovers it as a surprise', () => {
-    // scripts/suppression-decay.mjs:150 is exactly this shape, and it runs
-    // weekly with --apply. The value can still resolve to 'confirmed' through
-    // recoveredStatus() → hasConsentEvidence(). The guard does not cover it and
-    // does not pretend to; closing it means changing hasConsentEvidence(),
-    // which has callers outside #5677.
+    // scripts/suppression-decay.mjs is exactly this shape, and it runs weekly
+    // with --apply. The value resolves through recoveredStatus() →
+    // hasConsentEvidence(), which a regex over this file cannot follow. The
+    // guard does not cover it and does not pretend to.
     expect(writesConfirmed('status: restoredStatus,')).toBe(false);
     expect(read('scripts/suppression-decay.mjs')).toMatch(/status\s*:\s*restoredStatus/);
+  });
+
+  it('the blind spot is no longer load-bearing — the predicate behind it demands the proof', () => {
+    // #5717. The scanner still cannot see the write, so the cover is the
+    // PREDICATE instead: `recoveredStatus()` may only reach 'confirmed' on the
+    // stamp or an explicit `confirm` event. Asserted here, next to the blind
+    // spot, because this is where a reader comes looking for what covers it.
+    const doc = { status: 'suppressed', source: 'signup', source_cta: 'job_gate' };
+    expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'subscribe_completed' }])).toBe('pending');
+    expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'confirm' }])).toBe('confirmed');
+    expect(recoveredStatus('newsletter_subscribers', { ...doc, confirmed_at: '2026-01-01T00:00:00Z' })).toBe('confirmed');
   });
 
   it('the restore pass writes the literal pending, with no branch that could widen', () => {
@@ -132,6 +152,15 @@ describe('no top-level script writes the literal or ternary status: confirmed', 
 describe('every branch that writes the word writes the proof', () => {
   const src = read('functions/src/newsletterSubscriptionManagement.js');
 
+  /** `action === 'x'` as an expression, or null for anything else. */
+  function actionEquality(expr: ts.Expression): string | null {
+    if (!ts.isBinaryExpression(expr)) return null;
+    if (expr.operatorToken.kind !== ts.SyntaxKind.EqualsEqualsEqualsToken) return null;
+    if (!ts.isIdentifier(expr.left) || expr.left.text !== 'action') return null;
+    if (!ts.isStringLiteral(expr.right)) return null;
+    return expr.right.text;
+  }
+
   /**
    * Split the handler into its `if (action === '…')` blocks.
    *
@@ -142,12 +171,43 @@ describe('every branch that writes the word writes the proof', () => {
    * `confirmed` with no stamp. A test that names the branches it checks can
    * only ever be as complete as its author's list; this one derives the list
    * from the file, so a third branch is covered the day it is written.
+   *
+   * PARSED, NOT MATCHED (#5717 item 3). This was a plain global regex, which
+   * cuts each branch at the next LITERAL occurrence of `if (action === '` —
+   * including one inside a comment, a quoted string or a multi-line template
+   * literal. This file renders branded HTML from template literals, so the day
+   * one of them quotes the handler's own shape (an error message, a docs
+   * snippet, a `<code>` sample) a branch would be cut short and everything
+   * after the cut would silently leave the body this test asserts over: the
+   * invariant goes on passing while covering less.
+   *
+   * A hand-rolled string-aware walk was tried first and REJECTED by the
+   * cross-check below, which is the reason that check exists: it lost
+   * `toggle_newsletter_subscription` and `set_daily_brief_frequency`, because
+   * skipping quotes and comments is not enough in a file that also contains
+   * regex literals — `/[^']/` opens a string to a scanner that does not know
+   * what a regex is, and everything after it desyncs. A parser knows. The same
+   * `typescript` AST that tests/packages-articles-confinement.test.ts uses to
+   * prove the corpus confinement is what this leans on.
    */
   function actionBranches(source: string): Array<{ action: string; body: string }> {
-    const re = /if \(action === '([a-z_]+)'\)/g;
+    const sf = ts.createSourceFile(
+      'newsletterSubscriptionManagement.js',
+      source,
+      ts.ScriptTarget.Latest,
+      /* setParentNodes */ true,
+      ts.ScriptKind.JS,
+    );
     const marks: Array<{ action: string; start: number }> = [];
-    let m: RegExpExecArray | null;
-    while ((m = re.exec(source)) !== null) marks.push({ action: m[1], start: m.index });
+    const visit = (node: ts.Node): void => {
+      if (ts.isIfStatement(node)) {
+        const action = actionEquality(node.expression);
+        if (action) marks.push({ action, start: node.getStart(sf) });
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(sf);
+    marks.sort((a, b) => a.start - b.start);
     return marks.map((mk, i) => ({
       action: mk.action,
       body: source.slice(mk.start, i + 1 < marks.length ? marks[i + 1].start : source.length),
@@ -160,6 +220,41 @@ describe('every branch that writes the word writes the proof', () => {
     expect(actions).toContain('confirm');
     expect(actions).toContain('resubscribe');
     expect(actions).toContain('unsubscribe');
+  });
+
+  it('the parse agrees with the naive scan on the file as it stands today', () => {
+    // The cross-check that caught the hand-rolled walk. The naive scan sees
+    // every literal occurrence; the parse sees only the ones that are code. On
+    // a file with no such occurrence inside a string or a comment the two must
+    // be identical — so a divergence means either somebody quoted the shape
+    // (fine: the parse is doing its job, and the assertion below covers that
+    // case) or the extraction lost a real branch (not fine, and silent).
+    const naive = [...src.matchAll(/if \(action === '([a-z_]+)'\)/g)].map((m) => m[1]);
+    expect(actionBranches(src).map((b) => b.action)).toEqual(naive);
+  });
+
+  it('and it does not split on the shape quoted inside a template literal or a comment', () => {
+    // The scenario the guard is for, fed to it directly — otherwise the parse
+    // is only ever exercised on a file that never needed it, which is how a
+    // "robust" extraction stays untested until the day it matters.
+    const synthetic = [
+      "if (action === 'confirm') {",
+      '  const help = `try if (action === \x27forged\x27) instead`;',
+      "  // see if (action === 'alsoforged') in the docs",
+      "  const ok = /[^']+/.test(help);",
+      "  await db.set({ status: 'confirmed', confirmed_at: STAMP, confirmedAt: STAMP });",
+      '}',
+      "if (action === 'unsubscribe') { await db.set({ status: 'unsubscribed' }); }",
+    ].join('\n');
+    const branches = actionBranches(synthetic);
+    expect(branches.map((b) => b.action)).toEqual(['confirm', 'unsubscribe']);
+    // …and the confirm body still reaches the write below the decoys, one of
+    // which is the regex literal that defeated the hand-rolled scanner.
+    expect(branches[0].body).toMatch(/confirmed_at/);
+    // The naive scan is what this replaces: it finds the decoys and cuts the
+    // branch before its own write, which is the silent under-coverage.
+    const naive = [...synthetic.matchAll(/if \(action === '([a-z_]+)'\)/g)].map((m) => m[1]);
+    expect(naive).toEqual(['confirm', 'forged', 'alsoforged', 'unsubscribe']);
   });
 
   it('EVERY action branch writing status: confirmed also writes confirmed_at and confirmedAt', () => {
@@ -181,6 +276,28 @@ describe('every branch that writes the word writes the proof', () => {
     // field #5690's isExplicitNewsletterReOptIn() keys on to decide that this
     // — and only this — may lift a recorded opt-out.
     expect(branches.resubscribe).toMatch(/source_channel\s*:\s*'resubscribe_link'/);
+  });
+
+  it('the resubscribe branch writes the stamp ONCE and never bumps an existing one (#5717)', () => {
+    // The invariant this file asserts is "confirmed implies a stamp", and it
+    // survives: the write is skipped only when one is already there. What the
+    // skip removes is the RECENCY bump, which is not inert —
+    // `classifySuppressionDecay` (scripts/lib/suppressionDecay.mjs) compares
+    // `confirmed_at` against `unsubscribed_at` to decide whether an opt-out has
+    // been superseded, so a repeated "riattiva" could re-supersede an opt-out
+    // on demand. `resubscribed_at` still records the click, unconditionally and
+    // in the narrower field that means exactly it.
+    const branch = stripComments(Object.fromEntries(
+      actionBranches(src).map((b) => [b.action, b.body]),
+    ).resubscribe);
+    // Guarded by the flag, not written unconditionally…
+    expect(branch).toMatch(/priorHasStamp/);
+    // …and the flag defaults to "write it", so a failed read cannot cost a
+    // first-time re-subscriber the only record of their consent.
+    expect(stripComments(src)).toMatch(/let priorHasStamp = false;/);
+    // The re-opt-in stamp stays unconditional — it is what lifts the opt-out.
+    expect(branch).toMatch(/^\s*resubscribed_at:/m);
+    expect(branch).toMatch(/^\s*resubscribedAt:/m);
   });
 
   it('the unsubscribe branch does not write the stamp, and does not clear it either', () => {
