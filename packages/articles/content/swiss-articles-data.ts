@@ -7390,6 +7390,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario',
+    category: 'pratico',
+    date: '2026-08-13T04:41:19.655Z',
+    image: '/images/blog/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

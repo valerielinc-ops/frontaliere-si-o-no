@@ -2464,6 +2464,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Summit sull’intelligenza artificiale, Gianotti delegata',
     'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra e ha nominato l\'ex direttrice generale del CERN Fabiola Gianotti come sua delegata.',
     'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ex direttrice generale del CERN, in una riunione con funzionari svizzeri, legata al Summit sull\'intelligenza artificiale di Ginevra 2027.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022.',
+    'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Immagine di una casa nel Cantone di Berna',
 };
 
 export default blogMetaChIt;
