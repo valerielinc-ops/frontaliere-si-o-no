@@ -2611,6 +2611,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.title': 'Unfall mit einem landwirtschaftlichen Fahrzeug, ein 9-jähriges Kind gestorben',
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.excerpt': 'Ein 9-jähriges Kind starb bei einem Unfall mit einem landwirtschaftlichen Fahrzeug im Aostatal, Schweiz',
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.imageAlt': 'Unfall mit einem landwirtschaftlichen Fahrzeug in der Aostatal, Schweiz',
+    'blog.article.mercato-lavoro-berna-salari.title': 'Löhne und Arbeitsmarkt im Kanton Bern',
+    'blog.article.mercato-lavoro-berna-salari.excerpt': 'Branchenanalysen, Lohnniveaus und arbeitsrechtliche Regelungen im Kanton Bern. Informationen zu Verträgen, Mindestlohn und Arbeitnehmerschutz.',
+    'blog.article.mercato-lavoro-berna-salari.imageAlt': 'Blick auf das Bundeshaus in Bern, das administrative Herz der Schweiz.',
 };
 
 export default blogMetaChDe;

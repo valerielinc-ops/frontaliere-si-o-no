@@ -2611,6 +2611,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.title': 'Accident avec un véhicule agricole, mort d\'un enfant de 9 ans',
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.excerpt': 'Un enfant de 9 ans est mort dans un accident avec un véhicule agricole en Vallée d\'Aoste, Suisse',
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.imageAlt': 'Accident avec un véhicule agricole dans la Vallée d\'Aoste, Suisse',
+    'blog.article.mercato-lavoro-berna-salari.title': 'Salaires et marché du travail dans le canton de Berne',
+    'blog.article.mercato-lavoro-berna-salari.excerpt': 'Analyse des secteurs, des niveaux de salaire et de la réglementation du travail dans le canton de Berne. Informations sur les contrats, le salaire minimum et les protections pour les travailleurs.',
+    'blog.article.mercato-lavoro-berna-salari.imageAlt': 'Vue du Palais fédéral à Berne, cœur administratif de la Suisse.',
 };
 
 export default blogMetaChFr;
