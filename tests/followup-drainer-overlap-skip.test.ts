@@ -145,3 +145,81 @@ describe('findOverlapFile', () => {
     expect(result!.prNumber).toBe(2);
   });
 });
+
+/**
+ * La pre-flight era INERTE sul mirror corpus, e questo file gira identico là (il modulo
+ * `scripts/lib/workflow-scope-detect.mjs` è `mode: identical` nel loop-sync-manifest).
+ *
+ * `CODE_PATH_RE` si ancorava con `\b` direttamente sulla directory, quindi da un body che
+ * cita `generator/scripts/create-article.mjs` estraeva `scripts/create-article.mjs` — una
+ * stringa che non esiste in nessun repo — e `findOverlapFile` confronta con un `Set.has`
+ * ESATTO contro la lista file di una PR. Risultato misurato: 0 overlap rilevati, sempre.
+ * In più `content/**`, l'albero più modificato del corpus (14.748 file), non era nemmeno
+ * nella regex. È la causa a monte dei marker `overlap-skip` di
+ * nanakokyobashi-rgb/frontaliere-articles#229 e #274.
+ *
+ * DUE casi obbligatori: la forma del sito e quella del corpus. Stringere la regex per far
+ * passare la seconda rompendo la prima sarebbe una regressione silenziosa sul lato che
+ * oggi funziona.
+ */
+describe('overlap pre-flight sui path del corpus (#229/#274 — metà sito della fix)', () => {
+  type PrEntry = { number: number; title: string; files: string[] };
+  const makeMap = (prs: PrEntry[]) =>
+    new Map(prs.map(({ number, title, files }) => [number, { title, files: new Set(files) }]));
+
+  it('forma CORPUS `generator/scripts/x.mjs`: estrae il path COMPLETO e trova l\'overlap', () => {
+    const body = [
+      '## Causa radice',
+      'La guardia manca in `generator/scripts/create-article.mjs` (riga 210).',
+    ].join('\n');
+    const paths = extractCodePaths(body);
+    expect(paths).toContain('generator/scripts/create-article.mjs');
+    const prMap = makeMap([
+      {
+        number: 293,
+        title: 'fix(generator): guardia sul titolo duplicato',
+        files: ['generator/scripts/create-article.mjs', 'generator/tests/create-article.test.mjs'],
+      },
+    ]);
+    const overlap = findOverlapFile(paths, prMap);
+    expect(overlap).not.toBeNull();
+    expect(overlap!.prNumber).toBe(293);
+    expect(overlap!.file).toBe('generator/scripts/create-article.mjs');
+  });
+
+  it('forma CORPUS `content/y.ts`: l\'albero più modificato del corpus ora è visibile', () => {
+    const paths = extractCodePaths('Il registro sbagliato è `content/it/blog-body-2026-08.ts`.');
+    expect(paths).toContain('content/it/blog-body-2026-08.ts');
+    const prMap = makeMap([
+      { number: 301, title: 'fix(content): accenti mangiati', files: ['content/it/blog-body-2026-08.ts'] },
+    ]);
+    expect(findOverlapFile(paths, prMap)?.prNumber).toBe(301);
+  });
+
+  it('forma SITO `scripts/x.mjs`: invariata — il lato che funzionava non si rompe', () => {
+    const paths = extractCodePaths('Fix in `scripts/ci/followup-drainer.mjs` e `build-plugins/eventsSeoPagesPlugin.ts`.');
+    expect(paths).toContain('scripts/ci/followup-drainer.mjs');
+    expect(paths).toContain('build-plugins/eventsSeoPagesPlugin.ts');
+    const prMap = makeMap([
+      { number: 5774, title: 'fix(loop): drainer rescue', files: ['scripts/ci/followup-drainer.mjs'] },
+    ]);
+    expect(findOverlapFile(paths, prMap)?.prNumber).toBe(5774);
+  });
+
+  it('forma SITO `packages/articles/content/**`: stesso file del corpus, radice diversa → entrambe le forme', () => {
+    const paths = extractCodePaths('Vedi `packages/articles/content/it/blog-body-2026-08.ts`.');
+    expect(paths).toContain('packages/articles/content/it/blog-body-2026-08.ts'); // radice sito
+    expect(paths).toContain('content/it/blog-body-2026-08.ts'); // radice corpus
+  });
+
+  it('un path citato dentro un URL continua a produrre la coda confrontabile (nessuna regressione)', () => {
+    const paths = extractCodePaths('vedi https://github.com/o/r/blob/main/scripts/x.mjs');
+    expect(paths).toContain('scripts/x.mjs');
+  });
+
+  it('quel che NON deve entrare resta fuori: workflow, data-blob, public', () => {
+    expect(extractCodePaths('`.github/workflows/issue-fix.yml`')).toEqual([]);
+    expect(extractCodePaths('`data/jobs.json` e `public/img/logo.png`')).toEqual([]);
+    expect(extractCodePaths('descripts/foo.mjs non è un path di codice')).toEqual([]);
+  });
+});

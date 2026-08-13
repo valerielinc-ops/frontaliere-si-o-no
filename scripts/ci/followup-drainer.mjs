@@ -44,6 +44,7 @@ import {
   CODE_PATH_RE,
   detectWorkflowScoped,
   extractWorkflowRefs,
+  repoRelativeTail,
 } from '../lib/workflow-scope-detect.mjs';
 import { detectSecretsScoped, matchSecretsScopedLabel } from '../lib/secrets-scope-detect.mjs';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
@@ -425,11 +426,26 @@ export function detectCompressContractDocsRatchet(title) {
 /**
  * Estrae i path di file codice (non-workflow) citati nel testo di una issue.
  * Riusa CODE_PATH_RE già definita (consistenza, no drift). Pura → testabile.
+ *
+ * Emette DUE forme per ogni path citato, quando differiscono: quella completa e la sua
+ * coda a partire dalla prima directory di codice riconosciuta (`repoRelativeTail`).
+ * Serve perché il confronto a valle (`findOverlapFile`) è un `Set.has` esatto sui file
+ * di una PR, e le due radici non coincidono sempre: un body può citare un URL blob di
+ * GitHub, e ciò che il corpus tiene in `content/**` il sito lo tiene in
+ * `packages/articles/content/**`. Le due forme insieme sono un SOVRAINSIEME stretto di
+ * ciò che l'estrattore produceva prima del fix di `CODE_PATH_RE`: nessun confronto che
+ * matchava prima può smettere di matchare. Un falso overlap costa un tick di rinvio (mai
+ * un park — vedi il commento della sezione), un falso promote costa ~1M token.
  * @param {string} text  title + body della issue
  * @returns {string[]}
  */
 export function extractCodePaths(text) {
-  return [...new Set((String(text || '').match(CODE_PATH_RE) || []))];
+  const out = new Set();
+  for (const p of String(text || '').match(CODE_PATH_RE) || []) {
+    out.add(p);
+    out.add(repoRelativeTail(p));
+  }
+  return [...out];
 }
 
 /**

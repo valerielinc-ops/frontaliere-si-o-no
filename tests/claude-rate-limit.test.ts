@@ -24,7 +24,8 @@ import {
   formatRateLimitComment,
   RATE_LIMITED_OUTCOME,
 } from '../scripts/ci/claude-rate-limit.mjs';
-import { resultSubtype } from '../scripts/ci/mark-claude-terminal-outcome.mjs';
+import { formatRecoverableBranchStamp, resultSubtype } from '../scripts/ci/mark-claude-terminal-outcome.mjs';
+import { parseRecoverableBranchStamp } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 // Epoch relativo: mai date assolute nelle fixture (AGENTS.md → test fixture).
 const nowSec = () => Math.floor(Date.now() / 1000);
@@ -157,5 +158,24 @@ describe('parseQuotaResetsAt / isBackoffActive', () => {
     expect(isBackoffActive(inHours(24 * 30))).toBe(false);
     // il limite più lungo dichiarato dall'API è `seven_day` → 7gg resta valido
     expect(isBackoffActive(inHours(24 * 7))).toBe(true);
+  });
+});
+
+describe('stamp del lavoro recuperabile: chi scrive e chi legge parlano la stessa lingua', () => {
+  // Il marker `max-turns` e il harvester sono due file diversi che si passano una riga di
+  // HTML comment. Il round-trip è l'unica prova che il contratto regge: se lo stamp cambia
+  // forma da un lato, il lato che LEGGE torna a vedere «run senza consegna» e le morti con
+  // lavoro recuperabile (11 su 31, misurate sul corpus) tornano a passare per rumore.
+  it('format → parse conserva branch e numero di commit', () => {
+    const stamp = formatRecoverableBranchStamp({ branch: 'fix/issue-5767', aheadBy: 3 });
+    expect(stamp).toContain('<!-- RECOVERABLE_BRANCH: fix/issue-5767 ahead=3 -->');
+    expect(parseRecoverableBranchStamp(stamp)).toEqual({ branch: 'fix/issue-5767', aheadBy: 3 });
+  });
+
+  it('niente lavoro da recuperare → nessuno stamp (il marker resta quello di prima)', () => {
+    expect(formatRecoverableBranchStamp(null as unknown as { branch: string })).toBe('');
+    expect(formatRecoverableBranchStamp({ branch: 'fix/issue-1', aheadBy: 0 })).toBe('');
+    expect(formatRecoverableBranchStamp({ branch: '', aheadBy: 4 })).toBe('');
+    expect(formatRecoverableBranchStamp({ branch: 'fix/issue-1' } as { branch: string })).toBe('');
   });
 });

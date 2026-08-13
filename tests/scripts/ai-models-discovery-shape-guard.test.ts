@@ -11,11 +11,12 @@ const aiModels = (await import('../../scripts/lib/ai-models.mjs')) as unknown as
   _discoverProvider: (cfg: unknown) => Promise<{ added: number; stale: number }>;
   resetState: () => void;
   getStats: () => { exhaustedModels: string[] };
+  prunedStaleModels: () => string[];
   DEFAULT_CHAIN: string[];
   DISCOVERY_PROVIDERS: ReadonlyArray<{ name: string; getList?: (d: unknown) => unknown[] }>;
 };
 
-const { _discoverProvider, resetState, getStats, DEFAULT_CHAIN, DISCOVERY_PROVIDERS } = aiModels;
+const { _discoverProvider, resetState, getStats, prunedStaleModels, DEFAULT_CHAIN, DISCOVERY_PROVIDERS } = aiModels;
 
 const PREFIX = 'testprov/';
 
@@ -134,6 +135,61 @@ describe('discovery markStale empty-listing guard (issue #893 / #835)', () => {
     const exhausted = getStats().exhaustedModels;
     expect(exhausted).toContain(`${PREFIX}static-b`); // decommissioned
     expect(exhausted).not.toContain(`${PREFIX}static-a`); // still live
+  });
+});
+
+describe('discovery markStale POTATURA dal roster (corpus #203 — metà sito)', () => {
+  // Misurato: `stale` 22-44 modelli per run, `quota` 0. I due motivi erano già distinti in
+  // `_exhaustReason` e solo `quota` persiste (fino a mezzanotte UTC), il che è giusto — un
+  // id dismesso non ha niente a che vedere con un budget giornaliero. Ma marcarlo e basta
+  // lo lasciava NEL roster: ogni run lo ripercorreva, lo rimarcava, e qualunque percorso
+  // che legge la chain prima della fine della discovery lo provava per davvero.
+  it('un id che il provider non offre più esce dalla chain, non solo marcato', async () => {
+    DEFAULT_CHAIN.push(`${PREFIX}static-a`, `${PREFIX}static-b`);
+    mockFetch([{ id: 'static-a' }]);
+    const res = await _discoverProvider(makeCfg({ markStale: true }));
+    expect(res.stale).toBe(1);
+    // La potatura, cioè il punto di questo cambio.
+    expect(DEFAULT_CHAIN).not.toContain(`${PREFIX}static-b`);
+    expect(prunedStaleModels()).toContain(`${PREFIX}static-b`);
+    // Il vivo resta, e resta marcato per chi ha già una copia della chain.
+    expect(DEFAULT_CHAIN).toContain(`${PREFIX}static-a`);
+    expect(getStats().exhaustedModels).toContain(`${PREFIX}static-b`);
+    // Nessun modello marcato `stale` sopravvive nel roster: 22-44 → 0.
+    const staleLeftInRoster = DEFAULT_CHAIN.filter((m) => prunedStaleModels().includes(m));
+    expect(staleLeftInRoster).toEqual([]);
+  });
+
+  it('RIENTRO per evidenza: se il provider torna a offrirlo, la discovery lo re-inietta', async () => {
+    DEFAULT_CHAIN.push(`${PREFIX}static-b`);
+    mockFetch([{ id: 'static-a' }]); // static-b dismesso
+    await _discoverProvider(makeCfg({ markStale: true }));
+    expect(DEFAULT_CHAIN).not.toContain(`${PREFIX}static-b`);
+    // Run successiva: il provider lo rimette in listing → rientra dal loop di add,
+    // perché non è più fra gli `existingIds`. Nessun timer, nessuno stato persistito.
+    resetState();
+    mockFetch([{ id: 'static-a' }, { id: 'static-b' }]);
+    const res = await _discoverProvider(makeCfg({ markStale: true }));
+    expect(DEFAULT_CHAIN).toContain(`${PREFIX}static-b`);
+    expect(res.stale).toBe(0);
+  });
+
+  it('il guard sul listing vuoto viene PRIMA della potatura: un glitch non svuota il roster', async () => {
+    DEFAULT_CHAIN.push(`${PREFIX}static-a`, `${PREFIX}static-b`);
+    mockFetch([]); // 200 con body vuoto = glitch API
+    const res = await _discoverProvider(makeCfg({ markStale: true }));
+    expect(res.stale).toBe(0);
+    expect(DEFAULT_CHAIN).toContain(`${PREFIX}static-a`);
+    expect(DEFAULT_CHAIN).toContain(`${PREFIX}static-b`);
+    expect(prunedStaleModels()).toEqual([]);
+  });
+
+  it('senza markStale il provider non pota niente (comportamento preesistente)', async () => {
+    DEFAULT_CHAIN.push(`${PREFIX}static-b`);
+    mockFetch([{ id: 'static-a' }]);
+    const res = await _discoverProvider(makeCfg());
+    expect(res.stale).toBe(0);
+    expect(DEFAULT_CHAIN).toContain(`${PREFIX}static-b`);
   });
 });
 

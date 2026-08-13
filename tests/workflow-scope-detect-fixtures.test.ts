@@ -181,6 +181,27 @@ describe('extractNonWorkflowCodeRefs — payload di dati vs target di fix', () =
     expect(extractNonWorkflowCodeRefs('')).toHaveLength(0);
     expect(extractNonWorkflowCodeRefs(undefined as unknown as string)).toHaveLength(0);
   });
+
+  it('il path è riconosciuto per intero, non dalla directory in poi (corpus #229/#274)', () => {
+    // Questo modulo è `mode: identical`: gli stessi byte girano sul mirror corpus, dove i
+    // path hanno una radice in più. Con l'ancora `\b` sulla directory, da
+    // `generator/scripts/create-article.mjs` usciva `scripts/create-article.mjs`, che non
+    // esiste in nessun repo — e la pre-flight overlap del drainer, che confronta con un
+    // `Set.has` esatto sui file di una PR, non trovava mai niente.
+    expect(extractNonWorkflowCodeRefs('vedi `generator/scripts/create-article.mjs`'))
+      .toEqual(['generator/scripts/create-article.mjs']);
+    expect(extractNonWorkflowCodeRefs('vedi `packages/articles/engine/rssFeeds.mjs`'))
+      .toHaveLength(0); // `engine` non è (e non deve essere) una directory di codice qui
+  });
+
+  it('`content/**` conta come codice: è l\'albero più modificato del corpus', () => {
+    expect(extractNonWorkflowCodeRefs('il registro `content/it/blog-body-2026-08.ts`'))
+      .toEqual(['content/it/blog-body-2026-08.ts']);
+    expect(extractNonWorkflowCodeRefs('sul sito è `packages/articles/content/it/blog-body-2026-08.ts`'))
+      .toEqual(['packages/articles/content/it/blog-body-2026-08.ts']);
+    // …ma un payload di dati sotto content/ resta evidenza, non target (NON_CODE_EXT).
+    expect(extractNonWorkflowCodeRefs('vedi `content/index.json`')).toHaveLength(0);
+  });
 });
 
 describe('regressioni che questo cambio NON deve introdurre', () => {
