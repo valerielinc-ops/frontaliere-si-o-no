@@ -3057,6 +3057,69 @@
       ]
     },
     {
+      "slug": "application-ingegnere-ii-swiss-re-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/application-ingegnere-ii-swiss-re-zurich/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/application-ingegnere-ii-swiss-re-zurich/"
+      },
+      "queries": [
+        {
+          "query": "datalake",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "ingegnere",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "datalake",
+      "title": "Application ingegnere ii swiss re",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "application-ingegnere-ii-swiss-re-zurich",
+        "en": "application-ingegnere-ii-swiss-re-zurich",
+        "de": "application-ingegnere-ii-swiss-re-zurich",
+        "fr": "application-ingegnere-ii-swiss-re-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/application-ingegnere-ii-swiss-re-zurich",
+        "en": "/en/find-jobs-zurich/application-ingegnere-ii-swiss-re-zurich",
+        "de": "/de/jobs-im-zurich/application-ingegnere-ii-swiss-re-zurich",
+        "fr": "/fr/trouver-emploi-zurich/application-ingegnere-ii-swiss-re-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "application-technologist-technical-fibers-100-ems-chemie-domat-ems",
       "locale": "en",
       "path": "/en/find-jobs-ticino/application-technologist-technical-fibers-100-ems-chemie-domat-ems",
@@ -6810,16 +6873,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
-        "en": "assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
-        "de": "assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
+        "de": "verfahrensassistent-in-staatsschutz-kriminelle-organisationen-confederazione-bern",
+        "it": "assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern",
+        "en": "procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern",
         "fr": "assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
-        "en": "/en/find-jobs-ticino/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
-        "de": "/de/jobs-im-tessin/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
-        "fr": "/fr/trouver-emploi-tessin/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern"
+        "it": "/cerca-lavoro-berna/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
+        "en": "/en/find-jobs-bern/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
+        "de": "/de/jobs-in-bern/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern",
+        "fr": "/fr/trouver-emploi-berne/assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -6827,6 +6890,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -8137,10 +8201,10 @@
         "fr": "assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach",
-        "en": "/en/find-jobs-bern/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach",
-        "de": "/de/jobs-in-bern/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach",
-        "fr": "/fr/trouver-emploi-berne/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach"
+        "it": "/cerca-lavoro-argovia/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach",
+        "en": "/en/find-jobs-aargau/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach",
+        "de": "/de/jobs-im-aargau/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach",
+        "fr": "/fr/trouver-emploi-argovie/assistente-alle-vendite-alimentari-coop-genossenschaft-luterbach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21142,10 +21206,10 @@
         "fr": "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "en": "/en/find-jobs-basel/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+        "it": "/cerca-lavoro-soletta/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+        "en": "/en/find-jobs-solothurn/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "de": "/de/jobs-im-basel/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "fr": "/fr/trouver-emploi-bale/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
+        "fr": "/fr/trouver-emploi-soleure/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25595,6 +25659,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "energy",
+      "locale": "en",
+      "path": "/en/find-jobs-zurich/energy/",
+      "observedPaths": {
+        "en": "/en/find-jobs-zurich/energy/"
+      },
+      "queries": [
+        {
+          "query": "energy zürich jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "energy zürich jobs",
+      "title": "Energy",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "energy",
+        "en": "energy",
+        "de": "energy",
+        "fr": "energy"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/energy",
+        "en": "/en/find-jobs-zurich/energy",
+        "de": "/de/jobs-im-zurich/energy",
+        "fr": "/fr/trouver-emploi-zurich/energy"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

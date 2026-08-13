@@ -11839,10 +11839,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "building-manager-livit-ag-geneve",
+        "it": "direttore-della-costruzione-livit-ag-geneve-28c4cc",
         "en": "building-manager-livit-ag-geneve",
-        "de": "building-manager-livit-ag-geneve",
-        "fr": "building-manager-livit-ag-geneve"
+        "de": "gebaudeverwalter-livit-ag-geneve",
+        "fr": "gerant-e-d-immeubles-livit-geneve"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ginevra/building-manager-livit-ag-geneve",
@@ -11856,6 +11856,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -19183,10 +19184,10 @@
         "fr": "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
-        "en": "/en/find-jobs-basel/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
+        "it": "/cerca-lavoro-svitto/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
+        "en": "/en/find-jobs-schwyz/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
         "de": "/de/jobs-im-schwyz/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
-        "fr": "/fr/trouver-emploi-bale/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9"
+        "fr": "/fr/trouver-emploi-schwytz/consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26423,6 +26424,73 @@
       ]
     },
     {
+      "slug": "electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel/"
+      },
+      "queries": [
+        {
+          "query": "emploi canton de neuchatel",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "emploi canton neuchatel",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stage neuchatel",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "emploi canton de neuchatel",
+      "title": "Electricien ne de reseau installateur ou installatrice electricien ne groupe neuchatel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+        "en": "electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+        "de": "electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+        "fr": "electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+        "en": "/en/find-jobs-neuchatel/electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+        "de": "/de/jobs-im-neuenburg/electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel",
+        "fr": "/fr/trouver-emploi-neuchatel/electricien-ne-de-reseau-installateur-ou-installatrice-electricien-ne-80-100-groupe-e-neuchatel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "electrotechnical-sss-engineer-technician-80-100-f-m-d-new-headquarters-in-bellinzona-afry-bellinzona",
       "locale": "en",
       "path": "/en/find-jobs-ticino/electrotechnical-sss-engineer-technician-80-100-f-m-d-new-headquarters-in-bellinzona-afry-bellinzona",
@@ -27976,6 +28044,79 @@
         "en": "/en/find-jobs-ticino/facharztin-facharzt-radiology-fellowship-abdominal-radiology-100-befristet-auf-1-jahr-luzerner-kantonsspital-luks-luzern",
         "de": "/de/jobs-im-tessin/facharztin-facharzt-radiology-fellowship-abdominal-radiology-100-befristet-auf-1-jahr-luzerner-kantonsspital-luks-luzern",
         "fr": "/fr/trouver-emploi-tessin/facharztin-facharzt-radiology-fellowship-abdominal-radiology-100-befristet-auf-1-jahr-luzerner-kantonsspital-luks-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern/"
+      },
+      "queries": [
+        {
+          "query": "offerte lavoro parrucchiera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "parrucchiera cercasi",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "posti di lavoro coiffure",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "posti di lavoro parrucchiere",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "topQuery": "offerte lavoro parrucchiera",
+      "title": "Fachexpertin fachexperte b gastronomie senevita",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+        "en": "fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+        "de": "fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+        "fr": "fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+        "en": "/en/find-jobs-bern/fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+        "de": "/de/jobs-im-bern/fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern",
+        "fr": "/fr/trouver-emploi-berne/fachexpertin-fachexperte-f-b-gastronomie-80-senevita-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -33968,10 +34109,10 @@
         "de": "ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern",
-        "en": "/en/find-jobs-ticino/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern",
-        "de": "/de/jobs-im-tessin/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern",
-        "fr": "/fr/trouver-emploi-tessin/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern"
+        "it": "/cerca-lavoro-berna/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern",
+        "en": "/en/find-jobs-bern/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern",
+        "de": "/de/jobs-in-bern/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern",
+        "fr": "/fr/trouver-emploi-berne/ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60982,10 +61123,10 @@
         "fr": "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
-        "en": "/en/find-jobs-ticino/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
-        "de": "/de/jobs-im-tessin/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
-        "fr": "/fr/trouver-emploi-tessin/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207"
+        "it": "/cerca-lavoro-lucerna/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
+        "en": "/en/find-jobs-lucerne/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
+        "de": "/de/jobs-in-luzern/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
+        "fr": "/fr/trouver-emploi-lucerne/seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

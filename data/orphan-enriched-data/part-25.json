@@ -8347,10 +8347,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verfahrensassistent-in-staatsschutz-kriminelle-organisationen-confederazione-bern",
         "it": "assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern",
-        "en": "assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern",
-        "de": "assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern",
-        "fr": "assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern"
+        "en": "procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern",
+        "fr": "assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern",
@@ -8365,6 +8365,7 @@
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -34901,6 +34902,63 @@
       ]
     },
     {
+      "slug": "infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+      "locale": "it",
+      "path": "/cerca-lavoro-ginevra/infermiera-e-pronto-adulto-hirslanden-klinik-geneve/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ginevra/infermiera-e-pronto-adulto-hirslanden-klinik-geneve/"
+      },
+      "queries": [
+        {
+          "query": "hirslanden jobs genf",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "hirslanden jobs genf",
+      "title": "Infermiera pronto adulto hirslanden klinik geneve",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+        "en": "infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+        "de": "infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+        "fr": "infermiera-e-pronto-adulto-hirslanden-klinik-geneve"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+        "en": "/en/find-jobs-geneva/infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+        "de": "/de/jobs-im-genf/infermiera-e-pronto-adulto-hirslanden-klinik-geneve",
+        "fr": "/fr/trouver-emploi-geneve/infermiera-e-pronto-adulto-hirslanden-klinik-geneve"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "infermiere-40-100-medicina-3-ovest-hopital-du-valais-visp",
       "locale": "de",
       "path": "/de/jobs-im-tessin/infermiere-40-100-medicina-3-ovest-hopital-du-valais-visp",
@@ -48081,6 +48139,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "operator-biotechnologist-m-f-d-50-100-lonza-visp",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/operator-biotechnologist-m-f-d-50-100-lonza-visp/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/operator-biotechnologist-m-f-d-50-100-lonza-visp/"
+      },
+      "queries": [
+        {
+          "query": "lonza visp lavora con noi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lonza visp lavora con noi",
+      "title": "Operator biotechnologist 50 lonza",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Visp",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "en": "operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "de": "operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "fr": "operator-biotechnologist-m-f-d-50-100-lonza-visp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "en": "/en/find-jobs-valais/operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "de": "/de/jobs-im-wallis/operator-biotechnologist-m-f-d-50-100-lonza-visp",
+        "fr": "/fr/trouver-emploi-valais/operator-biotechnologist-m-f-d-50-100-lonza-visp"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -62791,10 +62907,10 @@
         "fr": "seller-in-food-coop-genossenschaft-altstatten-0ifd89"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-altstatten-0ifd89",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-altstatten-0ifd89",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-altstatten-0ifd89",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-altstatten-0ifd89"
+        "it": "/cerca-lavoro-san-gallo/seller-in-food-coop-genossenschaft-altstatten-0ifd89",
+        "en": "/en/find-jobs-st-gallen/seller-in-food-coop-genossenschaft-altstatten-0ifd89",
+        "de": "/de/jobs-in-st-gallen/seller-in-food-coop-genossenschaft-altstatten-0ifd89",
+        "fr": "/fr/trouver-emploi-saint-gall/seller-in-food-coop-genossenschaft-altstatten-0ifd89"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63997,6 +64113,64 @@
         "en": "/en/find-jobs-bern/senior-responsabile-di-progetto-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
         "de": "/de/jobs-im-bern/senior-responsabile-di-progetto-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
         "fr": "/fr/trouver-emploi-berne/senior-responsabile-di-progetto-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+      "locale": "de",
+      "path": "/de/jobs-im-wallis/senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp/",
+      "observedPaths": {
+        "de": "/de/jobs-im-wallis/senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp/"
+      },
+      "queries": [
+        {
+          "query": "sap systemspezialist gehalt",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "sap systemspezialist gehalt",
+      "title": "Senior sap ewm system spezialist extended warehouse management lonza",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Visp",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+        "en": "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+        "de": "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+        "fr": "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+        "en": "/en/find-jobs-valais/senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+        "de": "/de/jobs-im-wallis/senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp",
+        "fr": "/fr/trouver-emploi-valais/senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

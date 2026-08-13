@@ -30029,10 +30029,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "gebaudeverwalter-livit-ag-geneve",
-        "en": "gebaudeverwalter-livit-ag-geneve",
+        "it": "direttore-della-costruzione-livit-ag-geneve-28c4cc",
+        "en": "building-manager-livit-ag-geneve",
         "de": "gebaudeverwalter-livit-ag-geneve",
-        "fr": "gebaudeverwalter-livit-ag-geneve"
+        "fr": "gerant-e-d-immeubles-livit-geneve"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ginevra/gebaudeverwalter-livit-ag-geneve",
@@ -30046,6 +30046,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -39834,10 +39835,10 @@
         "fr": "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4",
-        "en": "/en/find-jobs-solothurn/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4",
+        "it": "/cerca-lavoro-san-gallo/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4",
+        "en": "/en/find-jobs-st-gallen/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4",
         "de": "/de/jobs-im-solothurn/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4",
-        "fr": "/fr/trouver-emploi-soleure/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4"
+        "fr": "/fr/trouver-emploi-saint-gall/lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-lroia4"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59370,7 +59371,7 @@
         {
           "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 22
         },
         {
           "query": "\"zurich\" surety",
@@ -59453,6 +59454,11 @@
           "impressions": 1
         },
         {
+          "query": "sono frontaliere",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "sì dimmi",
           "clicks": 0,
           "impressions": 1
@@ -59461,14 +59467,9 @@
           "query": "ticino",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "ticino italiano",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 44,
+      "totalImpressions": 47,
       "totalClicks": 1,
       "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
       "title": "Restaurants",
@@ -64648,6 +64649,64 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+      "locale": "it",
+      "path": "/cerca-lavoro-lucerna/senior-java-integration-ingegnere-w-m-css-versicherung-luzern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-lucerna/senior-java-integration-ingegnere-w-m-css-versicherung-luzern/"
+      },
+      "queries": [
+        {
+          "query": "css luzern jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "css luzern jobs",
+      "title": "Senior java integration ingegnere css versicherung",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+        "en": "senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+        "de": "senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+        "fr": "senior-java-integration-ingegnere-w-m-css-versicherung-luzern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+        "en": "/en/find-jobs-lucerne/senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+        "de": "/de/jobs-im-luzern/senior-java-integration-ingegnere-w-m-css-versicherung-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/senior-java-integration-ingegnere-w-m-css-versicherung-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -80156,10 +80215,10 @@
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle",
-        "en": "/en/find-jobs-fribourg/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle",
+        "it": "/cerca-lavoro-vallese/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle",
+        "en": "/en/find-jobs-valais/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle",
         "de": "/de/jobs-im-freiburg/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle",
-        "fr": "/fr/trouver-emploi-fribourg/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
+        "fr": "/fr/trouver-emploi-valais/vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
