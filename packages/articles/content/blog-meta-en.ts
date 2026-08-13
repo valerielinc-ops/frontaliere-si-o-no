@@ -9871,6 +9871,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banca-cler-utili-aumento.title': 'Banca Cler: profits up in the first half of the year',
     'blog.article.banca-cler-utili-aumento.excerpt': 'Banca Cler: profits increased by 21% in the first half of the year. Revenues increased by 7% to CHF 137 million.',
     'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
+    'blog.article.swissquote-crollo-azienda.title': 'Swissquote, sharp drop in the stock market',
+    'blog.article.swissquote-crollo-azienda.excerpt': 'The financial services company Swissquote suffered a sharp drop in the stock market, influenced by the weakness of cryptocurrencies and falling profits compared to analysts\' estimates.',
+    'blog.article.swissquote-crollo-azienda.imageAlt': 'A photo of a computer showing a stock market crash at Swissquote',
 };
 
 export default blogMetaEn;

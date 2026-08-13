@@ -2338,7 +2338,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.federer-patrimonio-on-borsa-calo.title': 'Roger Federer loses billionaire status due to the collapse of On',
     'blog.article.federer-patrimonio-on-borsa-calo.excerpt': 'The former champion\'s assets fell to $949 million after the 19% drop in the On a Wall Street stock.',
     'blog.article.federer-patrimonio-on-borsa-calo.imageAlt': 'View of the Swiss financial district representing the stock market and companies like On.',
-    'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel (former CEO UBS and CS):',
+    'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel criticises Swiss involvement in the Ukraine crisis',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.excerpt': 'Banker Criticizes American Power Policy and Propaganda Campaign Around Ukraine',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.imageAlt': 'Oswald Grübel, former CEO of UBS and CS',
     'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon surpasses $3 trillion in market capitalization for the first time',

@@ -9870,6 +9870,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banca-cler-utili-aumento.title': 'Bank Cler: Gewinnsteigerung im ersten Halbjahr',
     'blog.article.banca-cler-utili-aumento.excerpt': 'Bank Cler: Gewinn im ersten Halbjahr um 21% gestiegen. Die Erträge stiegen um 7% auf 137 Millionen Franken.',
     'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
+    'blog.article.swissquote-crollo-azienda.title': 'Swissquote, starker Börsencrash',
+    'blog.article.swissquote-crollo-azienda.excerpt': 'Der Finanzdienstleister Swissquote verzeichnete an der Börse einen starken Rückgang, der von der Schwäche der Kryptowährungen und den im Vergleich zu Analystenschätzungen rückläufigen Gewinnen beeinflusst wurde.',
+    'blog.article.swissquote-crollo-azienda.imageAlt': 'Ein Bild eines Computers mit einem Kollaps der Werte von Swissquote',
 };
 
 export default blogMetaDe;

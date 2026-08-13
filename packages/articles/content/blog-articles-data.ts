@@ -29595,6 +29595,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'swissquote-crollo-azienda',
+ category: 'fiscale',
+ date: '2026-08-13T09:03:12.071Z',
+ image: '/images/blog/swissquote-crollo-azienda.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -30243,16 +30243,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-federer-patrimonio-on-borsa-calo': {
-    title: 'Roger Federer perde lo status di miliardario per il crollo di On',
+    title: 'Il crollo in borsa di On costa a Federer lo status di miliardario',
     description: 'Patrimonio di Roger Federer scende a 949 milioni di dollari. Il titolo On perde il 19% a Wall Street. Scopri l\'impatto finanziario per l\'ex campione svizzero.',
     keywords: 'frontalieri, ticino, svizzera, italia, roger, federer, perde, status',
-    ogTitle: 'Roger Federer non è più miliardario: pesa il crollo di On',
+    ogTitle: 'Roger Federer non è più miliardario: pesa il crollo di On in borsa',
     ogDescription: 'Il patrimonio dell\'ex tennista svizzero scende sotto il miliardo di dollari dopo il calo del 19% delle azioni On. Tutti i dettagli sulla situazione finanziaria del campione.',
     canonicalPath: '/articoli-svizzera/federer-patrimonio-on-borsa-calo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Roger Federer perde lo status di miliardario per il crollo di On",
+      "headline": "Il crollo in borsa di On costa a Federer lo status di miliardario",
       "description": "Patrimonio di Roger Federer scende a 949 milioni di dollari. Il titolo On perde il 19% a Wall Street. Scopri l'impatto finanziario per l'ex campione svizzero.",
       "image": {
         "@type": "ImageObject",
@@ -30282,16 +30282,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-grubel-ubb-intromettersi-in-ucraina': {
-    title: 'Grübel (ex CEO UBS e CS): | Frontaliere Ticino',
+    title: 'Grübel critica l\'intromissione svizzera nella crisi ucraina',
     description: 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, grübel, banchiere, critica, politica',
-    ogTitle: 'Grübel (ex CEO UBS e CS):',
+    ogTitle: 'Grübel critica l\'intromissione svizzera nella crisi ucraina',
     ogDescription: 'Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all\'Ucraina',
     canonicalPath: '/articoli-svizzera/grubel-ubb-intromettersi-in-ucraina/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Grübel (ex CEO UBS e CS):",
+      "headline": "Grübel critica l'intromissione svizzera nella crisi ucraina",
       "description": "Il banchiere critica la politica di potenza americana e la campagna propagandistica attorno all'Ucraina. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
