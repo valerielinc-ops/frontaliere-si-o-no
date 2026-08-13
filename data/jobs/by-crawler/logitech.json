@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-08-12T22:22:08.368Z",
+  "assembledAt": "2026-08-13T10:44:13.268Z",
   "jobs": [
     {
       "id": "logitech-318c1af909a7",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:22:06.110Z",
+      "crawledAt": "2026-08-13T10:44:10.972Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:22:05.151Z",
+      "crawledAt": "2026-08-13T10:44:09.886Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -144,6 +144,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -189,7 +190,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:22:04.260Z",
+      "crawledAt": "2026-08-13T10:44:08.780Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,6 +227,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:52:52.987Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -271,7 +273,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Lead-Motor-and-Drive-Engineer_147220",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:22:03.326Z",
+      "crawledAt": "2026-08-13T10:44:07.544Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,6 +305,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:37:45.042Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -316,82 +319,6 @@
         }
       },
       "addressRegion": "VD"
-    },
-    {
-      "id": "logitech-d966ad919913",
-      "slug": "software-architetto-software-firmware-device-interface-design-logitech-lausanne-switzerland",
-      "slugByLocale": {
-        "it": "software-architetto-software-firmware-device-interface-design-logitech-lausanne-switzerland",
-        "en": "software-architect-software-firmware-device-interface-design-logitech-ch",
-        "de": "software-architect-software-firmware-device-interface-design-logitech-ch",
-        "fr": "software-architecte-software-firmware-device-interface-design-logitech-lausanne-switzerland"
-      },
-      "company": "Logitech",
-      "companyKey": "logitech",
-      "companyDomain": "logitech.com",
-      "title": "Software Architect, Software/Firmware Device Interface Design",
-      "titleByLocale": {
-        "it": "Software Architetto, Software/Firmware Device Interface Design",
-        "en": "Software Architect, Software/Firmware Device Interface Design",
-        "de": "Software Architect, Software/Firmware Device Interface Design",
-        "fr": "Software Architecte, Software/Firmware Device Interface Design"
-      },
-      "description": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe role and team:\nLogitech is defining the future of work and play through intelligent, beautifully designed peripherals. As a Software Architect for SW/FW Device Interface Design, you sit at a critical junction in our engineering organization, responsible for end-to-end interface architecture across device and host software layers. This role is integral to bridging product, engineering, and embedded software teams, translating business and feature needs into precise technical interface decisions, and serving as a trusted technical advisor across the organization.\n\nWorking in close partnership with Embedded Software Architects, you will define the interface design and specifications that govern how Logitech's host software communicates with device firmware. Those specifications flow into the device comms layer, owned and developed by the software engineering team, which downstream product teams then consume to build features and experiences across Logitech's next-generation productivity devices.\n\nYou combine a strong software architecture foundation with fluency in C++ and a pragmatic, hands-on mindset. You are equally comfortable translating business and product needs into precise technical interface decisions as you are working through complex engineering trade-offs with embedded and software teams. And you bring modern AI-driven approaches to how you design, validate, and accelerate that work.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\nNPI and Cross-Functional Collaboration\n\n• Serve as the primary SW architecture liaison throughout NPI development cycles, from concept and interface definition through comms layer integration and mass production readiness.\n\n• Work with Product Owners and UX to understand feature and experience requirements and ensure the interface design and specifications support them end to end.\n\n• Translate product and feature needs into interface requirements that are consistent, complete, and well-defined enough for engineering teams to build with confidence.\n\n• Collaborate with downstream software teams to ensure the interface design and specifications meet their integration needs and scales to current and future product platforms.\n\n• Proactively identify and resolve integration risks through early design reviews, interface walkthroughs, and collaborative prototyping.\n\nSW/FW Interface Co-Design\n\n• Partner with Embedded Software Architects to co-design the SW/FW interface design and specifications, defining communication protocols, data models, and message semantics that govern the device/host boundary.\n\n• Translate the co-designed interface design into clear, documented specifications that serve as the authoritative reference for the software team's implementation of the device comms layer.\n\n• Facilitate trade-off discussions across embedded software, application, and platform teams to determine the right design boundaries and module responsibilities.\n\n• Design interfaces with modularity, reuse, and testability in mind, with an eye toward future extensibility across product platforms.\n\n• Ensure interface designs are robust and account for device diversity across Logitech's portfolio including keyboards, mice, headsets, webcams, and emerging form factors.\n\n• Lead and personally contribute to proof-of-concept development to validate interface designs, de-risk novel approaches, and accelerate team alignment.\n\nDevice Comms Layer Architecture\n\n• Serve as the technical authority for the device comms layer architecture, defining the patterns and design principles the development team follows when building and evolving the C++ implemen",
-      "descriptionByLocale": {
-        "it": "Logitech è il Sweet Spot per le persone che vogliono che le loro azioni abbiano un impatto globale positivo, pur avendo la flessibilità di farlo a modo loro. Il ruolo e il team: Logitech sta definendo il futuro del lavoro e gioca attraverso periferiche intelligenti e ben progettate. In qualità di Software Architect per SW/FW Device Interface Design, si trova a un incrocio critico nella nostra organizzazione di ingegneria, responsabile dell'architettura dell'interfaccia end-to-end attraverso gli strati software del dispositivo e dell'host. Questo ruolo è fondamentale per corrompere i team di prodotti, ingegneri e software incorporati, traducendo le esigenze di business e funzionalità in precise decisioni di interfaccia tecnica e servendo come consulente tecnico affidabile in tutta l'organizzazione. Lavorando in stretta collaborazione con Embedded Software Architects, definirete la progettazione e le specifiche dell'interfaccia che governano come il software host di Logitech comunica con il firmware del dispositivo. Tali specifiche fluiscono nello strato dei comms del dispositivo, di proprietà e sviluppato dal team di ingegneria del software, che i team di prodotti a valle consumano per costruire funzionalità ed esperienze attraverso i dispositivi di produttività di prossima generazione di Logitech. Unisci una solida base di architettura software con fluidità in C++ e una mentalità pragmatica e pratica. Sei altrettanto confortevole tradurre le esigenze di business e di prodotto in precise decisioni di interfaccia tecnica come si sta lavorando attraverso complessi trade-off di ingegneria con team incorporati e software. E si porta moderni approcci AI-driven a come si progetta, convalida e accelerare quel lavoro. Il tuo contributo: Sii te stesso. Sii aperto. Restate a Hungry e Humble. Collaborate. Sfida. Condividi la nostra passione per l'uguaglianza e l'ambiente. Questi sono i comportamenti e i valori di cui avrete bisogno per il successo a Logitech. In questo ruolo sarete: NPI e collaborazione trasversale\n• Servire come collegamento di architettura SW primario in tutti i cicli di sviluppo NPI, dalla definizione di concetto e interfaccia attraverso l'integrazione dei livelli dei comms e la prontezza di produzione di massa.\n• Lavorare con i proprietari di prodotti e UX per comprendere i requisiti di funzionalità e di esperienza e garantire che la progettazione e le specifiche dell'interfaccia li supportino fino alla fine.\n• Tradurre le esigenze di prodotto e funzionalità in requisiti di interfaccia che sono coerenti, completi e abbastanza definiti per i team di ingegneria per costruire con fiducia.\n• Collaborare con i team software a valle per garantire che la progettazione e le specifiche dell'interfaccia soddisfino le loro esigenze di integrazione e le scale alle attuali e future piattaforme di prodotto.\n• Identificare e risolvere i rischi di integrazione attraverso le prime recensioni di progettazione, i passaggi di interfaccia e la prototipazione collaborativa. SW/FW Interface Co-Design\n• Partner con Embedded Software Architects per co-disegnare la progettazione e le specifiche dell'interfaccia SW/FW, definendo i protocolli di comunicazione, i modelli di dati e le semantiche dei messaggi che governano il bordo del dispositivo/host.\n• Tradurre il design dell'interfaccia co-disegnata in specifiche chiare e documentate che servono come riferimento autorevole per l'implementazione del team software dello strato dei comms del dispositivo.\n• Facilitare le discussioni di trade-off attraverso i team di software, applicazioni e piattaforme incorporati per determinare i limiti di progettazione e le responsabilità dei moduli giusti.\n• Interfacce di progettazione con modularità, riutilizzo e testabilità in mente, con un occhio verso una futura estensabilità attraverso le piattaforme di prodotto.\n• Assicurare che i progetti di interfaccia siano robusti e tengano conto della diversità dei dispositivi in tutto il portafoglio di Logitech, tra cui tastiere, topi, cuffie, webcam e fattori di forma emergenti.\n• Guidare e contribuire personalmente allo sviluppo di proof-of-concept per convalidare i progetti di interfaccia, de-risk nuovi approcci, e accelerare l'allineamento del team. Dispositivo Comms Architettura di strati\n• Servire come autorità tecnica per l'architettura a strati del dispositivo comms, definendo i modelli e i principi di progettazione che il team di sviluppo segue quando si costruisce ed evolve l'implemen C++",
-        "en": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe role and team:\nLogitech is defining the future of work and play through intelligent, beautifully designed peripherals. As a Software Architect for SW/FW Device Interface Design, you sit at a critical junction in our engineering organization, responsible for end-to-end interface architecture across device and host software layers. This role is integral to bridging product, engineering, and embedded software teams, translating business and feature needs into precise technical interface decisions, and serving as a trusted technical advisor across the organization.\n\nWorking in close partnership with Embedded Software Architects, you will define the interface design and specifications that govern how Logitech's host software communicates with device firmware. Those specifications flow into the device comms layer, owned and developed by the software engineering team, which downstream product teams then consume to build features and experiences across Logitech's next-generation productivity devices.\n\nYou combine a strong software architecture foundation with fluency in C++ and a pragmatic, hands-on mindset. You are equally comfortable translating business and product needs into precise technical interface decisions as you are working through complex engineering trade-offs with embedded and software teams. And you bring modern AI-driven approaches to how you design, validate, and accelerate that work.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\nNPI and Cross-Functional Collaboration\n\n• Serve as the primary SW architecture liaison throughout NPI development cycles, from concept and interface definition through comms layer integration and mass production readiness.\n\n• Work with Product Owners and UX to understand feature and experience requirements and ensure the interface design and specifications support them end to end.\n\n• Translate product and feature needs into interface requirements that are consistent, complete, and well-defined enough for engineering teams to build with confidence.\n\n• Collaborate with downstream software teams to ensure the interface design and specifications meet their integration needs and scales to current and future product platforms.\n\n• Proactively identify and resolve integration risks through early design reviews, interface walkthroughs, and collaborative prototyping.\n\nSW/FW Interface Co-Design\n\n• Partner with Embedded Software Architects to co-design the SW/FW interface design and specifications, defining communication protocols, data models, and message semantics that govern the device/host boundary.\n\n• Translate the co-designed interface design into clear, documented specifications that serve as the authoritative reference for the software team's implementation of the device comms layer.\n\n• Facilitate trade-off discussions across embedded software, application, and platform teams to determine the right design boundaries and module responsibilities.\n\n• Design interfaces with modularity, reuse, and testability in mind, with an eye toward future extensibility across product platforms.\n\n• Ensure interface designs are robust and account for device diversity across Logitech's portfolio including keyboards, mice, headsets, webcams, and emerging form factors.\n\n• Lead and personally contribute to proof-of-concept development to validate interface designs, de-risk novel approaches, and accelerate team alignment.\n\nDevice Comms Layer Architecture\n\n• Serve as the technical authority for the device comms layer architecture, defining the patterns and design principles the development team follows when building and evolving the C++ implemen",
-        "de": "Logitech ist der Sweet Spot für Menschen, die wollen, dass ihre Handlungen einen positiven globalen Einfluss haben und gleichzeitig die Flexibilität haben, dies auf ihre eigene Weise zu tun. Die Rolle und das Team: Logitech definiert die Zukunft von Arbeit und Spielen durch intelligente, schön gestaltete Peripheriegeräte. Als Software Architect für SW/FW Device Interface Design sitzen Sie an einer kritischen Schnittstelle in unserer Engineering-Organisation, die für die End-to-End-Schnittstellenarchitektur über Geräte- und Host-Softwareschichten hinweg verantwortlich ist. Diese Rolle ist wichtig, um Produkt-, Engineering- und Embedded-Software-Teams zu verbinden, Geschäfts- und Funktionsanforderungen in präzise technische Schnittstellenentscheidungen zu übersetzen und als vertrauenswürdiger technischer Berater im gesamten Unternehmen zu dienen. In enger Zusammenarbeit mit Embedded Software Architects definieren Sie das Schnittstellendesign und die Spezifikationen, die regeln, wie die Host-Software von Logitech mit der Gerätefirmware kommuniziert. Diese Spezifikationen fließen in die Geräteebene ein, die dem Software-Engineering-Team gehört und vom Software-Engineering-Team entwickelt wurde, die nachgelagerte Produktteams dann nutzen, um Funktionen und Erfahrungen auf den Produktivitätsgeräten der nächsten Generation von Logitech zu erstellen. Sie kombinieren eine starke Software-Architektur-Grundlage mit fließender C++ und einer pragmatischen, praktischen Denkweise. Sie sind ebenso komfortabel, Geschäfts- und Produktanforderungen in präzise technische Schnittstellenentscheidungen zu übersetzen, da Sie komplexe technische Kompromisse mit Embedded- und Softwareteams durcharbeiten. Und Sie bringen moderne KI-basierte Ansätze mit, wie Sie diese Arbeit entwerfen, validieren und beschleunigen. Ihr Beitrag: Sei du selbst. Sei offen. Bleib hungrig und demütig. Zusammenarbeit. Herausforderung. Entscheiden und nur tun. Teilen Sie unsere Leidenschaft für Gleichheit und Umwelt. Dies sind die Verhaltensweisen und Werte, die Sie für den Erfolg bei Logitech benötigen. In dieser Rolle werden Sie: NPI und funktionsübergreifende Zusammenarbeit\n• Dienen Sie als primäre SW-Architekturverbindung während der NPI-Entwicklungszyklen, von der Konzept- und Schnittstellendefinition bis hin zur Integration der Comms-Schicht und der Bereitschaft zur Massenproduktion.\n• Arbeiten Sie mit Product Ownern und UX zusammen, um die Funktions- und Erfahrungsanforderungen zu verstehen und sicherzustellen, dass das Schnittstellendesign und die Spezifikationen sie durchgehend unterstützen.\n• Übersetzen Sie Produkt- und Funktionsanforderungen in Schnittstellenanforderungen, die konsistent, vollständig und gut definiert genug sind, damit Engineering-Teams vertrauensvoll bauen können.\n• Arbeiten Sie mit nachgelagerten Softwareteams zusammen, um sicherzustellen, dass das Schnittstellendesign und die Schnittstellenspezifikationen ihren Integrationsanforderungen entsprechen und mit aktuellen und zukünftigen Produktplattformen skaliert werden.\n• Identifizieren und beheben Sie Integrationsrisiken proaktiv durch frühzeitige Design-Reviews, Schnittstellendurchläufe und kollaboratives Prototyping. SW/FW Interface Co-Design\n• Zusammenarbeit mit Embedded Software Architects, um das Design und die Spezifikationen der SW/FW-Schnittstelle mitzugestalten und Kommunikationsprotokolle, Datenmodelle und Nachrichtensemantik zu definieren, die die Grenze zwischen Gerät und Host regeln.\n• Übersetzen Sie das mitgestaltete Schnittstellendesign in klare, dokumentierte Spezifikationen, die als maßgebliche Referenz für die Implementierung des Geräte-Comms-Layers durch das Softwareteam dienen.\n• Erleichterung von Kompromissdiskussionen zwischen Embedded-Software-, Anwendungs- und Plattformteams, um die richtigen Designgrenzen und Modulverantwortlichkeiten festzulegen.\n• Design-Schnittstellen mit Blick auf Modularität, Wiederverwendung und Testbarkeit, mit Blick auf zukünftige Erweiterbarkeit über Produktplattformen hinweg.\n• Stellen Sie sicher, dass das Interface-Design robust ist und die Gerätevielfalt im gesamten Logitech-Portfolio berücksichtigt, einschließlich Tastaturen, Mäusen, Headsets, Webcams und neuen Formfaktoren.\n• Führen und tragen Sie persönlich zur Proof-of-Concept-Entwicklung bei, um Schnittstellendesigns zu validieren, neuartige Ansätze zu risikofrei zu machen und die Teamausrichtung zu beschleunigen. Device Comms Layer Architektur\n• Dienen Sie als technische Autorität für das Gerät und definieren Sie die Muster und Designprinzipien, die das Entwicklungsteam beim Bau und der Entwicklung der C++-Implemen befolgt",
-        "fr": "Logitech est le Sweet Spot pour les personnes qui veulent que leurs actions aient un impact global positif tout en ayant la flexibilité de le faire à leur manière. Rôle et équipe : Logitech définit l'avenir du travail et joue à travers des périphériques intelligents et joliment conçus. En tant qu'architecte logiciel pour SW/FW Device Interface Design, vous vous trouvez à une jonction critique dans notre organisation d'ingénierie, responsable de l'architecture d'interface de bout en bout à travers les couches de l'appareil et du logiciel hôte. Ce rôle fait partie intégrante des équipes de produits, d'ingénierie et de logiciels intégrés, traduisant les besoins en affaires et en fonctionnalités en décisions précises d'interface technique, et servant de conseiller technique de confiance dans l'ensemble de l'organisation. En étroite collaboration avec Embedded Software Architects, vous définirez la conception de l'interface et les spécifications qui régissent la communication du logiciel hôte de Logitech avec le firmware de l'appareil. Ces spécifications entrent dans la couche de communication de l'appareil, détenue et développée par l'équipe d'ingénierie logicielle, que les équipes de produits en aval consomment ensuite pour construire des fonctionnalités et des expériences sur les appareils de productivité de prochaine génération de Logitech. Vous combinez une solide architecture logicielle avec la fluidité en C++ et un état d'esprit pragmatique et pratique. Vous êtes tout aussi à l'aise de traduire les besoins des entreprises et des produits en décisions d'interface technique précises, car vous travaillez à travers des compromis d'ingénierie complexes avec des équipes intégrées et logicielles. Et vous apportez des approches modernes basées sur l'IA à la façon dont vous concevez, validez et accélèrez ce travail. Votre contribution : Soyez vous-même. Soyez ouvert. Restez affamés et humbles. Collaborez. Défi. Décider et juste faire. Partager notre passion pour l'égalité et l'environnement. Ce sont les comportements et les valeurs dont vous aurez besoin pour réussir à Logitech. Dans ce rôle, vous: NPI et collaboration interfonctionnelle\n• Servir de liaison d'architecture SW primaire tout au long des cycles de développement NPI, depuis la définition de concept et d'interface jusqu'à l'intégration des couches de communication et la préparation à la production de masse.\n• Travailler avec les propriétaires de produits et UX pour comprendre les caractéristiques et l'expérience requise et s'assurer que la conception et les spécifications de l'interface les supportent de bout en bout.\n• Traduire les besoins de produits et de fonctionnalités en exigences d'interface qui sont cohérentes, complètes et bien définies pour les équipes d'ingénierie pour construire avec confiance.\n• Collaborer avec les équipes de logiciels en aval pour s'assurer que la conception et les spécifications de l'interface répondent à leurs besoins et à leurs échelles d'intégration aux plateformes de produits actuelles et futures.\n• Recenser et résoudre les risques d'intégration de manière proactive grâce à des examens de conception précoces, à des échanges et à des prototypages collaboratifs. Co-conception de l'interface SW/FW\n• Partenaire avec Embedded Software Architects pour co-concevoir la conception et les spécifications de l'interface SW/FW, définir les protocoles de communication, les modèles de données et la sémantique des messages qui régissent la frontière appareil/hôte.\n• Traduire la conception d'interface co-conçue en spécifications claires et documentées qui servent de référence autorisée pour la mise en œuvre par l'équipe logicielle de la couche comms de l'appareil.\n• Faciliter les échanges entre les équipes intégrées de logiciels, d'applications et de plateformes afin de déterminer les limites de conception et les responsabilités des modules.\n• Concevoir des interfaces avec modularité, réutilisation et testabilité à l'esprit, avec un regard vers l'extension future sur les plateformes de produits.\n• Veiller à ce que les interfaces soient robustes et tiennent compte de la diversité des appareils dans le portefeuille de Logitech, y compris les claviers, les souris, les casques, les webcams et les nouveaux facteurs de forme.\n• Diriger et contribuer personnellement au développement de la preuve de concept pour valider les conceptions d'interface, dérisquer les nouvelles approches et accélérer l'alignement de l'équipe. Architecture des calques du périphérique\n• Servir d'autorité technique pour l'architecture de la couche de l'appareil, définir les modèles et les principes de conception que l'équipe de développement suit lors de la construction et de l'évolution de l'implemen C++"
-      },
-      "location": "Lausanne, Switzerland",
-      "canton": "VD",
-      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Architect--Software-Firmware-Device-Interface-Design_147083",
-      "source": "Logitech Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:08:57.629Z",
-      "addressLocality": "Lausanne, Switzerland",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Hardware Consumer",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Architect--Software-Firmware-Device-Interface-Design_147083",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "software-architect-software-firmware-device-interface-design-logitech-ch",
-        "software-architetto-software-firmware-device-interface-design-logitech-lausanne-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-architect-software-firmware-device-interface-design-logitech-ch",
-          "software-architetto-software-firmware-device-interface-design-logitech-lausanne-switzerland"
-        ],
-        "fr": [
-          "software-architect-software-firmware-device-interface-design-logitech-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-18T12:42:50.510Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2
     }
   ]
 }
