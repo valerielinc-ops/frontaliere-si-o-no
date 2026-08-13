@@ -9848,6 +9848,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Frontier increase: +0.64%',
     'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'The Federal Statistical Office (BFS) notes an increase in border crossers Ticino in the 2026-Q2 quarter.',
     'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano view, September 2022.',
+    'blog.article.votazione-sulla-fortezza-2024.title': 'Vote on the Fortress: the favourable civic committee was set up',
+    'blog.article.votazione-sulla-fortezza-2024.excerpt': 'The civic committee \'Let\'s get beautiful - Yes on 27 September\' supports the project for the enhancement of tourism and culture in the Fortress.',
+    'blog.article.votazione-sulla-fortezza-2024.imageAlt': 'A group of people discussing the Fortezza vote.',
 };
 
 export default blogMetaEn;
