@@ -25,10 +25,11 @@
         "it": "medico pediatrico (M/F)",
         "de": "Kinderarzt (M/W)"
       },
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "slug": "medico-pediatrico-m-f-swiss-medical-network-saint-imier",
       "slugByLocale": {
-        "en": "medecin-pediatre-h-f-swiss-medical-network",
-        "it": "medecin-pediatre-h-f-swiss-medical-network"
+        "en": "pediatric-doctor-m-f-swiss-medical-network-saint-imier",
+        "it": "medico-pediatrico-m-f-swiss-medical-network-saint-imier",
+        "de": "kinderarzt-m-w-swiss-medical-network-saint-imier"
       },
       "category": "medical",
       "datePosted": "2026-08-12",
@@ -54,7 +55,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T10:19:25.361Z"
+      "firstSeenAt": "2026-08-12T10:19:25.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-pediatre-h-f-swiss-medical-network"
+        ],
+        "en": [
+          "medecin-pediatre-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-pediatre-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142868279-assistant-e-technique-bloc-operatoire",
@@ -109,20 +121,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-technique-bloc-operatoire-swiss-medical-network",
-          "unita-operativa-assistente-tecnico-swiss-medical-network-neuchatel"
-        ],
-        "en": [
-          "assistant-e-technique-bloc-operatoire-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-e-technique-bloc-operatoire-swiss-medical-network",
-        "unita-operativa-assistente-tecnico-swiss-medical-network-neuchatel"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142855561-medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-",
@@ -177,20 +176,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network",
-          "specialista-medico-fmh-in-ginecologia-ostetricia-m-f-swiss-medical-network-saint-imier"
-        ],
-        "en": [
-          "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network",
-        "specialista-medico-fmh-in-ginecologia-ostetricia-m-f-swiss-medical-network-saint-imier"
-      ]
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142808769-collaborateur-collaboratrice-back-office",
@@ -2972,10 +2958,11 @@
         "it": "PKB Dipl. Specialista della radiologia",
         "fr": "PKB Dipl. Spécialiste de radiologie"
       },
-      "slug": "pkb-dipl-radiologiefachperson-swiss-medical-network",
+      "slug": "pkb-dipl-specialista-della-radiologia-swiss-medical-network-zurich",
       "slugByLocale": {
-        "en": "pkb-dipl-radiologiefachperson-swiss-medical-network",
-        "it": "pkb-dipl-radiologiefachperson-swiss-medical-network"
+        "en": "pkb-dipl-radiology-specialist-swiss-medical-network-zurich",
+        "it": "pkb-dipl-specialista-della-radiologia-swiss-medical-network-zurich",
+        "fr": "pkb-dipl-specialiste-de-radiologie-swiss-medical-network-zurich"
       },
       "category": "healthcare",
       "datePosted": "2026-08-12",
@@ -3002,7 +2989,18 @@
         }
       },
       "firstSeenAt": "2026-08-12T10:19:25.361Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "pkb-dipl-radiologiefachperson-swiss-medical-network"
+        ],
+        "en": [
+          "pkb-dipl-radiologiefachperson-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "pkb-dipl-radiologiefachperson-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136025689-facharztin-facharzt-fur-allgemeine-innere-medizin",

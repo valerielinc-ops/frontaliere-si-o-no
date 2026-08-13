@@ -4016,7 +4016,7 @@
       },
       "slugByLocale": {
         "it": "senior-associate-centro-di-conformita-spezialist-in-steuerdeklarationen-pwc-switzerland-basel",
-        "en": "senior-associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel",
+        "en": "senior-associate-compliance-center-specialist-in-tax-declarations-pwc-switzerland-basel",
         "de": "senior-associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel",
         "fr": "associe-principal-centre-de-conformite-spezaliste-dans-steuerdeklarationen-pwc-switzerland-basel"
       },
@@ -4046,7 +4046,6 @@
           "senior-associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-zurich"
         ],
         "en": [
-          "senior-associate-compliance-center-specialist-in-tax-declarations-pwc-switzerland-basel",
           "senior-associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel"
         ]
       },
@@ -4323,7 +4322,7 @@
       },
       "slugByLocale": {
         "it": "associate-centro-compliance-spezialist-in-steuerdeklarationen-pwc-switzerland-basel",
-        "en": "associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel",
+        "en": "associate-compliance-center-specialist-in-tax-declarations-pwc-switzerland-basel",
         "de": "associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel",
         "fr": "associate-centre-de-conformite-spezialist-in-steuerdeklarationen-pwc-switzerland-basel"
       },
@@ -4360,7 +4359,6 @@
           "associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-zurich"
         ],
         "en": [
-          "associate-compliance-center-specialist-in-tax-declarations-pwc-switzerland-basel",
           "associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel"
         ],
         "fr": [
@@ -5813,7 +5811,7 @@
         "it": "direttore-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
         "en": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
         "de": "direktor-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-        "fr": "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
+        "fr": "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
@@ -5850,7 +5848,6 @@
         "fr": [
           "director-cloud-data-ai-cd-ai-ai-generativa-pwc-switzerland-zurich",
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich",
-          "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich",
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ]
       },
@@ -6491,7 +6488,7 @@
         "it": "gestione-dei-mercati-finanziari-pwc-switzerland-zurich",
         "en": "manager-capital-markets-pwc-switzerland-zurich",
         "de": "manager-capital-markets-pwc-zurich",
-        "fr": "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
+        "fr": "manager-capital-markets-pwc-zurich"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -6510,12 +6507,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
+        ],
         "it": [
           "manager-capital-markets-pwc-zurich"
-        ],
-        "fr": [
-          "manager-capital-markets-pwc-zurich",
-          "gestionnaire-marches-des-capitaux-pwc-switzerland-zurich"
         ]
       },
       "previousSlugs": [
