@@ -9915,6 +9915,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.title': 'L\'inflation revient en Italie, le PIB à +0,5%',
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.excerpt': 'L\'économie italienne avec le frein tiré, l\'inflation revient : PIB à +0,5% et dette vers 139%.',
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.imageAlt': 'L\'économie italienne avec le frein tiré, l\'inflation revient',
+    'blog.article.valute-frontiere-svizzera-italia.title': 'Devises et frontières : guide des nouveautés pour les frontaliers',
+    'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analyse de la dynamique entre la Suisse et l\'Italie : du change à la fiscalité, voici ce que les travailleurs frontaliers doivent savoir.',
+    'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Poste frontière entre la Suisse et l\'Italie',
 };
 
 export default blogMetaFr;

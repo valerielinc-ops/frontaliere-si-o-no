@@ -9912,6 +9912,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.title': 'Inflation kehrt nach Italien zurück, BIP bei +0,5%',
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.excerpt': 'Die italienische Wirtschaft mit angezogener Bremse, kehrt die Inflation zurück: BIP auf +0,5% und Schulden in Richtung 139%.',
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.imageAlt': 'Die italienische Wirtschaft mit dem Bremspedal, die Inflation kehrt zurück',
+    'blog.article.valute-frontiere-svizzera-italia.title': 'Währungen und Grenzen: Leitfaden für Grenzgänger',
+    'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analyse der Dynamik zwischen der Schweiz und Italien: Vom Geldwechsel bis zur Besteuerung, das müssen Grenzgänger wissen.',
+    'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Grenzübergang Schweiz-Italien',
 };
 
 export default blogMetaDe;

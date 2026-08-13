@@ -29721,6 +29721,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'valute-frontiere-svizzera-italia',
+ category: 'fiscale',
+ date: '2026-08-13T19:38:35.306Z',
+ image: '/images/blog/valute-frontiere-svizzera-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
