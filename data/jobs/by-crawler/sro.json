@@ -856,7 +856,12 @@
         "oberarzt-oberarztin-zesa-60-sro-langenthal-2",
         "oberarzt-oberarztin-zesa-60-sro-langenthal",
         "medecin-principal-orthopedie-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+        "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
+        "senior-physician-adult-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medecin-principal-psychiatrie-des-adultes-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-psychiatrische-dienste-marktgasse-18"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -871,15 +876,25 @@
           "oberarzt-oberarztin-zesa-60-sro-langenthal-2",
           "oberarzt-oberarztin-zesa-60-sro-langenthal",
           "medecin-principal-orthopedie-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+          "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
+          "senior-physician-adult-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medecin-principal-psychiatrie-des-adultes-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-psychiatrische-dienste-marktgasse-18"
         ],
         "en": [
           "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "oberarzt-oberarztin-zesa-60-sro-langenthal",
+          "senior-physician-adult-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "oberarzt-oberarztin-zesa-60-sro-langenthal",
+          "medecin-principal-psychiatrie-des-adultes-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-07T01:07:31.553Z",
@@ -2574,7 +2589,11 @@
         "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infirmiere-ic-fh-70-100-medecine-generale-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+        "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal-ed5406",
+        "oui-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2586,16 +2605,23 @@
           "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infirmiere-ic-fh-70-100-medecine-generale-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+          "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal-ed5406",
+          "oui-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal-4c4708"
+          "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal-4c4708",
+          "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal-ed5406"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
         ],
         "fr": [
-          "oui-specialiste-des-soins-hf-fh-70-100-general-medecine-sro-ag-spital-region-oberaargau-langenthal"
+          "oui-specialiste-des-soins-hf-fh-70-100-general-medecine-sro-ag-spital-region-oberaargau-langenthal",
+          "oui-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:30:15.259Z",
