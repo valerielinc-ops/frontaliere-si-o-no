@@ -2485,6 +2485,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercati-affitti-cantone-berna.title': 'Marchés des loyers dans le canton de Berne : loyers moyens et droit de location',
     'blog.article.mercati-affitti-cantone-berna.excerpt': 'Le marché locatif dans le canton de Berne : que changer dans la vie de ceux qui vivent ou travaillent en Suisse ?',
     'blog.article.mercati-affitti-cantone-berna.imageAlt': 'Le marché locatif du Canton de Berne: Qu\'est-ce qui change dans la vie de ceux qui vivent ou travaillent en Suisse?',
+    'blog.article.sconti-farmaci-pazienti.title': 'Sconti fantasma sui farmaci : miliardi persi',
+    'blog.article.sconti-farmaci-pazienti.excerpt': 'Le Contrôle fédéral des finances rejette la surveillance de l\'OFSP',
+    'blog.article.sconti-farmaci-pazienti.imageAlt': 'Remises fantômes sur les médicaments suisses: milliards perdus et peu d\'économies pour les patients',
 };
 
 export default blogMetaChFr;

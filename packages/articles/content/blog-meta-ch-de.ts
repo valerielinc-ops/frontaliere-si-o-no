@@ -2485,6 +2485,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercati-affitti-cantone-berna.title': 'Mietmärkte im Kanton Bern: Durchschnittsmieten und Mietrecht',
     'blog.article.mercati-affitti-cantone-berna.excerpt': 'Der Mietmarkt im Kanton Bern: Was ändert sich im Leben derer, die in der Schweiz leben oder arbeiten?',
     'blog.article.mercati-affitti-cantone-berna.imageAlt': 'Der Mietmarkt im Kanton Bern: Was ändert sich im Leben von denen, die in der Schweiz leben oder arbeiten?',
+    'blog.article.sconti-farmaci-pazienti.title': 'Sconti fantasma sui farmaci: Milliardi verloren',
+    'blog.article.sconti-farmaci-pazienti.excerpt': 'Die Eidgenössische Finanzkontrolle lehnt die Aufsicht des Bag ab',
+    'blog.article.sconti-farmaci-pazienti.imageAlt': 'Gespensterrabatte auf Schweizer Arzneimittel: Milliarden verloren und wenige Einsparungen für Patienten',
 };
 
 export default blogMetaChDe;
