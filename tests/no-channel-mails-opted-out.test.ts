@@ -211,9 +211,17 @@ describe('the boundary: `inactive` is NOT an opt-out and must not cross', () => 
     );
     expect(CROSS_CHANNEL_STOP_STATUSES.has('inactive')).toBe(false);
     // …and it is strictly narrower than the newsletter's own set, by exactly
-    // that one member — the shape that makes the difference reviewable.
-    const nlOnly = [...NEWSLETTER_EXCLUDED_STATUSES].filter((s) => !CROSS_CHANNEL_STOP_STATUSES.has(s));
-    expect(nlOnly).toEqual(['inactive']);
+    // the members that are OURS rather than the recipient's — the shape that
+    // makes the difference reviewable.
+    //
+    // `inactive` is the never-engager sunset; `expired` (#5692) is an
+    // unanswered double opt-in, closed after three requests one day apart.
+    // Both are states we wrote about our own channel, neither is an
+    // instruction the human gave, and neither may cross to the alert channel,
+    // whose consent basis is a separate act the person performed themselves.
+    const nlOnly = [...NEWSLETTER_EXCLUDED_STATUSES].filter((s) => !CROSS_CHANNEL_STOP_STATUSES.has(s)).sort();
+    expect(nlOnly).toEqual(['expired', 'inactive']);
+    expect(isCrossChannelStop({ status: 'expired' })).toBe(false);
   });
 
   it('a job-alert doc at `inactive` still stops its own channel', () => {
