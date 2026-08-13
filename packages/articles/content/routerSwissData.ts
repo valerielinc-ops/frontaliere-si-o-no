@@ -847,6 +847,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc': { it: 'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc', en: 'argovia-udc-case', de: 'argovia-udc-sache', fr: 'affaire-udc-argovie' },
  'comprare-casa-berna-guida-mutuo': { it: 'comprare-casa-berna-guida-mutuo', en: 'buying-house-canton-bern-prices-mortgage', de: 'haus-kaufen-kanton-bern-preise-hypothek', fr: 'acheter-maison-canton-berne-prix-hypotheque' },
  'gianotti-delegata-geneva-ai-summit-2027': { it: 'gianotti-delegata-geneva-ai-summit-2027', en: 'gianotti-delegated-geneva-ai-summit-2027', de: 'gianotti-beauftragte-geneva-ai-summit-2027', fr: 'gianotti-deleguee-geneve-ai-summit-2027' },
+ 'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario': { it: 'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario', en: 'buy-house-canton-berne', de: 'kaufen-haus-kanton-bern', fr: 'acheter-maison-canton-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

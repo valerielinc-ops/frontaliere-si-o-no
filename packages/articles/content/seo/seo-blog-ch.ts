@@ -31919,6 +31919,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario': {
+    title: 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
+    description: 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, cantone, berna',
+    ogTitle: 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
+    ogDescription: 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti",
+      "description": "I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una casa nel Cantone di Berna"
+      },
+      "datePublished": "2026-08-13T04:41:19+00:00",
+      "dateModified": "2026-08-13T04:41:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
