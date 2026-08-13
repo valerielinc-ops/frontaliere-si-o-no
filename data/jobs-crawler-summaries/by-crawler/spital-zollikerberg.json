@@ -1,22 +1,22 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-12T21:48:20.726Z",
-  "total": 6,
+  "generatedAt": "2026-08-13T10:16:33.659Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 39039,
-  "avgDurationMs": 39039,
+  "durationMs": 39778,
+  "avgDurationMs": 39778,
   "durationHistory": [
-    39039
+    39778
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "spital-zollikerberg-6a2b37ccdf89",
-      "slug": "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-spital",
+      "slug": "collaboratore-trice-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
@@ -43,12 +43,15 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c9ecc3e3-62a1-4359-bd07-3ffb89cc3cb2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "_qualityScore": 85,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
