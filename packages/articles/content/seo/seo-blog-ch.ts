@@ -32426,6 +32426,942 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-produzione-importazione-luglio-2026': {
+    title: 'Indice prezzi produzione e importazione: calo dello 0,1%',
+    description: 'L\'UST segnala un calo dello 0,1% dell\'indice dei prezzi alla produzione e all\'importazione a luglio 2026. Analisi dei dati e impatto sul mercato svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indice, prezzi, produzione, importazione',
+    ogTitle: 'Indice prezzi produzione e importazione: calo dello 0,1%',
+    ogDescription: 'L\'UST comunica una flessione dei prezzi alla produzione e all\'importazione nel mese di luglio 2026, trainata dai ribassi di petrolio e gas naturale.',
+    canonicalPath: '/articoli-svizzera/prezzi-produzione-importazione-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indice prezzi produzione e importazione: calo dello 0,1%",
+      "description": "L'UST segnala un calo dello 0,1% dell'indice dei prezzi alla produzione e all'importazione a luglio 2026. Analisi dei dati e impatto sul mercato svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-produzione-importazione-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano di Lugano in una giornata di sole con edifici finanziari."
+      },
+      "datePublished": "2026-08-13T09:47:47+00:00",
+      "dateModified": "2026-08-13T09:47:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-produzione-importazione-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-reno-ai-minimi-prezzi-svizzera': {
+    title: 'Reno ai minimi, prezzi alle stelle: più cara anche la benzina',
+    description: 'Il basso livello del Reno sta complicando il trasporto di carburanti verso la Svizzera e facendo lievitare i costi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, reno, minimi, prezzi, alle',
+    ogTitle: 'Reno ai minimi, prezzi alle stelle: più cara anche la benzina',
+    ogDescription: 'Il basso livello del Reno sta complicando il trasporto di carburanti verso la Svizzera e facendo lievitare i costi.',
+    canonicalPath: '/articoli-svizzera/reno-ai-minimi-prezzi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reno ai minimi, prezzi alle stelle: più cara anche la benzina",
+      "description": "Il basso livello del Reno sta complicando il trasporto di carburanti verso la Svizzera e facendo lievitare i costi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reno-ai-minimi-prezzi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un'auto che si avvicina a un distributore di benzina con un prezzo alto"
+      },
+      "datePublished": "2026-08-13T09:56:54+00:00",
+      "dateModified": "2026-08-13T09:56:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reno-ai-minimi-prezzi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carbone-minimi-storici-elettricita': {
+    title: 'Produzione elettrica: il carbone tocca i minimi storici',
+    description: 'Il carbone scende al 9,2% della produzione elettrica Ue nel 2025. Analisi del calo storico rispetto al 1990 e impatti sull\'economia svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, produzione, elettrica, carbone, tocca',
+    ogTitle: 'Produzione elettrica: il carbone al minimo storico del 9,2%',
+    ogDescription: 'Il carbone scende al 9,2% della produzione elettrica Ue nel 2025. Analisi del calo storico rispetto al 1990 e impatti sull\'economia svizzera.',
+    canonicalPath: '/articoli-svizzera/carbone-minimi-storici-elettricita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Produzione elettrica: il carbone tocca i minimi storici",
+      "description": "Il carbone scende al 9,2% della produzione elettrica Ue nel 2025. Analisi del calo storico rispetto al 1990 e impatti sull'economia svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carbone-minimi-storici-elettricita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianti elettrici in un paesaggio svizzero"
+      },
+      "datePublished": "2026-08-13T10:06:07+00:00",
+      "dateModified": "2026-08-13T10:06:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carbone-minimi-storici-elettricita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cdt-epaper-ios-revista': {
+    title: 'CdT E-paper per iOS: le nuove funzionalità | Frontaliere Ticino',
+    description: 'L\'app CDT E-paper per iOS ha ricevuto recensioni positive, grazie alle sue funzionalità innovative. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, e-paper, nuove, funzionalità, ricevuto',
+    ogTitle: 'CdT E-paper per iOS: le nuove funzionalità',
+    ogDescription: 'L\'app CDT E-paper per iOS ha ricevuto recensioni positive, grazie alle sue funzionalità innovative.',
+    canonicalPath: '/articoli-svizzera/cdt-epaper-ios-revista/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CdT E-paper per iOS: le nuove funzionalità",
+      "description": "L'app CDT E-paper per iOS ha ricevuto recensioni positive, grazie alle sue funzionalità innovative. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cdt-epaper-ios-revista.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'app CDT E-paper per iOS"
+      },
+      "datePublished": "2026-08-13T10:13:18+00:00",
+      "dateModified": "2026-08-13T10:13:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cdt-epaper-ios-revista/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzeri-piu-propensi-a-spendere': {
+    title: 'Svizzeri più propensi a spendere. Soprattutto per viaggiare',
+    description: 'L\'indicatore dei consumi di PostFinance in aumento del 1,1% in luglio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, propensi, spendere, soprattutto',
+    ogTitle: 'Svizzeri più propensi a spendere. Soprattutto per viaggiare',
+    ogDescription: 'L\'indicatore dei consumi di PostFinance in aumento del 1,1% in luglio, con il comparto viaggi che registra un aumento significativo.',
+    canonicalPath: '/articoli-svizzera/svizzeri-piu-propensi-a-spendere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri più propensi a spendere. Soprattutto per viaggiare",
+      "description": "L'indicatore dei consumi di PostFinance in aumento del 1,1% in luglio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-piu-propensi-a-spendere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Svizzeri in un negozio di viaggi"
+      },
+      "datePublished": "2026-08-13T10:21:29+00:00",
+      "dateModified": "2026-08-13T10:21:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzeri-piu-propensi-a-spendere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sestimali-aziende-svizzere': {
+    title: 'Sestimali, sette aziende svizzere su dieci battono le attese',
+    description: 'Il 70% delle società esaminate da Awp supera le stime sui ricavi. La ripresa resta graduale e disomogenea rispetto al 2025. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, sestimali, sette, aziende, svizzere',
+    ogTitle: 'Sestimali, sette aziende svizzere su dieci battono le attese',
+    ogDescription: 'Il 70% delle società esaminate da Awp supera le stime sui ricavi. La ripresa resta graduale e disomogenea rispetto al 2025.',
+    canonicalPath: '/articoli-svizzera/sestimali-aziende-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sestimali, sette aziende svizzere su dieci battono le attese",
+      "description": "Il 70% delle società esaminate da Awp supera le stime sui ricavi. La ripresa resta graduale e disomogenea rispetto al 2025. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sestimali-aziende-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una società svizzera con sede in Ticino"
+      },
+      "datePublished": "2026-08-13T10:27:42+00:00",
+      "dateModified": "2026-08-13T10:27:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sestimali-aziende-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-bussola-governo-boccia': {
+    title: 'Iniziativa Bussola: il Governo propone di bocciarla',
+    description: 'Il Consiglio federale boccia l\'Iniziativa bussola senza controprogetti. Al centro il nodo sui futuri Bilaterali III tra Svizzera e Unione europea.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, bussola, governo, propone',
+    ogTitle: 'Iniziativa Bussola: il Governo propone di bocciarla',
+    ogDescription: 'Il Consiglio federale raccomanda al Parlamento di respingere l\'Iniziativa bussola, puntando a mantenere il referendum facoltativo per gli accordi con l\'UE.',
+    canonicalPath: '/articoli-svizzera/iniziativa-bussola-governo-boccia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa Bussola: il Governo propone di bocciarla",
+      "description": "Il Consiglio federale boccia l'Iniziativa bussola senza controprogetti. Al centro il nodo sui futuri Bilaterali III tra Svizzera e Unione europea.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-bussola-governo-boccia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede del governo svizzero"
+      },
+      "datePublished": "2026-08-13T10:38:28+00:00",
+      "dateModified": "2026-08-13T10:38:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-bussola-governo-boccia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-immigrazione-svizzera-calo-2026': {
+    title: 'Immigrazione in Svizzera: il saldo netto cala nel 2026',
+    description: 'L\'immigrazione in Svizzera registra un calo del 12,5% nel 2026. Diminuiscono anche i permessi frontalieri. Analisi dei dati SEM e implicazioni economiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, immigrazione, saldo, netto, cala',
+    ogTitle: 'Immigrazione in Svizzera: calo del 12,5% nel primo semestre 2026',
+    ogDescription: 'I dati SEM confermano una flessione del saldo migratorio netto e dei permessi frontalieri in Svizzera per i primi sei mesi del 2026. Scopri i dettagli.',
+    canonicalPath: '/articoli-svizzera/immigrazione-svizzera-calo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Immigrazione in Svizzera: il saldo netto cala nel 2026",
+      "description": "L'immigrazione in Svizzera registra un calo del 12,5% nel 2026. Diminuiscono anche i permessi frontalieri. Analisi dei dati SEM e implicazioni economiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/immigrazione-svizzera-calo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di un centro urbano svizzero con architettura moderna."
+      },
+      "datePublished": "2026-08-13T10:53:02+00:00",
+      "dateModified": "2026-08-13T10:53:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/immigrazione-svizzera-calo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-swissquote-in-fore-calo-in-borsa': {
+    title: 'Swissquote in forte calo in borsa, pesa debolezza mercato cripto',
+    description: 'L\'azione di Swissquote è scesa del 11% in seguito ai risultati semestrali inferiori alle attese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swissquote, forte, calo, borsa',
+    ogTitle: 'Swissquote in forte calo in borsa, pesa debolezza mercato cripto',
+    ogDescription: 'L\'azione di Swissquote è scesa del 11% in seguito ai risultati semestrali inferiori alle attese',
+    canonicalPath: '/articoli-svizzera/swissquote-in-fore-calo-in-borsa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swissquote in forte calo in borsa, pesa debolezza mercato cripto",
+      "description": "L'azione di Swissquote è scesa del 11% in seguito ai risultati semestrali inferiori alle attese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swissquote-in-fore-calo-in-borsa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'azione di Swissquote in calo in borsa"
+      },
+      "datePublished": "2026-08-13T11:06:00+00:00",
+      "dateModified": "2026-08-13T11:06:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swissquote-in-fore-calo-in-borsa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ispezioni-ospedaliere-swissmedic-2025-ticino': {
+    title: 'Swissmedic: efficacia delle ispezioni ospedaliere 2025',
+    description: 'Swissmedic ha effettuato 28 ispezioni nei settori ricondizionamento, manutenzione e vigilanza dei dispositivi medici. La sorveglianza è efficace, ma non basta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swissmedic, efficacia, ispezioni, ospedaliere',
+    ogTitle: 'Ispezioni ospedaliere di Swissmedic 2025',
+    ogDescription: 'Swissmedic ha effettuato 28 ispezioni nei settori ricondizionamento, manutenzione e vigilanza dei dispositivi medici. La sorveglianza è efficace, ma non basta.',
+    canonicalPath: '/articoli-svizzera/ispezioni-ospedaliere-swissmedic-2025-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swissmedic: efficacia delle ispezioni ospedaliere 2025",
+      "description": "Swissmedic ha effettuato 28 ispezioni nei settori ricondizionamento, manutenzione e vigilanza dei dispositivi medici. La sorveglianza è efficace, ma non basta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ispezioni-ospedaliere-swissmedic-2025-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ispezioni ospedaliere Lugano 2025"
+      },
+      "datePublished": "2026-08-13T11:18:01+00:00",
+      "dateModified": "2026-08-13T11:18:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ispezioni-ospedaliere-swissmedic-2025-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-modifica-legge-banche-2026': {
+    title: 'Modifica della legge sulle banche: Dipartimento federale delle finanze',
+    description: 'Il Consiglio federale ha approvato i parametri di riferimento per l\'elaborazione degli adeguamenti normativi secondo le misure e le raccomandazioni contenute',
+    keywords: 'frontalieri, ticino, svizzera, italia, modifica, legge, sulle, banche',
+    ogTitle: 'Modifica della legge bancaria in Svizzera',
+    ogDescription: 'Il Consiglio federale ha approvato i parametri di riferimento per l\'elaborazione degli adeguamenti normativi secondo le misure e le raccomandazioni contenute nel rapporto del Consiglio federale sulla stabilità delle banche e nel rapporto',
+    canonicalPath: '/articoli-svizzera/modifica-legge-banche-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Modifica della legge sulle banche: Dipartimento federale delle finanze",
+      "description": "Il Consiglio federale ha approvato i parametri di riferimento per l'elaborazione degli adeguamenti normativi secondo le misure e le raccomandazioni contenute",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/modifica-legge-banche-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La modifica della legge sulle banche in Svizzera"
+      },
+      "datePublished": "2026-08-13T12:50:39+00:00",
+      "dateModified": "2026-08-13T12:50:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/modifica-legge-banche-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-oro-in-crollo-svizzera': {
+    title: 'Dopo il boom, l\'oro inciampa: cosa aspettarsi ora?',
+    description: 'L\'oro ha chiuso il 2025 con un rialzo del 60%, ma ora sta attraversando una fase più incerta. La direzione futura è aperta. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, dopo, boom, inciampa, cosa',
+    ogTitle: 'Dopo il boom, l\'oro inciampa: cosa aspettarsi ora?',
+    ogDescription: 'L\'oro ha chiuso il 2025 con un rialzo del 60%, ma ora sta attraversando una fase più incerta. La direzione futura è aperta.',
+    canonicalPath: '/articoli-svizzera/oro-in-crollo-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dopo il boom, l'oro inciampa: cosa aspettarsi ora?",
+      "description": "L'oro ha chiuso il 2025 con un rialzo del 60%, ma ora sta attraversando una fase più incerta. La direzione futura è aperta. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/oro-in-crollo-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'oro in crollo in Svizzera"
+      },
+      "datePublished": "2026-08-13T13:03:51+00:00",
+      "dateModified": "2026-08-13T13:03:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/oro-in-crollo-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incendio-nuovo-alloggi-alloggio-cantoni': {
+    title: 'Il rompicapo degli sfollati per trovare un nuovo alloggio dopo un incendio',
+    description: '35 persone devono trovare un nuovo tetto dopo l\'incendio che ha devastato diversi alloggi ad Aigle (VD). L\'Associazione svizzera degli inquilini chiede',
+    keywords: 'frontalieri, ticino, svizzera, italia, rompicapo, sfollati, trovare, nuovo',
+    ogTitle: 'Il rompicapo degli sfollati per trovare un nuovo alloggio dopo un incendio',
+    ogDescription: '35 persone devono trovare un nuovo tetto dopo l\'incendio che ha devastato diversi alloggi ad Aigle (VD). L\'Associazione svizzera degli inquilini chiede dei meccanismi che permettano di reinsediare rapidamente molte persone.',
+    canonicalPath: '/articoli-svizzera/incendio-nuovo-alloggi-alloggio-cantoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il rompicapo degli sfollati per trovare un nuovo alloggio dopo un incendio",
+      "description": "35 persone devono trovare un nuovo tetto dopo l'incendio che ha devastato diversi alloggi ad Aigle (VD). L'Associazione svizzera degli inquilini chiede",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-nuovo-alloggi-alloggio-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un edificio in fiamme a Lugano"
+      },
+      "datePublished": "2026-08-13T13:12:47+00:00",
+      "dateModified": "2026-08-13T13:12:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incendio-nuovo-alloggi-alloggio-cantoni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-pacchetto-misure': {
+    title: 'Il Consiglio federale ha adottato il messaggio sull\'Iniziativa Bussola.',
+    description: 'Il Consiglio federale ha adottato il messaggio sull\'Iniziativa Bussola e ha respinto l\'iniziativa senza presentare un controprogetto diretto o indiretto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, adottato, messaggio',
+    ogTitle: 'Il Consiglio federale ha adottato il messaggio sull\'Iniziativa Bussola',
+    ogDescription: 'Il Consiglio federale ha adottato il messaggio sull\'Iniziativa Bussola e ha respinto l\'iniziativa senza presentare un controprogetto diretto o indiretto.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-pacchetto-misure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio federale ha adottato il messaggio sull'Iniziativa Bussola.",
+      "description": "Il Consiglio federale ha adottato il messaggio sull'Iniziativa Bussola e ha respinto l'iniziativa senza presentare un controprogetto diretto o indiretto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-pacchetto-misure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Consiglio federale ha adottato un pacchetto di misure per garantire la stabilità del sistema bancario svizzero."
+      },
+      "datePublished": "2026-08-13T13:19:51+00:00",
+      "dateModified": "2026-08-13T13:19:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-pacchetto-misure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tete-de-moine-impatti': {
+    title: 'Di più siccità e caldo mettono in difficoltà produzione Tête de Moine',
+    description: 'La produzione di Tête de Moine AOP è stata colpita dalla siccità e dal caldo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, caldo, mettono, difficoltà',
+    ogTitle: 'Di più siccità e caldo mettono in difficoltà produzione Tête de Moine',
+    ogDescription: 'La produzione di Tête de Moine AOP è stata colpita dalla siccità e dal caldo.',
+    canonicalPath: '/articoli-svizzera/tete-de-moine-impatti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più siccità e caldo mettono in difficoltà produzione Tête de Moine",
+      "description": "La produzione di Tête de Moine AOP è stata colpita dalla siccità e dal caldo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tete-de-moine-impatti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La produzione di Tête de Moine AOP è stata colpita dalla siccità e dal caldo."
+      },
+      "datePublished": "2026-08-13T13:27:05+00:00",
+      "dateModified": "2026-08-13T13:27:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tete-de-moine-impatti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pigioni-abusive-iniziativa-raggiunta': {
+    title: 'Pigioni abusive, l’iniziativa è riuscita con oltre 108’000 firme',
+    description: 'L’iniziativa popolare “Sì alla protezione contro pigioni abusive” ha raggiunto il numero minimo di firme necessarie per essere presentata al referendum.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pigioni, abusive, iniziativa, riuscita',
+    ogTitle: 'Pigioni abusive, l’iniziativa è riuscita con oltre 108’000 firme',
+    ogDescription: 'L’iniziativa popolare “Sì alla protezione contro pigioni abusive” ha raggiunto il numero minimo di firme necessarie per essere presentata al referendum.',
+    canonicalPath: '/articoli-svizzera/pigioni-abusive-iniziativa-raggiunta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pigioni abusive, l’iniziativa è riuscita con oltre 108’000 firme",
+      "description": "L’iniziativa popolare “Sì alla protezione contro pigioni abusive” ha raggiunto il numero minimo di firme necessarie per essere presentata al referendum.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pigioni-abusive-iniziativa-raggiunta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in Svizzera con un affitto eccessivo"
+      },
+      "datePublished": "2026-08-13T13:32:47+00:00",
+      "dateModified": "2026-08-13T13:32:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pigioni-abusive-iniziativa-raggiunta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-modifica-ordinanza-liquidita': {
+    title: 'Consiglio federale estende liquidità attraverso banche centrali',
+    description: 'Il Consiglio federale ha deciso di estendere il potenziale di approvvigionamento di liquidità attraverso le banche centrali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, estende, liquidità',
+    ogTitle: 'Modifica dell\'ordinanza sulla liquidità: il Consiglio federale estende il potenziale di approvvigionamento di liquidità attraverso le banche centrali.',
+    ogDescription: 'Il Consiglio federale ha deciso di estendere il potenziale di approvvigionamento di liquidità attraverso le banche centrali.',
+    canonicalPath: '/articoli-svizzera/modifica-ordinanza-liquidita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale estende liquidità attraverso banche centrali",
+      "description": "Il Consiglio federale ha deciso di estendere il potenziale di approvvigionamento di liquidità attraverso le banche centrali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/modifica-ordinanza-liquidita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano con un bancomat in primo piano."
+      },
+      "datePublished": "2026-08-13T13:37:45+00:00",
+      "dateModified": "2026-08-13T13:37:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/modifica-ordinanza-liquidita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-e-prestazioni-complementari-cantone-berna-cassa-di-compensazione': {
+    title: 'AVS e prestazioni complementari nel Cantone Berna',
+    description: 'La fonte non fornisce informazioni specifiche sulla data di istituzione della cassa di compensazione del Cantone Berna e sull\'influenza della cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, cantone, berna',
+    ogTitle: 'La cassa di compensazione del Cantone Berna e le prestazioni complementari dell\'AVS',
+    ogDescription: 'La fonte non fornisce informazioni specifiche sulla data di istituzione della cassa di compensazione del Cantone Berna e sull\'influenza della cassa di compensazione del Cantone Berna sulle prestazioni complementari dell\'AVS.',
+    canonicalPath: '/articoli-svizzera/avs-e-prestazioni-complementari-cantone-berna-cassa-di-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Cantone Berna",
+      "description": "La fonte non fornisce informazioni specifiche sulla data di istituzione della cassa di compensazione del Cantone Berna e sull'influenza della cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-e-prestazioni-complementari-cantone-berna-cassa-di-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "una vista del lago di Lugano"
+      },
+      "datePublished": "2026-08-13T16:04:43+00:00",
+      "dateModified": "2026-08-13T16:04:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-e-prestazioni-complementari-cantone-berna-cassa-di-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avviare-attivita-canton-berna': {
+    title: 'Avviare un\'attività nel Canton Berna: guida alle procedure',
+    description: 'Scopri come avviare un\'attività nel Canton Berna: guida pratica alla scelta della forma giuridica, registro di commercio e obblighi assicurativi in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, canton, berna',
+    ogTitle: 'Avviare un\'attività nel Canton Berna: guida e costi',
+    ogDescription: 'Guida pratica per imprenditori: come aprire una ditta nel Canton Berna, iscrizione al registro di commercio, costi e obblighi previdenziali nel mercato svizzero.',
+    canonicalPath: '/articoli-svizzera/avviare-attivita-canton-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività nel Canton Berna: guida alle procedure",
+      "description": "Scopri come avviare un'attività nel Canton Berna: guida pratica alla scelta della forma giuridica, registro di commercio e obblighi assicurativi in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-attivita-canton-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in una città svizzera con vista panoramica"
+      },
+      "datePublished": "2026-08-13T16:33:21+00:00",
+      "dateModified": "2026-08-13T16:33:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-attivita-canton-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-protezione-pigioni-abusive': {
+    title: 'Iniziativa pigioni abusive: la situazione in Svizzera',
+    description: 'L\'iniziativa popolare per la protezione contro le pigioni abusive ha superato il vaglio delle firme. Ecco i dettagli sui costi e l\'iter parlamentare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, pigioni, abusive, situazione',
+    ogTitle: 'Iniziativa pigioni abusive: la situazione in Svizzera',
+    ogDescription: 'L\'iniziativa \'Sì alla protezione contro pigioni abusive\' ha raccolto 108\'437 firme. 360 franchi al mese l\'eccedenza media stimata: ecco i dettagli del dibattito.',
+    canonicalPath: '/articoli-svizzera/iniziativa-protezione-pigioni-abusive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa pigioni abusive: la situazione in Svizzera",
+      "description": "L'iniziativa popolare per la protezione contro le pigioni abusive ha superato il vaglio delle firme. Ecco i dettagli sui costi e l'iter parlamentare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-protezione-pigioni-abusive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzi residenziali in una città svizzera"
+      },
+      "datePublished": "2026-08-13T16:38:25+00:00",
+      "dateModified": "2026-08-13T16:38:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-protezione-pigioni-abusive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-cantone-berna-guida': {
+    title: 'Avviare un\'attività nel Cantone di Berna: guida pratica',
+    description: 'Scopri come aprire un\'attività nel Cantone di Berna: guida pratica su registro di commercio, forme giuridiche, tassazione e contributi sociali',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, cantone, berna',
+    ogTitle: 'Avviare un\'attività nel Cantone di Berna: guida pratica',
+    ogDescription: 'Guida completa per avviare un\'attività nel Cantone di Berna: dai requisiti del registro di commercio alla gestione di tasse e contributi sociali in Svizzera.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-cantone-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività nel Cantone di Berna: guida pratica",
+      "description": "Scopri come aprire un'attività nel Cantone di Berna: guida pratica su registro di commercio, forme giuridiche, tassazione e contributi sociali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-cantone-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro storico di Berna con la Torre dell'Orologio"
+      },
+      "datePublished": "2026-08-13T16:49:47+00:00",
+      "dateModified": "2026-08-13T16:49:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-cantone-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eclissi-solare-ospedali': {
+    title: 'Decine in ospedale per dolori agli occhi dopo l\'eclissi solare',
+    description: 'Decine di persone in ospedale dopo l\'eclissi solare. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, decine, ospedale, dolori, agli',
+    ogTitle: 'Decine in ospedale per dolori agli occhi dopo l\'eclissi solare',
+    ogDescription: 'Decine di persone in ospedale dopo l\'eclissi solare',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-ospedali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decine in ospedale per dolori agli occhi dopo l'eclissi solare",
+      "description": "Decine di persone in ospedale dopo l'eclissi solare. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-ospedali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Decine di persone in ospedale dopo l'eclissi solare"
+      },
+      "datePublished": "2026-08-13T16:55:55+00:00",
+      "dateModified": "2026-08-13T16:55:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-ospedali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patent-canton-bern-conversion-exams': {
+    title: 'Patente di guida a Berna: conversione e requisiti',
+    description: 'La conversione della patente di guida estera nel Canton di Berna richiede l\'esame teorico e pratico, nonché la frequentazione di corsi obbligatori. L\'ufficio',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, berna, conversione, requisiti',
+    ogTitle: 'Patente di guida nel Canton di Berna: conversione della licenza estera, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.',
+    ogDescription: 'La conversione della patente di guida estera nel Canton di Berna richiede l\'esame teorico e pratico, nonché la frequentazione di corsi obbligatori. L\'ufficio della circolazione competente è responsabile dell\'elaborazione della domanda di conversione.',
+    canonicalPath: '/articoli-svizzera/patent-canton-bern-conversion-exams/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida a Berna: conversione e requisiti",
+      "description": "La conversione della patente di guida estera nel Canton di Berna richiede l'esame teorico e pratico, nonché la frequentazione di corsi obbligatori. L'ufficio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patent-canton-bern-conversion-exams.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un test di guida nel Canton Berna, con un focus sull'esame pratico."
+      },
+      "datePublished": "2026-08-13T17:49:01+00:00",
+      "dateModified": "2026-08-13T17:49:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patent-canton-bern-conversion-exams/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-guida-berna-conversione': {
+    title: 'Patente di guida nel Canton Berna: conversione ed esami',
+    description: 'Guida ufficiale per convertire la patente estera nel Canton Berna: requisiti, scadenze, esami di controllo e documenti necessari per i residenti in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, canton, berna, conversione',
+    ogTitle: 'Patente di guida Canton Berna: conversione e procedure',
+    ogDescription: 'Scopri come convertire la tua patente estera nel Canton Berna entro i 12 mesi previsti dalla legge. Guida pratica alle procedure, esami e documenti necessari.',
+    canonicalPath: '/articoli-svizzera/patente-guida-berna-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida nel Canton Berna: conversione ed esami",
+      "description": "Guida ufficiale per convertire la patente estera nel Canton Berna: requisiti, scadenze, esami di controllo e documenti necessari per i residenti in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-berna-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Patente di guida svizzera sul tavolo"
+      },
+      "datePublished": "2026-08-13T18:13:24+00:00",
+      "dateModified": "2026-08-13T18:13:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-berna-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
