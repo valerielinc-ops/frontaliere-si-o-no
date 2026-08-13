@@ -2380,6 +2380,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Sécheresse en Suisse : Rösti exclut des mesures urgentes et fédérales',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'Le Conseil fédéral surveille la sécheresse et le déficit hydrique de 46%, excluant pour l\'instant l\'état extraordinaire et laissant aux cantons le soin de prendre les décisions.',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Paysage suisse touché par la sécheresse avec de bas niveaux d\'eau',
+    'blog.article.eclissi-solare-cardada.title': 'Eclipse solaire à Cardada : deux cents personnes enchantées',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Deux cents personnes se sont rendues à Cardada pour observer l\'éclipse solaire du 12 août 2026, avec une éclipse partielle de 91 %.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Deux cents personnes incantées par l\'éclipse solaire à Cardada',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Eclipse solaire du 12 août : comment la voir en Suisse',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'En Suisse, la couverture solaire maximale atteindra 92 % peu avant le coucher du soleil le 12 août 2026, promettant un spectacle unique.',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Éclipse solaire observée depuis un site suisse',
 };
 
 export default blogMetaChFr;

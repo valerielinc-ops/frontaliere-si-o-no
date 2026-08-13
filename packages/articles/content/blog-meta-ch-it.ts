@@ -2380,6 +2380,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Siccità in Svizzera: Rösti esclude misure urgenti e federali',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'Il Consiglio federale monitora la siccità e il deficit idrico del 46%, escludendo per ora lo stato straordinario e lasciando ai Cantoni le decisioni.',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Paesaggio svizzero colpito dalla siccità con livelli d\'acqua bassi',
+    'blog.article.eclissi-solare-cardada.title': 'Eclissi solare a Cardada: duecento persone incantate',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Duecento persone si sono recate a Cardada per osservare l\'eclissi solare del 12 agosto 2026, con un\'eclissi parziale del 91%.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Duecento persone incantate dall\'eclissi solare a Cardada',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Eclissi solare del 12 agosto: come vederla in Svizzera',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Svizzera la copertura massima del Sole arriverà al 92% poco prima del tramonto il 12 agosto 2026, promettendo uno spettacolo unico.',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Eclissi solare osservata da una località svizzera',
 };
 
 export default blogMetaChIt;

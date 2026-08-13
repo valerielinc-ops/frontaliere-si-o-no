@@ -9851,6 +9851,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.votazione-sulla-fortezza-2024.title': 'Vote on the Fortress: the favourable civic committee was set up',
     'blog.article.votazione-sulla-fortezza-2024.excerpt': 'The civic committee \'Let\'s get beautiful - Yes on 27 September\' supports the project for the enhancement of tourism and culture in the Fortress.',
     'blog.article.votazione-sulla-fortezza-2024.imageAlt': 'A group of people discussing the Fortezza vote.',
+    'blog.article.frontaliereticino-chiasso-2026.title': 'New EU Packaging Rules: A Stranglehold for Small Merchants',
+    'blog.article.frontaliereticino-chiasso-2026.excerpt': 'Many micro-enterprises are considering suspending shipments due to the administrative burdens introduced by the new regulation.',
+    'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'frontaliers in A2 motorway',
 };
 
 export default blogMetaEn;
