@@ -2584,6 +2584,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dimissioni-pazienti-crans-montana.title': 'Crans-Montana: dimessa l\'ultima paziente dal Niguarda',
     'blog.article.dimissioni-pazienti-crans-montana.excerpt': 'Conclusa la degenza dei dodici pazienti feriti nell\'incendio di Capodanno. Francesca lascia il Centro Ustioni di Milano dopo 224 giorni di cure specialistiche.',
     'blog.article.dimissioni-pazienti-crans-montana.imageAlt': 'Facciata di una moderna struttura ospedaliera in Svizzera',
+    'blog.article.ferrovia-albula-chiusa.title': 'Linea ferroviaria dell\'Albula chiusa almeno fino a domani sera',
+    'blog.article.ferrovia-albula-chiusa.excerpt': 'La Ferrovia retica ha chiuso la linea ferroviaria dell\'Albula a causa di una frana sul torrente Beverin',
+    'blog.article.ferrovia-albula-chiusa.imageAlt': 'Ferrovia Albula chiusa',
 };
 
 export default blogMetaChIt;
