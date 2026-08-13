@@ -326,10 +326,10 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
-        "en": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
+        "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
-        "fr": "pilote-postbus-in-postauto-reichenburg"
+        "fr": "pilote-postbus-in-postauto-ag-reichenburg"
       },
       "sourceLang": "de",
       "department": "",
@@ -370,12 +370,17 @@
           "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
+          "postauto-fahrer-in-post",
+          "pilote-postbus-in-postauto-reichenburg"
+        ],
+        "en": [
           "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
         "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-reichenburg"
+        "postbus-driver-in-postauto-reichenburg",
+        "pilote-postbus-in-postauto-reichenburg"
       ]
     },
     {
