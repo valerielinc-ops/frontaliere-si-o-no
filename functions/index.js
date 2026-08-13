@@ -502,6 +502,11 @@ export const newsletterManageSubscription = onRequest(
  const specificJobId = params.specific_job_id;
  // Daily-brief cadence pinned by the reader (#5415 §3.7).
  const dailyBriefFrequency = params.daily_brief_frequency;
+ // Third-party advertising, on or off (#5759). Read here for the same reason
+ // `paused` had to be: a parameter the SPA sends and this entrypoint never
+ // forwards is a control that silently does nothing, which is worse than an
+ // absent one because the UI reports success.
+ const advertisingEnabled = params.advertising_enabled;
 
  try {
  const [{ newsletterSecret }, autologinPolicyEnv, tokenPolicyEnv] = await Promise.all([
@@ -581,6 +586,7 @@ export const newsletterManageSubscription = onRequest(
  specificCompanyKey,
  specificJobId,
  dailyBriefFrequency,
+ advertisingEnabled,
  // Attribution for the unsubscribe write only — read nothing, gate nothing.
  // The RFC 8058 one-click POST and the plain footer GET behave identically
  // to before; the stored verb is what tells them apart afterwards.

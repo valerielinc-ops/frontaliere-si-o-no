@@ -99,13 +99,24 @@ const THEIR_JOB_ALERT_DOC = { status: 'active' };
 /** …and their saved search, the one the backfill created for them. */
 const THEIR_ALERT = { id: 'backfill-newsletter', active: true, keywords: [], locations: [] };
 
-/** A subscriber who never opted out, used as the control in every drive below. */
+/**
+ * A subscriber who never opted out, used as the control in every drive below.
+ *
+ * `consent_text` is here for the paid-ad matcher and for no other reader in
+ * this file. Since #5759 that matcher also asks whether the stored disclosure
+ * named third-party advertising, so a control document without one would be
+ * dropped for a reason that has nothing to do with the opt-out — and the blast
+ * assertion below would pass while asserting nothing at all about opting out.
+ * The version is the one that first named advertising.
+ */
 const STILL_SUBSCRIBED = {
   email: STILL_IN,
   status: 'confirmed',
   isActive: true,
   active: true,
   confirmed_at: CONFIRM_STAMP,
+  consent_text:
+    'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.2).',
 };
 
 const OPTED_OUT_SHAPES: Array<[string, Record<string, unknown>]> = [

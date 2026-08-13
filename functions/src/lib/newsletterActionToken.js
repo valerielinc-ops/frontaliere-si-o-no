@@ -27,6 +27,7 @@
  *   delete_alert                      write and destroy those alerts
  *   toggle_newsletter_subscription    subscribe / unsubscribe the newsletter
  *   set_daily_brief_frequency         change the daily-brief cadence
+ *   set_advertising_opt_out           switch third-party advertising off
  *   get_autologin_status              read whether autologin is on
  *   toggle_autologin                  turn the OTHER credential on and off
  *   revoke_autologin                  revoke the other credential entirely
@@ -179,6 +180,13 @@ const SCOPE_BY_ACTION = Object.freeze({
   update_alert: TOKEN_SCOPES.PREFERENCES,
   delete_alert: TOKEN_SCOPES.PREFERENCES,
   set_daily_brief_frequency: TOKEN_SCOPES.PREFERENCES,
+  // #5759. `preferences` and not a scope of its own, for the reason above:
+  // one link grants the whole centre, and this is one more control on it.
+  // The decision is recorded HERE because the closed table is what stopped
+  // the action from silently inheriting the universal credential — it failed
+  // `tests/newsletter-action-token.test.ts` the moment it was added to the
+  // handler, which is the guard working rather than an obstacle.
+  set_advertising_opt_out: TOKEN_SCOPES.PREFERENCES,
 });
 
 /** @returns {string|null} the scope an action needs, or null if it takes no `token` */
