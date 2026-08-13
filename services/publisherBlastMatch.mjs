@@ -16,6 +16,67 @@ import { isNewsletterExcluded } from './emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import { hasConfirmationProof } from './subscriberConsent.mjs';
 
+/**
+ * The switch, and the first page version whose text named advertising (#5759).
+ *
+ * Both are declared in `services/communicationChannels.ts` too, as
+ * `ADVERTISING_OPT_OUT_FIELD` and `ADVERTISING_NAMED_FROM_PAGE_VERSION`. This
+ * file is an `.mjs` that Node senders load without a bundler and cannot import
+ * TypeScript, so the literals are repeated and
+ * `tests/consent-shown-at-signup.test.tsx` fails if the two sides disagree —
+ * the same no-import-shape boundary, and the same remedy, as the cron
+ * expressions and the `CHANNEL-STATUS` marker.
+ */
+export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
+export const ADVERTISING_NAMED_FROM_PAGE_VERSION = '2026-08-13.2';
+
+/** `YYYY-MM-DD.N` → comparable parts. `null` when the string is not a version. */
+function parsePageVersion(raw) {
+  const m = /(\d{4}-\d{2}-\d{2})\.(\d+)/.exec(String(raw ?? ''));
+  return m ? { date: m[1], revision: Number(m[2]) } : null;
+}
+
+/**
+ * Did the disclosure this person actually received name third-party
+ * advertising?
+ *
+ * The owner's decision (#5764 §3) is an opt-out, and the defence it rests on is
+ * "the formula names it and a switch stops it". That defence exists only for
+ * someone whose stored sentence names it — every displayed formula since
+ * `ADVERTISING_NAMED_FROM_PAGE_VERSION` carries the page version inside the
+ * text (#5765), so the stored document answers the question by itself.
+ *
+ * Fail-closed on purpose, and the cases are not equivalent to each other only
+ * in appearance: no `consent_text` at all (8.505 of 8.605 documents measured
+ * 2026-08-12), a text from an older page version, or an unparseable one all
+ * mean the same thing here — we cannot show that this person was told. The
+ * audience refills with everyone who reads the new sentence.
+ *
+ * Comparison is on (date, revision) and not lexicographic: `2026-08-13.10`
+ * sorts BELOW `2026-08-13.2` as a string, and getting that wrong would silently
+ * start excluding people the disclosure does cover.
+ */
+export function consentCoversAdvertising(sub) {
+  const stored = parsePageVersion(sub?.consent_text);
+  if (!stored) return false;
+  const floor = parsePageVersion(ADVERTISING_NAMED_FROM_PAGE_VERSION);
+  if (!floor) return false;
+  if (stored.date !== floor.date) return stored.date > floor.date;
+  return stored.revision >= floor.revision;
+}
+
+/**
+ * Has the reader switched this one channel off?
+ *
+ * Absent means ON, because the consent is an opt-out: only an explicit `true`
+ * may be read as "no". Written by the preference centre in both of its modes
+ * (`components/preferences/SubscriptionPreferencesController.tsx` and
+ * `functions/src/newsletterSubscriptionManagement.js`).
+ */
+export function isAdvertisingOptedOut(sub) {
+  return sub?.[ADVERTISING_OPT_OUT_FIELD] === true;
+}
+
 function norm(s) {
   return String(s ?? '').trim().toLowerCase();
 }
@@ -102,6 +163,14 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
     // exactly the shape that let the weekly newsletter mail 1.488 addresses
     // that never completed the double opt-in. The stamp decides, not `status`.
     if (!hasConfirmationProof(sub)) continue;
+    // …and the third question, which only this channel has to ask (#5759).
+    // Advertising is a consent category of its own, collected as an opt-out:
+    // so the disclosure has to have named it (`consentCoversAdvertising`) and
+    // the reader must not have switched it off (`isAdvertisingOptedOut`).
+    // Order is irrelevant to the result and deliberate for the reader: "were
+    // they told" comes before "did they object".
+    if (!consentCoversAdvertising(sub)) continue;
+    if (isAdvertisingOptedOut(sub)) continue;
     const score = scoreSubscriberForAd(ad, sub);
     if (score >= minScore) {
       scored.push({ email: String(sub.email), locale: sub.locale || 'it', score });

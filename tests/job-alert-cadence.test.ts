@@ -1,0 +1,715 @@
+// Job-alert cadence engine — issue #5705.
+//
+// The question these fixtures are built around is not "does the test pass" but
+// "which shape of document has this test never seen" (#5764). The last three
+// defects on this channel all survived a green suite because every fixture was
+// the same shape as the one that worked: #5733 lived through three issues
+// written to close it because every fixture used `status: 'unsubscribed'` and
+// the broken branch took the other road, and `action=unsubscribe_all` survived
+// a month because every opt-out URL in the suite was typed by hand.
+//
+// So: URLs come from the real builders, never from a string literal; and the
+// list below is the list of shapes, each with its expected verdict written down.
+//
+//  1. `frequencyOverride: true`               → escapes the ceiling
+//  2. an alert that has just decayed          → receives nothing, stays active
+//  3. the seventh send and the eighth          → the boundary, not the middle
+//  4. camelCase stamps (458 production docs)   → read exactly like snake_case
+//  5. no send ledger at all                    → fail-closed
+//  6. clicks that are all synthetic            → never the fast tier
+//  7. a backfilled alert vs one a person made  → same ceiling, different decay
+//  8. re-entry from `decayed`                  → impossible without a person
+import fs from 'node:fs';
+import path from 'node:path';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+
+import {
+  JOB_ALERT_CADENCE_CEILING_DAYS,
+  JOB_ALERT_CADENCE_STATES,
+  JOB_ALERT_CADENCE_TIERS,
+  JOB_ALERT_DECAY_AFTER_SLOW_SENDS,
+  JOB_ALERT_DEMOTION_STREAK,
+  cadenceStateOf,
+  decayStampAfterSend,
+  engagedSinceLastJobAlertSend,
+  isBackfilledAlert,
+  isCadenceSendable,
+  isDecayed,
+  isJobAlertDueToday,
+  nextJobAlertCadenceState,
+  normalizeCadenceTier,
+  openedSinceLastJobAlertSend,
+  recipientsWithAllAlertsDecayed,
+  resolveJobAlertCadence,
+  seedJobAlertTier,
+} from '../scripts/lib/jobAlertCadence.mjs';
+import { JOB_ALERT_ENGAGEMENT_TIERS } from '../scripts/lib/jobAlertEngagementTier.mjs';
+import {
+  makeAlertUnsubscribeUrl,
+  makeAllAlertsUnsubscribeUrl,
+} from '../scripts/lib/job-alert-unsub-urls.mjs';
+import { classifyJobAlertSunset } from '../scripts/lib/jobAlertSunset.mjs';
+
+const DAY = 24 * 60 * 60 * 1000;
+const NOW = Date.parse('2026-08-13T04:33:00Z'); // a real dispatch time: cron 00:33 + the median 240min delay
+const TODAY = '2026-08-13';
+const daysAgo = (n: number) => new Date(NOW - n * DAY).toISOString();
+const daysAgoMs = (n: number) => NOW - n * DAY;
+
+const JOB_AD_URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/annuncio-1';
+const EMAIL = 'reader@example.test';
+
+// FILE-WIDE. Without the secret both unsubscribe builders return the unsigned
+// fallback — a job-search page — so an opt-out fixture silently becomes a
+// CONTENT click and asserts the opposite of what it reads. The guard test in
+// the last block is what keeps that from happening quietly again.
+let previousSecret: string | undefined;
+beforeAll(() => {
+  previousSecret = process.env.NEWSLETTER_SECRET;
+  process.env.NEWSLETTER_SECRET = 'test-secret-#5705';
+});
+afterAll(() => {
+  if (previousSecret === undefined) delete process.env.NEWSLETTER_SECRET;
+  else process.env.NEWSLETTER_SECRET = previousSecret;
+});
+
+/** The alert subdocument as the backfill wrote it: no keywords, no locations. */
+function backfilledAlert(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 'backfill-newsletter',
+    email: EMAIL,
+    active: true,
+    frequency: 'daily',
+    frequencyOverride: false,
+    keywords: [],
+    locations: [],
+    backfilled_from: 'newsletter_subscribers:job_gate',
+    ...overrides,
+  };
+}
+
+/** The alert a person actually created from the site. */
+function personAlert(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 'a7Kq2ZfLmN',
+    email: EMAIL,
+    active: true,
+    frequency: 'daily',
+    frequencyOverride: false,
+    keywords: ['infermiere'],
+    locations: ['Lugano'],
+    ...overrides,
+  };
+}
+
+function sub(overrides: Record<string, unknown> = {}) {
+  return { ...overrides };
+}
+
+const clickedAJob = (n: number) => ({ last_click_at: daysAgo(n), last_clicked_url: JOB_AD_URL });
+
+// ─────────────────────────────────────────────────────────────────────────────
+describe('the scale and the ceiling', () => {
+  it('runs on the owner table [1, 3, 7], in days', () => {
+    expect(JOB_ALERT_CADENCE_TIERS).toEqual([1, 3, 7]);
+  });
+
+  it('snaps a stored tier onto the scale, floor 1', () => {
+    expect(normalizeCadenceTier(1)).toBe(1);
+    expect(normalizeCadenceTier(2)).toBe(1);
+    expect(normalizeCadenceTier(5)).toBe(3);
+    expect(normalizeCadenceTier(30)).toBe(7);
+    expect(normalizeCadenceTier(0)).toBe(1);
+    expect(normalizeCadenceTier(undefined)).toBe(null);
+  });
+
+  it('collapses every engine tier to the 7-day ceiling — the owner decision, not a bug', () => {
+    expect(JOB_ALERT_CADENCE_CEILING_DAYS).toBe(7);
+    for (const profile of [clickedAJob(1), { last_open_at: daysAgo(2) }, {}]) {
+      const decision = resolveJobAlertCadence(backfilledAlert(), sub(profile), NOW);
+      expect(decision.intervalDays).toBe(7);
+    }
+  });
+
+  it('keeps the engine tier underneath uncapped, so raising the ceiling needs no migration', () => {
+    const clicker = resolveJobAlertCadence(backfilledAlert(), sub(clickedAJob(1)), NOW);
+    expect(clicker.tierDays).toBe(1);
+    expect(clicker.intervalDays).toBe(7);
+    expect(clicker.ceilingApplied).toBe(true);
+    // Lift the lever and the table differentiates again — which is the whole
+    // reason the tiers are still computed while the ceiling swallows them.
+    expect(resolveJobAlertCadence(backfilledAlert(), sub(clickedAJob(1)), NOW, { ceilingDays: null }).intervalDays).toBe(1);
+    expect(resolveJobAlertCadence(backfilledAlert(), sub({ last_open_at: daysAgo(2) }), NOW, { ceilingDays: null }).intervalDays).toBe(3);
+    expect(resolveJobAlertCadence(backfilledAlert(), sub(), NOW, { ceilingDays: null }).intervalDays).toBe(7);
+  });
+
+  it('never speeds anybody up: the effective interval is max(tier, ceiling)', () => {
+    // Every tier on the scale, against every ceiling worth trying.
+    for (const ceilingDays of [null, 1, 3, 7]) {
+      for (const profile of [clickedAJob(1), { last_open_at: daysAgo(2) }, {}]) {
+        const decision = resolveJobAlertCadence(backfilledAlert(), sub(profile), NOW, { ceilingDays });
+        expect(decision.intervalDays).toBe(Math.max(decision.tierDays, ceilingDays ?? 0));
+      }
+    }
+  });
+
+  // SHAPE 7 — the ceiling is a channel rule, not a backfill rule.
+  it('holds a backfilled alert and one a person created to the SAME ceiling', () => {
+    const profile = sub(clickedAJob(1));
+    expect(resolveJobAlertCadence(backfilledAlert(), profile, NOW).intervalDays).toBe(7);
+    expect(resolveJobAlertCadence(personAlert(), profile, NOW).intervalDays).toBe(7);
+    expect(isBackfilledAlert(backfilledAlert())).toBe(true);
+    expect(isBackfilledAlert(personAlert())).toBe(false);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SHAPE 1 — the one exemption.
+describe('frequencyOverride: true escapes the ceiling', () => {
+  it('serves a pinned daily alert every day, ceiling or no ceiling', () => {
+    const decision = resolveJobAlertCadence(backfilledAlert({ frequencyOverride: true, frequency: 'daily' }), sub(), NOW);
+    expect(decision.manual).toBe(true);
+    expect(decision.intervalDays).toBe(1);
+    expect(decision.ceilingApplied).toBe(false);
+  });
+
+  it('serves a pinned weekly alert every 7 days', () => {
+    const decision = resolveJobAlertCadence(backfilledAlert({ frequencyOverride: true, frequency: 'weekly' }), sub(), NOW);
+    expect(decision.intervalDays).toBe(7);
+  });
+
+  it('lets a pinned daily alert through on consecutive days, while the engine alert waits', () => {
+    const profile = sub({ ja_cadence_last_sent_at: daysAgo(1) });
+    const pinned = backfilledAlert({ frequencyOverride: true, frequency: 'daily', lastMatchedAt: daysAgo(1) });
+    const engine = backfilledAlert({ lastMatchedAt: daysAgo(1) });
+    expect(isJobAlertDueToday({ alert: pinned, sub: profile, todayIso: TODAY, nowMs: NOW }).due).toBe(true);
+    expect(isJobAlertDueToday({ alert: engine, sub: profile, todayIso: TODAY, nowMs: NOW }).due).toBe(false);
+  });
+
+  it('never decays a pinned alert: the pin is the only act of the person about frequency', () => {
+    const state = { ja_cadence_weekly_sends: JOB_ALERT_DECAY_AFTER_SLOW_SENDS + 5 };
+    expect(decayStampAfterSend({
+      alert: backfilledAlert({ frequencyOverride: true }),
+      nextState: state,
+      sentAtIso: daysAgo(0),
+    })).toBe(null);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+describe('is this alert due today — calendar days, not 24h windows', () => {
+  it('is due when nothing was ever sent on either clock', () => {
+    const decision = isJobAlertDueToday({ alert: backfilledAlert(), sub: sub(), todayIso: TODAY, nowMs: NOW });
+    expect(decision.due).toBe(true);
+    expect(decision.reason).toContain('never sent');
+  });
+
+  it('is due exactly on the 7th day and not on the 6th', () => {
+    const at = (n: number) => isJobAlertDueToday({
+      alert: backfilledAlert({ lastMatchedAt: daysAgo(n) }),
+      sub: sub({ ja_cadence_last_sent_at: daysAgo(n) }),
+      todayIso: TODAY,
+      nowMs: NOW,
+    }).due;
+    expect(at(6)).toBe(false);
+    expect(at(7)).toBe(true);
+    expect(at(8)).toBe(true);
+  });
+
+  it('counts calendar days, so the hour of the previous dispatch does not move the answer', () => {
+    // The measured spread of this cron: 00:33 nominal, median +240min, max +590.
+    const sameDueSet = ['2026-08-06T00:33:00Z', '2026-08-06T04:33:00Z', '2026-08-06T10:23:00Z', '2026-08-06T23:59:59Z']
+      .map((stamp) => isJobAlertDueToday({
+        alert: backfilledAlert({ lastMatchedAt: stamp }),
+        sub: sub(),
+        todayIso: TODAY,
+        nowMs: NOW,
+      }).due);
+    expect(sameDueSet).toEqual([true, true, true, true]);
+    // 7 calendar days is 7 calendar days even when only 6d 0h 34m of wall clock
+    // have passed — which is the point: a millisecond gate would say "not yet"
+    // and skip a whole week.
+  });
+
+  it('is a pure function of the day, so a rerun in the same run window is a no-op', () => {
+    const args = { alert: backfilledAlert({ lastMatchedAt: daysAgo(3) }), sub: sub(), todayIso: TODAY };
+    const morning = isJobAlertDueToday({ ...args, nowMs: Date.parse('2026-08-13T00:33:00Z') });
+    const afternoon = isJobAlertDueToday({ ...args, nowMs: Date.parse('2026-08-13T14:12:00Z') });
+    expect(morning.due).toBe(afternoon.due);
+    expect(morning.intervalDays).toBe(afternoon.intervalDays);
+  });
+
+  // SHAPE 5 — no send ledger at all.
+  it('is due when the alert has no lastMatchedAt, and still respects the recipient clock', () => {
+    // 203 active alerts carry no lastMatchedAt in production: they have never
+    // been sent, so there is no interval to respect — unless the PERSON was
+    // mailed recently through another alert.
+    expect(isJobAlertDueToday({ alert: backfilledAlert(), sub: sub(), todayIso: TODAY, nowMs: NOW }).due).toBe(true);
+    expect(isJobAlertDueToday({
+      alert: backfilledAlert(),
+      sub: sub({ ja_cadence_last_sent_at: daysAgo(2) }),
+      todayIso: TODAY,
+      nowMs: NOW,
+    }).due).toBe(false);
+  });
+
+  it('stops one person receiving three emails because they hold three alerts', () => {
+    const profile = sub({ ja_cadence_last_sent_at: daysAgo(2) });
+    const three = [backfilledAlert({ id: 'backfill-newsletter' }), personAlert({ id: 'x1' }), personAlert({ id: 'x2' })];
+    for (const alert of three) {
+      expect(isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: NOW }).due).toBe(false);
+    }
+  });
+
+  it('falls back to last_sent_at on the very first run, instead of treating everybody as never-mailed', () => {
+    // `ja_cadence_last_sent_at` does not exist yet on any production document.
+    // The per-ALERT clock is what carries the history on day one, and it does.
+    const decision = isJobAlertDueToday({
+      alert: backfilledAlert({ lastMatchedAt: daysAgo(1) }),
+      sub: sub({ last_sent_at: daysAgo(1) }),
+      todayIso: TODAY,
+      nowMs: NOW,
+    });
+    expect(decision.due).toBe(false);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SHAPE 4 — the camelCase family, which produced #5733 and #5741.
+describe('camelCase stamps read exactly like snake_case ones', () => {
+  it('seeds the same tier from lastClickAt/lastClickedUrl as from last_click_at/last_clicked_url', () => {
+    const snake = seedJobAlertTier(sub({ last_click_at: daysAgo(1), last_clicked_url: JOB_AD_URL }), NOW);
+    const camel = seedJobAlertTier(sub({ lastClickAt: daysAgo(1), lastClickedUrl: JOB_AD_URL }), NOW);
+    expect(camel.tierDays).toBe(1);
+    expect(camel.tierDays).toBe(snake.tierDays);
+  });
+
+  it('sees an open written as lastOpenAt', () => {
+    expect(seedJobAlertTier(sub({ lastOpenAt: daysAgo(2) }), NOW).tierDays).toBe(3);
+  });
+
+  it('demotes a camelCase opt-out click the same way', () => {
+    const camel = sub({
+      lastClickAt: daysAgo(1),
+      lastClickedUrl: makeAlertUnsubscribeUrl('backfill-newsletter', EMAIL),
+      lastOpenAt: daysAgo(1),
+    });
+    expect(seedJobAlertTier(camel, NOW).tierDays).toBe(7);
+  });
+
+  it('counts a camelCase clickCount toward the fail-closed rule', () => {
+    // clickCount > 0 with nothing readable: the fast tier must be unreachable.
+    expect(seedJobAlertTier(sub({ clickCount: 4, lastOpenAt: daysAgo(1) }), NOW).tierDays).toBe(3);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SHAPES 5 and 6 — a click we cannot read, and clicks that are all machines.
+describe('the fast tier is unreachable without proof of a person', () => {
+  it('never seeds tier 1 from a bare click_count with no event and no url', () => {
+    expect(seedJobAlertTier(sub({ click_count: 12 }), NOW).tierDays).toBe(7);
+    expect(seedJobAlertTier(sub({ click_count: 12, last_open_at: daysAgo(1) }), NOW).tierDays).toBe(3);
+  });
+
+  it('never seeds tier 1 when the events log carries no readable instant', () => {
+    const events = [{ url: JOB_AD_URL }, { url: JOB_AD_URL }];
+    expect(seedJobAlertTier(sub({ click_count: 2 }), NOW, { clickEvents: events }).tierDays).toBe(7);
+  });
+
+  it('never seeds tier 1 when every click was one scanner burst', () => {
+    // Eight distinct targets inside a second: the #5674 signature.
+    const burst = Array.from({ length: 8 }, (_, i) => ({
+      at: daysAgoMs(1) + i * 100,
+      url: `https://frontaliereticino.ch/cerca-lavoro-ticino/annuncio-${i}`,
+    }));
+    expect(seedJobAlertTier(sub({ click_count: 8 }), NOW, { clickEvents: burst }).tierDays).toBe(7);
+    // …and an open of its own still only earns tier 3, never 1.
+    expect(seedJobAlertTier(sub({ click_count: 8, last_open_at: daysAgo(1) }), NOW, { clickEvents: burst }).tierDays).toBe(3);
+  });
+
+  it('reads the ip Resend nests under metadata.data.click, where a flat lookup finds nothing', () => {
+    // 74.242.242.134 is the address emailScannerRanges.js records as actually
+    // seen in our own click log (`seenAs`), so this fixture is a real scanner
+    // and not an invented one. The first draft used an address that is in no
+    // range at all: the test went green on tier 1 and would have "proved" a
+    // rule that never fired.
+    const scanner = [{
+      occurred_at: daysAgo(1),
+      metadata: { data: { click: { link: JOB_AD_URL, ipAddress: '74.242.242.134', userAgent: 'Mozilla/5.0' } } },
+    }];
+    expect(seedJobAlertTier(sub({ click_count: 1 }), NOW, { clickEvents: scanner }).tierDays).toBe(7);
+    // Same event with the address one level up, where four of the five
+    // providers do not write it: the rule must still be reachable there.
+    const flat = [{ occurred_at: daysAgo(1), url: JOB_AD_URL, metadata: { ip: '74.242.242.134' } }];
+    expect(seedJobAlertTier(sub({ click_count: 1 }), NOW, { clickEvents: flat }).tierDays).toBe(7);
+  });
+
+  it('does not treat a click on the way out as engagement — from the real builders', () => {
+    for (const url of [makeAlertUnsubscribeUrl('backfill-newsletter', EMAIL), makeAllAlertsUnsubscribeUrl(EMAIL)]) {
+      const leaving = sub({ last_click_at: daysAgo(1), last_clicked_url: url, last_open_at: daysAgo(1) });
+      expect(seedJobAlertTier(leaving, NOW).tierDays).toBe(7);
+      expect(engagedSinceLastJobAlertSend({ ...leaving, ja_cadence_last_sent_at: daysAgo(2) })).toBe(false);
+    }
+  });
+
+  it('guards against a vacuous suite: the builders really produce the opt-out route', () => {
+    expect(makeAlertUnsubscribeUrl('backfill-newsletter', EMAIL)).toContain('/disiscrivi-alert/');
+    expect(makeAllAlertsUnsubscribeUrl(EMAIL)).toContain('action=unsubscribe_all');
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+describe('promotion is immediate, demotion is slow', () => {
+  const sentAtIso = new Date(NOW).toISOString();
+
+  it('sends a human click straight to tier 1 and clears both counters', () => {
+    const next = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_tier: 7, ja_cadence_sends_since_engagement: 2, ja_cadence_weekly_sends: 5, ja_cadence_last_sent_at: daysAgo(7) }),
+      engaged: true,
+      sentAtIso,
+      provider: 'resend',
+    });
+    expect(next.ja_cadence_tier).toBe(1);
+    expect(next.ja_cadence_sends_since_engagement).toBe(0);
+    expect(next.ja_cadence_weekly_sends).toBe(0);
+    expect(next.ja_cadence_tier_updated_at).toBe(sentAtIso);
+  });
+
+  it('lets an open promote 7 → 3 but never to 1 — Apple prefetches opens', () => {
+    const fromWeekly = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_tier: 7, ja_cadence_last_sent_at: daysAgo(7) }),
+      engaged: false,
+      opened: true,
+      sentAtIso,
+      provider: 'resend',
+    });
+    expect(fromWeekly.ja_cadence_tier).toBe(3);
+    const fromThree = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_tier: 3, ja_cadence_last_sent_at: daysAgo(3) }),
+      engaged: false,
+      opened: true,
+      sentAtIso,
+      provider: 'resend',
+    });
+    expect(fromThree.ja_cadence_tier).toBe(3); // held, not promoted
+    const fromOne = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_tier: 1, ja_cadence_last_sent_at: daysAgo(1) }),
+      engaged: false,
+      opened: true,
+      sentAtIso,
+      provider: 'resend',
+    });
+    expect(fromOne.ja_cadence_tier).toBe(1); // held too — an open never demotes either
+  });
+
+  it(`demotes one tier after exactly ${JOB_ALERT_DEMOTION_STREAK} silent sends, and never below 7`, () => {
+    let state: Record<string, unknown> = { ja_cadence_tier: 1, ja_cadence_last_sent_at: daysAgo(20) };
+    const tiers: number[] = [];
+    for (let i = 0; i < 12; i++) {
+      state = { ...state, ...nextJobAlertCadenceState({ sub: state, engaged: false, sentAtIso, provider: 'resend' }) };
+      tiers.push(state.ja_cadence_tier as number);
+    }
+    expect(tiers.slice(0, 3)).toEqual([1, 1, 3]);
+    expect(tiers.slice(3, 6)).toEqual([3, 3, 7]);
+    expect(tiers.slice(6)).toEqual([7, 7, 7, 7, 7, 7]); // floor, forever
+  });
+
+  it('never lets any sequence of silence push a live document below 7 or any single open reach 1', () => {
+    let state: Record<string, unknown> = { ja_cadence_tier: 7, ja_cadence_last_sent_at: daysAgo(30) };
+    for (const opened of [false, false, true, false, false, false, true, false]) {
+      state = { ...state, ...nextJobAlertCadenceState({ sub: state, engaged: false, opened, sentAtIso, provider: 'resend' }) };
+      expect(JOB_ALERT_CADENCE_TIERS).toContain(state.ja_cadence_tier);
+      expect(state.ja_cadence_tier).not.toBe(1);
+    }
+  });
+
+  it('does not count the very first send as silence', () => {
+    const first = nextJobAlertCadenceState({ sub: sub(), engaged: false, sentAtIso, provider: 'resend' });
+    expect(first.ja_cadence_sends_since_engagement).toBe(0);
+    expect(first.ja_cadence_weekly_sends).toBe(0);
+  });
+
+  // SHAPE 12 of the plan — our blind spot must not be charged to the reader.
+  it('neither promotes nor demotes nor counts a send the previous provider could not report', () => {
+    const before = sub({
+      ja_cadence_tier: 7,
+      ja_cadence_sends_since_engagement: 2,
+      ja_cadence_weekly_sends: 7,
+      ja_cadence_last_sent_at: daysAgo(7),
+      ja_cadence_last_send_provider: 'cloudflare',
+    });
+    const next = nextJobAlertCadenceState({ sub: before, engaged: false, sentAtIso, provider: 'cloudflare' });
+    expect(next.ja_cadence_tier).toBe(7);
+    expect(next.ja_cadence_sends_since_engagement).toBe(2);
+    expect(next.ja_cadence_weekly_sends).toBe(7); // NOT 8 — no decay off a blind send
+    expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: next, sentAtIso })).toBe(null);
+  });
+
+  it('reads engagement against the previous send, not against this one', () => {
+    const reacted = sub({ ja_cadence_last_sent_at: daysAgo(3), ...clickedAJob(1) });
+    expect(engagedSinceLastJobAlertSend(reacted)).toBe(true);
+    const stale = sub({ ja_cadence_last_sent_at: daysAgo(1), ...clickedAJob(3) });
+    expect(engagedSinceLastJobAlertSend(stale)).toBe(false);
+    expect(openedSinceLastJobAlertSend(sub({ ja_cadence_last_sent_at: daysAgo(3), last_open_at: daysAgo(1) }))).toBe(true);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SHAPES 2, 3, 7 and 8 — the terminal state.
+describe('decay: terminal, preserved, and counted in sends', () => {
+  const sentAtIso = new Date(NOW).toISOString();
+
+  /** Walk a never-engaged recipient through n silent sends on the slowest tier. */
+  function afterSilentSends(n: number) {
+    let state: Record<string, unknown> = { ja_cadence_tier: 7, ja_cadence_last_sent_at: daysAgo(7 * (n + 1)) };
+    for (let i = 0; i < n; i++) {
+      state = { ...state, ...nextJobAlertCadenceState({ sub: state, engaged: false, sentAtIso, provider: 'resend' }) };
+    }
+    return state;
+  }
+
+  it(`does not decay on the ${JOB_ALERT_DECAY_AFTER_SLOW_SENDS - 1}th send`, () => {
+    const state = afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS - 1);
+    expect(state.ja_cadence_weekly_sends).toBe(JOB_ALERT_DECAY_AFTER_SLOW_SENDS - 1);
+    expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: state, sentAtIso })).toBe(null);
+  });
+
+  it(`decays on the ${JOB_ALERT_DECAY_AFTER_SLOW_SENDS}th, and records what it decayed on`, () => {
+    const state = afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS);
+    const stamp = decayStampAfterSend({ alert: backfilledAlert(), nextState: state, sentAtIso });
+    expect(stamp).not.toBe(null);
+    expect(stamp.cadence_state).toBe(JOB_ALERT_CADENCE_STATES.DECAYED);
+    expect(stamp.cadence_sends_at_decay).toBe(JOB_ALERT_DECAY_AFTER_SLOW_SENDS);
+    expect(stamp.cadence_decayed_at).toBe(sentAtIso);
+    expect(stamp.cadence_decay_reason).toContain(String(JOB_ALERT_DECAY_AFTER_SLOW_SENDS));
+  });
+
+  it('writes NOTHING but cadence_* — `active` is not in the stamp at all', () => {
+    const stamp = decayStampAfterSend({
+      alert: backfilledAlert(),
+      nextState: afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS),
+      sentAtIso,
+    });
+    // A decayed alert must stay indistinguishable from a live one on every
+    // field the person controls: flipping `active` would make our decision look
+    // like theirs, and that is the evidence the terminal state exists to keep.
+    expect(Object.keys(stamp).every((k) => k.startsWith('cadence_'))).toBe(true);
+    expect(stamp).not.toHaveProperty('active');
+    expect(stamp).not.toHaveProperty('paused');
+    expect(stamp).not.toHaveProperty('status');
+    expect(stamp).not.toHaveProperty('keywords');
+  });
+
+  it('counts SENDS, not weeks: a recipient we never mailed cannot decay', () => {
+    // 56 days of calendar with no send at all — quota exhausted, newsletter
+    // cooldown, whatever. The counter is still zero and nothing decays.
+    const never = sub({ ja_cadence_tier: 7, ja_cadence_weekly_sends: 0 });
+    expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: never, sentAtIso })).toBe(null);
+  });
+
+  it('advances the counter only on the slowest tier, so the trip through 3 is not charged to N', () => {
+    const onThree = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_tier: 3, ja_cadence_weekly_sends: 0, ja_cadence_last_sent_at: daysAgo(3) }),
+      engaged: false,
+      sentAtIso,
+      provider: 'resend',
+    });
+    expect(onThree.ja_cadence_weekly_sends).toBe(0);
+  });
+
+  it('resets the counter on an open, so decay only reaches those who never react', () => {
+    const woken = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_tier: 7, ja_cadence_weekly_sends: JOB_ALERT_DECAY_AFTER_SLOW_SENDS - 1, ja_cadence_last_sent_at: daysAgo(7) }),
+      engaged: false,
+      opened: true,
+      sentAtIso,
+      provider: 'resend',
+    });
+    expect(woken.ja_cadence_weekly_sends).toBe(0);
+    expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: woken, sentAtIso })).toBe(null);
+  });
+
+  // SHAPE 7 again, on the other axis: the ceiling is symmetric, decay is not.
+  it('decays a backfilled alert and leaves an identically silent person-made one alone', () => {
+    const state = afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS);
+    expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: state, sentAtIso })).not.toBe(null);
+    expect(decayStampAfterSend({ alert: personAlert(), nextState: state, sentAtIso })).toBe(null);
+  });
+
+  it('recognises the backfill by the field as well as by the document id', () => {
+    // The batch writes the fixed id; the trigger payload carries the field.
+    // Either alone is enough, because production has both.
+    const byField = personAlert({ backfilled_from: 'newsletter_subscribers:auth_google' });
+    const state = afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS);
+    expect(decayStampAfterSend({ alert: byField, nextState: state, sentAtIso })).not.toBe(null);
+  });
+
+  // SHAPE 2 — just decayed.
+  it('stops selecting a decayed alert while it stays active:true', () => {
+    const decayed = backfilledAlert({ cadence_state: 'decayed', cadence_decayed_at: daysAgo(1), lastMatchedAt: daysAgo(1) });
+    expect(decayed.active).toBe(true);
+    expect(isDecayed(decayed)).toBe(true);
+    expect(isCadenceSendable(decayed)).toBe(false);
+    const decision = isJobAlertDueToday({ alert: decayed, sub: sub(), todayIso: TODAY, nowMs: NOW });
+    expect(decision.due).toBe(false);
+    expect(decision.decayed).toBe(true);
+  });
+
+  // SHAPE 8 — re-entry.
+  it('does not let a decayed alert come back on its own, however much time passes or engagement arrives', () => {
+    const decayed = backfilledAlert({ cadence_state: 'decayed', cadence_decayed_at: daysAgo(400) });
+    const profiles = [sub(), sub(clickedAJob(0)), sub({ last_open_at: daysAgo(0) }), sub({ ja_cadence_tier: 1 })];
+    for (const profile of profiles) {
+      expect(isJobAlertDueToday({ alert: decayed, sub: profile, todayIso: TODAY, nowMs: NOW }).due).toBe(false);
+    }
+    // And a second pass never re-stamps it, so cadence_decayed_at keeps
+    // pointing at the moment we actually stopped.
+    expect(decayStampAfterSend({
+      alert: decayed,
+      nextState: { ja_cadence_weekly_sends: JOB_ALERT_DECAY_AFTER_SLOW_SENDS + 4 },
+      sentAtIso,
+    })).toBe(null);
+  });
+
+  it('treats an unreadable cadence_state as "do not send", not as "send"', () => {
+    // 'DECAYED ' still decays — trimmed and lowercased, it IS the state. The
+    // others are not, and on a channel nobody asked for the answer to "I do not
+    // know what this field means" is silence.
+    expect(cadenceStateOf(backfilledAlert({ cadence_state: 'DECAYED ' }))).toBe(JOB_ALERT_CADENCE_STATES.DECAYED);
+    for (const raw of ['paused', 'true', 'expired', '  ', 'activ', '1']) {
+      const alert = backfilledAlert({ cadence_state: raw });
+      expect(cadenceStateOf(alert), raw).toBe('unknown');
+      const decision = isJobAlertDueToday({ alert, sub: sub(), todayIso: TODAY, nowMs: NOW });
+      expect(decision.due, raw).toBe(false);
+      expect(decision.decayed, raw).toBe(false); // unknown is not decayed: do not claim we retired them
+    }
+    // Absent and literally-empty are the same thing: a document written before
+    // this engine existed, which must keep receiving whatever it received.
+    expect(cadenceStateOf(backfilledAlert())).toBe(JOB_ALERT_CADENCE_STATES.ACTIVE);
+    expect(cadenceStateOf(backfilledAlert({ cadence_state: '' }))).toBe(JOB_ALERT_CADENCE_STATES.ACTIVE);
+    expect(cadenceStateOf(backfilledAlert({ cadence_state: null }))).toBe(JOB_ALERT_CADENCE_STATES.ACTIVE);
+    expect(cadenceStateOf(backfilledAlert({ cadence_state: 'active' }))).toBe(JOB_ALERT_CADENCE_STATES.ACTIVE);
+  });
+
+  it('calls a recipient decayed only when EVERY alert they hold is', () => {
+    const decayed = (email: string) => backfilledAlert({ email, cadence_state: 'decayed' });
+    const live = (email: string) => personAlert({ email });
+    const set = recipientsWithAllAlertsDecayed([
+      decayed('all@example.test'),
+      decayed('all@example.test'),
+      decayed('mixed@example.test'),
+      live('mixed@example.test'), // one alert they created themselves is still running
+      live('none@example.test'),
+    ]);
+    expect([...set]).toEqual(['all@example.test']);
+    expect(recipientsWithAllAlertsDecayed([])).toEqual(new Set());
+    // Order must not matter: the live alert can come first or last.
+    expect(recipientsWithAllAlertsDecayed([live('m@x.test'), decayed('m@x.test')]).size).toBe(0);
+    expect(recipientsWithAllAlertsDecayed([decayed('m@x.test'), live('m@x.test')]).size).toBe(0);
+  });
+
+  it('withholds the sunset re-probe from a decayed subscriber — the quieter mechanism wins', () => {
+    const longSilent = {
+      status: 'inactive',
+      open_count: 0,
+      click_count: 0,
+      inactive_at: daysAgo(400),
+      delivered_count: 30,
+      createdAt: daysAgo(500),
+    };
+    expect(classifyJobAlertSunset(longSilent, NOW).action).toBe('reprobe');
+    expect(classifyJobAlertSunset(longSilent, NOW, { cadenceDecayed: true }).action).toBe('none');
+    expect(classifyJobAlertSunset(longSilent, NOW, { cadenceDecayed: true }).reason).toContain('cadence decayed');
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+describe('the sender actually consumes the engine', () => {
+  // Read as TEXT, never imported: send-job-alerts.mjs pulls ~12 files under
+  // data/ and public/ at module scope, so importing it here would be red in a
+  // sparse worktree and green in CI. This is also the only guard that catches
+  // the failure mode of #5767 — a module that is correct, tested, and simply
+  // never called. `jobAlertEngagementTier.mjs` sat unconsumed for weeks with a
+  // green suite because nothing asserted the import existed.
+  const senderSource = fs.readFileSync(
+    path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
+    'utf-8',
+  );
+
+  it('imports the cadence engine and calls the gate', () => {
+    expect(senderSource).toContain("from './lib/jobAlertCadence.mjs'");
+    expect(senderSource).toContain('isJobAlertDueToday(');
+    expect(senderSource).toContain('nextJobAlertCadenceState(');
+    expect(senderSource).toContain('decayStampAfterSend(');
+  });
+
+  it('no longer carries the millisecond intervals the calendar gate replaced', () => {
+    expect(senderSource).not.toContain('WEEKLY_INTERVAL_MS');
+    expect(senderSource).not.toContain('ENGAGEMENT_TIER_EVERY_OTHER_DAY_INTERVAL_MS');
+  });
+
+  it('never writes `active` on an alert document', () => {
+    // The decay must be indistinguishable from nothing on every field the
+    // person controls. This is a grep, and a grep is a blunt instrument — but
+    // the alternative here is a Firestore mock of the whole send path, and the
+    // property being protected is exactly the kind a mock stops noticing.
+    expect(senderSource).not.toMatch(/\bactive:\s*(true|false)/);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+describe('invariants the whole population has to satisfy', () => {
+  // Every shape above, in one bag, plus the awkward ones.
+  const population = [
+    { name: 'backfilled, never engaged', alert: backfilledAlert(), sub: sub() },
+    { name: 'backfilled, clicked a job', alert: backfilledAlert(), sub: sub(clickedAJob(1)) },
+    { name: 'backfilled, only opened', alert: backfilledAlert(), sub: sub({ last_open_at: daysAgo(2) }) },
+    { name: 'backfilled, clicked the way out', alert: backfilledAlert(), sub: sub({ last_click_at: daysAgo(1), last_clicked_url: makeAllAlertsUnsubscribeUrl(EMAIL) }) },
+    { name: 'backfilled, unreadable click', alert: backfilledAlert(), sub: sub({ click_count: 9 }) },
+    { name: 'backfilled, camelCase', alert: backfilledAlert(), sub: sub({ lastOpenAt: daysAgo(1), clickCount: 2 }) },
+    { name: 'backfilled, pinned daily', alert: backfilledAlert({ frequencyOverride: true, frequency: 'daily' }), sub: sub() },
+    { name: 'backfilled, pinned weekly', alert: backfilledAlert({ frequencyOverride: true, frequency: 'weekly' }), sub: sub() },
+    { name: 'backfilled, decayed', alert: backfilledAlert({ cadence_state: 'decayed' }), sub: sub() },
+    { name: 'backfilled, unreadable state', alert: backfilledAlert({ cadence_state: 'wat' }), sub: sub() },
+    { name: 'person-made, clicked a job', alert: personAlert(), sub: sub(clickedAJob(1)) },
+    { name: 'person-made, never engaged', alert: personAlert(), sub: sub() },
+    { name: 'person-made, blind provider only', alert: personAlert(), sub: sub({ ja_cadence_last_send_provider: 'cloudflare' }) },
+    { name: 'empty document', alert: backfilledAlert(), sub: {} },
+  ];
+
+  it('partitions every alert into exactly one of: decayed, unsendable, or an interval on the scale', () => {
+    for (const { name, alert, sub: profile } of population) {
+      const decision = isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: NOW });
+      const sendable = isCadenceSendable(alert);
+      const buckets = [
+        decision.decayed,
+        !sendable && !decision.decayed,
+        sendable && JOB_ALERT_CADENCE_TIERS.includes(decision.intervalDays),
+      ].filter(Boolean);
+      expect(buckets.length, name).toBe(1);
+    }
+  });
+
+  it('never serves anybody more often than they are served today', () => {
+    // Today's gate, per engine tier: none on daily (1 calendar day), 36h on the
+    // open tier (every other day with one cron slot), 7 days on weekly.
+    const todayInterval: Record<string, number> = {
+      [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 1,
+      [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 2,
+      [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 7,
+    };
+    for (const { name, alert, sub: profile } of population) {
+      const decision = resolveJobAlertCadence(alert, profile, NOW);
+      if (decision.manual) continue; // pinned: unchanged by construction
+      expect(decision.intervalDays, name).toBeGreaterThanOrEqual(todayInterval[decision.tier]);
+    }
+  });
+
+  it('gives the same answer twice for the same day, whatever hour it is asked', () => {
+    for (const { name, alert, sub: profile } of population) {
+      const early = isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: Date.parse(`${TODAY}T00:33:00Z`) });
+      const late = isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: Date.parse(`${TODAY}T10:23:00Z`) });
+      expect(early.due, name).toBe(late.due);
+    }
+  });
+});
