@@ -7255,6 +7255,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'regolamento-eurovision-sicurezza-2027',
+    category: 'novita',
+    date: '2026-08-13T01:59:13.982Z',
+    image: '/images/blog/regolamento-eurovision-sicurezza-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

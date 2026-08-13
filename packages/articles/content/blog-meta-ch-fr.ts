@@ -2419,6 +2419,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incidente-e-bike-morte-ciclista.title': 'Accident de vélo électrique : un cycliste meurt à l\'hôpital',
     'blog.article.incidente-e-bike-morte-ciclista.excerpt': 'Un cycliste est mort après un accident avec un vélo électrique à Lauenen bei Gstaad.',
     'blog.article.incidente-e-bike-morte-ciclista.imageAlt': 'Un cycliste en bicyclette sur une route de montagne près de Lauenen, en Suisse.',
+    'blog.article.regolamento-eurovision-sicurezza-2027.title': 'Eurovision : nouvelles règles sur la sécurité et l\'âge des artistes',
+    'blog.article.regolamento-eurovision-sicurezza-2027.excerpt': 'L\'UER met à jour le règlement du concours : arrêt de la nation hôte en cas de guerre et relèvement de l\'âge minimum à 18 ans.',
+    'blog.article.regolamento-eurovision-sicurezza-2027.imageAlt': 'Scène d\'événement moderne dans une salle suisse',
 };
 
 export default blogMetaChFr;

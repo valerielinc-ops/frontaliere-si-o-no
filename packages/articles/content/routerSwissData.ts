@@ -832,6 +832,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'iva-aumento-sicurezza': { it: 'iva-aumento-sicurezza', en: 'iva-increase-security', de: 'iva-anstieg-sicherheit', fr: 'augmentation-iva-securite' },
  'apprendistato-formazione-berna': { it: 'apprendistato-formazione-berna', en: 'apprenticeship-vocational-training-bern', de: 'berufsbildung-lehre-kanton-bern', fr: 'apprentissage-formation-professionnelle-berne' },
  'incidente-e-bike-morte-ciclista': { it: 'incidente-e-bike-morte-ciclista', en: 'ciclist-death-in-switzerland', de: 'radfahrer-tod-in-schweiz', fr: 'mortalite-cycliste-en-suisse' },
+ 'regolamento-eurovision-sicurezza-2027': { it: 'regolamento-eurovision-sicurezza-2027', en: 'new-eurovision-safety-regulations', de: 'neue-eurovision-sicherheitsregeln', fr: 'nouvelles-regles-securite-eurovision' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
