@@ -2374,6 +2374,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Iniziativa Servizio civico, i ricorsi sono irricevibili',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'Il Tribunale federale ha stabilito che i ricorsi presentati dai sostenitori dell\'iniziativa \'Per una Svizzera che si impegna\' (Iniziativa Servizio civico) sono irricevibili.',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'Una persona vota in una scuola di Lugano',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.title': 'Sistema scolastico del Canton Berna: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.excerpt': 'Sapere cosa accade con l\'iscrizione dei figli ai cicli scolastici nel Canton Berna. Scopri i requisiti, il calendario e le lingue di insegnamento.',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.imageAlt': 'Scena di classe in un istituto scolastico del Canton Berna',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Siccità in Svizzera: Rösti esclude misure urgenti e federali',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'Il Consiglio federale monitora la siccità e il deficit idrico del 46%, escludendo per ora lo stato straordinario e lasciando ai Cantoni le decisioni.',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Paesaggio svizzero colpito dalla siccità con livelli d\'acqua bassi',
+    'blog.article.eclissi-solare-cardada.title': 'Eclissi solare a Cardada: duecento persone incantate',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Duecento persone si sono recate a Cardada per osservare l\'eclissi solare del 12 agosto 2026, con un\'eclissi parziale del 91%.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Duecento persone incantate dall\'eclissi solare a Cardada',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Eclissi solare del 12 agosto: come vederla in Svizzera',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Svizzera la copertura massima del Sole arriverà al 92% poco prima del tramonto il 12 agosto 2026, promettendo uno spettacolo unico.',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Eclissi solare osservata da una località svizzera',
 };
 
 export default blogMetaChIt;

@@ -2374,6 +2374,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Bürgerinitiative, Beschwerden sind unzulässig',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'Das Bundesgericht hat entschieden, dass Beschwerden von Befürwortern der Initiative \'Für eine engagierte Schweiz\' (Bürgerdienst-Initiative) unzulässig sind.',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'Eine Person stimmt in einer Schule in Lugano ab',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.title': 'Schulsystem des Kantons Bern: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.excerpt': 'Wissen, was mit der Einschreibung der Kinder in die Schulklassen im Kanton Bern passiert. Informieren Sie sich über die Anforderungen, den Zeitplan und die Unterrichtssprachen.',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.imageAlt': 'Schulklasse im Kanton Bern',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Dürre in der Schweiz: Rösti schliesst Dringlichkeits- und Bundesmassnahmen aus',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'Der Bundesrat überwacht die Dürre und das Wasserdefizit um 46%, schliesst den Ausnahmezustand vorerst aus und überlässt die Entscheide den Kantonen.',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Schweizer Landschaft von Dürre betroffen mit niedrigen Wasserständen',
+    'blog.article.eclissi-solare-cardada.title': 'Sonnenfinsternis in Cardada: zweihundert verzauberte Menschen',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Zweihundert Menschen reisten nach Cardada, um die Sonnenfinsternis vom 12. August 2026 mit einer partiellen Sonnenfinsternis von 91% zu beobachten.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Zweihundert Menschen bezaubert von der Sonnenfinsternis an Cardada',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Sonnenfinsternis vom 12. August: So sieht sie in der Schweiz aus',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In der Schweiz wird die maximale Sonnenbedeckung am 12. August 2026 kurz vor Sonnenuntergang 92% erreichen und ein einzigartiges Spektakel versprechen.',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Sonnenfinsternis von einem Schweizer Standort aus beobachtet',
 };
 
 export default blogMetaChDe;

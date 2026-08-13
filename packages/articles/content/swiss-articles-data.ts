@@ -7120,6 +7120,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sistema-scolastico-canton-berna-iscrizione-e-cicli',
+    category: 'pratico',
+    date: '2026-08-13T00:11:48.311Z',
+    image: '/images/blog/sistema-scolastico-canton-berna-iscrizione-e-cicli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'siccita-rosti-nessuna-misura-urgente-svizzera',
+    category: 'novita',
+    date: '2026-08-13T00:14:43.921Z',
+    image: '/images/blog/siccita-rosti-nessuna-misura-urgente-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'eclissi-solare-cardada',
+    category: 'novita',
+    date: '2026-08-13T00:29:04.119Z',
+    image: '/images/blog/eclissi-solare-cardada.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'eclissi-solare-agosto-2026-svizzera',
+    category: 'pratico',
+    date: '2026-08-13T00:33:29.266Z',
+    image: '/images/blog/eclissi-solare-agosto-2026-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

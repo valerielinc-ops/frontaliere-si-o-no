@@ -9847,6 +9847,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Erhöhung Grenzgänger: +0,64%',
     'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'Das Bundesamt für Statistik (BfS) stellt einen Anstieg der Tessiner Grenzgänger im Quartal 2026-Q2 fest.',
     'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano Blick, September 2022.',
+    'blog.article.votazione-sulla-fortezza-2024.title': 'Abstimmung über die Festung: Der befürwortende Bürgerausschuss wurde eingesetzt',
+    'blog.article.votazione-sulla-fortezza-2024.excerpt': 'Das Bürgerkomitee „Machen wir uns schön - Ja am 27. September“ unterstützt das touristische und kulturelle Aufwertungsprojekt der Festung.',
+    'blog.article.votazione-sulla-fortezza-2024.imageAlt': 'Ein Gruppe von Menschen diskutiert die Abstimmung über die Fortezza.',
+    'blog.article.frontaliereticino-chiasso-2026.title': 'Neue EU-Verpackungsvorschriften: Ein Knackpunkt für Kleinhändler',
+    'blog.article.frontaliereticino-chiasso-2026.excerpt': 'Viele Kleinstunternehmen erwägen, den Versand aufgrund des mit der neuen Verordnung eingeführten Verwaltungsaufwands einzustellen.',
+    'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'Frontalier auf der Autobahn A2',
 };
 
 export default blogMetaDe;

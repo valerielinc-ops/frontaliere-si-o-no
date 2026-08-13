@@ -2374,6 +2374,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Civic service initiative, appeals are inadmissible',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'The Federal Court has ruled that appeals filed by supporters of the \'For a Switzerland that engages\' initiative (Civic Service Initiative) are inadmissible.',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'A person votes in a school in Lugano',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.title': 'School system of the Canton of Bern: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.excerpt': 'Know what happens with the enrolment of children in school in the Canton of Bern. Learn about the requirements, calendar, and languages of instruction.',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.imageAlt': 'Scene of a class in a school of the Canton of Bern',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Drought in Switzerland: Rösti excludes urgent and federal measures',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'The Federal Council monitors the drought and the 46% water deficit, excluding the extraordinary state for now and leaving the decisions to the Cantons.',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Swiss landscape affected by drought with low water levels',
+    'blog.article.eclissi-solare-cardada.title': 'Solar eclipse in Cardada: two hundred enchanted people',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Two hundred people traveled to Cardada to observe the solar eclipse of August 12, 2026, with a partial eclipse of 91%.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Two hundred people mesmerized by the solar eclipse at Cardada',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'August 12 solar eclipse: how to see it in Switzerland',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Switzerland, the maximum coverage of the Sun will reach 92% just before sunset on August 12, 2026, promising a unique spectacle.',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Solar eclipse observed from a Swiss location',
 };
 
 export default blogMetaChEn;

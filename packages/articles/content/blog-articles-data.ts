@@ -29532,6 +29532,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'votazione-sulla-fortezza-2024',
+ category: 'pratico',
+ date: '2026-08-13T00:05:42.721Z',
+ image: '/images/blog/votazione-sulla-fortezza-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontaliereticino-chiasso-2026',
+ category: 'pratico',
+ date: '2026-08-13T00:41:51.397Z',
+ image: '/images/blog/frontaliereticino-chiasso-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
