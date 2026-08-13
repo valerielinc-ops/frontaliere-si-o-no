@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-08-13T10:17:04.890Z",
+  "assembledAt": "2026-08-13T10:05:34.432Z",
   "jobs": [
     {
       "id": "valora-d3037f1aab6b",
@@ -2065,24 +2065,36 @@
         "immobilienbewirtschafter-w-m-d-valora-muttenz",
         "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
         "real-estate-manager-f-m-d-valora-group-muttenz",
-        "real-estate-manager-m-w-d-valora-group-muttenz"
+        "real-estate-manager-m-w-d-valora-group-muttenz",
+        "responsabile-contabile-100-f-m-d-valora-group-muttenz",
+        "accounting-officer-100-f-m-d-valora-group-muttenz",
+        "sachbearbeiter-buchhaltung-100-w-m-d-valora-muttenz",
+        "comptable-100-f-m-d-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewirtschafter-w-m-d-valora-muttenz",
           "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
-          "real-estate-manager-f-m-d-valora-group-muttenz"
+          "real-estate-manager-f-m-d-valora-group-muttenz",
+          "responsabile-contabile-100-f-m-d-valora-group-muttenz",
+          "accounting-officer-100-f-m-d-valora-group-muttenz",
+          "sachbearbeiter-buchhaltung-100-w-m-d-valora-muttenz",
+          "comptable-100-f-m-d-valora-group-muttenz"
         ],
         "en": [
           "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
-          "real-estate-manager-m-w-d-valora-group-muttenz"
+          "real-estate-manager-m-w-d-valora-group-muttenz",
+          "accounting-officer-100-f-m-d-valora-group-muttenz"
         ],
         "fr": [
-          "immobilienbewirtschafter-w-m-d-valora-group-muttenz"
+          "immobilienbewirtschafter-w-m-d-valora-group-muttenz",
+          "comptable-100-f-m-d-valora-group-muttenz"
+        ],
+        "de": [
+          "sachbearbeiter-buchhaltung-100-w-m-d-valora-muttenz"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:13.414Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2094,7 +2106,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-f4bb81a139ca",

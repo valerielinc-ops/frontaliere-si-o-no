@@ -1,6 +1,6 @@
 {
   "crawlerKey": "interdiscount",
-  "assembledAt": "2026-08-13T10:18:03.179Z",
+  "assembledAt": "2026-08-13T09:21:51.481Z",
   "jobs": [
     {
       "id": "interdiscount-05007973-bbb",
@@ -10218,6 +10218,7 @@
           "• Du hast Freude daran, im Team zu arbeiten und kannst entscheidende Beiträge zum Erfolg leisten."
         ]
       },
+      "firstSeenAt": "2026-08-11T22:16:05.052Z",
       "previousSlugsByLocale": {
         "de": [
           "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
@@ -10226,17 +10227,17 @@
         "it": [
           "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
           "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern-195e42",
-          "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
+          "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
+          "gestione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
         ]
       },
       "previousSlugs": [
         "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
         "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern-195e42",
         "junior-lieferkette-manager-distribution-interdiscount-jegenstorf-bern-195e42",
-        "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
+        "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
+        "gestione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
       ],
-      "firstSeenAt": "2026-08-11T22:16:05.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10248,15 +10249,16 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "interdiscount-885b17c6-aec",
       "slug": "consulente-commerciale-in-interdiscount-wettingen-ffb287",
       "slugByLocale": {
+        "de": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
         "it": "consulente-commerciale-in-interdiscount-wettingen-ffb287",
         "en": "sales-consultant-in-interdiscount-wettingen-ffb287",
-        "de": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
         "fr": "consultant-en-ventes-interdiscount-wettingen-ffb287"
       },
       "company": "Interdiscount",
@@ -10315,26 +10317,6 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T21:52:44.491Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-interdiscount-wettingen",
-          "consulente-commerciale-in-interdiscount-wettingen-ffb287"
-        ],
-        "de": [
-          "verkaufsberater-in-interdiscount-wettingen"
-        ],
-        "en": [
-          "verkaufsberater-in-interdiscount-wettingen"
-        ],
-        "fr": [
-          "verkaufsberater-in-interdiscount-wettingen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-wettingen",
-        "consulente-commerciale-in-interdiscount-wettingen-ffb287"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -10346,7 +10328,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T21:52:44.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-wettingen",
+          "consulente-commerciale-in-interdiscount-wettingen-ffb287"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-wettingen"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-wettingen"
+        ],
+        "de": [
+          "verkaufsberater-in-interdiscount-wettingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-wettingen",
+        "consulente-commerciale-in-interdiscount-wettingen-ffb287"
+      ]
     },
     {
       "id": "interdiscount-2ac04398-090",

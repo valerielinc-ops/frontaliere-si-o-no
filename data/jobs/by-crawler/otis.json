@@ -816,7 +816,6 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-13T10:19:33.147Z",
       "firstSeenAt": "2026-08-11T21:48:41.704Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -829,7 +828,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-balerna"
+        ]
+      },
+      "previousSlugs": [
+        "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-balerna"
+      ]
     },
     {
       "id": "otis-69a648cffb6b",
@@ -1109,24 +1117,36 @@
         "servicetechniker-m-w-d-otis-reinach",
         "servicetechniker-m-w-d-otis-sa-reinach",
         "technicien-de-service-h-f-d-otis-sa-reinach",
-        "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0"
+        "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0",
+        "tecnico-di-servizio-m-f-d-otis-sa-reinach",
+        "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "service-technician-m-f-d-otis-sa-reinach",
+        "technicien-des-services-m-f-d-otis-sa-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-m-w-d-otis-reinach",
           "servicetechniker-m-w-d-otis-sa-reinach",
-          "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0"
+          "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0",
+          "tecnico-di-servizio-m-f-d-otis-sa-reinach",
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+          "service-technician-m-f-d-otis-sa-reinach",
+          "technicien-des-services-m-f-d-otis-sa-reinach"
         ],
         "en": [
-          "servicetechniker-m-w-d-otis-reinach"
+          "servicetechniker-m-w-d-otis-reinach",
+          "service-technician-m-f-d-otis-sa-reinach"
         ],
         "fr": [
           "servicetechniker-m-w-d-otis-reinach",
-          "technicien-de-service-h-f-d-otis-sa-reinach"
+          "technicien-de-service-h-f-d-otis-sa-reinach",
+          "technicien-des-services-m-f-d-otis-sa-reinach"
+        ],
+        "de": [
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:40.546Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -1139,7 +1159,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "needsRetranslation": true
     },
     {
       "id": "otis-3bf81849ecb5",
@@ -1489,23 +1510,35 @@
       "previousSlugs": [
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens",
-        "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens"
+        "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens",
+        "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kriens",
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
+        "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
+        "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens",
-          "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens"
+          "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens",
+          "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kriens",
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
+          "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
+          "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
         ],
         "en": [
-          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens"
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
+          "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34"
         ],
         "fr": [
-          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens"
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
+          "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
+        ],
+        "de": [
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:39.317Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {
@@ -1518,7 +1551,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "needsRetranslation": true
     },
     {
       "id": "otis-c12e7eb631f9",

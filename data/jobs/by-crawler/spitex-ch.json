@@ -822,14 +822,11 @@
       "applyUrl": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-prozent/J989884",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
-        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
-          "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl"
+          "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
+          "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach"
@@ -838,7 +835,11 @@
           "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach"
         ]
       },
-      "firstSeenAt": "2026-08-12T22:08:34.213Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
+        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
+        "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl"
+      ],
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -850,7 +851,8 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T22:08:34.213Z"
     },
     {
       "id": "spitex-ch-ca2a1ff06101",

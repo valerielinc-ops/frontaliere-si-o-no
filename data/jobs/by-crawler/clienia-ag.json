@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clienia-ag",
-  "assembledAt": "2026-08-13T10:48:01.511Z",
+  "assembledAt": "2026-08-13T08:38:40.058Z",
   "jobs": [
     {
       "id": "clienia-ag-7a124206f07a",
@@ -7145,7 +7145,10 @@
         "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
         "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
         "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-        "dipl-cura-professionale-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh"
+        "dipl-cura-professionale-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+        "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-pfaffikon",
+        "dipl-care-professional-hf-fh-m-f-d-30-80-clienia-ag-pfaffikon-zh",
+        "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7155,14 +7158,22 @@
           "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
           "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
           "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-          "dipl-cura-professionale-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh"
+          "dipl-cura-professionale-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-pfaffikon",
+          "dipl-care-professional-hf-fh-m-f-d-30-80-clienia-ag-pfaffikon-zh",
+          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-zurich"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
+          "dipl-care-professional-hf-fh-m-f-d-30-80-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "infirmier-e-diplome-e-hf-fh-m-f-x-70-90-clienia-ag-pfaffikon-zh",
-          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
+          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-pfaffikon"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-30-80-clienia-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-23T22:23:12.625Z",

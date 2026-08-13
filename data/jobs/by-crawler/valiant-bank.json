@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valiant-bank",
-  "assembledAt": "2026-08-13T10:44:42.617Z",
+  "assembledAt": "2026-08-13T10:05:32.545Z",
   "jobs": [
     {
       "id": "valiant-bank-e594269f30be",
@@ -1084,18 +1084,39 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berater-in-privatkunden-80-100-valiant-belp",
-        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp"
+        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp",
+        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag",
+        "consultant-residential-client-80-100-valiant-bank-ag-reinach-ag",
+        "berater-in-privatkunden-80-100-valiant-reinach-ag",
+        "consultant-client-residentiel-80-100-valiant-bank-ag-reinach-ag",
+        "consulente-cliente-di-riferimento-60-100-valiant-bank-ag-burgdorf",
+        "consultant-residential-client-60-100-valiant-bank-ag-burgdorf",
+        "berater-in-privatkunden-60-100-valiant-burgdorf",
+        "consultant-client-residentiel-60-100-valiant-bank-ag-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-privatkunden-80-100-valiant-belp",
-          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp"
+          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-belp",
+          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag",
+          "consultant-residential-client-80-100-valiant-bank-ag-reinach-ag",
+          "berater-in-privatkunden-80-100-valiant-reinach-ag",
+          "consultant-client-residentiel-80-100-valiant-bank-ag-reinach-ag",
+          "consulente-cliente-di-riferimento-60-100-valiant-bank-ag-burgdorf",
+          "consultant-residential-client-60-100-valiant-bank-ag-burgdorf",
+          "berater-in-privatkunden-60-100-valiant-burgdorf",
+          "consultant-client-residentiel-60-100-valiant-bank-ag-burgdorf"
         ],
         "en": [
-          "berater-in-privatkunden-80-100-valiant-belp"
+          "berater-in-privatkunden-80-100-valiant-belp",
+          "consultant-residential-client-80-100-valiant-bank-ag-reinach-ag"
         ],
         "fr": [
-          "berater-in-privatkunden-80-100-valiant-belp"
+          "berater-in-privatkunden-80-100-valiant-belp",
+          "consultant-client-residentiel-80-100-valiant-bank-ag-reinach-ag"
+        ],
+        "de": [
+          "berater-in-privatkunden-80-100-valiant-reinach-ag"
         ]
       },
       "firstSeenAt": "2026-07-04T12:23:02.985Z",

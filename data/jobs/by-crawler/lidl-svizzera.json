@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-08-13T10:19:34.851Z",
+  "assembledAt": "2026-08-13T09:31:55.340Z",
   "jobs": [
     {
       "id": "company-nhtvfc",
@@ -884,7 +884,8 @@
           "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
           "verkaufer-h-w-d-60-etoy-lidl-svizzera-etoy",
           "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0",
-          "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy"
+          "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy",
+          "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
         ],
         "en": [
           "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
@@ -905,7 +906,8 @@
         "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
         "verkaufer-h-w-d-60-etoy-lidl-svizzera-etoy",
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0",
-        "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy"
+        "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy",
+        "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7010,18 +7012,23 @@
       "postalCode": "1700",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-marly-lidl-svizzera-marly"
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-marly-lidl-svizzera-marly",
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
         ],
         "en": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly-4hrwqv"
         ],
         "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly-4hrwqv"
+        ],
+        "fr": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-marly-lidl-svizzera-marly",
-        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly-4hrwqv"
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly-4hrwqv",
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-bulle"
       ],
       "needsRetranslation": true,
       "salaryMin": 41100,
@@ -7170,7 +7177,9 @@
           "mitarbeiter-self-service-und-vertriebspartner-40-lidl-svizzera-martigny",
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36",
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny",
-          "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny"
+          "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny",
+          "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier",
+          "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle"
         ],
         "en": [
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-fribourg-e80jdc",
@@ -7187,7 +7196,9 @@
           "collaborateur-collaboratrice-libre-service-et-vente-40-bulle-lidl-svizzera-bulle",
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36",
           "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny",
-          "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny"
+          "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny",
+          "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier",
+          "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle"
         ]
       },
       "previousSlugs": [
@@ -7206,7 +7217,9 @@
         "mitarbeiter-self-service-und-vertriebspartner-40-lidl-svizzera-martigny",
         "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny-jp3l36",
         "collaborateur-collaboratrice-libre-service-et-vente-40-lidl-svizzera-martigny",
-        "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny"
+        "collaborateur-collaboratrice-libre-service-et-vente-40-martigny-lidl-svizzera-martigny",
+        "collaborateur-collaboratrice-libre-service-et-vente-20-lidl-svizzera-vernier",
+        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7223,9 +7236,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
-      "needsRetranslation": true,
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-h3lbhq",
@@ -7679,14 +7692,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-m-w-d-40-1-lidl-svizzera-sierre-os7ajp"
+          "vendeur-vendeuse-m-w-d-40-1-lidl-svizzera-sierre-os7ajp",
+          "venditore-m-f-d-40-60-1-sierre-lidl-svizzera-sierre",
+          "seller-m-f-d-40-60-1-sierre-lidl-svizzera-sierre",
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko",
+          "vendeur-m-f-j-40-60-1-sierre-lidl-svizzera-sierre",
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
+          "venditore-venditrice-m-f-d-40-60-1-sierre-lidl-svizzera-sierre"
         ],
         "en": [
-          "vendeur-vendeuse-m-w-d-40-1-lidl-svizzera-sierre-os7ajp"
+          "vendeur-vendeuse-m-w-d-40-1-lidl-svizzera-sierre-os7ajp",
+          "seller-m-f-d-40-60-1-sierre-lidl-svizzera-sierre"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko"
+        ],
+        "fr": [
+          "vendeur-m-f-j-40-60-1-sierre-lidl-svizzera-sierre"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-m-w-d-40-1-lidl-svizzera-sierre-os7ajp"
+        "vendeur-vendeuse-m-w-d-40-1-lidl-svizzera-sierre-os7ajp",
+        "venditore-m-f-d-40-60-1-sierre-lidl-svizzera-sierre",
+        "seller-m-f-d-40-60-1-sierre-lidl-svizzera-sierre",
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-8xwpko",
+        "vendeur-m-f-j-40-60-1-sierre-lidl-svizzera-sierre",
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
+        "venditore-venditrice-m-f-d-40-60-1-sierre-lidl-svizzera-sierre"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8970,13 +9002,17 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-2",
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3w8pzx"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3w8pzx",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-zurigo-lidl-svizzera-zurich"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-2",
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3w8pzx"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3w8pzx",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-zurigo-lidl-svizzera-zurich"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -8989,9 +9025,7 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-s3s98h",
@@ -9706,18 +9740,113 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans",
+          "employe-de-nettoyage-m-f-d-20-40-arbon-lidl-svizzera-arbon",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach-asinc0",
+          "employee-cleaning-staff-m-f-d-20-40-wittenbach-lidl-svizzera-wittenbach",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach-asinc0",
+          "employe-personnel-de-nettoyage-m-f-j-20-40-wittenbach-lidl-svizzera-wittenbach",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen-b1nfr3",
+          "employee-cleaning-staff-m-f-d-20-40-oftringen-lidl-svizzera-oftringen",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen-b1nfr3",
+          "employe-personnel-de-nettoyage-m-f-j-20-40-oftringen-lidl-svizzera-oftringen",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-1-lidl-svizzera-regensdorf-048n2f",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-40-1-lidl-svizzera-winterthur-ck69q9",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-rothrist-xlpauj",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-md5k71",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ebikon-yxzsjt",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon-rag43z"
         ],
         "en": [
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans-vpw9lb"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans-vpw9lb",
+          "employee-employee-cleaning-m-f-d-20-40-1-lidl-svizzera-regensdorf",
+          "employee-employee-cleaning-m-f-d-40-1-lidl-svizzera-winterthur",
+          "employee-cleaning-staff-m-f-d-20-rothrist-lidl-svizzera-rothrist",
+          "employee-employee-cleaning-m-f-d-30-lidl-svizzera-landquart",
+          "employee-cleaning-staff-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
+          "cleaning-employee-m-f-d-20-40-arbon-lidl-svizzera-arbon",
+          "employee-cleaning-staff-m-f-d-20-40-wittenbach-lidl-svizzera-wittenbach",
+          "employee-cleaning-staff-m-f-d-20-40-oftringen-lidl-svizzera-oftringen"
         ],
         "fr": [
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans-vpw9lb"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans-vpw9lb",
+          "nettoyage-des-employes-m-f-j-20-40-1-lidl-svizzera-regensdorf",
+          "nettoyage-des-employes-m-f-j-40-1-lidl-svizzera-winterthur",
+          "employe-personnel-de-nettoyage-m-f-d-20-rothrist-lidl-svizzera-rothrist",
+          "nettoyage-des-employes-m-f-j-30-lidl-svizzera-landquart",
+          "employe-personnel-de-nettoyage-m-f-j-20-40-ebikon-lidl-svizzera-ebikon",
+          "employe-de-nettoyage-m-f-d-20-40-arbon-lidl-svizzera-arbon",
+          "employe-personnel-de-nettoyage-m-f-j-20-40-wittenbach-lidl-svizzera-wittenbach",
+          "employe-personnel-de-nettoyage-m-f-j-20-40-oftringen-lidl-svizzera-oftringen"
+        ],
+        "de": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-lidl-svizzera-regensdorf-048n2f",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-lidl-svizzera-regensdorf",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-lidl-svizzera-winterthur-ck69q9",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-lidl-svizzera-winterthur",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-rothrist-xlpauj",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-rothrist",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-md5k71",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ebikon-yxzsjt",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ebikon",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon-rag43z",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach-asinc0",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen-b1nfr3"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans",
-        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans-vpw9lb"
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-lidl-svizzera-stans-vpw9lb",
+        "employe-de-nettoyage-m-f-d-20-40-arbon-lidl-svizzera-arbon",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach-asinc0",
+        "employee-cleaning-staff-m-f-d-20-40-wittenbach-lidl-svizzera-wittenbach",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach-asinc0",
+        "employe-personnel-de-nettoyage-m-f-j-20-40-wittenbach-lidl-svizzera-wittenbach",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wittenbach",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen-b1nfr3",
+        "employee-cleaning-staff-m-f-d-20-40-oftringen-lidl-svizzera-oftringen",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen-b1nfr3",
+        "employe-personnel-de-nettoyage-m-f-j-20-40-oftringen-lidl-svizzera-oftringen",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-1-lidl-svizzera-regensdorf-048n2f",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-40-1-lidl-svizzera-winterthur-ck69q9",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-rothrist-xlpauj",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-md5k71",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ebikon-yxzsjt",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon-rag43z",
+        "employee-employee-cleaning-m-f-d-20-40-1-lidl-svizzera-regensdorf",
+        "employee-employee-cleaning-m-f-d-40-1-lidl-svizzera-winterthur",
+        "employee-cleaning-staff-m-f-d-20-rothrist-lidl-svizzera-rothrist",
+        "employee-employee-cleaning-m-f-d-30-lidl-svizzera-landquart",
+        "employee-cleaning-staff-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
+        "cleaning-employee-m-f-d-20-40-arbon-lidl-svizzera-arbon",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-lidl-svizzera-regensdorf-048n2f",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-1-lidl-svizzera-regensdorf",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-lidl-svizzera-winterthur-ck69q9",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-1-lidl-svizzera-winterthur",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-rothrist-xlpauj",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-rothrist",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-md5k71",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ebikon-yxzsjt",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-ebikon",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-arbon-rag43z",
+        "nettoyage-des-employes-m-f-j-20-40-1-lidl-svizzera-regensdorf",
+        "nettoyage-des-employes-m-f-j-40-1-lidl-svizzera-winterthur",
+        "employe-personnel-de-nettoyage-m-f-d-20-rothrist-lidl-svizzera-rothrist",
+        "nettoyage-des-employes-m-f-j-30-lidl-svizzera-landquart",
+        "employe-personnel-de-nettoyage-m-f-j-20-40-ebikon-lidl-svizzera-ebikon"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9733,9 +9862,9 @@
       "addressRegion": "NW",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ft4wsp",
@@ -12375,18 +12504,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur",
+          "venditore-m-f-d-40-60-1-1-lidl-svizzera-winterthur",
+          "seller-m-f-d-40-60-1-1-lidl-svizzera-winterthur",
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-winterthur-9l0er8",
+          "vendeur-m-f-j-40-60-1-1-lidl-svizzera-winterthur",
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-winterthur"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur-ytpwbr"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur-ytpwbr",
+          "seller-m-f-d-40-60-1-1-lidl-svizzera-winterthur"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur-ytpwbr"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur-ytpwbr",
+          "vendeur-m-f-j-40-60-1-1-lidl-svizzera-winterthur"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-winterthur-9l0er8"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur-ytpwbr"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-lidl-svizzera-winterthur-ytpwbr",
+        "venditore-m-f-d-40-60-1-1-lidl-svizzera-winterthur",
+        "seller-m-f-d-40-60-1-1-lidl-svizzera-winterthur",
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-winterthur-9l0er8",
+        "vendeur-m-f-j-40-60-1-1-lidl-svizzera-winterthur",
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-winterthur"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13332,18 +13476,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz"
+          "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz",
+          "venditore-venditore-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz-af1387",
+          "ch-seller-seller-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
+          "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-2ah02b",
+          "ch-vendeur-vendeur-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
+          "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz"
         ],
         "en": [
-          "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz-8gzn2a"
+          "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz-8gzn2a",
+          "ch-seller-seller-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz"
         ],
         "fr": [
-          "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz-8gzn2a"
+          "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz-8gzn2a",
+          "ch-vendeur-vendeur-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz"
+        ],
+        "de": [
+          "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-2ah02b"
         ]
       },
       "previousSlugs": [
         "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz",
-        "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz-8gzn2a"
+        "ch-verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-niederlenz-8gzn2a",
+        "venditore-venditore-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz-af1387",
+        "ch-seller-seller-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
+        "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz-2ah02b",
+        "ch-vendeur-vendeur-m-f-d-20-80-niederlenz-lidl-svizzera-niederlenz",
+        "ch-verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-niederlenz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13727,18 +13886,51 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden",
+          "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-kggziw",
+          "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-kggziw",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18796,18 +18988,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg",
+          "venditore-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+          "seller-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg-a9djgw",
+          "vendeur-m-f-j-20-80-1-brugg-lidl-svizzera-brugg",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+          "seller-m-f-d-20-80-1-brugg-lidl-svizzera-brugg"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+          "vendeur-m-f-j-20-80-1-brugg-lidl-svizzera-brugg"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg-a9djgw"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+        "venditore-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+        "seller-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg-a9djgw",
+        "vendeur-m-f-j-20-80-1-brugg-lidl-svizzera-brugg",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18956,18 +19163,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen",
+          "venditore-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+          "seller-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen-68xv5o",
+          "vendeur-m-f-j-20-80-1-wettingen-lidl-svizzera-wettingen",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj",
+          "seller-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj",
+          "vendeur-m-f-j-20-80-1-wettingen-lidl-svizzera-wettingen"
+        ],
+        "de": [
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen-68xv5o"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj",
+        "venditore-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+        "seller-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen-68xv5o",
+        "vendeur-m-f-j-20-80-1-wettingen-lidl-svizzera-wettingen",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

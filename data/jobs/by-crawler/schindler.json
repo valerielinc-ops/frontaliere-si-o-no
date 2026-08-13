@@ -2406,19 +2406,20 @@
       "jobReqId": "1410232733",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "manager-fur-cookie-einwilligungen-schindler-bern",
+          "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
         ]
       },
+      "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T10:19:20.277Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2430,7 +2431,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:19:20.277Z"
     },
     {
       "id": "schindler-e580ebc409d5",
@@ -6288,7 +6290,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-sion",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
-        "en": "cookie-consent-manager-schindler-sion",
+        "en": "cookie-consent-manager-schindler-sion-qcokaf",
         "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
@@ -6345,7 +6347,8 @@
           "cookie-consent-manager-schindler-sion"
         ],
         "en": [
-          "cookie-consent-manager-schindler-sion-qcokaf"
+          "cookie-consent-manager-schindler-sion-qcokaf",
+          "cookie-consent-manager-schindler-sion"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:43.278Z",
@@ -6416,21 +6419,22 @@
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "cookie-consent-manager-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr",
+          "cookie-consent-manager-schindler-bussigny"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -6442,7 +6446,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",

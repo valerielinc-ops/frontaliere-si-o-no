@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-08-13T10:51:32.690Z",
+  "assembledAt": "2026-08-13T09:36:45.182Z",
   "jobs": [
     {
       "id": "company-4uxq60",
@@ -2090,7 +2090,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern",
-          "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern-ugsay8"
+          "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern-ugsay8",
+          "head-of-bread-bakery-products-daily-genossenschaft-migros-luzern-steinhausen"
         ],
         "en": [
           "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern-ugsay8"
@@ -2101,8 +2102,11 @@
       },
       "previousSlugs": [
         "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern",
-        "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern-ugsay8"
+        "fachleiter-in-brot-backwaren-genossenschaft-migros-luzern-ugsay8",
+        "head-of-bread-bakery-products-daily-genossenschaft-migros-luzern-steinhausen"
       ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2116,9 +2120,7 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      "needsRetranslation": true
     },
     {
       "id": "company-z6w8o1",
@@ -2436,18 +2438,31 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5"
+          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5",
+          "mehrzweck-vertriebsleiter-h-f-d-societe-cooperative-migros-vaud-lausanne",
+          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-hxfs9s",
+          "multipurpose-sales-manager-h-f-d-societe-cooperative-migros-vaud-lausanne"
         ],
         "en": [
-          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5"
+          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5",
+          "multipurpose-sales-manager-h-f-d-societe-cooperative-migros-vaud-lausanne"
         ],
         "de": [
-          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5"
+          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5",
+          "mehrzweck-vertriebsleiter-h-f-d-societe-cooperative-migros-vaud-lausanne"
+        ],
+        "fr": [
+          "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-hxfs9s"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5"
+        "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-twesd5",
+        "mehrzweck-vertriebsleiter-h-f-d-societe-cooperative-migros-vaud-lausanne",
+        "gestionnaire-de-vente-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-hxfs9s",
+        "multipurpose-sales-manager-h-f-d-societe-cooperative-migros-vaud-lausanne"
       ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2460,9 +2475,7 @@
       },
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 60500,
-      "salaryMax": 91500
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-h67yna",
@@ -70901,18 +70914,31 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-clients-prives-banque-migros-neuenburg",
-          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
+          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+          "consulente-per-la-clientela-privata-banque-migros-genf-nk2yvs",
+          "kundenberater-privatkunden-banque-migros-genf-nk2yvs",
+          "private-client-advisor-banque-migros-genf-nk2yvs",
+          "conseiller-clients-prives-banque-migros-genf-nk2yvs"
         ],
         "en": [
-          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
+          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+          "private-client-advisor-banque-migros-genf-nk2yvs"
         ],
         "de": [
-          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
+          "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+          "kundenberater-privatkunden-banque-migros-genf-nk2yvs"
+        ],
+        "fr": [
+          "conseiller-clients-prives-banque-migros-genf-nk2yvs"
         ]
       },
       "previousSlugs": [
         "conseiller-clients-prives-banque-migros-neuenburg",
-        "conseiller-clients-prives-banque-migros-neuenburg-ks0z80"
+        "conseiller-clients-prives-banque-migros-neuenburg-ks0z80",
+        "consulente-per-la-clientela-privata-banque-migros-genf-nk2yvs",
+        "kundenberater-privatkunden-banque-migros-genf-nk2yvs",
+        "private-client-advisor-banque-migros-genf-nk2yvs",
+        "conseiller-clients-prives-banque-migros-genf-nk2yvs"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -110624,18 +110650,43 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma",
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8"
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8",
+          "venditore-fresco-genossenschaft-migros-ostschweiz-mels",
+          "fresh-seller-genossenschaft-migros-ostschweiz-mels",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-mels-hjen0s",
+          "vendeur-frais-genossenschaft-migros-ostschweiz-mels",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-mels",
+          "venditore-fresco-genossenschaft-migros-ostschweiz-uzwil",
+          "seller-in-freshness-genossenschaft-migros-ostschweiz-uzwil",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
+          "vendeur-en-fraicheur-genossenschaft-migros-ostschweiz-uzwil",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil"
         ],
         "en": [
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8"
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8",
+          "fresh-seller-genossenschaft-migros-ostschweiz-mels"
         ],
         "fr": [
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8"
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8",
+          "vendeur-frais-genossenschaft-migros-ostschweiz-mels"
+        ],
+        "de": [
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-mels-hjen0s"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma",
-        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8"
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-bauma-ujzgt8",
+        "venditore-fresco-genossenschaft-migros-ostschweiz-mels",
+        "fresh-seller-genossenschaft-migros-ostschweiz-mels",
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-mels-hjen0s",
+        "vendeur-frais-genossenschaft-migros-ostschweiz-mels",
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-mels",
+        "venditore-fresco-genossenschaft-migros-ostschweiz-uzwil",
+        "seller-in-freshness-genossenschaft-migros-ostschweiz-uzwil",
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil-ck264c",
+        "vendeur-en-fraicheur-genossenschaft-migros-ostschweiz-uzwil",
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -117952,18 +118003,33 @@
       "previousSlugsByLocale": {
         "it": [
           "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon",
-          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0"
+          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0",
+          "addetto-a-vendite-genossenschaft-migros-ostschweiz-wetzikon",
+          "sales-associate-genossenschaft-migros-ostschweiz-wetzikon",
+          "verkaufer-in-genossenschaft-migros-ostschweiz-wetzikon-g99w2x",
+          "vendeur-vendeuse-genossenschaft-migros-ostschweiz-wetzikon",
+          "verkaufer-in-genossenschaft-migros-ostschweiz-wetzikon"
         ],
         "en": [
-          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0"
+          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0",
+          "sales-associate-genossenschaft-migros-ostschweiz-wetzikon"
         ],
         "fr": [
-          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0"
+          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0",
+          "vendeur-vendeuse-genossenschaft-migros-ostschweiz-wetzikon"
+        ],
+        "de": [
+          "verkaufer-in-genossenschaft-migros-ostschweiz-wetzikon-g99w2x"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon",
-        "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0"
+        "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-wetzikon-xdppv0",
+        "addetto-a-vendite-genossenschaft-migros-ostschweiz-wetzikon",
+        "sales-associate-genossenschaft-migros-ostschweiz-wetzikon",
+        "verkaufer-in-genossenschaft-migros-ostschweiz-wetzikon-g99w2x",
+        "vendeur-vendeuse-genossenschaft-migros-ostschweiz-wetzikon",
+        "verkaufer-in-genossenschaft-migros-ostschweiz-wetzikon"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

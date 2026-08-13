@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-08-13T10:34:33.895Z",
+  "assembledAt": "2026-08-13T10:10:34.121Z",
   "jobs": [
     {
       "title": "Caissière/vendeuse - Caissier/vendeur TopShop f/h/d",
@@ -3136,18 +3136,26 @@
       "previousSlugsByLocale": {
         "it": [
           "caissiere-vendeuse-caissier-vendeur-topshop-m-w-d-landi-moleson-sarine-sa-chatel-saint-denis",
-          "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
+          "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis",
+          "etudiante-etudiant-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis",
+          "student-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
         ],
         "en": [
-          "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
+          "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis",
+          "student-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
         ],
         "de": [
           "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
+        ],
+        "fr": [
+          "etudiante-etudiant-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
         ]
       },
       "previousSlugs": [
         "caissiere-vendeuse-caissier-vendeur-topshop-m-w-d-landi-moleson-sarine-sa-chatel-saint-denis",
-        "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
+        "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis",
+        "etudiante-etudiant-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis",
+        "student-topshop-f-h-d-landi-moleson-sarine-sa-chatel-saint-denis"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5505,18 +5513,35 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-logistikerin-logistiker-cfc-m-w-d-ernst-sutter-ag-gossau",
-          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau"
+          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau",
+          "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch",
+          "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-oberkirch",
+          "logistikerin-logistiker-efz-m-w-d-ramseier-suisse-ag-oberkirch",
+          "logisticien-logisticien-efz-m-f-d-ramseier-suisse-ag-oberkirch",
+          "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch-2drigx",
+          "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch-3lh65c"
         ],
         "en": [
-          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau"
+          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau",
+          "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-oberkirch"
         ],
         "fr": [
-          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau"
+          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau",
+          "logisticien-logisticien-efz-m-f-d-ramseier-suisse-ag-oberkirch"
+        ],
+        "de": [
+          "logistikerin-logistiker-efz-m-w-d-ramseier-suisse-ag-oberkirch"
         ]
       },
       "previousSlugs": [
         "apprendistato-come-logistikerin-logistiker-cfc-m-w-d-ernst-sutter-ag-gossau",
-        "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau"
+        "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau",
+        "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch",
+        "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-oberkirch",
+        "logistikerin-logistiker-efz-m-w-d-ramseier-suisse-ag-oberkirch",
+        "logisticien-logisticien-efz-m-f-d-ramseier-suisse-ag-oberkirch",
+        "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch-2drigx",
+        "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch-3lh65c"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -6942,17 +6967,30 @@
       "firstSeenAt": "2026-08-05T22:22:24.633Z",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken"
+          "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-addetto-a-alle-vendite-m-w-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-sales-associate-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-vendeur-se-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken"
+          "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-sales-associate-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken"
+          "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken",
+          "mitarbeiterin-vendeur-se-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
+        ],
+        "de": [
+          "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken"
+        "mitarbeiterin-mitarbeiter-verkauf-topshop-kolliken-br-40-60-w-m-d-landi-aarau-west-ag-kolliken",
+        "mitarbeiterin-addetto-a-alle-vendite-m-w-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+        "mitarbeiterin-sales-associate-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+        "mitarbeiterin-mitarbeiter-verkauf-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken",
+        "mitarbeiterin-vendeur-se-w-m-d-br-landi-kolliken-landi-aarau-west-ag-kolliken"
       ]
     },
     {
@@ -35141,17 +35179,30 @@
       "firstSeenAt": "2026-06-10T23:47:14.712Z",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf"
+          "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf",
+          "responsabile-del-negozio-volg-aadorf-tg-f-m-d-volg-aadorf",
+          "shop-manager-volg-aadorf-tg-f-m-d-volg-aadorf",
+          "ladenleitung-volg-aadorf-tg-w-m-d-volg-aadorf",
+          "chef-de-magasin-volg-aadorf-tg-f-m-d-volg-aadorf"
         ],
         "en": [
-          "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf"
+          "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf",
+          "shop-manager-volg-aadorf-tg-f-m-d-volg-aadorf"
         ],
         "fr": [
-          "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf"
+          "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf",
+          "chef-de-magasin-volg-aadorf-tg-f-m-d-volg-aadorf"
+        ],
+        "de": [
+          "ladenleitung-volg-aadorf-tg-w-m-d-volg-aadorf"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf"
+        "stellvertretung-ladenleiterin-volg-aadorf-tg-w-m-d-volg-aadorf",
+        "responsabile-del-negozio-volg-aadorf-tg-f-m-d-volg-aadorf",
+        "shop-manager-volg-aadorf-tg-f-m-d-volg-aadorf",
+        "ladenleitung-volg-aadorf-tg-w-m-d-volg-aadorf",
+        "chef-de-magasin-volg-aadorf-tg-f-m-d-volg-aadorf"
       ]
     },
     {
