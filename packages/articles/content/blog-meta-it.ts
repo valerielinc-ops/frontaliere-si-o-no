@@ -9920,6 +9920,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-lavoratori-nero-2026.title': 'Varese, oltre 50 lavoratori in nero scoperti, multe per mezzo milione',
     'blog.article.varese-lavoratori-nero-2026.excerpt': 'La Finanza di Varese ha individuato oltre 50 lavoratori in nero e contestato oltre 280 violazioni in materia di certificazione fiscale.',
     'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Al via i lavori preparatori per il piazzale ex Scuole a Lugano',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'A partire da lunedì 17 agosto si inizierà a predisporre i cinque punti di interscambio temporanei che sostituiranno la pensilina Botta.',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Lavori preparatori per il piazzale ex Scuole a Lugano.',
 };
 
 export default blogMetaIt;

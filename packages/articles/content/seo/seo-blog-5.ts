@@ -67541,6 +67541,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-preparatori-piazzale-ex-scuole': {
+    title: 'Al via i lavori preparatori per il piazzale ex Scuole a Lugano',
+    description: 'A partire da lunedì 17 agosto si inizierà a predisporre i cinque punti di interscambio temporanei che sostituiranno la pensilina Botta. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, preparatori, piazzale, scuole',
+    ogTitle: 'Al via i lavori preparatori per il piazzale ex Scuole a Lugano',
+    ogDescription: 'A partire da lunedì 17 agosto si inizierà a predisporre i cinque punti di interscambio temporanei che sostituiranno la pensilina Botta.',
+    canonicalPath: '/articoli-frontaliere/lavori-preparatori-piazzale-ex-scuole',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Al via i lavori preparatori per il piazzale ex Scuole a Lugano",
+      "description": "A partire da lunedì 17 agosto si inizierà a predisporre i cinque punti di interscambio temporanei che sostituiranno la pensilina Botta. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-preparatori-piazzale-ex-scuole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori preparatori per il piazzale ex Scuole a Lugano."
+      },
+      "datePublished": "2026-08-13T21:37:31+00:00",
+      "dateModified": "2026-08-13T21:37:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-preparatori-piazzale-ex-scuole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
