@@ -2575,6 +2575,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-berna-conversione.title': 'Führerschein im Kanton Bern: Umschulung und Prüfungen',
     'blog.article.patente-guida-berna-conversione.excerpt': 'Amtlicher Leitfaden zur Umwandlung des ausländischen Ausweises, Prüfungen und Verfahren beim Strassenverkehrsamt des Kantons Bern für Neubürger.',
     'blog.article.patente-guida-berna-conversione.imageAlt': 'Schweizer Führerschein auf einem Schreibtisch',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Arzneimittelrabatte werden nicht einbehalten',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Der Gesundheitssektor weist Vorwürfe der Zurückhaltung von Medikamentenrabatten zurück',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Patient im Krankenhaus',
 };
 
 export default blogMetaChDe;
