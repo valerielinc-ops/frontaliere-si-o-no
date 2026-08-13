@@ -67,6 +67,14 @@ import { DATA_CONTROLLER_FOOTER_LINE } from '../functions/src/lib/dataController
 type PageLocale = 'it' | 'en' | 'de' | 'fr';
 const LOCALES: readonly PageLocale[] = ['it', 'en', 'de', 'fr'];
 
+/** Home-crumb label, per locale — matches build-plugins/shared/bridgeBreadcrumb.ts. */
+const HOME_LABEL: Record<PageLocale, string> = {
+  it: 'Home',
+  en: 'Home',
+  de: 'Startseite',
+  fr: 'Accueil',
+};
+
 const TITLE: Record<PageLocale, string> = {
   it: 'Le comunicazioni che inviamo, con la frequenza di ciascuna | Frontaliere Ticino',
   en: 'The communications we send, and how often | Frontaliere Ticino',
@@ -333,6 +341,32 @@ function renderBody(locale: PageLocale): string {
     </section>`;
 }
 
+function homeUrl(locale: PageLocale): string {
+  return locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
+}
+
+/**
+ * BreadcrumbList JSON-LD — Home > this page (2-level: the communications page
+ * has no section parent, unlike the 3-level bridge/holidays chains). Same
+ * gate as everywhere else: `tests/seo/breadcrumb-coverage.test.ts` (D.2)
+ * requires every indexable dist/ page to carry one (#5760).
+ */
+function breadcrumbLd(locale: PageLocale): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: homeUrl(locale) },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: H1[locale],
+        item: `${BASE_URL}${COMMUNICATIONS_PAGE_PATH[locale]}`,
+      },
+    ],
+  });
+}
+
 function hreflangHtml(): string {
   return [
     ...LOCALES.map(
@@ -356,6 +390,7 @@ export function buildCommunicationsPage(locale: PageLocale, distDir?: string): {
     canonicalUrl: `${BASE_URL}${COMMUNICATIONS_PAGE_PATH[locale]}`,
     hreflangHtml: hreflangHtml(),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    jsonLdScripts: [breadcrumbLd(locale)],
     bodyHtml,
     skipMainWrap: true,
     distDir,
