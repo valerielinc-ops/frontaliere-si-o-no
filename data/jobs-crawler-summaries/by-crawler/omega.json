@@ -1,18 +1,19 @@
 {
   "key": "omega",
   "label": "OMEGA SA",
-  "generatedAt": "2026-08-12T22:32:05.222Z",
+  "generatedAt": "2026-08-13T10:58:57.459Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 529663,
-  "avgDurationMs": 529663,
+  "durationMs": 521329,
+  "avgDurationMs": 521329,
   "durationHistory": [
-    529663
+    521329
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "omega-32801",
       "slug": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
@@ -25,7 +26,7 @@
       "url": "https://www.swatchgroup.com/de/job/32801",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:28:22.470Z",
+      "crawledAt": "2026-08-13T10:55:18.591Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-12",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-271910&langCode=de_DE&source=swatchgroup.com",
-      "_qualityScore": 74,
+      "firstSeenAt": "2026-08-12T22:28:22.470Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "omega-32611",
       "slug": "customer-care-advisor-omega-biel-bienne",
@@ -63,7 +63,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32611",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T22:30:55.795Z",
+      "crawledAt": "2026-08-13T10:57:50.226Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -79,7 +79,6 @@
       "featured": false,
       "postedDate": "2026-07-30",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-269789&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T11:51:59.660Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -101,7 +100,7 @@
       "url": "https://www.swatchgroup.com/de/job/32658",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:28:44.403Z",
+      "crawledAt": "2026-08-13T10:55:40.236Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -139,7 +138,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32655",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T22:29:06.203Z",
+      "crawledAt": "2026-08-13T10:56:01.918Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -155,7 +154,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270209&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T11:51:44.701Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -177,7 +175,7 @@
       "url": "https://www.swatchgroup.com/de/job/32652",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:29:27.668Z",
+      "crawledAt": "2026-08-13T10:56:23.526Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -215,7 +213,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32653",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T22:29:49.401Z",
+      "crawledAt": "2026-08-13T10:56:45.030Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -231,7 +229,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270190&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -253,7 +250,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32651",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T22:30:11.494Z",
+      "crawledAt": "2026-08-13T10:57:06.980Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -269,7 +266,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270170&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -291,7 +287,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32650",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T22:30:33.906Z",
+      "crawledAt": "2026-08-13T10:57:28.630Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -307,7 +303,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270169&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -329,7 +324,7 @@
       "url": "https://www.swatchgroup.com/en/job/32560",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:31:18.752Z",
+      "crawledAt": "2026-08-13T10:58:11.693Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -345,7 +340,6 @@
       "featured": false,
       "postedDate": "2026-07-17",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-269130&langCode=en_GB&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-17T11:53:15.053Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -367,7 +361,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:31:40.607Z",
+      "crawledAt": "2026-08-13T10:58:33.157Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,7 +377,6 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268332&langCode=en_GB&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -405,7 +398,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T22:32:02.312Z",
+      "crawledAt": "2026-08-13T10:58:54.670Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -421,7 +414,6 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268295&langCode=fr_FR&source=swatchgroup.com",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -463,10 +455,9 @@
       "postedDate": "2026-07-28",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270191&langCode=fr_FR&source=swatchgroup.com",
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,

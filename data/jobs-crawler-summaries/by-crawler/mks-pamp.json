@@ -1,18 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-08-12T22:07:24.596Z",
+  "generatedAt": "2026-08-13T10:33:39.094Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 11050,
-  "avgDurationMs": 11050,
+  "durationMs": 10391,
+  "avgDurationMs": 10391,
   "durationHistory": [
-    11050
+    10391
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Technical Drawer &amp; Tooling Warehouse Specialist",
       "slug": "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro",
@@ -35,16 +36,20 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 68,
+      "id": "mks-pamp-c3c85646a586",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-12T22:07:24.592Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {

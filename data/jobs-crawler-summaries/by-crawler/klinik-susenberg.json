@@ -1,16 +1,16 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-08-12T22:18:01.583Z",
+  "generatedAt": "2026-08-13T10:27:34.536Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5183,
-  "avgDurationMs": 5183,
+  "durationMs": 4647,
+  "avgDurationMs": 4647,
   "durationHistory": [
-    5183
+    4647
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/10-Operative-Leitung-Verwaltung-Services-2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:17:58.080Z",
+      "crawledAt": "2026-08-13T10:27:31.391Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:17:58.896Z",
+      "crawledAt": "2026-08-13T10:27:31.879Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:17:58.784Z",
+      "crawledAt": "2026-08-13T10:27:31.752Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "firstSeenAt": "2026-07-02T22:24:51.568Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
