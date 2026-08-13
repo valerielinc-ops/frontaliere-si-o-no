@@ -29550,6 +29550,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'logistica-pallet-analisi-mercato',
+ category: 'pratico',
+ date: '2026-08-13T03:18:47.710Z',
+ image: '/images/blog/logistica-pallet-analisi-mercato.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

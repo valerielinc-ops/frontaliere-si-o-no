@@ -9855,6 +9855,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliereticino-chiasso-2026.title': 'Nuove regole UE sugli imballaggi: una stangata per i piccoli commercianti',
     'blog.article.frontaliereticino-chiasso-2026.excerpt': 'Molte microimprese valutano di sospendere le spedizioni a causa degli oneri amministrativi introdotti dal nuovo regolamento.',
     'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'frontalieri in autostrada A2',
+    'blog.article.logistica-pallet-analisi-mercato.title': 'Logistica: l\'interscambio EPAL e le zone d\'ombra',
+    'blog.article.logistica-pallet-analisi-mercato.excerpt': 'La nuova legge sui pallet EPAL migliora l\'interscambio, ma il mercato dell\'usato resta una sfida per la tracciabilità e la concorrenza leale.',
+    'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Pallet in un magazzino logistico in Ticino',
 };
 
 export default blogMetaIt;

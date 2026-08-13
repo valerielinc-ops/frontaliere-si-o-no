@@ -9856,6 +9856,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliereticino-chiasso-2026.title': 'UE: nuove regole sugli imballaggi, una sfida per i piccoli commercianti',
     'blog.article.frontaliereticino-chiasso-2026.excerpt': 'De nombreuses micro-entreprises envisagent de suspendre les expéditions en raison des charges administratives introduites par le nouveau règlement.',
     'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'frontalier en autoroute A2',
+    'blog.article.logistica-pallet-analisi-mercato.title': 'Logistique : l\'échange EPAL et les zones d\'ombre',
+    'blog.article.logistica-pallet-analisi-mercato.excerpt': 'La nouvelle loi sur les palettes EPAL améliore l\'échange, mais le marché de l\'occasion reste un défi pour la traçabilité et la concurrence loyale.',
+    'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Palettes dans un entrepôt logistique au Tessin',
 };
 
 export default blogMetaFr;
