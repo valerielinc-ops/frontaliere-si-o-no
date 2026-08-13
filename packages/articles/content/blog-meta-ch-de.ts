@@ -2479,6 +2479,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.elvis-presley-padre-biologico.title': 'Elvis Presley, mio padre? Quattro anni alla ricerca della verità',
     'blog.article.elvis-presley-padre-biologico.excerpt': 'Die Frau suchte nach Hinweisen und Dokumenten, um die Wahrheit über ihren biologischen Vater herauszufinden',
     'blog.article.elvis-presley-padre-biologico.imageAlt': 'Eine Frau versucht herauszufinden, ob ihr biologischer Vater Elvis Presley ist',
+    'blog.article.mucche-svizzere-canica.title': 'Wie Schweizer Kühe mit der Hitzewelle umgehen',
+    'blog.article.mucche-svizzere-canica.excerpt': 'Schweizer Bauernhöfe versuchen, den Hitzestress der Kühe mit innovativen Lösungen abzubauen.',
+    'blog.article.mucche-svizzere-canica.imageAlt': 'Schweizer Kühe suchen Schatten unter einem Baum während der Hitzewelle.',
 };
 
 export default blogMetaChDe;
