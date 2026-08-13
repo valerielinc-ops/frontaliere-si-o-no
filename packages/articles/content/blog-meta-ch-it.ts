@@ -2491,6 +2491,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercati-affitti-canton-berna.title': 'Mercato degli affitti nel Canton Berna: canoni medi e diritto di locazione',
     'blog.article.mercati-affitti-canton-berna.excerpt': 'Gli affitti nel Canton Berna sono in costante crescita. Scopri i canoni medi per zona e il diritto di locazione.',
     'blog.article.mercati-affitti-canton-berna.imageAlt': 'Una panoramica di Lugano sul lago',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Naturalizzazione ordinaria nel Cantone di Berna: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Ecco i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Berna.',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'La procedura di naturalizzazione nel Cantone di Berna',
 };
 
 export default blogMetaChIt;

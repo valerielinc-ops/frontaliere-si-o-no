@@ -2491,6 +2491,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercati-affitti-canton-berna.title': 'Mietmarkt im Kanton Bern: Durchschnittsmieten und Mietrecht',
     'blog.article.mercati-affitti-canton-berna.excerpt': 'Die Mieten im Kanton Bern wachsen stetig. Entdecken Sie die durchschnittlichen Gebühren pro Zone und das Mietrecht.',
     'blog.article.mercati-affitti-canton-berna.imageAlt': 'Eine Aussicht von Lugano auf dem See',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Ordentliche Einbürgerung im Kanton Bern: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Hier sind die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Bern.',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'Naturalisierungsverfahren im Kanton Bern',
 };
 
 export default blogMetaChDe;
