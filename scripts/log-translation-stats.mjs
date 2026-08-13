@@ -22,17 +22,35 @@
  *      reserved for the exact case — nothing missing AND nothing flagged.
  *
  * ── Why "complete" is not "translated" ────────────────────────────────────
- * `complete` here means "all four locale slots are populated and long enough".
- * It is a PRESENCE measure that counts characters: a German title copied into
- * the `it` slot is 40 characters long and scores as complete. Jobs carrying
- * `needsRetranslation: true` are complete by that definition too, which is why
- * they are now reported as a separate, subtractive figure (`verifiedTranslated`
- * = slots present minus flagged).
+ * `complete` here means "all four locale slots are populated, long enough,
+ * and (since #5593 item1, 2026-08-13) each non-source title actually reads as
+ * its own locale". It used to be a pure PRESENCE measure that counted
+ * characters only; a German title copied into the `it` slot used to score as
+ * complete. Jobs carrying `needsRetranslation: true` are still complete by
+ * the presence half of that definition, which is why they are reported as a
+ * separate, subtractive figure (`verifiedTranslated` = slots present minus
+ * flagged).
  *
- * The remaining gap — verifying that a populated slot is actually in the target
- * LANGUAGE — is not measured here. It plugs into the seam documented in
- * scripts/validate-translation-completeness.mjs (`titleLooksUntranslated`).
- * Until that is wired, `languageVerified` stays `null`: unknown, not zero.
+ * ── One `isIncomplete()`, not two (#5593 item1) ───────────────────────────
+ * Until 2026-08-13 this file carried its OWN copy of the incomplete-job
+ * predicate, with a comment claiming it was "bit-identical to the
+ * pre-2026-08-10 isIncomplete()" in scripts/relocalize-pending-jobs.mjs. PR
+ * #5575 (2026-08-11) removed that other isIncomplete()'s cross-locale
+ * `othersDiffer` escape hatch (a DE-source job whose EN+FR slots translated
+ * used to suppress the check on a still-German IT slot) — this file's copy
+ * was never updated to match, so the same byte-copied title was judged
+ * "excused" here and "incomplete" there. `classifyJob` now DELEGATES to the
+ * single canonical `isIncomplete()` instead of re-deriving the same judgment
+ * a second time — that duplication is what produced the drift, so the fix is
+ * to have exactly one implementation, not to re-sync two.
+ *
+ * `sourceCopyExcused` is kept, but its meaning inverts from "known accepted
+ * exemption" to "canary": since the canonical isIncomplete() has no more
+ * escape hatch, a title byte-copy in a non-source locale is now ALWAYS
+ * incomplete, so this counter should read effectively zero going forward. A
+ * non-zero value flags something worth investigating — a byte copy that
+ * slipped past the language check some other way — not an expected steady
+ * state.
  *
  * ── Rounding direction is deliberate and asymmetric ───────────────────────
  * Success rates are floored here (never overstate the good news). Problem rates
@@ -44,6 +62,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
 
 const CRAWLERS_DIR = 'data/jobs/by-crawler';
 const STATS_FILE = 'data/translation-stats-history.json';
@@ -76,51 +95,45 @@ export function formatCompleteRatio(part, total) {
 /**
  * Classify one job.
  *
- * `incomplete` is bit-identical to the pre-2026-08-10 `isIncomplete()`: same
- * thresholds, same locales, same `othersDiffer` escape hatch. The loop uses
- * `continue` where the original used an early `return true` purely so the
- * remaining locales can still be observed — the returned boolean is unchanged.
+ * `incomplete` DELEGATES to the single canonical `isIncomplete()` in
+ * scripts/relocalize-pending-jobs.mjs — see the module header for why this
+ * file no longer carries its own copy of that predicate.
  *
- * `sourceCopyExcused` is new and OBSERVATIONAL only: it records that a locale
- * slot held a byte-copy of the source title and was excused by the
- * "some other non-source locale differs, so assume this one is fine" rule.
- * That rule suppresses exactly the reported failure mode (DE source, EN+FR
- * translated, IT left in German). Counting it does not change `incomplete`.
+ * `sourceCopyExcused` stays OBSERVATIONAL only and does not feed `incomplete`.
+ * It records that a locale slot holds a byte-copy of the source title WHILE
+ * the canonical predicate still says the job is complete — the pre-#5575
+ * escape hatch this used to measure no longer exists anywhere, so this should
+ * read as zero in practice. See the module header for what a non-zero value
+ * would mean.
  *
  * @param {object} job
  * @returns {{ incomplete: boolean, sourceCopyExcused: boolean }}
  */
 export function classifyJob(job) {
   const tbl = job.titleByLocale || {};
-  const dbl = job.descriptionByLocale || {};
   const sourceTitle = (job.title || '').trim().toLowerCase();
-  const sourceDesc = (job.description || '').trim().toLowerCase();
   const sourceLang = job.sourceLang || 'it';
-  let incomplete = false;
-  let sourceCopyExcused = false;
+  const incomplete = isIncompleteCanonical(job);
 
+  let sourceCopyExcused = false;
   for (const locale of LOCALES) {
     const title = (tbl[locale] || '').trim();
-    const desc = (dbl[locale] || '').trim();
-    if (title.length < MIN_TITLE || desc.length < MIN_DESC) { incomplete = true; continue; }
-    if (title.toLowerCase() === sourceTitle && locale !== sourceLang) {
-      const othersDiffer = LOCALES.some(
-        l => l !== locale && l !== sourceLang &&
-             (tbl[l] || '').trim().toLowerCase() !== sourceTitle
-      );
-      if (!othersDiffer) { incomplete = true; continue; }
+    if (title && title.toLowerCase() === sourceTitle && locale !== sourceLang) {
       sourceCopyExcused = true;
-    }
-    if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== sourceLang) {
-      incomplete = true;
+      break;
     }
   }
+  // Only a canary when the job otherwise passed: if `incomplete` is already
+  // true (the overwhelmingly common case for a byte copy now), there is
+  // nothing to excuse.
+  sourceCopyExcused = sourceCopyExcused && !incomplete;
+
   return { incomplete, sourceCopyExcused };
 }
 
-/** Back-compat thin wrapper over classifyJob(). */
+/** Re-exported for callers that only need the predicate (single implementation, #5593). */
 export function isIncomplete(job) {
-  return classifyJob(job).incomplete;
+  return isIncompleteCanonical(job);
 }
 
 /** @returns {object} a zeroed counter bag for {@link summarizeJobs}. */
@@ -298,7 +311,15 @@ function main() {
 }
 
 // Main-guarded so the pure helpers above can be imported by tests (and by
-// nothing else) without reading data/ or appending to the history file.
+// nothing else) without appending to the history file. NOTE (#5593 item1):
+// since `isIncomplete` now delegates to relocalize-pending-jobs.mjs, IMPORTING
+// this module transitively loads that file's dependency graph — which reads
+// a couple of small data/ files at module-eval time (same tradeoff
+// scripts/local-mt-mopup.mjs already accepted for the same import). That
+// happens regardless of this guard, because it happens at import time, before
+// this line ever runs. See CLAUDE.md's sparse-worktree notes: this makes
+// tests that import this module red in a sparse worktree missing data/,
+// green in CI and in any full checkout — not a regression introduced here.
 const isMainModule = process.argv[1] &&
   path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMainModule) main();

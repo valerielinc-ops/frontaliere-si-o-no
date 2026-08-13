@@ -554,13 +554,31 @@ describe('translation writers — every scripts/ caller routes through finalizeT
     .map((file) => ({ file, src: fs.readFileSync(file, 'utf-8') }))
     .filter(({ src }) => /from\s+['"][^'"]*translation-glossary\.mjs['"]/.test(src));
 
+  // A WRITER persists translated output and must therefore mask before the
+  // translation call and restore/finalize after (both halves of the guard).
+  // A READER only calls a pure detection/localization helper on already-
+  // stored text (e.g. an audit counting how many titles still carry a raw
+  // gender code) — it never sends anything to a translator, so requiring it
+  // to import mask/finalize would be a false demand. The split is by import,
+  // not by guesswork: a writer is exactly one that imports either half.
+  const writers = importers.filter(({ src }) => /maskProtectedTokens|finalizeTranslatedText/.test(src));
+  const readers = importers.filter(({ src }) => !/maskProtectedTokens|finalizeTranslatedText/.test(src));
+
   it('finds every known writer (and notices a new one)', () => {
-    const rel = importers.map(({ file }) => path.relative(SCRIPTS_DIR, file)).sort();
+    const rel = writers.map(({ file }) => path.relative(SCRIPTS_DIR, file)).sort();
     expect(rel).toEqual([
       'lib/free-translate.mjs',
       'lib/job-localization-pipeline.mjs',
       'local-mt-mopup.mjs',
     ]);
+  });
+
+  it('finds every known read-only reader of the glossary (and notices a new one)', () => {
+    // #5587 item2: audit-job-title-locale.mjs reads localizeGenderTrigraphs to
+    // COUNT unlocalized trigraphs — it never writes a translation, so it is
+    // deliberately not held to the writer contract below.
+    const rel = readers.map(({ file }) => path.relative(SCRIPTS_DIR, file)).sort();
+    expect(rel).toEqual(['audit-job-title-locale.mjs']);
   });
 
   it('none of them calls applyGlossaryCorrections directly', () => {
@@ -570,8 +588,8 @@ describe('translation writers — every scripts/ caller routes through finalizeT
     }
   });
 
-  it('each one imports BOTH halves of the guard (mask + finalize)', () => {
-    for (const { file, src } of importers) {
+  it('each WRITER imports BOTH halves of the guard (mask + finalize)', () => {
+    for (const { file, src } of writers) {
       const name = path.relative(SCRIPTS_DIR, file);
       expect(src, `${name} does not import maskProtectedTokens`).toMatch(/maskProtectedTokens/);
       expect(src, `${name} does not import finalizeTranslatedText`).toMatch(/finalizeTranslatedText/);

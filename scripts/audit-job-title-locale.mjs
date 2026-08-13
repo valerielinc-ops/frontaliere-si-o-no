@@ -46,6 +46,18 @@
  *   `data/jobs/by-crawler/*.json` slices, and when those are absent too it
  *   reports `datasetPresent:false` and exits 0 rather than crashing a
  *   scheduled workflow or a sparse worktree.
+ * - `genderTrigraph` (added #5587 item2) is a SEPARATE per-slot count from
+ *   `flagged`/`untranslated` above: a title can be a genuinely correct
+ *   translation and still carry a raw, un-localized DACH gender code — e.g. a
+ *   German "(m/w/d)" copied verbatim into an otherwise-correct Italian title,
+ *   which should read "(m/f/d)". `titleLooksUntranslated()` deliberately does
+ *   NOT fold that into `untranslated` (see its own doc comment: a gender-code
+ *   mismatch is "a locale inconsistency, not a wrong-language title"), so
+ *   nothing was counting it even though the masking infrastructure to FIX it
+ *   already existed (scripts/lib/translation-glossary.mjs, #5562/#5571). The
+ *   detector here is `title !== localizeGenderTrigraphs(title, locale)`:
+ *   `localizeGenderTrigraphs` is idempotent, so the two sides differ only
+ *   when a trigraph is present AND not yet in the target locale's form.
  *
  * Usage:
  *   node scripts/audit-job-title-locale.mjs [options]
@@ -62,6 +74,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-utils.mjs';
+import { localizeGenderTrigraphs } from './lib/translation-glossary.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -119,6 +132,10 @@ export function auditJobTitles(jobs, { top = 15, samples = 20, limit, urlFor } =
   let actionableJobs = 0;
   let needsRetranslation = 0;
   let localeMismatchSuppressed = 0;
+  // #5587 item2 — per-slot count of gender trigraphs still in a non-locale
+  // form. Independent of `flagged`/`untranslated`: see the module header.
+  let genderTrigraphSlots = 0;
+  let genderTrigraphUnlocalized = 0;
 
   const byTargetLocale = {};
   const bySourceLang = {};
@@ -127,6 +144,7 @@ export function auditJobTitles(jobs, { top = 15, samples = 20, limit, urlFor } =
   const byCompany = {};
   const evidence = {};
   const sampleRows = [];
+  const byGenderTrigraphLocale = {};
 
   for (const job of list) {
     if (!job || typeof job !== 'object') continue;
@@ -151,6 +169,17 @@ export function auditJobTitles(jobs, { top = 15, samples = 20, limit, urlFor } =
       bump(bySourceLang, sourceLang, 'slots');
       bump(byCanton, job.canton, 'slots');
       bump(byCompany, job.company, 'slots');
+
+      // #5587 item2 — per-slot gender-trigraph localization count, independent
+      // of the untranslated verdict below (a title can be correctly translated
+      // and still carry a raw "(m/w/d)"). `localizeGenderTrigraphs` is
+      // idempotent, so a diff means a trigraph was present in a non-locale form.
+      genderTrigraphSlots += 1;
+      bump(byGenderTrigraphLocale, locale, 'slots');
+      if (title !== localizeGenderTrigraphs(title, locale)) {
+        genderTrigraphUnlocalized += 1;
+        bump(byGenderTrigraphLocale, locale, 'flagged');
+      }
 
       const verdict = titleLooksUntranslated({
         title,
@@ -218,6 +247,15 @@ export function auditJobTitles(jobs, { top = 15, samples = 20, limit, urlFor } =
       jobs: actionableJobs,
     },
     queued: { needsRetranslation, localeMismatchSuppressed },
+    // #5587 item2 — see module header. Same {slots, flagged, rate} shape as
+    // byTargetLocale/bySourceLang for consistency; `flagged` here means
+    // "still carries a non-locale-form gender trigraph", NOT `untranslated`.
+    genderTrigraph: {
+      slots: genderTrigraphSlots,
+      flagged: genderTrigraphUnlocalized,
+      rate: pct(genderTrigraphUnlocalized, genderTrigraphSlots),
+      byTargetLocale: localeRow(byGenderTrigraphLocale),
+    },
     byTargetLocale: localeRow(byTargetLocale),
     bySourceLang: localeRow(bySourceLang),
     byReason: Object.fromEntries(Object.entries(byReason).sort((a, b) => b[1] - a[1])),
@@ -334,6 +372,9 @@ function printSummary(report) {
   );
   console.log(
     `Already queued: needsRetranslation=${r.queued.needsRetranslation}, localeMismatchSuppressed=${r.queued.localeMismatchSuppressed}`
+  );
+  console.log(
+    `Gender trigraph not localized: ${r.genderTrigraph.flagged}/${r.genderTrigraph.slots} (${p2(r.genderTrigraph.rate)}) — a title can pass the language check above and still carry a raw "(m/w/d)"`
   );
 
   console.log('\n— by target locale —');
