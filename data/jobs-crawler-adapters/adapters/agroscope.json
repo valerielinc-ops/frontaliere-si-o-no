@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text \"Agroscope\" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
-  "updatedAt": "2026-08-12T21:59:32.989Z",
+  "updatedAt": "2026-08-13T10:24:11.298Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/hr-fachperson-personalverwaltung/e226b7f3-cd7a-43e3-96ea-5f74d358323c": {
       "location": "Posieux, Schweiz",
@@ -54,6 +54,12 @@
       "canton": "ZH",
       "company": "Agroscope",
       "postedDate": "2025-12-17"
+    },
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b": {
+      "location": "Ins, Schweiz",
+      "canton": "BE",
+      "company": "Agroscope",
+      "postedDate": "2026-07-01"
     },
     "https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/31f941f6-bc14-4a00-a762-6efca0c1f85f": {
       "location": "8046 Zürich",
