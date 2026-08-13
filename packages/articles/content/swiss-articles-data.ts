@@ -7309,6 +7309,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costi-asilo-nido-custodia-berna',
+    category: 'pratico',
+    date: '2026-08-13T03:12:52.951Z',
+    image: '/images/blog/costi-asilo-nido-custodia-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

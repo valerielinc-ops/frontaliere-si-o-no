@@ -2437,6 +2437,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Borse di studio Canton Berna: requisiti e importi',
     'blog.article.borse-studio-berna-guida.excerpt': 'Guida ufficiale ai contributi per la formazione nel Cantone di Berna: chi ha diritto, come presentare domanda e i criteri di calcolo per gli aiuti finanziari.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Palazzo federale a Berna, sede delle istituzioni svizzere',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Asilo nido e custodia bambini Berna: costi e sussidi',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Scopri i costi degli asili nido nel Canton Berna, le tariffe basate sul reddito, le famiglie diurne e i sussidi cantonali disponibili per la custodia dei bambini.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Asilo nido nel Canton Berna con bambini e educatori',
 };
 
 export default blogMetaChIt;

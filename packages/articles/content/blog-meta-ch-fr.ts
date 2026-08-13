@@ -2437,6 +2437,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Bourses Canton de Berne : exigences et montants',
     'blog.article.borse-studio-berna-guida.excerpt': 'Guide officiel des cotisations à la formation dans le canton de Berne : qui y a droit, comment présenter une demande et les critères de calcul des aides financières.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Palais fédéral à Berne, siège des institutions suisses',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Garderie et garde d\'enfants Berne : coûts et allocations',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Découvrez les coûts des crèches dans le canton de Berne, les tarifs basés sur le revenu, les familles de jour et les allocations cantonales disponibles pour la garde des enfants.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Crèche dans le canton de Berne avec enfants et éducateurs',
 };
 
 export default blogMetaChFr;
