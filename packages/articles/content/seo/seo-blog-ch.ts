@@ -33830,6 +33830,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-berna-salari': {
+    title: 'Salari e mercato del lavoro nel Canton Berna | Frontaliere Ticino',
+    description: 'Guida al mercato del lavoro nel Canton Berna: settori, livelli salariali, tutele contrattuali, previdenza e norme fiscali per chi lavora in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro nel Canton Berna',
+    ogDescription: 'Scopri i dettagli sul mercato del lavoro nel Canton Berna: settori, salari, previdenza e diritti dei lavoratori nel quadro normativo federale svizzero.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-berna-salari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro nel Canton Berna",
+      "description": "Guida al mercato del lavoro nel Canton Berna: settori, livelli salariali, tutele contrattuali, previdenza e norme fiscali per chi lavora in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-berna-salari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Palazzo Federale a Berna, cuore amministrativo della Svizzera."
+      },
+      "datePublished": "2026-08-13T23:20:21+00:00",
+      "dateModified": "2026-08-13T23:20:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-berna-salari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7831,6 +7831,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-lavoro-berna-salari',
+    category: 'pratico',
+    date: '2026-08-13T23:20:21.850Z',
+    image: '/images/blog/mercato-lavoro-berna-salari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

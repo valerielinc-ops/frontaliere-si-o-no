@@ -44,27 +44,71 @@ export function createJwtAssertion(creds, scope) {
   return `${unsigned}.${sign.sign(creds.private_key, 'base64url')}`;
 }
 
+// Kept in lockstep with RC_FETCH_ATTEMPTS in load-rc-env.mjs (issue #263):
+// same backoff formula, same credential chain, so a per-minute quota
+// rejection on this hop needs the same ~63s retry budget to reach the next
+// quota window instead of exhausting itself inside the one already spent.
+const TOKEN_EXCHANGE_ATTEMPTS = 7;
+
+// Wall-clock cap per attempt (follow-up #199 to #173/#198): neither `fetch`
+// call here nor its sibling in load-rc-env.mjs's `fetchTemplateViaRest` had
+// ANY timeout — only a status-based retry. A slow-but-never-erroring Google
+// endpoint (no 429/5xx, just no response) hung the awaited `fetch()` forever,
+// so the retry loop's attempt cap never even got a chance to kick in. 30s
+// matches the per-request timeout already used for other Google API calls on
+// this same credential chain (FETCH_TIMEOUT_MS in refresh-daily-brief-data.mjs).
+export const TOKEN_EXCHANGE_TIMEOUT_MS = 30_000;
+
 /**
  * Exchange a signed assertion for an access token.
+ *
+ * Retries 429/5xx: this call sits directly upstream of the Remote Config
+ * fetch in load-rc-env.mjs's REST fallback, and a single transient failure
+ * here produces the exact same symptom as one in the RC fetch itself — see
+ * isRetryableRcFetchStatus in load-rc-env.mjs, which retries the sibling call.
  * @param {string} assertion
  * @returns {Promise<string>} access token
  */
 export async function exchangeAssertionForToken(assertion) {
-  const res = await fetch(GOOGLE_TOKEN_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion,
-    }),
-  });
-  if (!res.ok) {
+  let lastErr;
+  for (let attempt = 1; attempt <= TOKEN_EXCHANGE_ATTEMPTS; attempt++) {
+    let res;
+    try {
+      res = await fetch(GOOGLE_TOKEN_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+          assertion,
+        }),
+        signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
+      });
+    } catch (err) {
+      // AbortSignal.timeout() rejects the fetch instead of resolving a status —
+      // the status-based retry below never runs, so a slow-but-never-erroring
+      // endpoint would fail on the FIRST timeout instead of spending the
+      // 7-attempt/~63s budget this loop exists to provide. Any other thrown
+      // error (DNS, TLS, etc.) is not something a retry can fix — fail fast.
+      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
+      lastErr = new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`);
+      if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
+      }
+      continue;
+    }
+    if (res.ok) {
+      const data = await res.json();
+      if (!data?.access_token) throw new Error('OAuth response missing access_token');
+      return data.access_token;
+    }
     const text = await res.text();
-    throw new Error(`OAuth token exchange failed: ${res.status} ${text}`);
+    lastErr = new Error(`OAuth token exchange failed: ${res.status} ${text}`);
+    if (res.status !== 429 && res.status < 500) throw lastErr;
+    if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
+      await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
+    }
   }
-  const data = await res.json();
-  if (!data?.access_token) throw new Error('OAuth response missing access_token');
-  return data.access_token;
+  throw lastErr;
 }
 
 /**
