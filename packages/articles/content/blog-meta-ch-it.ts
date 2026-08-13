@@ -2461,6 +2461,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-berna-guida-mutuo.title': 'Comprare casa nel Canton Berna: guida ai prezzi e mutui',
     'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Scopri i fattori chiave per l\'acquisto di un immobile nel Canton Berna: sostenibilità del mutuo, fondi propri necessari e gestione delle spese accessorie.',
     'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Abitazione moderna nel Cantone di Berna',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Summit sull’intelligenza artificiale, Gianotti delegata',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra e ha nominato l\'ex direttrice generale del CERN Fabiola Gianotti come sua delegata.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ex direttrice generale del CERN, in una riunione con funzionari svizzeri, legata al Summit sull\'intelligenza artificiale di Ginevra 2027.',
 };
 
 export default blogMetaChIt;

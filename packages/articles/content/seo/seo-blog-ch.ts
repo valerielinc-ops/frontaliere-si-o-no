@@ -31880,6 +31880,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gianotti-delegata-geneva-ai-summit-2027': {
+    title: 'Summit sull’intelligenza artificiale, Gianotti delegata',
+    description: 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull\'intelligenza artificiale e ha nominato l\'ex direttrice generale',
+    keywords: 'frontalieri, ticino, svizzera, italia, summit, sull, intelligenza, artificiale',
+    ogTitle: 'Summit sull’intelligenza artificiale, Gianotti delegata',
+    ogDescription: 'Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull\'intelligenza artificiale e ha nominato l\'ex direttrice generale del CERN Fabiola Gianotti come sua delegata.',
+    canonicalPath: '/articoli-svizzera/gianotti-delegata-geneva-ai-summit-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Summit sull’intelligenza artificiale, Gianotti delegata",
+      "description": "Il Consiglio federale ha definito gli orientamenti strategici del vertice di Ginevra sull'intelligenza artificiale e ha nominato l'ex direttrice generale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gianotti-delegata-geneva-ai-summit-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fabiola Gianotti, ex direttrice generale del CERN, in una riunione con funzionari svizzeri, legata al Summit sull'intelligenza artificiale di Ginevra 2027."
+      },
+      "datePublished": "2026-08-13T04:36:09+00:00",
+      "dateModified": "2026-08-13T04:36:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/gianotti-delegata-geneva-ai-summit-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

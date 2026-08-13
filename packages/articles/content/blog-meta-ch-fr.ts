@@ -2461,6 +2461,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-berna-guida-mutuo.title': 'Acheter une maison dans le canton de Berne : guide des prix et des prêts',
     'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Découvrez les facteurs clés pour l\'achat d\'un bien immobilier dans le canton de Berne : viabilité du prêt, fonds propres nécessaires et gestion des frais accessoires.',
     'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Maison moderne dans le canton de Berne',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Sommet sur l\'intelligence artificielle, Gianotti déléguée',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Le Conseil fédéral a défini les orientations stratégiques du sommet de Genève et a nommé l\'ancienne directrice générale du CERN Fabiola Gianotti comme sa déléguée.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ancienne directrice-générale du CERN, dans une réunion avec des fonctionnaires suisses, liée au Summit de l\'intelligence artificielle de Genève 2027.',
 };
 
 export default blogMetaChFr;
