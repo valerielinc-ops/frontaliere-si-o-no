@@ -437,9 +437,13 @@ export function markLead(sections) {
 /**
  * The four blocks, in reading order, skipping whatever the corpus could not
  * measure this morning. Exported so a caller sees exactly the block set the
- * HTML renders — note that the sender's own refusal gate does NOT go through
- * here: it reads `brief.counts.availableBlocks` off the payload, so the two
- * can in principle disagree about how thin a morning is.
+ * HTML renders — AND so the sender's own refusal gate can ask it directly
+ * instead of trusting `brief.counts.availableBlocks` on faith (#5714 item 3).
+ * `scripts/send-daily-brief.mjs:loadDayPayload` now calls this and overwrites
+ * `brief.counts.availableBlocks` with the length it gets back before the
+ * refusal check runs, so the payload's own count and the render can no longer
+ * silently disagree about how thin a morning is — a divergence is logged, not
+ * trusted.
  *
  * Reading order is stable regardless of which block leads: `buildDailyBriefEmail`
  * hoists the lead at render time, so callers that only care about availability

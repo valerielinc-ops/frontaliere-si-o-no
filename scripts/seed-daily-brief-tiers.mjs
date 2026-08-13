@@ -23,7 +23,10 @@
  * one click the document remembers, `last_click_at` beside `last_clicked_url` —
  * which is the case that matters, since on 2026-08-12 that URL was the
  * unsubscribe link for 68 of the 433 recipients this seed had put on daily.
- * A row may carry `clickEvents` to hand the classifier the full history.
+ * `main()` now hands the classifier that full history: `attachClickEvents()`
+ * reads each subscriber's `events` subcollection before `planSeed` runs
+ * (#5716 item 2), so an earlier HUMAN click behind a later synthetic one is
+ * no longer invisible to the seed the way it was to the single-click fallback.
  *
  * IDEMPOTENT. Only writes subscribers that have no `daily_brief_tier` yet, so a
  * rerun after a partial run finishes the job and a rerun after a full one is a
@@ -42,6 +45,61 @@ import { estimateDailyVolume, seedTier } from './lib/dailyBriefCadence.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const BATCH_SIZE = 400;
+const EVENTS_CONCURRENCY = 20;
+// classifyClickEvents' burst-window rule is O(n^2) in the events array length
+// (scripts/lib/syntheticClicks.mjs) and was calibrated on the bounded windows
+// the daily-brief sender reads, not a full retroactive history (#5716 item 2,
+// reviewer guard on #5697). Above this many events for one subscriber, log
+// instead of absorbing it silently, so a pathological history is visible in
+// the run's own output rather than only in its wall time.
+const EVENTS_LOG_THRESHOLD = 500;
+
+/** Runs `fn` over `items` with at most `limit` in flight at once (same idiom
+ * as scripts/report-send-hour-impact.mjs / scripts/suppression-decay.mjs). */
+async function mapWithConcurrency(items, limit, fn) {
+  let idx = 0;
+  async function worker() {
+    while (idx < items.length) {
+      const i = idx++;
+      await fn(items[i], i);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+}
+
+/**
+ * Populate `row.clickEvents` from each subscriber's `events` subcollection —
+ * the piece #5716 item 2 says was missing: `planSeed` already forwards
+ * `row.clickEvents` to `seedTier`, and `seedTier` already classifies it via
+ * `classifyClickEvents`, but nothing ever read the subcollection to fill it
+ * in, so every seed ran on the single-click fallback (`last_click_at` +
+ * `last_clicked_url`) — which cannot see an EARLIER human click behind a
+ * later synthetic one (the opt-out-link case measured in seedTier's own
+ * comment: 64 of 73 wrongly-daily recipients got there on one click of the
+ * unsubscribe link).
+ *
+ * Per-subscriber subcollection read, bounded concurrency — not a single
+ * `collectionGroup('events')` query — because grouping a collectionGroup
+ * result back onto ~8.6k rows needs the same parent-chain filter
+ * scripts/report-job-alert-engagement-tiers.mjs warns about ('events' is not
+ * a name unique to `newsletter_subscribers`), and this file already holds
+ * every row's own `doc.ref` from the initial read. Read-only: this function
+ * never writes, so it runs the same whether `--dry-run` is set or not.
+ *
+ * @param {Array<{email: string, doc: object, ref?: FirebaseFirestore.DocumentReference, clickEvents?: object[]|null}>} rows
+ */
+export async function attachClickEvents(rows) {
+  await mapWithConcurrency(rows, EVENTS_CONCURRENCY, async (row) => {
+    if (!row.ref) { row.clickEvents = null; return; }
+    const snap = await row.ref.collection('events').get();
+    const events = snap.docs.map((d) => d.data() || {});
+    if (events.length > EVENTS_LOG_THRESHOLD) {
+      console.warn(`⚠️ [seed-daily-brief-tiers] ${row.email}: ${events.length} click events — classifyClickEvents' burst window is O(n^2), watch this run's wall time`);
+    }
+    row.clickEvents = events;
+  });
+  return rows;
+}
 
 async function getFirestoreAdmin() {
   const { initializeApp, cert, getApps } = await import('firebase-admin/app');
@@ -88,8 +146,11 @@ async function main() {
   const snap = await db.collection('newsletter_subscribers').get();
   const rows = snap.docs
     .filter((doc) => doc.id !== '_meta_')
-    .map((doc) => ({ email: doc.data()?.email || doc.id, doc: doc.data() || {} }));
+    .map((doc) => ({ email: doc.data()?.email || doc.id, doc: doc.data() || {}, ref: doc.ref }));
   console.log(`👥 ${rows.length} subscriber documents read`);
+
+  console.log('📥 reading click history (events subcollection, #5716 item 2)…');
+  await attachClickEvents(rows);
 
   const { writes, skipped } = planSeed(rows, nowMs);
   const byTier = {};

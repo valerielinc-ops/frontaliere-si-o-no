@@ -28,9 +28,14 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
 const INK = '#1f2937';
-const MUTED = '#6b7280';
+const MUTED = '#6b7280';        // 4.83:1 on CARD_BG (white) — fine for the card's own footer text
 const CARD_BG = '#ffffff';
 const PAGE_BG = '#f1f5f9';
+// #5714 item 1 (follow-up of #5707, review of #5697), same fix and same
+// numbers as services/winbackEmail.mjs: the identity lines outside the card
+// sit on PAGE_BG and were raw `#94a3b8` (2.3:1) — now the site's slate-700
+// (9.5:1 on PAGE_BG).
+const TEXT_ON_PAGE = '#334155';
 
 const COPY = {
   it: {
@@ -151,8 +156,8 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
         <div style="margin-top:6px;"><a href="${preferencesUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${BRAND_ORANGE};text-decoration:underline;">${s.prefs}</a></div>
       </td></tr>
     </table>
-    <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
-    <div style="max-width:520px;margin:4px auto 0;font-size:11px;color:#94a3b8;text-align:center;">${escapeHtml(dataControllerFooterLine(l))}</div>
+    <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:${TEXT_ON_PAGE};text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
+    <div style="max-width:520px;margin:4px auto 0;font-size:11px;color:${TEXT_ON_PAGE};text-align:center;">${escapeHtml(dataControllerFooterLine(l))}</div>
   </td></tr>
 </table>
 </body>
