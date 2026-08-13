@@ -2407,6 +2407,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esperimento-materia-oscura-sotto-sedrun.title': 'Esperimento di materia oscura sotto Sedrun',
     'blog.article.esperimento-materia-oscura-sotto-sedrun.excerpt': 'Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun.',
     'blog.article.esperimento-materia-oscura-sotto-sedrun.imageAlt': 'Esperimento di fisica quantistica nel pozzo di 800 metri a Sedrun',
+    'blog.article.evaso-bois-mermet.title': 'Evade dal carcere di Bois-Mermet: Nessun pericolo per la popolazione',
+    'blog.article.evaso-bois-mermet.excerpt': 'Un detenuto è fuggito dal carcere di Bois-Mermet a Losanna. La polizia vodese assicura che non ci siano pericoli per la popolazione.',
+    'blog.article.evaso-bois-mermet.imageAlt': 'Un detenuto evaso dal carcere di Bois-Mermet',
 };
 
 export default blogMetaChIt;

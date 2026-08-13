@@ -2407,6 +2407,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esperimento-materia-oscura-sotto-sedrun.title': 'Dark matter experiment under Sedrun',
     'blog.article.esperimento-materia-oscura-sotto-sedrun.excerpt': 'A quantum physics experiment could soon be conducted in the 800-meter well at Sedrun.',
     'blog.article.esperimento-materia-oscura-sotto-sedrun.imageAlt': 'Experiment of physics in Sedrun',
+    'blog.article.evaso-bois-mermet.title': 'Escape from Bois-Mermet Prison: No danger to the population',
+    'blog.article.evaso-bois-mermet.excerpt': 'An inmate escaped from Bois-Mermet prison in Lausanne. The Vodese police ensures that there are no dangers for the population.',
+    'blog.article.evaso-bois-mermet.imageAlt': 'A prisoner escaped from Bois-Mermet prison',
 };
 
 export default blogMetaChEn;
