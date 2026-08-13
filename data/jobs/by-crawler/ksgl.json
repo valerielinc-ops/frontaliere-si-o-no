@@ -2116,8 +2116,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-ksgl-glarus",
         "it": "apprendistato-come-kauffrau-kaufmann-cfc-kantonsspital-glarus-ksgl-glarus",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-ksgl-glarus",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-ksgl-glarus"
+        "en": "apprenticeship-as-a-merchant-merchant-efz-kantonsspital-glarus-ksgl-glarus",
+        "fr": "apprentissage-en-tant-que-marchand-marchand-efz-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -2164,6 +2164,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-ksgl-glarus"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-ksgl-glarus"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-ksgl-glarus"
         ]
       },
       "previousSlugs": [
@@ -2189,8 +2195,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kochin-koch-efz-ksgl-glarus",
         "it": "apprendistato-come-kochin-koch-cfc-kantonsspital-glarus-ksgl-glarus",
-        "en": "lehrstelle-als-kochin-koch-efz-ksgl-glarus",
-        "fr": "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
+        "en": "apprenticeship-as-cook-cook-efz-kantonsspital-glarus-ksgl-glarus",
+        "fr": "apprentissage-comme-cuisinier-cuisinier-efz-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -2236,6 +2242,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
+        ],
+        "en": [
+          "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
+        ],
+        "fr": [
           "lehrstelle-als-kochin-koch-efz-ksgl-glarus"
         ]
       },

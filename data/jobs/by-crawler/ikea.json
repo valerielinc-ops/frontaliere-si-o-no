@@ -2692,12 +2692,12 @@
     },
     {
       "id": "ikea-66d89e06ca74",
-      "slug": "collaborateur-trice-logistique-80-ikea-ch",
+      "slug": "collaboratore-logistico-80-ikea-aubonne-vaud-switzerland",
       "slugByLocale": {
         "fr": "collaborateur-trice-logistique-80-ikea-ch",
-        "it": "collaborateur-trice-logistique-80-ikea-ch",
-        "en": "collaborateur-trice-logistique-80-ikea-ch",
-        "de": "collaborateur-trice-logistique-80-ikea-ch"
+        "it": "collaboratore-logistico-80-ikea-aubonne-vaud-switzerland",
+        "en": "logistics-collaborator-80-ikea-aubonne-vaud-switzerland",
+        "de": "logistik-mitarbeiter-80-ikea-aubonne-vaud-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2752,7 +2752,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:50:31.111Z"
+      "firstSeenAt": "2026-08-12T21:50:31.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-logistique-80-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-logistique-80-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-logistique-80-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-logistique-80-ikea-ch"
+      ]
     },
     {
       "id": "ikea-8d900435a85a",

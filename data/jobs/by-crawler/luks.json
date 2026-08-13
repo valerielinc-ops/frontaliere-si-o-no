@@ -57,19 +57,10 @@
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-pflegeassistenz-pflichtenheft-50966-luks-wolhusen"
-        ],
-        "en": [
-          "civilian-service-personnel-as-care-assistant-project-50966-luzerner-kantonsspital-luks-wolhusen"
-        ],
-        "fr": [
-          "personnel-civil-servant-en-tant-qu-assistant-en-soins-projet-50966-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-pflegeassistenz-pflichtenheft-50966-luks-wolhusen",
-        "percorriore-della-civile-come-assistente-alla-cura-progetto-50966-luzerner-kantonsspital-luks-wolhusen",
-        "civilian-service-personnel-as-care-assistant-project-50966-luzerner-kantonsspital-luks-wolhusen",
-        "personnel-civil-servant-en-tant-qu-assistant-en-soins-projet-50966-luzerner-kantonsspital-luks-wolhusen"
+        "zivildienstleistende-als-pflegeassistenz-pflichtenheft-50966-luks-wolhusen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -15839,9 +15830,9 @@
       "id": "luks-5278c6fa0e26",
       "slug": "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
-        "de": "leitung-spital-nidwalden-100-luks-stans",
         "it": "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
         "en": "head-of-hospital-nidwalden-100-luzerner-kantonsspital-luks-stans-c7afd3",
+        "de": "leitung-spital-nidwalden-100-luks-stans",
         "fr": "chef-de-l-hopital-nidwalden-100-luzerner-kantonsspital-luks-stans-c7afd3"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -16644,9 +16635,9 @@
       "id": "luks-19362e575bb2",
       "slug": "mpa-come-arztsekretarin-arztsekretar-mba-gefasschirurgie-60-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "de": "mpa-als-arztsekretarin-arztsekretar-mba-gefasschirurgie-60-100-luks-luzern",
         "it": "mpa-come-arztsekretarin-arztsekretar-mba-gefasschirurgie-60-100-luzerner-kantonsspital-luks-luzern",
         "en": "mpa-as-medical-secretary-medical-secretary-mba-vascular-surgery-60-100-luzerner-kantonsspital-luks-luzern",
+        "de": "mpa-als-arztsekretarin-arztsekretar-mba-gefasschirurgie-60-100-luks-luzern",
         "fr": "mpa-comme-secretaire-medical-secretaire-medical-mba-chirurgie-vasculaire-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -16722,9 +16713,9 @@
       "id": "luks-94a22acddfa8",
       "slug": "fachfrau-fachmann-gesundheit-o-mpa-brustzentrum-in-luzern-e-sursee-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-oder-mpa-brustzentrum-in-luzern-und-sursee-80-luks-luzern",
         "it": "fachfrau-fachmann-gesundheit-o-mpa-brustzentrum-in-luzern-e-sursee-80-luzerner-kantonsspital-luks-luzern",
         "en": "professional-health-or-mpa-breast-centre-in-lucerne-and-sursee-80-luzerner-kantonsspital-luks-luzern",
+        "de": "fachfrau-fachmann-gesundheit-oder-mpa-brustzentrum-in-luzern-und-sursee-80-luks-luzern",
         "fr": "sante-professionnelle-ou-mpa-breast-centre-a-lucerne-et-sursee-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -16960,12 +16951,12 @@
     },
     {
       "id": "luks-268b475c5720",
-      "slug": "strategist-for-clinical-informatics-40-luks-luzern",
+      "slug": "strategista-per-informatica-clinica-40-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "strategist-for-clinical-informatics-40-luks-luzern",
-        "it": "strategist-for-clinical-informatics-40-luks-luzern",
+        "it": "strategista-per-informatica-clinica-40-luzerner-kantonsspital-luks-luzern",
         "en": "strategist-for-clinical-informatics-40-luks-luzern",
-        "fr": "strategist-for-clinical-informatics-40-luks-luzern"
+        "fr": "strategiste-en-informatique-clinique-40-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17022,7 +17013,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:08:27.817Z"
+      "firstSeenAt": "2026-08-12T22:08:27.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategist-for-clinical-informatics-40-luks-luzern"
+        ],
+        "fr": [
+          "strategist-for-clinical-informatics-40-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "strategist-for-clinical-informatics-40-luks-luzern"
+      ]
     },
     {
       "id": "luks-afe433cfdf96",
@@ -17030,8 +17032,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-100-luks-luzern",
         "it": "pflegefachfrau-pflegefachmann-hf-fh-per-la-medizinische-tagesstation-60-100-luzerner-kantonsspital-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-100-luks-luzern",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-100-luks-luzern"
+        "en": "nursing-specialist-hf-fh-for-the-medical-day-care-unit-60-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-pour-l-unite-de-garde-medicale-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17078,6 +17080,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-100-luks-luzern"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-100-luks-luzern"
+        ],
+        "fr": [
           "pflegefachfrau-pflegefachmann-hf-fh-fur-die-medizinische-tagesstation-60-100-luks-luzern"
         ]
       },

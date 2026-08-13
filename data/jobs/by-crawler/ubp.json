@@ -3506,11 +3506,11 @@
     },
     {
       "id": "ubp-9a652946dc90",
-      "slug": "system-engineer-ubp-ch",
+      "slug": "system-ingegnere-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "system-engineer-ubp-ch",
-        "it": "system-engineer-ubp-ch",
-        "de": "system-engineer-ubp-ch",
+        "it": "system-ingegnere-union-bancaire-privee-geneva-switzerland",
+        "de": "system-ingenieur-union-bancaire-privee-geneva-switzerland",
         "fr": "system-engineer-ubp-ch"
       },
       "company": "Union Bancaire Privée",
@@ -3566,7 +3566,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:54:16.043Z"
+      "firstSeenAt": "2026-08-12T21:54:16.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-ubp-ch"
+        ],
+        "de": [
+          "system-engineer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-cae748f861d0",

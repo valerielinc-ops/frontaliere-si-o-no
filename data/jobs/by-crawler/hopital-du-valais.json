@@ -1608,12 +1608,12 @@
     },
     {
       "id": "hopital-du-valais-e0805c6b8158",
-      "slug": "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
+      "slug": "capo-medico-della-clinica-forense-40-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
-        "it": "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
-        "en": "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
-        "de": "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+        "it": "capo-medico-della-clinica-forense-40-hopital-du-valais-sierre",
+        "en": "chief-medical-officer-of-forensic-clinic-40-hopital-du-valais-sierre",
+        "de": "chief-medical-officer-der-forensischen-klinik-40-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1670,7 +1670,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-12T21:55:35.364Z"
+      "firstSeenAt": "2026-08-12T21:55:35.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+      ]
     },
     {
       "id": "hopital-du-valais-ebbb0ca46090",
@@ -4655,12 +4669,12 @@
     },
     {
       "id": "hopital-du-valais-d51ad7671e59",
-      "slug": "op-logistiker-in-50-100-hopital-du-valais-brig",
+      "slug": "op-logistico-in-50-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "op-logistiker-in-50-100-hopital-du-valais-brig",
-        "it": "op-logistiker-in-50-100-hopital-du-valais-brig",
-        "en": "op-logistiker-in-50-100-hopital-du-valais-brig",
-        "fr": "op-logistiker-in-50-100-hopital-du-valais-brig"
+        "it": "op-logistico-in-50-100-hopital-du-valais-brig",
+        "en": "op-logistician-in-50-100-hopital-du-valais-brig",
+        "fr": "op-logisticien-en-50-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4718,16 +4732,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-12T21:55:17.534Z"
+      "firstSeenAt": "2026-08-12T21:55:17.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "op-logistiker-in-50-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "op-logistiker-in-50-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "op-logistiker-in-50-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "op-logistiker-in-50-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-880a9f2a7169",
       "slug": "asc-assistente-per-la-cura-e-la-salute-della-comunita-90-per-le-sue-unita-di-psichiatria-e-psicoterapia-per-gli-anziani",
       "slugByLocale": {
-        "fr": "assc-assistant-e-en-soins-et-sante-communautaire-a-90-pour-ses-unites-de-psychiatrie-et",
         "it": "asc-assistente-per-la-cura-e-la-salute-della-comunita-90-per-le-sue-unita-di-psichiatria-e-psicoterapia-per-gli-anziani",
         "en": "asc-community-care-and-health-assistant-90-for-its-psychiatry-and-psychotherapy-units-for-the-elderly-hopital-du-valais",
-        "de": "assc-assistent-e-en-soins-et-sante-communautaire-a-90-pour-ses-unites-de-psychiatrie-et-psychotherapie-de-la-personne"
+        "de": "assc-assistent-e-en-soins-et-sante-communautaire-a-90-pour-ses-unites-de-psychiatrie-et-psychotherapie-de-la-personne",
+        "fr": "assc-assistant-e-en-soins-et-sante-communautaire-a-90-pour-ses-unites-de-psychiatrie-et"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4800,11 +4828,11 @@
     },
     {
       "id": "hopital-du-valais-d6499c2614d3",
-      "slug": "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre",
+      "slug": "testa-tecnica-di-analisi-biomedica-80-90-hopital-du-valais-sierre",
       "slugByLocale": {
-        "it": "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre",
-        "en": "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre",
-        "de": "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre",
+        "it": "testa-tecnica-di-analisi-biomedica-80-90-hopital-du-valais-sierre",
+        "en": "biomedical-analysis-technician-head-80-90-hopital-du-valais-sierre",
+        "de": "leiter-biomedizinische-analyse-techniker-80-90-hopital-du-valais-sierre",
         "fr": "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
@@ -4862,7 +4890,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-12T21:55:16.755Z"
+      "firstSeenAt": "2026-08-12T21:55:16.755Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre"
+        ],
+        "en": [
+          "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre"
+        ],
+        "de": [
+          "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-chef-fe-80-90-hopital-du-valais-sierre"
+      ]
     }
   ]
 }

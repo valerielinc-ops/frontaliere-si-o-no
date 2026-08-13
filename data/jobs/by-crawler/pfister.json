@@ -486,12 +486,12 @@
     },
     {
       "id": "pfister-b604542afdcf",
-      "slug": "category-management-assistant-w-m-d-pfister-suhr",
+      "slug": "assistente-di-gestione-della-categoria-m-f-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "de": "category-management-assistant-w-m-d-pfister-suhr",
-        "it": "category-management-assistant-w-m-d-pfister-suhr",
+        "it": "assistente-di-gestione-della-categoria-m-f-d-mobel-pfister-ag-suhr",
         "en": "category-management-assistant-w-m-d-pfister-suhr",
-        "fr": "category-management-assistant-w-m-d-pfister-suhr"
+        "fr": "assistant-de-gestion-de-categorie-h-f-d-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -550,7 +550,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:52:17.523Z"
+      "firstSeenAt": "2026-08-12T21:52:17.523Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "category-management-assistant-w-m-d-pfister-suhr"
+        ],
+        "fr": [
+          "category-management-assistant-w-m-d-pfister-suhr"
+        ]
+      },
+      "previousSlugs": [
+        "category-management-assistant-w-m-d-pfister-suhr"
+      ]
     },
     {
       "id": "pfister-fd16b7e13f70",

@@ -1026,17 +1026,13 @@
         "commis-a-la-carte-marriott-zurich",
         "commissione-a-la-carte-marriott-international-zurich",
         "reservations-agent-marriott-international-verbier",
-        "commission-a-la-carte-marriott-international-zurich",
-        "reservations-agent-marriott-verbier",
-        "prenotazione-agente-marriott-international-verbier"
+        "reservations-agent-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-a-la-carte-marriott-zurich",
           "reservations-agent-marriott-international-verbier",
-          "commissione-a-la-carte-marriott-international-zurich",
-          "reservations-agent-marriott-verbier",
-          "prenotazione-agente-marriott-international-verbier"
+          "reservations-agent-marriott-verbier"
         ],
         "en": [
           "commis-a-la-carte-marriott-zurich",
@@ -1406,11 +1402,11 @@
     },
     {
       "id": "marriott-2da64cb1e4ba",
-      "slug": "guest-experience-expert-marriott-zurich",
+      "slug": "esperienza-degli-ospiti-marriott-international-zurich",
       "slugByLocale": {
         "en": "guest-experience-expert-marriott-zurich",
-        "it": "guest-experience-expert-marriott-zurich",
-        "de": "guest-experience-expert-marriott-zurich",
+        "it": "esperienza-degli-ospiti-marriott-international-zurich",
+        "de": "gasterfahrung-experte-marriott-international-zurich",
         "fr": "guest-experience-expert-marriott-zurich"
       },
       "company": "Marriott International",
@@ -1476,7 +1472,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-12T22:21:42.242Z"
+      "firstSeenAt": "2026-08-12T22:21:42.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-expert-marriott-zurich"
+        ],
+        "de": [
+          "guest-experience-expert-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-expert-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-ef0acd2fefd4",

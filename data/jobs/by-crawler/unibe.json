@@ -4712,12 +4712,12 @@
     },
     {
       "id": "unibe-1ae155f96b0f",
-      "slug": "veterinary-dermatologist-universitat-bern-bern",
+      "slug": "dermatologo-veterinario-universitat-bern-bern",
       "slugByLocale": {
         "en": "veterinary-dermatologist-unibe-bern",
-        "it": "veterinary-dermatologist-universitat-bern-bern",
-        "de": "veterinary-dermatologist-unibe-bern",
-        "fr": "veterinary-dermatologist-unibe-bern"
+        "it": "dermatologo-veterinario-universitat-bern-bern",
+        "de": "veterinardermatologe-universitat-bern-bern",
+        "fr": "dermatologue-veterinaire-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4763,11 +4763,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "veterinary-dermatologist-unibe-bern",
+          "veterinary-dermatologist-universitat-bern-bern"
+        ],
+        "de": [
+          "veterinary-dermatologist-unibe-bern"
+        ],
+        "fr": [
           "veterinary-dermatologist-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "veterinary-dermatologist-unibe-bern"
+        "veterinary-dermatologist-unibe-bern",
+        "veterinary-dermatologist-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4787,8 +4795,8 @@
       "id": "unibe-514510a0e517",
       "slug": "posizione-postdoc-in-neuroscienze-computazionali-universitat-bern-bern",
       "slugByLocale": {
-        "en": "postdoc-position-in-computational-neuroscience-unibe-bern",
         "it": "posizione-postdoc-in-neuroscienze-computazionali-universitat-bern-bern",
+        "en": "postdoc-position-in-computational-neuroscience-unibe-bern",
         "de": "postdoc-position-in-computational-neuroscience-unibe-bern",
         "fr": "postdoc-position-in-computational-neuroscience-unibe-bern"
       },

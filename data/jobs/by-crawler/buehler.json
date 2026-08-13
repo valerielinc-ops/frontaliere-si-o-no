@@ -3313,7 +3313,7 @@
         "de": "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler",
         "it": "werkstudent-m-w-d-datenanalyse-e-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
         "en": "working-student-m-f-d-data-analysis-and-data-visualization-in-high-tech-plant-construction-buhler-group-alzenau",
-        "fr": "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
+        "fr": "etudiant-en-formation-m-f-d-analyse-des-donnees-et-visualisation-des-donnees-dans-la-construction-d-installations-de"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -3362,20 +3362,16 @@
         "it": [
           "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler"
         ],
-        "en": [
-          "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
-          "working-student-m-f-d-data-analysis-and-data-visualization-in-high-tech-plant-construction-buhler-group-alzenau"
-        ],
         "fr": [
-          "etudiant-en-formation-m-f-d-analyse-des-donnees-et-visualisation-des-donnees-dans-la-construction-d-installations-de"
+          "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
+        ],
+        "en": [
+          "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
         ]
       },
       "previousSlugs": [
         "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buehler",
-        "etudiant-en-formation-m-f-d-analyse-des-donnees-et-visualisation-des-donnees-dans-la-construction-d-installations-de",
-        "werkstudent-m-w-d-datenanalyse-e-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
-        "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau",
-        "working-student-m-f-d-data-analysis-and-data-visualization-in-high-tech-plant-construction-buhler-group-alzenau"
+        "werkstudent-m-w-d-datenanalyse-und-datenvisualisierung-im-high-tech-anlagenbau-buhler-group-alzenau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6360,10 +6356,10 @@
         "it": [
           "estagio-em-ppcp-planejamento-buehler-blumenau"
         ],
-        "de": [
+        "en": [
           "estagio-em-ppcp-planejamento-buehler-blumenau"
         ],
-        "en": [
+        "de": [
           "estagio-em-ppcp-planejamento-buehler-blumenau"
         ]
       },
@@ -11101,15 +11097,13 @@
       "previousSlugs": [
         "responsable-technique-automation-ingenieur-plc-r-d-chocolate-flavor-creation-buhler-group-uzwil",
         "technical-lead-automation-engineer-plc-r-amp-d-chocolate-amp-flavor-creation-buehler-uzwil",
-        "lead-plc-engineer-r-amp-d-buehler-uzwil",
-        "technical-lead-automation-ingegnere-plc-r-d-chocolate-flavor-creation-buhler-group-uzwil"
+        "lead-plc-engineer-r-amp-d-buehler-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-technique-automation-ingenieur-plc-r-d-chocolate-flavor-creation-buhler-group-uzwil",
           "technical-lead-automation-engineer-plc-r-amp-d-chocolate-amp-flavor-creation-buehler-uzwil",
-          "lead-plc-engineer-r-amp-d-buehler-uzwil",
-          "technical-lead-automation-ingegnere-plc-r-d-chocolate-flavor-creation-buhler-group-uzwil"
+          "lead-plc-engineer-r-amp-d-buehler-uzwil"
         ],
         "fr": [
           "technical-lead-automation-engineer-plc-r-amp-d-chocolate-amp-flavor-creation-buehler-uzwil"
@@ -11131,11 +11125,11 @@
     },
     {
       "id": "buehler-8d00a9e55b25",
-      "slug": "onsite-support-engineer-buehler-perrysburg",
+      "slug": "onsite-support-ingegnere-buhler-group-perrysburg",
       "slugByLocale": {
         "en": "onsite-support-engineer-buehler-perrysburg",
-        "it": "onsite-support-engineer-buehler-perrysburg",
-        "de": "onsite-support-engineer-buehler-perrysburg",
+        "it": "onsite-support-ingegnere-buhler-group-perrysburg",
+        "de": "onsite-support-ingenieur-buhler-group-perrysburg",
         "fr": "onsite-support-engineer-buehler-perrysburg"
       },
       "company": "Bühler Group",
@@ -11192,7 +11186,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:06:55.331Z"
+      "firstSeenAt": "2026-08-12T22:06:55.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "onsite-support-engineer-buehler-perrysburg"
+        ],
+        "de": [
+          "onsite-support-engineer-buehler-perrysburg"
+        ]
+      },
+      "previousSlugs": [
+        "onsite-support-engineer-buehler-perrysburg"
+      ]
     },
     {
       "id": "buehler-ee7e1f984b1b",

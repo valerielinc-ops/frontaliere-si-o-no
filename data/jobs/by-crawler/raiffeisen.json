@@ -14459,10 +14459,10 @@
       "id": "raiffeisen-3577a60e816e",
       "slug": "assistente-di-consulenza-clienti-aziendale-m-f-raiffeisen-payerne",
       "slugByLocale": {
-        "fr": "assistant-conseil-clientele-entreprises-f-h-raiffeisen-payerne",
         "it": "assistente-di-consulenza-clienti-aziendale-m-f-raiffeisen-payerne",
         "en": "business-customer-consulting-assistant-m-f-raiffeisen-payerne",
-        "de": "assistant-conseil-clientele-entreprises-f-h-raiffeisen-payerne"
+        "de": "assistant-conseil-clientele-entreprises-f-h-raiffeisen-payerne",
+        "fr": "assistant-conseil-clientele-entreprises-f-h-raiffeisen-payerne"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14535,8 +14535,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-vertriebsunterstutzung-und-marketing-w-m-d-raiffeisen-cazis",
         "it": "collaboratore-trice-vertriebsunterstutzung-e-marketing-m-w-d-raiffeisen-cazis",
-        "en": "mitarbeiter-in-vertriebsunterstutzung-und-marketing-w-m-d-raiffeisen-cazis",
-        "fr": "mitarbeiter-in-vertriebsunterstutzung-und-marketing-w-m-d-raiffeisen-cazis"
+        "en": "employee-sales-support-and-marketing-m-f-d-raiffeisen-cazis",
+        "fr": "soutien-aux-ventes-et-marketing-des-employes-h-f-d-raiffeisen-cazis"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14584,6 +14584,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-vertriebsunterstutzung-und-marketing-w-m-d-raiffeisen-cazis"
+        ],
+        "en": [
+          "mitarbeiter-in-vertriebsunterstutzung-und-marketing-w-m-d-raiffeisen-cazis"
+        ],
+        "fr": [
+          "mitarbeiter-in-vertriebsunterstutzung-und-marketing-w-m-d-raiffeisen-cazis"
         ]
       },
       "previousSlugs": [
@@ -14605,12 +14611,12 @@
     },
     {
       "id": "raiffeisen-a84ea6dc2355",
-      "slug": "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen",
+      "slug": "assistente-consulenza-clienti-privati-m-f-d-raiffeisen-niedergosgen",
       "slugByLocale": {
         "de": "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen",
-        "it": "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen",
-        "en": "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen",
-        "fr": "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen"
+        "it": "assistente-consulenza-clienti-privati-m-f-d-raiffeisen-niedergosgen",
+        "en": "assistant-private-client-consultancy-m-f-d-raiffeisen-niedergosgen",
+        "fr": "assistant-conseil-prive-client-h-f-d-raiffeisen-niedergosgen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14666,16 +14672,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:59:46.604Z"
+      "firstSeenAt": "2026-08-12T21:59:46.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen"
+        ],
+        "en": [
+          "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen"
+        ],
+        "fr": [
+          "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen"
+      ]
     },
     {
       "id": "raiffeisen-2ebba31bacb6",
-      "slug": "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf",
+      "slug": "responsabile-servizi-clienti-m-f-d-raiffeisen-gebenstorf",
       "slugByLocale": {
         "de": "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf",
-        "it": "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf",
-        "en": "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf",
-        "fr": "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf"
+        "it": "responsabile-servizi-clienti-m-f-d-raiffeisen-gebenstorf",
+        "en": "head-of-customer-services-m-f-d-raiffeisen-gebenstorf",
+        "fr": "chef-du-service-clientele-h-f-d-raiffeisen-gebenstorf"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14721,11 +14741,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf",
+          "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf"
+        ],
+        "en": [
+          "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf"
+        ],
+        "fr": [
           "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf"
         ]
       },
       "previousSlugs": [
-        "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf"
+        "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf",
+        "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -14743,12 +14771,12 @@
     },
     {
       "id": "raiffeisen-f22fdd1e5df9",
-      "slug": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+      "slug": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
         "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-        "it": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-        "en": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-        "fr": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        "it": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
+        "en": "avaloq-application-developer-m-f-d-raiffeisen-zurich",
+        "fr": "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14804,7 +14832,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:59:46.583Z"
+      "firstSeenAt": "2026-08-12T21:59:46.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+      ]
     }
   ]
 }
