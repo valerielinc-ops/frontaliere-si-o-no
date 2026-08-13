@@ -10,6 +10,30 @@
  * counter cannot drift that way, and nesting is exactly what these assertions
  * are about.
  */
+/**
+ * A block's OWN statements: comments stripped, nested `match … { … }` bodies
+ * removed.
+ *
+ * Needed because `allow` is not scoped by proximity. `matchBlock` returns the
+ * subcollections too, so `expect(block).not.toContain('allow read')` passes or
+ * fails on whichever nested rule happens to be worded that way — and on this
+ * file it would read `allow read: if false` from `events` and conclude the
+ * parent was closed. Comments go first: several of them quote rule fragments
+ * (`{path=**}`, `newsletter_subscribers/{email}`) whose braces would otherwise
+ * unbalance the depth count.
+ */
+export function directRules(block: string): string {
+  const withoutComments = block.replace(/\/\/[^\n]*/g, '');
+  let depth = 0;
+  let out = '';
+  for (const ch of withoutComments) {
+    if (ch === '{') { depth += 1; continue; }
+    if (ch === '}') { depth -= 1; continue; }
+    if (depth === 0) out += ch;
+  }
+  return out;
+}
+
 export function matchBlock(source: string, header: string): string {
   const at = source.indexOf(header);
   if (at === -1) throw new Error(`missing rule block: ${header}`);

@@ -722,23 +722,24 @@ const UserProfile: React.FC = () => {
  if (db) {
  const { doc, deleteDoc, collection, getDocs, query, where } = await import('firebase/firestore');
  // user_profiles no longer used — data is in newsletter_subscribers (deleted below)
- // Delete newsletter subscription by deterministic docId + legacy duplicates.
+ // Delete the newsletter subscription by its deterministic docId.
+ //
+ // The two `where('email','==',…)` sweeps that used to follow this line were
+ // removed with #5751: they were a `list` on `newsletter_subscribers`, and
+ // that grant is what let an unauthenticated browser page the whole
+ // subscriber list. They were also the quietest of the three call sites —
+ // `.catch(() => null)` on the query meant a denial here would have deleted
+ // the canonical document and skipped the rest without a word, which is the
+ // worst possible shape for an erasure path.
+ //
+ // What is lost is bounded and stated rather than hidden: a legacy row whose
+ // id is NOT the normalized address survives this deletion. An id-keyed read
+ // cannot find one by construction, so on a GDPR erasure that residue is
+ // Admin-SDK work — see the follow-up issue on the PR that removed this.
  const delEmail = getAuthEmail(user);
  if (delEmail) {
  const normalizedEmail = delEmail.trim().toLowerCase();
  await deleteDoc(doc(db, 'newsletter_subscribers', normalizedEmail)).catch(() => {});
-
- const legacyQueries = [
- query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail)),
- query(collection(db, 'newsletter_subscribers'), where('email', '==', delEmail)),
- ];
- for (const newsletterQuery of legacyQueries) {
- const snap = await getDocs(newsletterQuery).catch(() => null);
- if (!snap) continue;
- for (const d of snap.docs) {
- await deleteDoc(d.ref).catch(() => {});
- }
- }
  }
  // Delete feedback entries
  const feedbackQuery = query(collection(db, 'feedback'), where('userId', '==', user.uid));
