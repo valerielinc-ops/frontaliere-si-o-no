@@ -521,20 +521,43 @@ async function main() {
     // job triggered the send.
     const locale = headline.locale;
     const autologinCode = generateAutologinCode(recipient);
+    // Two decorators, one perimeter (#5725). Both add the campaign parameters;
+    // only `wrapJobUrl` can add the `ne`/`ac` autologin pair, and only because
+    // it says why. The shared builder is fail-closed: anything it does not
+    // recognise as a session-gated destination comes back with utm_* and no
+    // credential, so `wrapUrl` needs no argument to be safe — it is safe by
+    // default, which is the change.
     const wrapUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
       autologinCode,
       utmMedium: 'email',
       preserveExistingUtmMedium: true,
     });
+    // A job DETAIL page is not public: components/community/JobBoard.tsx swaps
+    // the listing for the sign-in gate when `hasAccess` is false. The company
+    // HUB above is, and loses the credential.
+    const wrapJobUrl = (raw) => makeAuthenticatedUrl(raw, recipient, {
+      autologinCode,
+      utmMedium: 'email',
+      preserveExistingUtmMedium: true,
+      sessionGated:
+        'job detail page — components/community/JobBoard.tsx renders the sign-in gate '
+        + 'instead of the listing when hasAccess is false',
+    });
     // «Gestisci le aziende seguite» → the page that actually manages them.
     //
     // It used to point at /preferenze-newsletter/ because that link is
     // token-HMAC and works with no session, while /aziende-seguite/ reads the
-    // signed-in user. `wrapUrl` closes that gap: it appends the same `ne`+`ac`
-    // autologin pair every other link in this email carries, and App.tsx's
-    // autologin effect is route-independent — it exchanges the code and signs
-    // the reader in wherever they land. So the deep link arrives authenticated
-    // on the page that lists exactly what the email is about.
+    // signed-in user. `wrapUrl` closes that gap: it appends the `ne`+`ac`
+    // autologin pair, and App.tsx's autologin effect is route-independent — it
+    // exchanges the code and signs the reader in wherever they land. So the deep
+    // link arrives authenticated on the page that lists exactly what the email
+    // is about.
+    //
+    // Since #5725 that no longer happens because `wrapUrl` decorates everything:
+    // it happens because /aziende-seguite/ is IN the autologin allowlist
+    // (`followed-companies` in functions/src/lib/newsletterUrls.js), for exactly
+    // the reason this comment gives. The company hub and the job-board landing
+    // are not, and they lose the credential.
     //
     // The preferences page stays reachable: the unsubscribe links below are
     // pure HMAC and never depend on a session, so a failed exchange still
@@ -562,6 +585,7 @@ async function main() {
       manageUrl,
       unsubscribeAllUrl,
       wrapUrl,
+      wrapJobUrl,
       baseUrl: BASE_URL,
     });
 

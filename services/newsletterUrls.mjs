@@ -20,8 +20,12 @@ export {
   generateAutologinCode,
   makeAuthenticatedActionUrl,
   makeAuthenticatedUrl,
+  isOwnRewritableHref,
   shouldWrapAuthenticatedHref,
+  autologinDestination,
+  AUTOLOGIN_DESTINATIONS,
   wrapAuthenticatedHrefs,
   makePreferencesUrl,
   PREFERENCES_SLUG,
+  FOLLOWED_COMPANIES_SLUG,
 } from '../functions/src/lib/newsletterUrls.js';

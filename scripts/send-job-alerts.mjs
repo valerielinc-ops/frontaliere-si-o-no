@@ -474,11 +474,18 @@ function getStrings(locale) {
 // newsletter and the welcome email. Job alerts keep their own defaults:
 // utm_medium 'email' (analytics convention is medium=channel,
 // source=identifier) and preserve a utm_medium already set by utmBase.
-const makeAuthenticatedUrl = (targetUrl, email, autologinCode, utmMedium = 'email') =>
+//
+// `sessionGated` (#5725) is threaded through because the shared builder is now
+// fail-closed: it attaches `ne`/`ac` only to a destination on its allowlist, or
+// to a call site that states in one string why that destination needs a session.
+// Omitting it here would silently strip the credential from the job cards, which
+// is the one place in this email where it is load-bearing.
+const makeAuthenticatedUrl = (targetUrl, email, autologinCode, { utmMedium = 'email', sessionGated } = {}) =>
   makeAuthenticatedUrlShared(targetUrl, email, {
     autologinCode,
     utmMedium,
     preserveExistingUtmMedium: true,
+    sessionGated,
   });
 
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
@@ -832,12 +839,36 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, alert.email);
   const unsubAllUrl = makeAllAlertsUnsubscribeUrl(alert.email);
 
-  // Build locale-aware URLs with autologin
-  const wrapUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode);
+  // ── Two wrappers, because two kinds of destination (#5725) ────────────────
+  //
+  // Both add the campaign parameters. Only one can add the `ne`/`ac` autologin
+  // pair, and which one it is no longer depends on this file: the shared builder
+  // consults its own fail-closed allowlist and ignores anything it does not
+  // recognise. `wrapJobUrl` is the single opt-out, and it carries its reason.
+  //
+  // JOB DETAIL PAGES ARE NOT PUBLIC, which is the correction #5725's own count
+  // needs. components/community/JobBoard.tsx gates the detail view on
+  // `hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor` and
+  // returns the sign-in gate otherwise; the same component holds a skeleton
+  // while `newsletterAutologinInFlight` is true so the gate never flashes for a
+  // reader arriving from one of these very links. Strip the credential here and
+  // every recipient meets a login wall on the job the email exists to show them.
+  // So the ten cards keep it, deliberately and in writing.
+  const wrapPublicUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode);
+  const wrapJobUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode, {
+    sessionGated:
+      'job detail page — components/community/JobBoard.tsx renders the sign-in gate '
+      + 'instead of the listing when hasAccess is false',
+  });
   // "Manage alerts" points to the user's preferences page (which has alert controls),
   // NOT the job board landing — the job board has no alert-management UI.
-  const manageUrl = wrapUrl(`${preferencesUrl}&${utmBase}`);
-  const allJobsUrl = wrapUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
+  // Inside the perimeter by destination (`newsletter-preferences`), so it needs
+  // no declaration: it is the one link #5725 leaves untouched.
+  const manageUrl = wrapPublicUrl(`${preferencesUrl}&${utmBase}`);
+  // The Switzerland-wide board LANDING, not a listing: a public results page
+  // that renders identically signed out. Out of the perimeter — it keeps utm_*
+  // and loses the credential.
+  const allJobsUrl = wrapPublicUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
 
   const tagChip = (label, palette = 'orange') => {
     const bg = palette === 'green' ? 'rgba(34,197,94,0.2)' : palette === 'blue' ? 'rgba(59,130,246,0.18)' : 'rgba(249,115,22,0.15)';
@@ -852,7 +883,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
     const jobUrl = jobPageUrl(job, locale);
     const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
-    const url = wrapUrl(rawJobUrl);
+    const url = wrapJobUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
     const logoSrc = avatar?.src || null;
@@ -1025,7 +1056,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
     const jobUrl = jobPageUrl(job, locale);
     const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
-    const url = wrapUrl(rawJobUrl);
+    const url = wrapJobUrl(rawJobUrl);
     const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
     return `${title}\n${meta}\n${url}`;
   }).join('\n---\n');
