@@ -66995,6 +66995,474 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sussidi-cassa-malati-digitale': {
+    title: 'Sussidi di cassa malati, ora la richiesta è anche digitale',
+    description: 'La richiesta per la riduzione dei premi dell\'assicurazione malattia (RIPAM) in Ticino può ora essere presentata anche online. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sussidi, cassa, malati, richiesta',
+    ogTitle: 'Sussidi di cassa malati, ora la richiesta è anche digitale',
+    ogDescription: 'La richiesta per la riduzione dei premi dell\'assicurazione malattia (RIPAM) in Ticino può ora essere presentata anche online.',
+    canonicalPath: '/articoli-frontaliere/sussidi-cassa-malati-digitale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sussidi di cassa malati, ora la richiesta è anche digitale",
+      "description": "La richiesta per la riduzione dei premi dell'assicurazione malattia (RIPAM) in Ticino può ora essere presentata anche online. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sussidi-cassa-malati-digitale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si avvicina al calcolatore online per la richiesta dei sussidi di cassa malati."
+      },
+      "datePublished": "2026-08-13T09:52:12+00:00",
+      "dateModified": "2026-08-13T09:52:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sussidi-cassa-malati-digitale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-interpharma-clausola-mfn-difficolta': {
+    title: 'Interpharma: «La clausola MFN ci sta mettendo in difficoltà»',
+    description: 'Le aziende farmaceutiche svizzere frenano l\'arrivo di nuovi farmaci per timore di ripercussioni sui prezzi negli Stati Uniti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, interpharma, clausola, mettendo, difficoltà',
+    ogTitle: 'Interpharma: «La clausola MFN ci sta mettendo in difficoltà»',
+    ogDescription: 'Le aziende farmaceutiche svizzere frenano l\'arrivo di nuovi farmaci per timore di ripercussioni sui prezzi negli Stati Uniti.',
+    canonicalPath: '/articoli-frontaliere/interpharma-clausola-mfn-difficolta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Interpharma: «La clausola MFN ci sta mettendo in difficoltà»",
+      "description": "Le aziende farmaceutiche svizzere frenano l'arrivo di nuovi farmaci per timore di ripercussioni sui prezzi negli Stati Uniti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/interpharma-clausola-mfn-difficolta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La politica statunitense di abbassare il prezzo dei medicamenti con la clausola MFN si fa sentire anche in Svizzera."
+      },
+      "datePublished": "2026-08-13T10:01:42+00:00",
+      "dateModified": "2026-08-13T10:01:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/interpharma-clausola-mfn-difficolta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-contratto-collettivo-lavoro-svizzera': {
+    title: 'Contratto Collettivo di Lavoro: guida ai diritti',
+    description: 'Scopri come il Contratto Collettivo di Lavoro (CCL) tutela i lavoratori in Svizzera. Diritti, salari minimi e obbligatorietà generale spiegati nel dettaglio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, contratto, collettivo, lavoro, diritti',
+    ogTitle: 'Contratto Collettivo di Lavoro: guida ai diritti',
+    ogDescription: 'Il CCL è lo strumento principale per garantire buone condizioni di lavoro in Svizzera. Scopri i benefici, l\'obbligatorietà e come tutelare i tuoi diritti salariali.',
+    canonicalPath: '/articoli-frontaliere/contratto-collettivo-lavoro-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contratto Collettivo di Lavoro: guida ai diritti",
+      "description": "Scopri come il Contratto Collettivo di Lavoro (CCL) tutela i lavoratori in Svizzera. Diritti, salari minimi e obbligatorietà generale spiegati nel dettaglio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/contratto-collettivo-lavoro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano, luogo di lavoro per molti frontalieri."
+      },
+      "datePublished": "2026-08-13T10:08:35+00:00",
+      "dateModified": "2026-08-13T10:08:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contratto-collettivo-lavoro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-cassa-disoccupazione': {
+    title: 'Cassa Disoccupazione: nuove norme per i frontalieri',
+    description: 'Nuove regole per i frontalieri in materia di cassa disoccupazione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, disoccupazione, nuove, norme',
+    ogTitle: 'Cassa Disoccupazione: nuove norme per i frontalieri',
+    ogDescription: 'Nuove regole per i frontalieri in materia di cassa disoccupazione',
+    canonicalPath: '/articoli-frontaliere/frontalieri-cassa-disoccupazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa Disoccupazione: nuove norme per i frontalieri",
+      "description": "Nuove regole per i frontalieri in materia di cassa disoccupazione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-cassa-disoccupazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in una situazione di crisi economica"
+      },
+      "datePublished": "2026-08-13T10:18:11+00:00",
+      "dateModified": "2026-08-13T10:18:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-cassa-disoccupazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-strumenti-controllo-salari-ticino': {
+    title: 'Verifica il tuo salario: strumenti utili per i frontalieri',
+    description: 'Utilizza i calcolatori salariali di Unia e dell\'USS per verificare il tuo stipendio e confrontarlo con i minimi dei CCL e i dati del mercato svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, verifica, salario, strumenti, utili',
+    ogTitle: 'Calcolatori salariali per frontalieri in Ticino',
+    ogDescription: 'Verifica il tuo salario con gli strumenti di Unia e dell\'USS. Analizza i minimi contrattuali e confronta la tua retribuzione con le statistiche del mercato svizzero.',
+    canonicalPath: '/articoli-frontaliere/strumenti-controllo-salari-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verifica il tuo salario: strumenti utili per i frontalieri",
+      "description": "Utilizza i calcolatori salariali di Unia e dell'USS per verificare il tuo stipendio e confrontarlo con i minimi dei CCL e i dati del mercato svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/strumenti-controllo-salari-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano, centro economico del Canton Ticino."
+      },
+      "datePublished": "2026-08-13T10:24:11+00:00",
+      "dateModified": "2026-08-13T10:24:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strumenti-controllo-salari-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcolatore-salariale-edilizia-2026': {
+    title: 'Calcolatore salariale per l\'edilizia: verifica la busta paga',
+    description: 'Verifica il tuo salario nel settore edile con il calcolatore CNM 2026. Controlla la busta paga e rivolgiti a Unia in caso di discrepanze. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolatore, salariale, edilizia, verifica',
+    ogTitle: 'Calcolatore salariale edilizia: verifica stipendio CNM 2026',
+    ogDescription: 'Usa il calcolatore salariale CNM 2026 per confrontare il tuo stipendio nell\'edilizia. Verifica i dati e ricevi assistenza sindacale.',
+    canonicalPath: '/articoli-frontaliere/calcolatore-salariale-edilizia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolatore salariale per l'edilizia: verifica la busta paga",
+      "description": "Verifica il tuo salario nel settore edile con il calcolatore CNM 2026. Controlla la busta paga e rivolgiti a Unia in caso di discrepanze. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolatore-salariale-edilizia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino"
+      },
+      "datePublished": "2026-08-13T10:30:51+00:00",
+      "dateModified": "2026-08-13T10:30:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcolatore-salariale-edilizia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sussidi-di-cassa-malati-or-la-richiesta-si-puo-fare-anche-online': {
+    title: 'Sussidi di cassa malati, ora la richiesta si può fare anche online',
+    description: 'La richiesta di sussidi di cassa malati può essere compilata e inviata online attraverso la piattaforma dell\'Istituto delle assicurazioni sociali',
+    keywords: 'frontalieri, ticino, svizzera, italia, sussidi, cassa, malati, richiesta',
+    ogTitle: 'Sussidi di cassa malati, ora la richiesta si può fare anche online',
+    ogDescription: 'La richiesta di sussidi di cassa malati può essere compilata e inviata online attraverso la piattaforma dell\'Istituto delle assicurazioni sociali',
+    canonicalPath: '/articoli-frontaliere/sussidi-di-cassa-malati-or-la-richiesta-si-puo-fare-anche-online',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sussidi di cassa malati, ora la richiesta si può fare anche online",
+      "description": "La richiesta di sussidi di cassa malati può essere compilata e inviata online attraverso la piattaforma dell'Istituto delle assicurazioni sociali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sussidi-di-cassa-malati-or-la-richiesta-si-puo-fare-anche-online.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Richiesta di sussidi di cassa malati online"
+      },
+      "datePublished": "2026-08-13T10:49:41+00:00",
+      "dateModified": "2026-08-13T10:49:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sussidi-di-cassa-malati-or-la-richiesta-si-puo-fare-anche-online/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-verita-immobiliari-ticino': {
+    title: 'Verità Immobiliari: strategie per il mercato ticinese',
+    description: 'Analisi sulle dinamiche del mercato immobiliare in Ticino e consigli pratici per proprietari e investitori che vogliono valorizzare i propri immobili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, verità, immobiliari, strategie, mercato',
+    ogTitle: 'Verità Immobiliari: strategie per il mercato ticinese',
+    ogDescription: 'Scopri le dinamiche del mercato immobiliare in Ticino e come ottimizzare la promozione del tuo immobile tra Lugano e il Bellinzonese con consigli pratici.',
+    canonicalPath: '/articoli-frontaliere/verita-immobiliari-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verità Immobiliari: strategie per il mercato ticinese",
+      "description": "Analisi sulle dinamiche del mercato immobiliare in Ticino e consigli pratici per proprietari e investitori che vogliono valorizzare i propri immobili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/verita-immobiliari-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago, simbolo del mercato immobiliare ticinese."
+      },
+      "datePublished": "2026-08-13T11:14:04+00:00",
+      "dateModified": "2026-08-13T11:14:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/verita-immobiliari-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cassa-disoccupazione-unia': {
+    title: 'Cassa Disoccupazione Unia: guida per i frontalieri',
+    description: 'Informazioni e supporto sindacale per frontalieri in Ticino riguardo alla cassa disoccupazione Unia. Scopri come gestire le pratiche e i diritti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, disoccupazione, unia, informazioni',
+    ogTitle: 'Cassa Disoccupazione Unia: guida per frontalieri',
+    ogDescription: 'Hai bisogno di assistenza per la cassa disoccupazione? Il sindacato Unia supporta i lavoratori frontalieri in Ticino. Leggi la guida pratica e scopri i passaggi.',
+    canonicalPath: '/articoli-frontaliere/cassa-disoccupazione-unia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa Disoccupazione Unia: guida per i frontalieri",
+      "description": "Informazioni e supporto sindacale per frontalieri in Ticino riguardo alla cassa disoccupazione Unia. Scopri come gestire le pratiche e i diritti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-disoccupazione-unia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica su Lugano, sede di uffici e istituzioni finanziarie."
+      },
+      "datePublished": "2026-08-13T12:44:15+00:00",
+      "dateModified": "2026-08-13T12:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-disoccupazione-unia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-minimi-legali-ticino': {
+    title: 'Salari minimi legali in Ticino: sviluppi e prospettive',
+    description: 'I salari minimi legali in Ticino sono stati oggetto di numerose iniziative e discussioni negli ultimi anni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, minimi, legali, sviluppi',
+    ogTitle: 'Salari minimi legali in Ticino: sviluppi e prospettive',
+    ogDescription: 'I salari minimi legali in Ticino sono stati oggetto di numerose iniziative e discussioni negli ultimi anni.',
+    canonicalPath: '/articoli-frontaliere/salari-minimi-legali-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari minimi legali in Ticino: sviluppi e prospettive",
+      "description": "I salari minimi legali in Ticino sono stati oggetto di numerose iniziative e discussioni negli ultimi anni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-minimi-legali-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un edificio storico in Lugano"
+      },
+      "datePublished": "2026-08-13T12:56:49+00:00",
+      "dateModified": "2026-08-13T12:56:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-minimi-legali-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vantaggi-associati-ocst-frontalieri': {
+    title: 'I vantaggi per gli associati OCST: guida ai servizi',
+    description: 'Scopri i vantaggi per gli associati OCST: assistenza legale, fiscale, bancaria e sconti esclusivi su assicurazioni e tempo libero per lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vantaggi, associati, ocst, servizi',
+    ogTitle: 'Vantaggi associati OCST: servizi e sconti per frontalieri',
+    ogDescription: 'Scopri i vantaggi per gli associati OCST: assistenza legale, fiscale, bancaria e sconti esclusivi su assicurazioni e tempo libero per lavoratori frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vantaggi-associati-ocst-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I vantaggi per gli associati OCST: guida ai servizi",
+      "description": "Scopri i vantaggi per gli associati OCST: assistenza legale, fiscale, bancaria e sconti esclusivi su assicurazioni e tempo libero per lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vantaggi-associati-ocst-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica su Lugano, sede di servizi sindacali per lavoratori frontalieri"
+      },
+      "datePublished": "2026-08-13T16:12:44+00:00",
+      "dateModified": "2026-08-13T16:12:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vantaggi-associati-ocst-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139': {
+    title: 'Inflazione torna in Italia, Pil a +0,5% | Frontaliere Ticino',
+    description: 'L\'economia italiana resta con il freno tirato, torna l\'inflazione: Pil a +0,5% e debito verso il 139%. Il confronto europeo accentua la distanza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, torna, economia, italiana',
+    ogTitle: 'Economia italiana con il freno tirato, torna l\'inflazione: Pil a +0,5% e debito verso il 139%',
+    ogDescription: 'L\'economia italiana resta con il freno tirato, torna l\'inflazione: Pil a +0,5% e debito verso il 139%. Il confronto europeo accentua la distanza.',
+    canonicalPath: '/articoli-frontaliere/italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione torna in Italia, Pil a +0,5%",
+      "description": "L'economia italiana resta con il freno tirato, torna l'inflazione: Pil a +0,5% e debito verso il 139%. Il confronto europeo accentua la distanza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'economia italiana con il freno tirato, torna l'inflazione"
+      },
+      "datePublished": "2026-08-13T16:41:02+00:00",
+      "dateModified": "2026-08-13T16:41:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
