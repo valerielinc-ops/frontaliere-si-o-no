@@ -2497,6 +2497,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-berna.title': 'Opening a business in Bern: choice of legal form and obligations',
     'blog.article.aprire-un-attivita-canton-berna.excerpt': 'Registering a business in the Canton of Bern: what are the necessary procedures and requirements?',
     'blog.article.aprire-un-attivita-canton-berna.imageAlt': 'Image of a Swiss city',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Public transport passes Canton Bern: zones and fares',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Information on areas and fares for public transport passes in the Canton of Bern',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Bus in Canton Bern',
 };
 
 export default blogMetaChEn;

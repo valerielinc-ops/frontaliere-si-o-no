@@ -2497,6 +2497,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-berna.title': 'Aprire un\'attività a Berna: scelta della forma giuridica e obblighi',
     'blog.article.aprire-un-attivita-canton-berna.excerpt': 'Iscrivere un\'attività nel Cantone di Berna: quali sono le procedure e i requisiti necessari?',
     'blog.article.aprire-un-attivita-canton-berna.imageAlt': 'Immagine di una città svizzera',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Abbonamenti trasporti pubblici Canton Berna: zone e tariffe',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Informazioni sulle zone e le tariffe degli abbonamenti trasporti pubblici nel Canton Berna',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Autobus nel Canton Berna',
 };
 
 export default blogMetaChIt;

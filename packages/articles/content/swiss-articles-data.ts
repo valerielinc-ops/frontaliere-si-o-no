@@ -7489,6 +7489,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'trasporti-pubblici-canton-berna-abbonamenti',
+    category: 'fiscale',
+    date: '2026-08-13T07:24:39.765Z',
+    image: '/images/blog/trasporti-pubblici-canton-berna-abbonamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
