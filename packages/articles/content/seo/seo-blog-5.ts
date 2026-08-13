@@ -62513,7 +62513,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   'blog-trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro': {
     title: 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
     description: 'La Svizzera ha firmato un nuovo accordo con l\'Italia per evitare la doppia imposizione.',
-    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, marchirolo, contro, sottotitolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, marchirolo, contro',
     ogTitle: 'Trasferirsi a Marchirolo da frontaliere: pro e contro',
     ogDescription: 'La Svizzera ha firmato un nuovo accordo con l\'Italia per evitare la doppia imposizione.',
     canonicalPath: '/articoli-frontaliere/trasferirsi-a-marchirolo-da-frontaliere-pro-e-contro',
@@ -63955,16 +63955,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-a-aprica-da-frontaliere-pro-e-contro': {
     title: 'Trasferirsi a Aprica da frontaliere: pro e contro',
-    description: 'Fatti e cifre DALLA FONTE sul trasferimento a Aprica per i frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Franchigia di €10\'000 e obbligo di risiedere ad Aprica almeno 183 giorni l\'anno per chi si trasferisce da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, aprica, contro, fatti',
     ogTitle: 'Trasferirsi a Aprica da frontaliere: franchigia di €10\'000 e necessità di risiedere in Aprica per almeno 183 giorni all\'anno',
-    ogDescription: 'Fatti e cifre DALLA FONTE sul trasferimento a Aprica per i frontaliere',
+    ogDescription: 'Franchigia di €10\'000 e obbligo di risiedere ad Aprica almeno 183 giorni l\'anno per chi si trasferisce da frontaliere',
     canonicalPath: '/articoli-frontaliere/trasferirsi-a-aprica-da-frontaliere-pro-e-contro',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Trasferirsi a Aprica da frontaliere: pro e contro",
-      "description": "Fatti e cifre DALLA FONTE sul trasferimento a Aprica per i frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Franchigia di €10'000 e obbligo di risiedere ad Aprica almeno 183 giorni l'anno per chi si trasferisce da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",

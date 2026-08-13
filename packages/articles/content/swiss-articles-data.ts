@@ -7786,6 +7786,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'rientro-scuola-calor',
+    category: 'pratico',
+    date: '2026-08-13T21:41:33.718Z',
+    image: '/images/blog/rientro-scuola-calor.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'porsche-arretra-elettrico-taycan',
+    category: 'novita',
+    date: '2026-08-13T21:46:25.293Z',
+    image: '/images/blog/porsche-arretra-elettrico-taycan.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni',
+    category: 'pratico',
+    date: '2026-08-13T21:58:08.173Z',
+    image: '/images/blog/mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ospedali-svizzeri-pulizia-va-migliorata',
+    category: 'fiscale',
+    date: '2026-08-13T22:04:03.340Z',
+    image: '/images/blog/ospedali-svizzeri-pulizia-va-migliorata.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

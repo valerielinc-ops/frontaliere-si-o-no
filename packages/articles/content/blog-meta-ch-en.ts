@@ -2256,7 +2256,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Labor market and salaries in the Canton of Zurich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Inheritance and gift taxes in the Canton of Zurich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'In the Canton of Zurich, inheritance and gift tax is subject to different rates depending on the degree of kinship.',
-    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Editorial image related to: Inheritance and gift taxes in the Canton of Zurich',
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Because the heat drives up prices and climate inflation',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'From the Rhine drought to the shopping cart, climate change creates new inflation and forces central banks to act.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impact of drought and heat on prices in Switzerland',
@@ -2596,6 +2596,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.title': 'Heat and drought: triggering crisis mode requires more',
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.excerpt': 'The Federal Council refuses to declare the extraordinary situation due to the drought and the heat.',
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.imageAlt': 'Lugano, summer, hot, drought.',
+    'blog.article.rientro-scuola-calor.title': 'Back to school, the heat keeps you warm',
+    'blog.article.rientro-scuola-calor.excerpt': 'Heatwaves reignite the debate over the safety and quality of school buildings in Switzerland.',
+    'blog.article.rientro-scuola-calor.imageAlt': 'Swiss school with courtyard flooded with sun',
+    'blog.article.porsche-arretra-elettrico-taycan.title': 'Porsche pulls back on electric, Taycan production halted',
+    'blog.article.porsche-arretra-elettrico-taycan.excerpt': 'Porsche\'s decision to stop production of the Taycan by 2030 is a sign of a market where demand for electric models is not enough.',
+    'blog.article.porsche-arretra-elettrico-taycan.imageAlt': 'Porsche Taycan',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.title': 'More VS: agricultural vehicle goes off the road, nine-year-old child dies',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.excerpt': 'A nine-year-old boy died on Tuesday following a car accident in Chandonne, Valais.',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.imageAlt': 'Agricultural vehicle off the road in Switzerland with a 9-year-old child on board',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.title': 'Swiss hospitals, cleanliness needs to be improved',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.excerpt': 'Swiss hospitals are improving cleanliness, but there are still shortcomings in the management of medical devices.',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.imageAlt': 'Swiss hospitals with the Swiss flag',
 };
 
 export default blogMetaChEn;
