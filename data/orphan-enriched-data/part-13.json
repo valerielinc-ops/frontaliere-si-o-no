@@ -77938,10 +77938,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-lachen",
-        "en": "verkaufsberater-in-interdiscount-lachen",
-        "de": "verkaufsberater-in-interdiscount-lachen",
-        "fr": "verkaufsberater-in-interdiscount-lachen"
+        "de": "verkaufsberater-in-interdiscount-lachen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-svitto/verkaufsberater-in-interdiscount-lachen",
@@ -77955,6 +77952,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

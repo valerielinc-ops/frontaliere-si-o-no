@@ -77809,10 +77809,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-thalwil",
-        "en": "verkaufsberater-in-interdiscount-thalwil",
-        "de": "verkaufsberater-in-interdiscount-thalwil",
-        "fr": "verkaufsberater-in-interdiscount-thalwil"
+        "de": "verkaufsberater-in-interdiscount-thalwil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufsberater-in-interdiscount-thalwil",
@@ -77826,6 +77823,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
