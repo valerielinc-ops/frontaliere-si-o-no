@@ -25,9 +25,31 @@ service cloud.firestore {
         && request.auth.token.email.lower() == 'valerielinc@gmail.com';
     }
 
-    // Social proof counter — public increment
+    // Social proof counter — public increment (#5792).
+    //
+    // The only reader/writer is `counters/simulations`: SocialProofBadge.tsx
+    // and AdminPanel.tsx `getDoc` it, services/firestoreService.ts
+    // `registerSimulationForSocialProof` `setDoc`s it with `{ merge: true }`
+    // writing exactly `total: increment(1)` + `updatedAt: serverTimestamp()`.
+    // No client ever queries `collection('counters')`, so `list` was pure
+    // enumeration surface with zero legitimate caller — closed outright,
+    // same shape as `consulting_orders` below.
+    //
+    // `write: if true` let any visitor set `total` to an arbitrary number
+    // (or delete the doc) instead of nudging it by one. `increment(1)` on a
+    // missing field resolves to `1`, so first-write create and every
+    // subsequent update both reduce to "the merged `total` is exactly one
+    // more than what was there a moment ago" — `create` covers the
+    // not-yet-existing doc (`resource == null` ⇒ prior total 0), `update`
+    // covers every write after.
     match /counters/{counterId} {
-      allow read, write: if true;
+      allow get: if true;
+      allow list: if false;
+      allow create: if request.resource.data.keys().hasOnly(['total', 'updatedAt'])
+        && request.resource.data.total == 1;
+      allow update: if request.resource.data.keys().hasOnly(['total', 'updatedAt'])
+        && request.resource.data.total == resource.data.total + 1;
+      allow delete: if false;
     }
 
     // Saved simulations — owned by authenticated user

@@ -66,7 +66,7 @@ import { isNewsletterExcluded, isJobAlertExcluded } from '../services/emailSuppr
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
-import { buildDailyBriefEmail } from '../services/daily-brief-template.mjs';
+import { buildDailyBriefEmail, briefSections } from '../services/daily-brief-template.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { createResumeWriter, fetchAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import {
@@ -150,8 +150,32 @@ export async function loadDayPayload(todayIso, { dryRun = false, fetchImpl = fet
   if (brief?.dateIso !== todayIso) {
     return { refusal: `daily-brief.json is for ${brief?.dateIso}, today is ${todayIso} — stale` };
   }
+  // Reconcile the refusal gate with what the template ACTUALLY renders (#5714
+  // item 3). `brief.counts.availableBlocks` is a count the corpus publishes
+  // ALONGSIDE `brief.blocks`, not derived FROM it by this repo — the two are
+  // two independent computations that happen to agree today and are not
+  // guaranteed to keep agreeing (a corpus-side counting bug, a block whose
+  // `available` flag flips without the count following). Trusting the
+  // payload's own number let the gate believe there was content when there
+  // was not, which is the failure mode this reconciliation closes: the render
+  // is asked directly, with briefSections() — the SAME function
+  // daily-brief-template.mjs calls to decide what to print — instead of a
+  // second opinion of it. Block inclusion does not vary by locale (the
+  // `available` flags live on `brief.blocks.*`, not in the locale strings),
+  // so any locale gives the same count; overwriting `brief.counts.availableBlocks`
+  // here (rather than only checking it) means every downstream reader in this
+  // file — applyCadence()'s passesBlockGate() included — sees the reconciled
+  // number too, without a second call site to keep in sync.
+  const renderedBlockCount = briefSections(brief, 'it').length;
+  const claimedBlockCount = brief?.counts?.availableBlocks;
+  if (Number.isFinite(claimedBlockCount) && claimedBlockCount !== renderedBlockCount) {
+    console.warn(`⚠️ [daily-brief] counts.availableBlocks (${claimedBlockCount}) disagrees with the ${renderedBlockCount} block(s) briefSections() actually renders for ${todayIso} — using the render`);
+  }
+  if (brief && typeof brief === 'object') {
+    brief.counts = { ...(brief.counts || {}), availableBlocks: renderedBlockCount };
+  }
   if (!Number.isFinite(brief?.counts?.availableBlocks) || brief.counts.availableBlocks < 2) {
-    return { refusal: `only ${brief?.counts?.availableBlocks ?? 0} available blocks — too thin` };
+    return { refusal: `only ${brief?.counts?.availableBlocks ?? 0} available blocks actually render — too thin` };
   }
   const editionId = `bollettino-frontaliere-${todayIso}`;
   const slugs = await fetchImpl('slugs.json');

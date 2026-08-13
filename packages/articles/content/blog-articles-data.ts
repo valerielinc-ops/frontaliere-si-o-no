@@ -29730,6 +29730,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'varese-lavoratori-nero-2026',
+ category: 'pratico',
+ date: '2026-08-13T21:29:07.546Z',
+ image: '/images/blog/varese-lavoratori-nero-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'lavori-preparatori-piazzale-ex-scuole',
+ category: 'novita',
+ date: '2026-08-13T21:37:31.154Z',
+ image: '/images/blog/lavori-preparatori-piazzale-ex-scuole.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

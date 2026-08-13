@@ -887,6 +887,15 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'gli-sconti-sui-farmaci-non-vengono-trattenuti': { it: 'gli-sconti-sui-farmaci-non-vengono-trattenuti', en: 'the-discounts-on-medicines-are-not-being-held-back', de: 'die-rabatte-auf-medikamente-werden-nicht-zuruckgehalten', fr: 'les-rebates-sur-medicaments-ne-sont-pas-retenus' },
  'dopo-3-anni-termina-lo-sciopero-tesla-in-svezia': { it: 'dopo-3-anni-termina-lo-sciopero-tesla-in-svezia', en: 'after-3-years-the-tesla-strike-ends-in-sweden', de: 'nach-3-jahren-ende-der-tesla-streik-in-schweden', fr: 'apres-3-annees-la-greve-de-tesla-se-termine-en-suede' },
  'dimissioni-pazienti-crans-montana': { it: 'dimissioni-pazienti-crans-montana', en: 'crans-montana-patient-discharge', de: 'crans-montana-patientenentlassung', fr: 'sortie-patients-crans-montana' },
+ 'ferrovia-albula-chiusa': { it: 'ferrovia-albula-chiusa', en: 'albula-railway-closed', de: 'albula-bahn-gesperrt', fr: 'chemins-de-fer-d-albula-fermes' },
+ 'chiusura-piscina-uzwil-siccita': { it: 'chiusura-piscina-uzwil-siccita', en: 'uzwil-pool-closed-drought', de: 'schwimmbad-uzwil-wegen-trockenheit-geschlossen', fr: 'piscine-uzwil-fermee-secheresse' },
+ 'siccita-claro-2026': { it: 'siccita-claro-2026', en: 'in-claro-drought-rises-to-grade-2-new-limitations-on-water-use', de: 'claro-siccita-auf-grad-2-neue-wasserbeschrankungen', fr: 'siccita-al-grado-2-a-claro-nuove-limitazioni' },
+ 'caldo-e-siccita-senza-modalita-di-crisi': { it: 'caldo-e-siccita-senza-modalita-di-crisi', en: 'heat-and-drought-without-emergency-mode', de: 'hitze-und-durre-ohne-krisenmodus', fr: 'chaleur-et-secheresse-sans-mode-urgence' },
+ 'rientro-scuola-calor': { it: 'rientro-scuola-calor', en: 'back-to-school-the-heat-keeps-you-warm', de: 'zuruck-in-die-schule-die-hitze-halt-die-bank', fr: 'retour-a-l-ecole-la-chaleur-tient-bon' },
+ 'porsche-arretra-elettrico-taycan': { it: 'porsche-arretra-elettrico-taycan', en: 'porsche-backs-out-of-electric-taycan', de: 'porsche-gibt-electric-taycan-auf', fr: 'porsche-arrete-la-production-de-taycan' },
+ 'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni': { it: 'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni', en: 'agricultural-vehicle-exits-road-dies-9-year-old-child', de: 'landwirtschaftliches-fahrzeug-verlasst-fahrbahn-kind-9-jahre-verstorben', fr: 'v-c3-a9hicule-agricole-quitte-route-enfants-9-ans-verst' },
+ 'ospedali-svizzeri-pulizia-va-migliorata': { it: 'ospedali-svizzeri-pulizia-va-migliorata', en: 'swiss-hospitals-improve-pulizia', de: 'schweizer-krankenhaeuser-pulizia-im-besseren', fr: 'hopitaux-suisses-pulizia-mieux' },
+ 'incidente-veicolo-agricolo-morto-bambino-9-anni': { it: 'incidente-veicolo-agricolo-morto-bambino-9-anni', en: 'farm-vehicle-accident-dead-9-year-old-child', de: 'unfall-mit-einem-landwirtschaftlichen-fahrzeug-tot-9-jahriges-kind', fr: 'accident-avec-un-vehicule-agricole-mort-de-9-ans' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

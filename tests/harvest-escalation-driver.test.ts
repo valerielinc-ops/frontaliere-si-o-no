@@ -96,3 +96,27 @@ describe('isEscalationDriver — rate-limited non può driveare un\'escalation (
     expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
   });
 });
+
+describe('isEscalationDriver — overlap-skip / pr-already-open sono scheduling, non fault (corpus #229, metà sito)', () => {
+  // I due esiti che `followup-drainer.mjs` esclude APPOSTA da NON_RETRYABLE («l'overlap è
+  // transitorio: la PR bloccante può mergiare → ri-tentabile») e che
+  // `close-recovered-structural-hold.mjs` si rifiuta di trattenere («scheduling, not a
+  // fault»). Il harvester era l'unico dei tre a non saperlo: misurato sul mirror corpus il
+  // 2026-08-13, 11 marker `overlap-skip` su 11 contati come burn ricorrente. Nessuna riga
+  // di doc impedisce a due issue indipendenti di nominare lo stesso file nello stesso
+  // momento — è la forma normale di un ciclo con più fixer in parallelo.
+  it('fix-outcome:overlap-skip → mai driver, in entrambe le shape della chiave', () => {
+    expect(isEscalationDriver('fix-outcome', 'overlap-skip')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:overlap-skip')).toBe(false);
+  });
+
+  it('fix-outcome:pr-already-open → mai driver (stessa dichiarazione, stessa riga del drainer)', () => {
+    expect(isEscalationDriver('fix-outcome', 'pr-already-open')).toBe(false);
+    expect(isEscalationDriver('fix-outcome', 'fix-outcome:pr-already-open')).toBe(false);
+  });
+
+  it('la carve-out non tocca gli esiti vicini che restano segnale', () => {
+    expect(isEscalationDriver('fix-outcome', 'blocked-secrets')).toBe(true);
+    expect(isEscalationDriver('fix-outcome', 'max-turns')).toBe(true);
+  });
+});

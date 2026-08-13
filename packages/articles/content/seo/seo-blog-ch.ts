@@ -29211,7 +29211,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-zurigo-aliquote.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Immagine di un'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri."
+        "caption": "Immagine editoriale relativa a: Imposte di successione e donazione nel Cantone di Zurigo"
       },
       "datePublished": "2026-08-12T04:05:27+00:00",
       "dateModified": "2026-08-12T04:05:27+00:00",
@@ -33475,6 +33475,357 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dimissioni-pazienti-crans-montana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ferrovia-albula-chiusa': {
+    title: 'Linea ferroviaria dell\'Albula chiusa almeno fino a domani sera',
+    description: 'La Ferrovia retica ha chiuso la linea ferroviaria dell\'Albula a causa di una frana sul torrente Beverin. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, linea, ferroviaria, dell, albula',
+    ogTitle: 'Linea ferroviaria dell\'Albula chiusa',
+    ogDescription: 'La Ferrovia retica ha chiuso la linea ferroviaria dell\'Albula a causa di una frana sul torrente Beverin. I treni continueranno a circolare fra Coira e Bergün e fra Samedan e St. Moritz.',
+    canonicalPath: '/articoli-svizzera/ferrovia-albula-chiusa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Linea ferroviaria dell'Albula chiusa almeno fino a domani sera",
+      "description": "La Ferrovia retica ha chiuso la linea ferroviaria dell'Albula a causa di una frana sul torrente Beverin. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ferrovia-albula-chiusa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ferrovia Albula chiusa"
+      },
+      "datePublished": "2026-08-13T21:12:19+00:00",
+      "dateModified": "2026-08-13T21:12:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ferrovia-albula-chiusa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiusura-piscina-uzwil-siccita': {
+    title: 'Siccità estrema: chiude la piscina comunale di Uzwil',
+    description: 'A Uzwil, la piscina chiude in anticipo per la siccità. Risparmio di 150.000 litri al giorno per preservare l\'acqua potabile. I dettagli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, estrema, chiude, piscina',
+    ogTitle: 'Siccità: chiude la piscina di Uzwil',
+    ogDescription: 'Il Comune di Uzwil chiude la piscina comunale a causa della siccità estrema. L\'obiettivo è risparmiare 150.000 litri d\'acqua al giorno.',
+    canonicalPath: '/articoli-svizzera/chiusura-piscina-uzwil-siccita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità estrema: chiude la piscina comunale di Uzwil",
+      "description": "A Uzwil, la piscina chiude in anticipo per la siccità. Risparmio di 150.000 litri al giorno per preservare l'acqua potabile. I dettagli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-piscina-uzwil-siccita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di un lago svizzero in una giornata estiva"
+      },
+      "datePublished": "2026-08-13T21:21:36+00:00",
+      "dateModified": "2026-08-13T21:21:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/chiusura-piscina-uzwil-siccita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-claro-2026': {
+    title: 'A Claro la siccità sale al grado 2: nuove limitazioni per l\'uso dell\'acqua',
+    description: 'La siccità sale al grado 2 a Claro, nuove limitazioni per l\'uso dell\'acqua. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, claro, siccità, sale, grado',
+    ogTitle: 'Siccità a Claro: nuove limitazioni per l\'uso dell\'acqua',
+    ogDescription: 'La siccità sale al grado 2 a Claro, nuove limitazioni per l\'uso dell\'acqua.',
+    canonicalPath: '/articoli-svizzera/siccita-claro-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Claro la siccità sale al grado 2: nuove limitazioni per l'uso dell'acqua",
+      "description": "La siccità sale al grado 2 a Claro, nuove limitazioni per l'uso dell'acqua. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-claro-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un lago svizzero durante una siccità."
+      },
+      "datePublished": "2026-08-13T21:25:52+00:00",
+      "dateModified": "2026-08-13T21:25:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-claro-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caldo-e-siccita-senza-modalita-di-crisi': {
+    title: 'Caldo e siccità: per far scattare la modalità di crisi ci vuole altro',
+    description: 'Il Consiglio federale non ha dichiarato la situazione straordinaria a causa della siccità e del caldo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, siccità, scattare, modalità',
+    ogTitle: 'Caldo e siccità senza modalità di crisi',
+    ogDescription: 'Il Consiglio federale non ha dichiarato la situazione straordinaria a causa della siccità e del caldo.',
+    canonicalPath: '/articoli-svizzera/caldo-e-siccita-senza-modalita-di-crisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caldo e siccità: per far scattare la modalità di crisi ci vuole altro",
+      "description": "Il Consiglio federale non ha dichiarato la situazione straordinaria a causa della siccità e del caldo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-e-siccita-senza-modalita-di-crisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, estivo, caldo, siccità."
+      },
+      "datePublished": "2026-08-13T21:32:39+00:00",
+      "dateModified": "2026-08-13T21:32:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caldo-e-siccita-senza-modalita-di-crisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rientro-scuola-calor': {
+    title: 'Rientro a scuola, il caldo tiene banco | Frontaliere Ticino',
+    description: 'Le ondate di calore riaccendono il dibattito sulla sicurezza e la qualità degli edifici scolastici in Svizzera. I sindacati chiedono un monitoraggio regolare',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, scuola, caldo, tiene',
+    ogTitle: 'Rientro a scuola, il caldo tiene banco',
+    ogDescription: 'Le ondate di calore riaccendono il dibattito sulla sicurezza e la qualità degli edifici scolastici in Svizzera. I sindacati chiedono un monitoraggio regolare delle temperature e della qualità dell\'aria, nonché l\'inverdimento dei cortili',
+    canonicalPath: '/articoli-svizzera/rientro-scuola-calor/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro a scuola, il caldo tiene banco",
+      "description": "Le ondate di calore riaccendono il dibattito sulla sicurezza e la qualità degli edifici scolastici in Svizzera. I sindacati chiedono un monitoraggio regolare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rientro-scuola-calor.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola svizzera con cortile inondato di sole"
+      },
+      "datePublished": "2026-08-13T21:41:33+00:00",
+      "dateModified": "2026-08-13T21:41:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rientro-scuola-calor/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-porsche-arretra-elettrico-taycan': {
+    title: 'Porsche arretra sull\'elettrico, interrotta la produzione della Taycan',
+    description: 'La produzione della Taycan sarà interrotta entro il 2030 a causa del calo della domanda. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, porsche, arretra, sull, elettrico',
+    ogTitle: 'Porsche arretra sull\'elettrico, interrotta la produzione della Taycan',
+    ogDescription: 'La produzione della Taycan sarà interrotta entro il 2030 a causa del calo della domanda.',
+    canonicalPath: '/articoli-svizzera/porsche-arretra-elettrico-taycan/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Porsche arretra sull'elettrico, interrotta la produzione della Taycan",
+      "description": "La produzione della Taycan sarà interrotta entro il 2030 a causa del calo della domanda. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/porsche-arretra-elettrico-taycan.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Porsche Taycan"
+      },
+      "datePublished": "2026-08-13T21:46:25+00:00",
+      "dateModified": "2026-08-13T21:46:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/porsche-arretra-elettrico-taycan/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni': {
+    title: 'Di più VS: mezzo agricolo esce di strada, muore bambino di nove anni',
+    description: 'Un bambino di nove anni è morto martedì a seguito di un incidente stradale a Chandonne, in Vallese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzo, agricolo, esce, strada',
+    ogTitle: 'Mezzo agricolo esce di strada, muore bambino di nove anni',
+    ogDescription: 'Un bambino di nove anni è morto martedì a seguito di un incidente stradale a Chandonne, in Vallese.',
+    canonicalPath: '/articoli-svizzera/mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più VS: mezzo agricolo esce di strada, muore bambino di nove anni",
+      "description": "Un bambino di nove anni è morto martedì a seguito di un incidente stradale a Chandonne, in Vallese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veicolo agricolo uscito di strada in Svizzera con un bambino a bordo"
+      },
+      "datePublished": "2026-08-13T21:58:08+00:00",
+      "dateModified": "2026-08-13T21:58:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ospedali-svizzeri-pulizia-va-migliorata': {
+    title: 'Ospedali svizzeri, la pulizia va migliorata | Frontaliere Ticino',
+    description: 'Gli ospedali svizzeri stanno migliorando la pulizia, ma ci sono ancora carenze nella gestione dei dispositivi medici. L\'Istituto svizzero per gli agenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedali, svizzeri, pulizia, migliorata',
+    ogTitle: 'Ospedali svizzeri migliorano la pulizia, ma ci sono ancora carenze nella gestione dei dispositivi medici',
+    ogDescription: 'Gli ospedali svizzeri stanno migliorando la pulizia, ma ci sono ancora carenze nella gestione dei dispositivi medici. L\'Istituto svizzero per gli agenti terapeutici ha condotto ispezioni in 26 ospedali e due società di servizi.',
+    canonicalPath: '/articoli-svizzera/ospedali-svizzeri-pulizia-va-migliorata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedali svizzeri, la pulizia va migliorata",
+      "description": "Gli ospedali svizzeri stanno migliorando la pulizia, ma ci sono ancora carenze nella gestione dei dispositivi medici. L'Istituto svizzero per gli agenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedali-svizzeri-pulizia-va-migliorata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedali svizzeri con la bandiera della Svizzera"
+      },
+      "datePublished": "2026-08-13T22:04:03+00:00",
+      "dateModified": "2026-08-13T22:04:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ospedali-svizzeri-pulizia-va-migliorata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incidente-veicolo-agricolo-morto-bambino-9-anni': {
+    title: 'Incidente con un veicolo agricolo, morto un bambino di 9 anni',
+    description: 'Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera. L\'incidente è avvenuto lunedì 10 agosto sulla route',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, veicolo, agricolo, morto',
+    ogTitle: 'Incidente con un veicolo agricolo, morto un bambino di 9 anni',
+    ogDescription: 'Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera. L\'incidente è avvenuto lunedì 10 agosto sulla route du Châtelard, a Chandonne, nel comune di Liddes (VS).',
+    canonicalPath: '/articoli-svizzera/incidente-veicolo-agricolo-morto-bambino-9-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente con un veicolo agricolo, morto un bambino di 9 anni",
+      "description": "Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d'Aosta, Svizzera. L'incidente è avvenuto lunedì 10 agosto sulla route",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-veicolo-agricolo-morto-bambino-9-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente con un veicolo agricolo nella Valle d'Aosta, Svizzera"
+      },
+      "datePublished": "2026-08-13T23:04:09+00:00",
+      "dateModified": "2026-08-13T23:04:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-veicolo-agricolo-morto-bambino-9-anni/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

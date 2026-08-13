@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bitfinex",
-  "assembledAt": "2026-08-13T10:19:00.390Z",
+  "assembledAt": "2026-08-13T21:48:44.991Z",
   "jobs": [
     {
       "id": "bitfinex-48d8a6e17a56",
@@ -33,7 +33,7 @@
       "url": "https://bitfinex.recruitee.com/o/product-manager-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:18:58.614Z",
+      "crawledAt": "2026-08-13T21:48:42.386Z",
       "addressLocality": "Lisboa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -70,6 +70,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T22:25:01.499Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {

@@ -726,18 +726,26 @@ describe('the SPA keeps the exit open when the exchange refuses', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 describe('the client helper', () => {
   it('asks the Cloud Function to unsubscribe with whatever credential it was given', async () => {
-    const calls: string[] = [];
-    vi.stubGlobal('fetch', async (url: string) => {
-      calls.push(url);
+    const calls: Array<{ url: string; init?: RequestInit }> = [];
+    vi.stubGlobal('fetch', async (url: string, init?: RequestInit) => {
+      calls.push({ url, init });
       return { ok: true, status: 200, json: async () => ({ success: true }) } as any;
     });
     const { unsubscribeViaCloudFunction } = await import('../services/newsletterSubscribers');
     const out = await unsubscribeViaCloudFunction('User@Example.com', 'abc123');
     expect(out.success).toBe(true);
-    expect(calls[0]).toContain('action=unsubscribe');
-    expect(calls[0]).toContain('email=user%40example.com'); // normalized, as the HMAC is
-    expect(calls[0]).toContain('token=abc123');
-    expect(calls[0]).toContain('format=json');
+    expect(calls[0].url).toContain('action=unsubscribe');
+    expect(calls[0].url).toContain('format=json');
+    // The address and the credential still arrive — in the POST body, since
+    // #5746. This assertion used to read them off the URL, which is exactly the
+    // string Cloud Run copies into `httpRequest.requestUrl`: the test was
+    // pinning the defect in place, so it now pins its absence instead.
+    expect(calls[0].url).not.toContain('email=');
+    expect(calls[0].url).not.toContain('token=');
+    expect(calls[0].init?.method).toBe('POST');
+    const body = JSON.parse(String(calls[0].init?.body));
+    expect(body.email).toBe('user@example.com'); // normalized, as the HMAC is
+    expect(body.token).toBe('abc123');
     vi.unstubAllGlobals();
   });
 

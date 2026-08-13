@@ -1,18 +1,19 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-08-13T10:19:14.529Z",
+  "generatedAt": "2026-08-13T21:49:24.930Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5213,
-  "avgDurationMs": 5213,
+  "unchangedCount": 1,
+  "durationMs": 5082,
+  "avgDurationMs": 5082,
   "durationHistory": [
-    5213
+    5082
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "oetiker-ba02a35ef045",
       "slug": "lehrstelle-als-polymechaniker-in-efz-all-oetiker-horgen-zh-switzerland",
@@ -25,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:19:10.620Z",
+      "crawledAt": "2026-08-13T21:49:21.095Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -42,16 +43,16 @@
       "postedDate": "2026-08-13",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "jobReqId": "744000143252339",
-      "_qualityScore": 62,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:19:10.620Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "oetiker-67888c0434c2",
       "slug": "cnc-polymechaniker-fraser-mit-teamfuhrung-all-oetiker-horgen-switzerland",
@@ -64,7 +65,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000139219189-cnc-polymechaniker-fraser-mit-teamfuhrung-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:19:10.670Z",
+      "crawledAt": "2026-08-13T21:49:21.140Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -103,7 +104,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:19:10.666Z",
+      "crawledAt": "2026-08-13T21:49:21.137Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -128,10 +129,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "oetiker-e346f07e412c",
-      "slug": "team-leader-procurement-planning-logistics-all-oetiker-horgen-switzerland",
+      "slug": "capo-squadra-procurement-planning-logistica-all-oetiker-horgen-switzerland",
       "company": "Oetiker",
       "companyKey": "oetiker",
       "companyDomain": "oetiker.com",
@@ -159,15 +163,16 @@
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135449649-team-leader-procurement-planning-logistics-all-?oga=true",
       "jobReqId": "744000135449649",
       "firstSeenAt": "2026-07-03T23:28:43.862Z",
-      "_qualityScore": 83,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

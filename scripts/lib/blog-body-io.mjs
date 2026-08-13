@@ -15,6 +15,7 @@
  * so drift is impossible by construction.
  */
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { unescapeTsString } from './unescape-ts-string.mjs';
 
 /**
@@ -72,4 +73,98 @@ export function escapeForTS(s) {
     .replace(/'/g, "\\'")
     .replace(/\n/g, '\\n')
     .replace(/\r/g, '');
+}
+
+// ── Locating which article ids a diff touches ───────────────────────────
+//
+// Extracted 2026-08-13 from audit-article-factuality.mjs so
+// report-synced-article-fabrication.mjs (issue #5671) could scope itself to
+// the same "what is about to change" set without a second hand-copy of the
+// same regex and the same three-git-calls union. Per AGENTS.md #6: a
+// regex/constant duplicated in ≥2 files goes into one shared module so drift
+// is impossible by construction — audit-article-factuality.mjs now imports
+// this instead of carrying its own copy.
+//
+// Two prefixes, because `services/locales/blog-body[-ch]` is a SYMLINK to
+// `packages/articles/content/blog-body[-ch]`. `git diff --name-only` reports
+// the resolved path, so a regex anchored on the symlink prefix alone matched
+// nothing and a caller exited 0 on every diff — verifying nothing while
+// looking green. Accepts whichever prefix the repo happens to be using.
+//
+// Any locale, not just `it`: callers judge translations too (the fabrication
+// guard's FABRICATED_LABOR_OFFICE check runs per-locale), and a change that
+// only touches `<root>/blog-body/en/<id>.ts` is exactly the shape that must
+// still be caught.
+export const BODY_PATH_RE =
+  /^(?:services\/locales|packages\/articles\/content)\/blog-body(?:-ch)?\/(?:it|en|de|fr)\/(.+)\.ts$/;
+
+/** Article ids named by `git diff --name-only`-shaped output. */
+function articleIdsFromPaths(out) {
+  const ids = new Set();
+  for (const line of out.split('\n')) {
+    const m = line.match(BODY_PATH_RE);
+    if (m) ids.add(m[1]);
+  }
+  return ids;
+}
+
+// The index carries 30k+ entries and the corpus alone is ~15k files, so a
+// full-corpus refresh can print a name list far past execFileSync's 1 MB
+// default. ENOBUFS there would be caught by the `catch` below and reported as
+// "diff unavailable" — i.e. the scan would silently cover nothing on exactly
+// the largest, most interesting change.
+const GIT_MAX_BUFFER = 64 * 1024 * 1024;
+const GIT_OPTS = { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: GIT_MAX_BUFFER };
+
+/**
+ * Article ids touched in the diff against `base`.
+ * @param {string} base
+ * @returns {Set<string>|'unavailable'}
+ */
+export function changedArticleIds(base) {
+  let out = '';
+  try {
+    // Three-dot first (changes introduced by this branch since the merge base).
+    // CI checks out shallow, so the merge base is often absent — fall back to a
+    // plain two-dot tree diff, which only needs both tips to be present.
+    try {
+      out = execFileSync('git', ['diff', '--name-only', `${base}...HEAD`], GIT_OPTS);
+    } catch {
+      out = execFileSync('git', ['diff', '--name-only', base, 'HEAD'], GIT_OPTS);
+    }
+  } catch {
+    console.error(`⚠️  git diff contro "${base}" non riuscito (clone shallow o ref assente).`);
+    console.error('   Scope NON calcolabile su questo diff — nessun articolo verificato.');
+    return 'unavailable';
+  }
+  return articleIdsFromPaths(out);
+}
+
+/**
+ * Article ids changed in the working tree but not yet committed: unstaged
+ * edits, staged edits and new untracked files.
+ *
+ * All three, because callers run between `pull-articles-corpus.mjs` (which
+ * overwrites tracked bodies AND drops brand-new ones in, untracked) and the
+ * `git add` that stages them. Reading only the unstaged diff would miss every
+ * NEW article — the majority of what a sync brings — and reading only the
+ * index would miss everything if a caller ever moves earlier. The union is
+ * correct at any point before the commit.
+ *
+ * @returns {Set<string>|'unavailable'}
+ */
+export function changedArticleIdsWorktree() {
+  let out = '';
+  try {
+    out = [
+      execFileSync('git', ['diff', '--name-only'], GIT_OPTS),
+      execFileSync('git', ['diff', '--name-only', '--cached'], GIT_OPTS),
+      execFileSync('git', ['ls-files', '--others', '--exclude-standard'], GIT_OPTS),
+    ].join('\n');
+  } catch {
+    console.error('⚠️  git diff/ls-files sul working tree non riuscito.');
+    console.error('   Scope NON calcolabile — nessun articolo verificato.');
+    return 'unavailable';
+  }
+  return articleIdsFromPaths(out);
 }

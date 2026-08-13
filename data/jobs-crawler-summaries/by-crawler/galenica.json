@@ -1,19 +1,21 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-13T10:27:58.113Z",
+  "generatedAt": "2026-08-13T21:51:23.434Z",
   "total": 389,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 149159,
-  "avgDurationMs": 149159,
+  "unchangedCount": 1,
+  "durationMs": 143146,
+  "avgDurationMs": 143146,
   "durationHistory": [
-    149159
+    143146
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Sachbearbeiter Kundenservice / Retouren (w/m/d)",
       "company": "Galenica AG (Galenica)",
@@ -40,7 +42,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,7 +51,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

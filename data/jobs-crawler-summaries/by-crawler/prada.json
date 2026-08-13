@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-08-13T10:29:49.004Z",
+  "generatedAt": "2026-08-13T21:55:04.978Z",
   "total": 4,
-  "newCount": 2,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7166,
-  "avgDurationMs": 7166,
+  "durationMs": 6195,
+  "avgDurationMs": 6195,
   "durationHistory": [
-    7166
+    6195
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-e550f9d2a9e8",
       "slug": "prada-team-manager-h-f-cannes-prada-group-cannes",
@@ -33,18 +34,20 @@
       "url": "https://jobs.pradagroup.com/job/Cannes-PRADA-Team-Manager-%28hf%29-Cannes/1415419133/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:29:43.892Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-13T21:55:01.133Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-13T10:29:43.892Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
     {
       "id": "prada-47d0d4f535bc",
-      "slug": "client-advisor-prada-group-vancouver-client-advisor",
+      "slug": "client-consulente-prada-group-vancouver-client-advisor",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -62,17 +65,16 @@
       "url": "https://jobs.pradagroup.com/job/Vancouver-Client-Advisor-BC/1405245333/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:29:44.198Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-08-13T21:55:01.419Z",
+      "firstSeenAt": "2026-08-13T10:29:44.198Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-6c4e57745113",
       "slug": "runner-prada-sankt-moritz-prada-group-saint-moritz",
@@ -93,7 +95,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:29:43.231Z",
+      "crawledAt": "2026-08-13T21:55:00.508Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -104,46 +106,11 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-0906f5cb166c",
-      "slug": "addetto-a-produzione-pelletteria-prada-group-scandicci-addettoa-produzione-pelletteria",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Addetto/a Produzione Pelletteria",
-      "location": "Scandicci Addettoa Produzione Pelletteria",
-      "canton": "TI",
-      "addressLocality": "Scandicci Addettoa Produzione Pelletteria",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-11T22:14:14.328Z",
-      "firstSeenAt": "2026-08-10T10:41:21.839Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-47d0d4f535bc",
-      "slug": "client-advisor-prada-group-vancouver-client-advisor",
+      "slug": "client-consulente-prada-group-vancouver-client-advisor",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -161,16 +128,16 @@
       "url": "https://jobs.pradagroup.com/job/Vancouver-Client-Advisor-BC/1405245333/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:29:44.198Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T21:55:01.419Z",
+      "firstSeenAt": "2026-08-13T10:29:44.198Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -194,16 +161,17 @@
       "url": "https://jobs.pradagroup.com/job/Cannes-PRADA-Team-Manager-%28hf%29-Cannes/1415419133/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:29:43.892Z",
+      "crawledAt": "2026-08-13T21:55:01.133Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:29:43.892Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "addressRegion": "TI",
-      "_qualityScore": 78,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -227,7 +195,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:29:43.231Z",
+      "crawledAt": "2026-08-13T21:55:00.508Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -266,7 +234,7 @@
       "salaryMax": 75000,
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-12T10:22:52.029Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -9641,7 +9641,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Bollettino frontalieri del 11 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'I numeri del 11 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Aprica da frontaliere: pro e contro',
-    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Fatti e cifre DALLA FONTE sul trasferimento a Aprica per i frontalieri',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Franchigia di €10\'000 e obbligo di risiedere ad Aprica almeno 183 giorni l\'anno per chi si trasferisce da frontaliere',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere che guida in auto da Aprica a Chiasso',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Vivere a Lovero e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Impostazione fiscale, permessi e pendolarismo.',
@@ -9917,6 +9917,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.valute-frontiere-svizzera-italia.title': 'Valute e Frontiere: guida alle novità per frontalieri',
     'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analisi delle dinamiche tra Svizzera e Italia: dal cambio valuta alla fiscalità, ecco cosa devono sapere i lavoratori frontalieri.',
     'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Valico di frontiera tra Svizzera e Italia',
+    'blog.article.varese-lavoratori-nero-2026.title': 'Varese, oltre 50 lavoratori in nero scoperti, multe per mezzo milione',
+    'blog.article.varese-lavoratori-nero-2026.excerpt': 'La Finanza di Varese ha individuato oltre 50 lavoratori in nero e contestato oltre 280 violazioni in materia di certificazione fiscale.',
+    'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Al via i lavori preparatori per il piazzale ex Scuole a Lugano',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'A partire da lunedì 17 agosto si inizierà a predisporre i cinque punti di interscambio temporanei che sostituiranno la pensilina Botta.',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Lavori preparatori per il piazzale ex Scuole a Lugano.',
 };
 
 export default blogMetaIt;

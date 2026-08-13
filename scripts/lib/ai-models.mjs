@@ -1786,6 +1786,15 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
 
 let _discoveryDone = false;
 const _dynamicModels = [];
+// modelId → provider name, for ids pruned from DEFAULT_CHAIN because the provider stopped
+// offering them (see the markStale block in _discoverProvider). Diagnostics + re-entry
+// audit only: nothing reads it to make a routing decision, and it is per-process.
+const _prunedStale = new Map();
+
+/** Ids pruned from the roster this process because their provider decommissioned them. */
+export function prunedStaleModels() {
+  return [..._prunedStale.keys()];
+}
 
 /**
  * Build the set of bare model ids a provider currently offers from its live
@@ -1900,18 +1909,49 @@ export async function _discoverProvider(cfg) {
     added++;
   }
 
-  // Pre-exhaust chain models the provider no longer offers (markStale providers):
-  // a static id absent from the live listing is decommissioned, so skip it for
-  // this run before it wastes a fallback attempt. GUARD: only when the listing
-  // returned at least one usable model — a 200 with an empty/garbage body is an
-  // API glitch, not "every model vanished", and must not nuke the whole provider.
+  // Pre-exhaust AND PRUNE chain models the provider no longer offers (markStale
+  // providers): a static id absent from the live listing is decommissioned, so it must
+  // not cost a fallback attempt. GUARD: only when the listing returned at least one
+  // usable model — a 200 with an empty/garbage body is an API glitch, not "every model
+  // vanished", and must not nuke the whole provider.
+  //
+  // Marking alone was not enough (2026-08-13). `markModelExhausted(model, 'stale')` only
+  // sets the in-run skip: `_exhaustReason` distinguishes it from `'quota'`, and only
+  // `'quota'` persists an `exhaustedUntil` to midnight UTC (see the guard in
+  // markModelExhausted / initScoreStore). That asymmetry is correct — a decommissioned id
+  // has nothing to do with a daily budget — but it left the dead ids IN the roster, so
+  // every run re-walked them, re-marked them, and any code path that reads the chain
+  // before discovery finishes tried them for real. Measured per run: `stale` 22-44,
+  // `quota` 0 — i.e. the whole exhaustion volume of a run was decommissioned ids being
+  // rediscovered, over and over.
+  //
+  // RE-ENTRY POLICY, by evidence and never by timer: pruning is in-memory and
+  // process-scoped (DEFAULT_CHAIN is rebuilt from the static list by every new process),
+  // so a listing glitch can cost at most the current run — nothing is persisted, no id is
+  // ever deleted from `AI_MODELS`. A pruned id returns the moment the provider offers it
+  // again: it is then absent from `existingIds` above, so the add loop re-injects it on
+  // the next discovery. `markModelExhausted` is kept alongside the prune so anything
+  // holding a pre-prune copy of the chain (callLLM snapshots it with `[...DEFAULT_CHAIN]`)
+  // still skips the id for this run instead of paying its 404.
   let stale = 0;
   if (cfg.markStale && offeredIds.size > 0) {
-    for (const model of DEFAULT_CHAIN) {
-      if (!model.startsWith(cfg.prefix)) continue;
-      if (!offeredIds.has(model.slice(prefixLen))) {
-        markModelExhausted(model, 'stale');
-        stale++;
+    const staleIds = DEFAULT_CHAIN.filter(
+      (m) => m.startsWith(cfg.prefix) && !offeredIds.has(m.slice(prefixLen)),
+    );
+    for (const model of staleIds) {
+      markModelExhausted(model, 'stale');
+      _prunedStale.set(model, cfg.name);
+      stale++;
+    }
+    if (staleIds.length) {
+      // Splice in place: DEFAULT_CHAIN is an exported live array (callers snapshot it),
+      // so reassigning it would silently orphan every importer.
+      const drop = new Set(staleIds);
+      for (let i = DEFAULT_CHAIN.length - 1; i >= 0; i--) {
+        if (drop.has(DEFAULT_CHAIN[i])) DEFAULT_CHAIN.splice(i, 1);
+      }
+      for (let i = _dynamicModels.length - 1; i >= 0; i--) {
+        if (drop.has(_dynamicModels[i])) _dynamicModels.splice(i, 1);
       }
     }
   }
@@ -1919,7 +1959,7 @@ export async function _discoverProvider(cfg) {
   if (added > 0 || stale > 0) {
     // stderr, not stdout: smoke-test-ai-models.mjs redirects this module's stdout
     // into a JSON file, so a stray stdout line here corrupts that payload.
-    console.error(`🔍 [Discovery:${cfg.name}] ${offeredIds.size} usable models, ${added} new added to chain, ${stale} stale pre-exhausted`);
+    console.error(`🔍 [Discovery:${cfg.name}] ${offeredIds.size} usable models, ${added} new added to chain, ${stale} stale pruned from the chain (re-added automatically if the provider offers them again)`);
   }
   return { added, stale };
 }
@@ -2627,6 +2667,7 @@ export function resetState() {
   _exhaustedModels.clear();
   _ghExhaustedPats.clear();
   _exhaustReason.clear();
+  _prunedStale.clear();
   _exhaustedLogged.clear();
   _preflightSkipLogged.clear();
   _providerCooldown.clear();

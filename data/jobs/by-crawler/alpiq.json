@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-13T10:27:53.962Z",
+  "assembledAt": "2026-08-13T22:21:48.173Z",
   "jobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:27:51.992Z",
+      "crawledAt": "2026-08-13T22:21:45.090Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -121,7 +121,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "archivist-in-all-100-alpiq-olten"
@@ -176,7 +176,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:27:51.993Z",
+      "crawledAt": "2026-08-13T22:21:45.092Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -258,7 +258,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "electricien-ne-automaticien-ne-alpiq-martigny"
