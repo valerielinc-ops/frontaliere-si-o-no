@@ -301,9 +301,14 @@ export function allocateCompanyAlertCards(sections, {
   return capped;
 }
 
-function jobCardHtml(job, hubUrl, wrapUrl) {
+function jobCardHtml(job, hubUrl, wrapJobUrl) {
   const title = String(job.title || '').trim();
-  const url = wrapUrl(String(job.url || hubUrl));
+  // wrapJobUrl, not wrapUrl (#5725): this href is a job DETAIL page, the one
+  // destination in this email that is gated on a session. The `job.url ||
+  // hubUrl` fallback means a job with no URL lands on the public hub instead,
+  // carrying a credential it does not need — accepted, because the alternative
+  // is a second parsing rule inside a card renderer.
+  const url = wrapJobUrl(String(job.url || hubUrl));
   const place = [job.location, job.canton].filter(Boolean).join(', ');
   const contract = String(job.contractType || job.contract || '').trim();
   const metaBits = [place, contract].filter(Boolean).map(escHtml).join(' · ');
@@ -345,7 +350,14 @@ function jobCardHtml(job, hubUrl, wrapUrl) {
  * @param {string} opts.locale       it|en|de|fr (normalised internally).
  * @param {string} opts.manageUrl    Followed-companies / preferences link.
  * @param {string} opts.unsubscribeAllUrl All-alerts unsubscribe.
- * @param {function(string):string} [opts.wrapUrl] Autologin/UTM decorator.
+ * @param {function(string):string} [opts.wrapUrl] Campaign decorator for links
+ *   to PUBLIC destinations — the company hub. Since #5725 it must not attach the
+ *   `ne`/`ac` autologin pair: a hub page renders the same to everyone.
+ * @param {function(string):string} [opts.wrapJobUrl] Same, for links to a job
+ *   DETAIL page, which components/community/JobBoard.tsx gates on `hasAccess`
+ *   and therefore does need the credential. Defaults to `wrapUrl` so an older
+ *   caller behaves exactly as before; scripts/send-company-alerts.mjs passes the
+ *   two separately.
  * @param {string} [opts.baseUrl]
  * @returns {{ subject: string, html: string, text: string, sections: Array<{company: string, hubUrl: string, jobs: object[], [key: string]: unknown}> }}
  *   `sections` is what was ACTUALLY rendered, after `allocateCompanyAlertCards`
@@ -362,6 +374,7 @@ export function buildCompanyAlertEmail({
   unsubscribeUrl,
   unsubscribeAllUrl,
   wrapUrl = (u) => u,
+  wrapJobUrl = wrapUrl,
   baseUrl = 'https://frontaliereticino.ch',
 }) {
   const loc = nlNormLocale(locale);
@@ -405,7 +418,7 @@ export function buildCompanyAlertEmail({
   // pair of text links; a stack of six orange buttons is not a call to action,
   // it is wallpaper.
   const body = shownSections.map((section) => {
-    const cards = section.jobs.map((job) => jobCardHtml(job, section.hubUrl, wrapUrl)).join('');
+    const cards = section.jobs.map((job) => jobCardHtml(job, section.hubUrl, wrapJobUrl)).join('');
     const header = multi ? `
         <tr><td style="background:${WHITE};padding:20px 28px 2px;" class="section-pad">
           <a href="${escHtml(section.hubUrl)}" target="_blank" rel="noopener noreferrer" style="font-size:17px;font-weight:800;color:${BRAND_DARK};text-decoration:none;">${escHtml(section.company)}</a>
@@ -507,7 +520,7 @@ ${body}${monoCta}
     ...(multi ? [`── ${section.company} — ${s.sectionNew(section.jobs.length)}`] : []),
     ...section.jobs.map((job) => {
       const place = [job.location, job.canton].filter(Boolean).join(', ');
-      return `- ${job.title || ''}${place ? ` (${place})` : ''}\n  ${wrapUrl(String(job.url || section.hubUrl))}`;
+      return `- ${job.title || ''}${place ? ` (${place})` : ''}\n  ${wrapJobUrl(String(job.url || section.hubUrl))}`;
     }),
     `${s.ctaAll(section.company)}: ${section.hubUrl}`,
     ...(multi ? [`${s.unsubThis(section.company)}: ${section.unsubscribeUrl || ''}`] : []),

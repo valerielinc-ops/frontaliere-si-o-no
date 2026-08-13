@@ -202,12 +202,24 @@ export function makeAuthenticatedActionUrl(action, email, { secret } = {}) {
 }
 
 /**
- * True when an href should carry autologin credentials: our own site only,
+ * True when an href is one of ours and may be REWRITTEN at all — our own site,
  * never mailto/tel/anchors, never static assets.
+ *
+ * This is the old `shouldWrapAuthenticatedHref` body, and it is deliberately no
+ * longer the credential rule (#5725). Rewriting a link and handing it a
+ * credential are two different questions that used to be one:
+ *
+ *  - "may I touch this href?" → this predicate. It still governs the utm_medium
+ *    / utm_campaign rewrite, because GA4's Email channel grouping keys on
+ *    utm_medium and dropping it from every content link would move the whole
+ *    newsletter into `direct`;
+ *  - "does this destination need a session?" → {@link autologinDestination},
+ *    the fail-closed allowlist below. That is the one that decides `ne`/`ac`.
+ *
  * @param {string} rawHref
  * @returns {boolean}
  */
-export function shouldWrapAuthenticatedHref(rawHref) {
+export function isOwnRewritableHref(rawHref) {
   if (!rawHref) return false;
   if (rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('#')) return false;
   let url;
@@ -218,14 +230,69 @@ export function shouldWrapAuthenticatedHref(rawHref) {
 }
 
 /**
- * Add autologin credentials to one of our own URLs so the recipient lands
- * signed in. `ne`/`ac` are deliberately short: Mailgun silently drops click
- * tracking for href values >= 1000 characters.
+ * True when an href's DESTINATION needs the `ac` autologin credential.
+ *
+ * Kept under its historical name because that is what the name always claimed —
+ * "wrap **authenticated**" — but the answer now comes from the allowlist
+ * (AUTOLOGIN_DESTINATIONS), not from "is it a link of ours". See
+ * {@link autologinDestination} for the whole reasoning.
+ *
+ * @param {string} rawHref
+ * @returns {boolean}
+ */
+export function shouldWrapAuthenticatedHref(rawHref) {
+  return autologinDestination(rawHref) !== null;
+}
+
+/**
+ * Rewrite one of our own URLs for an email: campaign attribution always, the
+ * `ne`/`ac` autologin pair ONLY when the destination needs a session.
+ *
+ * ── The perimeter (#5725) ───────────────────────────────────────────────────
+ *
+ * Until #5725 this function attached the credential to whatever it was handed.
+ * #5719 had given `ac` a lifetime; it had not given it a perimeter, so every
+ * link in a message — article, hub, search page, home page — carried a code
+ * that mints a Firebase session, towards pages that do nothing with one. A TTL
+ * shortens how long each copy is useful; it does not reduce how MANY copies are
+ * deposited in the provider's click log, in the recipient's anti-phishing
+ * scanner, in every forward and every corporate mail archive.
+ *
+ * So the credential is now fail-closed. It rides along in exactly two cases:
+ *
+ *  1. the destination is in AUTOLOGIN_DESTINATIONS — the allowlist at the
+ *     bottom of this file, which is DATA, one entry per destination class with
+ *     the reason it needs a session written next to it;
+ *  2. the caller passes `sessionGated: '<reason>'` — a non-empty string, not a
+ *     boolean, so the justification is greppable and shows up in review.
+ *
+ * Anything else — including a destination nobody has thought about yet — gets
+ * utm_* and nothing else. That asymmetry is the whole point: with the old
+ * denylist a NEW page was born carrying the credential and someone had to
+ * notice; with the allowlist it is born without one and someone has to decide.
+ *
+ * `sessionGated` exists because one class of destination genuinely needs the
+ * session and cannot be recognised from its path here: a job DETAIL page. It
+ * sits behind `hasAccess` in components/community/JobBoard.tsx
+ * (`isLoggedIn || emailAccessGranted || isCrawlerVisitor`), and its own render
+ * path holds a skeleton while an autologin exchange is in flight precisely so
+ * the sign-in gate never flashes for a reader arriving from an alert. Its URL
+ * is `<locale>/<canton job-board section>/<slug>`, and the 26x4 section table
+ * lives in data/canton-url-slugs.json — unreachable from functions/ (no
+ * bundler, no repo-root reads, the same boundary that put PREFERENCES_SLUG
+ * below in this file as a runtime copy). The senders that build those links
+ * DO know what they are building, so they say so.
+ *
+ * `ne`/`ac` are deliberately short: Mailgun silently drops click tracking for
+ * href values >= 1000 characters.
  *
  * utm_medium defaults to 'newsletter' because GA4's Email channel grouping keys
  * on it; pass utmCampaign to keep campaigns separable within that channel.
  * Job alerts override both: they use 'email' (medium = channel, source =
- * identifier) and must keep the utm_medium their utmBase already set.
+ * identifier) and must keep the utm_medium their utmBase already set. The
+ * attribution rewrite is deliberately NOT gated on the perimeter — dropping
+ * utm_medium from every content link would move the whole email channel into
+ * GA4's `direct` bucket, which is a reporting outage traded for nothing.
  *
  * @param {string} targetUrl absolute or site-relative
  * @param {string} email
@@ -233,22 +300,54 @@ export function shouldWrapAuthenticatedHref(rawHref) {
  * @param {string} [opts.secret] signing secret; falls back to
  *   process.env.NEWSLETTER_SECRET, read at call time.
  * @param {string|null} [opts.autologinCode] reuse a code already generated for
- *   this recipient instead of computing another HMAC.
+ *   this recipient instead of computing another HMAC. Only consulted when the
+ *   destination is inside the perimeter — an out-of-perimeter link never emits
+ *   the code it was handed.
  * @param {string|null} [opts.utmCampaign] added as utm_campaign when set.
  * @param {string} [opts.utmMedium='newsletter'] value written to utm_medium.
  * @param {boolean} [opts.preserveExistingUtmMedium=false] when true, leave a
  *   utm_medium already present on targetUrl untouched.
+ * @param {string} [opts.sessionGated] non-empty reason string that opts ONE
+ *   call site into the credential for a destination the allowlist cannot
+ *   recognise. A boolean, an empty string or a whitespace-only string is
+ *   ignored on purpose: `sessionGated: true` would be a switch, and this has to
+ *   be an argument.
  * @returns {string}
  */
 export function makeAuthenticatedUrl(
   targetUrl,
   email,
-  { secret, autologinCode, utmCampaign, utmMedium = 'newsletter', preserveExistingUtmMedium = false } = {},
+  {
+    secret,
+    autologinCode,
+    utmCampaign,
+    utmMedium = 'newsletter',
+    preserveExistingUtmMedium = false,
+    sessionGated,
+  } = {},
 ) {
   const url = new URL(targetUrl, BASE_URL);
-  const code = autologinCode === undefined ? generateAutologinCode(email, { secret }) : autologinCode;
-  url.searchParams.set('ne', String(email || '').toLowerCase());
-  if (code) url.searchParams.set('ac', code);
+  // The declaration widens the perimeter by one DESTINATION, never past the
+  // host: a reason string is a statement about one of our pages, and an href
+  // that left our domain is the worst case in #5725, not a case a comment can
+  // authorise. `autologinDestination` applies the same host/asset guard to the
+  // allowlist branch, so both roads go through it.
+  const ownDestination = isOwnRewritableHref(url.toString());
+  const declaredByCaller =
+    ownDestination && typeof sessionGated === 'string' && sessionGated.trim().length > 0;
+  const insidePerimeter = declaredByCaller || autologinDestination(url) !== null;
+  if (insidePerimeter) {
+    // Resolved INSIDE the branch: an out-of-perimeter link must not even mint a
+    // code, so a sender that stopped needing one stops paying for the HMAC too.
+    const code = autologinCode === undefined ? generateAutologinCode(email, { secret }) : autologinCode;
+    // `ne` goes with `ac`, not with the link. On its own it is the recipient's
+    // address in a query string that the provider's click log, Cloud Run's
+    // request log (#5746) and every scanner keep verbatim, in exchange for
+    // nothing: no page reads `ne` without a credential beside it
+    // (services/newsletterAutologinSignal.ts needs both).
+    url.searchParams.set('ne', String(email || '').toLowerCase());
+    if (code) url.searchParams.set('ac', code);
+  }
   // Job alerts build their links from a utmBase that already carries a
   // utm_medium; overwriting it would lose that attribution. The newsletter and
   // the welcome email have no such base and always want the GA4 Email channel
@@ -287,7 +386,13 @@ export function wrapAuthenticatedHrefs(html, email, { secret, utmCampaign, schem
   const autologinCode = generateAutologinCode(email, { secret, scheme });
   return html.replace(/href="([^"]+)"/g, (whole, rawHref) => {
     const href = rawHref.replace(/&amp;/g, '&');
-    if (!shouldWrapAuthenticatedHref(href)) return whole;
+    // isOwnRewritableHref, not shouldWrapAuthenticatedHref: this decides whether
+    // the href may be touched at all (utm_*), and makeAuthenticatedUrl decides
+    // on its own whether the destination is inside the credential perimeter
+    // (#5725). A body-level rewrite has no idea what any given href is for, and
+    // "no idea" resolves to "no credential" by construction — there is no
+    // sessionGated argument here and there deliberately cannot be one.
+    if (!isOwnRewritableHref(href)) return whole;
     const wrapped = makeAuthenticatedUrl(href, email, { secret, autologinCode, utmCampaign });
     return `href="${wrapped.replace(/&/g, '&amp;')}"`;
   });
@@ -344,4 +449,146 @@ export function makePreferencesUrl(email, locale, { secret, scheme, policy, now,
   const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(normalized)}`;
   if (!token) return fallbackUnsigned ? base : null;
   return `${base}&token=${token}`;
+}
+
+// ── The autologin perimeter (#5725) ─────────────────────────────────────────
+//
+// #5719 gave the `ac` code a LIFETIME. This is its PERIMETER, and the two are
+// orthogonal: a TTL shortens how long a leaked copy is useful, an allowlist
+// reduces how many copies are created. Measured on `main` before this change, a
+// job-alert message deposited a session-minting credential on up to twelve
+// links, eleven of which pointed at pages that do nothing with a session.
+//
+// It is an ALLOWLIST, and that direction is the whole fix. The old rule was a
+// denylist — "ours, and not mailto/tel/#/images" — under which a page that did
+// not exist yet was born WITH the credential and stayed that way until somebody
+// noticed. Under an allowlist it is born without one, and adding it is a
+// deliberate edit to the table below, in a diff a reviewer reads.
+//
+// Membership is not "is this page ours" and not "is this page important". It is
+// exactly one question: DOES THIS DESTINATION DO SOMETHING DIFFERENT FOR A
+// SIGNED-IN READER? Every entry answers it in its own `why`, and every `why`
+// names the code that proves it. A destination whose answer is "it renders the
+// same either way" — an article, a search page, a canton hub, a job-board
+// landing, the home page — belongs outside, however central it is to the email.
+//
+// The table is data on purpose. #5725 asks for "la lista dei percorsi
+// autenticati come dato esplicito e non come effetto collaterale di una regex",
+// because the previous shape hid the decision inside a boolean expression that
+// no test could enumerate. tests/newsletter-autologin-perimeter.test.ts walks
+// this array.
+
+/**
+ * Locale prefixes the site serves. IT is at the root, so it has no prefix —
+ * same rule makePreferencesUrl's `localePathPrefix` applies.
+ */
+const LOCALE_PREFIXES = new Set(['en', 'de', 'fr']);
+
+/**
+ * RUNTIME COPY of services/routeSlugs.data.ts's `followedCompanies` column,
+ * here for the same reason PREFERENCES_SLUG is: Cloud Functions cannot import
+ * a TypeScript module from the repo root. scripts/send-company-alerts.mjs holds
+ * a third copy of the `it` slug alone, with its own drift assertion in
+ * tests/company-alert.test.ts. Guarded here by "followed-companies slug table"
+ * in tests/newsletter-autologin-perimeter.test.ts, which imports this table and
+ * SLUG_TABLES and fails when they disagree — a rename in one without the other
+ * would not 404, it would silently drop the page out of the perimeter, which is
+ * strictly worse because the link still works and just stops signing anyone in.
+ */
+export const FOLLOWED_COMPANIES_SLUG = {
+  it: 'aziende-seguite',
+  en: 'followed-companies',
+  de: 'gefolgte-unternehmen',
+  fr: 'entreprises-suivies',
+};
+
+/** Path segments, lowercased, empties dropped. */
+function pathSegments(pathname) {
+  return String(pathname || '')
+    .split('/')
+    .filter(Boolean)
+    .map((s) => s.toLowerCase());
+}
+
+/**
+ * The site root, in any locale: `/`, `/en/`, `/de`, … A trailing slash is not
+ * significant and neither is case; both appear in the wild because these URLs
+ * are assembled by string concatenation in several senders.
+ */
+function isSiteRoot(pathname) {
+  const segments = pathSegments(pathname);
+  return segments.length === 0 || (segments.length === 1 && LOCALE_PREFIXES.has(segments[0]));
+}
+
+/** Last path segment, lowercased — `''` for the root. */
+function lastSegment(pathname) {
+  const segments = pathSegments(pathname);
+  return segments.length ? segments[segments.length - 1] : '';
+}
+
+/**
+ * The allowlist. One entry per destination class; `matches` receives a parsed
+ * URL already known to be on our host.
+ *
+ * @type {ReadonlyArray<{id: string, why: string, matches: (url: URL) => boolean}>}
+ */
+export const AUTOLOGIN_DESTINATIONS = Object.freeze([
+  Object.freeze({
+    id: 'spa-action',
+    why:
+      'The site root with ?action=unsubscribe|resubscribe is decided client-side by '
+      + 'App.tsx, which reads the credential out of the query string via '
+      + 'parseNewsletterAutologin and refuses the link without it ("Link non valido"). '
+      + 'The server answers 200 with the home page either way, so this is also the one '
+      + 'destination whose breakage no HTTP check can ever see — emailLinkAudit.js '
+      + 'reports it statically as `spa_action_without_ac`. Bare `/` is NOT in: the '
+      + 'home page with no action is the single most linked public page in every send.',
+    matches: (url) => isSiteRoot(url.pathname) && url.searchParams.has('action'),
+  }),
+  Object.freeze({
+    id: 'newsletter-preferences',
+    why:
+      'The preference centre is the subscriber\'s own record — keywords, locations, '
+      + 'cadence, per-channel switches, autologin, revocation. It is the destination '
+      + '#5685 and #5725 both name as legitimately needing the credential, and the one '
+      + 'link in a job alert (send-job-alerts.mjs, `manageUrl`) that keeps it.',
+    matches: (url) => Object.values(PREFERENCES_SLUG).includes(lastSegment(url.pathname)),
+  }),
+  Object.freeze({
+    id: 'followed-companies',
+    why:
+      'components/pages/FollowedCompaniesPage.tsx lists what the SIGNED-IN user '
+      + 'follows; signed out it has nothing to render. scripts/send-company-alerts.mjs '
+      + 'points its «gestisci le aziende seguite» link here precisely because the '
+      + 'credential makes the deep link land on the page the email is about instead of '
+      + 'on the preference centre.',
+    matches: (url) => Object.values(FOLLOWED_COMPANIES_SLUG).includes(lastSegment(url.pathname)),
+  }),
+]);
+
+/**
+ * Which allowlist entry claims this href, or null.
+ *
+ * Fail-closed at every step: an href we cannot parse, one on somebody else's
+ * host, an asset, a `mailto:`/`tel:`/`#` — all null, so an external absolute URL
+ * can never receive the credential no matter which builder is handed it. That
+ * case is the worst one to get wrong and therefore the first one asserted.
+ *
+ * @param {string|URL} hrefOrUrl
+ * @returns {{id: string, why: string}|null}
+ */
+export function autologinDestination(hrefOrUrl) {
+  let url;
+  if (hrefOrUrl instanceof URL) {
+    url = hrefOrUrl;
+  } else {
+    if (!isOwnRewritableHref(hrefOrUrl)) return null;
+    try { url = new URL(hrefOrUrl, BASE_URL); } catch { return null; }
+  }
+  if (url.hostname.replace(/^www\./, '') !== 'frontaliereticino.ch') return null;
+  if (url.pathname.startsWith('/images/') || url.pathname.startsWith('/icons/')) return null;
+  const entry = AUTOLOGIN_DESTINATIONS.find((d) => {
+    try { return d.matches(url); } catch { return false; }
+  });
+  return entry ? { id: entry.id, why: entry.why } : null;
 }
