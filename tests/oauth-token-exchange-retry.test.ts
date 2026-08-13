@@ -39,6 +39,13 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
+/**
+ * Timer VERI, non finti. Il backoff del primo tentativo e' 1s: un fake timer
+ * qui costringerebbe ogni test a pilotare a mano l'`await` dentro il loop di
+ * retry — cioe' a riscrivere il controllo di flusso che sta verificando, che e'
+ * il modo classico di ottenere un test che passa anche col loop rotto. Due
+ * secondi in tutta la suite sono un prezzo onesto per esercitarlo davvero.
+ */
 describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
   it('un 429 seguito da un 200 restituisce il token invece di lanciare', async () => {
     // Il caso misurato di #45/#54/#171: un solo 429 non ritentato che si
@@ -48,11 +55,6 @@ describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
       .mockResolvedValueOnce(errResponse(429))
       .mockResolvedValueOnce(okResponse());
     vi.stubGlobal('fetch', fetchMock);
-    vi.spyOn(globalThis, 'setTimeout' as never).mockImplementation(((fn: () => void) => {
-      fn();
-      return 0 as unknown as NodeJS.Timeout;
-    }) as never);
-
     await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
@@ -63,11 +65,6 @@ describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
       .mockResolvedValueOnce(errResponse(503))
       .mockResolvedValueOnce(okResponse());
     vi.stubGlobal('fetch', fetchMock);
-    vi.spyOn(globalThis, 'setTimeout' as never).mockImplementation(((fn: () => void) => {
-      fn();
-      return 0 as unknown as NodeJS.Timeout;
-    }) as never);
-
     await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });

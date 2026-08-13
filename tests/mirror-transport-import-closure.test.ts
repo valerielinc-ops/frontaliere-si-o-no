@@ -1,7 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-// @ts-expect-error — .mjs senza tipi, come gli altri script di scripts/ci.
+// `.mjs` senza tipi, come gli altri script di scripts/ci: l'import risolve,
+// e nessuna direttiva serve a zittirlo (una `@ts-expect-error` inutilizzata e'
+// essa stessa un errore TS2578).
 import {
   relativeImportSpecifiers,
   resolveRelativeImport,
