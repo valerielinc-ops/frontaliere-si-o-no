@@ -1399,7 +1399,14 @@ for (const file of critical) {
 }
 NODE
 
-node scripts/validate-crawler-summaries.mjs
+# Gitignored/crawler-generated file: only callers that ran a crawler or
+# assemble-jobs-dataset.mjs beforehand produce it. Non-crawler callers (e.g.
+# autologin-refusal-monitor.yml committing docs/autologin-refusal/) never
+# touch it, so its absence here is not a corruption signal — same
+# existence-guard pattern as generate-job-board-stats.mjs below (#5779).
+if [ -f data/jobs-crawler-summaries.json ]; then
+  node scripts/validate-crawler-summaries.mjs
+fi
 fi  # end SLICE_ONLY=false validation block
 
 # Filter out gitignored paths before staging (e.g. data/jobs.json is in .gitignore).
