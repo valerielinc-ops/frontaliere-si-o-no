@@ -5937,14 +5937,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locale: navigator.language || 'it-IT',
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
- // Two different acts, two different formulas (#5678), and since #5712
- // both are RENDERED: the sign-in notice sits above the provider buttons
- // in each of the two gate surfaces below, the opt-in notice under each
- // email form. The social branch still promotes straight to
- // confirmed/active with no double opt-in, and its formula still says the
- // only gesture was signing in.
+ // Two different acts, ONE sentence (#5678, #5712, #5765). Each of the two
+ // gate surfaces below renders a single notice, under its "continua con
+ // email" button, and both entries named here carry that exact sentence —
+ // they differ only in `act`, because typing an address is not the same
+ // thing as signing in. Until #5765 this gate printed the sign-in notice
+ // above the provider buttons AND the opt-in notice under the email form:
+ // two statements on one screen, one of them stored. The social branch
+ // still promotes straight to confirmed/active with no double opt-in.
  ...consentProof(
- isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsOptIn',
+ isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsSignInEmail',
  isTrustedAuthSource
  ? (normalizedSource.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
  : 'email_submit',
@@ -6437,7 +6439,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="space-y-3">
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  <div className="space-y-2">
  <div ref={modalGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!modalGoogleButtonReady && (
@@ -6517,7 +6518,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {t('jobBoard.authGateEmailCta')}
  </button>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ {/* The gate's ONE notice (#5765). It covers both ways through this gate —
+ the provider buttons above and this button — which is why the sentence
+ opens with "accedendo" and why both branches of the upsert store it. */}
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  </form>
  </div>
 
@@ -7846,7 +7850,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="mt-4 space-y-3">
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  <div className="space-y-2">
  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
@@ -7936,9 +7939,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
  {t('jobBoard.gate.emailCta')}
  </button>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  </form>
  </details>
+ {/* OUTSIDE the <details> on purpose (#5765). This is the gate's only
+ notice and it covers the provider buttons too, so it may not disappear
+ when somebody collapses the email form — which is exactly what would
+ happen if it sat inside, and the social branch would then subscribe an
+ address with nothing on screen. Placed right after the form, so with
+ the panel open (the default) it still reads under the email button. */}
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  </div>
 
  {authError && <p className="text-sm text-danger mt-2">{authError}</p>}

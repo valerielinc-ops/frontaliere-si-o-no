@@ -389,6 +389,21 @@ export const NON_SUBSCRIBER_SENDERS: Readonly<Record<string, string>> = Object.f
   'scripts/notify-journalist-article-live.mjs': 'internal notification to a contributor',
 });
 
+/**
+ * The privacy notice, per locale. Mirrors services/routeSlugs.data.ts.
+ *
+ * Named here because #5765 moved the processing disclosure OFF the consent
+ * formula and onto this page: the page now has to be able to point at the full
+ * notice, or shortening the formula would have deleted the pointer rather than
+ * relocated it.
+ */
+export const PRIVACY_PATH: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: '/privacy/',
+  en: '/en/privacy/',
+  de: '/de/datenschutz/',
+  fr: '/fr/confidentialite/',
+});
+
 /** Where a person turns a channel off, per locale. Mirrors services/routeSlugs.data.ts. */
 export const PREFERENCES_PATH: Readonly<Record<ConsentLocale, string>> = Object.freeze({
   it: '/preferenze-newsletter/',
@@ -403,6 +418,57 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
   en: '/en/communications/',
   de: '/de/mitteilungen/',
   fr: '/fr/communications/',
+});
+
+/**
+ * THE VERSION OF THIS PAGE, AND WHY A CONSENT FORMULA HAS TO NAME IT (#5765)
+ * -------------------------------------------------------------------------
+ * Until #5765 the consent formula carried the categories, the opt-out route
+ * and the data controller inside itself, and pointed at this page only for the
+ * cadences. The formula is now one line plus this link, so the disclosure a
+ * person actually received is SPLIT: the sentence they read, and the page it
+ * sent them to.
+ *
+ * That split is fine for reading and fatal for proof. A stored
+ * `consent_text` that says "what I receive is on frontaliereticino.ch/comunicazioni"
+ * and nothing else is evidence that points at a moving target: the page is
+ * generated from the registry above, the registry changes when a cron or a
+ * channel changes, and the sentence would then describe a page that no longer
+ * says what it said. Producing that document in answer to an art. 25 nLPD
+ * request proves nothing at all.
+ *
+ * So the formula embeds this identifier, the stored text therefore carries it,
+ * and this constant is what an identifier has to be to be worth storing: a
+ * label that CANNOT stay the same while the page changes underneath it.
+ *
+ * HOW THE BUMP IS FORCED, since a hand-edited constant on its own is a promise
+ * -----------------------------------------------------------------------
+ * `COMMUNICATIONS_PAGE_REVISIONS` maps every published version to a
+ * fingerprint of the page's material content — the channel rows, the template
+ * that renders them, and the controller identity printed on it.
+ * `tests/consent-shown-at-signup.test.tsx` recomputes that fingerprint and
+ * fails when it does not match the entry for the CURRENT version, and it also
+ * pins the published revisions literally so an already-shipped version's
+ * fingerprint cannot be quietly rewritten to match new content.
+ *
+ * The only green way through a content change is therefore: add a new version
+ * with the new fingerprint, and point `COMMUNICATIONS_PAGE_VERSION` at it.
+ * That edit changes the consent formula (it interpolates this constant), which
+ * fails the literal pins in `tests/newsletter-consent-proof.test.ts` until the
+ * formula's own `version` is bumped too. One page edit, one consent version —
+ * which is the property the whole arrangement exists to buy.
+ */
+export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.1';
+
+/**
+ * Published version → fingerprint of the page content at that version.
+ *
+ * Append-only. An entry that already shipped describes what a real subscriber
+ * was pointed at, so editing its fingerprint would rewrite the meaning of
+ * every `consent_text` that names it.
+ */
+export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = Object.freeze({
+  '2026-08-13.1': '28803e543beb58e2',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
