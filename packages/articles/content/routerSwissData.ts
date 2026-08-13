@@ -850,6 +850,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario': { it: 'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario', en: 'buy-house-canton-berne', de: 'kaufen-haus-kanton-bern', fr: 'acheter-maison-canton-berne' },
  'sconti-farmaci-vigilanza-poco-efficace': { it: 'sconti-farmaci-vigilanza-poco-efficace', en: 'sconti-farmaci-vigilanza-poco-efficace-en', de: 'sconti-farmaci-vigilanza-poco-efficace-de', fr: 'sconti-farmaci-vigilanza-poco-efficace-fr' },
  'eclissi-solare-studi': { it: 'eclissi-solare-studi', en: 'studying-solar-eclipse', de: 'sonnenfinsternis-studium', fr: 'etude-de-l-eclipse-solaire' },
+ 'tram-treno-aggiudicato-appalto': { it: 'tram-treno-aggiudicato-appalto', en: 'tram-train-awarded-contract', de: 'tram-zug-vergeben-vertrag', fr: 'tram-train-contrat-attribue' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

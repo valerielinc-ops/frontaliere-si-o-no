@@ -66761,6 +66761,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lallarme-di-coldiretti-varese': {
+    title: 'Carburanti oltre 2 euro: l\'allarme per imprese e famiglie',
+    description: 'La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all\'intera',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, oltre, euro, allarme',
+    ogTitle: 'L\'allarme di Coldiretti Varese: Carburanti oltre i 2 euro: aumentano i costi per imprese agricole e famiglie',
+    ogDescription: 'La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all\'intera filiera agroalimentare.',
+    canonicalPath: '/articoli-frontaliere/lallarme-di-coldiretti-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti oltre 2 euro: l'allarme per imprese e famiglie",
+      "description": "La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all'intera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lallarme-di-coldiretti-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il carburante è indispensabile per trattori, falciatrici, mezzi destinati al trasporto degli animali e del foraggio, furgoni refrigerati, consegne e partecipazione ai mercati."
+      },
+      "datePublished": "2026-08-13T05:36:26+00:00",
+      "dateModified": "2026-08-13T05:36:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lallarme-di-coldiretti-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

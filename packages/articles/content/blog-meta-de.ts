@@ -9856,6 +9856,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.logistica-pallet-analisi-mercato.title': 'Logistik: der EPAL-Austausch und die Schattenzonen',
     'blog.article.logistica-pallet-analisi-mercato.excerpt': 'Das neue EPAL-Palettengesetz verbessert den Austausch, aber der Gebrauchtmarkt bleibt eine Herausforderung für die Rückverfolgbarkeit und den fairen Wettbewerb.',
     'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Paletten in einem Logistiklager im Tessin',
+    'blog.article.lallarme-di-coldiretti-varese.title': 'Treibstoffe über 2 Euro: der Alarm für Unternehmen und Familien',
+    'blog.article.lallarme-di-coldiretti-varese.excerpt': 'Die Fahrt von Benzin und Diesel über die Schwelle von zwei Euro pro Liter erzeugt einen Effekt, der von der Pumpe auf die Felder, die Viehzucht und die gesamte Lebensmittelkette übertragen wird.',
+    'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Der Kraftstoff ist für Traktoren, Mähdrescher, Transportfahrzeuge für Tiere und Futter, Kühllieferwagen, Lieferungen und Marktteilnahme unverzichtbar.',
 };
 
 export default blogMetaDe;
