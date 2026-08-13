@@ -47,18 +47,49 @@ export function latestCompletedVitestConclusion(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
  */
 export function latestCompletedVitestRun(checkRuns) {
+  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME);
+}
+
+/**
+ * Generalizzazione di `latestCompletedVitestRun` a un check-run name
+ * arbitrario — stessa selezione ("ultimo COMPLETATO per `completed_at`", non
+ * un `[0]` arbitrario), stessa ragione (un SHA immutabile può portare più
+ * check-run con lo stesso nome, es. un `workflow_dispatch` manuale sullo
+ * stesso branch). Usata anche per `GENERATOR_CI_JOB_NAME` (#242: il gate
+ * dell'auto-merge sul check "test" di generator-ci.yml non deve ripetere il
+ * bug del `[0]` arbitrario che questo modulo esiste per chiudere).
+ *
+ * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
+ * @param {string} name
+ * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
+ */
+export function latestCompletedRunByName(checkRuns, name) {
   if (!Array.isArray(checkRuns)) return null;
   const completed = checkRuns
     .filter(
       (c) =>
         c &&
-        c.name === VITEST_CHECK_NAME &&
+        c.name === name &&
         c.status === 'completed' &&
         typeof c.completed_at === 'string' &&
         c.completed_at,
     )
     .sort((a, b) => Date.parse(a.completed_at) - Date.parse(b.completed_at));
   return completed[completed.length - 1] || null;
+}
+
+/**
+ * Conclusion del check-run COMPLETATO più recente per un nome arbitrario, o
+ * `''` se nessuno è ancora concluso/presente. Sibling di
+ * `latestCompletedVitestConclusion` per check-run diversi da vitest (#242).
+ *
+ * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
+ * @param {string} name
+ * @returns {string}
+ */
+export function latestCompletedConclusionByName(checkRuns, name) {
+  const last = latestCompletedRunByName(checkRuns, name);
+  return last ? last.conclusion || '' : '';
 }
 
 /**

@@ -91,18 +91,37 @@ scripts/lib/mymemory-translate.mjs
 scripts/lib/profession-taxonomy.mjs
 scripts/lib/slug-truncate.mjs
 scripts/lib/translation-glossary.mjs
+# Added 2026-08-14 (see the `!rewired` block below for why this line is not
+# optional). Single-pass decoder for TS string-literal source text, extracted by
+# #5632/#5781 out of the `.replace()` chains that used to live inline. FOUR files
+# already in this manifest import it — meta-field-regex.mjs, create-article.mjs,
+# batch-add-faq-to-articles.mjs, article-topic-selector.mjs — and every one of
+# those imports is a TOP-LEVEL `import`, so shipping them without this file is
+# the "threw before main() on every invocation" failure documented at the bottom
+# of this manifest, repeated verbatim. It is pure and imports nothing.
+scripts/lib/unescape-ts-string.mjs
 
-# NOTE — explicitly NOT moved, do not add:
-# scripts/lib/resolve-git-add-path.mjs — resolves a repo-relative path through a
-# symlink to its real on-disk path for `git add`. Only exists because main's
-# corpus paths are symlinks into packages/articles/. Docs §2: "STAYS main-shaped,
-# but nanako needs its own equivalent... retire on the nanako side, note it
-# explicitly so nobody ports it out of habit." It IS in the static-import
-# closure (create-article.mjs imports it) — it is excluded on purpose, not by
-# oversight. Producer scripts landing in nanako will need this call site rewired
-# to nanako's own (symlink-free) path resolution before they can run there; that
-# rewiring is out of scope for this "stand up the code" step (§5.2) and belongs
-# to the REWIRE work in §5.3+.
+# --- !rewired: reachable by import, deliberately NOT moved -------------------
+#
+# Machine-readable form of the prose NOTE that used to live here alone. A
+# decision that exists only as English fails nothing: `scripts/lib/unescape-ts-
+# string.mjs` sat unlisted for a day with four listed importers, and the only
+# thing standing between that and a dead generator was that nobody dispatched
+# the transport. Every line below is checked by
+# tests/mirror-transport-import-closure.test.ts, which requires each relative
+# import of each listed file to be either LISTED above or `!rewired` here with a
+# reason — so the next unlisted dependency is red in the PR that adds it, not in
+# nanako at run time.
+#
+# Syntax: `# !rewired <repo-relative path> -- <why nanako does not need a copy>`
+#
+# !rewired scripts/lib/resolve-git-add-path.mjs -- Resolves a repo-relative path through a symlink to its real on-disk path for `git add`. Only exists because main's corpus paths are symlinks into packages/articles/. Docs §2: "STAYS main-shaped, but nanako needs its own equivalent... retire on the nanako side, note it explicitly so nobody ports it out of habit." nanako's generator/scripts/lib/corpus-paths.mjs (`resolveGitAddPaths`) is that equivalent, and its create-article.mjs already imports it instead.
+# !rewired build-plugins/shared/articleSectionCore.mjs -- A symlink into packages/articles/engine/shared/, a tree nanako ALREADY mirrors via mirror-articles-engine.yml. Copying it would create a second, drifting copy of the section tuple; nanako's create-article.mjs imports `../../engine/shared/articleSectionCore.mjs` instead.
+# !rewired build-plugins/shared/clauseTail.mjs -- Present on the corpus at host/shared/clauseTail.mjs, registered `identical` in nanako's scripts/ci/loop-sync-manifest.json; its create-article.mjs imports `../../host/shared/clauseTail.mjs`. A copy under generator/ would be a third one.
+# !rewired data/border-wait-averages.json -- REWIRED, not transported (§5.3): regenerated here daily and fetched by nanako over HTTP from public/data/.
+# !rewired scripts/lib/it-microcopy-guard.mjs -- nanako has its own generator/scripts/lib/it-microcopy-guard.mjs, registered in its manifest, and its create-article.mjs imports `./lib/it-microcopy-guard.mjs` from there. Transporting ours would overwrite a corpus-side file with a copy that has no reason to be fresher.
+# !rewired scripts/lib/slug-prompt-leak-guard.mjs -- nanako's equivalent is generator/scripts/lib/prompt-placeholder-guard.mjs (`sanitizePromptPlaceholders`, corpus #121), which its create-article.mjs already imports. Two implementations of "a prompt placeholder may not become a slug" is the drift this manifest exists to avoid; reconciling them is its own piece of work, not a transport.
+# !rewired scripts/lib/slug-preservation-guard.mjs -- nanako's generator/scripts/lib/atomic-write-json.mjs is registered `adapted` precisely BECAUSE it drops this import: slug history is a job-crawler concern and nanako does not crawl jobs. Transporting it would also pull job-match-key.mjs, job-url-key.mjs and slug-history-journal.mjs behind it — the ~730-file widening the header of this file exists to prevent.
 
 # --- discovery/** — topic discovery pipeline (fully reachable, safe to glob) --
 scripts/lib/discovery/**
@@ -140,17 +159,12 @@ scripts/lib/topic-sources/wordpressSearch.mjs
 # They land under generator/ at the same relative path they have here, which is
 # what keeps the importing files' specifiers working with zero rewriting.
 #
-# NOT listed here, on purpose:
-#   - build-plugins/shared/articleSectionCore.mjs — a symlink into
-#     packages/articles/engine/shared/, a tree nanako ALREADY mirrors. Copying it
-#     would have created a second, drifting copy of the section tuple; the import
-#     is repointed at nanako's own engine/shared/ instead.
-#   - data/border-wait-averages.json — REWIRED, not transported (§5.3): it is
-#     regenerated here daily and nanako fetches it over HTTP from public/data/.
-#   - data/news-sitemap-whitelist.ts — VENDORED as .mjs on the nanako side
-#     (§5.3), deliberately a copy rather than a live dependency.
-#   - scripts/lib/resolve-git-add-path.mjs — still excluded; it resolves symlinks
-#     that exist only here. nanako's corpus-paths.mjs replaces it.
+# NOT listed here, on purpose — the reachable ones now live in the `!rewired`
+# block above, which is CHECKED rather than merely written down. The one that
+# cannot: data/news-sitemap-whitelist.ts, VENDORED as .mjs on the nanako side
+# (§5.3), deliberately a copy rather than a live dependency — no listed file
+# imports it by a relative specifier from here, so it is invisible to the
+# closure check and stays prose.
 build-plugins/borderWaitData.ts
 data/borderCrossings.ts
 data/canton-url-slugs.json
