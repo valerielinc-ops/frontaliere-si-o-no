@@ -2428,6 +2428,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scienza-medicina-attualita-svizzera.title': 'Scienza e medicina: aggiornamenti e approfondimenti',
     'blog.article.scienza-medicina-attualita-svizzera.excerpt': 'Uno sguardo alle sezioni di scienza e medicina pubblicate da laRegione, con approfondimenti tematici su salute e ricerca scientifica in ambito svizzero.',
     'blog.article.scienza-medicina-attualita-svizzera.imageAlt': 'Laboratorio di ricerca scientifica in un contesto svizzero',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Apprendistato e formazione professionale nel Canton Berna: guida pratica',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'Come trovare un posto di tirocinio, comprendere il contratto di apprendistato, retribuzione e maturità professionale nel sistema duale bernese.',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Laboratorio di formazione professionale a Berna con apprendisti al lavoro',
 };
 
 export default blogMetaChIt;

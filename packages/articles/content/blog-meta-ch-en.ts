@@ -2428,6 +2428,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scienza-medicina-attualita-svizzera.title': 'Science and medicine: updates and insights',
     'blog.article.scienza-medicina-attualita-svizzera.excerpt': 'A look at the science and medicine sections published by the Region, with thematic insights on health and scientific research in Switzerland.',
     'blog.article.scienza-medicina-attualita-svizzera.imageAlt': 'Scientific research laboratory in a Swiss setting',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Apprenticeships and vocational training in the Canton of Bern: a practical guide',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'How to find an internship position, understand the apprenticeship contract, salary and professional maturity in the Bernese dual system.',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Vocational training workshop in Bern with apprentices at work',
 };
 
 export default blogMetaChEn;

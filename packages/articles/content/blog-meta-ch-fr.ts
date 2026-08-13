@@ -2428,6 +2428,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scienza-medicina-attualita-svizzera.title': 'Science et médecine : mises à jour et approfondissements',
     'blog.article.scienza-medicina-attualita-svizzera.excerpt': 'Un regard sur les sections de science et de médecine publiées par la Région, avec des approfondissements thématiques sur la santé et la recherche scientifique en Suisse.',
     'blog.article.scienza-medicina-attualita-svizzera.imageAlt': 'Laboratoire de recherche scientifique dans un cadre suisse',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Formation professionnelle à Berne : guide pratique',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'Comment trouver un poste d\'apprentissage, comprendre le contrat d\'apprentissage, de rémunération et de maturité professionnelle dans le système dual bernois.',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Atelier de formation professionnelle à Berne avec des apprentis au travail',
 };
 
 export default blogMetaChFr;
