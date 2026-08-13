@@ -78765,10 +78765,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-wadenswil",
-        "en": "verkaufsberater-in-interdiscount-wadenswil",
-        "de": "verkaufsberater-in-interdiscount-wadenswil",
-        "fr": "verkaufsberater-in-interdiscount-wadenswil"
+        "de": "verkaufsberater-in-interdiscount-wadenswil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufsberater-in-interdiscount-wadenswil",
@@ -78782,6 +78779,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

@@ -9155,10 +9155,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
-        "en": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
-        "de": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
-        "fr": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
+        "de": "ausbildung-dipl-kindheitspadagogik-hf-kssg-ch"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/ausbildung-dipl-kindheitspadagogik-hf-kssg-ch",
@@ -9172,6 +9169,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -26206,10 +26204,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "filialleiter-in-interdiscount-chur",
-        "en": "filialleiter-in-interdiscount-chur",
-        "de": "filialleiter-in-interdiscount-chur",
-        "fr": "filialleiter-in-interdiscount-chur"
+        "de": "filialleiter-in-interdiscount-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/filialleiter-in-interdiscount-chur",
@@ -26223,6 +26218,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

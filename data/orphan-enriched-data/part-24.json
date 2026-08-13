@@ -65071,10 +65071,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland",
+        "it": "spontanbewerbung-kundenberater-in-per-privatkunden-region-baselland-80-100-css-versicherung-baselland-reinach-liestal",
         "en": "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland",
-        "de": "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland",
-        "fr": "spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland"
+        "de": "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baselland-80-100-css",
+        "fr": "application-spontanee-consultant-client-pour-les-clients-prives-region-baselland-80-100-css-versicherung-baselland"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/spontaneous-application-customer-consultant-for-private-customers-region-baselland-80-100-css-versicherung-baselland",
@@ -65088,6 +65088,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
