@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuehne-nagel",
-  "assembledAt": "2026-08-12T22:14:07.834Z",
+  "assembledAt": "2026-08-13T10:38:28.870Z",
   "jobs": [
     {
       "id": "kuehne-nagel-6d657d1e6dd1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16498EXTERNALENGLOBAL/teamleiter-in-nationale-messelogistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:14:05.733Z",
+      "crawledAt": "2026-08-13T10:38:25.611Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "",
@@ -111,7 +111,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:14:05.292Z",
+      "crawledAt": "2026-08-13T10:38:25.196Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -147,6 +147,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:08:08.265Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -175,7 +176,7 @@
       "title": "Operations Manager Logistik (m/w/d)",
       "titleByLocale": {
         "it": "Gestione delle operazioni Logistica (m/f/d)",
-        "en": "Operations Manager Logistics (m/f/d)",
+        "en": "Operations Manager Logistik (m/w/d)",
         "de": "Operations Manager Logistik (m/w/d)",
         "fr": "Gestionnaire des opérations Logistique (m/f/d)"
       },
@@ -191,7 +192,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15013EXTERNALENGLOBAL/operations-manager-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:14:04.875Z",
+      "crawledAt": "2026-08-13T10:38:24.720Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -234,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:55:31.034Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -278,7 +280,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14711EXTERNALENGLOBAL/global-program-manager-healthcare-m-f-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:14:04.476Z",
+      "crawledAt": "2026-08-13T10:38:24.301Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -367,7 +369,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15666EXTERNALENGLOBAL/communications-manager-technology",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:14:04.098Z",
+      "crawledAt": "2026-08-13T10:38:23.911Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -447,7 +449,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL12404EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:14:03.635Z",
+      "crawledAt": "2026-08-13T10:38:23.426Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -467,6 +469,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T11:08:06.475Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "baseSalary": {
