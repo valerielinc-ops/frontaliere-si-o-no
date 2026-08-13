@@ -70,7 +70,12 @@
  *
  * Pure: no I/O, no Date.now() — the caller passes `nowMs`, same contract as
  * scripts/lib/jobAlertSunset.mjs and scripts/lib/mailtrapSuppressionRetry.mjs.
+ * The one import below is a pure predicate and keeps that contract; it is here
+ * because the alternative — a second reading of the consent stamp — is the
+ * drift #5717 was opened about.
  */
+
+import { hasConfirmationProof } from '../../services/subscriberConsent.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -250,6 +255,19 @@ export const RECOVERED_STATUS_BY_COLLECTION = {
  * explicit act — unlocking a job, signing in with a provider — so no double
  * opt-in is ever sent).
  *
+ * NOT CONSENT EVIDENCE, and never again (#5717). `hasConsentEvidence()` below
+ * used to accept a match here as proof, which is an INFERENCE from the signup
+ * form and not a record of anything the recipient did. It is the same
+ * inference the 2026-07 recovery pass made, and it is what produced the 405
+ * production documents sitting at `status: 'confirmed'` with no stamp and no
+ * `confirm` event (measured 2026-08-13). The regex survives because
+ * services/newsletterSubscribers.ts decides the status a NEW signup is born
+ * with from the same vocabulary, and that write is legitimate: a job unlock
+ * really is an explicit act, performed live, in a session. What is illegitimate
+ * is reading the origin BACK off an old document, months later, and calling it
+ * a click. If you are about to wire this into a gate that decides who receives
+ * mail, that is the bug — read #5677 and #5700 first.
+ *
  * Single source of truth, imported by
  * scripts/restore-mailtrap-suspension-suppressions.mjs, which is where it was
  * first written and reasoned out. Mirrors CONFIRMED_NEWSLETTER_SOURCES in
@@ -267,18 +285,51 @@ export const AUTO_CONFIRMED_ORIGIN_RE = /^(signup|auth_|chatbot_|job_|tax_calend
 /**
  * Positive evidence that this newsletter subscriber ever gave consent.
  *
+ * TWO forms are accepted, and both are a RECORD of something the recipient
+ * did. Everything else was removed by #5717 — see below for what and why.
+ *
+ *  1. the stamp, via the shared `hasConfirmationProof()`. ONE definition, so
+ *     this weekly `--apply` path and the send gates cannot disagree about who
+ *     consented, which is precisely how they came to disagree;
+ *  2. an explicit `confirm` event. Written by exactly one place —
+ *     functions/src/newsletterSubscriptionManagement.js's `action === 'confirm'`
+ *     branch, the double-opt-in link — so it is a click, not a deduction, and
+ *     it is the PERIOD EVIDENCE that lets someone who confirmed before the
+ *     stamp existed keep their subscription. Measured 2026-08-13: 283 of a
+ *     296-doc sample of stamped subscribers carry one, so it is the ordinary
+ *     recording of a real confirmation and not an exotic case.
+ *
+ * ── The three disjuncts that are GONE (#5717) ───────────────────────────────
+ *
+ * `subscribe_completed`: written by the SIGNUP, not by the confirmation —
+ * services/newsletterSubscribers.ts writes it on the upsert, and the
+ * `resubscribe` branch writes it too. Accepting it made "asked to subscribe"
+ * and "confirmed the subscription" the same fact, which is the whole of #5686.
+ *
+ * `AUTO_CONFIRMED_ORIGIN_RE` on `source_cta`/`source`/`source_channel`: an
+ * inference from the signup form. See the regex's own docblock above.
+ *
+ * The measurement that settles it, run over production on 2026-08-13 (8.673
+ * docs) across the 550 documents that reached a sender with no stamp:
+ *
+ *      `confirm` event                                        0
+ *      `confirmation_email_sent` event (we ASKED)           456
+ *      `subscribe_completed` event                          495
+ *      `consent_given` + `consent_text_displayed`             0
+ *
+ * i.e. the entire population the removed disjuncts were admitting is a
+ * population that was asked and never answered. Nobody who actually confirmed
+ * is lost by dropping them, and the branch that WOULD have saved such a person
+ * — the `confirm` event — is the one kept.
+ *
  * @param {object} sub subscriber doc fields
  * @param {object[]} [events] docs from the subscriber's `events` subcollection
  * @returns {boolean}
  */
 export function hasConsentEvidence(sub, events = []) {
-  if (sub?.confirmed_at || sub?.confirmedAt) return true;
+  if (hasConfirmationProof(sub)) return true;
   for (const e of events || []) {
-    const t = String(e?.event_type || '');
-    if (t === 'confirm' || t === 'subscribe_completed') return true;
-  }
-  for (const field of [sub?.source_cta, sub?.source, sub?.source_channel]) {
-    if (field && AUTO_CONFIRMED_ORIGIN_RE.test(String(field))) return true;
+    if (String(e?.event_type || '') === 'confirm') return true;
   }
   return false;
 }
@@ -298,6 +349,18 @@ export function hasConsentEvidence(sub, events = []) {
  * (2026-07-29) and the owner-approved 2026-07-01 one-off predates it — it wrote
  * `confirmed` unconditionally. This is the corrected form, applied to the
  * general path so it cannot regress back to the older behaviour.
+ *
+ * SINCE #5717 the evidence is the stamp or a `confirm` event, and nothing else.
+ * Until then `hasConsentEvidence()` also accepted `subscribe_completed` and the
+ * signup-origin regex, so this function could resolve to `'confirmed'` for a
+ * document that had never confirmed — and it does so from
+ * `scripts/suppression-decay.mjs`, which runs WEEKLY with `--apply` from
+ * .github/workflows/suppression-hygiene.yml. That is a machine writing the
+ * word `confirmed` onto production every seven days on the strength of the
+ * signup form: the same fabricated consent #5677/#5694 closed on the READ side,
+ * arriving through the WRITE side afterwards. Restoring to `pending` costs the
+ * subscriber nothing they had — the re-permission channels still reach a
+ * `pending` doc, and a real confirmation click stamps it for good.
  *
  * Job alerts have no double opt-in and no `pending` state: the doc exists
  * because the user created an alert, so `active` is unconditional there.

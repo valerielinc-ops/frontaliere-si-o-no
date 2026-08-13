@@ -1292,9 +1292,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // Fail-open on a read error — the POST gate is the primary defence, and a
  // Firestore blip must not cost somebody their re-subscription.
  let burst = null;
+ // Does the document ALREADY carry the consent stamp? (#5717 item 2.)
+ //
+ // Default `false` = "write it", i.e. exactly today's behaviour, because the
+ // read below is fail-open: a Firestore blip must not cost a first-time
+ // re-subscriber the only record of their consent. The flag can therefore only
+ // ever SUPPRESS a redundant bump, never suppress a first write.
+ let priorHasStamp = false;
  try {
  const priorSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  const prior = priorSnap.exists ? (priorSnap.data() || {}) : {};
+ priorHasStamp = !!(prior.confirmed_at || prior.confirmedAt);
  const optOutMs = toEpochMillis(prior.unsubscribed_at) ?? toEpochMillis(prior.unsubscribedAt);
  const priorAgent = typeof prior.unsubscribe_user_agent === 'string' ? prior.unsubscribe_user_agent : null;
  const currentAgent = typeof forensicFields.unsubscribe_user_agent === 'string'
@@ -1378,8 +1386,28 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // It never went noticed because the `unsubscribe` branch above does NOT
  // delete `confirmed_at`: anyone who HAD confirmed once kept an old
  // stamp across the cycle, so only the never-confirmed were affected.
+ //
+ // WRITTEN ONCE, never bumped (#5717 item 2). Every click used to move
+ // the stamp forward even on a document that already had one, and the
+ // stamp is not only a boolean to its readers: `classifySuppressionDecay`
+ // (scripts/lib/suppressionDecay.mjs) compares its RECENCY against
+ // `unsubscribed_at` to decide whether an opt-out has been superseded. A
+ // repeated "riattiva" could therefore keep re-superseding an opt-out on
+ // demand. Nothing is lost by not bumping: that same comparison reads
+ // `resubscribed_at` alongside it — written unconditionally two lines
+ // above, by the explicit re-opt-in paths only — so the re-subscription
+ // is still recorded, in the NARROWER field that means exactly it. What
+ // this field means is "the consent happened", and the answer to when is
+ // the first time, not the latest.
+ //
+ // Audited for this change (2026-08-13): no sunset or win-back window
+ // reads `confirmed_at` at all — scripts/lib/subscriberSunset.mjs and
+ // scripts/lib/dormantWinback.mjs key on send/engagement history — so the
+ // supersession comparison above is its only recency consumer.
+ ...(priorHasStamp ? {} : {
  confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
  confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }),
  // `unsubscribed_at` / `unsubscribedAt` are NOT cleared here, and this is
  // the second half of #5711. Deleting them made the re-subscription
  // destroy the record that the person had opted out — the very evidence a
