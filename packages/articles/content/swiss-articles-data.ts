@@ -7165,6 +7165,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole',
+    category: 'fiscale',
+    date: '2026-08-13T00:59:21.209Z',
+    image: '/images/blog/come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
