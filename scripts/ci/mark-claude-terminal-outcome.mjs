@@ -81,6 +81,49 @@ export function resultSubtype(raw) {
   return String((r && r.subtype) || '');
 }
 
+// --- Lavoro recuperabile lasciato sul branch --------------------------------
+// Il prompt di issue-fix.yml (passo 4, anti-100%-loss #4337) committa e pusha un
+// checkpoint WIP su `fix/issue-<N>` appena la modifica è applicata, proprio perché una
+// morte al cap dei turni non porti via il diff col container. Chi legge la telemetria a
+// valle, però, cercava una sola prova di consegna — un marker `pr-created` — quindi un
+// branch con commit veri e nessuna PR risultava identico a una run che non ha prodotto
+// niente. Misurato sul corpus su 31 morti `max-turns`: consegnate 0, RECUPERABILI 11,
+// vuote 20; due di quelle undici sono state riaperte a mano e mergiate (#5767 → PR #5774,
+// corpus #166 → PR #293).
+//
+// Il posto giusto per rilevarlo è qui: siamo dentro il job che ha appena pushato il
+// branch, l'informazione costa una chiamata sola e resta scritta accanto al marker anche
+// se il branch verrà cancellato da un merge. `harvest-agent-lessons.mjs` legge questo
+// stamp senza spendere API, e ricade su `compare` solo quando manca.
+
+/**
+ * Riga machine-readable da appendere al marker `max-turns`, o '' se non c'è lavoro da
+ * recuperare. Pura → testabile.
+ * @param {{branch?: string, aheadBy?: number}} work
+ */
+export function formatRecoverableBranchStamp(work) {
+  const branch = String((work && work.branch) || '');
+  const aheadBy = Number(work && work.aheadBy);
+  if (!branch || !Number.isFinite(aheadBy) || aheadBy <= 0) return '';
+  return `\n<!-- RECOVERABLE_BRANCH: ${branch} ahead=${aheadBy} -->\n` +
+    `♻️ La run ha lasciato **${aheadBy} commit** su \`${branch}\`, avanti a \`main\`, senza aprire la PR ` +
+    `(checkpoint WIP del passo 4). Non è una run a vuoto: il retry riprende da lì (resume-aware), ` +
+    `oppure la PR si apre a mano da quel branch.`;
+}
+
+/**
+ * Quanti commit ha `fix/issue-<N>` avanti a `main`, o null. Impura (gh) e FAIL-SAFE:
+ * qualunque errore / branch assente → null, cioè il comportamento di prima.
+ * @param {string|number} issue
+ */
+export function recoverableBranchWork(issue) {
+  const branch = `fix/issue-${issue}`;
+  const repo = process.env.GH_REPO ? process.env.GH_REPO : '{owner}/{repo}';
+  const raw = gh(['api', `repos/${repo}/compare/main...${branch}`, '--jq', '.ahead_by']).trim();
+  const aheadBy = Number(raw);
+  return Number.isFinite(aheadBy) && aheadBy > 0 ? { branch, aheadBy } : null;
+}
+
 function main() {
   if (!ISSUE) {
     console.log('ISSUE non impostata → niente telemetria da postare.');
@@ -98,11 +141,14 @@ function main() {
   // --- max-turns (precedenza, vedi docstring) --------------------------------
   if (subtype === 'error_max_turns') {
     console.log('Terminal outcome: error_max_turns → marker granulare `max-turns`.');
+    const work = recoverableBranchWork(ISSUE);
+    if (work) console.log(`Lavoro recuperabile: ${work.branch} è ${work.aheadBy} commit avanti a main (PR mai aperta).`);
     if (DRY_RUN) return;
     // Marker SENZA la stringa BACKSTOP_MARKER ('post-step deterministico') così
     // `latestFixOutcomeFromComments` del drainer lo legge come verdetto vero.
     gh(['issue', 'comment', ISSUE, ...repoArgs, '--body',
-      '<!-- FIX_OUTCOME: max-turns -->\n_Run terminata error_max_turns (turn budget esaurito) — telemetria granulare per il drainer._']);
+      '<!-- FIX_OUTCOME: max-turns -->\n_Run terminata error_max_turns (turn budget esaurito) — telemetria granulare per il drainer._' +
+      formatRecoverableBranchStamp(work)]);
     return;
   }
 

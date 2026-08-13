@@ -378,11 +378,40 @@ export function isAvoidableAlreadyFixed(title, labels) {
 //      the false positive driving escalation #2653 (3/5 examples — #2590/#2560/
 //      #2476 — opened a MERGED PR then overran). By-construction: a run that
 //      delivered a PR can never inflate the bucket, mirroring the workflow.
-export function isAvoidableMaxTurns(title, labels, hasDeliveredPr = false) {
+//   4. The run left RECOVERABLE WORK on its branch (`hasRecoverableBranch`): commits on
+//      `fix/issue-<N>` ahead of `main`, from the anti-100%-loss WIP checkpoint issue-fix.yml
+//      pushes as soon as the edit is applied (#4337, step 4 of the fixer prompt). Until
+//      2026-08-13 the ONLY proof of delivery this classifier accepted was a `pr-created`
+//      marker, so a cap hit AFTER the checkpoint but BEFORE the PR read as "produced
+//      nothing" and was counted as preventable burn. Measured on the corpus over 31
+//      `max-turns` deaths: delivered=0, recoverable=11, empty=20 — eleven branches
+//      carrying a real diff, classified as noise. Two of them were recovered by hand and
+//      merged (site #5767 → PR #5774, corpus #166 → PR #293), which is the whole argument:
+//      work you can merge is not a fixable-loop signal, it is a delivery that stopped one
+//      step short. The actionable follow-up is to OPEN THAT PR (the drainer's resume-aware
+//      retry does), not to write another doc rule — so it must not drive an escalation.
+//      `hasDeliveredPr` and `hasRecoverableBranch` therefore point the same way here even
+//      though they are opposite evidence: partial delivery and full delivery are both
+//      delivery.
+/**
+ * @param {string} title
+ * @param {string[]} labels
+ * @param {boolean | { hasDeliveredPr?: boolean, hasRecoverableBranch?: boolean }} [delivery]
+ *   Legacy boolean (`hasDeliveredPr`) or the two delivery evidences together.
+ * @returns {boolean} true when the cap-death is preventable burn worth escalating.
+ */
+export function isAvoidableMaxTurns(title, labels, delivery = false) {
   const names = Array.isArray(labels) ? labels : [];
   const t = String(title || '');
+  // `delivery` accepts the legacy boolean (`hasDeliveredPr`) or the richer
+  // `{ hasDeliveredPr, hasRecoverableBranch }` — call sites written before the branch
+  // evidence existed keep their meaning exactly.
+  const { hasDeliveredPr = false, hasRecoverableBranch = false } =
+    (delivery && typeof delivery === 'object') ? delivery : { hasDeliveredPr: Boolean(delivery) };
   // (3) a PR was delivered → cap hit on post-delivery overrun, not a fixable loop.
   if (hasDeliveredPr) return false;
+  // (4) commits on `fix/issue-<N>` ahead of main → the run delivered recoverable work.
+  if (hasRecoverableBranch) return false;
   // (2) drainer already parked it as structurally non-fixable → expected death.
   if (names.includes('needs-human')) return false;
   // (1) aggregate multi-item → over-budget by construction (circuit-breaker target),
@@ -435,6 +464,37 @@ export function isAvoidableNoRootCause(commentBody) {
   return true; // genuine "couldn't diagnose" → the real signal → countable
 }
 
+// ---- `overlap-skip` avoidability classifier (DETERMINISTIC) -----------------
+// The classifier this file was MISSING. Every sibling outcome code above has one; the
+// scheduling pair did not, so the outcome loop counted every `overlap-skip` marker as
+// recurring burn. Measured on the corpus mirror (2026-08-13): 11 markers seen, 11
+// counted, 0 discarded — the bucket sat above threshold on outcomes that are, by the
+// loop's OWN declaration, not faults at all.
+//
+// That declaration lives in `followup-drainer.mjs` and is explicit: `overlap-skip` and
+// `pr-already-open` are deliberately EXCLUDED from `NON_RETRYABLE` because "l'overlap è
+// transitorio (la PR bloccante può mergiare → ri-tentabile)", and
+// `close-recovered-structural-hold.mjs` refuses to hold them for the same reason
+// ("scheduling, not a fault"). Two issues touching one file at the same time is the
+// normal shape of a loop that runs several fixers in parallel; the deferral IS the
+// correct handling, and no doc rule an agent could follow makes two independent issues
+// stop overlapping. Counting it re-fires an escalation whose only possible remedy is the
+// zero-Claude pre-flight that already exists (#3810) — and whose corpus half was
+// separately found INERT and fixed in `workflow-scope-detect.mjs` (see `CODE_DIRS`), which
+// is the actual cause of the burn these markers recorded.
+//
+// The ONE case that stays countable: the issue also carries a `pr-created` marker. Then
+// the fixer was re-promoted onto an issue that already had its PR open, which the
+// drainer's `hasFixPR` guard exists to prevent — a real gate gap, and a whole Claude run
+// spent to rediscover the loop's own output. Note the polarity is the opposite of
+// `isAvoidableMaxTurns`'s: there a delivered PR means the cap was hit AFTER the work
+// landed (harmless overrun); here it means the run should never have started.
+// Pure → unit-tested, same shape as the classifiers above.
+export function isAvoidableOverlapSkip(title, labels, hasDeliveredPr = false) {
+  if (hasDeliveredPr) return true; // promoted despite an open PR → hasFixPR gap → countable
+  return false; // transient scheduling deferral → expected, not preventable burn
+}
+
 // #4750: isAvoidableNoRootCause STILL misses both classes above whenever the
 // fixer paraphrases them — e.g. "verificato live: nessuna root cause di
 // codice" (colon, not the regex's comma) or "blip edge/deploy-churn
@@ -484,13 +544,74 @@ export function isAvoidableNoRootCause(commentBody) {
 // già vista con `already-fixed` (#2123) e `rate-limited`: separato il codice, il
 // bucket resta contato come volume/context nel summary ma non può più driveare
 // una proposta.
+// `overlap-skip` / `pr-already-open` (2026-08-13): stessa classe, causa ancora diversa.
+// Sono i due esiti che `followup-drainer.mjs` dichiara TRANSIENTI — li esclude apposta da
+// `NON_RETRYABLE` perché «la PR bloccante può mergiare → ri-tentabile», e
+// `close-recovered-structural-hold.mjs` si rifiuta di trattenerli («scheduling, not a
+// fault»). Un'escalation su questo bucket chiederebbe una regola di prosa contro il fatto
+// che due issue indipendenti nominino lo stesso file nello stesso momento, che è la forma
+// normale di un ciclo con più fixer in parallelo: nessuna riga di doc la previene. Il
+// rimedio strutturale esiste già ed è la pre-flight zero-Claude (#3810) — la cui metà
+// corpus era però INERTE (`CODE_PATH_RE` matchava dalla directory, mai dal path completo,
+// vedi `scripts/lib/workflow-scope-detect.mjs`), ed è quello il difetto che questi marker
+// stavano davvero registrando. I due codici restano CONTATI come volume/context nel
+// summary, esattamente come `rate-limited`: smettono solo di poter aprire una PR di regole.
 export function isEscalationDriver(source, key) {
   if (source === 'issue-class') return false;
   const bareKey = key.startsWith(`${source}:`) ? key.slice(source.length + 1) : key;
   if (source === 'fix-outcome' && bareKey === 'no-root-cause') return false;
   if (source === 'fix-outcome' && bareKey === 'rate-limited') return false;
   if (source === 'fix-outcome' && bareKey === 'skip-duplicate-diagnosis') return false;
+  if (source === 'fix-outcome' && bareKey === 'overlap-skip') return false;
+  if (source === 'fix-outcome' && bareKey === 'pr-already-open') return false;
   return true;
+}
+
+// ---- Recoverable work left on the fixer's branch ---------------------------
+// issue-fix.yml pushes a WIP checkpoint (`wip(issue-N): checkpoint pre-test`) the moment
+// the edit is applied, precisely so a run that dies at the turn cap doesn't take the diff
+// down with the container (#4337). The branch it pushes is `fix/issue-<N>` — the same head
+// the workflow's own `Classify outcome` step reads. Nothing downstream of the death ever
+// looked at it: `isAvoidableMaxTurns` asked only about a PR, so a branch with real commits
+// and no PR was indistinguishable from a run that produced nothing.
+export function fixBranchName(issueNumber) {
+  return `fix/issue-${issueNumber}`;
+}
+
+// Stamp written by mark-claude-terminal-outcome.mjs next to the `max-turns` marker, at the
+// one moment the evidence is free (inside the job, on the machine that pushed the branch).
+// Reading it costs no API call and survives the branch being deleted later by a merge.
+export const RECOVERABLE_BRANCH_RE = /<!--\s*RECOVERABLE_BRANCH:\s*(\S+)\s+ahead=(\d+)\s*-->/i;
+
+/**
+ * `{ branch, aheadBy }` from a stamped comment, or null. Pure → testabile.
+ * @param {string} commentBody
+ */
+export function parseRecoverableBranchStamp(commentBody) {
+  const m = RECOVERABLE_BRANCH_RE.exec(String(commentBody || ''));
+  if (!m) return null;
+  const aheadBy = Number(m[2]);
+  if (!Number.isFinite(aheadBy) || aheadBy <= 0) return null;
+  return { branch: m[1], aheadBy };
+}
+
+/**
+ * Recoverable work for `issueNumber`: the stamp when a run left one, otherwise ask GitHub
+ * how far `fix/issue-<N>` is ahead of `main`. Impure (gh) — kept thin, and FAIL-SAFE: any
+ * gh error / missing branch answers null, i.e. exactly the pre-2026-08-13 behaviour.
+ * @param {number} issueNumber
+ * @param {Array<{body?: string}>} comments
+ */
+function recoverableWorkOnBranch(issueNumber, comments) {
+  for (const c of comments || []) {
+    const stamped = parseRecoverableBranchStamp(c?.body);
+    if (stamped) return stamped;
+  }
+  const branch = fixBranchName(issueNumber);
+  const cmp = ghJson(['api', `repos/{owner}/{repo}/compare/main...${branch}`,
+    '--jq', '{ahead_by: .ahead_by}']);
+  const aheadBy = Number(cmp?.ahead_by);
+  return Number.isFinite(aheadBy) && aheadBy > 0 ? { branch, aheadBy } : null;
 }
 
 // ---- 2. Recurring issue classes (created in window) ----
@@ -642,6 +763,10 @@ async function main() {
   // those are the recurring-burn signal; `pr-created` is the healthy path.
   const outcomeCounts = {};
   const outcomeExamples = {};
+  // `max-turns` deaths that left commits on `fix/issue-<N>`: work the loop can still
+  // land, not noise. Surfaced in the harvest output (and in $GITHUB_OUTPUT) so it is
+  // visible without reading 31 run logs by hand.
+  const recoverableMaxTurns = [];
   const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged updated:>=${sinceDay}`,
     '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
   for (const issue of fixIssues.slice(0, MAX_ISSUES)) {
@@ -707,7 +832,24 @@ async function main() {
       // actionable structural fix beyond what shipped (#2291 + circuit-breaker), so
       // don't escalate it (root cause of #2439: bucket re-fired at 14/14d, examples
       // dominated by aggregate / parked runs). Single-item still-routable deaths count.
-      if (code === 'max-turns' && !isAvoidableMaxTurns(issue.title, labelNames, hasDeliveredPr)) continue;
+      if (code === 'max-turns') {
+        // Consult the BRANCH, not just the PR: a cap hit after the WIP checkpoint left
+        // commits on `fix/issue-<N>` that a retry can resume from (or a human can open a
+        // PR from, as happened with #5767 → PR #5774). Recognised here so the work stops
+        // being invisible — recoverableMaxTurns surfaces it in the harvest output — and
+        // so the bucket stops treating a partial delivery as a fixable loop.
+        const recoverable = hasDeliveredPr ? null : recoverableWorkOnBranch(number, comments);
+        if (recoverable && !recoverableMaxTurns.some((r) => r.issue === number)) {
+          recoverableMaxTurns.push({ issue: number, title: (issue.title || '').slice(0, 80), ...recoverable });
+        }
+        if (!isAvoidableMaxTurns(issue.title, labelNames,
+          { hasDeliveredPr, hasRecoverableBranch: Boolean(recoverable) })) continue;
+      }
+      // `overlap-skip` / `pr-already-open`: deferral by the loop's own scheduling rule,
+      // declared TRANSIENT by followup-drainer.mjs — expected, not preventable burn. Only
+      // an overlap on an issue that ALREADY had its PR open is a real gate gap (hasFixPR).
+      if ((code === 'overlap-skip' || code === 'pr-already-open') &&
+          !isAvoidableOverlapSkip(issue.title, labelNames, hasDeliveredPr)) continue;
       // `no-root-cause` on a verified-transient monitor blip or an explicit
       // unmet-epic-dependency block is an EXPECTED correct abort, not a
       // diagnosis failure the prose rule could ever prevent (#4580: all 5
@@ -778,7 +920,8 @@ async function main() {
 
   const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD,
     efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
-    novelClusters: novel.length, escalationClusters: escalations.length, clusters };
+    novelClusters: novel.length, escalationClusters: escalations.length, clusters,
+    recoverableMaxTurns };
   fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
 
   // ---- Human summary ----
@@ -791,11 +934,18 @@ async function main() {
       (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
   }
   console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);
+  if (recoverableMaxTurns.length) {
+    console.log(`\n♻️  max-turns con lavoro RECUPERABILE sul branch (commit avanti a main, nessuna PR): ${recoverableMaxTurns.length}`);
+    for (const r of recoverableMaxTurns) {
+      console.log(`   #${r.issue} → ${r.branch} (+${r.aheadBy} commit) — ${r.title}`);
+    }
+  }
 
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(process.env.GITHUB_OUTPUT,
       `has_novel=${novel.length > 0}\nnovel_count=${novel.length}\n` +
-      `has_escalation=${escalations.length > 0}\nescalation_count=${escalations.length}\n`);
+      `has_escalation=${escalations.length > 0}\nescalation_count=${escalations.length}\n` +
+      `recoverable_max_turns=${recoverableMaxTurns.length}\n`);
   }
 
   // ---- Escalation issues: DETERMINISTIC + dedup-by-construction (zero Claude) ----
