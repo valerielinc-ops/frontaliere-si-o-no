@@ -2413,6 +2413,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iva-aumento-sicurezza.title': 'VAT increase for safety: proposed increase of 0.5 percentage points',
     'blog.article.iva-aumento-sicurezza.excerpt': 'The Swiss Government is proposing an increase in VAT by 0.5 percentage points to finance arms purchases.',
     'blog.article.iva-aumento-sicurezza.imageAlt': 'IVA increase for security: how it will apply and what it means for Switzerland.',
+    'blog.article.apprendistato-formazione-berna.title': 'Apprenticeship and vocational training in Bern',
+    'blog.article.apprendistato-formazione-berna.excerpt': 'Practical guide to finding a traineeship in the Canton of Bern: from employment contract to professional maturity and salary.',
+    'blog.article.apprendistato-formazione-berna.imageAlt': 'Young apprentice with mentor in office',
 };
 
 export default blogMetaChEn;

@@ -830,6 +830,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esperimento-materia-oscura-sotto-sedrun': { it: 'esperimento-materia-oscura-sotto-sedrun', en: 'experiment-matter-darkness-under-sedrun', de: 'experiment-materie-dunkelheit-unter-sedrun', fr: 'experiment-matiere-noir-sous-sedrun' },
  'evaso-bois-mermet': { it: 'evaso-bois-mermet', en: 'evasion-bois-mermet', de: 'entkommung-bois-mermet', fr: 'echappement-bois-mermet' },
  'iva-aumento-sicurezza': { it: 'iva-aumento-sicurezza', en: 'iva-increase-security', de: 'iva-anstieg-sicherheit', fr: 'augmentation-iva-securite' },
+ 'apprendistato-formazione-berna': { it: 'apprendistato-formazione-berna', en: 'apprenticeship-vocational-training-bern', de: 'berufsbildung-lehre-kanton-bern', fr: 'apprentissage-formation-professionnelle-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

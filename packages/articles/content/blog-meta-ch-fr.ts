@@ -2413,6 +2413,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iva-aumento-sicurezza.title': 'IVA per la sicurezza, aumento di 0,5 punto',
     'blog.article.iva-aumento-sicurezza.excerpt': 'Le gouvernement suisse propose une augmentation de la TVA de 0,5 point de pourcentage pour financer les achats d\'armements.',
     'blog.article.iva-aumento-sicurezza.imageAlt': 'Augmentation de l\'IVA pour la sécurité : comment elle sera appliquée et ce que cela signifie pour la Suisse.',
+    'blog.article.apprendistato-formazione-berna.title': 'Apprentissage et formation professionnelle à Berne',
+    'blog.article.apprendistato-formazione-berna.excerpt': 'Guide pratique à la recherche d\'un poste d\'apprentissage dans le canton de Berne : du contrat de travail à la maturité professionnelle et à la rémunération.',
+    'blog.article.apprendistato-formazione-berna.imageAlt': 'Apprenti avec mentor au bureau',
 };
 
 export default blogMetaChFr;

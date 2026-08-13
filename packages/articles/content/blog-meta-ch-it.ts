@@ -2413,6 +2413,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iva-aumento-sicurezza.title': 'Aumento IVA per sicurezza: proposto aumento di 0,5 punti percentuali',
     'blog.article.iva-aumento-sicurezza.excerpt': 'Il Governo svizzero propone un aumento dell\'IVA di 0,5 punti percentuali per finanziare gli acquisti di armamenti.',
     'blog.article.iva-aumento-sicurezza.imageAlt': 'Aumento IVA per sicurezza: come si applicherà e cosa significa per la Svizzera.',
+    'blog.article.apprendistato-formazione-berna.title': 'Apprendistato e formazione professionale a Berna',
+    'blog.article.apprendistato-formazione-berna.excerpt': 'Guida pratica alla ricerca di un posto di tirocinio nel Canton Berna: dal contratto di lavoro alla maturità professionale e retribuzione.',
+    'blog.article.apprendistato-formazione-berna.imageAlt': 'Giovane apprendista con mentore in ufficio',
 };
 
 export default blogMetaChIt;
