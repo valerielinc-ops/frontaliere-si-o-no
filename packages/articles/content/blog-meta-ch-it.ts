@@ -2500,6 +2500,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Abbonamenti trasporti pubblici Canton Berna: zone e tariffe',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Informazioni sulle zone e le tariffe degli abbonamenti trasporti pubblici nel Canton Berna',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Autobus nel Canton Berna',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.title': 'La siccità mette a dura prova i corsi d\'acqua svizzeri',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.excerpt': 'Undici stazioni di misurazione hanno raggiunto un minimo storico in luglio',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.imageAlt': 'Il lago di Lugano con la siccità',
 };
 
 export default blogMetaChIt;

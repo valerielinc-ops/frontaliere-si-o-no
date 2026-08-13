@@ -2500,6 +2500,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Abonnements transports publics Canton de Berne : zones et tarifs',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Informations sur les zones et les tarifs des abonnements transports publics dans le canton de Berne',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Bus dans le Canton de Berne',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.title': 'La sécheresse met à rude épreuve les cours d\'eau suisses',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.excerpt': 'Onze stations de mesure ont atteint un plus bas historique en juillet',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.imageAlt': 'Le lac de Lugano en période de sécheresse',
 };
 
 export default blogMetaChFr;
