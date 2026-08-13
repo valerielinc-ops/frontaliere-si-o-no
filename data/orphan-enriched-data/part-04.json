@@ -23020,6 +23020,11 @@
           "impressions": 1
         },
         {
+          "query": "canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "ci sono concorsi attivi?",
           "clicks": 0,
           "impressions": 1
@@ -23090,7 +23095,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 33,
+      "totalImpressions": 34,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
@@ -48509,10 +48514,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern",
+        "de": "verfahrensassistent-in-staatsschutz-kriminelle-organisationen-confederazione-bern",
+        "it": "assistente-di-procedura-protezione-dello-stato-organizzazione-criminale-confederazione-svizzera-bern",
         "en": "procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern",
-        "de": "procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern",
-        "fr": "procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern"
+        "fr": "assistant-de-procedure-protection-de-l-etat-organisations-criminelles-confederazione-svizzera-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/procedure-assistant-state-protection-criminal-organizations-confederazione-svizzera-bern",
@@ -48526,6 +48531,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -57078,10 +57084,10 @@
         "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-reinach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
-        "en": "/en/find-jobs-aargau/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
+        "it": "/cerca-lavoro-grigioni/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
+        "en": "/en/find-jobs-graubunden/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
         "de": "/de/jobs-im-bern/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
-        "fr": "/fr/trouver-emploi-argovie/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
+        "fr": "/fr/trouver-emploi-grisons/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59722,6 +59728,64 @@
       ]
     },
     {
+      "slug": "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp/"
+      },
+      "queries": [
+        {
+          "query": "posti di lavoro in ticino liberi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "posti di lavoro in ticino liberi",
+      "title": "Senior automation ingegnere biopharma lonza",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Visp",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+        "en": "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+        "de": "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+        "fr": "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+        "en": "/en/find-jobs-valais/senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+        "de": "/de/jobs-im-wallis/senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp",
+        "fr": "/fr/trouver-emploi-valais/senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "senior-backend-developer-tether-ch-9",
       "locale": "de",
       "path": "/de/jobs-im-tessin/senior-backend-developer-tether-ch-9",
@@ -60420,6 +60484,69 @@
         "translation-cache",
         "slug-registry",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro vallese svizzera",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "posti di lavoro in ticino liberi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 4,
+      "totalClicks": 0,
+      "topQuery": "offerte di lavoro vallese svizzera",
+      "title": "Senior qa qualification specialista manager lonza",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Visp",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+        "en": "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+        "de": "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+        "fr": "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+        "en": "/en/find-jobs-valais/senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+        "de": "/de/jobs-im-wallis/senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp",
+        "fr": "/fr/trouver-emploi-valais/senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
