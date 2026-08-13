@@ -31568,6 +31568,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-asilo-nido-custodia-berna': {
+    title: 'Asilo nido e custodia bambini Berna: costi e sussidi',
+    description: 'Guida completa sui costi degli asili nido nel Canton Berna. Scopri le tariffe basate sul reddito, i sussidi cantonali disponibili e le opzioni di custodia',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini Berna: costi e sussidi',
+    ogDescription: 'Informazioni essenziali sui costi della custodia dei bambini nel Canton Berna. Tariffe progressive basate sul reddito, sussidi cantonali e diverse opzioni di strutture per supportare le famiglie.',
+    canonicalPath: '/articoli-svizzera/costi-asilo-nido-custodia-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini Berna: costi e sussidi",
+      "description": "Guida completa sui costi degli asili nido nel Canton Berna. Scopri le tariffe basate sul reddito, i sussidi cantonali disponibili e le opzioni di custodia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-asilo-nido-custodia-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido nel Canton Berna con bambini e educatori"
+      },
+      "datePublished": "2026-08-13T03:12:52+00:00",
+      "dateModified": "2026-08-13T03:12:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-asilo-nido-custodia-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eclissi-solare-svizzera-conclusa': {
+    title: 'Eclissi solare: spettacolo concluso in Svizzera',
+    description: 'L\'eclissi solare ha terminato il suo percorso sopra la Svizzera, con la massima occultazione verso le 20:20. In Ticino e Grigioni, la copertura del sole ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, eclissi, solare, spettacolo, concluso',
+    ogTitle: 'Eclissi solare: spettacolo concluso in Svizzera',
+    ogDescription: 'L\'attesa eclissi solare ha concluso il suo percorso sopra la Svizzera. Raggiunto il culmine verso le 20:20, l\'evento ha visto una copertura del 91% in Ticino e Grigioni. Confronto con eclissi passate e la prossima totale nel 2081.',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-svizzera-conclusa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eclissi solare: spettacolo concluso in Svizzera",
+      "description": "L'eclissi solare ha terminato il suo percorso sopra la Svizzera, con la massima occultazione verso le 20:20. In Ticino e Grigioni, la copertura del sole ha",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-svizzera-conclusa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Eclissi solare parziale sopra un paesaggio svizzero al tramonto."
+      },
+      "datePublished": "2026-08-13T03:30:24+00:00",
+      "dateModified": "2026-08-13T03:30:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-svizzera-conclusa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-il-controllo-delle-finanze-critica-duramente-l-ufsp': {
+    title: 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    description: 'Il Controllo delle finanze critica duramente l\'Ufsp senza specificare la data o la motivazione della critica. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controllo, finanze, critica, duramente',
+    ogTitle: 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    ogDescription: 'Il Controllo delle finanze critica duramente l\'Ufsp senza specificare la data o la motivazione della critica.',
+    canonicalPath: '/articoli-svizzera/il-controllo-delle-finanze-critica-duramente-l-ufsp/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Controllo delle finanze critica duramente l'Ufsp",
+      "description": "Il Controllo delle finanze critica duramente l'Ufsp senza specificare la data o la motivazione della critica. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/il-controllo-delle-finanze-critica-duramente-l-ufsp.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una vista del Lago di Lugano"
+      },
+      "datePublished": "2026-08-13T03:34:02+00:00",
+      "dateModified": "2026-08-13T03:34:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-controllo-delle-finanze-critica-duramente-l-ufsp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

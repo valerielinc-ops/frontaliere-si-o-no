@@ -2437,6 +2437,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Borse di studio Canton Berna: requisiti e importi',
     'blog.article.borse-studio-berna-guida.excerpt': 'Guida ufficiale ai contributi per la formazione nel Cantone di Berna: chi ha diritto, come presentare domanda e i criteri di calcolo per gli aiuti finanziari.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Palazzo federale a Berna, sede delle istituzioni svizzere',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Asilo nido e custodia bambini Berna: costi e sussidi',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Scopri i costi degli asili nido nel Canton Berna, le tariffe basate sul reddito, le famiglie diurne e i sussidi cantonali disponibili per la custodia dei bambini.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Asilo nido nel Canton Berna con bambini e educatori',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Eclissi solare: spettacolo concluso in Svizzera',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'L\'attesa eclissi solare ha terminato il suo percorso sopra la Svizzera, raggiungendo il culmine verso le 20:20 e concludendosi con il tramonto. In Ticino e Grigioni, la copertura del sole ha raggiunto il 91%.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Eclissi solare parziale sopra un paesaggio svizzero al tramonto.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Immagine di una vista del Lago di Lugano',
 };
 
 export default blogMetaChIt;

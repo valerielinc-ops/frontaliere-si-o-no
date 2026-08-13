@@ -2437,6 +2437,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Stipendien Kanton Bern: Voraussetzungen und Beträge',
     'blog.article.borse-studio-berna-guida.excerpt': 'Offizieller Leitfaden zu Ausbildungsbeiträgen im Kanton Bern: Wer hat Anspruch, wie beantragt wird und welche Kriterien für die Berechnung von Finanzhilfen gelten.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Institutionen',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Kindertagesstätte und Kinderbetreuung Bern: Kosten und Leistungen',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Informieren Sie sich über die Kosten der Kindertagesstätten im Kanton Bern, die einkommensabhängigen Tarife, die Tagesfamilien und die kantonalen Kinderbetreuungsbeihilfen.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Kindergarten im Kanton Bern mit Kindern und Betreuern',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Sonnenfinsternis: Show in der Schweiz beendet',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'Die erwartete Sonnenfinsternis endete über der Schweiz, erreichte ihren Höhepunkt gegen 20:20 Uhr und endete mit dem Sonnenuntergang. Im Tessin und Graubünden erreichte die Sonnenbedeckung 91%.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Partielle Sonnenfinsternis über einer Schweizer Landschaft im Sonnenuntergang.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Die Finanzkontrolle kritisiert das BfS heftig',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Die Finanzkontrolle kritisiert das BfS heftig',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Luganer See',
 };
 
 export default blogMetaChDe;

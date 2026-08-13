@@ -855,7 +855,7 @@
       "slug": "key-account-manager-m-f-d-settore-delle-costruzioni-e-dell-acciaio-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "key-account-manager-m-f-d-settore-delle-costruzioni-e-dell-acciaio-ffs-officine-ferrovie-federali-olten",
-        "en": "key-account-manager-m-w-d-bau-und-stahlindustrie-ffs-officine-ferrovie-federali-olten",
+        "en": "key-account-manager-m-f-d-construction-and-steel-industry-ffs-officine-ferrovie-federali-olten",
         "de": "key-account-manager-m-w-d-bau-und-stahlindustrie-ffs-officine-ferrovie-federali-olten",
         "fr": "gestionnaire-de-comptes-cles-h-f-d-l-industrie-de-la-construction-et-de-l-acier-ffs-officine-ferrovie-federali-olten"
       },
@@ -865,7 +865,7 @@
       "title": "Key Account Manager (m/w/d) Bau- und Stahlindustrie",
       "titleByLocale": {
         "it": "Key Account Manager (m/f/d) Settore delle Costruzioni e dell'Acciaio",
-        "en": "Key Account Manager (m/w/d) Bau- und Stahlindustrie",
+        "en": "Key Account Manager (m/f/d) Construction and Steel Industry",
         "de": "Key Account Manager (m/w/d) Bau- und Stahlindustrie",
         "fr": "Gestionnaire de comptes clés (h/f/d) l'industrie de la construction et de l'acier"
       },
@@ -920,15 +920,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-12T21:53:32.106Z",
       "previousSlugs": [
-        "key-account-manager-m-w-d-bau-und-stahlindustrie-ffs-officine-ferrovie-federali-olten",
-        "key-account-manager-m-f-d-construction-and-steel-industry-ffs-officine-ferrovie-federali-olten"
+        "key-account-manager-m-w-d-bau-und-stahlindustrie-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-m-w-d-bau-und-stahlindustrie-ffs-officine-ferrovie-federali-olten"
         ],
         "en": [
-          "key-account-manager-m-f-d-construction-and-steel-industry-ffs-officine-ferrovie-federali-olten",
           "key-account-manager-m-w-d-bau-und-stahlindustrie-ffs-officine-ferrovie-federali-olten"
         ]
       },
@@ -946,8 +944,7 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-31031670adba",
@@ -2492,7 +2489,7 @@
       "title": "Key Account Manager (m/w/d)",
       "titleByLocale": {
         "it": "Gestore dei Conti Chiave (m/f/d)",
-        "en": "Key Account Manager (m/w/d)",
+        "en": "Key Account Manager (m/f/d)",
         "de": "Key Account Manager (m/w/d)",
         "fr": "Gestionnaire de comptes clés (h/f/d)"
       },
@@ -2528,7 +2525,6 @@
           "gestionnaire-de-comptes-cles-m-f-d-roche-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:21:31.213Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -3540,7 +3536,7 @@
       "slug": "product-owner-m-f-d-con-esperienza-in-architettura-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "product-owner-m-f-d-con-esperienza-in-architettura-ffs-officine-ferrovie-federali-bern",
-        "en": "product-owner-m-w-d-mit-architekturerfahrung-ffs-officine-ferrovie-federali-bern",
+        "en": "product-owner-m-f-d-with-architecture-experience-ffs-officine-ferrovie-federali-bern",
         "de": "product-owner-m-w-d-mit-architekturerfahrung-ffs-officine-ferrovie-federali-bern",
         "fr": "product-owner-m-f-d-avec-une-experience-en-architecture-ffs-officine-ferrovie-federali-bern"
       },
@@ -3550,7 +3546,7 @@
       "title": "Product Owner (m/w/d) mit Architekturerfahrung",
       "titleByLocale": {
         "it": "Product Owner (m/w/d) con Architekturerfahrung",
-        "en": "Product Owner (m/w/d) mit Architekturerfahrung",
+        "en": "Product Owner (m/f/d) with Architecture Experience",
         "de": "Product Owner (m/w/d) mit Architekturerfahrung",
         "fr": "Product Owner (m/f/d) avec une expérience en architecture"
       },
@@ -3611,8 +3607,7 @@
         "product-managercatenary-systems-ffs-officine-ferrovie-federali-bern",
         "produktmanager-in-fahrleitungsanlagen-ffs-officine-ferrovie-federali-bern",
         "gestionnaire-de-produits-dans-les-systemes-catenaires-ffs-officine-ferrovie-federali-bern",
-        "product-owner-m-f-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern",
-        "product-owner-m-f-d-with-architecture-experience-ffs-officine-ferrovie-federali-bern"
+        "product-owner-m-f-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3626,7 +3621,6 @@
           "product-owner-m-w-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern",
           "product-managercatenary-systems-ffs-officine-ferrovie-federali-bern",
           "product-owner-m-f-d-with-architectural-experience-ffs-officine-ferrovie-federali-bern",
-          "product-owner-m-f-d-with-architecture-experience-ffs-officine-ferrovie-federali-bern",
           "product-owner-m-w-d-mit-architekturerfahrung-ffs-officine-ferrovie-federali-bern"
         ],
         "de": [
@@ -4712,7 +4706,7 @@
       "title": "Data Engineer (m/w/d) - Asset Management Infrastrukturanlagen",
       "titleByLocale": {
         "it": "Data Ingegnere (m/w/d) - Asset Management Infrastrukturanlagen",
-        "en": "Data Engineer (m/w/d) - Asset Management Infrastrukturanlagen",
+        "en": "Data Engineer (m/f/d) - Asset Management Infrastructure assets",
         "de": "Data Ingenieur (m/w/d) - Asset Management Infrastrukturanlagen",
         "fr": "Data Ingénieur (m/w/d) - Asset Management Infrastrukturanlagen"
       },
@@ -4908,7 +4902,7 @@
       "title": "Backoffice und Contract Manager (100% / w,m,d)",
       "titleByLocale": {
         "it": "Backoffice e Contract Manager (100% / w,m,d)",
-        "en": "Backoffice und Contract Manager (100% / w,m,d)",
+        "en": "Backoffice and Contract Manager (100% / w,m,d)",
         "de": "Backoffice und Contract Manager (100% / w,m,d)",
         "fr": "Responsable de bureau administratif et de contrats (100 % / f, m, d)"
       },
@@ -5006,8 +5000,7 @@
         }
       },
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-84412094ca91",
@@ -6560,7 +6553,7 @@
       "title": "Platform Engineer Modern Client Infrastructure (m/w/d)",
       "titleByLocale": {
         "it": "Platform Ingegnere Modern Client Infrastructure (m/w/d)",
-        "en": "Platform Engineer Modern Client Infrastructure (m/w/d)",
+        "en": "Platform Engineer Modern Client Infrastructure (m/f/d)",
         "de": "Platform Ingenieur Modern Client Infrastructure (m/w/d)",
         "fr": "Ingénieur de plateforme Infrastructure client moderne (m/f/d)"
       },
@@ -6615,8 +6608,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-3019faf38f91",
@@ -6805,8 +6797,7 @@
         "produktionsleiter-werk-olten-ffs-officine-ferrovie-federali-olten",
         "assistente-al-cliente-ffs-officine-ferrovie-federali-olten",
         "customer-assistant-in-ffs-officine-ferrovie-federali-olten",
-        "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten",
-        "fachverantwortliche-r-im-klimakompetenzzentrum-ffs-officine-ferrovie-federali-olten"
+        "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7093,8 +7084,7 @@
         "pianificatore-di-risorse-in-ffs-officine-ferrovie-federali-zurich-altstetten",
         "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten",
         "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7422,7 +7412,7 @@
       "id": "sbb-599e1ca8fd44",
       "slug": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "shift-manager-transport-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "transportschichtleiter-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "chef-fe-de-quart-transport-ffs-officine-ferrovie-federali-biel-bienne"
@@ -7432,7 +7422,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Chef·fe de quart Transport",
       "titleByLocale": {
-        "it": "Chef·fe de quart Transport",
+        "it": "Capo dei trasporti",
         "en": "Shift Manager Transport",
         "de": "Transportschichtleiter",
         "fr": "Chef·fe de quart Transport"
@@ -7479,16 +7469,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-12T21:57:23.189Z",
       "previousSlugs": [
-        "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-        "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+        "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne",
-          "capo-dei-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
+          "capo-quartiere-trasporti-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:43:29.008Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -9952,9 +9939,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -10015,8 +10002,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -10026,12 +10011,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

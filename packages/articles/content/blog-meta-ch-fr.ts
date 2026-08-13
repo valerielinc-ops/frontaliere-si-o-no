@@ -2437,6 +2437,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Bourses Canton de Berne : exigences et montants',
     'blog.article.borse-studio-berna-guida.excerpt': 'Guide officiel des cotisations à la formation dans le canton de Berne : qui y a droit, comment présenter une demande et les critères de calcul des aides financières.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Palais fédéral à Berne, siège des institutions suisses',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Garderie et garde d\'enfants Berne : coûts et allocations',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Découvrez les coûts des crèches dans le canton de Berne, les tarifs basés sur le revenu, les familles de jour et les allocations cantonales disponibles pour la garde des enfants.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Crèche dans le canton de Berne avec enfants et éducateurs',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Eclipse solaire : spectacle terminé en Suisse',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'L\'éclipse solaire attendue a terminé son parcours au-dessus de la Suisse, atteignant son apogée vers 20h20 et se terminant avec le coucher du soleil. Au Tessin et dans les Grisons, la couverture solaire a atteint 91 %.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Éclipse solaire partielle au-dessus d\'un paysage suisse au coucher du soleil.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Le Contrôle des finances critique sévèrement l\'OFSP',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Le Contrôle des finances critique sévèrement l\'OFSP',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Vue de Lugano',
 };
 
 export default blogMetaChFr;
