@@ -844,6 +844,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'reno-siccita-logistica-svizzera': { it: 'reno-siccita-logistica-svizzera', en: 'rhine-drought-swiss-logistics', de: 'rhein-trockenheit-schweiz-logistik', fr: 'rhin-secheresse-suisse-logistique' },
  'polpi-contro-granchio-blu': { it: 'polpi-contro-granchio-blu', en: 'polpi-vs-blue-crabs', de: 'polpi-gegen-blauer-krebs', fr: 'polpes-contre-cabres-bleus' },
  'governo-dice-no-iniziativa-alimentazione': { it: 'governo-dice-no-iniziativa-alimentazione', en: 'governo-dice-no-iniziativa-alimentazione', de: 'governo-dice-no-iniziativa-alimentazione', fr: 'governo-dice-no-iniziativa-alimentazione' },
+ 'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc': { it: 'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc', en: 'argovia-udc-case', de: 'argovia-udc-sache', fr: 'affaire-udc-argovie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

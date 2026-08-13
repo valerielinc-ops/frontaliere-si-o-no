@@ -2455,6 +2455,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Regierung sagt Nein zur Ernährungsinitiative',
     'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Der Bundesrat lehnt die Ernährungsinitiative mit der Begründung ab, die Forderungen seien übertrieben und unrealisierbar.',
     'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Bild der Schweiz mit grünen und Obst-Bildern',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Aargauer Behörden untersuchen den Fall des ehemaligen SVP-Parlamentariers',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Der Kanton will klären, ob der Schutz der beiden ausländischen Opfer durch die beteiligten Behörden gewährleistet wurde',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Demonstration in Lugano gegen sexuelle Gewalt',
 };
 
 export default blogMetaChDe;

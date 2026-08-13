@@ -2455,6 +2455,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Government says no to food initiative',
     'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'The Federal Council rejects the popular initiative on food, arguing that the demands made are excessive and unfeasible.',
     'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Svissera with green and vegetable and fruit images',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Argovia probes ex-UDC MP case',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'The Canton intends to clarify whether the protection of the two foreign victims has been guaranteed by the authorities involved',
+    'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestation in Lugano against sexual violence',
 };
 
 export default blogMetaChEn;
