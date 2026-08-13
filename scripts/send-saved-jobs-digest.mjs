@@ -37,6 +37,12 @@ import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
+// Shared with send-job-alerts.mjs's coverage numbers (#5536 measurement,
+// 2.548-job sample): resolveLogoUrl joins the SAME manifest that measurement
+// used (data/company-logos-manifest.json, 453 companies), and parseDateField
+// is the DD/MM/YY-safe date reader (#2630) — re-parsing postedDate locally
+// would risk the same day/month swap that fix closed.
+import { resolveLogoUrl, parseDateField } from '../services/newsletter-content.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 // localePathPrefix aliased to the local name this script has always used —
@@ -142,6 +148,7 @@ const EMAIL_STRINGS = {
     heroDesc: 'Promemoria settimanale — nessuno di questi è andato perso.',
     expiredBadge: 'Annuncio scaduto',
     at: 'presso',
+    postedOn: 'Pubblicato il',
     viewJob: 'Vedi annuncio →',
     manageLink: 'Gestisci i salvati nella tua area personale',
     recoTitle: '✨ Potrebbero interessarti anche',
@@ -159,6 +166,7 @@ const EMAIL_STRINGS = {
     heroDesc: "Weekly reminder — none of these are lost.",
     expiredBadge: 'Listing expired',
     at: 'at',
+    postedOn: 'Posted on',
     viewJob: 'View listing →',
     manageLink: 'Manage saved jobs in your account',
     recoTitle: '✨ You might also like',
@@ -176,6 +184,7 @@ const EMAIL_STRINGS = {
     heroDesc: 'Wöchentliche Erinnerung — keine davon ist verloren.',
     expiredBadge: 'Angebot abgelaufen',
     at: 'bei',
+    postedOn: 'Veröffentlicht am',
     viewJob: 'Angebot ansehen →',
     manageLink: 'Gespeicherte Stellen in Ihrem Konto verwalten',
     recoTitle: '✨ Das könnte Sie auch interessieren',
@@ -193,6 +202,7 @@ const EMAIL_STRINGS = {
     heroDesc: "Rappel hebdomadaire — aucune n'est perdue.",
     expiredBadge: 'Offre expirée',
     at: 'chez',
+    postedOn: 'Publié le',
     viewJob: "Voir l'offre →",
     manageLink: 'Gérer vos offres enregistrées dans votre compte',
     recoTitle: '✨ Pourrait aussi vous intéresser',
@@ -215,17 +225,71 @@ function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+const POSTED_DATE_LOCALE = { it: 'it-CH', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' };
+
+// `postedDate` alone is 98.67% covered on real inventory (#5536 measurement,
+// 2.548-job sample) — no fallback to crawledAt/validThrough here on purpose:
+// those are build-time-derived windows, not source dates, and #5536 is
+// explicit that a synthetic value must never be presented as one. Missing or
+// unparseable → '' → caller omits the line entirely (conditional, never a
+// placeholder).
+function formatPostedDate(raw, locale) {
+  if (!raw) return '';
+  const ts = parseDateField(raw);
+  if (!Number.isFinite(ts)) return '';
+  const localeTag = POSTED_DATE_LOCALE[locale] || POSTED_DATE_LOCALE.it;
+  try {
+    return new Date(ts).toLocaleDateString(localeTag, { day: 'numeric', month: 'short', year: 'numeric' });
+  } catch {
+    return '';
+  }
+}
+
+// Card fields, each independently conditional (#5536): a card that shows a
+// hole for a missing field is worse than a card without that field.
+//   - logo:     data/company-logos-manifest.json join, 72.9% of jobs — falls
+//               back to a coloured initial-letter avatar, never a blank box.
+//   - location: `location` (100%) preferred over `canton` alone (99.96%).
+//   - date:     `postedDate` (98.67%), see formatPostedDate above.
+//   - sector:   `sector` (88.30%) preferred, `category` (100%) as fallback so
+//               the tag is present whenever ANY classification exists.
 function renderJobCard(entry, locale, s, { expired }) {
   const url = expired ? `${BASE_URL}/cerca-lavoro-ticino/` : entry.url;
   const badge = expired
     ? `<span style="display:inline-block;background:#fee2e2;color:#b91c1c;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`
     : '';
+
+  const locationLabel = entry.location || entry.canton || '';
+  const dateLabel = expired ? '' : formatPostedDate(entry.postedDate, locale);
+  const sectorLabel = entry.sector || entry.category || '';
+
+  const logoSrc = expired ? null : resolveLogoUrl(entry);
+  const initial = (entry.company || '?').trim().charAt(0).toUpperCase() || '?';
+  const avatarHtml = logoSrc
+    ? `<img src="${logoSrc}" alt="${escapeHtml(entry.company || '')}" width="40" height="40" style="display:block;width:40px;height:40px;border-radius:8px;background:#ffffff;border:1px solid #e2e8f0;object-fit:contain;padding:3px;box-sizing:border-box;">`
+    : `<div style="width:40px;height:40px;border-radius:8px;background:#f1f5f9;border:1px solid #e2e8f0;text-align:center;line-height:40px;font-size:16px;font-weight:700;color:#f97316;">${escapeHtml(initial)}</div>`;
+
+  const metaLine = `${s.at} ${escapeHtml(entry.company)}${locationLabel ? ` · ${escapeHtml(locationLabel)}` : ''}`;
+
+  const tagParts = [];
+  if (dateLabel) tagParts.push(`${escapeHtml(s.postedOn)} ${escapeHtml(dateLabel)}`);
+  if (sectorLabel) tagParts.push(escapeHtml(sectorLabel));
+  const tagsHtml = tagParts.length
+    ? `<div style="font-size:12px;color:#94a3b8;margin-top:4px;">${tagParts.join(' &middot; ')}</div>`
+    : '';
+
   return `
     <tr>
       <td style="padding:14px 0;border-bottom:1px solid #e2e8f0;">
-        <div style="font-size:16px;font-weight:600;color:#0f172a;">${escapeHtml(entry.title)}${badge}</div>
-        <div style="font-size:14px;color:#64748b;margin-top:2px;">${s.at} ${escapeHtml(entry.company)}${entry.canton ? ` · ${escapeHtml(entry.canton)}` : ''}</div>
-        <a href="${url}" style="display:inline-block;margin-top:8px;font-size:14px;color:#f97316;font-weight:600;text-decoration:none;">${s.viewJob}</a>
+        <table role="presentation" width="100%"><tr>
+          <td width="52" style="vertical-align:top;padding-right:12px;">${avatarHtml}</td>
+          <td style="vertical-align:top;">
+            <div style="font-size:16px;font-weight:600;color:#0f172a;">${escapeHtml(entry.title)}${badge}</div>
+            <div style="font-size:14px;color:#64748b;margin-top:2px;">${metaLine}</div>
+            ${tagsHtml}
+            <a href="${url}" style="display:inline-block;margin-top:8px;font-size:14px;color:#f97316;font-weight:600;text-decoration:none;">${s.viewJob}</a>
+          </td>
+        </tr></table>
       </td>
     </tr>`;
 }
@@ -431,7 +495,21 @@ async function main() {
       .slice(0, MAX_SAVED_LISTED)
       .map((entry) => {
         const job = jobsById.get(entry.id);
-        if (!job) return { ...entry, expired: true, url: null, company: entry.company, title: entry.title, canton: entry.canton };
+        // Expired path: the job left data/jobs.json, so none of the card's
+        // new fields (logo/location/date/sector) have a live source — only
+        // `entry.category`, already persisted on the saved-job doc itself
+        // (services/savedJobsService.ts), survives to feed the sector tag.
+        if (!job) {
+          return {
+            ...entry,
+            expired: true,
+            url: null,
+            company: entry.company,
+            title: entry.title,
+            canton: entry.canton,
+            sector: entry.category,
+          };
+        }
         return {
           ...entry,
           expired: false,
@@ -439,6 +517,10 @@ async function main() {
           title: jobTitle(job, locale),
           company: job.company || entry.company,
           canton: job.canton || entry.canton,
+          location: job.location || job.addressLocality || null,
+          postedDate: job.postedDate || null,
+          sector: job.sector || job.category || entry.category || null,
+          companyKey: job.companyKey || null,
         };
       });
 
@@ -461,6 +543,10 @@ async function main() {
             title: jobTitle(job, locale),
             company: job.company,
             canton: job.canton,
+            location: job.location || job.addressLocality || null,
+            postedDate: job.postedDate || null,
+            sector: job.sector || job.category || null,
+            companyKey: job.companyKey || null,
             url: jobPageUrl(job, locale),
           });
         }
@@ -483,4 +569,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   });
 }
 
-export { main, jobPageUrl, makeUnsubscribeUrl, loadJobsById };
+export { main, jobPageUrl, makeUnsubscribeUrl, loadJobsById, renderJobCard, formatPostedDate, getStrings };
