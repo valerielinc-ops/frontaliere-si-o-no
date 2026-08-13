@@ -2338,7 +2338,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.federer-patrimonio-on-borsa-calo.title': 'Roger Federer perd son statut de milliardaire à cause de l\'effondrement d\'On',
     'blog.article.federer-patrimonio-on-borsa-calo.excerpt': 'Le patrimoine de l\'ancien champion tombe à 949 millions de dollars après la baisse de 19 % du titre On à Wall Street.',
     'blog.article.federer-patrimonio-on-borsa-calo.imageAlt': 'Vue du quartier financier suisse représentant le marché boursiero et les entreprises comme On.',
-    'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel (ancien CEO UBS et CS) :',
+    'blog.article.grubel-ubb-intromettersi-in-ucraina.title': 'Grübel critique l\'ingérence suisse dans la crise ukrainienne',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.excerpt': 'Le banquier critique la politique de puissance américaine et la campagne de propagande autour de l\'Ukraine',
     'blog.article.grubel-ubb-intromettersi-in-ucraina.imageAlt': 'Oswald Grübel, ancien PDG de UBS et CS',
     'blog.article.amazon-capitalizzazione-3000-miliardi.title': 'Amazon dépasse 3 000 milliards',
