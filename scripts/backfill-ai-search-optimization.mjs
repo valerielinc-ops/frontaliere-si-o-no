@@ -46,6 +46,10 @@ import {
   validateBackfillPayload,
 } from './lib/ai-search-template.mjs';
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
+import {
+  unescapeTsString as sharedUnescapeTsString,
+  tsStringEscapesWithNewlineAs,
+} from './lib/unescape-ts-string.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -128,15 +132,16 @@ if (HELP) {
 
 const BODY_KEY_RX = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
 
-/** Unescape a single-quoted TS string the same way ogPagesPlugin does. */
+/**
+ * Unescape a single-quoted TS string the same way ogPagesPlugin does — via
+ * the shared single-pass decoder, not a `.replace()` chain (#5632: the
+ * chain resolved `\\` last, so a literal `\\n` came out as a stray
+ * backslash + a real newline instead of the two characters `\` and `n`).
+ * `\n` decodes to a real newline: body markdown structure (headings, lists,
+ * FAQ) depends on it.
+ */
 function unescapeTsString(value) {
-  return value
-    .replace(/\\'/g, "'")
-    .replace(/\\"/g, '"')
-    .replace(/\\n/g, '\n')
-    .replace(/\\r/g, '')
-    .replace(/\\t/g, ' ')
-    .replace(/\\\\/g, '\\');
+  return sharedUnescapeTsString(value, tsStringEscapesWithNewlineAs('\n'));
 }
 
 /** Re-escape a string for embedding in a single-quoted TS literal. */

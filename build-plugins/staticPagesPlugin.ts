@@ -31,6 +31,7 @@ import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
+import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
 // sospendeva il plugin prima di arrivare al render delle pagine, e
 // `seoHeroCardsPlugin` drena il registry delle hero card nello stesso tick
@@ -2114,14 +2115,19 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  let files: string[] = [];
  try { files = fs.readdirSync(dir); } catch { return out; }
  const rx = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+ // Single-pass decode via the shared helper (#5632 item 1: the old chain
+ // resolved `\\` last, so a literal `\\n` in the source came out as a
+ // stray backslash + a real newline). `\n` flattens to a space: these
+ // values feed single-line meta/preview surfaces, not markdown structure.
+ // repairLegacyDoubleEscapedBreaks then cleans up the OTHER shape of the
+ // same corpus-side damage: a source escaped one level too many (`\\n`
+ // meaning literal backslash+n, not a `\n` escape) decodes faithfully to a
+ // visible stray backslash. Measured: 9 of 39,276 body1/2/3 fields
+ // affected. Adapted to the space variant — the newline-variant original is
+ // repairLegacyDoubleEscapedBreaks in
+ // packages/articles/engine/shared/tsStringEscapes.ts (#5602).
  const unescapeTsString = (value: string): string =>
- value
- .replace(/\\'/g, '\'')
- .replace(/\\"/g, '"')
- .replace(/\\n/g, ' ')
- .replace(/\\r/g, '')
- .replace(/\\t/g, ' ')
- .replace(/\\\\/g, '\\');
+ repairLegacyDoubleEscapedBreaks(sharedUnescapeTsString(value, tsStringEscapesWithNewlineAs(' ')), ' ');
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
