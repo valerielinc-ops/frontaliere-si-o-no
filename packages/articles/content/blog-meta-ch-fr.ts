@@ -2482,6 +2482,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mucche-svizzere-canica.title': 'Comment les vaches suisses affrontent la canicule',
     'blog.article.mucche-svizzere-canica.excerpt': 'Les fermes suisses cherchent à soulager le stress thermique des vaches avec des solutions innovantes.',
     'blog.article.mucche-svizzere-canica.imageAlt': 'Vaches suisses cherchent de l\'ombre sous un arbre pendant la canicule.',
+    'blog.article.mercati-affitti-cantone-berna.title': 'Marchés des loyers dans le canton de Berne : loyers moyens et droit de location',
+    'blog.article.mercati-affitti-cantone-berna.excerpt': 'Le marché locatif dans le canton de Berne : que changer dans la vie de ceux qui vivent ou travaillent en Suisse ?',
+    'blog.article.mercati-affitti-cantone-berna.imageAlt': 'Le marché locatif du Canton de Berne: Qu\'est-ce qui change dans la vie de ceux qui vivent ou travaillent en Suisse?',
 };
 
 export default blogMetaChFr;
