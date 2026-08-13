@@ -2425,6 +2425,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.opportunita-lavoro-rsi-svizzera.title': 'Opportunità di carriera presso la RSI: guida al portale',
     'blog.article.opportunita-lavoro-rsi-svizzera.excerpt': 'Esplora le posizioni aperte e il percorso di candidatura presso la RSI Radiotelevisione svizzera di lingua italiana attraverso il portale ufficiale dedicato.',
     'blog.article.opportunita-lavoro-rsi-svizzera.imageAlt': 'Sede della Radiotelevisione svizzera a Lugano',
+    'blog.article.scienza-medicina-attualita-svizzera.title': 'Scienza e medicina: aggiornamenti e approfondimenti',
+    'blog.article.scienza-medicina-attualita-svizzera.excerpt': 'Uno sguardo alle sezioni di scienza e medicina pubblicate da laRegione, con approfondimenti tematici su salute e ricerca scientifica in ambito svizzero.',
+    'blog.article.scienza-medicina-attualita-svizzera.imageAlt': 'Laboratorio di ricerca scientifica in un contesto svizzero',
 };
 
 export default blogMetaChIt;
