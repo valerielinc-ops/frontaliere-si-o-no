@@ -58,10 +58,11 @@
  * that job is an owner decision and not this script's to take.
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { runFactualityGates, SEVERITY, formatIssues } from './lib/article-factuality-gates.mjs';
-import { BODY_DIRS, LOCALES, extractBodies } from './lib/blog-body-io.mjs';
+import {
+  BODY_DIRS, LOCALES, extractBodies, changedArticleIds, changedArticleIdsWorktree,
+} from './lib/blog-body-io.mjs';
 
 const AS_JSON = process.argv.includes('--json');
 const CRITICAL_ONLY = process.argv.includes('--critical');
@@ -95,93 +96,11 @@ if (CHANGED_BASE && CHANGED_WORKTREE) {
   process.exit(2);
 }
 
-// Two prefixes, because `services/locales/blog-body[-ch]` is a SYMLINK to
-// `packages/articles/content/blog-body[-ch]`. The audit walks the symlink and
-// reads the real files, but `git diff --name-only` reports the resolved path —
-// so a regex anchored on the symlink prefix alone matched nothing, and the gate
-// exited 0 on every PR: verifying nothing while looking green. A gate that
-// silently stops gating is the exact failure this one exists to prevent, so it
-// accepts whichever prefix the repo is currently using.
-//
-// Any locale, not just `it`: the gate judges translations too, and a PR that
-// only touches <root>/blog-body/en/<id>.ts is exactly the shape of change
-// ("border guards") it was extended to catch.
-const BODY_PATH_RE =
-  /^(?:services\/locales|packages\/articles\/content)\/blog-body(?:-ch)?\/(?:it|en|de|fr)\/(.+)\.ts$/;
-
-/** Article ids named by `git diff --name-only`-shaped output. */
-function articleIdsFromPaths(out) {
-  const ids = new Set();
-  for (const line of out.split('\n')) {
-    const m = line.match(BODY_PATH_RE);
-    if (m) ids.add(m[1]);
-  }
-  return ids;
-}
-
-// The index carries 30k+ entries and the corpus alone is ~15k files, so a
-// full-corpus refresh can print a name list far past execFileSync's 1 MB
-// default. ENOBUFS there would be caught by the `catch` below and reported as
-// "diff unavailable" — i.e. the scan would silently cover nothing on exactly
-// the largest, most interesting change. Same reasoning as the maxBuffer in
-// tests/workflows/git-add-symlinked-corpus.test.ts.
-const GIT_MAX_BUFFER = 64 * 1024 * 1024;
-const GIT_OPTS = { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: GIT_MAX_BUFFER };
-
-/** Italian article ids touched in the diff against `base`. */
-function changedArticleIds(base) {
-  let out = '';
-  try {
-    // Three-dot first (changes introduced by this branch since the merge base).
-    // CI checks out shallow, so the merge base is often absent — fall back to a
-    // plain two-dot tree diff, which only needs both tips to be present.
-    try {
-      out = execFileSync('git', ['diff', '--name-only', `${base}...HEAD`], GIT_OPTS);
-    } catch {
-      out = execFileSync('git', ['diff', '--name-only', base, 'HEAD'], GIT_OPTS);
-    }
-  } catch {
-    // Shallow clone or unknown ref. Do NOT fall back to the whole corpus: this
-    // gate only ever judges what the diff introduces, and the corpus still
-    // carries pre-existing debt (47 blocking findings at the time of writing)
-    // that would turn every PR red. Report loudly and let the PR through — a
-    // gate that cannot compute its scope must not invent one.
-    console.error(`⚠️  git diff contro "${base}" non riuscito (clone shallow o ref assente).`);
-    console.error('   Gate NON eseguito su questo diff — nessun articolo verificato.');
-    return 'unavailable';
-  }
-  return articleIdsFromPaths(out);
-}
-
-/**
- * Article ids changed in the working tree but not yet committed: unstaged
- * edits, staged edits and new untracked files.
- *
- * All three, because the caller runs between `pull-articles-corpus.mjs` (which
- * overwrites tracked bodies AND drops brand-new ones in, untracked) and the
- * `git add` that stages them. Reading only the unstaged diff would miss every
- * NEW article — the majority of what a sync brings — and reading only the
- * index would miss everything if the caller ever moves earlier. The union is
- * correct at any point before the commit, which is the property that keeps
- * this from breaking the next time the step order changes.
- */
-function changedArticleIdsWorktree() {
-  let out = '';
-  try {
-    out = [
-      execFileSync('git', ['diff', '--name-only'], GIT_OPTS),
-      execFileSync('git', ['diff', '--name-only', '--cached'], GIT_OPTS),
-      execFileSync('git', ['ls-files', '--others', '--exclude-standard'], GIT_OPTS),
-    ].join('\n');
-  } catch {
-    // Same contract as changedArticleIds(): a scope that cannot be computed is
-    // reported loudly and scans nothing, never silently widened to the corpus.
-    console.error('⚠️  git diff/ls-files sul working tree non riuscito.');
-    console.error('   Scan NON eseguito — nessun articolo verificato.');
-    return 'unavailable';
-  }
-  return articleIdsFromPaths(out);
-}
+// changedArticleIds() / changedArticleIdsWorktree() now live in
+// scripts/lib/blog-body-io.mjs — extracted 2026-08-13 (issue #5671) so
+// report-synced-article-fabrication.mjs could share the same regex and the
+// same three-git-calls union instead of carrying a second hand copy (AGENTS.md
+// #6: a regex/constant duplicated in ≥2 files goes into one shared module).
 
 const changedIdsRaw = CHANGED_WORKTREE
   ? changedArticleIdsWorktree()
