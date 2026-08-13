@@ -1816,9 +1816,9 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  },
 
  'blog-lavena-ponte-tresa-territorio-poroso': {
- title: 'Il 3territorio poroso3 tra Varese e la Svizzera',
+ title: 'Il territorio poroso tra Varese e la Svizzera',
  description: 'Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma',
- keywords: 'frontalieri, ticino, svizzera, italia, 3territorio, poroso, varese, confine',
+ keywords: 'frontalieri, ticino, svizzera, italia, territorio, poroso, varese, confine',
  ogTitle: 'Il territorio poroso tra Varese e la Svizzera: un confine che ora unisce più che dividere',
  ogDescription: 'Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma',
  canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso/',
