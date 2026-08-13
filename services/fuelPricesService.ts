@@ -115,6 +115,13 @@ const CACHE_TTL_MS = 30 * 60 * 1000;
 let cache: FuelPricesDataset | null = null;
 let cacheTimestamp = 0;
 
+// In-flight fetchFuelPrices() promise, coalesced across concurrent callers on
+// a cold/expired cache (sibling of #5766's Remote Config stampede: cache is
+// only populated once the fetch resolves, so concurrent callers on page load
+// would otherwise each fire their own Firestore read). Cleared in `finally`
+// on both success and rejection so a failed fetch never stays stuck.
+let fetchPromise: Promise<FuelPricesDataset> | null = null;
+
 function isCacheFresh(): boolean {
  return cache !== null && (Date.now() - cacheTimestamp) < CACHE_TTL_MS;
 }
@@ -190,6 +197,8 @@ export async function fetchFuelPrices(forceRefresh = false): Promise<FuelPricesD
  if (!forceRefresh && isCacheFresh()) return cache!;
  if (IS_TEST_ENV) throw new Error('Fuel dataset unavailable in test environment');
 
+ if (!fetchPromise) {
+ fetchPromise = (async () => {
  try {
  const dataset = await fetchFromFirestore();
  cache = dataset;
@@ -207,6 +216,11 @@ export async function fetchFuelPrices(forceRefresh = false): Promise<FuelPricesD
  throw firestoreErr;
  }
  }
+ })().finally(() => {
+ fetchPromise = null;
+ });
+ }
+ return fetchPromise;
 }
 
 /**
