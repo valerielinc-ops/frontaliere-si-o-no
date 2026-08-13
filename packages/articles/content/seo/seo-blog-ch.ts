@@ -30866,6 +30866,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eclissi-solare-agosto-2026-svizzera': {
+    title: 'Eclissi solare del 12 agosto: come vederla in Svizzera',
+    description: 'Scopri come e dove osservare l\'eclissi solare del 12 agosto 2026 in Svizzera, con coperture fino al 92% e consigli per la sicurezza visiva. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, eclissi, solare, agosto, vederla',
+    ogTitle: 'Eclissi solare del 12 agosto 2026 in Svizzera: guida all\'osservazione',
+    ogDescription: 'Tutto sulla straordinaria eclissi solare del 12 agosto 2026 in Svizzera: percentuali di copertura fino al 92%, orari, luoghi panoramici e occhiali certificati.',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-agosto-2026-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eclissi solare del 12 agosto: come vederla in Svizzera",
+      "description": "Scopri come e dove osservare l'eclissi solare del 12 agosto 2026 in Svizzera, con coperture fino al 92% e consigli per la sicurezza visiva. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-agosto-2026-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Eclissi solare osservata da una località svizzera"
+      },
+      "datePublished": "2026-08-13T00:33:29+00:00",
+      "dateModified": "2026-08-13T00:33:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-agosto-2026-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

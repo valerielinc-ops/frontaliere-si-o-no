@@ -820,6 +820,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-berna-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-berna-iscrizione-e-cicli', en: 'canton-berna-school-system-enrollment-and-grades', de: 'bildungssystem-kanton-bern-anmeldung-und-noten', fr: 'systeme-educatif-canton-de-bourguignon-inscription-et-notations' },
  'siccita-rosti-nessuna-misura-urgente-svizzera': { it: 'siccita-rosti-nessuna-misura-urgente-svizzera', en: 'drought-rosti-no-urgent-measures-switzerland', de: 'duerre-roesti-keine-dringenden-massnahmen-schweiz', fr: 'secheresse-roesti-pas-de-mesures-urgentes-suisse' },
  'eclissi-solare-cardada': { it: 'eclissi-solare-cardada', en: 'solar-eclipse-cardada', de: 'sonnenfinsternis-cardada', fr: 'eclipse-solaire-cardada' },
+ 'eclissi-solare-agosto-2026-svizzera': { it: 'eclissi-solare-agosto-2026-svizzera', en: 'solar-eclipse-august-2026-switzerland', de: 'sonnenfinsternis-august-2026-schweiz', fr: 'eclipse-solaire-aout-2026-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
