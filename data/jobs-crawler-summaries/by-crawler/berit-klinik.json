@@ -1,18 +1,54 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-08-13T10:23:02.226Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-08-13T22:03:05.459Z",
+  "total": 11,
+  "newCount": 1,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3243,
-  "avgDurationMs": 3243,
+  "durationMs": 4091,
+  "avgDurationMs": 4091,
   "durationHistory": [
-    3243
+    4091
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Mpa Goldach 30–40%",
+      "slug": "mpa-goldach-30-40-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_goldach__30_40__98bde7993a.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Goldach",
+      "addressLocality": "Goldach",
+      "addressRegion": "SG",
+      "postalCode": "9403",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-13",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_mpa_goldach__30_40__98bde7993a.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Dipl. Fachperson Op Technik 80–100%",
