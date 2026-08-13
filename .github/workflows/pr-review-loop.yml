@@ -42,8 +42,37 @@ on:
 # sono già cancellati a monte da `tests`). Keyed sul branch perché in un evento
 # `workflow_run` NON è disponibile `pull_request.number`; head_branch identifica
 # la PR così PR diverse non si cancellano a vicenda.
+#
+# ── L'EVENTO STA NEL GROUP (metà sito di issue #5614, corretta) ─────────────
+#
+# `tests.yml` qui NON è scopato al solo `pull_request`: ha anche `push:
+# branches:[main]` e — quello che morde — `workflow_dispatch`, che
+# `pr-autorebase.yml` usa per ri-lanciare `tests` sull'head appena rebasata di
+# una PR (un push via PAT su un branch di PR non ri-triggera sempre
+# `pull_request`, vedi il commento in tests.yml). Quel run di `tests` produce
+# comunque un `workflow_run: completed` con lo STESSO `head_branch` della PR, e
+# con group keyed solo sul branch cadeva nello stesso slot della review vera.
+#
+# Il danno è asimmetrico, come sul corpus: la run nata da `workflow_dispatch`
+# viene SEMPRE saltata dal gate `if:` del job sotto (che pretende
+# `workflow_run.event == 'pull_request'`), quindi con `cancel-in-progress: true`
+# cancellava la review vera senza lasciare nessuna review al suo posto — non un
+# errore, un'ASSENZA silenziosa. Misurato sul sito: 1 `cancelled` su 200 run
+# (`gh run list --repo valerielinc-ops/frontaliere-si-o-no
+# --workflow=pr-review-loop.yml --limit 200 --json conclusion`) — più raro che
+# sul corpus (25/400, frontaliere-articles#286) perché lì `tests.yml` gira
+# anche su push a QUALSIASI branch, non solo main, ma lo stesso meccanismo.
+#
+# `workflow_run.event` distingue il trigger che ha fatto partire `tests`
+# ('pull_request' vs 'workflow_dispatch' vs 'push') così le due run per lo
+# stesso branch finiscono in gruppi diversi e non si cancellano a vicenda.
+# Stessa riga di frontaliere-articles#286 (mirror engine), minus
+# `github.event_name` / `inputs.pr`: qui pr-review-loop.yml ha un solo trigger
+# (`workflow_run`), quindi quella parte sarebbe una costante — il corpus la
+# porta perché LUI ha anche un `workflow_dispatch` proprio su questo file
+# (issue #201), che qui non esiste.
 concurrency:
-  group: pr-review-${{ github.event.workflow_run.head_branch }}
+  group: pr-review-${{ github.event.workflow_run.event }}-${{ github.event.workflow_run.head_branch }}
   cancel-in-progress: true
 
 permissions:
