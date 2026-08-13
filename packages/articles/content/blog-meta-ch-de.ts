@@ -2371,6 +2371,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-berna.title': 'Familienzulagen im Kanton Bern: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-berna.excerpt': 'Die Familienzulagen im Kanton Bern werden von den kantonalen Verwaltungen verwaltet und bedürfen der Antragstellung.',
     'blog.article.assegni-familiari-canton-berna.imageAlt': 'Ein Frontalier mit einem Kind in Lugano',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Bürgerinitiative, Beschwerden sind unzulässig',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'Das Bundesgericht hat entschieden, dass Beschwerden von Befürwortern der Initiative \'Für eine engagierte Schweiz\' (Bürgerdienst-Initiative) unzulässig sind.',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'Eine Person stimmt in einer Schule in Lugano ab',
 };
 
 export default blogMetaChDe;
