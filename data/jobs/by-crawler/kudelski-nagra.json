@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-08-13T10:18:43.761Z",
+  "assembledAt": "2026-08-13T21:48:01.719Z",
   "jobs": [
     {
       "id": "kudelski-nagra-213b373baaf3",
@@ -19,7 +19,7 @@
         "it": "Apprenti(e) Employé(e) de Commerce - Voie 2",
         "en": "Apprentices(s) Employé(s) de Commerce - Voie 2",
         "de": "Auszubildende Employé(s) de Commerce - Voie 2",
-        "fr": "Apprentis(s) Employé(s) de Commerce - Voise 2"
+        "fr": "Apprenti(e) Employé(e) de Commerce - Voie 2"
       },
       "description": "Fixed term CDD at Kudelski Group, part of the Kudelski Group — a global leader in digital security and content protection technology.",
       "descriptionByLocale": {
@@ -33,7 +33,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-13T10:18:40.696Z",
+      "crawledAt": "2026-08-13T21:47:58.568Z",
       "addressLocality": "Switzerland",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-22T22:19:26.636Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
