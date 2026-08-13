@@ -11518,5 +11518,129 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-13T14:44:54.177Z",
+    "label": "before",
+    "total": 26778,
+    "needsRetranslation": 10435,
+    "suppressed": 48,
+    "incomplete": 116,
+    "complete": 26662,
+    "slotsPresent": 26662,
+    "flaggedAmongSlotsPresent": 10348,
+    "verifiedTranslated": 16314,
+    "sourceCopyExcused": 1964,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 46,
+      "en": 35,
+      "de": 57,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 12
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Manor AG",
+        "pending": 8
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-13T16:12:14.121Z",
+    "label": "after",
+    "total": 26778,
+    "needsRetranslation": 10137,
+    "suppressed": 49,
+    "incomplete": 115,
+    "complete": 26663,
+    "slotsPresent": 26663,
+    "flaggedAmongSlotsPresent": 10051,
+    "verifiedTranslated": 16612,
+    "sourceCopyExcused": 1962,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 45,
+      "en": 35,
+      "de": 57,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 12
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Manor AG",
+        "pending": 8
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      }
+    ]
   }
 ]
