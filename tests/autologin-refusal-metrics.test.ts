@@ -25,6 +25,7 @@ import {
   parseExchangeLine,
   policyKey,
   isPreFlightPolicy,
+  isPolicyMixPreFlight,
   aggregate,
   lockoutRate,
   evaluate,
@@ -253,6 +254,27 @@ describe('#5724 — the pre-flip baseline must stay comparable', () => {
     expect(agg.observedPolicy).toEqual({ mintScheme: 'v1', ttlDays: 30, legacySunset: null });
     expect(Object.keys(agg.policyMix)).toHaveLength(2);
     expect(policyKey({ mintScheme: 'legacy', ttlDays: 0, legacySunset: null })).toBe('legacy:0:none');
+  });
+
+  it('rejects a window as a baseline source unless EVERY line in it is pre-flip, not just the majority (#5757)', () => {
+    // The trap this closes: `observedPolicy` reports the DOMINANT policy on
+    // purpose (so a straddled window renders as straddled instead of
+    // silently averaging two regimes). A baseline guard reading only that
+    // dominant policy would still fold a minority of real post-flip lockouts
+    // into a window it treats as clean, right on the day the flip happens.
+    const mostlyPreFlip = aggregate(parseAll([
+      ...Array.from({ length: 96 }, () => acceptedLine()),
+      ...Array.from({ length: 4 }, () => refusedLine('auth_code_expired', { mint_scheme: 'v1', ttl_days: 30 })),
+    ]));
+    expect(isPreFlightPolicy(mostlyPreFlip.observedPolicy)).toBe(true);
+    expect(isPolicyMixPreFlight(mostlyPreFlip.policyMix)).toBe(false);
+
+    const entirelyPreFlip = aggregate(parseAll(Array.from({ length: 100 }, () => acceptedLine())));
+    expect(isPolicyMixPreFlight(entirelyPreFlip.policyMix)).toBe(true);
+
+    // No lines at all: nothing to vouch for pre-flip, so it must not pass by
+    // default — an empty window is not evidence of the empty policy.
+    expect(isPolicyMixPreFlight({})).toBe(false);
   });
 
   it('reports the age distribution of ACCEPTED codes — the evidence for the TTL', () => {

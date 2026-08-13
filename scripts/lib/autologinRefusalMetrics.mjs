@@ -189,6 +189,36 @@ export function isPreFlightPolicy(policy) {
     && !policy.legacySunset;
 }
 
+/** Inverse of `policyKey`: turn one tally key from `aggregate()`'s `policyMix`
+ *  back into the shape `isPreFlightPolicy` reads. */
+function parsePolicyKey(key) {
+  const [mintScheme, ttlDaysRaw, legacySunset] = String(key).split(':');
+  return {
+    mintScheme,
+    ttlDays: Number(ttlDaysRaw),
+    legacySunset: legacySunset === 'none' ? null : legacySunset,
+  };
+}
+
+/**
+ * True only when EVERY line that carried a policy in this window is pre-flip
+ * — not just the majority.
+ *
+ * `aggregate()`'s `observedPolicy` is the DOMINANT policy, by design (so a
+ * straddled window renders as straddled instead of averaging two regimes
+ * silently). That is the right read for the report, but the wrong read for
+ * the baseline: a window that is 95% pre-flip and 5% post-flip still has real
+ * post-flip lockouts folded into `agg.counts.lockout`, and classifying the
+ * whole window as pre-flip would fold those lockouts into what the rollback
+ * trigger treats as a clean floor — quietest exactly on the day the flip
+ * needs the baseline to hold still.
+ */
+export function isPolicyMixPreFlight(policyMix) {
+  const keys = Object.keys(policyMix || {});
+  if (keys.length === 0) return false;
+  return keys.every((key) => isPreFlightPolicy(parsePolicyKey(key)));
+}
+
 /**
  * Fold parsed records into the shape the alert and the state file both read.
  *
@@ -238,13 +268,7 @@ export function aggregate(records) {
     ageDaysP50: percentile(ages, 0.5),
     ageDaysP95: percentile(ages, 0.95),
     ageSamples: ages.length,
-    observedPolicy: dominant
-      ? {
-        mintScheme: dominant.split(':')[0],
-        ttlDays: Number(dominant.split(':')[1]),
-        legacySunset: dominant.split(':')[2] === 'none' ? null : dominant.split(':')[2],
-      }
-      : null,
+    observedPolicy: dominant ? parsePolicyKey(dominant) : null,
     policyMix: policySeen,
   };
 }
