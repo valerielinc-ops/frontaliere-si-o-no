@@ -13,6 +13,19 @@
 # unit-tested helper scripts/lib/pr-body-closes-check.mjs (tests/pr-body-closes-check.test.ts);
 # keep the two in sync if the rule changes.
 #
+# It ALSO catches a closure INTENDED but expressed with a keyword GitHub
+# ignores (issue #5784): a body written in Italian ("Chiude #N", "Chiusa da #N",
+# "Risolve #N") or an English gerund ("Closing #N") reads as closure to a human
+# and closes NOTHING — GitHub acts only on close/closes/closed, fix/fixes/fixed,
+# resolve/resolves/resolved. The issue then stays open forever with the fix
+# already merged, looking like backlog (real recurrence: PR #5776 said `Chiude
+# #5725`, #5725 stayed open until closed by hand; same shape on #5724, near-miss
+# on #5774). The detection mirrors the SAME helper's `lineIntentRefs`
+# (scripts/lib/pr-body-closes-check.mjs, already unit-tested) — it existed but
+# previously reached only the narrow drift-fallback path of auto-merge-eval.mjs,
+# never a PR opened through the normal `## LGTM` review flow. A body that only
+# NAMES an issue without a closing verb (`Refs #N`, `vedi #N`) is never flagged.
+#
 # It ALSO catches `Closes #N` where #N is a multi-item follow-up AGGREGATE
 # ("N items deferred", N>=2). GitHub-native `Closes` fires on MERGE and bypasses
 # the reconcile multi-item-auto-close veto (FOLLOWUP.md), so a partial fix (the
@@ -168,6 +181,65 @@ jobs:
               if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
             });
 
+            // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
+            // Mirror of scripts/lib/pr-body-closes-check.mjs `lineIntentRefs` /
+            // `effectiveRefs` (tests/pr-body-closes-check.test.ts is the source of
+            // truth for the rule). GitHub honors ONLY close/closes/closed,
+            // fix/fixes/fixed, resolve/resolves/resolved — an Italian verb ("Chiude
+            // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
+            // reads as closure to a human and closes NOTHING: the issue stays open
+            // forever with the fix already on `main`. The detection already existed
+            // in the lib (used by auto-merge-eval.mjs's narrow drift-fallback path)
+            // but never reached a PR opened through the normal `## LGTM` review path
+            // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
+            // stayed open until closed by hand; same shape on #5724, near-miss on
+            // #5774. This block closes that gap for every PR, not just drift-fallback
+            // ones.
+            // Masks fenced/inline code + HTML comments FIRST, same reason as check 3
+            // below: GitHub does not act on a keyword inside code formatting, and a
+            // body that merely DOCUMENTS the bug (this one, or the PR template) would
+            // otherwise false-positive on itself. Newlines survive the mask (blanks
+            // replace non-newline chars) so line numbers still point at the real line.
+            const maskQuotedKeepLines = (t) => String(t || '').replace(
+              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
+              (m) => m.replace(/[^\n]/g, ' '),
+            );
+            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            // The Italian verbs (measured recurrence) plus the English near-misses
+            // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
+            // `related to`, `refs`, `part of` — those mean "connected to", and
+            // flagging them would punish a body that legitimately just NAMES an
+            // issue without intending to close it.
+            const INTENT_KW =
+              '(?:chiud(?:e|ono|er[àa]|iamo)|chius[aoie]|risolv(?:e|ono|iamo)|risolt[aoie]|' +
+              'fixa(?:ta|to)?|corregg(?:e|ono)|corrett[aoie]|' +
+              'closing|fixing|resolving|solves|solved|completes|completed)';
+            // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
+            // something ELSE already closed the ref — not this PR's intent.
+            const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
+            const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
+            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
+
+            const maskedBodyForIntent = maskQuotedKeepLines(body);
+            const willCloseRefs = new Set();
+            for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
+              willCloseRefs.add(m[1].toLowerCase());
+            }
+            const rawBodyLinesForIntent = body.split(/\r?\n/);
+            const intentViolations = [];
+            const intentReported = new Set();
+            maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
+              for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
+                const ref = m[2];
+                const before = mline.slice(Math.max(0, m.index - 24), m.index);
+                if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
+                if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
+                if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
+                intentReported.add(ref.toLowerCase());
+                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
+              }
+            });
+
             // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
             // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
             // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
@@ -238,11 +310,11 @@ jobs:
             };
 
             // --- All-clear ----------------------------------------------------------
-            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && aggregateCloseViolations.length === 0) {
+            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
               if (prior) {
                 await github.rest.issues.updateComment({
                   owner, repo, comment_id: prior.id,
-                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessun \`Closes\` su follow-up aggregata.`,
+                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`,
                 });
               }
               core.info('PR body contract satisfied.');
@@ -282,6 +354,22 @@ jobs:
                 `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
               );
               fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            if (intentViolations.length) {
+              const lines = intentViolations
+                .map((v) => `- L${v.line}: \`${v.text}\` → \`${v.keyword} ${v.ref}\` non chiude niente`)
+                .join('\n');
+              parts.push(
+                `🔴 **Keyword di chiusura inefficace** (issue #5784) — GitHub riconosce SOLO ` +
+                `\`close/closes/closed\`, \`fix/fixes/fixed\`, \`resolve/resolves/resolved\`; un verbo italiano ` +
+                `(\`chiude\`/\`chiusa\`/\`risolve\`/\`fixa\`...) o l'inglese al gerundio (\`closing\`/\`fixing\`) è prosa ` +
+                `e non chiude nulla — l'issue resta aperta con la fix già su \`main\` (recidiva reale: PR #5776 → ` +
+                `#5725 rimasta aperta finché non è stata chiusa a mano; stesso difetto su #5724, quasi su #5774).\n\n` +
+                `${lines}\n\n` +
+                `Fix: usa la keyword inglese per ognuno, es. \`Closes ${intentViolations[0].ref}\`. Se non intendevi ` +
+                `chiudere quella issue (solo nominarla), usa \`Refs\`/\`Vedi\` invece di un verbo di chiusura.`,
+              );
+              fails.push(`ineffective closing keyword: ${intentViolations.map((v) => `L${v.line}`).join(', ')}`);
             }
             if (aggregateCloseViolations.length) {
               const lines = aggregateCloseViolations
