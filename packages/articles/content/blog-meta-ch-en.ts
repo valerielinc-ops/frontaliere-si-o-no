@@ -2422,6 +2422,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regolamento-eurovision-sicurezza-2027.title': 'Eurovision: new rules on safety and age of artists',
     'blog.article.regolamento-eurovision-sicurezza-2027.excerpt': 'The SRU updates the rules of the contest: stop the host nation in case of war and raise the minimum age to 18 years.',
     'blog.article.regolamento-eurovision-sicurezza-2027.imageAlt': 'Modern event stage in a Swiss venue',
+    'blog.article.opportunita-lavoro-rsi-svizzera.title': 'CSR Career Opportunities: Portal Guide',
+    'blog.article.opportunita-lavoro-rsi-svizzera.excerpt': 'Explore the open positions and the application path at the RSI Italian-speaking Swiss Radio and Television through the dedicated official portal.',
+    'blog.article.opportunita-lavoro-rsi-svizzera.imageAlt': 'RSI Swiss broadcasting headquarters in Lugano',
 };
 
 export default blogMetaChEn;
