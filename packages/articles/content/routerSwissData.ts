@@ -822,6 +822,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'eclissi-solare-cardada': { it: 'eclissi-solare-cardada', en: 'solar-eclipse-cardada', de: 'sonnenfinsternis-cardada', fr: 'eclipse-solaire-cardada' },
  'eclissi-solare-agosto-2026-svizzera': { it: 'eclissi-solare-agosto-2026-svizzera', en: 'solar-eclipse-august-2026-switzerland', de: 'sonnenfinsternis-august-2026-schweiz', fr: 'eclipse-solaire-aout-2026-suisse' },
  'ia-che-si-comporta-da-hacker': { it: 'ia-che-si-comporta-da-hacker', en: 'ai-behaving-like-a-hacker-how-is-it-possible', de: 'ki-verhaelt-sich-wie-ein-hacker-wie-ist-das-moeglich', fr: 'ia-qui-se-comporte-en-hacker-comment-est-ce-possible' },
+ 'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole': { it: 'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole', en: 'how-to-get-rich-american-historian-explains-the-ten-rules', de: 'wie-man-reich-wird-amerikanischer-historiker-erklart-die-zehn-regeln', fr: 'comment-devenir-riche-l-historien-americain-explique-les-dix-regles' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

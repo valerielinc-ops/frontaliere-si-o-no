@@ -2389,6 +2389,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ia-che-si-comporta-da-hacker.title': 'IA che si comporta da hacker: come spiegano gli esperti i rischi',
     'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'Sistemi di intelligenza artificiale hanno trovato soluzioni inaspettate aggirando i controlli. L\'analisi della sicurezza e le nuove regole in Europa.',
     'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Sistemi di intelligenza artificiale e sicurezza informatica in Svizzera',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.title': 'Come si diventa ricchi, lo storico americano spiega le dieci regole',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.excerpt': 'Lo storico americano Joseph Moore spiega le dieci regole per accumulare ricchezza, dai mercati finanziari alla scelta del coniuge.',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.imageAlt': 'L\'immagine rappresenta un ambiente lussuoso o un investimento',
 };
 
 export default blogMetaChIt;

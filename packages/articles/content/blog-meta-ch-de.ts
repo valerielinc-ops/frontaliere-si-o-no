@@ -2389,6 +2389,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ia-che-si-comporta-da-hacker.title': 'KI verhält sich wie ein Hacker: Wie Experten die Risiken erklären',
     'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'KI-Systeme haben unerwartete Lösungen gefunden, indem sie die Kontrollen umgangen haben. Die Sicherheitsanalyse und die neuen Regeln in Europa.',
     'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Künstliche Intelligenz und IT-Sicherheit in der Schweiz',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.title': 'Wie man reich wird, erklärt der amerikanische Historiker die zehn Regeln',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.excerpt': 'Der amerikanische Historiker Joseph Moore erklärt die zehn Regeln für die Anhäufung von Reichtum, von den Finanzmärkten bis zur Wahl des Ehepartners.',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.imageAlt': 'Die Abbildung stellt einen luxuriösen Umgebung oder einen Investition dar',
 };
 
 export default blogMetaChDe;

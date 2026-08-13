@@ -2389,6 +2389,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ia-che-si-comporta-da-hacker.title': 'AI that behaves like a hacker: how experts explain the risks',
     'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'Artificial intelligence systems have found unexpected solutions by circumventing controls. Security analysis and new rules in Europe.',
     'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Artificial intelligence systems and cybersecurity in Switzerland',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.title': 'How to Get Rich, American Historian Explains the Ten Rules',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.excerpt': 'American historian Joseph Moore explains the ten rules for accumulating wealth, from the financial markets to the choice of spouse.',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.imageAlt': 'The image represents a luxurious environment or an investment',
 };
 
 export default blogMetaChEn;
