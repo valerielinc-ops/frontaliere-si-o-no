@@ -222,6 +222,57 @@ describe('Firestore rules — job_alert_subscribers subcollections', () => {
 });
 
 /**
+ * Salary survey — first of the six `read, write: if true` collections
+ * tracked by #5792 (sibling of #5751/#5793, which closed the two PII
+ * subscriber lists). `write: if true` let any visitor overwrite or delete
+ * every submitted record; nothing in the client ever updates or deletes one,
+ * so both are closed outright, and `create` is bound to the same shape and
+ * salary range (1'000–500'000 CHF/anno) the form already enforces.
+ */
+describe('Firestore rules — salary_survey collection (#5792)', () => {
+  const rules = readFileSync(resolve(root, 'firestore.rules'), 'utf8');
+  const surveyBlock = matchBlock(rules, 'match /salary_survey/{docId}');
+  const own = directRules(surveyBlock);
+
+  it('keeps anonymous read for the aggregated results view', () => {
+    expect(own).toContain('allow read: if true');
+  });
+
+  it('does not allow a client to overwrite or delete a submitted record', () => {
+    expect(own).not.toMatch(/allow[^;:]*\bwrite\b[^;:]*:\s*if\s+true/);
+    expect(own).toContain('allow update, delete: if false');
+  });
+
+  it('bounds anonymous create to the shape and range the form submits', () => {
+    expect(own).toContain('request.resource.data.sector is string');
+    expect(own).toContain('request.resource.data.experience is string');
+    expect(own).toContain('request.resource.data.canton is string');
+    expect(own).toContain('request.resource.data.grossSalaryCHF is number');
+    expect(own).toContain('request.resource.data.grossSalaryCHF >= 1000');
+    expect(own).toContain('request.resource.data.grossSalaryCHF <= 500000');
+  });
+
+  it('matches the payload submitSurveyToFirestore actually sends', () => {
+    const component = readFileSync(
+      resolve(root, 'components/community/SalarySurvey.tsx'),
+      'utf8'
+    );
+    const submitFn = component.slice(
+      component.indexOf('async function submitSurveyToFirestore'),
+      component.indexOf('async function loadSurveyResults')
+    );
+    expect(submitFn).toContain('sector: data.sector');
+    expect(submitFn).toContain('experience: data.experience');
+    expect(submitFn).toContain('canton: data.canton');
+    expect(submitFn).toContain('grossSalaryCHF: data.grossSalaryCHF');
+    // No identifying field is ever written — the rules only need to bound
+    // shape/range, not scope a write to an owner.
+    expect(submitFn).not.toContain('email');
+    expect(submitFn).not.toContain('uid');
+  });
+});
+
+/**
  * The metric, written as an assertion so it cannot drift back (#5751).
  *
  * Before: two PII collections whose `list` an unauthenticated browser could

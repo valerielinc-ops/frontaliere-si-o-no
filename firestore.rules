@@ -148,9 +148,34 @@ service cloud.firestore {
       allow create: if true;
     }
 
-    // Salary survey — public
+    // Salary survey — anonymous compensation benchmarks, aggregated
+    // client-side into sector percentiles.
+    //
+    // `get`/`list` staying public is not a PII exposure: the only writer
+    // (components/community/SalarySurvey.tsx's submitSurveyToFirestore) sends
+    // sector/experience/canton/grossSalaryCHF/createdAt — no email, uid or
+    // name is ever denormalised in. This is a compensation+role+canton
+    // record, not a linkable identity, unlike newsletter_subscribers
+    // (#5751/#5793). `loadSurveyResults` reads it back with an anonymous
+    // `getDocs`/`orderBy`/`limit(500)` to render the results view, so `read`
+    // has to stay open.
+    //
+    // `write: if true` was the actual hole: it let any visitor overwrite or
+    // delete every submitted record, not just add their own. No client path
+    // calls update or delete on this collection — closed outright. `create`
+    // is validated to the same shape and salary bounds
+    // (1'000–500'000 CHF/anno) the form already enforces, so a forged
+    // document can't smuggle extra fields or nonsense figures into the
+    // aggregation.
     match /salary_survey/{docId} {
-      allow read, write: if true;
+      allow read: if true;
+      allow create: if request.resource.data.sector is string
+        && request.resource.data.experience is string
+        && request.resource.data.canton is string
+        && request.resource.data.grossSalaryCHF is number
+        && request.resource.data.grossSalaryCHF >= 1000
+        && request.resource.data.grossSalaryCHF <= 500000;
+      allow update, delete: if false;
     }
 
     // Traffic data — public read only (writes via Admin SDK)
