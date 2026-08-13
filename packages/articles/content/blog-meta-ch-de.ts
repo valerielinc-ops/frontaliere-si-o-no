@@ -2467,6 +2467,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Haus kaufen im Kanton Bern: Durchschnittspreise und geforderte Eigenmittel',
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'Die durchschnittlichen Hauspreise im Kanton Bern betragen gemäss den Daten von 2022 rund CHF 730 \'000.',
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Bild einer Wohnung im Kanton Bern',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Rabatte auf Medikamente, Überwachung ist wenig effektiv',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'Das Bundesamt für Gesundheit (BAG) nutzt nicht alle verfügbaren Instrumente zur Überwachung des Arzneimittelmarktes.',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontalier versucht, in der Schweiz auf Medikamente zu sparen',
 };
 
 export default blogMetaChDe;
