@@ -1,18 +1,19 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-08-12T21:52:57.462Z",
-  "total": 8,
-  "newCount": 1,
-  "updatedCount": 6,
+  "generatedAt": "2026-08-13T10:17:40.175Z",
+  "total": 7,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3068,
-  "avgDurationMs": 3068,
+  "unchangedCount": 0,
+  "durationMs": 4400,
+  "avgDurationMs": 4400,
   "durationHistory": [
-    3068
+    4400
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-b2a497a01bf3",
       "slug": "intern-in-testing-100-climeworks-opfikon-zurich",
@@ -25,7 +26,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-testing-100-105",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.739Z",
+      "crawledAt": "2026-08-13T10:17:36.041Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -39,16 +40,15 @@
       "postedDate": "2026-08-12",
       "applyUrl": "https://climeworks.recruitee.com/o/intern-in-testing-100-105",
       "remote": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-12T21:52:54.739Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "climeworks-6dac73b445f5",
       "slug": "strategic-communications-manager-100-climeworks-opfikon-zurich",
@@ -61,7 +61,7 @@
       "url": "https://climeworks.recruitee.com/o/strategic-communications-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.750Z",
+      "crawledAt": "2026-08-13T10:17:36.050Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,7 +75,6 @@
       "postedDate": "2026-08-10",
       "applyUrl": "https://climeworks.recruitee.com/o/strategic-communications-manager-100",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-10T10:31:40.139Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -97,7 +96,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.761Z",
+      "crawledAt": "2026-08-13T10:17:36.052Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +132,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.769Z",
+      "crawledAt": "2026-08-13T10:17:36.056Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -169,7 +168,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.774Z",
+      "crawledAt": "2026-08-13T10:17:36.058Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -183,7 +182,6 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.360Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -205,7 +203,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.778Z",
+      "crawledAt": "2026-08-13T10:17:36.059Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -219,7 +217,6 @@
       "postedDate": "2026-04-29",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.366Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -241,7 +238,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:52:54.783Z",
+      "crawledAt": "2026-08-13T10:17:36.063Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -255,7 +252,6 @@
       "postedDate": "2026-02-10",
       "applyUrl": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "remote": true,
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -267,46 +263,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "climeworks-98280fc5e596",
-      "slug": "senior-synthetic-chemist-responsabile-dell-innovazione-per-sorbenti-80-100-climeworks-opfikon-zurich",
-      "company": "Climeworks",
-      "companyKey": "climeworks",
-      "companyDomain": "climeworks.com",
-      "title": "Senior Synthetic Chemist – Sorbent Innovation Lead (80–100%)",
-      "location": "Opfikon, Zurich",
-      "canton": "ZH",
-      "url": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
-      "source": "Climeworks Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T10:20:05.300Z",
-      "addressLocality": "Opfikon, Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Clima e Sostenibilità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "applyUrl": "https://climeworks.recruitee.com/o/senior-synthetic-chemist-sorbent-innovation-lead-80100",
-      "remote": true,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-03T13:10:05.390Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
