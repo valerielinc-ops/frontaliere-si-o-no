@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-08-12T22:24:23.737Z",
+  "assembledAt": "2026-08-13T10:51:29.291Z",
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "estetista-badrutt-s-palace-hotel-st-moritz",
         "en": "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
-        "fr": "estheticienne-badrutt-s-palace-hotel-st-moritz"
+        "de": "schonheits-und-massage-therapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "therapeute-de-beaute-et-de-massage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-massage-therapist-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.588Z",
+      "crawledAt": "2026-08-13T10:51:25.297Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -53,19 +53,23 @@
         "en": [
           "beauty-therapist-m-w-d-badrutts-palace-ch",
           "beauty-therapist-m-f-d-badrutts-palace-ch",
-          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch"
+          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch",
+          "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "it": [
           "beauty-therapist-m-w-d-badrutts-palace-ch",
           "beauty-therapist-m-f-d-badrutts-palace-ch",
-          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch"
+          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch",
+          "estetista-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "schonheitstherapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
           "schonheits-und-massage-therapeut-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "therapeute-de-beaute-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "estheticienne-badrutt-s-palace-hotel-st-moritz",
           "therapeute-de-beaute-et-de-massage-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
@@ -75,10 +79,15 @@
         "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch",
         "schonheitstherapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "therapeute-de-beaute-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
+        "estheticienne-badrutt-s-palace-hotel-st-moritz",
+        "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "estetista-badrutt-s-palace-hotel-st-moritz",
         "schonheits-und-massage-therapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "therapeute-de-beaute-et-de-massage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-01T21:48:55.226Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -124,7 +133,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3725042-reservations-supervisor-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:24:21.586Z",
+      "crawledAt": "2026-08-13T10:51:25.295Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -143,13 +152,15 @@
       "previousSlugs": [
         "reservations-agent-m-w-d-badrutts-palace-ch",
         "reservations-supervisor-m-w-d-badrutts-palace-ch",
-        "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservations-agent-m-w-d-badrutts-palace-ch",
           "reservations-supervisor-m-w-d-badrutts-palace-ch",
-          "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "reservations-agent-m-w-d-badrutts-palace-ch"
@@ -176,7 +187,7 @@
       "slugByLocale": {
         "it": "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "plumber-m-w-d-badrutts-palace-ch",
-        "de": "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "plombier-m-m-j-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -186,7 +197,7 @@
       "titleByLocale": {
         "it": "Idraulico (m/f/d)",
         "en": "Plumber (m/f/d)",
-        "de": "Klempner (m/w/d)",
+        "de": "Plumber (m/f/d)",
         "fr": "Plombier (m/f/d)"
       },
       "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>As a plumbing installer, you will be responsible for repairs and minor installations in the hotel as well as in the staff housing, ensuring smooth operations.</p></li><li><p>The inspection and maintenance of heating, ventilation, and plumbing systems falls within your area of responsibility, ensuring efficient and energy-conscious operations.</p></li><li><p>You will carry out regular inspections of guest bathrooms to ensure they consistently meet the highest standards and offer our guests a pleasant stay.</p></li><li><p>During events, you will support the technical setup and ensure that all plumbing requirements are professionally implemented.</p></li><li><p>In addition, you will participate in snow clearance and contribute to the operational fire safety team, ensuring the safety of our guests and staff.</p></li><li><p>You will take on occasional on-call duty shifts to respond quickly and reliably to emergencies as they arise.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p>For this highly varied position, you ideally bring the following:</p><ul><li><p>Completed vocational training as a heating engineer, plumbing installer, or equivalent further qualification.</p></li><li><p>Professional experience in a larger hotel operation is an advantage.</p></li><li><p>Good command of German as well as spoken Italian; English skills are an advantage.</p></li><li><p>A sense of responsibility and an independent, precise working style.</p></li><li><p>High resilience, strong team orientation, and a solution-driven mindset.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Permanent, year-round position.</p></li><li><p>5-day work week on average, with 43.5 hours.</p></li><li><p>5 weeks of vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata temporis).</p></li><li><p>Staff accommodation available upon request in one of our attractive staff houses.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>Work in an appealing environment.</p></li></ul><p></p><p>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.<br><br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
@@ -201,7 +212,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/4759144-plumber-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.585Z",
+      "crawledAt": "2026-08-13T10:51:25.294Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -230,6 +241,8 @@
         "legname-badrutt-s-palace-hotel-st-moritz",
         "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
         "plumber-badrutts-palace-ch",
+        "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
@@ -244,7 +257,8 @@
           "klempner-badrutt-s-palace-hotel-st-moritz",
           "legname-badrutt-s-palace-hotel-st-moritz",
           "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
-          "plumber-badrutts-palace-ch"
+          "plumber-badrutts-palace-ch",
+          "legname-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -252,6 +266,7 @@
         "de": [
           "fitnesstrainer-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "plumber-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
@@ -260,6 +275,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T21:48:55.223Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -286,12 +302,12 @@
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
       "companyDomain": "badruttscareers.com",
-      "title": "Chef de Partie (m/f/d)",
+      "title": "Chef de Partie (m/w/d)",
       "titleByLocale": {
         "it": "Chef de Partie (m/f/d)",
-        "en": "Chef de Partie (m/f/d)",
+        "en": "Chef de Partie (m/w/d)",
         "de": "Küchenchef (m/w/d)",
-        "fr": "Chef de Partie (h/f/d)"
+        "fr": "Chef de Partie (m/w/d)"
       },
       "description": "<p><strong>Your key responsibilities</strong></p><p>As a Chef de Partie, you will play a key role in ensuring the highest culinary standards and delivering an exceptional dining experience. Your main responsibilities will include:</p><ul><li><p>Preparing, cooking, and presenting high-quality dishes within your assigned kitchen section.</p></li><li><p>Ensuring consistent quality through the careful selection, preparation, and handling of fresh ingredients.</p></li><li><p>Supporting the development of seasonal menus and contributing creative ideas to enhance our culinary offering.</p></li><li><p>Maintaining the highest standards of food hygiene, safety, and cleanliness in accordance with HACCP regulations.</p></li><li><p>Working closely with the Executive Chef, Sous Chefs, and the wider kitchen team to ensure a smooth and efficient operation.</p></li><li><p>Assisting in the training and support of junior kitchen team members when required.</p></li><li><p>Managing your section efficiently while maintaining excellent quality, organization, and attention to detail.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed professional training as a Chef or an equivalent qualification in the culinary field.</p></li><li><p>Previous experience as a Chef de Partie, ideally in a luxury hotel or fine dining environment.</p></li><li><p>Passion for high-quality cuisine with strong attention to detail and presentation.</p></li><li><p>Excellent organizational skills and the ability to work efficiently under pressure.</p></li><li><p>Sound knowledge of HACCP guidelines and food safety standards.</p></li><li><p>Strong communication skills and the ability to work effectively as part of a team.</p></li><li><p>Good command of Italian and English.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from late November 2026 to early April 2027, with the opportunity to return for future seasons.</p></li><li><p>Average 5-day work week with 43.5 hours per week.</p></li><li><p>5 weeks of annual vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata).</p></li><li><p>Accommodation available upon request in one of our modern staff residences.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>An attractive working environment with excellent opportunities for professional growth and development.<br></p></li></ul><p>Are you passionate about culinary excellence and looking for an exciting opportunity as a Chef de Partie in a luxury hotel environment? We look forward to receiving your complete online application and to welcoming you to our team.<br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
       "descriptionByLocale": {
@@ -302,10 +318,10 @@
       },
       "location": "St. Moritz",
       "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.583Z",
+      "crawledAt": "2026-08-13T10:51:25.290Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -318,21 +334,23 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2025-09-05",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-partie-m-w-d-badrutts-palace-ch",
         "chef-de-rang-m-w-d-badrutts-palace-ch",
         "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-partie-m-f-d-badrutts-palace-ch"
+        "chef-de-partie-m-f-d-badrutts-palace-ch",
+        "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-m-w-d-badrutts-palace-ch",
           "chef-de-rang-m-w-d-badrutts-palace-ch",
           "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
-          "chef-de-partie-m-f-d-badrutts-palace-ch"
+          "chef-de-partie-m-f-d-badrutts-palace-ch",
+          "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "chef-de-rang-m-w-d-badrutts-palace-ch",
@@ -353,6 +371,116 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "badrutts-palace-3556bd3429ec",
+      "slug": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "reservations-manager-m-w-d-badrutts-palace-ch",
+        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Reservations Manager (m/w/d)",
+      "titleByLocale": {
+        "it": "Account Manager (m/w/d)",
+        "en": "Reservations Manager (m/w/d)",
+        "de": "Reservations Manager (m/w/d)",
+        "fr": "Gestionnaire de compte (m/w/d)"
+      },
+      "description": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie übernehmen die Führungsrolle im Reservierungsteam, bestehend aus fünf Spezialisten, und tragen die Verantwortung für den reibungslosten Ablauf der Reservierungsabteilung.</p></li><li><p>Sie verantworten die selbstständige Bearbeitung von Individual- und Gruppenbuchungen, und stellen dabei jederzeit eine strukturierte und verlässliche Arbeitsweise sicher.</p></li><li><p>Sie unterstützen den Revenue Manager bei der optimalen Preis- und Verfügbarkeitssteuerung sowie bei der Analyse von Buchungs- und Marktentwicklungen.</p></li><li><p>Ihre Berichte für das Management sind präzise und aussagekräftig, um eine fundierte Entscheidungsfindung zu ermöglichen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr sicheres, gewinnendes Auftreten sowie ausgezeichnete Umgangsformen entsprechen den hohen Standards der Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+      "descriptionByLocale": {
+        "it": "Cosa ci fai - No. Si prende il comando nel team di prenotazione, composto da cinque specialisti, e si assume la responsabilità per il regolare funzionamento del reparto prenotazioni. - No. Essi sono responsabili del trattamento indipendente delle prenotazioni individuali e di gruppo e garantiscono un funzionamento strutturato e affidabile in qualsiasi momento. - No. Supportano Revenue Manager nel controllo ottimale dei prezzi e della disponibilità e nell'analisi degli sviluppi di prenotazione e mercato. - No. I loro rapporti di gestione sono precisi e significativi per consentire un buon processo decisionale. - No. L'introduzione, la formazione e l'ulteriore sviluppo di nuovi dipendenti nel reparto prenotazioni fa parte della vostra responsabilità e del supporto continuo del team esistente. - No. Insieme al vostro team, state costantemente lavorando per ottimizzare i processi nel dipartimento. - No. La collaborazione efficace con i dipartimenti Front Office, Sales & Marketing e il Team Event è al vostro cuore per raggiungere obiettivi comuni. Questo ti porterà - No. Hanno un'esperienza professionale pluriennale e ben fondata nell'ufficio anteriore e/o nel reparto prenotazioni di hotel di lusso, idealmente in una funzione leader. - No. Il vostro aspetto sovrano e stilistico, così come la vostra forza di comunicazione pronunciata consentono di interazione professionale e convincente a tutti i livelli – sia per iscritto che per orale. - No. Sono richieste competenze in tedesco e inglese; l'italiano e altre lingue straniere sono di vantaggio. - No. Sono molto versi nella gestione di MS Office e hanno profonda conoscenza dell'utente in Protel o sistemi di prenotazione comparabili. - No. Essi sono caratterizzati da un modo di lavoro strutturato, predittivo e orientato alla soluzione e sono utilizzati per assumersi la responsabilità e per guidare e sostenere i team professionalmente. - No. Il loro aspetto sicuro e vincente così come i modi eccellenti di gestire soddisfano gli elevati standard di hotel di lusso. La nostra offerta - No. Posizione annuale illimitata - No. 5 giorni settimana media a 43,5 ore, 5 settimane vacanze e 6 vacanze all'anno - No. 13. Contenuto dall'ingresso (pro rata temporis) - No. Alloggio in una delle nostre case del personale - No. Servizi alimentari nel nuovo, personale moderno Ristorante - No. Lavoro in un ambiente attraente con possibilità di sviluppo Se si desidera apprezzare un'attività interessante, impegnativa e versatile in un ambiente dinamico e unire un team consolidato, non vediamo l'ora di completare l'applicazione online. Avvertenza prima di reclutare frodi Il Badrutt Palace Hotel non richiederà mai pagamenti o informazioni finanziarie come parte del processo di reclutamento. L'intera comunicazione ufficiale è esclusivamente tramite indirizzi e-mail con il fine @ badruttspalace.com . Se ricevi una richiesta di pagamento o un messaggio sospetto, ti preghiamo di ignorarlo e contattarci direttamente tramite il nostro sito ufficiale.",
+        "en": "What you do to us - You take the lead in the reservation team, consisting of five specialists, and bear the responsibility for the smooth running of the reservation department. - They are responsible for the independent processing of individual and group bookings and ensure a structured and reliable operation at any time. - They support Revenue Manager in the optimal price and availability control and in the analysis of booking and market developments. - Their management reports are precise and meaningful to enable sound decision-making. - The introduction, training and further development of new employees in the reservation department is part of your responsibility as well as the ongoing support of the existing team. - Together with your team, you are constantly working on optimizing the processes in the department. - The effective cooperation with the departments Front Office, Sales & Marketing and the Event Team is at your heart to achieve common goals. This will bring you - They have multi-year, well-founded professional experience in the front office and/or in the reservation department of luxury hotels, ideally in a leading function. - Your sovereign and stylistic appearance as well as your pronounced communication strength allow you to professional and convincing interaction at all levels – both in writing and oral. - German and English skills are required; Italian and other foreign languages are of advantage. - They are very versed in handling MS Office and have profound user knowledge in Protel or comparable reservation systems. - They are characterized by a structured, predictive and solution-oriented way of working and are used to take responsibility as well as to guide and support teams professionally. - Their safe, winning appearance as well as excellent ways of handling meet the high standards of luxury hotels. Our offer - Unlimited annual position - 5-day week on average at 43.5 hours, 5 weeks holidays and 6 holidays per year - 13. Content from entrance (pro rata temporis) - Accommodation in one of our staff houses - Food facilities in the new, modern staff Restaurant - Work in an attractive environment with development possibilities If you want to appreciate an interesting, challenging and versatile activity in a dynamic environment and join a well-established team, we look forward to your complete online application. Warning before Recruiting fraud The Badrutt’s Palace Hotel will never require payments or financial information as part of the recruitment process. The entire official communication is exclusively via email addresses with the ending @ badruttspalace.com . If you receive a payment request or a suspicious message, please ignore it and contact us directly via our official website.",
+        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie übernehmen die Führungsrolle im Reservierungsteam, bestehend aus fünf Spezialisten, und tragen die Verantwortung für den reibungslosten Ablauf der Reservierungsabteilung.</p></li><li><p>Sie verantworten die selbstständige Bearbeitung von Individual- und Gruppenbuchungen, und stellen dabei jederzeit eine strukturierte und verlässliche Arbeitsweise sicher.</p></li><li><p>Sie unterstützen den Revenue Manager bei der optimalen Preis- und Verfügbarkeitssteuerung sowie bei der Analyse von Buchungs- und Marktentwicklungen.</p></li><li><p>Ihre Berichte für das Management sind präzise und aussagekräftig, um eine fundierte Entscheidungsfindung zu ermöglichen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr sicheres, gewinnendes Auftreten sowie ausgezeichnete Umgangsformen entsprechen den hohen Standards der Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+        "fr": "Ce que tu nous fais - Oui. Vous prenez la tête de l'équipe de réservation, composée de cinq spécialistes, et assumez la responsabilité du bon fonctionnement du service de réservation. - Oui. Ils sont responsables du traitement indépendant des réservations individuelles et collectives et assurent un fonctionnement structuré et fiable à tout moment. - Oui. Ils soutiennent Revenue Manager dans le contrôle optimal des prix et de la disponibilité et dans l'analyse des évolutions de la réservation et du marché. - Oui. Leurs rapports de gestion sont précis et significatifs pour permettre une prise de décision saine. - Oui. L'introduction, la formation et le perfectionnement des nouveaux employés du service des réservations font partie de votre responsabilité ainsi que du soutien continu de l'équipe existante. - Oui. Avec votre équipe, vous travaillez constamment à optimiser les processus du département. - Oui. La coopération efficace avec les départements Front Office, Sales & Marketing et l'Event Team est à votre cœur pour atteindre des objectifs communs. Cela vous apportera - Oui. Ils ont une expérience professionnelle multi-annuelle et bien fondée au front office et/ou dans le département des réservations d'hôtels de luxe, idéalement dans une fonction de premier plan. - Oui. Votre apparence souveraine et stylistique ainsi que votre force de communication prononcée vous permettent d'interagir professionnellement et de manière convaincante à tous les niveaux, tant par écrit que par voie orale. - Oui. Les compétences en allemand et en anglais sont requises; l'italien et d'autres langues étrangères sont des avantages. - Oui. Ils sont très au courant dans le traitement de MS Office et ont une connaissance utilisateur profonde dans Protel ou des systèmes de réservation comparables. - Oui. Ils sont caractérisés par une façon de travailler structurée, prédictive et orientée vers la solution et sont utilisés pour prendre des responsabilités ainsi que pour guider et soutenir les équipes professionnellement. - Oui. Leur apparence sûre et gagnante ainsi que d'excellentes façons de gérer répondent aux normes élevées des hôtels de luxe. Notre offre - Oui. Situation annuelle illimitée - Oui. Semaine de 5 jours en moyenne à 43,5 heures, 5 semaines de vacances et 6 jours fériés par an - Oui. 13. Contenu de l'entrée (pro rata temporis) - Oui. Hébergement dans une de nos maisons du personnel - Oui. Restauration dans le nouveau personnel moderne Restaurant - Oui. Travailler dans un environnement attrayant avec des possibilités de développement Si vous souhaitez apprécier une activité intéressante, stimulante et polyvalente dans un environnement dynamique et rejoindre une équipe bien établie, nous attendons avec impatience votre application complète en ligne. Avertissement avant le recrutement de fraude L'hôtel Badrutt's Palace n'aura jamais besoin de paiements ou d'informations financières dans le cadre du processus de recrutement. Toute la communication officielle est exclusivement via des adresses email avec la fin @ badruttspalace.com . Si vous recevez une demande de paiement ou un message suspect, veuillez l'ignorer et nous contacter directement via notre site officiel."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-13T10:51:25.288Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-29",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "reservations-manager-m-w-d-badrutts-palace-ch",
+        "it-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "it-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "it-manager-m-w-d-badrutts-palace-ch",
+        "responsable-informatique-badrutt-s-palace-hotel-st-moritz",
+        "manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "responsabile-it-badrutt-s-palace-hotel-st-moritz",
+        "assistant-manager-stewarding-badrutt-s-palace-hotel-st-moritz",
+        "assistant-stewarding-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistenz-manager-stewarding-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistant-responsable-stewarding-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "assistant-stewarding-manager-m-w-d-badrutts-palace-ch",
+        "assistente-responsabile-del-servizio-camera-lunedi-merdi-giorno-badrutt-s-palace-hotel-st-moritz",
+        "assistant-room-service-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistant-room-service-manager-m-w-d-badrutts-palace-ch",
+        "assistant-responsable-du-service-en-chambre-badrutt-s-palace-hotel-st-moritz",
+        "assistant-manager-servizio-in-camera-badrutt-s-palace-hotel-st-moritz",
+        "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz",
+        "revenue-manager-m-w-d-badrutts-palace-ch",
+        "revenue-manager-badrutts-palace-ch",
+        "revenue-manager-badrutt-s-palace-hotel-st-moritz",
+        "revenue-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "revenue-manager-m-f-d-badrutts-palace-ch",
+        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "reservations-manager-m-w-d-badrutts-palace-ch",
+          "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz",
+          "revenue-manager-m-w-d-badrutts-palace-ch",
+          "revenue-manager-badrutts-palace-ch",
+          "revenue-manager-badrutt-s-palace-hotel-st-moritz",
+          "revenue-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "revenue-manager-m-f-d-badrutts-palace-ch",
+          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "en": [
+          "revenue-manager-m-w-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "reservations-manager-m-w-d-badrutts-palace-ch",
+          "revenue-manager-badrutts-palace-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-18T11:52:11.757Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -389,7 +517,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7183932-indischer-spezialitatenkoch-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:24:21.582Z",
+      "crawledAt": "2026-08-13T10:51:25.286Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -407,12 +535,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
-        "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
-          "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -422,6 +552,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:51:29.586Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -467,7 +598,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7235883-sushi-chef-for-our-matsuhisa-restaurant-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.580Z",
+      "crawledAt": "2026-08-13T10:51:25.284Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -484,11 +615,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch"
+        "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch",
+        "sushi-chef-per-il-nostro-ristorante-matsuhisa-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch"
+          "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch",
+          "sushi-chef-per-il-nostro-ristorante-matsuhisa-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-17T11:51:29.585Z",
@@ -537,7 +670,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8048227-tailor-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.578Z",
+      "crawledAt": "2026-08-13T10:51:25.279Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -555,12 +688,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "tailor-m-f-d-badrutts-palace-ch"
+        "tailor-m-f-d-badrutts-palace-ch",
+        "sarto-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "tailor-m-f-d-badrutts-palace-ch"
+          "tailor-m-f-d-badrutts-palace-ch",
+          "sarto-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-15T11:51:40.950Z",
@@ -585,7 +720,7 @@
         "it": "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
         "de": "assistent-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "assistant-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -595,7 +730,7 @@
         "it": "Assistant Executive Housekeeper (m/f/d)",
         "en": "Assistant Executive Housekeeper (m/w/d)",
         "de": "Assistent Executive Housekeeper (m/w/d)",
-        "fr": "Chef de cabinet adjoint (h/f/d)"
+        "fr": "Assistant Executive Housekeeper (m/w/d)"
       },
       "description": "<p><span><strong>Your key responsibilities</strong></span></p><p><span>You will complement our Housekeeping team and be responsible for the following areas:</span></p><ul><li><p><span>In close collaboration with the Executive Housekeeper, you will lead a team of approximately 70 Room Attendants and Floor Porters.</span></p></li><li><p><span>You will actively contribute to staff scheduling and help ensure the smooth and efficient running of daily operations.</span></p></li><li><p><span>\n• Your responsibilities will include inspecting arrival, stayover and departure rooms, as well as checking VIP setups, public areas and staff accommodation.</span></p></li><li><p><span>You will organise and order the materials required for daily operations and ensure that all deliveries meet our quality standards and are complete.</span></p></li><li><p><span>Through targeted training and continuous guidance, you will support the professional development of our employees and ensure compliance with our quality and hygiene standards.</span></p></li><li><p><span>You will act as a competent point of contact for our guests, responding to questions and individual requests while ensuring attentive and personalised service.</span></p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><p><span>For this varied and rewarding position, you ideally bring the following qualifications and experience:</span></p><ul><li><p><span>You have completed professional training in the hotel industry and have gained relevant experience in a five-star hotel environment.</span></p></li><li><p><span>You have previous leadership experience and are confident in supporting the Executive Housekeeper with the management and coordination of a large team.</span></p></li><li><p><span>You have a very good command of written and spoken German, as well as good spoken English and Italian.</span></p></li><li><p><span>You are proficient in the use of standard Microsoft Office applications. Knowledge of Protel and Mirus would be an advantage.</span></p></li><li><p><span>You demonstrate a high level of initiative and commitment, combined with a strong focus on quality and guest satisfaction.</span></p></li><li><p><span>Your confident and well-groomed appearance, together with your excellent manners and interpersonal skills, complete your profile.</span></p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p><span>Fixed-term seasonal position from mid-November 2026 until the beginning of April 2027</span></p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p></p><p><span>If you appreciate an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</span></p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt’s Palace Hotel will never request payments or financial information as part of the recruitment process. All official communication is conducted exclusively through email addresses ending in </em><strong><em>@</em></strong></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><strong><em>badruttspalace.com</em></strong></span></a><span><em>.</em></span></p><p><span><em>Should you receive a payment request or any suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
       "descriptionByLocale": {
@@ -609,7 +744,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8055542-assistant-executive-housekeeper-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.577Z",
+      "crawledAt": "2026-08-13T10:51:25.277Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -628,21 +763,26 @@
       "previousSlugs": [
         "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
         "chef-de-secretariat-adjoint-m-m-j-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "assistant-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch"
+          "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
+          "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
           "chef-de-secretariat-adjoint-m-m-j-badrutt-s-palace-hotel-st-moritz",
+          "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "assistant-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-15T11:51:40.947Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -688,7 +828,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8106841-director-of-food-beverage-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:24:21.575Z",
+      "crawledAt": "2026-08-13T10:51:25.275Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -705,11 +845,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
+        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+        "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
+          "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+          "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
@@ -764,7 +906,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.574Z",
+      "crawledAt": "2026-08-13T10:51:25.273Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -786,7 +928,8 @@
         "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
         "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -795,7 +938,8 @@
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
           "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
@@ -811,6 +955,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:22:28.662Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -856,7 +1001,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.573Z",
+      "crawledAt": "2026-08-13T10:51:25.271Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -879,7 +1024,8 @@
         "assistant-responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "head-of-technical-services-m-w-d-badrutts-palace-ch",
         "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -888,7 +1034,8 @@
           "assistant-responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "head-of-technical-services-m-w-d-badrutts-palace-ch",
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -928,7 +1075,7 @@
       "title": "Food & Beverage Coordinator (m/w/d)",
       "titleByLocale": {
         "it": "Food & Beverage Coordinatore (m/w/d)",
-        "en": "Food & Beverage Coordinator (m/f/d)",
+        "en": "Food & Beverage Coordinator (m/w/d)",
         "de": "Food & Beverage Koordinator (m/w/d)",
         "fr": "Food & Beverage Coordinateur (m/w/d)"
       },
@@ -944,7 +1091,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8183138-food-beverage-coordinator-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:24:21.571Z",
+      "crawledAt": "2026-08-13T10:51:25.267Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -961,17 +1108,178 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "food-amp-beverage-coordinator-m-w-d-badrutts-palace-ch"
+        "food-amp-beverage-coordinator-m-w-d-badrutts-palace-ch",
+        "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "food-amp-beverage-coordinator-m-w-d-badrutts-palace-ch"
+          "food-amp-beverage-coordinator-m-w-d-badrutts-palace-ch",
+          "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "food-amp-beverage-coordinator-m-w-d-badrutts-palace-ch"
         ]
       },
       "firstSeenAt": "2026-08-07T01:24:25.118Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "badrutts-palace-f6389a361791",
+      "slug": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "gestionnaire-de-restaurant-pour-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
+      "titleByLocale": {
+        "it": "Restaurant Manager per \"Le Grand Hall\" (m/f/d)",
+        "en": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
+        "de": "Restaurantmanager für \"Le Grand Hall\" (m/w/d)",
+        "fr": "Gestionnaire de restaurant pour \"Le Grand Hall\" (m/f/d)"
+      },
+      "description": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+      "descriptionByLocale": {
+        "it": "<p> < > < > > > Le tue responsabilità chiave Conducendo il team di assistenza in <strong>Le Grand Hall, </strong> il nostro iconico luogo di pranzo e salotto di tutti i giorni, avrete la responsabilità operativa di uno dei luoghi di pranzo firmati del nostro hotel, servendo tra l'altro autentica cucina indiana e specialità dalla nostra cucina pasticceria. < > > > > > > > Le operazioni di ristorazione giornaliere, tra cui l'allocazione della tabella e il flusso degli ospiti, cadranno sotto la vostra responsabilità, assicurando sia il servizio eccezionale che le prestazioni operative ottimali. Lavorando a stretto contatto con il team Executive Chef, Bar e altri dipartimenti, manterrete i più elevati standard di presentazione e consegna di prodotti alimentari e bevande. Prenderai la proprietà di reclutare, sviluppare e gestire il team di assistenza, garantendo i più alti livelli di impegno, prestazioni e eccellenza dei servizi. La stretta collaborazione con il team Eventi e altri dipartimenti alberghieri garantirà l'esecuzione regolare delle funzioni private e delle occasioni speciali ospitate in Le Grand Hall.\n• Che cosa si porta alla soluzione di assunzione/strong> </span> < < > < < < < < > > < > > > > > > > ι > > > > > > ι > > > > > > > > > > > ι > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > Se siete appassionati di creare esperienze ospiti eccezionali e di godere di un team leader in uno degli hotel di lusso più iconici della Svizzera, non vediamo l'ora di ricevere la vostra applicazione online completa. Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> </span> <a target=\" blank\" href=\"http://badruttspalace.com\"> Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e contattarci direttamente tramite il nostro sito ufficiale.",
+        "en": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+        "de": "<p><span><strong>Ihre wichtigsten Verantwortlichkeiten</strong></span></p><ul><li><p> Als Leiter des Serviceteams in <strong>Le Grand Hall, </strong>unserem ikonischen ganztägigen Speisesaal und Lounge tragen Sie die operative Verantwortung für einen der wichtigsten Speiseorte unseres Hotels, der unter anderem authentische indische Küche und Spezialitäten aus unserer Gebäckküche serviert. </p></li><li><p> Der tägliche Restaurantbetrieb, einschließlich der Tischzuordnung und des Gästeflusses, fällt in Ihre Verantwortung und gewährleistet sowohl einen hervorragenden Service als auch eine optimale operative Leistung.</p></li><li><p>Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft und personalisierten Service stehen im Mittelpunkt Ihrer Rolle.</p></li><li><p> In enger Zusammenarbeit mit dem Chefkoch, dem Bar-Team und anderen Abteilungen werden Sie die höchsten Standards bei der Präsentation von Speisen und Getränken und der Bereitstellung von Dienstleistungen einhalten.</p></li><li><p> Sie übernehmen die Verantwortung für die Rekrutierung, Entwicklung und Verwaltung des Serviceteams und gewährleisten ein Höchstmaß an Engagement, Leistung und Service-Exzellenz.</p></li><li><p> Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die reibungslose Durchführung von privaten Veranstaltungen und besonderen Anlässen in Le Grand Hall sicherstellen.</p></li><li><p>Die Unterstützung des Managements durch Betriebsberichterstattung, Kostenanalyse, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.</p></li></ul><p></p></p><span><strong>\n• Was Sie für den Job mitbringen</strong></span></p><ul><li><p>Mehrjährige Führungserfahrung in einem Luxusrestaurant oder Fünf-Sterne-Hotel, idealerweise in einer Restaurantmanagerin oder vergleichbaren Führungsrolle.</p></li><li><p>Ein natürlicher Leader mit der Fähigkeit, Teams zu motivieren, zu inspirieren und zu entwickeln und gleichzeitig ein positives und professionelles Arbeitsumfeld zu schaffen.</p></li><li><p>Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit exzellenter Kommunikation und zwischenmenschlichen Fähigkeiten.</p></li><li><li><p>Eine echte Leidenschaft für luxuriöse Gastfreundschaft und die Bereitstellung personalisierter Gästeerlebnisse auf höchstem Niveau.</p></li><li><p>Starke organisatorische Fähigkeiten, solides kommerzielles Bewusstsein und die Fähigkeit, in einem schnelllebigen Umfeld ruhig und lösungsorientiert zu bleiben.</p></li><li><p>Fluency in Englisch ist unerlässlich. Erforderlich ist Deutsch oder Italienisch.</p></li></ul></p><p><span><strong>Unser Angebot</strong></span></p><ul><li><p>10-Monats-Vertrag wird diskutiert, mit der Möglichkeit, ab November 2027 zu verlängern.</p></li><li><p>5-Tage-Woche mit durchschnittlich 43,5 Stunden, mit 5 Wochen Urlaub und 6 gesetzlichen Feiertagen pro Jahr.</p></li><li><p>13. Monatsgehalt ab Arbeitsbeginn (pro rata temporis).</p></li><li><p>Unterkünfte in einem unserer neuen Mitarbeiterhäuser.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Chance, in einem attraktiven Umfeld mit Entwicklungs- Wenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einem der kultigsten Luxushotels der Schweiz leiten möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em></span><a target=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
+        "fr": "<p><span><strong>Vos principales responsabilités</strong></span></p><ul><li><p> Diriger l'équipe de service dans <strong>Le Grand Hall, </strong>notre salle à manger et salon iconique toute la journée, vous aurez la responsabilité opérationnelle de l'un des restaurants phares de notre hôtel, servant entre autres une cuisine indienne authentique et des spécialités de notre cuisine pâtissière. </p></li><li><p> Les activités quotidiennes des restaurants, y compris l'attribution de la table et le flux des invités, seront sous votre responsabilité, assurant à la fois un service exceptionnel et une performance opérationnelle optimale.</p></li><li><p>Créer des expériences mémorables des invités grâce à une chaleureuse hospitalité et à un service personnalisé sera au cœur de votre rôle.</p></li><li><p> En étroite collaboration avec le chef exécutif, l'équipe du Barreau et d'autres ministères, vous respecterez les normes les plus élevées en matière de présentation des aliments et des boissons et de prestation des services.</p></li><li><p> Vous assumerez la responsabilité du recrutement, du développement et de la gestion de l'équipe de services, assurant ainsi les plus hauts niveaux d'engagement, de rendement et d'excellence en matière de services.</p></li><li><p> Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la bonne exécution des fonctions privées et des occasions spéciales organisées au Grand Hall.\n• Ce que vous apportez au travail</fort></span></p><ul><li><p>Plusieurs années d'expérience en gestion au sein d'un restaurant de luxe ou d'un hôtel cinq étoiles, idéalement dans un restaurant-gestionnaire ou un rôle de leadership comparable.</p><li><li><p>Un leader naturel capable de motiver, d'inspirer et de développer des équipes tout en créant un environnement de travail positif et professionnel.</p><li><p>Une personnalité confiante, polie et orientée vers le service, combinée à d'excellentes compétences en communication et en relations interpersonnelles.</p><li><p>Une véritable passion pour l'hospitalité de luxe et la prestation d'expériences personnalisées aux clients de la plus haute qualité.</p><li><p>Des compétences organisationnelles solides, une bonne sensibilisation commerciale et la capacité de rester calme et axé sur la solution dans un environnement à rythme rapide.</p><li><p>La souplesse en anglais est essentielle. L'allemand ou l'italien est requis.</p></li></ul><p></p><p><span><strong>Notre offre</strong></span></p><ul><li><p>10 mois de contrat, commence à être discutée, avec la possibilité de renouveler à partir de novembre 2027.</p><li><p>5 jours de travail en moyenne 43,5 heures, avec 5 semaines de vacances et 6 jours fériés par année.</p><li><p>13e mois de salaire depuis le début de l'emploi (pro rata temporis).</p><li><p><p>Opportunité de travailler dans un environnement attrayant avec des possibilités de développement et de carrière.</p></p></p></p><li></p></p></p></p></p></p></p></p></p><></p></p></p></p><> Si vous êtes passionné par la création d'expériences exceptionnelles et que vous aimez diriger une équipe dans l'un des hôtels de luxe les plus emblématiques de Suisse, nous sommes impatients de recevoir votre demande en ligne complète.</p><p><p><span><strong><em>Recrutement Fraud Warning</em></strong></span><br><span><em> L'hôtel Palace de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir d'adresses électroniques se terminant par @</em></span><a cible=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et nous contacter directement via notre site Web officiel.</em></span></p>"
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-13T10:51:25.263Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+          "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:19:32.662Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "badrutts-palace-35b749d2d388",
+      "slug": "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
+        "en": "nurse-m-f-d-also-part-time-badrutts-palace-ch",
+        "de": "nurse-m-f-d-also-teilzeit-badrutt-s-palace-hotel-st-moritz",
+        "fr": "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Nurse (m/f/d, also part-time)",
+      "titleByLocale": {
+        "it": "Infermiera (m/f/d, anche part-time)",
+        "en": "Nurse (m/f/d, also part-time)",
+        "de": "Nurse (m/f/d, also Teilzeit)",
+        "fr": "Nurse (m/f/d, also part-time)"
+      },
+      "description": "<p><strong>Your key responsibilites:</strong></p><ul><li><p>The role focuses on caring for and treating employees who are ill or have had an accident, and assessing whether further medical treatment is required.</p></li><li><p>This includes arranging appointments with our company doctor or, for emergencies, with a hospital.</p></li><li><p>Your job includes maintaining staff medical records with care while observing data-protection requirements.</p></li><li><p>Managing the staff medical room and ensuring that medical and first-aid supplies are complete, stored correctly and within their expiry dates is also a main task.</p></li><li><p>You will assist with accident reports and coordinate follow-up care with HR, doctors and hospitals.</p></li><li><p>Occasionally, support is also provided to our hotel guests to ensure their well-being.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed nursing qualification, ideally with several years of professional experience</p></li><li><p>Good written and spoken English; knowledge of Italian is an advantage</p></li><li><p>Empathy, patience and a strong sense of responsibility</p></li><li><p>Excellent teamwork skills and the ability to remain resilient under pressure</p></li><li><p>Confident use of standard IT applications</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p><strong>Part-time employment possible</strong></p></li><li><p>Five-day working week averaging 43.5 hours, adjusted according to the agreed workload</p></li><li><p>Five weeks of annual leave and six public holidays per year</p></li><li><p>13th-month salary from the start of employment, paid pro rata</p></li><li><p>Accommodation in one of our attractive staff residences upon request</p></li><li><p>Meals available in our new, modern staff restaurant</p></li></ul><p>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+      "descriptionByLocale": {
+        "it": "<p> < > Le tue responsabilità chiave: Il ruolo si concentra sulla cura e il trattamento dei dipendenti che sono malati o hanno avuto un incidente, e la valutazione se è necessario un ulteriore trattamento medico. Questo include organizzare appuntamenti con il nostro medico aziendale o, per emergenze, con un ospedale. Gestire la sala medica del personale e garantire che le forniture mediche e di pronto soccorso siano complete, memorizzate correttamente e entro le date di scadenza è anche un compito principale.\n• > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > < > > > < > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > < < > > > > > > > > > < > > > > > > > > > > > > > > > > < > > > > > > Cinque settimane di congedo annuo e sei giorni festivi all'anno Sistemazione in una delle nostre attraenti residenze di personale su richiesta Se siete alla ricerca di un ruolo interessante, stimolante e variegato in un ambiente dinamico e volete unire un team consolidato, non vediamo l'ora di ricevere la vostra applicazione online completa. Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> </span> <a target=\" blank\" href=\"http://badruttspalace.com\"> Indirizzospan> Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e di contattarci direttamente tramite il nostro sito ufficiale.",
+        "en": "<p><strong>Your key responsibilites:</strong></p><ul><li><p>The role focuses on caring for and treating employees who are ill or have had an accident, and assessing whether further medical treatment is required.</p></li><li><p>This includes arranging appointments with our company doctor or, for emergencies, with a hospital.</p></li><li><p>Your job includes maintaining staff medical records with care while observing data-protection requirements.</p></li><li><p>Managing the staff medical room and ensuring that medical and first-aid supplies are complete, stored correctly and within their expiry dates is also a main task.</p></li><li><p>You will assist with accident reports and coordinate follow-up care with HR, doctors and hospitals.</p></li><li><p>Occasionally, support is also provided to our hotel guests to ensure their well-being.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed nursing qualification, ideally with several years of professional experience</p></li><li><p>Good written and spoken English; knowledge of Italian is an advantage</p></li><li><p>Empathy, patience and a strong sense of responsibility</p></li><li><p>Excellent teamwork skills and the ability to remain resilient under pressure</p></li><li><p>Confident use of standard IT applications</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p><strong>Part-time employment possible</strong></p></li><li><p>Five-day working week averaging 43.5 hours, adjusted according to the agreed workload</p></li><li><p>Five weeks of annual leave and six public holidays per year</p></li><li><p>13th-month salary from the start of employment, paid pro rata</p></li><li><p>Accommodation in one of our attractive staff residences upon request</p></li><li><p>Meals available in our new, modern staff restaurant</p></li></ul><p>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+        "de": "<p><strong>Ihre Hauptverantwortung:</strong></p><ul><li><p> Die Rolle konzentriert sich auf die Betreuung und Behandlung von Mitarbeitern, die krank sind oder einen Unfall hatten, und die Beurteilung, ob eine weitere medizinische Behandlung erforderlich ist.</p></li><li><p> Dazu gehört die Vereinbarung von Terminen mit unserem Betriebsarzt oder für Notfälle mit einem Krankenhaus.</p></li><li><p>Ihr Job beinhaltet die sorgfältige Pflege der medizinischen Unterlagen des Personals unter Einhaltung der Datenschutzanforderungen.</p></li><li><p> Die Verwaltung des medizinischen Raums des Personals und die Sicherstellung, dass die medizinische Versorgung und die Erste-Hilfe-Versorgung vollständig, korrekt und innerhalb ihrer Verfallsdaten aufbewahrt werden, ist ebenfalls eine Hauptaufgabe.</p></li><li><p>Sie unterstützen Sie bei Unfallmeldungen und koordinieren die Nachsorge mit Personal, Ärzten und Krankenhäusern.</p></li><li><p>Gelegentlich werden auch unsere Hotelgäste unterstützt, um ihr Wohlbefinden zu gewährleisten.</p></li></ul><p></p><p><strong>\n• Was Sie für den Job mitbringen</strong></p><ul><li><p>Abgeschlossene Pflegequalifikation, idealerweise mit mehrjähriger Berufserfahrung</p><li><li><p>Gutes geschriebenes und gesprochenes Englisch; Italienischkenntnisse sind ein Vorteil</p></li><li><p>Exzellente Teamfähigkeit und die Fähigkeit, unter Druck widerstandsfähig zu bleiben</p></li></ul></p><p><strong>Unser Angebot</strong></p><ul><li><p><p><p>Unser Angebot</strong></p><li><p><p><p>Festzeitbeschäftigung von Anfang Dezember 2026 bis Ende März 2027, mit der Möglichkeit, für zukünftige Saisons zurückzukehren</strong><li><li><p><strong>Teilzeitbeschäftigung möglich</strong></strong></p></li><li><p></strong>Teilzeitbeschäftigung möglich</strong> Fünf Wochen Jahresurlaub und sechs Feiertage pro Jahr</p></li><li><p>13. Monatsgehalt ab Beginn der Beschäftigung, anteilig bezahlt</p></li><li><p> Unterkunft in einer unserer attraktiven Personalresidenzen auf Anfrage</p></li><li><p>Mahlzeiten in unserem neuen, modernen Personalrestaurant</p></li></ul><p> Wenn Sie eine interessante, herausfordernde und abwechslungsreiche Rolle in einem dynamischen Umfeld suchen und sich einem etablierten Team anschließen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em></span><a target=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
+        "fr": "<p><strong>Vos responsabilités principales:</strong></p><ul><li><p> Le rôle consiste à s'occuper et à traiter les employés malades ou ayant eu un accident, et à déterminer si un traitement médical supplémentaire est nécessaire.</p></li><li><p> Cela comprend l'organisation de rendez-vous avec notre médecin de l'entreprise ou, en cas d'urgence, avec un hôpital.</p></li><li><p>Votre travail comprend le maintien des dossiers médicaux du personnel avec soins tout en respectant les exigences de protection des données.</p></li><li><p> La gestion de la salle médicale du personnel et l'assurance que les fournitures médicales et de premiers soins sont complètes, entreposées correctement et dans les limites de leurs dates d'expiration constituent également une tâche principale.</p></li><li><p>Vous aiderez à établir les rapports d'accident et coordonnerez les soins de suivi avec les RH, les médecins et les hôpitaux.</p></li><li><p>Occasionnellement, un soutien est également fourni à nos clients de l'hôtel pour assurer leur bien-être.</p></li></ul><p></p><p><strong>\n• Ce que vous apportez au travail</strong></p><ul><li><p><li>Qualification infirmière complète, idéalement avec plusieurs années d'expérience professionnelle</p></li><li><p>Bonnes compétences écrites et parlées en anglais; connaissance de l'italien est un avantage</p></li><li><p>Empathie, patience et un fort sens des responsabilités</p><li><li><p>Excellente compétence en travail d'équipe et la capacité de rester résilient sous la pression</p><li><li><p>Utilisation fidèle des applications normalisées de TI</p></li></p><p><p><strong></p><li><p><li><p><p><strong><p><p><brong><p><temps partiel possible</strong></strong><p><p><p><p><p><p></p></p><>< Cinq semaines de congé annuel et six jours fériés par année</p></li><li><p> Treizième mois de salaire à compter du début de l'emploi, rémunéré au prorata</p></li><li><p><p> Hébergement dans l'une de nos résidences du personnel attrayantes sur demande</p></li><li><p>Repas disponibles dans notre nouveau restaurant du personnel moderne</p></li></ul><p> Si vous cherchez un rôle intéressant, stimulant et varié dans un environnement dynamique et que vous souhaitez vous joindre à une équipe bien établie, nous sommes impatients de recevoir votre demande en ligne complète.</p><p></p><span><strong><em>Recrutement Fraud Warning</em></strong></span><br><span><em> Le Palace Hotel de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir d'adresses électroniques se terminant par @</em></span><a cible=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et nous contacter directement via notre site Web officiel.</em></span></p>"
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8101488-nurse-m-f-d-also-part-time",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-13T10:51:25.247Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8101488-nurse-m-f-d-also-part-time",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "nurse-m-f-d-also-part-time-badrutts-palace-ch",
+        "infirmiere-m-f-j-egalement-a-temps-partiel-badrutt-s-palace-hotel-st-moritz",
+        "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
+        "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "nurse-m-f-d-also-part-time-badrutts-palace-ch",
+          "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "de": [
+          "nurse-m-f-d-also-part-time-badrutts-palace-ch"
+        ],
+        "fr": [
+          "infirmiere-m-f-j-egalement-a-temps-partiel-badrutt-s-palace-hotel-st-moritz",
+          "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T12:47:05.189Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1001,7 +1309,7 @@
       "title": "Painter (m/f/d)",
       "titleByLocale": {
         "en": "Painter (m/f/d)",
-        "it": "Pittura (m/f/d)",
+        "it": "Painter (m/f/d)",
         "de": "Maler (m/w/d)",
         "fr": "Peintre (h/f/d)"
       },
@@ -1085,266 +1393,9 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-11T10:33:44.652Z"
-    },
-    {
-      "id": "badrutts-palace-f6389a361791",
-      "slug": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
-        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "gestionnaire-de-restaurant-pour-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
-      "titleByLocale": {
-        "it": "Restaurant Manager per \"Le Grand Hall\" (m/f/d)",
-        "en": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
-        "de": "Restaurantmanager für \"Le Grand Hall\" (m/w/d)",
-        "fr": "Gestionnaire de restaurant pour \"Le Grand Hall\" (m/f/d)"
-      },
-      "description": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-      "descriptionByLocale": {
-        "it": "<p> < > < > > > Le tue responsabilità chiave Conducendo il team di assistenza in <strong>Le Grand Hall, </strong> il nostro iconico luogo di pranzo e salotto di tutti i giorni, avrete la responsabilità operativa di uno dei luoghi di pranzo firmati del nostro hotel, servendo tra l'altro autentica cucina indiana e specialità dalla nostra cucina pasticceria. < > > > > > > > Le operazioni di ristorazione giornaliere, tra cui l'allocazione della tabella e il flusso degli ospiti, cadranno sotto la vostra responsabilità, assicurando sia il servizio eccezionale che le prestazioni operative ottimali. Lavorando a stretto contatto con il team Executive Chef, Bar e altri dipartimenti, manterrete i più elevati standard di presentazione e consegna di prodotti alimentari e bevande. Prenderai la proprietà di reclutare, sviluppare e gestire il team di assistenza, garantendo i più alti livelli di impegno, prestazioni e eccellenza dei servizi. La stretta collaborazione con il team Eventi e altri dipartimenti alberghieri garantirà l'esecuzione regolare delle funzioni private e delle occasioni speciali ospitate in Le Grand Hall.\n• Che cosa si porta alla soluzione di assunzione/strong> </span> < < > < < < < < > > < > > > > > > > ι > > > > > > ι > > > > > > > > > > > ι > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > Se siete appassionati di creare esperienze ospiti eccezionali e di godere di un team leader in uno degli hotel di lusso più iconici della Svizzera, non vediamo l'ora di ricevere la vostra applicazione online completa. Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> </span> <a target=\" blank\" href=\"http://badruttspalace.com\"> Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e contattarci direttamente tramite il nostro sito ufficiale.",
-        "en": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-        "de": "<p><span><strong>Ihre wichtigsten Verantwortlichkeiten</strong></span></p><ul><li><p> Als Leiter des Serviceteams in <strong>Le Grand Hall, </strong>unserem ikonischen ganztägigen Speisesaal und Lounge tragen Sie die operative Verantwortung für einen der wichtigsten Speiseorte unseres Hotels, der unter anderem authentische indische Küche und Spezialitäten aus unserer Gebäckküche serviert. </p></li><li><p> Der tägliche Restaurantbetrieb, einschließlich der Tischzuordnung und des Gästeflusses, fällt in Ihre Verantwortung und gewährleistet sowohl einen hervorragenden Service als auch eine optimale operative Leistung.</p></li><li><p>Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft und personalisierten Service stehen im Mittelpunkt Ihrer Rolle.</p></li><li><p> In enger Zusammenarbeit mit dem Chefkoch, dem Bar-Team und anderen Abteilungen werden Sie die höchsten Standards bei der Präsentation von Speisen und Getränken und der Bereitstellung von Dienstleistungen einhalten.</p></li><li><p> Sie übernehmen die Verantwortung für die Rekrutierung, Entwicklung und Verwaltung des Serviceteams und gewährleisten ein Höchstmaß an Engagement, Leistung und Service-Exzellenz.</p></li><li><p> Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die reibungslose Durchführung von privaten Veranstaltungen und besonderen Anlässen in Le Grand Hall sicherstellen.</p></li><li><p>Die Unterstützung des Managements durch Betriebsberichterstattung, Kostenanalyse, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.</p></li></ul><p></p></p><span><strong>\n• Was Sie für den Job mitbringen</strong></span></p><ul><li><p>Mehrjährige Führungserfahrung in einem Luxusrestaurant oder Fünf-Sterne-Hotel, idealerweise in einer Restaurantmanagerin oder vergleichbaren Führungsrolle.</p></li><li><p>Ein natürlicher Leader mit der Fähigkeit, Teams zu motivieren, zu inspirieren und zu entwickeln und gleichzeitig ein positives und professionelles Arbeitsumfeld zu schaffen.</p></li><li><p>Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit exzellenter Kommunikation und zwischenmenschlichen Fähigkeiten.</p></li><li><li><p>Eine echte Leidenschaft für luxuriöse Gastfreundschaft und die Bereitstellung personalisierter Gästeerlebnisse auf höchstem Niveau.</p></li><li><p>Starke organisatorische Fähigkeiten, solides kommerzielles Bewusstsein und die Fähigkeit, in einem schnelllebigen Umfeld ruhig und lösungsorientiert zu bleiben.</p></li><li><p>Fluency in Englisch ist unerlässlich. Erforderlich ist Deutsch oder Italienisch.</p></li></ul></p><p><span><strong>Unser Angebot</strong></span></p><ul><li><p>10-Monats-Vertrag wird diskutiert, mit der Möglichkeit, ab November 2027 zu verlängern.</p></li><li><p>5-Tage-Woche mit durchschnittlich 43,5 Stunden, mit 5 Wochen Urlaub und 6 gesetzlichen Feiertagen pro Jahr.</p></li><li><p>13. Monatsgehalt ab Arbeitsbeginn (pro rata temporis).</p></li><li><p>Unterkünfte in einem unserer neuen Mitarbeiterhäuser.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Chance, in einem attraktiven Umfeld mit Entwicklungs- Wenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einem der kultigsten Luxushotels der Schweiz leiten möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em></span><a target=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
-        "fr": "<p><span><strong>Vos principales responsabilités</strong></span></p><ul><li><p> Diriger l'équipe de service dans <strong>Le Grand Hall, </strong>notre salle à manger et salon iconique toute la journée, vous aurez la responsabilité opérationnelle de l'un des restaurants phares de notre hôtel, servant entre autres une cuisine indienne authentique et des spécialités de notre cuisine pâtissière. </p></li><li><p> Les activités quotidiennes des restaurants, y compris l'attribution de la table et le flux des invités, seront sous votre responsabilité, assurant à la fois un service exceptionnel et une performance opérationnelle optimale.</p></li><li><p>Créer des expériences mémorables des invités grâce à une chaleureuse hospitalité et à un service personnalisé sera au cœur de votre rôle.</p></li><li><p> En étroite collaboration avec le chef exécutif, l'équipe du Barreau et d'autres ministères, vous respecterez les normes les plus élevées en matière de présentation des aliments et des boissons et de prestation des services.</p></li><li><p> Vous assumerez la responsabilité du recrutement, du développement et de la gestion de l'équipe de services, assurant ainsi les plus hauts niveaux d'engagement, de rendement et d'excellence en matière de services.</p></li><li><p> Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la bonne exécution des fonctions privées et des occasions spéciales organisées au Grand Hall.\n• Ce que vous apportez au travail</fort></span></p><ul><li><p>Plusieurs années d'expérience en gestion au sein d'un restaurant de luxe ou d'un hôtel cinq étoiles, idéalement dans un restaurant-gestionnaire ou un rôle de leadership comparable.</p><li><li><p>Un leader naturel capable de motiver, d'inspirer et de développer des équipes tout en créant un environnement de travail positif et professionnel.</p><li><p>Une personnalité confiante, polie et orientée vers le service, combinée à d'excellentes compétences en communication et en relations interpersonnelles.</p><li><p>Une véritable passion pour l'hospitalité de luxe et la prestation d'expériences personnalisées aux clients de la plus haute qualité.</p><li><p>Des compétences organisationnelles solides, une bonne sensibilisation commerciale et la capacité de rester calme et axé sur la solution dans un environnement à rythme rapide.</p><li><p>La souplesse en anglais est essentielle. L'allemand ou l'italien est requis.</p></li></ul><p></p><p><span><strong>Notre offre</strong></span></p><ul><li><p>10 mois de contrat, commence à être discutée, avec la possibilité de renouveler à partir de novembre 2027.</p><li><p>5 jours de travail en moyenne 43,5 heures, avec 5 semaines de vacances et 6 jours fériés par année.</p><li><p>13e mois de salaire depuis le début de l'emploi (pro rata temporis).</p><li><p><p>Opportunité de travailler dans un environnement attrayant avec des possibilités de développement et de carrière.</p></p></p></p><li></p></p></p></p></p></p></p></p></p><></p></p></p></p><> Si vous êtes passionné par la création d'expériences exceptionnelles et que vous aimez diriger une équipe dans l'un des hôtels de luxe les plus emblématiques de Suisse, nous sommes impatients de recevoir votre demande en ligne complète.</p><p><p><span><strong><em>Recrutement Fraud Warning</em></strong></span><br><span><em> L'hôtel Palace de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir d'adresses électroniques se terminant par @</em></span><a cible=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et nous contacter directement via notre site Web officiel.</em></span></p>"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.566Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-        ],
-        "fr": [
-          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-13T13:19:32.662Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "badrutts-palace-35b749d2d388",
-      "slug": "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
-        "en": "nurse-m-f-d-also-part-time-badrutts-palace-ch",
-        "de": "nurse-m-f-d-also-teilzeit-badrutt-s-palace-hotel-st-moritz",
-        "fr": "infirmiere-m-f-j-egalement-a-temps-partiel-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Nurse (m/f/d, also part-time)",
-      "titleByLocale": {
-        "it": "Infermiera (m/f/d, anche part-time)",
-        "en": "Nurse (m/f/d, also part-time)",
-        "de": "Nurse (m/f/d, also Teilzeit)",
-        "fr": "Infirmière (m/f/j, également à temps partiel)"
-      },
-      "description": "<p><strong>Your key responsibilites:</strong></p><ul><li><p>The role focuses on caring for and treating employees who are ill or have had an accident, and assessing whether further medical treatment is required.</p></li><li><p>This includes arranging appointments with our company doctor or, for emergencies, with a hospital.</p></li><li><p>Your job includes maintaining staff medical records with care while observing data-protection requirements.</p></li><li><p>Managing the staff medical room and ensuring that medical and first-aid supplies are complete, stored correctly and within their expiry dates is also a main task.</p></li><li><p>You will assist with accident reports and coordinate follow-up care with HR, doctors and hospitals.</p></li><li><p>Occasionally, support is also provided to our hotel guests to ensure their well-being.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed nursing qualification, ideally with several years of professional experience</p></li><li><p>Good written and spoken English; knowledge of Italian is an advantage</p></li><li><p>Empathy, patience and a strong sense of responsibility</p></li><li><p>Excellent teamwork skills and the ability to remain resilient under pressure</p></li><li><p>Confident use of standard IT applications</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p><strong>Part-time employment possible</strong></p></li><li><p>Five-day working week averaging 43.5 hours, adjusted according to the agreed workload</p></li><li><p>Five weeks of annual leave and six public holidays per year</p></li><li><p>13th-month salary from the start of employment, paid pro rata</p></li><li><p>Accommodation in one of our attractive staff residences upon request</p></li><li><p>Meals available in our new, modern staff restaurant</p></li></ul><p>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-      "descriptionByLocale": {
-        "it": "<p> < > Le tue responsabilità chiave: Il ruolo si concentra sulla cura e il trattamento dei dipendenti che sono malati o hanno avuto un incidente, e la valutazione se è necessario un ulteriore trattamento medico. Questo include organizzare appuntamenti con il nostro medico aziendale o, per emergenze, con un ospedale. Gestire la sala medica del personale e garantire che le forniture mediche e di pronto soccorso siano complete, memorizzate correttamente e entro le date di scadenza è anche un compito principale.\n• > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > < > > > < > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > < < > > > > > > > > > < > > > > > > > > > > > > > > > > < > > > > > > Cinque settimane di congedo annuo e sei giorni festivi all'anno Sistemazione in una delle nostre attraenti residenze di personale su richiesta Se siete alla ricerca di un ruolo interessante, stimolante e variegato in un ambiente dinamico e volete unire un team consolidato, non vediamo l'ora di ricevere la vostra applicazione online completa. Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> </span> <a target=\" blank\" href=\"http://badruttspalace.com\"> Indirizzospan> Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e di contattarci direttamente tramite il nostro sito ufficiale.",
-        "en": "<p><strong>Your key responsibilites:</strong></p><ul><li><p>The role focuses on caring for and treating employees who are ill or have had an accident, and assessing whether further medical treatment is required.</p></li><li><p>This includes arranging appointments with our company doctor or, for emergencies, with a hospital.</p></li><li><p>Your job includes maintaining staff medical records with care while observing data-protection requirements.</p></li><li><p>Managing the staff medical room and ensuring that medical and first-aid supplies are complete, stored correctly and within their expiry dates is also a main task.</p></li><li><p>You will assist with accident reports and coordinate follow-up care with HR, doctors and hospitals.</p></li><li><p>Occasionally, support is also provided to our hotel guests to ensure their well-being.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed nursing qualification, ideally with several years of professional experience</p></li><li><p>Good written and spoken English; knowledge of Italian is an advantage</p></li><li><p>Empathy, patience and a strong sense of responsibility</p></li><li><p>Excellent teamwork skills and the ability to remain resilient under pressure</p></li><li><p>Confident use of standard IT applications</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p><strong>Part-time employment possible</strong></p></li><li><p>Five-day working week averaging 43.5 hours, adjusted according to the agreed workload</p></li><li><p>Five weeks of annual leave and six public holidays per year</p></li><li><p>13th-month salary from the start of employment, paid pro rata</p></li><li><p>Accommodation in one of our attractive staff residences upon request</p></li><li><p>Meals available in our new, modern staff restaurant</p></li></ul><p>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-        "de": "<p><strong>Ihre Hauptverantwortung:</strong></p><ul><li><p> Die Rolle konzentriert sich auf die Betreuung und Behandlung von Mitarbeitern, die krank sind oder einen Unfall hatten, und die Beurteilung, ob eine weitere medizinische Behandlung erforderlich ist.</p></li><li><p> Dazu gehört die Vereinbarung von Terminen mit unserem Betriebsarzt oder für Notfälle mit einem Krankenhaus.</p></li><li><p>Ihr Job beinhaltet die sorgfältige Pflege der medizinischen Unterlagen des Personals unter Einhaltung der Datenschutzanforderungen.</p></li><li><p> Die Verwaltung des medizinischen Raums des Personals und die Sicherstellung, dass die medizinische Versorgung und die Erste-Hilfe-Versorgung vollständig, korrekt und innerhalb ihrer Verfallsdaten aufbewahrt werden, ist ebenfalls eine Hauptaufgabe.</p></li><li><p>Sie unterstützen Sie bei Unfallmeldungen und koordinieren die Nachsorge mit Personal, Ärzten und Krankenhäusern.</p></li><li><p>Gelegentlich werden auch unsere Hotelgäste unterstützt, um ihr Wohlbefinden zu gewährleisten.</p></li></ul><p></p><p><strong>\n• Was Sie für den Job mitbringen</strong></p><ul><li><p>Abgeschlossene Pflegequalifikation, idealerweise mit mehrjähriger Berufserfahrung</p><li><li><p>Gutes geschriebenes und gesprochenes Englisch; Italienischkenntnisse sind ein Vorteil</p></li><li><p>Exzellente Teamfähigkeit und die Fähigkeit, unter Druck widerstandsfähig zu bleiben</p></li></ul></p><p><strong>Unser Angebot</strong></p><ul><li><p><p><p>Unser Angebot</strong></p><li><p><p><p>Festzeitbeschäftigung von Anfang Dezember 2026 bis Ende März 2027, mit der Möglichkeit, für zukünftige Saisons zurückzukehren</strong><li><li><p><strong>Teilzeitbeschäftigung möglich</strong></strong></p></li><li><p></strong>Teilzeitbeschäftigung möglich</strong> Fünf Wochen Jahresurlaub und sechs Feiertage pro Jahr</p></li><li><p>13. Monatsgehalt ab Beginn der Beschäftigung, anteilig bezahlt</p></li><li><p> Unterkunft in einer unserer attraktiven Personalresidenzen auf Anfrage</p></li><li><p>Mahlzeiten in unserem neuen, modernen Personalrestaurant</p></li></ul><p> Wenn Sie eine interessante, herausfordernde und abwechslungsreiche Rolle in einem dynamischen Umfeld suchen und sich einem etablierten Team anschließen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em></span><a target=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
-        "fr": "<p><strong>Vos responsabilités principales:</strong></p><ul><li><p> Le rôle consiste à s'occuper et à traiter les employés malades ou ayant eu un accident, et à déterminer si un traitement médical supplémentaire est nécessaire.</p></li><li><p> Cela comprend l'organisation de rendez-vous avec notre médecin de l'entreprise ou, en cas d'urgence, avec un hôpital.</p></li><li><p>Votre travail comprend le maintien des dossiers médicaux du personnel avec soins tout en respectant les exigences de protection des données.</p></li><li><p> La gestion de la salle médicale du personnel et l'assurance que les fournitures médicales et de premiers soins sont complètes, entreposées correctement et dans les limites de leurs dates d'expiration constituent également une tâche principale.</p></li><li><p>Vous aiderez à établir les rapports d'accident et coordonnerez les soins de suivi avec les RH, les médecins et les hôpitaux.</p></li><li><p>Occasionnellement, un soutien est également fourni à nos clients de l'hôtel pour assurer leur bien-être.</p></li></ul><p></p><p><strong>\n• Ce que vous apportez au travail</strong></p><ul><li><p><li>Qualification infirmière complète, idéalement avec plusieurs années d'expérience professionnelle</p></li><li><p>Bonnes compétences écrites et parlées en anglais; connaissance de l'italien est un avantage</p></li><li><p>Empathie, patience et un fort sens des responsabilités</p><li><li><p>Excellente compétence en travail d'équipe et la capacité de rester résilient sous la pression</p><li><li><p>Utilisation fidèle des applications normalisées de TI</p></li></p><p><p><strong></p><li><p><li><p><p><strong><p><p><brong><p><temps partiel possible</strong></strong><p><p><p><p><p><p></p></p><>< Cinq semaines de congé annuel et six jours fériés par année</p></li><li><p> Treizième mois de salaire à compter du début de l'emploi, rémunéré au prorata</p></li><li><p><p> Hébergement dans l'une de nos résidences du personnel attrayantes sur demande</p></li><li><p>Repas disponibles dans notre nouveau restaurant du personnel moderne</p></li></ul><p> Si vous cherchez un rôle intéressant, stimulant et varié dans un environnement dynamique et que vous souhaitez vous joindre à une équipe bien établie, nous sommes impatients de recevoir votre demande en ligne complète.</p><p></p><span><strong><em>Recrutement Fraud Warning</em></strong></span><br><span><em> Le Palace Hotel de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir d'adresses électroniques se terminant par @</em></span><a cible=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et nous contacter directement via notre site Web officiel.</em></span></p>"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8101488-nurse-m-f-d-also-part-time",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:24:21.557Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8101488-nurse-m-f-d-also-part-time",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "nurse-m-f-d-also-part-time-badrutts-palace-ch",
-        "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nurse-m-f-d-also-part-time-badrutts-palace-ch"
-        ],
-        "de": [
-          "nurse-m-f-d-also-part-time-badrutts-palace-ch"
-        ],
-        "fr": [
-          "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T12:47:05.189Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "badrutts-palace-3556bd3429ec",
-      "slug": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "reservations-manager-m-w-d-badrutts-palace-ch",
-        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Reservations Manager (m/w/d)",
-      "titleByLocale": {
-        "it": "Account Manager (m/w/d)",
-        "en": "Reservations Manager (m/f/d)",
-        "de": "Reservations Manager (m/w/d)",
-        "fr": "Gestionnaire de compte (m/w/d)"
-      },
-      "description": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie übernehmen die Führungsrolle im Reservierungsteam, bestehend aus fünf Spezialisten, und tragen die Verantwortung für den reibungslosten Ablauf der Reservierungsabteilung.</p></li><li><p>Sie verantworten die selbstständige Bearbeitung von Individual- und Gruppenbuchungen, und stellen dabei jederzeit eine strukturierte und verlässliche Arbeitsweise sicher.</p></li><li><p>Sie unterstützen den Revenue Manager bei der optimalen Preis- und Verfügbarkeitssteuerung sowie bei der Analyse von Buchungs- und Marktentwicklungen.</p></li><li><p>Ihre Berichte für das Management sind präzise und aussagekräftig, um eine fundierte Entscheidungsfindung zu ermöglichen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr sicheres, gewinnendes Auftreten sowie ausgezeichnete Umgangsformen entsprechen den hohen Standards der Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-      "descriptionByLocale": {
-        "it": "Cosa ci fai - No. Si prende il comando nel team di prenotazione, composto da cinque specialisti, e si assume la responsabilità per il regolare funzionamento del reparto prenotazioni. - No. Essi sono responsabili del trattamento indipendente delle prenotazioni individuali e di gruppo e garantiscono un funzionamento strutturato e affidabile in qualsiasi momento. - No. Supportano Revenue Manager nel controllo ottimale dei prezzi e della disponibilità e nell'analisi degli sviluppi di prenotazione e mercato. - No. I loro rapporti di gestione sono precisi e significativi per consentire un buon processo decisionale. - No. L'introduzione, la formazione e l'ulteriore sviluppo di nuovi dipendenti nel reparto prenotazioni fa parte della vostra responsabilità e del supporto continuo del team esistente. - No. Insieme al vostro team, state costantemente lavorando per ottimizzare i processi nel dipartimento. - No. La collaborazione efficace con i dipartimenti Front Office, Sales & Marketing e il Team Event è al vostro cuore per raggiungere obiettivi comuni. Questo ti porterà - No. Hanno un'esperienza professionale pluriennale e ben fondata nell'ufficio anteriore e/o nel reparto prenotazioni di hotel di lusso, idealmente in una funzione leader. - No. Il vostro aspetto sovrano e stilistico, così come la vostra forza di comunicazione pronunciata consentono di interazione professionale e convincente a tutti i livelli – sia per iscritto che per orale. - No. Sono richieste competenze in tedesco e inglese; l'italiano e altre lingue straniere sono di vantaggio. - No. Sono molto versi nella gestione di MS Office e hanno profonda conoscenza dell'utente in Protel o sistemi di prenotazione comparabili. - No. Essi sono caratterizzati da un modo di lavoro strutturato, predittivo e orientato alla soluzione e sono utilizzati per assumersi la responsabilità e per guidare e sostenere i team professionalmente. - No. Il loro aspetto sicuro e vincente così come i modi eccellenti di gestire soddisfano gli elevati standard di hotel di lusso. La nostra offerta - No. Posizione annuale illimitata - No. 5 giorni settimana media a 43,5 ore, 5 settimane vacanze e 6 vacanze all'anno - No. 13. Contenuto dall'ingresso (pro rata temporis) - No. Alloggio in una delle nostre case del personale - No. Servizi alimentari nel nuovo, personale moderno Ristorante - No. Lavoro in un ambiente attraente con possibilità di sviluppo Se si desidera apprezzare un'attività interessante, impegnativa e versatile in un ambiente dinamico e unire un team consolidato, non vediamo l'ora di completare l'applicazione online. Avvertenza prima di reclutare frodi Il Badrutt Palace Hotel non richiederà mai pagamenti o informazioni finanziarie come parte del processo di reclutamento. L'intera comunicazione ufficiale è esclusivamente tramite indirizzi e-mail con il fine @ badruttspalace.com . Se ricevi una richiesta di pagamento o un messaggio sospetto, ti preghiamo di ignorarlo e contattarci direttamente tramite il nostro sito ufficiale.",
-        "en": "What you do to us - You take the lead in the reservation team, consisting of five specialists, and bear the responsibility for the smooth running of the reservation department. - They are responsible for the independent processing of individual and group bookings and ensure a structured and reliable operation at any time. - They support Revenue Manager in the optimal price and availability control and in the analysis of booking and market developments. - Their management reports are precise and meaningful to enable sound decision-making. - The introduction, training and further development of new employees in the reservation department is part of your responsibility as well as the ongoing support of the existing team. - Together with your team, you are constantly working on optimizing the processes in the department. - The effective cooperation with the departments Front Office, Sales & Marketing and the Event Team is at your heart to achieve common goals. This will bring you - They have multi-year, well-founded professional experience in the front office and/or in the reservation department of luxury hotels, ideally in a leading function. - Your sovereign and stylistic appearance as well as your pronounced communication strength allow you to professional and convincing interaction at all levels – both in writing and oral. - German and English skills are required; Italian and other foreign languages are of advantage. - They are very versed in handling MS Office and have profound user knowledge in Protel or comparable reservation systems. - They are characterized by a structured, predictive and solution-oriented way of working and are used to take responsibility as well as to guide and support teams professionally. - Their safe, winning appearance as well as excellent ways of handling meet the high standards of luxury hotels. Our offer - Unlimited annual position - 5-day week on average at 43.5 hours, 5 weeks holidays and 6 holidays per year - 13. Content from entrance (pro rata temporis) - Accommodation in one of our staff houses - Food facilities in the new, modern staff Restaurant - Work in an attractive environment with development possibilities If you want to appreciate an interesting, challenging and versatile activity in a dynamic environment and join a well-established team, we look forward to your complete online application. Warning before Recruiting fraud The Badrutt’s Palace Hotel will never require payments or financial information as part of the recruitment process. The entire official communication is exclusively via email addresses with the ending @ badruttspalace.com . If you receive a payment request or a suspicious message, please ignore it and contact us directly via our official website.",
-        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie übernehmen die Führungsrolle im Reservierungsteam, bestehend aus fünf Spezialisten, und tragen die Verantwortung für den reibungslosten Ablauf der Reservierungsabteilung.</p></li><li><p>Sie verantworten die selbstständige Bearbeitung von Individual- und Gruppenbuchungen, und stellen dabei jederzeit eine strukturierte und verlässliche Arbeitsweise sicher.</p></li><li><p>Sie unterstützen den Revenue Manager bei der optimalen Preis- und Verfügbarkeitssteuerung sowie bei der Analyse von Buchungs- und Marktentwicklungen.</p></li><li><p>Ihre Berichte für das Management sind präzise und aussagekräftig, um eine fundierte Entscheidungsfindung zu ermöglichen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr sicheres, gewinnendes Auftreten sowie ausgezeichnete Umgangsformen entsprechen den hohen Standards der Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-        "fr": "Ce que tu nous fais - Oui. Vous prenez la tête de l'équipe de réservation, composée de cinq spécialistes, et assumez la responsabilité du bon fonctionnement du service de réservation. - Oui. Ils sont responsables du traitement indépendant des réservations individuelles et collectives et assurent un fonctionnement structuré et fiable à tout moment. - Oui. Ils soutiennent Revenue Manager dans le contrôle optimal des prix et de la disponibilité et dans l'analyse des évolutions de la réservation et du marché. - Oui. Leurs rapports de gestion sont précis et significatifs pour permettre une prise de décision saine. - Oui. L'introduction, la formation et le perfectionnement des nouveaux employés du service des réservations font partie de votre responsabilité ainsi que du soutien continu de l'équipe existante. - Oui. Avec votre équipe, vous travaillez constamment à optimiser les processus du département. - Oui. La coopération efficace avec les départements Front Office, Sales & Marketing et l'Event Team est à votre cœur pour atteindre des objectifs communs. Cela vous apportera - Oui. Ils ont une expérience professionnelle multi-annuelle et bien fondée au front office et/ou dans le département des réservations d'hôtels de luxe, idéalement dans une fonction de premier plan. - Oui. Votre apparence souveraine et stylistique ainsi que votre force de communication prononcée vous permettent d'interagir professionnellement et de manière convaincante à tous les niveaux, tant par écrit que par voie orale. - Oui. Les compétences en allemand et en anglais sont requises; l'italien et d'autres langues étrangères sont des avantages. - Oui. Ils sont très au courant dans le traitement de MS Office et ont une connaissance utilisateur profonde dans Protel ou des systèmes de réservation comparables. - Oui. Ils sont caractérisés par une façon de travailler structurée, prédictive et orientée vers la solution et sont utilisés pour prendre des responsabilités ainsi que pour guider et soutenir les équipes professionnellement. - Oui. Leur apparence sûre et gagnante ainsi que d'excellentes façons de gérer répondent aux normes élevées des hôtels de luxe. Notre offre - Oui. Situation annuelle illimitée - Oui. Semaine de 5 jours en moyenne à 43,5 heures, 5 semaines de vacances et 6 jours fériés par an - Oui. 13. Contenu de l'entrée (pro rata temporis) - Oui. Hébergement dans une de nos maisons du personnel - Oui. Restauration dans le nouveau personnel moderne Restaurant - Oui. Travailler dans un environnement attrayant avec des possibilités de développement Si vous souhaitez apprécier une activité intéressante, stimulante et polyvalente dans un environnement dynamique et rejoindre une équipe bien établie, nous attendons avec impatience votre application complète en ligne. Avertissement avant le recrutement de fraude L'hôtel Badrutt's Palace n'aura jamais besoin de paiements ou d'informations financières dans le cadre du processus de recrutement. Toute la communication officielle est exclusivement via des adresses email avec la fin @ badruttspalace.com . Si vous recevez une demande de paiement ou un message suspect, veuillez l'ignorer et nous contacter directement via notre site officiel."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:39:03.673Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-29",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "reservations-manager-m-w-d-badrutts-palace-ch",
-        "it-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "it-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "it-manager-m-w-d-badrutts-palace-ch",
-        "responsable-informatique-badrutt-s-palace-hotel-st-moritz",
-        "manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "responsabile-it-badrutt-s-palace-hotel-st-moritz",
-        "assistant-manager-stewarding-badrutt-s-palace-hotel-st-moritz",
-        "assistant-stewarding-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "assistenz-manager-stewarding-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "assistant-responsable-stewarding-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "assistant-stewarding-manager-m-w-d-badrutts-palace-ch",
-        "assistente-responsabile-del-servizio-camera-lunedi-merdi-giorno-badrutt-s-palace-hotel-st-moritz",
-        "assistant-room-service-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "assistant-room-service-manager-m-w-d-badrutts-palace-ch",
-        "assistant-responsable-du-service-en-chambre-badrutt-s-palace-hotel-st-moritz",
-        "assistant-manager-servizio-in-camera-badrutt-s-palace-hotel-st-moritz",
-        "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz",
-        "revenue-manager-m-w-d-badrutts-palace-ch",
-        "revenue-manager-badrutts-palace-ch",
-        "revenue-manager-badrutt-s-palace-hotel-st-moritz",
-        "revenue-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "revenue-manager-m-f-d-badrutts-palace-ch",
-        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "reservations-manager-m-w-d-badrutts-palace-ch",
-          "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz",
-          "revenue-manager-m-w-d-badrutts-palace-ch",
-          "revenue-manager-badrutts-palace-ch",
-          "revenue-manager-badrutt-s-palace-hotel-st-moritz",
-          "revenue-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "revenue-manager-m-f-d-badrutts-palace-ch",
-          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "en": [
-          "revenue-manager-m-w-d-badrutts-palace-ch"
-        ],
-        "fr": [
-          "reservations-manager-m-w-d-badrutts-palace-ch",
-          "revenue-manager-badrutts-palace-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T11:52:11.757Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-08-11T10:33:44.652Z",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
