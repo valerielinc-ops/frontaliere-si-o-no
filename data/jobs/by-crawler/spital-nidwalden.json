@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-spital-nidwalden-100-spital-nidwalden-stans",
-        "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans"
+        "leitung-spital-nidwalden-100-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-spital-nidwalden-100-spital-nidwalden-stans",
-          "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans"
+          "leitung-spital-nidwalden-100-spital-nidwalden-stans"
         ],
         "en": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans"
@@ -84,12 +82,12 @@
     },
     {
       "id": "spital-nidwalden-5278c6fa0e26",
-      "slug": "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
+      "slug": "capo-ospedale-nidwalden-100-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
-        "en": "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
         "de": "leitung-spital-nidwalden-100-spital-nidwalden-stans",
-        "fr": "leitung-spital-nidwalden-100-spital-nidwalden-stans-2"
+        "it": "capo-ospedale-nidwalden-100-spital-nidwalden-stans",
+        "en": "head-of-hospital-nidwalden-100-spital-nidwalden-stans-241c1a",
+        "fr": "chef-de-l-hopital-nidwalden-100-spital-nidwalden-stans-241c1a"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -146,11 +144,19 @@
       "firstSeenAt": "2026-08-12T10:22:41.642Z",
       "previousSlugsByLocale": {
         "it": [
-          "leitung-spital-nidwalden-100-spital-nidwalden-stans"
+          "leitung-spital-nidwalden-100-spital-nidwalden-stans",
+          "leitung-spital-nidwalden-100-spital-nidwalden-stans-2"
+        ],
+        "en": [
+          "leitung-spital-nidwalden-100-spital-nidwalden-stans-2"
+        ],
+        "fr": [
+          "leitung-spital-nidwalden-100-spital-nidwalden-stans-2"
         ]
       },
       "previousSlugs": [
-        "leitung-spital-nidwalden-100-spital-nidwalden-stans"
+        "leitung-spital-nidwalden-100-spital-nidwalden-stans",
+        "leitung-spital-nidwalden-100-spital-nidwalden-stans-2"
       ]
     }
   ]

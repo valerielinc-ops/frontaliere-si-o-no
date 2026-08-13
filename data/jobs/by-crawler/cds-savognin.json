@@ -52,14 +52,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "med-praxisassistentin-praxisassistenten-cds-savognin-savognin",
-        "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin",
-        "med-assistente-pratica-assistente-pratico-center-da-sanadad-savognin-savognin"
+        "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-praxisassistenten-cds-savognin-savognin",
-          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin",
-          "med-assistente-pratica-assistente-pratico-center-da-sanadad-savognin-savognin"
+          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
         ],
         "en": [
           "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
@@ -133,15 +131,13 @@
       "previousSlugs": [
         "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin",
         "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin",
-        "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin",
-        "dipl-infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin"
+        "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin",
           "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin",
-          "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin",
-          "dipl-infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin"
+          "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin"
         ],
         "en": [
           "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
@@ -168,10 +164,10 @@
       "id": "cds-savognin-159-5df441a9b5eb",
       "slug": "assistenzarzt-assistenzarztin-per-la-specializzazione-allgemeine-innere-medizin-center-da-sanadad-savognin",
       "slugByLocale": {
-        "it": "assistenzarzt-assistenzarztin-per-la-specializzazione-allgemeine-innere-medizin-center-da-sanadad-savognin",
-        "en": "assistenzarzt-assistenzarztin-fur-die-fachrichtung-allgemeine-innere-medizin-cds-savognin",
         "de": "assistenzarzt-assistenzarztin-fur-die-fachrichtung-allgemeine-innere-medizin-cds-savognin",
-        "fr": "assistenzarzt-assistenzarztin-fur-die-fachrichtung-allgemeine-innere-medizin-cds-savognin"
+        "it": "assistenzarzt-assistenzarztin-per-la-specializzazione-allgemeine-innere-medizin-center-da-sanadad-savognin",
+        "en": "assistant-doctor-assistant-doctor-for-the-specialty-general-internal-medicine-center-da-sanadad-savognin-savognin",
+        "fr": "medecin-adjoint-medecin-adjoint-pour-la-specialite-medecine-generale-interne-center-da-sanadad-savognin-savognin"
       },
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
@@ -217,6 +213,12 @@
         "it": [
           "assistenzarzt-assistenzarztin-fur-die-fachrichtung-allgemeine-innere-medizin-cds-savognin",
           "assistenzarzt-assistenzarztin-per-la-specializzazione-allgemeine-innere-medizin-center-da-sanadad-savognin"
+        ],
+        "en": [
+          "assistenzarzt-assistenzarztin-fur-die-fachrichtung-allgemeine-innere-medizin-cds-savognin"
+        ],
+        "fr": [
+          "assistenzarzt-assistenzarztin-fur-die-fachrichtung-allgemeine-innere-medizin-cds-savognin"
         ]
       },
       "previousSlugs": [
@@ -287,13 +289,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
-        "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin"
+        "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin",
-          "co-chefarzt-co-chefarztin-con-option-chefarzt-chefarztin-innere-medizin-center-da-sanadad-savognin-savognin"
+          "co-chefarzt-co-chefarztin-mit-option-chefarzt-chefarztin-innere-medizin-cds-savognin"
         ]
       },
       "firstSeenAt": "2026-06-27T10:16:30.022Z",
@@ -360,13 +360,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-lingerie-und-bistro-cds-savognin-savognin",
-        "collaboratore-trice-lingerie-e-bistro-center-da-sanadad-savognin"
+        "mitarbeiter-in-lingerie-und-bistro-cds-savognin-savognin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-lingerie-und-bistro-cds-savognin-savognin",
-          "collaboratore-trice-lingerie-e-bistro-center-da-sanadad-savognin"
+          "mitarbeiter-in-lingerie-und-bistro-cds-savognin-savognin"
         ]
       },
       "firstSeenAt": "2026-07-06T13:13:18.823Z",

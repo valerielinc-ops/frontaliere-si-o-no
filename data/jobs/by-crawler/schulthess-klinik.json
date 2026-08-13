@@ -145,15 +145,13 @@
       "previousSlugs": [
         "medical-secretary-medical-secretary-spine-surgery-schulthess-klinik-lengghalde-2-zurich",
         "secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-lengghalde-2-zurich",
-        "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich",
-        "segretario-medico-segretario-medico-spine-surgery-schulthess-klinik-lengghalde-2-zurich"
+        "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-secretary-medical-secretary-spine-surgery-schulthess-klinik-lengghalde-2-zurich",
           "secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-lengghalde-2-zurich",
-          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich",
-          "segretario-medico-segretario-medico-spine-surgery-schulthess-klinik-lengghalde-2-zurich"
+          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich"
@@ -233,8 +231,7 @@
         "mitarbeiterin-mitarbeiter-abendreinigung-schulthess-klinik-lengghalde-2-zurich",
         "nettoyage-du-soir-des-employes-schulthess-klinik-lengghalde-2-zurich",
         "mitarbeiterin-collaboratore-trice-abendreinigung-schulthess-klinik-lengghalde-2-zur-8m1bod",
-        "mitarbeiterin-mitarbeiter-abendreinigung-schulthess-klinik-lengghalde-2-zurich-2",
-        "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich"
+        "mitarbeiterin-mitarbeiter-abendreinigung-schulthess-klinik-lengghalde-2-zurich-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -244,8 +241,7 @@
           "mitarbeiterin-mitarbeiter-abendreinigung-schulthess-klinik-lengghalde-2-zurich",
           "nettoyage-du-soir-des-employes-schulthess-klinik-lengghalde-2-zurich",
           "mitarbeiterin-collaboratore-trice-abendreinigung-schulthess-klinik-lengghalde-2-zur-8m1bod",
-          "mitarbeiterin-mitarbeiter-abendreinigung-schulthess-klinik-lengghalde-2-zurich-2",
-          "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich"
+          "mitarbeiterin-mitarbeiter-abendreinigung-schulthess-klinik-lengghalde-2-zurich-2"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich",
@@ -326,13 +322,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich",
-        "mitarbeiterin-collaboratore-trice-restaurant-bistro-schulthess-klinik-lengghalde-2-zurich"
+        "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich",
-          "mitarbeiterin-collaboratore-trice-restaurant-bistro-schulthess-klinik-lengghalde-2-zurich"
+          "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich"
@@ -656,12 +650,12 @@
     },
     {
       "id": "schulthess-klinik-e2a9f83f33e3",
-      "slug": "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2",
+      "slug": "segretario-medico-segretario-medico-medicina-perioperativa-mpa-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2",
-        "en": "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2",
+        "it": "segretario-medico-segretario-medico-medicina-perioperativa-mpa-schulthess-klinik-lengghalde-2-zurich",
+        "en": "medical-secretary-medical-secretary-mpa-perioperative-medicine-schulthess-klinik-lengghalde-2-zurich",
         "de": "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2",
-        "fr": "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+        "fr": "secretaire-medical-secretaire-medical-mpa-medecine-perioperatoire-schulthess-klinik-lengghalde-2-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -715,7 +709,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-a992bea64306",
-      "slug": "client-advisor-houston-prada-group-nearest-major-market-houston",
+      "slug": "client-consulente-houston-prada-group-nearest-major-market-houston",
       "slugByLocale": {
-        "it": "client-advisor-houston-prada-group-nearest-major-market-houston",
         "en": "client-advisor-houston-prada-group-nearest-major-market-houston",
-        "de": "client-advisor-houston-prada-group-nearest-major-market-houston",
-        "fr": "client-advisor-houston-prada-group-nearest-major-market-houston"
+        "it": "client-consulente-houston-prada-group-nearest-major-market-houston",
+        "de": "client-berater-houston-prada-group-nearest-major-market-houston",
+        "fr": "client-conseiller-houston-prada-group-nearest-major-market-houston"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -57,7 +57,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-12T10:22:52.029Z"
+      "firstSeenAt": "2026-08-12T10:22:52.029Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-houston-prada-group-nearest-major-market-houston"
+        ],
+        "de": [
+          "client-advisor-houston-prada-group-nearest-major-market-houston"
+        ],
+        "fr": [
+          "client-advisor-houston-prada-group-nearest-major-market-houston"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-houston-prada-group-nearest-major-market-houston"
+      ]
     },
     {
       "id": "prada-6c4e57745113",

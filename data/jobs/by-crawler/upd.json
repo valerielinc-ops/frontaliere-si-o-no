@@ -81,8 +81,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern",
         "it": "dipl-pflegefachperson-come-nachtwache-therapiezentrum-per-essstorungen-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern",
-        "fr": "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
+        "en": "dipl-nursing-professional-as-night-watch-therapy-center-for-eating-disorders-universitare-psychiatrische-dienste-bern",
+        "fr": "dipl-nursing-professional-comme-night-watch-therapy-center-pour-les-troubles-de-l-alimentation-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -128,6 +128,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
+        ],
+        "fr": [
           "dipl-pflegefachperson-als-nachtwache-therapiezentrum-fur-essstorungen-upd-bern"
         ]
       },

@@ -23,12 +23,12 @@
       "employmentType": "40 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-12T22:09:50.764Z",
-      "slug": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur",
+      "slug": "infermieristica-endoscopia-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur",
-        "it": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur",
-        "en": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur",
-        "fr": "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur"
+        "it": "infermieristica-endoscopia-professionale-kantonsspital-graubunden-chur",
+        "en": "nursing-professional-endoscopy-kantonsspital-graubunden-chur",
+        "fr": "endoscopie-professionnelle-des-soins-infirmiers-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau/ Pflegefachmann Endoskopie",
@@ -57,7 +57,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-12T10:22:40.416Z"
+      "firstSeenAt": "2026-08-12T10:22:40.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-endoskopie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10144899",
@@ -2821,8 +2835,7 @@
         "apprentissage-professionnel-de-specialiste-en-hotellerie-menager-kantonsspital-graubunden-chur",
         "specialiste-de-l-apprentissage-professionnel-specialiste-de-l-hotellerie-et-du-menage-kantonsspital-graubunden-chur",
         "apprentissage-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur",
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
+        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2873,8 +2886,7 @@
           "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
         ],
         "de": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -2940,15 +2952,7 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-05-17T10:33:43.517Z"
     },
     {
       "id": "10020180",
