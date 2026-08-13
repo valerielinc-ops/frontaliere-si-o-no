@@ -7498,6 +7498,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri',
+    category: 'novita',
+    date: '2026-08-13T08:14:49.123Z',
+    image: '/images/blog/la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

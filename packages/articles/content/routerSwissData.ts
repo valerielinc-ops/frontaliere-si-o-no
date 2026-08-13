@@ -859,6 +859,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-canton-berna-requisiti-procedura': { it: 'naturalizzazione-canton-berna-requisiti-procedura', en: 'naturalization-canton-berna-requisites-procedure', de: 'naturalisierung-kanton-bern-requisiten-verfahren', fr: 'naturalisation-canton-de-berne-requisits-procedure' },
  'aprire-un-attivita-canton-berna': { it: 'aprire-un-attivita-canton-berna', en: 'aprire-un-attivita-canton-berna', de: 'aprire-un-attivita-canton-berna', fr: 'aprire-un-attivita-canton-berna' },
  'trasporti-pubblici-canton-berna-abbonamenti': { it: 'trasporti-pubblici-canton-berna-abbonamenti', en: 'public-transport-canton-berne-subscriptions', de: 'offentlicher-verkehr-kanton-bern-abonnements', fr: 'transports-publiques-canton-de-berne-abonnements' },
+ 'la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri': { it: 'la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri', en: 'the-drought-affects-swiss-waterways', de: 'die-durre-betritt-schweizer-wasserwege', fr: 'la-secheresse-affecte-les-cours-d-eau-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

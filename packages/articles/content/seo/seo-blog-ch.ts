@@ -32387,6 +32387,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri': {
+    title: 'La siccità mette a dura prova i corsi d\'acqua svizzeri',
+    description: 'La siccità è una situazione di magra dei corsi d\'acqua che si verifica ogni 2-10 anni, ogni 30-100 anni o addirittura a intervalli ancora più lunghi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, mette, dura, prova',
+    ogTitle: 'La siccità mette a dura prova i corsi d\'acqua svizzeri',
+    ogDescription: 'La siccità è una situazione di magra dei corsi d\'acqua che si verifica ogni 2-10 anni, ogni 30-100 anni o addirittura a intervalli ancora più lunghi.',
+    canonicalPath: '/articoli-svizzera/la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La siccità mette a dura prova i corsi d'acqua svizzeri",
+      "description": "La siccità è una situazione di magra dei corsi d'acqua che si verifica ogni 2-10 anni, ogni 30-100 anni o addirittura a intervalli ancora più lunghi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il lago di Lugano con la siccità"
+      },
+      "datePublished": "2026-08-13T08:14:49+00:00",
+      "dateModified": "2026-08-13T08:14:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
