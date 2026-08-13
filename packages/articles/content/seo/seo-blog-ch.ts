@@ -33440,6 +33440,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dimissioni-pazienti-crans-montana': {
+    title: 'Crans-Montana: dimessa l\'ultima paziente dal Niguarda',
+    description: 'Si è concluso il ricovero dei dodici pazienti feriti nell\'incendio di Capodanno a Crans-Montana. Francesca lascia il Niguarda dopo 224 giorni di cure.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, dimessa, ultima, paziente',
+    ogTitle: 'Crans-Montana: dimessa l\'ultima paziente dal Niguarda',
+    ogDescription: 'Si è concluso il lungo percorso di cure per i dodici pazienti feriti nell\'incendio di Capodanno. L\'ultima paziente ha lasciato l\'ospedale Niguarda dopo 224 giorni.',
+    canonicalPath: '/articoli-svizzera/dimissioni-pazienti-crans-montana/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: dimessa l'ultima paziente dal Niguarda",
+      "description": "Si è concluso il ricovero dei dodici pazienti feriti nell'incendio di Capodanno a Crans-Montana. Francesca lascia il Niguarda dopo 224 giorni di cure.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dimissioni-pazienti-crans-montana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di una moderna struttura ospedaliera in Svizzera"
+      },
+      "datePublished": "2026-08-13T19:35:09+00:00",
+      "dateModified": "2026-08-13T19:35:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dimissioni-pazienti-crans-montana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

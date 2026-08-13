@@ -2581,6 +2581,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.title': 'After almost 3 years, the Tesla strike in Sweden ends',
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.excerpt': 'IF Metall has thrown in the towel after nearly three years on strike against Tesla\'s Swedish subsidiary.',
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.imageAlt': 'Image of a trade union protest in Sweden',
+    'blog.article.dimissioni-pazienti-crans-montana.title': 'Crans-Montana: last patient discharged from Niguarda',
+    'blog.article.dimissioni-pazienti-crans-montana.excerpt': 'The hospitalisation of the twelve patients injured in the New Year\'s fire has ended. Francesca leaves the Burn Centre in Milan after 224 days of specialist treatment.',
+    'blog.article.dimissioni-pazienti-crans-montana.imageAlt': 'Facade of a modern hospital facility in Switzerland',
 };
 
 export default blogMetaChEn;

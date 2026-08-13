@@ -2581,6 +2581,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.title': 'Près de 3 ans après la fin de la grève Tesla en Suède',
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.excerpt': 'Le syndicat IF Metall a jeté l\'éponge après près de trois ans de grève contre la filiale suédoise de Tesla.',
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.imageAlt': 'Image d\'une manifestation syndicale en Suède',
+    'blog.article.dimissioni-pazienti-crans-montana.title': 'Crans-Montana : sortie de la dernière patiente du Niguarda',
+    'blog.article.dimissioni-pazienti-crans-montana.excerpt': 'L\'hospitalisation des douze patients blessés dans l\'incendie du Nouvel An est terminée. Francesca quitte le Centre de Brûlures de Milan après 224 jours de soins spécialisés.',
+    'blog.article.dimissioni-pazienti-crans-montana.imageAlt': 'Façade d\'une structure hospitalière moderne en Suisse',
 };
 
 export default blogMetaChFr;
