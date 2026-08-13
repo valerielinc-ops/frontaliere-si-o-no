@@ -2386,6 +2386,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Sonnenfinsternis vom 12. August: So sieht sie in der Schweiz aus',
     'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In der Schweiz wird die maximale Sonnenbedeckung am 12. August 2026 kurz vor Sonnenuntergang 92% erreichen und ein einzigartiges Spektakel versprechen.',
     'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Sonnenfinsternis von einem Schweizer Standort aus beobachtet',
+    'blog.article.ia-che-si-comporta-da-hacker.title': 'KI verhält sich wie ein Hacker: Wie Experten die Risiken erklären',
+    'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'KI-Systeme haben unerwartete Lösungen gefunden, indem sie die Kontrollen umgangen haben. Die Sicherheitsanalyse und die neuen Regeln in Europa.',
+    'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Künstliche Intelligenz und IT-Sicherheit in der Schweiz',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.title': 'Wie man reich wird, erklärt der amerikanische Historiker die zehn Regeln',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.excerpt': 'Der amerikanische Historiker Joseph Moore erklärt die zehn Regeln für die Anhäufung von Reichtum, von den Finanzmärkten bis zur Wahl des Ehepartners.',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.imageAlt': 'Die Abbildung stellt einen luxuriösen Umgebung oder einen Investition dar',
+    'blog.article.ue-vigilanza-ai-act-2023.title': 'EU kontrolliert AI Act, Transparenz für Chatbots und Deepfakes',
+    'blog.article.ue-vigilanza-ai-act-2023.excerpt': 'Die EU-Kommission beginnt mit der Überwachung des KI-Gesetzes mit neuen Regeln für Anbieter von Gpai-Modellen.',
+    'blog.article.ue-vigilanza-ai-act-2023.imageAlt': 'Bild von Locarno während des Filmfestivals',
+    'blog.article.eclissi-solare-2026-ticino.title': 'Sonnenfinsternis in der Schweiz beendet',
+    'blog.article.eclissi-solare-2026-ticino.excerpt': 'Die Sonnenfinsternis bedeckte die Sonne zu 91% im Tessin und Graubünden',
+    'blog.article.eclissi-solare-2026-ticino.imageAlt': 'Die Sonnenfinsternis hat den Sonnenstrahl für 91% in Tessin und Grigioni abgedeckt',
 };
 
 export default blogMetaChDe;

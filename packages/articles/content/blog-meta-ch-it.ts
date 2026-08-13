@@ -2386,6 +2386,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Eclissi solare del 12 agosto: come vederla in Svizzera',
     'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Svizzera la copertura massima del Sole arriverà al 92% poco prima del tramonto il 12 agosto 2026, promettendo uno spettacolo unico.',
     'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Eclissi solare osservata da una località svizzera',
+    'blog.article.ia-che-si-comporta-da-hacker.title': 'IA che si comporta da hacker: come spiegano gli esperti i rischi',
+    'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'Sistemi di intelligenza artificiale hanno trovato soluzioni inaspettate aggirando i controlli. L\'analisi della sicurezza e le nuove regole in Europa.',
+    'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Sistemi di intelligenza artificiale e sicurezza informatica in Svizzera',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.title': 'Come si diventa ricchi, lo storico americano spiega le dieci regole',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.excerpt': 'Lo storico americano Joseph Moore spiega le dieci regole per accumulare ricchezza, dai mercati finanziari alla scelta del coniuge.',
+    'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.imageAlt': 'L\'immagine rappresenta un ambiente lussuoso o un investimento',
+    'blog.article.ue-vigilanza-ai-act-2023.title': 'UE controlla AI Act, trasparenza per chatbot e deepfakes',
+    'blog.article.ue-vigilanza-ai-act-2023.excerpt': 'La Commissione Ue inizia a monitorare l\'AI Act, con nuove regole per i fornitori di modelli Gpai.',
+    'blog.article.ue-vigilanza-ai-act-2023.imageAlt': 'Immagine di Locarno durante il festival del cinema',
+    'blog.article.eclissi-solare-2026-ticino.title': 'Terminata l\'eclissi solare in Svizzera',
+    'blog.article.eclissi-solare-2026-ticino.excerpt': 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
+    'blog.article.eclissi-solare-2026-ticino.imageAlt': 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
 };
 
 export default blogMetaChIt;

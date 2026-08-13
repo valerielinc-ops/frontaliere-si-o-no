@@ -30905,6 +30905,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-che-si-comporta-da-hacker': {
+    title: 'IA che si comporta da hacker: come spiegano gli esperti i rischi',
+    description: 'Scopri come i sistemi di intelligenza artificiale possono aggirare i controlli e quali sono le nuove normative sulla sicurezza tecnologica in Europa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comporta, hacker, spiegano, esperti',
+    ogTitle: 'IA che si comporta da hacker: come e possibile?',
+    ogDescription: 'Analisi dei comportamenti inaspettati dell\'intelligenza artificiale nei test di sicurezza, il ruolo del controllo umano e l\'arrivo dell\'AI Act.',
+    canonicalPath: '/articoli-svizzera/ia-che-si-comporta-da-hacker/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA che si comporta da hacker: come spiegano gli esperti i rischi",
+      "description": "Scopri come i sistemi di intelligenza artificiale possono aggirare i controlli e quali sono le nuove normative sulla sicurezza tecnologica in Europa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ia-che-si-comporta-da-hacker.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sistemi di intelligenza artificiale e sicurezza informatica in Svizzera"
+      },
+      "datePublished": "2026-08-13T00:48:25+00:00",
+      "dateModified": "2026-08-13T00:48:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-che-si-comporta-da-hacker/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole': {
+    title: 'Come si diventa ricchi, lo storico americano spiega le dieci regole',
+    description: 'Joseph Moore, uno storico americano, spiega le dieci regole per accumulare ricchezza. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, diventa, ricchi, storico, americano',
+    ogTitle: 'Come si diventa ricchi, lo storico americano spiega le dieci regole',
+    ogDescription: 'Joseph Moore, uno storico americano, spiega le dieci regole per accumulare ricchezza.',
+    canonicalPath: '/articoli-svizzera/come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come si diventa ricchi, lo storico americano spiega le dieci regole",
+      "description": "Joseph Moore, uno storico americano, spiega le dieci regole per accumulare ricchezza. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'immagine rappresenta un ambiente lussuoso o un investimento"
+      },
+      "datePublished": "2026-08-13T00:59:21+00:00",
+      "dateModified": "2026-08-13T00:59:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ue-vigilanza-ai-act-2023': {
+    title: 'UE controlla AI Act, trasparenza per chatbot e deepfakes',
+    description: 'La Commissione Ue inizia a monitorare l\'AI Act, con nuove regole per i fornitori di modelli Gpai. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlla, trasparenza, chatbot, deepfakes',
+    ogTitle: 'UE avvia la vigilanza sull\'AI Act, controlli e trasparenza per i chatbot e i deepfakes',
+    ogDescription: 'La Commissione Ue inizia a monitorare l\'AI Act, con nuove regole per i fornitori di modelli Gpai.',
+    canonicalPath: '/articoli-svizzera/ue-vigilanza-ai-act-2023/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UE controlla AI Act, trasparenza per chatbot e deepfakes",
+      "description": "La Commissione Ue inizia a monitorare l'AI Act, con nuove regole per i fornitori di modelli Gpai. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ue-vigilanza-ai-act-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di Locarno durante il festival del cinema"
+      },
+      "datePublished": "2026-08-13T01:03:55+00:00",
+      "dateModified": "2026-08-13T01:03:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ue-vigilanza-ai-act-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eclissi-solare-2026-ticino': {
+    title: 'Terminata l\'eclissi solare in Svizzera | Frontaliere Ticino',
+    description: 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terminata, eclissi, solare, coperto',
+    ogTitle: 'Eclissi solare in Svizzera',
+    ogDescription: 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-2026-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terminata l'eclissi solare in Svizzera",
+      "description": "L'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-2026-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni"
+      },
+      "datePublished": "2026-08-13T01:08:40+00:00",
+      "dateModified": "2026-08-13T01:08:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-2026-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

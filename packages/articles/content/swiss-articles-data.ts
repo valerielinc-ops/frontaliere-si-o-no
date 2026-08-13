@@ -7156,6 +7156,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ia-che-si-comporta-da-hacker',
+    category: 'novita',
+    date: '2026-08-13T00:48:25.620Z',
+    image: '/images/blog/ia-che-si-comporta-da-hacker.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole',
+    category: 'fiscale',
+    date: '2026-08-13T00:59:21.209Z',
+    image: '/images/blog/come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'ue-vigilanza-ai-act-2023',
+    category: 'novita',
+    date: '2026-08-13T01:03:55.176Z',
+    image: '/images/blog/ue-vigilanza-ai-act-2023.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'eclissi-solare-2026-ticino',
+    category: 'novita',
+    date: '2026-08-13T01:08:40.293Z',
+    image: '/images/blog/eclissi-solare-2026-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
