@@ -826,6 +826,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ue-vigilanza-ai-act-2023': { it: 'ue-vigilanza-ai-act-2023', en: 'eu-surveillance-ai-act', de: 'eu-ueberwachung-ai-act', fr: 'eu-surveillance-ai-acte' },
  'eclissi-solare-2026-ticino': { it: 'eclissi-solare-2026-ticino', en: 'eclissi-solare-2026-ticino', de: 'sonnenfinsternis-2026-tessin', fr: 'eclipse-solaire-2026-tessin' },
  'churer-fest-traffico-limitato-misure-sicurezza': { it: 'churer-fest-traffico-limitato-misure-sicurezza', en: 'churer-fest-traffico-limited-misure-sicurezza', de: 'churer-fest-verkehr-gebunden-sicherheitsmassnahmen', fr: 'fete-de-chur-trafic-limites-mesures-de-securite' },
+ 'avvistamento-cicogne-bianche-castione': { it: 'avvistamento-cicogne-bianche-castione', en: 'white-storks-sighting-castione', de: 'weissstorch-sichtung-castione', fr: 'observation-cigognes-blanches-castione' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

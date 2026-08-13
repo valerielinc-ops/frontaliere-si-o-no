@@ -2401,6 +2401,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'Di più GR: Churer Fest, fra traffico limitato e misure di sicurezza',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'Dal 14 al 16 agosto si svolgerà la 35esima edizione della Churer Fest nel capoluogo retico. Per garantire la sicurezza dell\'evento le forze dell\'ordine adotteranno diverse misure.',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Festa di Chur',
+    'blog.article.avvistamento-cicogne-bianche-castione.title': 'Avvistamento di cicogne bianche a Castione',
+    'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'Uno stormo di circa cinquanta cicogne è stato osservato a Castione. Ficedula analizza il fenomeno migratorio e le prospettive di nidificazione in Ticino.',
+    'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'Cicogne bianche appollaiate sui tetti a Castione',
 };
 
 export default blogMetaChIt;

@@ -2401,6 +2401,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'More GR: Churer Fest, between limited traffic and safety measures',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'From 14 to 16 August, the 35th edition of the Churer Fest will take place in the Rhaetian capital. To ensure the safety of the event, law enforcement will take several measures.',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Chur festival',
+    'blog.article.avvistamento-cicogne-bianche-castione.title': 'White storks spotted in Castione',
+    'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'A flock of about fifty storks was observed at Castione. Ficedula analyses the migratory phenomenon and the nesting prospects in Ticino.',
+    'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'White storks perched on roofs in Castione',
 };
 
 export default blogMetaChEn;
