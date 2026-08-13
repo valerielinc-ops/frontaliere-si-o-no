@@ -2467,6 +2467,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Buying a house in the Canton of Bern: average prices and own funds required',
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'Average house prices in the Canton of Bern are around CHF 730,000, according to 2022 data.',
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Image of a house in the Canton of Bern',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Drug discounts, surveillance is ineffective',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'The Federal Office of Public Health (FOPH) does not make use of all the tools available for drug market surveillance.',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontalier trying to save on medications in Switzerland',
 };
 
 export default blogMetaChEn;

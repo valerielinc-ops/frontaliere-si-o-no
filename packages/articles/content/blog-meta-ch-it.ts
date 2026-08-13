@@ -2467,6 +2467,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Berna: prezzi medi e fondi propri richiesti',
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.excerpt': 'I prezzi medi delle case nel Cantone di Berna sono di circa CHF 730.000, secondo i dati del 2022.',
     'blog.article.comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario.imageAlt': 'Immagine di una casa nel Cantone di Berna',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Sconti sui farmaci, la vigilanza è poco efficace',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'L\'Ufficio federale della sanità pubblica (UFSP) non fa uso di tutti gli strumenti a disposizione per la sorveglianza del mercato dei farmaci.',
+    'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontaliere che cerca di risparmiare sui farmaci in Svizzera',
 };
 
 export default blogMetaChIt;
