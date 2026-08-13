@@ -23,10 +23,12 @@ import { buildNewsletter, FEATURED_TOOLS, nlNormLocale } from '../services/newsl
 import { matchJobsForSubscriber, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { runAutologinProbe } from './lib/autologinProbe.mjs';
+import { recordProbeRun } from './lib/autologinProbeLog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const QA_DIR = path.resolve(ROOT, 'docs', 'newsletter-qa');
+const QA_PROBE_LOG_PATH = path.join(QA_DIR, 'autologin-probe-log.json');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -340,6 +342,12 @@ async function main() {
   for (const r of probeChecks) {
     const icon = r.skipped ? '⏭️' : r.passed ? '✅' : '❌';
     console.log(`  ${icon} ${r.label}${r.error ? ` [${r.error}]` : ''}`);
+  }
+  // Only a non-skipped run actually reached the endpoint and cost it one
+  // `auth_code_not_yet_valid` line — record it so the monitor can size its
+  // clock budget from what really ran instead of a shared guess (#5757).
+  if (probeChecks[0] && !probeChecks[0].skipped) {
+    recordProbeRun(QA_PROBE_LOG_PATH);
   }
 
   // 4. Screenshots

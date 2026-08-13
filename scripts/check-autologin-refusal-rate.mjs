@@ -62,14 +62,19 @@ import {
   LOCKOUT_RATE_WARN,
   LOCKOUT_RATE_URGENT,
   MIN_SAMPLE,
+  CLOCK_PROBE_BUDGET,
 } from './lib/autologinRefusalMetrics.mjs';
 import { runAutologinProbe } from './lib/autologinProbe.mjs';
+import { recordProbeRun, countProbeRuns } from './lib/autologinProbeLog.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUT_DIR = path.resolve(ROOT, 'docs', 'autologin-refusal');
 const HISTORY_PATH = path.join(OUT_DIR, 'history.json');
 const ALERT_PATH = path.join(OUT_DIR, 'alert.json');
+const MONITOR_PROBE_LOG_PATH = path.join(OUT_DIR, 'probe-log.json');
+/** newsletter-qa.mjs records its own probe runs here — see autologinProbeLog.mjs. */
+const QA_PROBE_LOG_PATH = path.resolve(ROOT, 'docs', 'newsletter-qa', 'autologin-probe-log.json');
 
 const PROJECT_ID = process.env.GCLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'frontaliere-ticino';
 const LOGGING_SCOPE = 'https://www.googleapis.com/auth/logging.read';
@@ -263,11 +268,28 @@ async function main() {
 
   const agg = aggregate(records);
   const history = loadHistory();
-  const verdict = evaluate(agg, { baseline: history.baseline });
+
+  // CLOCK_PROBE_BUDGET is a flat guess covering the monitor's own daily probe
+  // AND every newsletter-qa.mjs run combined; a day with a few manual QA
+  // iterations before a send can burn through it alone (#5757). Size the
+  // actual budget from what each known caller really recorded in this
+  // window, with CLOCK_PROBE_BUDGET kept only as a floor for a quiet day —
+  // one before either log has accumulated history, or with no QA activity at
+  // all — so this never alerts MORE readily than before, only less on a
+  // heavy-QA day where the extra clock events are already explained.
+  const monitorProbeCount = countProbeRuns(MONITOR_PROBE_LOG_PATH, sinceIso);
+  const qaProbeCount = countProbeRuns(QA_PROBE_LOG_PATH, sinceIso);
+  const clockBudget = Math.max(CLOCK_PROBE_BUDGET, monitorProbeCount + qaProbeCount);
+  const verdict = evaluate(agg, { baseline: history.baseline, clockBudget });
 
   let probe = [];
   if (RUN_PROBE) {
     probe = await runAutologinProbe({ secret: process.env.NEWSLETTER_SECRET });
+    // Recorded AFTER evaluate() above: this run's own clock event (if any)
+    // belongs to the NEXT window, exactly like the log line it produces.
+    if (probe[0] && !probe[0].skipped) {
+      recordProbeRun(MONITOR_PROBE_LOG_PATH);
+    }
     for (const p of probe) {
       if (!p.passed) {
         verdict.findings.push({
