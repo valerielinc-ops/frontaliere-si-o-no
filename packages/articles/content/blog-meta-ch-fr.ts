@@ -2371,6 +2371,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-berna.title': 'Allocations familiales dans le canton de Berne : montants et demande',
     'blog.article.assegni-familiari-canton-berna.excerpt': 'Les allocations familiales dans le canton de Berne sont gérées par les administrations cantonales et nécessitent le dépôt d\'une demande.',
     'blog.article.assegni-familiari-canton-berna.imageAlt': 'Un frontalier avec un enfant à Lugano',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Initiative Service civique, les recours sont irrecevables',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'Le Tribunal fédéral a décidé que les recours introduits par les partisans de l\'initiative « Pour une Suisse qui s\'engage » (Initiative Service civique) sont irrecevables.',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'Une personne vote dans une école de Lugano',
 };
 
 export default blogMetaChFr;

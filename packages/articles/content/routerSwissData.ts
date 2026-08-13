@@ -816,6 +816,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-di-breve-durata-canton-berna': { it: 'permesso-l-di-breve-durata-canton-berna', en: 'permesso-l-of-short-duration-canton-berna', de: 'ermessigung-l-von-kurzer-dauer-kanton-bern', fr: 'permis-l-de-breve-duree-canton-de-bour-enne' },
  'medicina-genetica-in-svizzera': { it: 'medicina-genetica-in-svizzera', en: 'genetic-medicine-in-switzerland', de: 'genetische-medizin-in-schweiz', fr: 'medecine-genetique-en-suisse' },
  'assegni-familiari-canton-berna': { it: 'assegni-familiari-canton-berna', en: 'family-allowance-canton-berne', de: 'familienbeihilfe-kanton-berner', fr: 'allocations-familiales-canton-de-berner' },
+ 'inizia-servizio-civico-ricorsi-irricevibili': { it: 'inizia-servizio-civico-ricorsi-irricevibili', en: 'inizia-servizio-civico-ricorsi-irricevibili-en', de: 'inizia-servizio-civico-ricorsi-irricevibili-de', fr: 'inizia-servizio-civico-ricorsi-irricevibili-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

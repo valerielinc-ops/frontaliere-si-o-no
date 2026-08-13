@@ -2371,6 +2371,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-berna.title': 'Family allowances in the Canton of Bern: amounts and application',
     'blog.article.assegni-familiari-canton-berna.excerpt': 'Family allowances in the Canton of Bern are administered by the cantonal administrations and require the submission of an application.',
     'blog.article.assegni-familiari-canton-berna.imageAlt': 'A frontaliere with a child in Lugano',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Civic service initiative, appeals are inadmissible',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'The Federal Court has ruled that appeals filed by supporters of the \'For a Switzerland that engages\' initiative (Civic Service Initiative) are inadmissible.',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'A person votes in a school in Lugano',
 };
 
 export default blogMetaChEn;

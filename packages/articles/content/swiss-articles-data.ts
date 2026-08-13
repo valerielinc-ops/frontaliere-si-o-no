@@ -7111,6 +7111,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'inizia-servizio-civico-ricorsi-irricevibili',
+    category: 'fiscale',
+    date: '2026-08-13T00:00:33.381Z',
+    image: '/images/blog/inizia-servizio-civico-ricorsi-irricevibili.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
