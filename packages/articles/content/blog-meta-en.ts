@@ -9857,6 +9857,20 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.logistica-pallet-analisi-mercato.title': 'Logistics: EPAL interchange and shadow areas',
     'blog.article.logistica-pallet-analisi-mercato.excerpt': 'The new EPAL pallet law improves interchange, but the second-hand market remains a challenge for traceability and fair competition.',
     'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Pallets in a logistics warehouse in Ticino',
+    'blog.article.lallarme-di-coldiretti-varese.title': 'Fuels over 2 euros: the alarm for businesses and families',
+    'blog.article.lallarme-di-coldiretti-varese.excerpt': 'The run of gasoline and diesel over the threshold of two euros per liter produces an effect that is transferred from the pump to the fields, farms and the entire agri-food chain.',
+    'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Fuel is essential for tractors, mowers, animal and fodder transport vehicles, refrigerated vans, deliveries, and market participation.',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'The Varese Guardia di Finanza discovers black and irregular workers',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'The Varese Guardia di Finanza discovered over 50 black workers and 10 irregular workers during the summer checks',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
+    'blog.article.bollettino-frontaliere-2026-08-13.title': 'Cross-border daily brief – August 13, 2026: 901 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-13.excerpt': 'Today\'s numbers, August 13, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'The day\'s numbers for cross-border commuters – August 13, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Cross-border brief, August 13, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'The numbers for August 13, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.banca-cler-utili-aumento.title': 'Banca Cler: profits up in the first half of the year',
+    'blog.article.banca-cler-utili-aumento.excerpt': 'Banca Cler: profits increased by 21% in the first half of the year. Revenues increased by 7% to CHF 137 million.',
+    'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
 };
 
 export default blogMetaEn;

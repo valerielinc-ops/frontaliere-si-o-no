@@ -66761,6 +66761,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lallarme-di-coldiretti-varese': {
+    title: 'Carburanti oltre 2 euro: l\'allarme per imprese e famiglie',
+    description: 'La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all\'intera',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, oltre, euro, allarme',
+    ogTitle: 'L\'allarme di Coldiretti Varese: Carburanti oltre i 2 euro: aumentano i costi per imprese agricole e famiglie',
+    ogDescription: 'La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all\'intera filiera agroalimentare.',
+    canonicalPath: '/articoli-frontaliere/lallarme-di-coldiretti-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti oltre 2 euro: l'allarme per imprese e famiglie",
+      "description": "La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all'intera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lallarme-di-coldiretti-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il carburante è indispensabile per trattori, falciatrici, mezzi destinati al trasporto degli animali e del foraggio, furgoni refrigerati, consegne e partecipazione ai mercati."
+      },
+      "datePublished": "2026-08-13T05:36:26+00:00",
+      "dateModified": "2026-08-13T05:36:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lallarme-di-coldiretti-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero': {
+    title: 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari',
+    description: 'La Guardia di Finanza di Varese ha scoperto oltre 50 lavoratori in nero e 10 lavoratori irregolari durante i controlli estivi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, guardia, finanza, varese, scopre',
+    ogTitle: 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari',
+    ogDescription: 'La Guardia di Finanza di Varese ha scoperto oltre 50 lavoratori in nero e 10 lavoratori irregolari durante i controlli estivi',
+    canonicalPath: '/articoli-frontaliere/la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari",
+      "description": "La Guardia di Finanza di Varese ha scoperto oltre 50 lavoratori in nero e 10 lavoratori irregolari durante i controlli estivi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi"
+      },
+      "datePublished": "2026-08-13T05:49:12+00:00",
+      "dateModified": "2026-08-13T05:49:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-13': {
+    title: 'Bollettino del frontaliere – 13 agosto 2026: 901 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 13 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 13 agosto 2026: 901 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 13 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-13',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 13 agosto 2026: 901 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 13 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-13.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 13 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-13T06:19:44+00:00",
+      "dateModified": "2026-08-13T06:19:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-13/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-banca-cler-utili-aumento': {
+    title: 'Banca Cler: utili in aumento nel primo semestre',
+    description: 'Banca Cler: utili in aumento del 21% nel primo semestre. Ricavi saliti del 7% a 137 milioni di franchi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banca, cler, utili, aumento',
+    ogTitle: 'Banca Cler: utili in aumento nel primo semestre',
+    ogDescription: 'Banca Cler: utili in aumento del 21% nel primo semestre. Ricavi saliti del 7% a 137 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/banca-cler-utili-aumento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banca Cler: utili in aumento nel primo semestre",
+      "description": "Banca Cler: utili in aumento del 21% nel primo semestre. Ricavi saliti del 7% a 137 milioni di franchi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banca-cler-utili-aumento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banca Cler, Lugano"
+      },
+      "datePublished": "2026-08-13T06:45:05+00:00",
+      "dateModified": "2026-08-13T06:45:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banca-cler-utili-aumento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

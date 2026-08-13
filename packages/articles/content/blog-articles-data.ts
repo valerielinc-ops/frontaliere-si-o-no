@@ -29559,6 +29559,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lallarme-di-coldiretti-varese',
+ category: 'fiscale',
+ date: '2026-08-13T05:36:26.646Z',
+ image: '/images/blog/lallarme-di-coldiretti-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero',
+ category: 'pratico',
+ date: '2026-08-13T05:49:12.461Z',
+ image: '/images/blog/la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-08-13',
+ category: 'novita',
+ date: '2026-08-13T06:19:44.871Z',
+ image: '/images/blog/bollettino-frontaliere-2026-08-13.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
+ {
+ id: 'banca-cler-utili-aumento',
+ category: 'fiscale',
+ date: '2026-08-13T06:45:05.559Z',
+ image: '/images/blog/banca-cler-utili-aumento.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

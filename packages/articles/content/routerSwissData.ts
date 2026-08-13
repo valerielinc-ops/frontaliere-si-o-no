@@ -848,6 +848,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-berna-guida-mutuo': { it: 'comprare-casa-berna-guida-mutuo', en: 'buying-house-canton-bern-prices-mortgage', de: 'haus-kaufen-kanton-bern-preise-hypothek', fr: 'acheter-maison-canton-berne-prix-hypotheque' },
  'gianotti-delegata-geneva-ai-summit-2027': { it: 'gianotti-delegata-geneva-ai-summit-2027', en: 'gianotti-delegated-geneva-ai-summit-2027', de: 'gianotti-beauftragte-geneva-ai-summit-2027', fr: 'gianotti-deleguee-geneve-ai-summit-2027' },
  'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario': { it: 'comprare-casa-canton-berna-prezzi-e-mutuo-ipotecario', en: 'buy-house-canton-berne', de: 'kaufen-haus-kanton-bern', fr: 'acheter-maison-canton-berne' },
+ 'sconti-farmaci-vigilanza-poco-efficace': { it: 'sconti-farmaci-vigilanza-poco-efficace', en: 'sconti-farmaci-vigilanza-poco-efficace-en', de: 'sconti-farmaci-vigilanza-poco-efficace-de', fr: 'sconti-farmaci-vigilanza-poco-efficace-fr' },
+ 'eclissi-solare-studi': { it: 'eclissi-solare-studi', en: 'studying-solar-eclipse', de: 'sonnenfinsternis-studium', fr: 'etude-de-l-eclipse-solaire' },
+ 'tram-treno-aggiudicato-appalto': { it: 'tram-treno-aggiudicato-appalto', en: 'tram-train-awarded-contract', de: 'tram-zug-vergeben-vertrag', fr: 'tram-train-contrat-attribue' },
+ 'elvis-presley-padre-biologico': { it: 'elvis-presley-padre-biologico', en: 'elvis-presley-biological-father', de: 'elvis-presley-biologischer-vater', fr: 'elvis-presley-pere-biologique' },
+ 'mucche-svizzere-canica': { it: 'mucche-svizzere-canica', en: 'swiss-cows-heatwave', de: 'schweizer-kuhe-hitzewelle', fr: 'vaches-suisses-canicule' },
+ 'mercati-affitti-cantone-berna': { it: 'mercati-affitti-cantone-berna', en: 'rental-market-canton-of-bern', de: 'mietmarkt-kanton-bern', fr: 'marche-locatif-canton-de-berne' },
+ 'sconti-farmaci-pazienti': { it: 'sconti-farmaci-pazienti', en: 'swiss-pharmaceutical-discounts-patients', de: 'gespensterrabatte-schweizer-arzneimittel-patienten', fr: 'remises-fantomes-medicaments-suisses-patients' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

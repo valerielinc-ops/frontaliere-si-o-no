@@ -9856,6 +9856,20 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.logistica-pallet-analisi-mercato.title': 'Logistik: der EPAL-Austausch und die Schattenzonen',
     'blog.article.logistica-pallet-analisi-mercato.excerpt': 'Das neue EPAL-Palettengesetz verbessert den Austausch, aber der Gebrauchtmarkt bleibt eine Herausforderung für die Rückverfolgbarkeit und den fairen Wettbewerb.',
     'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Paletten in einem Logistiklager im Tessin',
+    'blog.article.lallarme-di-coldiretti-varese.title': 'Treibstoffe über 2 Euro: der Alarm für Unternehmen und Familien',
+    'blog.article.lallarme-di-coldiretti-varese.excerpt': 'Die Fahrt von Benzin und Diesel über die Schwelle von zwei Euro pro Liter erzeugt einen Effekt, der von der Pumpe auf die Felder, die Viehzucht und die gesamte Lebensmittelkette übertragen wird.',
+    'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Der Kraftstoff ist für Traktoren, Mähdrescher, Transportfahrzeuge für Tiere und Futter, Kühllieferwagen, Lieferungen und Marktteilnahme unverzichtbar.',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'Die Finanzpolizei von Varese entdeckt Schwarzarbeiter und irreguläre Arbeiter',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'Die Finanzpolizei von Varese hat während der Sommerkontrollen mehr als 50 Schwarzarbeiter und 10 irreguläre Arbeiter entdeckt',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
+    'blog.article.bollettino-frontaliere-2026-08-13.title': 'Grenzgänger-Tagesbulletin – 13. August 2026: 901 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-13.excerpt': 'Die Zahlen von heute, 13. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 13. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Grenzgänger-Bulletin vom 13. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'Die Zahlen vom 13. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.banca-cler-utili-aumento.title': 'Bank Cler: Gewinnsteigerung im ersten Halbjahr',
+    'blog.article.banca-cler-utili-aumento.excerpt': 'Bank Cler: Gewinn im ersten Halbjahr um 21% gestiegen. Die Erträge stiegen um 7% auf 137 Millionen Franken.',
+    'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
 };
 
 export default blogMetaDe;

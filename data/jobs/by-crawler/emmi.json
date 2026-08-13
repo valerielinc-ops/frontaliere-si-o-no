@@ -5884,19 +5884,31 @@
         "hr-business-partner-emmi-ch",
         "hr-business-partner-emmi-ch-cpchgd",
         "partenaire-d-affaires-rh-emmi-bischofszell-thurgau",
-        "partenaire-operationnel-rh-emmi-bischofszell-thurgau"
+        "partenaire-operationnel-rh-emmi-bischofszell-thurgau",
+        "partner-commerciale-delle-risorse-umane-emmi-bischofszell",
+        "risorse-umane-business-partner-in-emmi-suhr",
+        "hr-business-partner-in-emmi-ch",
+        "ressources-humaines-business-partner-in-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "partner-commerciale-delle-risorse-umane-emmi-bischofszell-cpchgd",
-          "hr-business-partner-emmi-ch"
+          "hr-business-partner-emmi-ch",
+          "partner-commerciale-delle-risorse-umane-emmi-bischofszell",
+          "risorse-umane-business-partner-in-emmi-suhr",
+          "hr-business-partner-in-emmi-ch",
+          "ressources-humaines-business-partner-in-emmi-suhr"
         ],
         "de": [
           "hr-business-partner-emmi-ch-cpchgd"
         ],
         "fr": [
           "partenaire-d-affaires-rh-emmi-bischofszell-thurgau",
-          "partenaire-operationnel-rh-emmi-bischofszell-thurgau"
+          "partenaire-operationnel-rh-emmi-bischofszell-thurgau",
+          "ressources-humaines-business-partner-in-emmi-suhr"
+        ],
+        "en": [
+          "hr-business-partner-in-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-07-21T23:21:56.586Z",
@@ -6446,13 +6458,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
-        "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern"
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
-          "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern"
+          "senior-product-manager-kategorie-expertise-analytik-emmi-ch"
         ],
         "en": [
           "senior-product-manager-kategorie-expertise-analytik-emmi-ch"
@@ -8704,9 +8714,9 @@
       "id": "emmi-c0878be9ff66",
       "slug": "test-leader-in-microbiologia-emmi-emmen-luzern",
       "slugByLocale": {
-        "de": "prufleiter-in-mikrobiologie-emmi-ch",
         "it": "test-leader-in-microbiologia-emmi-emmen-luzern",
         "en": "test-leader-in-microbiology-emmi-emmen-luzern",
+        "de": "prufleiter-in-mikrobiologie-emmi-ch",
         "fr": "leader-du-test-en-microbiologie-emmi-emmen-luzern"
       },
       "company": "Emmi",
@@ -8885,9 +8895,9 @@
       "id": "emmi-f86709a44ab4",
       "slug": "operatore-di-sistema-negli-impianti-di-imbottigliamento-emmi-dagmersellen-luzern",
       "slugByLocale": {
-        "de": "anlagenfuhrer-in-abfullanlagen-emmi-ch",
         "it": "operatore-di-sistema-negli-impianti-di-imbottigliamento-emmi-dagmersellen-luzern",
         "en": "system-operator-in-bottling-plants-emmi-dagmersellen-luzern",
+        "de": "anlagenfuhrer-in-abfullanlagen-emmi-ch",
         "fr": "operateur-de-reseau-dans-les-usines-d-embouteillage-emmi-dagmersellen-luzern"
       },
       "company": "Emmi",
@@ -9031,13 +9041,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-transporthilfsmittel-emmi-ch",
-          "sachbearbeiter-in-transporthilfsmittel-emmi-suhr"
+          "sachbearbeiter-in-transporthilfsmittel-emmi-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-transporthilfsmittel-emmi-ch",
-        "sachbearbeiter-in-transporthilfsmittel-emmi-suhr"
+        "sachbearbeiter-in-transporthilfsmittel-emmi-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9055,12 +9063,12 @@
     },
     {
       "id": "emmi-d146547cfa6a",
-      "slug": "anlagenfuhrer-in-convenience-2-emmi-ch",
+      "slug": "manager-in-convenienza-2-emmi-kirchberg-bern",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-convenience-2-emmi-ch",
-        "it": "anlagenfuhrer-in-convenience-2-emmi-ch",
-        "en": "anlagenfuhrer-in-convenience-2-emmi-ch",
-        "fr": "anlagenfuhrer-in-convenience-2-emmi-ch"
+        "it": "manager-in-convenienza-2-emmi-kirchberg-bern",
+        "en": "manager-in-convenience-2-emmi-kirchberg-bern",
+        "fr": "gestionnaire-en-pratique-2-emmi-kirchberg-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -9068,16 +9076,16 @@
       "title": "Anlagenführer:in Convenience 2",
       "titleByLocale": {
         "de": "Anlagenführer:in Convenience 2",
-        "it": "Anlagenführer:in Convenience 2",
-        "en": "Anlagenführer:in Convenience 2",
-        "fr": "Anlagenführer:in Convenience 2"
+        "it": "Manager: in Convenienza 2",
+        "en": "Manager: in Convenience 2",
+        "fr": "Gestionnaire: en pratique 2"
       },
       "description": "• 燎 Du überwachst und bedienst dir die zugeteilten Produktionsanlagen für unsere leckeren Käse-Spezialitäten.\n\n•  Du bist verantwortlich für die ordentliche Führung der Produktionsrapporte.\n\n•  Durch deine aktive und fokussierte Art erkennst du Optimierungspotential und bringst dich aktiv ins Ideenmanagement mit ein.\n\n• 識 Du bist zuverlässig und hältst daher unsere Qualitäts- und Sicherheitsvorschriften vorbildlich ein. Darüber hinaus setzt du die Vorschriften für Hygiene, Umweltschutz und Unfallverhütung um.\n\n•  Du verarbeitest die Produktionsaufträge nach Vorgaben der Produktionsplanung und rechnest diese genau ab.\n\n•  Du bringst eine abgeschlossene Berufslehre als Anlagenführer:in oder einen vergleichbaren Abschluss in der Lebensmittelindustrie mit (Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n•  Du verfügst über Berufserfahrung in einem produzierenden Industriebetrieb.\n\n•  Du hast ein ausgeprägstes technisches Flair für Maschinen und ein hohes Hygienebewusstsein.\n\n•  Du verfügst über Systemanwenderkenntnisse (Erfahrung mit Warenbewirtschaftungssystemen, SAP).\n\n•  Du bist bereit zu flexiblen Arbeitszeiten (2-3 Schichtbetrieb) zu arbeiten und bist mobil.\n\n•  Du verfügst über verhandlungssichere Deutschkenntnisse.",
       "descriptionByLocale": {
         "de": "• 燎 Du überwachst und bedienst dir die zugeteilten Produktionsanlagen für unsere leckeren Käse-Spezialitäten.\n\n•  Du bist verantwortlich für die ordentliche Führung der Produktionsrapporte.\n\n•  Durch deine aktive und fokussierte Art erkennst du Optimierungspotential und bringst dich aktiv ins Ideenmanagement mit ein.\n\n• 識 Du bist zuverlässig und hältst daher unsere Qualitäts- und Sicherheitsvorschriften vorbildlich ein. Darüber hinaus setzt du die Vorschriften für Hygiene, Umweltschutz und Unfallverhütung um.\n\n•  Du verarbeitest die Produktionsaufträge nach Vorgaben der Produktionsplanung und rechnest diese genau ab.\n\n•  Du bringst eine abgeschlossene Berufslehre als Anlagenführer:in oder einen vergleichbaren Abschluss in der Lebensmittelindustrie mit (Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n•  Du verfügst über Berufserfahrung in einem produzierenden Industriebetrieb.\n\n•  Du hast ein ausgeprägstes technisches Flair für Maschinen und ein hohes Hygienebewusstsein.\n\n•  Du verfügst über Systemanwenderkenntnisse (Erfahrung mit Warenbewirtschaftungssystemen, SAP).\n\n•  Du bist bereit zu flexiblen Arbeitszeiten (2-3 Schichtbetrieb) zu arbeiten und bist mobil.\n\n•  Du verfügst über verhandlungssichere Deutschkenntnisse.",
-        "it": "• 燎 Du überwachst und bedienst dir die zugeteilten Produktionsanlagen für unsere leckeren Käse-Spezialitäten.\n\n•  Du bist verantwortlich für die ordentliche Führung der Produktionsrapporte.\n\n•  Durch deine aktive und fokussierte Art erkennst du Optimierungspotential und bringst dich aktiv ins Ideenmanagement mit ein.\n\n• 識 Du bist zuverlässig und hältst daher unsere Qualitäts- und Sicherheitsvorschriften vorbildlich ein. Darüber hinaus setzt du die Vorschriften für Hygiene, Umweltschutz und Unfallverhütung um.\n\n•  Du verarbeitest die Produktionsaufträge nach Vorgaben der Produktionsplanung und rechnest diese genau ab.\n\n•  Du bringst eine abgeschlossene Berufslehre als Anlagenführer:in oder einen vergleichbaren Abschluss in der Lebensmittelindustrie mit (Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n•  Du verfügst über Berufserfahrung in einem produzierenden Industriebetrieb.\n\n•  Du hast ein ausgeprägstes technisches Flair für Maschinen und ein hohes Hygienebewusstsein.\n\n•  Du verfügst über Systemanwenderkenntnisse (Erfahrung mit Warenbewirtschaftungssystemen, SAP).\n\n•  Du bist bereit zu flexiblen Arbeitszeiten (2-3 Schichtbetrieb) zu arbeiten und bist mobil.\n\n•  Du verfügst über verhandlungssichere Deutschkenntnisse.",
-        "en": "• 燎 Du überwachst und bedienst dir die zugeteilten Produktionsanlagen für unsere leckeren Käse-Spezialitäten.\n\n•  Du bist verantwortlich für die ordentliche Führung der Produktionsrapporte.\n\n•  Durch deine aktive und fokussierte Art erkennst du Optimierungspotential und bringst dich aktiv ins Ideenmanagement mit ein.\n\n• 識 Du bist zuverlässig und hältst daher unsere Qualitäts- und Sicherheitsvorschriften vorbildlich ein. Darüber hinaus setzt du die Vorschriften für Hygiene, Umweltschutz und Unfallverhütung um.\n\n•  Du verarbeitest die Produktionsaufträge nach Vorgaben der Produktionsplanung und rechnest diese genau ab.\n\n•  Du bringst eine abgeschlossene Berufslehre als Anlagenführer:in oder einen vergleichbaren Abschluss in der Lebensmittelindustrie mit (Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n•  Du verfügst über Berufserfahrung in einem produzierenden Industriebetrieb.\n\n•  Du hast ein ausgeprägstes technisches Flair für Maschinen und ein hohes Hygienebewusstsein.\n\n•  Du verfügst über Systemanwenderkenntnisse (Erfahrung mit Warenbewirtschaftungssystemen, SAP).\n\n•  Du bist bereit zu flexiblen Arbeitszeiten (2-3 Schichtbetrieb) zu arbeiten und bist mobil.\n\n•  Du verfügst über verhandlungssichere Deutschkenntnisse.",
-        "fr": "• 燎 Du überwachst und bedienst dir die zugeteilten Produktionsanlagen für unsere leckeren Käse-Spezialitäten.\n\n•  Du bist verantwortlich für die ordentliche Führung der Produktionsrapporte.\n\n•  Durch deine aktive und fokussierte Art erkennst du Optimierungspotential und bringst dich aktiv ins Ideenmanagement mit ein.\n\n• 識 Du bist zuverlässig und hältst daher unsere Qualitäts- und Sicherheitsvorschriften vorbildlich ein. Darüber hinaus setzt du die Vorschriften für Hygiene, Umweltschutz und Unfallverhütung um.\n\n•  Du verarbeitest die Produktionsaufträge nach Vorgaben der Produktionsplanung und rechnest diese genau ab.\n\n•  Du bringst eine abgeschlossene Berufslehre als Anlagenführer:in oder einen vergleichbaren Abschluss in der Lebensmittelindustrie mit (Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n•  Du verfügst über Berufserfahrung in einem produzierenden Industriebetrieb.\n\n•  Du hast ein ausgeprägstes technisches Flair für Maschinen und ein hohes Hygienebewusstsein.\n\n•  Du verfügst über Systemanwenderkenntnisse (Erfahrung mit Warenbewirtschaftungssystemen, SAP).\n\n•  Du bist bereit zu flexiblen Arbeitszeiten (2-3 Schichtbetrieb) zu arbeiten und bist mobil.\n\n•  Du verfügst über verhandlungssichere Deutschkenntnisse."
+        "it": "• 燎 Verrai monitorato e utilizzerai le strutture di produzione assegnate per le nostre deliziose specialità di formaggio.\n\n•  Siete responsabili della corretta gestione dei rapporti di produzione.\n\n•  Attraverso la vostra natura attiva e focalizzata, riconoscete il potenziale di ottimizzazione e partecipate attivamente alla gestione delle idee.\n\n• 識 Siete affidabili e quindi attenersi alle nostre normative di qualità e sicurezza in modo esemplare. Inoltre, si implementano le normative per l'igiene, la protezione ambientale e la prevenzione degli incidenti.\n\n•  Elabori gli ordini di produzione secondo le specifiche della pianificazione di produzione e li calcoli esattamente.\n\n•  Porti un apprendistato completato come gestore di impianti:in o un grado paragonabile nell'industria alimentare (baker:in, macellaio:in, cuoco/chef, ecc.).\n\n•  Hai esperienza professionale in un'azienda industriale di produzione.\n\n•  Hai un forte tocco tecnico per le macchine e un alto livello di consapevolezza dell'igiene.\n\n•  Hai conoscenza dell'utente del sistema (esperienza con i sistemi di gestione dei beni, SAP).\n\n•  Siete pronti a lavorare ore di lavoro flessibili (2-3 turni) e sono mobili.\n\n•  Hai una conoscenza affidabile del tedesco.",
+        "en": "• 燎 You will monitor and use the assigned production facilities for our delicious cheese specialties.\n\n•  You are responsible for the proper management of the production reports.\n\n•  Through your active and focused nature, you recognize optimization potential and actively participate in idea management.\n\n• 識 You are reliable and therefore adhere to our quality and safety regulations in an exemplary manner. In addition, you implement the regulations for hygiene, environmental protection and accident prevention.\n\n•  You process the production orders according to the specifications of the production planning and calculate them exactly.\n\n•  You bring a completed apprenticeship as a plant manager:in or a comparable degree in the food industry (baker:in, butcher:in, cook/chef, etc.).\n\n•  You have professional experience in a manufacturing industrial company.\n\n•  You have a strong technical flair for machines and a high level of hygiene awareness.\n\n•  You have system user knowledge (experience with goods management systems, SAP).\n\n•  You are ready to work flexible working hours (2-3 shifts) and are mobile.\n\n•  You have a reliable knowledge of German.",
+        "fr": "• Vous surveillerez et utiliserez les installations de production assignées pour nos délicieuses spécialités de fromage.\n\n• Vous êtes responsable de la bonne gestion des rapports de production.\n\n• Par votre nature active et ciblée, vous reconnaissez le potentiel d'optimisation et participez activement à la gestion des idées.\n\n• Vous êtes fiable et respectez donc nos règles de qualité et de sécurité de manière exemplaire. En outre, vous appliquez les règlements en matière d'hygiène, de protection de l'environnement et de prévention des accidents.\n\n• Vous traitez les commandes de production selon les spécifications de la planification de production et les calculez exactement.\n\n• Vous apportez un apprentissage terminé en tant que directeur d'usine: dans ou un diplôme comparable dans l'industrie alimentaire (baker:in, boucher:in, cuisine/chef, etc.).\n\n• Vous avez une expérience professionnelle dans une entreprise industrielle de fabrication.\n\n• Vous avez un fort style technique pour les machines et un haut niveau de sensibilisation à l'hygiène.\n\n• Vous avez des connaissances utilisateur système (expérience avec les systèmes de gestion des biens, SAP).\n\n• Vous êtes prêt à travailler des heures de travail flexibles (2-3 quarts) et sont mobiles.\n\n• Vous avez une connaissance fiable de l'allemand."
       },
       "location": "Kirchberg, Bern",
       "canton": "BE",
@@ -9130,7 +9138,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:21:39.546Z"
+      "firstSeenAt": "2026-08-12T22:21:39.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-convenience-2-emmi-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-convenience-2-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-convenience-2-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-convenience-2-emmi-ch"
+      ]
     },
     {
       "id": "emmi-fb4029da723e",

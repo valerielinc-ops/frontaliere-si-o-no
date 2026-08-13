@@ -426,15 +426,15 @@
       "crawledAt": "2026-08-12T22:08:46.041Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "fr": [
-          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
-        ],
         "it": [
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "en": [
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+        ],
+        "fr": [
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ]
@@ -505,12 +505,12 @@
       "crawledAt": "2026-08-12T22:08:45.254Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "it": [
+          "informatiker-in-zermatt-zermatt-bergbahnen"
+        ],
         "en": [
           "informatiker-in-zermatt-zermatt-bergbahnen",
           "informatiker-in-zermatt-bergbahnen-zermatt"
-        ],
-        "it": [
-          "informatiker-in-zermatt-zermatt-bergbahnen"
         ],
         "fr": [
           "informatiker-in-zermatt-zermatt-bergbahnen",
@@ -521,9 +521,6 @@
       "previousSlugs": [
         "informatiker-in-zermatt-zermatt-bergbahnen",
         "informaticien-ne-zermatt-bergbahnen-zermatt",
-        "computer-scientist-zermatt-bergbahnen-zermatt",
-        "informatique-zermatt-bergbahnen-zermatt",
-        "informatica-zermatt-bergbahnen-zermatt",
         "informatiker-in-zermatt-bergbahnen-zermatt"
       ],
       "firstSeenAt": "2026-07-11T10:52:24.845Z",

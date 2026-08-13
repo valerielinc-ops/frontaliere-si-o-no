@@ -31958,6 +31958,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sconti-farmaci-vigilanza-poco-efficace': {
+    title: 'Sconti sui farmaci, la vigilanza è poco efficace',
+    description: 'L\'Ufficio federale della sanità pubblica (UFSP) non fa uso di tutti gli strumenti a disposizione per la sorveglianza del mercato dei farmaci. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconti, farmaci, vigilanza, poco',
+    ogTitle: 'Sconti sui farmaci, la vigilanza è poco efficace',
+    ogDescription: 'L\'Ufficio federale della sanità pubblica (UFSP) non fa uso di tutti gli strumenti a disposizione per la sorveglianza del mercato dei farmaci.',
+    canonicalPath: '/articoli-svizzera/sconti-farmaci-vigilanza-poco-efficace/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sconti sui farmaci, la vigilanza è poco efficace",
+      "description": "L'Ufficio federale della sanità pubblica (UFSP) non fa uso di tutti gli strumenti a disposizione per la sorveglianza del mercato dei farmaci. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sconti-farmaci-vigilanza-poco-efficace.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che cerca di risparmiare sui farmaci in Svizzera"
+      },
+      "datePublished": "2026-08-13T05:26:59+00:00",
+      "dateModified": "2026-08-13T05:26:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sconti-farmaci-vigilanza-poco-efficace/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eclissi-solare-studi': {
+    title: 'La scienza studia l\'eclissi solare | Frontaliere Ticino',
+    description: 'Gli scienziati utilizzano l\'eclissi solare per comprendere meglio l\'atmosfera del Sole. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scienza, studia, eclissi, solare',
+    ogTitle: 'La scienza studia l\'eclissi solare',
+    ogDescription: 'Gli scienziati utilizzano l\'eclissi solare per comprendere meglio l\'atmosfera del Sole.',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-studi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La scienza studia l'eclissi solare",
+      "description": "Gli scienziati utilizzano l'eclissi solare per comprendere meglio l'atmosfera del Sole. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-studi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'eclissi solare vista dal Ticino"
+      },
+      "datePublished": "2026-08-13T05:32:19+00:00",
+      "dateModified": "2026-08-13T05:32:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-studi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tram-treno-aggiudicato-appalto': {
+    title: 'Tram-treno, aggiudicato un appalto da 8,6 milioni',
+    description: 'Il Consorzio Bosciorina ha vinto l\'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tram-treno, aggiudicato, appalto, milioni',
+    ogTitle: 'Tram-treno, aggiudicato un appalto da 8,6 milioni',
+    ogDescription: 'Il Consorzio Bosciorina ha vinto l\'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno.',
+    canonicalPath: '/articoli-svizzera/tram-treno-aggiudicato-appalto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tram-treno, aggiudicato un appalto da 8,6 milioni",
+      "description": "Il Consorzio Bosciorina ha vinto l'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tram-treno-aggiudicato-appalto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un treno che passa attraverso il paesaggio ticinese."
+      },
+      "datePublished": "2026-08-13T05:39:24+00:00",
+      "dateModified": "2026-08-13T05:39:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tram-treno-aggiudicato-appalto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-elvis-presley-padre-biologico': {
+    title: 'Credo che Elvis Presley sia mio padre: quattro anni alla ricerca della verità',
+    description: 'Una donna svizzera cerca di scoprire se il padre biologico sia Elvis Presley. Ha passato quattro anni a cercare indizi e documenti, ma non ha ancora trovato',
+    keywords: 'frontalieri, ticino, svizzera, italia, credo, elvis, presley, padre',
+    ogTitle: 'Credo che Elvis Presley sia mio padre: quattro anni alla ricerca della verità',
+    ogDescription: 'Una donna svizzera cerca di scoprire se il padre biologico sia Elvis Presley. Ha passato quattro anni a cercare indizi e documenti, ma non ha ancora trovato la prova definitiva.',
+    canonicalPath: '/articoli-svizzera/elvis-presley-padre-biologico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credo che Elvis Presley sia mio padre: quattro anni alla ricerca della verità",
+      "description": "Una donna svizzera cerca di scoprire se il padre biologico sia Elvis Presley. Ha passato quattro anni a cercare indizi e documenti, ma non ha ancora trovato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/elvis-presley-padre-biologico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna cerca di scoprire se il padre biologico sia Elvis Presley"
+      },
+      "datePublished": "2026-08-13T05:43:27+00:00",
+      "dateModified": "2026-08-13T05:43:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elvis-presley-padre-biologico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mucche-svizzere-canica': {
+    title: 'Come le mucche svizzere affrontano la canicola',
+    description: 'Le aziende agricole svizzere stanno cercando di alleviare lo stress da caldo delle mucche con soluzioni innovative. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mucche, svizzere, affrontano, canicola',
+    ogTitle: 'Come le mucche svizzere affrontano la canicola',
+    ogDescription: 'Le aziende agricole svizzere stanno cercando di alleviare lo stress da caldo delle mucche con soluzioni innovative.',
+    canonicalPath: '/articoli-svizzera/mucche-svizzere-canica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come le mucche svizzere affrontano la canicola",
+      "description": "Le aziende agricole svizzere stanno cercando di alleviare lo stress da caldo delle mucche con soluzioni innovative. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mucche-svizzere-canica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mucche svizzere cercano refrigerio all'ombra di un albero durante la canicola estiva."
+      },
+      "datePublished": "2026-08-13T05:55:49+00:00",
+      "dateModified": "2026-08-13T05:55:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mucche-svizzere-canica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercati-affitti-cantone-berna': {
+    title: 'Mercati degli affitti nel Cantone di Berna: canoni medi e diritto di locazione',
+    description: 'Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercati, affitti, cantone, berna',
+    ogTitle: 'Mercati degli affitti nel Cantone di Berna: canoni medi e diritto di locazione',
+    ogDescription: 'Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?',
+    canonicalPath: '/articoli-svizzera/mercati-affitti-cantone-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercati degli affitti nel Cantone di Berna: canoni medi e diritto di locazione",
+      "description": "Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercati-affitti-cantone-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?"
+      },
+      "datePublished": "2026-08-13T06:51:24+00:00",
+      "dateModified": "2026-08-13T06:51:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercati-affitti-cantone-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sconti-farmaci-pazienti': {
+    title: 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
+    description: 'Il Controllo federale finanze boccia la vigilanza dell\'UFSP, sostenendo che gli sconti concessi dall\'industria farmaceutica restano in gran parte nelle tasche',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconti, fantasma, farmaci, miliardi',
+    ogTitle: 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
+    ogDescription: 'Il Controllo federale finanze boccia la vigilanza dell\'UFSP, sostenendo che gli sconti concessi dall\'industria farmaceutica restano in gran parte nelle tasche di medici, ospedali e farmacie, senza tradursi in un reale risparmio per i pazienti',
+    canonicalPath: '/articoli-svizzera/sconti-farmaci-pazienti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti",
+      "description": "Il Controllo federale finanze boccia la vigilanza dell'UFSP, sostenendo che gli sconti concessi dall'industria farmaceutica restano in gran parte nelle tasche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sconti-farmaci-pazienti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti"
+      },
+      "datePublished": "2026-08-13T06:56:00+00:00",
+      "dateModified": "2026-08-13T06:56:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sconti-farmaci-pazienti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

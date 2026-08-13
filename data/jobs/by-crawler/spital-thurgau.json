@@ -5722,16 +5722,16 @@
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik",
-        "en": "Dipl. Pflegefachmann/-frau Forensik",
-        "it": "Dipl. Pflegefachmann/-frau Forensik",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik"
+        "en": "Dipl. Nursing professional forensics",
+        "it": "Dipl. Infermieristica professionale forense",
+        "fr": "Dipl. Services de médecine légale"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "it": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "en": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026"
+        "it": "Dipl. Specialista infermieristica forense — Spital Thurgau (STGAG).\n\n• Ubicazione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (compresa l'ostetrica)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.09.2026",
+        "en": "Dipl. Nursing specialist forensics — Spital Thurgau (STGAG).\n\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (including midwife)\n• Area: Psychiatric Services Thurgau\n• Pensum: full time, part time possible\n• Employment: Permanent\n• Date of entry: 01.09.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers — Spital Thurgau (STGAG).\n\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris la sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.09.2026"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -5761,13 +5761,26 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+          "dipl-pflegefachmann-frau-forensik-stgag-ch",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
+          "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen",
+          "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul"
+        ],
+        "en": [
+          "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
+        "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen",
+        "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6277,26 +6290,54 @@
         "dipl-specialista-di-radiologia-spital-thurgau-stgag-chur",
         "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
         "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-        "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+        "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+        "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
+        "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8",
+        "dipl-radiology-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
+        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dipl-radiologiefachmann-frau-hf-stgag-ch-2",
+        "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dipl-specialista-di-radiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dipl-radiologiefachmann-frau-hf-stgag-ch",
+        "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
+        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8",
+        "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-chur",
-          "dipl-specialista-di-radiologia-spital-thurgau-stgag-chur"
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-chur",
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8",
+          "dipl-radiology-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
+          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-radiologiefachmann-frau-hf-stgag-ch-2",
+          "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-specialista-di-radiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-radiologiefachmann-frau-hf-stgag-ch",
+          "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
+          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8",
+          "dipl-radiologiefachmann-frau-hf-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
-          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+          "dipl-radiology-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "de": [
-          "dipl-radiologiefachfrau-mann-hf-stgag-ch"
+          "dipl-radiologiefachfrau-mann-hf-stgag-ch",
+          "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
         ],
         "fr": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8"
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
@@ -13686,12 +13727,12 @@
     },
     {
       "id": "spital-thurgau-bfd68823e308",
-      "slug": "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch",
+      "slug": "formazione-nel-campo-della-pedagogia-sociale-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch",
-        "it": "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch",
-        "en": "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch",
-        "fr": "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch"
+        "it": "formazione-nel-campo-della-pedagogia-sociale-spital-thurgau-stgag-munsterlingen",
+        "en": "trainees-in-the-field-of-social-pedagogy-spital-thurgau-stgag-munsterlingen",
+        "fr": "stages-dans-le-domaine-de-la-pedagogie-sociale-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13699,16 +13740,16 @@
       "title": "Praktikanten/-in im Fachbereich Sozialpädagogik",
       "titleByLocale": {
         "de": "Praktikanten/-in im Fachbereich Sozialpädagogik",
-        "it": "Praktikanten/-in im Fachbereich Sozialpädagogik",
-        "en": "Praktikanten/-in im Fachbereich Sozialpädagogik",
-        "fr": "Praktikanten/-in im Fachbereich Sozialpädagogik"
+        "it": "Formazione nel campo della pedagogia sociale",
+        "en": "Trainees in the field of social pedagogy",
+        "fr": "Stages dans le domaine de la pédagogie sociale"
       },
       "description": "Praktikanten/-in im Fachbereich Sozialpädagogik — Spital Thurgau (STGAG).\n\n• Standort: Kinder- und Jugendpsychiatrischer Dienst, Münsterlingen\n• Abteilung: Soziale Berufe\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Praktikum\n• Eintrittsdatum: 08.02.2027",
       "descriptionByLocale": {
         "de": "Praktikanten/-in im Fachbereich Sozialpädagogik — Spital Thurgau (STGAG).\n\n• Standort: Kinder- und Jugendpsychiatrischer Dienst, Münsterlingen\n• Abteilung: Soziale Berufe\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Praktikum\n• Eintrittsdatum: 08.02.2027",
-        "it": "Praktikanten/-in im Fachbereich Sozialpädagogik — Spital Thurgau (STGAG).\n\n• Standort: Kinder- und Jugendpsychiatrischer Dienst, Münsterlingen\n• Abteilung: Soziale Berufe\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Praktikum\n• Eintrittsdatum: 08.02.2027",
-        "en": "Praktikanten/-in im Fachbereich Sozialpädagogik — Spital Thurgau (STGAG).\n\n• Standort: Kinder- und Jugendpsychiatrischer Dienst, Münsterlingen\n• Abteilung: Soziale Berufe\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Praktikum\n• Eintrittsdatum: 08.02.2027",
-        "fr": "Praktikanten/-in im Fachbereich Sozialpädagogik — Spital Thurgau (STGAG).\n\n• Standort: Kinder- und Jugendpsychiatrischer Dienst, Münsterlingen\n• Abteilung: Soziale Berufe\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Praktikum\n• Eintrittsdatum: 08.02.2027"
+        "it": "Interni nel campo della pedagogia sociale — Spital Thurgau (STGAG).\n\n• Ubicazione: Servizio psichiatrico infantile e adolescente, Münsterlingen\n• Dipartimento: professioni sociali\n• Area: Servizi psichiatrici Thurgau\n• Pensum: a tempo pieno\n• Occupazione: tirocinio\n• Data di entrata: 08.02.2027",
+        "en": "Interns in the field of social pedagogy — Spital Thurgau (STGAG).\n\n• Location: Child and adolescent psychiatric service, Münsterlingen\n• Department: Social professions\n• Area: Psychiatric Services Thurgau\n• Pensum: Full-time\n• Employment: Traineeship\n• Date of entry: 08.02.2027",
+        "fr": "Stages dans le domaine de la pédagogie sociale — Spital Thurgau (STGAG).\n\n• Lieu: Service psychiatrique pour enfants et adolescents, Münsterlingen\n• Département: professions sociales\n• Région: Services psychiatriques Thurgau\n• Pensum: Temps plein\n• Emploi: Stage\n• Date d'entrée: 08.02.2027"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -13736,7 +13777,6 @@
       },
       "department": "Soziale Berufe",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -13749,7 +13789,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:08:27.229Z"
+      "firstSeenAt": "2026-08-12T22:08:27.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch"
+        ],
+        "en": [
+          "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch"
+        ],
+        "fr": [
+          "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikanten-in-im-fachbereich-sozialpadagogik-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-7782a0497fd6",
@@ -13998,8 +14052,8 @@
       "slugByLocale": {
         "de": "leiter-in-empfang-stgag-ch",
         "it": "responsabile-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "leiter-in-empfang-stgag-ch",
-        "fr": "leiter-in-empfang-stgag-ch"
+        "en": "head-in-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "tete-a-la-reception-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14008,15 +14062,15 @@
       "titleByLocale": {
         "de": "Leiter/-in Empfang",
         "it": "Responsabile Empfang",
-        "en": "Leiter/-in Empfang",
-        "fr": "Leiter/-in Empfang"
+        "en": "Head/in reception",
+        "fr": "Tête/à la réception"
       },
       "description": "Leiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Hotellerie\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
       "descriptionByLocale": {
         "de": "Leiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Hotellerie\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
-        "it": "Leiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Hotellerie\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
-        "en": "Leiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Hotellerie\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026",
-        "fr": "Leiter/-in Empfang — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Hotellerie\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.10.2026"
+        "it": "Direttore/in reception – Spital Thurgau (STGAG).\n\n• Posizione: Ospedale cantonale Frauenfeld\n• Dipartimento: Alberghi\n• Divisione: Spital Thurgau AG\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.10.2026",
+        "en": "Director/in reception – Spital Thurgau (STGAG).\n\n• Location: Cantonal Hospital Frauenfeld\n• Department: Hotels\n• Division: Spital Thurgau AG\n• Pensum: full time, part time possible\n• Employment: Permanent\n• Date of entry: 01.10.2026",
+        "fr": "Directeur/à la réception – Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département: Hôtels\n• Division: Spital Thurgau AG\n• Pensum: temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.10.2026"
       },
       "location": "Kantonsspital Frauenfeld",
       "canton": "TG",
@@ -14047,6 +14101,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-empfang-stgag-ch"
+        ],
+        "en": [
+          "leiter-in-empfang-stgag-ch"
+        ],
+        "fr": [
           "leiter-in-empfang-stgag-ch"
         ]
       },
