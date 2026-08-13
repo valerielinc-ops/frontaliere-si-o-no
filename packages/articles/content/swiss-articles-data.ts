@@ -7138,6 +7138,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'eclissi-solare-cardada',
+    category: 'novita',
+    date: '2026-08-13T00:29:04.119Z',
+    image: '/images/blog/eclissi-solare-cardada.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

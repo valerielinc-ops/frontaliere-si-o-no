@@ -2380,6 +2380,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Dürre in der Schweiz: Rösti schliesst Dringlichkeits- und Bundesmassnahmen aus',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'Der Bundesrat überwacht die Dürre und das Wasserdefizit um 46%, schliesst den Ausnahmezustand vorerst aus und überlässt die Entscheide den Kantonen.',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Schweizer Landschaft von Dürre betroffen mit niedrigen Wasserständen',
+    'blog.article.eclissi-solare-cardada.title': 'Sonnenfinsternis in Cardada: zweihundert verzauberte Menschen',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Zweihundert Menschen reisten nach Cardada, um die Sonnenfinsternis vom 12. August 2026 mit einer partiellen Sonnenfinsternis von 91% zu beobachten.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Zweihundert Menschen bezaubert von der Sonnenfinsternis an Cardada',
 };
 
 export default blogMetaChDe;
