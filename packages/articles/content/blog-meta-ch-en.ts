@@ -2461,6 +2461,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-berna-guida-mutuo.title': 'Buying a house in the Canton of Bern: a guide to prices and mortgages',
     'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Discover the key factors for buying a property in the Canton of Bern: sustainability of the mortgage, necessary own funds and management of ancillary expenses.',
     'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Modern residential building in Canton Bern',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Summit on artificial intelligence, Gianotti delegate',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'The Federal Council defined the strategic guidelines of the Geneva Summit and appointed former CERN Director General Fabiola Gianotti as its delegate.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, former director-general of CERN, in a meeting with Swiss government officials, related to the Geneva AI Summit 2027.',
 };
 
 export default blogMetaChEn;

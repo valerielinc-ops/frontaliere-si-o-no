@@ -2461,6 +2461,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-berna-guida-mutuo.title': 'Haus kaufen im Kanton Bern: Preisleitfaden und Hypotheken',
     'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Entdecken Sie die Schlüsselfaktoren für den Kauf einer Immobilie im Kanton Bern: Tragbarkeit der Hypothek, notwendige Eigenmittel und Verwaltung der Nebenkosten.',
     'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Modernes Wohnhaus im Kanton Bern',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.title': 'Gipfel über künstliche Intelligenz, Delegierte Gianotti',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.excerpt': 'Der Bundesrat hat die strategischen Leitlinien des Genfer Gipfels festgelegt und die ehemalige CERN-Generaldirektorin Fabiola Gianotti zu seiner Delegierten ernannt.',
+    'blog.article.gianotti-delegata-geneva-ai-summit-2027.imageAlt': 'Fabiola Gianotti, ehemalige Direktorin des CERN, in einer Besprechung mit Schweizer Regierungsbeamten, verbunden mit dem Geneva AI Summit 2027.',
 };
 
 export default blogMetaChDe;
