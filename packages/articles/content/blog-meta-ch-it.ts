@@ -2434,6 +2434,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salute-sessuale-ticino.title': 'Salute sessuale in Ticino',
     'blog.article.salute-sessuale-ticino.excerpt': 'Informazioni e attualità sulla salute sessuale nel Canton Ticino, con focus su rubriche dedicate e temi correlati.',
     'blog.article.salute-sessuale-ticino.imageAlt': 'Vista panoramica di Lugano con lago e montagne',
+    'blog.article.borse-studio-berna-guida.title': 'Borse di studio Canton Berna: requisiti e importi',
+    'blog.article.borse-studio-berna-guida.excerpt': 'Guida ufficiale ai contributi per la formazione nel Cantone di Berna: chi ha diritto, come presentare domanda e i criteri di calcolo per gli aiuti finanziari.',
+    'blog.article.borse-studio-berna-guida.imageAlt': 'Palazzo federale a Berna, sede delle istituzioni svizzere',
 };
 
 export default blogMetaChIt;

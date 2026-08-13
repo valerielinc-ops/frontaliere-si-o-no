@@ -7300,6 +7300,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-studio-berna-guida',
+    category: 'pratico',
+    date: '2026-08-13T02:55:37.353Z',
+    image: '/images/blog/borse-studio-berna-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

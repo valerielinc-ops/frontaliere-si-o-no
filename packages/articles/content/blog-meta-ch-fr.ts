@@ -2434,6 +2434,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salute-sessuale-ticino.title': 'Santé sexuelle au Tessin',
     'blog.article.salute-sessuale-ticino.excerpt': 'Informations et actualités sur la santé sexuelle dans le canton du Tessin, en mettant l\'accent sur des rubriques dédiées et des thèmes connexes.',
     'blog.article.salute-sessuale-ticino.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes',
+    'blog.article.borse-studio-berna-guida.title': 'Bourses Canton de Berne : exigences et montants',
+    'blog.article.borse-studio-berna-guida.excerpt': 'Guide officiel des cotisations à la formation dans le canton de Berne : qui y a droit, comment présenter une demande et les critères de calcul des aides financières.',
+    'blog.article.borse-studio-berna-guida.imageAlt': 'Palais fédéral à Berne, siège des institutions suisses',
 };
 
 export default blogMetaChFr;

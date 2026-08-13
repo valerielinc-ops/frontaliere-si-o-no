@@ -2434,6 +2434,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salute-sessuale-ticino.title': 'Sexuelle Gesundheit im Tessin',
     'blog.article.salute-sessuale-ticino.excerpt': 'Informationen und Aktuelles zur sexuellen Gesundheit im Kanton Tessin, mit Schwerpunkt auf speziellen Rubriken und verwandten Themen.',
     'blog.article.salute-sessuale-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.borse-studio-berna-guida.title': 'Stipendien Kanton Bern: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-berna-guida.excerpt': 'Offizieller Leitfaden zu Ausbildungsbeiträgen im Kanton Bern: Wer hat Anspruch, wie beantragt wird und welche Kriterien für die Berechnung von Finanzhilfen gelten.',
+    'blog.article.borse-studio-berna-guida.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Institutionen',
 };
 
 export default blogMetaChDe;
