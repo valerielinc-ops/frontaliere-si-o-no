@@ -2593,6 +2593,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-claro-2026.title': 'In Claro, drought rises to grade 2: new limitations on water use',
     'blog.article.siccita-claro-2026.excerpt': 'Drought rises to grade 2 in Claro, new limitations on water use.',
     'blog.article.siccita-claro-2026.imageAlt': 'A photo of a Swiss lake during a drought.',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.title': 'Heat and drought: triggering crisis mode requires more',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.excerpt': 'The Federal Council refuses to declare the extraordinary situation due to the drought and the heat.',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.imageAlt': 'Lugano, summer, hot, drought.',
 };
 
 export default blogMetaChEn;

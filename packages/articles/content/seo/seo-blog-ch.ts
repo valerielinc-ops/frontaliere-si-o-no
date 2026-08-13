@@ -33596,6 +33596,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caldo-e-siccita-senza-modalita-di-crisi': {
+    title: 'Caldo e siccità: per far scattare la modalità di crisi ci vuole altro',
+    description: 'Il Consiglio federale non ha dichiarato la situazione straordinaria a causa della siccità e del caldo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, caldo, siccità, scattare, modalità',
+    ogTitle: 'Caldo e siccità senza modalità di crisi',
+    ogDescription: 'Il Consiglio federale non ha dichiarato la situazione straordinaria a causa della siccità e del caldo.',
+    canonicalPath: '/articoli-svizzera/caldo-e-siccita-senza-modalita-di-crisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caldo e siccità: per far scattare la modalità di crisi ci vuole altro",
+      "description": "Il Consiglio federale non ha dichiarato la situazione straordinaria a causa della siccità e del caldo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caldo-e-siccita-senza-modalita-di-crisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, estivo, caldo, siccità."
+      },
+      "datePublished": "2026-08-13T21:32:39+00:00",
+      "dateModified": "2026-08-13T21:32:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/caldo-e-siccita-senza-modalita-di-crisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

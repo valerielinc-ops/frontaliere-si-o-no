@@ -7777,6 +7777,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'caldo-e-siccita-senza-modalita-di-crisi',
+    category: 'fiscale',
+    date: '2026-08-13T21:32:39.172Z',
+    image: '/images/blog/caldo-e-siccita-senza-modalita-di-crisi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

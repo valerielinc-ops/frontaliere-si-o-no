@@ -2593,6 +2593,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-claro-2026.title': 'Claro: Siccità auf Grad 2, neue Wasserbeschränkungen',
     'blog.article.siccita-claro-2026.excerpt': 'Die Dürre steigt in Claro auf Grad 2, neue Einschränkungen für die Wassernutzung.',
     'blog.article.siccita-claro-2026.imageAlt': 'Ein Foto eines Schweizer Sees während einer Dürre.',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.title': 'Hitze und Trockenheit: Um den Krisenmodus auszulösen, braucht es mehr',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.excerpt': 'Der Bundesrat verzichtet wegen Trockenheit und Hitze darauf, die ausserordentliche Situation zu erklären.',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.imageAlt': 'Lugano, Sommer, heiß, Dürre.',
 };
 
 export default blogMetaChDe;

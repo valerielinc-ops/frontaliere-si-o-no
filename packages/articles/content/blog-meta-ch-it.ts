@@ -2593,6 +2593,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-claro-2026.title': 'A Claro la siccità sale al grado 2: nuove limitazioni per l\'uso dell\'acqua',
     'blog.article.siccita-claro-2026.excerpt': 'La siccità sale al grado 2 a Claro, nuove limitazioni per l\'uso dell\'acqua.',
     'blog.article.siccita-claro-2026.imageAlt': 'Una foto di un lago svizzero durante una siccità.',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.title': 'Caldo e siccità: per far scattare la modalità di crisi ci vuole altro',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.excerpt': 'Il Consiglio federale rinuncia a dichiarare la situazione straordinaria a causa della siccità e del caldo.',
+    'blog.article.caldo-e-siccita-senza-modalita-di-crisi.imageAlt': 'Lugano, estivo, caldo, siccità.',
 };
 
 export default blogMetaChIt;
