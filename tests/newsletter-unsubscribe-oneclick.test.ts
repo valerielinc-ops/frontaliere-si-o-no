@@ -36,16 +36,31 @@ describe('newsletter unsubscribe — one-click link routes to the Cloud Function
     expect(url).toMatch(/^https:\/\/frontaliereticino\.ch\/\?action=unsubscribe/);
   });
 
-  it('newsletterManageSubscription reads identifiers from the query on POST (one-click works)', () => {
+  it('newsletterManageSubscription reads identifiers from the query on POST (one-click works)', async () => {
     // RFC 8058 one-click POST carries action/email/token in the query string,
     // not the body (the body is only `List-Unsubscribe=One-Click`) — so the
     // function MUST merge the query into POST params or the one-click verifies
     // an empty token (403) and never unsubscribes.
+    //
+    // #5746 moved that merge behind resolveRequestParams so a third source (the
+    // Cloudflare Worker's private-params header) could join it. Asserted on the
+    // resolver's BEHAVIOUR rather than on the shape of the expression, because
+    // the invariant was never the expression: it is that a POST still resolves
+    // what arrived on the query.
+    const { resolveRequestParams } = await import('../functions/src/lib/privateRequestParams.js');
+    const resolved = resolveRequestParams({
+      method: 'POST',
+      query: { action: 'unsubscribe', email: 'user@example.com', token: 'sig' },
+      body: { 'List-Unsubscribe': 'One-Click' },
+      headers: {},
+    });
+    expect(resolved.email).toBe('user@example.com');
+    expect(resolved.token).toBe('sig');
+    expect(resolved.action).toBe('unsubscribe');
+
     const src = fs.readFileSync(path.resolve(__dirname, '../functions/index.js'), 'utf8');
     const handler = src.slice(src.indexOf('export const newsletterManageSubscription'));
-    expect(handler).toMatch(
-      /req\.method === 'GET' \? req\.query : \{\s*\.\.\.req\.query,\s*\.\.\.req\.body\s*\}/,
-    );
+    expect(handler).toContain('resolveRequestParams(req, res)');
   });
 
   it('the locale-router Worker proxies /disiscrivi-newsletter to newsletterManageSubscription (no drift)', () => {

@@ -1316,6 +1316,44 @@ export async function requestWelcomeEmail(
  }
 }
 
+/**
+ * THE ONE TRANSPORT for every newsletterManageSubscription call this file makes
+ * (#5746).
+ *
+ * Cloud Run logs `httpRequest.requestUrl` for every invocation of that function
+ * — the whole URL, query string included — into the `_Default` bucket, where
+ * anybody with `logging.viewer` reads it. Every call below used to put the
+ * address AND the credential on that query string, so the log held the pair:
+ * measured over the seven days to 2026-08-13, 3.131 such requests across the
+ * four newsletter endpoints and 995 distinct real addresses, of which ~89% were
+ * these calls — `exchange_auth_code` alone was 2.720.
+ *
+ * The body is not logged, and this endpoint has merged query and body on POST
+ * since the RFC 8058 one-click work, so the move costs nothing on the server:
+ * `functions/index.js` resolves the same parameters either way. What stays on
+ * the URL is `action` and `format`, deliberately — a request log that cannot say
+ * WHICH action was called is not privacy, it is just a blind spot, and neither
+ * value says anything about a person.
+ *
+ * POST rather than GET for every action, including the reads. The two verb gates
+ * this endpoint has (#5711: `resubscribe`, and the re-opt-in half of
+ * `toggle_newsletter_subscription`/`set_advertising_opt_out`) require POST, so
+ * nothing here loses a capability; and the gates exist to stop a link-following
+ * scanner, which is not what this file is. A caller in this file is a person
+ * pressing a control in the preference centre.
+ *
+ * Returns the raw Response so each caller keeps its own parsing and its own
+ * error strings — this changes how the request travels, not what it means.
+ */
+function postManageSubscription(action: string, payload: Record<string, unknown>): Promise<Response> {
+ const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?action=${encodeURIComponent(action)}&format=json`;
+ return fetch(url, {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify(payload),
+ });
+}
+
 export async function confirmNewsletterSubscription(
  email: string,
  token: string,
@@ -1324,9 +1362,7 @@ export async function confirmNewsletterSubscription(
  const { getLocale } = await import('@/services/i18n');
  const locale = getLocale();
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=confirm&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&locale=${locale}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('confirm', { email: normalizedEmail, token, locale });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return {
@@ -1362,9 +1398,9 @@ export async function exchangeNewsletterAuthCode(
 ): Promise<{ success: boolean; authToken?: string; error?: string; optOutEligible?: boolean }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=exchange_auth_code&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(code)}&format=json`;
- const resp = await fetch(url);
+ // The single biggest contributor to #5746: 2.720 of the 3.131 logged
+ // address+credential pairs in the measured week were this call.
+ const resp = await postManageSubscription('exchange_auth_code', { email: normalizedEmail, token: code });
  const data = await resp.json();
  if (resp.ok && data.success && data.authToken) {
  return { success: true, authToken: data.authToken };
@@ -1403,9 +1439,7 @@ export async function unsubscribeViaCloudFunction(
  try {
  const normalizedEmail = email.toLowerCase().trim();
  if (!normalizedEmail || !credential) return { success: false, error: 'missing_credential' };
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=unsubscribe&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(credential)}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('unsubscribe', { email: normalizedEmail, token: credential });
  const data = await resp.json().catch(() => ({}));
  if (resp.ok && data?.success !== false) return { success: true };
  return { success: false, error: data?.error || `http_${resp.status}` };
@@ -1426,9 +1460,7 @@ export async function getAutologinStatus(
 ): Promise<{ success: boolean; enabled?: boolean; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=get_autologin_status&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('get_autologin_status', { email: normalizedEmail, token });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, enabled: data.enabled !== false };
@@ -1452,9 +1484,11 @@ export async function toggleAutologin(
 ): Promise<{ success: boolean; enabled?: boolean; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=toggle_autologin&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&enabled=${enabled ? 'true' : 'false'}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('toggle_autologin', {
+ email: normalizedEmail,
+ token,
+ enabled: enabled ? 'true' : 'false',
+ });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, enabled: data.enabled === true };
@@ -1483,9 +1517,7 @@ export async function revokeAutologinLinks(
 ): Promise<{ success: boolean; revokedAt?: string; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=revoke_autologin&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('revoke_autologin', { email: normalizedEmail, token });
  const data = await resp.json();
  if (resp.ok && data.success) return { success: true, revokedAt: data.revokedAt };
  return { success: false, error: data.error || 'write_failed' };
@@ -1576,9 +1608,7 @@ export async function getFullSubscriptionStatus(
 ): Promise<FullSubscriptionStatus> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=get_full_status&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('get_full_status', { email: normalizedEmail, token });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return {
@@ -1630,14 +1660,16 @@ export async function toggleNewsletterSubscription(
 ): Promise<{ success: boolean; subscribed?: boolean; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=toggle_newsletter_subscription&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&subscribed=${subscribed ? 'true' : 'false'}&format=json`;
- // POST, not GET, and only because of the re-opt-in direction (#5711): the
+ // POST was already required here by the re-opt-in direction (#5711): the
  // handler refuses `subscribed=true` on a GET so that no state change putting
- // somebody BACK on a list can be produced by following a URL. The params stay
- // on the query string — functions/index.js merges query and body for POST, so
- // this is one verb changing, not a payload move.
- const resp = await fetch(url, { method: 'POST' });
+ // somebody BACK on a list can be produced by following a URL. Since #5746 the
+ // payload rides in the body as well, which is the part the request log does
+ // not see — the verb gate is unaffected, it reads the verb.
+ const resp = await postManageSubscription('toggle_newsletter_subscription', {
+ email: normalizedEmail,
+ token,
+ subscribed: subscribed ? 'true' : 'false',
+ });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, subscribed: data.subscribed === true };
@@ -1663,10 +1695,11 @@ export async function setDailyBriefFrequency(
 ): Promise<{ success: boolean; dailyBriefFrequency?: DailyBriefFrequency | null; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=set_daily_brief_frequency&email=${encodeURIComponent(normalizedEmail)}`
- + `&token=${encodeURIComponent(token)}&daily_brief_frequency=${encodeURIComponent(frequency ?? 'auto')}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('set_daily_brief_frequency', {
+ email: normalizedEmail,
+ token,
+ daily_brief_frequency: frequency ?? 'auto',
+ });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, dailyBriefFrequency: data.dailyBriefFrequency ?? null };
@@ -1701,10 +1734,11 @@ export async function setAdvertisingEnabled(
 ): Promise<{ success: boolean; advertisingEnabled?: boolean; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=set_advertising_opt_out&email=${encodeURIComponent(normalizedEmail)}`
- + `&token=${encodeURIComponent(token)}&advertising_enabled=${enabled ? 'true' : 'false'}&format=json`;
- const resp = await fetch(url, { method: 'POST' });
+ const resp = await postManageSubscription('set_advertising_opt_out', {
+ email: normalizedEmail,
+ token,
+ advertising_enabled: enabled ? 'true' : 'false',
+ });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, advertisingEnabled: data.advertisingEnabled !== false };
@@ -1727,9 +1761,11 @@ export async function deleteJobAlert(
 ): Promise<{ success: boolean; alertId?: string; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
- const url = `${endpoint}?action=delete_alert&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&alert_id=${encodeURIComponent(alertId)}&format=json`;
- const resp = await fetch(url);
+ const resp = await postManageSubscription('delete_alert', {
+ email: normalizedEmail,
+ token,
+ alert_id: alertId,
+ });
  const data = await resp.json();
  if (resp.ok && data.success) {
  return { success: true, alertId: typeof data.alert_id === 'string' ? data.alert_id : alertId };
@@ -1841,27 +1877,29 @@ export async function updateJobAlert(
 ): Promise<{ success: boolean; alert?: JobAlertSummary; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const params = new URLSearchParams();
- params.set('action', 'update_alert');
- params.set('email', normalizedEmail);
- params.set('token', token);
- params.set('alert_id', alertId);
- params.set('format', 'json');
- if (patch.keywords !== undefined) params.set('keywords', patch.keywords.join(','));
- if (patch.locations !== undefined) params.set('locations', patch.locations.join(','));
- if (patch.sectors !== undefined) params.set('sectors', patch.sectors.join(','));
- if (patch.frequency !== undefined) params.set('frequency', patch.frequency);
+ // A plain payload rather than URLSearchParams since #5746 — this travels in the
+ // POST body, which Cloud Run's `httpRequest.requestUrl` does not record. The
+ // per-field conditionals are unchanged, values included: the function reads
+ // them with the same `String(params.x)` either way.
+ const payload: Record<string, unknown> = {
+ email: normalizedEmail,
+ token,
+ alert_id: alertId,
+ };
+ if (patch.keywords !== undefined) payload.keywords = patch.keywords.join(',');
+ if (patch.locations !== undefined) payload.locations = patch.locations.join(',');
+ if (patch.sectors !== undefined) payload.sectors = patch.sectors.join(',');
+ if (patch.frequency !== undefined) payload.frequency = patch.frequency;
  // `in` (not `!== undefined`) so callers can deliberately reset to
  // engine-managed (`false`), not just pin (`true`) — see
  // components/preferences/SubscriptionPreferencesController.tsx.
- if ('frequencyOverride' in patch) params.set('frequency_override', patch.frequencyOverride ? 'true' : 'false');
+ if ('frequencyOverride' in patch) payload.frequency_override = patch.frequencyOverride ? 'true' : 'false';
  // `in` so callers can deliberately resume (`false`), not just pause (`true`).
- if ('paused' in patch) params.set('paused', patch.paused ? 'true' : 'false');
+ if ('paused' in patch) payload.paused = patch.paused ? 'true' : 'false';
  // `in` so callers can deliberately CLEAR the pin by passing `null` (#5012).
- if ('specificCompanyKey' in patch) params.set('specific_company_key', patch.specificCompanyKey || '');
- if ('specificJobId' in patch) params.set('specific_job_id', patch.specificJobId || '');
- const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
- const resp = await fetch(url);
+ if ('specificCompanyKey' in patch) payload.specific_company_key = patch.specificCompanyKey || '';
+ if ('specificJobId' in patch) payload.specific_job_id = patch.specificJobId || '';
+ const resp = await postManageSubscription('update_alert', payload);
  const data = await resp.json();
  if (resp.ok && data.success) {
  return {
@@ -1888,19 +1926,17 @@ export async function createJobAlert(
 ): Promise<{ success: boolean; alert?: JobAlertSummary; error?: string }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
- const params = new URLSearchParams();
- params.set('action', 'create_alert');
- params.set('email', normalizedEmail);
- params.set('token', token);
- params.set('format', 'json');
- params.set('keywords', payload.keywords.join(','));
- params.set('locations', payload.locations.join(','));
- params.set('sectors', payload.sectors.join(','));
- params.set('frequency', payload.frequency);
- if (payload.specificCompanyKey) params.set('specific_company_key', payload.specificCompanyKey);
- if (payload.specificJobId) params.set('specific_job_id', payload.specificJobId);
- const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
- const resp = await fetch(url);
+ const body: Record<string, unknown> = {
+ email: normalizedEmail,
+ token,
+ keywords: payload.keywords.join(','),
+ locations: payload.locations.join(','),
+ sectors: payload.sectors.join(','),
+ frequency: payload.frequency,
+ };
+ if (payload.specificCompanyKey) body.specific_company_key = payload.specificCompanyKey;
+ if (payload.specificJobId) body.specific_job_id = payload.specificJobId;
+ const resp = await postManageSubscription('create_alert', body);
  const data = await resp.json();
  if (resp.ok && data.success) {
  return {
