@@ -7732,6 +7732,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'dopo-3-anni-termina-lo-sciopero-tesla-in-svezia',
+    category: 'fiscale',
+    date: '2026-08-13T19:28:33.340Z',
+    image: '/images/blog/dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

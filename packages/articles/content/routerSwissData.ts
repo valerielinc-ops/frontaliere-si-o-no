@@ -885,6 +885,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patent-canton-bern-conversion-exams': { it: 'patent-canton-bern-conversion-exams', en: 'canton-of-bern-driving-license-conversion-and-exams', de: 'fuehrerschein-kanton-bern-umstellung-und-pruefung', fr: 'permis-de-conduire-canton-de-bourguignon-conversion-et-examen' },
  'patente-guida-berna-conversione': { it: 'patente-guida-berna-conversione', en: 'driving-license-bern-conversion', de: 'fuehrerschein-bern-umschreibung', fr: 'permis-conduire-berne-conversion' },
  'gli-sconti-sui-farmaci-non-vengono-trattenuti': { it: 'gli-sconti-sui-farmaci-non-vengono-trattenuti', en: 'the-discounts-on-medicines-are-not-being-held-back', de: 'die-rabatte-auf-medikamente-werden-nicht-zuruckgehalten', fr: 'les-rebates-sur-medicaments-ne-sont-pas-retenus' },
+ 'dopo-3-anni-termina-lo-sciopero-tesla-in-svezia': { it: 'dopo-3-anni-termina-lo-sciopero-tesla-in-svezia', en: 'after-3-years-the-tesla-strike-ends-in-sweden', de: 'nach-3-jahren-ende-der-tesla-streik-in-schweden', fr: 'apres-3-annees-la-greve-de-tesla-se-termine-en-suede' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

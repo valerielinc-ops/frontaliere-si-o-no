@@ -2578,6 +2578,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Gli sconti sui farmaci non vengono trattenuti',
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Il settore sanitario respinge le accuse di trattenimento di sconti sui farmaci',
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Paziente in ospedale',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.title': 'Dopo quasi 3 anni termina lo sciopero Tesla in Svezia',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.excerpt': 'Il sindacato IF Metall ha gettato la spugna dopo quasi tre anni di sciopero contro la filiale svedese della Tesla.',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.imageAlt': 'Immagine di una manifestazione sindacale in Svezia',
 };
 
 export default blogMetaChIt;

@@ -2578,6 +2578,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Les remises sur les médicaments ne sont pas retenues',
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Le secteur de la santé rejette les accusations de rétention de rabais sur les médicaments',
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Patient à l\'hôpital',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.title': 'Près de 3 ans après la fin de la grève Tesla en Suède',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.excerpt': 'Le syndicat IF Metall a jeté l\'éponge après près de trois ans de grève contre la filiale suédoise de Tesla.',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.imageAlt': 'Image d\'une manifestation syndicale en Suède',
 };
 
 export default blogMetaChFr;
