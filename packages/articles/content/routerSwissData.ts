@@ -852,6 +852,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'eclissi-solare-studi': { it: 'eclissi-solare-studi', en: 'studying-solar-eclipse', de: 'sonnenfinsternis-studium', fr: 'etude-de-l-eclipse-solaire' },
  'tram-treno-aggiudicato-appalto': { it: 'tram-treno-aggiudicato-appalto', en: 'tram-train-awarded-contract', de: 'tram-zug-vergeben-vertrag', fr: 'tram-train-contrat-attribue' },
  'elvis-presley-padre-biologico': { it: 'elvis-presley-padre-biologico', en: 'elvis-presley-biological-father', de: 'elvis-presley-biologischer-vater', fr: 'elvis-presley-pere-biologique' },
+ 'mucche-svizzere-canica': { it: 'mucche-svizzere-canica', en: 'swiss-cows-heatwave', de: 'schweizer-kuhe-hitzewelle', fr: 'vaches-suisses-canicule' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2479,6 +2479,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.elvis-presley-padre-biologico.title': 'Credo che Elvis Presley sia mio padre: quattro anni alla ricerca della verità',
     'blog.article.elvis-presley-padre-biologico.excerpt': 'La donna ha cercato indizi e documenti per scoprire la verità su suo padre biologico',
     'blog.article.elvis-presley-padre-biologico.imageAlt': 'Una donna cerca di scoprire se il padre biologico sia Elvis Presley',
+    'blog.article.mucche-svizzere-canica.title': 'Come le mucche svizzere affrontano la canicola',
+    'blog.article.mucche-svizzere-canica.excerpt': 'Le aziende agricole svizzere stanno cercando di alleviare lo stress da caldo delle mucche con soluzioni innovative.',
+    'blog.article.mucche-svizzere-canica.imageAlt': 'Mucche svizzere cercano refrigerio all\'ombra di un albero durante la canicola estiva.',
 };
 
 export default blogMetaChIt;
