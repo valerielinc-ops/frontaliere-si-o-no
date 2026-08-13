@@ -306,6 +306,84 @@ describe('sendNewsletterWelcomeEmail', () => {
     expect(result).toEqual({ success: false, skipped: 'not_confirmed' });
   });
 
+  /**
+   * THE THREE SHAPES MEASURED IN PRODUCTION (#5700), driven end to end.
+   *
+   * Re-measured 2026-08-13 over 8.673 docs: 550 carried no
+   * `confirmed_at`/`confirmedAt`, were not excluded, and still satisfied the OR
+   * this function used to read (`status === 'confirmed' || isActive === true ||
+   * active === true`) — 405 `confirmed` with no stamp, 143 `pending` carrying
+   * the `mailtrap-suppression-retry.mjs` re-probe flag, 2 with an empty status.
+   * This is the WELCOME mail: the first thing a fabricated subscriber receives.
+   *
+   * Behavioural, not a source scan, because this one CAN be driven — which is
+   * what makes it the observer for the whole change. If somebody restores any
+   * disjunct of the OR, these three fail; the enumeration in
+   * tests/no-channel-mails-unconfirmed.test.ts then says which channels share
+   * the defect.
+   */
+  it.each([
+    ['confirmed with no stamp — the 405', { status: 'confirmed', isActive: true, active: true, restored_reason: 'mailtrap_suspension_mismapped', source: 'signup' }],
+    ['pending carrying the re-probe flag — the 143', { status: 'pending', isActive: true, suppressed_at: new Date(), reactivated_at: new Date() }],
+    ['empty status carrying the flag — the 2', { status: '', isActive: true }],
+  ])('refuses %s', async (_label, doc) => {
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({ newsletter_subscribers: { 'nostamp@example.com': doc } });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'nostamp@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result).toEqual({ success: false, skipped: 'not_confirmed' });
+    expect(sendEmailCascadeMock).not.toHaveBeenCalled();
+  });
+
+  it('a `pending` doc WITH the stamp still receives it — the re-probe cohort did click', async () => {
+    // The mirror risk, and the one #5694 measured: 848 production documents sit
+    // at `pending` WITH a stamp because scripts/mailtrap-suppression-retry.mjs
+    // writes `status: 'pending', isActive: true` as a DELIVERABILITY re-probe on
+    // an address that already confirmed. A gate keyed on the word instead of the
+    // stamp would close 848 real subscriptions.
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'reprobed@example.com': { status: 'pending', isActive: true, confirmed_at: new Date(Date.now() - 60 * 60 * 1000) },
+      },
+    });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'reprobed@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result.success).toBe(true);
+  });
+
+  it('reads the camelCase stamp too — 458 documents carry only that one (#5673)', async () => {
+    // Both the gate and the recency anchor. The anchor read only
+    // `confirmed_at` until #5700 and fell back to `created_at`; with the
+    // fallback gone, a camelCase-only document would report `too_old` on the
+    // day it confirmed if the anchor did not read the twin.
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'camel@example.com': { status: 'confirmed', isActive: true, confirmedAt: new Date(Date.now() - 60 * 60 * 1000) },
+      },
+    });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'camel@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result.success).toBe(true);
+  });
+
+  it('a fresh `created_at` no longer stands in for the stamp', async () => {
+    // The removed fallback, asserted as behaviour rather than as an absent
+    // line: `evaluateWelcomeEligibility` anchored the 48h window on
+    // `created_at`/`createdAt` when no stamp existed, so a document with no
+    // proof still had a valid anchor and the OR was the only thing in the way.
+    const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        'nostampfresh@example.com': { status: 'confirmed', isActive: true, created_at: new Date(), createdAt: new Date() },
+      },
+    });
+
+    const result = await sendNewsletterWelcomeEmail({ email: 'nostampfresh@example.com', locale: 'it', db, trigger: 'confirm' });
+    expect(result).toEqual({ success: false, skipped: 'not_confirmed' });
+  });
+
   // ── Recency guard ────────────────────────────────────────────
   it('skips a subscriber confirmed 5 days ago (too_old)', async () => {
     const { sendNewsletterWelcomeEmail } = await import('../functions/src/newsletterWelcomeEmail.js');

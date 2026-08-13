@@ -346,12 +346,47 @@ describe('decideRestore (scripts/lib/mailtrapSuspensionClassify.mjs)', () => {
     });
 
     it('an explicit confirm event is enough on its own, with no confirmed_at stamp', () => {
+      // `confirm`, and it has to be that word. This assertion used to feed a
+      // `subscribe_completed` under this same title, and the title was the
+      // false half: the SIGNUP writes `subscribe_completed`
+      // (services/newsletterSubscribers.ts, and the `resubscribe` branch of
+      // newsletterSubscriptionManagement.js), the confirmation click writes
+      // `confirm`. Reading the request as the answer is the whole of #5686,
+      // and here it reached a WRITE — `recoveredStatus()` minting the word
+      // `confirmed` weekly under `--apply`. Fixed in #5717.
+      const v = decideRestore({
+        sub: cohort281(),
+        events: [...suspensionEvents, { event_type: 'confirm' }],
+        nowMs: NOW,
+      });
+      expect(v).toMatchObject({ restore: true, confirmed: true });
+    });
+
+    it('a subscribe_completed event is NOT — it records the request, not the answer', () => {
+      // 495 of the 550 documents that reached a sender with no stamp carry one
+      // (2026-08-13), against 0 carrying a `confirm`. Accepting it is what made
+      // the two indistinguishable.
       const v = decideRestore({
         sub: cohort281(),
         events: [...suspensionEvents, { event_type: 'subscribe_completed' }],
         nowMs: NOW,
       });
-      expect(v).toMatchObject({ restore: true, confirmed: true });
+      expect(v).toMatchObject({ restore: true, confirmed: false });
+    });
+
+    it('an auto-confirming signup origin is NOT either — it is an inference from the form', () => {
+      // `signup` matches AUTO_CONFIRMED_ORIGIN_RE, and until #5717 that alone
+      // resolved the restore to `confirmed`. The regex still decides the status
+      // a NEW signup is BORN with (services/newsletterSubscribers.ts), which is
+      // legitimate — a job unlock really is an act, performed live. Reading it
+      // back off an old document months later and calling it a click is not.
+      expect(AUTO_CONFIRMED_ORIGIN_RE.test('signup')).toBe(true);
+      const v = decideRestore({
+        sub: cohort281({ source: 'signup', source_cta: 'job_gate' }),
+        events: suspensionEvents,
+        nowMs: NOW,
+      });
+      expect(v).toMatchObject({ restore: true, confirmed: false });
     });
 
     it('a kept doc never reports confirmed:true — the flag cannot leak past a refusal', () => {

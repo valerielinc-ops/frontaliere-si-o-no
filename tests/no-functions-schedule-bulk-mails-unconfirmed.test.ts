@@ -108,8 +108,16 @@ describe('no scheduled functions/ trigger bulk-mails newsletter_subscribers unco
         src,
         `${file} bulk-reads newsletter_subscribers from a scheduled trigger — it must consult hasConfirmationProof()`,
       ).toMatch(CALLS_GATE);
+      // `.js` as well as `.mjs`: a Cloud Function CANNOT import
+      // `services/subscriberConsent.mjs` — no bundler, and nothing outside
+      // `functions/` ships — so the only shared gate reachable from here is
+      // `functions/src/lib/subscriberConsent.js`, which is where the single
+      // definition has lived since #5692 (the `services/` path is its
+      // re-export). Demanding the `.mjs` spelling asked a `functions/` file for
+      // an import that cannot resolve, so the day a scheduled trigger DID
+      // consult the gate this assertion would have failed it for complying.
       expect(src, `${file} must import the shared gate, never a local copy`).toMatch(
-        /from ['"][^'"]*subscriberConsent\.mjs['"]/,
+        /from ['"][^'"]*subscriberConsent\.m?js['"]/,
       );
       expect(src).not.toMatch(/function hasConfirmationProof/);
     }

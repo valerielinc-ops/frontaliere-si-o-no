@@ -41,6 +41,7 @@ import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { classifySunset } from '../scripts/lib/subscriberSunset.mjs';
 import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
+import { hasConsentEvidence, recoveredStatus } from '../scripts/lib/suppressionDecay.mjs';
 // The sender population is shared with tests/no-channel-mails-opted-out.test.ts
 // — see tests/helpers/senders.ts for why it must not be discovered twice.
 import { ROOT, read, stripComments, discoverSenders } from './helpers/senders';
@@ -102,10 +103,8 @@ const VERDICTS: Record<string, Verdict> = {
     why: 'two-stage win-back at the dormant end of the engagement score — same reason as the sunset above',
   },
   'scripts/send-onboarding-drip.mjs': {
-    verdict: 'known-gap',
-    why: 'admits `pending` whenever isActive/active is true — the shape mailtrap-suppression-retry.mjs writes — and anchors enrollment on created_at when no stamp exists',
-    issue: '#5700',
-    onFire: 'good — move its entry from known-gap to gated',
+    verdict: 'gated',
+    why: '#5700 — was the known-gap entry this file recorded (admitted `pending` on isActive, and anchored enrollment on created_at when no stamp existed); both are gone, and the enrollment fallback with them',
   },
   /**
    * The two alert channels, and the reason they are NOT simply "the newsletter
@@ -419,6 +418,105 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
         branch,
         'the CF toggle now writes the consent stamp — see #5720 before accepting this',
       ).not.toMatch(/confirmed_?[Aa]t\s*:/);
+    });
+  });
+
+  /**
+   * THE THREE SHAPES, taken from production rather than invented (#5700).
+   *
+   * Re-measured 2026-08-13 over 8.673 `newsletter_subscribers` docs: 550 were
+   * not excluded, carried no `confirmed_at`/`confirmedAt`, and still passed the
+   * OR that `send-onboarding-drip.mjs` and `newsletterWelcomeEmail.js` used to
+   * call `isConfirmedActive` —
+   *
+   *   status=confirmed, no stamp        405   the 2026-07 recovery pass DEDUCED it
+   *   status=pending  + isActive:true   143   mailtrap-suppression-retry.mjs:176
+   *   status empty    + isActive:true     2
+   *
+   * They are asserted here, in the file that enumerates the channels, because
+   * the defect was never one channel's: the same OR was written four times, and
+   * #5677/#5694 closed two of them without the other two being visible from
+   * where the fix was made. A fixture with the same three shapes in it is what
+   * makes the fifth copy fail on the day it is written.
+   *
+   * THE OTHER DIRECTION, measured in the same run so the narrowing is not taken
+   * on faith: the strict gate newly REFUSES 550 and newly ADMITS 0.
+   */
+  describe('the three shapes that passed, and no longer do', () => {
+    const CONFIRMED_NO_STAMP = { status: 'confirmed', restored_reason: 'mailtrap_suspension_mismapped', source: 'signup', isActive: true, active: true };
+    const PENDING_REPROBE = { status: 'pending', isActive: true, suppressed_at: STAMP, reactivated_at: STAMP };
+    const EMPTY_WITH_FLAG = { status: '', isActive: true };
+
+    /** The OR every one of the four senders used to carry. */
+    const legacyOr = (d: Record<string, unknown>) =>
+      d.status === 'confirmed' || d.isActive === true || d.active === true;
+
+    it.each([
+      ['confirmed without the stamp (405 docs)', CONFIRMED_NO_STAMP],
+      ['pending carrying the re-probe flag (143 docs)', PENDING_REPROBE],
+      ['empty status carrying the flag (2 docs)', EMPTY_WITH_FLAG],
+    ])('%s passed the old OR and is refused by the gate', (_label, doc) => {
+      expect(legacyOr(doc), 'the fixture no longer reproduces the defect — re-measure before editing it').toBe(true);
+      expect(hasConfirmationProof(doc)).toBe(false);
+    });
+
+    it('the weekly --apply path refuses them too — it is a WRITER of the word (#5717)', () => {
+      // scripts/suppression-decay.mjs runs weekly with --apply from
+      // suppression-hygiene.yml and writes `status: restoredStatus`. Until
+      // #5717 `hasConsentEvidence()` accepted `subscribe_completed` (which the
+      // SIGNUP writes) and a signup-origin regex, so this path could mint the
+      // word `confirmed` for a document that had never confirmed — refilling
+      // the very cohort the send gates had just learned to refuse.
+      for (const doc of [CONFIRMED_NO_STAMP, PENDING_REPROBE, EMPTY_WITH_FLAG]) {
+        expect(hasConsentEvidence(doc, [{ event_type: 'subscribe_completed' }])).toBe(false);
+        expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'subscribe_completed' }])).toBe('pending');
+      }
+      // `source: 'signup'` matches AUTO_CONFIRMED_ORIGIN_RE. That used to be
+      // enough on its own; it is an inference from the form, not a click.
+      expect(hasConsentEvidence({ source: 'signup' })).toBe(false);
+      expect(hasConsentEvidence({ source_channel: 'auth_google' })).toBe(false);
+    });
+
+    /**
+     * THE PERIOD EVIDENCE, and why it is one branch and not three.
+     *
+     * The risk in tightening this is the mirror of #5694's: refuse the stamp's
+     * absence and you cut off anyone who confirmed BEFORE the stamp existed.
+     * Measured over the same 550 (2026-08-13), that cohort is EMPTY, and the
+     * absence is informative rather than an artifact of the era:
+     *
+     *   `confirm` event                                    0 / 550
+     *   `confirmation_email_sent` event (we ASKED)       456 / 550
+     *   `subscribe_completed` event                      495 / 550
+     *   `consent_given` + `consent_text_displayed`         0 / 550
+     *   created before the earliest `confirmed_at` seen    22 / 550
+     *   ...and, in a 296-doc sample of STAMPED subscribers, 283 carry a
+     *      `confirm` event — so the event is how a real confirmation is
+     *      ordinarily recorded, not a modern invention these people predate.
+     *
+     * So the strict gate keeps exactly one alternative — the `confirm` event —
+     * and it is kept although it saves nobody today, because it is the branch
+     * that WOULD save a genuine pre-stamp confirmer, and because it is a record
+     * of a click rather than a deduction from a form.
+     */
+    it('an explicit confirm event is period evidence, on the path that can read events', () => {
+      expect(hasConsentEvidence(CONFIRMED_NO_STAMP, [{ event_type: 'confirm' }])).toBe(true);
+      expect(recoveredStatus('newsletter_subscribers', CONFIRMED_NO_STAMP, [{ event_type: 'confirm' }])).toBe('confirmed');
+    });
+
+    it('the senders do NOT read events, and that is a decision with a number behind it', () => {
+      // `hasConfirmationProof` takes a row, never an event log: the drip scans
+      // 8.6k docs on a cron, so reading a subcollection per doc would be 8.6k
+      // extra reads per run. It is affordable only where the population is the
+      // few hundred docs a restore pass is about to WRITE — which is exactly
+      // where `hasConsentEvidence` is called from.
+      //
+      // The number that makes the trade safe: 0 of the 550 carry a `confirm`
+      // event, so no sender loses a single genuine subscriber by not looking.
+      expect(hasConfirmationProof(CONFIRMED_NO_STAMP)).toBe(false);
+      // And the one thing that always passes, on every path: the stamp.
+      expect(hasConfirmationProof({ ...CONFIRMED_NO_STAMP, confirmed_at: STAMP })).toBe(true);
+      expect(hasConsentEvidence({ ...CONFIRMED_NO_STAMP, confirmed_at: STAMP })).toBe(true);
     });
   });
 
