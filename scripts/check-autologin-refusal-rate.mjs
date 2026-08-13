@@ -56,6 +56,7 @@ import {
   aggregate,
   evaluate,
   isPreFlightPolicy,
+  isPolicyMixPreFlight,
   policyKey,
   pct,
   LOCKOUT_RATE_WARN,
@@ -152,7 +153,12 @@ function loadHistory() {
  * about a week later, right when the 30-day TTL starts to bite.
  */
 function updateBaseline(previous, agg) {
-  if (!agg.observedPolicy || !isPreFlightPolicy(agg.observedPolicy)) return previous;
+  // `isPreFlightPolicy(agg.observedPolicy)` alone would only check the
+  // DOMINANT policy of the window — a window straddling the flip with a
+  // minority of post-flip lines still reads as pre-flip, and those lines'
+  // real lockouts would fold into the baseline. Require the whole window to
+  // agree instead (#5757).
+  if (!isPolicyMixPreFlight(agg.policyMix)) return previous;
   if (agg.graded < MIN_SAMPLE) return previous;
   const candidate = {
     capturedAt: new Date().toISOString(),
