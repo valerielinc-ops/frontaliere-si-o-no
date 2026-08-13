@@ -1,19 +1,21 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-08-13T10:34:02.582Z",
+  "generatedAt": "2026-08-13T22:25:22.873Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3356,
-  "avgDurationMs": 3356,
+  "unchangedCount": 1,
+  "durationMs": 3257,
+  "avgDurationMs": 3257,
   "durationHistory": [
-    3356
+    3257
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-seeschau-e1c562d1bede",
       "slug": "assistente-di-cura-srk-40-klinik-seeschau-kreuzlingen",
@@ -44,7 +46,7 @@
       "firstSeenAt": "2026-05-20T06:05:18.212Z",
       "salaryMin": 23000,
       "salaryMax": 34800,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -53,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
