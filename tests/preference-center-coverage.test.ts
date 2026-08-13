@@ -28,6 +28,8 @@ import { buildDripEmail } from '../services/newsletter/onboardingDrip.mjs';
 import { makePreferencesUrl, PREFERENCES_SLUG } from '../services/newsletterUrls.mjs';
 import { DATA_CONTROLLER_EMAIL } from '../functions/src/lib/dataControllerIdentity.js';
 import { buildAlertPayload } from '../functions/src/jobAlertBackfillCore.js';
+import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
+import { ADVERTISING_NAMED_FROM_PAGE_VERSION } from '../services/communicationChannels';
 
 const ROOT = path.resolve(__dirname, '..');
 const read = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -63,7 +65,14 @@ const SENDERS: Array<{ file: string; kind: 'recurring' | 'transactional' | 'outr
   { file: 'services/dormantWinbackStage1Email.mjs', kind: 'recurring', what: 'dormant win-back stage 1' },
   { file: 'services/companyAlertEmail.mjs', kind: 'recurring', what: 'followed-employer alert' },
   { file: 'scripts/send-saved-jobs-digest.mjs', kind: 'recurring', what: 'saved-jobs digest' },
-  { file: 'services/publisherBlastEmail.mjs', kind: 'outreach', what: 'publisher ad blast' },
+  // Reclassified `outreach` → `recurring` by #5759. It was outreach only in the
+  // sense that nobody had consented to it: the channel had no consent category,
+  // so it owed the reader nothing a subscriber channel owes. The owner's
+  // decision of 2026-08-13 made it a category of the newsletter relationship,
+  // collected as an opt-out — and an opt-out that the mail carrying it does not
+  // link to is the #5684 defect, restated on the one channel where the switch
+  // is the entire defence.
+  { file: 'services/publisherBlastEmail.mjs', kind: 'recurring', what: 'publisher ad blast' },
   { file: 'functions/src/newsletterConfirmationEmail.js', kind: 'transactional', what: 'double opt-in confirmation' },
   { file: 'functions/src/sendCalculatorReport.js', kind: 'transactional', what: 'calculator report' },
 ];
@@ -105,6 +114,21 @@ const CHANNELS: Array<{ what: string; controlStrings: string[]; sender: string }
     controlStrings: ['digestTitle', 'authSetSavedJobsDigest', 'handleToggleDigest'],
     sender: 'scripts/send-saved-jobs-digest.mjs',
   },
+  {
+    // #5759. Listed here the day the channel acquired a consent category, which
+    // is the day it became a subscriber channel rather than a capability nobody
+    // had agreed to. Its consent is an OPT-OUT — no extra checkbox at signup —
+    // so of every row in this registry it is the one whose switch is not a
+    // convenience but the thing that makes the consent defensible at all.
+    what: 'third-party advertising',
+    controlStrings: [
+      'adsTitle',
+      'authSetAdvertisingOptOut',
+      'setAdvertisingEnabled',
+      'handleToggleAds',
+    ],
+    sender: 'scripts/blast-publisher-ads.mjs',
+  },
 ];
 
 describe('#5684 point 1 — every recurring channel has a switch in the preference centre', () => {
@@ -119,7 +143,7 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     // is a key translated everywhere. A key added to `it` alone would not
     // typecheck, but a key added to the interface and then left out of the
     // rendered card would — this pins the rendered side.
-    for (const key of ['newsletterTitle', 'briefTitle', 'alertsTitle', 'digestTitle']) {
+    for (const key of ['newsletterTitle', 'briefTitle', 'alertsTitle', 'digestTitle', 'adsTitle']) {
       const occurrences = controllerSrc.split(`${key}:`).length - 1;
       // once in the interface declaration + once per locale
       expect(occurrences, `${key} should be declared once and translated ${LOCALES.length}×`).toBe(
@@ -143,6 +167,28 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     // nothing but a test connects them. If the sender's gate moves, the switch
     // in the centre becomes decorative without failing anything else.
     expect(read('scripts/send-saved-jobs-digest.mjs')).toContain('savedJobsDigest?.optedOut === true');
+  });
+
+  it('the ad blast reads the advertising flag the centre writes, in both modes', () => {
+    // Same no-import-shape boundary as the digest above, and three readers
+    // instead of two: the `.mjs` matcher that chooses the audience, the Cloud
+    // Function behind token mode, and the component behind auth mode. A switch
+    // whose polarity one of them reads differently is worse than no switch.
+    expect(read('services/publisherBlastMatch.mjs')).toContain('advertising_opt_out');
+    expect(read('functions/src/newsletterSubscriptionManagement.js')).toContain('advertising_opt_out');
+    expect(controllerSrc).toContain('advertising_opt_out');
+    // …and the audience filter is where it is applied, not merely mentioned.
+    expect(matchSubscribersForAd(
+      { title: 'x', locations: [] },
+      [{
+        email: 'off@example.com',
+        job_search_query: 'x',
+        confirmed_at: '2026-08-13T00:00:00.000Z',
+        consent_text: `frontaliereticino.ch/comunicazioni (versione ${ADVERTISING_NAMED_FROM_PAGE_VERSION}).`,
+        advertising_opt_out: true,
+      }],
+      { minScore: 0 },
+    )).toEqual([]);
   });
 });
 
@@ -173,6 +219,24 @@ describe('#5684 point 2 — what "off" means is stated, and the all-off case is 
     expect(body).toContain('paused: true');
     expect(body).not.toContain('deleteJobAlert');
     expect(body).not.toContain('authDeleteAlert');
+  });
+
+  it('stop-all covers advertising too, or the hint above the button is false', () => {
+    // The hint enumerates what the button stops, in four languages. #5759 added
+    // a channel; a stop-all that skipped it would leave the one channel nobody
+    // ticked a box for running, for the reader who just asked for silence.
+    const stopAll = controllerSrc.slice(controllerSrc.indexOf('const handleStopAll'));
+    const body = stopAll.slice(0, stopAll.indexOf('\n const handleTogglePause'));
+    expect(body, 'the token-mode call').toContain('setAdvertisingEnabled(email, token, false)');
+    expect(body, 'the auth-mode call').toContain('authSetAdvertisingOptOut(email, false)');
+    for (const marker of [
+      'annunci di inserzionisti',
+      'advertiser announcements',
+      'Anzeigen von Inserenten',
+      'annonces d’annonceurs',
+    ]) {
+      expect(controllerSrc, `the stop-all hint must name it (${marker})`).toContain(marker);
+    }
   });
 
   it('the daily brief still describes its own scope on its card', () => {
@@ -224,7 +288,15 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
     const start = src.indexOf('const mergedData');
     expect(start).toBeGreaterThan(-1);
     const merged = src.slice(start, src.indexOf('setDoc(', start));
-    for (const field of ['daily_brief_frequency_override', 'autologin_enabled', 'savedJobsDigest']) {
+    for (const field of [
+      'daily_brief_frequency_override',
+      'autologin_enabled',
+      'savedJobsDigest',
+      // #5759 — a login must not re-enable advertising for somebody who turned
+      // it off. Absent from the upsert today, and pinned here for the same
+      // reason as the other three: by omission is not by design.
+      'advertising_opt_out',
+    ]) {
       expect(merged, `${field} must stay out of the login upsert`).not.toContain(field);
     }
   });

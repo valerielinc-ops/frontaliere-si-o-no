@@ -1552,6 +1552,15 @@ export type FullSubscriptionStatus = {
  dailyBriefFrequency?: DailyBriefFrequency | null;
  /** Days between sends the engine currently computes — shown so "automatic" is legible. */
  dailyBriefTier?: number | null;
+ /**
+  * Third-party advertising: ON unless the reader switched it off (#5759).
+  *
+  * Phrased positively although the stored field is `advertising_opt_out`,
+  * because every other control in the centre reads "enabled". A flag whose
+  * polarity flips between the wire and the switch is how somebody turns a
+  * channel ON believing they turned it off.
+  */
+ advertisingEnabled?: boolean;
  };
  alerts?: SubscriptionAlertSummary[];
  error?: string;
@@ -1582,6 +1591,11 @@ export async function getFullSubscriptionStatus(
  ? data.newsletter.dailyBriefFrequency
  : null,
  dailyBriefTier: typeof data.newsletter?.dailyBriefTier === 'number' ? data.newsletter.dailyBriefTier : null,
+ // Absent means ON — the consent is an opt-out (#5759), so only an
+ // explicit `false` from the function may switch the control off. A
+ // `!== false` here and a `=== true` on the stored field are the same
+ // rule read from the two ends.
+ advertisingEnabled: data.newsletter?.advertisingEnabled !== false,
  },
  alerts: Array.isArray(data.alerts)
  ? data.alerts.map((a: any) => ({
@@ -1660,6 +1674,44 @@ export async function setDailyBriefFrequency(
  return { success: false, error: data?.error || 'write_failed' };
  } catch (error: any) {
  console.warn('[newsletter] setDailyBriefFrequency failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Turn third-party advertising on or off for an HMAC-authed email (#5759).
+ *
+ * The channel-scoped half of the owner's decision: advertising is consented to
+ * as an opt-out, with no extra checkbox at signup, and this is the switch that
+ * makes that defensible. It touches nothing else — the newsletter, the brief
+ * and the job alerts keep whatever the reader set for them.
+ *
+ * POST, for the same reason as `toggleNewsletterSubscription` (#5711): turning
+ * a channel back ON is the direction a link-following scanner must never be
+ * able to take on somebody's behalf. Turning it OFF is the direction that must
+ * never be made harder than the mail that provoked it, and the handler accepts
+ * any verb for it.
+ *
+ * Backend route: ?action=set_advertising_opt_out.
+ */
+export async function setAdvertisingEnabled(
+ email: string,
+ token: string,
+ enabled: boolean,
+): Promise<{ success: boolean; advertisingEnabled?: boolean; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=set_advertising_opt_out&email=${encodeURIComponent(normalizedEmail)}`
+ + `&token=${encodeURIComponent(token)}&advertising_enabled=${enabled ? 'true' : 'false'}&format=json`;
+ const resp = await fetch(url, { method: 'POST' });
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return { success: true, advertisingEnabled: data.advertisingEnabled !== false };
+ }
+ return { success: false, error: data?.error || 'write_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] setAdvertisingEnabled failed:', error?.message);
  return { success: false, error: error?.message || 'unknown_error' };
  }
 }
