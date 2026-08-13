@@ -7759,6 +7759,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'chiusura-piscina-uzwil-siccita',
+    category: 'pratico',
+    date: '2026-08-13T21:21:36.698Z',
+    image: '/images/blog/chiusura-piscina-uzwil-siccita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
