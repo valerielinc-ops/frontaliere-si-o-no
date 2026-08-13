@@ -2446,6 +2446,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Il Controllo delle finanze critica duramente l\'Ufsp',
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Il Controllo delle finanze critica duramente l\'Ufsp',
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Immagine di una vista del Lago di Lugano',
+    'blog.article.reno-siccita-logistica-svizzera.title': 'Siccità e Reno: impatti sulla logistica elvetica',
+    'blog.article.reno-siccita-logistica-svizzera.excerpt': 'Il calo del livello delle acque del Reno riduce i carichi delle navi. L\'economia svizzera monitora la situazione tra costi in aumento e sfide infrastrutturali.',
+    'blog.article.reno-siccita-logistica-svizzera.imageAlt': 'Livelli del Reno bassi presso un porto industriale svizzero',
+    'blog.article.polpi-contro-granchio-blu.title': 'Giovani polpi contro il granchio blu: lotta biologica nel Mediterraneo',
+    'blog.article.polpi-contro-granchio-blu.excerpt': 'Il progetto Octo-Blu prevede il rilascio controllato di circa mezzo milione di piccoli polpi (Octopus vulgaris) allevati in laboratorio nelle acque antistanti Riccione e Cesenatico.',
+    'blog.article.polpi-contro-granchio-blu.imageAlt': 'Un progetto sperimentale nel Mediterraneo punta sulla lotta biologica per contenere la specie invasiva del granchio blu che sta devastando gli ecosistemi marini e la pesca di vongole e cozze.',
 };
 
 export default blogMetaChIt;

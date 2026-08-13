@@ -31685,6 +31685,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reno-siccita-logistica-svizzera': {
+    title: 'Siccità e Reno: impatti sulla logistica elvetica',
+    description: 'Il calo del livello del Reno rallenta la navigazione. Implicazioni per la logistica svizzera e le strategie di lungo periodo tra costi e infrastrutture.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, reno, impatti, sulla',
+    ogTitle: 'Siccità e Reno: impatti sulla logistica elvetica',
+    ogDescription: 'Il calo del livello del Reno rallenta la navigazione. Implicazioni per la logistica svizzera e le strategie di lungo periodo tra costi e infrastrutture.',
+    canonicalPath: '/articoli-svizzera/reno-siccita-logistica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità e Reno: impatti sulla logistica elvetica",
+      "description": "Il calo del livello del Reno rallenta la navigazione. Implicazioni per la logistica svizzera e le strategie di lungo periodo tra costi e infrastrutture.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reno-siccita-logistica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Livelli del Reno bassi presso un porto industriale svizzero"
+      },
+      "datePublished": "2026-08-13T03:46:09+00:00",
+      "dateModified": "2026-08-13T03:46:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reno-siccita-logistica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-polpi-contro-granchio-blu': {
+    title: 'Giovani polpi contro il granchio blu: lotta biologica nel Mediterraneo',
+    description: 'Il progetto Octo-Blu prevede il rilascio controllato di circa mezzo milione di piccoli polpi (Octopus vulgaris) allevati in laboratorio per contenere la specie',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, polpi, contro, granchio',
+    ogTitle: 'Progetto Octo-Blu: lotta biologica contro il granchio blu',
+    ogDescription: 'Il progetto Octo-Blu prevede il rilascio controllato di circa mezzo milione di piccoli polpi (Octopus vulgaris) allevati in laboratorio per contenere la specie invasiva del granchio blu.',
+    canonicalPath: '/articoli-svizzera/polpi-contro-granchio-blu/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giovani polpi contro il granchio blu: lotta biologica nel Mediterraneo",
+      "description": "Il progetto Octo-Blu prevede il rilascio controllato di circa mezzo milione di piccoli polpi (Octopus vulgaris) allevati in laboratorio per contenere la specie",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/polpi-contro-granchio-blu.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un progetto sperimentale nel Mediterraneo punta sulla lotta biologica per contenere la specie invasiva del granchio blu che sta devastando gli ecosistemi marini e la pesca di vongole e cozze."
+      },
+      "datePublished": "2026-08-13T03:58:42+00:00",
+      "dateModified": "2026-08-13T03:58:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/polpi-contro-granchio-blu/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

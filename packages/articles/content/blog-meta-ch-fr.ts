@@ -2446,6 +2446,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Le Contrôle des finances critique sévèrement l\'OFSP',
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Le Contrôle des finances critique sévèrement l\'OFSP',
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Vue de Lugano',
+    'blog.article.reno-siccita-logistica-svizzera.title': 'Sécheresse et Rhin : impacts sur la logistique suisse',
+    'blog.article.reno-siccita-logistica-svizzera.excerpt': 'La baisse du niveau des eaux du Rhin réduit les charges des navires. L\'économie suisse surveille la situation entre coûts croissants et défis infrastructurels.',
+    'blog.article.reno-siccita-logistica-svizzera.imageAlt': 'Niveaux bas du Rhin dans un port industriel suisse',
+    'blog.article.polpi-contro-granchio-blu.title': 'Jeunes poulpes contre le crabe bleu : lutte biologique en Méditerranée',
+    'blog.article.polpi-contro-granchio-blu.excerpt': 'Le projet Octo-Blu prévoit la libération contrôlée d\'environ un demi-million de petits poulpes (Octopus vulgaris) élevés en laboratoire dans les eaux situées devant Riccione et Cesenatico.',
+    'blog.article.polpi-contro-granchio-blu.imageAlt': 'Un projet de lutte biologique dans le bassin méditerranéen vise à contenir l\'espèce invasive de crabes bleus qui dévaste les écosystèmes marins et la pêche de moules et d\'huîtres.',
 };
 
 export default blogMetaChFr;
