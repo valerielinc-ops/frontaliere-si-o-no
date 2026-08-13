@@ -2491,6 +2491,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercati-affitti-canton-berna.title': 'Marché locatif dans le canton de Berne : loyers moyens et droit locatif',
     'blog.article.mercati-affitti-canton-berna.excerpt': 'Les loyers dans le canton de Berne sont en constante augmentation. Découvrez les loyers moyens par zone et le droit de location.',
     'blog.article.mercati-affitti-canton-berna.imageAlt': 'Une vue de Lugano sur le lac',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Naturalisation ordinaire dans le canton de Berne : conditions et procédure',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Voici les conditions et la procédure de naturalisation ordinaire dans le canton de Berne.',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'Procédure de naturalisation dans le canton de Berne',
 };
 
 export default blogMetaChFr;

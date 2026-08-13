@@ -2491,6 +2491,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercati-affitti-canton-berna.title': 'Rental market in the Canton of Bern: average fees and rental rights',
     'blog.article.mercati-affitti-canton-berna.excerpt': 'Rentals in the Canton of Bern are constantly growing. Find out the average rents by area and the rental right.',
     'blog.article.mercati-affitti-canton-berna.imageAlt': 'A view of Lugano on the lake',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Ordinary naturalisation in the Canton of Bern: requirements and procedure',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Here are the requirements and procedure for ordinary naturalization in the Canton of Bern.',
+    'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'Naturalization procedure in the Canton of Bern',
 };
 
 export default blogMetaChEn;

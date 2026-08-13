@@ -32270,6 +32270,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-canton-berna-requisiti-procedura': {
+    title: 'Naturalizzazione ordinaria nel Cantone di Berna: requisiti e procedura',
+    description: 'Ecco i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Berna. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, ordinaria, cantone, berna',
+    ogTitle: 'Naturalizzazione ordinaria nel Cantone di Berna: requisiti e procedura',
+    ogDescription: 'Ecco i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Berna.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-berna-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione ordinaria nel Cantone di Berna: requisiti e procedura",
+      "description": "Ecco i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Berna. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-berna-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La procedura di naturalizzazione nel Cantone di Berna"
+      },
+      "datePublished": "2026-08-13T07:08:11+00:00",
+      "dateModified": "2026-08-13T07:08:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-berna-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
