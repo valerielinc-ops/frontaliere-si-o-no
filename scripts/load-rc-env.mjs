@@ -384,13 +384,28 @@ async function fetchTemplateViaRest() {
 
   let lastErr;
   for (let attempt = 1; attempt <= RC_FETCH_ATTEMPTS; attempt++) {
-    const rcRes = await fetch(
-      `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
-      {
-        headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
-        signal: AbortSignal.timeout(RC_FETCH_TIMEOUT_MS),
-      },
-    );
+    let rcRes;
+    try {
+      rcRes = await fetch(
+        `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
+        {
+          headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
+          signal: AbortSignal.timeout(RC_FETCH_TIMEOUT_MS),
+        },
+      );
+    } catch (err) {
+      // Same class of bug as the OAuth exchange one hop upstream (see
+      // exchangeAssertionForToken in lib/google-service-account-token.mjs):
+      // AbortSignal.timeout() rejects the fetch instead of resolving a status,
+      // so without this catch a slow-but-never-erroring endpoint would fail on
+      // the FIRST timeout instead of spending the RC_FETCH_ATTEMPTS/~63s budget.
+      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
+      lastErr = new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`);
+      if (attempt < RC_FETCH_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
+      }
+      continue;
+    }
     if (rcRes.ok) return rcRes.json();
     lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}`);
     if (!isRetryableRcFetchStatus(rcRes.status)) throw lastErr;

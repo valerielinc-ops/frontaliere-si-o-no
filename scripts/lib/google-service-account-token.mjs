@@ -72,15 +72,30 @@ export const TOKEN_EXCHANGE_TIMEOUT_MS = 30_000;
 export async function exchangeAssertionForToken(assertion) {
   let lastErr;
   for (let attempt = 1; attempt <= TOKEN_EXCHANGE_ATTEMPTS; attempt++) {
-    const res = await fetch(GOOGLE_TOKEN_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-        assertion,
-      }),
-      signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
-    });
+    let res;
+    try {
+      res = await fetch(GOOGLE_TOKEN_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+          assertion,
+        }),
+        signal: AbortSignal.timeout(TOKEN_EXCHANGE_TIMEOUT_MS),
+      });
+    } catch (err) {
+      // AbortSignal.timeout() rejects the fetch instead of resolving a status —
+      // the status-based retry below never runs, so a slow-but-never-erroring
+      // endpoint would fail on the FIRST timeout instead of spending the
+      // 7-attempt/~63s budget this loop exists to provide. Any other thrown
+      // error (DNS, TLS, etc.) is not something a retry can fix — fail fast.
+      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
+      lastErr = new Error(`OAuth token exchange timed out after ${TOKEN_EXCHANGE_TIMEOUT_MS}ms`);
+      if (attempt < TOKEN_EXCHANGE_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** (attempt - 1)));
+      }
+      continue;
+    }
     if (res.ok) {
       const data = await res.json();
       if (!data?.access_token) throw new Error('OAuth response missing access_token');

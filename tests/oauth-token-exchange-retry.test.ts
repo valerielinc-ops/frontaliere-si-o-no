@@ -94,6 +94,27 @@ describe('exchangeAssertionForToken: 429/5xx ritentati, 4xx no', () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200, json: async () => ({}) }));
     await expect(exchangeAssertionForToken('jwt')).rejects.toThrow(/missing access_token/);
   });
+
+  it('un AbortError (timeout scattato) viene ritentato come un 429/5xx, non propagato subito', async () => {
+    // Il difetto che questo test pinna: `AbortSignal.timeout()` fa RIGETTARE la
+    // fetch (non risolvere con uno status), quindi senza un try/catch attorno
+    // alla fetch il branch `res.status` non viene mai raggiunto e l'AbortError
+    // esce dal loop al primo tentativo — vanificando l'intero budget di 7
+    // tentativi/~63s che questo loop esiste per fornire.
+    const abortErr = Object.assign(new Error('This operation was aborted'), { name: 'AbortError' });
+    const fetchMock = vi.fn().mockRejectedValueOnce(abortErr).mockResolvedValueOnce(okResponse());
+    vi.stubGlobal('fetch', fetchMock);
+    await expect(exchangeAssertionForToken('jwt')).resolves.toBe('ya29.test');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('un errore non-abort (es. DNS/TLS) lancia subito, senza consumare il budget di retry', async () => {
+    const dnsErr = Object.assign(new Error('getaddrinfo ENOTFOUND oauth2.googleapis.com'), { name: 'TypeError' });
+    const fetchMock = vi.fn().mockRejectedValue(dnsErr);
+    vi.stubGlobal('fetch', fetchMock);
+    await expect(exchangeAssertionForToken('jwt')).rejects.toThrow(/ENOTFOUND/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('load-rc-env: il salto a valle ha lo stesso budget del salto a monte', () => {
