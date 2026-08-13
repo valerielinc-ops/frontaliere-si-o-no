@@ -301,8 +301,24 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
     // re-probe on addresses that DID confirm (measured 2026-08-12).
     expect(NEWSLETTER_EXCLUDED_STATUSES.has('pending')).toBe(false);
     expect([...NEWSLETTER_EXCLUDED_STATUSES].sort()).toEqual(
-      ['bounced', 'complained', 'inactive', 'suppressed', 'unsubscribed'],
+      ['bounced', 'complained', 'expired', 'inactive', 'suppressed', 'unsubscribed'],
     );
+  });
+
+  it('`expired` IS in the set — and it is not the fix above wearing a different word', () => {
+    // #5692 closes an unanswered double opt-in after three requests, one per
+    // day. The distinction from the paragraph above is the whole point and is
+    // worth stating where somebody will read it:
+    //   - `pending` describes a document we have not finished asking. The two
+    //     re-permission channels must still reach those people, and 848 of
+    //     them (2026-08-13) have in fact already confirmed;
+    //   - `expired` describes one we HAVE finished asking. The record exists
+    //     to say we asked three times and stopped, so a win-back or a sunset
+    //     mail to that address contradicts the record itself.
+    // A document can only be moved from one to the other by the runner, never
+    // by a browser, and only when it carries no confirmation stamp.
+    expect(NEWSLETTER_EXCLUDED_STATUSES.has('expired')).toBe(true);
+    expect(hasConfirmationProof({ status: 'expired' })).toBe(false);
   });
 
   it('the gate reads the stamp and never the word, in both directions', () => {
@@ -407,13 +423,22 @@ describe('the fix that was NOT made, and why it must stay unmade', () => {
   });
 
   it('the gate has exactly one definition', () => {
-    const dirs = ['services', 'scripts', 'scripts/lib'];
+    // The definition moved to `functions/src/lib/` in #5692, exactly as the
+    // old `services/subscriberConsent.mjs` docblock instructed: a Cloud
+    // Function now needs it (the confirmation email must not count a
+    // passwordless login link, or a re-probe of an already-confirmed address,
+    // against the three-request cap) and Cloud Functions have no bundler.
+    // `services/subscriberConsent.mjs` is a re-export, so every existing
+    // importer is unchanged — which is why `functions/src/lib` joins the
+    // scanned directories rather than replacing them: the invariant is ONE
+    // definition anywhere, not one definition in a particular folder.
+    const dirs = ['services', 'scripts', 'scripts/lib', 'functions/src/lib'];
     const definers = dirs.flatMap((dir) =>
       readdirSync(path.join(ROOT, dir), { withFileTypes: true })
         .filter((e) => e.isFile() && /\.(mjs|js|ts)$/.test(e.name))
         .map((e) => `${dir}/${e.name}`)
         .filter((rel) => /(export )?function hasConfirmationProof/.test(stripComments(read(rel)))),
     );
-    expect(definers).toEqual(['services/subscriberConsent.mjs']);
+    expect(definers).toEqual(['functions/src/lib/subscriberConsent.js']);
   });
 });

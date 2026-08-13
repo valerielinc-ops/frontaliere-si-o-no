@@ -22,6 +22,13 @@ import {
   TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
 import { dataControllerFooterLine } from './lib/dataControllerIdentity.js';
+import {
+  confirmationSendRefusal,
+  isConfirmationCycleSend,
+  confirmationAttemptsUsed,
+  lastConfirmationAttemptAt,
+  MAX_CONFIRMATION_ATTEMPTS,
+} from './lib/confirmationFollowup.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
@@ -191,13 +198,34 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  return { success: false, error: 'already_confirmed' };
  }
 
- if (data.confirmation_sent_at) {
- const lastSent = data.confirmation_sent_at.toDate
- ? data.confirmation_sent_at.toDate()
- : new Date(data.confirmation_sent_at);
- if (Date.now() - lastSent.getTime() < CONFIRMATION_COOLDOWN_MS) {
- return { success: false, error: 'cooldown_active' };
+ const now = Date.now();
+
+ // THE CAP LIVES HERE (#5692), at the send point, and not in whoever calls it.
+ // Three requests, the first one included; a cap enforced by the caller is a
+ // cap the next caller does not have, and the callers of this function are
+ // already three (the SPA signup write, the "resend" button, and the follow-up
+ // runner scripts/newsletter-confirmation-followups.mjs) with a scheduled
+ // fourth to come. `confirmationSendRefusal` also holds a request that
+ // declares itself part of the follow-up cadence to the one-per-day floor.
+ //
+ // It exempts what is not a double opt-in at all: a `purpose: 'login'` link,
+ // and any address that already carries the confirmation stamp — the 848
+ // `pending` re-probes measured on 2026-08-13. See lib/confirmationFollowup.js.
+ const refusal = confirmationSendRefusal({ data, purpose, now });
+ if (refusal) {
+ console.warn(`[newsletterConfirmation] ${refusal.error} after ${refusal.attempts} attempt(s), send skipped`);
+ return { success: false, error: refusal.error };
  }
+
+ // The 1-hour cooldown, unchanged in what it protects: a double click on
+ // "resend" within the minute. It is NOT the follow-up rule and must not be
+ // mistaken for one — a reminder is due 20+ hours after the previous request,
+ // so this window can never be what blocks one. Both spellings of the stamp
+ // are read now (the previous code read only `confirmation_sent_at`, so a
+ // camelCase-only document had no cooldown at all).
+ const lastAttemptMs = lastConfirmationAttemptAt(data);
+ if (lastAttemptMs != null && now - lastAttemptMs < CONFIRMATION_COOLDOWN_MS) {
+ return { success: false, error: 'cooldown_active' };
  }
 
  // Always use the locale the caller sent (= the language the user is browsing in).
@@ -248,12 +276,32 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  }
  const messageId = sent[0]?.messageId || null;
 
- await subscriberRef.update({
+ // THE LEDGER (#5692). Until now the only trace a request left was
+ // `confirmation_sent_at`, which is overwritten by the next one — so nothing
+ // could tell "asked once" from "asked three times", and the tetto the owner
+ // asked for was not verifiable from the document. The counter is incremented
+ // exactly where the mail actually leaves, so it counts sends and not
+ // intentions, and `confirmation_first_sent_at` anchors the window: together
+ // they are the record of having asked three times and stopped.
+ //
+ // Only for a real cycle send: a passwordless login link and a re-probe of an
+ // already-confirmed address are not double opt-in requests and must not
+ // consume one of the three.
+ const isCycleSend = isConfirmationCycleSend({ data, purpose });
+ const attemptsBefore = confirmationAttemptsUsed(data);
+ const subscriberUpdate = {
  confirmation_sent_at: admin.firestore.FieldValue.serverTimestamp(),
  confirmation_message_id: messageId,
  preferred_locale: emailLocale,
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
- });
+ };
+ if (isCycleSend) {
+ subscriberUpdate.confirmation_attempts = attemptsBefore + 1;
+ if (attemptsBefore === 0) {
+ subscriberUpdate.confirmation_first_sent_at = admin.firestore.FieldValue.serverTimestamp();
+ }
+ }
+ await subscriberRef.update(subscriberUpdate);
 
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
@@ -261,6 +309,11 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  source_channel: 'newsletter_confirmation',
  message_id: messageId,
  locale: emailLocale,
+ // The per-attempt evidence, in the subcollection that survives the next
+ // overwrite of the flat fields. `null` when the send was not part of a
+ // cycle, so a login link is never counted as an ask afterwards.
+ confirmation_attempt: isCycleSend ? attemptsBefore + 1 : null,
+ confirmation_attempts_max: MAX_CONFIRMATION_ATTEMPTS,
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });

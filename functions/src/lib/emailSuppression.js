@@ -48,7 +48,27 @@ export const ADDRESS_SUPPRESSED_STATUSES = new Set(['bounced', 'complained', 'su
  * channel, they are telling us to stop, and that instruction binds every channel
  * — see CROSS_CHANNEL_STOP_STATUSES below, which is what the alert senders read.
  */
-export const NEWSLETTER_EXCLUDED_STATUSES = new Set(['unsubscribed', 'inactive', ...ADDRESS_SUPPRESSED_STATUSES]);
+export const NEWSLETTER_EXCLUDED_STATUSES = new Set([
+  'unsubscribed',
+  'inactive',
+  // `expired`: the double opt-in was requested three times, one day apart, and
+  // never answered (#5692). It stops here, in the newsletter set, for the same
+  // reason `inactive` does — it is a channel-level state we wrote ourselves,
+  // not a human instruction and not an address-level signal, so it must not
+  // cross to the job-alert channel where the consent basis is a separate act.
+  //
+  // Stated in the vocabulary rather than left to the three mechanisms that
+  // happen to exclude it anyway (no `confirmed_at`, so the gated senders skip
+  // it; `isActive: false`, which scripts/mailtrap-suppression-retry.mjs is
+  // known to flip back to true; a MAILABLE_STATUSES allow-list in the sunset
+  // and win-back classifiers). An invariant held by three coincidences is the
+  // shape this repo keeps finding broken — and one of those senders is the
+  // win-back, whose whole purpose is reaching people the ordinary campaigns no
+  // longer may. A win-back to an address we recorded as "asked three times,
+  // stopped" contradicts the record in the one direction that reaches a mailbox.
+  'expired',
+  ...ADDRESS_SUPPRESSED_STATUSES,
+]);
 
 /**
  * What the NEWSLETTER document says to every OTHER channel.

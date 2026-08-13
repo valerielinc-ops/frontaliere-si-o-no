@@ -92,7 +92,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
       consentText: 'formula di prova',
     });
 
-    expect(result).toEqual({ existed: false, id: 'new-confirmed@example.com', status: 'confirmed', optedOut: false });
+    expect(result).toEqual({ existed: false, id: 'new-confirmed@example.com', status: 'confirmed', optedOut: false, hadConfirmationProof: false });
 
     // requestWelcomeEmail is fired via a non-awaited `.catch()`-wrapped
     // promise, so the fetch call may still be in flight right after
@@ -110,7 +110,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
       status: 'confirmed',
     });
 
-    expect(result).toEqual({ existed: true, id: 'existing@example.com', status: 'confirmed', optedOut: false });
+    expect(result).toEqual({ existed: true, id: 'existing@example.com', status: 'confirmed', optedOut: false, hadConfirmationProof: false });
     // Neither the pending nor the confirmed branch's `if` condition is true
     // for this input, so no async helper is ever scheduled — no polling
     // needed, the absence is deterministic and synchronous.
@@ -127,7 +127,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
       consentText: 'formula di prova',
     });
 
-    expect(result).toEqual({ existed: false, id: 'new-pending@example.com', status: 'pending', optedOut: false });
+    expect(result).toEqual({ existed: false, id: 'new-pending@example.com', status: 'pending', optedOut: false, hadConfirmationProof: false });
 
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
     const [url] = fetchMock.mock.calls[0] as [string, RequestInit];
@@ -149,7 +149,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     // The return value is byte-identical to the success case: the failing
     // welcome-email request never touches upsertNewsletterSubscriber's
     // return path, whether it happens before or after this await settles.
-    expect(result).toEqual({ existed: false, id: 'flaky@example.com', status: 'confirmed', optedOut: false });
+    expect(result).toEqual({ existed: false, id: 'flaky@example.com', status: 'confirmed', optedOut: false, hadConfirmationProof: false });
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
 
     // requestWelcomeEmail's own try/catch already guarantees it never

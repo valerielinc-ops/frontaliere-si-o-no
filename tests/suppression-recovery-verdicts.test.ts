@@ -76,6 +76,11 @@ const VERDICTS: Record<string, { verdict: Verdict; because: string }> = {
     verdict: 'terminal',
     because: 'a human opted out — consent withdrawn, no delivery signal overrides it',
   },
+  expired: {
+    verdict: 'terminal',
+    because:
+      'three confirmation requests, one per day, unanswered (#5692) — the silence IS the answer, and there is no machine inference here for a delivery to disprove. An `open` on the third unanswered confirmation email must not stand in for the click it asks for; only a fresh signup restarts the cycle',
+  },
 };
 
 const ALL_SUPPRESSED_STATUSES = [

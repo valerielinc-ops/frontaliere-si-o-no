@@ -539,7 +539,15 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
       consentText: 'formula di prova',
     });
 
-    expect(result).toEqual({ existed: false, id: 'new@example.com', status: 'pending', optedOut: false });
+    expect(result).toEqual({
+      existed: false,
+      id: 'new@example.com',
+      status: 'pending',
+      optedOut: false,
+      // #5692 reports it so the caller can tell a first ask from asking
+      // somebody to redo a thing they already did.
+      hadConfirmationProof: false,
+    });
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
     const [url] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
