@@ -1,22 +1,56 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-08-12T22:20:33.265Z",
+  "generatedAt": "2026-08-13T10:44:01.469Z",
   "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 43190,
-  "avgDurationMs": 43190,
+  "durationMs": 117973,
+  "avgDurationMs": 117973,
   "durationHistory": [
-    43190
+    117973
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "title": "Restaurant Supervisor (m/w)",
       "slug": "restaurant-supervisor-m-w",
+      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/restaurant-supervisor-4020850",
+      "applyUrl": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/restaurant-supervisor-4020850",
+      "company": "Grace La Margna St. Moritz",
+      "companyKey": "grace-la-margna",
+      "companyDomain": "gracehotels.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "servizio",
+      "sector": "Turismo & Ospitalità",
+      "department": "servizio",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "sourceLang": "en",
+      "postedDate": "2026-08-13",
+      "validThrough": "",
+      "source": "dedicated-crawler",
+      "crawledAt": "2026-08-13T10:42:56.755Z",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Restaurant Supervisor (m/w)",
+      "slug": "restaurant-supervisore-m-w-grace-la-margna-st-moritz-st-moritz",
       "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/restaurant-supervisor-m-w-4016125",
       "applyUrl": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/restaurant-supervisor-m-w-4016125",
       "company": "Grace La Margna St. Moritz",
@@ -54,6 +88,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

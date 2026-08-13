@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-08-12T22:16:45.276Z",
+  "assembledAt": "2026-08-13T10:26:19.000Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
       "slugByLocale": {
         "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-        "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "en": "pj-absolvent-in-chirurgies-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
       },
@@ -34,7 +34,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:42.985Z",
+      "crawledAt": "2026-08-13T10:26:16.616Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -55,13 +55,17 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
+        "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
+          "sub-assistant-pj-graduate-surgery-see-spital-horgen",
           "pj-absolvent-in-chirurgies-see-spital-horgen"
         ],
         "de": [
@@ -114,7 +118,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:41.968Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:15.532Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -142,11 +147,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -199,7 +206,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:40.996Z",
+      "crawledAt": "2026-08-13T10:26:14.455Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -221,11 +228,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -274,7 +283,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:39.948Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:13.416Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -322,11 +332,13 @@
         "assistente-di-cura-in-medicina-see-spital-horgen",
         "medical-care-assistant-see-spital-horgen",
         "pflegeassistent-in-medizin-see-spital-ch",
-        "assistant-de-soins-medicaux-see-spital-horgen"
+        "assistant-de-soins-medicaux-see-spital-horgen",
+        "assistente-assistente-di-medicina-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
+          "assistente-assistente-di-medicina-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
@@ -375,7 +387,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:38.890Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:12.342Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -420,12 +433,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+        "dipl-infermiere-re-notturno-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+          "dipl-infermiere-re-notturno-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -474,7 +489,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:37.862Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:11.249Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -515,11 +531,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -568,7 +586,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:36.873Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:10.198Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -614,11 +633,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+        "studente-esperto-anestesia-nds-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+          "studente-esperto-anestesia-nds-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
@@ -667,7 +688,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:35.833Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:09.133Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -718,11 +740,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -748,9 +772,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -774,7 +798,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:34.814Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:08.054Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -825,17 +850,23 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
+        "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch",
+          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
         ],
         "en": [
+          "emergency-medical-technician-in-training-see-spital-horgen",
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
           "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
@@ -885,7 +916,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:33.798Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:07.041Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -932,11 +964,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+        "radiologo-a-formatore-a-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+          "radiologo-a-formatore-a-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -986,7 +1020,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:32.779Z",
+      "crawledAt": "2026-08-13T10:26:05.988Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1028,12 +1062,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1066,7 +1102,7 @@
       "title": "Dipl. Expert*in Anästhesiepflege",
       "titleByLocale": {
         "it": "Esperto/a di Anestesia",
-        "en": "Dipl. Expert* in anesthesia care",
+        "en": "Dipl. Expert*in Anästhesiepflege",
         "de": "Dipl. Expert*in Anästhesiepflege",
         "fr": "Expert en Anesthésie"
       },
@@ -1083,7 +1119,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:31.734Z",
+      "crawledAt": "2026-08-13T10:26:04.904Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1133,11 +1169,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch",
+        "esperto-a-di-anestesia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch",
+          "esperto-a-di-anestesia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1186,7 +1224,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:30.702Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:03.825Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1237,14 +1276,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
+        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 73500,
@@ -1293,7 +1336,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:29.703Z",
+      "crawledAt": "2026-08-13T10:26:02.763Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1343,12 +1386,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1398,7 +1443,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:28.663Z",
+      "crawledAt": "2026-08-13T10:26:01.680Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1448,11 +1493,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1504,7 +1551,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:27.655Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:26:00.615Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1544,12 +1592,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sportarztin-arzt-see-spital-ch",
-        "sportarztin-arzt-policlinic-see-spital-ch"
+        "sportarztin-arzt-policlinic-see-spital-ch",
+        "medico-dello-sport-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportarztin-arzt-see-spital-ch",
-          "sportarztin-arzt-policlinic-see-spital-ch"
+          "sportarztin-arzt-policlinic-see-spital-ch",
+          "medico-dello-sport-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1598,7 +1648,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:26.605Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:59.567Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1642,12 +1693,14 @@
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "medico-di-medicina-interna-nefrologia-see-spital-horgen",
         "assistant-physician-nephrology-see-spital-horgen",
-        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen",
+        "infermiere-a-specializzato-a-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+          "infermiere-a-specializzato-a-see-spital-horgen"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1705,7 +1758,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:25.563Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:58.508Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1754,11 +1808,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch"
+        "studierende-r-operationstechnik-hf-see-spital-ch",
+        "studente-operatore-tecnico-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch"
+          "studierende-r-operationstechnik-hf-see-spital-ch",
+          "studente-operatore-tecnico-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1808,7 +1864,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:24.551Z",
+      "crawledAt": "2026-08-13T10:25:57.435Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1857,12 +1913,14 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
+        "fachinfermiere-efz-excellence-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+          "fachinfermiere-efz-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1911,7 +1969,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:23.556Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:56.365Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1959,11 +2018,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+        "studente-studente-di-infermieristica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+          "studente-studente-di-infermieristica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2012,7 +2073,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:22.547Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:55.366Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2059,11 +2121,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
@@ -2096,7 +2160,7 @@
       "title": "Klinische*r Fachspezialist*in / Physician Associate",
       "titleByLocale": {
         "it": "Fachspezialist*in Clinico / Physician Associate",
-        "en": "Clinical Specialist / Physician Associate",
+        "en": "Klinische*r Fachspezialist*in / Physician Associate",
         "de": "Klinische*r Fachspezialist*in / Physician Associate",
         "fr": "Spécialiste Clinique / Associé Médecin"
       },
@@ -2113,7 +2177,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:21.539Z",
+      "crawledAt": "2026-08-13T10:25:54.274Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2161,14 +2225,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen"
         ],
         "it": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+        "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen",
+        "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
       "salaryMin": 73500,
@@ -2199,7 +2267,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Specialista in radiologia* HF",
+        "it": "Radiologiefachfrau*mann HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
@@ -2216,7 +2284,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:20.454Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:53.251Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2322,7 +2391,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-12T22:16:19.424Z",
+      "crawledAt": "2026-08-13T10:25:52.164Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2402,7 +2471,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:18.354Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:51.128Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2455,7 +2525,7 @@
       "id": "see-spital-41ac4d180cae",
       "slug": "arztsekretar-in-medizin-con-schwerpunkt-gastroenterologie-see-spital-horgen",
       "slugByLocale": {
-        "it": "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen",
+        "it": "arztsekretar-in-medizin-con-schwerpunkt-gastroenterologie-see-spital-horgen",
         "en": "doctor-s-secretary-in-medicine-with-focus-on-gastroenterology-see-spital-horgen",
         "de": "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
         "fr": "le-secretaire-du-docteur-en-medecine-axe-sur-la-gastroenterologie-see-spital-horgen"
@@ -2483,7 +2553,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:17.304Z",
+      "crawledAt": "2026-08-13T10:25:50.064Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2502,11 +2572,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+        "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+          "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
         ],
         "en": [
           "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
@@ -2562,7 +2634,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:16.260Z",
+      "crawledAt": "2026-08-13T10:25:49.036Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2582,12 +2654,14 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "med-praxisassistent-in-onkologie-see-spital-ch",
-        "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch"
+        "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch",
+        "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-onkologie-see-spital-ch",
-          "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch"
+          "med-praxisassistent-in-arztsekretar-in-onkologie-see-spital-ch",
+          "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
         ],
         "en": [
           "med-praxisassistent-in-onkologie-see-spital-ch"
@@ -2643,7 +2717,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-12T22:16:15.232Z",
+      "crawledAt": "2026-08-13T10:25:47.993Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2662,11 +2736,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+        "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+        "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+          "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
@@ -2722,7 +2798,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-12T22:16:14.165Z",
+      "crawledAt": "2026-08-13T10:25:46.956Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2742,12 +2818,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarztin-arzt-onkologie-see-spital-ch",
-        "medico-senior-see-spital-horgen"
+        "medico-senior-see-spital-horgen",
+        "oncologia-del-medico-senior-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-onkologie-see-spital-ch",
-          "medico-senior-see-spital-horgen"
+          "medico-senior-see-spital-horgen",
+          "oncologia-del-medico-senior-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
@@ -2786,7 +2864,7 @@
       "title": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
       "titleByLocale": {
         "it": "Responsabile dell'applicazione - Sistema Informativo Clinico (KIS)",
-        "en": "Responsible for the application - Clinical Information System (KIS)",
+        "en": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
         "de": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
         "fr": "Responsable de la demande - Système d'information clinique (SIC)"
       },
@@ -2802,7 +2880,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1273/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:16:13.113Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:45.895Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2822,11 +2901,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
-        "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-horgen"
+        "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-horgen",
+        "responsabile-dell-applicazione-sistema-informativo-clinico-kis-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch"
+          "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
+          "responsabile-dell-applicazione-sistema-informativo-clinico-kis-see-spital-horgen"
         ],
         "en": [
           "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
@@ -2883,7 +2964,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-08-12T22:16:12.045Z",
+      "crawledAt": "2026-08-13T10:25:44.838Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2902,11 +2983,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hebamme-bsc-see-spital-ch"
+        "hebamme-bsc-see-spital-ch",
+        "midwife-bsc-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-bsc-see-spital-ch"
+          "hebamme-bsc-see-spital-ch",
+          "midwife-bsc-see-spital-horgen"
         ],
         "en": [
           "hebamme-bsc-see-spital-ch"
@@ -2962,7 +3045,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:10.982Z",
+      "crawledAt": "2026-08-13T10:25:43.751Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2981,11 +3064,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
+        "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
+        "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
+          "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch"
@@ -3041,7 +3126,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:09.878Z",
+      "crawledAt": "2026-08-13T10:25:42.675Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3060,11 +3145,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-kochin-koch-efz-see-spital-ch"
+        "lehrstelle-als-kochin-koch-efz-see-spital-ch",
+        "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kochin-koch-efz-see-spital-ch"
+          "lehrstelle-als-kochin-koch-efz-see-spital-ch",
+          "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-kochin-koch-efz-see-spital-ch"
@@ -3120,7 +3207,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:08.840Z",
+      "crawledAt": "2026-08-13T10:25:41.586Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3139,11 +3226,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
+        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
+        "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
+          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
+          "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
@@ -3199,7 +3288,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:07.804Z",
+      "crawledAt": "2026-08-13T10:25:40.520Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3218,11 +3307,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
+        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
+        "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
+          "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
@@ -3278,7 +3369,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-08-12T22:16:06.742Z",
+      "crawledAt": "2026-08-13T10:25:39.447Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3297,11 +3388,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-kaufmann-frau-efz-gesundheitswesen-see-spital-ch"
+        "lehrstelle-als-kaufmann-frau-efz-gesundheitswesen-see-spital-ch",
+        "apprendistato-come-kaufmann-frau-cfc-gesundheitswesen-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kaufmann-frau-efz-gesundheitswesen-see-spital-ch"
+          "lehrstelle-als-kaufmann-frau-efz-gesundheitswesen-see-spital-ch",
+          "apprendistato-come-kaufmann-frau-cfc-gesundheitswesen-see-spital-horgen"
         ],
         "en": [
           "lehrstelle-als-kaufmann-frau-efz-gesundheitswesen-see-spital-ch"
@@ -3326,138 +3419,38 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "see-spital-3e8dde4a57cc",
-      "slug": "assistente-pratico-see-spital-horgen",
+      "id": "see-spital-fe72b5d5cbf3",
+      "slug": "stv-abteilungsleiter-in-chirurgie-see-spital-ch",
       "slugByLocale": {
-        "it": "assistente-pratico-see-spital-horgen",
-        "en": "practical-assistant-see-spital-horgen",
-        "de": "praxisassistent-in-see-spital-ch",
-        "fr": "assistant-pratique-see-spital-horgen"
+        "de": "stv-abteilungsleiter-in-chirurgie-see-spital-ch",
+        "it": "stv-abteilungsleiter-in-chirurgie-see-spital-ch",
+        "en": "stv-abteilungsleiter-in-chirurgie-see-spital-ch",
+        "fr": "stv-abteilungsleiter-in-chirurgie-see-spital-ch"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
-      "title": "Praxisassistent*in - POLICLINIC",
+      "title": "Stv. Abteilungsleiter*in Chirurgie",
       "titleByLocale": {
-        "it": "Assistente pratico*",
-        "en": "Practical assistant*",
-        "de": "Praxisassistent*in - POLICLINIC",
-        "fr": "Assistant pratique*"
+        "de": "Stv. Abteilungsleiter*in Chirurgie",
+        "it": "Stv. Abteilungsleiter*in Chirurgie",
+        "en": "Stv. Abteilungsleiter*in Chirurgie",
+        "fr": "Stv. Abteilungsleiter*in Chirurgie"
       },
-      "description": "Ihre Aufgaben umfassen:\n\n• Organisation des POLICLINIC | reCOVER Alltags und Koordination der Sprechstunden\n• Telefonische und schriftliche Kommunikation mit Patient*innen, Ärzt*innen und Versicherungen\n• Sicherstellung reibungsloser Abläufe in der Praxis – von Ordnung und Sauberkeit bis zu alltäglichen organisatorischen Aufgaben.\n• Organisation des Empfangsbereichs: Freundlicher Empfang und Betreuung der Patient*innen, Schaffung einer angenehmen Atmosphäre und erste Ansprechperson für Besucher*innen der Praxis.\n\nAnforderungsprofil:\n\n• Arztsekretär*in, Praxisassistent*in, Bürokauffrau*mann oder KV-Abschluss\n• Berufserfahrung in einer Praxis, Klinik oder vergleichbarer Funktion von Vorteil\n• Freude am telefonischen und persönlichen Kundenkontakt\n• Selbständige, strukturierte und effiziente Arbeitsweise\n• Ausgeprägte Organisations- und Kommunikationsfähigkeit\n• Belastbar, teamfähig und multitaskingfähig\n• Hohe Leistungs- und Lernbereitschaft\n\nWas können wir Ihnen bieten?\n\n• Eine moderne, zukunftsorientierte Praxis mit angenehmem Arbeitsklima\n• Wertschätzendes und motiviertes Team\n• Abwechslungsreiche Tätigkeit\n• Attraktive Anstellungsbedingungen und Vergünstigungen\n• Faire Entlöhnung und fünf Wochen Ferien Haben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie kennenzulernen. Für Fragen steht Ihnen Frau Helena Chappuis unter 044 728 18 18 gerne zur Verfügung. Bitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen mit Foto per E-Mail an: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Bewerbungen von Personal- und Stellenvermittlungen werden nicht berücksichtigt. * Diese geschriebene Form richtet sich auch an Frauen.",
+      "description": "Das erwartet dich:\nAls stellvertretende*r Abteilungsleiter*in der Chirurgie hältst du viele Fäden zusammen: Du unterstützt die Abteilungsleitung, begleitest dein Team durch den Alltag und sorgst dafür, dass auch bei viel Bewegung an der Front alles gut zusammenspielt. Mit deinen Ideen, deiner Erfahrung und deinem offenen Ohr machst du den Unterschied.\n• Du gibst den Takt vor: Gemeinsam mit der Abteilungsleitung bringst du Struktur ins Geschehen, koordinierst die Abläufe und sorgst dafür, dass in der Chirurgie alles gut zusammenspielt.\n• Du bist der Joker, wenn’s drauf ankommt: Du erkennst, wo Unterstützung gefragt ist, springst ein und sorgst dafür, dass der Alltag weiterläuft.\n• Du baust Brücken statt Mauern: Du bringst Pflege, Ärzt*innen und alle weiteren Berufsgruppen zusammen und sorgst für eine Zusammenarbeit, die wirklich funktioniert.\n• Du pflanzt heute die Pflege von morgen: Du unterstützt unsere Auszubildenden und Studierenden, gibst dein Know-how weiter und hilfst ihnen, über sich hinauszuwachsen.\n• Du zeigst, wer wir sind: Du repräsentierst das See-Spital und die Chirurgie mit Herz, Kompetenz und Teamgeist.\n• Du machst aus Ideen Realität: Du übernimmst zusätzliche Aufgaben und Projekte in Absprache mit der Abteilungsleitung und gestaltest die Weiterentwicklung der Abteilung aktiv mit.\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Pflegefachperson (HF, FH, DNII, AKP) sowie Erfahrung im Akutspital.\n• Erste Führungserfahrung oder Lust, den nächsten Schritt zu gehen.\n• Du kommunizierst klar, packst an und kannst dich durchsetzen.\n• Du denkst mit, entwickelst weiter und gehst Veränderungen gerne an.\n• Mit MS Office und PC Anwendungen bist du per Du.\n• Schicht- und Wochenenddienste meisterst du mit Teamgeist.\n• Du kennst den Pflegealltag und lässt dich auch von turbulenten Tagen nicht aus der Ruhe bringen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Planen statt nur eingeteilt werden: Unser Team übernimmt die Dienstplanung eigenverantwortlich .",
       "descriptionByLocale": {
-        "it": "I suoi compiti comprendono:\n• Organizzazione del POLICLINIC | riCOVER vita quotidiana e coordinamento delle ore di ufficio\n• Telefono e comunicazione scritta con pazienti, medici e assicurazioni\n• Garantire processi lisci nella pratica – dall'ordine e dalla pulizia alle attività organizzative quotidiane.\n• Organizzazione della reception: accoglienza amichevole e cura dei pazienti, creazione di un'atmosfera piacevole e prima persona di contatto per i visitatori della pratica. Profilo di richiesta:\n• Segretario medico, assistente di pratica, impiegato di ufficio o laurea KV\n• Esperienza professionale in una pratica, clinica o funzione comparabile è utile\n• Godimento di telefono e contatto personale del cliente\n• Metodi di lavoro indipendenti, strutturati ed efficienti\n• Forte capacità organizzative e di comunicazione\n• Resiliente, pronto da team e multitasking\n• Alta volontà di eseguire e imparare Cosa possiamo offrirvi?\n• Una pratica moderna e orientata al futuro con una piacevole atmosfera di lavoro\n• Squadra apprezzata e motivata\n• Attività varie\n• Condizioni di lavoro e prestazioni interessanti\n• Retribuzione equa e cinque settimane ferie Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora di incontrarti. Per domande, la signora Vanessa von Wartburg, Senior Practice Assistant, è a vostra disposizione il 044 728 18 18. Inviateci i vostri documenti completi con foto via e-mail a: vanessa.vonwartburg@policlinic.ch www.policlinic.ch / www.recover.ch Le domande di personale e agenzie di lavoro non saranno considerate. # Questa forma scritta è rivolta anche alle donne.",
-        "en": "Its tasks shall include:\n• Organization of the POLICLINIC | reCOVER everyday life and coordination of office hours\n• Telephone and written communication with patients, doctors and insurance companies\n• Ensuring smooth processes in practice – from order and cleanliness to everyday organizational tasks.\n• Organization of the reception area: friendly reception and care of the patients, creation of a pleasant atmosphere and first contact person for visitors to the practice. Requirement profile:\n• Medical secretary, practice assistant, office clerk or KV degree\n• Professional experience in a practice, clinic or comparable function is beneficial\n• Enjoyment of telephone and personal customer contact\n• Independent, structured and efficient working methods\n• Strong organisational and communication skills\n• Resilient, team-ready and multitasking\n• High willingness to perform and learn What can we offer you?\n• A modern, future-oriented practice with a pleasant working atmosphere\n• Appreciative and motivated team\n• Varied activities\n• Attractive employment conditions and benefits\n• Fair remuneration and five weeks holidays Have we aroused your interest? Then we look forward to meeting you. For questions, Mrs. Vanessa von Wartburg, Senior Practice Assistant, is at your disposal on 044 728 18 18. Please send us your complete application documents with photo by e-mail to: vanessa.vonwartburg@policlinic.ch www.policlinic.ch / www.recover.ch Applications from personnel and employment agencies will not be considered. * This written form is also aimed at women.",
-        "de": "Ihre Aufgaben umfassen:\n\n• Organisation des POLICLINIC | reCOVER Alltags und Koordination der Sprechstunden\n• Telefonische und schriftliche Kommunikation mit Patient*innen, Ärzt*innen und Versicherungen\n• Sicherstellung reibungsloser Abläufe in der Praxis – von Ordnung und Sauberkeit bis zu alltäglichen organisatorischen Aufgaben.\n• Organisation des Empfangsbereichs: Freundlicher Empfang und Betreuung der Patient*innen, Schaffung einer angenehmen Atmosphäre und erste Ansprechperson für Besucher*innen der Praxis.\n\nAnforderungsprofil:\n\n• Arztsekretär*in, Praxisassistent*in, Bürokauffrau*mann oder KV-Abschluss\n• Berufserfahrung in einer Praxis, Klinik oder vergleichbarer Funktion von Vorteil\n• Freude am telefonischen und persönlichen Kundenkontakt\n• Selbständige, strukturierte und effiziente Arbeitsweise\n• Ausgeprägte Organisations- und Kommunikationsfähigkeit\n• Belastbar, teamfähig und multitaskingfähig\n• Hohe Leistungs- und Lernbereitschaft\n\nWas können wir Ihnen bieten?\n\n• Eine moderne, zukunftsorientierte Praxis mit angenehmem Arbeitsklima\n• Wertschätzendes und motiviertes Team\n• Abwechslungsreiche Tätigkeit\n• Attraktive Anstellungsbedingungen und Vergünstigungen\n• Faire Entlöhnung und fünf Wochen Ferien Haben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie kennenzulernen. Für Fragen steht Ihnen Frau Helena Chappuis unter 044 728 18 18 gerne zur Verfügung. Bitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen mit Foto per E-Mail an: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Bewerbungen von Personal- und Stellenvermittlungen werden nicht berücksichtigt. * Diese geschriebene Form richtet sich auch an Frauen.",
-        "fr": "Ses tâches comprennent:\n• Organisation de la POLICLINIQUE RECOUVREZ la vie quotidienne et la coordination des heures de bureau\n• Communication téléphonique et écrite avec les patients, les médecins et les compagnies d'assurance\n• Assurer des processus en douceur dans la pratique – de l'ordre et de la propreté aux tâches d'organisation quotidiennes.\n• Organisation de l'aire d'accueil : accueil amical et soins des patients, création d'une atmosphère agréable et premier contact pour les visiteurs de la pratique. Profil des besoins:\n• Secrétaire médical, assistant de pratique, commis de bureau ou diplômé de KV\n• Expérience professionnelle dans une pratique, une clinique ou une fonction comparable est bénéfique\n• Appréciation du téléphone et du contact client personnel\n• Méthodes de travail indépendantes, structurées et efficaces\n• Fortes compétences en matière d'organisation et de communication\n• Résilient, prêt pour l'équipe et multitâche\n• Haute volonté d'accomplir et d'apprendre Que pouvons-nous vous offrir ?\n• Une pratique moderne et tournée vers l'avenir avec une ambiance de travail agréable\n• Équipe reconnaissante et motivée\n• Activités diverses\n• Conditions et avantages d'emploi attrayants\n• Rémunération équitable et congés de cinq semaines Avons-nous suscité votre intérêt ? Alors nous avons hâte de vous rencontrer. Pour toute question, Mme Vanessa von Wartburg, assistante principale de la pratique, est à votre disposition au 044 728 18. Veuillez nous envoyer vos documents de candidature complets avec photo par courriel à: vanessa.vonwartburg@policlinic.ch www.policlinic.ch / www.recover.ch Les demandes du personnel et des agences d'emploi ne seront pas prises en considération. * Cette forme écrite s'adresse également aux femmes."
+        "de": "Das erwartet dich:\nAls stellvertretende*r Abteilungsleiter*in der Chirurgie hältst du viele Fäden zusammen: Du unterstützt die Abteilungsleitung, begleitest dein Team durch den Alltag und sorgst dafür, dass auch bei viel Bewegung an der Front alles gut zusammenspielt. Mit deinen Ideen, deiner Erfahrung und deinem offenen Ohr machst du den Unterschied.\n• Du gibst den Takt vor: Gemeinsam mit der Abteilungsleitung bringst du Struktur ins Geschehen, koordinierst die Abläufe und sorgst dafür, dass in der Chirurgie alles gut zusammenspielt.\n• Du bist der Joker, wenn’s drauf ankommt: Du erkennst, wo Unterstützung gefragt ist, springst ein und sorgst dafür, dass der Alltag weiterläuft.\n• Du baust Brücken statt Mauern: Du bringst Pflege, Ärzt*innen und alle weiteren Berufsgruppen zusammen und sorgst für eine Zusammenarbeit, die wirklich funktioniert.\n• Du pflanzt heute die Pflege von morgen: Du unterstützt unsere Auszubildenden und Studierenden, gibst dein Know-how weiter und hilfst ihnen, über sich hinauszuwachsen.\n• Du zeigst, wer wir sind: Du repräsentierst das See-Spital und die Chirurgie mit Herz, Kompetenz und Teamgeist.\n• Du machst aus Ideen Realität: Du übernimmst zusätzliche Aufgaben und Projekte in Absprache mit der Abteilungsleitung und gestaltest die Weiterentwicklung der Abteilung aktiv mit.\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Pflegefachperson (HF, FH, DNII, AKP) sowie Erfahrung im Akutspital.\n• Erste Führungserfahrung oder Lust, den nächsten Schritt zu gehen.\n• Du kommunizierst klar, packst an und kannst dich durchsetzen.\n• Du denkst mit, entwickelst weiter und gehst Veränderungen gerne an.\n• Mit MS Office und PC Anwendungen bist du per Du.\n• Schicht- und Wochenenddienste meisterst du mit Teamgeist.\n• Du kennst den Pflegealltag und lässt dich auch von turbulenten Tagen nicht aus der Ruhe bringen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Planen statt nur eingeteilt werden: Unser Team übernimmt die Dienstplanung eigenverantwortlich .",
+        "it": "Das erwartet dich:\nAls stellvertretende*r Abteilungsleiter*in der Chirurgie hältst du viele Fäden zusammen: Du unterstützt die Abteilungsleitung, begleitest dein Team durch den Alltag und sorgst dafür, dass auch bei viel Bewegung an der Front alles gut zusammenspielt. Mit deinen Ideen, deiner Erfahrung und deinem offenen Ohr machst du den Unterschied.\n• Du gibst den Takt vor: Gemeinsam mit der Abteilungsleitung bringst du Struktur ins Geschehen, koordinierst die Abläufe und sorgst dafür, dass in der Chirurgie alles gut zusammenspielt.\n• Du bist der Joker, wenn’s drauf ankommt: Du erkennst, wo Unterstützung gefragt ist, springst ein und sorgst dafür, dass der Alltag weiterläuft.\n• Du baust Brücken statt Mauern: Du bringst Pflege, Ärzt*innen und alle weiteren Berufsgruppen zusammen und sorgst für eine Zusammenarbeit, die wirklich funktioniert.\n• Du pflanzt heute die Pflege von morgen: Du unterstützt unsere Auszubildenden und Studierenden, gibst dein Know-how weiter und hilfst ihnen, über sich hinauszuwachsen.\n• Du zeigst, wer wir sind: Du repräsentierst das See-Spital und die Chirurgie mit Herz, Kompetenz und Teamgeist.\n• Du machst aus Ideen Realität: Du übernimmst zusätzliche Aufgaben und Projekte in Absprache mit der Abteilungsleitung und gestaltest die Weiterentwicklung der Abteilung aktiv mit.\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Pflegefachperson (HF, FH, DNII, AKP) sowie Erfahrung im Akutspital.\n• Erste Führungserfahrung oder Lust, den nächsten Schritt zu gehen.\n• Du kommunizierst klar, packst an und kannst dich durchsetzen.\n• Du denkst mit, entwickelst weiter und gehst Veränderungen gerne an.\n• Mit MS Office und PC Anwendungen bist du per Du.\n• Schicht- und Wochenenddienste meisterst du mit Teamgeist.\n• Du kennst den Pflegealltag und lässt dich auch von turbulenten Tagen nicht aus der Ruhe bringen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Planen statt nur eingeteilt werden: Unser Team übernimmt die Dienstplanung eigenverantwortlich .",
+        "en": "Das erwartet dich:\nAls stellvertretende*r Abteilungsleiter*in der Chirurgie hältst du viele Fäden zusammen: Du unterstützt die Abteilungsleitung, begleitest dein Team durch den Alltag und sorgst dafür, dass auch bei viel Bewegung an der Front alles gut zusammenspielt. Mit deinen Ideen, deiner Erfahrung und deinem offenen Ohr machst du den Unterschied.\n• Du gibst den Takt vor: Gemeinsam mit der Abteilungsleitung bringst du Struktur ins Geschehen, koordinierst die Abläufe und sorgst dafür, dass in der Chirurgie alles gut zusammenspielt.\n• Du bist der Joker, wenn’s drauf ankommt: Du erkennst, wo Unterstützung gefragt ist, springst ein und sorgst dafür, dass der Alltag weiterläuft.\n• Du baust Brücken statt Mauern: Du bringst Pflege, Ärzt*innen und alle weiteren Berufsgruppen zusammen und sorgst für eine Zusammenarbeit, die wirklich funktioniert.\n• Du pflanzt heute die Pflege von morgen: Du unterstützt unsere Auszubildenden und Studierenden, gibst dein Know-how weiter und hilfst ihnen, über sich hinauszuwachsen.\n• Du zeigst, wer wir sind: Du repräsentierst das See-Spital und die Chirurgie mit Herz, Kompetenz und Teamgeist.\n• Du machst aus Ideen Realität: Du übernimmst zusätzliche Aufgaben und Projekte in Absprache mit der Abteilungsleitung und gestaltest die Weiterentwicklung der Abteilung aktiv mit.\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Pflegefachperson (HF, FH, DNII, AKP) sowie Erfahrung im Akutspital.\n• Erste Führungserfahrung oder Lust, den nächsten Schritt zu gehen.\n• Du kommunizierst klar, packst an und kannst dich durchsetzen.\n• Du denkst mit, entwickelst weiter und gehst Veränderungen gerne an.\n• Mit MS Office und PC Anwendungen bist du per Du.\n• Schicht- und Wochenenddienste meisterst du mit Teamgeist.\n• Du kennst den Pflegealltag und lässt dich auch von turbulenten Tagen nicht aus der Ruhe bringen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Planen statt nur eingeteilt werden: Unser Team übernimmt die Dienstplanung eigenverantwortlich .",
+        "fr": "Das erwartet dich:\nAls stellvertretende*r Abteilungsleiter*in der Chirurgie hältst du viele Fäden zusammen: Du unterstützt die Abteilungsleitung, begleitest dein Team durch den Alltag und sorgst dafür, dass auch bei viel Bewegung an der Front alles gut zusammenspielt. Mit deinen Ideen, deiner Erfahrung und deinem offenen Ohr machst du den Unterschied.\n• Du gibst den Takt vor: Gemeinsam mit der Abteilungsleitung bringst du Struktur ins Geschehen, koordinierst die Abläufe und sorgst dafür, dass in der Chirurgie alles gut zusammenspielt.\n• Du bist der Joker, wenn’s drauf ankommt: Du erkennst, wo Unterstützung gefragt ist, springst ein und sorgst dafür, dass der Alltag weiterläuft.\n• Du baust Brücken statt Mauern: Du bringst Pflege, Ärzt*innen und alle weiteren Berufsgruppen zusammen und sorgst für eine Zusammenarbeit, die wirklich funktioniert.\n• Du pflanzt heute die Pflege von morgen: Du unterstützt unsere Auszubildenden und Studierenden, gibst dein Know-how weiter und hilfst ihnen, über sich hinauszuwachsen.\n• Du zeigst, wer wir sind: Du repräsentierst das See-Spital und die Chirurgie mit Herz, Kompetenz und Teamgeist.\n• Du machst aus Ideen Realität: Du übernimmst zusätzliche Aufgaben und Projekte in Absprache mit der Abteilungsleitung und gestaltest die Weiterentwicklung der Abteilung aktiv mit.\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Pflegefachperson (HF, FH, DNII, AKP) sowie Erfahrung im Akutspital.\n• Erste Führungserfahrung oder Lust, den nächsten Schritt zu gehen.\n• Du kommunizierst klar, packst an und kannst dich durchsetzen.\n• Du denkst mit, entwickelst weiter und gehst Veränderungen gerne an.\n• Mit MS Office und PC Anwendungen bist du per Du.\n• Schicht- und Wochenenddienste meisterst du mit Teamgeist.\n• Du kennst den Pflegealltag und lässt dich auch von turbulenten Tagen nicht aus der Ruhe bringen.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n• Planen statt nur eingeteilt werden: Unser Team übernimmt die Dienstplanung eigenverantwortlich ."
       },
       "location": "Horgen",
       "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1269/Description/1",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1282/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:23:08.904Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1269/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugsByLocale": {
-        "de": [
-          "assistent-in-aemp-see-spital-ch",
-          "praxisassistent-in-policlinic-see-spital-ch"
-        ],
-        "it": [
-          "praxisassistent-in-see-spital-ch",
-          "praxisassistent-in-see-spital-horgen",
-          "assistente-in-aemp-see-spital-horgen",
-          "assistant-in-aemp-see-spital-horgen",
-          "assistent-in-aemp-see-spital-ch",
-          "assistant-en-aemp-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch"
-        ],
-        "en": [
-          "praxisassistent-in-see-spital-horgen",
-          "assistant-in-aemp-see-spital-horgen"
-        ],
-        "fr": [
-          "praxisassistent-in-see-spital-horgen",
-          "assistant-en-aemp-see-spital-horgen"
-        ]
-      },
-      "previousSlugs": [
-        "praxisassistent-in-see-spital-ch",
-        "assistente-medico-in-ostetricia-see-spital-horgen",
-        "medical-practice-assistant-in-gynecology-see-spital-horgen",
-        "med-praxisassistent-in-frauenklinik-see-spital-ch",
-        "assistant-de-medecin-en-gynecologie-see-spital-horgen",
-        "praxisassistent-in-see-spital-horgen",
-        "assistente-in-aemp-see-spital-horgen",
-        "assistant-in-aemp-see-spital-horgen",
-        "assistent-in-aemp-see-spital-ch",
-        "assistant-en-aemp-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch"
-      ],
-      "firstSeenAt": "2026-06-29T14:13:58.523Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "see-spital-0006beec7f9b",
-      "slug": "assistente-pratico-see-spital-horgen-79c446",
-      "slugByLocale": {
-        "it": "assistente-pratico-see-spital-horgen-79c446",
-        "en": "practical-assistant-see-spital-horgen-79c446",
-        "de": "praxisassistent-in-policlinic-see-spital-ch",
-        "fr": "assistant-pratique-see-spital-horgen-79c446"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Praxisassistent*in - POLICLINIC",
-      "titleByLocale": {
-        "it": "Assistente pratico*",
-        "en": "Practical assistant*",
-        "de": "Praxisassistent*in - POLICLINIC",
-        "fr": "Assistant pratique*"
-      },
-      "description": "Ihre Aufgaben umfassen\n\n• Organisation des POLICLINIC | reCOVER Alltags und Koordination der Sprechstunden\n• Telefonische und schriftliche Kommunikation mit Patient*innen, Ärzt*innen und Versicherungen\n• Sicherstellung reibungsloser Abläufe in der Praxis – von Ordnung und Sauberkeit bis zu alltäglichen organisatorischen Aufgaben.\n• Organisation des Empfangsbereichs: Freundlicher Empfang und Betreuung der Patient*innen, Schaffung einer angenehmen Atmosphäre und erste Ansprechperson für Besucher*innen der Praxis.\n\nAnforderungsprofil\n\n• Arztsekretär*in, Praxisassistent*in, Bürokauffrau*mann oder KV-Abschluss\n• Berufserfahrung in einer Praxis, Klinik oder vergleichbarer Funktion von Vorteil\n• Freude am telefonischen und persönlichen Kundenkontakt\n• Selbständige, strukturierte und effiziente Arbeitsweise\n• Ausgeprägte Organisations- und Kommunikationsfähigkeit\n• Belastbar, teamfähig und multitaskingfähig\n• Hohe Leistungs- und Lernbereitschaft\n• Flexibilität und Freude an einem lebendigen Praxisumfeld\n• Sehr gute EDV-Kenntnisse (MS Office, Medionline)\n• Stilsichere Deutschkenntnisse in Wort und Schrift, gute mündliche Englischkenntnisse\n\nWas können wir Ihnen bieten?\n\n• Eine moderne, zukunftsorientierte Praxis mit angenehmem Arbeitsklima\n• Wertschätzendes und motiviertes Team\n• Abwechslungsreiche Tätigkeit\n• Attraktive Anstellungsbedingungen und Vergünstigungen\n• Faire Entlöhnung und fünf Wochen Ferien Haben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie kennenzulernen. Für Fragen steht Ihnen Frau Helena Chappuis, unter 044 728 18 18 gerne zur Verfügung. Bitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen mit Foto per E-Mail an: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Bewerbungen von Personal- und Stellenvermittlungen werden nicht berücksichtigt. * Diese geschriebene Form richtet sich auch an Frauen.",
-      "descriptionByLocale": {
-        "it": "I loro compiti comprendono:\n\n• Organizzazione del POLICLINIC | riCOVER vita quotidiana e coordinamento delle ore di ufficio\n• Telefono e comunicazione scritta con pazienti, medici e assicurazioni\n• Garantire processi lisci nella pratica – dall'ordine e dalla pulizia alle attività organizzative quotidiane.\n• Organizzazione della reception: accoglienza amichevole e cura dei pazienti, creazione di un'atmosfera piacevole e prima persona di contatto per i visitatori della pratica.\n\nProfilo di richiesta\n\n• Segretario medico, assistente di pratica, impiegato di ufficio o laurea KV\n• Esperienza professionale in una pratica, clinica o funzione comparabile è utile\n• Godimento di telefono e contatto personale del cliente\n• Metodi di lavoro indipendenti, strutturati ed efficienti\n• Forte capacità organizzative e di comunicazione\n• Resiliente, pronto da team e multitasking\n• Alta volontà di eseguire e imparare\n• Flessibilità e gioia in un ambiente pratico vivace\n• Conoscenza IT molto buona (MS Office, Medionline)\n• Conoscenza elegante-confidente del tedesco in parola e scrittura, buona conoscenza orale di inglese\n\nCosa possiamo offrirvi?\n\n• Una pratica moderna e orientata al futuro con una piacevole atmosfera di lavoro\n• Squadra apprezzata e motivata\n• Attività varie\n• Condizioni di lavoro e prestazioni interessanti\n• Retribuzione equa e cinque settimane ferie Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora di incontrarti. Per domande, signora Helena Chappuis, il 044 728 18 18 è a vostra disposizione. Inviateci i vostri documenti completi con foto via e-mail a: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Le domande di reclutamento e le agenzie di lavoro non saranno considerate. # Questa forma scritta è rivolta anche alle donne.",
-        "en": "Their tasks shall include:\n\n• Organization of the POLICLINIC | reCOVER everyday life and coordination of office hours\n• Telephone and written communication with patients, doctors and insurance companies\n• Ensuring smooth processes in practice – from order and cleanliness to everyday organizational tasks.\n• Organization of the reception area: friendly reception and care of the patients, creation of a pleasant atmosphere and first contact person for visitors to the practice.\n\nRequirement profile\n\n• Medical secretary, practice assistant, office clerk or KV degree\n• Professional experience in a practice, clinic or comparable function is beneficial\n• Enjoyment of telephone and personal customer contact\n• Independent, structured and efficient working methods\n• Strong organisational and communication skills\n• Resilient, team-ready and multitasking\n• High willingness to perform and learn\n• Flexibility and joy in a lively practical environment\n• Very good IT knowledge (MS Office, Medionline)\n• Stylish-confident knowledge of German in word and writing, good oral knowledge of English\n\nWhat can we offer you?\n\n• A modern, future-oriented practice with a pleasant working atmosphere\n• Appreciative and motivated team\n• Varied activities\n• Attractive employment conditions and benefits\n• Fair remuneration and five weeks holidays Have we aroused your interest? Then we look forward to meeting you. For questions, Mrs. Helena Chappuis, on 044 728 18 18 is at your disposal. Please send us your complete application documents with photo by e-mail to: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Applications from recruitment and employment agencies will not be considered. * This written form is also aimed at women.",
-        "de": "Ihre Aufgaben umfassen\n\n• Organisation des POLICLINIC | reCOVER Alltags und Koordination der Sprechstunden\n• Telefonische und schriftliche Kommunikation mit Patient*innen, Ärzt*innen und Versicherungen\n• Sicherstellung reibungsloser Abläufe in der Praxis – von Ordnung und Sauberkeit bis zu alltäglichen organisatorischen Aufgaben.\n• Organisation des Empfangsbereichs: Freundlicher Empfang und Betreuung der Patient*innen, Schaffung einer angenehmen Atmosphäre und erste Ansprechperson für Besucher*innen der Praxis.\n\nAnforderungsprofil\n\n• Arztsekretär*in, Praxisassistent*in, Bürokauffrau*mann oder KV-Abschluss\n• Berufserfahrung in einer Praxis, Klinik oder vergleichbarer Funktion von Vorteil\n• Freude am telefonischen und persönlichen Kundenkontakt\n• Selbständige, strukturierte und effiziente Arbeitsweise\n• Ausgeprägte Organisations- und Kommunikationsfähigkeit\n• Belastbar, teamfähig und multitaskingfähig\n• Hohe Leistungs- und Lernbereitschaft\n• Flexibilität und Freude an einem lebendigen Praxisumfeld\n• Sehr gute EDV-Kenntnisse (MS Office, Medionline)\n• Stilsichere Deutschkenntnisse in Wort und Schrift, gute mündliche Englischkenntnisse\n\nWas können wir Ihnen bieten?\n\n• Eine moderne, zukunftsorientierte Praxis mit angenehmem Arbeitsklima\n• Wertschätzendes und motiviertes Team\n• Abwechslungsreiche Tätigkeit\n• Attraktive Anstellungsbedingungen und Vergünstigungen\n• Faire Entlöhnung und fünf Wochen Ferien Haben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie kennenzulernen. Für Fragen steht Ihnen Frau Helena Chappuis, unter 044 728 18 18 gerne zur Verfügung. Bitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen mit Foto per E-Mail an: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Bewerbungen von Personal- und Stellenvermittlungen werden nicht berücksichtigt. * Diese geschriebene Form richtet sich auch an Frauen.",
-        "fr": "Leurs tâches comprennent:\n\n• Organisation de la POLICLINIQUE RECOUVREZ la vie quotidienne et la coordination des heures de bureau\n• Communication téléphonique et écrite avec les patients, les médecins et les compagnies d'assurance\n• Assurer des processus en douceur dans la pratique – de l'ordre et de la propreté aux tâches d'organisation quotidiennes.\n• Organisation de l'aire d'accueil : accueil amical et soins des patients, création d'une atmosphère agréable et premier contact pour les visiteurs de la pratique.\n\nProfil des besoins\n\n• Secrétaire médical, assistant de pratique, commis de bureau ou diplômé de KV\n• Expérience professionnelle dans une pratique, une clinique ou une fonction comparable est bénéfique\n• Appréciation du téléphone et du contact client personnel\n• Méthodes de travail indépendantes, structurées et efficaces\n• Fortes compétences en matière d'organisation et de communication\n• Résilient, prêt pour l'équipe et multitâche\n• Haute volonté d'accomplir et d'apprendre\n• Flexibilité et joie dans un environnement pratique animé\n• Très bonne connaissance de l'informatique (MS Office, Medionline)\n• Connaissance de l'allemand par écrit et par écrit, bonne connaissance orale de l'anglais\n\nQue pouvons-nous vous offrir ?\n\n• Une pratique moderne et tournée vers l'avenir avec une ambiance de travail agréable\n• Équipe reconnaissante et motivée\n• Activités diverses\n• Conditions et avantages d'emploi attrayants\n• Rémunération équitable et congés de cinq semaines Avons-nous suscité votre intérêt ? Alors nous avons hâte de vous rencontrer. Pour des questions, Mme Helena Chappuis, le 044 728 18 est à votre disposition. Veuillez nous envoyer vos documents de candidature complets avec photo par courriel à: helena.chappuis@policlinic.ch www.policlinic.ch / www.recover.ch Les demandes des agences de recrutement et d'emploi ne seront pas prises en considération. * Cette forme écrite s'adresse également aux femmes."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1274/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-11T22:23:04.350Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-08-13T10:25:38.371Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3469,38 +3462,14 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1274/Application/CheckLogin/1",
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1282/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "praxisassistent-in-see-spital-ch-2",
-        "praxisassistent-in-see-spital-ch",
-        "praxisassistent-in-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch-2",
-        "praxisassistent-in-policlinic-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praxisassistent-in-see-spital-ch-2",
-          "praxisassistent-in-see-spital-ch",
-          "praxisassistent-in-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch-2",
-          "praxisassistent-in-policlinic-see-spital-ch"
-        ],
-        "en": [
-          "praxisassistent-in-see-spital-horgen"
-        ],
-        "de": [
-          "praxisassistent-in-see-spital-ch"
-        ],
-        "fr": [
-          "praxisassistent-in-see-spital-horgen"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T22:38:26.857Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3514,7 +3483,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-08-13T10:25:38.371Z"
     }
   ]
 }
