@@ -24,9 +24,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   isAvoidableMaxTurns,
+  isAvoidableOverlapSkip,
   isGenuinePrBodyContractViolation,
   isGenuineSiblingClassViolation,
   bucketFinding,
+  fixBranchName,
+  parseRecoverableBranchStamp,
 } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 describe('isAvoidableMaxTurns — non escalare la morte al cap che è deterministica/inerente', () => {
@@ -123,6 +126,80 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
     expect(isAvoidableMaxTurns('', null as unknown as string[])).toBe(true);
     // labels non-array trattate come [] → nessuna needs-human → contabile
     expect(isAvoidableMaxTurns('follow-up: x', 'follow-up' as unknown as string[])).toBe(true);
+  });
+});
+
+describe('isAvoidableMaxTurns — il branch è prova di consegna quanto la PR (corpus #274, metà sito)', () => {
+  // Misurato sul corpus su 31 morti `max-turns`: consegnate 0, RECUPERABILI 11, vuote 20.
+  // Le undici avevano commit su `fix/issue-<N>` avanti a main dal checkpoint WIP (#4337)
+  // e nessuna PR: l'unica prova di consegna accettata era `pr-created`, quindi passavano
+  // per rumore. Due sono state riaperte a mano e mergiate (#5767 → PR #5774, corpus #166
+  // → PR #293), che è la ragione per cui questo caso non è teorico.
+  const TITLE = 'follow-up(#5767): 1 item deferred — fix(loop): drainer rescue';
+  const LABELS = ['follow-up', 'agent:triaged'];
+
+  it('commit sul branch e nessuna PR → NON contabile: è consegna parziale, non un loop fixabile', () => {
+    expect(isAvoidableMaxTurns(TITLE, LABELS,
+      { hasDeliveredPr: false, hasRecoverableBranch: true })).toBe(false);
+  });
+
+  it('nessuna prova di consegna (né PR né branch) → resta il segnale genuino, contabile', () => {
+    // Il discriminante col comportamento vecchio: prima il terzo parametro era un
+    // booleano, quindi QUALUNQUE oggetto — anche uno che dichiara zero consegne — era
+    // truthy e scartava la run. Le 20 morti davvero vuote sparivano insieme alle 11.
+    expect(isAvoidableMaxTurns(TITLE, LABELS,
+      { hasDeliveredPr: false, hasRecoverableBranch: false })).toBe(true);
+  });
+
+  it('il booleano legacy conserva ESATTAMENTE il significato di prima (call site pre-branch)', () => {
+    expect(isAvoidableMaxTurns(TITLE, LABELS, true)).toBe(false);
+    expect(isAvoidableMaxTurns(TITLE, LABELS, false)).toBe(true);
+    expect(isAvoidableMaxTurns(TITLE, LABELS)).toBe(true);
+  });
+
+  it('le esclusioni strutturali vincono comunque (aggregate / needs-human)', () => {
+    expect(isAvoidableMaxTurns('follow-up(#x): 3 items deferred', LABELS,
+      { hasDeliveredPr: false, hasRecoverableBranch: false })).toBe(false);
+    expect(isAvoidableMaxTurns(TITLE, [...LABELS, 'needs-human'],
+      { hasDeliveredPr: false, hasRecoverableBranch: true })).toBe(false);
+  });
+
+  it('lo stamp lasciato dal marker è leggibile senza spendere una chiamata API', () => {
+    expect(fixBranchName(5767)).toBe('fix/issue-5767');
+    expect(parseRecoverableBranchStamp(
+      '<!-- FIX_OUTCOME: max-turns -->\n<!-- RECOVERABLE_BRANCH: fix/issue-5767 ahead=2 -->\n♻️ …',
+    )).toEqual({ branch: 'fix/issue-5767', aheadBy: 2 });
+    // `ahead=0` non è lavoro: un branch pushato e poi resettato non va recuperato.
+    expect(parseRecoverableBranchStamp('<!-- RECOVERABLE_BRANCH: fix/issue-1 ahead=0 -->')).toBeNull();
+    expect(parseRecoverableBranchStamp('<!-- FIX_OUTCOME: max-turns -->')).toBeNull();
+    expect(parseRecoverableBranchStamp(undefined as unknown as string)).toBeNull();
+  });
+});
+
+describe('isAvoidableOverlapSkip — un rinvio di scheduling non è burn evitabile (corpus #229, metà sito)', () => {
+  // Misurato sul mirror corpus il 2026-08-13: 11 marker `overlap-skip`, 11 contati, 0
+  // scartati — perché il classificatore non esisteva, unico esito senza. Eppure
+  // followup-drainer.mjs li dichiara TRANSIENTI (esclusi da NON_RETRYABLE: «la PR
+  // bloccante può mergiare → ri-tentabile»).
+  it('overlap con una PR terza → NON contabile (nessuna regola di prosa lo previene)', () => {
+    expect(isAvoidableOverlapSkip(
+      'follow-up(#4102): 1 item deferred — fix(crawler): eHnv feed',
+      ['follow-up', 'agent:triaged'],
+    )).toBe(false);
+    expect(isAvoidableOverlapSkip('qualunque titolo', [], false)).toBe(false);
+  });
+
+  it('overlap su una issue che aveva GIÀ la sua PR aperta → contabile: è un buco di hasFixPR', () => {
+    expect(isAvoidableOverlapSkip(
+      'follow-up(#4102): 1 item deferred — fix(crawler): eHnv feed',
+      ['follow-up', 'agent:triaged'],
+      true,
+    )).toBe(true);
+  });
+
+  it('input degeneri non lanciano', () => {
+    expect(isAvoidableOverlapSkip(undefined as unknown as string, undefined as unknown as string[])).toBe(false);
+    expect(isAvoidableOverlapSkip('', null as unknown as string[])).toBe(false);
   });
 });
 
