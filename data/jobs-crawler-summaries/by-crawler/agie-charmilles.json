@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-13T10:54:47.980Z",
+  "generatedAt": "2026-08-13T22:17:24.958Z",
   "total": 32,
   "newCount": 0,
   "updatedCount": 29,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 60962,
-  "avgDurationMs": 60962,
+  "durationMs": 52874,
+  "avgDurationMs": 52874,
   "durationHistory": [
-    60962
+    52874
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1080,79 +1080,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Automatiker EFZ (w/m/d)",
-      "slug": "automatiker-cfc-w-m-d-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-automatiker-efz-wmd/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/a06c189112ea3ac22199486e225e0ebc97e48a16eb0587efb101b2e7c8e376789cba64340648447dfdbb784ceffc261585ac2adb5600eb395f6068f93bcb3a",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-a702ffc69725",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-21T12:42:20.384Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Field Service Expert (d/w/m)",
-      "slug": "esperto-di-servizio-sul-campo-d-f-m-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-field-service-expert-dwm/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/c1a71ae6a04acca255a69dae1e13d29de55e78eab549d38c59297328b2de6a44723afcecde0aaa1f50ba1dc46c03e56bdc8097c69783cbf8041d5755656402",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-3fdadae9c7fe",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-21T12:42:20.384Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
