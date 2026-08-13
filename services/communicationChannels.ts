@@ -58,22 +58,52 @@
  * click away from running again. `cadence` is the field that must stop
  * promising, and it does.
  *
- * WHAT IS DELIBERATELY LISTED BUT NOT CONSENTED
- * ---------------------------------------------
- * `publisher-blast` carries `consentCategory: null`. It is third-party
- * advertising — a different PURPOSE, not another format of the editorial
- * category — and no formula in the consent register admits it. Listing it with
- * a null category is not an oversight to be tidied away by picking the nearest
- * one: that choice belongs to the owner (see `ADVERTISING_NOT_COVERED` in
- * services/consentTexts.ts), and quietly filing it under "editorial" is the
- * shortcut that produced 6.308 unrequested job alerts (#5705).
+ * THE ONE CHANNEL WHOSE CONSENT IS AN OPT-OUT (#5759)
+ * ---------------------------------------------------
+ * `publisher-blast` carried `consentCategory: null` from #5712 until #5759. It
+ * is third-party advertising — a different PURPOSE, not another format of the
+ * editorial category — and no formula in the register admitted it. That null
+ * was never an oversight to be tidied away by picking the nearest category:
+ * the choice belonged to the owner, and quietly filing it under "editorial" is
+ * the shortcut that produced 6.308 unrequested job alerts (#5705).
  *
- * The owner took that decision on 2026-08-12 and took it the safe way: the
- * channel is now `suspended` as well as uncategorised. It was the only ACTIVE
- * workflow able to mail subscribers under no consent at all, and the cost of
- * stopping it was measured first — zero paid ads in `publisher_jobs`, zero
- * blasted, zero pending. It stays listed, because a reader is entitled to know
- * the capability exists and under what condition it would return.
+ * The owner answered on 2026-08-13 (#5764 §3, #5759). The answer has three
+ * parts and they only work together:
+ *
+ *   1. advertising is NAMED — as its own consent category, on
+ *      `/comunicazioni/`, which is where #5765 moved every category. The
+ *      formula at the gates stays one line and points there;
+ *   2. NO extra checkbox at the signup gates. The number of ticks does not
+ *      change, so what is collected is an OPT-OUT and not an opt-in. That is a
+ *      weaker position than a dedicated box, and it was chosen knowingly;
+ *   3. the reader can switch THIS channel off on its own, from the preference
+ *      centre — `ADVERTISING_OPT_OUT_FIELD` on the subscriber document, read
+ *      by services/publisherBlastMatch.mjs.
+ *
+ * Part 3 is what makes part 2 defensible, so removing the switch means
+ * removing the category too; `tests/consent-shown-at-signup.test.tsx` and
+ * `tests/preference-center-coverage.test.ts` assert the three as one.
+ *
+ * It is a CATEGORY and not an advertiser. A second advertising channel
+ * tomorrow is covered by the same disclosure and the same switch — the
+ * property this whole page is built around, and the reason no sponsor is
+ * named anywhere in it.
+ *
+ * WHO IT DOES NOT COVER, AND WHY THAT IS NOT A LOOPHOLE
+ * ----------------------------------------------------
+ * The owner's stated defence against "I never agreed to advertising" is the
+ * formula that names it plus the switch that stops it. A subscriber whose
+ * stored `consent_text` points at a page version OLDER than
+ * `ADVERTISING_NAMED_FROM_PAGE_VERSION` read a page that did not name it, so
+ * that defence does not exist for them and the blast may not reach them.
+ * `services/publisherBlastMatch.mjs` enforces it. Today that is every existing
+ * subscriber; the audience refills with the people who read the new sentence.
+ *
+ * The channel itself stays `suspended`. Naming it creates the basis on which
+ * it could run; turning the workflow back on is an act on the Actions API, and
+ * this registry may never claim `live` for something the API has disabled —
+ * that is #5745, and the marker in the workflow file is what keeps the two in
+ * step.
  */
 // Relative, not `@/`: `build-plugins/communicationsPagePlugin.ts` imports this
 // module and is itself reachable from vite.config.ts, which esbuild bundles
@@ -84,8 +114,63 @@
 // tests/vite-config-import-graph.test.ts refuses it now instead.
 import type { ConsentLocale } from './consentTexts';
 
-/** Which sentence of the consent formula authorises the channel. `null` = none does. */
-export type ConsentCategory = 'editorial' | 'jobs' | 'service' | null;
+/** Which consent category authorises the channel. `null` = none does. */
+export type ConsentCategory = 'editorial' | 'jobs' | 'service' | 'advertising' | null;
+
+/**
+ * The categories `/comunicazioni/` heads, in page order.
+ *
+ * Enumerated rather than derived from the channels below, because the page has
+ * to head a section a reader can act on even while the only channel under it is
+ * suspended — which is exactly `advertising` today.
+ */
+export const CONSENT_CATEGORIES = ['editorial', 'jobs', 'service', 'advertising'] as const;
+export type NamedConsentCategory = (typeof CONSENT_CATEGORIES)[number];
+
+/**
+ * Is this channel outside every category the page heads?
+ *
+ * `null`, `undefined` and a category nobody renders all answer `true`, and that
+ * totality is the point: the page partitions the channel list into "under a
+ * heading" and "under no consent we collect", and a channel that fell through
+ * BOTH would vanish from the page entirely — the exact under-reporting this
+ * registry exists to prevent, arrived at by a missing field rather than by a
+ * missing entry. `tests/consent-shown-at-signup.test.tsx` drives it with all
+ * three shapes, none of which exists in this repo.
+ */
+export function isUncoveredChannel(channel: {
+  readonly consentCategory?: ConsentCategory;
+}): boolean {
+  const named: readonly (ConsentCategory | undefined)[] = CONSENT_CATEGORIES;
+  return !named.includes(channel.consentCategory);
+}
+
+/**
+ * The subscriber-document field that switches third-party advertising off, and
+ * only that (#5759).
+ *
+ * Absent means ON: the owner's decision is an opt-out, so the switch can only
+ * ever be read as `=== true`. Named here because the writers are TypeScript
+ * (the preference centre) and JavaScript in another deploy unit (the Cloud
+ * Function), and the reader is an `.mjs` that cannot import either — the same
+ * no-import-shape boundary as `SUSPENDED_WORKFLOW_MARKER`, held together the
+ * same way, by a test that reads both sides.
+ */
+export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
+
+/**
+ * The first page version whose text named third-party advertising.
+ *
+ * FROZEN. It is not "the current version": moving it forward would retroactively
+ * disqualify people whose stored sentence really did name advertising, which is
+ * the opposite of what it is for. It moves only if the disclosure is withdrawn
+ * and re-issued, which is a new owner decision.
+ *
+ * `services/publisherBlastMatch.mjs` carries the same literal — it cannot
+ * import this file — and `tests/consent-shown-at-signup.test.tsx` fails if the
+ * two disagree or if this version was never published.
+ */
+export const ADVERTISING_NAMED_FROM_PAGE_VERSION = '2026-08-13.2';
 
 export type LocalizedText = Readonly<Record<ConsentLocale, string>>;
 
@@ -347,7 +432,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     workflow: '.github/workflows/publisher-blast.yml',
     cron: '17 7 * * *',
     status: 'suspended',
-    consentCategory: null,
+    consentCategory: 'advertising',
     name: {
       it: 'Annunci di inserzionisti',
       en: 'Advertiser announcements',
@@ -361,10 +446,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat de ce site.',
     },
     cadence: {
-      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Nessun consenso raccolto copre questo canale, ed è la ragione per cui è stato spento. Non aveva mai spedito: zero annunci a pagamento in coda al momento della sospensione.',
-      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. No consent we collect covers this channel, which is why it was switched off. It had never sent anything: zero paid ads queued at the time.',
-      de: 'Seit dem 12. August 2026 ausgesetzt: der Workflow ist deaktiviert, es geht nichts hinaus. Keine erhobene Einwilligung deckt diesen Kanal — deshalb wurde er abgeschaltet. Er hatte nie etwas versendet: null bezahlte Anzeigen in der Warteschlange.',
-      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Aucun consentement recueilli ne couvre ce canal, et c’est la raison de son arrêt. Il n’avait jamais rien envoyé : zéro annonce payante en attente.',
+      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Non ha mai spedito: zero annunci a pagamento in coda al momento della sospensione. Se verrà riattivato partirà solo verso chi si è iscritto dopo il 13 agosto 2026, cioè dopo che questa pagina ha iniziato a nominare la pubblicità di terzi, e mai verso chi lo ha disattivato dalle proprie preferenze.',
+      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. It has never sent anything: zero paid ads queued at the time. If it is switched back on it will only reach people who subscribed after 13 August 2026, that is, after this page began naming third-party advertising — and never anyone who has switched it off in their preferences.',
+      de: 'Seit dem 12. August 2026 ausgesetzt: der Workflow ist deaktiviert, es geht nichts hinaus. Er hat nie etwas versendet: null bezahlte Anzeigen in der Warteschlange. Bei einer Reaktivierung erreicht er nur Personen, die sich nach dem 13. August 2026 angemeldet haben — also nachdem diese Seite Werbung Dritter zu nennen begann — und nie jemanden, der ihn in den eigenen Einstellungen abgeschaltet hat.',
+      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Il n’a jamais rien envoyé : zéro annonce payante en attente. S’il est réactivé, il n’atteindra que les personnes inscrites après le 13 août 2026, c’est-à-dire après que cette page a commencé à nommer la publicité de tiers, et jamais quelqu’un qui l’a désactivé depuis ses préférences.',
     },
   }),
 ]);
@@ -458,7 +543,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.1';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.2';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -469,6 +554,9 @@ export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.1';
  */
 export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = Object.freeze({
   '2026-08-13.1': '28803e543beb58e2',
+  // #5759 — third-party advertising becomes a consent category with its own
+  // section, and the "covered by no consent" section empties out.
+  '2026-08-13.2': '4c6226e23619772a',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */

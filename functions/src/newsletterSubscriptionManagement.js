@@ -357,7 +357,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -461,7 +461,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'revoke_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency'];
+ const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'revoke_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert', 'set_daily_brief_frequency', 'set_advertising_opt_out'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -752,7 +752,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  if (action === 'get_full_status') {
  try {
  const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
- let newsletter = { subscribed: false, autologinEnabled: true };
+ // `advertisingEnabled: true` in the no-document default for the same reason
+ // it is `!== true` below: the consent is an opt-out, and a document that does
+ // not exist carries no objection (#5759).
+ let newsletter = { subscribed: false, autologinEnabled: true, advertisingEnabled: true };
  if (subDoc.exists) {
  const data = subDoc.data() || {};
  const status = data.status;
@@ -779,6 +782,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ? data.daily_brief_frequency_override
  : null,
  dailyBriefTier: Number.isFinite(data.daily_brief_tier) ? data.daily_brief_tier : null,
+ // Third-party advertising (#5759). The consent is an OPT-OUT, so an
+ // absent field means the channel is on and only an explicit `true`
+ // on `advertising_opt_out` turns it off — the same `=== true` that
+ // services/publisherBlastMatch.mjs applies when choosing an audience.
+ // Reported positively so the page never has to invert it.
+ advertisingEnabled: data.advertising_opt_out !== true,
  };
  }
 
@@ -913,6 +922,56 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 200, json: { success: true, dailyBriefFrequency: requested } };
  } catch (err) {
  console.error('[set_daily_brief_frequency] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'write_failed' } };
+ }
+ }
+
+ // Third-party advertising, on or off (#5759).
+ //
+ // The owner's decision of 2026-08-13 makes advertising a consent category of
+ // its own, collected as an OPT-OUT: nobody ticks an extra box at signup, so
+ // the switch is what a person contesting the mail is pointed at. It has to
+ // exist here as well as in the authenticated profile, because a reader who
+ // arrived from a footer link has an address and no session.
+ //
+ // Scoped to this channel alone, like every other control in the centre:
+ // `advertising_opt_out` stops the paid-ad blast and touches neither the
+ // newsletter nor the brief nor the alerts.
+ if (action === 'set_advertising_opt_out') {
+ const desired = !(advertisingEnabled === false || advertisingEnabled === 'false' || advertisingEnabled === '0');
+ // Same asymmetry as `toggle_newsletter_subscription` (#5711): switching a
+ // channel back ON is the direction a link-following scanner must never be
+ // able to take for somebody, so it needs a POST. Switching it OFF stays
+ // reachable by any verb — an opt-out must never be harder than the mail
+ // that provoked it.
+ if (desired && httpMethod !== 'POST') {
+ return { status: 405, json: { success: false, error: 'method_not_allowed' } };
+ }
+ try {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ // Written, never deleted, in BOTH directions. `false` is not the same
+ // record as an absent field: it says this person was asked and said
+ // yes, which is the only evidence that survives a later complaint —
+ // the same reason #5711 stopped erasing the opt-out stamps.
+ advertising_opt_out: !desired,
+ advertising_opt_out_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: desired ? 'advertising_opted_in' : 'advertising_opted_out',
+ source_channel: 'preferences_link',
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ // Only the opt-OUT direction carries forensics: the fields are named
+ // `unsubscribe_*` and would be a lie on the way back in.
+ ...(desired ? {} : forensicFields),
+ });
+
+ return { status: 200, json: { success: true, advertisingEnabled: desired } };
+ } catch (err) {
+ console.error('[set_advertising_opt_out] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'write_failed' } };
  }
  }

@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise } from 'lucide-react';
+import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise, Megaphone } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -24,6 +24,7 @@ import {
  updateJobAlert,
  createJobAlert,
  setDailyBriefFrequency,
+ setAdvertisingEnabled,
  DAILY_BRIEF_FREQUENCIES,
  type DailyBriefFrequency,
  type SubscriptionAlertSummary,
@@ -135,6 +136,19 @@ interface SectionStrings {
  digestDesc: string;
  digestOn: string;
  digestOff: string;
+ /**
+  * #5759 — third-party advertising.
+  *
+  * The one channel here whose consent is an OPT-OUT: the owner ruled on
+  * 2026-08-13 that it is named on /comunicazioni/ and that NO extra checkbox
+  * appears at the signup gates. This card is the other half of that ruling —
+  * the thing a person contesting the mail is pointed at — so it is not
+  * optional copy, it is the reason the arrangement is defensible.
+  */
+ adsTitle: string;
+ adsDesc: string;
+ adsOn: string;
+ adsOff: string;
 }
 
 const STRINGS: Record<Locale, SectionStrings> = {
@@ -165,13 +179,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Ogni interruttore vale solo per il suo canale: spegnerne uno non ferma gli altri. Per non ricevere più nulla, usa «Ferma tutte le email».',
  stopAll: 'Ferma tutte le email',
  stopAllHint:
- 'Disattiva newsletter, bollettino, avvisi lavoro e promemoria dei lavori salvati in una volta sola.',
+ 'Disattiva newsletter, bollettino, avvisi lavoro, promemoria dei lavori salvati e annunci di inserzionisti in una volta sola.',
  stopAllWorking: 'Disattivo tutto…',
  digestTitle: 'Promemoria dei lavori salvati',
  digestDesc:
  'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
  digestOn: 'Attivo',
  digestOff: 'Disattivato',
+ adsTitle: 'Annunci di inserzionisti',
+ adsDesc:
+ 'Messaggi promozionali di aziende terze che pagano per raggiungere chi legge il sito. Non ti è stata chiesta una spunta separata: è compreso nelle comunicazioni a cui ti sei iscritto, e questo interruttore serve a toglierlo. Vale solo per questo canale: newsletter, bollettino e avvisi lavoro restano come sono.',
+ adsOn: 'Attivo',
+ adsOff: 'Disattivato',
  autologinTitle: 'Auto-login dai link email',
  autologinDesc:
  'Quando è attivo, i link nelle nostre email ti fanno entrare nel tuo profilo senza password. Disattivalo se inoltri o condividi le email.',
@@ -244,13 +263,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Each switch covers its own channel only: turning one off does not stop the others. To receive nothing at all, use “Stop all emails”.',
  stopAll: 'Stop all emails',
  stopAllHint:
- 'Turns off the newsletter, the daily brief, your job alerts and the saved-jobs reminder in one go.',
+ 'Turns off the newsletter, the daily brief, your job alerts, the saved-jobs reminder and advertiser announcements in one go.',
  stopAllWorking: 'Turning everything off…',
  digestTitle: 'Saved-jobs reminder',
  digestDesc:
  'Once a week we email you the jobs you saved, plus a few similar ones. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
  digestOn: 'On',
  digestOff: 'Off',
+ adsTitle: 'Advertiser announcements',
+ adsDesc:
+ 'Promotional messages from third-party companies paying to reach this site’s readers. You were not asked to tick a separate box: it is included in the communications you signed up for, and this switch is how you take it out. It covers this channel only: the newsletter, the daily brief and your job alerts stay as they are.',
+ adsOn: 'On',
+ adsOff: 'Off',
  autologinTitle: 'Auto-login from email links',
  autologinDesc:
  'When enabled, links in our emails sign you in without a password. Disable it if you forward or share emails.',
@@ -323,13 +347,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Jeder Schalter gilt nur für seinen eigenen Kanal: einen abzuschalten stoppt die anderen nicht. Wenn du gar nichts mehr erhalten willst, nutze «Alle E-Mails stoppen».',
  stopAll: 'Alle E-Mails stoppen',
  stopAllHint:
- 'Schaltet Newsletter, Tagesbulletin, Job-Alerts und die Erinnerung an gespeicherte Stellen auf einmal ab.',
+ 'Schaltet Newsletter, Tagesbulletin, Job-Alerts, die Erinnerung an gespeicherte Stellen und Anzeigen von Inserenten auf einmal ab.',
  stopAllWorking: 'Alles wird abgeschaltet…',
  digestTitle: 'Erinnerung an gespeicherte Stellen',
  digestDesc:
  'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
  digestOn: 'Aktiv',
  digestOff: 'Abgeschaltet',
+ adsTitle: 'Anzeigen von Inserenten',
+ adsDesc:
+ 'Werbenachrichten von Drittfirmen, die dafür bezahlen, die Leserschaft dieser Website zu erreichen. Du wurdest nicht um ein separates Häkchen gebeten: Es ist in den Mitteilungen enthalten, für die du dich angemeldet hast, und dieser Schalter nimmt es heraus. Er gilt nur für diesen Kanal: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
+ adsOn: 'Aktiv',
+ adsOff: 'Abgeschaltet',
  autologinTitle: 'Auto-Login über E-Mail-Links',
  autologinDesc:
  'Wenn aktiviert, melden dich Links in unseren E-Mails ohne Passwort an. Deaktiviere es, wenn du E-Mails weiterleitest oder teilst.',
@@ -402,13 +431,18 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Chaque interrupteur ne vaut que pour son propre canal : en désactiver un n’arrête pas les autres. Pour ne plus rien recevoir, utilise « Arrêter tous les emails ».',
  stopAll: 'Arrêter tous les emails',
  stopAllHint:
- 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi et le rappel des offres enregistrées en une seule fois.',
+ 'Désactive la newsletter, le bulletin quotidien, tes alertes emploi, le rappel des offres enregistrées et les annonces d’annonceurs en une seule fois.',
  stopAllWorking: 'Tout est en cours de désactivation…',
  digestTitle: 'Rappel des offres enregistrées',
  digestDesc:
  'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
  digestOn: 'Actif',
  digestOff: 'Désactivé',
+ adsTitle: 'Annonces d’annonceurs',
+ adsDesc:
+ 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat du site. Aucune case distincte ne t’a été proposée : c’est compris dans les communications auxquelles tu t’es inscrit, et cet interrupteur sert à le retirer. Il ne concerne que ce canal : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
+ adsOn: 'Actif',
+ adsOff: 'Désactivé',
  autologinTitle: 'Auto-connexion depuis les liens email',
  autologinDesc:
  'Quand c\u2019est activé, les liens dans nos emails te connectent sans mot de passe. Désactive-le si tu transfères ou partages tes emails.',
@@ -473,6 +507,7 @@ async function authLoadFullStatus(email: string): Promise<{
  autologinEnabled: boolean;
  dailyBriefFrequency: DailyBriefFrequency | null;
  dailyBriefTier: number | null;
+ advertisingEnabled: boolean;
  };
  alerts: SubscriptionAlertSummary[];
 }> {
@@ -495,6 +530,8 @@ async function authLoadFullStatus(email: string): Promise<{
  autologinEnabled: true,
  dailyBriefFrequency: null as DailyBriefFrequency | null,
  dailyBriefTier: null as number | null,
+ // Absent document, absent objection: the consent is an opt-out (#5759).
+ advertisingEnabled: true,
  };
  if (subSnap.exists()) {
  const data = subSnap.data() || {};
@@ -513,6 +550,11 @@ async function authLoadFullStatus(email: string): Promise<{
  ? data.daily_brief_frequency_override
  : null,
  dailyBriefTier: typeof data.daily_brief_tier === 'number' ? data.daily_brief_tier : null,
+ // `advertising_opt_out === true` and nothing else, token-for-token with
+ // get_full_status in the Cloud Function AND with the audience filter in
+ // services/publisherBlastMatch.mjs. Three readers of one opt-out field,
+ // and the switch is a lie the moment one of them reads it differently.
+ advertisingEnabled: data.advertising_opt_out !== true,
  };
  }
 
@@ -582,6 +624,49 @@ async function authSetBriefFrequency(email: string, frequency: DailyBriefFrequen
  email: key,
  event_type: 'daily_brief_frequency_set',
  frequency,
+ source_channel: 'preferences_auth',
+ timestamp: serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+}
+
+/**
+ * Auth-mode twin of `setAdvertisingEnabled` (#5759): a signed-in reader writes
+ * their own subscriber document instead of round-tripping through an HMAC
+ * endpoint they hold no token for — the same shape as `authSetBriefFrequency`.
+ *
+ * The field is written in BOTH directions and never deleted. `false` is not the
+ * same record as an absent field: it says this person was asked and left it on,
+ * which is the evidence that answers a later "I never agreed to advertising" —
+ * and #5711 is the precedent, where clearing a stamp to express a state
+ * destroyed the only proof that the state had ever changed.
+ */
+async function authSetAdvertisingOptOut(email: string, enabled: boolean): Promise<void> {
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } =
+ await resilientImport(
+ () => import('firebase/firestore'),
+ (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+ () => import('@/services/firebase'),
+ (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const key = email.trim().toLowerCase();
+
+ await setDoc(
+ doc(db, 'newsletter_subscribers', key),
+ {
+ email: key,
+ advertising_opt_out: !enabled,
+ advertising_opt_out_updated_at: serverTimestamp(),
+ },
+ { merge: true },
+ );
+ await addDoc(collection(db, 'newsletter_subscribers', key, 'events'), {
+ email: key,
+ event_type: enabled ? 'advertising_opted_in' : 'advertising_opted_out',
  source_channel: 'preferences_auth',
  timestamp: serverTimestamp(),
  occurred_at: new Date().toISOString(),
@@ -1373,6 +1458,10 @@ export function SubscriptionPreferencesController({
  /** Auth mode only — token mode has no uid to key `users/{uid}` by. See authLoadSavedJobsDigest. */
  const [digestAvailable, setDigestAvailable] = useState<boolean>(false);
  const [savingDigest, setSavingDigest] = useState(false);
+ // #5759 — third-party advertising. Defaults to ON, which is what the opt-out
+ // shape means: nothing was ticked, so nothing is off until somebody says so.
+ const [adsEnabled, setAdsEnabled] = useState<boolean>(true);
+ const [savingAds, setSavingAds] = useState(false);
  const [stoppingAll, setStoppingAll] = useState(false);
  const [savingNewsletter, setSavingNewsletter] = useState(false);
  const [savingAutologin, setSavingAutologin] = useState(false);
@@ -1415,6 +1504,7 @@ export function SubscriptionPreferencesController({
  setAutologinEnabledState(result.newsletter?.autologinEnabled !== false);
  setBriefFrequency(result.newsletter?.dailyBriefFrequency ?? null);
  setBriefTier(result.newsletter?.dailyBriefTier ?? null);
+ setAdsEnabled(result.newsletter?.advertisingEnabled !== false);
  setAlerts(result.alerts || []);
  setLoadStatus('ready');
  } else {
@@ -1432,6 +1522,7 @@ export function SubscriptionPreferencesController({
  setAutologinEnabledState(result.newsletter.autologinEnabled);
  setBriefFrequency(result.newsletter.dailyBriefFrequency ?? null);
  setBriefTier(result.newsletter.dailyBriefTier ?? null);
+ setAdsEnabled(result.newsletter.advertisingEnabled !== false);
  setAlerts(result.alerts);
  // The digest read is best-effort and deliberately non-fatal: it lives in a
  // different collection under different rules, and a failure there must not
@@ -1675,6 +1766,40 @@ export function SubscriptionPreferencesController({
   * abandon the rest half-done. Anything that did not take is reported and stays
   * visibly on in the UI.
   */
+ /**
+  * Third-party advertising, on or off (#5759).
+  *
+  * Both modes, unlike the saved-jobs digest: that channel's recipients are
+  * signed-in accounts by construction, so auth mode alone was sufficient for
+  * it. This one's audience is the newsletter collection, so somebody who
+  * arrived from a footer link with an address and no session is exactly the
+  * person the switch has to serve — and the person most likely to be looking
+  * for it.
+  */
+ const handleToggleAds = async () => {
+ const next = !adsEnabled;
+ setAdsEnabled(next);
+ setSavingAds(true);
+ setErrorMsg('');
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await setAdvertisingEnabled(email, token, next);
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ setAdsEnabled(result.advertisingEnabled !== false);
+ } else {
+ await authSetAdvertisingOptOut(email, next);
+ }
+ flashSaved('advertising');
+ } catch (err: any) {
+ console.warn('[SubscriptionPreferencesController] Toggle advertising failed:', err?.message);
+ setAdsEnabled(!next);
+ reportError(S.saveError);
+ } finally {
+ setSavingAds(false);
+ }
+ };
+
  const handleStopAll = async () => {
  setStoppingAll(true);
  setErrorMsg('');
@@ -1736,6 +1861,26 @@ export function SubscriptionPreferencesController({
  } catch (err: any) {
  failed.push('saved-jobs-digest');
  console.warn('[SubscriptionPreferencesController] Stop-all digest failed:', err?.message);
+ }
+ }
+
+ // #5759 — "stop all emails" has to mean all of them, and advertising is the
+ // channel a person reaching for that button is least likely to want left on.
+ // Omitting it would make the promise above the button false for exactly the
+ // reader it was written for (#5684 point 2).
+ if (adsEnabled) {
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await setAdvertisingEnabled(email, token, false);
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ } else {
+ await authSetAdvertisingOptOut(email, false);
+ }
+ setAdsEnabled(false);
+ } catch (err: any) {
+ failed.push('advertising');
+ console.warn('[SubscriptionPreferencesController] Stop-all advertising failed:', err?.message);
  }
  }
 
@@ -2117,6 +2262,40 @@ export function SubscriptionPreferencesController({
  </div>
  </section>
  )}
+
+ {/* ── Third-party advertising card (#5759) ──
+ Rendered unconditionally, in BOTH modes and even while the channel is
+ suspended. A switch that only appears once the mail starts arriving is a
+ switch nobody can use pre-emptively, and pre-emptive is the only kind that
+ makes an opt-out honest. */}
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Megaphone size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.adsTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.adsDesc}</p>
+ </div>
+ <Toggle
+ enabled={adsEnabled}
+ saving={savingAds}
+ onClick={handleToggleAds}
+ ariaLabel={S.adsTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span className={`font-semibold ${adsEnabled ? 'text-success' : 'text-muted'}`}>
+ {adsEnabled ? S.adsOn : S.adsOff}
+ </span>
+ {savedTickKey === 'advertising' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
 
  {/* ── Auto-login card ── */}
  <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">

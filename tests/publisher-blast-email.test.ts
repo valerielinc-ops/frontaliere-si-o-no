@@ -51,6 +51,46 @@ describe('buildBlastEmail', () => {
     expect(html).toMatch(/<!DOCTYPE html>/);
   });
 
+  /**
+   * The footer this channel owes its reader (#5759).
+   *
+   * Third-party advertising is consented to as an OPT-OUT — the owner ruled on
+   * 2026-08-13 that no extra checkbox appears at signup — so the compensating
+   * control is a per-channel switch in the preference centre. A mail whose only
+   * exit is "unsubscribe from everything" offers a different, worse bargain
+   * than the one the reader was told about, and leaves someone who wants to
+   * keep the newsletter with nothing to click. That is #5684 restated on the
+   * one channel where the switch IS the consent.
+   *
+   * tests/preference-center-coverage.test.ts asserts the source-level half (the
+   * template references the builder at all); this is the rendered half, which
+   * is the one a recipient can act on.
+   */
+  it('carries the per-channel opt-out route, in every locale', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html } = buildBlastEmail({
+        ...ARGS,
+        locale,
+        preferencesUrl: 'https://frontaliereticino.ch/preferenze-newsletter/?email=user%40example.com&token=t',
+      });
+      expect(html, `${locale}: the preference link`).toContain('/preferenze-newsletter/');
+      // …and it must SAY that the switch is per-channel, or the link is an
+      // invitation to leave everything, which is what it exists to avoid.
+      expect(html, `${locale}: the scope note`).toMatch(
+        /pubblicità di terzi|third-party advertising|Werbung Dritter|publicité de tiers/i,
+      );
+    }
+  });
+
+  it('degrades to the unsubscribe link alone when the sender passes no preferences URL', () => {
+    // Pure builder, same rule as buildDripEmail: a missing URL becomes no link,
+    // never `href="undefined"`.
+    const { html } = buildBlastEmail(ARGS);
+    expect(html).not.toContain('href="undefined"');
+    expect(html).not.toContain('/preferenze-newsletter/');
+    expect(html).toContain(ARGS.unsubscribeUrl.replace(/&/g, '&amp;'));
+  });
+
   it('shows salary, location and sector chips', () => {
     const { html } = buildBlastEmail(ARGS);
     expect(html).toContain("CHF 70'000–90'000");

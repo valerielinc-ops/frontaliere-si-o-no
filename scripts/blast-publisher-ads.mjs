@@ -13,6 +13,14 @@
  * Free tier ads are NEVER blasted (no newsletter perk). Respects a per-run total
  * cap (free-tier ESP safety). Dry-run by default; --send actually emails.
  *
+ * CONSENT (#5759). Third-party advertising is its own consent category since
+ * the owner's decision of 2026-08-13, collected as an OPT-OUT: no extra
+ * checkbox at signup, named on /comunicazioni/, switchable off on its own. The
+ * audience filter therefore drops anyone whose stored `consent_text` predates
+ * the page version that named advertising, and anyone who used that switch —
+ * both in services/publisherBlastMatch.mjs, so a dry-run reports the real
+ * audience and not a larger one.
+ *
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/blast-publisher-ads.mjs            # dry-run (logs audience)
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/blast-publisher-ads.mjs --send      # send (CI only)
  *
@@ -24,7 +32,7 @@ import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
-import { makeAuthenticatedActionUrl } from '../services/newsletterUrls.mjs';
+import { makeAuthenticatedActionUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 
 const SEND = process.argv.includes('--send');
@@ -130,6 +138,11 @@ async function main() {
         locale,
         adUrl: adUrlFor(locale),
         unsubscribeUrl: makeAuthenticatedActionUrl('unsubscribe', r.email),
+        // #5759 — the per-channel switch is in the preference centre, and this
+        // channel's consent is an opt-out that leans on it. `fallbackUnsigned`
+        // so a missing HMAC secret degrades to an unsigned link the reader can
+        // still open, never to no link at all.
+        preferencesUrl: makePreferencesUrl(r.email, locale, { fallbackUnsigned: true }),
         // Same label the CTA slug is built from → card city and linked page agree.
         locationLabel: firstLocationLabel,
       });

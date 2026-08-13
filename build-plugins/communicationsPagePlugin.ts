@@ -52,10 +52,12 @@ import {
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
   COMMUNICATIONS_PAGE_VERSION,
+  CONSENT_CATEGORIES,
   PREFERENCES_PATH,
   PRIVACY_PATH,
+  isUncoveredChannel,
   type CommunicationChannel,
-  type ConsentCategory,
+  type NamedConsentCategory,
 } from '../services/communicationChannels';
 // Relative into functions/src/lib/ for the same reason every mail template
 // reaches it that way: it is the single source of the controller identity and
@@ -93,7 +95,7 @@ const LEDE: Record<PageLocale, string> = {
   fr: 'Cette page est la liste complète. Elle est générée depuis la configuration des envois : un canal absent d’ici ne part pas, et une fréquence qui change, change ici. Les canaux suspendus restent listés et sont signalés comme tels, afin que vous voyiez aussi ce que vous ne recevez pas pour l’instant.',
 };
 
-const CATEGORY_HEADING: Record<Exclude<ConsentCategory, null>, Record<PageLocale, string>> = {
+const CATEGORY_HEADING: Record<NamedConsentCategory, Record<PageLocale, string>> = {
   editorial: {
     it: 'Aggiornamenti redazionali',
     en: 'Editorial updates',
@@ -112,8 +114,58 @@ const CATEGORY_HEADING: Record<Exclude<ConsentCategory, null>, Record<PageLocale
     de: 'Servicenachrichten',
     fr: 'Messages de service',
   },
+  /**
+   * WHERE THIRD-PARTY ADVERTISING IS NAMED (#5759).
+   *
+   * #5765 moved every category off the consent formula and onto this page, and
+   * left the formula one line pointing here. So "name advertising in the
+   * consent text" means naming it HERE — this heading, in the reader's own
+   * language, is the disclosure the stored `consent_text` refers to. Putting it
+   * back into the sentence would undo the shortening the owner asked for and
+   * change nothing about what the reader is told.
+   *
+   * A category, never an advertiser: the whole point of the page being generic
+   * is that a second advertising channel needs no new text and no re-collected
+   * consent.
+   */
+  advertising: {
+    it: 'Pubblicità di terzi',
+    en: 'Third-party advertising',
+    de: 'Werbung Dritter',
+    fr: 'Publicité de tiers',
+  },
 };
 
+/**
+ * What a category needs said about it beyond its channel rows.
+ *
+ * Only `advertising` has one, and it is not decoration: it is where the shape
+ * of that consent is stated to the person it applies to — no separate box was
+ * ticked, the switch is per-channel, and the disclosure only reaches forward.
+ * A reader who wants to contest "I never agreed to advertising" is entitled to
+ * find, on the page their proof names, exactly what they were and were not
+ * asked.
+ */
+const CATEGORY_NOTE: Partial<Record<NamedConsentCategory, Record<PageLocale, string>>> = {
+  advertising: {
+    it: 'Questa categoria è compresa nelle comunicazioni a cui ti sei iscritto: non ti è stata proposta una casella separata e il numero di spunte all’iscrizione non è cambiato. In cambio puoi disattivare solo questo canale, dalle tue preferenze, senza toccare nulla del resto. Chi si è iscritto prima del 13 agosto 2026 non lo riceve: il testo che ha letto non nominava la pubblicità di terzi, e quel testo è ciò che vale.',
+    en: 'This category is included in the communications you signed up for: no separate box was offered to you and the number of ticks at signup did not change. In exchange you can switch off this channel alone, from your preferences, without touching any of the rest. People who subscribed before 13 August 2026 do not receive it: the text they read did not name third-party advertising, and that text is what counts.',
+    de: 'Diese Kategorie ist in den Mitteilungen enthalten, für die Sie sich angemeldet haben: Es wurde Ihnen kein separates Kästchen angeboten, und die Anzahl der Häkchen bei der Anmeldung hat sich nicht geändert. Dafür können Sie allein diesen Kanal in Ihren Einstellungen abschalten, ohne am Rest etwas zu ändern. Wer sich vor dem 13. August 2026 angemeldet hat, erhält ihn nicht: Der gelesene Text nannte Werbung Dritter nicht, und dieser Text ist massgebend.',
+    fr: 'Cette catégorie est comprise dans les communications auxquelles vous vous êtes inscrit : aucune case distincte ne vous a été proposée et le nombre de cases à cocher à l’inscription n’a pas changé. En contrepartie, vous pouvez désactiver ce seul canal, depuis vos préférences, sans toucher au reste. Les personnes inscrites avant le 13 août 2026 ne le reçoivent pas : le texte qu’elles ont lu ne nommait pas la publicité de tiers, et c’est ce texte qui fait foi.',
+  },
+};
+
+/**
+ * The residual section, and why it stays although it is EMPTY today (#5759).
+ *
+ * `publisher-blast` was its only occupant until the owner gave advertising its
+ * own category. Deleting the section with its occupant would remove the one
+ * place a channel outside every category can surface — and `isUncoveredChannel`
+ * treats an absent field, a `null` and an unrecognised value alike, so the next
+ * channel that arrives with no category lands here instead of vanishing from
+ * the page. The wording is therefore generic now: it describes the situation,
+ * not the advertising channel that used to be in it.
+ */
 const UNCONSENTED_HEADING: Record<PageLocale, string> = {
   it: 'Non coperto da nessun consenso raccolto',
   en: 'Covered by no consent we collect',
@@ -122,10 +174,10 @@ const UNCONSENTED_HEADING: Record<PageLocale, string> = {
 };
 
 const UNCONSENTED_NOTE: Record<PageLocale, string> = {
-  it: 'La pubblicità di terzi è uno scopo diverso dal contenuto redazionale, e nessuna delle tre categorie sopra la comprende. Finché non è nominata esplicitamente in una formula di consenso, questo canale non deve raggiungere chi si è iscritto sotto quelle formule.',
-  en: 'Third-party advertising is a different purpose from editorial content, and none of the three categories above covers it. Until it is named explicitly in a consent formula, this channel must not reach people who subscribed under those formulas.',
-  de: 'Werbung Dritter ist ein anderer Zweck als redaktioneller Inhalt, und keine der drei Kategorien oben deckt sie ab. Solange sie nicht ausdrücklich in einer Einwilligungsformel genannt wird, darf dieser Kanal die unter jenen Formeln angemeldeten Personen nicht erreichen.',
-  fr: 'La publicité de tiers est une finalité différente du contenu éditorial, et aucune des trois catégories ci-dessus ne la couvre. Tant qu’elle n’est pas nommée explicitement dans une formule de consentement, ce canal ne doit pas atteindre les personnes inscrites sous ces formules.',
+  it: 'Un canale elencato qui persegue uno scopo che nessuna delle categorie sopra comprende. Finché non è nominato esplicitamente in una categoria di consenso, non deve raggiungere chi si è iscritto sotto quelle formule.',
+  en: 'A channel listed here serves a purpose none of the categories above covers. Until it is named explicitly in a consent category, it must not reach people who subscribed under those formulas.',
+  de: 'Ein hier aufgeführter Kanal verfolgt einen Zweck, den keine der Kategorien oben abdeckt. Solange er nicht ausdrücklich in einer Einwilligungskategorie genannt wird, darf er die unter jenen Formeln angemeldeten Personen nicht erreichen.',
+  fr: 'Un canal listé ici poursuit une finalité qu’aucune des catégories ci-dessus ne couvre. Tant qu’il n’est pas nommé explicitement dans une catégorie de consentement, il ne doit pas atteindre les personnes inscrites sous ces formules.',
 };
 
 const CADENCE_LABEL: Record<PageLocale, string> = {
@@ -239,20 +291,22 @@ function renderChannel(channel: CommunicationChannel, locale: PageLocale): strin
 }
 
 function renderBody(locale: PageLocale): string {
-  const categories: Array<Exclude<ConsentCategory, null>> = ['editorial', 'jobs', 'service'];
-  const sections = categories
+  const sections = CONSENT_CATEGORIES
     .map((cat) => {
       const rows = COMMUNICATION_CHANNELS.filter((c) => c.consentCategory === cat);
       if (rows.length === 0) return '';
+      const note = CATEGORY_NOTE[cat];
       return `
     <section>
-      <h2 style="${H2_STYLE}">${esc(CATEGORY_HEADING[cat][locale])}</h2>
+      <h2 style="${H2_STYLE}">${esc(CATEGORY_HEADING[cat][locale])}</h2>${
+        note ? `\n      <p style="${BODY_STYLE}">${esc(note[locale])}</p>` : ''
+      }
       ${rows.map((c) => renderChannel(c, locale)).join('')}
     </section>`;
     })
     .join('');
 
-  const unconsented = COMMUNICATION_CHANNELS.filter((c) => c.consentCategory === null);
+  const unconsented = COMMUNICATION_CHANNELS.filter(isUncoveredChannel);
   const unconsentedSection = unconsented.length
     ? `
     <section>

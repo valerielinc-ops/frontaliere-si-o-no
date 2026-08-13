@@ -99,10 +99,13 @@
  * `tests/backfill-jobalerts-from-newsletter.test.ts` where the guard is
  * asserted, not a side effect to be discovered in a funnel report.
  *
- * WHAT THIS DOES NOT COVER, said plainly. Third-party advertising
+ * WHAT THAT PAGE NOW ALSO CARRIES (#5759). Third-party advertising
  * (`publisher-blast.yml`) is a different PURPOSE, not a different format, and
- * no wording below admits it. That is an owner decision, not a code one, and
- * `ADVERTISING_NOT_COVERED` records it where a call site would look.
+ * for that reason it spent #5712–#5765 in no category at all. The owner ruled
+ * on 2026-08-13: it is named as its own category ON THE PAGE — not in the line
+ * below, which stays short — collected as an OPT-OUT with no extra checkbox,
+ * and switchable off on its own. `ADVERTISING_CONSENT_BASIS` records the whole
+ * shape where a call site would look for it.
  *
  * A NOTE ON LOCALES. `text` stays the Italian string and stays pinned; `texts`
  * carries all four. The stored value is the one the person's own locale
@@ -166,20 +169,44 @@ export const CONSENT_PAGE_PATH = '/comunicazioni/';
 export const CONSENT_PAGE_LABEL = 'frontaliereticino.ch/comunicazioni';
 
 /**
- * Third-party advertising is NOT in any formula below, and this constant is
- * here so the next person to wire `blast-publisher-ads.mjs` to a consent check
- * finds the reason instead of an absence.
+ * HOW THIRD-PARTY ADVERTISING IS CONSENTED TO, now that the owner has decided.
  *
- * An advertiser's message is a different PURPOSE, not another format of the
- * editorial category — "un consenso per qualunque email decideremo di mandare"
- * is not a valid consent. Two ways out, and only the owner may pick: name
- * advertising in the formula and accept that some people refuse it, or do not
- * send it to people whose consent does not cover it. Slipping it under
- * "aggiornamenti redazionali" is the shortcut that produced the 6.308
- * unrequested job alerts (#5705).
+ * This constant used to be called `ADVERTISING_NOT_COVERED` and it described a
+ * fork: name advertising in the formula and accept that some people refuse it,
+ * or do not send it to people whose consent does not cover it — "and only the
+ * owner may pick". The owner picked on 2026-08-13 (#5764 §3, implemented in
+ * #5759), so that sentence had to go: a comment describing an open choice that
+ * has been closed is worse than no comment, because it invites the next reader
+ * to re-open it and to treat the shipped behaviour as an accident.
+ *
+ * What was chosen, in full, because each half is load-bearing:
+ *
+ *  - advertising is NAMED, as its own consent category, on `/comunicazioni/` —
+ *    which is where #5765 moved every category. The formulas below stay ONE
+ *    line and point at that page; naming it here instead would re-inflate the
+ *    sentence the owner deliberately shortened, and tell the reader nothing
+ *    extra, since the page is what the sentence sends them to;
+ *  - NO extra checkbox at the signup gates. The number of ticks is unchanged,
+ *    so this is an OPT-OUT. That is weaker than a dedicated box and the owner
+ *    recorded it as a deliberate trade: the residual risk is a recipient who
+ *    says they never agreed to advertising, and the answer to them is the
+ *    sentence that names it plus the switch that stops it;
+ *  - that switch is `ADVERTISING_OPT_OUT_FIELD`
+ *    (services/communicationChannels.ts), rendered in the preference centre
+ *    beside the other channels and read by services/publisherBlastMatch.mjs.
+ *
+ * And what it still does NOT cover, which is not a leftover of the old fork but
+ * a consequence of this one: a subscriber whose stored `consent_text` names a
+ * page version older than `ADVERTISING_NAMED_FROM_PAGE_VERSION` read a page
+ * that did not mention advertising. The owner's defence does not exist for
+ * them, so the blast may not reach them, and the matcher enforces it.
+ *
+ * Slipping the channel under "aggiornamenti redazionali" is still the shortcut
+ * that produced the 6.308 unrequested job alerts (#5705). It has a category of
+ * its own precisely so nobody needs to.
  */
-export const ADVERTISING_NOT_COVERED =
-  'blocked: owner decision — third-party advertising (publisher-blast.yml) is a different purpose and no formula in this register admits it (#5712)';
+export const ADVERTISING_CONSENT_BASIS =
+  'owner decision 2026-08-13 (#5764 §3, #5759) — third-party advertising (publisher-blast.yml) is its own consent category, named on /comunicazioni/ and collected as an OPT-OUT: no extra checkbox, a per-channel switch in the preference centre, and no send to a subscriber whose stored consent_text predates the page version that named it';
 
 /** How the address reached us, stored as `consent_method`. */
 export type ConsentMethod =
@@ -323,7 +350,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-13.1',
+    version: '2026-08-13.2',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -349,7 +376,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-13.1',
+    version: '2026-08-13.2',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -381,7 +408,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-08-13.1',
+    version: '2026-08-13.2',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,

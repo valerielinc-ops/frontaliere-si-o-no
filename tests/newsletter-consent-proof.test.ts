@@ -345,20 +345,20 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    */
   const PINNED: Record<string, { version: string; text: string }> = {
     communicationsOptIn: {
-      version: '2026-08-13.1',
-      text: 'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.1).',
+      version: '2026-08-13.2',
+      text: 'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.2).',
     },
     communicationsSignIn: {
-      version: '2026-08-13.1',
-      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.1).',
+      version: '2026-08-13.2',
+      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.2).',
     },
     // Same sentence as `communicationsSignIn`, different act — the email branch
     // of an access gate, which since #5765 shows ONE notice for both branches.
     // The duplication in this table is the point: a divergence between the two
     // would mean one branch stores something the screen never said.
     communicationsSignInEmail: {
-      version: '2026-08-13.1',
-      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.1).',
+      version: '2026-08-13.2',
+      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.2).',
     },
     signInAutoSubscribe: {
       version: '2026-08-12.2',
@@ -435,16 +435,16 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    * editing one without bumping `version` has to fail here.
    */
   const SIGN_IN_LOCALES = {
-    en: 'By signing in I subscribe my address to the Frontaliere Ticino communications. What I receive, how often, how to stop it and who processes the data: frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
-    de: 'Mit der Anmeldung trage ich meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: frontaliereticino.ch/comunicazioni (Version 2026-08-13.1).',
-    fr: 'En me connectant, j’inscris mon adresse aux communications de Frontaliere Ticino. Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
+    en: 'By signing in I subscribe my address to the Frontaliere Ticino communications. What I receive, how often, how to stop it and who processes the data: frontaliereticino.ch/comunicazioni (version 2026-08-13.2).',
+    de: 'Mit der Anmeldung trage ich meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: frontaliereticino.ch/comunicazioni (Version 2026-08-13.2).',
+    fr: 'En me connectant, j’inscris mon adresse aux communications de Frontaliere Ticino. Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : frontaliereticino.ch/comunicazioni (version 2026-08-13.2).',
   } as const;
 
   const PINNED_LOCALES: Record<string, Record<'en' | 'de' | 'fr', string>> = {
     communicationsOptIn: {
-      en: 'I subscribe my address to the Frontaliere Ticino communications. What I receive, how often, how to stop it and who processes the data: frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
-      de: 'Ich trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: frontaliereticino.ch/comunicazioni (Version 2026-08-13.1).',
-      fr: 'J’inscris mon adresse aux communications de Frontaliere Ticino. Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
+      en: 'I subscribe my address to the Frontaliere Ticino communications. What I receive, how often, how to stop it and who processes the data: frontaliereticino.ch/comunicazioni (version 2026-08-13.2).',
+      de: 'Ich trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: frontaliereticino.ch/comunicazioni (Version 2026-08-13.2).',
+      fr: 'J’inscris mon adresse aux communications de Frontaliere Ticino. Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : frontaliereticino.ch/comunicazioni (version 2026-08-13.2).',
     },
     communicationsSignIn: { ...SIGN_IN_LOCALES },
     communicationsSignInEmail: { ...SIGN_IN_LOCALES },

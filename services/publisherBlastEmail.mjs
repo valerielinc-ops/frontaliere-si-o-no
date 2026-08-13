@@ -38,6 +38,8 @@ const STR = {
     salary: 'Retribuzione',
     why: (email) => `Ricevi questa email perché corrisponde alle tue ricerche di lavoro su Frontaliere Ticino (${email}).`,
     unsub: 'Disiscriviti',
+    prefs: 'Gestisci le tue preferenze',
+    adsNote: 'Questa è pubblicità di terzi. Puoi disattivare solo questo canale dalle tue preferenze, senza toccare le altre comunicazioni.',
     viewAll: 'Vedi tutte le offerte',
   },
   en: {
@@ -50,6 +52,8 @@ const STR = {
     salary: 'Salary',
     why: (email) => `You receive this email because it matches your job searches on Frontaliere Ticino (${email}).`,
     unsub: 'Unsubscribe',
+    prefs: 'Manage your preferences',
+    adsNote: 'This is third-party advertising. You can switch off this channel alone from your preferences, without touching the other communications.',
     viewAll: 'See all jobs',
   },
   de: {
@@ -62,6 +66,8 @@ const STR = {
     salary: 'Gehalt',
     why: (email) => `Sie erhalten diese E-Mail, weil sie zu Ihren Jobsuchen auf Frontaliere Ticino passt (${email}).`,
     unsub: 'Abmelden',
+    prefs: 'Einstellungen verwalten',
+    adsNote: 'Dies ist Werbung Dritter. Sie können allein diesen Kanal in Ihren Einstellungen abschalten, ohne die übrigen Mitteilungen zu berühren.',
     viewAll: 'Alle Angebote ansehen',
   },
   fr: {
@@ -74,6 +80,8 @@ const STR = {
     salary: 'Salaire',
     why: (email) => `Vous recevez cet e-mail car il correspond à vos recherches d'emploi sur Frontaliere Ticino (${email}).`,
     unsub: 'Se désabonner',
+    prefs: 'Gérer vos préférences',
+    adsNote: 'Ceci est de la publicité de tiers. Vous pouvez désactiver ce seul canal depuis vos préférences, sans toucher aux autres communications.',
     viewAll: 'Voir toutes les offres',
   },
 };
@@ -117,12 +125,15 @@ function chip(label) {
  * @param {string} [args.locale]       it|en|de|fr (defaults to it).
  * @param {string} args.adUrl          absolute URL to the specific /lavoro/<slug>/ page (with UTM).
  * @param {string} args.unsubscribeUrl absolute unsubscribe URL.
+ * @param {string} [args.preferencesUrl] absolute preference-centre URL (#5759).
+ *   Omitted → the block degrades to the unsubscribe link alone rather than to a
+ *   broken href, the same rule `buildDripEmail` follows.
  * @param {string} [args.locationLabel] the SAME location the CTA slug is built from
  *   (caller passes the distinctLocations-derived label). Keeps the card's city and
  *   the CTA's target page consistent for bare-string / empty-first location shapes.
  * @returns {{ subject: string, html: string }}
  */
-export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsubscribeUrl, locationLabel }) {
+export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsubscribeUrl, preferencesUrl, locationLabel }) {
   const loc = LOCALES.includes(locale) ? locale : 'it';
   const s = STR[loc];
   const title = String(ad?.title || '').trim();
@@ -213,8 +224,21 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
             <a target="_blank" rel="noopener noreferrer" href="https://frontaliereticino.ch" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">🌐</a>
           </div>
           <div style="font-size:11px;color:${MUTED};margin:0 0 10px;line-height:1.5;">${esc(s.why(recipientEmail))}</div>
+          <!--
+            #5759 — this channel is third-party advertising, consented to as an
+            OPT-OUT with no separate checkbox. The switch that stops it alone
+            lives in the preference centre, so the mail that relies on the
+            switch has to carry the way to it: an opt-out nobody can find is
+            the whole of #5684, and "unsubscribe from everything" is not the
+            same offer.
+          -->
+          <div style="font-size:11px;color:${MUTED};margin:0 0 10px;line-height:1.5;">${esc(s.adsNote)}</div>
           <div style="font-size:12px;color:${MUTED};">
-            <a target="_blank" rel="noopener noreferrer" href="${esc(unsubscribeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${esc(s.unsub)}</a>
+            <a target="_blank" rel="noopener noreferrer" href="${esc(unsubscribeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${esc(s.unsub)}</a>${
+              preferencesUrl
+                ? ` &nbsp;·&nbsp; <a target="_blank" rel="noopener noreferrer" href="${esc(preferencesUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${esc(s.prefs)}</a>`
+                : ''
+            }
           </div>
           <div style="font-size:11px;color:#94a3b8;margin-top:10px;">${esc(dataControllerFooterLine(loc))}</div>
         </td></tr>

@@ -48,14 +48,24 @@ import {
   type ConsentTextKey,
 } from '@/services/consentTexts';
 import {
+  ADVERTISING_NAMED_FROM_PAGE_VERSION,
+  ADVERTISING_OPT_OUT_FIELD,
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
   COMMUNICATIONS_PAGE_REVISIONS,
   COMMUNICATIONS_PAGE_VERSION,
+  CONSENT_CATEGORIES,
   NON_SUBSCRIBER_SENDERS,
   SUSPENDED_WORKFLOW_MARKER,
   hasLiveChannel,
+  isUncoveredChannel,
 } from '@/services/communicationChannels';
+import {
+  ADVERTISING_NAMED_FROM_PAGE_VERSION as MATCHER_ADVERTISING_FROM,
+  ADVERTISING_OPT_OUT_FIELD as MATCHER_OPT_OUT_FIELD,
+  consentCoversAdvertising,
+  matchSubscribersForAd,
+} from '../services/publisherBlastMatch.mjs';
 import { consentNamesJobAlerts } from '../functions/src/jobAlertBackfillCore.js';
 import {
   DATA_CONTROLLER_NAME,
@@ -688,22 +698,217 @@ describe('what the displayed formulas may and may not say', () => {
     expect(read('build-plugins/communicationsPagePlugin.ts')).toContain('Avvisi di lavoro');
   });
 
-  it('says nothing that would let third-party advertising in', () => {
-    // The one decision the code must not take. Naming advertising here would
-    // authorise `blast-publisher-ads.mjs` against people who never agreed to
-    // it; the channel is listed on the page with no consent category, and the
-    // choice stays with the owner (#5712).
+  /**
+   * THE TEST THAT USED TO FORBID THIS, TURNED AROUND (#5759).
+   *
+   * It read "says nothing that would let third-party advertising in" and it
+   * matched `/pubblicit|advertis|werb|…/` against every displayed formula,
+   * refusing any wording that admitted the channel. That was right while the
+   * decision was open: naming advertising in a formula authorises
+   * `blast-publisher-ads.mjs` against people who never agreed to it, and the
+   * choice was the owner's (#5712).
+   *
+   * The owner made it on 2026-08-13 (#5764 §3): advertising IS named, as its
+   * own category, and the compensating control is a switch. So the assertion
+   * has to change direction — a guard that still forbade the wording would now
+   * be defending a decision nobody holds, and it would fail the moment somebody
+   * implemented the one that was taken.
+   *
+   * It demands BOTH halves, and that pairing is the substance of it. Named
+   * without a switch is a disclosure that took a right away; a switch without
+   * the naming is a control over something nobody was told about. Either alone
+   * is worse than the null category they replaced, so neither can be shipped
+   * alone.
+   *
+   * The word is checked on the PAGE and not in the formula, because that is
+   * where #5765 put every category: a "name it" that re-inflated the one-line
+   * sentence would undo the shortening the owner asked for and tell the reader
+   * nothing the page does not already say.
+   */
+  describe('third-party advertising is named where the categories live, and can be switched off (#5759)', () => {
     const ADVERTISING =
       /\b(pubblicit\w*|inserzionist\w*|sponsor\w*|advertis\w*|werb\w*|publicitaire\w*)\b/i;
-    for (const proof of displayed) {
-      for (const locale of CONSENT_LOCALES) {
-        expect(proof.texts?.[locale], `${proof.id}/${locale}`).not.toMatch(ADVERTISING);
+    const plugin = read('build-plugins/communicationsPagePlugin.ts');
+    const controller = read('components/preferences/SubscriptionPreferencesController.tsx');
+    const matcher = read('services/publisherBlastMatch.mjs');
+
+    it('gives publisher-blast a consent category of its own', () => {
+      const blast = COMMUNICATION_CHANNELS.find((c) => c.id === 'publisher-blast');
+      expect(blast?.consentCategory, 'the owner decided on 2026-08-13 — see #5764 §3').toBe(
+        'advertising',
+      );
+      // A category and not a nearest fit. Filing it under editorial is the
+      // shortcut that produced the 6.308 unrequested job alerts (#5705), and it
+      // would be invisible here if the assertion were merely `not.toBeNull()`.
+      expect(blast?.consentCategory).not.toBe('editorial');
+      expect(CONSENT_CATEGORIES).toContain('advertising');
+    });
+
+    it('names it on the page, in all four locales', () => {
+      // The page heads a section per category and the formula points at the
+      // page, so this heading IS the naming the owner's decision calls for.
+      for (const heading of [
+        'Pubblicità di terzi',
+        'Third-party advertising',
+        'Werbung Dritter',
+        'Publicité de tiers',
+      ]) {
+        expect(plugin, `/comunicazioni/ must name advertising as "${heading}"`).toContain(heading);
       }
-    }
-    expect(
-      COMMUNICATION_CHANNELS.find((c) => c.id === 'publisher-blast')?.consentCategory,
-      'publisher-blast must stay uncategorised until the owner decides',
-    ).toBeNull();
+      expect(plugin, 'and the section needs its own note, or "opt-out" is never stated to the reader')
+        .toMatch(/CATEGORY_NOTE/);
+    });
+
+    it('keeps the one-line formula short — the naming lives on the page, not in the sentence', () => {
+      // The other half of "name it": #5765 shortened these to one line on the
+      // owner's instruction, so satisfying #5759 by growing them again would
+      // trade one owner decision for another.
+      for (const proof of displayed) {
+        for (const locale of CONSENT_LOCALES) {
+          expect(
+            proof.texts?.[locale],
+            `${proof.id}/${locale} should point at the page, not enumerate the category`,
+          ).not.toMatch(ADVERTISING);
+          expect(proof.texts?.[locale]).toContain(CONSENT_PAGE_LABEL);
+        }
+      }
+    });
+
+    it('gives it a switch in the preference centre, in both modes', () => {
+      // Source-level, the convention tests/preference-center-coverage.test.ts
+      // already uses for this component: its Firestore paths cannot render
+      // without mocking the SDK.
+      expect(controller, 'the card').toContain('adsTitle');
+      expect(controller, 'the auth-mode writer').toContain('authSetAdvertisingOptOut');
+      expect(controller, 'the token-mode writer').toContain('setAdvertisingEnabled');
+      expect(controller, 'the handler behind the toggle').toContain('handleToggleAds');
+      expect(controller).toContain(ADVERTISING_OPT_OUT_FIELD);
+    });
+
+    it('has the sender read the field the centre writes', () => {
+      // Two deploy units, no import shape between them: without this the switch
+      // is decorative and nothing else fails. Same reasoning as the digest's
+      // `savedJobsDigest?.optedOut === true` check.
+      expect(matcher).toContain(ADVERTISING_OPT_OUT_FIELD);
+      expect(MATCHER_OPT_OUT_FIELD, 'the two spellings of the field must agree').toBe(
+        ADVERTISING_OPT_OUT_FIELD,
+      );
+      expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the version floor must agree').toBe(
+        ADVERTISING_NAMED_FROM_PAGE_VERSION,
+      );
+    });
+
+    it('anchors the version floor to a page revision that was really published', () => {
+      // `ADVERTISING_NAMED_FROM_PAGE_VERSION` decides who may be blasted, so a
+      // typo in it is not a cosmetic defect: a version that never shipped
+      // matches nobody's stored text and silently empties the channel forever.
+      expect(Object.keys(COMMUNICATIONS_PAGE_REVISIONS)).toContain(
+        ADVERTISING_NAMED_FROM_PAGE_VERSION,
+      );
+      // …and it may not run ahead of the page: a floor above the current
+      // version excludes people whose sentence names advertising.
+      expect(ADVERTISING_NAMED_FROM_PAGE_VERSION <= COMMUNICATIONS_PAGE_VERSION).toBe(true);
+    });
+
+    /**
+     * THE SHAPES NO FIXTURE IN THIS REPO HAS, driven one by one (#5764).
+     *
+     * Every defect in the four issues before this one was a case the guard's
+     * population did not contain, so "the suite is green" said nothing about
+     * it. The three below are the ones this change creates, and none of them
+     * can be sampled from the repo: they are documents, not files.
+     */
+    describe('the audience filter, driven with documents this repo does not contain', () => {
+      const NAMED = `Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo: ${CONSENT_PAGE_LABEL} (versione ${ADVERTISING_NAMED_FROM_PAGE_VERSION}).`;
+      const OLD = NAMED.replace(ADVERTISING_NAMED_FROM_PAGE_VERSION, '2026-08-13.1');
+      const ad = { title: 'Fisioterapista', category: 'health', locations: [] };
+      const base = {
+        job_search_query: 'Fisioterapista',
+        status: 'confirmed',
+        confirmed_at: '2026-08-13T12:00:00.000Z',
+      };
+      // minScore 0, so only a consent rule can decide who is dropped — with a
+      // control in every case proving the matcher would otherwise take them.
+      const audience = (rows: Array<Record<string, unknown>>) =>
+        matchSubscribersForAd(ad, rows, { minScore: 0 }).map((r: { email: string }) => r.email);
+
+      it('drops a subscriber who switched advertising off, and keeps the identical one who did not', () => {
+        expect(
+          audience([
+            { email: 'off@example.com', ...base, consent_text: NAMED, [ADVERTISING_OPT_OUT_FIELD]: true },
+            { email: 'on@example.com', ...base, consent_text: NAMED },
+          ]),
+        ).toEqual(['on@example.com']);
+      });
+
+      it('reads only an explicit `true` as off — the consent is an opt-out', () => {
+        // `false` and absent are the SAME answer here and a different record:
+        // the centre writes `false` after somebody looked at the switch and
+        // left it on, which is evidence, and evidence must not change the send.
+        expect(
+          audience([
+            { email: 'explicit-yes@example.com', ...base, consent_text: NAMED, [ADVERTISING_OPT_OUT_FIELD]: false },
+            { email: 'never-asked@example.com', ...base, consent_text: NAMED },
+          ]).sort(),
+        ).toEqual(['explicit-yes@example.com', 'never-asked@example.com']);
+      });
+
+      it('drops the subscriber whose proof predates the page that named advertising', () => {
+        // THE POPULATION THAT MATTERS: every subscriber alive today is this
+        // shape. Their stored sentence pointed at a page with no advertising
+        // section, so the owner's defence — "the formula names it" — is not
+        // available for them, and the blast may not reach them.
+        expect(
+          audience([
+            { email: 'old-proof@example.com', ...base, consent_text: OLD },
+            { email: 'no-proof-at-all@example.com', ...base },
+            { email: 'unparseable@example.com', ...base, consent_text: 'Accetto le comunicazioni.' },
+            { email: 'new-proof@example.com', ...base, consent_text: NAMED },
+          ]),
+        ).toEqual(['new-proof@example.com']);
+      });
+
+      it('compares revisions numerically, so .10 is not below .2', () => {
+        // A lexicographic compare would read `2026-08-13.10` as older than
+        // `2026-08-13.2` and start dropping people the disclosure covers — the
+        // kind of defect that produces no error and no report.
+        expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-13.10)` })).toBe(true);
+        expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-14.1)` })).toBe(true);
+        expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-12.9)` })).toBe(false);
+        expect(consentCoversAdvertising({})).toBe(false);
+      });
+    });
+
+    /**
+     * A channel with NO category, told apart from one with an explicit `null`
+     * — and answered the same way, which is the point.
+     *
+     * The page partitions the registry into "under a heading" and "covered by
+     * no consent we collect". Before this change the second half was
+     * `consentCategory === null`, so a channel that simply omitted the field
+     * would have matched neither side and disappeared from the page — the
+     * registry's whole failure mode, reached by a missing key instead of a
+     * missing entry. Not sampleable: no such channel exists here, and the type
+     * would reject one. These are plain objects.
+     */
+    it('treats an absent category, a null one and an unknown one all as uncovered', () => {
+      expect(isUncoveredChannel({}), 'absent').toBe(true);
+      expect(isUncoveredChannel({ consentCategory: null }), 'explicitly null').toBe(true);
+      expect(isUncoveredChannel({ consentCategory: 'promo' as never }), 'unknown value').toBe(true);
+      for (const cat of CONSENT_CATEGORIES) {
+        expect(isUncoveredChannel({ consentCategory: cat }), cat).toBe(false);
+      }
+    });
+
+    it('keeps the "covered by no consent" section although nothing is in it today', () => {
+      // It emptied out when advertising got a category, and deleting it with
+      // its last occupant would remove the only place the shape above can
+      // surface. The page renders it conditionally, so an empty section costs
+      // the reader nothing and a missing one costs the next channel everything.
+      expect(COMMUNICATION_CHANNELS.filter(isUncoveredChannel), 'empty today').toEqual([]);
+      expect(plugin).toContain('UNCONSENTED_HEADING');
+      expect(plugin).toMatch(/COMMUNICATION_CHANNELS\.filter\(isUncoveredChannel\)/);
+    });
   });
 });
 
@@ -829,14 +1034,52 @@ describe('the channel list the formula points at cannot under-report what we sen
    */
   it('leaves no consent category the page names standing empty', () => {
     const plugin = read('build-plugins/communicationsPagePlugin.ts');
-    for (const category of ['editorial', 'jobs', 'service'] as const) {
+    for (const category of CONSENT_CATEGORIES) {
       expect(plugin, `the page must still head a section for '${category}'`)
         .toMatch(new RegExp(`\\b${category}:\\s*\\{`));
+      expect(
+        COMMUNICATION_CHANNELS.some((c) => c.consentCategory === category),
+        `'${category}' has no channel at all — renderBody drops a category with no rows, so the ` +
+          'heading would vanish silently rather than fail anything',
+      ).toBe(true);
+    }
+  });
+
+  /**
+   * The three categories that must have something LIVE behind them, enumerated
+   * and not computed — and `advertising` deliberately absent from the list.
+   *
+   * The rule is about over-promising: a heading a reader takes as "mail I will
+   * get" over a category that ships nothing is a request to agree to something
+   * that does not come. `advertising` is the one place that reasoning inverts.
+   * Its only channel is suspended, and it is named precisely so that the
+   * disclosure exists BEFORE the channel could run (#5759) — the reverse of
+   * over-promising, and the safe direction for a consent text.
+   *
+   * What keeps that from being a hole is the row itself: `renderChannel` prints
+   * `SUSPENDED_LABEL` from `status`, so the section a reader lands on says, in
+   * their language, that nothing is being sent. Asserted here, because without
+   * it "advertising is exempt" would just mean "advertising is unchecked".
+   */
+  it('keeps a live channel under every category that promises mail', () => {
+    for (const category of ['editorial', 'jobs', 'service'] as const) {
       expect(
         hasLiveChannel(category),
         `no live channel remains under '${category}' — the page must stop offering it`,
       ).toBe(true);
     }
+  });
+
+  it('says on the page that the advertising category ships nothing today', () => {
+    const plugin = read('build-plugins/communicationsPagePlugin.ts');
+    expect(hasLiveChannel('advertising'), 'still suspended — turning it on is an Actions-API act').toBe(false);
+    for (const c of COMMUNICATION_CHANNELS.filter((ch) => ch.consentCategory === 'advertising')) {
+      expect(c.status, `${c.id} would ship under a category with no live channel assertion`).toBe(
+        'suspended',
+      );
+    }
+    expect(plugin, 'the suspended badge is what makes the exemption above safe')
+      .toMatch(/SUSPENDED_LABEL\[locale\]/);
   });
 
   it('stops the formula promising what only a suspended channel carried', () => {
@@ -984,6 +1227,11 @@ describe('the page the formula points at cannot change without saying so (#5765)
    */
   const PUBLISHED_REVISIONS: Record<string, string> = {
     '2026-08-13.1': '28803e543beb58e2',
+    // #5759 — the advertising section, its note, and the residual section
+    // emptying out. `2026-08-13.1` above is untouched: a subscriber was really
+    // pointed at it, and rewriting its fingerprint would rewrite what their
+    // stored sentence means.
+    '2026-08-13.2': '4c6226e23619772a',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {
