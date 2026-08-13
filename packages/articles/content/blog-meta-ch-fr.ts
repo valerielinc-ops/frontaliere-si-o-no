@@ -2398,6 +2398,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eclissi-solare-2026-ticino.title': 'L\'éclipse solaire est terminée en Suisse',
     'blog.article.eclissi-solare-2026-ticino.excerpt': 'L\'éclipse solaire a couvert le soleil à 91% au Tessin et dans les Grisons',
     'blog.article.eclissi-solare-2026-ticino.imageAlt': 'L\'éclipse solaire a recouvert le soleil pour 91% en Tessin et en Grigioni',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'Plus DE GR : Churer Fest, entre trafic limité et mesures de sécurité',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'Du 14 au 16 août aura lieu la 35ème édition du Churer Fest dans la capitale rhétique. Pour assurer la sécurité de l\'événement, les forces de l\'ordre prendront différentes mesures.',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Fête à Chur',
 };
 
 export default blogMetaChFr;

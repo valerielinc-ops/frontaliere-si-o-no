@@ -825,6 +825,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole': { it: 'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole', en: 'how-to-get-rich-american-historian-explains-the-ten-rules', de: 'wie-man-reich-wird-amerikanischer-historiker-erklart-die-zehn-regeln', fr: 'comment-devenir-riche-l-historien-americain-explique-les-dix-regles' },
  'ue-vigilanza-ai-act-2023': { it: 'ue-vigilanza-ai-act-2023', en: 'eu-surveillance-ai-act', de: 'eu-ueberwachung-ai-act', fr: 'eu-surveillance-ai-acte' },
  'eclissi-solare-2026-ticino': { it: 'eclissi-solare-2026-ticino', en: 'eclissi-solare-2026-ticino', de: 'sonnenfinsternis-2026-tessin', fr: 'eclipse-solaire-2026-tessin' },
+ 'churer-fest-traffico-limitato-misure-sicurezza': { it: 'churer-fest-traffico-limitato-misure-sicurezza', en: 'churer-fest-traffico-limited-misure-sicurezza', de: 'churer-fest-verkehr-gebunden-sicherheitsmassnahmen', fr: 'fete-de-chur-trafic-limites-mesures-de-securite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

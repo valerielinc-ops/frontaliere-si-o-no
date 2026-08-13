@@ -2398,6 +2398,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-solare-2026-ticino.title': 'Terminata l\'eclissi solare in Svizzera',
     'blog.article.eclissi-solare-2026-ticino.excerpt': 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
     'blog.article.eclissi-solare-2026-ticino.imageAlt': 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'Di più GR: Churer Fest, fra traffico limitato e misure di sicurezza',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'Dal 14 al 16 agosto si svolgerà la 35esima edizione della Churer Fest nel capoluogo retico. Per garantire la sicurezza dell\'evento le forze dell\'ordine adotteranno diverse misure.',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Festa di Chur',
 };
 
 export default blogMetaChIt;
