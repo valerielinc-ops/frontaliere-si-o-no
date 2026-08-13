@@ -2485,6 +2485,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercati-affitti-cantone-berna.title': 'Mercati degli affitti nel Cantone di Berna: canoni medi e diritto di locazione',
     'blog.article.mercati-affitti-cantone-berna.excerpt': 'Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?',
     'blog.article.mercati-affitti-cantone-berna.imageAlt': 'Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?',
+    'blog.article.sconti-farmaci-pazienti.title': 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
+    'blog.article.sconti-farmaci-pazienti.excerpt': 'Il Controllo federale finanze boccia la vigilanza dell\'UFSP',
+    'blog.article.sconti-farmaci-pazienti.imageAlt': 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
 };
 
 export default blogMetaChIt;

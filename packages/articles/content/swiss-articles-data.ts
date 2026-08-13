@@ -7453,6 +7453,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sconti-farmaci-pazienti',
+    category: 'fiscale',
+    date: '2026-08-13T06:56:00.226Z',
+    image: '/images/blog/sconti-farmaci-pazienti.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

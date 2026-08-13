@@ -32192,6 +32192,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sconti-farmaci-pazienti': {
+    title: 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
+    description: 'Il Controllo federale finanze boccia la vigilanza dell\'UFSP, sostenendo che gli sconti concessi dall\'industria farmaceutica restano in gran parte nelle tasche',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconti, fantasma, farmaci, miliardi',
+    ogTitle: 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
+    ogDescription: 'Il Controllo federale finanze boccia la vigilanza dell\'UFSP, sostenendo che gli sconti concessi dall\'industria farmaceutica restano in gran parte nelle tasche di medici, ospedali e farmacie, senza tradursi in un reale risparmio per i pazienti',
+    canonicalPath: '/articoli-svizzera/sconti-farmaci-pazienti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti",
+      "description": "Il Controllo federale finanze boccia la vigilanza dell'UFSP, sostenendo che gli sconti concessi dall'industria farmaceutica restano in gran parte nelle tasche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sconti-farmaci-pazienti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti"
+      },
+      "datePublished": "2026-08-13T06:56:00+00:00",
+      "dateModified": "2026-08-13T06:56:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sconti-farmaci-pazienti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
