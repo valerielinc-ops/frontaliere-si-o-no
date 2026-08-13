@@ -221,6 +221,40 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/ci/report-synced-article-factuality.mjs
 
+      # ── The curated article-fabrication-guard, run on the same window ──────
+      #
+      # A NARROWER, higher-signal sibling of the step above. That one runs the
+      # deterministic factuality gates (arithmetic, tax plausibility,
+      # institution-acronym-in-parentheses); this one runs the curated denylist
+      # behind `tests/article-fabrication-guard.test.ts` — confirmed-fabricated
+      # institution NAMES and acronyms observed being invented, matched without
+      # requiring the "(ACRONYM)" shape the factuality gate needs. That
+      # difference is why it exists as its own step: neither incident #5671
+      # names — "Ufficio federale del lavoro" (no acronym in parentheses) and
+      # the bare acronym "LTL" — would have tripped the step above.
+      #
+      # Until this PR the vitest test was the ONLY place these patterns ran,
+      # and `npm test` never sees this path (see the script's own header for
+      # the verified push/PR gap). scripts/lib/article-fabrication-patterns.mjs
+      # is the single definition both the test and this step import, so the
+      # two cannot drift apart.
+      #
+      # REPORTS by default — same reasoning as the step above, and the same
+      # `continue-on-error` belt-and-braces. Whether a match should hold back
+      # the whole batch is an owner decision (#5630/#5595/#5696, unresolved).
+      # ARTICLE_FABRICATION_GUARD_BLOCKING (a repository VARIABLE, not this
+      # workflow) flips it: set it to the literal string `true` in Settings →
+      # Secrets and variables → Actions → Variables to make this step's exit
+      # code actually stop the job — and with it every step after, including
+      # the commit. OFF (unset) is the state after this PR.
+      - name: Report article-fabrication-guard findings on the newly synced articles
+        if: steps.gate.outputs.skipped != 'true'
+        continue-on-error: ${{ vars.ARTICLE_FABRICATION_GUARD_BLOCKING != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ARTICLE_FABRICATION_GUARD_BLOCKING: ${{ vars.ARTICLE_FABRICATION_GUARD_BLOCKING }}
+        run: node scripts/ci/report-synced-article-fabrication.mjs
+
       - name: Commit if changed
         id: commit
         if: steps.gate.outputs.skipped != 'true'
