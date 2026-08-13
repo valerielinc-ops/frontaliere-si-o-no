@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { relative, resolve } from 'node:path';
 
-import { matchBlock } from './helpers/firestoreRulesBlock';
+import { directRules, matchBlock } from './helpers/firestoreRulesBlock';
 
 const root = resolve(__dirname, '..');
 
@@ -69,6 +69,61 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
   });
 
   /**
+   * The subscriber list is not enumerable (#5751).
+   *
+   * `allow read` is `get` PLUS `list`, so the single word that used to sit here
+   * — `allow read, write: if true` — was a standing offer to page the whole
+   * collection: no predicate could reject a query, which makes
+   * `collection('newsletter_subscribers')` with no `where` exactly as permitted
+   * as any filtered one. The project id needed to send it ships in the client
+   * bundle.
+   *
+   * Asserted through `directRules` rather than the raw block because the
+   * subcollections underneath carry their own `allow read`/`allow write` lines;
+   * against the raw text a re-opened parent would hide behind `events`'
+   * `allow read: if false`.
+   */
+  it('does not let a client enumerate the subscriber list', () => {
+    const own = directRules(subBlock);
+    // `read` is banned as a verb here: it silently re-grants `list`.
+    expect(own).not.toMatch(/allow[^;:]*\bread\b[^;:]*:/);
+    expect(own).toContain('allow list: if isSiteAdmin()');
+    expect(own).not.toMatch(/allow\s+list\s*:\s*if\s+true/);
+  });
+
+  /**
+   * The two grants that must NOT have moved, pinned so the next narrowing pass
+   * has to argue with a test instead of a silence.
+   *
+   * `write` stays public because anonymous subscription is the product (App.tsx's
+   * unsubscribe fall-through also depends on it), and `get` stays public because
+   * the anonymous subscribe path READS before it writes —
+   * `captureNewsletterSubscriber` and `isNewsletterOptedOut`, the latter with
+   * callers in TaxCalendar, JobBoard and PublisherPublishPage that have no
+   * signed-in user. `isNewsletterOptedOut` fails closed, so denying that read
+   * would suppress subscriptions without raising anything.
+   */
+  it('keeps anonymous subscribe working: get and write stay public', () => {
+    const own = directRules(subBlock);
+    expect(own).toContain('allow get: if true');
+    expect(own).toContain('allow write: if true');
+  });
+
+  /**
+   * The one lister left is the owner's admin panel, and the rule that admits it
+   * has to be the same identity the SPA gates that panel with — otherwise the
+   * dashboard reads zero and nobody finds out until someone looks.
+   */
+  it('scopes the admin exception to the SPA admin allowlist', () => {
+    const fn = matchBlock(rules, 'function isSiteAdmin()');
+    expect(fn).toContain('request.auth != null');
+    expect(fn).toContain('request.auth.token.email_verified == true');
+    expect(fn).toContain("request.auth.token.email.lower() == 'valerielinc@gmail.com'");
+    const app = readFileSync(resolve(root, 'App.tsx'), 'utf8');
+    expect(app).toContain("ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com']");
+  });
+
+  /**
    * The engagement log is append-only and unreadable by any client.
    *
    * Both halves are load-bearing rather than defensive. No browser code path
@@ -127,6 +182,23 @@ describe('Firestore rules — job_alert_subscribers subcollections', () => {
   const rules = readFileSync(resolve(root, 'firestore.rules'), 'utf8');
   const alertBlock = matchBlock(rules, 'match /job_alert_subscribers/{email}');
 
+  /**
+   * The same close, on the same day, for the same class of data (#5751). This
+   * one takes the scoped `get` outright: nothing in the browser reads the root
+   * document — services/jobAlertService.ts only `setDoc`s it, and the
+   * preferences centre reads `alerts` below — so there was no anonymous read to
+   * preserve, unlike its newsletter twin.
+   */
+  it('does not let a client enumerate or read another address book entry', () => {
+    const own = directRules(alertBlock);
+    expect(own).not.toMatch(/allow[^;:]*\bread\b[^;:]*:/);
+    expect(own).toContain('allow list: if false');
+    expect(own).toContain('request.auth != null');
+    expect(own).toContain('request.auth.token.email.lower() == email');
+    // Job alerts are still created from the client — the close is about reads.
+    expect(own).toContain('allow write: if true');
+  });
+
   it('leaves per-alert delivery state to the Admin SDK', () => {
     expect(matchBlock(alertBlock, 'match /alert_deliveries/{alertId}'))
       .toContain('allow read, write: if false');
@@ -146,6 +218,102 @@ describe('Firestore rules — job_alert_subscribers subcollections', () => {
     const alerts = matchBlock(alertBlock, 'match /alerts/{alertId}');
     expect(alerts).toContain('request.auth != null');
     expect(alerts).toContain('request.auth.token.email.lower() == email');
+  });
+});
+
+/**
+ * The metric, written as an assertion so it cannot drift back (#5751).
+ *
+ * Before: two PII collections whose `list` an unauthenticated browser could
+ * run. After: zero. Both halves are checked from the rules text, not from a
+ * memory of what was changed — a `list` predicate counts as closed only if it
+ * mentions `request.auth`, which `if true` does not.
+ *
+ * The client half matters just as much and fails the other way round: a `list`
+ * that survives in the browser after the rule is deployed does not fail here,
+ * it fails in production, on whatever screen still runs it. So the file set is
+ * pinned. Adding a lister means changing this list on purpose.
+ */
+describe('PII enumeration — rules and client agree (#5751)', () => {
+  const rules = readFileSync(resolve(root, 'firestore.rules'), 'utf8');
+  const PII_COLLECTIONS = [
+    'match /newsletter_subscribers/{email}',
+    'match /job_alert_subscribers/{email}',
+  ];
+
+  /**
+   * A predicate is closed to an anonymous caller when it is literally `false` or
+   * when it consults `request.auth`. Helper calls are inlined first: `list` on
+   * newsletter_subscribers reads `if isSiteAdmin()`, and a check that only
+   * grepped the predicate for `request.auth` would score the strictest rule in
+   * the block as wide open.
+   */
+  const closedToAnonymous = (predicate: string): boolean => {
+    const expanded = predicate.replace(/([A-Za-z_$][\w$]*)\s*\(\s*\)/g, (whole, name) => {
+      try {
+        return matchBlock(rules, `function ${name}()`);
+      } catch {
+        return whole;
+      }
+    });
+    return expanded.trim() === 'false' || expanded.includes('request.auth');
+  };
+
+  it('leaves no PII collection listable by an unauthenticated caller', () => {
+    const open = PII_COLLECTIONS.filter((header) => {
+      const own = directRules(matchBlock(rules, header));
+      // `read` would re-grant `list` under another name.
+      if (/allow[^;:]*\bread\b[^;:]*:/.test(own)) return true;
+      const list = own.match(/allow\s+list\s*:\s*if\s+([^;]+);/);
+      if (!list) return true; // no `list` rule at all → whatever `read` said
+      return !closedToAnonymous(list[1]);
+    });
+    expect(open).toEqual([]);
+  });
+
+  /**
+   * Every construct that needs `list`: `query(collection(…))`,
+   * `getDocs(collection(…))`, `getCountFromServer(collection(…))`. Reads keyed
+   * by document id go through `doc(…)` and are deliberately not matched.
+   */
+  // No `g` flag on purpose: a global regex carries `lastIndex` between
+  // `.test()` calls, so the second file in the loop would start matching from
+  // wherever the first one stopped and the scan would quietly under-report.
+  const LIST_CALL =
+    /(?:query|getDocs|getCountFromServer|onSnapshot)\s*\(\s*collection\s*\(\s*[A-Za-z_$][\w$]*\s*,\s*'(?:newsletter_subscribers|job_alert_subscribers)'/;
+
+  /**
+   * Symlinks are skipped, not followed. `services/` carries 22 of them and they
+   * all point into `packages/articles/content` — generated article data, never a
+   * Firestore caller. Following them would walk the corpus in CI and, in a
+   * sparse worktree where that path is not materialised, blow up on a dangling
+   * link instead of reporting anything about this file's subject.
+   */
+  const walk = (dir: string): string[] => {
+    const out: string[] = [];
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isSymbolicLink()) continue;
+      if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
+      const full = resolve(dir, entry.name);
+      if (entry.isDirectory()) out.push(...walk(full));
+      else if (/\.tsx?$/.test(entry.name)) out.push(full);
+    }
+    return out;
+  };
+
+  it('leaves exactly one lister in the client, and it is the admin panel', () => {
+    const files = [
+      resolve(root, 'App.tsx'),
+      resolve(root, 'index.tsx'),
+      ...walk(resolve(root, 'components')),
+      ...walk(resolve(root, 'services')),
+      ...walk(resolve(root, 'hooks')),
+    ];
+    const listers = files
+      .filter((f) => LIST_CALL.test(readFileSync(f, 'utf8')))
+      .map((f) => relative(root, f))
+      .sort();
+    expect(listers).toEqual(['components/pages/AdminPanel.tsx']);
   });
 });
 

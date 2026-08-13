@@ -421,40 +421,23 @@ const App: React.FC = () => {
  displayName?: string | null,
  jobContext?: AuthJobContext | null,
  ): Promise<boolean> => {
- const deactivateLegacyDuplicates = async (
- db: any,
- normalizedEmail: string,
- reason: string,
- ): Promise<void> => {
- try {
- const { collection, query, where, getDocs, setDoc } = await import('firebase/firestore');
- const snap = await getDocs(query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail)));
- if (snap.empty) return;
- const nowIso = new Date().toISOString();
- await Promise.all(
- snap.docs
- .filter((d) => d.id !== normalizedEmail)
- .map((d) =>
- setDoc(
- d.ref,
- {
- email: normalizedEmail,
- isActive: false,
- active: false,
- mergedInto: normalizedEmail,
- legacyMergedAt: nowIso,
- legacyMergeReason: reason,
- updatedAt: nowIso,
- },
- { merge: true },
- ),
- ),
- );
- } catch {
- // Non-blocking cleanup
- }
- };
-
+ // `deactivateLegacyDuplicates` used to run here (#5751 removed it).
+ //
+ // It queried `newsletter_subscribers` by the `email` FIELD and then kept only
+ // the documents whose id was NOT the normalized address — legacy rows written
+ // before the doc id became the email — to mark them merged and inactive. That
+ // is a `list`, and `list` on this collection is now the admin panel's alone:
+ // the same grant that let this sweep find a duplicate let anyone page all
+ // 8.605 subscribers, which is the vulnerability being closed.
+ //
+ // There is no id-keyed replacement, and a `getDoc` on the normalized address
+ // would not be one: the only document such a read can return is precisely the
+ // one this code excluded. Finding a document whose id you do not know needs a
+ // query, so reconciling any surviving duplicates belongs to the Admin SDK —
+ // which is also what mails them (scripts/send-newsletter.mjs walks the
+ // collection and never evaluates firestore.rules), so it is the side that can
+ // both see and fix the state. The canonical document keeps being written by
+ // `upsertNewsletterSubscriberRecord` below, exactly as before.
  try {
  const normalizedEmail = normalizeNewsletterEmail(email);
  if (!normalizedEmail || !normalizedEmail.includes('@')) return false;
@@ -509,7 +492,6 @@ const App: React.FC = () => {
  } : {}),
  });
 
- await deactivateLegacyDuplicates(db, normalizedEmail, `upsert_${source}`);
  markNewsletterSubscribedLocally();
  return true;
  } catch {
@@ -989,8 +971,10 @@ const App: React.FC = () => {
  }
  // Cloud Function unreachable or refusing — DO NOT stop here. The
  // client-side write below needs no session either (firestore.rules:
- // `newsletter_subscribers/{email}` is publicly writable) and is what
- // actually unsubscribed people before #5685, including while this
+ // `newsletter_subscribers/{email}` is still publicly writable — #5751
+ // narrowed `read` on that block to `get` plus an admin-only `list`, and
+ // left `write` alone precisely so this fall-through keeps working) and is
+ // what actually unsubscribed people before #5685, including while this
  // function was down. Routing the exit through a single service and then
  // showing an error when that service blinks would have made leaving
  // strictly less reliable than it is today — in the wave that exists
@@ -1024,36 +1008,23 @@ const App: React.FC = () => {
  }
  }
 
- const [{ getFirestore, collection, setDoc, query, where, getDocs }, { getApp }] = await Promise.all([
+ const [{ getFirestore }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  ]);
  const db = getFirestore(await getApp());
 
- const syncLegacyDuplicates = async (active: boolean, reason: string): Promise<void> => {
- const snap = await getDocs(query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail)));
- if (snap.empty) return;
- const nowIso = new Date().toISOString();
- await Promise.all(
- snap.docs
- .filter((d) => d.id !== normalizedEmail)
- .map((d) =>
- setDoc(
- d.ref,
- {
- email: normalizedEmail,
- isActive: active,
- active,
- mergedInto: normalizedEmail,
- legacyMergedAt: nowIso,
- legacyMergeReason: reason,
- updatedAt: nowIso,
- },
- { merge: true },
- ),
- ),
- );
- };
+ // `syncLegacyDuplicates` used to run here, and after both writes below
+ // (#5751 removed it — same removal, same reason, as the sweep in
+ // `upsertNewsletterSubscriber` above: it was a `list` on
+ // `newsletter_subscribers`, and that is the enumeration being closed).
+ //
+ // Nothing about leaving or coming back changes: the state both branches
+ // below care about lives on the canonical document, and its writers are
+ // untouched — `unsubscribeNewsletterSubscriber` for the exit and
+ // `upsertNewsletterSubscriberRecord` for the return. The sweep only ever
+ // touched documents whose id was NOT this address, which is exactly the set
+ // an id-keyed read cannot reach.
 
  // The re-subscription itself, deferred (#5711). Defined here rather than
  // executed here: everything it needs is authenticated and resolved by this
@@ -1075,7 +1046,6 @@ const App: React.FC = () => {
  // which is why the first half alone no longer reaches this write.
  ...consentProof('resubscribeLink', 'email_link_click_confirmed'),
  });
- await syncLegacyDuplicates(false, 'resubscribe_link');
  markNewsletterSubscribedLocally();
  setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
  } catch {
@@ -1095,7 +1065,6 @@ const App: React.FC = () => {
  sourceChannel: 'unsubscribe_link',
  sourcePage: window.location.pathname,
  });
- await syncLegacyDuplicates(false, 'unsubscribe_link');
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
  // The way back, offered as a BUTTON on this same page instead of the

@@ -3,6 +3,28 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    // The site owner, named here for exactly one reason: the admin panel is the
+    // only legitimate lister of a subscriber collection, and closing `list`
+    // without it would have left the owner's own dashboard reading zero.
+    //
+    // Same identity the SPA already gates that panel with — App.tsx and
+    // hooks/useUserState.ts both carry `ADMIN_EMAIL_WHITELIST =
+    // ['valerielinc@gmail.com']`, a plain constant that is compiled into every
+    // client bundle we publish, so repeating it here exposes nothing that is not
+    // already public. What it does add is enforcement: until now that allowlist
+    // decided which React tree rendered, never what Firestore would answer.
+    //
+    // `email_verified` is required on top of the address because this grant is
+    // whole-collection enumeration, not one document. Firebase's default
+    // one-account-per-email already blocks registering an address that has an
+    // account, so the claim is defence in depth rather than the load-bearing
+    // half — but it is one clause against a grant worth 8.605 people.
+    function isSiteAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.lower() == 'valerielinc@gmail.com';
+    }
+
     // Social proof counter — public increment
     match /counters/{counterId} {
       allow read, write: if true;
@@ -32,8 +54,39 @@ service cloud.firestore {
     }
 
     // Newsletter subscribers — public subscribe/unsubscribe
+    //
+    // ENUMERATION IS CLOSED HERE (#5751, phase 2 of #5730 — which covered the
+    // subcollections below and left their parent exactly as it found it).
+    //
+    // What `allow read, write: if true` meant: `read` is `get` PLUS `list`, and
+    // nothing in the predicate could reject a query, so
+    // `collection('newsletter_subscribers')` with no `where` was as permitted as
+    // any filtered one. An unauthenticated browser holding the project id — which
+    // ships in the client bundle, as it must — could page the whole list: address,
+    // name, opt-in state, consent text, job context, behavioural signals. 8.605
+    // documents.
+    //
+    // `get` deliberately stays public, and that is a finding, not an oversight.
+    // The anonymous subscribe path READS this document before writing it:
+    // services/newsletterSubscribers.ts's captureNewsletterSubscriber does a
+    // `getDoc` to decide creation-vs-merge and to honour a recorded opt-out, and
+    // `isNewsletterOptedOut` is consulted by six callers, of which
+    // components/fisco/TaxCalendar.tsx (`tax_calendar_email`), JobBoard's email
+    // unlock and PublisherPublishPage have no signed-in user at all. That guard
+    // fails CLOSED, so a denied read would not surface as an error — it would
+    // silently suppress every subscription from those forms and look like a quiet
+    // week. Narrowing `get` therefore has to travel with moving the write behind a
+    // callable (phase 3), not against the requirement that anonymous subscription
+    // keep working.
     match /newsletter_subscribers/{email} {
-      allow read, write: if true;
+      allow get: if true;
+      // The admin panel is the only client that lists this collection
+      // (components/pages/AdminPanel.tsx: a getCountFromServer on
+      // `isActive == true`, and a limit(10) masked preview). Everything else that
+      // reads many subscribers — scripts/send-newsletter.mjs and its siblings, the
+      // ESP webhook cores — is Admin SDK and never evaluates this file.
+      allow list: if isSiteAdmin();
+      allow write: if true;
 
       // Engagement events (subscribe, confirm, click, open) — append-only, and
       // never readable by a client.
@@ -125,8 +178,24 @@ service cloud.firestore {
     // Job alert subscribers — root doc per email, mirrors newsletter_subscribers.
     // Top-level doc is public-write (Cloud Functions + client init); engagement
     // counters are written by ESP webhooks via the Admin SDK.
+    //
+    // Enumeration closed in the same pass as newsletter_subscribers (#5751), and
+    // for the same reason it was closed there: `read` covered `list`, no
+    // predicate could reject a query, so the job-alert list was walkable by
+    // anyone. Splitting the pair across two PRs would have left half of one class
+    // of PII open while the other half was being repaired.
+    //
+    // Unlike newsletter_subscribers, `get` takes the scoped form outright: NO
+    // browser code path reads this document. services/jobAlertService.ts only
+    // ever `setDoc`s it (merge, to guarantee the parent exists), and the
+    // preferences centre reads the `alerts` subcollection below, never the root
+    // — so there is no anonymous read to preserve here. The form matches the two
+    // sibling rules in this same block.
     match /job_alert_subscribers/{email} {
-      allow read, write: if true;
+      allow get: if request.auth != null
+        && request.auth.token.email.lower() == email;
+      allow list: if false;
+      allow write: if true;
 
       // Search configurations — owned by authenticated user (denormalized userId).
       // The path is keyed by the user's email, so request.auth.token.email
