@@ -544,12 +544,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  locale: navigator.language || 'it-IT',
  isActive: isTrustedAuthSource,
  status: isTrustedAuthSource ? 'confirmed' : 'pending',
- // #5678/#5712. Two acts, two formulas, and now two rendered notices:
- // the modal below prints the sign-in one above the provider buttons and
- // the opt-in one under the email form, so each branch stores the
- // sentence its own control displayed.
+ // #5678/#5712/#5765. Two acts, ONE sentence and ONE notice: the panel
+ // below prints it once, under the email button, and it covers the
+ // provider buttons too. Both entries named here carry that exact
+ // sentence and differ only in `act`, so whichever way the person came
+ // through, the document keeps what the screen said.
  ...consentProof(
- isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsOptIn',
+ isTrustedAuthSource ? 'communicationsSignIn' : 'communicationsSignInEmail',
  isTrustedAuthSource
  ? (source.includes('facebook') ? 'facebook_oauth' : 'google_oauth')
  : 'email_submit',
@@ -919,7 +920,6 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="text-xs font-semibold text-warning">
  Attiva i reminder iscrivendoti: salviamo la preferenza e misuriamo questo funnel.
  </div>
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''}`}>
  <div className="space-y-2">
  <div ref={googleReminderButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-lg" />
@@ -972,7 +972,9 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  {reminderSignupLoading ? '...' : 'Iscriviti'}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ {/* The panel's ONE notice (#5765): it stands under the email button and
+ covers the provider buttons above it too. */}
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
  <div className="text-xs text-subtle">
  {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}
  </div>

@@ -41,14 +41,16 @@
  * (the auth listener in App.tsx, Google One Tap, an emailed link) and FALSE
  * — deliberately, verifiably — of the two entries added below.
  *
- * `communicationsOptIn` and `communicationsSignIn` are `displayed: true`
- * because a component renders them: `components/shared/ConsentNotice.tsx`
- * prints `consentDisplayText(key, locale)`, the SAME function the stored
- * value comes from, so the sentence on screen and the sentence in the
- * document cannot drift. `tests/consent-shown-at-signup.test.ts` refuses a
- * `displayed: true` entry whose call sites do not also render it — which is
- * what stops the flag from becoming the flattering assumption it exists to
- * prevent.
+ * `communicationsOptIn`, `communicationsSignIn` and `communicationsSignInEmail`
+ * are `displayed: true` because a component renders that sentence:
+ * `components/shared/ConsentNotice.tsx` prints `consentDisplayText(key,
+ * locale)`, the SAME function the stored value comes from, so the sentence on
+ * screen and the sentence in the document cannot drift.
+ * `tests/consent-shown-at-signup.test.tsx` refuses a `displayed: true` entry
+ * whose call sites do not put its exact sentence on screen — which is what
+ * stops the flag from becoming the flattering assumption it exists to prevent.
+ * It compares SENTENCES and not keys, because at an access gate one notice
+ * covers two acts and therefore two entries.
  *
  * WHY ONE FORMULA REPLACED THIRTEEN GATE-SPECIFIC ONES AT THE RENDERED GATES
  * -------------------------------------------------------------------------
@@ -57,11 +59,45 @@
  * — daily brief, weekly newsletter, job alerts, saved-jobs digest, onboarding
  * drip, dormant win-back, sunset, publisher blast — so a person who read one
  * of those formulas was told about a fraction of what they would receive.
- * The replacement names CATEGORIES (editorial / job alerts / service), never
+ * The replacement named CATEGORIES (editorial / job alerts / service), never
  * products, and never a FREQUENCY: "settimanale" in the old popup formula is
  * exactly what made the move to a daily brief contestable (#5679). Frequency
  * lives on `CONSENT_PAGE_PATH`, generated from `services/communicationChannels.ts`,
  * where it can change without invalidating consent already collected.
+ *
+ * AND WHY THAT ONE FORMULA IS NOW ONE LINE (#5765)
+ * ------------------------------------------------
+ * The categories, the opt-out route and the controller identity made it a
+ * ~700-character paragraph, printed at the moment a person is deciding whether
+ * to proceed. Worse, the sign-in gates printed TWO of them at once — the
+ * sign-in variant above the provider buttons and the opt-in variant under the
+ * email form — so the screen made two different statements about what was
+ * being agreed to while the document kept one of them. `JobBoard.tsx` did it
+ * twice, once per gate surface: four notices in one file.
+ *
+ * The formula is therefore one sentence plus the link, and everything it used
+ * to enumerate lives on the page it names. Two consequences worth stating,
+ * because neither is free:
+ *
+ *  - the page has to CARRY what left, controller included, or shortening the
+ *    formula would delete a disclosure instead of relocating it. It does:
+ *    `build-plugins/communicationsPagePlugin.ts` prints the categories, the
+ *    cadences, the opt-out route, the controller and the privacy notice.
+ *  - a sentence that points at a page is only as good as the page's stability,
+ *    so the formula embeds `COMMUNICATIONS_PAGE_VERSION` and the stored
+ *    `consent_text` carries it. The page cannot change without that identifier
+ *    changing — see the header of `services/communicationChannels.ts` for the
+ *    mechanism that forces it — and a changed identifier is a changed formula,
+ *    which is a `version` bump here.
+ *
+ * WHAT THAT COST, MEASURED AND NOT HIDDEN. `consentNamesJobAlerts`
+ * (functions/src/jobAlertBackfillCore.js) requires the job-alert CHANNEL to be
+ * named in the stored text before a newsletter opt-in may create a job alert.
+ * Moving the categories to the page means no displayed formula names it any
+ * more, so that path is fail-closed again — the four checkbox gates stop being
+ * able to open a job alert. That is a product decision, recorded in
+ * `tests/backfill-jobalerts-from-newsletter.test.ts` where the guard is
+ * asserted, not a side effect to be discovered in a funnel report.
  *
  * WHAT THIS DOES NOT COVER, said plainly. Third-party advertising
  * (`publisher-blast.yml`) is a different PURPOSE, not a different format, and
@@ -103,10 +139,13 @@
  * `tests/consent-shown-at-signup.test.ts` enforces the checkbox rule per file.
  */
 
-import {
-  DATA_CONTROLLER_NAME,
-  DATA_CONTROLLER_EMAIL,
-} from '../functions/src/lib/dataControllerIdentity.js';
+/**
+ * Value import, not type-only: the formula interpolates the version, which is
+ * the whole point of #5765. `communicationChannels.ts` imports only a TYPE back
+ * from this module, so the cycle erases at compile time and there is no runtime
+ * import loop.
+ */
+import { COMMUNICATIONS_PAGE_VERSION } from './communicationChannels';
 
 /**
  * The four locales this codebase ships everywhere else. A consent notice in a
@@ -199,77 +238,59 @@ const entry = (e: ConsentProofEntry): ConsentProofEntry =>
   Object.freeze({ ...e, texts: e.texts ? Object.freeze({ ...e.texts }) : undefined });
 
 /**
- * The three categories, spelled out once per locale and reused by both
- * displayed formulas below.
+ * The second half of both displayed formulas: what the page answers, and which
+ * version of it the person was pointed at.
  *
- * `avvisi di lavoro` / `job alerts` / `Stellenbenachrichtigungen` /
- * `alertes d'emploi` are load-bearing, not stylistic: `consentNamesJobAlerts`
- * (functions/src/jobAlertBackfillCore.js) matches on exactly those phrases and
- * deliberately refuses "offerte di lavoro", which names the CONTENT of a page
- * rather than a mailing. Naming the channel is what lets an opt-in collected
- * here create a job alert without any change to that fail-closed guard — and
- * why an edit that softened these words back to "offerte" would silently shut
- * the channel again.
+ * Four questions, in the order somebody actually asks them, and then the
+ * address. Nothing here states a cadence — the words are "con che frequenza",
+ * a pointer to the answer rather than the answer — for the same reason as
+ * before (#5679): a frequency inside a consent formula cannot change without
+ * collecting consent again.
  *
- * WHY THE EDITORIAL CLAUSE LOST TWO ITEMS AT `2026-08-12.3` (#5745)
- * ----------------------------------------------------------------
- * It used to read "cambio CHF/EUR, traffico ai valichi, fisco, previdenza e
- * novità normative". The first two were carried by ONE channel — the daily
- * brief — and the owner disabled it on 2026-08-12. What remains live under
- * `editorial` is the weekly newsletter, whose contents are tax and pension
- * explainers, a featured article and a tool: no live rate, no border traffic.
- *
- * So the formula was promising, at the moment of the act, mail that no longer
- * comes. That is the same defect as an undisclosed channel pointing the other
- * way, and it does not become harmless for pointing that way: a notice is
- * evidence of what the person was led to expect, and one that oversells is
- * still one that misdescribes. The clause now names only what a live channel
- * delivers.
- *
- * It stays a CATEGORY and not a product list — that is what makes a future
- * feature inside it covered without re-collecting anything. What it may not do
- * is name a specific thing nothing sends. Turning the daily brief back on
- * therefore takes a bump, which is the correct price: today's subscribers
- * agreed to today's sentence.
+ * `COMMUNICATIONS_PAGE_VERSION` is inside the sentence, not beside it, so that
+ * it survives into `consent_text` without any call site remembering to attach
+ * it. A proof that named a page but not its revision would point at content
+ * free to change afterwards, which is the specific way this shortening could
+ * have made the register weaker instead of clearer.
  */
-const CATEGORIES: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'aggiornamenti redazionali — fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato.',
-  en: 'editorial updates — tax, pensions, regulatory news and explainers for people who work across the border; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved.',
-  de: 'redaktionelle Updates — Steuern, Vorsorge, Neuerungen der Rechtslage und Hintergrundberichte für Grenzgängerinnen und Grenzgänger; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen.',
-  fr: 'mises à jour éditoriales — fiscalité, prévoyance, nouveautés réglementaires et analyses pour celles et ceux qui travaillent de l’autre côté de la frontière ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées.',
+const POINTER: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: `Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: ${CONSENT_PAGE_LABEL} (versione ${COMMUNICATIONS_PAGE_VERSION}).`,
+  en: `What I receive, how often, how to stop it and who processes the data: ${CONSENT_PAGE_LABEL} (version ${COMMUNICATIONS_PAGE_VERSION}).`,
+  de: `Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: ${CONSENT_PAGE_LABEL} (Version ${COMMUNICATIONS_PAGE_VERSION}).`,
+  fr: `Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : ${CONSENT_PAGE_LABEL} (version ${COMMUNICATIONS_PAGE_VERSION}).`,
 });
 
 /**
- * The closing half: where the live list lives, how to leave, and who the
- * controller is. No frequency word appears in it — that is the whole point.
- * The controller is named AT COLLECTION, not only in the privacy notice
- * (art. 19 nLPD, #5675), and through the canonical constants so it cannot
- * drift from `/privacy/` the way the hardcoded literals did before #5702.
+ * The opening at an ACCESS gate — a modal or panel offering provider buttons
+ * and a "continue with email" button for the same purpose.
+ *
+ * "Accedendo" covers both branches of such a gate on purpose, and that is what
+ * lets one notice stand under the email button for the whole gate instead of
+ * one notice per branch. It is also load-bearing for
+ * `tests/newsletter-consent-proof.test.ts`, which refuses an `authentication`
+ * entry whose text does not describe the sign-in.
  */
-const CLOSING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: `L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su ${CONSENT_PAGE_LABEL}. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
-  en: `The complete, up-to-date list of every communication, with how often each one is sent, is at ${CONSENT_PAGE_LABEL}. I can choose which ones to receive and how often, or stop them all, at any time and without giving a reason, from my preferences or the link at the bottom of every email. Data controller: ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
-  de: `Die vollständige und aktuelle Liste aller Mitteilungen, mit der Häufigkeit jeder einzelnen, steht auf ${CONSENT_PAGE_LABEL}. Ich kann jederzeit und ohne Begründung wählen, welche ich erhalte und wie oft, oder alle abbestellen — in meinen Einstellungen oder über den Link am Ende jeder E-Mail. Verantwortliche Person: ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
-  fr: `La liste complète et à jour de toutes les communications, avec la fréquence de chacune, se trouve sur ${CONSENT_PAGE_LABEL}. Je peux à tout moment et sans motif choisir lesquelles recevoir et à quelle fréquence, ou toutes les résilier, depuis mes préférences ou le lien en bas de chaque e-mail. Responsable du traitement : ${DATA_CONTROLLER_NAME} — ${DATA_CONTROLLER_EMAIL}`,
-});
-
-const OPT_IN_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'Comunicazioni di Frontaliere Ticino. Accetto di ricevere via email le comunicazioni di Frontaliere Ticino dedicate a chi lavora oltre confine:',
-  en: 'Frontaliere Ticino communications. I agree to receive by email the Frontaliere Ticino communications for people who work across the border:',
-  de: 'Mitteilungen von Frontaliere Ticino. Ich stimme zu, die E-Mail-Mitteilungen von Frontaliere Ticino für Grenzgängerinnen und Grenzgänger zu erhalten:',
-  fr: 'Communications de Frontaliere Ticino. J’accepte de recevoir par e-mail les communications de Frontaliere Ticino destinées à celles et ceux qui travaillent de l’autre côté de la frontière :',
+const ACCESS_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino.',
+  en: 'By signing in I subscribe my address to the Frontaliere Ticino communications.',
+  de: 'Mit der Anmeldung trage ich meine Adresse in die Mitteilungen von Frontaliere Ticino ein.',
+  fr: 'En me connectant, j’inscris mon adresse aux communications de Frontaliere Ticino.',
 });
 
 /**
- * The sign-in opening. Same categories, different first sentence, because the
- * ACT is different and a formula that hid that would be the fabrication the
- * whole register exists to refuse: signing in is not ticking a box.
+ * The opening at a form whose only control is an address field — a newsletter
+ * box, a guide-for-address form, an unlock form.
+ *
+ * It deliberately does NOT say "accedendo": there is no sign-in at those gates
+ * and a formula that described one would misdescribe the act, which is the
+ * fabrication this whole register exists to refuse. That is the only difference
+ * between the two sentences.
  */
-const SIGN_IN_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: 'Comunicazioni di Frontaliere Ticino. Accedendo, l’indirizzo email del mio account viene iscritto alle comunicazioni di Frontaliere Ticino: nessuna casella di consenso separata mi è stata proposta, l’accesso è l’unico gesto che compio. Ricevo:',
-  en: 'Frontaliere Ticino communications. By signing in, my account email address is subscribed to the Frontaliere Ticino communications: no separate consent box was offered to me, signing in is the only thing I do. I receive:',
-  de: 'Mitteilungen von Frontaliere Ticino. Mit der Anmeldung wird die E-Mail-Adresse meines Kontos für die Mitteilungen von Frontaliere Ticino registriert: es wurde mir kein separates Einwilligungskästchen angeboten, die Anmeldung ist die einzige Handlung, die ich vornehme. Ich erhalte:',
-  fr: 'Communications de Frontaliere Ticino. En me connectant, l’adresse e-mail de mon compte est inscrite aux communications de Frontaliere Ticino : aucune case de consentement distincte ne m’a été proposée, la connexion est le seul geste que j’accomplis. Je reçois :',
+const SUBSCRIBE_OPENING: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: 'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino.',
+  en: 'I subscribe my address to the Frontaliere Ticino communications.',
+  de: 'Ich trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein.',
+  fr: 'J’inscris mon adresse aux communications de Frontaliere Ticino.',
 });
 
 const compose = (
@@ -277,12 +298,12 @@ const compose = (
 ): Readonly<Record<ConsentLocale, string>> =>
   Object.freeze(
     Object.fromEntries(
-      CONSENT_LOCALES.map((l) => [l, `${opening[l]} ${CATEGORIES[l]} ${CLOSING[l]}`]),
+      CONSENT_LOCALES.map((l) => [l, `${opening[l]} ${POINTER[l]}`]),
     ) as Record<ConsentLocale, string>,
   );
 
-const COMMUNICATIONS_OPT_IN = compose(OPT_IN_OPENING);
-const COMMUNICATIONS_SIGN_IN = compose(SIGN_IN_OPENING);
+const COMMUNICATIONS_OPT_IN = compose(SUBSCRIBE_OPENING);
+const COMMUNICATIONS_SIGN_IN = compose(ACCESS_OPENING);
 
 export const CONSENT_TEXTS = Object.freeze({
   /**
@@ -302,7 +323,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-12.3',
+    version: '2026-08-13.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -310,21 +331,61 @@ export const CONSENT_TEXTS = Object.freeze({
   }),
 
   /**
-   * The same disclosure at a SIGN-IN gate, shown before the provider buttons.
+   * The disclosure at an ACCESS gate, taken by somebody who used a provider
+   * button.
    *
    * Deliberately still `act: 'authentication'`, which is NOT in
    * `AFFIRMATIVE_CONSENT_ACTS`: showing somebody a notice does not turn their
    * Google login into an opt-in. What it does buy is the art. 19 nLPD half —
    * the person was told, at collection time, what they were being subscribed
-   * to and by whom — which is the half that was missing everywhere.
+   * to and where to find the rest — which is the half that was missing
+   * everywhere.
+   *
+   * SHOWN ONCE, UNDER THE EMAIL BUTTON (#5765). It used to be printed above
+   * the provider buttons while `communicationsOptIn` was printed under the
+   * email form of the SAME gate: two sentences, one screen, one of them stored.
+   * There is now one notice for the whole gate, and the entry below is what
+   * lets the other branch of that gate store the very sentence it displayed.
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-12.3',
+    version: '2026-08-13.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
     act: 'authentication',
+  }),
+
+  /**
+   * The email branch of an ACCESS gate: same notice, different act.
+   *
+   * WHY A THIRD ENTRY AND NOT A REUSE OF `communicationsOptIn` (#5765)
+   * ------------------------------------------------------------------
+   * An access gate offers two ways through one door, and only one notice may
+   * stand at it. Whoever takes the other way must still store the bytes that
+   * were on screen — otherwise the single notice would have re-created, in the
+   * document instead of on the screen, exactly the divergence it was put there
+   * to remove.
+   *
+   * `act` cannot be shared to solve it: typing an address IS a different thing
+   * from signing in, it is the only value in `AFFIRMATIVE_CONSENT_ACTS`, and
+   * recording either one as the other misdescribes what the person did. So the
+   * TEXT is shared and the ACT is not — byte-identical to
+   * `communicationsSignIn`, asserted in tests/newsletter-consent-proof.test.ts,
+   * the same shape `publisherGateSocial`/`publisherGateEmail` already use.
+   *
+   * `displayed: true` without any JSX naming this key is therefore correct and
+   * is checked as such: `tests/consent-shown-at-signup.test.tsx` compares the
+   * stored SENTENCE against the rendered one, in all four locales, rather than
+   * comparing keys — which is the claim `displayed` actually makes.
+   */
+  communicationsSignInEmail: entry({
+    id: 'communications_sign_in_email',
+    version: '2026-08-13.1',
+    text: COMMUNICATIONS_SIGN_IN.it,
+    texts: COMMUNICATIONS_SIGN_IN,
+    displayed: true,
+    act: 'typed_email_submit',
   }),
 
   /**
@@ -334,8 +395,11 @@ export const CONSENT_TEXTS = Object.freeze({
    * -----------------------------------------------------------------------
    * It used to promise "la newsletter per frontalieri (cambio CHF/EUR,
    * traffico di frontiera e novità fiscali)" — the same two items the
-   * `CATEGORIES` clause just lost, for the same reason: only the daily brief
-   * carried them and the owner disabled it on 2026-08-12.
+   * displayed formulas' category clause lost at `2026-08-12.3`, for the same
+   * reason: only the daily brief carried them and the owner disabled it on
+   * 2026-08-12. (That clause itself is gone at `2026-08-13.1`: #5765 moved the
+   * categories onto `/comunicazioni/`. This entry keeps its own wording, since
+   * nothing renders it — see below.)
    *
    * The register's standing rule is that a formula is NOT re-worded, because
    * doing so changes what future subscribers are recorded as having been told

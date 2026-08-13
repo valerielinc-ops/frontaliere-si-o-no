@@ -128,7 +128,7 @@ describe('PdfDownloadGate', () => {
     // The checkbox label is now the register formula itself, rendered by
     // ConsentNotice — the string this gate also STORES (#5712). Matching on it
     // is therefore matching on the consent proof, not on decorative copy.
-    fireEvent.click(screen.getByLabelText(/Accetto di ricevere via email le comunicazioni/));
+    fireEvent.click(screen.getByLabelText(/Iscrivo il mio indirizzo alle comunicazioni/));
     fireEvent.click(screen.getByRole('button', { name: 'Registrati e scarica' }));
 
     await vi.waitFor(() => expect(upsertNewsletterSubscriberMock).toHaveBeenCalledTimes(1));

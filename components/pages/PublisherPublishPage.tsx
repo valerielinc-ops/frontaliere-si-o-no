@@ -600,12 +600,12 @@ const PublisherPublishPage: React.FC = () => {
  // OAuth-verified email + implicit consent → no double-opt-in email.
  isActive: true,
  status: 'confirmed',
- // #5712/#5718: the notice above the provider buttons in the gate below
- // renders this exact string, in this locale.
+ // #5712/#5718/#5765: the gate below renders this exact string, in this
+ // locale, once — under its email button, covering these providers too.
  ...consentProof('communicationsSignIn', consentMethod, locale),
- // No `consentGiven`: an OAuth sign-in is not a ticked box. The notice
- // above the provider buttons makes the disclosure real; it does not turn
- // a login into a request. See services/consentTexts.ts (#5712).
+ // No `consentGiven`: an OAuth sign-in is not a ticked box. The gate's
+ // notice makes the disclosure real; it does not turn a login into a
+ // request. See services/consentTexts.ts (#5712).
  });
  markNewsletterSubscribedLocally();
  } catch (error) {
@@ -1299,8 +1299,10 @@ const PublisherPublishPage: React.FC = () => {
  // DOWNGRADE an already-confirmed subscriber who types their email in the
  // gate. Omitting them preserves a confirmed subscriber and defaults a new
  // address to 'pending' (→ auto opt-in/login email).
- // #5712/#5718: rendered under the gate's email form, same locale.
- ...consentProof('communicationsOptIn', 'email_submit', locale),
+ // #5712/#5718/#5765: the gate's single notice, rendered under this form,
+ // same locale. Byte-identical to `communicationsSignIn` above and
+ // different only in `act` — typing an address is not signing in.
+ ...consentProof('communicationsSignInEmail', 'email_submit', locale),
  // No `consentGiven`: this form has no consent checkbox, so nothing here
  // is an affirmative opt-in — only "was shown" is true. See the
  // `consentGiven` section of services/consentTexts.ts (#5712).
@@ -1389,7 +1391,6 @@ const PublisherPublishPage: React.FC = () => {
 
  <div className="mt-6 space-y-4">
  {/* Social sign-in — same row as the newsletter box (Google + LinkedIn) */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} />
  <SocialSignInButtons locale={locale} googleWidth={320} errorContext="publisher.gate" />
 
  {/* Divider */}
@@ -1426,9 +1427,11 @@ const PublisherPublishPage: React.FC = () => {
  </button>
  </form>
 
+ {/* The gate's ONE notice (#5765): under the email button, covering the
+ provider buttons above it as well. */}
  <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
  <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} />
  </p>
  </div>
  </div>

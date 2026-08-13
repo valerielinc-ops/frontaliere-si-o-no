@@ -345,12 +345,20 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    */
   const PINNED: Record<string, { version: string; text: string }> = {
     communicationsOptIn: {
-      version: '2026-08-12.3',
-      text: 'Comunicazioni di Frontaliere Ticino. Accetto di ricevere via email le comunicazioni di Frontaliere Ticino dedicate a chi lavora oltre confine: aggiornamenti redazionali — fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato. L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su frontaliereticino.ch/comunicazioni. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: Valerie Linc — valerie@frontaliereticino.ch',
+      version: '2026-08-13.1',
+      text: 'Iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.1).',
     },
     communicationsSignIn: {
-      version: '2026-08-12.3',
-      text: 'Comunicazioni di Frontaliere Ticino. Accedendo, l’indirizzo email del mio account viene iscritto alle comunicazioni di Frontaliere Ticino: nessuna casella di consenso separata mi è stata proposta, l’accesso è l’unico gesto che compio. Ricevo: aggiornamenti redazionali — fisco, previdenza, novità normative e approfondimenti per chi lavora oltre confine; avvisi di lavoro — offerte in Ticino e in Svizzera, secondo i criteri che imposto io; messaggi di servizio sul mio account, sulle mie preferenze e sulle offerte che ho salvato. L’elenco completo e aggiornato di tutte le comunicazioni, con la frequenza di ciascuna, è su frontaliereticino.ch/comunicazioni. Posso scegliere quali ricevere e con che frequenza, o disdirle tutte, in qualsiasi momento e senza motivazione, dalle mie preferenze o dal link in fondo a ogni email. Titolare del trattamento: Valerie Linc — valerie@frontaliereticino.ch',
+      version: '2026-08-13.1',
+      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.1).',
+    },
+    // Same sentence as `communicationsSignIn`, different act — the email branch
+    // of an access gate, which since #5765 shows ONE notice for both branches.
+    // The duplication in this table is the point: a divergence between the two
+    // would mean one branch stores something the screen never said.
+    communicationsSignInEmail: {
+      version: '2026-08-13.1',
+      text: 'Accedendo iscrivo il mio indirizzo alle comunicazioni di Frontaliere Ticino. Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: frontaliereticino.ch/comunicazioni (versione 2026-08-13.1).',
     },
     signInAutoSubscribe: {
       version: '2026-08-12.2',
@@ -426,17 +434,20 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    * that was kept — which means the translations are part of the proof, and
    * editing one without bumping `version` has to fail here.
    */
+  const SIGN_IN_LOCALES = {
+    en: 'By signing in I subscribe my address to the Frontaliere Ticino communications. What I receive, how often, how to stop it and who processes the data: frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
+    de: 'Mit der Anmeldung trage ich meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: frontaliereticino.ch/comunicazioni (Version 2026-08-13.1).',
+    fr: 'En me connectant, j’inscris mon adresse aux communications de Frontaliere Ticino. Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
+  } as const;
+
   const PINNED_LOCALES: Record<string, Record<'en' | 'de' | 'fr', string>> = {
     communicationsOptIn: {
-      en: 'Frontaliere Ticino communications. I agree to receive by email the Frontaliere Ticino communications for people who work across the border: editorial updates — tax, pensions, regulatory news and explainers for people who work across the border; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved. The complete, up-to-date list of every communication, with how often each one is sent, is at frontaliereticino.ch/comunicazioni. I can choose which ones to receive and how often, or stop them all, at any time and without giving a reason, from my preferences or the link at the bottom of every email. Data controller: Valerie Linc — valerie@frontaliereticino.ch',
-      de: 'Mitteilungen von Frontaliere Ticino. Ich stimme zu, die E-Mail-Mitteilungen von Frontaliere Ticino für Grenzgängerinnen und Grenzgänger zu erhalten: redaktionelle Updates — Steuern, Vorsorge, Neuerungen der Rechtslage und Hintergrundberichte für Grenzgängerinnen und Grenzgänger; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen. Die vollständige und aktuelle Liste aller Mitteilungen, mit der Häufigkeit jeder einzelnen, steht auf frontaliereticino.ch/comunicazioni. Ich kann jederzeit und ohne Begründung wählen, welche ich erhalte und wie oft, oder alle abbestellen — in meinen Einstellungen oder über den Link am Ende jeder E-Mail. Verantwortliche Person: Valerie Linc — valerie@frontaliereticino.ch',
-      fr: 'Communications de Frontaliere Ticino. J’accepte de recevoir par e-mail les communications de Frontaliere Ticino destinées à celles et ceux qui travaillent de l’autre côté de la frontière : mises à jour éditoriales — fiscalité, prévoyance, nouveautés réglementaires et analyses pour celles et ceux qui travaillent de l’autre côté de la frontière ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées. La liste complète et à jour de toutes les communications, avec la fréquence de chacune, se trouve sur frontaliereticino.ch/comunicazioni. Je peux à tout moment et sans motif choisir lesquelles recevoir et à quelle fréquence, ou toutes les résilier, depuis mes préférences ou le lien en bas de chaque e-mail. Responsable du traitement : Valerie Linc — valerie@frontaliereticino.ch',
+      en: 'I subscribe my address to the Frontaliere Ticino communications. What I receive, how often, how to stop it and who processes the data: frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
+      de: 'Ich trage meine Adresse in die Mitteilungen von Frontaliere Ticino ein. Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: frontaliereticino.ch/comunicazioni (Version 2026-08-13.1).',
+      fr: 'J’inscris mon adresse aux communications de Frontaliere Ticino. Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : frontaliereticino.ch/comunicazioni (version 2026-08-13.1).',
     },
-    communicationsSignIn: {
-      en: 'Frontaliere Ticino communications. By signing in, my account email address is subscribed to the Frontaliere Ticino communications: no separate consent box was offered to me, signing in is the only thing I do. I receive: editorial updates — tax, pensions, regulatory news and explainers for people who work across the border; job alerts — openings in Ticino and across Switzerland, matching the criteria I set myself; service messages about my account, my preferences and the jobs I saved. The complete, up-to-date list of every communication, with how often each one is sent, is at frontaliereticino.ch/comunicazioni. I can choose which ones to receive and how often, or stop them all, at any time and without giving a reason, from my preferences or the link at the bottom of every email. Data controller: Valerie Linc — valerie@frontaliereticino.ch',
-      de: 'Mitteilungen von Frontaliere Ticino. Mit der Anmeldung wird die E-Mail-Adresse meines Kontos für die Mitteilungen von Frontaliere Ticino registriert: es wurde mir kein separates Einwilligungskästchen angeboten, die Anmeldung ist die einzige Handlung, die ich vornehme. Ich erhalte: redaktionelle Updates — Steuern, Vorsorge, Neuerungen der Rechtslage und Hintergrundberichte für Grenzgängerinnen und Grenzgänger; Stellenbenachrichtigungen — Stellen im Tessin und in der ganzen Schweiz, nach den Kriterien, die ich selbst festlege; Servicenachrichten zu meinem Konto, meinen Einstellungen und den von mir gespeicherten Stellen. Die vollständige und aktuelle Liste aller Mitteilungen, mit der Häufigkeit jeder einzelnen, steht auf frontaliereticino.ch/comunicazioni. Ich kann jederzeit und ohne Begründung wählen, welche ich erhalte und wie oft, oder alle abbestellen — in meinen Einstellungen oder über den Link am Ende jeder E-Mail. Verantwortliche Person: Valerie Linc — valerie@frontaliereticino.ch',
-      fr: 'Communications de Frontaliere Ticino. En me connectant, l’adresse e-mail de mon compte est inscrite aux communications de Frontaliere Ticino : aucune case de consentement distincte ne m’a été proposée, la connexion est le seul geste que j’accomplis. Je reçois : mises à jour éditoriales — fiscalité, prévoyance, nouveautés réglementaires et analyses pour celles et ceux qui travaillent de l’autre côté de la frontière ; alertes d’emploi — postes au Tessin et dans toute la Suisse, selon les critères que je définis moi-même ; messages de service concernant mon compte, mes préférences et les offres que j’ai enregistrées. La liste complète et à jour de toutes les communications, avec la fréquence de chacune, se trouve sur frontaliereticino.ch/comunicazioni. Je peux à tout moment et sans motif choisir lesquelles recevoir et à quelle fréquence, ou toutes les résilier, depuis mes préférences ou le lien en bas de chaque e-mail. Responsable du traitement : Valerie Linc — valerie@frontaliereticino.ch',
-    },
+    communicationsSignIn: { ...SIGN_IN_LOCALES },
+    communicationsSignInEmail: { ...SIGN_IN_LOCALES },
   };
 
   it('pins every formula and its version literally', () => {
@@ -485,14 +496,38 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
     expect(CONSENT_TEXTS.publisherGateEmail.act).toBe('typed_email_submit');
   });
 
+  it('gives the two halves of an access gate one sentence and two acts (#5765)', () => {
+    // The same shape as the publisher pair above, and the reason a gate showing
+    // ONE notice can still record what each branch really did. Divergence here
+    // would mean one of the two branches keeps a sentence nobody was shown.
+    expect(CONSENT_TEXTS.communicationsSignInEmail.text).toBe(CONSENT_TEXTS.communicationsSignIn.text);
+    expect(CONSENT_TEXTS.communicationsSignInEmail.texts).toEqual(CONSENT_TEXTS.communicationsSignIn.texts);
+    expect(CONSENT_TEXTS.communicationsSignIn.act).toBe('authentication');
+    expect(CONSENT_TEXTS.communicationsSignInEmail.act).toBe('typed_email_submit');
+    // …and the opt-in wording stays a DIFFERENT sentence, because the forms it
+    // labels have no sign-in to describe.
+    expect(CONSENT_TEXTS.communicationsOptIn.text).not.toBe(CONSENT_TEXTS.communicationsSignIn.text);
+    expect(CONSENT_TEXTS.communicationsOptIn.text.toLowerCase()).not.toContain('accedendo');
+  });
+
   it('states which formulas are rendered and which are not, entry by entry', () => {
     // This assertion USED to read "no formula is rendered on screen today",
     // and it was true: not one of these strings was referenced from any JSX.
     // #5712 rendered two of them. The list is enumerated rather than
-    // computed, so flipping a third entry to `true` fails here and has to be
+    // computed, so flipping a fourth entry to `true` fails here and has to be
     // justified next to the call site that renders it — which is what
-    // tests/consent-shown-at-signup.test.ts then checks.
-    const RENDERED = new Set(['communicationsOptIn', 'communicationsSignIn']);
+    // tests/consent-shown-at-signup.test.tsx then checks.
+    //
+    // `communicationsSignInEmail` is on the list although no JSX names that
+    // KEY: since #5765 an access gate shows one notice for its two branches,
+    // and that notice renders this entry's exact sentence. `displayed` claims
+    // "this string was on screen", not "this key appeared in an attribute" —
+    // and consent-shown-at-signup checks it that way, per locale.
+    const RENDERED = new Set([
+      'communicationsOptIn',
+      'communicationsSignIn',
+      'communicationsSignInEmail',
+    ]);
     for (const [key, proof] of Object.entries(CONSENT_TEXTS)) {
       expect(proof.displayed, `${key}.displayed`).toBe(RENDERED.has(key));
     }

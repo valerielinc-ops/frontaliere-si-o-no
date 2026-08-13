@@ -208,25 +208,30 @@ describe('consentNamesJobAlerts — scope of the notice, in the four locales', (
 // every guard that follows imports. This checks it directly.
 describe('the consent register and the gate agree (#5705, #5712)', () => {
   /**
-   * WHAT CHANGED, AND WHY THIS IS NOT THE GUARD BEING WEAKENED.
+   * WHAT CHANGED TWICE, AND WHY THE LIST IS EMPTY AGAIN.
    *
    * Until #5712 every entry was `displayed: false`, so this block asserted
-   * that NOTHING could pass — correct then, and it was the honest reading of a
-   * register whose formulas no JSX rendered. `communicationsOptIn` is the
-   * first formula that is actually shown to the person
-   * (components/shared/ConsentNotice.tsx, enforced call site by call site in
-   * tests/consent-shown-at-signup.test.ts), and it names the job-alert channel
-   * by the channel word rather than by "offerte di lavoro". It therefore
-   * SHOULD pass — that is what re-opens alert creation without a line changing
-   * in functions/src/jobAlertBackfillCore.js.
+   * that NOTHING could pass — the honest reading of a register whose formulas
+   * no JSX rendered. #5712 rendered `communicationsOptIn`, and because that
+   * formula enumerated the categories it contained the words the server guard
+   * matches ("avvisi di lavoro" and its three translations). A checkbox gate
+   * could then satisfy all four conditions and open a job alert.
    *
-   * The guard is untouched: it still needs all four conditions, and the one it
-   * cannot see from here — `consent_given: true` — is set by the call site
-   * only where a real checkbox was ticked.
+   * #5765 shortened the displayed formulas to one line and moved the
+   * categories onto `/comunicazioni/`. No displayed formula names the job-alert
+   * CHANNEL any more, so this path is fail-closed again — deliberately, and
+   * recorded here rather than discovered later in a funnel report.
+   *
+   * The guard in functions/src/jobAlertBackfillCore.js is untouched, in either
+   * direction. What moved is the wording it reads, and the wording is an owner
+   * decision (#5765): re-opening this means naming the channel in the sentence
+   * a person actually sees, not relaxing anything here. `createAlert` — the
+   * voluntary form path behind the real alerts — is unaffected, since it never
+   * went through this predicate.
    */
-  const OPENS_THE_CHANNEL = ['communicationsOptIn'];
+  const OPENS_THE_CHANNEL: string[] = [];
 
-  it('lets exactly the rendered opt-in through, and nothing else', () => {
+  it('lets nothing through — no displayed formula names the channel since #5765', () => {
     const passing = Object.entries(CONSENT_TEXTS)
       .filter(([, proof]) =>
         hasAffirmativeJobAlertConsent({
@@ -241,18 +246,27 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
     expect(passing).toEqual(OPENS_THE_CHANNEL);
   });
 
-  it('refuses that same formula when the person never ticked a box', () => {
-    // `consent_given` is the one condition the register deliberately does not
-    // supply (`consentProof` returns no `consentGiven`). A gate that only has
-    // a typed address and a submit button leaves it false, and creates no
-    // alert — which is the correct answer for it.
-    const proof = CONSENT_TEXTS.communicationsOptIn;
-    expect(hasAffirmativeJobAlertConsent({
-      consent_given: false,
-      consent_text: proof.text,
-      consent_text_displayed: proof.displayed,
-      consent_act: proof.act,
-    })).toBe(false);
+  it('refuses an unticked box even on a text that DOES name the channel', () => {
+    /**
+     * `consent_given` is the one condition the register deliberately does not
+     * supply (`consentProof` returns no `consentGiven`). A gate that only has a
+     * typed address and a submit button leaves it false, and creates no alert.
+     *
+     * The document below is built by hand and names the channel on purpose.
+     * Feeding it a displayed register formula would prove nothing since #5765:
+     * none of them names the channel, so the predicate would return false for a
+     * reason unrelated to the box, and this test would pass while asserting
+     * nothing about the box at all.
+     */
+    const namesTheChannel = 'Iscrivo il mio indirizzo agli avvisi di lavoro di Frontaliere Ticino.';
+    const ticked = {
+      consent_given: true,
+      consent_text: namesTheChannel,
+      consent_text_displayed: true,
+      consent_act: 'typed_email_submit',
+    };
+    expect(hasAffirmativeJobAlertConsent(ticked), 'the control case must pass').toBe(true);
+    expect(hasAffirmativeJobAlertConsent({ ...ticked, consent_given: false })).toBe(false);
   });
 
   it('names every entry that scopes job alerts, so adding one is a deliberate act', () => {
@@ -261,15 +275,16 @@ describe('the consent register and the gate agree (#5705, #5712)', () => {
       .map(([key]) => key)
       .sort();
     expect(naming).toEqual([
-      'communicationsOptIn',
-      'communicationsSignIn',
       'jobUnlockEmail',
       'jobUnlockSocial',
     ]);
-    // The two legacy unlock formulas remain `displayed: false` — recorded,
-    // never rendered — which is why neither can admit anybody. The sign-in
-    // formula IS rendered but keeps `act: 'authentication'`: showing somebody
-    // a notice does not turn their Google login into a request.
+    // Both are `displayed: false` — recorded, never rendered — which is why
+    // neither can admit anybody. Since #5765 they are also the ONLY two
+    // entries that name the channel: the three displayed formulas are one line
+    // each and point at `/comunicazioni/` for the categories, so nothing that
+    // a person is actually shown scopes a job alert. Adding the words back to a
+    // displayed formula re-opens automatic creation, which is why this list is
+    // enumerated instead of computed.
     for (const key of ['jobUnlockEmail', 'jobUnlockSocial'] as const) {
       expect(CONSENT_TEXTS[key].displayed, key).toBe(false);
     }

@@ -33,6 +33,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { render } from '@testing-library/react';
 
@@ -49,11 +50,17 @@ import {
 import {
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
+  COMMUNICATIONS_PAGE_REVISIONS,
+  COMMUNICATIONS_PAGE_VERSION,
   NON_SUBSCRIBER_SENDERS,
   SUSPENDED_WORKFLOW_MARKER,
   hasLiveChannel,
 } from '@/services/communicationChannels';
 import { consentNamesJobAlerts } from '../functions/src/jobAlertBackfillCore.js';
+import {
+  DATA_CONTROLLER_NAME,
+  DATA_CONTROLLER_EMAIL,
+} from '../functions/src/lib/dataControllerIdentity.js';
 
 const ROOT = path.resolve(__dirname, '..');
 const read = (rel: string) => readFileSync(path.join(ROOT, rel), 'utf8');
@@ -86,11 +93,22 @@ const CREATES_SUBSCRIBER =
 
 type Verdict =
   /**
-   * Renders every displayed formula it stores. The assertion below is per KEY,
-   * not per file: a file may store two (a sign-in one and a typed-address one)
-   * and must render both, each next to its own control.
+   * Puts the exact sentence it stores on screen, once per gate.
+   *
+   * The assertion is per SENTENCE, not per key, and that changed with #5765.
+   * An access gate has two ways through one door — provider buttons and a
+   * "continue with email" button — and it may show only ONE notice, so the two
+   * register entries it stores (different `act`, same text) are both satisfied
+   * by that one notice. Comparing keys would have demanded a second notice and
+   * re-created the defect; comparing sentences asserts the thing `displayed`
+   * actually claims.
+   *
+   * `notices` is how many gate surfaces the file has, and therefore exactly how
+   * many `<ConsentNotice>` it may render. It is the anti-regression counter for
+   * #5765: the defect was four notices in JobBoard.tsx (two per gate), and a
+   * gate that grows a second one fails here rather than in review.
    */
-  | { verdict: 'shown'; why: string }
+  | { verdict: 'shown'; why: string; notices: number }
   /**
    * Stores a formula that no JSX renders, and says so instead of leaving it to
    * be inferred. `onFire` says what to do when the entry stops being
@@ -120,58 +138,71 @@ type Verdict =
 const VERDICTS: Record<string, Verdict> = {
   'components/community/NewsletterPopup.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'the checkbox label IS the stored string now — this file and SubscriptionCTA are where the show/store divergence was measurable',
   },
   'components/shared/SubscriptionCTA.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'same divergence as the popup, same fix',
   },
   'components/shared/PdfDownloadGate.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'IT-only gate (its upsert passes locale: it), checkbox label from the register',
   },
   'components/community/OfferwallNewsletterGate.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'had its own four-locale table describing only the newsletter; now renders and stores the register formula',
   },
   'components/community/Newsletter.tsx': {
     verdict: 'shown',
-    why: 'notice under both the compact footer form and the full page form',
+    notices: 2,
+    why: 'two mutually exclusive renders — the compact footer form and the full page form — never on screen together, one notice each',
   },
   'components/community/WeeklyDigest.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'notice under the subscribe row',
   },
   'components/shared/LeadMagnetCTA.tsx': {
     verdict: 'shown',
-    why: 'notice under both guide-for-address forms',
+    notices: 2,
+    why: 'two mutually exclusive variants of the guide-for-address form, one notice each',
   },
   'components/calculator/MobileCalcLayout.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'notice under the analysis-gate email form',
   },
   'components/fisco/TaxCalendar.tsx': {
     verdict: 'shown',
-    why: 'two acts, two notices: sign-in above the provider buttons, opt-in under the email form',
+    notices: 1,
+    why: 'one reminder panel, one notice under its email button, covering the provider buttons above it (#5765)',
   },
   'components/community/JobBoard.tsx': {
     verdict: 'shown',
-    why: 'two gate surfaces (modal + inline region), each with both notices',
+    notices: 2,
+    why: 'two gate surfaces (modal + inline region), ONE notice each — it rendered four before #5765',
   },
-  'components/community/JobOrphanView.tsx': { verdict: 'shown', why: 'notice under the unlock form' },
-  'components/community/JobBridgeView.tsx': { verdict: 'shown', why: 'notice under the unlock form' },
-  'components/community/JobExpiredView.tsx': { verdict: 'shown', why: 'notice under the unlock form' },
+  'components/community/JobOrphanView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
+  'components/community/JobBridgeView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
+  'components/community/JobExpiredView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
   'components/community/CompanyFollowButton.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'notice inside the email-capture form',
   },
   'components/community/SaveSignInPromptModal.tsx': {
     verdict: 'shown',
+    notices: 1,
     why: 'its own upsert covers the EMAIL branch only, and that branch renders what it stores; the social branch is recorded by App.tsx and is declared there',
   },
   'components/pages/PublisherPublishPage.tsx': {
     verdict: 'shown',
-    why: 'gate renders the sign-in notice above the providers and the opt-in notice under the email form, matching its two upserts',
+    notices: 1,
+    why: 'one gate, one notice under its email button, covering the provider buttons above it (#5765)',
   },
 
   'components/pages/UserProfile.tsx': {
@@ -327,6 +358,85 @@ const DISPLAYED_KEYS = Object.entries(CONSENT_TEXTS)
   .filter(([, p]) => p.displayed)
   .map(([k]) => k as ConsentTextKey);
 
+/**
+ * The four locales of one entry, joined — the identity of a SENTENCE.
+ *
+ * Two register entries are the same disclosure when a visitor in any of the
+ * four languages reads the same characters. `communicationsSignIn` and
+ * `communicationsSignInEmail` are the same disclosure and different acts; a
+ * comparison on `it` alone would also call them equal after somebody edited
+ * only the German half of one, which is the divergence #5712 was about.
+ */
+function sentenceOf(key: ConsentTextKey): string {
+  return CONSENT_LOCALES.map((l) => consentDisplayText(key, l)).join(' | ');
+}
+
+/**
+ * Everything wrong with one call site, as a list of sentences a human can act
+ * on. Pure, and given the source rather than a path, so the block at the bottom
+ * of this file can run it against gates that do NOT exist in this repo —
+ * a gate rendering two notices, a gate whose notice contradicts its document —
+ * and prove the checker fails on them.
+ *
+ * That block is not ceremony. #5764's lesson, paid for four times: a guard
+ * exercised only on a population where the defect is already absent is
+ * indistinguishable from a guard that works. Every rule here is therefore run
+ * once against a source that breaks it.
+ */
+function consentGateViolations(src: string, declaredNotices: number): string[] {
+  const problems: string[] = [];
+  const stored = proofKeysIn(src);
+  const rendered = renderedKeysIn(src);
+
+  if (!/from '@\/services\/consentTexts'/.test(src)) problems.push('does not import the register');
+  if (stored.length === 0) problems.push('passes no consent proof');
+
+  // ONE notice per gate surface, and no more. This is the #5765 counter.
+  if (rendered.length !== declaredNotices) {
+    problems.push(
+      `renders ${rendered.length} <ConsentNotice> but declares ${declaredNotices} gate surface(s) — ` +
+        'a gate showing two notices makes two statements about one decision, and stores one of them',
+    );
+  }
+
+  // …and one sentence per file. The two access-gate entries share a sentence,
+  // so this stays satisfiable at a gate with two acts, while a screen carrying
+  // both the sign-in wording and the opt-in wording cannot pass it.
+  const renderedSentences = new Set(rendered.map(sentenceOf));
+  if (renderedSentences.size > 1) {
+    problems.push(
+      `renders ${renderedSentences.size} different consent sentences — they cannot coexist in one view`,
+    );
+  }
+
+  // What is stored has to be what was on screen, character for character, in
+  // every locale. Comparing sentences and not keys is what lets one notice
+  // cover two acts without either document quoting something else.
+  for (const key of stored) {
+    if (!CONSENT_TEXTS[key]?.displayed) continue;
+    if (!renderedSentences.has(sentenceOf(key))) {
+      problems.push(
+        `stores '${key}' (displayed: true) but no <ConsentNotice> here renders that exact sentence — ` +
+          'either render it or store a displayed:false formula',
+      );
+    }
+  }
+
+  // The mirror image: a notice next to a gate that records something else is
+  // the show/store divergence, dressed as compliance.
+  const storedSentences = new Set(stored.map(sentenceOf));
+  for (const key of rendered) {
+    if (!storedSentences.has(sentenceOf(key))) {
+      problems.push(
+        `renders '${key}' but stores no formula with that sentence — ` +
+          'the visitor would read one sentence and the document would keep another',
+      );
+    }
+  }
+
+  return problems;
+}
+
 describe('every signup path is classified', () => {
   const paths = discoverSignupPaths();
 
@@ -359,34 +469,9 @@ describe('the verdicts hold', () => {
   const notShown = entries.filter(([, v]) => v.verdict === 'recorded-not-shown');
   const unreachable = entries.filter(([, v]) => v.verdict === 'unreachable');
 
-  it.each(shown)('%s renders every displayed formula it stores', (file) => {
-    const src = read(file);
-    expect(src, `${file} must import the register`).toMatch(/from '@\/services\/consentTexts'/);
-    const stored = proofKeysIn(src);
-    expect(stored.length, `${file} passes no consent proof`).toBeGreaterThan(0);
-
-    const rendered = new Set(renderedKeysIn(src));
-    for (const key of stored) {
-      if (!CONSENT_TEXTS[key]?.displayed) continue;
-      expect(
-        rendered.has(key),
-        `${file} stores '${key}' (displayed: true) but renders no <ConsentNotice consentKey="${key}"> — either render it or store a displayed:false formula`,
-      ).toBe(true);
-    }
-  });
-
-  it.each(shown)('%s renders no notice it does not also store', (file) => {
-    // The mirror image, and the one that stops the flag from being bought
-    // cheaply: a decorative notice next to a gate that records something else
-    // is exactly the show/store divergence this batch removed.
-    const src = read(file);
-    const stored = new Set(proofKeysIn(src));
-    for (const key of renderedKeysIn(src)) {
-      expect(
-        stored.has(key),
-        `${file} renders '${key}' but never stores it — the visitor would read one sentence and the document would keep another`,
-      ).toBe(true);
-    }
+  it.each(shown)('%s shows, once per gate, the exact sentence it stores', (file, v) => {
+    const { notices } = v as Extract<Verdict, { verdict: 'shown' }>;
+    expect(consentGateViolations(read(file), notices), file).toEqual([]);
   });
 
   it.each(shown)('%s passes the visitor locale to every proof it stores', (file) => {
@@ -537,31 +622,70 @@ describe('what the displayed formulas may and may not say', () => {
     }
   });
 
-  it('names the data controller at collection time, not only in the privacy notice', () => {
-    // art. 19 nLPD, and the point of #5675: the recipient of an unwanted email
-    // must be able to tell who to write to without hunting for a policy page.
+  it('says where the controller is named, and the page says who it is', () => {
+    /**
+     * art. 19 nLPD, and the point of #5675: the recipient of an unwanted email
+     * must be able to tell who to write to. Until #5765 the formula carried the
+     * name and the address itself; it now carries the QUESTION and the address
+     * of the page that answers it, because a ~700-character paragraph at the
+     * moment of deciding is read by nobody.
+     *
+     * That is a relocation only if the page really carries it, so the second
+     * half is asserted here and not assumed. Deleting the controller section
+     * from the page fails this test, which is the only thing standing between
+     * "the disclosure moved" and "the disclosure went".
+     */
     for (const proof of displayed) {
       for (const locale of CONSENT_LOCALES) {
-        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain('Valerie Linc');
-        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain('@frontaliereticino.ch');
+        expect(proof.texts?.[locale], `${proof.id}/${locale} must ask the controller question`)
+          .toMatch(/chi tratta i dati|who processes the data|wer die Daten bearbeitet|qui traite les données/);
+        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain(CONSENT_PAGE_LABEL);
       }
     }
+    // Read as text, never imported — see the note on the plugin assertion below.
+    const plugin = read('build-plugins/communicationsPagePlugin.ts');
+    expect(plugin, 'the page must print the controller identity').toMatch(/DATA_CONTROLLER_FOOTER_LINE\[locale\]/);
+    expect(plugin, '…from the single source, so it cannot drift from the mail footers')
+      .toMatch(/from '\.\.\/functions\/src\/lib\/dataControllerIdentity\.js'/);
+    expect(plugin, 'and it must link the full privacy notice').toMatch(/PRIVACY_PATH\[locale\]/);
   });
 
-  it('names the job-alert CHANNEL in every locale, in the words the server guard matches', () => {
-    // Load-bearing across a boundary with no import shape: `functions/` cannot
-    // import the TypeScript register, so the two agree by convention only.
-    // Softening these words back to "offerte di lavoro" would silently shut
-    // job-alert creation again (`consentNamesJobAlerts` refuses that phrase on
-    // purpose — it names the content of a page, not a mailing).
+  it('no longer names the job-alert channel — and that closes a path, on purpose', () => {
+    /**
+     * THE COST OF THE SHORT FORMULA, ASSERTED SO IT CANNOT BE A SURPRISE.
+     *
+     * `consentNamesJobAlerts` (functions/src/jobAlertBackfillCore.js) matches
+     * "avvisi di lavoro" / "job alert" / "Stellenbenachrichtigung" /
+     * "alertes d'emploi" — the CHANNEL, never "offerte di lavoro", which names
+     * the content of a page. Between #5712 and #5765 the displayed formula
+     * enumerated the categories, so it contained those words, so a checkbox
+     * gate could satisfy `hasAffirmativeJobAlertConsent` and open a job alert.
+     *
+     * #5765 moved the categories to `/comunicazioni/`. No displayed formula
+     * names the channel any more, and that path is fail-closed again. Stated
+     * here rather than discovered in a funnel report: it is a consequence of an
+     * owner decision about the wording, and re-opening it means naming the
+     * channel in the sentence — which is a wording decision, not a code one.
+     *
+     * The assertion is two-directional on purpose. It fails if a formula
+     * quietly starts naming the channel again (that would re-open alert
+     * creation for people who agreed to a one-line notice), and it fails if
+     * `consentNamesJobAlerts` stops recognising the phrases at all, which would
+     * make the check vacuous.
+     */
     for (const proof of displayed) {
       for (const locale of CONSENT_LOCALES) {
         expect(
           consentNamesJobAlerts(proof.texts?.[locale]),
-          `${proof.id}/${locale} does not name the job-alert channel`,
-        ).toBe(true);
+          `${proof.id}/${locale} names the job-alert channel — that re-opens automatic alert creation, see #5765`,
+        ).toBe(false);
       }
     }
+    expect(consentNamesJobAlerts('ricevo gli avvisi di lavoro'), 'the matcher itself has rotted').toBe(true);
+    // The category is still LIVE and still described — on the page, where the
+    // formula now sends the reader.
+    expect(hasLiveChannel('jobs')).toBe(true);
+    expect(read('build-plugins/communicationsPagePlugin.ts')).toContain('Avvisi di lavoro');
   });
 
   it('says nothing that would let third-party advertising in', () => {
@@ -694,16 +818,23 @@ describe('the channel list the formula points at cannot under-report what we sen
   });
 
   /**
-   * The category-level version of the same question, and the one that matters
-   * for the formula rather than the page: consent is asked for a CATEGORY, so
-   * a category behind which nothing ships is a request to agree to mail that
-   * does not come.
+   * The category-level version of the same question. Consent is asked for a
+   * CATEGORY, so a category behind which nothing ships is a request to agree to
+   * mail that does not come.
+   *
+   * Since #5765 the categories are named on the PAGE rather than in the
+   * sentence, which changes where the wrong claim would appear and not whether
+   * it is wrong: `/comunicazioni/` heads a section per category, and a heading
+   * over an empty category tells a reader they are agreeing to something.
    */
-  it('leaves no consent category the formula names standing empty', () => {
+  it('leaves no consent category the page names standing empty', () => {
+    const plugin = read('build-plugins/communicationsPagePlugin.ts');
     for (const category of ['editorial', 'jobs', 'service'] as const) {
+      expect(plugin, `the page must still head a section for '${category}'`)
+        .toMatch(new RegExp(`\\b${category}:\\s*\\{`));
       expect(
         hasLiveChannel(category),
-        `no live channel remains under '${category}' — the formula must stop naming it`,
+        `no live channel remains under '${category}' — the page must stop offering it`,
       ).toBe(true);
     }
   });
@@ -796,5 +927,231 @@ describe('the channel list the formula points at cannot under-report what we sen
     expect(plugin, 'the page must be generated from the channel registry, not written')
       .toMatch(/from '\.\.\/services\/communicationChannels'/);
     expect(plugin).toMatch(/COMMUNICATION_CHANNELS/);
+  });
+});
+
+describe('the page the formula points at cannot change without saying so (#5765)', () => {
+  /**
+   * WHY A VERSION, AND WHY IT IS NOT ENOUGH ON ITS OWN.
+   *
+   * The formula is now one line plus a link, so most of what a person was told
+   * lives on `/comunicazioni/`. A stored `consent_text` naming that page and
+   * nothing more would be evidence pointing at content free to change
+   * afterwards — the page is GENERATED from a registry that changes whenever a
+   * cron or a channel does. The formula therefore embeds
+   * `COMMUNICATIONS_PAGE_VERSION`, and this block is what stops that identifier
+   * from being a label somebody forgot to move.
+   *
+   * The fingerprint covers the page's MATERIAL content: the channel rows a
+   * reader acts on, the template that turns them into prose, and the controller
+   * identity printed at the bottom (which lives in functions/ and so is invisible
+   * to a hash of this repo's page sources alone). Comments are stripped: a
+   * rewritten explanation is not a changed disclosure, and a version that
+   * churned on prose edits would be bumped mechanically and mean nothing.
+   *
+   * It is deliberately over-eager on the other side — restructuring the HTML
+   * bumps it. That direction is safe: an unnecessary version is a version, a
+   * missing one is a broken proof.
+   */
+  function communicationsPageFingerprint(): string {
+    const material = JSON.stringify({
+      channels: COMMUNICATION_CHANNELS.map((c) => ({
+        id: c.id,
+        status: c.status,
+        consentCategory: c.consentCategory,
+        name: c.name,
+        what: c.what,
+        cadence: c.cadence,
+      })),
+      controller: [DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL],
+      // Read as text rather than imported: importing a build plugin pulls ~12
+      // files under data/ and public/assets/ at module scope, green in CI and
+      // red in a sparse worktree. Same reason as the assertions above.
+      template: stripComments(read('build-plugins/communicationsPagePlugin.ts'))
+        .replace(/\s+/g, ' ')
+        .trim(),
+    });
+    return createHash('sha256').update(material).digest('hex').slice(0, 16);
+  }
+
+  /**
+   * The versions that have been PUBLISHED, pinned literally.
+   *
+   * A version that shipped describes what a real subscriber was pointed at, so
+   * its fingerprint may never be edited to fit new content — that would rewrite
+   * the meaning of every `consent_text` naming it. Changing the page means
+   * ADDING a row here and in the registry, not amending one.
+   */
+  const PUBLISHED_REVISIONS: Record<string, string> = {
+    '2026-08-13.1': '28803e543beb58e2',
+  };
+
+  it('matches the current page against the fingerprint of the current version', () => {
+    expect(
+      COMMUNICATIONS_PAGE_REVISIONS[COMMUNICATIONS_PAGE_VERSION],
+      `/comunicazioni/ changed and COMMUNICATIONS_PAGE_VERSION did not. Add a new version with the ` +
+        `fingerprint below to COMMUNICATIONS_PAGE_REVISIONS and to PUBLISHED_REVISIONS here, point ` +
+        `COMMUNICATIONS_PAGE_VERSION at it, then bump the consent formulas (they interpolate it) and ` +
+        `their pins in tests/newsletter-consent-proof.test.ts`,
+    ).toBe(communicationsPageFingerprint());
+  });
+
+  it('never rewrites the fingerprint of a version that already shipped', () => {
+    for (const [version, fingerprint] of Object.entries(PUBLISHED_REVISIONS)) {
+      expect(
+        COMMUNICATIONS_PAGE_REVISIONS[version],
+        `${version} already shipped — its fingerprint records what a subscriber was pointed at. ` +
+          'Add a NEW version instead of editing this one.',
+      ).toBe(fingerprint);
+    }
+  });
+
+  it('carries the version inside the stored sentence, in every locale', () => {
+    // Not beside it, in a sibling field a call site has to remember: inside, so
+    // the proof is self-contained and `consentProof` cannot omit it.
+    for (const key of DISPLAYED_KEYS) {
+      for (const locale of CONSENT_LOCALES) {
+        expect(consentDisplayText(key, locale), `${key}/${locale} must name the page version`)
+          .toContain(COMMUNICATIONS_PAGE_VERSION);
+      }
+      expect(consentProof(key, 'email_submit', 'de').consentText).toContain(COMMUNICATIONS_PAGE_VERSION);
+    }
+  });
+
+  it('prints that version on the page, so the reader can compare it with their own proof', () => {
+    const plugin = read('build-plugins/communicationsPagePlugin.ts');
+    expect(plugin, 'a version named in a proof and absent from the page is a reference, not a receipt')
+      .toMatch(/COMMUNICATIONS_PAGE_VERSION/);
+    expect(plugin).toMatch(/VERSION_LABEL\[locale\]/);
+  });
+
+  it('keeps the notice short enough to be read where it is shown', () => {
+    // The measurable half of "accorciato a una riga più il link". The formula
+    // was ~700 characters at the moment a person decides whether to proceed;
+    // a cap is what stops it growing back one clause at a time.
+    for (const key of DISPLAYED_KEYS) {
+      for (const locale of CONSENT_LOCALES) {
+        expect(consentDisplayText(key, locale).length, `${key}/${locale} is no longer one line`)
+          .toBeLessThan(260);
+      }
+    }
+  });
+});
+
+describe('the guard itself fails on the shapes it exists to catch', () => {
+  /**
+   * #5764's lesson, applied: the four issues before this one were defects no
+   * fixture sampled, and one survived three issues written to close it. A rule
+   * only ever run against a repo where the defect is already absent proves
+   * nothing about the rule.
+   *
+   * So every rule in `consentGateViolations` is run once against a source that
+   * breaks it. These sources are strings, not files: the defective shapes must
+   * not exist in the repo, which is precisely why they cannot be sampled from it.
+   */
+  const gateSource = (
+    notices: readonly string[],
+    proofs: readonly string[] = ['communicationsSignIn', 'communicationsSignInEmail'],
+  ) => `
+    import ConsentNotice from '@/components/shared/ConsentNotice';
+    import { consentProof } from '@/services/consentTexts';
+    const Gate = () => (
+      <div>
+        ${notices.map((k) => `<ConsentNotice consentKey="${k}" locale={locale} />`).join('\n        ')}
+      </div>
+    );
+    const save = () => upsertNewsletterSubscriber(db, {
+      email,
+      ${proofs.map((k) => `...consentProof('${k}', 'email_submit', locale),`).join('\n      ')}
+    });
+  `;
+
+  it('fails a gate that renders two notices — the #5765 defect itself', () => {
+    const problems = consentGateViolations(
+      gateSource(['communicationsSignIn', 'communicationsOptIn']),
+      1,
+    );
+    expect(problems.join('\n')).toMatch(/renders 2 <ConsentNotice> but declares 1/);
+    expect(problems.join('\n')).toMatch(/different consent sentences/);
+  });
+
+  it('fails JobBoard’s exact old shape: two gate surfaces, four notices', () => {
+    const problems = consentGateViolations(
+      gateSource([
+        'communicationsSignIn',
+        'communicationsOptIn',
+        'communicationsSignIn',
+        'communicationsOptIn',
+      ]),
+      2,
+    );
+    expect(problems.join('\n')).toMatch(/renders 4 <ConsentNotice> but declares 2/);
+  });
+
+  it('passes an access gate with ONE notice covering both of its acts', () => {
+    // The shape this PR ships. One notice, two entries stored, same sentence.
+    expect(consentGateViolations(gateSource(['communicationsSignIn']), 1)).toEqual([]);
+  });
+
+  it('passes a gate with only the email branch', () => {
+    expect(
+      consentGateViolations(gateSource(['communicationsOptIn'], ['communicationsOptIn']), 1),
+    ).toEqual([]);
+  });
+
+  it('fails a gate whose notice contradicts the document it writes', () => {
+    // The social-only access gate that shows the newsletter wording: one notice,
+    // right count, and still a person reading one sentence while another is kept.
+    const problems = consentGateViolations(
+      gateSource(['communicationsOptIn'], ['communicationsSignIn']),
+      1,
+    );
+    expect(problems.join('\n')).toMatch(/no <ConsentNotice> here renders that exact sentence/);
+    expect(problems.join('\n')).toMatch(/stores no formula with that sentence/);
+  });
+
+  it('fails a gate that renders nothing at all', () => {
+    expect(consentGateViolations(gateSource([]), 1).join('\n'))
+      .toMatch(/renders 0 <ConsentNotice> but declares 1/);
+  });
+
+  it('is not satisfied by a notice that only exists in a comment', () => {
+    const src = `
+      import { consentProof } from '@/services/consentTexts';
+      /* we used to render <ConsentNotice consentKey="communicationsSignIn" /> here */
+      const save = () => upsertNewsletterSubscriber(db, { ...consentProof('communicationsSignIn', 'google_oauth', locale) });
+    `;
+    expect(consentGateViolations(src, 1).join('\n')).toMatch(/renders 0 <ConsentNotice>/);
+  });
+
+  it('sees two notices on screen when a gate renders two, and one when it renders one', () => {
+    // The source scan above reasons about JSX text. This is the same claim at
+    // the other end — what a visitor's screen actually carries — so neither
+    // half can be green while the other is wrong.
+    const two = render(
+      <div>
+        <ConsentNotice consentKey="communicationsSignIn" locale="it" />
+        <ConsentNotice consentKey="communicationsOptIn" locale="it" />
+      </div>,
+    );
+    const shown = [...two.container.querySelectorAll('[data-consent-key]')];
+    expect(shown).toHaveLength(2);
+    expect(new Set(shown.map((n) => n.textContent)).size, 'two different sentences, one screen').toBe(2);
+    two.unmount();
+
+    const one = render(<ConsentNotice consentKey="communicationsSignIn" locale="it" />);
+    expect(one.container.querySelectorAll('[data-consent-key]')).toHaveLength(1);
+    one.unmount();
+  });
+
+  it('shows the same characters to whichever branch of an access gate the visitor takes', () => {
+    // The property that lets one notice stand for two acts. If these ever
+    // diverge, the single notice becomes a lie for one of the two branches.
+    for (const locale of CONSENT_LOCALES) {
+      expect(consentDisplayText('communicationsSignInEmail', locale))
+        .toBe(consentDisplayText('communicationsSignIn', locale));
+    }
+    expect(CONSENT_TEXTS.communicationsSignIn.act).toBe('authentication');
+    expect(CONSENT_TEXTS.communicationsSignInEmail.act).toBe('typed_email_submit');
   });
 });

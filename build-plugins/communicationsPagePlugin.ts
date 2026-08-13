@@ -51,10 +51,16 @@ import {
 import {
   COMMUNICATION_CHANNELS,
   COMMUNICATIONS_PAGE_PATH,
+  COMMUNICATIONS_PAGE_VERSION,
   PREFERENCES_PATH,
+  PRIVACY_PATH,
   type CommunicationChannel,
   type ConsentCategory,
 } from '../services/communicationChannels';
+// Relative into functions/src/lib/ for the same reason every mail template
+// reaches it that way: it is the single source of the controller identity and
+// firebase.json's deploy boundary keeps it out of services/.
+import { DATA_CONTROLLER_FOOTER_LINE } from '../functions/src/lib/dataControllerIdentity.js';
 
 type PageLocale = 'it' | 'en' | 'de' | 'fr';
 const LOCALES: readonly PageLocale[] = ['it', 'en', 'de', 'fr'];
@@ -167,6 +173,57 @@ const PREFERENCES_CTA: Record<PageLocale, string> = {
   fr: 'Ouvrir vos préférences',
 };
 
+/**
+ * WHO PROCESSES THE DATA — moved here from inside the consent formula (#5765).
+ *
+ * The formula used to end with the controller's name and address, because art.
+ * 19 nLPD wants the controller identifiable AT COLLECTION and #5675 found the
+ * privacy notice naming nobody at all. #5765 shortened the formula to one line,
+ * and the disclosure has to land somewhere: the line now says "chi tratta i
+ * dati" and points here, so this section is the other half of that sentence,
+ * not an optional extra. Removing it would put the notice back to naming no
+ * controller anywhere a subscriber is asked to agree.
+ *
+ * The identity itself comes from the single source every lifecycle email uses,
+ * so the page and the mail footers cannot disagree.
+ */
+const CONTROLLER_HEADING: Record<PageLocale, string> = {
+  it: 'Chi tratta i tuoi dati',
+  en: 'Who processes your data',
+  de: 'Wer Ihre Daten bearbeitet',
+  fr: 'Qui traite vos données',
+};
+
+const CONTROLLER_NOTE: Record<PageLocale, string> = {
+  it: 'Il tuo indirizzo email serve a inviarti le comunicazioni elencate qui sopra e a farti riconoscere quando accedi. Puoi chiedere in qualsiasi momento quali dati abbiamo, farli correggere o farli cancellare, scrivendo all’indirizzo qui sotto.',
+  en: 'Your email address is used to send you the communications listed above and to recognise you when you sign in. You can ask at any time what data we hold, have it corrected, or have it deleted, by writing to the address below.',
+  de: 'Ihre E-Mail-Adresse dient dazu, Ihnen die oben aufgeführten Mitteilungen zuzustellen und Sie beim Anmelden wiederzuerkennen. Sie können jederzeit erfragen, welche Daten wir haben, sie berichtigen oder löschen lassen — schreiben Sie an die untenstehende Adresse.',
+  fr: 'Votre adresse e-mail sert à vous envoyer les communications listées ci-dessus et à vous reconnaître lorsque vous vous connectez. Vous pouvez à tout moment demander quelles données nous détenons, les faire corriger ou les faire supprimer, en écrivant à l’adresse ci-dessous.',
+};
+
+const PRIVACY_CTA: Record<PageLocale, string> = {
+  it: 'Informativa completa sul trattamento dei dati',
+  en: 'Full privacy notice',
+  de: 'Vollständige Datenschutzerklärung',
+  fr: 'Politique de confidentialité complète',
+};
+
+/**
+ * The version stamp, printed so a person can compare it with the one inside the
+ * sentence they agreed to.
+ *
+ * A stored `consent_text` names a version of this page; without the version
+ * ON the page the reader has no way to tell whether what they are looking at is
+ * what they were pointed at. That is the difference between a reference and a
+ * receipt.
+ */
+const VERSION_LABEL: Record<PageLocale, string> = {
+  it: 'Versione di questa pagina',
+  en: 'Version of this page',
+  de: 'Version dieser Seite',
+  fr: 'Version de cette page',
+};
+
 function renderChannel(channel: CommunicationChannel, locale: PageLocale): string {
   const suspended =
     channel.status === 'suspended'
@@ -210,8 +267,15 @@ function renderBody(locale: PageLocale): string {
       <h1 style="${H1_STYLE}">${esc(H1[locale])}</h1>
       <p style="${LEDE_STYLE}">${esc(LEDE[locale])}</p>
     </header>${sections}${unconsentedSection}
+    <section id="titolare">
+      <h2 style="${H2_STYLE}">${esc(CONTROLLER_HEADING[locale])}</h2>
+      <p style="${BODY_STYLE}">${esc(CONTROLLER_NOTE[locale])}</p>
+      <p style="${BODY_STYLE}">${esc(DATA_CONTROLLER_FOOTER_LINE[locale])}</p>
+      <p style="${BODY_STYLE}"><a href="${esc(PRIVACY_PATH[locale])}">${esc(PRIVACY_CTA[locale])}</a></p>
+    </section>
     <section>
       <p style="${BODY_STYLE}"><a href="${esc(PREFERENCES_PATH[locale])}">${esc(PREFERENCES_CTA[locale])}</a></p>
+      <p style="${BODY_STYLE}"><strong>${esc(VERSION_LABEL[locale])}:</strong> ${esc(COMMUNICATIONS_PAGE_VERSION)}</p>
     </section>`;
 }
 
