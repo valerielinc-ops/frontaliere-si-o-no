@@ -1,18 +1,188 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-12T21:50:24.957Z",
-  "total": 82,
-  "newCount": 1,
-  "updatedCount": 78,
-  "removedCount": 1,
-  "unchangedCount": 3,
-  "durationMs": 55182,
-  "avgDurationMs": 55182,
+  "generatedAt": "2026-08-13T10:18:32.521Z",
+  "total": 87,
+  "newCount": 6,
+  "updatedCount": 76,
+  "removedCount": 0,
+  "unchangedCount": 5,
+  "durationMs": 45899,
+  "avgDurationMs": 45899,
   "durationHistory": [
-    55182
+    45899
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Job-Posting-Title-Business-Risk-Manager---Global-Products---Solutions--GPS--100---f-m-d-_r-18684-5",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Job-Posting-Title-Business-Risk-Manager---Global-Products---Solutions--GPS--100---f-m-d-_r-18684-5",
+      "title": "Business Risk Manager – Global Products & Solutions (GPS) 80% - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "business-risk-manager-global-products-solutions-gps-80-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-08-13",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Engineer---Analytics---Intelligent-Automation-100---f-m-d-_r-19211-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Engineer---Analytics---Intelligent-Automation-100---f-m-d-_r-19211-2",
+      "title": "Data Engineer – Analytics & Intelligent Automation 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "data-engineer-analytics-intelligent-automation-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-08-13",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Infrastructure-Solution-Architect--Infra-Tech-Lead--100---f-m-d-_r-19312-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Infrastructure-Solution-Architect--Infra-Tech-Lead--100---f-m-d-_r-19312-2",
+      "title": "IT Infrastructure Solution Architect (Infra Tech Lead) 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "it-infrastructure-solution-architect-infra-tech-lead-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-08-13",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Machine-Learning-Engineer-100---f-m-d-_r-19214-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Machine-Learning-Engineer-100---f-m-d-_r-19214-2",
+      "title": "Machine Learning Engineer 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "machine-learning-engineer-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-08-13",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Sales-Enablement-Manager-100---f-m-d-_r-19349-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Sales-Enablement-Manager-100---f-m-d-_r-19349-1",
+      "title": "Sales Enablement Manager 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "sales-enablement-manager-100-f-m-d-julius-baer",
+      "category": "sales",
+      "datePosted": "2026-08-13",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
@@ -111,46 +281,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-12T10:17:21.830Z",
-      "_qualityScore": 60,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-for-Intermediaries-100---f-m-d-_r-19315-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-for-Intermediaries-100---f-m-d-_r-19315-2",
-      "title": "Account Manager for Intermediaries 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "account-manager-for-intermediaries-100-f-m-d-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-08-12",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-12T10:17:21.830Z",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -216,8 +351,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:10:01.064Z",
+      "needsRetranslation": true,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -287,8 +422,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -430,7 +565,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-05T22:40:48.656Z",
-      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1103,13 +1237,11 @@
         "translation": 25,
         "completeness": 9
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Financial-Crime-Compliance-Officer-in-the-Area-of-CDB-Compliance-100---f-m-d-_r-18874-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Financial-Crime-Compliance-Officer-in-the-Area-of-CDB-Compliance-100---f-m-d-_r-18874-2",
-      "title": "Financial Crime Compliance Officer in the Area of CDB Compliance 100% (f/m/d)",
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Executive-Assistant-to-Head-Brand---Marketing-50---f-m-d-_r-19184-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Executive-Assistant-to-Head-Brand---Marketing-50---f-m-d-_r-19184-1",
+      "title": "Executive Assistant to Head Brand & Marketing 50% (f/m/d)",
       "company": "Julius Baer",
       "companyKey": "julius-baer",
       "location": "Zurich",
@@ -1120,23 +1252,61 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "financial-crime-compliance-officer-in-the-area-of-cdb-compliance-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-06-29",
+      "slug": "executive-assistant-to-head-brand-marketing-50-f-m-d-julius-baer",
+      "category": "sales",
+      "datePosted": "2026-07-24",
       "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "sourceLang": "en",
-      "experienceLevel": "MID",
+      "experienceLevel": "SENIOR",
       "sector": "Banking / Wealth Management",
       "_targetScope": {
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "firstSeenAt": "2026-07-24T11:10:09.827Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-for-Intermediaries-100---f-m-d-_r-19315-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-for-Intermediaries-100---f-m-d-_r-19315-2",
+      "title": "Account Manager for Intermediaries 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "account-manager-for-intermediaries-100-f-m-d-julius-baer",
+      "category": "finance",
+      "datePosted": "2026-08-12",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "salaryMin": 189000,
+      "salaryMax": 331500,
       "currency": "CHF",
-      "crawlerMissStreak": 2,
+      "firstSeenAt": "2026-08-12T10:17:21.830Z",
+      "crawlerMissStreak": 1,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1144,9 +1314,46 @@
         "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Officer---Market-Abuse-Monitoring-Specialist-40-60---f-m-d-_r-18807-3",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Officer---Market-Abuse-Monitoring-Specialist-40-60---f-m-d-_r-18807-3",
+      "title": "Junior Compliance Officer – Market Abuse Monitoring Specialist 40–60% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-compliance-officer-market-abuse-monitoring-specialist-40-60-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-06-29",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "PART_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 37200,
+      "salaryMax": 56400,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Corporate-Action---Income-Specialist-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027-with-possible-extension-_r-19413-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Corporate-Action---Income-Specialist-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027-with-possible-extension-_r-19413-1",
@@ -1177,7 +1384,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1216,7 +1423,7 @@
       "salaryMin": 44100,
       "salaryMax": 66900,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1255,7 +1462,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
