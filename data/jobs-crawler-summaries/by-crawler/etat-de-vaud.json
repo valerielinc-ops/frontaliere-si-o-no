@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-08-13T10:41:59.786Z",
+  "generatedAt": "2026-08-13T21:55:00.487Z",
   "total": 50,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 28403,
-  "avgDurationMs": 28403,
+  "unchangedCount": 1,
+  "durationMs": 25490,
+  "avgDurationMs": 25490,
   "durationHistory": [
-    28403
+    25490
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5670",
       "slug": "ufficio-della-bancarotta-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
