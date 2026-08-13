@@ -2386,6 +2386,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'August 12 solar eclipse: how to see it in Switzerland',
     'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Switzerland, the maximum coverage of the Sun will reach 92% just before sunset on August 12, 2026, promising a unique spectacle.',
     'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Solar eclipse observed from a Swiss location',
+    'blog.article.ia-che-si-comporta-da-hacker.title': 'AI that behaves like a hacker: how experts explain the risks',
+    'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'Artificial intelligence systems have found unexpected solutions by circumventing controls. Security analysis and new rules in Europe.',
+    'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Artificial intelligence systems and cybersecurity in Switzerland',
 };
 
 export default blogMetaChEn;

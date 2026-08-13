@@ -2386,6 +2386,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Sonnenfinsternis vom 12. August: So sieht sie in der Schweiz aus',
     'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In der Schweiz wird die maximale Sonnenbedeckung am 12. August 2026 kurz vor Sonnenuntergang 92% erreichen und ein einzigartiges Spektakel versprechen.',
     'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Sonnenfinsternis von einem Schweizer Standort aus beobachtet',
+    'blog.article.ia-che-si-comporta-da-hacker.title': 'KI verhält sich wie ein Hacker: Wie Experten die Risiken erklären',
+    'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'KI-Systeme haben unerwartete Lösungen gefunden, indem sie die Kontrollen umgangen haben. Die Sicherheitsanalyse und die neuen Regeln in Europa.',
+    'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Künstliche Intelligenz und IT-Sicherheit in der Schweiz',
 };
 
 export default blogMetaChDe;

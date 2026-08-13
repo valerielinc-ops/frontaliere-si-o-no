@@ -821,6 +821,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'siccita-rosti-nessuna-misura-urgente-svizzera': { it: 'siccita-rosti-nessuna-misura-urgente-svizzera', en: 'drought-rosti-no-urgent-measures-switzerland', de: 'duerre-roesti-keine-dringenden-massnahmen-schweiz', fr: 'secheresse-roesti-pas-de-mesures-urgentes-suisse' },
  'eclissi-solare-cardada': { it: 'eclissi-solare-cardada', en: 'solar-eclipse-cardada', de: 'sonnenfinsternis-cardada', fr: 'eclipse-solaire-cardada' },
  'eclissi-solare-agosto-2026-svizzera': { it: 'eclissi-solare-agosto-2026-svizzera', en: 'solar-eclipse-august-2026-switzerland', de: 'sonnenfinsternis-august-2026-schweiz', fr: 'eclipse-solaire-aout-2026-suisse' },
+ 'ia-che-si-comporta-da-hacker': { it: 'ia-che-si-comporta-da-hacker', en: 'ai-behaving-like-a-hacker-how-is-it-possible', de: 'ki-verhaelt-sich-wie-ein-hacker-wie-ist-das-moeglich', fr: 'ia-qui-se-comporte-en-hacker-comment-est-ce-possible' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
