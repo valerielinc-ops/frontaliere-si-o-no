@@ -46,7 +46,6 @@
     "https://team.lidl.ch/de/jobs/ch_kundenbetreuer-kundenbetreuerin-self-checkout-stans-693686",
     "https://team.lidl.ch/de/jobs/ch_verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-aarau-ag-713513",
     "https://team.lidl.ch/de/jobs/ch_verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-niederlenz-716732",
-    "https://team.lidl.ch/de/jobs/disponent-disponentin-m-w-d-80-100-weinfelden-716116",
     "https://team.lidl.ch/de/jobs/fachexperte-technisches-facility-management-m-w-d-80-100-weinfelden-724995",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-kt.schwyz-march-oberer-zuerichsee-m-w-d-80-100-einsiedeln-697843",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-chur-704426",
@@ -295,7 +294,7 @@
     "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st.-moritz-728439"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-13T10:16:13.749Z",
+  "updatedAt": "2026-08-13T21:47:54.539Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -350,15 +349,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/disponent-disponentin-m-w-d-80-100-weinfelden-716116": {
-      "location": "Weinfelden",
-      "addressLocality": "Weinfelden",
-      "canton": "TG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/area-manager-m-w-d-80-100-weinfelden-699759": {
       "location": "Weinfelden",
