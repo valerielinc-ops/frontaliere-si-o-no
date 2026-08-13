@@ -840,15 +840,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in in Logistik (Weihnachtsaushilfe E-Comm) 20%",
-        "en": "Mitarbeiter*in in Logistik (Weihnachtsaushilfe E-Comm) 20%",
         "de": "Mitarbeiter*in in Logistik (Weihnachtsaushilfe E-Comm) 20%",
-        "fr": "Mitarbeiter*in in Logistik (Weihnachtsaushilfe E-Comm) 20%"
+        "en": "Mitarbeiter*in in Logistik (Weihnachtsaushilfe E-Comm) 20%",
+        "fr": "Mitarbeiter*in dans Logistik (Weihnachtsaushilfe E-Comm) 20%"
       },
       "sourceLang": "it",
-      "id": "manor-a3657b3df415",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T22:19:44.184Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-a3657b3df415",
       "salaryMin": 13900,
       "salaryMax": 21200,
       "currency": "CHF",
@@ -864,7 +863,8 @@
       },
       "addressLocality": "Hochdorf Mitarbeiterin in Logistik",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-12T22:19:44.184Z"
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising 20%",
@@ -1309,7 +1309,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kundendienst 20%",
         "en": "Mitarbeiter* in Kundendienst 20%",
-        "de": "Mitarbeiter*in Kundendienst 20%",
+        "de": "Mitarbeiter* im Kundendienst 20%",
         "fr": "Mitarbeiter* en Kundendienst 20%"
       },
       "sourceLang": "it",
@@ -3121,10 +3121,8 @@
         "fr": "Assistant Product Manager 100%"
       },
       "sourceLang": "fr",
-      "id": "manor-3cb4dd4e12c0",
-      "firstSeenAt": "2026-08-12T10:28:51.990Z",
       "crawledAt": "",
-      "needsRetranslation": true,
+      "id": "manor-3cb4dd4e12c0",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "currency": "CHF",
@@ -3140,7 +3138,17 @@
       },
       "addressLocality": "Basel Assistant Product Manager",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-12T10:28:51.990Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-assistant-product-manager-100-basel-assistant-product-manager-3"
+        ]
+      },
+      "previousSlugs": [
+        "manor-assistant-product-manager-100-basel-assistant-product-manager-3"
+      ]
     },
     {
       "title": "Mitarbeiter*in Supermarkt 30%",

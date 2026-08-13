@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-13T10:30:43.678Z",
+  "assembledAt": "2026-08-13T09:15:29.863Z",
   "jobs": [
     {
       "id": "company-wem241",
@@ -46,20 +46,21 @@
         "it": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
           "servicetechniker-in-professional-solutions-fust-oberburen",
-          "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
+          "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
           "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
           "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen"
         ],
-        "de": [
-          "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
-        ],
         "fr": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
           "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
           "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen"
+        ],
+        "de": [
+          "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
         ]
       },
       "previousSlugs": [
@@ -67,8 +68,11 @@
         "servicetechniker-in-professional-solutions-fust-oberburen",
         "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
         "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
-        "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen"
+        "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -86,9 +90,7 @@
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-3y8gp4",
@@ -365,7 +367,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich",
-          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
+          "consultant-en-ventes-coop-genossenschaft-winterthur",
+          "sales-consultant-coop-genossenschaft-winterthur",
+          "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
+          "sales-consultant-in-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
@@ -376,7 +382,11 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-coop-genossenschaft-winterthur-zurich",
-        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
+        "consultant-en-ventes-coop-genossenschaft-winterthur",
+        "sales-consultant-coop-genossenschaft-winterthur",
+        "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
+        "sales-consultant-in-coop-genossenschaft-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -743,26 +753,41 @@
       "previousSlugsByLocale": {
         "it": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen",
-          "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
+          "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
+          "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen",
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-6xhjn3",
+          "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen",
+          "werkstatt-techniker-in-per-elektrokleingerate-fust-oberburen-sankt-gallen-6xhjn3",
+          "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc",
+          "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen"
         ],
         "de": [
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-6xhjn3"
         ],
         "fr": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc",
+          "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen"
         ]
       },
       "previousSlugs": [
         "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
         "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
-        "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
+        "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc",
+        "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen",
+        "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-6xhjn3",
+        "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen",
+        "werkstatt-techniker-in-per-elektrokleingerate-fust-oberburen-sankt-gallen-6xhjn3",
+        "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -781,8 +806,7 @@
         "location": "San Gallo",
         "canton": "SG"
       },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "retranslationAttempts": 1
     },
     {
       "id": "company-c0vubf",
@@ -7357,20 +7381,27 @@
         "it": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen",
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
+          "consulente-alle-vendite-con-sostituzione-della-direzione-coop-genossenschaft-rapperswil-jona",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-k2qdrj",
+          "sales-consultant-with-management-deputy-role-coop-genossenschaft-rapperswil-jona-k2qdrj",
+          "conseiller-ere-de-vente-avec-remplacement-de-la-direction-coop-genossenschaft-rapperswil-jona-k2qdrj"
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
-          "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen"
+          "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "sales-consultant-with-management-deputy-role-coop-genossenschaft-rapperswil-jona-k2qdrj"
         ],
         "fr": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
-          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen"
+          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "conseiller-ere-de-vente-avec-remplacement-de-la-direction-coop-genossenschaft-rapperswil-jona-k2qdrj"
         ],
         "de": [
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-k2qdrj"
         ]
       },
       "previousSlugs": [
@@ -7378,7 +7409,11 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
         "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen"
+        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "consulente-alle-vendite-con-sostituzione-della-direzione-coop-genossenschaft-rapperswil-jona",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-k2qdrj",
+        "sales-consultant-with-management-deputy-role-coop-genossenschaft-rapperswil-jona-k2qdrj",
+        "conseiller-ere-de-vente-avec-remplacement-de-la-direction-coop-genossenschaft-rapperswil-jona-k2qdrj"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -10020,7 +10055,8 @@
       },
       "addressLocality": "Maur, Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-dm60u8",
@@ -10195,7 +10231,8 @@
       "addressLocality": "Samedan, Graubünden",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-u42on7",
@@ -14728,7 +14765,8 @@
           "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
           "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-          "chef-m-w-d-coop-genossenschaft-chur-graubunden"
+          "chef-m-w-d-coop-genossenschaft-chur-graubunden",
+          "chef-m-w-d-coop-genossenschaft-chur"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
@@ -14757,7 +14795,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
         "chef-m-w-d-coop-genossenschaft-chur-graubunden",
-        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
+        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
+        "chef-m-w-d-coop-genossenschaft-chur"
       ],
       "needsRetranslation": true
     },
@@ -18349,7 +18388,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -18358,7 +18398,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -24057,20 +24098,27 @@
           "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee",
           "verkaufer-in-food-coop-hinwil-zurich-wg0vee",
           "verkaufer-in-food-coop-hinwil-zurich",
-          "venditore-in-food-coop-genossenschaft-hinwil-zurich"
+          "venditore-in-food-coop-genossenschaft-hinwil-zurich",
+          "venditore-food-coop-genossenschaft-hinwil",
+          "verkaufer-in-food-coop-hinwil-zurich-7wcqy0",
+          "food-salesperson-coop-genossenschaft-hinwil-7wcqy0",
+          "vendeur-food-coop-genossenschaft-hinwil-7wcqy0"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee",
           "verkaufer-in-food-coop-hinwil-zurich-wg0vee",
-          "seller-in-food-coop-genossenschaft-hinwil-zurich"
+          "seller-in-food-coop-genossenschaft-hinwil-zurich",
+          "food-salesperson-coop-genossenschaft-hinwil-7wcqy0"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee"
+          "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee",
+          "verkaufer-in-food-coop-hinwil-zurich-7wcqy0"
         ],
         "fr": [
           "verkaufer-in-food-coop-genossenschaft-hinwil-zurich-wg0vee",
           "verkaufer-in-food-coop-hinwil-zurich-wg0vee",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-hinwil-zurich"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-hinwil-zurich",
+          "vendeur-food-coop-genossenschaft-hinwil-7wcqy0"
         ]
       },
       "previousSlugs": [
@@ -24080,7 +24128,11 @@
         "seller-in-food-coop-genossenschaft-hinwil-zurich",
         "vendeur-dans-la-nourriture-coop-genossenschaft-hinwil-zurich",
         "verkaufer-in-food-coop-hinwil-zurich",
-        "venditore-in-food-coop-genossenschaft-hinwil-zurich"
+        "venditore-in-food-coop-genossenschaft-hinwil-zurich",
+        "venditore-food-coop-genossenschaft-hinwil",
+        "verkaufer-in-food-coop-hinwil-zurich-7wcqy0",
+        "food-salesperson-coop-genossenschaft-hinwil-7wcqy0",
+        "vendeur-food-coop-genossenschaft-hinwil-7wcqy0"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

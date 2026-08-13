@@ -7251,21 +7251,7 @@
       "applyUrl": "https://jobs.h-och.ch/job/St_-Gallen-Study-Nurse-100/1425684933/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "study-nurse-100-kssg-ch",
-        "studio-infermiera-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "study-nurse-100-kssg-ch",
-          "studio-infermiera-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
-        ],
-        "fr": [
-          "study-nurse-100-kssg-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T22:18:56.138Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7277,7 +7263,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T22:18:56.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-100-kssg-ch",
+          "studio-infermiera-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "studio-infermiera-50-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
+        ],
+        "fr": [
+          "study-nurse-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-100-kssg-ch",
+        "studio-infermiera-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "studio-infermiera-50-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
+      ]
     },
     {
       "id": "kssg-d2a4e5b1f9e7",
@@ -7645,16 +7647,16 @@
         ],
         "it": [
           "oberarztin-arzt-60-100-kssg-ch",
-          "medico-specialista-di-emergenza-60-100-hoch-health-ostschweiz-st-gallen"
+          "medico-specialista-di-emergenza-60-100-hoch-health-ostschweiz-st-gallen",
+          "medico-specialista-60-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "oberarztin-arzt-60-100-kssg-ch",
         "oberarztin-arzt-notfallmedizin-60-100-hoch-health-st-gallen",
-        "medico-specialista-di-emergenza-60-100-hoch-health-ostschweiz-st-gallen"
+        "medico-specialista-di-emergenza-60-100-hoch-health-ostschweiz-st-gallen",
+        "medico-specialista-60-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "firstSeenAt": "2026-08-12T10:41:11.610Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7666,7 +7668,9 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:41:11.610Z",
+      "needsRetranslation": true
     },
     {
       "id": "kssg-c3cbc9610c52",
@@ -7879,16 +7883,24 @@
         ],
         "it": [
           "dipl-pflegefachfrau-mann-40-100-kssg-ch",
-          "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen"
+          "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-specialiste-des-soins-60-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-st-gallen",
+          "infermiere-a-diplomato-a-50-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "dipl-specialiste-des-soins-60-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-100-kssg-ch",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-        "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen"
+        "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-specialiste-des-soins-60-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-st-gallen",
+        "infermiere-a-diplomato-a-50-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "firstSeenAt": "2026-08-12T10:41:12.760Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7900,7 +7912,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:41:12.760Z",
+      "needsRetranslation": true
     },
     {
       "id": "kssg-fc990b0648bc",
@@ -8191,15 +8205,16 @@
         ],
         "it": [
           "dipl-pflegefachfrau-mann-80-100-wirbelsaulenzentrum-kssg-ch",
-          "dipl-specialista-di-cura-80-100-centro-spinale-hoch-health-ostschweiz-st-gallen"
+          "dipl-specialista-di-cura-80-100-centro-spinale-hoch-health-ostschweiz-st-gallen",
+          "dipl-specialista-di-cura-60-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-wirbelsaulenzentrum-kssg-ch",
         "dipl-pflegefachfrau-mann-80-100-wirbelsaulenzentrum-hoch-health-st-gallen",
-        "dipl-specialista-di-cura-80-100-centro-spinale-hoch-health-ostschweiz-st-gallen"
+        "dipl-specialista-di-cura-80-100-centro-spinale-hoch-health-ostschweiz-st-gallen",
+        "dipl-specialista-di-cura-60-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "firstSeenAt": "2026-08-12T10:41:06.032Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8211,7 +8226,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:41:06.032Z"
     },
     {
       "id": "kssg-26213b0a1180",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-08-13T10:29:39.909Z",
+  "assembledAt": "2026-08-13T10:11:46.821Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-74d19ea56c29",
@@ -3748,7 +3748,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-13T10:29:05.790Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -3768,19 +3767,32 @@
       "previousSlugs": [
         "kochin-koch-60-zfv-unternehmungen-dubendorf",
         "cook-cook-60-zfv-unternehmungen-dubendorf",
-        "cucinare-cucinare-60-zfv-unternehmungen-dubendorf"
+        "cucinare-cucinare-60-zfv-unternehmungen-dubendorf",
+        "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-dubendorf",
+        "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
+        "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-60-zfv-unternehmungen-dubendorf",
-          "cucinare-cucinare-60-zfv-unternehmungen-dubendorf"
+          "cucinare-cucinare-60-zfv-unternehmungen-dubendorf",
+          "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-dubendorf",
+          "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
+          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "cook-cook-60-zfv-unternehmungen-dubendorf",
-          "kochin-koch-60-zfv-unternehmungen-dubendorf"
+          "kochin-koch-60-zfv-unternehmungen-dubendorf",
+          "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf"
         ],
         "fr": [
-          "kochin-koch-60-zfv-unternehmungen-dubendorf"
+          "kochin-koch-60-zfv-unternehmungen-dubendorf",
+          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
+        ],
+        "de": [
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf"
         ]
       },
       "firstSeenAt": "2026-08-07T01:10:33.084Z",
@@ -3795,7 +3807,8 @@
           "maxValue": 66900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-06c568d738c3",
