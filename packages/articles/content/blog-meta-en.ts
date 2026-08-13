@@ -9854,6 +9854,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliereticino-chiasso-2026.title': 'New EU Packaging Rules: A Stranglehold for Small Merchants',
     'blog.article.frontaliereticino-chiasso-2026.excerpt': 'Many micro-enterprises are considering suspending shipments due to the administrative burdens introduced by the new regulation.',
     'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'frontaliers in A2 motorway',
+    'blog.article.logistica-pallet-analisi-mercato.title': 'Logistics: EPAL interchange and shadow areas',
+    'blog.article.logistica-pallet-analisi-mercato.excerpt': 'The new EPAL pallet law improves interchange, but the second-hand market remains a challenge for traceability and fair competition.',
+    'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Pallets in a logistics warehouse in Ticino',
 };
 
 export default blogMetaEn;

@@ -9853,6 +9853,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliereticino-chiasso-2026.title': 'Neue EU-Verpackungsvorschriften: Ein Knackpunkt für Kleinhändler',
     'blog.article.frontaliereticino-chiasso-2026.excerpt': 'Viele Kleinstunternehmen erwägen, den Versand aufgrund des mit der neuen Verordnung eingeführten Verwaltungsaufwands einzustellen.',
     'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'Frontalier auf der Autobahn A2',
+    'blog.article.logistica-pallet-analisi-mercato.title': 'Logistik: der EPAL-Austausch und die Schattenzonen',
+    'blog.article.logistica-pallet-analisi-mercato.excerpt': 'Das neue EPAL-Palettengesetz verbessert den Austausch, aber der Gebrauchtmarkt bleibt eine Herausforderung für die Rückverfolgbarkeit und den fairen Wettbewerb.',
+    'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Paletten in einem Logistiklager im Tessin',
 };
 
 export default blogMetaDe;
