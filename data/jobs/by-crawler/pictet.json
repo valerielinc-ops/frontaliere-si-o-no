@@ -176,13 +176,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg",
-        "agente-transfert-contratto-a-termine-6-mesi-pictet-group-luxembourg"
+        "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg",
-          "agente-transfert-contratto-a-termine-6-mesi-pictet-group-luxembourg"
+          "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg"
         ],
         "de": [
           "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg"
@@ -317,13 +315,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "group-tax-expert-pictet-geneva",
-        "group-tax-expert-pictet-group-geneva",
-        "esperto-fiscale-di-gruppo-pictet-group-geneva"
+        "group-tax-expert-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-tax-expert-pictet-geneva",
-          "esperto-fiscale-di-gruppo-pictet-group-geneva"
+          "group-tax-expert-pictet-geneva"
         ],
         "de": [
           "group-tax-expert-pictet-group-geneva"
@@ -456,13 +452,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "risk-compliance-analytics-engineer-pictet-geneva",
-        "risk-compliance-analytics-ingegnere-pictet-group-geneva"
+        "risk-compliance-analytics-engineer-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "risk-compliance-analytics-engineer-pictet-geneva",
-          "risk-compliance-analytics-ingegnere-pictet-group-geneva"
+          "risk-compliance-analytics-engineer-pictet-geneva"
         ],
         "de": [
           "risk-compliance-analytics-engineer-pictet-geneva"
@@ -534,13 +528,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-        "assistente-di-conformita-aziendale-7-mesi-pictet-group-hong-kong"
+        "business-compliance-assistant-7-month-contract-pictet-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-          "assistente-di-conformita-aziendale-7-mesi-pictet-group-hong-kong"
+          "business-compliance-assistant-7-month-contract-pictet-hong-kong"
         ],
         "fr": [
           "business-compliance-assistant-7-month-contract-pictet-hong-kong"
@@ -562,12 +554,12 @@
     },
     {
       "id": "pictet-0b117ac9bb40",
-      "slug": "strategic-project-manager-pictet-geneva",
+      "slug": "responsabile-del-progetto-strategico-pictet-group-geneva",
       "slugByLocale": {
         "en": "strategic-project-manager-pictet-geneva",
-        "it": "strategic-project-manager-pictet-geneva",
-        "de": "strategic-project-manager-pictet-geneva",
-        "fr": "strategic-project-manager-pictet-geneva"
+        "it": "responsabile-del-progetto-strategico-pictet-group-geneva",
+        "de": "strategischer-projektmanager-pictet-group-geneva",
+        "fr": "gestionnaire-de-projet-strategique-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -622,15 +614,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-13T10:20:02.210Z"
+      "firstSeenAt": "2026-08-13T10:20:02.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-project-manager-pictet-geneva"
+        ],
+        "de": [
+          "strategic-project-manager-pictet-geneva"
+        ],
+        "fr": [
+          "strategic-project-manager-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-project-manager-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-5d303e0d3780",
-      "slug": "software-engineer-pictet-geneva",
+      "slug": "software-ingegnere-pictet-group-geneva",
       "slugByLocale": {
         "en": "software-engineer-pictet-geneva",
-        "it": "software-engineer-pictet-geneva",
-        "de": "software-engineer-pictet-geneva",
+        "it": "software-ingegnere-pictet-group-geneva",
+        "de": "software-ingenieur-pictet-group-geneva",
         "fr": "software-engineer-pictet-geneva"
       },
       "company": "Pictet Group",
@@ -686,7 +692,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-13T10:20:01.272Z"
+      "firstSeenAt": "2026-08-13T10:20:01.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-pictet-geneva"
+        ],
+        "de": [
+          "software-engineer-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-5d2193fc717c",

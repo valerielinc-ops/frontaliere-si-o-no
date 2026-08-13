@@ -23,12 +23,12 @@
       "employmentType": "50 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-13T10:34:09.875Z",
-      "slug": "fachperson-gesundheit-kantonsspital-graubunden-chur",
+      "slug": "salute-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachperson-gesundheit-kantonsspital-graubunden-chur",
-        "it": "fachperson-gesundheit-kantonsspital-graubunden-chur",
-        "en": "fachperson-gesundheit-kantonsspital-graubunden-chur",
-        "fr": "fachperson-gesundheit-kantonsspital-graubunden-chur"
+        "it": "salute-professionale-kantonsspital-graubunden-chur",
+        "en": "health-professional-kantonsspital-graubunden-chur",
+        "fr": "professionnels-de-la-sante-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachperson Gesundheit",
@@ -57,7 +57,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-13T10:34:09.875Z"
+      "firstSeenAt": "2026-08-13T10:34:09.875Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "fachperson-gesundheit-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "fachperson-gesundheit-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10148703",
@@ -80,12 +94,12 @@
       "employmentType": "40 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-13T10:34:09.875Z",
-      "slug": "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur",
+      "slug": "expert-expert-oncology-care-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur",
-        "it": "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur",
+        "it": "expert-expert-oncology-care-kantonsspital-graubunden-chur",
         "en": "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur",
-        "fr": "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur"
+        "fr": "expert-expert-en-oncologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachexpertin / Fachexperte Onkologiepflege",
@@ -114,7 +128,18 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-13T10:34:09.875Z"
+      "firstSeenAt": "2026-08-13T10:34:09.875Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-onkologiepflege-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10147192",

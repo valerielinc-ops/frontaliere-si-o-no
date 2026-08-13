@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "amina-bank-43d485a2b0f5",
-      "slug": "payments-strategy-business-development-amina-bank-zug",
+      "slug": "pagamenti-strategia-sviluppo-aziendale-amina-bank-zug",
       "slugByLocale": {
         "en": "payments-strategy-business-development-amina-bank-zug",
-        "it": "payments-strategy-business-development-amina-bank-zug",
-        "de": "payments-strategy-business-development-amina-bank-zug",
-        "fr": "payments-strategy-business-development-amina-bank-zug"
+        "it": "pagamenti-strategia-sviluppo-aziendale-amina-bank-zug",
+        "de": "zahlungsstrategie-geschaftsentwicklung-amina-bank-zug",
+        "fr": "strategie-de-paiements-et-developpement-des-entreprises-amina-bank-zug"
       },
       "company": "AMINA Bank",
       "companyKey": "amina-bank",
@@ -64,7 +64,21 @@
         }
       },
       "addressRegion": "ZG",
-      "firstSeenAt": "2026-08-13T10:35:16.318Z"
+      "firstSeenAt": "2026-08-13T10:35:16.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "payments-strategy-business-development-amina-bank-zug"
+        ],
+        "de": [
+          "payments-strategy-business-development-amina-bank-zug"
+        ],
+        "fr": [
+          "payments-strategy-business-development-amina-bank-zug"
+        ]
+      },
+      "previousSlugs": [
+        "payments-strategy-business-development-amina-bank-zug"
+      ]
     },
     {
       "id": "amina-bank-6dc97b03283f",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-47d0d4f535bc",
-      "slug": "client-advisor-prada-group-vancouver-client-advisor",
+      "slug": "client-consulente-prada-group-vancouver-client-advisor",
       "slugByLocale": {
         "en": "client-advisor-prada-group-vancouver-client-advisor",
-        "it": "client-advisor-prada-group-vancouver-client-advisor",
-        "de": "client-advisor-prada-group-vancouver-client-advisor",
-        "fr": "client-advisor-prada-group-vancouver-client-advisor"
+        "it": "client-consulente-prada-group-vancouver-client-advisor",
+        "de": "client-berater-prada-group-vancouver-client-advisor",
+        "fr": "client-conseiller-prada-group-vancouver-client-advisor"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -59,7 +59,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-13T10:29:44.198Z"
+      "firstSeenAt": "2026-08-13T10:29:44.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-prada-group-vancouver-client-advisor"
+        ],
+        "de": [
+          "client-advisor-prada-group-vancouver-client-advisor"
+        ],
+        "fr": [
+          "client-advisor-prada-group-vancouver-client-advisor"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-prada-group-vancouver-client-advisor"
+      ]
     },
     {
       "id": "prada-e550f9d2a9e8",
