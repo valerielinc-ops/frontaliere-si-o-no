@@ -2419,6 +2419,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incidente-e-bike-morte-ciclista.title': 'E-bike accident: cyclist dies in hospital',
     'blog.article.incidente-e-bike-morte-ciclista.excerpt': 'A cyclist has died after an e-bike accident in Lauenen bei Gstaad.',
     'blog.article.incidente-e-bike-morte-ciclista.imageAlt': 'A cyclist riding a mountain bike through the countryside near Lauenen, Switzerland.',
+    'blog.article.regolamento-eurovision-sicurezza-2027.title': 'Eurovision: new rules on safety and age of artists',
+    'blog.article.regolamento-eurovision-sicurezza-2027.excerpt': 'The SRU updates the rules of the contest: stop the host nation in case of war and raise the minimum age to 18 years.',
+    'blog.article.regolamento-eurovision-sicurezza-2027.imageAlt': 'Modern event stage in a Swiss venue',
 };
 
 export default blogMetaChEn;
