@@ -178,6 +178,7 @@ export async function persistMailerooEvent(db, event) {
   if (type === 'delivered' || type === 'open' || type === 'click') {
     const current = (await subscriberRef.get()).data() || {};
     Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+      subscriber: current,
       currentStatus: current.status,
       bounceSeverity: current.bounce_severity,
       event: type,
@@ -283,6 +284,7 @@ async function persistJobAlertMailerooEvent(db, { email, type, event, messageId,
   if (type === 'delivered' || type === 'open' || type === 'click') {
     const current = (await subscriberRef.get()).data() || {};
     Object.assign(topUpdate, positiveEventStatusFields({
+      subscriber: current,
       currentStatus: current.status,
       bounceSeverity: current.bounce_severity,
       event: type,

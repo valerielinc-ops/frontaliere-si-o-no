@@ -140,6 +140,7 @@ export async function persistMailtrapEvent(db, eventData) {
  if (type === 'delivered' || type === 'open' || type === 'click') {
  const current = (await subscriberRef.get()).data() || {};
  Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+ subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
@@ -247,6 +248,7 @@ async function persistJobAlertMailtrapEvent(db, { email, type, eventData, messag
  if (type === 'delivered' || type === 'open' || type === 'click') {
  const current = (await subscriberRef.get()).data() || {};
  Object.assign(topUpdate, positiveEventStatusFields({
+ subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,

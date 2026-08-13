@@ -16,6 +16,31 @@
 export const OPT_OUT_STAMP_FIELDS = Object.freeze(['unsubscribed_at', 'unsubscribedAt']);
 export const RE_OPT_IN_STAMP_FIELDS = Object.freeze(['resubscribed_at', 'resubscribedAt']);
 
+/**
+ * A raw Firestore handle carries NONE of the fields below on itself, so every
+ * reader would answer "nothing recorded ⇒ not opted out" — a silent false
+ * negative on the predicate that decides whether an opted-out person is emailed
+ * (#5750 item 2). See the canonical file for the full reasoning.
+ * @param {unknown} value @returns {boolean}
+ */
+export function isFirestoreDocHandle(value) {
+  if (!value || typeof value !== 'object') return false;
+  if (typeof value.data === 'function') return true;
+  return typeof value.get === 'function' && typeof value.collection === 'function';
+}
+
+/** @param {unknown} value @param {string} fn @returns {unknown} */
+export function assertSubscriberData(value, fn) {
+  if (isFirestoreDocHandle(value)) {
+    throw new TypeError(
+      `${fn}: received a raw Firestore document handle, not document data. `
+      + 'Pass snapshot.data() — every opt-out field read off a snapshot is '
+      + 'undefined, which would silently answer "not opted out".',
+    );
+  }
+  return value;
+}
+
 /** @param {unknown} value @returns {number|null} */
 export function toEpochMillis(value) {
   if (value == null) return null;
@@ -60,19 +85,23 @@ function firstMillis(sub, fields) {
 }
 
 export function newsletterOptOutMillis(sub) {
+  assertSubscriberData(sub, 'newsletterOptOutMillis');
   return firstMillis(sub, OPT_OUT_STAMP_FIELDS);
 }
 
 export function newsletterReOptInMillis(sub) {
+  assertSubscriberData(sub, 'newsletterReOptInMillis');
   return firstMillis(sub, RE_OPT_IN_STAMP_FIELDS);
 }
 
 export function hasNewsletterOptOutStamp(sub) {
+  assertSubscriberData(sub, 'hasNewsletterOptOutStamp');
   if (!sub) return false;
   return OPT_OUT_STAMP_FIELDS.some((f) => sub[f] != null);
 }
 
 export function isNewsletterOptOutSuperseded(sub) {
+  assertSubscriberData(sub, 'isNewsletterOptOutSuperseded');
   const optOut = newsletterOptOutMillis(sub);
   if (optOut == null) return false;
   const reOptIn = newsletterReOptInMillis(sub);
@@ -82,6 +111,7 @@ export function isNewsletterOptOutSuperseded(sub) {
 }
 
 export function isNewsletterOptOutBinding(sub) {
+  assertSubscriberData(sub, 'isNewsletterOptOutBinding');
   if (!sub) return false;
   const recorded = String(sub.status || '').trim().toLowerCase() === 'unsubscribed'
     || hasNewsletterOptOutStamp(sub);

@@ -58,6 +58,55 @@ export const OPT_OUT_STAMP_FIELDS = Object.freeze(['unsubscribed_at', 'unsubscri
 export const RE_OPT_IN_STAMP_FIELDS = Object.freeze(['resubscribed_at', 'resubscribedAt']);
 
 /**
+ * Is this a raw Firestore handle rather than the document's DATA?
+ *
+ * A `DocumentSnapshot` (or a `DocumentReference`) carries none of the fields
+ * below on itself: `snap.status`, `snap.unsubscribed_at` and `snap.unsubscribedAt`
+ * are all `undefined`. Hand one to any reader in this file and it answers
+ * "no status, no stamp ⇒ nothing recorded ⇒ NOT opted out" — a silent FALSE
+ * NEGATIVE on the single predicate that decides whether a person who asked us to
+ * stop gets emailed anyway (#5750 item 2).
+ *
+ * Two shapes are detected, because both fail the same way:
+ *   - `DocumentSnapshot` / `QueryDocumentSnapshot` — `.data()` is a function;
+ *   - `DocumentReference` — `.get()` AND `.collection()` are both functions,
+ *     a pair no plain document payload has.
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function isFirestoreDocHandle(value) {
+  if (!value || typeof value !== 'object') return false;
+  if (typeof value.data === 'function') return true;
+  return typeof value.get === 'function' && typeof value.collection === 'function';
+}
+
+/**
+ * Fail LOUDLY on a raw Firestore handle. Every reader below calls this first.
+ *
+ * A throw is the fail-CLOSED outcome here, not a competing one: it aborts the
+ * send loop or the webhook write before either can act, so no email leaves and
+ * no `status` is rewritten. What it adds over a quiet `true` is that the
+ * miswired call site is named instead of being papered over — a permanently
+ * "opted out" answer for a wrong reason is how a guard rots into noise and gets
+ * deleted. The whole class of bug this module exists for is the SILENT one.
+ *
+ * @param {unknown} value
+ * @param {string} fn name of the caller, for the message
+ * @returns {unknown} the value, unchanged, when it is safe to read
+ */
+export function assertSubscriberData(value, fn) {
+  if (isFirestoreDocHandle(value)) {
+    throw new TypeError(
+      `${fn}: received a raw Firestore document handle, not document data. `
+      + 'Pass snapshot.data() — every opt-out field read off a snapshot is '
+      + 'undefined, which would silently answer "not opted out".',
+    );
+  }
+  return value;
+}
+
+/**
  * Coerce whatever a Firestore document actually holds into epoch millis.
  *
  * Four shapes reach the readers and all four are real: a Firestore `Timestamp`
@@ -120,6 +169,7 @@ function firstMillis(sub, fields) {
  * @returns {number|null}
  */
 export function newsletterOptOutMillis(sub) {
+  assertSubscriberData(sub, 'newsletterOptOutMillis');
   return firstMillis(sub, OPT_OUT_STAMP_FIELDS);
 }
 
@@ -129,11 +179,13 @@ export function newsletterOptOutMillis(sub) {
  * @returns {number|null}
  */
 export function newsletterReOptInMillis(sub) {
+  assertSubscriberData(sub, 'newsletterReOptInMillis');
   return firstMillis(sub, RE_OPT_IN_STAMP_FIELDS);
 }
 
 /** Does the document carry an opt-out stamp under either spelling? */
 export function hasNewsletterOptOutStamp(sub) {
+  assertSubscriberData(sub, 'hasNewsletterOptOutStamp');
   if (!sub) return false;
   return OPT_OUT_STAMP_FIELDS.some((f) => sub[f] != null);
 }
@@ -149,6 +201,7 @@ export function hasNewsletterOptOutStamp(sub) {
  * @returns {boolean}
  */
 export function isNewsletterOptOutSuperseded(sub) {
+  assertSubscriberData(sub, 'isNewsletterOptOutSuperseded');
   const optOut = newsletterOptOutMillis(sub);
   if (optOut == null) return false;
   const reOptIn = newsletterReOptInMillis(sub);
@@ -178,6 +231,7 @@ export function isNewsletterOptOutSuperseded(sub) {
  * @returns {boolean}
  */
 export function isNewsletterOptOutBinding(sub) {
+  assertSubscriberData(sub, 'isNewsletterOptOutBinding');
   if (!sub) return false;
   const recorded = String(sub.status || '').trim().toLowerCase() === 'unsubscribed'
     || hasNewsletterOptOutStamp(sub);
