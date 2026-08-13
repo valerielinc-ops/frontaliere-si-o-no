@@ -2413,6 +2413,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iva-aumento-sicurezza.title': 'IVA-Aufschlag für Sicherheit vorgeschlagen',
     'blog.article.iva-aumento-sicurezza.excerpt': 'Die Schweizer Regierung schlägt eine Erhöhung der Mehrwertsteuer um 0,5 Prozentpunkte vor, um Rüstungskäufe zu finanzieren.',
     'blog.article.iva-aumento-sicurezza.imageAlt': 'IVA-Anstieg für Sicherheit: wie es sich anwenden wird und was es für die Schweiz bedeutet.',
+    'blog.article.apprendistato-formazione-berna.title': 'Lehre und Berufsausbildung in Bern',
+    'blog.article.apprendistato-formazione-berna.excerpt': 'Praktischer Leitfaden für die Suche nach einer Lehrstelle im Kanton Bern: vom Arbeitsvertrag über die Berufsmaturität bis zur Entlohnung.',
+    'blog.article.apprendistato-formazione-berna.imageAlt': 'Junger Lernender mit Mentor im Büro',
 };
 
 export default blogMetaChDe;
