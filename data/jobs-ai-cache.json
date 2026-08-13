@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-13T21:54:09.477Z",
+  "savedAt": "2026-08-13T21:56:51.259Z",
   "entries": [
     {
       "key": "0699e0ce1cc0c93fe329fa4312425b5e81783101f467810c177248c481054a37",
@@ -215040,11 +215040,11 @@
     },
     {
       "key": "431c20d77882fab48dcfd392e5eafddf60ed3f3eb3dabbec68f71bd621138e08",
-      "touchedAt": 1786616808706,
+      "touchedAt": 1786658146943,
       "value": {
         "isJob": false,
-        "confidence": 0.5,
-        "reason": "The page appears to be a generic career page with a focus on a company's 'Quereinstieg' program, but it does not provide concrete job details for a specific role. It lists various job openings and provides information about the company's training programs, but it does not have a clear job description, responsibilities, or application context for a single job."
+        "confidence": 0.7,
+        "reason": "The page appears to be a generic careers listing for a company called Coop, with various job openings and information about the company's programs. However, it does not provide a concrete role title, responsibilities, and application context for a single job, which is a key requirement for a real single job detail page."
       }
     },
     {
