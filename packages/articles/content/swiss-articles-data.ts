@@ -7408,6 +7408,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'eclissi-solare-studi',
+    category: 'novita',
+    date: '2026-08-13T05:32:19.823Z',
+    image: '/images/blog/eclissi-solare-studi.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

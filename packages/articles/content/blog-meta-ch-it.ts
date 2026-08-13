@@ -2470,6 +2470,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Sconti sui farmaci, la vigilanza è poco efficace',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'L\'Ufficio federale della sanità pubblica (UFSP) non fa uso di tutti gli strumenti a disposizione per la sorveglianza del mercato dei farmaci.',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontaliere che cerca di risparmiare sui farmaci in Svizzera',
+    'blog.article.eclissi-solare-studi.title': 'La scienza studia l\'eclissi solare',
+    'blog.article.eclissi-solare-studi.excerpt': 'Gli scienziati utilizzano l\'eclissi solare per comprendere meglio l\'atmosfera del Sole.',
+    'blog.article.eclissi-solare-studi.imageAlt': 'L\'eclissi solare vista dal Ticino',
 };
 
 export default blogMetaChIt;

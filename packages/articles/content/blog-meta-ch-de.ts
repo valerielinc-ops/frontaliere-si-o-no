@@ -2470,6 +2470,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Rabatte auf Medikamente, Überwachung ist wenig effektiv',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'Das Bundesamt für Gesundheit (BAG) nutzt nicht alle verfügbaren Instrumente zur Überwachung des Arzneimittelmarktes.',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontalier versucht, in der Schweiz auf Medikamente zu sparen',
+    'blog.article.eclissi-solare-studi.title': 'Wissenschaft studiert Sonnenfinsternis',
+    'blog.article.eclissi-solare-studi.excerpt': 'Wissenschaftler nutzen die Sonnenfinsternis, um die Atmosphäre der Sonne besser zu verstehen.',
+    'blog.article.eclissi-solare-studi.imageAlt': 'Sonnenfinsternis aus Ticino',
 };
 
 export default blogMetaChDe;

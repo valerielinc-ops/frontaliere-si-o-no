@@ -31997,6 +31997,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eclissi-solare-studi': {
+    title: 'La scienza studia l\'eclissi solare | Frontaliere Ticino',
+    description: 'Gli scienziati utilizzano l\'eclissi solare per comprendere meglio l\'atmosfera del Sole. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scienza, studia, eclissi, solare',
+    ogTitle: 'La scienza studia l\'eclissi solare',
+    ogDescription: 'Gli scienziati utilizzano l\'eclissi solare per comprendere meglio l\'atmosfera del Sole.',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-studi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La scienza studia l'eclissi solare",
+      "description": "Gli scienziati utilizzano l'eclissi solare per comprendere meglio l'atmosfera del Sole. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-studi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'eclissi solare vista dal Ticino"
+      },
+      "datePublished": "2026-08-13T05:32:19+00:00",
+      "dateModified": "2026-08-13T05:32:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-studi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

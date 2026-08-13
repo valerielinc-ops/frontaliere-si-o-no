@@ -2470,6 +2470,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Réductions sur les médicaments, la vigilance est peu efficace',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'L\'Office fédéral de la santé publique (OFSP) n\'utilise pas tous les outils à sa disposition pour la surveillance du marché des médicaments.',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontalier essayant de économiser sur les médicaments en Suisse',
+    'blog.article.eclissi-solare-studi.title': 'La science étudie l\'éclipse solaire',
+    'blog.article.eclissi-solare-studi.excerpt': 'Les scientifiques utilisent l\'éclipse solaire pour mieux comprendre l\'atmosphère du Soleil.',
+    'blog.article.eclissi-solare-studi.imageAlt': 'Éclipse solaire observée du Tessin',
 };
 
 export default blogMetaChFr;
