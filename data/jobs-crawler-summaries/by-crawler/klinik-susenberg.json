@@ -1,16 +1,16 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-08-13T10:27:34.536Z",
-  "total": 4,
+  "generatedAt": "2026-08-13T22:20:56.758Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4647,
-  "avgDurationMs": 4647,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5216,
+  "avgDurationMs": 5216,
   "durationHistory": [
-    4647
+    5216
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/10-Operative-Leitung-Verwaltung-Services-2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:27:31.391Z",
+      "crawledAt": "2026-08-13T22:20:53.491Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:27:31.879Z",
+      "crawledAt": "2026-08-13T22:20:54.694Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:27:31.752Z",
+      "crawledAt": "2026-08-13T22:20:54.397Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -132,8 +132,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-susenberg-7c109892a3c6",
       "slug": "dipl-pflegefachperson-hf-fh-in-palliative-care-mit-zusatzfunktion-stv-leitung-pflege",
@@ -176,5 +175,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
