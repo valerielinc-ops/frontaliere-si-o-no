@@ -2395,6 +2395,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ue-vigilanza-ai-act-2023.title': 'EU kontrolliert AI Act, Transparenz für Chatbots und Deepfakes',
     'blog.article.ue-vigilanza-ai-act-2023.excerpt': 'Die EU-Kommission beginnt mit der Überwachung des KI-Gesetzes mit neuen Regeln für Anbieter von Gpai-Modellen.',
     'blog.article.ue-vigilanza-ai-act-2023.imageAlt': 'Bild von Locarno während des Filmfestivals',
+    'blog.article.eclissi-solare-2026-ticino.title': 'Sonnenfinsternis in der Schweiz beendet',
+    'blog.article.eclissi-solare-2026-ticino.excerpt': 'Die Sonnenfinsternis bedeckte die Sonne zu 91% im Tessin und Graubünden',
+    'blog.article.eclissi-solare-2026-ticino.imageAlt': 'Die Sonnenfinsternis hat den Sonnenstrahl für 91% in Tessin und Grigioni abgedeckt',
 };
 
 export default blogMetaChDe;

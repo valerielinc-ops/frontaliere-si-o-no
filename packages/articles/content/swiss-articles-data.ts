@@ -7183,6 +7183,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'eclissi-solare-2026-ticino',
+    category: 'novita',
+    date: '2026-08-13T01:08:40.293Z',
+    image: '/images/blog/eclissi-solare-2026-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

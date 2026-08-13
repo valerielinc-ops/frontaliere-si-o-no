@@ -2395,6 +2395,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ue-vigilanza-ai-act-2023.title': 'UE controlla AI Act, trasparenza per chatbot e deepfakes',
     'blog.article.ue-vigilanza-ai-act-2023.excerpt': 'La Commissione Ue inizia a monitorare l\'AI Act, con nuove regole per i fornitori di modelli Gpai.',
     'blog.article.ue-vigilanza-ai-act-2023.imageAlt': 'Immagine di Locarno durante il festival del cinema',
+    'blog.article.eclissi-solare-2026-ticino.title': 'Terminata l\'eclissi solare in Svizzera',
+    'blog.article.eclissi-solare-2026-ticino.excerpt': 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
+    'blog.article.eclissi-solare-2026-ticino.imageAlt': 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
 };
 
 export default blogMetaChIt;
