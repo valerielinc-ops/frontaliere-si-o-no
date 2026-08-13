@@ -31061,6 +31061,513 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-churer-fest-traffico-limitato-misure-sicurezza': {
+    title: 'Di più GR: Churer Fest, fra traffico limitato e misure di sicurezza',
+    description: 'La 35esima edizione della Churer Fest si svolgerà dal 14 al 16 agosto a Chur. Il traffico sarà limitato nel centro della città e le forze dell\'ordine',
+    keywords: 'frontalieri, ticino, svizzera, italia, churer, fest, traffico, limitato',
+    ogTitle: 'Churer Fest, fra traffico limitato e misure di sicurezza',
+    ogDescription: 'La 35esima edizione della Churer Fest si svolgerà dal 14 al 16 agosto a Chur. Il traffico sarà limitato nel centro della città e le forze dell\'ordine adotteranno diverse misure per garantire la sicurezza dell\'evento.',
+    canonicalPath: '/articoli-svizzera/churer-fest-traffico-limitato-misure-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più GR: Churer Fest, fra traffico limitato e misure di sicurezza",
+      "description": "La 35esima edizione della Churer Fest si svolgerà dal 14 al 16 agosto a Chur. Il traffico sarà limitato nel centro della città e le forze dell'ordine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/churer-fest-traffico-limitato-misure-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa di Chur"
+      },
+      "datePublished": "2026-08-13T01:12:50+00:00",
+      "dateModified": "2026-08-13T01:12:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/churer-fest-traffico-limitato-misure-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avvistamento-cicogne-bianche-castione': {
+    title: 'Avvistamento di cicogne bianche a Castione | Frontaliere Ticino',
+    description: 'Circa 50 cicogne bianche avvistate a Castione durante la migrazione. Ficedula analizza il fenomeno e le prospettive di nidificazione in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, avvistamento, cicogne, bianche, castione',
+    ogTitle: 'Avvistamento di cicogne bianche a Castione',
+    ogDescription: 'Uno stormo di circa 50 cicogne bianche ha sostato a Castione. L\'associazione Ficedula spiega l\'importanza del fenomeno e le possibilità di nidificazione in Ticino.',
+    canonicalPath: '/articoli-svizzera/avvistamento-cicogne-bianche-castione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avvistamento di cicogne bianche a Castione",
+      "description": "Circa 50 cicogne bianche avvistate a Castione durante la migrazione. Ficedula analizza il fenomeno e le prospettive di nidificazione in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avvistamento-cicogne-bianche-castione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cicogne bianche appollaiate sui tetti a Castione"
+      },
+      "datePublished": "2026-08-13T01:16:16+00:00",
+      "dateModified": "2026-08-13T01:16:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avvistamento-cicogne-bianche-castione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-esperimento-materia-oscura-sotto-sedrun': {
+    title: 'Esperimento di materia oscura sotto Sedrun | Frontaliere Ticino',
+    description: 'Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esperimento, materia, oscura, sotto',
+    ogTitle: 'Esperimento di materia oscura sotto Sedrun',
+    ogDescription: 'Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun.',
+    canonicalPath: '/articoli-svizzera/esperimento-materia-oscura-sotto-sedrun/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esperimento di materia oscura sotto Sedrun",
+      "description": "Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esperimento-materia-oscura-sotto-sedrun.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esperimento di fisica quantistica nel pozzo di 800 metri a Sedrun"
+      },
+      "datePublished": "2026-08-13T01:19:55+00:00",
+      "dateModified": "2026-08-13T01:19:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esperimento-materia-oscura-sotto-sedrun/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-evaso-bois-mermet': {
+    title: 'Evade dal carcere di Bois-Mermet: Nessun pericolo per la popolazione',
+    description: 'Un detenuto è fuggito dal carcere di Bois-Mermet a Losanna. La polizia vodese assicura che non ci siano pericoli per la popolazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, evade, carcere, bois-mermet, nessun',
+    ogTitle: 'Evade dal carcere di Bois-Mermet: Nessun pericolo per la popolazione',
+    ogDescription: 'Un detenuto è fuggito dal carcere di Bois-Mermet a Losanna. La polizia vodese assicura che non ci siano pericoli per la popolazione.',
+    canonicalPath: '/articoli-svizzera/evaso-bois-mermet/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Evade dal carcere di Bois-Mermet: Nessun pericolo per la popolazione",
+      "description": "Un detenuto è fuggito dal carcere di Bois-Mermet a Losanna. La polizia vodese assicura che non ci siano pericoli per la popolazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/evaso-bois-mermet.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un detenuto evaso dal carcere di Bois-Mermet"
+      },
+      "datePublished": "2026-08-13T01:27:29+00:00",
+      "dateModified": "2026-08-13T01:27:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/evaso-bois-mermet/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iva-aumento-sicurezza': {
+    title: 'Aumento IVA per sicurezza: proposto aumento di 0,5 punti percentuali',
+    description: 'Il Governo svizzero propone un aumento dell\'IVA di 0,5 punti percentuali per finanziare gli acquisti di armamenti. Scopri come si applicherà e cosa significa',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, sicurezza, proposto, punti',
+    ogTitle: 'Aumento IVA per sicurezza: proposto aumento di 0,5 punti percentuali | Frontaliere Ticino',
+    ogDescription: 'Il Governo svizzero propone un aumento dell\'IVA di 0,5 punti percentuali per finanziare gli acquisti di armamenti. Scopri come si applicherà e cosa significa per la Svizzera.',
+    canonicalPath: '/articoli-svizzera/iva-aumento-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento IVA per sicurezza: proposto aumento di 0,5 punti percentuali",
+      "description": "Il Governo svizzero propone un aumento dell'IVA di 0,5 punti percentuali per finanziare gli acquisti di armamenti. Scopri come si applicherà e cosa significa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iva-aumento-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aumento IVA per sicurezza: come si applicherà e cosa significa per la Svizzera."
+      },
+      "datePublished": "2026-08-13T01:33:58+00:00",
+      "dateModified": "2026-08-13T01:33:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iva-aumento-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-formazione-berna': {
+    title: 'Apprendistato e formazione professionale a Berna',
+    description: 'Guida ufficiale all\'apprendistato nel Canton Berna: come trovare un posto, stipulare il contratto e gestire retribuzione e maturità professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, berna',
+    ogTitle: 'Apprendistato e formazione professionale a Berna',
+    ogDescription: 'Scopri come funziona l\'apprendistato nel Canton Berna: dalla ricerca del posto di tirocinio alla gestione del contratto e della retribuzione.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale a Berna",
+      "description": "Guida ufficiale all'apprendistato nel Canton Berna: come trovare un posto, stipulare il contratto e gestire retribuzione e maturità professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista con mentore in ufficio"
+      },
+      "datePublished": "2026-08-13T01:45:23+00:00",
+      "dateModified": "2026-08-13T01:45:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incidente-e-bike-morte-ciclista': {
+    title: 'Incidente con l\'e-bike: ciclista muore in ospedale',
+    description: 'Un ciclista è morto dopo un incidente con un e-bike a Lauenen bei Gstaad. L\'uomo era impegnato in un\'escursione quando è caduto e ha riportato gravi ferite.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, e-bike, ciclista, muore',
+    ogTitle: 'Incidente con l\'e-bike a Lauenen bei Gstaad',
+    ogDescription: 'Un ciclista è morto dopo un incidente con un e-bike a Lauenen bei Gstaad. L\'uomo era impegnato in un\'escursione quando è caduto e ha riportato gravi ferite.',
+    canonicalPath: '/articoli-svizzera/incidente-e-bike-morte-ciclista/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente con l'e-bike: ciclista muore in ospedale",
+      "description": "Un ciclista è morto dopo un incidente con un e-bike a Lauenen bei Gstaad. L'uomo era impegnato in un'escursione quando è caduto e ha riportato gravi ferite.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-e-bike-morte-ciclista.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ciclista in bicicletta su una strada di montagna vicino a Lauenen, in Svizzera."
+      },
+      "datePublished": "2026-08-13T01:49:30+00:00",
+      "dateModified": "2026-08-13T01:49:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-e-bike-morte-ciclista/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-regolamento-eurovision-sicurezza-2027': {
+    title: 'Eurovision: nuove regole su sicurezza e età degli artisti',
+    description: 'L\'UER aggiorna il regolamento dell\'Eurovision Song Contest: stop ai Paesi in guerra come sedi e innalzamento dell\'età minima per gli artisti a 18 anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, eurovision, nuove, regole, sicurezza',
+    ogTitle: 'Eurovision: nuove regole su sicurezza e età degli artisti',
+    ogDescription: 'L\'Unione europea di radiodiffusione ha aggiornato le regole dell\'Eurovision: niente ospitalità per Paesi in guerra e 18 anni come età minima per i cantanti.',
+    canonicalPath: '/articoli-svizzera/regolamento-eurovision-sicurezza-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eurovision: nuove regole su sicurezza e età degli artisti",
+      "description": "L'UER aggiorna il regolamento dell'Eurovision Song Contest: stop ai Paesi in guerra come sedi e innalzamento dell'età minima per gli artisti a 18 anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/regolamento-eurovision-sicurezza-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palcoscenico moderno in una sala eventi svizzera"
+      },
+      "datePublished": "2026-08-13T01:59:14+00:00",
+      "dateModified": "2026-08-13T01:59:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regolamento-eurovision-sicurezza-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-opportunita-lavoro-rsi-svizzera': {
+    title: 'Opportunità di carriera presso la RSI: guida al portale',
+    description: 'Scopri come candidarti per le posizioni aperte alla RSI Radiotelevisione svizzera. Guida al portale, sezioni per giovani talenti e procedure di selezione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, opportunità, carriera, presso, portale',
+    ogTitle: 'Opportunità di carriera alla RSI Radiotelevisione svizzera',
+    ogDescription: 'Esplora le posizioni aperte e il percorso di candidatura sul portale ufficiale della RSI. Risorse per giovani professionisti e informazioni sul reclutamento.',
+    canonicalPath: '/articoli-svizzera/opportunita-lavoro-rsi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Opportunità di carriera presso la RSI: guida al portale",
+      "description": "Scopri come candidarti per le posizioni aperte alla RSI Radiotelevisione svizzera. Guida al portale, sezioni per giovani talenti e procedure di selezione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/opportunita-lavoro-rsi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Radiotelevisione svizzera a Lugano"
+      },
+      "datePublished": "2026-08-13T02:06:02+00:00",
+      "dateModified": "2026-08-13T02:06:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/opportunita-lavoro-rsi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scienza-medicina-attualita-svizzera': {
+    title: 'Scienza e medicina: aggiornamenti e approfondimenti',
+    description: 'Approfondimenti su scienza, medicina e salute nel contesto svizzero. Informazioni aggiornate per una gestione consapevole del benessere e del sistema sanitario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scienza, medicina, aggiornamenti, approfondimenti',
+    ogTitle: 'Scienza e medicina: attualità e approfondimenti in Svizzera',
+    ogDescription: 'Esplora le ultime novità in ambito scientifico e medico nel contesto svizzero. Un\'analisi completa per comprendere le dinamiche del sistema sanitario attuale.',
+    canonicalPath: '/articoli-svizzera/scienza-medicina-attualita-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scienza e medicina: aggiornamenti e approfondimenti",
+      "description": "Approfondimenti su scienza, medicina e salute nel contesto svizzero. Informazioni aggiornate per una gestione consapevole del benessere e del sistema sanitario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scienza-medicina-attualita-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca scientifica in un contesto svizzero"
+      },
+      "datePublished": "2026-08-13T02:11:33+00:00",
+      "dateModified": "2026-08-13T02:11:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scienza-medicina-attualita-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-formazione-professionale-canton-berna': {
+    title: 'Apprendistato e formazione professionale nel Canton Berna: guida pratica',
+    description: 'Guida completa alla formazione professionale nel Canton Berna: come trovare posti di tirocinio, comprendere i contratti, retribuzione progressiva e accesso',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato nel Canton Berna: Tutto su Contratti, Stipendi e Maturità Professionale',
+    ogDescription: 'Scopri come funziona il sistema duale bernese, dalla ricerca del posto di tirocinio alla maturità professionale. Dati su retribuzioni, diritti e opportunità post-diploma.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-canton-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Canton Berna: guida pratica",
+      "description": "Guida completa alla formazione professionale nel Canton Berna: come trovare posti di tirocinio, comprendere i contratti, retribuzione progressiva e accesso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-canton-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di formazione professionale a Berna con apprendisti al lavoro"
+      },
+      "datePublished": "2026-08-13T02:31:58+00:00",
+      "dateModified": "2026-08-13T02:31:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-professionale-canton-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salute-sessuale-ticino': {
+    title: 'Salute sessuale in Ticino | Frontaliere Ticino',
+    description: 'Notizie e approfondimenti sulla salute sessuale nel Canton Ticino. Scopri le rubriche dedicate su laRegione per informarti sul benessere sessuale',
+    keywords: 'frontalieri, ticino, svizzera, italia, salute, sessuale, informazioni, attualità',
+    ogTitle: 'Salute Sessuale: Notizie e Approfondimenti dal Ticino',
+    ogDescription: 'Tutto quello che c\'è da sapere sulla salute sessuale nel Canton Ticino. LaRegione dedica spazio a notizie, attualità e approfondimenti per informare i cittadini sul benessere sessuale e riproduttivo.',
+    canonicalPath: '/articoli-svizzera/salute-sessuale-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute sessuale in Ticino",
+      "description": "Notizie e approfondimenti sulla salute sessuale nel Canton Ticino. Scopri le rubriche dedicate su laRegione per informarti sul benessere sessuale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salute-sessuale-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lago e montagne"
+      },
+      "datePublished": "2026-08-13T02:42:44+00:00",
+      "dateModified": "2026-08-13T02:42:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salute-sessuale-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borse-studio-berna-guida': {
+    title: 'Borse di studio Canton Berna: requisiti e importi',
+    description: 'Guida ufficiale ai contributi per la formazione nel Cantone di Berna: requisiti, procedure di domanda e criteri di calcolo per studenti residenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, berna',
+    ogTitle: 'Borse di studio Canton Berna: requisiti e importi',
+    ogDescription: 'Tutto quello che c\'è da sapere sulle borse di studio nel Cantone di Berna: requisiti, documentazione necessaria e come presentare la domanda correttamente.',
+    canonicalPath: '/articoli-svizzera/borse-studio-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Canton Berna: requisiti e importi",
+      "description": "Guida ufficiale ai contributi per la formazione nel Cantone di Berna: requisiti, procedure di domanda e criteri di calcolo per studenti residenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle istituzioni svizzere"
+      },
+      "datePublished": "2026-08-13T02:55:37+00:00",
+      "dateModified": "2026-08-13T02:55:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

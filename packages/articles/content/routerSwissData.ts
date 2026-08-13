@@ -825,6 +825,19 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole': { it: 'come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole', en: 'how-to-get-rich-american-historian-explains-the-ten-rules', de: 'wie-man-reich-wird-amerikanischer-historiker-erklart-die-zehn-regeln', fr: 'comment-devenir-riche-l-historien-americain-explique-les-dix-regles' },
  'ue-vigilanza-ai-act-2023': { it: 'ue-vigilanza-ai-act-2023', en: 'eu-surveillance-ai-act', de: 'eu-ueberwachung-ai-act', fr: 'eu-surveillance-ai-acte' },
  'eclissi-solare-2026-ticino': { it: 'eclissi-solare-2026-ticino', en: 'eclissi-solare-2026-ticino', de: 'sonnenfinsternis-2026-tessin', fr: 'eclipse-solaire-2026-tessin' },
+ 'churer-fest-traffico-limitato-misure-sicurezza': { it: 'churer-fest-traffico-limitato-misure-sicurezza', en: 'churer-fest-traffico-limited-misure-sicurezza', de: 'churer-fest-verkehr-gebunden-sicherheitsmassnahmen', fr: 'fete-de-chur-trafic-limites-mesures-de-securite' },
+ 'avvistamento-cicogne-bianche-castione': { it: 'avvistamento-cicogne-bianche-castione', en: 'white-storks-sighting-castione', de: 'weissstorch-sichtung-castione', fr: 'observation-cigognes-blanches-castione' },
+ 'esperimento-materia-oscura-sotto-sedrun': { it: 'esperimento-materia-oscura-sotto-sedrun', en: 'experiment-matter-darkness-under-sedrun', de: 'experiment-materie-dunkelheit-unter-sedrun', fr: 'experiment-matiere-noir-sous-sedrun' },
+ 'evaso-bois-mermet': { it: 'evaso-bois-mermet', en: 'evasion-bois-mermet', de: 'entkommung-bois-mermet', fr: 'echappement-bois-mermet' },
+ 'iva-aumento-sicurezza': { it: 'iva-aumento-sicurezza', en: 'iva-increase-security', de: 'iva-anstieg-sicherheit', fr: 'augmentation-iva-securite' },
+ 'apprendistato-formazione-berna': { it: 'apprendistato-formazione-berna', en: 'apprenticeship-vocational-training-bern', de: 'berufsbildung-lehre-kanton-bern', fr: 'apprentissage-formation-professionnelle-berne' },
+ 'incidente-e-bike-morte-ciclista': { it: 'incidente-e-bike-morte-ciclista', en: 'ciclist-death-in-switzerland', de: 'radfahrer-tod-in-schweiz', fr: 'mortalite-cycliste-en-suisse' },
+ 'regolamento-eurovision-sicurezza-2027': { it: 'regolamento-eurovision-sicurezza-2027', en: 'new-eurovision-safety-regulations', de: 'neue-eurovision-sicherheitsregeln', fr: 'nouvelles-regles-securite-eurovision' },
+ 'opportunita-lavoro-rsi-svizzera': { it: 'opportunita-lavoro-rsi-svizzera', en: 'career-opportunities-rsi-switzerland', de: 'karrieremoeglichkeiten-rsi-schweiz', fr: 'opportunites-carriere-rsi-suisse' },
+ 'scienza-medicina-attualita-svizzera': { it: 'scienza-medicina-attualita-svizzera', en: 'science-and-medicine-switzerland', de: 'wissenschaft-und-medizin-schweiz', fr: 'science-et-medecine-suisse' },
+ 'apprendistato-formazione-professionale-canton-berna': { it: 'apprendistato-formazione-professionale-canton-berna', en: 'apprenticeship-vocational-training-bern-canton', de: 'lehrstellen-berufsbildung-kanton-bern', fr: 'apprentissage-formation-professionnelle-canton-berne' },
+ 'salute-sessuale-ticino': { it: 'salute-sessuale-ticino', en: 'sexual-health-ticino', de: 'sexuelle-gesundheit-tessin', fr: 'sante-sexuelle-tesin' },
+ 'borse-studio-berna-guida': { it: 'borse-studio-berna-guida', en: 'scholarships-canton-bern-requirements', de: 'stipendien-kanton-bern-voraussetzungen', fr: 'bourses-etudes-canton-berne-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
