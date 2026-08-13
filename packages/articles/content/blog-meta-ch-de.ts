@@ -2608,6 +2608,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.title': 'Schweizer Spitäler, Sauberkeit muss verbessert werden',
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.excerpt': 'Die Schweizer Spitäler verbessern die Sauberkeit, aber es gibt immer noch Mängel im Umgang mit Medizinprodukten.',
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.imageAlt': 'Schweizer Krankenhäuser mit der Schweizer Flagge',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.title': 'Unfall mit einem landwirtschaftlichen Fahrzeug, ein 9-jähriges Kind gestorben',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.excerpt': 'Ein 9-jähriges Kind starb bei einem Unfall mit einem landwirtschaftlichen Fahrzeug im Aostatal, Schweiz',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.imageAlt': 'Unfall mit einem landwirtschaftlichen Fahrzeug in der Aostatal, Schweiz',
 };
 
 export default blogMetaChDe;

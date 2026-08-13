@@ -2608,6 +2608,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.title': 'Swiss hospitals, cleanliness needs to be improved',
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.excerpt': 'Swiss hospitals are improving cleanliness, but there are still shortcomings in the management of medical devices.',
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.imageAlt': 'Swiss hospitals with the Swiss flag',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.title': 'Accident with an agricultural vehicle, death of a 9-year-old child',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.excerpt': 'A 9-year-old boy died in an accident with an agricultural vehicle in the Aosta Valley, Switzerland',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.imageAlt': 'Incident with a farm vehicle in the Aosta Valley, Switzerland',
 };
 
 export default blogMetaChEn;
