@@ -889,6 +889,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dimissioni-pazienti-crans-montana': { it: 'dimissioni-pazienti-crans-montana', en: 'crans-montana-patient-discharge', de: 'crans-montana-patientenentlassung', fr: 'sortie-patients-crans-montana' },
  'ferrovia-albula-chiusa': { it: 'ferrovia-albula-chiusa', en: 'albula-railway-closed', de: 'albula-bahn-gesperrt', fr: 'chemins-de-fer-d-albula-fermes' },
  'chiusura-piscina-uzwil-siccita': { it: 'chiusura-piscina-uzwil-siccita', en: 'uzwil-pool-closed-drought', de: 'schwimmbad-uzwil-wegen-trockenheit-geschlossen', fr: 'piscine-uzwil-fermee-secheresse' },
+ 'siccita-claro-2026': { it: 'siccita-claro-2026', en: 'in-claro-drought-rises-to-grade-2-new-limitations-on-water-use', de: 'claro-siccita-auf-grad-2-neue-wasserbeschrankungen', fr: 'siccita-al-grado-2-a-claro-nuove-limitazioni' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
