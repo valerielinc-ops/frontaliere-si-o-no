@@ -1,18 +1,55 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-08-12T21:59:13.804Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-13T10:23:52.386Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12253,
-  "avgDurationMs": 12253,
+  "unchangedCount": 1,
+  "durationMs": 12775,
+  "avgDurationMs": 12775,
   "durationHistory": [
-    12253
+    12775
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "spital-sts-620ae1eb16ac",
+      "slug": "med-praxisassistent-in-kardiologie-spital-sts-thun",
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Med. Praxisassistent:in Kardiologie",
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-13T10:23:41.218Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/261c3e48-e9f4-4b94-98f4-9320db88f13a",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "spital-sts-c3a6c4f02ee3",
@@ -27,7 +64,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:02.884Z",
+      "crawledAt": "2026-08-13T10:23:41.818Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:03.727Z",
+      "crawledAt": "2026-08-13T10:23:42.767Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/8ceb3598-123e-4a0f-8ef3-8dbfc9c20299/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:04.461Z",
+      "crawledAt": "2026-08-13T10:23:43.748Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/29467efe-5e8b-429f-8866-eeb96322cc47/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:05.203Z",
+      "crawledAt": "2026-08-13T10:23:44.522Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/fbb26ca5-a0dd-4576-850f-65fbef3990be/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:05.977Z",
+      "crawledAt": "2026-08-13T10:23:45.261Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/54d6df5b-104e-4911-b106-158ee0afe71f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:06.761Z",
+      "crawledAt": "2026-08-13T10:23:46.058Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/66c1e49e-5e89-4660-a29a-0f22c58bc120/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:07.729Z",
+      "crawledAt": "2026-08-13T10:23:46.802Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e3a8395f-076d-4718-8e1e-ce3da4ea1e53/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:08.479Z",
+      "crawledAt": "2026-08-13T10:23:47.658Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -302,11 +339,11 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/e3a8395f-076d-4718-8e1e-ce3da4ea1e53",
       "firstSeenAt": "2026-08-04T11:43:14.641Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -323,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/02fda972-984f-42b5-b3d9-a59e527d584a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:59:09.201Z",
+      "crawledAt": "2026-08-13T10:23:48.454Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -346,10 +383,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-sts-08d523adad20",
-      "slug": "praktikant-in-psychologie-spital-sts-thun",
+      "slug": "interno-in-psicologia-spital-sts-thun",
       "company": "Spital STS",
       "companyKey": "spital-sts",
       "companyDomain": "spitalstsag.ch",
@@ -376,15 +416,16 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/05539e56-407c-40b9-acd6-6afb9aa62b82",
       "firstSeenAt": "2026-08-03T12:39:38.172Z",
-      "_qualityScore": 85,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
