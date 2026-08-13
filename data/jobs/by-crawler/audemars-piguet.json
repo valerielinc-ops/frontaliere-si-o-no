@@ -1083,7 +1083,7 @@
       "title": "IT Portfolio Manager",
       "titleByLocale": {
         "it": "Gestore di Portafoglio IT",
-        "en": "IT Portfolio Manager",
+        "en": "Portfolio Manager",
         "de": "IT-Portfoliomanager",
         "fr": "IT Portfolio Manager"
       },
@@ -1175,7 +1175,7 @@
       "title": "Expert Data Base",
       "titleByLocale": {
         "it": "Base dati esperto",
-        "en": "Expert Data Base",
+        "en": "Data Base Expert",
         "de": "Expertendatenbank",
         "fr": "Expert Data Base"
       },
@@ -1238,7 +1238,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:29:59.014Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1250,7 +1249,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "audemars-piguet-8ed30b0a2e5d",
@@ -1828,7 +1828,7 @@
       "title": "Manager ITCS Delivery Excellence",
       "titleByLocale": {
         "it": "Eccellenza di consegna del manager ITCS",
-        "en": "Manager ITCS Delivery Excellence",
+        "en": "ITCs Delivery Excellence Manager",
         "de": "Leiter ITCS Delivery Excellence",
         "fr": "Manager ITCS Delivery Excellence"
       },

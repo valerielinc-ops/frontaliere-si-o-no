@@ -2816,7 +2816,6 @@
           "Fähigkeit, Communities zu animieren und um gemeinsame Ziele zusammenzuführen"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "project-manager-r-i-qualita-richemont-neuchatel",
@@ -2860,7 +2859,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-b5f35146a037",
@@ -5754,7 +5754,6 @@
       "jobReqId": "jr130115",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
         "procurement-category-manager-richemont-plan-les-ouates",
@@ -5784,7 +5783,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-d82582a2cf6f",
@@ -5956,7 +5956,7 @@
         "it": "costruttore-di-modelli-anaplan-cartier-villars-sur-glane",
         "en": "anaplan-model-builder-richemont-villars-sur-glane",
         "de": "anaplan-modellbauer-cartier-villars-sur-glane",
-        "fr": "anaplan-model-builder-richemont-villars-sur-glane"
+        "fr": "constructeur-de-modeles-anaplan-cartier-villars-sur-glane"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -6016,6 +6016,9 @@
           "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
         ],
         "de": [
+          "anaplan-model-builder-richemont-villars-sur-glane"
+        ],
+        "fr": [
           "anaplan-model-builder-richemont-villars-sur-glane"
         ]
       },
@@ -8605,7 +8608,6 @@
       "jobReqId": "jr130947",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polivalente-di-operateur-richemont-delemont",
@@ -8640,7 +8642,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-4168f8f08137",

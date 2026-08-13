@@ -511,20 +511,20 @@
     },
     {
       "id": "dormakaba-11900",
-      "slug": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+      "slug": "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
       "slugByLocale": {
-        "it": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
-        "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang"
+        "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
+        "it": "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
       "companyDomain": "dormakaba.com",
       "title": "Configurable Materials Master Data Domain Lead",
       "titleByLocale": {
-        "it": "Configurable Materials Master Data Domain Lead",
         "en": "Configurable Materials Master Data Domain Lead",
+        "it": "Responsabile del Dominio Dati Master dei Materiali Configurabili",
         "de": "Konfigurierbare Materialien Master Data Domain Lead",
         "fr": "Matériaux configurables Chef de domaine de données principal"
       },
@@ -560,19 +560,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
-        "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "configurable-materials-master-data-domain-lead-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang"
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
-      "firstSeenAt": "2026-07-16T22:17:33.262Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -584,7 +582,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-16T22:17:33.262Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-11919",
