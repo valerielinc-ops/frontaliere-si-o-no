@@ -2575,6 +2575,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-berna-conversione.title': 'Permis de conduire dans le canton de Berne : conversion et examens',
     'blog.article.patente-guida-berna-conversione.excerpt': 'Guide officiel de conversion de la licence étrangère, examens et procédures auprès de l\'Office de la circulation du canton de Berne pour les nouveaux résidents.',
     'blog.article.patente-guida-berna-conversione.imageAlt': 'Permis de conduire suisse sur un bureau',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Les remises sur les médicaments ne sont pas retenues',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Le secteur de la santé rejette les accusations de rétention de rabais sur les médicaments',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Patient à l\'hôpital',
 };
 
 export default blogMetaChFr;

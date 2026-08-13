@@ -2575,6 +2575,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-berna-conversione.title': 'Driver\'s license in the Canton of Bern: conversion and exams',
     'blog.article.patente-guida-berna-conversione.excerpt': 'Official Guide to Foreign License Conversion, Examinations and Procedures at the Canton of Bern Traffic Office for New Residents.',
     'blog.article.patente-guida-berna-conversione.imageAlt': 'Swiss driving license on a desk',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Drug discounts are not withheld',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Healthcare Rejects Allegations of Withholding Drug Discounts',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Patient in hospital',
 };
 
 export default blogMetaChEn;

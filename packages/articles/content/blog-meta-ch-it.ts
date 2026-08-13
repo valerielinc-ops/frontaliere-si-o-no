@@ -2575,6 +2575,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-berna-conversione.title': 'Patente di guida nel Canton Berna: conversione ed esami',
     'blog.article.patente-guida-berna-conversione.excerpt': 'Guida ufficiale alla conversione della licenza estera, esami e procedure presso l\'Ufficio della circolazione del Canton Berna per i nuovi residenti.',
     'blog.article.patente-guida-berna-conversione.imageAlt': 'Patente di guida svizzera sul tavolo',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Gli sconti sui farmaci non vengono trattenuti',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Il settore sanitario respinge le accuse di trattenimento di sconti sui farmaci',
+    'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Paziente in ospedale',
 };
 
 export default blogMetaChIt;
