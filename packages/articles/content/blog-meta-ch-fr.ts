@@ -2392,6 +2392,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.title': 'Comment devenir riche, l\'historien américain explique les dix règles',
     'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.excerpt': 'L\'historien américain Joseph Moore explique les dix règles pour accumuler de la richesse, des marchés financiers au choix du conjoint.',
     'blog.article.come-si-diventa-ricchi-lo-storico-americano-spiega-le-dieci-regole.imageAlt': 'L\'image représente un environnement luxueux ou une investissement',
+    'blog.article.ue-vigilanza-ai-act-2023.title': 'UE contrôle l\'AI Act, la transparence pour les chatbots et les deepfakes',
+    'blog.article.ue-vigilanza-ai-act-2023.excerpt': 'La Commission européenne commence à surveiller l\'AI Act, avec de nouvelles règles pour les fournisseurs de modèles Gpai.',
+    'blog.article.ue-vigilanza-ai-act-2023.imageAlt': 'Image de Locarno pendant le festival du cinéma',
 };
 
 export default blogMetaChFr;
