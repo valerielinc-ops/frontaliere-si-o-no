@@ -1,18 +1,19 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-08-13T10:44:01.469Z",
+  "generatedAt": "2026-08-13T22:08:35.932Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 117973,
-  "avgDurationMs": 117973,
+  "durationMs": 122462,
+  "avgDurationMs": 122462,
   "durationHistory": [
-    117973
+    122462
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Restaurant Supervisor (m/w)",
       "slug": "restaurant-supervisor-m-w",
@@ -36,49 +37,14 @@
       "postedDate": "2026-08-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-08-13T10:42:56.755Z",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Restaurant Supervisor (m/w)",
-      "slug": "restaurant-supervisore-m-w-grace-la-margna-st-moritz-st-moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/restaurant-supervisor-m-w-4016125",
-      "applyUrl": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/restaurant-supervisor-m-w-4016125",
-      "company": "Grace La Margna St. Moritz",
-      "companyKey": "grace-la-margna",
-      "companyDomain": "gracehotels.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "servizio",
-      "sector": "Turismo & Ospitalità",
-      "department": "servizio",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "sourceLang": "en",
-      "postedDate": "2026-08-03",
-      "validThrough": "",
-      "source": "dedicated-crawler",
-      "crawledAt": "2026-08-12T22:20:32.073Z",
-      "id": "grace-la-margna-a49adce2e98c",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "crawledAt": "2026-08-13T22:07:18.997Z",
+      "id": "grace-la-margna-ba6729d36e34",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "currency": "CHF",
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
-      "firstSeenAt": "2026-08-06T12:02:24.536Z",
+      "firstSeenAt": "2026-08-13T10:42:56.755Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -88,5 +54,6 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
