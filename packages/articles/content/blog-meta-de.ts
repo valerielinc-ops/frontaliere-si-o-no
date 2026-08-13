@@ -9915,6 +9915,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.valute-frontiere-svizzera-italia.title': 'Währungen und Grenzen: Leitfaden für Grenzgänger',
     'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analyse der Dynamik zwischen der Schweiz und Italien: Vom Geldwechsel bis zur Besteuerung, das müssen Grenzgänger wissen.',
     'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Grenzübergang Schweiz-Italien',
+    'blog.article.varese-lavoratori-nero-2026.title': 'Varese, über 50 Schwarzarbeiter unbedeckt, Geldstrafen für eine halbe Million',
+    'blog.article.varese-lavoratori-nero-2026.excerpt': 'Die Finanza di Varese hat mehr als 50 Schwarzarbeiter identifiziert und mehr als 280 Verstöße gegen die Steuerbescheinigung bestritten.',
+    'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
 };
 
 export default blogMetaDe;
