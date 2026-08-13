@@ -2584,6 +2584,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dimissioni-pazienti-crans-montana.title': 'Crans-Montana: last patient discharged from Niguarda',
     'blog.article.dimissioni-pazienti-crans-montana.excerpt': 'The hospitalisation of the twelve patients injured in the New Year\'s fire has ended. Francesca leaves the Burn Centre in Milan after 224 days of specialist treatment.',
     'blog.article.dimissioni-pazienti-crans-montana.imageAlt': 'Facade of a modern hospital facility in Switzerland',
+    'blog.article.ferrovia-albula-chiusa.title': 'Albula railway line closed at least until tomorrow evening',
+    'blog.article.ferrovia-albula-chiusa.excerpt': 'The Rhaetian Railway has closed the Albula railway line due to a landslide on the Beverin stream',
+    'blog.article.ferrovia-albula-chiusa.imageAlt': 'Albula Railway closed',
 };
 
 export default blogMetaChEn;

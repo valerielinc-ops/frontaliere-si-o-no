@@ -2584,6 +2584,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dimissioni-pazienti-crans-montana.title': 'Crans-Montana: Letzte Patientin aus Niguarda entlassen',
     'blog.article.dimissioni-pazienti-crans-montana.excerpt': 'Der Aufenthalt der zwölf im Neujahrsbrand verletzten Patienten ist abgeschlossen. Francesca verlässt das Verbrennungszentrum in Mailand nach 224 Tagen fachärztlicher Behandlung.',
     'blog.article.dimissioni-pazienti-crans-montana.imageAlt': 'Fassade einer modernen Krankenhausklinik in der Schweiz',
+    'blog.article.ferrovia-albula-chiusa.title': 'Bahnstrecke Albula mindestens bis morgen Abend gesperrt',
+    'blog.article.ferrovia-albula-chiusa.excerpt': 'Die Rhätische Bahn hat die Bahnstrecke der Albula wegen eines Erdrutsches am Bach Beverin geschlossen',
+    'blog.article.ferrovia-albula-chiusa.imageAlt': 'Albula-Bahn gesperrt',
 };
 
 export default blogMetaChDe;
