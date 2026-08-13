@@ -841,6 +841,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'costi-asilo-nido-custodia-berna': { it: 'costi-asilo-nido-custodia-berna', en: 'childcare-costs-bern-canton', de: 'kinderbetreuungskosten-kanton-bern', fr: 'couts-creche-garde-enfants-canton-berne' },
  'eclissi-solare-svizzera-conclusa': { it: 'eclissi-solare-svizzera-conclusa', en: 'solar-eclipse-switzerland-ended', de: 'sonnenfinsternis-schweiz-beendet', fr: 'eclipsesolaire-suisse-terminee' },
  'il-controllo-delle-finanze-critica-duramente-l-ufsp': { it: 'il-controllo-delle-finanze-critica-duramente-l-ufsp', en: 'il-controllo-delle-finanze-critica-duramente-l-ufsp', de: 'il-controllo-delle-finanze-critica-duramente-l-ufsp', fr: 'il-controllo-delle-finanze-critica-duramente-l-ufsp' },
+ 'reno-siccita-logistica-svizzera': { it: 'reno-siccita-logistica-svizzera', en: 'rhine-drought-swiss-logistics', de: 'rhein-trockenheit-schweiz-logistik', fr: 'rhin-secheresse-suisse-logistique' },
+ 'polpi-contro-granchio-blu': { it: 'polpi-contro-granchio-blu', en: 'polpi-vs-blue-crabs', de: 'polpi-gegen-blauer-krebs', fr: 'polpes-contre-cabres-bleus' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
