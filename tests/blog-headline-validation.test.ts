@@ -29,6 +29,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -259,7 +260,7 @@ function loadPublishedTitles(): PublishedTitle[] {
   while ((m = re.exec(src)) !== null) {
     const id = m[1];
     // Unescape \' and \\ that might appear in TS string literals
-    const title = m[2].replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+    const title = unescapeTsString(m[2], { "'": "'", '\\': '\\' });
     out.push({ id, title });
   }
   return out;

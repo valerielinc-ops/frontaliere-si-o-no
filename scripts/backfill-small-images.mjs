@@ -18,6 +18,7 @@ import { resolve, basename, extname, join } from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 
 // ── CLI flags ──────────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -83,7 +84,7 @@ function loadArticleTitles() {
     const re = /'blog\.article\.([^']+)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
     let m;
     while ((m = re.exec(src)) !== null) {
-      titleMap[m[1]] = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+      titleMap[m[1]] = unescapeTsString(m[2], { "'": "'", '"': '"', '\\': '\\' });
     }
     return titleMap;
   } catch (e) {

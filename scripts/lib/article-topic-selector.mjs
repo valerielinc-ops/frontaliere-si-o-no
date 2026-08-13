@@ -38,6 +38,7 @@ import {
 } from './cluster-classifier-prompt.mjs';
 import { cascadedScore } from './scoring/cascadedScore.mjs';
 import { computeAdaptiveTopicCandidateDupJaccard } from './scoring/constants.mjs';
+import { unescapeTsString } from './unescape-ts-string.mjs';
 
 // ── Paths (overridable via opts for tests) ─────────────────────
 export const PERFORMANCE_PATH = 'data/article-performance.json';
@@ -196,7 +197,7 @@ export function extractItTitlesFromMeta(metaSrc) {
   if (!metaSrc) return [];
   const out = [];
   for (const m of metaSrc.matchAll(TITLE_RE)) {
-    out.push(m[1].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\\\/g, '\\'));
+    out.push(unescapeTsString(m[1], { "'": "'", '"': '"', '\\': '\\' }));
   }
   return out;
 }

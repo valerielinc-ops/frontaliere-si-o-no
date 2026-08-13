@@ -15,6 +15,7 @@
  * so drift is impossible by construction.
  */
 import { readFileSync } from 'node:fs';
+import { unescapeTsString } from './unescape-ts-string.mjs';
 
 /**
  * Both body dirs share the same {id}.ts-per-locale layout (create-article.mjs
@@ -61,10 +62,7 @@ export function readBodies(filePath, id) {
 
 /** Decodes a single-quoted TS string literal body back to plain text. */
 export function unescapeFromTS(s) {
-  return String(s || '')
-    .replace(/\\'/g, "'")
-    .replace(/\\n/g, '\n')
-    .replace(/\\\\/g, '\\');
+  return unescapeTsString(String(s || ''), { "'": "'", n: '\n', '\\': '\\' });
 }
 
 /** Encodes plain text for embedding in a single-quoted TS string literal. */

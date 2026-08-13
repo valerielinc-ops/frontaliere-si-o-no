@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FAQ_TRANSLATIONS } from '@/services/seo/faq-translations';
+import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,11 +36,7 @@ interface SourceQuestion {
 }
 
 function unescapeJsonString(raw: string): string {
- return raw
- .replace(/\\"/g, '"')
- .replace(/\\\\/g, '\\')
- .replace(/\\n/g, '\n')
- .replace(/\\'/g, "'");
+ return unescapeTsString(raw, { '"': '"', '\\': '\\', n: '\n', "'": "'" });
 }
 
 // Matches a double-quoted JSON property block of shape:

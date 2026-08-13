@@ -29,6 +29,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { ARTICLES, type Article } from '@/data/blog-articles-data';
 import { AUTHORS, getAuthorBySlug } from '@/data/authors';
+import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -92,7 +93,7 @@ function loadItalianTitles(): Map<string, string> {
   let m: RegExpExecArray | null;
   while ((m = re.exec(src)) !== null) {
     const id = m[1];
-    const title = m[2].replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+    const title = unescapeTsString(m[2], { "'": "'", '\\': '\\' });
     out.set(id, title);
   }
   _titleCache = out;
