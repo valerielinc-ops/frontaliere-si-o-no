@@ -43,8 +43,8 @@
  *    measured engagement never can.
  */
 
-import { EMAIL_SCANNER_IP_RANGES } from './emailScannerRanges.mjs';
 import {
+  EMAIL_SCANNER_IP_RANGES,
   SCAN_BURST_MIN_TARGETS,
   SCAN_BURST_WINDOW_MS,
   classifyClickEvents,
@@ -57,20 +57,22 @@ import {
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-export { EMAIL_SCANNER_IP_RANGES };
-
 /**
  * "Which clicks are a person" moved to scripts/lib/syntheticClicks.mjs (#5767)
- * and is re-exported here unchanged — same shape as EMAIL_SCANNER_IP_RANGES
- * above, so every existing importer of this module keeps working verbatim.
+ * — a shim onto functions/src/lib/syntheticClicks.js, where it has to live so
+ * the Cloud Function that writes the engagement score can read the same rule —
+ * and is re-exported here unchanged, so every existing importer of this module
+ * keeps working verbatim. Same shape this file already used for
+ * EMAIL_SCANNER_IP_RANGES, which now travels with it.
  *
  * It moved because it was never only the brief's: the job-alert channel runs a
  * second engagement-driven cadence and was still promoting off a raw
- * `last_click_at`. The rule is calibrated on a measurement (see the file), so
- * the choice was one home or two drifting copies, and the copy that drifts is
- * the shape of defect #5674 itself.
+ * `last_click_at`, and `calculateEngagementScore` a third. The rule is
+ * calibrated on a measurement (see the file), so the choice was one home or
+ * three drifting copies, and the copy that drifts is the shape of #5674 itself.
  */
 export {
+  EMAIL_SCANNER_IP_RANGES,
   SCAN_BURST_MIN_TARGETS,
   SCAN_BURST_WINDOW_MS,
   classifyClickEvents,

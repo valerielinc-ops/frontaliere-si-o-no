@@ -1925,77 +1925,26 @@ export function openEmailProvider(email: string): void {
 export type EngagementLevel = 'hot' | 'warm' | 'cool' | 'cold' | 'dormant';
 
 /**
- * The opt-out link, in the four locales the mails go out in. Same pattern as
- * OPT_OUT_LINK_RE in scripts/lib/syntheticClicks.mjs (#5767 same anti-pattern
- * as the job-alert channel had, scripts/lib/jobAlertEngagementTier.mjs) and
- * pinned into functions/src/lib/engagementScore.js since that bundle cannot
- * import outside `functions/`. Change one, change the others in the same PR.
+ * Re-exported, NOT re-implemented (#5767).
+ *
+ * This was a second body under a "Mirrors the TS implementation … Keep both in
+ * sync" comment, and the two had already drifted: functions/src/lib/engagementScore.js
+ * grew camelCase field spellings and Firestore Timestamp handling that this copy
+ * never got. When the review of PR #5774 found that BOTH of them scored a click
+ * on the unsubscribe link as engagement, fixing it in two places would have
+ * meant two copies of the opt-out rule as well — and the rule already has one
+ * home, functions/src/lib/syntheticClicks.js.
+ *
+ * So there is one body now, and it lives where the Cloud Function that writes
+ * the score can reach it. Eight modules under services/ and scripts/ already
+ * import functions/src/lib/*.js — services/newsletterUrls.mjs is a re-export of
+ * exactly this shape — so the direction is the repo's own.
+ *
+ * tests/engagement-score-shared.test.ts asserts the identity of the two names:
+ * a test that COMPARES two implementations reports drift after it lands, a test
+ * that there is only one makes it impossible to write.
  */
-const OPT_OUT_LINK_RE = /[?&]action=unsubscribe|[?&]unsubscribe=|\/unsubscribe\b|\/disiscrivi(?:ti|-[a-z]+)\b|\/abmelden\b|\/desabonnement\b|\/se-desabonner\b|list-unsubscribe/i;
-
-function isOptOutLink(url: string | null | undefined): boolean {
- return typeof url === 'string' && url !== '' && OPT_OUT_LINK_RE.test(url);
-}
-
-export function calculateEngagementScore(subscriber: {
- send_count?: number;
- open_count?: number;
- click_count?: number;
- last_open_at?: string | null;
- last_click_at?: string | null;
- last_clicked_url?: string | null;
- last_sent_at?: string | null;
- subscribed_at?: string | null;
-}): { score: number; level: EngagementLevel } {
- const sendCount = Number(subscriber.send_count) || 0;
- const openCount = Number(subscriber.open_count) || 0;
- const rawClickCount = Number(subscriber.click_count) || 0;
-
- const lastClickIsOptOut = isOptOutLink(subscriber.last_clicked_url);
-
- // The one click this counter can be attributed to (the most recent one) is
- // dropped when it is the way out: clicking "unsubscribe" must never buy a
- // higher score, the way reading click_count/last_click_at raw did (#5767).
- // Earlier clicks folded into the aggregate counter cannot be individually
- // attributed without an event log — a measured limitation, not an oversight.
- const clickCount = lastClickIsOptOut ? Math.max(0, rawClickCount - 1) : rawClickCount;
-
- // Open rate component (0-40 points)
- const openRate = sendCount > 0 ? openCount / sendCount : 0;
- const openScore = Math.min(40, Math.round(openRate * 80));
-
- // Click rate component (0-30 points)
- const clickRate = sendCount > 0 ? clickCount / sendCount : 0;
- const clickScore = Math.min(30, Math.round(clickRate * 150));
-
- // Recency component (0-30 points)
- const now = Date.now();
- // An opt-out click is a request for less, never evidence of more: excluded
- // from the recency signal so it cannot keep a subscriber out of cold/dormant
- // the way a raw last_click_at read did.
- const lastClickAt = lastClickIsOptOut ? null : subscriber.last_click_at;
- const lastEngagement = lastClickAt || subscriber.last_open_at;
- let recencyScore = 0;
- if (lastEngagement) {
- const daysSince = (now - new Date(lastEngagement).getTime()) / (1000 * 60 * 60 * 24);
- if (daysSince < 7) recencyScore = 30;
- else if (daysSince < 14) recencyScore = 25;
- else if (daysSince < 30) recencyScore = 18;
- else if (daysSince < 60) recencyScore = 10;
- else if (daysSince < 90) recencyScore = 5;
- }
-
- const score = Math.min(100, openScore + clickScore + recencyScore);
-
- let level: EngagementLevel;
- if (score >= 70) level = 'hot';
- else if (score >= 50) level = 'warm';
- else if (score >= 30) level = 'cool';
- else if (score >= 10) level = 'cold';
- else level = 'dormant';
-
- return { score, level };
-}
+export { calculateEngagementScore } from '../functions/src/lib/engagementScore.js';
 
 // ─── Rate limiting (FRO-19) ─────────────────────────────────
 

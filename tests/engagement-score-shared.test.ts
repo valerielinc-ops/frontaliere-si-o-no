@@ -5,6 +5,8 @@ import {
   refreshEngagementScore,
   ENGAGEMENT_THRESHOLDS,
 } from '../functions/src/lib/engagementScore.js';
+import { isOptOutLink } from '../functions/src/lib/syntheticClicks.js';
+import { makeOneClickUnsubscribeUrl } from '../functions/src/lib/newsletterUrls.js';
 
 describe('shared engagementScore module (functions/src/lib)', () => {
   describe('calculateEngagementScore', () => {
@@ -344,5 +346,94 @@ describe('shared engagementScore module (functions/src/lib)', () => {
       expect(result.level).toBe('hot');
       expect(writes).toHaveLength(1);
     });
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// #5767 continued — the shapes the block above does not contain.
+//
+// Its opt-out fixtures are hand-written URL strings, which is the practice that
+// let `action=unsubscribe_all` through on the job-alert side for a month. The
+// URLs here come out of the real builder, and a guard test fails loudly if the
+// builder ever stops producing an opt-out link.
+// ─────────────────────────────────────────────────────────────────────────────
+describe('a click on the way out is not engagement — the unsampled shapes (#5767)', () => {
+  const NOW = Date.parse('2026-08-13T09:00:00Z');
+  const DAY = 24 * 60 * 60 * 1000;
+  const daysAgo = (n: number) => new Date(NOW - n * DAY).toISOString();
+  const ARTICLE_URL = 'https://frontaliereticino.ch/statistiche';
+  const OPT_OUT_URL = makeOneClickUnsubscribeUrl('reader@example.test');
+
+  it('the builder really produces an opt-out URL (guard against a vacuous suite)', () => {
+    expect(OPT_OUT_URL).toContain('action=unsubscribe');
+    expect(isOptOutLink(OPT_OUT_URL)).toBe(true);
+  });
+
+  // The case the finding names: the click happened, the unsubscribe did NOT
+  // complete (expired token, closed page, one-click POST that never landed), so
+  // the subscriber is still `confirmed` and still being scored. Measured on
+  // 2026-08-13: 63 documents are in exactly this state.
+  it('a FAILED opt-out lowers the level instead of raising it', () => {
+    const base = { send_count: 20, open_count: 4, click_count: 3, last_open_at: daysAgo(40) };
+    const clickedAnArticle = calculateEngagementScore(
+      { ...base, last_click_at: daysAgo(2), last_clicked_url: ARTICLE_URL },
+      { nowMs: NOW },
+    );
+    const clickedUnsubscribe = calculateEngagementScore(
+      { ...base, last_click_at: daysAgo(2), last_clicked_url: OPT_OUT_URL },
+      { nowMs: NOW },
+    );
+    expect(clickedUnsubscribe.score).toBeLessThan(clickedAnArticle.score);
+    expect(clickedAnArticle.level).toBe('warm');
+    // One band down, not a collapse: `click_count` is an aggregate with no urls
+    // behind it, so only the most recent click can be subtracted from it. A
+    // heavy clicker who then asks to leave keeps the clicks we cannot inspect —
+    // the limitation is measured and stated, and the events-log path below is
+    // what makes the count exact when a caller has it.
+    expect(clickedUnsubscribe.level).toBe('cool');
+    // The realistic failed-opt-out shape — the opt-out IS the only click — lands
+    // in the cohort dormantWinback.mjs stops mailing.
+    expect(calculateEngagementScore(
+      { send_count: 20, open_count: 1, click_count: 1, last_click_at: daysAgo(2), last_clicked_url: OPT_OUT_URL },
+      { nowMs: NOW },
+    ).level).toBe('dormant');
+  });
+
+  it('honors the camelCase stamps on BOTH halves of the click', () => {
+    // 458 documents carry only the camelCase spelling (#5673). The url half has
+    // one too, and a fixture that stamps only the instant cannot exercise it.
+    const camel = { sendCount: 10, openCount: 0, clickCount: 1, lastClickAt: daysAgo(1), lastClickedUrl: OPT_OUT_URL };
+    expect(calculateEngagementScore(camel, { nowMs: NOW })).toEqual({ score: 0, level: 'dormant' });
+    expect(calculateEngagementScore({ ...camel, lastClickedUrl: ARTICLE_URL }, { nowMs: NOW }).score).toBeGreaterThan(0);
+  });
+
+  it('reads a Firestore Timestamp as readily as an ISO string', () => {
+    const stamp = { toDate: () => new Date(NOW - DAY) };
+    const doc = { send_count: 10, open_count: 0, click_count: 1, last_click_at: stamp, last_clicked_url: OPT_OUT_URL };
+    expect(calculateEngagementScore(doc, { nowMs: NOW }).score).toBe(0);
+  });
+
+  it('drops a scan burst when the caller has the events log — with the ip-less events the webhooks write', () => {
+    // Six link targets inside a second, no ip and no user-agent anywhere: the
+    // scanner walking the message, in the shape the handlers actually store.
+    // Without the log only the last click is attributable; with it, the count
+    // is exact.
+    const clickEvents = ['volg', 'lidl', 'hilti', 'coop', 'migros', 'aldi'].map((slug, i) => ({
+      occurred_at: NOW - DAY + (i * 120),
+      metadata: { url: `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}` },
+    }));
+    const doc = { send_count: 10, open_count: 0, click_count: 6, last_click_at: daysAgo(1), last_clicked_url: ARTICLE_URL };
+    expect(calculateEngagementScore(doc, { nowMs: NOW }).level).toBe('warm');
+    expect(calculateEngagementScore(doc, { clickEvents, nowMs: NOW })).toEqual({ score: 0, level: 'dormant' });
+  });
+});
+
+// The mirror is gone, and this is what keeps it gone. A test that COMPARES two
+// implementations only reports the drift after it lands; asserting there is one
+// function makes the drift impossible to write.
+describe('services/newsletterSubscribers has no second implementation', () => {
+  it('re-exports the shared function rather than mirroring it', async () => {
+    const twin = await import('@/services/newsletterSubscribers');
+    expect(twin.calculateEngagementScore).toBe(calculateEngagementScore);
   });
 });
