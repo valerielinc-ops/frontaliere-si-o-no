@@ -44,7 +44,13 @@ type Job = Record<string, unknown>;
 
 const LONG = 'x'.repeat(200);
 
-/** A job whose four locale slots are all populated and long enough. */
+/**
+ * A job whose four locale slots are all populated, long enough, AND actually
+ * read as their own locale (required since #5593 item1: `classifyJob` now
+ * delegates to the language-aware canonical `isIncomplete()`, so a slot that
+ * merely LOOKS long enough but still reads as the source language no longer
+ * counts as complete here).
+ */
 function slotComplete(overrides: Job = {}): Job {
   return {
     slug: 'job-a',
@@ -54,7 +60,7 @@ function slotComplete(overrides: Job = {}): Job {
     company: 'ZURZACH Care',
     titleByLocale: {
       de: 'Physiotherapeut/in Stationär mit Fachverantwortung Neurologie',
-      it: 'Physiotherapeut/in Stationär con Fachverantwortung Neurologie',
+      it: 'Fisioterapista di reparto con responsabilità in neurologia',
       en: 'Physiotherapist, inpatient, responsible for neurology',
       fr: 'Physiothérapeute hospitalier, responsable neurologie',
     },
@@ -103,8 +109,8 @@ describe('formatFlaggedRate — a problem rate can never understate itself', () 
   });
 });
 
-describe('classifyJob — the incomplete rule is unchanged, the escape hatch is now visible', () => {
-  it('treats a fully populated job as complete', () => {
+describe('classifyJob — delegates to the single canonical isIncomplete() (#5593 item1)', () => {
+  it('treats a fully populated, genuinely-translated job as complete', () => {
     expect(classifyJob(slotComplete())).toEqual({ incomplete: false, sourceCopyExcused: false });
   });
 
@@ -120,20 +126,56 @@ describe('classifyJob — the incomplete rule is unchanged, the escape hatch is 
     expect(classifyJob(job).incomplete).toBe(true);
   });
 
-  it('still excuses a source-title byte-copy when another locale differs — but now says so', () => {
+  /**
+   * THE DRIFT SCENARIO — pinned as a regression guard.
+   *
+   * Before #5575 (11-08) AND before this fix, this exact case ("DE source, IT
+   * slot left byte-identical to the German source title, EN+FR genuinely
+   * translated") was judged DIFFERENTLY by the two isIncomplete()-shaped
+   * functions in this repo:
+   *   - relocalize-pending-jobs.mjs's isIncomplete(): incomplete (its
+   *     cross-locale `othersDiffer` escape hatch was removed by #5575).
+   *   - this file's OWN copy of the same judgment: NOT incomplete (excused,
+   *     because EN and FR differ from the German source title).
+   * `classifyJob` no longer has a second copy to disagree with — it calls the
+   * SAME function relocalize-pending-jobs.mjs calls. If this test ever goes
+   * back to `incomplete: false`, the duplication has silently returned.
+   */
+  it('does NOT excuse a source-title byte-copy even when another locale differs (drift fix)', () => {
     const job = slotComplete();
     // IT slot left as the untouched German source title; EN and FR translated.
     (job.titleByLocale as Record<string, string>).it = job.title as string;
     const verdict = classifyJob(job);
-    expect(verdict.incomplete).toBe(false); // behaviour deliberately unchanged
-    expect(verdict.sourceCopyExcused).toBe(true); // …but no longer invisible
+    expect(verdict.incomplete).toBe(true); // aligned with relocalize-pending-jobs.mjs
+    expect(verdict.sourceCopyExcused).toBe(false); // nothing left to "excuse"
   });
 
-  it('flags a source-title copy when no other locale differs', () => {
+  it('flags a source-title copy when no other locale differs either', () => {
     const job = slotComplete();
     const src = job.title as string;
     job.titleByLocale = { de: src, it: src, en: src, fr: src };
     expect(classifyJob(job).incomplete).toBe(true);
+  });
+});
+
+describe('log-translation-stats.mjs — single implementation, not two copies (#5593 item1)', () => {
+  const rawSrc = fs.readFileSync(path.join(ROOT, 'scripts/log-translation-stats.mjs'), 'utf-8');
+  // Comments are allowed to name the historical `othersDiffer` pattern (this
+  // file's own header does, to explain what drifted and why); only CODE must
+  // never re-derive it. Same stripComments approach as the block below.
+  const codeSrc = rawSrc.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+
+  it('imports the canonical isIncomplete from relocalize-pending-jobs.mjs', () => {
+    expect(rawSrc).toMatch(/import\s*\{\s*isIncomplete[^}]*\}\s*from\s*['"]\.\/relocalize-pending-jobs\.mjs['"]/);
+  });
+
+  it('does not re-derive its own cross-locale "othersDiffer" escape hatch in code', () => {
+    // The exact pattern that drifted: iterating LOCALES a second time to ask
+    // "does some OTHER non-source locale differ from the source title" is the
+    // duplicated judgment call that caused #5593 item1. Any reappearance of
+    // that IDENTIFIER in code (not prose) — independent of
+    // relocalize-pending-jobs.mjs — is the regression this guards against.
+    expect(codeSrc).not.toMatch(/othersDiffer/);
   });
 });
 

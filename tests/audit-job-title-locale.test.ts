@@ -145,6 +145,68 @@ describe('audit-job-title-locale — pure core', () => {
   });
 });
 
+/**
+ * #5587 item2 — the audit had no per-slot count of gender trigraphs left in a
+ * non-locale form, even though the masking/localizing infrastructure that
+ * would fix them (scripts/lib/translation-glossary.mjs) already existed from
+ * #5562/#5571. This is a SEPARATE dimension from `flagged`/`untranslated`
+ * above: a title can pass the language check and still carry a raw "(m/w/d)".
+ */
+describe('audit-job-title-locale — gender trigraph per-slot count (#5587 item2)', () => {
+  /** A DE-source job with a raw German trigraph left in the IT slot. */
+  const trigraphJob = {
+    slug: 'leiter-umweltlabor',
+    company: 'Umweltlabor AG',
+    location: 'Aarau',
+    canton: 'AG',
+    sourceLang: 'de',
+    titleByLocale: {
+      de: 'Leiter Umweltlabor (m/w/d)',
+      it: 'Responsabile Laboratorio Ambientale (m/w/d)', // raw German pair — not localized
+      en: 'Environmental Lab Manager (m/f/d)', // already the correct EN form
+      fr: 'Responsable Laboratoire Environnemental', // no trigraph at all
+    },
+  };
+
+  it('counts a raw (m/w/d) left in a non-German slot as unlocalized', () => {
+    const report = auditJobTitles([trigraphJob]);
+    expect(report.genderTrigraph.slots).toBe(3); // it/en/fr — de is the source slot
+    expect(report.genderTrigraph.flagged).toBe(1); // only it
+    expect(report.genderTrigraph.byTargetLocale.it).toMatchObject({ slots: 1, flagged: 1 });
+    expect(report.genderTrigraph.byTargetLocale.en).toMatchObject({ slots: 1, flagged: 0 });
+    expect(report.genderTrigraph.byTargetLocale.fr).toMatchObject({ slots: 1, flagged: 0 });
+  });
+
+  it('does not conflate the trigraph count with the untranslated-language count', () => {
+    // The IT slot above is a genuinely correct Italian translation of the
+    // title (titleLooksUntranslated must NOT flag it) — the trigraph count is
+    // the only signal that catches the leftover "(m/w/d)".
+    const report = auditJobTitles([trigraphJob]);
+    expect(report.flagged).toBe(0);
+    expect(report.genderTrigraph.flagged).toBe(1);
+  });
+
+  it('does not flag a slot whose trigraph is already in the correct locale form', () => {
+    const report = auditJobTitles([
+      { ...trigraphJob, titleByLocale: { ...trigraphJob.titleByLocale, it: 'Responsabile Laboratorio Ambientale (m/f/d)' } },
+    ]);
+    expect(report.genderTrigraph.flagged).toBe(0);
+  });
+
+  it('does not flag a slot with no trigraph at all', () => {
+    const report = auditJobTitles([cleanJob]);
+    expect(report.genderTrigraph.flagged).toBe(0);
+    expect(report.genderTrigraph.slots).toBe(3);
+  });
+
+  it('reports a rate alongside the count, consistent with the rest of the audit', () => {
+    const report = auditJobTitles([trigraphJob, cleanJob]);
+    expect(report.genderTrigraph.slots).toBe(6);
+    expect(report.genderTrigraph.flagged).toBe(1);
+    expect(report.genderTrigraph.rate).toBeCloseTo(1 / 6, 6);
+  });
+});
+
 describe('job-title-locale-audit.yml — issue contract', () => {
   it('opens exactly one stable metric title', () => {
     expect(ISSUE_TITLE, 'no non-failure issue opener found in the workflow').toBeTruthy();

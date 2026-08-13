@@ -87,11 +87,71 @@ const CONCATENATED_WORD_MIN_LEN = { it: 15, fr: 16, en: 16 };
 const LETTER_TOKEN_RE = /^[a-zà-öø-ÿ]+$/i;
 
 /**
+ * Legitimate long single-WORD professional terms that would otherwise trip
+ * the length-only heuristic below. Normalized (diacritics stripped, case
+ * folded) so "kinésithérapeute" / "KINESITHERAPEUTE" / "Kinesitherapeute" all
+ * match the same entry.
+ *
+ * Why a closed allowlist and not a wider/looser length threshold (#5593):
+ * `CONCATENATED_WORD_MIN_LEN.fr = 16` false-positived on "kinésithérapeute"
+ * and "physiothérapeute" — both EXACTLY 16 letters, both real, frequent job
+ * titles in this corpus (see tests/fixtures/title-locale-corpus.json, which
+ * already carries live "PHYSIOTHERAPEUTE" titles). Raising the number would
+ * only move the false-positive to the next casualty ("ergothérapeute" is 15,
+ * "psychomotricien" is 15, "orthophoniste" is 13 — but
+ * "audioprothésiste"/"audioprothesiste" is 16 and "psychothérapeute" is 16
+ * too) — the healthcare/therapy vocabulary this jobs board indexes is full of
+ * siblings at exactly the same length as the two reported here, so a numeric
+ * bump is not a fix, only a slower-motion repeat of the same bug. A closed,
+ * reviewed list fails differently: a NEW unlisted long word is a silent false
+ * positive same as before, but every ADDITION here is a deliberate, auditable
+ * decision instead of an opaque cutoff. Add to this list as new false
+ * positives are confirmed against a real job title — do not "fix" this by
+ * raising CONCATENATED_WORD_MIN_LEN instead.
+ */
+const LEGITIMATE_LONG_WORDS = new Set([
+  // fr — allied health / therapy professions (gender-neutral -e forms and
+  // explicit -e/-euse/-ien(ne) variants both included)
+  'kinesitherapeute', 'kinesitherapeutes',
+  'physiotherapeute', 'physiotherapeutes',
+  'ergotherapeute', 'ergotherapeutes',
+  'psychotherapeute', 'psychotherapeutes',
+  'psychomotricien', 'psychomotricienne', 'psychomotriciens', 'psychomotriciennes',
+  'orthophoniste', 'orthophonistes',
+  'orthoptiste', 'orthoptistes',
+  'audioprothesiste', 'audioprothesistes',
+  'osteopathe', 'osteopathes',
+  'dieteticien', 'dieteticienne', 'dieteticiens', 'dieteticiennes',
+  'radiologue', 'radiologues',
+  // it — same professions, Italian forms
+  'fisioterapista', 'fisioterapisti', 'fisioterapiste',
+  'logopedista', 'logopedisti', 'logopediste',
+  'psicomotricista', 'psicomotricisti', 'psicomotriciste',
+  'radiologo', 'radiologa', 'radiologhe',
+  // en
+  'physiotherapist', 'physiotherapists',
+  'psychotherapist', 'psychotherapists',
+  'occupationaltherapist', 'occupationaltherapists',
+]);
+
+/** Fold accents and case so the allowlist matches every spelling variant. */
+function normalizeForAllowlist(token) {
+  return String(token || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+}
+
+/**
  * Detects a title where 2+ source words were fused into one unspaced token
  * by a translation pass, instead of translating each word and keeping the
  * spaces. Only checked for locales in CONCATENATED_WORD_MIN_LEN — there is
  * no reliable length/charset split between this defect and a genuine long
  * compound word for other locales (notably German).
+ *
+ * A token that clears the length floor is still exempted when it (or its
+ * hyphen-split part) matches LEGITIMATE_LONG_WORDS above — see that constant
+ * for why this is a curated list rather than a higher number.
  *
  * @param {string} text - candidate title in the target locale
  * @param {string} locale - target locale of `text`
@@ -108,6 +168,8 @@ export function hasConcatenatedWords(text, locale) {
   // each hyphen-joined part must independently clear the length floor.
   return trimmed.split(/\s+/).some((rawToken) => rawToken.split(/[-–—]/).some((part) => {
     const token = part.replace(/[.,;:!?'’"()/]/g, '');
-    return token.length >= minLen && LETTER_TOKEN_RE.test(token);
+    if (token.length < minLen || !LETTER_TOKEN_RE.test(token)) return false;
+    if (LEGITIMATE_LONG_WORDS.has(normalizeForAllowlist(token))) return false;
+    return true;
   }));
 }
