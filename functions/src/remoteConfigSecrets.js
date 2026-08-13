@@ -14,6 +14,16 @@ const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 let cachedTemplate = null;
 let cacheTimestamp = 0;
 
+// In-flight getTemplate() promise, coalesced across concurrent callers on a
+// cold/expired cache (#5766). Without this, a Promise.all of several
+// getRemoteConfigValue() calls each sees no cached template and fires its
+// own getTemplate(), multiplying the Remote Config read cost per cold start
+// by the number of concurrent readers — enough to trip the project-wide
+// 'Read requests per minute' quota and 500 exchange_auth_code. Cleared in
+// `finally` on both success and rejection so a failed fetch never stays
+// stuck: the next call retries fresh instead of awaiting a dead promise.
+let fetchPromise = null;
+
 /**
  * Fetch a Remote Config parameter value by key.
  * Returns empty string if the key doesn't exist.
@@ -21,9 +31,19 @@ let cacheTimestamp = 0;
 export async function getRemoteConfigValue(key) {
  const now = Date.now();
  if (!cachedTemplate || now - cacheTimestamp > CACHE_TTL_MS) {
- const rc = getRemoteConfig();
- cachedTemplate = await rc.getTemplate();
- cacheTimestamp = now;
+ if (!fetchPromise) {
+ fetchPromise = getRemoteConfig()
+ .getTemplate()
+ .then((template) => {
+ cachedTemplate = template;
+ cacheTimestamp = Date.now();
+ return template;
+ })
+ .finally(() => {
+ fetchPromise = null;
+ });
+ }
+ await fetchPromise;
  }
 
  const param = cachedTemplate.parameters?.[key];
