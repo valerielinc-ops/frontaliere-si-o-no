@@ -2482,6 +2482,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mucche-svizzere-canica.title': 'Wie Schweizer Kühe mit der Hitzewelle umgehen',
     'blog.article.mucche-svizzere-canica.excerpt': 'Schweizer Bauernhöfe versuchen, den Hitzestress der Kühe mit innovativen Lösungen abzubauen.',
     'blog.article.mucche-svizzere-canica.imageAlt': 'Schweizer Kühe suchen Schatten unter einem Baum während der Hitzewelle.',
+    'blog.article.mercati-affitti-cantone-berna.title': 'Mietmärkte im Kanton Bern: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercati-affitti-cantone-berna.excerpt': 'Der Mietmarkt im Kanton Bern: Was ändert sich im Leben derer, die in der Schweiz leben oder arbeiten?',
+    'blog.article.mercati-affitti-cantone-berna.imageAlt': 'Der Mietmarkt im Kanton Bern: Was ändert sich im Leben von denen, die in der Schweiz leben oder arbeiten?',
 };
 
 export default blogMetaChDe;

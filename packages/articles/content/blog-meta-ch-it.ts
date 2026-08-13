@@ -2482,6 +2482,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mucche-svizzere-canica.title': 'Come le mucche svizzere affrontano la canicola',
     'blog.article.mucche-svizzere-canica.excerpt': 'Le aziende agricole svizzere stanno cercando di alleviare lo stress da caldo delle mucche con soluzioni innovative.',
     'blog.article.mucche-svizzere-canica.imageAlt': 'Mucche svizzere cercano refrigerio all\'ombra di un albero durante la canicola estiva.',
+    'blog.article.mercati-affitti-cantone-berna.title': 'Mercati degli affitti nel Cantone di Berna: canoni medi e diritto di locazione',
+    'blog.article.mercati-affitti-cantone-berna.excerpt': 'Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?',
+    'blog.article.mercati-affitti-cantone-berna.imageAlt': 'Il mercato degli affitti nel Cantone di Berna: cosa cambiare nella vita di chi vive o lavora in Svizzera?',
 };
 
 export default blogMetaChIt;

@@ -2482,6 +2482,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mucche-svizzere-canica.title': 'How Swiss cows cope with the heatwave',
     'blog.article.mucche-svizzere-canica.excerpt': 'Swiss farms are trying to alleviate the heat stress of cows with innovative solutions.',
     'blog.article.mucche-svizzere-canica.imageAlt': 'Swiss cows seek shade under a tree during the heatwave.',
+    'blog.article.mercati-affitti-cantone-berna.title': 'Rental markets in the Canton of Bern: average fees and rental rights',
+    'blog.article.mercati-affitti-cantone-berna.excerpt': 'The rental market in the Canton of Bern: what to change in the lives of those who live or work in Switzerland?',
+    'blog.article.mercati-affitti-cantone-berna.imageAlt': 'The rental market in the Canton of Bern: what changes in the life of those living or working in Switzerland?',
 };
 
 export default blogMetaChEn;
