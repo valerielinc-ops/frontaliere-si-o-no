@@ -2404,6 +2404,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avvistamento-cicogne-bianche-castione.title': 'Avvistamento di cicogne bianche a Castione',
     'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'Uno stormo di circa cinquanta cicogne è stato osservato a Castione. Ficedula analizza il fenomeno migratorio e le prospettive di nidificazione in Ticino.',
     'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'Cicogne bianche appollaiate sui tetti a Castione',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.title': 'Esperimento di materia oscura sotto Sedrun',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.excerpt': 'Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun.',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.imageAlt': 'Esperimento di fisica quantistica nel pozzo di 800 metri a Sedrun',
 };
 
 export default blogMetaChIt;

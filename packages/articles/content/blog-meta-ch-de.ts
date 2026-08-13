@@ -2404,6 +2404,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avvistamento-cicogne-bianche-castione.title': 'Sichtung von Weißstörchen in Castione',
     'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'In Castione wurde eine Herde von etwa fünfzig Störchen beobachtet. Ficedula analysiert das Migrationsphänomen und die Nistperspektiven im Tessin.',
     'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'Weißstörche auf den Dächern in Castione',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.title': 'Dunkle-Materie-Experiment unter Sedrun',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.excerpt': 'Ein quantenphysikalisches Experiment könnte bald in der 800 Meter hohen Grube in Sedrun durchgeführt werden.',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.imageAlt': 'Experiment in Sedrun',
 };
 
 export default blogMetaChDe;

@@ -2404,6 +2404,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avvistamento-cicogne-bianche-castione.title': 'Observation de cigognes blanches à Castione',
     'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'Une foule d\'une cinquantaine de cigognes a été observée à Castione. Ficedula analyse le phénomène migratoire et les perspectives de nidification au Tessin.',
     'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'Cigognes blanches perchées sur les toits à Castione',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.title': 'Expérience de matière noire sous Sedrun',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.excerpt': 'Une expérience de physique quantique pourrait bientôt être menée dans le puits de 800 mètres à Sedrun.',
+    'blog.article.esperimento-materia-oscura-sotto-sedrun.imageAlt': 'Experiment en Sedrun',
 };
 
 export default blogMetaChFr;

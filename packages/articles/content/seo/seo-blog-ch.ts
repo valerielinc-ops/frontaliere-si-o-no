@@ -31139,6 +31139,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esperimento-materia-oscura-sotto-sedrun': {
+    title: 'Esperimento di materia oscura sotto Sedrun | Frontaliere Ticino',
+    description: 'Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esperimento, materia, oscura, sotto',
+    ogTitle: 'Esperimento di materia oscura sotto Sedrun',
+    ogDescription: 'Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun.',
+    canonicalPath: '/articoli-svizzera/esperimento-materia-oscura-sotto-sedrun/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esperimento di materia oscura sotto Sedrun",
+      "description": "Un esperimento di fisica quantistica potrebbe presto essere condotto nel pozzo di 800 metri a Sedrun. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esperimento-materia-oscura-sotto-sedrun.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esperimento di fisica quantistica nel pozzo di 800 metri a Sedrun"
+      },
+      "datePublished": "2026-08-13T01:19:55+00:00",
+      "dateModified": "2026-08-13T01:19:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esperimento-materia-oscura-sotto-sedrun/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
