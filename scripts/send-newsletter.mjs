@@ -48,7 +48,7 @@ import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
-import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, shouldWrapAuthenticatedHref } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, isOwnRewritableHref } from '../services/newsletterUrls.mjs';
 import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
@@ -676,7 +676,16 @@ async function generateAISubject(ctx) {
 // with the win-back/sunset runner and the welcome email so the autologin HMAC
 // scheme and the wrapping rules can't drift. Deterministic, never-expiring; the
 // client exchanges the code for a fresh token via Cloud Function.
-const shouldWrapNewsletterHref = shouldWrapAuthenticatedHref;
+//
+// isOwnRewritableHref, not shouldWrapAuthenticatedHref (#5725). This filter
+// answers "may this href be rewritten at all", and it stays wide so every
+// on-site link keeps its utm_medium/utm_campaign — GA4's Email channel grouping
+// keys on utm_medium and narrowing this would move the whole newsletter into
+// `direct`. WHETHER a link gets the `ne`/`ac` pair is no longer decided here at
+// all: makeAuthenticatedUrl checks the fail-closed perimeter itself, so the
+// weekly briefing's article/hub/tool/home links come out with attribution and
+// no credential, and only the footer preferences + ?action= links keep one.
+const shouldWrapNewsletterHref = isOwnRewritableHref;
 
 async function personalizeHtmlForRecipient(email, html) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];

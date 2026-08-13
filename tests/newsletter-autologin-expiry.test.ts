@@ -544,7 +544,12 @@ describe('every minter reaches the policy — including the one inside Cloud Fun
   const fnDir = path.join(__dirname, '..', 'functions', 'src');
 
   it('wrapAuthenticatedHrefs mints in the scheme it is given, not the ambient one', () => {
-    const html = '<a href="https://frontaliereticino.ch/lavoro/">x</a>';
+    // The fixture href must be INSIDE the autologin perimeter (#5725), or there
+    // is no `ac` to inspect and this test would pass vacuously in one direction
+    // and fail in the other for a reason that has nothing to do with the scheme.
+    // `/lavoro/` used to be here and stopped carrying a credential the moment the
+    // rule became an allowlist — which is the change working, not a regression.
+    const html = '<a href="https://frontaliereticino.ch/preferenze-newsletter/?email=x">x</a>';
     const legacyOut = wrapAuthenticatedHrefs(html, EMAIL, { secret: SECRET });
     const v1Out = wrapAuthenticatedHrefs(html, EMAIL, { secret: SECRET, scheme: 'v1' });
     expect(/ac=[0-9a-f]{64}/.test(legacyOut)).toBe(true);
