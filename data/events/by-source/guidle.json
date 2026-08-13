@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-12T07:17:46.727Z",
+  "assembledAt": "2026-08-13T07:20:56.741Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -5044,43 +5044,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AAFMg2Y.jpg"
-    },
-    {
-      "id": "guidle:AXCN7Jy",
-      "title": "DEICIDE (US)",
-      "titleByLocale": {
-        "it": "DEICIDE (US)",
-        "en": "DEICIDE (US)",
-        "de": "DEICIDE (US)",
-        "fr": "DEICIDE (US)"
-      },
-      "description": "Die Stärke von DEICIDE liegt in der Fähigkeit, zugängliche Songstrukturen mit kompromissloser Brutalität im Death Metal zu verbinden.",
-      "descriptionByLocale": {
-        "it": "Die Stärke von DEICIDE liegt in der Fähigkeit, zugängliche Songstrukturen mit kompromissloser Brutalität im Death Metal zu verbinden.",
-        "en": "Die Stärke von DEICIDE liegt in der Fähigkeit, zugängliche Songstrukturen mit kompromissloser Brutalität im Death Metal zu verbinden.",
-        "de": "Die Stärke von DEICIDE liegt in der Fähigkeit, zugängliche Songstrukturen mit kompromissloser Brutalität im Death Metal zu verbinden.",
-        "fr": "Die Stärke von DEICIDE liegt in der Fähigkeit, zugängliche Songstrukturen mit kompromissloser Brutalität im Death Metal zu verbinden."
-      },
-      "startDate": "2026-08-12",
-      "endDate": "2026-08-12",
-      "startTime": "19:30",
-      "category": "Metal / Hardcore",
-      "venue": "KiFF - Kultur in der Futterfabrik",
-      "comune": "Aarau",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/deicide-us_AXCN7Jy",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Tellistrasse 118",
-        "postalCode": "5000"
-      },
-      "geo": {
-        "lat": 47.3985618,
-        "lng": 8.0647273
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AXCN7Jy.jpg"
     },
     {
       "id": "guidle:AcTf6rt",
@@ -12505,6 +12468,460 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AmXCPtJ.jpg"
+    },
+    {
+      "id": "guidle:AygJPWx",
+      "title": "Public Tour «Pierre Huyghe» (in German)",
+      "titleByLocale": {
+        "en": "Public Tour «Pierre Huyghe» (in German)",
+        "fr": "Visite accompagnée « Pierre Huyghe » (en allemand)",
+        "it": "Tour pubblico «Pierre Huyghe» (in tedesco)",
+        "de": "Öffentliche Führung «Pierre Huyghe»"
+      },
+      "description": "This public tour enables visitors to explore the current exhibition at the Fondation Beyeler in greater depth.",
+      "descriptionByLocale": {
+        "en": "This public tour enables visitors to explore the current exhibition at the Fondation Beyeler in greater depth.",
+        "fr": "Les visites accompagnées vous permettent de découvrir de manière approfondie l’exposition en cours à la Fondation Beyeler, en compagnie d’un.e membre de notre équipe de médiation.",
+        "it": "Questo tour pubblico consente ai visitatori di esplorare l'attuale mostra alla Fondation Beyeler in modo più approfondito.",
+        "de": "Diese öffentliche Führung ermöglicht es den Besuchern, die aktuelle Ausstellung in der Fondation Beyeler genauer zu erkunden."
+      },
+      "startDate": "2026-08-14",
+      "endDate": "2026-09-11",
+      "startTime": "15:00",
+      "category": "Guided tour art museum",
+      "venue": "Fondation Beyeler",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.guidle.com/en/veranstaltungen/klassisch/riehen/oeffentlicher-ausstellungsrundgang-pierre-huyghe-de_AygJPWx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Baselstrasse 101",
+        "postalCode": "4125"
+      },
+      "geo": {
+        "lat": 47.587166,
+        "lng": 7.6508354
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AygJPWx.jpg"
+    },
+    {
+      "id": "guidle:AdwpwJe",
+      "title": "Märchen & Orgel am Jahrmarkt",
+      "titleByLocale": {
+        "it": "Märchen & Orgel am Jahrmarkt",
+        "en": "M Org",
+        "de": "M ①rchen & Orgel am ⑤ahrmarkt",
+        "fr": "M Organisme"
+      },
+      "description": "Der Friedensvogel und der Zauberfisch werden frei erzählt, dazu spielt die Orgel",
+      "descriptionByLocale": {
+        "it": "Der Friedensvogel und der Zauberfisch werden frei erzählt, dazu spielt die Orgel",
+        "en": "Der Friedensvogel und der Zauberfisch fr",
+        "de": "Der Friedensvogel und der Zauberfischmehrerden frei erzmehrhlt, dazu Spiel die Orgel",
+        "fr": "Le Friedensvogel et le Zauberfisch se déroulent librement, car ils jouent à l'Orgel"
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-04",
+      "startTime": "14:00",
+      "category": "Favola / Storie",
+      "venue": "Reformierte Kirche Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/baden/maerchen-und-orgel-am-jahrmarkt_AdwpwJe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Oelrainstrasse 21",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.477156,
+        "lng": 8.309562
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AdwpwJe.jpg"
+    },
+    {
+      "id": "guidle:A6HJbVc",
+      "title": "Kunstraum Kaffee in Kreuzlingen",
+      "titleByLocale": {
+        "it": "Kunstraum Kaffee in Kreuzlingen",
+        "en": "Kunstraum Kaffee in Kreuzlingen",
+        "de": "Kunstraum Kaffee in Kreuzlingen",
+        "fr": "Kunstraum Kaffee à Kreuzlingen"
+      },
+      "description": "Ein Treffpunkt zum Verweilen und Austauschen im Foyer des Kunstraums",
+      "descriptionByLocale": {
+        "it": "Ein Treffpunkt zum Verweilen und Austauschen im Foyer des Kunstraums",
+        "en": "Ein Treffpunkt zum Vereilen und Austauschen im Foer des Kunstraums",
+        "de": "Ein Treffpunkt zum Ver ander und Austauschen im Fo ander des Kunstraums",
+        "fr": "Un treffpunkt zum Verweilen et Austauschen im Foyer des Kunstraums"
+      },
+      "startDate": "2026-09-01",
+      "endDate": "2026-10-27",
+      "startTime": "10:00",
+      "category": "L'arte in generale",
+      "venue": "Kunstraum",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/kreuzlingen/kunstraum-kaffee-in-kreuzlingen_A6HJbVc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bodanstrasse 7 a",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6511186,
+        "lng": 9.1752687
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A6HJbVc.jpg"
+    },
+    {
+      "id": "guidle:AKvi89g",
+      "title": "Festival Musikdorf Ernen",
+      "titleByLocale": {
+        "it": "Festival Musikdorf Ernen",
+        "en": "Ernen Musikdorf Festival",
+        "de": "Musikdorf Ernen Festival",
+        "fr": "Festival Musikdorf Ernen"
+      },
+      "description": "Da più di tre decenni, grazie ai concerti dati in estate, ai corsi impartiti dai maestri e alle differenti manifestazioni nel campo della musica classica, Ernen vede crescere continuamente il suo successo presso il pubblico e i media.",
+      "descriptionByLocale": {
+        "it": "Da più di tre decenni, grazie ai concerti dati in estate, ai corsi impartiti dai maestri e alle differenti manifestazioni nel campo della musica classica, Ernen vede crescere continuamente il suo successo presso il pubblico e i media.",
+        "en": "53rd Concert Season | Flow",
+        "de": "53. Konzertsaison | Im Flow",
+        "fr": "53e saison de concerts | Dans le flux"
+      },
+      "startDate": "2026-08-13",
+      "endDate": "2026-11-20",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/classique/ernen/festival-musikdorf-ernen_AKvi89g",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AKvi89g.jpg"
+    },
+    {
+      "id": "guidle:AXPkh3d",
+      "title": "City Special - Frühabendmusik",
+      "titleByLocale": {
+        "it": "City Special - Frühabendmusik",
+        "en": "City Special - Frühabendmusik",
+        "de": "City Special - Frühabendmusik",
+        "fr": "City Special - Frühabendmusik"
+      },
+      "description": "Frühabendmusik - Ein Konzert zur Einstimmung in den Feierabend. Virtuose und abwechslungsreiche Musik.",
+      "descriptionByLocale": {
+        "it": "Frühabendmusik - Ein Konzert zur Einstimmung in den Feierabend. Virtuose und abwechslungsreiche Musik.",
+        "en": "Frühabendmusik - Ein Konzert zur Einstimmung in den Feierabend. Virtuose und abwechslungsreiche Musik.",
+        "de": "Frühabendmusik - Ein Konzert zur Einstimmung in den Feierabend. Virtuose und abwechslungsreiche Musik.",
+        "fr": "Frühabendmusik - Ein Konzert zur Einstimmung in den Feierabend. Virtuose und abwechslungsreiche Musik."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "18:30",
+      "category": "Musica per piano / organo",
+      "venue": "Christ.-kath. Augustinerkirche",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/zuerich/konzert-klassik/city-special-fruehabendmusik_AXPkh3d",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Münzplatz 3",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3713664,
+        "lng": 8.539403
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:ALj4LPM",
+      "title": "22° Festival di San Gallo",
+      "titleByLocale": {
+        "it": "22° Festival di San Gallo",
+        "en": "22nd St. Gallen Festival",
+        "de": "22. St.Galler Festspiele",
+        "fr": "22e Festival de Saint-Gall"
+      },
+      "description": "Il Festival di San Gallo rappresenta il momento clou della stagione.",
+      "descriptionByLocale": {
+        "it": "Il Festival di San Gallo rappresenta il momento clou della stagione.",
+        "en": "The St. Gallen Festival is the highlight of the season.",
+        "de": "Die St.Galler Festspiele bilden das Saison-Highlight der Spielzeit.",
+        "fr": "Le Festival de Saint-Gall constitue le temps fort de la saison."
+      },
+      "startDate": "2027-06-13",
+      "endDate": "2027-07-11",
+      "startTime": "00:00",
+      "category": "Genere drammativo",
+      "venue": "Theater St. Gallen",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/st-gallen/18-ronk-festivalu-v-sankt-gallenu_ALj4LPM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Museumstrasse 24",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4269542,
+        "lng": 9.3806012
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ALj4LPM.jpg"
+    },
+    {
+      "id": "guidle:Ay8fZdS",
+      "title": "Art Basel",
+      "titleByLocale": {
+        "it": "Art Basel",
+        "en": "Art Basel",
+        "de": "Art Basel",
+        "fr": "Art Basel"
+      },
+      "description": "La più importante fiera mondiale del mercato internazionale dell'arte del XX e XXI secolo.",
+      "descriptionByLocale": {
+        "it": "La più importante fiera mondiale del mercato internazionale dell'arte del XX e XXI secolo.",
+        "en": "The most important world fair of the international art market for 20th & 21st century art.",
+        "de": "Die wichtigste Weltmesse des internationalen Kunstmarktes für Kunst des 20. & 21. Jahrhunderts.",
+        "fr": "La plus importante foire mondiale du marché de l'art international pour l'art des 20e & 21e siècles."
+      },
+      "startDate": "2027-06-17",
+      "endDate": "2027-06-20",
+      "startTime": "11:00",
+      "category": "L'arte in generale",
+      "venue": "Messe Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/basel/art-basel_Ay8fZdS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Messeplatz 21",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5624806,
+        "lng": 7.5992528
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Ay8fZdS.jpg"
+    },
+    {
+      "id": "guidle:AGZXgUn",
+      "title": "30. Internationales Bildhauer-Symposium",
+      "titleByLocale": {
+        "it": "30. Internationales Bildhauer-Symposium",
+        "en": "30. Internationales Bildhauer-Symposium",
+        "de": "33. Internationales Bildhauer-Symposium",
+        "fr": "30. Internationales Bildhauer-Symposium"
+      },
+      "description": "33° Simposio internazionale di scultura. Diversi artisti realizzano le loro opere d'arte in legno e marmo. Camping Sur En.",
+      "descriptionByLocale": {
+        "it": "33° Simposio internazionale di scultura. Diversi artisti realizzano le loro opere d'arte in legno e marmo. Camping Sur En.",
+        "en": "33rd International Sculpture Symposium. Various artists create their works of art from wood and marble. Camping Sur En.",
+        "de": "33. Internationales Bildhauer-Symposium. Verschiedene Kunstschaffende erstellen ihre Kunstwerke aus Holz und Marmor. Camping Sur En.",
+        "fr": "33e Symposium international de sculpture. Divers artistes réalisent leurs œuvres d'art en bois et en marbre. Camping Sur En."
+      },
+      "startDate": "2027-06-14",
+      "endDate": "2027-06-20",
+      "startTime": "00:00",
+      "category": "L'arte in generale",
+      "venue": "Camping Sur En",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/sent/30-internationales-bildhauer-symposium_AGZXgUn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Sur En",
+        "postalCode": "7554"
+      },
+      "geo": {
+        "lat": 46.8186545,
+        "lng": 10.3662886
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AGZXgUn.jpg"
+    },
+    {
+      "id": "guidle:ABKgX8b",
+      "title": "klang-Sommergenuss",
+      "titleByLocale": {
+        "it": "klang-Sommergenuss",
+        "en": "klang-Sommergenuss",
+        "de": "klang-Sommergenuss",
+        "fr": "klang-Sommergenuss"
+      },
+      "description": "klang-Sommergenuss",
+      "descriptionByLocale": {
+        "it": "klang-Sommergenuss",
+        "en": "klang-Sommergenuss",
+        "de": "klang-Sommergenuss",
+        "fr": "klang-Sommergenuss"
+      },
+      "startDate": "2027-06-17",
+      "endDate": "2028-06-18",
+      "startTime": "00:00",
+      "category": "Musica da Camera",
+      "venue": "St. Charles Hall",
+      "comune": "Meggen",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/meggen/klang-sommer_ABKgX8b",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Benzeholzstrasse 41",
+        "postalCode": "6045"
+      },
+      "geo": {
+        "lat": 47.044795,
+        "lng": 8.3767207
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ABKgX8b.jpg"
+    },
+    {
+      "id": "guidle:AVu5Lhx",
+      "title": "Moving Art im Kunst Museum Winterthur - Workshop",
+      "titleByLocale": {
+        "it": "Moving Art im Kunst Museum Winterthur - Workshop",
+        "en": "Moving Art at Kunst Museum Winterthur - Workshop",
+        "de": "Moving Art im Kunst Museum Winterthur - Workshop",
+        "fr": "Moving Art im Kunst Museum Winterthur - Workshop"
+      },
+      "description": "Der bewegende Workshop im Kunst Museum Winterthur, der ein persönliches und neuartiges Erlebnis mit Kunstwerken verspricht.",
+      "descriptionByLocale": {
+        "it": "Der bewegende Workshop im Kunst Museum Winterthur, der ein persönliches und neuartiges Erlebnis mit Kunstwerken verspricht.",
+        "en": "The moving workshop at the Kunst Museum Winterthur promises a personal and surprising experience with works of art.",
+        "de": "Der bewegende Workshop im Kunst Museum Winterthur, der ein persönliches und neuartiges Erlebnis mit Kunstwerken verspricht.",
+        "fr": "Der bewegende Workshop im Kunst Museum Winterthur, der ein persönliches und neuartiges Erlebnis mit Kunstwerken verspricht."
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-11-08",
+      "startTime": "17:30",
+      "category": "L'arte in generale",
+      "venue": "Kunst Museum Winterthur | Reinhart am Stadtgarten",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/classical/winterthur/moving-art-at-kunst-museum-winterthur-workshop_AVu5Lhx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stadthausstrasse 6",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.500501,
+        "lng": 8.7290059
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AVu5Lhx.jpg"
+    },
+    {
+      "id": "guidle:AXJJHyc",
+      "title": "Camerata Pontresina 2026",
+      "titleByLocale": {
+        "it": "Camerata Pontresina 2026",
+        "en": "Camerata Pontresina",
+        "de": "Camerata Pontresina 2026",
+        "fr": "Camerata Pontresina 2026"
+      },
+      "description": "Tägliche Morgenkonzerte vom 14. Juni bis 13. September 2026",
+      "descriptionByLocale": {
+        "it": "Tägliche Morgenkonzerte vom 14. Juni bis 13. September 2026",
+        "en": "Daily morning concerts from 15 June to 14 September 2025",
+        "de": "Tägliche Morgenkonzerte vom 14. Juni bis 13. September 2026",
+        "fr": "Tägliche Morgenkonzerte vom 14. Juni bis 13. September 2026"
+      },
+      "startDate": "2026-08-13",
+      "endDate": "2026-09-13",
+      "startTime": "11:00",
+      "category": "Musica da Camera",
+      "venue": "Taiswald",
+      "comune": "Pontresina",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/classical/pontresina/camerata-pontresina_AXJJHyc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "7504"
+      },
+      "geo": {
+        "lat": 46.4929957,
+        "lng": 9.9024964
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AXJJHyc.jpg"
+    },
+    {
+      "id": "guidle:AbHDkMJ",
+      "title": "KunstKaffee",
+      "titleByLocale": {
+        "it": "KunstKaffee",
+        "en": "KunstKaffee",
+        "de": "KunstKaffee",
+        "fr": "KunstKaffee"
+      },
+      "description": "Arte, caffè e dolci con il cuore - una volta al mese al KunstKaffee organizzato dall'associazione Salz in der Suppe. Un luogo di scambio, divertimento e incontro, con arte in continua evoluzione e un pizzico di anticonformismo.",
+      "descriptionByLocale": {
+        "it": "Arte, caffè e dolci con il cuore - una volta al mese al KunstKaffee organizzato dall'associazione Salz in der Suppe. Un luogo di scambio, divertimento e incontro, con arte in continua evoluzione e un pizzico di anticonformismo.",
+        "en": "Art, coffee & cake with heart - once a month at the KunstKaffee by Verein Salz in der Suppe. A place for exchange, enjoyment and encounters - with changing art and a pinch of unconventionality.",
+        "de": "Kunst, Kaffee & Kuchen mit Herz – einmal im Monat im KunstKaffee von Verein Salz in der Suppe. Ein Ort für Austausch, Genuss und Begegnung – mit wechselnder Kunst und einer Prise Unkonventionalität.",
+        "fr": "Art, café & gâteaux avec du cœur - une fois par mois au KunstKaffee de Verein Salz in der Suppe. Un lieu d'échange, de plaisir et de rencontre - avec un art changeant et un brin de non-conventionnalité."
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-09-26",
+      "startTime": "09:00",
+      "category": "L'arte in generale",
+      "venue": "ZwischenRaum",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/evenements/classique/effretikon/kunstkaffee_AbHDkMJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rikonerstrasse 4",
+        "postalCode": "8307"
+      },
+      "geo": {
+        "lat": 47.427923,
+        "lng": 8.686725
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AbHDkMJ.jpg"
     }
   ]
 }
