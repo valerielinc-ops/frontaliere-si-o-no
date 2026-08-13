@@ -9861,6 +9861,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lallarme-di-coldiretti-varese.title': 'Carburanti oltre 2 euro: l\'allarme per imprese e famiglie',
     'blog.article.lallarme-di-coldiretti-varese.excerpt': 'La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all\'intera filiera agroalimentare.',
     'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Il carburante è indispensabile per trattori, falciatrici, mezzi destinati al trasporto degli animali e del foraggio, furgoni refrigerati, consegne e partecipazione ai mercati.',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'La Guardia di Finanza di Varese ha scoperto oltre 50 lavoratori in nero e 10 lavoratori irregolari durante i controlli estivi',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
 };
 
 export default blogMetaIt;

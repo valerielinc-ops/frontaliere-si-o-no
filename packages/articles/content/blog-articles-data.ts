@@ -29568,6 +29568,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero',
+ category: 'pratico',
+ date: '2026-08-13T05:49:12.461Z',
+ image: '/images/blog/la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

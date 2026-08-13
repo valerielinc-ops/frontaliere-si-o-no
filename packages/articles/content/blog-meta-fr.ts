@@ -9862,6 +9862,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lallarme-di-coldiretti-varese.title': 'Carburants de plus de 2 euros : l\'alarme pour les entreprises et les ménages',
     'blog.article.lallarme-di-coldiretti-varese.excerpt': 'La course de l\'essence et du gazole au-delà du seuil de deux euros par litre produit un effet qui est transféré de la pompe aux champs, aux élevages et à l\'ensemble de la chaîne agroalimentaire.',
     'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Le carburant est indispensable pour les tracteurs, les faucheuses, les véhicules de transport d\'animaux et de fourrage, les camions réfrigérés, les livraisons et la participation aux marchés.',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'La Guardia di Finanza de Varèse découvre des travailleurs au noir et irréguliers',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'La Guardia di Finanza de Varese a découvert plus de 50 travailleurs au noir et 10 travailleurs irréguliers lors des contrôles d\'été',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
 };
 
 export default blogMetaFr;

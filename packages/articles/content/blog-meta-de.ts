@@ -9859,6 +9859,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lallarme-di-coldiretti-varese.title': 'Treibstoffe über 2 Euro: der Alarm für Unternehmen und Familien',
     'blog.article.lallarme-di-coldiretti-varese.excerpt': 'Die Fahrt von Benzin und Diesel über die Schwelle von zwei Euro pro Liter erzeugt einen Effekt, der von der Pumpe auf die Felder, die Viehzucht und die gesamte Lebensmittelkette übertragen wird.',
     'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Der Kraftstoff ist für Traktoren, Mähdrescher, Transportfahrzeuge für Tiere und Futter, Kühllieferwagen, Lieferungen und Marktteilnahme unverzichtbar.',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'Die Finanzpolizei von Varese entdeckt Schwarzarbeiter und irreguläre Arbeiter',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'Die Finanzpolizei von Varese hat während der Sommerkontrollen mehr als 50 Schwarzarbeiter und 10 irreguläre Arbeiter entdeckt',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
 };
 
 export default blogMetaDe;
