@@ -2410,6 +2410,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.evaso-bois-mermet.title': 'Evasion de la prison de Bois-Mermet : Pas de danger pour la population',
     'blog.article.evaso-bois-mermet.excerpt': 'Un détenu s\'est évadé de la prison de Bois-Mermet à Lausanne. La police vaudoise s\'assure qu\'il n\'y a pas de danger pour la population.',
     'blog.article.evaso-bois-mermet.imageAlt': 'Un détenu a échappé de la prison de Bois-Mermet',
+    'blog.article.iva-aumento-sicurezza.title': 'IVA per la sicurezza, aumento di 0,5 punto',
+    'blog.article.iva-aumento-sicurezza.excerpt': 'Le gouvernement suisse propose une augmentation de la TVA de 0,5 point de pourcentage pour financer les achats d\'armements.',
+    'blog.article.iva-aumento-sicurezza.imageAlt': 'Augmentation de l\'IVA pour la sécurité : comment elle sera appliquée et ce que cela signifie pour la Suisse.',
 };
 
 export default blogMetaChFr;

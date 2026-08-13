@@ -2410,6 +2410,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.evaso-bois-mermet.title': 'Escape from Bois-Mermet Prison: No danger to the population',
     'blog.article.evaso-bois-mermet.excerpt': 'An inmate escaped from Bois-Mermet prison in Lausanne. The Vodese police ensures that there are no dangers for the population.',
     'blog.article.evaso-bois-mermet.imageAlt': 'A prisoner escaped from Bois-Mermet prison',
+    'blog.article.iva-aumento-sicurezza.title': 'VAT increase for safety: proposed increase of 0.5 percentage points',
+    'blog.article.iva-aumento-sicurezza.excerpt': 'The Swiss Government is proposing an increase in VAT by 0.5 percentage points to finance arms purchases.',
+    'blog.article.iva-aumento-sicurezza.imageAlt': 'IVA increase for security: how it will apply and what it means for Switzerland.',
 };
 
 export default blogMetaChEn;

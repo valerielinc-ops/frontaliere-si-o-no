@@ -7228,6 +7228,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'iva-aumento-sicurezza',
+    category: 'fiscale',
+    date: '2026-08-13T01:33:58.374Z',
+    image: '/images/blog/iva-aumento-sicurezza.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
