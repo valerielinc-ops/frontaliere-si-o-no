@@ -33363,9 +33363,8 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "ict-system-ingegnere-operation-polycom-confederazione-svizzera-bern",
-        "en": "ict-system-ingegnere-operation-polycom-confederazione-svizzera-bern",
-        "de": "ict-system-ingegnere-operation-polycom-confederazione-svizzera-bern",
-        "fr": "ict-system-ingegnere-operation-polycom-confederazione-svizzera-bern"
+        "en": "ict-system-engineer-operation-polycom-confederazione-bern",
+        "de": "ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-san-gallo/ict-system-ingegnere-operation-polycom-confederazione-svizzera-bern",
@@ -33379,6 +33378,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -41940,10 +41940,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "luxury-spa-vorgesetzter-m-w-d-grand-hotel-kronenhof-pontresina",
-        "en": "luxury-spa-vorgesetzter-m-w-d-grand-hotel-kronenhof-pontresina",
+        "en": "luxury-spa-supervisor-m-w-d-grand-hotel-kronenhof-pontresina-655",
+        "it": "luxury-spa-supervisore-m-w-d-grand-hotel-kronenhof-pontresina",
         "de": "luxury-spa-vorgesetzter-m-w-d-grand-hotel-kronenhof-pontresina",
-        "fr": "luxury-spa-vorgesetzter-m-w-d-grand-hotel-kronenhof-pontresina"
+        "fr": "luxury-spa-superviseur-m-w-d-grand-hotel-kronenhof-pontresina"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/luxury-spa-vorgesetzter-m-w-d-grand-hotel-kronenhof-pontresina",
@@ -41957,6 +41957,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
