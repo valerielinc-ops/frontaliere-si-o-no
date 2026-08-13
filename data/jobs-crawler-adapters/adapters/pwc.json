@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-13T10:28:15.859Z",
+  "updatedAt": "2026-08-13T21:52:54.047Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core/9f1d39d1-7967-45b1-ae85-512edece5fe9": {
       "location": "Zurich",
