@@ -2371,6 +2371,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-berna.title': 'Assegni familiari nel Cantone di Berna: importi e domanda',
     'blog.article.assegni-familiari-canton-berna.excerpt': 'Gli assegni familiari nel Cantone di Berna sono gestiti dalle amministrazioni cantonali e richiedono la presentazione di una domanda.',
     'blog.article.assegni-familiari-canton-berna.imageAlt': 'Un frontaliere con il figlio a Lugano',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Iniziativa Servizio civico, i ricorsi sono irricevibili',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'Il Tribunale federale ha stabilito che i ricorsi presentati dai sostenitori dell\'iniziativa \'Per una Svizzera che si impegna\' (Iniziativa Servizio civico) sono irricevibili.',
+    'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'Una persona vota in una scuola di Lugano',
 };
 
 export default blogMetaChIt;
