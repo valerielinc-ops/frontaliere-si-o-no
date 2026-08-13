@@ -66956,6 +66956,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny': {
+    title: '«Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny',
+    description: 'La perizia di Pascal Hinny sull\'accordo sui frontalieri: la tassa sulla salute italiana è un\'imposta sul reddito e viola gli accordi internazionali',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, contraria',
+    ogTitle: '«Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny',
+    ogDescription: 'La perizia di Pascal Hinny sull\'accordo sui frontalieri: la tassa sulla salute italiana è un\'imposta sul reddito e viola gli accordi internazionali',
+    canonicalPath: '/articoli-frontaliere/tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "«Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny",
+      "description": "La perizia di Pascal Hinny sull'accordo sui frontalieri: la tassa sulla salute italiana è un'imposta sul reddito e viola gli accordi internazionali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lago-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: «Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny"
+      },
+      "datePublished": "2026-08-13T09:21:24+00:00",
+      "dateModified": "2026-08-13T09:21:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

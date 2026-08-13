@@ -23,6 +23,7 @@ import { resolveAutologinPolicy } from './lib/autologinCode.js';
 import { resolveNewsletterTokenPolicy } from './lib/newsletterActionToken.js';
 import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
+import { hasConfirmationProof } from './lib/subscriberConsent.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
 import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
@@ -134,12 +135,31 @@ function evaluateWelcomeEligibility(data, isPreview) {
   if (isNewsletterExcluded(data?.status) || isNewsletterOptOutBinding(data)) {
     return { ok: false, skipped: 'suppressed' };
   }
-  const isConfirmed = data?.status === 'confirmed' || data?.isActive === true || data?.active === true;
-  if (!isConfirmed) {
+  // THE STAMP, never the word and never the boolean (#5700). This read
+  //
+  //     data?.status === 'confirmed' || data?.isActive === true || data?.active === true
+  //
+  // which is the same OR the daily brief carried before #5694 and the drip
+  // before #5700, and all three disjuncts are states a MACHINE writes: the
+  // 2026-07 recovery pass DEDUCED `confirmed` from the signup origin, and
+  // scripts/mailtrap-suppression-retry.mjs:176 writes `status: 'pending',
+  // isActive: true` as a deliverability re-probe. 550 production documents
+  // (2026-08-13, 8.673 docs) passed it with nothing recording their consent,
+  // and this is the welcome mail — the FIRST thing a fabricated subscriber
+  // would receive.
+  if (!hasConfirmationProof(data)) {
     return { ok: false, skipped: 'not_confirmed' };
   }
   if (!isPreview) {
-    const anchor = toDate(data?.confirmed_at) || toDate(data?.created_at) || toDate(data?.createdAt);
+    // Both spellings, and no `created_at` fallback (#5700). The fallback made a
+    // missing stamp free: a doc with no proof still had an anchor, so the only
+    // thing standing between it and a welcome mail was the OR above. The gate
+    // now guarantees a stamp, so the fallback is unreachable — removed rather
+    // than kept as dead code, because it is what a future relaxation of the
+    // gate would silently re-arm. `confirmedAt` is the camelCase twin the SPA
+    // writer leaves on 458 documents (#5673): reading only the snake_case name
+    // would report `too_old` for a subscriber who had just confirmed.
+    const anchor = toDate(data?.confirmed_at) || toDate(data?.confirmedAt);
     if (!anchor || Date.now() - anchor.getTime() > RECENCY_WINDOW_MS) {
       return { ok: false, skipped: 'too_old' };
     }
