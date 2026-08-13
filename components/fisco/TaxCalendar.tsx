@@ -10,6 +10,7 @@ import Callout from '@/components/shared/Callout';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
+ isNewsletterOptedOut,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
@@ -519,6 +520,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  import('@/services/firebase'),
  ]);
  const db = getFirestore(app);
+ // Sixth sibling of the auto-subscribe guard (App.tsx, hooks/useUserState.ts,
+ // services/authService.ts, PublisherPublishPage.tsx, JobBoard.tsx) and the
+ // same reasoning (#5672): the post-filter in captureNewsletterSubscriber
+ // refuses to promote an opted-out document, but it still runs to completion
+ // and records a subscribe_completed event on the way out. Returning here
+ // skips that write instead of relying on the post-filter alone.
+ if (await isNewsletterOptedOut(db, email)) return;
  await upsertNewsletterSubscriber(db, {
  email,
  name: null,
