@@ -471,7 +471,6 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164948655",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "trainer-at-the-epfl-library-training-specialist-epfl-lausanne",
@@ -484,7 +483,8 @@
           "formatore-presso-la-biblioteca-epfl-specialista-di-formazione-80-epfl-lausanne",
           "formatore-trice-presso-la-biblioteca-dell-epfl-formazioni-specialistiche-80-epfl-lausanne",
           "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
-          "insegnante-presso-la-biblioteca-epfl-specialista-di-formazione-810-epfl-lausanne"
+          "insegnante-presso-la-biblioteca-epfl-specialista-di-formazione-810-epfl-lausanne",
+          "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne"
         ],
         "de": [
           "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-epfl-lausanne",
@@ -506,7 +506,8 @@
         "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
         "trainer-at-epfl-library-training-specialist-80-epfl-lausanne",
         "insegnante-presso-la-biblioteca-epfl-specialista-di-formazione-810-epfl-lausanne",
-        "lehrer-an-der-epfl-bibliothek-ausbildungsfachkraft-810-epfl-lausanne"
+        "lehrer-an-der-epfl-bibliothek-ausbildungsfachkraft-810-epfl-lausanne",
+        "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-19T12:30:14.666Z",
       "salaryMin": 48400,
@@ -521,7 +522,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-426ae9d94d8b",
@@ -1051,14 +1053,14 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164294755",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
-          "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg"
+          "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
+          "postdoctoral-researcher-in-building-technology-epfl-fribourg"
         ],
         "de": [
           "postdoktorandin-fur-bautechnik-epfl-fribourg",
@@ -1082,7 +1084,8 @@
         "postdoktorand-in-gebaudetechnik-epfl-fribourg",
         "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg",
         "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
-        "postdoktorand-in-bautechnologie-epfl-fribourg"
+        "postdoktorand-in-bautechnologie-epfl-fribourg",
+        "postdoctoral-researcher-in-building-technology-epfl-fribourg"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.744Z",
       "salaryMin": 68500,
@@ -1097,7 +1100,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-62faf8b3a417",
@@ -1731,18 +1735,18 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164982155",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "fr": [
-          "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
-        ],
         "de": [
           "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
           "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
           "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
         ],
+        "fr": [
+          "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
+        ],
         "it": [
-          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
+          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve",
+          "postdoctoral-positions-in-computational-neuroscience-ai-epfl-geneve"
         ]
       },
       "previousSlugs": [
@@ -1750,7 +1754,8 @@
         "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
         "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve",
         "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve",
-        "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
+        "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve",
+        "postdoctoral-positions-in-computational-neuroscience-ai-epfl-geneve"
       ],
       "firstSeenAt": "2026-06-25T11:04:10.966Z",
       "salaryMin": 60500,
@@ -1765,7 +1770,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9044b7f240f4",
@@ -2998,11 +3004,11 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1163582855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-doc-epfl-lausanne",
-          "ricercatore-post-dottorato-epfl-lausanne"
+          "ricercatore-post-dottorato-epfl-lausanne",
+          "postdoctoral-researcher-epfl-lausanne"
         ],
         "de": [
           "post-doktorand-epfl-lausanne",
@@ -3022,7 +3028,8 @@
         "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne",
         "postdoktorandischer-forscher-epfl-lausanne",
         "ricercatore-post-dottorato-epfl-lausanne",
-        "postdoktorand-epfl-lausanne"
+        "postdoktorand-epfl-lausanne",
+        "postdoctoral-researcher-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.723Z",
       "salaryMin": 60500,
@@ -3037,7 +3044,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-448d506a8689",
@@ -4033,11 +4041,13 @@
       "previousSlugs": [
         "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
         "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne-255f45",
-        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r"
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r",
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r"
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r",
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
         ],
         "de": [
           "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
@@ -5027,11 +5037,7 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164920855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "it": [
-          "agente-di-collegamento-dell-industria-epfl-lausanne"
-        ],
         "en": [
           "industrial-liaison-officer-epfl-lausanne"
         ],
@@ -5045,6 +5051,10 @@
           "officier-de-liaison-industrielle-epfl-lausanne",
           "agent-de-liaison-avec-l-industrie-epfl-lausanne",
           "responsable-des-relations-avec-l-industrie-epfl-lausanne"
+        ],
+        "it": [
+          "agente-di-collegamento-dell-industria-epfl-lausanne",
+          "industry-liaison-officer-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -5056,7 +5066,8 @@
         "responsable-des-relations-avec-l-industrie-epfl-lausanne",
         "industrieverbindungsbeauftragter-epfl-lausanne",
         "agente-di-collegamento-dell-industria-epfl-lausanne",
-        "verbindungsbeamter-fur-die-industrie-epfl-lausanne"
+        "verbindungsbeamter-fur-die-industrie-epfl-lausanne",
+        "industry-liaison-officer-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-16T13:23:19.745Z",
       "salaryMin": 60500,
@@ -5071,7 +5082,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-779b744e49d0",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-13T10:44:39.634Z",
+  "assembledAt": "2026-08-13T10:02:28.139Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -5976,7 +5976,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5988,7 +5987,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2ea997803c7d",
@@ -8675,7 +8675,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8687,7 +8686,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-449cc81478e8",

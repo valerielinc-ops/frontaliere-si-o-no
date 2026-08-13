@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-24T17:35:43.759Z",
-    "label": "before",
-    "total": 24967,
-    "needsRetranslation": 9723,
-    "suppressed": 41,
-    "incomplete": 169,
-    "complete": 24798,
-    "missingByLocale": {
-      "it": 113,
-      "en": 72,
-      "de": 67,
-      "fr": 100
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 35
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 11
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 6
-      },
-      {
-        "company": "LANDI Aarau-West AG",
-        "pending": 6
-      },
-      {
-        "company": "Jumbo, Division der Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Sulzer",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-24T17:46:21.835Z",
-    "label": "after",
-    "total": 24967,
-    "needsRetranslation": 1120,
-    "suppressed": 40,
-    "incomplete": 169,
-    "complete": 24798,
-    "missingByLocale": {
-      "it": 113,
-      "en": 72,
-      "de": 67,
-      "fr": 100
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 35
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 11
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "IKEA",
-        "pending": 6
-      },
-      {
-        "company": "LANDI Aarau-West AG",
-        "pending": 6
-      },
-      {
-        "company": "Jumbo, Division der Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Sulzer",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-24T23:05:39.417Z",
     "label": "before",
     "total": 24957,
@@ -11505,6 +11391,130 @@
       },
       {
         "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-13T10:24:47.001Z",
+    "label": "before",
+    "total": 26782,
+    "needsRetranslation": 10132,
+    "suppressed": 48,
+    "incomplete": 115,
+    "complete": 26667,
+    "slotsPresent": 26667,
+    "flaggedAmongSlotsPresent": 10046,
+    "verifiedTranslated": 16621,
+    "sourceCopyExcused": 1950,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 46,
+      "en": 35,
+      "de": 57,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 12
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Manor AG",
+        "pending": 7
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-13T12:04:26.946Z",
+    "label": "after",
+    "total": 26782,
+    "needsRetranslation": 10124,
+    "suppressed": 49,
+    "incomplete": 114,
+    "complete": 26668,
+    "slotsPresent": 26668,
+    "flaggedAmongSlotsPresent": 10039,
+    "verifiedTranslated": 16629,
+    "sourceCopyExcused": 1949,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 45,
+      "en": 35,
+      "de": 57,
+      "fr": 52
+    },
+    "topPending": [
+      {
+        "company": "Swiss Medical Network",
+        "pending": 30
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 12
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 9
+      },
+      {
+        "company": "Manor AG",
+        "pending": 7
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
         "pending": 3
       }
     ]

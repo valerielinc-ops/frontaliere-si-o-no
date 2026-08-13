@@ -1,6 +1,6 @@
 {
   "crawlerKey": "richemont",
-  "assembledAt": "2026-08-13T10:28:16.999Z",
+  "assembledAt": "2026-08-13T09:45:10.767Z",
   "jobs": [
     {
       "id": "richemont-7d49e9e9e2fc",
@@ -2112,7 +2112,7 @@
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
         "de": "senior-sales-associate-cartier-geneva",
-        "fr": "senior-sales-associate-richemont-geneva"
+        "fr": "senior-sales-associate-richemont-geneva-n74jn7"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -2235,7 +2235,8 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7"
+          "senior-sales-associate-richemont-geneva-n74jn7",
+          "senior-sales-associate-richemont-geneva"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.473Z",
@@ -5962,10 +5963,10 @@
       "companyDomain": "richemont.com",
       "title": "Anaplan Model Builder",
       "titleByLocale": {
-        "it": "Costruttore di modelli Anaplan",
         "en": "Anaplan Model Builder",
+        "it": "Costruttore di modelli Anaplan",
         "de": "Anaplan Modellbauer",
-        "fr": "Anaplan Model Builder"
+        "fr": "Constructeur de modèles Anaplan"
       },
       "description": "Reference code: JR130201 The story of Cartier is founded on curiosity and passion. For more than 170 years we have embraced a bold, pioneering spirit that continues to inspire our teams across all Métiers from our boutiques to our workshops and corporate offices. Our 10,000+ colleagues of more than 105 nationalities are united by a shared independent spirit and commitment to excellence, striving to continuously enrich our Maison’s heritage by pushing the boundaries of creativity and innovation. As one of the core building block of the Cartier Data Office, Connected Planning is a critical, yet rapidly expending part of our Data ecosystem. The Anaplan model builder has a key role in the development of the solution within the Maison and the maintenance of the models ensuring operational efficiency and business continuity. As a model builder, you will ensure that models used Maison-wide are matching industry standard best practices and delivering the best level of performance and robustness. How will you make an impact? You will have the following responsibilities: Model building Implement best practices for model development, including version control, documentation and technical optimizations. Proactively keep a high level of technical expertise, and stay up to date with latest developments of the Solution. Ensure robustness and perennity of the models. Ensure data integrity, accuracy and reliability within the models. Maintain comprehensive documentation including design specifications, formulas, and assumptions. Maintenance Investigate and resolve issues related to Anaplan models, including data inconsistencies, formula errors, and system performance. Provide support to end-users. New projects Collaborate with business stakeholders from different department of the Maison. Work with project teams to understand their challenges and requirements. Translate them into scalable and efficient Anaplan models. Supporting new projects from the beginning to a successful launch. Collaborate and federate Facilitate the exchanges of experience and best practices among domains, while evaluating the appropriate help based on their specific needs. Actively contribute to the Anaplan community by sharing knowledge, collaborating on projects and driving innovation. \n• Your profile Bachelor's or Master's degree in Engineering, Computer Science, Data Management, or a related field. Proven experience as an Anaplan Model builder and Anaplan Model builder certification are a must. Anaplan Solution Architect certification is a plus. Experience in Supply Chain Experience working with Agile methodologies and management tools (e.g. Jira). Strong analytical and problem-solving skills. Understanding of supply chain processes is a plus. English and French. How do we keep you smiling? You will play an active role into our Transformation journey, working on solutions that individually generate immediate value, but that collectively enrich our data platform, opening the door to further value creation. Similar Jobs SOFTWARE ENGINEER Save Villars Sur Glâne, Switzerland Cartier SUPPLY CHAIN PLANNING INTERN Save Villars Sur Glâne, Switzerland Cartier SUPPLY CHAIN SOLUTIONS ENGINEER INTERN Save Villars Sur Glâne, Switzerland Cartier",
       "descriptionByLocale": {
@@ -5996,21 +5997,6 @@
       "jobReqId": "jr130201",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anaplan-model-builder-richemont-villars-sur-glane",
-        "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anaplan-model-builder-richemont-villars-sur-glane",
-          "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
-        ],
-        "de": [
-          "anaplan-model-builder-richemont-villars-sur-glane"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T10:27:46.150Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -6022,7 +6008,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:27:46.150Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anaplan-model-builder-richemont-villars-sur-glane",
+          "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
+        ],
+        "de": [
+          "anaplan-model-builder-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "anaplan-model-builder-richemont-villars-sur-glane",
+        "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-5d531f1522de",
@@ -13383,7 +13383,7 @@
         "fr": "Group Technology Junior Financial Controller",
         "en": "Group Technology Junior Financial Controller",
         "it": "Group Technology Junior Financial Controller",
-        "de": "Group Technology Junior Financial Controller"
+        "de": "Group Technology Junior Finanzcontroller"
       },
       "description": "Reference code: JR132169 Richemont owns some of the world’s leading luxury goods Maisons, with particular strengths in jewellery, fine watches and premium accessories. Each Maison represents a proud tradition of style, quality and craftsmanship and Richemont seeks to preserve the heritage and identity of each of its Maisons. At the same time, we are committed to innovation and designing new products which are in keeping with our Maisons’ values, through a process of continuous creativity. BACKGROUND Embark on a unique opportunity to actively contribute to the financial landscape of our Group Platforms department. In this transversal role, you will drive essential financial activities, primarily focusing on cost controlling, financial planning, and internal allocation model management. \n• Your responsibilities will be dynamically split, with 70% dedicated to hands-on controlling tasks, working closely with managers to ensure financial rigor, and 30% focused on providing essential support to the wider controlling team, particularly in enhancing data quality and streamlining administrative functions. HOW WILL YOU MAKE AN IMPACT? As part of Group Finance and based in Meyrin, your responsibilities will encompass, but are not limited to, the following key areas: Drive Financial Performance & Control Oversee day-to-day financial operations for our technology domains and cost centers, ensuring efficient and appropriate financial control systems. Actively contribute to monthly, quarterly, and annual financial closing activities, including preparing accruals, reviewing commitments, and assisting with allocation cycles. Partner closely with Group Technology Managers to foster cost awareness and enhance understanding of financial performance, providing insightful analysis and ad-hoc reports. Support the tracking and monitoring of resources for key technology projects and initiatives. Master Planning & Forecasting Play a key role in the planning and forecasting cycles (Budget, Latest Estimate, Roadmap), from data collection and analysis to presentation and report preparation. Assist in the review and consolidation of budget components (Investments, Operating expenses, Headcounts) for supported areas. Prepare preliminary management reports and conduct initial variance analysis against financial targets. Ensure Financial Integrity & Compliance Support the Capital Approval Request (CAR) process and contribute to the follow-up of financial commitments, including budget assumption validation and vendor contract checks. Assist in the control and validation of Purchase Orders (PO) in close collaboration with the P2P team. Contribute to the maintenance and improvement of cost allocation models, ensuring accurate evaluation of internal and business services. Support the application of Richemont's internal controlling procedures, identifying and addressing potential gaps. Champion Data Quality & Process Improvement Conduct regular and thorough checks on financial data quality within systems, particularly for time allocation entries and master data accuracy. Identify discrepancies, investigate root causes, and collaborate with stakeholders to resolve data integrity issues. Assist in collecting, validating, and consolidating financial data from various sources for reporting and analysis. Contribute to identifying and implementing process improvements within the controlling function, focusing on automation and efficiency. Provide support for ad-hoc financial analysis, data extraction, and special projects as required. HOW WILL YOU EXPERIENCE SUCCESS WITH US? Transversal skills Strong team spirit and communication skills with aptitude to collaborate transversally across various teams, organizations, and stakeholders. Curious to learn, develop, and contribute to challenging the status-quo. Strong analytical and quantitative skills, with an ability to pay close attention to detail. Good organizational abilities with proactivity, and keen to work independently while managing ambiguity with guidance when necessary. Ability to work effectively in a fast-paced environment under tight deadlines, and balance multiple priorities. Education, experience and core competencies University graduate in Finance, Accounting, Business Administration, Engineering, or a related field. 1 to 3 years’ experience in a finance or controlling role, preferably within a multinational environment. Relevant internships will be considered. Familiarity with SAP FICO, Anaplan and/or BI tools is an asset. Knowledge of coding languages (like Python), AI prompts (Copilot), and/or RPA. Strong proficiency in Excel is required Demonstrated interest in Technology topics, particularly in Digital, Infrastructure, and Data services areas. Fluent in English, French knowledge is a strong asset. WHAT MAKES OUR GROUP DIFFERENT? Our true power does not lie in our similarities but in the rich diversity of our arts, cultures, and human skills, as well as our specific ability to foster untapped potential. We value curiosity, collegiality, loyalty, and solidarity. We foster empathy, excellence, courage, collaboration, and integrity. We care for the world we live in. YOUR JOURNEY WITH US Your application will be carefully reviewed by our recruitment teams, who will give you a follow-up shortly. If your profile is selected, we will contact you for an initial phone interview. The next step will be an interview with the Managers and our HR Business Partner. #Richemont #WeCraftTheFuture Similar Jobs International Finance A&P Senior Controller Save Meyrin, Switzerland Cartier Europe FP&A Controller Save Meyrin, Switzerland Richemont FP&A Intern Save Villars Sur Glâne, Switzerland Richemont",
       "descriptionByLocale": {
@@ -13414,7 +13414,6 @@
       "jobReqId": "jr132169",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "group-technology-junior-financial-controller-richemont-meyrin",

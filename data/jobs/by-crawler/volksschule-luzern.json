@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volksschule-luzern",
-  "assembledAt": "2026-08-13T10:16:08.451Z",
+  "assembledAt": "2026-08-13T10:10:41.172Z",
   "jobs": [
     {
       "id": "volksschule-luzern-65293fafb90e",
@@ -206,12 +206,29 @@
         "vice-if-maestro-shp-5-6-classe-scuola-casa-moosmatt-volksschule-stadt-luzern-luzern",
         "deputy-if-teacher-shp-5-6-class-school-house-moosmatt-volksschule-stadt-luzern-luzern",
         "professeur-adjoint-du-fi-shp-5-6-classe-school-house-moosmatt-volksschule-stadt-luzern-luzern",
-        "professore-aggiunto-5-6-classe-maihof-school-house-volksschule-stadt-luzern-luzern"
+        "professore-aggiunto-5-6-classe-maihof-school-house-volksschule-stadt-luzern-luzern",
+        "vice-maternita-lascia-specialista-1-2-classe-maihof-school-house-volksschule-stadt-luzern-luzern",
+        "deputy-maternity-leave-specialist-1-2-class-maihof-school-house-volksschule-stadt-luzern-luzern",
+        "stellvertretung-mutterschaftsurlaub-fachlehrperson-1-2-klasse-schulhaus-maihof-volksschule",
+        "specialiste-adjoint-du-conge-de-maternite-1-2-classe-maihof-school-house-volksschule-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-fachlehrperson-5-6-klasse-schulhaus-maihof-volksschule-luzern-luzern",
-          "professore-aggiunto-5-6-classe-maihof-school-house-volksschule-stadt-luzern-luzern"
+          "professore-aggiunto-5-6-classe-maihof-school-house-volksschule-stadt-luzern-luzern",
+          "vice-maternita-lascia-specialista-1-2-classe-maihof-school-house-volksschule-stadt-luzern-luzern",
+          "deputy-maternity-leave-specialist-1-2-class-maihof-school-house-volksschule-stadt-luzern-luzern",
+          "stellvertretung-mutterschaftsurlaub-fachlehrperson-1-2-klasse-schulhaus-maihof-volksschule",
+          "specialiste-adjoint-du-conge-de-maternite-1-2-classe-maihof-school-house-volksschule-stadt-luzern-luzern"
+        ],
+        "en": [
+          "deputy-maternity-leave-specialist-1-2-class-maihof-school-house-volksschule-stadt-luzern-luzern"
+        ],
+        "de": [
+          "stellvertretung-mutterschaftsurlaub-fachlehrperson-1-2-klasse-schulhaus-maihof-volksschule"
+        ],
+        "fr": [
+          "specialiste-adjoint-du-conge-de-maternite-1-2-classe-maihof-school-house-volksschule-stadt-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T12:19:01.835Z",

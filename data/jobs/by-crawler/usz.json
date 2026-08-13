@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usz",
-  "assembledAt": "2026-08-13T10:25:39.501Z",
+  "assembledAt": "2026-08-13T10:04:11.490Z",
   "jobs": [
     {
       "id": "usz-1855ccae124c",
@@ -3099,7 +3099,11 @@
         "special-care-fage-for-the-chest-pain-unit-in-the-interim-service-50-100-universitatsspital-zurich-usz-campus",
         "spezialpflege-fage-fur-die-chest-pain-unit-im-zwischendienst-50-100-usz-ch",
         "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-dans-le-service-interimaire-50-100-universitatsspital-zurich-usz",
-        "spezialpflege-pflegefachperson-per-la-chest-pain-unit-50-100-universitatsspital-zurich-usz-campus"
+        "spezialpflege-pflegefachperson-per-la-chest-pain-unit-50-100-universitatsspital-zurich-usz-campus",
+        "spezialpflege-pflegefachperson-per-la-chest-pain-unit-nachtdienst-50-100-universitatsspital-zurich-usz-campus",
+        "special-care-nurse-for-the-chest-pain-unit-night-service-50-100-universitatsspital-zurich-usz-campus",
+        "spezialpflege-pflegefachperson-fur-die-chest-pain-unit-nachtdienst-50-100-usz-ch",
+        "soins-speciaux-infirmiere-pour-l-unite-de-douleur-thoracique-service-de-nuit-50-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3108,18 +3112,25 @@
           "special-care-fage-for-the-chest-pain-unit-in-the-interim-service-50-100-universitatsspital-zurich-usz-campus",
           "spezialpflege-fage-fur-die-chest-pain-unit-im-zwischendienst-50-100-usz-ch",
           "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-dans-le-service-interimaire-50-100-universitatsspital-zurich-usz",
-          "spezialpflege-pflegefachperson-per-la-chest-pain-unit-50-100-universitatsspital-zurich-usz-campus"
+          "spezialpflege-pflegefachperson-per-la-chest-pain-unit-50-100-universitatsspital-zurich-usz-campus",
+          "spezialpflege-pflegefachperson-per-la-chest-pain-unit-nachtdienst-50-100-universitatsspital-zurich-usz-campus",
+          "special-care-nurse-for-the-chest-pain-unit-night-service-50-100-universitatsspital-zurich-usz-campus",
+          "spezialpflege-pflegefachperson-fur-die-chest-pain-unit-nachtdienst-50-100-usz-ch",
+          "soins-speciaux-infirmiere-pour-l-unite-de-douleur-thoracique-service-de-nuit-50-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "spezialpflege-pflegefachperson-fur-die-chest-pain-unit-50-100-usz-ch",
-          "special-care-fage-for-the-chest-pain-unit-in-the-interim-service-50-100-universitatsspital-zurich-usz-campus"
+          "special-care-fage-for-the-chest-pain-unit-in-the-interim-service-50-100-universitatsspital-zurich-usz-campus",
+          "special-care-nurse-for-the-chest-pain-unit-night-service-50-100-universitatsspital-zurich-usz-campus"
         ],
         "de": [
-          "spezialpflege-fage-fur-die-chest-pain-unit-im-zwischendienst-50-100-usz-ch"
+          "spezialpflege-fage-fur-die-chest-pain-unit-im-zwischendienst-50-100-usz-ch",
+          "spezialpflege-pflegefachperson-fur-die-chest-pain-unit-nachtdienst-50-100-usz-ch"
         ],
         "fr": [
           "spezialpflege-pflegefachperson-fur-die-chest-pain-unit-50-100-usz-ch",
-          "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-dans-le-service-interimaire-50-100-universitatsspital-zurich-usz"
+          "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-dans-le-service-interimaire-50-100-universitatsspital-zurich-usz",
+          "soins-speciaux-infirmiere-pour-l-unite-de-douleur-thoracique-service-de-nuit-50-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "firstSeenAt": "2026-05-21T13:43:54.891Z",
@@ -14505,18 +14516,41 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-fur-die-nephrologie-40-100-usz-ch",
-        "pflegefachperson-per-la-nephrologie-40-100-universitatsspital-zurich-usz-campus"
+        "pflegefachperson-per-la-nephrologie-40-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-per-das-endoskopiezentrum-80-100-universitatsspital-zurich-usz-campus",
+        "care-professional-for-the-endoscopy-center-80-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch",
+        "professionnel-de-soins-pour-le-centre-d-endoscopie-80-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch-2",
+        "dipl-pflegefachperson-per-das-interventionelle-lungenzentrum-80-100-universitatsspital-zurich-usz-campus",
+        "dipl-care-professional-for-the-interventional-lung-center-80-100-universitatsspital-zurich-usz-campus",
+        "dipl-pflegefachperson-fur-das-interventionelle-lungenzentrum-80-100-usz-ch",
+        "dipl-professionnel-de-soins-pour-le-centre-pulmonaire-interventionnel-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-fur-die-nephrologie-40-100-usz-ch",
-          "pflegefachperson-per-la-nephrologie-40-100-universitatsspital-zurich-usz-campus"
+          "pflegefachperson-per-la-nephrologie-40-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-per-das-endoskopiezentrum-80-100-universitatsspital-zurich-usz-campus",
+          "care-professional-for-the-endoscopy-center-80-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch",
+          "professionnel-de-soins-pour-le-centre-d-endoscopie-80-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch-2",
+          "dipl-pflegefachperson-per-das-interventionelle-lungenzentrum-80-100-universitatsspital-zurich-usz-campus",
+          "dipl-care-professional-for-the-interventional-lung-center-80-100-universitatsspital-zurich-usz-campus",
+          "dipl-pflegefachperson-fur-das-interventionelle-lungenzentrum-80-100-usz-ch",
+          "dipl-professionnel-de-soins-pour-le-centre-pulmonaire-interventionnel-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "pflegefachperson-fur-die-nephrologie-40-100-usz-ch"
+          "pflegefachperson-fur-die-nephrologie-40-100-usz-ch",
+          "care-professional-for-the-endoscopy-center-80-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "pflegefachperson-fur-die-nephrologie-40-100-usz-ch"
+          "pflegefachperson-fur-die-nephrologie-40-100-usz-ch",
+          "professionnel-de-soins-pour-le-centre-d-endoscopie-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
