@@ -2437,6 +2437,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Stipendien Kanton Bern: Voraussetzungen und Beträge',
     'blog.article.borse-studio-berna-guida.excerpt': 'Offizieller Leitfaden zu Ausbildungsbeiträgen im Kanton Bern: Wer hat Anspruch, wie beantragt wird und welche Kriterien für die Berechnung von Finanzhilfen gelten.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Institutionen',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Kindertagesstätte und Kinderbetreuung Bern: Kosten und Leistungen',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Informieren Sie sich über die Kosten der Kindertagesstätten im Kanton Bern, die einkommensabhängigen Tarife, die Tagesfamilien und die kantonalen Kinderbetreuungsbeihilfen.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Kindergarten im Kanton Bern mit Kindern und Betreuern',
 };
 
 export default blogMetaChDe;

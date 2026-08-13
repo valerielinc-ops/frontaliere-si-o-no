@@ -2437,6 +2437,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-berna-guida.title': 'Scholarships Canton Bern: requirements and amounts',
     'blog.article.borse-studio-berna-guida.excerpt': 'Official guide to training grants in the Canton of Bern: who is eligible, how to apply and the calculation criteria for financial aid.',
     'blog.article.borse-studio-berna-guida.imageAlt': 'Federal Palace in Bern, seat of Swiss institutions',
+    'blog.article.costi-asilo-nido-custodia-berna.title': 'Nursery and childcare Bern: costs and subsidies',
+    'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Find out about kindergarten costs in the Canton of Bern, income-based rates, day families and cantonal childcare subsidies available.',
+    'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Nursery in the Canton of Bern with children and educators',
 };
 
 export default blogMetaChEn;
