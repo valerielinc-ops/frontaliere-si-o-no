@@ -67463,6 +67463,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-valute-frontiere-svizzera-italia': {
+    title: 'Valute e Frontiere: guida alle novità per frontalieri',
+    description: 'Scopri le novità fiscali, monetarie e assicurative per i frontalieri che lavorano tra Svizzera e Italia. Guida pratica su valute, AVS e fisco. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, valute, frontiere, alle, novità',
+    ogTitle: 'Valute e Frontiere: guida pratica per frontalieri',
+    ogDescription: 'Analisi delle novità fiscali e monetarie per i lavoratori transfrontalieri tra Italia e Svizzera: dalla tassazione nel Tuir alla gestione dei cambi.',
+    canonicalPath: '/articoli-frontaliere/valute-frontiere-svizzera-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Valute e Frontiere: guida alle novità per frontalieri",
+      "description": "Scopri le novità fiscali, monetarie e assicurative per i frontalieri che lavorano tra Svizzera e Italia. Guida pratica su valute, AVS e fisco. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/valute-frontiere-svizzera-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di frontiera tra Svizzera e Italia"
+      },
+      "datePublished": "2026-08-13T19:38:35+00:00",
+      "dateModified": "2026-08-13T19:38:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valute-frontiere-svizzera-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

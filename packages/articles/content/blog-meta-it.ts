@@ -9914,6 +9914,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.title': 'Inflazione torna in Italia, Pil a +0,5%',
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.excerpt': 'L\'economia italiana con il freno tirato, torna l\'inflazione: Pil a +0,5% e debito verso il 139%.',
     'blog.article.italia-con-il-freno-tirato-torna-linflazione-pil-a-05-e-debito-verso-il-139.imageAlt': 'L\'economia italiana con il freno tirato, torna l\'inflazione',
+    'blog.article.valute-frontiere-svizzera-italia.title': 'Valute e Frontiere: guida alle novità per frontalieri',
+    'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analisi delle dinamiche tra Svizzera e Italia: dal cambio valuta alla fiscalità, ecco cosa devono sapere i lavoratori frontalieri.',
+    'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Valico di frontiera tra Svizzera e Italia',
 };
 
 export default blogMetaIt;
