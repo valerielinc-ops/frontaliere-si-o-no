@@ -20,7 +20,7 @@
  * work without a build. CI builds dist first and sets the env var.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
@@ -43,13 +43,39 @@ const UNIQUE_TYPES: ReadonlySet<string> = new Set([
  'FAQPage',
 ]);
 
-function walkHtml(dir: string, out: string[] = []): string[] {
- if (!existsSync(dir)) return out;
- for (const entry of readdirSync(dir)) {
- const full = join(dir, entry);
- const st = statSync(full);
- if (st.isDirectory()) walkHtml(full, out);
- else if (entry.endsWith('.html')) out.push(full);
+/**
+ * `readdirSync(dir)` + a `statSync` per entry issues two syscalls per dist
+ * node (one to list the directory, one per child to learn its type). Across
+ * the rehydrated dist/ tree (locale shards included — tests/seo/breadcrumb-
+ * coverage.test.ts measured ~2M entries in that same walk before its own fix)
+ * that doubling was most of this test's wall time, and is why it went red on
+ * a 60s ceiling (#5729) rather than the FAQPage logic itself being slow.
+ * `withFileTypes: true` reports the dirent kind for free from the single
+ * `readdir` syscall, so the type check below costs nothing extra — same fix
+ * already applied in tests/seo/breadcrumb-coverage.test.ts's `walkHtml`.
+ * Iterative (stack) rather than recursive for the same reason that one is:
+ * no call-stack growth proportional to tree depth.
+ */
+function walkHtml(dir: string): string[] {
+ if (!existsSync(dir)) return [];
+ const out: string[] = [];
+ const stack: string[] = [dir];
+ while (stack.length) {
+ const cur = stack.pop() as string;
+ let entries: import('node:fs').Dirent[];
+ try {
+ entries = readdirSync(cur, { withFileTypes: true });
+ } catch {
+ continue;
+ }
+ for (const ent of entries) {
+ const full = join(cur, ent.name);
+ if (ent.isDirectory()) {
+ stack.push(full);
+ } else if (ent.isFile() && ent.name.endsWith('.html')) {
+ out.push(full);
+ }
+ }
  }
  return out;
 }
@@ -93,6 +119,7 @@ describe('dist HTML — duplicate structured data gate (GSC rich-results)', () =
  // Scanning ~50k dist HTML files + JSON parsing each ld+json block is slow.
  // 60s ceiling matches dist-duplicate-meta-description's footprint.
  it('no UNIQUE_TYPES @type appears in two separate JSON-LD scripts on the same page', { timeout: 60_000 }, () => {
+ const scanStart = Date.now();
  const files = walkHtml(DIST_DIR);
  const offenders: { file: string; type: string; count: number }[] = [];
 
@@ -114,6 +141,25 @@ describe('dist HTML — duplicate structured data gate (GSC rich-results)', () =
  }
  }
  }
+ const scanElapsedMs = Date.now() - scanStart;
+
+ /**
+  * OBSERVER for #5729: a bare "Test timed out in 60000ms" names no cause —
+  * it took a manual bisection to find the per-entry `statSync` above. Half
+  * of the hard 60s ceiling is the budget, so a corpus that keeps growing
+  * turns red HERE, with the file count and elapsed time in the message,
+  * one deploy before it silently trips the opaque vitest timeout again.
+  * Widening this budget needs the same justification a raised timeout
+  * would: a measured reason dist/ got bigger, not a shrug.
+  */
+ const SOFT_BUDGET_MS = 30_000;
+ expect(
+ scanElapsedMs,
+ `dist scan+parse took ${scanElapsedMs}ms across ${files.length} HTML files ` +
+ `(soft budget ${SOFT_BUDGET_MS}ms, hard timeout 60000ms). If dist/ grew, ` +
+ `speed up walkHtml/extractLdJsonBlocks — do not just raise the timeout ` +
+ `(#5729 is exactly that mistake, one corpus-size increase away from recurring).`,
+ ).toBeLessThan(SOFT_BUDGET_MS);
 
  if (offenders.length > 0) {
  const grouped = new Map<string, { type: string; count: number }[]>();

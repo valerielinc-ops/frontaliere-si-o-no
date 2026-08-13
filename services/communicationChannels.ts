@@ -543,7 +543,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.2';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.3';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -557,6 +557,12 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // #5759 — third-party advertising becomes a consent category with its own
   // section, and the "covered by no consent" section empties out.
   '2026-08-13.2': '4c6226e23619772a',
+  // #5760: added the BreadcrumbList JSON-LD the page was missing — a
+  // template restructure, not a content change, but the fingerprint is
+  // deliberately over-eager on that side (see the block comment above).
+  // Renumbered from .2 to .3 on rebase: #5759 claimed .2 first for the
+  // advertising category, and that entry is already shipped and frozen.
+  '2026-08-13.3': '0d6e0b9159efb394',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
