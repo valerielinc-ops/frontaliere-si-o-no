@@ -347,3 +347,21 @@ jobs:
             --priority 2 \
             --label automation \
             --workflow "GH_PAT Expiry Monitor"
+
+      # Closer half of the step above (#5437 — the class of issue nobody could
+      # ever close). Negation of the self-alert condition: runs whenever
+      # patcheck did NOT crash on its own bug — either the healthy path or the
+      # intentional PAT-down path (patcheck failed ON PURPOSE, intentional_fail
+      # =true), both meaning "the monitor itself works". `always()` so this is
+      # reached even after patcheck's intentional `exit 1`.
+      - name: Resolve self-alert crash issue when the monitor itself is healthy
+        if: always() && !(failure() && steps.patcheck.conclusion == 'failure' && steps.patcheck.outputs.intentional_fail != 'true')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "PAT monitor crashed: gh-pat-expiry-monitor failing" \
+            --workflow "GH_PAT Expiry Monitor" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

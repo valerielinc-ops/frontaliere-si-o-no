@@ -154,6 +154,33 @@ jobs:
             --label "$label" \
             --workflow "${{ github.workflow }}"
 
+      # Closer half (#5437 — both titles above had none). The CRITICAL title
+      # resolves whenever this run's severity dropped below critical (clean
+      # OR warning-only) — a critical shard sliding back under 45k is recovery
+      # even if others are still ≥40k. The WARNING title only resolves on a
+      # fully clean run: on a `warning` run the open step above is still
+      # actively refreshing it (it is not stale), and resolving it here in the
+      # same run would race that refresh.
+      - name: Resolve shard-size issues no longer applicable
+        if: steps.check.outcome == 'success' || steps.severity.outputs.severity == 'warning'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          title_critical="[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls"
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "$title_critical" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "${{ steps.check.outcome }}" = "success" ]; then
+            title_warning="[sitemap-shard-size] WARNING: shard(s) at or above 40k urls"
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$title_warning" \
+              --workflow "${{ github.workflow }}" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+
       - name: Upload report artifact
         if: always()
         uses: actions/upload-artifact@v7

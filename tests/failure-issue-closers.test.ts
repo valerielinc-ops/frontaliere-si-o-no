@@ -90,18 +90,18 @@ const ACTION_YML = path.resolve(__dirname, '..', '.github', 'actions', 'report-f
  *
  * Per aggiungerne una: non farlo. Il test è qui esattamente per impedirlo.
  */
-const KNOWN_UNCOVERED: string[] = [
-  'app-auth-health-monitor.yml\tApp-auth monitor crashed: app-auth-health-monitor failing',
-  'article-hub-landing-watchdog.yml\tArticle hub landing degraded: missing grid or stale article set',
-  'cathedral-seo-gates-check.yml\tSEO gates regression: ${name} above baseline',
-  'crawler-health-monitor.yml\t[crawler-health] ${slug}: crawler unhealthy',
-  'gh-pat-expiry-monitor.yml\tPAT monitor crashed: gh-pat-expiry-monitor failing',
-  'glossario-definitions-monitor.yml\t[glossario-definitions] term pages shipping placeholder DefinedTerm.description',
-  'hydrated-article-parity.yml\tHydrated article parity: the hub renders articles the client does not have',
-  'pages-publish-lag-watchdog.yml\tPages publish-lag monitor crashed',
-  'sitemap-shard-size-monitor.yml\t[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls',
-  'sitemap-shard-size-monitor.yml\t[sitemap-shard-size] WARNING: shard(s) at or above 40k urls',
-];
+// 2026-08-13 (#5437 cluster `igiene-ciclo`): tutte e 10 le righe che stavano
+// qui sono state risolte nella stessa PR — la classe pericola (nessun
+// chiuditore, quindi immortale al primo fallimento reale) è stata azzerata,
+// non ridotta. Ognuna ha ricevuto il "sibling-resolve-step" prescritto sopra
+// (uno step gemello `--resolve` con titolo identico), tranne
+// `crawler-health-monitor.yml` che aveva già un closer FUNZIONANTE — una `gh
+// issue close` diretta — ma invisibile a questo inventario perché non passa
+// da `github-issue-creator.mjs`: convertito alla stessa forma canonica per
+// diventare visibile, non per cambiarne il comportamento. Se questa lista
+// torna a crescere, la riga aggiunta prende esattamente lo stesso trattamento
+// invece di sedimentare qui.
+const KNOWN_UNCOVERED: string[] = [];
 
 /**
  * BASELINE A SCALARE — titoli che MATCHANO `TITLE_RE` ma nominano qualcosa che
