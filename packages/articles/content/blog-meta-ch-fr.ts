@@ -2374,6 +2374,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.title': 'Initiative Service civique, les recours sont irrecevables',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.excerpt': 'Le Tribunal fédéral a décidé que les recours introduits par les partisans de l\'initiative « Pour une Suisse qui s\'engage » (Initiative Service civique) sont irrecevables.',
     'blog.article.inizia-servizio-civico-ricorsi-irricevibili.imageAlt': 'Une personne vote dans une école de Lugano',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.title': 'Système scolaire du canton de Berne : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.excerpt': 'Savoir ce qui se passe avec l\'inscription des enfants dans les cycles scolaires dans le canton de Berne. Découvrez les exigences, le calendrier et les langues d\'enseignement.',
+    'blog.article.sistema-scolastico-canton-berna-iscrizione-e-cicli.imageAlt': 'Scène de classe dans une école du canton de Berne',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Sécheresse en Suisse : Rösti exclut des mesures urgentes et fédérales',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'Le Conseil fédéral surveille la sécheresse et le déficit hydrique de 46%, excluant pour l\'instant l\'état extraordinaire et laissant aux cantons le soin de prendre les décisions.',
+    'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Paysage suisse touché par la sécheresse avec de bas niveaux d\'eau',
 };
 
 export default blogMetaChFr;
