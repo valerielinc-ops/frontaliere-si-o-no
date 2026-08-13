@@ -847,8 +847,17 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const DARK_CARD = '#1e293b';
   const LIGHT_BG = '#f1f5f9';
   const WHITE = '#ffffff';
-  const MUTED = '#64748b';
+  const MUTED = '#64748b';        // 4.76:1 on WHITE/CARD_BG — fine on the light sections that use it
   const CARD_BG = '#f8fafc';
+  // #5714 item 1 (follow-up of #5707, review of #5697): the dark footer below
+  // (background: BRAND_DARK) reused MUTED unchanged — 3.75:1 there, below AA
+  // (4.5:1) for its 11-12px text, the same low-contrast pattern the review
+  // flagged on `unsubAllUrl`. `#94a3b8` was already the value that ONE link
+  // used correctly on this background (6.96:1); this names it and applies it
+  // to the rest of the same footer instead of leaving one line fixed and its
+  // neighbours (and the "joke" text right next to the unsubscribe link) at a
+  // contrast that fails the same test.
+  const MUTED_ON_DARK = '#94a3b8';
 
   const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=alert_${alert.id}`;
   const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, alert.email);
@@ -999,7 +1008,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
         <!-- Hero -->
         <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
           <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(shownJobs.length)}</div>
-          <div style="font-size:13px;color:#94a3b8;margin-top:6px;">${s.filters}: ${filterSummary}</div>
+          <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${s.filters}: ${filterSummary}</div>
         </td></tr>
 
         <!-- Section header -->
@@ -1035,7 +1044,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
         <!-- Footer (dark, aligned with newsletter) -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
-          <div style="font-size:11px;color:${MUTED};margin:0 0 14px;line-height:1.5;">
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
             ${s.intendedFor(escHtml(alert.email), filterSummary)}
           </div>
           <div style="margin-bottom:12px;">
@@ -1043,17 +1052,19 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
             <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
           </div>
-          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${s.manageAlerts}</a>
           </div>
-          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             ${s.unsubThis(filterLabel)} <a target="_blank" rel="noopener noreferrer" href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${s.unsubThisLink}</a>
           </div>
-          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            <a target="_blank" rel="noopener noreferrer" href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${unsubAllUrl}" style="color:${MUTED_ON_DARK};text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
           </div>
-          <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
-          <div style="font-size:11px;color:#475569;margin-top:6px;">${escHtml(dataControllerFooterLine(locale))}</div>
+          <!-- #5714 item 1: #475569 measured 2.36:1 on BRAND_DARK \u2014 the worst
+               offender in this footer, below even the MUTED-on-dark case above. -->
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin-top:6px;">${escHtml(dataControllerFooterLine(locale))}</div>
         </td></tr>
 
       </table>

@@ -258,16 +258,34 @@ function clickIpOf(event) {
  * demotes on it); the second is "did a person show interest". Without it a
  * caller has to re-derive the opt-out from `byReason`, which cannot say *when*.
  *
+ * WHY `contradictoryWindow` IS ITS OWN FLAG (#5716 item 4, review of #5697).
+ * `scan-burst` collapses two different triggers into one `reason` string: five
+ * distinct targets in three seconds (calibrated on corporate-scanner data, see
+ * SCAN_BURST_MIN_TARGETS above) and the "mixes opt-out with two other classes"
+ * rule, which was calibrated ONLY against that same scanner data — never
+ * checked against a plausible real household false positive (a forwarded mail
+ * two people in the same house open within the window). Before this field a
+ * caller could not tell the two triggers apart without re-deriving the window
+ * math itself, which made "sample the contradictory-window verdicts and see if
+ * a clear human click follows" — the monitoring the reviewer asked for —
+ * unimplementable from outside this file. This flag does not change which
+ * clicks are synthetic (the union `reason: 'scan-burst'` is unchanged, so
+ * `byReason['scan-burst']` and every consumer that reads it keep their exact
+ * meaning): it only labels which of the union's members the contradictory rule
+ * (also) caught, for a monitoring script to pull out. Widening the window or
+ * adding an IP-diversity signal, per the reviewer's "eventualmente" — is a
+ * calibration decision that needs weeks of real samples first, not made here.
+ *
  * @param {Array<object>} events click events; each may carry
  *        `{ at|occurred_at|timestamp, url|target_url|link_url|metadata.url,
  *           metadata.ip, metadata.user_agent, metadata.client_info,
  *           metadata.data.click.{link,ipAddress,userAgent} }`
  * @param {object} [options]
  * @param {ReadonlyArray<object|string>} [options.scannerRanges]
- * @returns {{ verdicts: Array<{atMs: number|null, url: string, synthetic: boolean, reason: string|null}>,
+ * @returns {{ verdicts: Array<{atMs: number|null, url: string, synthetic: boolean, reason: string|null, contradictoryWindow: boolean}>,
  *             humanCount: number, syntheticCount: number,
  *             lastHumanClickAtMs: number|null, lastOptOutClickAtMs: number|null,
- *             byReason: Record<string, number> }}
+ *             byReason: Record<string, number>, contradictoryWindowCount: number }}
  */
 export function classifyClickEvents(events, { scannerRanges = EMAIL_SCANNER_IP_RANGES } = {}) {
   const rows = (Array.isArray(events) ? events : [])
@@ -287,6 +305,10 @@ export function classifyClickEvents(events, { scannerRanges = EMAIL_SCANNER_IP_R
   // target would manufacture bursts out of our own bookkeeping.
   const targetOf = (row) => row.url.split('?')[0];
   const burst = new Set();
+  // Subset of `burst` the contradictory-classes rule (also) caught — tracked
+  // separately from the plain target-count rule so a caller can sample just
+  // this trigger (#5716 item 4).
+  const contradictoryBurst = new Set();
   for (let i = 0; i < rows.length; i++) {
     if (rows[i].atMs == null) continue;
     const targets = new Set();
@@ -300,7 +322,10 @@ export function classifyClickEvents(events, { scannerRanges = EMAIL_SCANNER_IP_R
     }
     const contradictory = classes.has('opt-out') && classes.size >= 3;
     if (targets.size >= SCAN_BURST_MIN_TARGETS || contradictory) {
-      for (const j of window) burst.add(j);
+      for (const j of window) {
+        burst.add(j);
+        if (contradictory) contradictoryBurst.add(j);
+      }
     }
   }
 
@@ -327,13 +352,21 @@ export function classifyClickEvents(events, { scannerRanges = EMAIL_SCANNER_IP_R
         lastHumanClickAtMs = row.atMs;
       }
     }
-    return { atMs: row.atMs, url: row.url, synthetic: reason != null, reason };
+    // Only true when the contradictory rule is what actually drove THIS
+    // click's verdict (reason === 'scan-burst'): the opt-out click inside the
+    // same window is already 'opt-out-link' on its own, unambiguous reason —
+    // it is not the click a false-positive sample needs to look at.
+    return { atMs: row.atMs, url: row.url, synthetic: reason != null, reason, contradictoryWindow: reason === 'scan-burst' && contradictoryBurst.has(index) };
   });
 
   return {
     verdicts,
     humanCount,
     syntheticCount: verdicts.length - humanCount,
+    // Counts verdicts, not raw window membership: matches
+    // `verdicts.filter(v => v.contradictoryWindow).length` exactly, so a
+    // caller never has to reconcile the two.
+    contradictoryWindowCount: verdicts.filter((v) => v.contradictoryWindow).length,
     lastHumanClickAtMs,
     lastOptOutClickAtMs,
     byReason,

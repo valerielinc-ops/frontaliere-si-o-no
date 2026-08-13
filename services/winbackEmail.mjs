@@ -37,9 +37,15 @@ const BRAND_ORANGE = '#f97316'; // accent / wordmark
 const CTA_ORANGE = '#ea580c';   // button bg (darker → white label passes 3:1 AA large)
 const BRAND_DARK = '#0f172a';
 const INK = '#1f2937';
-const MUTED = '#6b7280';
+const MUTED = '#6b7280';        // 4.83:1 on CARD_BG (white) — used for the card's own footer text, fine there
 const CARD_BG = '#ffffff';
 const PAGE_BG = '#f1f5f9';
+// #5714 item 1 (follow-up of #5707, review of #5697): the identity/footer
+// lines OUTSIDE the white card sit on PAGE_BG, not CARD_BG, and used to be
+// raw `#94a3b8` there — 2.3:1, the exact abuse-desk-complaint pattern
+// services/daily-brief-template.mjs fixed. Same fix here: the site's own
+// slate-700, 9.5:1 on PAGE_BG.
+const TEXT_ON_PAGE = '#334155';
 
 const COPY = {
   it: {
@@ -158,8 +164,8 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
         <div style="margin-top:6px;"><a href="${preferencesUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${BRAND_ORANGE};text-decoration:underline;">${s.prefs}</a></div>
       </td></tr>
     </table>
-    <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:#94a3b8;text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
-    <div style="max-width:520px;margin:4px auto 0;font-size:11px;color:#94a3b8;text-align:center;">${dataControllerFooterLine(l)}</div>
+    <div style="max-width:520px;margin:14px auto 0;font-size:11px;color:${TEXT_ON_PAGE};text-align:center;">Frontaliere Ticino · frontaliereticino.ch</div>
+    <div style="max-width:520px;margin:4px auto 0;font-size:11px;color:${TEXT_ON_PAGE};text-align:center;">${dataControllerFooterLine(l)}</div>
   </td></tr>
 </table>
 </body>

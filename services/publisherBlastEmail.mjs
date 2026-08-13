@@ -22,8 +22,15 @@ const BRAND_DARK = '#0f172a';
 const DARK_CARD = '#1e293b';
 const LIGHT_BG = '#f1f5f9';
 const WHITE = '#ffffff';
-const MUTED = '#64748b';
+const MUTED = '#64748b';        // 4.55:1 on CARD_BG (#f8fafc) — the job-card meta line, fine there
 const CARD_BG = '#f8fafc';
+// #5714 item 1 (follow-up of #5707, review of #5697): MUTED was ALSO used
+// verbatim for the `why`/`adsNote`/unsub-wrapper lines in the DARK footer
+// (background: BRAND_DARK) — 3.75:1 there, below AA (4.5:1) for that 11-12px
+// text. `#94a3b8` is already the value the identity line in the same footer
+// (below) correctly uses on this background — 6.96:1 — so this names it
+// instead of leaving a second unnamed literal for the same background.
+const MUTED_ON_DARK = '#94a3b8';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -223,7 +230,7 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">💼</a>
             <a target="_blank" rel="noopener noreferrer" href="https://frontaliereticino.ch" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">🌐</a>
           </div>
-          <div style="font-size:11px;color:${MUTED};margin:0 0 10px;line-height:1.5;">${esc(s.why(recipientEmail))}</div>
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 10px;line-height:1.5;">${esc(s.why(recipientEmail))}</div>
           <!--
             #5759 — this channel is third-party advertising, consented to as an
             OPT-OUT with no separate checkbox. The switch that stops it alone
@@ -232,15 +239,15 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
             the whole of #5684, and "unsubscribe from everything" is not the
             same offer.
           -->
-          <div style="font-size:11px;color:${MUTED};margin:0 0 10px;line-height:1.5;">${esc(s.adsNote)}</div>
-          <div style="font-size:12px;color:${MUTED};">
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 10px;line-height:1.5;">${esc(s.adsNote)}</div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};">
             <a target="_blank" rel="noopener noreferrer" href="${esc(unsubscribeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${esc(s.unsub)}</a>${
               preferencesUrl
                 ? ` &nbsp;·&nbsp; <a target="_blank" rel="noopener noreferrer" href="${esc(preferencesUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${esc(s.prefs)}</a>`
                 : ''
             }
           </div>
-          <div style="font-size:11px;color:#94a3b8;margin-top:10px;">${esc(dataControllerFooterLine(loc))}</div>
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin-top:10px;">${esc(dataControllerFooterLine(loc))}</div>
         </td></tr>
 
       </table>
