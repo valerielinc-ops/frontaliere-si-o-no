@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-13T10:16:33.659Z",
-  "total": 7,
+  "generatedAt": "2026-08-13T21:47:12.674Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 39778,
-  "avgDurationMs": 39778,
+  "unchangedCount": 1,
+  "durationMs": 39115,
+  "avgDurationMs": 39115,
   "durationHistory": [
-    39778
+    39115
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-6a2b37ccdf89",
       "slug": "collaboratore-trice-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-spital-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
