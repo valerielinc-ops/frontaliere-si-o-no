@@ -142,6 +142,12 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
   }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Mount the Google sign-in button once, only while not authenticated.
+  // This button subscribes the visitor — App.tsx's auth listener writes the
+  // document under `signInAutoSubscribe` — and this paywall renders no consent
+  // notice. Declared, not overlooked: `signInAutoSubscribe` is Italian-only and
+  // `displayed: false`, so any formula rendered here would differ from the one
+  // stored, which is worse than showing none (#5739). Listed in
+  // `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx.
   useEffect(() => {
     let cancelled = false;
     const mountButton = async () => {
