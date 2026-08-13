@@ -2380,6 +2380,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.title': 'Drought in Switzerland: Rösti excludes urgent and federal measures',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.excerpt': 'The Federal Council monitors the drought and the 46% water deficit, excluding the extraordinary state for now and leaving the decisions to the Cantons.',
     'blog.article.siccita-rosti-nessuna-misura-urgente-svizzera.imageAlt': 'Swiss landscape affected by drought with low water levels',
+    'blog.article.eclissi-solare-cardada.title': 'Solar eclipse in Cardada: two hundred enchanted people',
+    'blog.article.eclissi-solare-cardada.excerpt': 'Two hundred people traveled to Cardada to observe the solar eclipse of August 12, 2026, with a partial eclipse of 91%.',
+    'blog.article.eclissi-solare-cardada.imageAlt': 'Two hundred people mesmerized by the solar eclipse at Cardada',
 };
 
 export default blogMetaChEn;
