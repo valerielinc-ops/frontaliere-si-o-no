@@ -2494,6 +2494,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Ordinary naturalisation in the Canton of Bern: requirements and procedure',
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Here are the requirements and procedure for ordinary naturalization in the Canton of Bern.',
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'Naturalization procedure in the Canton of Bern',
+    'blog.article.aprire-un-attivita-canton-berna.title': 'Opening a business in Bern: choice of legal form and obligations',
+    'blog.article.aprire-un-attivita-canton-berna.excerpt': 'Registering a business in the Canton of Bern: what are the necessary procedures and requirements?',
+    'blog.article.aprire-un-attivita-canton-berna.imageAlt': 'Image of a Swiss city',
 };
 
 export default blogMetaChEn;

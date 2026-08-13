@@ -2494,6 +2494,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Ordentliche Einbürgerung im Kanton Bern: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Hier sind die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Bern.',
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'Naturalisierungsverfahren im Kanton Bern',
+    'blog.article.aprire-un-attivita-canton-berna.title': 'Geschäft in Bern eröffnen: Wahl der Rechtsform und Pflichten',
+    'blog.article.aprire-un-attivita-canton-berna.excerpt': 'Eintragung einer Tätigkeit im Kanton Bern: Welche Verfahren und Voraussetzungen sind erforderlich?',
+    'blog.article.aprire-un-attivita-canton-berna.imageAlt': 'Bild einer Schweizer Stadt',
 };
 
 export default blogMetaChDe;
