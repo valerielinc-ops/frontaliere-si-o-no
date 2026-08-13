@@ -122,7 +122,7 @@ export const MANIFEST_PATH_IN_CORPUS = 'scripts/ci/loop-sync-manifest.json';
  * esportata, e non come letterale sparso nel codice, e' cio' che permette al
  * test di affermare che `site-ahead` non finisce mai nel report di qua.
  */
-export const SITE_ACTIONABLE_STATES = ['corpus-ahead', 'both-moved'];
+export const SITE_ACTIONABLE_STATES = ['corpus-ahead', 'both-moved', 'import-not-declared'];
 
 /** Stesso digest del checker del corpus: sha256 del contenuto, primi 16 hex. */
 export const sha256 = (buf) => crypto.createHash('sha256').update(buf).digest('hex').slice(0, 16);
@@ -199,6 +199,168 @@ export function classify(entry, now, base) {
   };
 }
 
+/* ─── Chiusura per import: il punto cieco dichiarato sopra, col segno invertito ──
+ *
+ * L'intestazione di questo file dichiara che il confronto e' guidato dal
+ * manifest, file per file, e che «un file soltanto NOMINATO da un file allineato»
+ * non e' visibile — la forma di `SiteShellContract`. Il difetto sotto e' la stessa
+ * classe **col segno invertito**: un file allineato che IMPORTA un assente.
+ *
+ * Misurato, non ipotizzato (2026-08-13, PR #5781). `scripts/lib/meta-field-regex.mjs`
+ * e' `identical`: il fixer del corpus lo copia di la' appena `loop-drift-check` lo
+ * classifica `site-ahead`. Dal 2026-08-13 quel file apre con
+ * `import { unescapeTsString } from './unescape-ts-string.mjs'`, e
+ * `generator/scripts/lib/unescape-ts-string.mjs` non esiste sul corpus ne' compare
+ * nel suo manifest. Il fixer copia UN file — quello nominato nel report — quindi
+ * l'import resta insoddisfatto: `ERR_MODULE_NOT_FOUND` in cima a
+ * `generator/scripts/create-article.mjs` (riga 154, `./lib/meta-field-regex.mjs`),
+ * che e' il generatore che gira ogni 15 minuti. Con la CI verde da entrambi i lati,
+ * perche' ogni guard segue gli import di UN file per volta e nessuno chiede se le
+ * dipendenze di un file allineato esistono dall'altro lato.
+ *
+ * La domanda giusta e' una sola, e vale per qualunque manifest di trasferimento:
+ * **ogni import relativo di un file che viaggia, viaggia anche lui?**
+ *
+ * Regex e non AST, deliberatamente: e' la stessa metodologia con cui
+ * `.github/transport/nanako-generator-manifest.txt` dichiara di aver calcolato la
+ * propria chiusura ("regex-based, same limitation the doc's §1 methodology
+ * notes"), quindi il guard misura la stessa cosa che il manifest promette. Un
+ * `import()` dietro un path calcolato resta invisibile a entrambi.
+ */
+
+/**
+ * Specificatori RELATIVI (`./x`, `../x`) importati da un sorgente JS/TS.
+ * Copre `import … from`, `import …` bare, `export … from`, `import()` dinamico
+ * e `require()`. Puro: nessuna I/O, nessun filesystem.
+ *
+ * @param {string} source
+ * @returns {string[]} specificatori distinti, nell'ordine di prima apparizione.
+ */
+export function relativeImportSpecifiers(source) {
+  if (typeof source !== 'string') return [];
+  const rx = /(?:\bfrom|\bimport|\brequire)\s*\(?\s*(['"])(\.\.?\/[^'"]*)\1/g;
+  const out = [];
+  for (const m of source.matchAll(rx)) if (!out.includes(m[2])) out.push(m[2]);
+  return out;
+}
+
+/** Le estensioni dei sorgenti che ha senso scandire per import. */
+export const CODE_EXTENSIONS = new Set(['.mjs', '.js', '.cjs', '.ts', '.mts', '.cts']);
+
+/**
+ * Estensioni provate quando lo specificatore non ne porta una. L'ordine conta
+ * solo per i pochi import estensione-less di `build-plugins/**` (TS), che sono
+ * gli unici in questo repo a non essere ESM-espliciti.
+ */
+const RESOLVE_SUFFIXES = ['', '.mjs', '.js', '.ts', '.cjs', '/index.mjs', '/index.js', '/index.ts'];
+
+/**
+ * Risolve uno specificatore relativo al path repo-relativo che denota, provando
+ * i suffissi sopra e accettando SOLO un file che esiste davvero.
+ *
+ * Ritorna `null` quando nessun candidato esiste: un import che non risolve
+ * nemmeno di qua e' un difetto diverso (e piu' grave) di quello che questo
+ * guard misura, e attribuirglielo lo renderebbe illeggibile.
+ *
+ * @param {string} fromPath path repo-relativo del file che importa.
+ * @param {string} spec specificatore relativo.
+ * @param {(rel: string) => boolean} exists
+ * @returns {string|null}
+ */
+export function resolveRelativeImport(fromPath, spec, exists) {
+  const base = path.posix.normalize(path.posix.join(path.posix.dirname(fromPath), spec));
+  for (const suffix of RESOLVE_SUFFIXES) {
+    if (exists(base + suffix)) return base + suffix;
+  }
+  return null;
+}
+
+/**
+ * IL GUARD. Per ogni file che un manifest dichiara trasferito, ogni import
+ * relativo che risolve a un file reale di questo repo dev'essere anch'esso
+ * dichiarato — trasferito, o esplicitamente escluso.
+ *
+ * Puro rispetto all'ambiente: filesystem e appartenenza al manifest entrano da
+ * `read`/`isDeclared`, cosi' lo stesso codice serve il manifest del corpus (via
+ * rete, in `main()`) e quello del transport (da disco, nel test) senza sapere
+ * nulla di nessuno dei due.
+ *
+ * @param {object} args
+ * @param {Array<{path: string, mode?: string}>} args.entries file dichiarati, con
+ *   `path` RELATIVO A QUESTO REPO (per il manifest del corpus e' `sitePath`).
+ * @param {(rel: string) => string|null} args.read sorgente, o null se assente.
+ * @param {(rel: string) => boolean} args.isDeclared il path e' coperto dal manifest?
+ * @param {(rel: string) => boolean} [args.exists] default: `read(rel) !== null`.
+ * @returns {Array<{from: string, mode: string|undefined, spec: string, target: string}>}
+ */
+export function undeclaredRelativeImports({ entries, read, isDeclared, exists }) {
+  const has = exists || ((rel) => read(rel) !== null);
+  const out = [];
+  for (const entry of entries) {
+    if (!CODE_EXTENSIONS.has(path.posix.extname(entry.path))) continue;
+    const source = read(entry.path);
+    if (source === null) continue; // elencato ma assente: non e' questa la domanda.
+    for (const spec of relativeImportSpecifiers(source)) {
+      const target = resolveRelativeImport(entry.path, spec, has);
+      if (target === null || isDeclared(target)) continue;
+      out.push({ from: entry.path, mode: entry.mode, spec, target });
+    }
+  }
+  return out;
+}
+
+/** L'altro elenco di consegna: la MOVE set che il transport copia sotto `generator/`. */
+export const TRANSPORT_MANIFEST = '.github/transport/nanako-generator-manifest.txt';
+
+/**
+ * `# !rewired <path> -- <ragione>`: la forma verificabile di «raggiungibile per
+ * import, deliberatamente non spostato». Prima esisteva solo come prosa in un
+ * `# NOTE`, ed e' per questo che l'omissione di `unescape-ts-string.mjs` non ha
+ * fatto fallire niente.
+ */
+export const REWIRED_DIRECTIVE_RE = /^#\s*!rewired\s+(\S+)\s+--\s+(\S.*)$/;
+
+/** Parsing condiviso del transport manifest: una sola implementazione per script e test. */
+export function parseTransportManifest(text) {
+  const listed = [];
+  const rewired = new Map();
+  const globs = [];
+  for (const raw of String(text).split('\n')) {
+    const line = raw.trim();
+    if (!line) continue;
+    if (line.startsWith('#')) {
+      const m = REWIRED_DIRECTIVE_RE.exec(line);
+      if (m) rewired.set(m[1], m[2].trim());
+      continue;
+    }
+    if (line.endsWith('/**')) globs.push(line.slice(0, -3));
+    else listed.push(line);
+  }
+  return { listed, globs, rewired };
+}
+
+/**
+ * I path che il transport consegna: le righe letterali piu' l'espansione dei
+ * glob `dir/**` contro l'albero reale.
+ */
+export function transportManifestPaths(root = ROOT) {
+  const file = path.join(root, TRANSPORT_MANIFEST);
+  if (!fs.existsSync(file)) return [];
+  const { listed, globs } = parseTransportManifest(fs.readFileSync(file, 'utf8'));
+  const out = new Set(listed);
+  const walk = (rel) => {
+    const abs = path.join(root, rel);
+    if (!fs.existsSync(abs)) return;
+    for (const e of fs.readdirSync(abs, { withFileTypes: true })) {
+      const child = `${rel}/${e.name}`;
+      if (e.isDirectory()) walk(child);
+      else if (e.isFile()) out.add(child);
+    }
+  };
+  for (const g of globs) walk(g);
+  return [...out];
+}
+
 /**
  * Contenuto del gemello di questa parte, o null se il repo davvero non ce l'ha.
  *
@@ -223,6 +385,28 @@ function siteContent(rel) {
   } catch {
     return null; // non in HEAD: il gemello davvero non esiste di qua.
   }
+}
+
+/**
+ * Il lettore sparse-immune sopra, esportato come testo: il guard di chiusura ne
+ * ha bisogno esattamente per la stessa ragione dell'hash. Il transport manifest
+ * elenca `data/borderCrossings.ts`, `data/municipalities.ts` e
+ * `data/canton-url-slugs.json`, e `data/` e' una delle due cartelle che la
+ * ricetta sparse di CLAUDE.md esclude: con il solo `existsSync` quei tre file
+ * leggerebbero «assente», cioe' il guard direbbe «voce stale» in worktree e
+ * niente in CI. Un guard che dipende dalla forma del checkout non e' un guard.
+ *
+ * @param {string} rel
+ * @returns {string|null}
+ */
+export function readSiteText(rel) {
+  const buf = siteContent(rel);
+  return buf === null ? null : buf.toString('utf8');
+}
+
+/** `readSiteText(rel) !== null`, sotto qualunque configurazione sparse. */
+export function siteFileExists(rel) {
+  return siteContent(rel) !== null;
 }
 
 /** Hash del gemello locale, o null se il repo non ce l'ha. */
@@ -276,6 +460,7 @@ export function renderIssueBody(manifest, results, actionable) {
     '',
     section('corpus-ahead', '⬆️ Il corpus e\' andato avanti — da valutare e portare qui'),
     section('both-moved', '🔴 Modificato su entrambi i lati'),
+    section('import-not-declared', '💥 Un file `identical` importa un modulo assente dal corpus'),
     '---',
     '',
     'Il corpus produce questo stesso verdetto ogni giorno, ma lo scrive in una issue **sul corpus**, dove nessun agente puo\' aprire una PR su questo repo. Questa issue e\' il ricevitore che mancava.',
@@ -330,6 +515,53 @@ async function main() {
 
     return { path: entry.path, sitePath, mode: entry.mode, ...classify(entry, now, base) };
   });
+
+  // Il guard di chiusura (vedi il blocco sopra `relativeImportSpecifiers`). Gira
+  // qui, non in un branch a parte, perche' il manifest e' gia' in mano e la
+  // risposta e' locale: nessuna fetch in piu'.
+  //
+  // Ambito: i soli `identical`. Un `adapted` diverge per costruzione — il gemello
+  // di la' puo' legittimamente non avere quell'import, ed e' proprio il caso di
+  // `atomic-write-json.mjs`, che sul corpus e' `adapted` PERCHE' lascia cadere
+  // `./slug-preservation-guard.mjs`. Allargare a `adapted` produrrebbe 31 righe
+  // di cui quasi nessuna e' un difetto, cioe' un report che nessuno legge.
+  //
+  // «Dichiarato» include il manifest del transport, non solo quello del corpus:
+  // la domanda vera non e' «e' registrato in QUESTO elenco» ma «esistera' di la'
+  // quando ci arrivera' chi lo importa», e i due elenchi sono due canali di
+  // consegna dello stesso file.
+  const declared = new Set(
+    manifest.files
+      .filter((f) => f.mode !== 'corpus-only' && f.mode !== 'corpus-only-pending')
+      .map((f) => f.sitePath || f.path),
+  );
+  for (const rel of transportManifestPaths()) declared.add(rel);
+
+  const importHazards = undeclaredRelativeImports({
+    entries: manifest.files
+      .filter((f) => f.mode === 'identical')
+      .map((f) => ({ path: f.sitePath || f.path, mode: f.mode })),
+    read: (rel) => {
+      const buf = siteContent(rel);
+      return buf === null ? null : buf.toString('utf8');
+    },
+    isDeclared: (rel) => declared.has(rel),
+  }).map((h) => ({
+    path: h.from,
+    sitePath: h.target,
+    mode: 'identical',
+    state: 'import-not-declared',
+    actionable: true,
+    headline: `\`${h.from}\` e' \`identical\` e importa \`${h.spec}\`, che il corpus non ha`,
+    detail:
+      `Quando \`${h.from}\` scende (il fixer copia UN file, quello nominato nel report di ` +
+      `drift), \`${h.target}\` non lo accompagna: ERR_MODULE_NOT_FOUND a runtime, con la CI ` +
+      'verde da entrambi i lati. Rimedio: portare anche il file importato — elencarlo in ' +
+      '`.github/transport/nanako-generator-manifest.txt`, e crearlo sul corpus registrandolo ' +
+      'nel suo manifest — oppure, se di la\' non serve, dichiararlo `!rewired` con la ragione.',
+  }));
+
+  results.push(...importHazards);
 
   const actionable = results.filter((r) => r.actionable);
 

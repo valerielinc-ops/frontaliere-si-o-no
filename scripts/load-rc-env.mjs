@@ -313,7 +313,43 @@ export function isTrivialSecret(value) {
   return typeof value !== 'string' || value.length < 6;
 }
 
+/**
+ * Whether an HTTP status from the Remote Config REST fetch is worth retrying.
+ *
+ * 429 and 5xx are transient — the exact failure mode behind issues #45, #54
+ * and #171 ("Agent loop down: GITHUB_PAT failed to load"), all three of which
+ * turned out NOT to be a real credential problem but a single unretried 429
+ * or 503 from this endpoint. A 4xx other than 429 (bad JWT, wrong project)
+ * will not resolve itself on retry.
+ */
+export function isRetryableRcFetchStatus(status) {
+  return status === 429 || status >= 500;
+}
 
+/** Exponential backoff in ms for retry attempt N (1-based), same shape as
+ * the transient-retry loop in refresh-events-dataset.mjs. */
+export function rcFetchBackoffMs(attempt) {
+  return 1000 * 2 ** (attempt - 1);
+}
+
+// 4 attempts (1+2+4s of backoff, ~7s total) was enough for the transient
+// blips behind #45/#54/#171, but issue #263 measured a `firebaseremoteconfig
+// .googleapis.com` "Read requests per minute" quota rejection — the admin
+// SDK call and every REST retry landed 429 inside the same ~7s burst,
+// because a quota bucket that resets once a minute cannot recover within a
+// window shorter than a minute. 7 attempts (backoff 1+2+4+8+16+32s ≈ 63s
+// total) guarantees at least one attempt lands in the following quota
+// window instead of exhausting the retry budget entirely inside the one
+// that is already spent.
+export const RC_FETCH_ATTEMPTS = 7;
+
+// Wall-clock cap per attempt (follow-up #199 to #173/#198): this fetch had
+// only a status-based retry, no timeout at all — a slow-but-never-erroring
+// Remote Config endpoint (no 429/5xx, just no response) hung the awaited
+// `fetch()` forever, so RC_FETCH_ATTEMPTS never got a chance to kick in. Same
+// value and reasoning as TOKEN_EXCHANGE_TIMEOUT_MS in
+// lib/google-service-account-token.mjs, the sibling call one hop upstream.
+export const RC_FETCH_TIMEOUT_MS = 30_000;
 
 /**
  * Fetch the Remote Config template WITHOUT firebase-admin, using the REST API
@@ -346,12 +382,38 @@ async function fetchTemplateViaRest() {
     'https://www.googleapis.com/auth/firebase.remoteconfig',
   );
 
-  const rcRes = await fetch(
-    `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
-    { headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' } },
-  );
-  if (!rcRes.ok) throw new Error(`Remote Config REST fetch failed: ${rcRes.status}`);
-  return rcRes.json();
+  let lastErr;
+  for (let attempt = 1; attempt <= RC_FETCH_ATTEMPTS; attempt++) {
+    let rcRes;
+    try {
+      rcRes = await fetch(
+        `https://firebaseremoteconfig.googleapis.com/v1/projects/${encodeURIComponent(creds.project_id)}/remoteConfig`,
+        {
+          headers: { Authorization: `Bearer ${accessToken}`, 'Accept-Encoding': 'gzip' },
+          signal: AbortSignal.timeout(RC_FETCH_TIMEOUT_MS),
+        },
+      );
+    } catch (err) {
+      // Same class of bug as the OAuth exchange one hop upstream (see
+      // exchangeAssertionForToken in lib/google-service-account-token.mjs):
+      // AbortSignal.timeout() rejects the fetch instead of resolving a status,
+      // so without this catch a slow-but-never-erroring endpoint would fail on
+      // the FIRST timeout instead of spending the RC_FETCH_ATTEMPTS/~63s budget.
+      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
+      lastErr = new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`);
+      if (attempt < RC_FETCH_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
+      }
+      continue;
+    }
+    if (rcRes.ok) return rcRes.json();
+    lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}`);
+    if (!isRetryableRcFetchStatus(rcRes.status)) throw lastErr;
+    if (attempt < RC_FETCH_ATTEMPTS) {
+      await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
+    }
+  }
+  throw lastErr;
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────
