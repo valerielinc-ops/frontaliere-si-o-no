@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-08-13T10:33:50.512Z",
+  "assembledAt": "2026-08-13T22:25:10.800Z",
   "jobs": [
     {
       "id": "mistral-ai-a19ef62acdc4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/b5249209-1516-4ef7-bd34-5b5cb15f2dfd",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.308Z",
+      "crawledAt": "2026-08-13T22:25:08.156Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,11 +48,20 @@
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/b5249209-1516-4ef7-bd34-5b5cb15f2dfd",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-12T22:08:16.455Z",
+      "previousSlugs": [
+        "software-engineer-network-automation-wan-edge-mistral-ai-ch",
+        "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich-3gxq7a",
+        "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a",
+        "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "software-engineer-network-automation-wan-edge-mistral-ai-ch",
           "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich-3gxq7a",
+          "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a",
+          "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich"
+        ],
+        "en": [
           "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a"
         ],
         "de": [
@@ -60,16 +69,9 @@
         ],
         "fr": [
           "software-engineer-network-automation-wan-edge-mistral-ai-ch"
-        ],
-        "en": [
-          "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-network-automation-wan-edge-mistral-ai-ch",
-        "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich-3gxq7a",
-        "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a"
-      ],
+      "firstSeenAt": "2026-08-12T22:08:16.455Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -82,7 +84,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -115,7 +118,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.306Z",
+      "crawledAt": "2026-08-13T22:25:08.155Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -192,7 +195,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.305Z",
+      "crawledAt": "2026-08-13T22:25:08.154Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -277,7 +280,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.302Z",
+      "crawledAt": "2026-08-13T22:25:08.153Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -306,6 +309,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -351,7 +355,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.300Z",
+      "crawledAt": "2026-08-13T22:25:08.152Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,7 +399,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -428,7 +433,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.299Z",
+      "crawledAt": "2026-08-13T22:25:08.151Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -472,7 +477,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -505,7 +511,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.297Z",
+      "crawledAt": "2026-08-13T22:25:08.150Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -582,7 +588,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.295Z",
+      "crawledAt": "2026-08-13T22:25:08.149Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,7 +668,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.292Z",
+      "crawledAt": "2026-08-13T22:25:08.147Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -739,7 +745,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:33:47.287Z",
+      "crawledAt": "2026-08-13T22:25:08.143Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
