@@ -9873,6 +9873,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.banca-cler-utili-aumento.title': 'Banque Cler : bénéfice en hausse au premier semestre',
     'blog.article.banca-cler-utili-aumento.excerpt': 'Banque Cler : bénéfice en hausse de 21% au premier semestre. Chiffre d\'affaires en hausse de 7 % à 137 millions de francs.',
     'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
+    'blog.article.swissquote-crollo-azienda.title': 'Swissquote, forte baisse en Bourse',
+    'blog.article.swissquote-crollo-azienda.excerpt': 'La société de services financiers Swissquote a connu une forte baisse en Bourse, influencée par la faiblesse des cryptomonnaies et les bénéfices en baisse par rapport aux estimations des analystes.',
+    'blog.article.swissquote-crollo-azienda.imageAlt': 'Une photo d\'un ordinateur avec une crise des valeurs de Swissquote',
 };
 
 export default blogMetaFr;
