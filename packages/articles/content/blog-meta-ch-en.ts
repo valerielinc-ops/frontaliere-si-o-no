@@ -2395,6 +2395,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ue-vigilanza-ai-act-2023.title': 'EU controls AI Act, transparency for chatbots and deepfakes',
     'blog.article.ue-vigilanza-ai-act-2023.excerpt': 'The EU Commission starts monitoring the AI Act, with new rules for suppliers of GPAI models.',
     'blog.article.ue-vigilanza-ai-act-2023.imageAlt': 'Image of Locarno during the film festival',
+    'blog.article.eclissi-solare-2026-ticino.title': 'After the solar eclipse in Switzerland',
+    'blog.article.eclissi-solare-2026-ticino.excerpt': 'The solar eclipse covered 91% of the sun in Ticino and Graubünden',
+    'blog.article.eclissi-solare-2026-ticino.imageAlt': 'The solar eclipse covered the sun for 91% in Ticino and Grigioni',
 };
 
 export default blogMetaChEn;

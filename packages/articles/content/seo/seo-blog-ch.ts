@@ -31022,6 +31022,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eclissi-solare-2026-ticino': {
+    title: 'Terminata l\'eclissi solare in Svizzera | Frontaliere Ticino',
+    description: 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terminata, eclissi, solare, coperto',
+    ogTitle: 'Eclissi solare in Svizzera',
+    ogDescription: 'L\'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-2026-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terminata l'eclissi solare in Svizzera",
+      "description": "L'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-2026-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'eclissi solare ha coperto il sole per il 91% in Ticino e nei Grigioni"
+      },
+      "datePublished": "2026-08-13T01:08:40+00:00",
+      "dateModified": "2026-08-13T01:08:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-2026-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
