@@ -9867,6 +9867,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 13. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Grenzgänger-Bulletin vom 13. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'Die Zahlen vom 13. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.banca-cler-utili-aumento.title': 'Bank Cler: Gewinnsteigerung im ersten Halbjahr',
+    'blog.article.banca-cler-utili-aumento.excerpt': 'Bank Cler: Gewinn im ersten Halbjahr um 21% gestiegen. Die Erträge stiegen um 7% auf 137 Millionen Franken.',
+    'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
 };
 
 export default blogMetaDe;

@@ -9868,6 +9868,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'The day\'s numbers for cross-border commuters – August 13, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Cross-border brief, August 13, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'The numbers for August 13, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.banca-cler-utili-aumento.title': 'Banca Cler: profits up in the first half of the year',
+    'blog.article.banca-cler-utili-aumento.excerpt': 'Banca Cler: profits increased by 21% in the first half of the year. Revenues increased by 7% to CHF 137 million.',
+    'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
 };
 
 export default blogMetaEn;

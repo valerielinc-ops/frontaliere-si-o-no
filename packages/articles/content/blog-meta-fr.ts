@@ -9870,6 +9870,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'Les chiffres du jour pour les frontaliers – 13 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Bulletin du frontalier du 13 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'Les chiffres du 13 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.banca-cler-utili-aumento.title': 'Banque Cler : bénéfice en hausse au premier semestre',
+    'blog.article.banca-cler-utili-aumento.excerpt': 'Banque Cler : bénéfice en hausse de 21% au premier semestre. Chiffre d\'affaires en hausse de 7 % à 137 millions de francs.',
+    'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
 };
 
 export default blogMetaFr;

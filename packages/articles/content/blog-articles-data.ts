@@ -29586,6 +29586,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'banca-cler-utili-aumento',
+ category: 'fiscale',
+ date: '2026-08-13T06:45:05.559Z',
+ image: '/images/blog/banca-cler-utili-aumento.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
