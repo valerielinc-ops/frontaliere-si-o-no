@@ -1,16 +1,16 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-08-13T10:44:13.270Z",
+  "generatedAt": "2026-08-13T22:19:39.462Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 32694,
-  "avgDurationMs": 32694,
+  "durationMs": 30437,
+  "avgDurationMs": 30437,
   "durationHistory": [
-    32694
+    30437
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Lead-Motor-and-Drive-Engineer_147220",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:44:07.544Z",
+      "crawledAt": "2026-08-13T22:19:34.374Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:44:08.780Z",
+      "crawledAt": "2026-08-13T22:19:35.308Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +94,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:44:09.886Z",
+      "crawledAt": "2026-08-13T22:19:36.201Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -128,7 +128,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T10:44:10.972Z",
+      "crawledAt": "2026-08-13T22:19:37.149Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,46 +151,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "logitech-d966ad919913",
-      "slug": "software-architetto-software-firmware-device-interface-design-logitech-lausanne-switzerland",
-      "company": "Logitech",
-      "companyKey": "logitech",
-      "companyDomain": "logitech.com",
-      "title": "Software Architect, Software/Firmware Device Interface Design",
-      "location": "Lausanne, Switzerland",
-      "canton": "VD",
-      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Architect--Software-Firmware-Device-Interface-Design_147083",
-      "source": "Logitech Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:08:57.629Z",
-      "addressLocality": "Lausanne, Switzerland",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Hardware Consumer",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Architect--Software-Firmware-Device-Interface-Design_147083",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-18T12:42:50.510Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
