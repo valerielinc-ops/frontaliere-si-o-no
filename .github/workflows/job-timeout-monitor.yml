@@ -1,10 +1,22 @@
 name: job-timeout-monitor
-# Zero-workflow-file-touch reconciler: scans ALL recent cancelled runs across every
-# workflow in this repo and opens a `CI Failure: <workflow>` issue when the cancellation
-# was actually caused by `timeout-minutes` (proven via the check-run's "exceeded ...
-# maximum execution time" annotation — plain `cancelled` also covers benign
-# concurrency-group supersession, which must NOT open an issue).
-# See scripts/ci/scan-job-timeouts.mjs for the full rationale.
+# Zero-workflow-file-touch reconciler for jobs that die in a way `if: failure()` cannot
+# observe. Scans ALL recent runs across every workflow in this repo and opens a
+# `CI Failure: <workflow>` issue for either signature:
+#
+#   A. TIMEOUT — `timeout-minutes` marks the job `cancelled`, never `failure`, so the
+#      workflow's own reporter never fires. Proven via the check-run's "exceeded ...
+#      maximum execution time" annotation: plain `cancelled` also covers benign
+#      concurrency-group supersession, which must NOT open an issue.
+#   B. HOST-KILL — the runner host dies mid-step. The job IS `failure`, but every step
+#      downstream of the kill (the reporter included) stays `pending`, so again nothing
+#      is reported. Signature: `failure` + at least one step still `in_progress`.
+#      This is #5773/#5772/#5771 — run 31672320271 lost `build-locale (it)` inside the
+#      build step, the IT CDN push never happened, and the only visible trace was the
+#      three downstream locale guards tripping.
+#
+# The workflow NAME stays `job-timeout-monitor` even though it now covers both: it is
+# the dedup key of its own `CI Failure: job-timeout-monitor` thread and the identity of
+# the cron schedule. See scripts/ci/scan-job-timeouts.mjs for the full rationale.
 
 on:
   schedule:
@@ -37,7 +49,7 @@ jobs:
           node-version: 22
           # No `npm ci` — script only uses Node stdlib + local modules.
 
-      - name: Scan for job timeouts
+      - name: Scan for job timeouts and host-kills
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/ci/scan-job-timeouts.mjs
