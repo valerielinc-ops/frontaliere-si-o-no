@@ -31763,6 +31763,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-governo-dice-no-iniziativa-alimentazione': {
+    title: 'Il Governo dice no all’iniziativa sull’alimentazione',
+    description: 'Il Consiglio federale ha respinto l’iniziativa popolare sull’alimentazione, affermando che le richieste avanzate sono eccessive e irrealizzabili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, governo, dice, iniziativa, sull',
+    ogTitle: 'Governo svizzero respinge iniziativa alimentazione',
+    ogDescription: 'Il Consiglio federale ha respinto l’iniziativa popolare sull’alimentazione, affermando che le richieste avanzate sono eccessive e irrealizzabili.',
+    canonicalPath: '/articoli-svizzera/governo-dice-no-iniziativa-alimentazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Governo dice no all’iniziativa sull’alimentazione",
+      "description": "Il Consiglio federale ha respinto l’iniziativa popolare sull’alimentazione, affermando che le richieste avanzate sono eccessive e irrealizzabili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/governo-dice-no-iniziativa-alimentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine della Svizzera con cornici di verdura e un secchio di frutta"
+      },
+      "datePublished": "2026-08-13T04:06:31+00:00",
+      "dateModified": "2026-08-13T04:06:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/governo-dice-no-iniziativa-alimentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

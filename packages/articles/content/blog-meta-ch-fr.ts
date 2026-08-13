@@ -2452,6 +2452,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Jeunes poulpes contre le crabe bleu : lutte biologique en Méditerranée',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'Le projet Octo-Blu prévoit la libération contrôlée d\'environ un demi-million de petits poulpes (Octopus vulgaris) élevés en laboratoire dans les eaux situées devant Riccione et Cesenatico.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'Un projet de lutte biologique dans le bassin méditerranéen vise à contenir l\'espèce invasive de crabes bleus qui dévaste les écosystèmes marins et la pêche de moules et d\'huîtres.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Le gouvernement dit non à l\'initiative sur l\'alimentation',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Le Conseil fédéral rejette l’initiative populaire sur l\'alimentation au motif que les demandes formulées sont excessives et irréalisables.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Image de la Suisse avec des images vertes et des fruits',
 };
 
 export default blogMetaChFr;

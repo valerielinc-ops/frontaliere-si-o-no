@@ -2452,6 +2452,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.polpi-contro-granchio-blu.title': 'Junger Oktopus gegen blaue Krabbe: Biologischer Kampf im Mittelmeer',
     'blog.article.polpi-contro-granchio-blu.excerpt': 'Das Projekt Octo-Blu sieht die kontrollierte Freisetzung von etwa einer halben Million kleiner Oktopusse (Octopus vulgaris) vor, die im Labor in den Gewässern vor Riccione und Cesenatico gezüchtet werden.',
     'blog.article.polpi-contro-granchio-blu.imageAlt': 'Ein sperimentelles Projekt im Mittelmeer zielt darauf ab, die invasive Blaue Krabbe zu kontrollieren, die die marinen Ökosysteme und die Muschel- und Austernzucht devastiert.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.title': 'Regierung sagt Nein zur Ernährungsinitiative',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.excerpt': 'Der Bundesrat lehnt die Ernährungsinitiative mit der Begründung ab, die Forderungen seien übertrieben und unrealisierbar.',
+    'blog.article.governo-dice-no-iniziativa-alimentazione.imageAlt': 'Bild der Schweiz mit grünen und Obst-Bildern',
 };
 
 export default blogMetaChDe;
