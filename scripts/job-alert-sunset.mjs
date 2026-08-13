@@ -30,6 +30,7 @@
  * Requires Firebase application-default credentials (CI runs load-rc-env first).
  */
 import { classifyJobAlertSunset } from './lib/jobAlertSunset.mjs';
+import { recipientsWithAllAlertsDecayed } from './lib/jobAlertCadence.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 
 const APPLY = process.argv.includes('--apply');
@@ -53,6 +54,30 @@ async function main() {
   const { FieldValue } = await import('firebase-admin/firestore');
   const now = Date.now();
 
+  // Whose every alert the cadence engine has already retired (#5705 §5.4). The
+  // re-probe below and the decay disagree — one says "mail them once more and
+  // see", the other says "we stopped, and only they can restart us" — and on a
+  // channel nobody asked for the quieter one wins. Same collectionGroup query
+  // send-job-alerts.mjs runs nightly, so the index is the one already deployed.
+  //
+  // FAILS CLOSED: if the query cannot run we suppress every re-probe rather
+  // than risk one landing on somebody we decided to stop mailing. A sunset run
+  // that re-probes nobody today costs a day; the other error costs an email to
+  // exactly the person this whole mechanism exists to leave alone.
+  let allAlertsDecayed = null; // null = unknown → treat everybody as decayed
+  try {
+    const alertsSnap = await db.collectionGroup('alerts').where('active', '==', true).get();
+    allAlertsDecayed = recipientsWithAllAlertsDecayed(
+      alertsSnap.docs
+        .filter((doc) => doc.ref.parent.parent?.parent?.id === 'job_alert_subscribers')
+        .map((doc) => ({ email: doc.ref.parent.parent?.id || doc.data()?.email, ...doc.data() })),
+    );
+    console.log(`   🪦 cadence-decayed recipients (all alerts): ${allAlertsDecayed.size}`);
+  } catch (err) {
+    console.warn(`   ⚠️  could not read the cadence state (${err?.message || err}) — suppressing every re-probe this run`);
+  }
+  const cadenceDecayedFor = (email) => (allAlertsDecayed == null ? true : allAlertsDecayed.has(String(email).toLowerCase()));
+
   const snap = await db.collection('job_alert_subscribers').get();
   const sunset = [];
   const reactivate = [];
@@ -61,7 +86,9 @@ async function main() {
   snap.forEach((doc) => {
     if (doc.id === '_meta_') return;
     const data = doc.data() || {};
-    const { action } = classifyJobAlertSunset(data, now);
+    const { action } = classifyJobAlertSunset(data, now, {
+      cadenceDecayed: cadenceDecayedFor(data.email || doc.id),
+    });
     if (action === 'sunset') sunset.push({ ref: doc.ref, email: data.email || doc.id });
     else if (action === 'reactivate') reactivate.push({ ref: doc.ref, email: data.email || doc.id });
     else if (action === 'reprobe') reprobe.push({ ref: doc.ref, email: data.email || doc.id });
