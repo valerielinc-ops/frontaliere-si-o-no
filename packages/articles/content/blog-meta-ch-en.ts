@@ -2434,6 +2434,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salute-sessuale-ticino.title': 'Sexual health in Ticino',
     'blog.article.salute-sessuale-ticino.excerpt': 'Information and news on sexual health in the Canton of Ticino, with a focus on dedicated sections and related topics.',
     'blog.article.salute-sessuale-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains',
+    'blog.article.borse-studio-berna-guida.title': 'Scholarships Canton Bern: requirements and amounts',
+    'blog.article.borse-studio-berna-guida.excerpt': 'Official guide to training grants in the Canton of Bern: who is eligible, how to apply and the calculation criteria for financial aid.',
+    'blog.article.borse-studio-berna-guida.imageAlt': 'Federal Palace in Bern, seat of Swiss institutions',
 };
 
 export default blogMetaChEn;
