@@ -2488,6 +2488,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sconti-farmaci-pazienti.title': 'Sconti fantasma sui farmaci : miliardi persi',
     'blog.article.sconti-farmaci-pazienti.excerpt': 'Le Contrôle fédéral des finances rejette la surveillance de l\'OFSP',
     'blog.article.sconti-farmaci-pazienti.imageAlt': 'Remises fantômes sur les médicaments suisses: milliards perdus et peu d\'économies pour les patients',
+    'blog.article.mercati-affitti-canton-berna.title': 'Marché locatif dans le canton de Berne : loyers moyens et droit locatif',
+    'blog.article.mercati-affitti-canton-berna.excerpt': 'Les loyers dans le canton de Berne sont en constante augmentation. Découvrez les loyers moyens par zone et le droit de location.',
+    'blog.article.mercati-affitti-canton-berna.imageAlt': 'Une vue de Lugano sur le lac',
 };
 
 export default blogMetaChFr;

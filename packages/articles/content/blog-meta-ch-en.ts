@@ -2488,6 +2488,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sconti-farmaci-pazienti.title': 'Phantom drug discounts: billions lost and little savings for patients',
     'blog.article.sconti-farmaci-pazienti.excerpt': 'The Federal Finance Control rejects the supervision of the FOPH',
     'blog.article.sconti-farmaci-pazienti.imageAlt': 'Ghost discounts on Swiss pharmaceuticals: billions lost and few savings for patients',
+    'blog.article.mercati-affitti-canton-berna.title': 'Rental market in the Canton of Bern: average fees and rental rights',
+    'blog.article.mercati-affitti-canton-berna.excerpt': 'Rentals in the Canton of Bern are constantly growing. Find out the average rents by area and the rental right.',
+    'blog.article.mercati-affitti-canton-berna.imageAlt': 'A view of Lugano on the lake',
 };
 
 export default blogMetaChEn;
