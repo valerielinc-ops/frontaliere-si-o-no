@@ -2398,6 +2398,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eclissi-solare-2026-ticino.title': 'After the solar eclipse in Switzerland',
     'blog.article.eclissi-solare-2026-ticino.excerpt': 'The solar eclipse covered 91% of the sun in Ticino and Graubünden',
     'blog.article.eclissi-solare-2026-ticino.imageAlt': 'The solar eclipse covered the sun for 91% in Ticino and Grigioni',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'More GR: Churer Fest, between limited traffic and safety measures',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'From 14 to 16 August, the 35th edition of the Churer Fest will take place in the Rhaetian capital. To ensure the safety of the event, law enforcement will take several measures.',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Chur festival',
 };
 
 export default blogMetaChEn;

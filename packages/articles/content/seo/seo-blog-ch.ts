@@ -31061,6 +31061,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-churer-fest-traffico-limitato-misure-sicurezza': {
+    title: 'Di più GR: Churer Fest, fra traffico limitato e misure di sicurezza',
+    description: 'La 35esima edizione della Churer Fest si svolgerà dal 14 al 16 agosto a Chur. Il traffico sarà limitato nel centro della città e le forze dell\'ordine',
+    keywords: 'frontalieri, ticino, svizzera, italia, churer, fest, traffico, limitato',
+    ogTitle: 'Churer Fest, fra traffico limitato e misure di sicurezza',
+    ogDescription: 'La 35esima edizione della Churer Fest si svolgerà dal 14 al 16 agosto a Chur. Il traffico sarà limitato nel centro della città e le forze dell\'ordine adotteranno diverse misure per garantire la sicurezza dell\'evento.',
+    canonicalPath: '/articoli-svizzera/churer-fest-traffico-limitato-misure-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più GR: Churer Fest, fra traffico limitato e misure di sicurezza",
+      "description": "La 35esima edizione della Churer Fest si svolgerà dal 14 al 16 agosto a Chur. Il traffico sarà limitato nel centro della città e le forze dell'ordine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/churer-fest-traffico-limitato-misure-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa di Chur"
+      },
+      "datePublished": "2026-08-13T01:12:50+00:00",
+      "dateModified": "2026-08-13T01:12:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/churer-fest-traffico-limitato-misure-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

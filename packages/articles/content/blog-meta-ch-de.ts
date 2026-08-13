@@ -2398,6 +2398,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eclissi-solare-2026-ticino.title': 'Sonnenfinsternis in der Schweiz beendet',
     'blog.article.eclissi-solare-2026-ticino.excerpt': 'Die Sonnenfinsternis bedeckte die Sonne zu 91% im Tessin und Graubünden',
     'blog.article.eclissi-solare-2026-ticino.imageAlt': 'Die Sonnenfinsternis hat den Sonnenstrahl für 91% in Tessin und Grigioni abgedeckt',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'Mehr GR: Churer Fest, zwischen eingeschränktem Verkehr und Sicherheitsmaßnahmen',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'Vom 14. bis 16. August findet das 35. Churer Fest in der rätischen Landeshauptstadt statt. Um die Sicherheit der Veranstaltung zu gewährleisten, werden die Strafverfolgungsbehörden verschiedene Maßnahmen ergreifen.',
+    'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Fest in Chur',
 };
 
 export default blogMetaChDe;
