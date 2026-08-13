@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-12T22:18:52.173Z",
+  "assembledAt": "2026-08-13T10:27:53.962Z",
   "jobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:18:49.339Z",
+      "crawledAt": "2026-08-13T10:27:51.992Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -61,75 +61,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "alpiq-3fa36ed9c713",
-      "slug": "structured-products-trader-spanish-market-alpiq-olten",
-      "slugByLocale": {
-        "it": "prodotti-strutturati-trader-mercato-spagnolo-alpiq-olten",
-        "en": "structured-products-trader-spanish-market-alpiq-olten",
-        "de": "structured-products-trader-spanischer-markt-alpiq-olten",
-        "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Structured Products Trader - Spanish market",
-      "titleByLocale": {
-        "it": "Prodotti Strutturati Trader - Mercato spagnolo",
-        "en": "Structured Products Trader - Spanish market",
-        "de": "Strukturierter Produkte-Handelsmann - spanischer Markt",
-        "fr": "Négociateur de produits structurés - marché espagnol"
-      },
-      "description": "Structured Products Trader - Spanish market\n\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Titolo professionale\nCommerciante di prodotti strutturati - Mercato spagnolo\n\nDescrizione\nSiamo alla ricerca di un trader di prodotti strutturati che si unisca al nostro desk di trading strutturato, con una forte attenzione agli argomenti orientati all'opzionalità nell'Europa meridionale. In questo ruolo, lavorerai a stretto contatto con i team di Origination in Spagna (e back-up per l'Italia) gestendo il trading di energia e gas...\n\nResponsabilità\n- Gestire il trading di energia e gas\n- Lavorare a stretto contatto con i team di Origination in Spagna (e back-up per l'Italia)\n\nRequisiti\n- Olten - 100%\n- Permanente\n\nCosa offriamo",
-        "en": "Job Title\nStructured Products Trader - Spanish market\n\nDescription\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading…\n\nResponsibilities\n- Managing the power and gas trading\n- Working closely with Origination teams in Spain (and back-up for Italy)\n\nRequirements\n- Olten - 100%\n- Permanent\n\nWhat we offer",
-        "de": "Job Title Structured Products Trader - Spanish market Beschreibung Wir suchen einen Structured Products Trader, der sich unserem Structured Trading Desk anschließt, mit einem starken Fokus auf optionalitätsgetriebene Themen in Südeuropa. In dieser Rolle werden Sie eng mit Origination Teams in Spanien (und Back-up für Italien) zusammenarbeiten, die den Strom- und Gashandel steuern....",
-        "fr": "Titre de l'emploi Trafic structuré - Marché espagnol Description Nous recherchons un trader structuré pour rejoindre notre Bureau de trading structuré, avec un accent fort sur les sujets optionnels en Europe du Sud. Dans ce rôle, vous travaillerez en étroite collaboration avec les équipes d'origine en Espagne (et de sauvegarde pour l'Italie) gérant le commerce de l'électricité et du gaz..."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9598",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-11T22:26:02.165Z",
-      "firstSeenAt": "2026-07-16T23:01:54.449Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "structured-products-trader-spanish-market-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "structured-products-trader-spanish-market-alpiq-olten"
-      ]
     },
     {
       "id": "alpiq-e1fbe0ada2de",
@@ -190,6 +121,7 @@
           "unitText": "YEAR"
         }
       },
+      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "archivist-in-all-100-alpiq-olten"
@@ -244,7 +176,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:46:17.351Z",
+      "crawledAt": "2026-08-13T10:27:51.993Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -258,7 +190,6 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
@@ -327,6 +258,7 @@
           "unitText": "YEAR"
         }
       },
+      "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
           "electricien-ne-automaticien-ne-alpiq-martigny"

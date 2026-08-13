@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-08-12T22:18:52.174Z",
-  "total": 5,
+  "generatedAt": "2026-08-13T10:27:53.963Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 2,
-  "durationMs": 4393,
-  "avgDurationMs": 4393,
+  "durationMs": 3600,
+  "avgDurationMs": 3600,
   "durationHistory": [
-    4393
+    3600
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:18:49.339Z",
+      "crawledAt": "2026-08-13T10:27:51.992Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -49,12 +49,12 @@
       }
     },
     {
-      "id": "alpiq-e1fbe0ada2de",
-      "slug": "archivist-in-all-100-alpiq-olten",
+      "id": "alpiq-dbe206690861",
+      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Archivist:in (all) 100%",
+      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -67,95 +67,23 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9601",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
+      "postedDate": "2026-06-29",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:18:49.339Z",
-      "firstSeenAt": "2026-07-06T12:57:17.444Z",
-      "_qualityScore": 81,
+      "crawledAt": "2026-08-13T10:27:51.993Z",
+      "firstSeenAt": "2026-06-29T21:34:24.960Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 25,
         "completeness": 17
-      }
-    },
-    {
-      "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Electricien(ne) - automaticien(ne)",
-      "location": "Martigny",
-      "canton": "",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressLocality": "Martigny",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:18:49.337Z",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 61,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "_qualityScore": 54,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 15,
-        "completeness": 14
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "alpiq-c0ef4d9c8b9f",
-      "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Product Manager - Trading and Origination (all) 100%",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-17",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9515",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:18:49.339Z",
-      "firstSeenAt": "2026-07-17T11:43:13.714Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
+  "removedJobs": [
     {
       "id": "alpiq-3fa36ed9c713",
       "slug": "structured-products-trader-spanish-market-alpiq-olten",
@@ -192,6 +120,42 @@
         "translation": 25,
         "completeness": 22
       }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "id": "alpiq-c0ef4d9c8b9f",
+      "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Product Manager - Trading and Origination (all) 100%",
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9515",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-13T10:27:51.992Z",
+      "firstSeenAt": "2026-07-17T11:43:13.714Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 17
+      }
     },
     {
       "id": "alpiq-e1fbe0ada2de",
@@ -219,12 +183,15 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-12T22:18:49.339Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
-      "_qualityScore": 81,
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -251,17 +218,14 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T10:46:17.351Z",
+      "crawledAt": "2026-08-13T10:27:51.993Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 82,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     },
     {
@@ -293,12 +257,15 @@
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "_qualityScore": 54,
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
         "translation": 15,
-        "completeness": 14
+        "completeness": 19
       }
     }
   ]
