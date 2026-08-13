@@ -2416,6 +2416,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-berna.title': 'Apprenticeship and vocational training in Bern',
     'blog.article.apprendistato-formazione-berna.excerpt': 'Practical guide to finding a traineeship in the Canton of Bern: from employment contract to professional maturity and salary.',
     'blog.article.apprendistato-formazione-berna.imageAlt': 'Young apprentice with mentor in office',
+    'blog.article.incidente-e-bike-morte-ciclista.title': 'E-bike accident: cyclist dies in hospital',
+    'blog.article.incidente-e-bike-morte-ciclista.excerpt': 'A cyclist has died after an e-bike accident in Lauenen bei Gstaad.',
+    'blog.article.incidente-e-bike-morte-ciclista.imageAlt': 'A cyclist riding a mountain bike through the countryside near Lauenen, Switzerland.',
 };
 
 export default blogMetaChEn;

@@ -2416,6 +2416,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-berna.title': 'Apprendistato e formazione professionale a Berna',
     'blog.article.apprendistato-formazione-berna.excerpt': 'Guida pratica alla ricerca di un posto di tirocinio nel Canton Berna: dal contratto di lavoro alla maturità professionale e retribuzione.',
     'blog.article.apprendistato-formazione-berna.imageAlt': 'Giovane apprendista con mentore in ufficio',
+    'blog.article.incidente-e-bike-morte-ciclista.title': 'Incidente con l\'e-bike: ciclista muore in ospedale',
+    'blog.article.incidente-e-bike-morte-ciclista.excerpt': 'Un ciclista è morto dopo un incidente con un e-bike avvenuto a Lauenen bei Gstaad.',
+    'blog.article.incidente-e-bike-morte-ciclista.imageAlt': 'Un ciclista in bicicletta su una strada di montagna vicino a Lauenen, in Svizzera.',
 };
 
 export default blogMetaChIt;

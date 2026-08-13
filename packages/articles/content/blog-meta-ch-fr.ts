@@ -2416,6 +2416,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-berna.title': 'Apprentissage et formation professionnelle à Berne',
     'blog.article.apprendistato-formazione-berna.excerpt': 'Guide pratique à la recherche d\'un poste d\'apprentissage dans le canton de Berne : du contrat de travail à la maturité professionnelle et à la rémunération.',
     'blog.article.apprendistato-formazione-berna.imageAlt': 'Apprenti avec mentor au bureau',
+    'blog.article.incidente-e-bike-morte-ciclista.title': 'Accident de vélo électrique : un cycliste meurt à l\'hôpital',
+    'blog.article.incidente-e-bike-morte-ciclista.excerpt': 'Un cycliste est mort après un accident avec un vélo électrique à Lauenen bei Gstaad.',
+    'blog.article.incidente-e-bike-morte-ciclista.imageAlt': 'Un cycliste en bicyclette sur une route de montagne près de Lauenen, en Suisse.',
 };
 
 export default blogMetaChFr;
