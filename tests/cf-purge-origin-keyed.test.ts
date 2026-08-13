@@ -48,8 +48,14 @@ import {
   localeShardPurgePaths,
   localeShardPurgeUrls,
 } from '../scripts/ci/locale-shard-purge-urls.mjs';
+import {
+  SECTION_KEYS,
+  sectionShardPurgeBatches,
+  sectionShardPurgePaths,
+  sectionShardPurgeUrls,
+} from '../scripts/ci/section-shard-purge-urls.mjs';
 import { MAX_TARGETED_FILES } from '../scripts/lib/cf-purge-limits.mjs';
-import { SHARD_ORIGIN } from '../infra/cloudflare-worker/locale-router.js';
+import { SECTION_ORIGIN, SECTION_ROUTES, SHARD_ORIGIN } from '../infra/cloudflare-worker/locale-router.js';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -221,7 +227,113 @@ describe('the locale-shard purge list deploy.yml emits', () => {
   });
 });
 
+describe('the section-shard purge list deploy.yml emits (#5513)', () => {
+  const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+  // articolifrontaliere/articolisvizzera are real SECTION_ORIGIN entries but
+  // are excluded here because deploy.yml's push loop skips them by default
+  // (ARTICOLI*_BUILD_EMIT_SKIP defaults to true — they are served by
+  // publish-article-fast.mjs / rerender-article-hubs.yml instead), so their
+  // shard-ok marker never exists for the CI caller to name them.
+  const CANTON_SECTIONS = SECTION_KEYS.filter(
+    (s) => s !== 'articolifrontaliere' && s !== 'articolisvizzera',
+  );
+
+  it('has a SECTION_ROUTES entry for every section in every locale', () => {
+    for (const section of SECTION_KEYS) {
+      for (const locale of LOCALES) {
+        expect(
+          SECTION_ROUTES.some((r) => r.section === section && r.locale === locale),
+          `no SECTION_ROUTES entry for ${section}/${locale}`,
+        ).toBe(true);
+      }
+    }
+  });
+
+  it.each(LOCALES)('%s: every canton section pairs apex with its own origin, no blind spot', (locale) => {
+    for (const section of CANTON_SECTIONS) {
+      const urls = sectionShardPurgeUrls(section, locale);
+      expect(urls).toHaveLength(4); // 2 paths (bare + slash) × apex+origin
+      expect(apexPurgeBlindSpots(urls)).toEqual([]);
+      const origin = SECTION_ORIGIN[section][locale];
+      for (const pathname of sectionShardPurgePaths(section, locale)) {
+        expect(urls).toContain(`https://${APEX_HOST}${pathname}`);
+        expect(urls).toContain(`https://${origin}${pathname}`);
+      }
+    }
+  });
+
+  it('throws on a section/locale pair with no route, rather than silently emitting nothing', () => {
+    expect(() => sectionShardPurgeUrls('not-a-real-section', 'it')).toThrow();
+  });
+
+  it.each(LOCALES)('%s: the full canton fan-out is over the 30-URL cap — the reason batching exists', (locale) => {
+    const totalUrls = CANTON_SECTIONS.reduce((n, s) => n + sectionShardPurgeUrls(s, locale).length, 0);
+    expect(totalUrls).toBeGreaterThan(MAX_TARGETED_FILES);
+  });
+
+  it.each(LOCALES)('%s: batches never exceed the cap and cover every URL exactly once', (locale) => {
+    const batches = sectionShardPurgeBatches(CANTON_SECTIONS, locale);
+    expect(batches.length).toBeGreaterThan(1);
+    for (const b of batches) expect(b.length).toBeLessThanOrEqual(MAX_TARGETED_FILES);
+    const flat = batches.flat();
+    const expected = CANTON_SECTIONS.flatMap((s) => sectionShardPurgeUrls(s, locale));
+    expect(flat).toEqual(expected);
+  });
+
+  it('the cap is a hard boundary: exactly-at-cap yields one batch, one URL over yields two (off-by-one guard)', () => {
+    // batch() (reused, not reimplemented) is a plain `for (i += size) slice(i, i+size)`
+    // loop — the natural bug in that shape is an off-by-one at the boundary: an
+    // empty trailing batch when the list divides evenly, or a dropped last URL
+    // when it doesn't. Assert the exact request count at both edges, not just
+    // "stays under the cap" (the tests above already cover that loosely).
+    const sections = CANTON_SECTIONS.slice(0, 8); // deterministic, real route data
+    const totalUrls = sections.flatMap((s) => sectionShardPurgeUrls(s, 'it')).length;
+    expect(totalUrls).toBeGreaterThan(1);
+
+    const atCap = sectionShardPurgeBatches(sections, 'it', totalUrls);
+    expect(atCap).toHaveLength(1); // no empty trailing batch when the count divides evenly
+    expect(atCap[0]).toHaveLength(totalUrls);
+
+    const oneOver = sectionShardPurgeBatches(sections, 'it', totalUrls - 1);
+    expect(oneOver.map((b) => b.length)).toEqual([totalUrls - 1, 1]); // the last URL isn't dropped
+    expect(oneOver.flat()).toEqual(atCap[0]);
+  });
+
+  it('a real batch stays quiet against cf-purge-cache.mjs (no apex-blind-spot warning)', () => {
+    const [firstBatch] = sectionShardPurgeBatches(CANTON_SECTIONS.slice(0, 8), 'it');
+    const out = execFileSync('node', ['scripts/cf-purge-cache.mjs', `--files=${firstBatch.join(',')}`], {
+      cwd: ROOT,
+      encoding: 'utf-8',
+      env: { ...process.env, CF_API_TOKEN: '' },
+    });
+    expect(out).not.toContain('Apex purge does not move the served copy');
+  });
+});
+
 describe('deploy.yml purges where it pushes', () => {
+  it('section shard steps purge what they just pushed, on both legs (#5513)', () => {
+    // Same shape as the locale assertion below: the purge call must appear
+    // AFTER the push it purges, for each leg independently.
+    const pushItAt = DEPLOY.indexOf('Push section shards (IT');
+    const purgeItAt = DEPLOY.indexOf('section-shard-purge-urls.mjs it');
+    const pushNonItAt = DEPLOY.indexOf('Push section shards (non-IT');
+    const purgeNonItAt = DEPLOY.indexOf('section-shard-purge-urls.mjs "$LOCALE"');
+    expect(pushItAt, 'deploy.yml no longer pushes the IT section shards').toBeGreaterThan(-1);
+    expect(purgeItAt, 'the IT leg pushes section shards and purges nothing').toBeGreaterThan(-1);
+    expect(purgeItAt, 'the IT purge must run after the IT push').toBeGreaterThan(pushItAt);
+    expect(pushNonItAt, 'deploy.yml no longer pushes the non-IT section shards').toBeGreaterThan(-1);
+    expect(purgeNonItAt, 'the non-IT leg pushes section shards and purges nothing').toBeGreaterThan(-1);
+    expect(purgeNonItAt, 'the non-IT purge must run after the non-IT push').toBeGreaterThan(pushNonItAt);
+  });
+
+  it('the section purge is gated on the per-section ok-marker, not the push step outcome', () => {
+    // The push step's fan-out returns non-zero when ANY ONE section fails —
+    // gating the purge on that outcome would skip every OTHER section that
+    // pushed fine (unlike the single-locale push this pattern mirrors).
+    expect(DEPLOY).toContain('shard-ok-*-it');
+    expect(DEPLOY).toContain('shard-ok-*-"$LOCALE"');
+  });
+
   it('build-locale purges the shard it just force-pushed, after pushing it', () => {
     // The exact hole #5483 was reopened for: the job wrote the shard and purged
     // nothing. `grep -c cf-purge-cache` on main returned 0.
