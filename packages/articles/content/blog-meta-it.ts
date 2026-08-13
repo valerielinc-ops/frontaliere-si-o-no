@@ -9641,7 +9641,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Bollettino frontalieri del 11 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'I numeri del 11 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Trasferirsi a Aprica da frontaliere: pro e contro',
-    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Fatti e cifre DALLA FONTE sul trasferimento a Aprica per i frontalieri',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Franchigia di €10\'000 e obbligo di risiedere ad Aprica almeno 183 giorni l\'anno per chi si trasferisce da frontaliere',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere che guida in auto da Aprica a Chiasso',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Vivere a Lovero e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Impostazione fiscale, permessi e pendolarismo.',

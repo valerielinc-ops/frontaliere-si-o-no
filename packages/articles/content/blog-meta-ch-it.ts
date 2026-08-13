@@ -2256,7 +2256,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Mercato del lavoro e salari nel Cantone di Zurigo',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Imposte di successione e donazione nel Cantone di Zurigo',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Nel Cantone di Zurigo, l\'imposta di successione e donazione è soggetta a aliquote diverse in base al grado di parentela.',
-    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine editoriale relativa a: Imposte di successione e donazione nel Cantone di Zurigo',
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Perché il caldo fa salire i prezzi e l\'inflazione climatica',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'Dalla siccità del Reno al carrello della spesa, i cambiamenti climatici creano una nuova inflazione e costringono le banche centrali ad agire.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Impatto della siccità e del caldo sui prezzi in Svizzera',
@@ -2596,6 +2596,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.title': 'Caldo e siccità: per far scattare la modalità di crisi ci vuole altro',
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.excerpt': 'Il Consiglio federale rinuncia a dichiarare la situazione straordinaria a causa della siccità e del caldo.',
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.imageAlt': 'Lugano, estivo, caldo, siccità.',
+    'blog.article.rientro-scuola-calor.title': 'Rientro a scuola, il caldo tiene banco',
+    'blog.article.rientro-scuola-calor.excerpt': 'Le ondate di calore riaccendono il dibattito sulla sicurezza e la qualità degli edifici scolastici in Svizzera.',
+    'blog.article.rientro-scuola-calor.imageAlt': 'Scuola svizzera con cortile inondato di sole',
+    'blog.article.porsche-arretra-elettrico-taycan.title': 'Porsche arretra sull\'elettrico, interrotta la produzione della Taycan',
+    'blog.article.porsche-arretra-elettrico-taycan.excerpt': 'La decisione di Porsche di interrompere la produzione della Taycan entro il 2030 è un segno di un mercato in cui la domanda per i modelli elettrici non è sufficiente.',
+    'blog.article.porsche-arretra-elettrico-taycan.imageAlt': 'Porsche Taycan',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.title': 'Di più VS: mezzo agricolo esce di strada, muore bambino di nove anni',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.excerpt': 'Un bambino di nove anni è morto martedì a seguito di un incidente stradale a Chandonne, in Vallese.',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.imageAlt': 'Veicolo agricolo uscito di strada in Svizzera con un bambino a bordo',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.title': 'Ospedali svizzeri, la pulizia va migliorata',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.excerpt': 'Gli ospedali svizzeri stanno migliorando la pulizia, ma ci sono ancora carenze nella gestione dei dispositivi medici.',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.imageAlt': 'Ospedali svizzeri con la bandiera della Svizzera',
 };
 
 export default blogMetaChIt;

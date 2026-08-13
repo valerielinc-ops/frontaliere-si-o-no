@@ -891,6 +891,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'chiusura-piscina-uzwil-siccita': { it: 'chiusura-piscina-uzwil-siccita', en: 'uzwil-pool-closed-drought', de: 'schwimmbad-uzwil-wegen-trockenheit-geschlossen', fr: 'piscine-uzwil-fermee-secheresse' },
  'siccita-claro-2026': { it: 'siccita-claro-2026', en: 'in-claro-drought-rises-to-grade-2-new-limitations-on-water-use', de: 'claro-siccita-auf-grad-2-neue-wasserbeschrankungen', fr: 'siccita-al-grado-2-a-claro-nuove-limitazioni' },
  'caldo-e-siccita-senza-modalita-di-crisi': { it: 'caldo-e-siccita-senza-modalita-di-crisi', en: 'heat-and-drought-without-emergency-mode', de: 'hitze-und-durre-ohne-krisenmodus', fr: 'chaleur-et-secheresse-sans-mode-urgence' },
+ 'rientro-scuola-calor': { it: 'rientro-scuola-calor', en: 'back-to-school-the-heat-keeps-you-warm', de: 'zuruck-in-die-schule-die-hitze-halt-die-bank', fr: 'retour-a-l-ecole-la-chaleur-tient-bon' },
+ 'porsche-arretra-elettrico-taycan': { it: 'porsche-arretra-elettrico-taycan', en: 'porsche-backs-out-of-electric-taycan', de: 'porsche-gibt-electric-taycan-auf', fr: 'porsche-arrete-la-production-de-taycan' },
+ 'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni': { it: 'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni', en: 'agricultural-vehicle-exits-road-dies-9-year-old-child', de: 'landwirtschaftliches-fahrzeug-verlasst-fahrbahn-kind-9-jahre-verstorben', fr: 'v-c3-a9hicule-agricole-quitte-route-enfants-9-ans-verst' },
+ 'ospedali-svizzeri-pulizia-va-migliorata': { it: 'ospedali-svizzeri-pulizia-va-migliorata', en: 'swiss-hospitals-improve-pulizia', de: 'schweizer-krankenhaeuser-pulizia-im-besseren', fr: 'hopitaux-suisses-pulizia-mieux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

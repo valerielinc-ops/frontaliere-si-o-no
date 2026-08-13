@@ -2256,7 +2256,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-zurigo.imageAlt': 'Arbeitsmarkt und Gehälter im Kanton Zürich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Zürich',
     'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.excerpt': 'Im Kanton Zürich unterliegt die Erbschafts- und Schenkungssteuer je nach Verwandtschaftsgrad unterschiedlichen Sätzen.',
-    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Immagine di un\'immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema, che non sembri AI. Max 125 caratteri.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zurigo-aliquote.imageAlt': 'Redaktionelles Bild zu: Erbschafts- und Schenkungssteuern im Kanton Zürich',
     'blog.article.caldo-prezzi-inflazione-climatica.title': 'Weil die Hitze die Preise in die Höhe treibt und die Klima-Inflation',
     'blog.article.caldo-prezzi-inflazione-climatica.excerpt': 'Von der Rhein-Dürre bis zum Einkaufswagen führt der Klimawandel zu neuer Inflation und zwingt die Zentralbanken zum Handeln.',
     'blog.article.caldo-prezzi-inflazione-climatica.imageAlt': 'Auswirkungen von Dürre und Hitze auf die Preise in der Schweiz',
@@ -2596,6 +2596,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.title': 'Hitze und Trockenheit: Um den Krisenmodus auszulösen, braucht es mehr',
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.excerpt': 'Der Bundesrat verzichtet wegen Trockenheit und Hitze darauf, die ausserordentliche Situation zu erklären.',
     'blog.article.caldo-e-siccita-senza-modalita-di-crisi.imageAlt': 'Lugano, Sommer, heiß, Dürre.',
+    'blog.article.rientro-scuola-calor.title': 'Zurück in die Schule, die Hitze hält die Bank',
+    'blog.article.rientro-scuola-calor.excerpt': 'Hitzewellen entzünden die Debatte um die Sicherheit und Qualität von Schulgebäuden in der Schweiz neu.',
+    'blog.article.rientro-scuola-calor.imageAlt': 'Schweizer Schule mit Hof, der von der Sonne überschwemmt ist',
+    'blog.article.porsche-arretra-elettrico-taycan.title': 'Porsche springt auf den Elektroantrieb zurück, Taycan-Produktion eingestellt',
+    'blog.article.porsche-arretra-elettrico-taycan.excerpt': 'Die Entscheidung von Porsche, die Produktion des Taycan bis 2030 einzustellen, ist ein Zeichen für einen Markt, in dem die Nachfrage nach elektrischen Modellen nicht ausreicht.',
+    'blog.article.porsche-arretra-elettrico-taycan.imageAlt': 'Porsche Taycan',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.title': 'Mehr VS: Landwirtschaftsfahrzeug geht von der Straße, Neunjähriger stirbt',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.excerpt': 'Ein neunjähriger Junge starb am Dienstag bei einem Verkehrsunfall in Chandonne im Wallis.',
+    'blog.article.mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni.imageAlt': 'Landwirtschaftlicher Fahrzeug verlässt die Fahrbahn in der Schweiz mit einem 9-jährigen Kind an Bord',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.title': 'Schweizer Spitäler, Sauberkeit muss verbessert werden',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.excerpt': 'Die Schweizer Spitäler verbessern die Sauberkeit, aber es gibt immer noch Mängel im Umgang mit Medizinprodukten.',
+    'blog.article.ospedali-svizzeri-pulizia-va-migliorata.imageAlt': 'Schweizer Krankenhäuser mit der Schweizer Flagge',
 };
 
 export default blogMetaChDe;

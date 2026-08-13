@@ -9642,7 +9642,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Bulletin du frontalier du 11 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'Les chiffres du 11 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Déménager à Aprica en tant que frontalier : avantages et inconvénients',
-    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Faits et chiffres DE LA SOURCE sur le transfert à Aprica pour les frontaliers',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Franchise de 10 000 € et obligation de résider à Aprica au moins 183 jours par an pour les frontaliers qui déménagent',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier conduit de Aprica à Chiasso',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Vivre à Lovero et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Réglage fiscal, permis et déplacements.',

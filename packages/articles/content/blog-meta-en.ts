@@ -9640,7 +9640,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Cross-border brief, August 11, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'The numbers for August 11, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Moving to Aprica from border crossings: pros and cons',
-    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Facts and figures FROM THE SOURCE on the transfer to Aprica for border workers',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': '€10,000 tax-free allowance and a requirement to reside in Aprica for at least 183 days a year for cross-border workers relocating there',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontaliere driving from Aprica to Chiasso',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Living in Lovero and working in Graubünden as a cross-border commuter',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Tax setting, permits and commuting.',

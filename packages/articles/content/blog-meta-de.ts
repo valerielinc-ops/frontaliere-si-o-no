@@ -9639,7 +9639,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-11.seoDescription': 'Grenzgänger-Bulletin vom 11. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-11.ogDescription': 'Die Zahlen vom 11. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.title': 'Umzug nach Aprica als Grenzgänger: Vor- und Nachteile',
-    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Zahlen und Fakten AUS DER QUELLE zum Grenzübertritt nach Aprica für Grenzgänger',
+    'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.excerpt': 'Freibetrag von 10\'000 € und Wohnsitzpflicht in Aprica von mindestens 183 Tagen im Jahr für umziehende Grenzgänger',
     'blog.article.trasferirsi-a-aprica-da-frontaliere-pro-e-contro.imageAlt': 'Frontalier fährt von Aprica nach Chiasso',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.title': 'Leben in Lovero und Arbeit in Graubünden als grenzüberschreitender Pendler',
     'blog.article.vivere-lovero-lavorare-grigioni-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Pendeln.',
