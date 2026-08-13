@@ -23,7 +23,7 @@
  *   - a transactional message the user just asked for → isTransactionalHardBlock.
  */
 
-import { isNewsletterOptOutBinding } from './newsletterOptOut.js';
+import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
 
 /**
  * Address-level hard signals. The mailbox is dead (bounced), the human flagged
@@ -174,11 +174,20 @@ export function isJobAlertExcluded(status) {
  * `.doc` (the shape scripts/send-daily-brief.mjs builds); the opt-out fields are
  * read off the raw document, so a projection must carry it.
  *
+ * "Raw Firestore document" means the DATA — `snapshot.data()`, never the
+ * snapshot. A snapshot has no `status` and no stamp on itself, so every branch
+ * below would fall through to `false`, i.e. "go ahead and mail them" (#5750
+ * item 2). Both the row and its `.doc` projection are checked, because either
+ * position can receive the wrong thing, and the check fails LOUD rather than
+ * quietly answering the most dangerous of the two possible answers.
+ *
  * @param {({doc?: object, status?: string|null} & Record<string, unknown>) | null | undefined} row
  * @returns {boolean}
  */
 export function isCrossChannelStop(row) {
+  assertSubscriberData(row, 'isCrossChannelStop');
   if (!row) return false;
+  assertSubscriberData(row.doc, 'isCrossChannelStop(row.doc)');
   const raw = row.doc && typeof row.doc === 'object' ? row.doc : row;
   const status = row.status != null ? row.status : raw.status;
   if (isAddressSuppressed(status)) return true;
