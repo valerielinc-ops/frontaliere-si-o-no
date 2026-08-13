@@ -1,22 +1,22 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-08-12T22:21:04.461Z",
-  "total": 6,
+  "generatedAt": "2026-08-13T10:43:16.893Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37073,
-  "avgDurationMs": 37073,
+  "durationMs": 35886,
+  "avgDurationMs": 35886,
   "durationHistory": [
-    37073
+    35886
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "diakoniewerk-neumuenster-869fb74f287d",
-      "slug": "mitarbeiter-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk",
+      "slug": "collaboratore-trice-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
       "companyDomain": "diakoniewerk-neumuenster.ch",
@@ -43,12 +43,15 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c9ecc3e3-62a1-4359-bd07-3ffb89cc3cb2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "_qualityScore": 85,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],

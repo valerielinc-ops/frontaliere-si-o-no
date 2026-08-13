@@ -8,19 +8,27 @@
     "html"
   ],
   "seedUrls": [
-    "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-80-100_2026-2243/",
+    "https://www.rhb.ch/it/job/mechaniker-in-drehgestellaufarbeitung-trieb-und-gliederzuge-80-100_2026-2245/",
+    "https://www.rhb.ch/it/job/auftragsleiter-in-komponenten-50-100_2026-2244/",
+    "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-50-100_2026-2243/",
     "https://www.rhb.ch/it/job/projektingenieur-in-kabelanlagen-50-100_2026-2217/",
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-sud_2026-2241/",
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/",
     "https://www.rhb.ch/it/job/projektleiter-in-tiefbau-50-100_2026-2238/",
     "https://www.rhb.ch/it/job/mechaniker-in-getriebeaufarbeitung-50-100_2026-2192/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2195/",
-    "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2091/",
-    "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2107/",
-    "https://www.rhb.ch/it/job/erwachsenenlehre-gleisbauer-in-efz_2025-2099/"
+    "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2091/"
   ],
   "seedMetaByUrl": {
-    "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-80-100_2026-2243/": {
+    "https://www.rhb.ch/it/job/mechaniker-in-drehgestellaufarbeitung-trieb-und-gliederzuge-80-100_2026-2245/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/auftragsleiter-in-komponenten-50-100_2026-2244/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-50-100_2026-2243/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
     },
@@ -51,16 +59,8 @@
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2091/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2025-2107/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/erwachsenenlehre-gleisbauer-in-efz_2025-2099/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-08-12T21:52:16.470Z"
+  "updatedAt": "2026-08-13T10:25:10.833Z"
 }

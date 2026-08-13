@@ -1,18 +1,53 @@
 {
   "key": "arxada",
   "label": "Arxada",
-  "generatedAt": "2026-08-12T21:48:48.971Z",
+  "generatedAt": "2026-08-13T10:26:13.659Z",
   "total": 11,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13683,
-  "avgDurationMs": 13683,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 13406,
+  "avgDurationMs": 13406,
   "durationHistory": [
-    13683
+    13406
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "arxada-b632c10f01e5",
+      "slug": "operator-arxada-ch",
+      "company": "Arxada",
+      "companyKey": "arxada",
+      "companyDomain": "arxada.com",
+      "title": "Operator",
+      "location": "Visp",
+      "canton": "VS",
+      "addressLocality": "Visp",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Chimica / Specialty Chemicals",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "url": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator_R53897-1",
+      "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator_R53897-1",
+      "source": "Arxada Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-13T10:26:04.099Z",
+      "jobReqId": "R53897",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "arxada-8e0eefeabaf1",
@@ -38,7 +73,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Laborant-in-Fachrichtung-Chemie-80-100-_R53766",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:43.451Z",
+      "crawledAt": "2026-08-13T10:26:07.952Z",
       "jobReqId": "R53766",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:17:41.277Z",
@@ -74,7 +109,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Laborant---Laborantin-Analytische-Entwicklung_R53731",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:41.205Z",
+      "crawledAt": "2026-08-13T10:26:06.039Z",
       "jobReqId": "R53731",
       "firstSeenAt": "2026-07-02T21:18:09.974Z",
       "_qualityScore": 82,
@@ -109,7 +144,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:44.148Z",
+      "crawledAt": "2026-08-13T10:26:08.610Z",
       "jobReqId": "R50117",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T10:34:06.281Z",
@@ -145,7 +180,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Manufacturing-Manager---Production-Engineering_R53702",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:40.497Z",
+      "crawledAt": "2026-08-13T10:26:05.398Z",
       "jobReqId": "R53702",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T11:10:50.624Z",
@@ -181,7 +216,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R53576",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:45.544Z",
+      "crawledAt": "2026-08-13T10:26:09.899Z",
       "jobReqId": "R53576",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-29T21:17:43.554Z",
@@ -217,7 +252,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:42.045Z",
+      "crawledAt": "2026-08-13T10:26:06.676Z",
       "jobReqId": "R53335",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T09:58:58.686Z",
@@ -253,7 +288,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:42.752Z",
+      "crawledAt": "2026-08-13T10:26:07.309Z",
       "jobReqId": "R53358",
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
       "_qualityScore": 82,
@@ -288,7 +323,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lehrstelle-Elektroinstallateur-in-EFZ_R52727",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:46.248Z",
+      "crawledAt": "2026-08-13T10:26:10.561Z",
       "jobReqId": "R52727",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-16T09:22:32.498Z",
@@ -324,7 +359,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Prozessanalytiker-in_R52966",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:39.756Z",
+      "crawledAt": "2026-08-13T10:26:04.755Z",
       "jobReqId": "R52966",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T09:59:03.161Z",
@@ -360,7 +395,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Elektroinstallateur-Automatiker--in-ab-August-2026_R53286",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:44.840Z",
+      "crawledAt": "2026-08-13T10:26:09.256Z",
       "jobReqId": "R53286",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T09:59:07.022Z",
@@ -373,8 +408,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "arxada-5b1b18d2b2eb",
       "slug": "acquirente-e-materiale-planer-arxada-visp",
@@ -414,5 +448,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
