@@ -1,6 +1,6 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-08-13T10:30:45.776Z",
+  "assembledAt": "2026-08-13T21:54:10.113Z",
   "jobs": [
     {
       "id": "company-7ubhjn",
@@ -20,10 +20,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-08-12T21:57:20.724Z",
+      "crawledAt": "2026-08-13T21:54:04.078Z",
       "firstSeenAt": "2026-08-10T10:36:10.641Z",
       "titleByLocale": {
-        "it": "Contabile multivalente",
+        "it": "Comptable Polyvalent",
         "en": "Multivalent Accountant",
         "de": "Multivalenter Buchhalter",
         "fr": "Comptable Polyvalent"
@@ -73,7 +73,7 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "2400 Le Locle Suisse Site Web https",
       "addressRegion": "NE",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     }
   ]
 }
