@@ -1,18 +1,19 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-08-13T10:16:46.329Z",
-  "total": 11,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 14303,
-  "avgDurationMs": 14303,
+  "generatedAt": "2026-08-13T21:49:37.027Z",
+  "total": 10,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12804,
+  "avgDurationMs": 12804,
   "durationHistory": [
-    14303
+    12804
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "psgn-ee9dc9c0112e",
       "slug": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
@@ -20,13 +21,13 @@
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Dipl. Pflegefachperson HF/FH",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/820d14b7-4323-48e8-84e0-35d9698c9a15",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:34.028Z",
+      "crawledAt": "2026-08-13T21:49:26.047Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-13",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/820d14b7-4323-48e8-84e0-35d9698c9a15",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-13T10:16:34.028Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "psgn-f98eb020b5dd",
       "slug": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
@@ -64,7 +64,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/82694090-2cc8-466b-bdde-809ceea695ab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:34.804Z",
+      "crawledAt": "2026-08-13T21:49:26.806Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberpsychologin-oberpsychologe/61ee20a2-c7da-4dac-af6c-8ad5cf889812",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:35.612Z",
+      "crawledAt": "2026-08-13T21:49:27.570Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/psychologie-praktikant-in/0e9aa1fe-4543-4eb0-b88c-9b7c3df7a84b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:36.507Z",
+      "crawledAt": "2026-08-13T21:49:28.284Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/7b73f436-13f0-4e5d-ac20-95cfa334aebe",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:39.931Z",
+      "crawledAt": "2026-08-13T21:49:31.495Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/0670da0e-3562-4636-8cad-0bf68bbe86b7",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:37.435Z",
+      "crawledAt": "2026-08-13T21:49:29.191Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/345e2aae-2557-43bf-9edc-eb76bb2dd667",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:38.220Z",
+      "crawledAt": "2026-08-13T21:49:29.976Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/4cf0e645-7673-4a1d-81d4-7e02150c23ed",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:39.141Z",
+      "crawledAt": "2026-08-13T21:49:30.722Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/494506ce-bc5d-4ac4-b7cb-e555507866c1",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:40.692Z",
+      "crawledAt": "2026-08-13T21:49:32.241Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/988a1413-0a93-4de1-bb77-848aab94496b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:41.776Z",
+      "crawledAt": "2026-08-13T21:49:33.003Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "psgn-4ef4b4878448",
       "slug": "fachexpertin-fachexperte-infektionspravention-e-klinikhygiene-psychiatrie-st-gallen-wil-sg",
@@ -427,5 +426,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
