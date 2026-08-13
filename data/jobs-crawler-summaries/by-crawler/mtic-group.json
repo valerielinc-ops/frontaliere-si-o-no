@@ -1,16 +1,16 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-08-12T21:55:13.981Z",
+  "generatedAt": "2026-08-13T10:22:09.440Z",
   "total": 4,
-  "newCount": 2,
+  "newCount": 3,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 30649,
-  "avgDurationMs": 30649,
+  "unchangedCount": 0,
+  "durationMs": 39930,
+  "avgDurationMs": 39930,
   "durationHistory": [
-    30649
+    39930
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-12",
+      "postedDate": "2026-08-13",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -61,7 +61,37 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-12",
+      "postedDate": "2026-08-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 20,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Construction Products (CPR) Department Manager",
+      "slug": "construction-products-cpr-department-manager-mtic-group-lugano-paradiso",
+      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-construction-products-cpr-manager",
+      "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-construction-products-cpr-manager",
+      "company": "MTIC Group",
+      "companyKey": "mtic-group",
+      "companyDomain": "mtic-group.org",
+      "location": "Lugano Paradiso",
+      "addressLocality": "Lugano Paradiso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "management",
+      "sector": "Certificazione e Ispezioni",
+      "source": "mtic-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-13",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -93,7 +123,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-12",
+      "postedDate": "2026-08-13",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -113,42 +143,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Construction Products (CPR) Department Manager",
-      "slug": "construction-products-cpr-department-manager-mtic-group-lugano-paradiso",
-      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-construction-products-cpr-manager",
-      "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-construction-products-cpr-manager",
-      "company": "MTIC Group",
-      "companyKey": "mtic-group",
-      "companyDomain": "mtic-group.org",
-      "location": "Lugano Paradiso",
-      "addressLocality": "Lugano Paradiso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "management",
-      "sector": "Certificazione e Ispezioni",
-      "source": "mtic-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "mtic-group-ed5ca92aeae6",
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-12T10:21:08.704Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 20,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
