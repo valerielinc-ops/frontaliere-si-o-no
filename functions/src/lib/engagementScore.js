@@ -24,13 +24,38 @@ const COOL_THRESHOLD = 30;
 const COLD_THRESHOLD = 10;
 
 /**
+ * The opt-out link, in the four locales the mails go out in. PINNED MIRROR of
+ * OPT_OUT_LINK_RE in scripts/lib/syntheticClicks.mjs (#5767 same anti-pattern
+ * as the job-alert channel had, scripts/lib/jobAlertEngagementTier.mjs): the
+ * Cloud Functions bundle has no bundler and cannot import outside `functions/`
+ * (same arrangement as functions/src/lib/newsletterOptOut.js), so this is a
+ * deliberate copy, not a second independently-invented rule. Change one,
+ * change the other in the same PR.
+ */
+const OPT_OUT_LINK_RE = /[?&]action=unsubscribe|[?&]unsubscribe=|\/unsubscribe\b|\/disiscrivi(?:ti|-[a-z]+)\b|\/abmelden\b|\/desabonnement\b|\/se-desabonner\b|list-unsubscribe/i;
+
+function isOptOutLink(url) {
+ return typeof url === 'string' && url !== '' && OPT_OUT_LINK_RE.test(url);
+}
+
+/**
  * @param {object} subscriberData Firestore subscriber doc fields
  * @returns {{ score: number, level: 'hot'|'warm'|'cool'|'cold'|'dormant' }}
  */
 export function calculateEngagementScore(subscriberData) {
  const sendCount = Number(subscriberData?.send_count || subscriberData?.sendCount) || 0;
  const openCount = Number(subscriberData?.open_count || subscriberData?.openCount) || 0;
- const clickCount = Number(subscriberData?.click_count || subscriberData?.clickCount) || 0;
+ const rawClickCount = Number(subscriberData?.click_count || subscriberData?.clickCount) || 0;
+
+ const lastClickUrl = subscriberData?.last_clicked_url ?? subscriberData?.lastClickedUrl ?? '';
+ const lastClickIsOptOut = isOptOutLink(lastClickUrl);
+
+ // The one click this counter can be attributed to (the most recent one) is
+ // dropped when it is the way out: clicking "unsubscribe" must never buy a
+ // higher score, the way reading click_count/last_click_at raw did (#5767).
+ // Earlier clicks folded into the aggregate counter cannot be individually
+ // attributed without an event log — a measured limitation, not an oversight.
+ const clickCount = lastClickIsOptOut ? Math.max(0, rawClickCount - 1) : rawClickCount;
 
  const openRate = sendCount > 0 ? openCount / sendCount : 0;
  const clickRate = sendCount > 0 ? clickCount / sendCount : 0;
@@ -38,8 +63,11 @@ export function calculateEngagementScore(subscriberData) {
  const openScore = Math.min(40, Math.round(openRate * 80));
  const clickScore = Math.min(30, Math.round(clickRate * 150));
 
- const lastEngagement = subscriberData?.last_click_at
-  || subscriberData?.lastClickAt
+ // An opt-out click is a request for less, never evidence of more: excluded
+ // from the recency signal so it cannot keep a subscriber out of cold/dormant
+ // the way a raw last_click_at read did.
+ const lastClickAt = lastClickIsOptOut ? null : (subscriberData?.last_click_at || subscriberData?.lastClickAt);
+ const lastEngagement = lastClickAt
   || subscriberData?.last_open_at
   || subscriberData?.lastOpenAt;
 

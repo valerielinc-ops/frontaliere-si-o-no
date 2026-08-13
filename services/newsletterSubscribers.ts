@@ -1924,18 +1924,41 @@ export function openEmailProvider(email: string): void {
 
 export type EngagementLevel = 'hot' | 'warm' | 'cool' | 'cold' | 'dormant';
 
+/**
+ * The opt-out link, in the four locales the mails go out in. Same pattern as
+ * OPT_OUT_LINK_RE in scripts/lib/syntheticClicks.mjs (#5767 same anti-pattern
+ * as the job-alert channel had, scripts/lib/jobAlertEngagementTier.mjs) and
+ * pinned into functions/src/lib/engagementScore.js since that bundle cannot
+ * import outside `functions/`. Change one, change the others in the same PR.
+ */
+const OPT_OUT_LINK_RE = /[?&]action=unsubscribe|[?&]unsubscribe=|\/unsubscribe\b|\/disiscrivi(?:ti|-[a-z]+)\b|\/abmelden\b|\/desabonnement\b|\/se-desabonner\b|list-unsubscribe/i;
+
+function isOptOutLink(url: string | null | undefined): boolean {
+ return typeof url === 'string' && url !== '' && OPT_OUT_LINK_RE.test(url);
+}
+
 export function calculateEngagementScore(subscriber: {
  send_count?: number;
  open_count?: number;
  click_count?: number;
  last_open_at?: string | null;
  last_click_at?: string | null;
+ last_clicked_url?: string | null;
  last_sent_at?: string | null;
  subscribed_at?: string | null;
 }): { score: number; level: EngagementLevel } {
  const sendCount = Number(subscriber.send_count) || 0;
  const openCount = Number(subscriber.open_count) || 0;
- const clickCount = Number(subscriber.click_count) || 0;
+ const rawClickCount = Number(subscriber.click_count) || 0;
+
+ const lastClickIsOptOut = isOptOutLink(subscriber.last_clicked_url);
+
+ // The one click this counter can be attributed to (the most recent one) is
+ // dropped when it is the way out: clicking "unsubscribe" must never buy a
+ // higher score, the way reading click_count/last_click_at raw did (#5767).
+ // Earlier clicks folded into the aggregate counter cannot be individually
+ // attributed without an event log — a measured limitation, not an oversight.
+ const clickCount = lastClickIsOptOut ? Math.max(0, rawClickCount - 1) : rawClickCount;
 
  // Open rate component (0-40 points)
  const openRate = sendCount > 0 ? openCount / sendCount : 0;
@@ -1947,7 +1970,11 @@ export function calculateEngagementScore(subscriber: {
 
  // Recency component (0-30 points)
  const now = Date.now();
- const lastEngagement = subscriber.last_click_at || subscriber.last_open_at;
+ // An opt-out click is a request for less, never evidence of more: excluded
+ // from the recency signal so it cannot keep a subscriber out of cold/dormant
+ // the way a raw last_click_at read did.
+ const lastClickAt = lastClickIsOptOut ? null : subscriber.last_click_at;
+ const lastEngagement = lastClickAt || subscriber.last_open_at;
  let recencyScore = 0;
  if (lastEngagement) {
  const daysSince = (now - new Date(lastEngagement).getTime()) / (1000 * 60 * 60 * 24);

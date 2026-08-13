@@ -82,6 +82,91 @@ describe('shared engagementScore module (functions/src/lib)', () => {
       expect(result.score).toBe(40);
       expect(result.level).toBe('cool');
     });
+
+    // #5767 — same anti-pattern the job-alert channel had: an opt-out click
+    // must never read as engagement.
+    it('does not let a fresh opt-out click buy recency points', () => {
+      const withOptOut = calculateEngagementScore({
+        send_count: 20,
+        open_count: 0,
+        click_count: 1,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: 'https://frontaliereticino.ch/disiscriviti/?id=abc',
+      });
+      const withoutClick = calculateEngagementScore({
+        send_count: 20,
+        open_count: 0,
+        click_count: 0,
+      });
+      expect(withOptOut.score).toBe(withoutClick.score);
+      expect(withOptOut.level).toBe('dormant');
+    });
+
+    it('does not count the opt-out click toward the click-rate component', () => {
+      const result = calculateEngagementScore({
+        send_count: 10,
+        open_count: 0,
+        click_count: 1,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: '/newsletter/disiscriviti/',
+      });
+      expect(result.score).toBe(0);
+    });
+
+    it('falls back to last_open_at recency when the last click was opt-out', () => {
+      const past = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString();
+      const result = calculateEngagementScore({
+        send_count: 10,
+        open_count: 1,
+        click_count: 1,
+        last_open_at: past,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: 'https://frontaliereticino.ch/disiscriviti/',
+      });
+      // Recency comes from the 3d-old open, not the fresh opt-out click:
+      // openScore 8 (1/10 open rate) + recency 30, no click contribution.
+      expect(result.score).toBe(38);
+      expect(result.level).toBe('cool');
+    });
+
+    it('recognizes the alert-suffix and unsubscribe_all opt-out forms too', () => {
+      const alertSuffix = calculateEngagementScore({
+        send_count: 10,
+        open_count: 5,
+        click_count: 3,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: '/disiscrivi-alert/?id=x',
+      });
+      const unsubAll = calculateEngagementScore({
+        send_count: 10,
+        open_count: 5,
+        click_count: 3,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: '/preferenze/?action=unsubscribe_all',
+      });
+      // Both should NOT count the opt-out click, unlike a genuine click.
+      const genuine = calculateEngagementScore({
+        send_count: 10,
+        open_count: 5,
+        click_count: 3,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: '/lavoro/qualche-annuncio/',
+      });
+      expect(alertSuffix.score).toBeLessThan(genuine.score);
+      expect(unsubAll.score).toBeLessThan(genuine.score);
+    });
+
+    it('a genuine click still counts as engagement', () => {
+      const result = calculateEngagementScore({
+        send_count: 10,
+        open_count: 0,
+        click_count: 1,
+        last_click_at: new Date().toISOString(),
+        last_clicked_url: '/lavoro/qualche-annuncio/',
+      });
+      expect(result.score).toBeGreaterThan(0);
+      expect(result.level).not.toBe('dormant');
+    });
   });
 
   describe('scoreToLevel boundaries', () => {
