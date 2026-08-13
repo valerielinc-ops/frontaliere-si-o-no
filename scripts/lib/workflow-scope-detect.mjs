@@ -86,7 +86,75 @@ export const BARE_YML_RE = /\b[A-Za-z0-9][A-Za-z0-9._-]*\.ya?ml\b/g;
 // (.ts vs .mjs). `\.[A-Za-z0-9]+` matched none of those, so the valve that exists to
 // promote code-carrying issues could not see the code in the most code-heavy issue shape
 // there is. Widening here can only ever PROMOTE — it never adds a block.
-export const CODE_PATH_RE = /\b(?:scripts|build-plugins|services|components|hooks|build|src|infra|server|functions)\/[A-Za-z0-9._/-]+\.(?:[A-Za-z0-9]+\b|\*)/g;
+//
+// ─── The match started at the DIRECTORY, not at the path (corpus half) ───────────────
+//
+// This module is `mode: identical` in `scripts/ci/loop-sync-manifest.json`: the SAME
+// bytes run on the site and on the corpus mirror. The old pattern anchored with `\b`
+// directly on the directory token, so on a corpus body citing
+// `generator/scripts/create-article.mjs` it matched the SUFFIX `scripts/create-article.mjs`
+// — a string that exists in no repo. `detectWorkflowScoped` only asks "is the list
+// non-empty", so the valve kept working; `followup-drainer.mjs`'s overlap pre-flight
+// compares the extracted paths against a PR's file list with an EXACT `Set.has`, so on
+// the corpus it could never match anything. Measured there: 0 overlaps detected, ever —
+// the pre-flight that exists to stop the fixer from working on a file another PR already
+// has in flight was inert, which is the upstream cause of the `overlap-skip` markers that
+// nanakokyobashi-rgb/frontaliere-articles#229 and #274 were opened about.
+//
+// Two changes, both PROMOTE-only for `detectWorkflowScoped` (they can add code refs,
+// never remove one):
+//
+//   1. An optional leading path prefix, so the match starts where the PATH starts.
+//      `generator/scripts/create-article.mjs` now yields itself, which is what a PR file
+//      list on the corpus actually contains. The site form `scripts/x.mjs` still matches
+//      with zero prefix segments — that half must not regress, it is the half that works.
+//   2. `content/` joins the directory list. The corpus's article registries live there
+//      (`content/**` is 14.748 files, the single most-edited tree of that repo), and the
+//      site mirrors them under `packages/articles/content/**`, which change 1 also covers.
+//      Data payloads under it are still filtered by `NON_CODE_EXT` (registries are `.ts`).
+//
+// Deliberately NOT added to the directory list: `engine`, `generator`, `tests`,
+// `packages`. Those appear as EVIDENCE in bodies whose remedy is a workflow — the pinned
+// fixture corpus#217 (`tests/fixtures/workflow-scope/corpus-217-lockstep-no-alarm.md`)
+// cites `engine/rssFeeds.mjs`, `generator/tests/rss-feed-guid.test.mjs` and
+// `tests/rss-feeds-module.test.ts` while asking for a new `.github/workflows/**` guardian.
+// Adding them would open the exclusivity valve on it and promote a run whose push is
+// refused for lack of the `workflows` scope — the exact true-positive that fixture pins.
+export const CODE_DIRS = [
+  'scripts', 'build-plugins', 'services', 'components', 'hooks', 'build', 'src',
+  'infra', 'server', 'functions', 'content',
+];
+const CODE_DIR_ALT = CODE_DIRS.join('|');
+// `(?<![\w.-])` (not `\b`) so the match can only start at a path boundary — it keeps
+// `descripts/foo.mjs` from matching while still allowing a leading `/` (a path inside a
+// URL keeps producing a code ref exactly as before, see `repoRelativeTail`).
+export const CODE_PATH_RE = new RegExp(
+  String.raw`(?<![\w.-])(?:[A-Za-z0-9._-]+\/)*(?:${CODE_DIR_ALT})\/[A-Za-z0-9._/-]+\.(?:[A-Za-z0-9]+\b|\*)`,
+  'g',
+);
+
+// Lazy prefix → the group starts at the FIRST recognised code directory.
+const CODE_PATH_TAIL_RE = new RegExp(String.raw`^(?:[A-Za-z0-9._-]+\/)*?((?:${CODE_DIR_ALT})\/.+)$`);
+
+/**
+ * The portion of `p` starting at its first recognised code directory, or `p` unchanged.
+ *
+ * The overlap pre-flight compares a body's cited paths against a PR's file list, and the
+ * two are not always written from the same root: a body can cite a GitHub blob URL
+ * (`github.com/o/r/blob/main/scripts/x.mjs`), and the site keeps under
+ * `packages/articles/content/**` what the corpus keeps at `content/**`. Emitting the tail
+ * ALONGSIDE the full path (never instead of it) makes the candidate set a strict superset
+ * of what the pre-`CODE_PATH_RE`-fix code produced, so no comparison that matched before
+ * can stop matching now. A false overlap only defers a candidate by one tick (the drainer
+ * never parks on it — the blocking PR can merge), so the asymmetric cost points this way.
+ * Pure → testable.
+ * @param {string} p
+ */
+export function repoRelativeTail(p) {
+  const s = String(p || '');
+  const m = CODE_PATH_TAIL_RE.exec(s);
+  return m ? m[1] : s;
+}
 
 // Extensions that make a cited path a data/doc PAYLOAD rather than a fix target. The
 // valve's premise is "the fix might live in that file"; a quoted manifest or a report

@@ -434,6 +434,90 @@ function unsubProxyOrigin(pathname) {
   return null;
 }
 
+// ── Keeping the credential out of Cloud Run's request log (#5746) ───────────
+//
+// Cloud Run writes `httpRequest.requestUrl` — the whole URL, query string
+// included — for every invocation of the four functions above, into the
+// `_Default` bucket, readable by anybody with `logging.viewer`. Measured over
+// the seven days to 2026-08-13: 3.131 requests carrying BOTH an address and a
+// credential, 995 distinct real addresses. Identity and session key, appaired,
+// in a log.
+//
+// The SPA's own calls (~89% of that volume) moved into a POST body, which needs
+// nothing from here. What is left is a link inside an email, and that link
+//
+//   - is a GET issued by a mail client, so it has no body to move anything into;
+//   - must keep working with NO JavaScript — these four functions render the
+//     confirmation page themselves for exactly that reason, so the fragment `#`,
+//     which never reaches a server at all, is not available either;
+//   - was minted years ago in some cases and cannot be reshaped retroactively;
+//   - may arrive as an RFC 8058 one-click POST, whose body is fixed to
+//     `List-Unsubscribe=One-Click` and whose identifiers RFC 8058 puts in the URI.
+//
+// So the move happens HERE, on the hop the recipient's client never sees: the
+// sensitive parameters come off the upstream URL and go back on as a request
+// header. Method, body, status and response body are untouched — a human still
+// gets the same rendered page, a one-click POST still POSTs, and #5711's verb
+// gate still sees the verb the client actually used. An old link and a new link
+// are byte-identical here, because the transformation is applied to whatever
+// arrives rather than to whatever we mint.
+//
+// The header is a TRANSPORT and grants nothing: every value in it is verified
+// upstream exactly as it was on the query string.
+export const PRIVATE_PARAMS_HEADER = 'X-Fte-Private-Params';
+
+// Set by an upstream that actually read the header
+// (functions/src/lib/privateRequestParams.js). Its ABSENCE is what licenses the
+// legacy replay below.
+export const PRIVATE_PARAMS_ACK_HEADER = 'x-fte-private-params-read';
+
+/**
+ * The parameters that must not appear in a request-log row.
+ *
+ * `email`/`ne` are the identity, `token`/`t`/`ac` are the credential, and it is
+ * the PAIR that makes a log line usable — but each half is moved on its own,
+ * because "only an address" is still personal data and "only a code" is still a
+ * key. Everything else stays on the URL on purpose: `action`, `alertId`, `uid`,
+ * `c`, `format`, `utm_*` are what make the request log worth keeping, and none
+ * of them identifies a person or opens a session.
+ */
+export const PRIVATE_UNSUB_PARAMS = Object.freeze(['email', 'ne', 'token', 't', 'ac']);
+
+/**
+ * Statuses that may mean "the upstream did not understand the header".
+ *
+ * A pre-#5746 function handed a stripped URL answers 400 (missing address —
+ * newsletterManageSubscription, jobAlertUnsubscribe) or 403 (credential failed
+ * to verify because it never arrived — savedJobsDigestUnsubscribe,
+ * outreachUnsubscribe). Both refuse BEFORE any write, so replaying them is
+ * side-effect free. 5xx is deliberately not here: a 500 may land after a write,
+ * and repeating it would be the one way this could unsubscribe somebody twice.
+ */
+const LEGACY_REPLAY_STATUSES = new Set([400, 403]);
+
+/**
+ * Split a proxied unsubscribe query string into the half that may be logged and
+ * the half that may not.
+ *
+ * Order and repetition are preserved within each half, so the upstream sees the
+ * same multi-value parameters it would have seen on the URL. Both halves are
+ * `URLSearchParams`, and the upstream parses the header with `URLSearchParams`
+ * too — the two sides are inverse by construction rather than by an escaping
+ * convention somebody has to keep in step.
+ *
+ * @param {URLSearchParams} searchParams
+ * @returns {{publicParams: URLSearchParams, privateParams: URLSearchParams}}
+ */
+export function splitPrivateUnsubParams(searchParams) {
+  const publicParams = new URLSearchParams();
+  const privateParams = new URLSearchParams();
+  for (const [key, value] of searchParams) {
+    if (PRIVATE_UNSUB_PARAMS.includes(key)) privateParams.append(key, value);
+    else publicParams.append(key, value);
+  }
+  return { publicParams, privateParams };
+}
+
 // Edge-cache TTLs for shard pages. Two layers, deliberately different:
 //
 //   ORIGIN_CACHE_TTL (2h) — `cf.cacheTtl` on the origin fetch: CF caches the
@@ -1301,12 +1385,46 @@ export default {
     // would otherwise fall through to the apex passthrough → GitHub Pages 404).
     const unsubOrigin = unsubProxyOrigin(url.pathname);
     if (unsubOrigin) {
+      // The address and the credential leave the URL here and travel as a header
+      // (#5746) — see PRIVATE_UNSUB_PARAMS above for why this hop and not the
+      // link itself, and why not the body or the fragment.
+      const { publicParams, privateParams } = splitPrivateUnsubParams(url.searchParams);
+      const privateQuery = privateParams.toString();
       const upstream = new URL(unsubOrigin);
-      upstream.search = url.search; // carry alertId/email/token/action or c/t
+      upstream.search = publicParams.toString(); // alertId/uid/c/action/format only
+      // Taken BEFORE the first fetch consumes the body, and only when there is
+      // something to replay: a one-click POST's body can be read once, and the
+      // legacy replay below needs its own copy.
+      const legacySource = privateQuery ? request.clone() : null;
       try {
         // new Request(url, request) copies method/headers/body; the upstream host
         // comes from `url` (the Cloud Function ignores the forwarded Host).
-        return await fetch(new Request(upstream.toString(), request));
+        const forwarded = new Request(upstream.toString(), request);
+        // Set from the URL we just stripped, or removed outright: the Worker is
+        // the ONLY source of this header. A client-supplied one would grant
+        // nothing (the upstream verifies whatever it is handed, exactly as it
+        // does a query string) but it would make the header's provenance a
+        // question, and there is no reason to have one.
+        if (privateQuery) forwarded.headers.set(PRIVATE_PARAMS_HEADER, privateQuery);
+        else forwarded.headers.delete(PRIVATE_PARAMS_HEADER);
+        const response = await fetch(forwarded);
+        // Legacy replay, for the minutes where deploy-worker.yml has landed and
+        // deploy-cloud-functions.yml has not: an upstream that read the header
+        // says so, and one that did not gets the request it has always
+        // understood rather than telling somebody their unsubscribe link is
+        // invalid. Both halves live ⇒ the acknowledgement is always there ⇒ this
+        // branch is unreachable, so a genuinely bad credential is refused
+        // without a second, logged, full-URL round trip.
+        if (
+          !legacySource
+          || !LEGACY_REPLAY_STATUSES.has(response.status)
+          || response.headers.get(PRIVATE_PARAMS_ACK_HEADER)
+        ) {
+          return response;
+        }
+        const legacyUpstream = new URL(unsubOrigin);
+        legacyUpstream.search = url.search; // carry alertId/email/token/action or c/t
+        return await fetch(new Request(legacyUpstream.toString(), legacySource));
       } catch {
         return new Response('Unsubscribe service temporarily unavailable', {
           status: 503,

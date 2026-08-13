@@ -873,18 +873,35 @@ describe('job alert email — unsubscribe links match the sending domain (anti-s
     );
   });
 
-  it('jobAlertUnsubscribe reads identifiers from the query on POST (one-click works)', () => {
+  it('jobAlertUnsubscribe reads identifiers from the query on POST (one-click works)', async () => {
     // RFC 8058 one-click POST carries alertId/email/token in the query string,
     // not the body — so the function MUST merge the query into POST params or the
     // one-click verifies an empty token (403) and never unsubscribes.
+    //
+    // #5746 moved that merge behind resolveRequestParams so a third source (the
+    // Cloudflare Worker's private-params header, which keeps the address and the
+    // credential out of Cloud Run's request log) could join it. Asserted on the
+    // resolver's BEHAVIOUR, not on the shape of the expression: the invariant
+    // was never the expression, it is that a POST still resolves what arrived on
+    // the query. Its twin for newsletterManageSubscription lives in
+    // tests/newsletter-unsubscribe-oneclick.test.ts and reads the same way.
+    const { resolveRequestParams } = await import('../functions/src/lib/privateRequestParams.js');
+    const resolved = resolveRequestParams({
+      method: 'POST',
+      query: { alertId: 'alert-1', email: 'user@example.com', token: 'sig' },
+      body: { 'List-Unsubscribe': 'One-Click' },
+      headers: {},
+    });
+    expect(resolved.alertId).toBe('alert-1');
+    expect(resolved.email).toBe('user@example.com');
+    expect(resolved.token).toBe('sig');
+
     const src = fs.readFileSync(
       path.resolve(__dirname, '../functions/index.js'),
       'utf8',
     );
     const handler = src.slice(src.indexOf('export const jobAlertUnsubscribe'));
-    expect(handler).toMatch(
-      /req\.method === 'GET' \? req\.query : \{\s*\.\.\.req\.query,\s*\.\.\.req\.body\s*\}/,
-    );
+    expect(handler).toContain('resolveRequestParams(req, res)');
   });
 
   it('the locale-router Worker proxies the same /disiscrivi-alert path (no drift)', () => {
