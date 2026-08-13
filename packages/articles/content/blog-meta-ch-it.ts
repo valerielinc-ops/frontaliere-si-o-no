@@ -2476,6 +2476,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-treno, aggiudicato un appalto da 8,6 milioni',
     'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'Il Consorzio Bosciorina ha vinto l\'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno.',
     'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'Una foto di un treno che passa attraverso il paesaggio ticinese.',
+    'blog.article.elvis-presley-padre-biologico.title': 'Credo che Elvis Presley sia mio padre: quattro anni alla ricerca della verità',
+    'blog.article.elvis-presley-padre-biologico.excerpt': 'La donna ha cercato indizi e documenti per scoprire la verità su suo padre biologico',
+    'blog.article.elvis-presley-padre-biologico.imageAlt': 'Una donna cerca di scoprire se il padre biologico sia Elvis Presley',
 };
 
 export default blogMetaChIt;

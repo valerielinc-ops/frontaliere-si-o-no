@@ -2476,6 +2476,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-train, attribué un marché de 8,6 millions',
     'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'Le Consortium Bosciorina a remporté l\'appel d\'offres pour la réalisation des murs de contre-courant entre Bioggio et Manno.',
     'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'Une photo d\'un train qui passe par le paysage ticinois.',
+    'blog.article.elvis-presley-padre-biologico.title': 'Je crois qu\'Elvis Presley est mon père : quatre ans à la recherche de la vérité',
+    'blog.article.elvis-presley-padre-biologico.excerpt': 'La femme a cherché des indices et des documents pour découvrir la vérité sur son père biologique',
+    'blog.article.elvis-presley-padre-biologico.imageAlt': 'Une femme cherche à savoir si son père biologique est Elvis Presley',
 };
 
 export default blogMetaChFr;
