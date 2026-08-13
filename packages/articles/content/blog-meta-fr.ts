@@ -9850,6 +9850,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Augmentation frontalière : +0,64 %',
     'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'L\'Office fédéral de la statistique (BFS) note une augmentation du nombre de frontaliers du Tessin au cours du trimestre 2026-Q2.',
     'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano vue, septembre 2022.',
+    'blog.article.votazione-sulla-fortezza-2024.title': 'Vote sur la Forteresse : constitution du comité civique favorable',
+    'blog.article.votazione-sulla-fortezza-2024.excerpt': 'Le comité civique « Faisons-nous belle - Oui le 27 septembre » soutient le projet de valorisation touristique et culturelle de la forteresse.',
+    'blog.article.votazione-sulla-fortezza-2024.imageAlt': 'Un groupe de personnes discutant de la votation de la Fortezza.',
 };
 
 export default blogMetaFr;

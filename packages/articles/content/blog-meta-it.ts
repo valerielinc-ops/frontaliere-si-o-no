@@ -9849,6 +9849,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-statistica-2026-q2.title': 'Aumento frontalieri: +0,64%',
     'blog.article.frontaliere-ticino-statistica-2026-q2.excerpt': 'L\'Ufficio Federale di Statistica (BFS) rileva un aumento dei frontalieri Ticino nel trimestre 2026-Q2.',
     'blog.article.frontaliere-ticino-statistica-2026-q2.imageAlt': 'Lugano vista dal lago, settembre 2022.',
+    'blog.article.votazione-sulla-fortezza-2024.title': 'Votazione sulla Fortezza: costituito il comitato civico favorevole',
+    'blog.article.votazione-sulla-fortezza-2024.excerpt': 'Il comitato civico \'Facciamoci Belli - Sì il 27 settembre\' sostiene il progetto di valorizzazione turistica e culturale della Fortezza.',
+    'blog.article.votazione-sulla-fortezza-2024.imageAlt': 'Un gruppo di persone riunite per discutere la votazione sulla Fortezza.',
 };
 
 export default blogMetaIt;
