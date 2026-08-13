@@ -7426,6 +7426,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'elvis-presley-padre-biologico',
+    category: 'pratico',
+    date: '2026-08-13T05:43:27.758Z',
+    image: '/images/blog/elvis-presley-padre-biologico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

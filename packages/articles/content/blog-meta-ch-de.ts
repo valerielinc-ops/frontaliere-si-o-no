@@ -2476,6 +2476,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-Zug, Auftrag über 8,6 Millionen vergeben',
     'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'Das Konsortium Bosciorina hat den Auftrag für den Bau der Gegenmauern zwischen Bioggio und Manno gewonnen.',
     'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'Ein Foto eines Zuges, der durch die ticinesische Landschaft fährt.',
+    'blog.article.elvis-presley-padre-biologico.title': 'Elvis Presley, mio padre? Quattro anni alla ricerca della verità',
+    'blog.article.elvis-presley-padre-biologico.excerpt': 'Die Frau suchte nach Hinweisen und Dokumenten, um die Wahrheit über ihren biologischen Vater herauszufinden',
+    'blog.article.elvis-presley-padre-biologico.imageAlt': 'Eine Frau versucht herauszufinden, ob ihr biologischer Vater Elvis Presley ist',
 };
 
 export default blogMetaChDe;

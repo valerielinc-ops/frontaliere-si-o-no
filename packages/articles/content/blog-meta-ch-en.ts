@@ -2476,6 +2476,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-train, awarded a contract of 8.6 million',
     'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'The Bosciorina Consortium has won the contract for the construction of the rear walls between Bioggio and Manno.',
     'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'A photo of a train passing through the Ticinese landscape.',
+    'blog.article.elvis-presley-padre-biologico.title': 'I believe Elvis Presley is my father: four years in search of the truth',
+    'blog.article.elvis-presley-padre-biologico.excerpt': 'The woman searched for clues and documents to find out the truth about her biological father',
+    'blog.article.elvis-presley-padre-biologico.imageAlt': 'A woman tries to find out if her biological father is Elvis Presley',
 };
 
 export default blogMetaChEn;
