@@ -2611,6 +2611,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.title': 'Incidente con un veicolo agricolo, morto un bambino di 9 anni',
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.excerpt': 'Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera',
     'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.imageAlt': 'Incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera',
+    'blog.article.mercato-lavoro-berna-salari.title': 'Salari e mercato del lavoro nel Canton Berna',
+    'blog.article.mercato-lavoro-berna-salari.excerpt': 'Analisi dei settori, livelli salariali e normative sul lavoro nel Canton Berna. Informazioni su contratti, salario minimo e tutele per i lavoratori.',
+    'blog.article.mercato-lavoro-berna-salari.imageAlt': 'Veduta del Palazzo Federale a Berna, cuore amministrativo della Svizzera.',
 };
 
 export default blogMetaChIt;
