@@ -2446,6 +2446,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Financial Control harshly criticizes the Ufsp',
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Financial Control harshly criticizes the Ufsp',
     'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Lugano view',
+    'blog.article.reno-siccita-logistica-svizzera.title': 'Drought and Rhine: impacts on Swiss logistics',
+    'blog.article.reno-siccita-logistica-svizzera.excerpt': 'The falling water level of the Rhine reduces ship loads. The Swiss economy monitors the situation between rising costs and infrastructure challenges.',
+    'blog.article.reno-siccita-logistica-svizzera.imageAlt': 'Low Rhine river levels at a Swiss industrial port',
+    'blog.article.polpi-contro-granchio-blu.title': 'Young octopuses against blue crab: biological fight in the Mediterranean',
+    'blog.article.polpi-contro-granchio-blu.excerpt': 'The Octo-Blu project involves the controlled release of about half a million small octopuses (Octopus vulgaris) bred in the laboratory in the waters in front of Riccione and Cesenatico.',
+    'blog.article.polpi-contro-granchio-blu.imageAlt': 'A biological control project in the Mediterranean aims to contain the invasive blue crab species that is devastating marine ecosystems and mussel and oyster fishing.',
 };
 
 export default blogMetaChEn;

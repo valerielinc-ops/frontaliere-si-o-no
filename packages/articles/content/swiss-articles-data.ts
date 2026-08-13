@@ -7336,6 +7336,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'reno-siccita-logistica-svizzera',
+    category: 'novita',
+    date: '2026-08-13T03:46:09.004Z',
+    image: '/images/blog/reno-siccita-logistica-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'polpi-contro-granchio-blu',
+    category: 'novita',
+    date: '2026-08-13T03:58:42.909Z',
+    image: '/images/blog/polpi-contro-granchio-blu.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
