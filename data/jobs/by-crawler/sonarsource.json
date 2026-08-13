@@ -153,7 +153,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:45.224Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -359,17 +358,33 @@
       "firstSeenAt": "2026-08-12T22:16:07.537Z",
       "previousSlugsByLocale": {
         "it": [
-          "staff-software-engineer-java-sonarsource-ch"
+          "staff-software-engineer-java-sonarsource-ch",
+          "staff-full-stack-ingegnere-java-react-sonarsource-sonar-geneva",
+          "staff-full-stack-engineer-java-react-sonarsource-ch",
+          "staff-full-stack-ingenieur-java-react-sonarsource-sonar-geneva",
+          "full-stack-ingegnere-sonarsource-sonar-geneva",
+          "full-stack-engineer-sonarsource-ch",
+          "full-stack-ingenieur-sonarsource-sonar-geneva"
         ],
         "de": [
           "staff-software-engineer-java-sonarsource-ch"
         ],
         "fr": [
-          "staff-software-engineer-java-sonarsource-ch"
+          "staff-software-engineer-java-sonarsource-ch",
+          "staff-full-stack-ingenieur-java-react-sonarsource-sonar-geneva"
+        ],
+        "en": [
+          "staff-full-stack-engineer-java-react-sonarsource-ch"
         ]
       },
       "previousSlugs": [
-        "staff-software-engineer-java-sonarsource-ch"
+        "staff-software-engineer-java-sonarsource-ch",
+        "staff-full-stack-ingegnere-java-react-sonarsource-sonar-geneva",
+        "staff-full-stack-engineer-java-react-sonarsource-ch",
+        "staff-full-stack-ingenieur-java-react-sonarsource-sonar-geneva",
+        "full-stack-ingegnere-sonarsource-sonar-geneva",
+        "full-stack-engineer-sonarsource-ch",
+        "full-stack-ingenieur-sonarsource-sonar-geneva"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -535,8 +550,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "needsRetranslation": true
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-d76dc6fd6c34",
@@ -845,7 +859,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -874,7 +887,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite & Payroll Systems Administrator",
       "titleByLocale": {
-        "it": "NetSuite & Payroll Systems Administrator",
+        "it": "Amministratore NetSuite & Payroll Systems",
         "en": "NetSuite & Payroll Systems Administrator",
         "de": "NetSuite & Payroll Systems Administrator",
         "fr": "Administrateur des systèmes NetSuite & Payroll"
@@ -936,7 +949,7 @@
       "companyDomain": "sonarsource.com",
       "title": "Mid-Market Account Executive - Italy",
       "titleByLocale": {
-        "it": "Mid-Market Account Executive - Italy",
+        "it": "Mid-Market Account Executive - Italia",
         "en": "Mid-Market Account Executive - Italy",
         "de": "Mid-Market Account Executive - Italien",
         "fr": "Exécutif de compte Mid-Market - Italie"
@@ -969,7 +982,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:17:40.998Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1052,7 +1064,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:43:27.325Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1127,7 +1138,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:56.975Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1383,8 +1393,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "needsRetranslation": true
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-ff9d08535a90",
@@ -1467,8 +1476,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "needsRetranslation": true
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-f44e2cd68511",
@@ -1535,7 +1543,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.488Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "baseSalary": {
@@ -1610,7 +1617,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.185Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {

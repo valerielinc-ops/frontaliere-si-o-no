@@ -29,7 +29,7 @@
       "firstSeenAt": "2026-08-12T10:18:11.555Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-60%",
-        "en": "Allrounder Verkauf (m/w/d) 20-60%",
+        "en": "All-rounder sale (m/f/d) 20-60 %",
         "de": "Allrounder Verkauf (m/w/d) 20-60%",
         "fr": "Allrounder Vente (m/w/d) 20-60%"
       },
@@ -50,17 +50,34 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen"
+          "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen",
+          "allrounder-vendita-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
+          "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen",
+          "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
+          "allrounder-vente-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
+          "all-rounder-sale-m-f-d-20-60-lidl-svizzera-sankt-gallen"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen-nhtvfc",
-          "all-rounder-sale-m-f-d-20-60-lidl-svizzera-st-gallen"
+          "all-rounder-sale-m-f-d-20-60-lidl-svizzera-st-gallen",
+          "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen"
+        ],
+        "de": [
+          "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d"
+        ],
+        "fr": [
+          "allrounder-vente-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen",
         "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-st-gallen-nhtvfc",
-        "all-rounder-sale-m-f-d-20-60-lidl-svizzera-st-gallen"
+        "all-rounder-sale-m-f-d-20-60-lidl-svizzera-st-gallen",
+        "allrounder-vendita-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
+        "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen",
+        "allrounder-verkauf-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
+        "allrounder-vente-m-w-d-20-60-lidl-svizzera-sankt-gallen-s4cm0d",
+        "all-rounder-sale-m-f-d-20-60-lidl-svizzera-sankt-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -75,7 +92,6 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200
     },
@@ -726,7 +742,7 @@
       },
       "titleByLocale": {
         "it": "Area Manager (m/f/d) 80-100 %",
-        "en": "Area Manager (m/w/d) 80-100%",
+        "en": "Area Manager (m/f/d) 80-100 %",
         "de": "Area Manager (m/w/d) 80-100%",
         "fr": "Gestionnaire de secteur (h/f/d) 80-100 %"
       },
@@ -752,7 +768,6 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000
     },
@@ -1033,7 +1048,7 @@
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Muri (AG)",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Muri (AG)",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Muri (AG)",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Muri (AG)",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Muri (AG)"
       },
@@ -1101,7 +1116,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -1132,7 +1146,7 @@
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Reinach (AG)",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Reinach (AG)",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Reinach (AG)",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Reinach (AG)",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Reinach (AG)"
       },
@@ -1200,7 +1214,6 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -2522,7 +2535,6 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -2766,7 +2778,6 @@
       "addressRegion": "FR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -3046,7 +3057,7 @@
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato come Kaufmann/-frau CFC con Spitzensport (Marketing) - Beginn 2027",
-        "en": "Lehre als Kaufmann/-frau EFZ mit Spitzensport (Marketing) - Beginn 2027",
+        "en": "Apprenticeship as a businessman/woman EFZ with top sports (marketing) - beginning of 2027",
         "de": "Lehre als Kaufmann/-frau EFZ mit Spitzensport (Marketing) - Beginn 2027",
         "fr": "Apprentissage en tant qu'homme d'affaires/femme EFZ avec des sports de haut niveau (marketing) - début 2027"
       },
@@ -5006,7 +5017,7 @@
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Junior Manager Controlling (m/f/d) 80-100 %",
-        "en": "Junior Manager Controlling (m/w/d) 80-100%",
+        "en": "Junior Manager Controlling (m/f/d) 80-100 %",
         "de": "Junior Manager Controlling (m/w/d) 80-100%",
         "fr": "Contrôle du gestionnaire junior (m/f/d) 80-100 %"
       },
@@ -5047,7 +5058,6 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000
     },
@@ -5443,7 +5453,6 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600
     },
@@ -5474,7 +5483,7 @@
       "firstSeenAt": "2026-07-24T11:13:50.406Z",
       "titleByLocale": {
         "it": "Gestione delle strutture tecniche (m/f/d) 80-100 %",
-        "en": "Fachexperte Technisches Facility Management (m/w/d) 80-100%",
+        "en": "Technical Facility Management (m/f/d) 80-100 %",
         "de": "Fachexperte Technisches Facility Management (m/w/d) 80-100%",
         "fr": "Gestion des installations techniques (m/f/d) 80-100 %"
       },
@@ -5523,7 +5532,6 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -5952,7 +5960,7 @@
       "crawledAt": "2026-08-13T10:18:53.751Z",
       "firstSeenAt": "2026-07-13T22:10:31.882Z",
       "titleByLocale": {
-        "it": "Disponent / Disponentin (m/w/d) 80-100%",
+        "it": "fornito / fornito (m/f/d) 80-100 %",
         "en": "Disponent / Disponentine (m/f/d) 80-100 %",
         "de": "Disponent / Disponentin (m/w/d) 80-100%",
         "fr": "Détenteur / Détenteur (m/f/d) 80-100 %"
@@ -6004,7 +6012,6 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -6212,7 +6219,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Luzern",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Luzern",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Lucerne",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Luzern",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Luzern"
       },
@@ -6245,7 +6252,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400
     },
@@ -6276,7 +6282,7 @@
       "firstSeenAt": "2026-07-01T23:07:03.903Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Ebikon",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Ebikon",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Ebikon",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Ebikon",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Ebikon"
       },
@@ -6326,7 +6332,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
-      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400
     },
@@ -7061,7 +7066,7 @@
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Horgen",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Horgen",
+        "en": "All-rounder Sale (m/f/d) 20-40% – Horgen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Horgen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Horgen"
       },
@@ -7111,7 +7116,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -7141,7 +7145,7 @@
       "crawledAt": "2026-08-13T10:18:53.751Z",
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
-        "it": "Collaborateur/Collaboratrice libre-service et vente 40%",
+        "it": "Collaboratore/self-service e partner commerciale 40%",
         "en": "Collaborator/self-service and sales partner 40% — Fribourg",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Freiburg — Fribourg",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Fribourg"
@@ -7237,8 +7241,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
       "salaryMin": 27400,
-      "salaryMax": 41600,
-      "needsRetranslation": true
+      "salaryMax": 41600
     },
     {
       "id": "company-h3lbhq",
@@ -7505,7 +7508,7 @@
         "fr": "emballeur-m-f-d-40-60-lidl-svizzera-bern"
       },
       "titleByLocale": {
-        "it": "Abpacker (m/w/d) 40-60%",
+        "it": "Pacchetto (m/f/d) 40-60 %",
         "en": "Packager (m/f/d) 40-60 %",
         "de": "Abpacker (m/w/d) 40-60%",
         "fr": "Emballeur (m/f/d) 40-60 %"
@@ -7549,7 +7552,6 @@
         "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy",
         "abpacker-m-w-d-40-60-lidl-svizzera-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -7816,7 +7818,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -8085,7 +8086,7 @@
       "firstSeenAt": "2026-06-17T23:01:29.054Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Dietikon",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Dietikon",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Dietikon",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Dietikon",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Dietikon"
       },
@@ -8135,7 +8136,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -8220,7 +8220,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -8381,7 +8380,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -8499,7 +8497,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Brugg",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Brugg",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Brugg",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Brugg",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Brugg"
       },
@@ -8543,7 +8541,6 @@
         "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg",
         "allrounder-verkauf-m-w-d-20-40-1-brugg-lidl-svizzera-brugg"
       ],
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -8580,7 +8577,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Hunzenschwil",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Hunzenschwil",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 – Hunzenschwil",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Hunzenschwil",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Hunzenschwil"
       },
@@ -8624,7 +8621,6 @@
         "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
         "allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
       ],
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -8661,7 +8657,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Wettingen",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Wettingen",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Wettingen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Wettingen",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Wettingen"
       },
@@ -8705,7 +8701,6 @@
         "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen",
         "allrounder-verkauf-m-w-d-20-40-1-wettingen-lidl-svizzera-wettingen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -8738,7 +8733,7 @@
         "it": "Picker ordini non alimentari (lunedì/venerdì/d) 40-80%",
         "en": "Order Picker Non Food (m/f/d) 40-80%",
         "de": "Kommissionierer / Kommissioniererin Nicht-Lebensmittel (m/w/d) 40-80 %",
-        "fr": "Kommissionierer / Kommissioniererin Non Food (m/w/d) 40-80%"
+        "fr": "Récupérateur de commandes / Récupérateur de commandes non alimentaires (h/f/d) 40-80 %"
       },
       "descriptionByLocale": {
         "it": "Introduzione Lidl Svizzera è sempre più presente sul mercato svizzero con una moderna rete di filiali. L'espansione in Svizzera è continuata ininterrottamente dall'ingresso nel mercato nel 2009. Da Lidl Svizzera ti aspettano compiti entusiasmanti e diverse opportunità di carriera nel dinamico ambiente del commercio al dettaglio. Lavorerai nel nuovo centro di distribuzione merci a Derendingen. I vostri compiti - Prelievo degli ordini dalle nostre filiali - Assistenza negli inventari di magazzino e nel controllo e stoccaggio dei resi in entrata dalle filiali - Fornitura di pallet per la spedizione - Rispetto degli standard di sicurezza, igiene e pulizia sul lavoro Il vostro profilo - Esperienza nel settore della logistica o della produzione - Personalità affidabile, indipendente e resiliente - Capacità di lavorare in gruppo, cooperare e comunicare - Buona salute fisica - Disponibilità a lavorare su turni, notti e domeniche - Buono tedesco, francese e/o conoscenza dell'inglese - patente per carrelli elevatori categoria R1, R2 un vantaggio Quello che offriamo In Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Ti prepareremo per i tuoi compiti vari e interessanti con una formazione intensiva. Inoltre vi offriamo la sicurezza di un posto fisso, di un grande team, dei vantaggi del GAV Lidl, di un'eccellente previdenza professionale e di altri vantaggi interessanti. Approfitta dell'opportunità e candidati online adesso!",
@@ -8789,7 +8784,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -8826,7 +8820,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Wallisellen",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Wallisellen",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Wallisellen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Wallisellen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Wallisellen"
       },
@@ -8876,7 +8870,6 @@
         "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
         "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -9184,7 +9177,6 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-adliswil",
         "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-adliswil-ug7fwy"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -9323,7 +9315,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Baden",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Baden",
+        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Baden",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Baden",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Baden"
       },
@@ -9356,7 +9348,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -9393,7 +9384,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Sarnen",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Sarnen",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Sarnen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Sarnen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Sarnen"
       },
@@ -9436,7 +9427,6 @@
         "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen",
         "allrounder-verkauf-m-w-d-20-40-sarnen-lidl-svizzera-sarnen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400
     },
@@ -9515,7 +9505,6 @@
       "addressRegion": "OW",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -9595,7 +9584,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -9626,7 +9614,7 @@
       "firstSeenAt": "2026-07-21T22:07:43.598Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Adliswil",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Adliswil",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Adliswil",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Adliswil",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Adliswil"
       },
@@ -9688,7 +9676,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -9863,8 +9850,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
+      "salaryMax": 75000
     },
     {
       "id": "company-ft4wsp",
@@ -9977,7 +9963,7 @@
         "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-gravesano-lidl-svizzera-gravesano"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Gravesano",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Gravesano",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
         "fr": "o AFC - Inizio 2026 - Gravesano"
@@ -10076,7 +10062,7 @@
         "fr": "o-afc-inizio-2026-locarno-lidl-svizzera-locarno"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Locarno",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Locarno",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
         "fr": "o AFC - Inizio 2026 - Locarno"
@@ -10153,7 +10139,7 @@
         "fr": "apprendistato-nel-commercio-al-detail-cfp-o-afc-inizio-2026-biasca-lidl-svizzera-biasca-3t5gz5"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Biasca",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Biasca",
         "en": "Apprendista nel commercial dettaglio CFP o AFC - Inizio 2026 — Biasca",
         "de": "Ausbildung im Einzelhandel CFP oder EFZ – Anfang 2026 – Biasca",
         "fr": "Apprendistato nel commercio al détail CFP o AFC - Inizio 2026 — Biasca"
@@ -10201,7 +10187,6 @@
           "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-lidl-svizzera-biasca-3t5gz5"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -10231,7 +10216,7 @@
       "crawledAt": "2026-08-13T10:18:53.751Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Arbedo-Castione",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Arbedo-Castione",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Arbedo-Castione",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Arbedo-Castione",
         "fr": "o AFC - Inizio 2026 - Arbedo-Castione"
@@ -10307,7 +10292,7 @@
       "crawledAt": "2026-08-13T10:18:53.751Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Sant'Antonino",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Sant'Antonino",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
         "fr": "o AFC - Inizio 2026 - Sant'Antonino"
@@ -10686,8 +10671,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41100,
-      "salaryMax": 62400,
-      "needsRetranslation": true
+      "salaryMax": 62400
     },
     {
       "id": "company-yiua5z",
@@ -11783,7 +11767,7 @@
       "crawledAt": "2026-08-11T21:50:11.500Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "titleByLocale": {
-        "fr": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
+        "fr": "CH Vendeur / Vendeur responsable du poste (h/f/d) 60-80%",
         "it": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
         "en": "CH Seller / Seller with responsibility for shift (m/f/d) 60-80%",
         "de": "CH Verkäufer / Verkäufer mit Verantwortung für Schicht (m/w/d) 60-80%"
@@ -11848,8 +11832,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 54800,
-      "salaryMax": 84000,
-      "needsRetranslation": true
+      "salaryMax": 84000
     },
     {
       "id": "company-eaenlv",
@@ -12820,7 +12803,7 @@
       "firstSeenAt": "2026-07-14T11:07:52.705Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 40-60%",
-        "en": "Allrounder Verkauf (m/w/d) 40-60%",
+        "en": "All-rounder sale (m/f/d) 40-60 %",
         "de": "Allrounder Verkauf (m/w/d) 40-60%",
         "fr": "Allrounder Vente (m/w/d) 40-60%"
       },
@@ -12845,7 +12828,8 @@
           "allrounder-verkauf-m-w-d-20-40-arbon-lidl-svizzera-arbon",
           "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach",
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-bachenbulach",
-          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon"
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
+          "allrounder-verkauf-m-w-d-20-40-1-regensdorf-lidl-svizzera-regensdorf"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
@@ -12860,7 +12844,8 @@
         "allrounder-verkauf-m-w-d-40-trimbach-lidl-svizzera-trimbach",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-bachenbulach",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
-        "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach"
+        "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach",
+        "allrounder-verkauf-m-w-d-20-40-1-regensdorf-lidl-svizzera-regensdorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12877,8 +12862,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 44100,
-      "salaryMax": 66900,
-      "needsRetranslation": true
+      "salaryMax": 66900
     },
     {
       "id": "company-k8j36j",
@@ -14356,8 +14340,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 27800,
-      "salaryMax": 42400,
-      "needsRetranslation": true
+      "salaryMax": 42400
     },
     {
       "id": "company-igswfn",
@@ -15346,8 +15329,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      "salaryMax": 106000
     },
     {
       "id": "company-tz85u2",
@@ -15580,8 +15562,7 @@
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-ggwztk"
       ],
       "salaryMin": 23000,
-      "salaryMax": 34800,
-      "needsRetranslation": true
+      "salaryMax": 34800
     },
     {
       "id": "company-hk4tcm",
@@ -16746,8 +16727,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 29400,
-      "salaryMax": 44600,
-      "needsRetranslation": true
+      "salaryMax": 44600
     },
     {
       "id": "company-74r5hc",
@@ -17174,8 +17154,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41100,
-      "salaryMax": 62400,
-      "needsRetranslation": true
+      "salaryMax": 62400
     },
     {
       "id": "company-63ixss",
@@ -17255,8 +17234,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 41100,
-      "salaryMax": 62400,
-      "needsRetranslation": true
+      "salaryMax": 62400
     },
     {
       "id": "company-4011gn",
@@ -18532,8 +18510,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-4vg1ny",
@@ -18686,8 +18663,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-t36d3k",
@@ -18937,8 +18913,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 27400,
-      "salaryMax": 41600,
-      "needsRetranslation": true
+      "salaryMax": 41600
     },
     {
       "id": "company-y3mn4v",
@@ -20434,8 +20409,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
+      "salaryMax": 75000
     },
     {
       "id": "company-htikly",
@@ -20765,8 +20739,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      "salaryMax": 106000
     },
     {
       "id": "company-2gr6sl",
@@ -21661,8 +21634,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-yhm50p",
@@ -21758,8 +21730,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49600,
-      "salaryMax": 75200,
-      "needsRetranslation": true
+      "salaryMax": 75200
     },
     {
       "id": "company-7un5uo",
@@ -22156,8 +22127,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 60000,
-      "salaryMax": 102000,
-      "needsRetranslation": true
+      "salaryMax": 102000
     },
     {
       "id": "company-cahg0p",
@@ -22187,14 +22157,14 @@
       "titleByLocale": {
         "fr": "Vendeur / Vendeuse (h/f/d) 40% — Genève",
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Genève",
-        "en": "Vendeur / Vendeuse (h/f/d) 40% — Genève",
-        "de": "Vendeur / Vendeuse (h/f/d) 40% — Genève"
+        "en": "Seller (m/f/d) 40% — Geneva",
+        "de": "Verkäufer (m/w/d) 40% - Genf"
       },
       "descriptionByLocale": {
         "fr": "Introduction\n Tu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n - Contribution à une expérience d'achat positive pour notre clientèle - Activité de caissier - Mise en rayon et gestion des marchandises dans le magasin - Contribution à la propreté de l'espace de vente Votre profil\n - Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout - Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Disponibilité pour travailler les lundis, mardis, mercredis, jeudis et samedis - Bonne condition physique - Présentation conviviale et soignée - Fiabilité et sens des responsabilités - Bonnes connaissances en français Notre offre\n Chez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
-        "it": "Introduction\n\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail.\nVotre mission\n\n- Contribution à une expérience d'achat positive pour notre clientèle\n\n- Activité de caissier\n\n- Mise en rayon et gestion des marchandises dans le magasin\n\n- Contribution à la propreté de l'espace de vente\nVotre profil\n\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout\n\n- Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun)\n\n- Disponibilité pour travailler les lundis, mardis, mercredis, jeudis et samedis\n\n- Bonne condition physique\n\n- Présentation conviviale et soignée\n\n- Fiabilité et sens des responsabilités\n\n- Bonnes connaissances en français\nNotre offre\n\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
-        "en": "Introduction\n\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail.\nVotre mission\n\n- Contribution à une expérience d'achat positive pour notre clientèle\n\n- Activité de caissier\n\n- Mise en rayon et gestion des marchandises dans le magasin\n\n- Contribution à la propreté de l'espace de vente\nVotre profil\n\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout\n\n- Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun)\n\n- Disponibilité pour travailler les lundis, mardis, mercredis, jeudis et samedis\n\n- Bonne condition physique\n\n- Présentation conviviale et soignée\n\n- Fiabilité et sens des responsabilités\n\n- Bonnes connaissances en français\nNotre offre\n\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
-        "de": "Introduction\n\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail.\nVotre mission\n\n- Contribution à une expérience d'achat positive pour notre clientèle\n\n- Activité de caissier\n\n- Mise en rayon et gestion des marchandises dans le magasin\n\n- Contribution à la propreté de l'espace de vente\nVotre profil\n\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout\n\n- Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun)\n\n- Disponibilité pour travailler les lundis, mardis, mercredis, jeudis et samedis\n\n- Bonne condition physique\n\n- Présentation conviviale et soignée\n\n- Fiabilité et sens des responsabilités\n\n- Bonnes connaissances en français\nNotre offre\n\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
+        "it": "Introduzione\n\nSei appassionato di vendere? Vuoi dare il meglio di te ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping? Vuoi fare parte di una squadra d'oro? Quindi hai colpito la porta destra. Vi offriamo interessanti e varie opportunità di carriera nell'ambiente di vendita al dettaglio dinamico.\nLa tua missione\n\n- Contributo a una positiva esperienza di shopping per i nostri clienti\n\n- Attività di cassa\n\n- Posizionamento e gestione delle merci nel negozio\n\n- Contributo allo spazio di vendita pulito\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o campi simili è un bene\n\n- Flessibilità nelle ore di lavoro (dal lunedì al sabato tra le 5:00 e le 10:00; turno mattina e/o serale intorno alle 9:00 ciascuna)\n\n- Disponibilità per lavorare il lunedì, martedì, mercoledì, giovedì e sabato\n\n- Buone condizioni fisiche\n\n- Presentazione facile da usare e pulita\n\n- Affidabilità e responsabilità\n\n- Buona conoscenza in francese\nLa nostra offerta\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Aiuta a plasmare il futuro. Crescere ogni giorno professionalmente e personalmente. Durante la vostra formazione iniziale approfondita, vi prepareremo per la vostra missione varia e interessante. Date le vostre buone capacità personali, gli sviluppi professionali interni sono possibili. Inoltre, vi garantiamo un lavoro sicuro, un team di sogno, i privilegi del CLC Lidl, un'eccellente previsione professionale e molti altri benefici interessanti. Prendi la tua occasione e applica ora online!",
+        "en": "Introduction\n\nAre you passionate about selling? You want to give the best of yourself every day in order to offer our customers the best shopping experience? Would you like to be part of a gold team? So you hit the right door. We offer you exciting and varied career opportunities in the dynamic retail environment.\nYour Mission\n\n- Contribution to a positive shopping experience for our customers\n\n- Cashier activity\n\n- Placement and management of goods in the store\n\n- Contribution to clean sales space\nYour profile\n\n- Professional experience in sales or similar fields is an asset\n\n- Flexibility in working hours (Monday to Saturday between 5:00 a.m. and 10:00 p.m.; morning and/or evening shift around 9:00 a.m. each)\n\n- Availability to work on Mondays, Tuesdays, Wednesdays, Thursdays and Saturdays\n\n- Good physical condition\n\n- User friendly and neat presentation\n\n- Reliability and accountability\n\n- Good knowledge in French\nOur offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Helps shape the future. Grow every day professionally and personally. During your in-depth initial training, we will prepare you for your varied and interesting mission. Given your good personal skills, internal professional developments are possible. Moreover, we guarantee you a safe job, a dream team, the privileges of the CLC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!",
+        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Flexibilität bei der Arbeitszeit (Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr; Morgen- und/oder Abendschicht jeweils um 9:00 Uhr)\n\n- Montags, dienstags, mittwochs, donnerstags und samstags verfügbar\n\n- Gute körperliche Verfassung\n\n- Benutzerfreundliche und gepflegte Präsentation\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Hilft, die Zukunft zu gestalten. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CLC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -22209,12 +22179,33 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve",
-          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cahg0p"
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cahg0p",
+          "seller-h-f-d-40-geneva-lidl-svizzera-geneve",
+          "verkaufer-h-w-d-40-genf-lidl-svizzera-geneve",
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cbl2la",
+          "vendeur-vendeuse-m-w-d-40-geneve-lidl-svizzera-geneve-cahg0p",
+          "vendeur-vendeuse-m-w-d-40-geneve-lidl-svizzera-geneve-cbl2la",
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-2"
+        ],
+        "en": [
+          "seller-h-f-d-40-geneva-lidl-svizzera-geneve"
+        ],
+        "de": [
+          "verkaufer-h-w-d-40-genf-lidl-svizzera-geneve"
+        ],
+        "fr": [
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cbl2la"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve",
-        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cahg0p"
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cahg0p",
+        "seller-h-f-d-40-geneva-lidl-svizzera-geneve",
+        "verkaufer-h-w-d-40-genf-lidl-svizzera-geneve",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-cbl2la",
+        "vendeur-vendeuse-m-w-d-40-geneve-lidl-svizzera-geneve-cahg0p",
+        "vendeur-vendeuse-m-w-d-40-geneve-lidl-svizzera-geneve-cbl2la",
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-geneve-2"
       ],
       "salaryMin": 41800,
       "salaryMax": 73400,
@@ -22259,15 +22250,15 @@
       "firstSeenAt": "2026-08-13T10:18:53.751Z",
       "titleByLocale": {
         "de": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
-        "it": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
-        "en": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
-        "fr": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern"
+        "it": "Stv. Branch Manager / Stv. Branch Manager (m/f/d) 80-100% — Lucerna",
+        "en": "Stv. Branch Manager / Stv. Branch Manager (m/f/d) 80-100% — Lucerne",
+        "fr": "Gestionnaire de succursale Stv. / Gestionnaire de succursale Stv. (h/f/d) 80-100% — Lucerne"
       },
       "descriptionByLocale": {
         "de": "Einleitung\n Der Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n - Stellvertretung der Filialleitung - Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden - Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche - Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale - Warendisposition und Warenpräsentation Dein Profil\n - Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung - Teamgeist und Verantwortungsbewusstsein - Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen - Einsatzbereitschaft, Flexibilität und Belastbarkeit - Sehr gute Deutschkenntnisse in Wort und Schrift Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "it": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "en": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "fr": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!"
+        "it": "Introduzione\n\nVendite e persone sono la vostra passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessario ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n\n- Gestione del ramo aggiunto\n\n- Supporto nella gestione del personale e pianificazione del personale di 15-35 dipendenti\n\n- Assunzione di responsabilità nel ramo e sostegno attivo nel settore\n\n- Attuazione dell'orientamento del cliente e degli standard di vendita nel settore\n\n- Buona disposizione e presentazione\nIl tuo profilo\n\n- Diversi anni di esperienza professionale nelle vendite o ambiente simile\n\n- Formazione professionale completata idealmente nel commercio al dettaglio\n\n- Leader, abbinato idealmente alla prima esperienza\n\n- Spirito di squadra e responsabilità\n\n- Capacità comunicative e piacere nel trattare con le persone\n\n- Prontezza, flessibilità e resilienza\n\n- Molto buona conoscenza del tedesco in parola e scrittura\nOffriamo\n\nA Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una conoscenza intensiva. Se desiderato e con buona idoneità personale, vi svilupperemo nella gestione di ramo (m/f/d). Inoltre, vi offriamo la sicurezza di un lavoro permanente, un grande team, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
+        "en": "Introduction\n\nSales and people are your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n\n- Deputy branch management\n\n- Support in personnel management and personnel planning of 15-35 employees\n\n- Assumption of responsibility in the branch and active support in the area\n\n- Implementation of customer orientation and sales standards in the branch\n\n- Goods disposition and presentation\nYour profile\n\n- Several years of professional experience in sales or similar environment\n\n- Ideally completed vocational training in the retail trade\n\n- Leader, ideally paired with first experience\n\n- Team spirit and responsibility\n\n- Communicative skills and pleasure in dealing with people\n\n- Readiness, flexibility and resilience\n\n- Very good knowledge of German in word and writing\nWe offer\n\nAt Lidl Switzerland there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive familiarization. If desired and with good personal suitability, we will develop you into the branch management (m/f/d). In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
+        "fr": "Présentation\n\nLes ventes et les gens sont votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Direction générale adjointe\n\n- Appui à la gestion du personnel et à la planification du personnel de 15 à 35 employés\n\n- Assomption de responsabilité dans la branche et soutien actif dans la région\n\n- Mise en œuvre des normes d'orientation des clients et de vente dans la branche\n\n- Disposition et présentation des biens\nVotre profil\n\n- Plusieurs années d'expérience professionnelle dans les ventes ou dans un environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Leader, idéalement jumelé à la première expérience\n\n- Esprit d'équipe et responsabilité\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Disponibilité, flexibilité et résilience\n\n- Très bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participez activement. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une familiarisation intensive. Si désiré et avec de bonnes qualités personnelles, nous vous développerons dans la direction générale (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -22376,14 +22367,14 @@
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern",
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 60-80% — Luzern",
-        "en": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern",
-        "fr": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern"
+        "en": "Seller with shift responsibility (m/f/d) 60-80% — Lucerne",
+        "fr": "Vendeur avec responsabilité de quart (h/f/d) 60-80% — Lucerne"
       },
       "descriptionByLocale": {
         "de": "Einleitung\n Der Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n - Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung - Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen - Unterstützung in der Personalplanung, Personalführung und Filialorganisation - Warendisposition und Warenpräsentation - Kassiertätigkeit Dein Profil\n - Berufserfahrung im Verkauf oder ähnlichem Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht) - Kommunikative Fähigkeiten und Freude am Umgang mit Menschen - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Gute Deutschkenntnisse in Wort und Schrift Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "it": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung\n\n- Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen\n\n- Unterstützung in der Personalplanung, Personalführung und Filialorganisation\n\n- Warendisposition und Warenpräsentation\n\n- Kassiertätigkeit\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht)\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n- Gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "en": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung\n\n- Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen\n\n- Unterstützung in der Personalplanung, Personalführung und Filialorganisation\n\n- Warendisposition und Warenpräsentation\n\n- Kassiertätigkeit\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht)\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n- Gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "fr": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung\n\n- Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen\n\n- Unterstützung in der Personalplanung, Personalführung und Filialorganisation\n\n- Warendisposition und Warenpräsentation\n\n- Kassiertätigkeit\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht)\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n- Gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!"
+        "it": "Introduzione\n\nVendere è la tua passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessario ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n\n- Rischio di responsabilità in assenza di gestione e vice\n\n- Attuazione dell'orientamento del cliente e degli standard di vendita nelle nostre filiali\n\n- Sostegno alla pianificazione del personale, alla gestione del personale e all'organizzazione di filiali\n\n- Buona disposizione e presentazione\n\n- Attività di cassa\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o ambiente simile\n\n- Formazione professionale completata idealmente nel commercio al dettaglio\n\n- Flessibilità rispetto agli orari operativi (MO-SA tra le 05:00 e le 22:00);\n\n- Capacità comunicative e piacere nel trattare con le persone\n\n- Alta motivazione, impegno e resilienza\n\n- Buona conoscenza del tedesco nelle parole e nella scrittura\nOffriamo\n\nA Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una conoscenza intensiva. Se desiderato e con buona idoneità personale, vi svilupperemo nella gestione del ramo aggiunto (m/f/d). Inoltre, vi offriamo la sicurezza di un lavoro permanente, un grande team, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
+        "en": "Introduction\n\nSelling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n\n- Shift responsibility in the absence of branch management and deputy\n\n- Implementation of customer orientation and sales standards in our branches\n\n- Support in personnel planning, personnel management and branch organization\n\n- Goods disposition and presentation\n\n- Cash activity\nYour profile\n\n- Professional experience in sales or similar environment\n\n- Ideally completed vocational training in the retail trade\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift\n\n- Communicative skills and pleasure in dealing with people\n\n- High motivation, commitment and resilience\n\n- Good knowledge of German in words and writing\nWe offer\n\nAt Lidl Switzerland there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive familiarization. If desired and with good personal suitability, we will develop you into the deputy branch management (m/f/d). In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
+        "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Le changement de responsabilité en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des biens\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou environnement similaire\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h);\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participez activement. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
