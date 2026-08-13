@@ -31412,6 +31412,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scienza-medicina-attualita-svizzera': {
+    title: 'Scienza e medicina: aggiornamenti e approfondimenti',
+    description: 'Approfondimenti su scienza, medicina e salute nel contesto svizzero. Informazioni aggiornate per una gestione consapevole del benessere e del sistema sanitario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scienza, medicina, aggiornamenti, approfondimenti',
+    ogTitle: 'Scienza e medicina: attualità e approfondimenti in Svizzera',
+    ogDescription: 'Esplora le ultime novità in ambito scientifico e medico nel contesto svizzero. Un\'analisi completa per comprendere le dinamiche del sistema sanitario attuale.',
+    canonicalPath: '/articoli-svizzera/scienza-medicina-attualita-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scienza e medicina: aggiornamenti e approfondimenti",
+      "description": "Approfondimenti su scienza, medicina e salute nel contesto svizzero. Informazioni aggiornate per una gestione consapevole del benessere e del sistema sanitario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scienza-medicina-attualita-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca scientifica in un contesto svizzero"
+      },
+      "datePublished": "2026-08-13T02:11:33+00:00",
+      "dateModified": "2026-08-13T02:11:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scienza-medicina-attualita-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

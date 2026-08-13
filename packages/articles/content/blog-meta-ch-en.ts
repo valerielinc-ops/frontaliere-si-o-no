@@ -2425,6 +2425,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.opportunita-lavoro-rsi-svizzera.title': 'CSR Career Opportunities: Portal Guide',
     'blog.article.opportunita-lavoro-rsi-svizzera.excerpt': 'Explore the open positions and the application path at the RSI Italian-speaking Swiss Radio and Television through the dedicated official portal.',
     'blog.article.opportunita-lavoro-rsi-svizzera.imageAlt': 'RSI Swiss broadcasting headquarters in Lugano',
+    'blog.article.scienza-medicina-attualita-svizzera.title': 'Science and medicine: updates and insights',
+    'blog.article.scienza-medicina-attualita-svizzera.excerpt': 'A look at the science and medicine sections published by the Region, with thematic insights on health and scientific research in Switzerland.',
+    'blog.article.scienza-medicina-attualita-svizzera.imageAlt': 'Scientific research laboratory in a Swiss setting',
 };
 
 export default blogMetaChEn;
