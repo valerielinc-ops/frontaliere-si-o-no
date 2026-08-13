@@ -3098,20 +3098,21 @@
       "previousSlugs": [
         "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
         "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
-        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern"
+        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern",
+        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
           "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
-          "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern"
+          "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern",
+          "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf"
         ],
         "de": [
           "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-08-04T11:40:23.949Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3123,7 +3124,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-ba5b830ac60d",

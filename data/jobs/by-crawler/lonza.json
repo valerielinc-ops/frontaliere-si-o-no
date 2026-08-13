@@ -3765,14 +3765,16 @@
         "senior-sap-ewm-system-specialist-extended-warehouse-management-lonza",
         "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-ch",
         "specialista-senior-sap-ewm-extended-warehouse-management-lonza-ch",
-        "specialiste-senior-sap-ewm-extended-warehouse-management-lonza-ch"
+        "specialiste-senior-sap-ewm-extended-warehouse-management-lonza-ch",
+        "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-sap-ewm-system-specialist-extended-warehouse-management-lonza",
           "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-ch",
           "specialista-senior-sap-ewm-extended-warehouse-management-lonza-ch",
-          "specialiste-senior-sap-ewm-extended-warehouse-management-lonza-ch"
+          "specialiste-senior-sap-ewm-extended-warehouse-management-lonza-ch",
+          "senior-sap-ewm-system-spezialist-extended-warehouse-management-lonza-visp"
         ],
         "fr": [
           "specialiste-senior-sap-ewm-extended-warehouse-management-lonza-ch"
@@ -12247,7 +12249,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "senior-automation-ingegnere-biopharma-80-100-m-w-d-lonza-visp"
+      ]
     },
     {
       "id": "lonza-0af00f409e8d",
@@ -13209,7 +13219,6 @@
       "crawledAt": "2026-08-13T21:49:11.059Z",
       "jobReqId": "R78236",
       "firstSeenAt": "2026-08-07T10:14:36.018Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -13222,7 +13231,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-qualification-specialista-manager-80-100-f-m-d-lonza-visp"
+      ]
     },
     {
       "id": "lonza-bc58aea926ab",
@@ -14487,16 +14505,17 @@
       "jobReqId": "R77925",
       "previousSlugs": [
         "project-scientist-phys-chem-quality-control-80-100-lonza-ch",
-        "progetto-scienziato-phys-chem-quality-control-80-100-lonza-ch"
+        "progetto-scienziato-phys-chem-quality-control-80-100-lonza-ch",
+        "progetto-scienziato-phys-chem-quality-control-80-100-lonza-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-scientist-phys-chem-quality-control-80-100-lonza-ch",
-          "progetto-scienziato-phys-chem-quality-control-80-100-lonza-ch"
+          "progetto-scienziato-phys-chem-quality-control-80-100-lonza-ch",
+          "progetto-scienziato-phys-chem-quality-control-80-100-lonza-basel"
         ]
       },
       "firstSeenAt": "2026-08-10T21:45:10.886Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -14509,7 +14528,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-2e04f0b438d1",

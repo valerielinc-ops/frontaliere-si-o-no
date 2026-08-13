@@ -3188,13 +3188,15 @@
         "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
         "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
         "sports-instructor-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
-        "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984"
+        "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
+        "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportlehrperson-91-28-bff-bern-39984",
           "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-          "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984"
+          "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
+          "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ],
         "en": [
           "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
@@ -3206,7 +3208,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:52:08.066Z",
-      "needsRetranslation": true,
       "salaryMin": 19200,
       "salaryMax": 29100,
       "baseSalary": {
@@ -3218,7 +3219,8 @@
           "maxValue": 29100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-1e23944ccbc8",
@@ -10490,12 +10492,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "4-lektionen-deutsch-mittwochs-osz-arch-arch-39971",
-        "4-lezioni-in-tedesco-il-mercoledi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-39971"
+        "4-lezioni-in-tedesco-il-mercoledi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-39971",
+        "4-lezioni-in-tedesco-il-mercoledi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "4-lektionen-deutsch-mittwochs-osz-arch-arch-39971",
-          "4-lezioni-in-tedesco-il-mercoledi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-39971"
+          "4-lezioni-in-tedesco-il-mercoledi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-39971",
+          "4-lezioni-in-tedesco-il-mercoledi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch"
         ],
         "en": [
           "4-lektionen-deutsch-mittwochs-osz-arch-arch-39971"
@@ -10505,7 +10509,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:36:51.579Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10517,7 +10520,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-5a15c45860f3",

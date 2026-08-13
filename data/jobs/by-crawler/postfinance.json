@@ -472,7 +472,6 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -494,7 +493,16 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "organizational-development-specialista-transformation-change-w-m-d-postfinance-bern"
+        ]
+      },
+      "previousSlugs": [
+        "organizational-development-specialista-transformation-change-w-m-d-postfinance-bern"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
@@ -561,7 +569,15 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-portfolio-business-analista-data-ai-w-m-d-postfinance-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-portfolio-business-analista-data-ai-w-m-d-postfinance-bern"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Platform-Engineer-Continuous-Integration-%28wmd%29/74052-de_DE",
@@ -628,7 +644,15 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern"
+        ]
+      },
+      "previousSlugs": [
+        "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/IT-Business-Analyst-Data-Warehouse-%28wmd%29/74308-de_DE",
