@@ -1,18 +1,55 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-08-12T22:03:52.953Z",
+  "generatedAt": "2026-08-13T10:42:18.196Z",
   "total": 6,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8789,
-  "avgDurationMs": 8789,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9104,
+  "avgDurationMs": 9104,
   "durationHistory": [
-    8789
+    9104
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "pigna-53e6c00f9b23",
+      "slug": "fachverantwortung-hr-administration-80-pigna-kloten",
+      "company": "Stiftung Pigna",
+      "companyKey": "pigna",
+      "companyDomain": "pigna.ch",
+      "title": "Fachverantwortung HR-Administration 80%",
+      "needsRetranslation": true,
+      "location": "Kloten",
+      "canton": "ZH",
+      "url": "https://app.reflinejobs.io/1531/0285/pub/480/index.html",
+      "source": "Pigna Dedicated Parser (Refline 1531)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-13T10:42:14.664Z",
+      "addressLocality": "Kloten",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8302",
+      "category": "IT",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://app.reflinejobs.io/1531/0285/pub/480/index.html",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "pigna-5dee32dc54dc",
@@ -27,7 +64,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/470/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:03:46.617Z",
+      "crawledAt": "2026-08-13T10:42:12.199Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:03:47.906Z",
+      "crawledAt": "2026-08-13T10:42:13.499Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/473/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:03:45.868Z",
+      "crawledAt": "2026-08-13T10:42:11.523Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/467/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:03:47.324Z",
+      "crawledAt": "2026-08-13T10:42:12.878Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://app.reflinejobs.io/1531/0276/pub/466/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:03:48.787Z",
+      "crawledAt": "2026-08-13T10:42:14.090Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,8 +237,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pigna-98a4c632c7a7",
       "slug": "attivita-di-teamling-engelwisen-60-80-stiftung-pigna-kloten",
@@ -242,5 +278,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
