@@ -7327,6 +7327,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'il-controllo-delle-finanze-critica-duramente-l-ufsp',
+    category: 'fiscale',
+    date: '2026-08-13T03:34:02.846Z',
+    image: '/images/blog/il-controllo-delle-finanze-critica-duramente-l-ufsp.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

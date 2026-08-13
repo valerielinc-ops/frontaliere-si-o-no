@@ -2443,6 +2443,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eclissi-solare-svizzera-conclusa.title': 'Solar eclipse: show concluded in Switzerland',
     'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'The long-awaited solar eclipse ended its course over Switzerland, reaching its climax around 8:20 pm and ending with sunset. In Ticino and Graubünden, sun coverage reached 91%.',
     'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Partial solar eclipse over a Swiss landscape at sunset.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Financial Control harshly criticizes the Ufsp',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Financial Control harshly criticizes the Ufsp',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Lugano view',
 };
 
 export default blogMetaChEn;
