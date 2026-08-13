@@ -2500,6 +2500,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Public transport passes Canton Bern: zones and fares',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Information on areas and fares for public transport passes in the Canton of Bern',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Bus in Canton Bern',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.title': 'Drought puts a strain on Swiss waterways',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.excerpt': 'Eleven measuring stations reached an all-time low in July',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.imageAlt': 'The lake of Lugano with drought',
 };
 
 export default blogMetaChEn;

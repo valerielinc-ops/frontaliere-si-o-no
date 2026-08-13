@@ -2500,6 +2500,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Öffentliche Verkehrsmittel Kanton Bern: Zonen und Tarife',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Informationen zu den Zonen und Tarifen der ÖV-Abos im Kanton Bern',
     'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Bus im Kanton Bern',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.title': 'Trockenheit belastet die Schweizer Fliessgewässer',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.excerpt': 'Elf Messstationen erreichten im Juli ein Allzeittief',
+    'blog.article.la-siccit-mette-a-dura-prova-i-corsi-dacqua-svizzeri.imageAlt': 'Der See von Lugano bei Dürre',
 };
 
 export default blogMetaChDe;
