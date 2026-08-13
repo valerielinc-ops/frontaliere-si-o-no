@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-13T09:31:20.442Z",
+  "assembledAt": "2026-08-13T10:16:36.919Z",
   "jobs": [
     {
       "id": "ksw-1377664743b0",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4051843",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -56,7 +56,8 @@
         "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw",
         "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch"
+        "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
+        "infermiera-infermiera-terapia-intensiva-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +65,8 @@
           "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw",
           "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur",
-          "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch"
+          "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
+          "infermiera-infermiera-terapia-intensiva-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
@@ -76,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:15:24.716Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -120,7 +123,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4052066",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -139,11 +142,13 @@
       "requirementsByLocale": {},
       "department": "Patientenadministration",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
+        "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-patientenaufnahme-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
+          "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-patientenaufnahme-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
@@ -198,7 +203,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048760",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -220,14 +225,16 @@
         "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
+        "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
+        "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital-winterthur-ksw-winterthur",
-          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
+          "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch",
+          "specialista-infermieristica-specialista-in-allattamento-focus-oncology-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-schwerpunkt-onkologie-ksw-ch"
@@ -264,7 +271,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica professionale / infermieristica",
+        "it": "Pflegefachfrau / Pflegefachmann",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -281,7 +288,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050821",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -304,7 +311,8 @@
         "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-b495j9",
         "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur",
         "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+        "infermieristica-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -312,7 +320,8 @@
           "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur-b495j9",
           "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur",
           "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur",
+          "infermieristica-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-ksw-ch"
@@ -322,6 +331,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:05:34.586Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -349,7 +359,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica professionale / infermieristica",
+        "it": "Pflegefachfrau / Pflegefachmann",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -366,7 +376,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4045871",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -395,7 +405,8 @@
         "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
         "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw",
-        "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur"
+        "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -405,7 +416,8 @@
           "nursing-specialist-nursing-specialist-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-intensivmedizin-ksw-ch",
           "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw",
-          "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur"
+          "specialista-di-infermieristica-specialista-di-infermieristica-kantonsspital-winterthur-ksw-winterthur",
+          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "nursing-specialist-nursing-specialist-focus-on-oncology-kantonsspital-winterthur-ksw-winterthur",
@@ -422,6 +434,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:41:46.470Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -466,7 +479,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050693",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -544,7 +557,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038439",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -563,11 +576,13 @@
       "requirementsByLocale": {},
       "department": "Betrieb",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch"
+        "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-personalrestaurant-e-bistro-15-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch"
+          "mitarbeiterin-mitarbeiter-personalrestaurant-und-bistro-15-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-personalrestaurant-e-bistro-15-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -616,7 +631,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050301",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -641,7 +656,8 @@
         "medico-senior-medico-senior-adulto-di-emergenza-kantonsspital-winterthur-ksw-winterthur",
         "senior-physician-senior-physician-emergency-adult-kantonsspital-winterthur-ksw-winterthur",
         "oberarztin-oberarzt-notfall-erwachsene-ksw-ch",
-        "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur"
+        "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur",
+        "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -650,7 +666,8 @@
           "medico-senior-medico-senior-adulto-di-emergenza-kantonsspital-winterthur-ksw-winterthur",
           "senior-physician-senior-physician-emergency-adult-kantonsspital-winterthur-ksw-winterthur",
           "oberarztin-oberarzt-notfall-erwachsene-ksw-ch",
-          "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur"
+          "medecin-superieur-medecin-superieur-urgence-adulte-kantonsspital-winterthur-ksw-winterthur",
+          "medico-senior-medico-senior-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-ksw-ch",
@@ -694,7 +711,7 @@
       "title": "Pflegefachfrau / Pflegefachmann IMC Pädiatrie",
       "titleByLocale": {
         "it": "Specialista di allattamento IMC Pediatrics",
-        "en": "Nursing specialist IMC Pediatrics",
+        "en": "Pflegefachfrau / Pflegefachmann IMC Pädiatrie",
         "de": "Pflegefachfrau / Pflegefachmann IMC Pädiatrie",
         "fr": "Spécialiste en soins infirmiers IMC Pédiatrie"
       },
@@ -710,7 +727,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048230",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -735,7 +752,8 @@
         "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
         "nursing-specialist-nursing-specialist-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-imc-padiatrie-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-imc-padiatrie-kantonsspital-winterthur-ksw-winterthur",
+        "specialista-di-allattamento-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -744,7 +762,8 @@
           "pflegefachfrau-pflegefachmann-imc-lindberg-ksw-ch",
           "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-imc-padiatrie-ksw-ch",
-          "nursing-specialist-nursing-specialist-kantonsspital-winterthur-ksw-winterthur"
+          "nursing-specialist-nursing-specialist-kantonsspital-winterthur-ksw-winterthur",
+          "specialista-di-allattamento-imc-pediatrics-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "nursing-specialist-nursing-specialist-imc-lindberg-kantonsspital-winterthur-ksw-winterthur",
@@ -760,6 +779,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:38.060Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -787,7 +807,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegehelferin / Pflegehelfer",
       "titleByLocale": {
-        "it": "Assistente infermieristico / assistente di allattamento",
+        "it": "Pflegehelferin / Pflegehelfer",
         "en": "Nursing assistant / nursing assistant",
         "de": "Pflegehelferin / Pflegehelfer",
         "fr": "Assistant infirmier / assistant infirmier"
@@ -804,7 +824,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050052",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -824,12 +844,14 @@
       "department": "Zentrum für Intensivmedizin",
       "previousSlugs": [
         "pflegehelferin-pflegehelfer-ksw-ch",
-        "pflegehelferin-pflegehelfer-kantonsspital-winterthur-ksw-winterthur"
+        "pflegehelferin-pflegehelfer-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-infermieristico-assistente-di-allattamento-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelferin-pflegehelfer-ksw-ch",
-          "pflegehelferin-pflegehelfer-kantonsspital-winterthur-ksw-winterthur"
+          "pflegehelferin-pflegehelfer-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-infermieristico-assistente-di-allattamento-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "pflegehelferin-pflegehelfer-ksw-ch"
@@ -839,6 +861,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:38.060Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -883,7 +906,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048799",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -902,11 +925,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Anästhesiologie",
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+        "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
+        "sala-di-recupero-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+          "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
+          "sala-di-recupero-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
@@ -960,7 +985,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4044462",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1017,8 +1042,8 @@
       "id": "ksw-45ba883995b7",
       "slug": "infermieristica-medico-curante-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "it": "infermieristica-medico-curante-kantonsspital-winterthur-ksw-winterthur",
+        "en": "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -1030,7 +1055,7 @@
         "it": "Infermieristica / medico curante",
         "en": "Nursing practitioner / nursing practitioner",
         "de": "Pflegepraktikantin / Pflegepraktikant",
-        "fr": "Pratique infirmière / praticien infirmier"
+        "fr": "Pflegepraktikantin / Pflegepraktikant"
       },
       "description": "Beim Pflegepraktikum handelt es sich um einen befristeten Einsatz für Personen, welche sich mit dem Einstieg in eine Berufsausbildung im Gesundheitswesen befassen. Das Praktikum bietet einen ersten Einblick in den Pflegealltag und dient der Interessen- und Eignungsabklärung.\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Kantonsspital Winterthur\n• Pensum: 80-100%",
       "descriptionByLocale": {
@@ -1044,7 +1069,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037812",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1068,7 +1093,9 @@
         "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-        "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur"
+        "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur",
+        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "infermieristica-medico-curante-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1077,13 +1104,17 @@
           "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-          "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur"
+          "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur",
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+          "infermieristica-medico-curante-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
           "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:07.552Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1128,7 +1159,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4043783",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1151,7 +1182,8 @@
           "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-b47uuf",
           "pflegefachfrau-pflegefachmann-oder-med-praxisassistentin-praxisassistent-ksw-ch",
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
         ],
         "it": [
           "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
@@ -1172,7 +1204,8 @@
           "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-del-policlinico-medico-kantonsspital-winterthur-ksw",
           "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw",
           "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital",
-          "assistente-medico-assistente-medico-in-area-poliklinico-medico-kantonsspital-winterthur-ksw-winterthur"
+          "assistente-medico-assistente-medico-in-area-poliklinico-medico-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
@@ -1214,9 +1247,11 @@
         "assistente-medico-assistente-medico-in-area-poliklinico-medico-kantonsspital-winterthur-ksw-winterthur",
         "medical-practice-assistant-medical-practice-assistant-in-the-medical-poliklinik-area-kantonsspital-winterthur-ksw",
         "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
-        "assistante-medicale-assistante-medicale-dans-le-domaine-poliklinique-medicale-kantonsspital-winterthur-ksw-winterthur"
+        "assistante-medicale-assistante-medicale-dans-le-domaine-poliklinique-medicale-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-fcf325"
       ],
       "firstSeenAt": "2026-07-28T22:07:05.114Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1261,7 +1296,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4044688",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1283,14 +1318,16 @@
         "sub-assistente-sub-assistente-clinica-ginecologica-kantonsspital-winterthur-ksw-winterthur",
         "assistant-gynaecologist-kantonsspital-winterthur-ksw-winterthur",
         "insistance-insistance-frauenklinik-kantonsspital-winterthur-ksw-winterthur",
-        "unterassistentin-unterassistent-frauenklinik-ksw-ch"
+        "unterassistentin-unterassistent-frauenklinik-ksw-ch",
+        "assistente-assistente-clinica-femminile-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sub-assistente-sub-assistente-clinica-ginecologica-kantonsspital-winterthur-ksw-winterthur",
           "assistant-gynaecologist-kantonsspital-winterthur-ksw-winterthur",
           "insistance-insistance-frauenklinik-kantonsspital-winterthur-ksw-winterthur",
-          "unterassistentin-unterassistent-frauenklinik-ksw-ch"
+          "unterassistentin-unterassistent-frauenklinik-ksw-ch",
+          "assistente-assistente-clinica-femminile-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "assistant-gynaecologist-kantonsspital-winterthur-ksw-winterthur",
@@ -1302,6 +1339,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:07:05.114Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1346,7 +1384,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4039782",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1373,7 +1411,8 @@
         "expert-expert-intensive-care-nds-intensive-care-kantonsspital-winterthur-ksw-winterthur",
         "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
         "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur",
-        "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur"
+        "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur",
+        "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1385,7 +1424,8 @@
           "expert-expert-intensive-care-nds-intensive-care-kantonsspital-winterthur-ksw-winterthur",
           "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
           "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur",
-          "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur"
+          "expert-in-intensive-care-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur",
+          "ulteriore-esperto-di-istruzione-assistenza-intensiva-esperta-nds-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "training-expert-expert-intensive-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
@@ -1420,9 +1460,9 @@
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "nurse-nurse-specialist-acute-geriatry-kantonsspital-winterthur-ksw-winterthur",
+        "en": "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "fr": "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1446,7 +1486,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037806",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1469,6 +1509,8 @@
         "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "infermiera-nurse-specialista-acutogeria-kantonsspital-winterthur-ksw-winterthur",
+        "nurse-nurse-specialist-acute-geriatry-kantonsspital-winterthur-ksw-winterthur",
+        "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
         "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur",
         "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
       ],
@@ -1482,11 +1524,13 @@
         "en": [
           "nurse-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+          "nurse-nurse-specialist-acute-geriatry-kantonsspital-winterthur-ksw-winterthur",
           "care-professional-acutegeriatry-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+          "infirmiere-ou-infirmiere-specialiste-de-la-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
           "professionnel-de-soins-aiguite-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -1535,7 +1579,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037809",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1561,7 +1605,8 @@
         "nursing-professional-nursing-professional-in-the-medical-pool-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
         "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital",
-        "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+        "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
+        "specialista-in-allattamento-specialista-in-allattamento-nel-settore-medico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1572,7 +1617,8 @@
           "nursing-professional-nursing-professional-in-the-medical-pool-kantonsspital-winterthur-ksw-winterthur",
           "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
           "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital",
-          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
+          "specialista-in-allattamento-specialista-in-allattamento-nel-settore-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "nursing-specialist-nursing-specialist-in-the-medical-field-kantonsspital-winterthur-ksw-winterthur",
@@ -1606,8 +1652,8 @@
       "id": "ksw-52c9c7cdcd01",
       "slug": "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
-        "en": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+        "it": "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
+        "en": "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur",
         "de": "neuropsychologin-neuropsychologe-ksw-ch",
         "fr": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -1619,7 +1665,7 @@
         "it": "Neuropsicologo / Neuropsicologo",
         "en": "Neuropsychologist / Neuropsychologist",
         "de": "Neuropsychologin / Neuropsychologe",
-        "fr": "Neuropsychologue / Neuropsychologue"
+        "fr": "Neuropsychologin / Neuropsychologe"
       },
       "description": "Für die Fachstelle Neuropsychologie suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine Neuropsychologin / einen Neuropsychologen zur Verstärkung unseres kleinen Teams. Perspektivisch besteht die Möglichkeit, die Leitung der Fachstelle zu übernehmen. Die Fachstelle Neuropsychologie ist der Neuropädiatrie im Sozialpädiatrischen Zentrum (SPZ) angegliedert und ein Teil des Zentrums für Kinder- und Jugendmedizin am Kantonsspital Winterthur (KSW).\n\nAufgaben:\n• Ambulante neuropsychologische Diagnostik von Kindern und Jugendlichen (in der Regel bis zum vollendeten 18. Lebensjahr)\n• Indikationsstellung und Klärung des Abklärungsauftrags\n• Planung, Auswahl, Durchführung, Auswertung und Interpretation der neuropsychologischen Testverfahren\n• Zusammenstellen der neuropsychologischen Befunde, Formulierung von Empfehlungen und Festlegung des weiteren Vorgehens\n• Differentialdiagnostische Beurteilung der neuropsychologischen Befunde in Absprache mit der fallführenden Ärztin / dem fallführenden Arzt bzw. der medizinischen Coachin / dem medizinischen Coach\n• Durchführung des Abschlussgesprächs sowie Erstellung von Berichten\n• Neuropsychologische Begleitung ausgewählter Patientinnen und Patienten\n\nProfil:\n• Fachpsychologin / Fachpsychologe für Neuropsychologie FSP oder äquivalente Qualifikation\n• Berufserfahrung im Bereich von Kindern und Jugendlichen\n• Freude an der interdisziplinären Zusammenarbeit im Team\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MTTB (med. techn. therapeut. Berufe)\n• Bereich: Zentrum für Kinder- und Jugendmedizin\n• Pensum: 60-90%",
       "descriptionByLocale": {
@@ -1633,7 +1679,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4040289",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1653,17 +1699,23 @@
       "department": "Zentrum für Kinder- und Jugendmedizin",
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-ksw-ch",
+        "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+        "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur",
         "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-ksw-ch"
+          "neuropsychologin-neuropsychologe-ksw-ch",
+          "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+          "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
+          "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
           "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:07.164Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1708,7 +1760,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4040341",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1786,7 +1838,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038442",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1805,11 +1857,13 @@
       "requirementsByLocale": {},
       "department": "Hauswirtschaft",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+        "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-spezial-e-bettenreinigung-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+          "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-spezial-e-bettenreinigung-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
@@ -1864,7 +1918,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038418",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1883,11 +1937,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radio-Onkologie",
       "previousSlugs": [
-        "physician-associate-ksw-ch"
+        "physician-associate-ksw-ch",
+        "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physician-associate-ksw-ch"
+          "physician-associate-ksw-ch",
+          "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d"
         ],
         "fr": [
           "physician-associate-ksw-ch"
@@ -1939,7 +1995,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038617",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1958,11 +2014,13 @@
       "requirementsByLocale": {},
       "department": "Klinischer Bereich B",
       "previousSlugs": [
-        "unterassistentin-unterassistent-chirurgie-ksw-ch"
+        "unterassistentin-unterassistent-chirurgie-ksw-ch",
+        "sotto-assistente-sub-intervento-chirurgico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-chirurgie-ksw-ch"
+          "unterassistentin-unterassistent-chirurgie-ksw-ch",
+          "sotto-assistente-sub-intervento-chirurgico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "unterassistentin-unterassistent-chirurgie-ksw-ch"
@@ -1972,6 +2030,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:30.194Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2016,7 +2075,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038700",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2038,14 +2097,16 @@
         "assistente-junior-neurochirurgia-kantonsspital-winterthur-ksw-winterthur",
         "junior-assistant-neuro-surgery-kantonsspital-winterthur-ksw-winterthur",
         "assistant-junior-neurochirurgie-kantonsspital-winterthur-ksw-winterthur",
-        "unterassistentin-unterassistent-neurochirurgie-ksw-ch"
+        "unterassistentin-unterassistent-neurochirurgie-ksw-ch",
+        "assistente-assistente-neurochirurgia-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-junior-neurochirurgia-kantonsspital-winterthur-ksw-winterthur",
           "junior-assistant-neuro-surgery-kantonsspital-winterthur-ksw-winterthur",
           "assistant-junior-neurochirurgie-kantonsspital-winterthur-ksw-winterthur",
-          "unterassistentin-unterassistent-neurochirurgie-ksw-ch"
+          "unterassistentin-unterassistent-neurochirurgie-ksw-ch",
+          "assistente-assistente-neurochirurgia-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "junior-assistant-neuro-surgery-kantonsspital-winterthur-ksw-winterthur",
@@ -2057,6 +2118,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:30.194Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2101,7 +2163,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038611",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2123,14 +2185,16 @@
         "assistente-inferiore-pediatria-kantonsspital-winterthur-ksw-winterthur",
         "junior-assistant-pediatrics-kantonsspital-winterthur-ksw-winterthur",
         "assistant-e-junior-pediatrie-kantonsspital-winterthur-ksw-winterthur",
-        "unterassistentin-unterassistent-padiatrie-ksw-ch"
+        "unterassistentin-unterassistent-padiatrie-ksw-ch",
+        "sub-assistante-sub-assist-pediatrics-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-inferiore-pediatria-kantonsspital-winterthur-ksw-winterthur",
           "junior-assistant-pediatrics-kantonsspital-winterthur-ksw-winterthur",
           "assistant-e-junior-pediatrie-kantonsspital-winterthur-ksw-winterthur",
-          "unterassistentin-unterassistent-padiatrie-ksw-ch"
+          "unterassistentin-unterassistent-padiatrie-ksw-ch",
+          "sub-assistante-sub-assist-pediatrics-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "junior-assistant-pediatrics-kantonsspital-winterthur-ksw-winterthur",
@@ -2142,6 +2206,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:30.194Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2186,7 +2251,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038614",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2205,11 +2270,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "unterassistentin-unterassistent-urologie-ksw-ch"
+        "unterassistentin-unterassistent-urologie-ksw-ch",
+        "urologia-subassista-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-urologie-ksw-ch"
+          "unterassistentin-unterassistent-urologie-ksw-ch",
+          "urologia-subassista-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "unterassistentin-unterassistent-urologie-ksw-ch"
@@ -2219,6 +2286,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:30.194Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2263,7 +2331,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037288",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2282,11 +2350,13 @@
       "requirementsByLocale": {},
       "department": "Supply Chain Management",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch"
+        "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-op-logistik-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch"
+          "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-op-logistik-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-op-logistik-ksw-ch"
@@ -2296,6 +2366,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:56:57.926Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2340,7 +2411,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032826",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2401,7 +2472,7 @@
       "companyDomain": "ksw.ch",
       "title": "Vitreoretinale Chirurgin / Chirurge",
       "titleByLocale": {
-        "it": "Chirurgo Vitreoretinale/surgeon",
+        "it": "Vitreoretinale Chirurgin / Chirurge",
         "en": "Vitreoretinal Surgeon",
         "de": "Vitreoretinale Chirurgin / Chirurge",
         "fr": "Chirurgien/ne vitréorétinien/ne"
@@ -2418,7 +2489,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032901",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2437,11 +2508,13 @@
       "requirementsByLocale": {},
       "department": "Augenklinik",
       "previousSlugs": [
-        "vitreoretinale-chirurgin-chirurge-ksw-ch"
+        "vitreoretinale-chirurgin-chirurge-ksw-ch",
+        "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vitreoretinale-chirurgin-chirurge-ksw-ch"
+          "vitreoretinale-chirurgin-chirurge-ksw-ch",
+          "chirurgo-vitreoretinale-surgeon-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "vitreoretinale-chirurgin-chirurge-ksw-ch"
@@ -2451,6 +2524,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:06:32.752Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2495,7 +2569,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4029791",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2559,7 +2633,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4027429",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2581,12 +2655,14 @@
         "unterassistentin-unterassistent-akutgeriatrie-ksw-ch",
         "sub-assistant-sub-assistant-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
         "geriatriques-aigues-sub-assistantes-sub-assistantes-kantonsspital-winterthur-ksw-winterthur",
-        "assistente-inferiore-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur"
+        "assistente-inferiore-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-secondario-assistente-secondario-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistentin-unterassistent-akutgeriatrie-ksw-ch",
-          "assistente-inferiore-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur"
+          "assistente-inferiore-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-secondario-assistente-secondario-geriatria-acuta-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "unterassistentin-unterassistent-akutgeriatrie-ksw-ch",
@@ -2598,6 +2674,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:20:27.752Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2642,7 +2719,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4024495",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2693,7 +2770,7 @@
       "id": "ksw-0c70271dcbf6",
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+        "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
         "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -2703,7 +2780,7 @@
       "companyDomain": "ksw.ch",
       "title": "Radiologiefachfrau / Radiologiefachmann HF",
       "titleByLocale": {
-        "it": "Specialista di radiologia / Specialista di radiologia HF",
+        "it": "Radiologiefachfrau / Radiologiefachmann HF",
         "en": "Radiology specialist / Radiology specialist HF",
         "de": "Radiologiefachfrau / Radiologiefachmann HF",
         "fr": "Spécialiste en radiologie / Spécialiste en radiologie HF"
@@ -2720,7 +2797,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017422",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2745,7 +2822,9 @@
         "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
         "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
         "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+        "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2755,7 +2834,9 @@
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
           "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
           "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
-          "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+          "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur",
+          "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -2769,6 +2850,7 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2813,7 +2895,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014126",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2832,11 +2914,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Akutgeriatrie",
       "previousSlugs": [
-        "oberarztin-oberarzt-geriatrie-ksw-ch"
+        "oberarztin-oberarzt-geriatrie-ksw-ch",
+        "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-geriatrie-ksw-ch"
+          "oberarztin-oberarzt-geriatrie-ksw-ch",
+          "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-geriatrie-ksw-ch"
@@ -2846,6 +2930,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:19:18.343Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2878,11 +2963,11 @@
         "de": "Physician Associate",
         "fr": "Médecin associé"
       },
-      "description": "Für unsere Klinik für Urologie suchen wir per 1. August 2026 oder nach Vereinbarung eine zusätzliche Physician Associate.\n\nAufgaben:\n• Eingebunden im ärztlichen Team der Urologie unterstützt du als Physician Associate die medizinische Betreuung und Diagnostik von Patientinnen und Patienten ambulant wie auch stationär\n• Du bist bereit, Verantwortung zu übernehmen, schätzt eine selbständige Tätigkeit und unterstützt die Weiterentwicklung des Teams und der Klinik\n• Anordnen von diagnostischen und therapeutischen Massnahmen\n• Durchführung von Visiten und Sprechstunden sowie Dokumentations- und Koordinationsarbeiten\n\nProfil:\n• Du verfügst über eine Ausbildung als Dipl. Pflegefachperson HF/FH\n• Du bringst mindestens 2 Jahre Berufserfahrung im somatischen Akutspital mit, Kenntnisse im Bereich Urologie sind erwünscht\n• Eine hohe Fach-, Sozial- und Methodenkompetenz sind selbstverständlich\n• Du bist motiviert, deine Kompetenzen in einem neuen Aufgabengebiet anzuwenden und selbständiges Arbeiten stellt für dich kein Problem dar\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Klinik für Urologie\n• Pensum: 80-100%",
+      "description": "Für unsere Klinik für Urologie suchen wir per sofort oder nach Vereinbarung eine zusätzliche Physician Associate.\n\nAufgaben:\n• Eingebunden im ärztlichen Team der Urologie unterstützt du als Physician Associate die medizinische Betreuung und Diagnostik von Patientinnen und Patienten ambulant wie auch stationär\n• Du bist bereit, Verantwortung zu übernehmen, schätzt eine selbständige Tätigkeit und unterstützt die Weiterentwicklung des Teams und der Klinik\n• Anordnen von diagnostischen und therapeutischen Massnahmen\n• Durchführung von Visiten und Sprechstunden sowie Dokumentations- und Koordinationsarbeiten\n\nProfil:\n• Du verfügst über eine Ausbildung als Dipl. Pflegefachperson HF/FH\n• Du bringst mindestens 2 Jahre Berufserfahrung im somatischen Akutspital mit, Kenntnisse im Bereich Urologie sind erwünscht\n• Eine hohe Fach-, Sozial- und Methodenkompetenz sind selbstverständlich\n• Du bist motiviert, deine Kompetenzen in einem neuen Aufgabengebiet anzuwenden und selbständiges Arbeiten stellt für dich kein Problem dar\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Klinik für Urologie\n• Pensum: 80-100%",
       "descriptionByLocale": {
         "it": "Per la nostra clinica di urologia stiamo cercando 1. Giugno 2026 o d'accordo un associato medico aggiuntivo. Compiti:\n• In qualità di medico associato, supporta l'assistenza medica e la diagnostica dei pazienti in modo ambulatorio e inpatici\n• Siete disposti ad assumervi la responsabilità, ad apprezzare un'attività indipendente e a sostenere l'ulteriore sviluppo del team e della clinica\n• predisporre misure diagnostiche e terapeutiche\n• eseguire ore di lavoro e di conversazione, nonché la documentazione e il lavoro di coordinamento Profilo:\n• Avete formazione come Dipl. HF/FH\n• Portare almeno 2 anni di esperienza professionale in ospedale acuto somatico, la conoscenza nel campo dell'ureologia è desiderata\n• Un elevato livello di competenze, competenze sociali e metodologiche sono naturalmente\n• Siete motivati ad applicare le vostre competenze in un nuovo campo di lavoro e lavoro autonomo non è un problema per voi: Il KSW offre ai dipendenti condizioni che permettono loro di allineare i loro obiettivi professionali e le loro esigenze personali. Ore di lavoro flessibili e scorrevoli, ufficio domestico e un generoso congedo di maternità e livelli di occupazione adattati a diverse situazioni di vita – questo è tutto possibile al KSW, a condizione che consenta il funzionamento; Ogni anno, il KSW offre 40 corsi di formazione professionale avanzati e 50. Vi sosteniamo anche negli sviluppi esterni nel tempo e/o nei termini finanziari; In situazioni eccezionali, ad esempio malattia più lunga, forte peso personale o esperienze difficili in privato e nella vita professionale quotidiana sono a vostra disposizione. La preziosa e amichevole collaborazione all'interno delle squadre e nei dipartimenti è caratterizzata dal clima di lavoro al KSW. Come segno di una forte idea di squadra, il \"Du\" è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni; i dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione dei fondi pensione con il BVK è ben al di sopra del minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben protetti; Con sconti su abbonamenti di fitness, opzioni di formazione interna e offerte di corso, sconti in farmacie e tra le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute; Il nostro centro di cura La Luna con orari generosi di apertura si trova proprio accanto al KSW. È inoltre possibile utilizzare il sostegno finanziario e dipendente dal reddito fornito dalla KSW per i costi della culla; In collaborazione con partner culturali di Winterthur e dintorni offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n• Campo professionale: professioni di cura\n• Area: Dipartimento di Urologia\n• Pensum: 80-100%",
         "en": "For our urology clinic we are looking for 1. June 2026 or by agreement an additional Physician Associate. Tasks:\n• Connected to the medical team of urology, you as Physician Associate support the medical care and diagnostics of patients outpatient as well as inpatient\n• You are willing to take responsibility, value an independent activity and support the further development of the team and the clinic\n• Arrange diagnostic and therapeutic measures\n• Conducting business and speaking hours as well as documentation and coordination work Profile:\n• You have training as a Dipl. Care specialist HF/FH\n• You bring at least 2 years of professional experience in the somatic acute hospital, knowledge in the field of urology are desired\n• A high level of expertise, social and methodological skills are of course\n• You are motivated to apply your competencies in a new area of responsibility and independent work is not a problem for you Benefits: The KSW provides employees with conditions that enable them to meet their professional goals and personal needs. Flexible, sliding working hours, home office as well as a generous maternity leave and levels of employment adapted to different situations of life – this is all possible at the KSW, provided that it allows operation; Every year, the KSW offers 40 advanced and 50 professional training courses. We also support you in external developments in time and/or financial terms; In exceptional situations, e.g. longer illness, strong personal burden or difficult experiences in the private as well as in everyday professional life are available to you. The valuable and friendly cooperation within the teams and across the departments is characterized by the working climate at the KSW. As a sign for a strong team idea, the \"Du\" was introduced as a standard at the KSW. In addition, the KSW supports annual team events financially and organizes a large staff festival for the whole house every four years; KSW employees benefit from very good social benefits. Thus, the pension funds solution with the BVK is far above the statutory minimum. Even in the case of illness or accident, KSW employees are very well secured; With discounts on fitness subscriptions, internal training options and course offers, discounts in pharmacies and among the most popular health insurance companies. You can benefit from a comprehensive offer for your health; Our La Luna daycare centre with generous opening hours is located right next to the KSW. You can also use the income-dependent, financial support provided by the KSW for the crib costs; In cooperation with cultural partners in and around Winterthur we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free for employees.\n• Professional field: care professions\n• Area: Department of Urology\n• Pensum: 80-100 %",
-        "de": "Für unsere Klinik für Urologie suchen wir per 1. August 2026 oder nach Vereinbarung eine zusätzliche Physician Associate.\n\nAufgaben:\n• Eingebunden im ärztlichen Team der Urologie unterstützt du als Physician Associate die medizinische Betreuung und Diagnostik von Patientinnen und Patienten ambulant wie auch stationär\n• Du bist bereit, Verantwortung zu übernehmen, schätzt eine selbständige Tätigkeit und unterstützt die Weiterentwicklung des Teams und der Klinik\n• Anordnen von diagnostischen und therapeutischen Massnahmen\n• Durchführung von Visiten und Sprechstunden sowie Dokumentations- und Koordinationsarbeiten\n\nProfil:\n• Du verfügst über eine Ausbildung als Dipl. Pflegefachperson HF/FH\n• Du bringst mindestens 2 Jahre Berufserfahrung im somatischen Akutspital mit, Kenntnisse im Bereich Urologie sind erwünscht\n• Eine hohe Fach-, Sozial- und Methodenkompetenz sind selbstverständlich\n• Du bist motiviert, deine Kompetenzen in einem neuen Aufgabengebiet anzuwenden und selbständiges Arbeiten stellt für dich kein Problem dar\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Klinik für Urologie\n• Pensum: 80-100%",
+        "de": "Für unsere Klinik für Urologie suchen wir per sofort oder nach Vereinbarung eine zusätzliche Physician Associate.\n\nAufgaben:\n• Eingebunden im ärztlichen Team der Urologie unterstützt du als Physician Associate die medizinische Betreuung und Diagnostik von Patientinnen und Patienten ambulant wie auch stationär\n• Du bist bereit, Verantwortung zu übernehmen, schätzt eine selbständige Tätigkeit und unterstützt die Weiterentwicklung des Teams und der Klinik\n• Anordnen von diagnostischen und therapeutischen Massnahmen\n• Durchführung von Visiten und Sprechstunden sowie Dokumentations- und Koordinationsarbeiten\n\nProfil:\n• Du verfügst über eine Ausbildung als Dipl. Pflegefachperson HF/FH\n• Du bringst mindestens 2 Jahre Berufserfahrung im somatischen Akutspital mit, Kenntnisse im Bereich Urologie sind erwünscht\n• Eine hohe Fach-, Sozial- und Methodenkompetenz sind selbstverständlich\n• Du bist motiviert, deine Kompetenzen in einem neuen Aufgabengebiet anzuwenden und selbständiges Arbeiten stellt für dich kein Problem dar\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Klinik für Urologie\n• Pensum: 80-100%",
         "fr": "Pour notre clinique d'urologie, nous cherchons 1. Juin 2026 ou par accord avec un autre médecin associé. Tâches:\n• En tant qu'Associé Médecin, vous soutenez les soins médicaux et les diagnostics des patients de manière ambulatoire et internée\n• Vous êtes prêt à prendre la responsabilité, apprécie une activité indépendante et soutient le développement de l'équipe et de la clinique\n• organiser des mesures diagnostiques et thérapeutiques\n• effectuer des heures d'affaires et de parole ainsi que des travaux de documentation et de coordination Profil:\n• Vous avez une formation en tant que Dipl. Spécialiste des soins HF/FH\n• Vous apportez au moins 2 ans d'expérience professionnelle dans l'hôpital somatique aigu, la connaissance dans le domaine de l'urologie est souhaitée\n• Un haut niveau d'expertise, les compétences sociales et méthodologiques sont bien sûr\n• Vous êtes motivé à appliquer vos compétences dans un nouveau domaine de travail et de travail indépendant n'est pas un problème pour vous: La KSW offre aux employés des conditions qui leur permettent d'aligner leurs objectifs professionnels et leurs besoins personnels. Des horaires de travail flexibles et glissants, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations de la vie – tout cela est possible au KSW, à condition qu'il permette le fonctionnement; Chaque année, le KSW propose 40 formations avancées et 50 formations professionnelles. Nous vous soutenons également dans les développements extérieurs en termes de temps et/ou financiers; Dans des situations exceptionnelles, par exemple une maladie plus longue, un lourd fardeau personnel ou des expériences difficiles dans le privé ainsi que dans la vie professionnelle quotidienne sont à votre disposition. La coopération précieuse et amicale au sein des équipes et à travers les départements se caractérise par le climat de travail au KSW. Comme signe d'une forte idée d'équipe, le \"Du\" a été introduit comme standard au KSW. En outre, le KSW soutient financièrement les événements annuels de l'équipe et organise un grand festival du personnel pour toute la maison tous les quatre ans. Ainsi, la solution des fonds de pension avec le BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien protégés; Avec des réductions sur les abonnements de fitness, des options de formation interne et des offres de cours, des réductions dans les pharmacies et parmi les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture généreuses est situé juste à côté de la KSW. Vous pouvez également utiliser le soutien financier lié au revenu fourni par le KSW pour les frais de literie; En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n• Domaine professionnel: professions infirmières\n• Domaine: Département d'Urologie\n• Pensum: 80-100%"
       },
       "location": "Winterthur",
@@ -2890,7 +2975,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2909,11 +2994,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "physician-associate-ksw-ch"
+        "physician-associate-ksw-ch",
+        "medico-associato-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physician-associate-ksw-ch"
+          "physician-associate-ksw-ch",
+          "medico-associato-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "physician-associate-ksw-ch"
@@ -2965,7 +3052,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013672",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2988,11 +3075,13 @@
         "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
         "dispatcher-kantonsspital-winterthur-ksw-winterthur",
         "disponentin-disponent-ksw-ch",
-        "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
+        "depontine-depont-kantonsspital-winterthur-ksw-winterthur",
+        "babysitter-medico-senior-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-neonatologie-ksw-ch"
+          "oberarztin-oberarzt-neonatologie-ksw-ch",
+          "babysitter-medico-senior-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-neonatologie-ksw-ch"
@@ -3002,6 +3091,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:46:35.675Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3046,7 +3136,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4003962",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3067,12 +3157,14 @@
       "previousSlugs": [
         "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
         "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-specialiste-en-endocrinologie-et-diabetologie-kantonsspital-winterthur-ksw-winterthur"
+        "medecin-specialiste-en-endocrinologie-et-diabetologie-kantonsspital-winterthur-ksw-winterthur",
+        "medico-specialista-in-endocrinologia-diabetologia-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
-          "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur"
+          "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+          "medico-specialista-in-endocrinologia-diabetologia-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
@@ -3111,7 +3203,7 @@
       "title": "Weiterbildung Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Esperto/a in Formazione di Emergenza NDS HF",
-        "en": "Professional Training Expert / Expert Emergency Care NDS HF",
+        "en": "Weiterbildung Expertin / Experte Notfallpflege NDS HF",
         "de": "Weiterbildung Expertin / Experte Notfallpflege NDS HF",
         "fr": "Spécialiste en Formation d'Urgence NDS HF"
       },
@@ -3127,7 +3219,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3905698",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.519Z",
+      "crawledAt": "2026-08-13T10:16:25.964Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3147,12 +3239,14 @@
       "department": "Notfallzentrum",
       "previousSlugs": [
         "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
-        "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+        "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
-          "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+          "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
@@ -3162,6 +3256,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3206,7 +3301,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4051840",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3231,7 +3326,8 @@
         "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur",
         "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
         "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw",
-        "fachfrau-fachmann-operationstechnik-ksw-ch"
+        "fachfrau-fachmann-operationstechnik-ksw-ch",
+        "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3241,7 +3337,8 @@
           "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur",
           "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
           "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw",
-          "fachfrau-fachmann-operationstechnik-ksw-ch"
+          "fachfrau-fachmann-operationstechnik-ksw-ch",
+          "tecnologia-chirurgica-professionale-specialistica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "fachfrau-fachmann-operationstechnik-ksw-ch"
@@ -3295,7 +3392,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4051757",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3319,7 +3416,8 @@
         "assistante-medicale-assistante-medicale-dans-le-domaine-poliklinique-medicale-kantonsspital-winterthur-ksw-winterthur",
         "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw",
         "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital",
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-del-policlinico-medico-kantonsspital-winterthur-ksw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3328,7 +3426,8 @@
           "assistante-medicale-assistante-medicale-dans-le-domaine-poliklinique-medicale-kantonsspital-winterthur-ksw-winterthur",
           "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw",
           "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital",
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-del-policlinico-medico-kantonsspital-winterthur-ksw"
         ],
         "en": [
           "medical-practice-assistant-medical-practice-assistant-in-the-medical-poliklinik-area-kantonsspital-winterthur-ksw",
@@ -3340,6 +3439,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:15:24.716Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3384,7 +3484,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048757",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3405,13 +3505,15 @@
       "previousSlugs": [
         "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw",
-        "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
+        "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
+        "specialista-specialista-in-tecnologia-chirurgica-nel-campo-muscoloscheletrico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-specialist-in-surgical-technology-in-the-musculoskeletal-field-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-specialiste-en-technologie-chirurgicale-dans-le-domaine-musculosquelettique-kantonsspital-winterthur-ksw",
-          "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
+          "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch",
+          "specialista-specialista-in-tecnologia-chirurgica-nel-campo-muscoloscheletrico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "fachfrau-fachmann-operationstechnik-im-muskuloskelettalen-fachbereich-ksw-ch"
@@ -3465,7 +3567,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050232",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3543,7 +3645,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050824",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3562,11 +3664,13 @@
       "requirementsByLocale": {},
       "department": "Pflege Medizin",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
+        "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch",
+        "professionista-salute-nel-campo-medico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
+          "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch",
+          "professionista-salute-nel-campo-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
@@ -3620,7 +3724,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048547",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3639,11 +3743,13 @@
       "requirementsByLocale": {},
       "department": "Institut für Therapien und Rehabilitation",
       "previousSlugs": [
-        "logopadin-logopade-ksw-ch"
+        "logopadin-logopade-ksw-ch",
+        "medico-di-discorso-medico-di-discorso-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopadin-logopade-ksw-ch"
+          "logopadin-logopade-ksw-ch",
+          "medico-di-discorso-medico-di-discorso-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "logopadin-logopade-ksw-ch"
@@ -3697,7 +3803,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048295",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3716,11 +3822,13 @@
       "requirementsByLocale": {},
       "department": "Verpflegung",
       "previousSlugs": [
-        "mitarbeiter-in-kuche-hilfskochin-hilfskoch-ksw-ch"
+        "mitarbeiter-in-kuche-hilfskochin-hilfskoch-ksw-ch",
+        "collaboratore-trice-in-kuche-hilfskochin-hilfskoch-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kuche-hilfskochin-hilfskoch-ksw-ch"
+          "mitarbeiter-in-kuche-hilfskochin-hilfskoch-ksw-ch",
+          "collaboratore-trice-in-kuche-hilfskochin-hilfskoch-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiter-in-kuche-hilfskochin-hilfskoch-ksw-ch"
@@ -3775,7 +3883,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4045911",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3797,14 +3905,16 @@
         "assistente-pratica-medica-coordinatore-pratica-kantonsspital-winterthur-ksw-winterthur",
         "med-practice-assistant-in-practice-coordinator-in-kantonsspital-winterthur-ksw-winterthur",
         "medicament-assistant-in-coordonnateur-in-kantonsspital-winterthur-ksw-winterthur",
-        "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+        "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
+        "med-assistente-in-coordinatore-in-pratica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-pratica-medica-coordinatore-pratica-kantonsspital-winterthur-ksw-winterthur",
           "med-practice-assistant-in-practice-coordinator-in-kantonsspital-winterthur-ksw-winterthur",
           "medicament-assistant-in-coordonnateur-in-kantonsspital-winterthur-ksw-winterthur",
-          "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
+          "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
+          "med-assistente-in-coordinatore-in-pratica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "med-praxisassistent-in-praxiskoordinator-in-ksw-ch"
@@ -3859,7 +3969,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4045914",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3888,7 +3998,8 @@
         "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
         "assistente-di-medicina-di-pratica-assistente-di-medicina-di-pratica-kantonsspital-winterthur-ksw-winterthur",
         "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
-        "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
+        "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3902,7 +4013,8 @@
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
           "assistente-di-medicina-di-pratica-assistente-di-medicina-di-pratica-kantonsspital-winterthur-ksw-winterthur",
           "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
-          "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
+          "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-59812c",
@@ -3914,6 +4026,7 @@
         ]
       },
       "firstSeenAt": "2026-08-02T10:48:23.466Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3958,7 +4071,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4045908",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4033,7 +4146,7 @@
       "title": "Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Expert / Expert Emergency Care NDS HF",
-        "en": "Expert / Expert Emergency Care NDS HF",
+        "en": "Expertin / Experte Notfallpflege NDS HF",
         "de": "Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expert / Expert Soins d'urgence NDS HF"
       },
@@ -4049,7 +4162,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4034504",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4069,18 +4182,21 @@
       "department": "Notfallzentrum",
       "previousSlugs": [
         "expert-expert-soins-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-        "expertin-experte-notfallpflege-nds-hf-ksw-ch"
+        "expertin-experte-notfallpflege-nds-hf-ksw-ch",
+        "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "expert-expert-soins-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-          "expertin-experte-notfallpflege-nds-hf-ksw-ch"
+          "expertin-experte-notfallpflege-nds-hf-ksw-ch",
+          "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "expertin-experte-notfallpflege-nds-hf-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:03.687Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4125,7 +4241,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4036079",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4203,7 +4319,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4044341",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4222,11 +4338,13 @@
       "requirementsByLocale": {},
       "department": "Pflege Chirurgie",
       "previousSlugs": [
-        "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch"
+        "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch",
+        "gruppo-leader-gruppo-leader-office-hour-center-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch"
+          "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch",
+          "gruppo-leader-gruppo-leader-office-hour-center-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "gruppenleiterin-gruppenleiter-sprechstundenzentrum-ksw-ch"
@@ -4280,7 +4398,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4043541",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4300,11 +4418,13 @@
       "department": "Klinik für Gastroenterologie/Hepatologie",
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-med-praxisassistentin-praxisassistent-ksw-ch"
+          "fachperson-gesundheit-med-praxisassistentin-praxisassistent-ksw-ch",
+          "fachperson-gesundheit-med-praxisassistent-in-gastroenterologie-hepatologie-ksw-ch"
         ],
         "it": [
           "fachperson-gesundheit-med-praxisassistent-in-gastroenterologie-hepatologie-ksw-ch",
-          "fachperson-gesundheit-med-praxisassistentin-praxisassistent-ksw-ch"
+          "fachperson-gesundheit-med-praxisassistentin-praxisassistent-ksw-ch",
+          "salute-professionale-med-assistente-pratico-in-gastroenterologia-epatologia-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "fachperson-gesundheit-med-praxisassistent-in-gastroenterologie-hepatologie-ksw-ch"
@@ -4315,7 +4435,8 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-med-praxisassistent-in-gastroenterologie-hepatologie-ksw-ch",
-        "fachperson-gesundheit-med-praxisassistentin-praxisassistent-ksw-ch"
+        "fachperson-gesundheit-med-praxisassistentin-praxisassistent-ksw-ch",
+        "salute-professionale-med-assistente-pratico-in-gastroenterologia-epatologia-kantonsspital-winterthur-ksw-winterthur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:05:11.588Z",
@@ -4363,7 +4484,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4043681",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4444,7 +4565,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4043019",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4519,7 +4640,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4042595",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4538,11 +4659,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Neurologie",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-empfang-und-disposition-neurologie-ksw-ch"
+        "mitarbeiterin-mitarbeiter-empfang-und-disposition-neurologie-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-empfang-e-disposition-neurologie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-empfang-und-disposition-neurologie-ksw-ch"
+          "mitarbeiterin-mitarbeiter-empfang-und-disposition-neurologie-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-empfang-e-disposition-neurologie-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-empfang-und-disposition-neurologie-ksw-ch"
@@ -4597,7 +4720,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4040971",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4617,12 +4740,14 @@
       "department": "Fachärztezentrum Glatt",
       "previousSlugs": [
         "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch",
-        "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch"
+        "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch",
+        "lead-med-assistente-di-pratica-lead-med-assistenti-pratici-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch",
-          "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch"
+          "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch",
+          "lead-med-assistente-di-pratica-lead-med-assistenti-pratici-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch"
@@ -4635,6 +4760,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:01:40.614Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4679,7 +4805,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037372",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4702,7 +4828,8 @@
         "specialiste-specialiste-stockage-operationnel-kantonsspital-winterthur-ksw-winterthur",
         "fachfrau-fachmann-operationslagerung-ksw-ch",
         "specialista-in-posizionamento-operativo-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-en-positionnement-operationnel-kantonsspital-winterthur-ksw-winterthur"
+        "specialiste-en-positionnement-operationnel-kantonsspital-winterthur-ksw-winterthur",
+        "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4710,7 +4837,8 @@
           "specialiste-specialiste-stockage-operationnel-kantonsspital-winterthur-ksw-winterthur",
           "fachfrau-fachmann-operationslagerung-ksw-ch",
           "specialista-in-posizionamento-operativo-kantonsspital-winterthur-ksw-winterthur",
-          "specialiste-en-positionnement-operationnel-kantonsspital-winterthur-ksw-winterthur"
+          "specialiste-en-positionnement-operationnel-kantonsspital-winterthur-ksw-winterthur",
+          "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "surgical-positioning-specialist-kantonsspital-winterthur-ksw-winterthur",
@@ -4766,7 +4894,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037369",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4788,14 +4916,16 @@
         "tecnico-a-di-operazione-tecnologia-interna-organi-kantonsspital-winterthur-ksw-winterthur",
         "operating-technician-for-internal-organs-kantonsspital-winterthur-ksw-winterthur",
         "technicien-ne-d-operation-technologie-des-organes-internes-kantonsspital-winterthur-ksw-winterthur",
-        "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch"
+        "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch",
+        "tecnica-chirurgica-professionale-specialistica-nella-zona-degli-organi-interni-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-a-di-operazione-tecnologia-interna-organi-kantonsspital-winterthur-ksw-winterthur",
           "operating-technician-for-internal-organs-kantonsspital-winterthur-ksw-winterthur",
           "technicien-ne-d-operation-technologie-des-organes-internes-kantonsspital-winterthur-ksw-winterthur",
-          "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch"
+          "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch",
+          "tecnica-chirurgica-professionale-specialistica-nella-zona-degli-organi-interni-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "operating-technician-for-internal-organs-kantonsspital-winterthur-ksw-winterthur",
@@ -4851,7 +4981,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4037366",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4872,12 +5002,14 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
         "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-b3qj6r",
-        "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
+        "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-7f5d19"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-          "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
+          "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-7f5d19"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
@@ -4890,6 +5022,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:06:52.495Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4934,7 +5067,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4953,11 +5086,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "fachexpertin-fachexperte-computertomographie-ksw-ch"
+        "fachexpertin-fachexperte-computertomographie-ksw-ch",
+        "expert-expert-tomografia-computerizzata-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpertin-fachexperte-computertomographie-ksw-ch"
+          "fachexpertin-fachexperte-computertomographie-ksw-ch",
+          "expert-expert-tomografia-computerizzata-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "fachexpertin-fachexperte-computertomographie-ksw-ch"
@@ -5011,7 +5146,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032466",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5030,11 +5165,13 @@
       "requirementsByLocale": {},
       "department": "Qualitäts- und Erlösmanagement",
       "previousSlugs": [
-        "medizinische-kodiererin-medizinischer-kodierer-ksw-ch"
+        "medizinische-kodiererin-medizinischer-kodierer-ksw-ch",
+        "codice-medico-medico-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-kodiererin-medizinischer-kodierer-ksw-ch"
+          "medizinische-kodiererin-medizinischer-kodierer-ksw-ch",
+          "codice-medico-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "medizinische-kodiererin-medizinischer-kodierer-ksw-ch"
@@ -5044,6 +5181,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:55:00.646Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5088,7 +5226,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4025151",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5199,7 +5337,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4019967",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.518Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5259,7 +5397,7 @@
       "companyDomain": "ksw.ch",
       "title": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
       "titleByLocale": {
-        "it": "Cura intensiva di esperti NDS",
+        "it": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
         "en": "Expert / Expert Intensive Care NDS Intensive Care",
         "de": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
         "fr": "Expert / Expert Soins intensifs SND Soins intensifs"
@@ -5276,7 +5414,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048227",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5295,11 +5433,13 @@
       "requirementsByLocale": {},
       "department": "Zentrum für Intensivmedizin",
       "previousSlugs": [
-        "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
+        "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+        "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
+          "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+          "cura-intensiva-di-esperti-nds-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
@@ -5309,6 +5449,7 @@
         ]
       },
       "firstSeenAt": "2026-08-08T09:47:11.540Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5337,7 +5478,7 @@
       "title": "Case Manager-/in / Sozialarbeiter-/in",
       "titleByLocale": {
         "it": "Case Manager / Social Worker /",
-        "en": "Case Manager / Social Worker /",
+        "en": "Case Manager-/in / Sozialarbeiter-/in",
         "de": "Case Manager-/in / Sozialarbeiter-/in",
         "fr": "Gestionnaire de cas / Travailleur social /"
       },
@@ -5353,7 +5494,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050279",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.962Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5372,17 +5513,20 @@
       "requirementsByLocale": {},
       "department": "Nachsorge- und Sozialberatung",
       "previousSlugs": [
-        "case-manager-in-sozialarbeiter-in-ksw-ch"
+        "case-manager-in-sozialarbeiter-in-ksw-ch",
+        "case-manager-social-worker-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "case-manager-in-sozialarbeiter-in-ksw-ch"
+          "case-manager-in-sozialarbeiter-in-ksw-ch",
+          "case-manager-social-worker-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "case-manager-in-sozialarbeiter-in-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:38.059Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5413,7 +5557,7 @@
         "it": "Traduzione e synch:",
         "en": "Disponentine / Disponent Radiology",
         "de": "Disponentin / Disponent Radiologie",
-        "fr": "Dépontine / Dépont radiologie"
+        "fr": "Disponentin / Disponent Radiologie"
       },
       "description": "Die Klinik für Radiologie und Nuklearmedizin am KSW führt über 105'000 Untersuchungen und Eingriffe pro Jahr durch. Sie bietet höchste Fachkompetenz in verschiedenen Bereichen wie Röntgen, Brustbildgebung, Ultraschall, Nuklearmedizin, MRT, CT, Kinderradiologie, Neuroradiologie und Interventionelle Radiologie. Du hast Lust auf etwas Neues – ohne die Radiologie ganz zu verlassen? Dann bist du bei uns genau richtig: Unsere Disposition sucht eine engagierte Persönlichkeit mit Organisationstalent, die den Praxisalltag genauso schätzt wie den Kontakt mit Menschen. Und das Beste: Bei uns arbeitest du zu geregelten Zeiten ohne Wochenenddienste. Zusätzlich bieten wir einen Tag Homeoffice pro Woche an – für mehr Flexibilität in deinem Alltag.\n\nAufgaben:\n• Enge Kommunikation: Du stehst in engem Austausch mit unseren Zuweisenden, Patientinnen / Patienten und Mitarbeitenden\n• Erste Kontaktperson: Du repräsentierst unsere Klinik als erste Ansprechperson\n• Terminierung und Planung: Du koordinierst Untersuchungen in verschiedenen diagnostischen Bereichen wie Ultraschall, CT, MRI, Interventionelle Radiologie, Mammographie und konventionelle Diagnostik\n• Drehscheibenfunktion: Du übernimmst eine wichtige Rolle als Verbindungspunkt und schaffst durch deine soziale und persönliche Kompetenz Sicherheit und Vertrauen bei unseren Patientinnen / Patienten und unserer Kundschaft\n\nProfil:\n• Idealerweise hast du eine MTR-Ausbildung und einige Jahre Berufserfahrung in diesem oder einem artverwandten Bereich im Gesundheitswesen\n• Dich kennt man als Organisationstalent, und du bist gut darin, stets den Überblick zu behalten\n• Du bist kundenorientiert und dein Arbeitsstil ist geprägt von einem hohen Qualitätsbewusstsein\n• Du arbeitest gerne in einem Team und hast keine Scheu, Verantwortung zu übernehmen\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Diverse Berufe\n• Bereich: Klinik für Radiologie und Nuklearmedizin\n• Pensum: 80-100%",
       "descriptionByLocale": {
@@ -5427,7 +5571,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048573",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5460,6 +5604,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:10:42.853Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5504,7 +5649,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4047446",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.962Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5582,7 +5727,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038319",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.962Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5604,14 +5749,16 @@
         "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
         "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur"
+        "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur",
+        "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
           "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-          "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur"
+          "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur",
+          "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
@@ -5639,7 +5786,7 @@
       "slug": "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-d039fa",
+        "en": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
         "de": "arztsekretarin-arztsekretar-ksw-ch",
         "fr": "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-d039fa"
       },
@@ -5649,7 +5796,7 @@
       "title": "Arztsekretärin / Arztsekretär",
       "titleByLocale": {
         "it": "Segretario medico",
-        "en": "Medical Secretary / Medical Secretary",
+        "en": "Arztsekretärin / Arztsekretär",
         "de": "Arztsekretärin / Arztsekretär",
         "fr": "Secrétaire médical / Secrétaire médical"
       },
@@ -5665,7 +5812,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4031566",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.962Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5692,6 +5839,8 @@
         "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-4ae054",
         "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-4ae054",
         "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-4ae054",
+        "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-d039fa",
+        "segretario-medico-kantonsspital-winterthur-ksw-winterthur",
         "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -5702,11 +5851,13 @@
           "segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
           "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur-4ae054",
           "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-4ae054",
-          "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-4ae054"
+          "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur-4ae054",
+          "segretario-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch",
           "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-4ae054",
+          "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur-d039fa",
           "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
@@ -5718,6 +5869,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:28:45.670Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5736,7 +5888,7 @@
       "slug": "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur",
+        "en": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
         "de": "arztsekretarin-arztsekretar-ksw-ch",
         "fr": "secretaire-medical-secretaire-medical-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -5746,7 +5898,7 @@
       "title": "Arztsekretärin / Arztsekretär",
       "titleByLocale": {
         "it": "Segretario medico / Segretario medico",
-        "en": "Medical Secretary / Medical Secretary",
+        "en": "Arztsekretärin / Arztsekretär",
         "de": "Arztsekretärin / Arztsekretär",
         "fr": "Secrétaire médical / Secrétaire médical"
       },
@@ -5762,7 +5914,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017085",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.517Z",
+      "crawledAt": "2026-08-13T10:16:25.962Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5793,6 +5945,8 @@
         "secretaire-medical-e-kantonsspital-winterthur-ksw-winterthur-193910",
         "secretaire-medical-e-kantonsspital-winterthur-ksw-winterthur-51bce7",
         "secretaire-medical-kantonsspital-winterthur-ksw-winterthur",
+        "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur",
+        "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
         "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -5806,10 +5960,12 @@
           "secretaire-medical-e-kantonsspital-winterthur-ksw-winterthur",
           "secretaire-medical-e-kantonsspital-winterthur-ksw-winterthur-193910",
           "secretaire-medical-e-kantonsspital-winterthur-ksw-winterthur-51bce7",
-          "secretaire-medical-kantonsspital-winterthur-ksw-winterthur"
+          "secretaire-medical-kantonsspital-winterthur-ksw-winterthur",
+          "segretario-medico-segretario-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch",
+          "medical-secretary-medical-secretary-kantonsspital-winterthur-ksw-winterthur",
           "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
@@ -5820,6 +5976,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:46:05.232Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5848,7 +6005,7 @@
       "title": "Applikations-Managerin / Manager",
       "titleByLocale": {
         "it": "Gestione applicazioni / Manager",
-        "en": "Application Manager / Manager",
+        "en": "Applikations-Managerin / Manager",
         "de": "Applikations-Managerin / Manager",
         "fr": "Gestionnaire d'applications / Gestionnaire"
       },
@@ -5864,7 +6021,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050256",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:48:14.516Z",
+      "crawledAt": "2026-08-13T10:16:25.961Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5884,11 +6041,13 @@
       "department": "ICT",
       "previousSlugs": [
         "applikations-managerin-manager-ksw-ch",
-        "applikations-managerin-manager-kantonsspital-winterthur-ksw-winterthur"
+        "applikations-managerin-manager-kantonsspital-winterthur-ksw-winterthur",
+        "gestione-applicazioni-manager-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-managerin-manager-ksw-ch"
+          "applikations-managerin-manager-ksw-ch",
+          "gestione-applicazioni-manager-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "applikations-managerin-manager-ksw-ch",
@@ -5899,6 +6058,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:38.057Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5911,6 +6071,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ksw-9723a3ae0a9f",
+      "slug": "fms-praktikantin-fms-praktikant-ksw-ch",
+      "slugByLocale": {
+        "de": "fms-praktikantin-fms-praktikant-ksw-ch",
+        "it": "fms-praktikantin-fms-praktikant-ksw-ch",
+        "en": "fms-praktikantin-fms-praktikant-ksw-ch",
+        "fr": "fms-praktikantin-fms-praktikant-ksw-ch"
+      },
+      "company": "Kantonsspital Winterthur (KSW)",
+      "companyKey": "ksw",
+      "companyDomain": "ksw.ch",
+      "title": "FMS-Praktikantin / FMS-Praktikant",
+      "titleByLocale": {
+        "de": "FMS-Praktikantin / FMS-Praktikant",
+        "it": "FMS-Praktikantin / FMS-Praktikant",
+        "en": "FMS-Praktikantin / FMS-Praktikant",
+        "fr": "FMS-Praktikantin / FMS-Praktikant"
+      },
+      "description": "Wir bieten am KSW Plätze für das Praktikum der FMS im Profil Gesundheit an. Das Praktikum dauert 24 bis 52 Wochen, beinhaltet eine Fachmaturitätsarbeit und ist auf die angestrebten Studiengänge der Fachhochschule ausgerichtet.\n\nAufgaben:\n• Du zeichnest dich durch deine offene, hilfsbereite und freundliche Art sowie durch deine Zuverlässigkeit aus\n• Du hast Spass, in einem Team zu arbeiten und du verfügst über gute Deutschkenntnisse\n• Du besuchst das FMS Profil Gesundheit an einer der folgenden Kantonsschulen: Zürich Nord, Frauenfeld, Schaffhausen oder Romanshorn\n• Mind. 24 Wochen Praktikum im Akutspital\n• Der Start des Praktikums ist im September\n• Dein Wohnort ist im Grossraum Winterthur, sodass du täglich (auch am Wochenende) um 6.45 Uhr im KSW sein kannst\n\nProfil:\n• Alle 6-8 Wochen eine Lernbegleitung durch die Berufsbildung\n• Bezugsperson/ Ansprechperson in der Praxis\n• FMA Betreuung durch eine Fachperson in der Praxis\n• Im Verlauf des Praktikums und bei guten Leistungen: Einführung in der Körperpflege, Vitalzeichenkontrolle und weitere Tätigkeiten\n• Praktikumsplätze in den Bereichen Medizin / Chirurgie / Operationszentrum / Kinderklinik\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Berufsbildung\n• Pensum: 100%",
+      "descriptionByLocale": {
+        "de": "Wir bieten am KSW Plätze für das Praktikum der FMS im Profil Gesundheit an. Das Praktikum dauert 24 bis 52 Wochen, beinhaltet eine Fachmaturitätsarbeit und ist auf die angestrebten Studiengänge der Fachhochschule ausgerichtet.\n\nAufgaben:\n• Du zeichnest dich durch deine offene, hilfsbereite und freundliche Art sowie durch deine Zuverlässigkeit aus\n• Du hast Spass, in einem Team zu arbeiten und du verfügst über gute Deutschkenntnisse\n• Du besuchst das FMS Profil Gesundheit an einer der folgenden Kantonsschulen: Zürich Nord, Frauenfeld, Schaffhausen oder Romanshorn\n• Mind. 24 Wochen Praktikum im Akutspital\n• Der Start des Praktikums ist im September\n• Dein Wohnort ist im Grossraum Winterthur, sodass du täglich (auch am Wochenende) um 6.45 Uhr im KSW sein kannst\n\nProfil:\n• Alle 6-8 Wochen eine Lernbegleitung durch die Berufsbildung\n• Bezugsperson/ Ansprechperson in der Praxis\n• FMA Betreuung durch eine Fachperson in der Praxis\n• Im Verlauf des Praktikums und bei guten Leistungen: Einführung in der Körperpflege, Vitalzeichenkontrolle und weitere Tätigkeiten\n• Praktikumsplätze in den Bereichen Medizin / Chirurgie / Operationszentrum / Kinderklinik\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Berufsbildung\n• Pensum: 100%",
+        "it": "Wir bieten am KSW Plätze für das Praktikum der FMS im Profil Gesundheit an. Das Praktikum dauert 24 bis 52 Wochen, beinhaltet eine Fachmaturitätsarbeit und ist auf die angestrebten Studiengänge der Fachhochschule ausgerichtet.\n\nAufgaben:\n• Du zeichnest dich durch deine offene, hilfsbereite und freundliche Art sowie durch deine Zuverlässigkeit aus\n• Du hast Spass, in einem Team zu arbeiten und du verfügst über gute Deutschkenntnisse\n• Du besuchst das FMS Profil Gesundheit an einer der folgenden Kantonsschulen: Zürich Nord, Frauenfeld, Schaffhausen oder Romanshorn\n• Mind. 24 Wochen Praktikum im Akutspital\n• Der Start des Praktikums ist im September\n• Dein Wohnort ist im Grossraum Winterthur, sodass du täglich (auch am Wochenende) um 6.45 Uhr im KSW sein kannst\n\nProfil:\n• Alle 6-8 Wochen eine Lernbegleitung durch die Berufsbildung\n• Bezugsperson/ Ansprechperson in der Praxis\n• FMA Betreuung durch eine Fachperson in der Praxis\n• Im Verlauf des Praktikums und bei guten Leistungen: Einführung in der Körperpflege, Vitalzeichenkontrolle und weitere Tätigkeiten\n• Praktikumsplätze in den Bereichen Medizin / Chirurgie / Operationszentrum / Kinderklinik\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Berufsbildung\n• Pensum: 100%",
+        "en": "Wir bieten am KSW Plätze für das Praktikum der FMS im Profil Gesundheit an. Das Praktikum dauert 24 bis 52 Wochen, beinhaltet eine Fachmaturitätsarbeit und ist auf die angestrebten Studiengänge der Fachhochschule ausgerichtet.\n\nAufgaben:\n• Du zeichnest dich durch deine offene, hilfsbereite und freundliche Art sowie durch deine Zuverlässigkeit aus\n• Du hast Spass, in einem Team zu arbeiten und du verfügst über gute Deutschkenntnisse\n• Du besuchst das FMS Profil Gesundheit an einer der folgenden Kantonsschulen: Zürich Nord, Frauenfeld, Schaffhausen oder Romanshorn\n• Mind. 24 Wochen Praktikum im Akutspital\n• Der Start des Praktikums ist im September\n• Dein Wohnort ist im Grossraum Winterthur, sodass du täglich (auch am Wochenende) um 6.45 Uhr im KSW sein kannst\n\nProfil:\n• Alle 6-8 Wochen eine Lernbegleitung durch die Berufsbildung\n• Bezugsperson/ Ansprechperson in der Praxis\n• FMA Betreuung durch eine Fachperson in der Praxis\n• Im Verlauf des Praktikums und bei guten Leistungen: Einführung in der Körperpflege, Vitalzeichenkontrolle und weitere Tätigkeiten\n• Praktikumsplätze in den Bereichen Medizin / Chirurgie / Operationszentrum / Kinderklinik\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Berufsbildung\n• Pensum: 100%",
+        "fr": "Wir bieten am KSW Plätze für das Praktikum der FMS im Profil Gesundheit an. Das Praktikum dauert 24 bis 52 Wochen, beinhaltet eine Fachmaturitätsarbeit und ist auf die angestrebten Studiengänge der Fachhochschule ausgerichtet.\n\nAufgaben:\n• Du zeichnest dich durch deine offene, hilfsbereite und freundliche Art sowie durch deine Zuverlässigkeit aus\n• Du hast Spass, in einem Team zu arbeiten und du verfügst über gute Deutschkenntnisse\n• Du besuchst das FMS Profil Gesundheit an einer der folgenden Kantonsschulen: Zürich Nord, Frauenfeld, Schaffhausen oder Romanshorn\n• Mind. 24 Wochen Praktikum im Akutspital\n• Der Start des Praktikums ist im September\n• Dein Wohnort ist im Grossraum Winterthur, sodass du täglich (auch am Wochenende) um 6.45 Uhr im KSW sein kannst\n\nProfil:\n• Alle 6-8 Wochen eine Lernbegleitung durch die Berufsbildung\n• Bezugsperson/ Ansprechperson in der Praxis\n• FMA Betreuung durch eine Fachperson in der Praxis\n• Im Verlauf des Praktikums und bei guten Leistungen: Einführung in der Körperpflege, Vitalzeichenkontrolle und weitere Tätigkeiten\n• Praktikumsplätze in den Bereichen Medizin / Chirurgie / Operationszentrum / Kinderklinik\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Ausbildungsplätze / Praktika\n• Bereich: Berufsbildung\n• Pensum: 100%"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ksw/job/details/4054162",
+      "source": "KSW Dedicated Parser (Solique tenant ksw)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-13T10:16:25.963Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "postalCode": "8400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://live.solique.ch/ksw/job/details/4054162",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Berufsbildung",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-13T10:16:25.963Z"
     }
   ]
 }
