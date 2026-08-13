@@ -31490,6 +31490,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salute-sessuale-ticino': {
+    title: 'Salute sessuale in Ticino | Frontaliere Ticino',
+    description: 'Notizie e approfondimenti sulla salute sessuale nel Canton Ticino. Scopri le rubriche dedicate su laRegione per informarti sul benessere sessuale',
+    keywords: 'frontalieri, ticino, svizzera, italia, salute, sessuale, informazioni, attualità',
+    ogTitle: 'Salute Sessuale: Notizie e Approfondimenti dal Ticino',
+    ogDescription: 'Tutto quello che c\'è da sapere sulla salute sessuale nel Canton Ticino. LaRegione dedica spazio a notizie, attualità e approfondimenti per informare i cittadini sul benessere sessuale e riproduttivo.',
+    canonicalPath: '/articoli-svizzera/salute-sessuale-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute sessuale in Ticino",
+      "description": "Notizie e approfondimenti sulla salute sessuale nel Canton Ticino. Scopri le rubriche dedicate su laRegione per informarti sul benessere sessuale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salute-sessuale-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lago e montagne"
+      },
+      "datePublished": "2026-08-13T02:42:44+00:00",
+      "dateModified": "2026-08-13T02:42:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salute-sessuale-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

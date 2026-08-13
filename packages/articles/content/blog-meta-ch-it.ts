@@ -2431,6 +2431,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Apprendistato e formazione professionale nel Canton Berna: guida pratica',
     'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'Come trovare un posto di tirocinio, comprendere il contratto di apprendistato, retribuzione e maturità professionale nel sistema duale bernese.',
     'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Laboratorio di formazione professionale a Berna con apprendisti al lavoro',
+    'blog.article.salute-sessuale-ticino.title': 'Salute sessuale in Ticino',
+    'blog.article.salute-sessuale-ticino.excerpt': 'Informazioni e attualità sulla salute sessuale nel Canton Ticino, con focus su rubriche dedicate e temi correlati.',
+    'blog.article.salute-sessuale-ticino.imageAlt': 'Vista panoramica di Lugano con lago e montagne',
 };
 
 export default blogMetaChIt;

@@ -836,6 +836,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'opportunita-lavoro-rsi-svizzera': { it: 'opportunita-lavoro-rsi-svizzera', en: 'career-opportunities-rsi-switzerland', de: 'karrieremoeglichkeiten-rsi-schweiz', fr: 'opportunites-carriere-rsi-suisse' },
  'scienza-medicina-attualita-svizzera': { it: 'scienza-medicina-attualita-svizzera', en: 'science-and-medicine-switzerland', de: 'wissenschaft-und-medizin-schweiz', fr: 'science-et-medecine-suisse' },
  'apprendistato-formazione-professionale-canton-berna': { it: 'apprendistato-formazione-professionale-canton-berna', en: 'apprenticeship-vocational-training-bern-canton', de: 'lehrstellen-berufsbildung-kanton-bern', fr: 'apprentissage-formation-professionnelle-canton-berne' },
+ 'salute-sessuale-ticino': { it: 'salute-sessuale-ticino', en: 'sexual-health-ticino', de: 'sexuelle-gesundheit-tessin', fr: 'sante-sexuelle-tesin' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
