@@ -2440,6 +2440,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-asilo-nido-custodia-berna.title': 'Kindertagesstätte und Kinderbetreuung Bern: Kosten und Leistungen',
     'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Informieren Sie sich über die Kosten der Kindertagesstätten im Kanton Bern, die einkommensabhängigen Tarife, die Tagesfamilien und die kantonalen Kinderbetreuungsbeihilfen.',
     'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Kindergarten im Kanton Bern mit Kindern und Betreuern',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Sonnenfinsternis: Show in der Schweiz beendet',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'Die erwartete Sonnenfinsternis endete über der Schweiz, erreichte ihren Höhepunkt gegen 20:20 Uhr und endete mit dem Sonnenuntergang. Im Tessin und Graubünden erreichte die Sonnenbedeckung 91%.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Partielle Sonnenfinsternis über einer Schweizer Landschaft im Sonnenuntergang.',
 };
 
 export default blogMetaChDe;

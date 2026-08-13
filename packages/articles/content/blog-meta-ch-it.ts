@@ -2440,6 +2440,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costi-asilo-nido-custodia-berna.title': 'Asilo nido e custodia bambini Berna: costi e sussidi',
     'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Scopri i costi degli asili nido nel Canton Berna, le tariffe basate sul reddito, le famiglie diurne e i sussidi cantonali disponibili per la custodia dei bambini.',
     'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Asilo nido nel Canton Berna con bambini e educatori',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Eclissi solare: spettacolo concluso in Svizzera',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'L\'attesa eclissi solare ha terminato il suo percorso sopra la Svizzera, raggiungendo il culmine verso le 20:20 e concludendosi con il tramonto. In Ticino e Grigioni, la copertura del sole ha raggiunto il 91%.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Eclissi solare parziale sopra un paesaggio svizzero al tramonto.',
 };
 
 export default blogMetaChIt;

@@ -2440,6 +2440,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costi-asilo-nido-custodia-berna.title': 'Garderie et garde d\'enfants Berne : coûts et allocations',
     'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Découvrez les coûts des crèches dans le canton de Berne, les tarifs basés sur le revenu, les familles de jour et les allocations cantonales disponibles pour la garde des enfants.',
     'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Crèche dans le canton de Berne avec enfants et éducateurs',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Eclipse solaire : spectacle terminé en Suisse',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'L\'éclipse solaire attendue a terminé son parcours au-dessus de la Suisse, atteignant son apogée vers 20h20 et se terminant avec le coucher du soleil. Au Tessin et dans les Grisons, la couverture solaire a atteint 91 %.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Éclipse solaire partielle au-dessus d\'un paysage suisse au coucher du soleil.',
 };
 
 export default blogMetaChFr;

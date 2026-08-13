@@ -31607,6 +31607,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eclissi-solare-svizzera-conclusa': {
+    title: 'Eclissi solare: spettacolo concluso in Svizzera',
+    description: 'L\'eclissi solare ha terminato il suo percorso sopra la Svizzera, con la massima occultazione verso le 20:20. In Ticino e Grigioni, la copertura del sole ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, eclissi, solare, spettacolo, concluso',
+    ogTitle: 'Eclissi solare: spettacolo concluso in Svizzera',
+    ogDescription: 'L\'attesa eclissi solare ha concluso il suo percorso sopra la Svizzera. Raggiunto il culmine verso le 20:20, l\'evento ha visto una copertura del 91% in Ticino e Grigioni. Confronto con eclissi passate e la prossima totale nel 2081.',
+    canonicalPath: '/articoli-svizzera/eclissi-solare-svizzera-conclusa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eclissi solare: spettacolo concluso in Svizzera",
+      "description": "L'eclissi solare ha terminato il suo percorso sopra la Svizzera, con la massima occultazione verso le 20:20. In Ticino e Grigioni, la copertura del sole ha",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-solare-svizzera-conclusa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Eclissi solare parziale sopra un paesaggio svizzero al tramonto."
+      },
+      "datePublished": "2026-08-13T03:30:24+00:00",
+      "dateModified": "2026-08-13T03:30:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-solare-svizzera-conclusa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

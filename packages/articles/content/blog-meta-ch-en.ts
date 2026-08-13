@@ -2440,6 +2440,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costi-asilo-nido-custodia-berna.title': 'Nursery and childcare Bern: costs and subsidies',
     'blog.article.costi-asilo-nido-custodia-berna.excerpt': 'Find out about kindergarten costs in the Canton of Bern, income-based rates, day families and cantonal childcare subsidies available.',
     'blog.article.costi-asilo-nido-custodia-berna.imageAlt': 'Nursery in the Canton of Bern with children and educators',
+    'blog.article.eclissi-solare-svizzera-conclusa.title': 'Solar eclipse: show concluded in Switzerland',
+    'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'The long-awaited solar eclipse ended its course over Switzerland, reaching its climax around 8:20 pm and ending with sunset. In Ticino and Graubünden, sun coverage reached 91%.',
+    'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Partial solar eclipse over a Swiss landscape at sunset.',
 };
 
 export default blogMetaChEn;
