@@ -9921,6 +9921,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-lavoratori-nero-2026.title': 'Varese, plus de 50 travailleurs en noir découverts, amendes d\'un demi-million',
     'blog.article.varese-lavoratori-nero-2026.excerpt': 'La Finance de Varèse a identifié plus de 50 travailleurs au noir et contesté plus de 280 infractions en matière de certification fiscale.',
     'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Début des travaux préparatoires pour l\'esplanade des anciennes écoles à Lugano',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'À partir du lundi 17 août, nous commencerons à préparer les cinq points d\'échange temporaires qui remplaceront l\'abri Botta.',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Travaux préparatoires pour la place des anciens écoles à Lugano.',
 };
 
 export default blogMetaFr;

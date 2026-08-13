@@ -9918,6 +9918,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-lavoratori-nero-2026.title': 'Varese, über 50 Schwarzarbeiter unbedeckt, Geldstrafen für eine halbe Million',
     'blog.article.varese-lavoratori-nero-2026.excerpt': 'Die Finanza di Varese hat mehr als 50 Schwarzarbeiter identifiziert und mehr als 280 Verstöße gegen die Steuerbescheinigung bestritten.',
     'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Beginn der Vorbereitungsarbeiten für den ehemaligen Schulplatz in Lugano',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'Ab Montag, dem 17. August, werden die fünf temporären Austauschpunkte eingerichtet, die das Botta-Vordach ersetzen werden.',
+    'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Vorbereitende Arbeiten für das ehemalige Schulareal in Lugano.',
 };
 
 export default blogMetaDe;
