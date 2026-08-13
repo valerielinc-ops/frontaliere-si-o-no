@@ -9860,6 +9860,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lallarme-di-coldiretti-varese.title': 'Fuels over 2 euros: the alarm for businesses and families',
     'blog.article.lallarme-di-coldiretti-varese.excerpt': 'The run of gasoline and diesel over the threshold of two euros per liter produces an effect that is transferred from the pump to the fields, farms and the entire agri-food chain.',
     'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Fuel is essential for tractors, mowers, animal and fodder transport vehicles, refrigerated vans, deliveries, and market participation.',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'The Varese Guardia di Finanza discovers black and irregular workers',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'The Varese Guardia di Finanza discovered over 50 black workers and 10 irregular workers during the summer checks',
+    'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
 };
 
 export default blogMetaEn;
