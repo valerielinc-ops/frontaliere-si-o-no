@@ -2581,6 +2581,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.title': 'Dopo quasi 3 anni termina lo sciopero Tesla in Svezia',
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.excerpt': 'Il sindacato IF Metall ha gettato la spugna dopo quasi tre anni di sciopero contro la filiale svedese della Tesla.',
     'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.imageAlt': 'Immagine di una manifestazione sindacale in Svezia',
+    'blog.article.dimissioni-pazienti-crans-montana.title': 'Crans-Montana: dimessa l\'ultima paziente dal Niguarda',
+    'blog.article.dimissioni-pazienti-crans-montana.excerpt': 'Conclusa la degenza dei dodici pazienti feriti nell\'incendio di Capodanno. Francesca lascia il Centro Ustioni di Milano dopo 224 giorni di cure specialistiche.',
+    'blog.article.dimissioni-pazienti-crans-montana.imageAlt': 'Facciata di una moderna struttura ospedaliera in Svizzera',
 };
 
 export default blogMetaChIt;
