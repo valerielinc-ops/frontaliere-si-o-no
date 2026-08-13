@@ -25,6 +25,12 @@ import { buildUnsubscribeForensics } from './src/lib/requestForensics.js';
 // its guard ("one helper, no drift" for the proxy chain) is worth more intact
 // than the cosmetic tidiness of a single line.
 import { buildConsentIpStamp } from './src/lib/requestForensics.js';
+// The out-of-URL transport for address + credential (#5746). Every endpoint that
+// used to read `req.method === 'GET' ? req.query : { ...req.query, ...req.body }`
+// goes through resolveRequestParams instead — see that module for why the
+// request log is the problem and why a header is the only shape that survives a
+// GET from a mail client with no JavaScript.
+import { resolveRequestParams } from './src/lib/privateRequestParams.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
 import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
@@ -476,7 +482,11 @@ export const newsletterManageSubscription = onRequest(
  return;
  }
 
- const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
+ // Query + body exactly as before, plus the private-params header the Cloudflare
+ // Worker uses to keep `email`/`token`/`ac`/`ne` out of `httpRequest.requestUrl`
+ // (#5746). Passing `res` is what stamps the acknowledgement the Worker reads to
+ // decide whether it still has to replay the legacy full-URL request.
+ const params = resolveRequestParams(req, res);
  const action = String(params.action || '').trim().toLowerCase();
  const email = String(params.email || '').trim().toLowerCase();
  const token = String(params.token || '').trim();
@@ -918,7 +928,9 @@ export const jobAlertUnsubscribe = onRequest(
  // the rare key collision) so both the footer GET link and the header one-click
  // POST resolve the same params. A POST that read body-only verified an empty
  // email/token → 403 → never unsubscribed, which also hurts sender reputation.
- const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
+ // …and the private-params header (#5746), which is where the Worker puts
+ // `email`/`token` so this call's request-log row cannot pair them.
+ const params = resolveRequestParams(req, res);
  const alertId = String(params.alertId || '').trim();
  const email = String(params.email || '').trim();
  const token = String(params.token || '').trim();
@@ -966,7 +978,11 @@ export const savedJobsDigestUnsubscribe = onRequest(
 
  // Same RFC 8058 query+body merge as jobAlertUnsubscribe above — the
  // one-click POST carries uid/email/token in the query string, not the body.
- const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
+ // Plus the private-params header (#5746) — five requests in seven days, and the
+ // same class of credential as the 2.986 next door. A fix that skipped the three
+ // small endpoints would be the "misura sull'endpoint principale" the issue's
+ // remeasurement warns about.
+ const params = resolveRequestParams(req, res);
  const uid = String(params.uid || '').trim();
  const email = String(params.email || '').trim();
  const token = String(params.token || '').trim();
@@ -1011,7 +1027,10 @@ export const outreachUnsubscribe = onRequest(
  // identifiers from the query too — not just req.body. Merge both (body wins on
  // the rare key collision) so the footer GET link and the header one-click POST
  // resolve the same params. Mirrors jobAlertUnsubscribe.
- const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
+ // Plus the private-params header (#5746). `t` is a credential like any other
+ // even though it is one letter long, and `c` stays on the URL: a company key is
+ // not a person.
+ const params = resolveRequestParams(req, res);
  const companyKey = String(params.c || '').trim();
  const token = String(params.t || '').trim();
 

@@ -305,8 +305,14 @@ describe('toggle_newsletter_subscription — opt-IN needs a POST, opt-OUT does n
     const src = read('services/newsletterSubscribers.ts');
     const fn = src.slice(src.indexOf('export async function toggleNewsletterSubscription'));
     const body = fn.slice(0, fn.indexOf('\n}'));
-    expect(body).toContain("action=toggle_newsletter_subscription");
-    expect(body).toMatch(/fetch\(url,\s*\{\s*method:\s*'POST'\s*\}\)/);
+    // Since #5746 the verb comes from postManageSubscription, which is POST for
+    // every action — the address and the credential moved into the body because
+    // Cloud Run logs the query string, and this gate reads the VERB, so it is
+    // untouched by that move. What still has to be true is that this caller goes
+    // through that helper with this action.
+    expect(body).toContain("postManageSubscription('toggle_newsletter_subscription'");
+    const helper = src.slice(src.indexOf('function postManageSubscription('));
+    expect(helper.slice(0, helper.indexOf('\n}'))).toMatch(/method:\s*'POST'/);
   });
 });
 
@@ -399,8 +405,17 @@ describe('the verb reaches the handler at all', () => {
     // A form POST is worthless if the edge downgrades it. `new Request(url,
     // request)` copies method/headers/body; asserted here because the proxy and
     // the form live in different repos-worth of code and nothing else links them.
+    // The window is deliberately generous: #5746 inserted the private-params
+    // split above this line, and a slice too tight to reach the construct would
+    // have failed for the wrong reason.
     const worker = read('infra/cloudflare-worker/locale-router.js');
     const proxy = worker.slice(worker.indexOf('const unsubOrigin = unsubProxyOrigin'));
-    expect(proxy.slice(0, 600)).toMatch(/new Request\(upstream\.toString\(\),\s*request\)/);
+    const branch = proxy.slice(0, 2500);
+    expect(branch).toMatch(/new Request\(upstream\.toString\(\),\s*request\)/);
+    // …and nothing in the branch rewrites the verb. #5746 moves parameters off
+    // the URL; the day it also turned a human's GET into a POST, every
+    // link-following scanner would arrive looking like a deliberate gesture and
+    // this gate would be vacuous.
+    expect(branch).not.toMatch(/method:\s*'POST'/);
   });
 });
