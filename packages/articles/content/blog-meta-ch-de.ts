@@ -2416,6 +2416,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-berna.title': 'Lehre und Berufsausbildung in Bern',
     'blog.article.apprendistato-formazione-berna.excerpt': 'Praktischer Leitfaden für die Suche nach einer Lehrstelle im Kanton Bern: vom Arbeitsvertrag über die Berufsmaturität bis zur Entlohnung.',
     'blog.article.apprendistato-formazione-berna.imageAlt': 'Junger Lernender mit Mentor im Büro',
+    'blog.article.incidente-e-bike-morte-ciclista.title': 'Unfall mit dem E-Bike: Radfahrer stirbt im Krankenhaus',
+    'blog.article.incidente-e-bike-morte-ciclista.excerpt': 'Ein Radfahrer starb nach einem Unfall mit einem E-Bike in Lauenen bei Gstaad.',
+    'blog.article.incidente-e-bike-morte-ciclista.imageAlt': 'Ein Radfahrer auf einer Bergstraße in der Nähe von Lauenen, Schweiz.',
 };
 
 export default blogMetaChDe;

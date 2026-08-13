@@ -7246,6 +7246,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'incidente-e-bike-morte-ciclista',
+    category: 'novita',
+    date: '2026-08-13T01:49:30.022Z',
+    image: '/images/blog/incidente-e-bike-morte-ciclista.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
