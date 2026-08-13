@@ -3098,7 +3098,7 @@
       "title": "BIM Manager:in 80-100%",
       "titleByLocale": {
         "it": "BIM Manager: 80-100 %",
-        "en": "BIM Manager:in 80-100%",
+        "en": "BIM Manager 80-100%",
         "de": "BIM Manager:in 80-100%",
         "fr": "Gestionnaire BIM: dans 80-100 %"
       },
@@ -3135,7 +3135,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-24T22:19:46.576Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3147,7 +3146,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "amstein-walthert-341ac9c5deb1",
