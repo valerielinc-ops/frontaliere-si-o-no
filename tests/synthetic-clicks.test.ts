@@ -200,3 +200,50 @@ describe('the event shapes the job-alert webhooks actually write', () => {
     expect(verdict.byReason['scan-burst']).toBe(SCAN_BURST_MIN_TARGETS);
   });
 });
+
+// #5716 item 4 — the "contradictory window" rule (opt-out + 2 other link
+// classes within SCAN_BURST_WINDOW_MS) was calibrated only on corporate-scanner
+// data; nobody had checked whether it could be told apart from the plain
+// target-count burst, which is a prerequisite for monitoring it separately for
+// a household false positive (two people behind one address/network). These
+// tests are the seam that makes that sampling possible from outside this file
+// — they do NOT touch the window or the threshold, which stay exactly as
+// calibrated (that decision needs weeks of real samples, not this PR).
+describe('contradictoryWindow flag distinguishes the two scan-burst triggers (#5716 item 4)', () => {
+  it('flags the opt-out+2-classes case, and ONLY that case, leaving reason/byReason untouched', () => {
+    const t = at('2026-07-04T08:33:52Z');
+    const verdict = classifyClickEvents([
+      { at: t, url: 'https://frontaliereticino.ch/?action=unsubscribe&email=a%40example.com' },
+      { at: t + 300, url: 'https://frontaliereticino.ch/preferenze?token=x' },
+      { at: t + 600, url: 'https://www.linkedin.com/company/frontaliere-ticino' },
+    ]);
+    // Union reason is unchanged — existing consumers of 'scan-burst' see no drift.
+    expect(verdict.byReason['scan-burst']).toBe(2);
+    expect(verdict.verdicts.every((v) => v.reason === 'opt-out-link' || v.reason === 'scan-burst')).toBe(true);
+    // The new flag is on precisely the two burst-window members, not the opt-out click.
+    const flagged = verdict.verdicts.filter((v) => v.contradictoryWindow);
+    expect(flagged).toHaveLength(2);
+    expect(flagged.map((v) => v.url)).toEqual([
+      'https://frontaliereticino.ch/preferenze?token=x',
+      'https://www.linkedin.com/company/frontaliere-ticino',
+    ]);
+    expect(verdict.contradictoryWindowCount).toBe(2);
+  });
+
+  it('does NOT flag a plain target-count burst (same reason, different trigger)', () => {
+    const t = at('2026-08-13T06:00:00Z');
+    const burst = Array.from({ length: SCAN_BURST_MIN_TARGETS }, (_, i) => ({
+      at: t + i * 50,
+      url: `https://frontaliereticino.ch/cerca-lavoro-ticino/annuncio-${i}`,
+    }));
+    const verdict = classifyClickEvents(burst);
+    expect(verdict.byReason['scan-burst']).toBe(SCAN_BURST_MIN_TARGETS);
+    expect(verdict.contradictoryWindowCount).toBe(0);
+    expect(verdict.verdicts.some((v) => v.contradictoryWindow)).toBe(false);
+  });
+
+  it('a normal single click is flagged false, not undefined (safe for a caller that persists it)', () => {
+    const verdict = classifyClickEvents([{ at: at('2026-08-13T06:00:00Z'), url: 'https://frontaliereticino.ch/blog/x' }]);
+    expect(verdict.verdicts[0].contradictoryWindow).toBe(false);
+  });
+});
