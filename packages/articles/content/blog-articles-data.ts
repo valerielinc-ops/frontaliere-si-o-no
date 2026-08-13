@@ -29604,6 +29604,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny',
+ category: 'fiscale',
+ date: '2026-08-13T09:21:24.596Z',
+ image: '/images/places/lago-lugano.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9873,6 +9873,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swissquote-crollo-azienda.title': 'Swissquote, starker Börsencrash',
     'blog.article.swissquote-crollo-azienda.excerpt': 'Der Finanzdienstleister Swissquote verzeichnete an der Börse einen starken Rückgang, der von der Schwäche der Kryptowährungen und den im Vergleich zu Analystenschätzungen rückläufigen Gewinnen beeinflusst wurde.',
     'blog.article.swissquote-crollo-azienda.imageAlt': 'Ein Bild eines Computers mit einem Kollaps der Werte von Swissquote',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.title': '„Abkommenswidrige Gesundheitsabgabe“: Das Hinny-Gutachten ist nun veröffentlicht',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.excerpt': 'Das Gutachten von Pascal Hinny zum Grenzgängerabkommen: Die italienische Gesundheitsabgabe ist eine Einkommenssteuer und verstößt gegen internationale Abkommen',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.imageAlt': 'Redaktionelles Bild zu: «Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny',
 };
 
 export default blogMetaDe;

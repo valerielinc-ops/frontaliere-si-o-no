@@ -9875,6 +9875,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swissquote-crollo-azienda.title': 'Swissquote, forte calo in borsa',
     'blog.article.swissquote-crollo-azienda.excerpt': 'La società di servizi finanziari Swissquote ha subito un forte calo in borsa, influenzato dalla debolezza delle criptovalute e dai profitti in flessione rispetto alle stime degli analisti.',
     'blog.article.swissquote-crollo-azienda.imageAlt': 'Una foto di un computer con un crollo dei valori di Swissquote',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.title': '«Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.excerpt': 'La perizia di Pascal Hinny sull\'accordo sui frontalieri: la tassa sulla salute italiana è un\'imposta sul reddito e viola gli accordi internazionali',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.imageAlt': 'Immagine editoriale relativa a: «Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny',
 };
 
 export default blogMetaIt;
