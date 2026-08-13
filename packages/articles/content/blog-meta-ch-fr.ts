@@ -2494,6 +2494,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.title': 'Naturalisation ordinaire dans le canton de Berne : conditions et procédure',
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.excerpt': 'Voici les conditions et la procédure de naturalisation ordinaire dans le canton de Berne.',
     'blog.article.naturalizzazione-canton-berna-requisiti-procedura.imageAlt': 'Procédure de naturalisation dans le canton de Berne',
+    'blog.article.aprire-un-attivita-canton-berna.title': 'Ouvrir une entreprise à Berne : choix de la forme juridique et obligations',
+    'blog.article.aprire-un-attivita-canton-berna.excerpt': 'Inscrire une activité dans le canton de Berne : quelles sont les procédures et les conditions requises ?',
+    'blog.article.aprire-un-attivita-canton-berna.imageAlt': 'Image d\'une ville suisse',
 };
 
 export default blogMetaChFr;

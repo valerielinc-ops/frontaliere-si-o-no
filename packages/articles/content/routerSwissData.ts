@@ -857,6 +857,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sconti-farmaci-pazienti': { it: 'sconti-farmaci-pazienti', en: 'swiss-pharmaceutical-discounts-patients', de: 'gespensterrabatte-schweizer-arzneimittel-patienten', fr: 'remises-fantomes-medicaments-suisses-patients' },
  'mercati-affitti-canton-berna': { it: 'mercati-affitti-canton-berna', en: 'mercato-affitti-canton-berna', de: 'mercato-affitti-canton-berna', fr: 'mercato-affitti-canton-berna' },
  'naturalizzazione-canton-berna-requisiti-procedura': { it: 'naturalizzazione-canton-berna-requisiti-procedura', en: 'naturalization-canton-berna-requisites-procedure', de: 'naturalisierung-kanton-bern-requisiten-verfahren', fr: 'naturalisation-canton-de-berne-requisits-procedure' },
+ 'aprire-un-attivita-canton-berna': { it: 'aprire-un-attivita-canton-berna', en: 'aprire-un-attivita-canton-berna', de: 'aprire-un-attivita-canton-berna', fr: 'aprire-un-attivita-canton-berna' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
