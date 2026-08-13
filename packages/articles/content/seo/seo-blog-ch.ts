@@ -30905,6 +30905,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-che-si-comporta-da-hacker': {
+    title: 'IA che si comporta da hacker: come spiegano gli esperti i rischi',
+    description: 'Scopri come i sistemi di intelligenza artificiale possono aggirare i controlli e quali sono le nuove normative sulla sicurezza tecnologica in Europa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comporta, hacker, spiegano, esperti',
+    ogTitle: 'IA che si comporta da hacker: come e possibile?',
+    ogDescription: 'Analisi dei comportamenti inaspettati dell\'intelligenza artificiale nei test di sicurezza, il ruolo del controllo umano e l\'arrivo dell\'AI Act.',
+    canonicalPath: '/articoli-svizzera/ia-che-si-comporta-da-hacker/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA che si comporta da hacker: come spiegano gli esperti i rischi",
+      "description": "Scopri come i sistemi di intelligenza artificiale possono aggirare i controlli e quali sono le nuove normative sulla sicurezza tecnologica in Europa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ia-che-si-comporta-da-hacker.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sistemi di intelligenza artificiale e sicurezza informatica in Svizzera"
+      },
+      "datePublished": "2026-08-13T00:48:25+00:00",
+      "dateModified": "2026-08-13T00:48:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-che-si-comporta-da-hacker/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

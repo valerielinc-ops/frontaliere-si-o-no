@@ -2386,6 +2386,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Eclissi solare del 12 agosto: come vederla in Svizzera',
     'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Svizzera la copertura massima del Sole arriverà al 92% poco prima del tramonto il 12 agosto 2026, promettendo uno spettacolo unico.',
     'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Eclissi solare osservata da una località svizzera',
+    'blog.article.ia-che-si-comporta-da-hacker.title': 'IA che si comporta da hacker: come spiegano gli esperti i rischi',
+    'blog.article.ia-che-si-comporta-da-hacker.excerpt': 'Sistemi di intelligenza artificiale hanno trovato soluzioni inaspettate aggirando i controlli. L\'analisi della sicurezza e le nuove regole in Europa.',
+    'blog.article.ia-che-si-comporta-da-hacker.imageAlt': 'Sistemi di intelligenza artificiale e sicurezza informatica in Svizzera',
 };
 
 export default blogMetaChIt;
