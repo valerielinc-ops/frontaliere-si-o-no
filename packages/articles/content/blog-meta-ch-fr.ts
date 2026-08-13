@@ -2431,6 +2431,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Formation professionnelle à Berne : guide pratique',
     'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'Comment trouver un poste d\'apprentissage, comprendre le contrat d\'apprentissage, de rémunération et de maturité professionnelle dans le système dual bernois.',
     'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Atelier de formation professionnelle à Berne avec des apprentis au travail',
+    'blog.article.salute-sessuale-ticino.title': 'Santé sexuelle au Tessin',
+    'blog.article.salute-sessuale-ticino.excerpt': 'Informations et actualités sur la santé sexuelle dans le canton du Tessin, en mettant l\'accent sur des rubriques dédiées et des thèmes connexes.',
+    'blog.article.salute-sessuale-ticino.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes',
 };
 
 export default blogMetaChFr;

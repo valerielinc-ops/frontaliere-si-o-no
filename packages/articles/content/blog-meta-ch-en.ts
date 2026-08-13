@@ -2431,6 +2431,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Apprenticeships and vocational training in the Canton of Bern: a practical guide',
     'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'How to find an internship position, understand the apprenticeship contract, salary and professional maturity in the Bernese dual system.',
     'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Vocational training workshop in Bern with apprentices at work',
+    'blog.article.salute-sessuale-ticino.title': 'Sexual health in Ticino',
+    'blog.article.salute-sessuale-ticino.excerpt': 'Information and news on sexual health in the Canton of Ticino, with a focus on dedicated sections and related topics.',
+    'blog.article.salute-sessuale-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains',
 };
 
 export default blogMetaChEn;

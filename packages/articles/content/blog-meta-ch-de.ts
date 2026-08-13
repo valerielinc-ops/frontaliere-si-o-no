@@ -2431,6 +2431,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Lehre und Berufsausbildung im Kanton Bern: Praxisleitfaden',
     'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'So finden Sie eine Lehrstelle, verstehen den Lehrvertrag, die Entlohnung und die Berufsmaturität im dualen Berner System.',
     'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Berufsschul-Werkstatt in Bern mit Lehrlingen bei der Arbeit',
+    'blog.article.salute-sessuale-ticino.title': 'Sexuelle Gesundheit im Tessin',
+    'blog.article.salute-sessuale-ticino.excerpt': 'Informationen und Aktuelles zur sexuellen Gesundheit im Kanton Tessin, mit Schwerpunkt auf speziellen Rubriken und verwandten Themen.',
+    'blog.article.salute-sessuale-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaChDe;
