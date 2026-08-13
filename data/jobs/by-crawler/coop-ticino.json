@@ -52,7 +52,6 @@
       },
       "addressLocality": "Regensdorf",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -82,7 +81,6 @@
         "verkaufsberater-in-christ-uhren-schmuck-ag-regensdorf-zurich-g7rkgg",
         "verkaufsberater-in-christ-uhren-schmuck-ag-regensdorf-zurich"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
@@ -139,7 +137,6 @@
       },
       "addressLocality": "Volketswil",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -173,7 +170,6 @@
         "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-volketswil",
         "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-volketswil"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
@@ -1272,7 +1268,6 @@
       },
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AG",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -1306,7 +1301,8 @@
         "chef-d-equipe-dans-la-logistique-fruits-et-legumes-service-de-nuit-permanent-coop-genossenschaft-schafisheim",
         "chef-d-equipe-logistique-fruits-legumes-travail-de-nuit-permanent-coop-genossenschaft-schafisheim",
         "team-leader-logistics-fruits-vegetables-permanent-night-shift-coop-genossenschaft-schafisheim-r0su97",
-        "teamleiter-in-logistik-fruchte-gemuse-dauernachtschicht-coop-genossenschaft-schafisheim"
+        "teamleiter-in-logistik-fruchte-gemuse-dauernachtschicht-coop-genossenschaft-schafisheim",
+        "team-leader-logistics-fruit-vegetables-permanent-night-shift-coop-genossenschaft-schafisheim"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1322,7 +1318,8 @@
           "team-leader-nella-logistica-frutta-e-verdura-turno-notturno-permanente-coop-genossenschaft-schafisheim",
           "chef-d-equipe-logistique-fruits-legumes-travail-de-nuit-permanent-coop-genossenschaft-schafisheim",
           "team-leader-logistics-fruits-vegetables-permanent-night-shift-coop-genossenschaft-schafisheim-r0su97",
-          "teamleiter-in-logistik-fruchte-gemuse-dauernachtschicht-coop-genossenschaft-schafisheim"
+          "teamleiter-in-logistik-fruchte-gemuse-dauernachtschicht-coop-genossenschaft-schafisheim",
+          "team-leader-logistics-fruit-vegetables-permanent-night-shift-coop-genossenschaft-schafisheim"
         ],
         "en": [
           "team-leader-in-logistics-fruits-vegetables-bread-picking-coop-genossenschaft-schafisheim",
@@ -1337,8 +1334,7 @@
           "teamleiter-in-logistik-fruchte-gemuse-dauernachtschicht-coop-genossenschaft-schafisheim-aargau-qr4w28",
           "chef-d-equipe-dans-la-logistique-fruits-et-legumes-service-de-nuit-permanent-coop-genossenschaft-schafisheim"
         ]
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "company-6ferqe",
@@ -1390,7 +1386,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1447,8 +1442,7 @@
         "de": [
           "lagermitarbeiter-in-leergutzentrale-mo-sa-nach-feiertagen-coop-genossenschaft-bern-6do29d"
         ]
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "company-hjwfn4",
@@ -1491,7 +1485,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1526,8 +1519,7 @@
         "fr": [
           "leiter-in-warenausgang-coop-genossenschaft-bern-hjwfn4"
         ]
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "company-bdgh63",
@@ -1605,7 +1597,9 @@
         "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-d9d7f7",
         "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-d9d7f7",
         "consulenti-di-vendita-incl-coop-genossenschaft-winterthur-d9d7f7",
-        "consulenti-di-vendita-incl-coop-genossenschaft-winterthur-zurich"
+        "consulenti-di-vendita-incl-coop-genossenschaft-winterthur-zurich",
+        "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich",
+        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1617,7 +1611,8 @@
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
           "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-d9d7f7",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
+          "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich"
         ],
         "de": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63"
@@ -1625,7 +1620,8 @@
         "fr": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
           "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-d9d7f7",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
+          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich"
         ]
       }
     },
@@ -1764,7 +1760,6 @@
       },
       "addressLocality": "St. Gallen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SG",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1806,8 +1801,7 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-st-gallen-sankt-gallen-36c4il",
           "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-st-gallen"
         ]
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "company-wem241",
@@ -1874,7 +1868,8 @@
           "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
           "servicetechniker-in-professional-solutions-fust-oberburen",
-          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern"
+          "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
@@ -1896,7 +1891,8 @@
         "servicetechniker-in-professional-solutions-fust-oberburen",
         "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
         "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen",
-        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern"
+        "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen"
       ],
       "retranslationAttempts": 1
     },
@@ -1946,7 +1942,6 @@
       },
       "addressLocality": "Allschwil",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BS",
       "salaryMin": 107000,
       "salaryMax": 187500,
@@ -1963,7 +1958,15 @@
       "previousSlugsByLocale": {
         "it": [
           "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-we4km2",
-          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-2"
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-2",
+          "partenaire-de-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-63f439",
+          "partenaire-de-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-rq2dvv",
+          "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil",
+          "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
+          "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil-be6312",
+          "partenaire-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
+          "partenaire-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-be6312",
+          "partner-di-franchising-coop-pronto-senza-stazione-di-servizio-azienda-familiare-coop-genossenschaft-allschwil"
         ],
         "en": [
           "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-we4km2"
@@ -1974,9 +1977,16 @@
       },
       "previousSlugs": [
         "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-we4km2",
-        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-2"
-      ],
-      "retranslationAttempts": 1
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-familienbetrieb-coop-pronto-allschwil-2",
+        "partenaire-de-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-63f439",
+        "partenaire-de-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-rq2dvv",
+        "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil",
+        "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
+        "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil-be6312",
+        "partenaire-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
+        "partenaire-franchise-coop-pronto-sans-station-service-entreprise-familiale-coop-genossenschaft-allschwil-be6312",
+        "partner-di-franchising-coop-pronto-senza-stazione-di-servizio-azienda-familiare-coop-genossenschaft-allschwil"
+      ]
     },
     {
       "id": "company-8yjq16",
@@ -2033,7 +2043,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2062,8 +2071,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-8yjq16",
         "verkaufer-in-food-coop-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-mmvysv",
@@ -2120,7 +2128,6 @@
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2149,8 +2156,7 @@
       "previousSlugs": [
         "verkaufsberater-in-import-parfumerie-zurich-mmvysv",
         "verkaufsberater-in-import-parfumerie-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-1tp5z3",
@@ -2260,7 +2266,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "responsabile-progetto-aziendale-fust-swiss-household-services-ag-oberburen-sankt-gallen",
+        "it": "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
         "en": "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
         "de": "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
         "fr": "gestionnaire-de-projet-operationnel-fust-oberburen-sankt-gallen"
@@ -2289,14 +2295,16 @@
         ],
         "it": [
           "business-project-manager-fust-oberburen-sankt-gallen",
-          "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4"
+          "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
+          "responsabile-progetto-aziendale-fust-swiss-household-services-ag-oberburen-sankt-gallen"
         ]
       },
       "previousSlugs": [
         "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
         "gestionnaire-de-projet-operationnel-fust-swiss-household-services-ag-oberburen",
         "gestionnaire-de-projet-operationnel-fust-swiss-household-services-ag-oberburen-sankt-gallen",
-        "business-project-manager-fust-oberburen-sankt-gallen"
+        "business-project-manager-fust-oberburen-sankt-gallen",
+        "responsabile-progetto-aziendale-fust-swiss-household-services-ag-oberburen-sankt-gallen"
       ]
     },
     {
@@ -3080,7 +3088,6 @@
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3110,7 +3117,6 @@
         "stv-geschaftsfuhrer-in-80-100-two-spice-ag-dietlikon-22vqvw",
         "stv-geschaftsfuhrer-in-80-100-two-spice-ag-dietlikon"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
@@ -3144,9 +3150,9 @@
         "fr": "Personnel de production: 80 à 100 %"
       },
       "descriptionByLocale": {
+        "de": "## Produktionsmitarbeiter:in 80-100%\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Die Yooji's Manufaktur, welche zur Two Spice AG gehört, bietet ein vielseitiges und exquisites Angebot an Sushi, Sashimi und vielem mehr. Die Produktionsstätte der Two Spice Manufaktur befindet sich in Rümlang und beschäftigt über 120 Mitarbeitende. Täglich werden diverse Köstlichkeiten vorgefertigt und mehrmals täglich an die Yooji's Restaurants und Stores geliefert. Auch eigens entwickelte Produkte für unsere japanische Retail Marke ZENBU, werden in der Manufaktur produziert. ZENBU Produkte wie Sushi, Poké, Onigiri und vegane Feinkost werden für Coop produziert und sind schweizweit direkt bei Coop erhältlich. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\n## Aufgaben\n- Schneiden, Befüllen, Verpackung und Auszeichnung der Produkte nach Qualitätsvorgaben\n- Einrichtung und Vorbereitung des Arbeitsplatzes (AVOR)\n- Kommissionieren der Produkte nach Bestellung.\n- Ausführen von täglich anfallenden Aufräum- und Reinigungsarbeiten nach der Reinigungsvorgaben.\n- Einhalten der Hygiene- Qualität und -Sicherheitsvorgaben\n- Pflege und Instandhaltung der Infrastruktur\n\n## Anforderungen\n- Mobilität muss vorhanden sein (oder wohnhaft in Rümlang)\n- Bereitschaft für Nachtschicht: Dienstbeginn ist entweder um 23.30 Uhr, 03.00 Uhr oder 04.00 Uhr\n- Berufserfahrung in einer vergleichbaren Funktion in der Lebensmittelbranche\n- Zuverlässigkeit\n- Gute Deutschkenntnisse\n- Saubere, exakte und effiziente Arbeitsweise\n- Stressresistent, belastbar und körperlich fit\n\n## Was wir bieten\n\n## Deine Ansprechperson\nNadine Grob\n, Human Resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
         "it": "## Personale di produzione: 80-100 %\n\nDue Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## La Manufaktur di Yooji, che fa parte di Two Spice AG, offre una gamma versatile e squisita di sushi, sashimi e molto altro. Il sito di produzione del Two Spice Manufaktur si trova in Rümlang e impiega più di 120 persone. Varie prelibatezze sono preparate ogni giorno e consegnate ai ristoranti e negozi di Yooji più volte al giorno. Prodotti appositamente sviluppati per il nostro marchio commerciale giapponese ZENBU sono prodotti anche in fabbrica. Prodotti ZENBU come Sushi, Poké, Onigiri e prelibatezze vegane sono prodotti per Coop e sono disponibili direttamente da Coop in tutta la Svizzera. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Taglio, riempimento, imballaggio e marcatura dei prodotti secondo specifiche di qualità\n- Istituzione e preparazione del posto di lavoro (AVOR)\n- Raccolta di prodotti dopo l'ordinazione.\n- eseguire la pulizia quotidiana e il lavoro di pulizia secondo le specifiche di pulizia.\n- Rispetto della qualità dell'igiene e dei requisiti di sicurezza\n- Manutenzione e manutenzione delle infrastrutture\n\n## Requisiti\n- La mobilità deve essere disponibile (o residente in Rümlang)\n- Prontezza per il turno di notte: l'inizio del dovere è 23.30, 03.00 o 04.00\n- Esperienza professionale in una funzione paragonabile nel settore alimentare\n- Affidabilità\n- Buona conoscenza del tedesco\n- Metodi di lavoro puliti, precisi ed efficienti\n- Stress resistente, resistente e fisicamente adatta\n\n## Cosa offriamo\n\n## La persona di contatto\nNadine Grob\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
         "en": "## Production staff: in 80-100 %\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji’s Manufaktur, which is part of Two Spice AG, offers a versatile and exquisite range of sushi, sashimi and much more. The production site of the Two Spice Manufaktur is located in Rümlang and employs more than 120 people. Various delicacies are pre-made every day and delivered to Yooji's restaurants and stores several times a day. Specially developed products for our Japanese retail brand ZENBU are also produced in the factory. ZENBU products such as Sushi, Poké, Onigiri and vegan delicacies are produced for Coop and are available directly from Coop throughout Switzerland. Do you want to be part of our team? Now is your chance!\n\n## Tasks\n- Cutting, filling, packaging and marking of products according to quality specifications\n- Establishment and preparation of the workplace (AVOR)\n- Picking of products after ordering.\n- carrying out daily cleaning and cleaning work according to the cleaning specifications.\n- Compliance with hygiene quality and safety requirements\n- Infrastructure maintenance and maintenance\n\n## Requirements\n- Mobility must be available (or resident in Rümlang)\n- Readiness for night shift: Start of duty is either 23.30, 03.00 or 04.00\n- Professional experience in a comparable function in the food industry\n- Reliability\n- Good knowledge of German\n- Clean, accurate and efficient working methods\n- Stress resistant, resilient and physically fit\n\n## What we offer\n\n## Your contact person\nNadine Grob\n, Human resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
-        "de": "## Produktionsmitarbeiter:in 80-100%\n\n**Two Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Die Yooji's Manufaktur, welche zur Two Spice AG gehört, bietet ein vielseitiges und exquisites Angebot an Sushi, Sashimi und vielem mehr. Die Produktionsstätte der Two Spice Manufaktur befindet sich in Rümlang und beschäftigt über 120 Mitarbeitende. Täglich werden diverse Köstlichkeiten vorgefertigt und mehrmals täglich an die Yooji's Restaurants und Stores geliefert. Auch eigens entwickelte Produkte für unsere japanische Retail Marke ZENBU, werden in der Manufaktur produziert. ZENBU Produkte wie Sushi, Poké, Onigiri und vegane Feinkost werden für Coop produziert und sind schweizweit direkt bei Coop erhältlich. Möchtest du Teil unseres Teams werden? Dann ist jetzt deine Chance!\n\n## Aufgaben\n- Schneiden, Befüllen, Verpackung und Auszeichnung der Produkte nach Qualitätsvorgaben\n- Einrichtung und Vorbereitung des Arbeitsplatzes (AVOR)\n- Kommissionieren der Produkte nach Bestellung.\n- Ausführen von täglich anfallenden Aufräum- und Reinigungsarbeiten nach der Reinigungsvorgaben.\n- Einhalten der Hygiene- Qualität und -Sicherheitsvorgaben\n- Pflege und Instandhaltung der Infrastruktur\n\n## Anforderungen\n- Mobilität muss vorhanden sein (oder wohnhaft in Rümlang)\n- Bereitschaft für Nachtschicht: Dienstbeginn ist entweder um 23.30 Uhr, 03.00 Uhr oder 04.00 Uhr\n- Berufserfahrung in einer vergleichbaren Funktion in der Lebensmittelbranche\n- Zuverlässigkeit\n- Gute Deutschkenntnisse\n- Saubere, exakte und effiziente Arbeitsweise\n- Stressresistent, belastbar und körperlich fit\n\n## Was wir bieten\n\n## Deine Ansprechperson\nNadine Grob\n, Human Resources\n\n**Tipo:** Part-time\n**Sede:** Dietlikon",
         "fr": "## Personnel de production: 80 à 100 %\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji-S Manufaktur, qui fait partie de Two Spice AG, offre une gamme polyvalente et exquise de sushi, sashimi et bien plus encore. Le site de production du Two Spice Manufaktur est situé à Rümlang et emploie plus de 120 personnes. Diverses spécialités sont préparées chaque jour et livrées plusieurs fois par jour aux restaurants et magasins de Yooji. Des produits spécialement développés pour notre marque japonaise ZENBU sont également produits dans l'usine. Les produits ZENBU tels que Sushi, Poké, Onigiri et végétalien sont produits pour Coop et sont disponibles directement auprès de Coop partout en Suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Coupe, remplissage, emballage et marquage des produits selon les spécifications de qualité\n- Établissement et préparation du lieu de travail (AVOR)\n- Prise de produits après commande.\n- effectuer tous les jours des travaux de nettoyage et de nettoyage selon les spécifications de nettoyage.\n- Respect des exigences de qualité et de sécurité en matière d'hygiène\n- Entretien et entretien des infrastructures\n\n## Exigences\n- La mobilité doit être disponible (ou résider à Rümlang)\n- Préparation au travail de nuit : Le début du travail est soit 23.30, 03.00 ou 04.00\n- Expérience professionnelle dans une fonction comparable dans l'industrie alimentaire\n- Fiabilité\n- Bonne connaissance de l'allemand\n- Méthodes de travail propres, précises et efficaces\n- Résistance au stress, résistance et ajustement physique\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nNadine Grob\nRessources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Dietlikon"
       },
       "requirementsByLocale": {},
@@ -3160,6 +3166,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3190,9 +3198,7 @@
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-lvxg2d",
@@ -3249,7 +3255,6 @@
       },
       "addressLocality": "Schiers",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "GR",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3285,8 +3290,7 @@
         "verkaufer-in-food-coop-schiers-graubunden-bv1qsy",
         "verkaufer-in-food-coop-schiers-graubunden-lvxg2d",
         "verkaufer-in-food-coop-schiers-graubunden"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-dz67tq",
@@ -3343,7 +3347,6 @@
       },
       "addressLocality": "Flims",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "GR",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3372,8 +3375,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-molkerei-coop-flims-graubunden-dz67tq",
         "verkaufer-in-frischprodukte-molkerei-coop-flims-graubunden"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-razdof",
@@ -3430,7 +3432,6 @@
       },
       "addressLocality": "Interlaken",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3459,8 +3460,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-interlaken-bern-razdof",
         "verkaufer-in-frischprodukte-coop-interlaken-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-yo9vb3",
@@ -3594,7 +3594,6 @@
       },
       "addressLocality": "Uzwil",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SG",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3623,8 +3622,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-uzwil-sankt-gallen-00gafx",
         "verkaufer-in-frischprodukte-coop-uzwil-sankt-gallen"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-dvqxen",
@@ -3683,7 +3681,6 @@
       },
       "addressLocality": "St. Gallen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SG",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3716,8 +3713,7 @@
         "verkaufer-in-kassen-services-coop-st-gallen-sankt-gallen",
         "vendeur-dans-les-caisses-enregistreuses-services-aide-aux-etudiants-coop-genossenschaft-st-gallen",
         "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-st-gallen"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-xoppf7",
@@ -3864,7 +3860,6 @@
       },
       "addressLocality": "Balgach",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AR",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -3906,8 +3901,7 @@
         "verkaufer-in-food-getranke-wein-coop-bonstetten-zurich-mqg2jm",
         "seller-in-food-drinks-wine-coop-genossenschaft-bonstetten",
         "vendeur-dans-la-nourriture-boissons-vin-coop-genossenschaft-bonstetten"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-g3mqyd",
@@ -3964,7 +3958,6 @@
       },
       "addressLocality": "Heiden",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AR",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -3993,8 +3986,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-heiden-appenzell-ausserrhoden-g3mqyd",
         "verkaufer-in-food-coop-heiden-appenzell-ausserrhoden"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-te06i6",
@@ -4051,7 +4043,6 @@
       },
       "addressLocality": "Herisau",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AR",
       "salaryMin": 100000,
       "salaryMax": 175500,
@@ -4080,8 +4071,7 @@
       "previousSlugs": [
         "rayonleiter-in-fruchte-gemuse-coop-herisau-appenzell-ausserrhoden-te06i6",
         "rayonleiter-in-fruchte-gemuse-coop-herisau-appenzell-ausserrhoden"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-nuznf8",
@@ -4140,7 +4130,6 @@
       },
       "addressLocality": "St. Gallen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SG",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4182,8 +4171,7 @@
         "verkaufer-in-kassen-services-studentenaushilfe-coop-st-gallen-sankt-gallen-pa9tk2",
         "cashier-and-student-service-assistant-coop-genossenschaft-st-gallen-pa9tk2",
         "vendeur-se-caisse-services-etudiant-e-remplacant-e-coop-genossenschaft-st-gallen-pa9tk2"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-rrkh4w",
@@ -4319,7 +4307,6 @@
         "de": "purchasing-manager-bereich-kaffee-m-w-d-coop-basel-stadt-wvqgrm",
         "fr": "secteur-du-gestionnaire-des-achats-de-cafe-h-f-d-coop-genossenschaft-basel"
       },
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
@@ -4350,8 +4337,7 @@
       "previousSlugs": [
         "purchasing-manager-bereich-kaffee-m-w-d-coop-basel-stadt-wvqgrm",
         "purchasing-manager-bereich-kaffee-m-w-d-coop-basel-stadt"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-3yxa3w",
@@ -4515,7 +4501,6 @@
       },
       "addressLocality": "Wünnewil-Flamatt",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "FR",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4544,8 +4529,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-wunnewil-flamatt-freiburg-8wutos",
         "verkaufer-in-food-coop-wunnewil-flamatt-freiburg"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-pg7m8g",
@@ -4591,7 +4575,6 @@
         "de": "zenbu-koch-kochin-two-spice-dietlikon-pg7m8g",
         "fr": "cuisinier-zenbu-two-spice-ag-dietlikon"
       },
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
       "addressRegion": "LU",
@@ -4610,7 +4593,8 @@
       "previousSlugsByLocale": {
         "it": [
           "zenbu-koch-kochin-two-spice-dietlikon-pg7m8g",
-          "zenbu-koch-kochin-two-spice-dietlikon"
+          "zenbu-koch-kochin-two-spice-dietlikon",
+          "cuisinier-sushi-zenbu-two-spice-ag-dietlikon"
         ],
         "en": [
           "zenbu-koch-kochin-two-spice-dietlikon-pg7m8g"
@@ -4621,9 +4605,9 @@
       },
       "previousSlugs": [
         "zenbu-koch-kochin-two-spice-dietlikon-pg7m8g",
-        "zenbu-koch-kochin-two-spice-dietlikon"
-      ],
-      "retranslationAttempts": 1
+        "zenbu-koch-kochin-two-spice-dietlikon",
+        "cuisinier-sushi-zenbu-two-spice-ag-dietlikon"
+      ]
     },
     {
       "id": "company-wniped",
@@ -4671,7 +4655,6 @@
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4700,8 +4683,7 @@
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-two-spice-dietlikon-wniped",
         "stv-geschaftsfuhrer-in-two-spice-dietlikon"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-pq85zh",
@@ -4931,7 +4913,6 @@
         "de": "sushi-hilfskoch-hilfskochin-two-spice-dietlikon-jbl2ur",
         "fr": "chef-chef-de-sushi-two-spice-ag-dietlikon"
       },
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
       "addressRegion": "SG",
@@ -4965,8 +4946,7 @@
         "assistente-chef-sushi-two-spice-ag-dietlikon",
         "chef-chef-sushi-60-80-two-spice-ag-dietlikon",
         "sushi-assistant-chef-two-spice-ag-dietlikon"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-aelpvf",
@@ -5087,7 +5067,6 @@
         "de": "sushi-koch-kochin-two-spice-dietlikon-l55t3g",
         "fr": "cuisinier-chef-de-sushi-two-spice-ag-dietlikon"
       },
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
       "addressRegion": "ZH",
@@ -5118,8 +5097,7 @@
       "previousSlugs": [
         "sushi-koch-kochin-two-spice-dietlikon-l55t3g",
         "sushi-koch-kochin-two-spice-dietlikon"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-4nyj60",
@@ -5277,7 +5255,6 @@
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5306,8 +5283,7 @@
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-two-spice-dietlikon-5g1q0c",
         "stv-geschaftsfuhrer-in-two-spice-dietlikon-2"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-jin9md",
@@ -5355,7 +5331,6 @@
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BS",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5384,8 +5359,7 @@
       "previousSlugs": [
         "ict-system-spezialist-in-coop-basel-stadt-jin9md",
         "ict-system-spezialist-in-coop-basel-stadt"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-7m5klb",
@@ -5501,7 +5475,6 @@
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5530,8 +5503,7 @@
       "previousSlugs": [
         "service-kassenmitarbeiter-in-auf-abruf-two-spice-dietlikon-dauij2",
         "service-kassenmitarbeiter-in-auf-abruf-two-spice-dietlikon"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-4ie484",
@@ -5652,7 +5624,6 @@
         "de": "it-product-owner-sap-s-4hana-bestellwesen-backendprozesse-sap-mm-m-w-d-80-100-coop-basel-stadt-p3p91v",
         "fr": "proprietaire-de-produit-informatique-sap-s-4hana-processus-de-commande-de-sauvegarde-sap-mm-h-f-d-80-100-coop"
       },
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
@@ -5689,8 +5660,7 @@
         "it-product-owner-sap-s-4hana-bestellwesen-backendprozesse-sap-mm-m-w-d-80-100-coop-basel-stadt-p3p91v",
         "it-product-owner-sap-s-4hana-bestellwesen-backendprozesse-sap-mm-m-w-d-80-100-coop-basel-stadt",
         "product-owner-it-sap-s-4hana-ordini-processi-backend-sap-mm-f-m-d-80-100-coop-genossenschaft-basel"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-mniqb2",
@@ -5736,7 +5706,6 @@
         "de": "koch-kochin-fur-unsere-sushi-manufaktur-100-two-spice-dietlikon-mniqb2",
         "fr": "chef-pour-notre-fabricant-de-sushi-100-two-spice-ag-dietlikon"
       },
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
       "addressRegion": "ZH",
@@ -5766,8 +5735,7 @@
       "previousSlugs": [
         "koch-kochin-fur-unsere-sushi-manufaktur-100-two-spice-dietlikon-mniqb2",
         "koch-kochin-fur-unsere-sushi-manufaktur-100-two-spice-dietlikon"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-pcquoc",
@@ -5923,7 +5891,6 @@
       },
       "addressLocality": "Berna",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5952,8 +5919,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-rapperswil-bern-8utgdj",
         "verkaufer-in-food-coop-rapperswil-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-5kimmf",
@@ -6001,7 +5967,6 @@
       },
       "addressLocality": "Steinhausen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZG",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -6030,8 +5995,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-steinhausen-zug-5kimmf",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-steinhausen-zug"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-detg1l",
@@ -6079,7 +6043,6 @@
       },
       "addressLocality": "Brunnen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SZ",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -6108,8 +6071,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz-detg1l",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-brunnen-schwyz"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-6eg9o1",
@@ -6281,7 +6243,6 @@
       },
       "addressLocality": "Wiedlisbach",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6310,8 +6271,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-brot-coop-wiedlisbach-bern-ns3ty3",
         "verkaufer-in-frischprodukte-brot-coop-wiedlisbach-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-od5p8s",
@@ -6368,7 +6328,6 @@
       },
       "addressLocality": "Uetendorf",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6397,8 +6356,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-uetendorf-bern-od5p8s",
         "verkaufer-in-frischprodukte-coop-uetendorf-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-yf7fjn",
@@ -36090,10 +36048,10 @@
         "fr": "Cuisinière (en poids/m/j)\n\nCoopérative de coop — Chur, Graubünden, Sizzera\n\nTâches - Des aliments froids et chauds que vous apportez frais sur l'assiette. - Toujours agréable: Les clients apprécient la façon dont vous servez et les conseillez sur le buffet. - Avec vos plats rafraîchissants vous garantissez des moments de plaisir. - Le fait que vous respectiez toujours les normes de qualité et d'hygiène est une question bien sûr pour vous.\n\nExigences - Vous êtes formé comme cuisinier/cuisinier EFZ/EBA (w/m/d). - Avec la gastronomie du système vous vous connaissez. - Parlez et écrivez bon allemand? Vous pouvez. - Vous aimez être avec les gens dans le travail.\n\n- Réductions : réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différentes prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et pré-chèques moins chers chez Coop Mobile, carte Reka : réduction sur achat, réduction sur Mobility CarSharing, réduction personnel également pour les partenaires :dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs - Conditions d'emploi : fonds de pension : 2/3 est payé par Coop,\n\nConditions d'emploi attrayantes et égalité salariale certifiée, primes de fidélité, plan d'épargne à la caisse de retraite, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé - temps de travail : 5 semaines de congés, modèles de temps de travail flexibles - formation continue : plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, offres de formation L-GAV et de formation continue et Coop - durabilité : engagement envers les personnes, les animaux et la nature avec plus de 400 actions - communication : application interne pour les salariés - santé :\n\nMise à jour de la condition physique: Fr.\n\n200.– réduction sur abonnement annuel, participation gratuite à diverses courses d'entreprises, sports d'entreprises\n\nVotre interlocuteur Nadia Rue Schr.\n\nTipo: Sede à temps plein: Chur"
       },
       "slugByLocale": {
-        "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-        "en": "cook-cook-f-m-d-coop-genossenschaft-chur",
+        "it": "chef-m-w-d-coop-genossenschaft-chur-graubunden",
+        "en": "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-        "fr": "cuire-cuire-f-m-d-coop-genossenschaft-chur"
+        "fr": "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
       },
       "requirementsByLocale": {
         "de": [
@@ -36132,18 +36090,24 @@
           "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "chef-m-w-d-coop-genossenschaft-chur-graubunden",
           "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-          "chef-m-w-d-coop-genossenschaft-chur"
+          "chef-m-w-d-coop-genossenschaft-chur",
+          "kochin-koch-m-w-d-coop-genossenschaft-chur",
+          "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
+          "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
+          "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden"
+          "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden",
+          "cook-cook-f-m-d-coop-genossenschaft-chur"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
+          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
+          "cuire-cuire-f-m-d-coop-genossenschaft-chur"
         ]
       },
       "previousSlugs": [
@@ -36160,7 +36124,11 @@
         "chef-m-w-d-coop-genossenschaft-chur-graubunden",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-        "chef-m-w-d-coop-genossenschaft-chur"
+        "chef-m-w-d-coop-genossenschaft-chur",
+        "kochin-koch-m-w-d-coop-genossenschaft-chur",
+        "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
+        "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
+        "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -134936,7 +134904,7 @@
         "it": "Membro del team Ristorante (w/m/d)",
         "en": "Restaurant Team Member (w/m/d)",
         "de": "Teammember Restaurant (w/m/d)",
-        "fr": ""
+        "fr": "Membre de l'équipe Restaurant (h/f/d)Z"
       },
       "descriptionByLocale": {
         "it": "Teammember Restaurant (f/m/d)\n\nMarché Restaurants Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\nMarché Restaurants Schweiz AG è una delle 10 aziende svizzere con il maggior fatturato nel settore della ristorazione di sistema a servizio completo e con il marchio \"Marché\" è chiaramente il numero 1 nella ristorazione autostradale. Dal 2014 Marché Restaurants Schweiz AG fa parte del Gruppo Coop come società affiliata indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – siamo presenti non solo sulle autostrade o all'aeroporto di Zurigo, ma anche nelle principali stazioni ferroviarie svizzere di Zurigo, Berna e Basilea e in alcuni popolari centri commerciali della Svizzera tedesca. In altre parole, perfezioniamo la vita quotidiana dei nostri ospiti, ovunque le persone si concedano una pausa ristorativa.\n\nCompiti\n- Accogliere, servire e consigliare gli ospiti\n- Preparazione di snack e bevande fresche\n- Vendita panini freschi, insalate, food e bevande\n- Preparazione di specialità di caffè e tè, nonché bevande a base di latte\n- Vendita di prodotti freschi e bevande al caffè e juice counter\n- Allestimento e presentazione dell'offerta, lavori di preparazione e pulizia\n- Pulire, lavare e riporre le stoviglie\n- Funzionamento della cassa, incl. fatturazione\n- Igiene e pulizia secondo gli standard HACCP\n\nRequisiti\n- Esperienza professionale nel settore della ristorazione\n- Servizi e",
@@ -134993,9 +134961,9 @@
         "location": "Soletta",
         "canton": "SO"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-678f1e",
@@ -135021,7 +134989,7 @@
         "it": "Membro del Team Ristorante (w/m/d)",
         "en": "Restaurant Team Member (m/f/d)",
         "de": "Teammember Restaurant (w/m/d)",
-        "fr": ""
+        "fr": "Membre de l'équipe Restaurant (h/f/d)Z"
       },
       "descriptionByLocale": {
         "it": "Teammember Restaurant (f/m/d)\n\nMarché Restaurants Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\nMarché Restaurants Schweiz AG è una delle 10 aziende svizzere con il maggior fatturato nel settore della ristorazione di sistema a servizio completo e con il marchio \"Marché\" è chiaramente il numero 1 nella ristorazione autostradale. Dal 2014 Marché Restaurants Schweiz AG fa parte del Gruppo Coop come società affiliata indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – siamo presenti non solo sulle autostrade o all'aeroporto di Zurigo, ma anche nelle principali stazioni ferroviarie svizzere di Zurigo, Berna e Basilea e in alcuni popolari centri commerciali della Svizzera tedesca. In altre parole, perfezioniamo la vita quotidiana dei nostri ospiti, ovunque le persone si concedano una pausa ristorativa.\n\nCompiti\n- Accogliere, servire e consigliare gli ospiti\n- Preparazione di snack e bevande fresche\n- Vendita panini freschi, insalate, food e bevande\n- Preparazione di specialità di caffè e tè, nonché bevande a base di latte\n- Vendita di prodotti freschi e bevande al caffè e juice counter\n- Allestimento e presentazione dell'offerta, lavori di preparazione e pulizia\n- Pulire, lavare e riporre le stoviglie\n- Funzionamento della cassa, incl. fatturazione\n- Igiene e pulizia secondo gli standard HACCP\n\nRequisiti\n- Esperienza professionale nel settore della ristorazione\n- Servizi e",
@@ -135111,9 +135079,9 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-ovsjoj",

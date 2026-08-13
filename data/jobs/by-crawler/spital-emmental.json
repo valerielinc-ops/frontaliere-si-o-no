@@ -4169,15 +4169,19 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "leitende-r-medizinische-r-praxisassistent-in-a-spital-emmental-burgdorf",
-        "senior-r-medical-r-assistente-di-pratica-in-a-spital-emmental-burgdorf",
-        "assistant-e-medical-e-en-cabinet-medical-spital-emmental-burgdorf",
-        "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "medical-practice-assistant-a-spital-emmental-burgdorf",
-        "assistente-assistente-di-medicina-di-base-a-spital-emmental-burgdorf",
-        "medical-practice-assistant-spital-emmental-burgdorf"
-      ],
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T10:18:35.601Z",
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-medizinische-r-praxisassistent-in-a-spital-emmental-burgdorf",
@@ -4200,19 +4204,15 @@
           "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
         ]
       },
-      "firstSeenAt": "2026-08-12T10:18:35.601Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "leitende-r-medizinische-r-praxisassistent-in-a-spital-emmental-burgdorf",
+        "senior-r-medical-r-assistente-di-pratica-in-a-spital-emmental-burgdorf",
+        "assistant-e-medical-e-en-cabinet-medical-spital-emmental-burgdorf",
+        "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
+        "medical-practice-assistant-a-spital-emmental-burgdorf",
+        "assistente-assistente-di-medicina-di-base-a-spital-emmental-burgdorf",
+        "medical-practice-assistant-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-a81ae95bd284",
@@ -4354,11 +4354,6 @@
       "pensumMax": 100,
       "pensum": "100%",
       "contractDuration": "temporary",
-      "previousSlugs": [
-        "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
-        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf",
-        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
@@ -4372,7 +4367,11 @@
           "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf"
         ]
       },
-      "firstSeenAt": "2026-08-12T10:18:34.407Z",
+      "previousSlugs": [
+        "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
+        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf",
+        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau"
+      ],
       "salaryMin": 66000,
       "salaryMax": 112000,
       "baseSalary": {
@@ -4384,7 +4383,8 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:18:34.407Z"
     },
     {
       "id": "spital-emmental-2937ae017e04",
@@ -4441,14 +4441,19 @@
       "pensumMax": 50,
       "pensum": "50%",
       "contractDuration": "temporary",
-      "previousSlugs": [
-        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
-        "nutrizionista-in-bsc-a-spital-emmental-burgdorf",
-        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2",
-        "nutritionist-bsc-a-spital-emmental-burgdorf-langnau",
-        "nutritionist-dietitian-bsc-a-spital-emmental-burgdorf-langnau",
-        "nutritionniste-bsc-a-spital-emmental-burgdorf"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T10:18:33.739Z",
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
@@ -4465,19 +4470,14 @@
           "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
         ]
       },
-      "firstSeenAt": "2026-08-12T10:18:33.739Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+        "nutrizionista-in-bsc-a-spital-emmental-burgdorf",
+        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2",
+        "nutritionist-bsc-a-spital-emmental-burgdorf-langnau",
+        "nutritionist-dietitian-bsc-a-spital-emmental-burgdorf-langnau",
+        "nutritionniste-bsc-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-327cb62df559",
