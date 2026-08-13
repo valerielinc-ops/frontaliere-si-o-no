@@ -602,6 +602,7 @@ jobs:
       # section, ticino; svizzera/zurigo reuse it via
       # scripts/lib/section-shard-slugs.json).
       - name: Push section shards (IT → frontaliere-<section>-it)
+        id: push-section-shards-it
         if: matrix.locale == 'it'
         # A push failure must never block the apex publish: the strip then no-ops
         # (no ok-marker) so that section stays in the apex (>10 GB, deploy fails —
@@ -800,11 +801,57 @@ jobs:
           fi
           exit "$fail"
 
-      # No purge below (unlike "Push locale shard" further down, #5511): a
-      # section fan-out is 26 sections × 2 hosts = 52 URLs/leg, over the
-      # 30-URL cap `cf-purge-cache.mjs --files=` enforces, so the fixed
-      # 9-path list #5511 uses for the locale shard doesn't carry over
-      # as-is — needs chunked purge calls instead. Tracked in #5513.
+      # ── Purge the sections just pushed (apex AND origin), batched (#5513) ──
+      #
+      # deploy.yml purges the LOCALE shard after every push (#5483/#5511) but
+      # SECTION shards — pushed above — got nothing: same staleness class
+      # (edge keeps serving the previous build for up to the Worker's
+      # ORIGIN_CACHE_TTL, 7200s), a different funnel-critical surface
+      # (cerca-lavoro-<cantone>, section landings). Left open deliberately by
+      # #5511: a section fan-out is dozens of sections × 2 hosts (apex+origin)
+      # — over the 30-URL cap a single `cf-purge-cache.mjs --files=` call
+      # enforces, so the fixed 9-path shape #5511 uses for the locale shard
+      # does not carry over as-is; it needs batching.
+      #
+      # Gated on the per-section ok-marker, not on the push step's outcome:
+      # push_one's fan-out (above) returns non-zero when ANY ONE of the
+      # sections failed to push, so an outcome gate here would silently skip
+      # the purge for every OTHER section that pushed fine.
+      # scripts/ci/section-shard-purge-urls.mjs takes exactly the sections
+      # whose $RUNNER_TEMP/shard-ok-<section>-it marker is present — the same
+      # signal the tar-pack step below already trusts — and batches their
+      # apex+origin URLs into ≤30-URL calls to scripts/cf-purge-cache.mjs, one
+      # call per batch, each batch independently tolerated: one failed batch
+      # must not sink the rest.
+      - name: Purge edge for pushed section shards (apex AND origin)
+        if: matrix.locale == 'it'
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::warning::CF_API_TOKEN missing after the Remote Config load — section shards are updated, but the edge keeps serving cached copies until ORIGIN_CACHE_TTL (7200s) expires"
+            exit 0
+          fi
+          sections=()
+          for marker in "$RUNNER_TEMP"/shard-ok-*-it; do
+            [ -e "$marker" ] || continue
+            name="$(basename "$marker")"
+            sections+=("${name#shard-ok-}")
+          done
+          sections=("${sections[@]%-it}")
+          if [ "${#sections[@]}" -eq 0 ]; then
+            echo "no section shard-ok markers for it — nothing to purge"
+            exit 0
+          fi
+          fail=0
+          while IFS= read -r batch_urls; do
+            [ -z "$batch_urls" ] && continue
+            node scripts/cf-purge-cache.mjs "--files=$batch_urls" || {
+              echo "::warning::a section purge batch failed — those URLs keep serving the previous build until the TTL expires"
+              fail=1
+            }
+          done < <(node scripts/ci/section-shard-purge-urls.mjs it "${sections[@]}")
+          exit "$fail"
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — mirrors "Pack locale shard dist (tar)" below. Previously
@@ -1362,6 +1409,7 @@ jobs:
       # Push gates on the deploy key; strip on <SECTION>_SHARD_LIVE + the push
       # ok-marker.
       - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
+        id: push-section-shards-nonit
         if: matrix.locale != 'it'
         continue-on-error: true
         env:
@@ -1537,8 +1585,40 @@ jobs:
           fi
           exit "$fail"
 
-      # No purge below — same gap as the IT leg above (52 URLs/leg over the
-      # 30-URL cap, needs chunking). Tracked in #5513.
+      # ── Purge the sections just pushed (apex AND origin), batched (#5513) ──
+      # Same gap and same fix as the IT leg above — see that step's comment
+      # for the full rationale (ok-marker gate, not outcome, batched calls).
+      - name: Purge edge for pushed section shards (apex AND origin)
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          LOCALE: ${{ matrix.locale }}
+        run: |
+          set -uo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::warning::CF_API_TOKEN missing after the Remote Config load — section shards are updated, but the edge keeps serving cached copies until ORIGIN_CACHE_TTL (7200s) expires"
+            exit 0
+          fi
+          sections=()
+          for marker in "$RUNNER_TEMP"/shard-ok-*-"$LOCALE"; do
+            [ -e "$marker" ] || continue
+            name="$(basename "$marker")"
+            sections+=("${name#shard-ok-}")
+          done
+          sections=("${sections[@]%-"$LOCALE"}")
+          if [ "${#sections[@]}" -eq 0 ]; then
+            echo "no section shard-ok markers for $LOCALE — nothing to purge"
+            exit 0
+          fi
+          fail=0
+          while IFS= read -r batch_urls; do
+            [ -z "$batch_urls" ] && continue
+            node scripts/cf-purge-cache.mjs "--files=$batch_urls" || {
+              echo "::warning::a section purge batch failed — those URLs keep serving the previous build until the TTL expires"
+              fail=1
+            }
+          done < <(node scripts/ci/section-shard-purge-urls.mjs "$LOCALE" "${sections[@]}")
+          exit "$fail"
 
       # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — see the IT leg's "Pack section shard dist" step above for
