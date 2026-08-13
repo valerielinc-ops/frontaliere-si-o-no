@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-12T21:50:26.659Z",
+  "assembledAt": "2026-08-13T10:18:30.067Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T21:50:23.000Z",
+      "crawledAt": "2026-08-13T10:18:26.328Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:50:16.250Z",
+      "crawledAt": "2026-08-13T10:18:25.074Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,6 +141,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -158,7 +167,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -168,7 +177,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -185,7 +194,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:50:11.858Z",
+      "crawledAt": "2026-08-13T10:18:24.044Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,6 +258,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -294,7 +312,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:50:09.433Z",
+      "crawledAt": "2026-08-13T10:18:23.167Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:50:07.325Z",
+      "crawledAt": "2026-08-13T10:18:22.362Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -433,6 +451,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -478,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:50:05.795Z",
+      "crawledAt": "2026-08-13T10:18:21.429Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -519,11 +538,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -579,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-musicale-rete-due/3cc6c92a-0f29-4989-b512-dcdd43e54ec7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:50:04.494Z",
+      "crawledAt": "2026-08-13T10:18:20.563Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,6 +668,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:23:16.448Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -692,7 +714,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:50:03.426Z",
+      "crawledAt": "2026-08-13T10:18:18.986Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -726,11 +748,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -786,7 +810,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/mediendokumentalist-in-musik/2219975b-2326-406c-b1d9-89c2d03e456d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:50:02.452Z",
+      "crawledAt": "2026-08-13T10:18:16.927Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -816,11 +840,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "mediendokumentalist-in-musik-srg-ssr-zurich"
+        "mediendokumentalist-in-musik-srg-ssr-zurich",
+        "documentalist-multimediale-in-musica-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mediendokumentalist-in-musik-srg-ssr-zurich"
+          "mediendokumentalist-in-musik-srg-ssr-zurich",
+          "documentalist-multimediale-in-musica-srg-ssr-zurich"
         ],
         "en": [
           "mediendokumentalist-in-musik-srg-ssr-zurich"
@@ -876,7 +902,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-in-regia-videomaker-monocamera/ea400b57-4196-457a-a9eb-22b349dc9919",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:50:01.641Z",
+      "crawledAt": "2026-08-13T10:18:16.103Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -919,6 +945,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-15T10:58:07.877Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -964,7 +991,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-stato-maggiore/312922c1-41bd-4b74-a89e-54b77905f23d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:50:00.549Z",
+      "crawledAt": "2026-08-13T10:18:15.259Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1004,6 +1031,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-21T22:06:20.958Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1049,7 +1077,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistant-e-etat-major/4049e873-37dd-4fbf-b77a-1ab7f5ae0654",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T21:49:59.525Z",
+      "crawledAt": "2026-08-13T10:18:14.452Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1089,17 +1117,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "assistant-e-etat-major-srg-ssr-geneve-8"
+        "assistant-e-etat-major-srg-ssr-geneve-8",
+        "assistente-del-personale-srg-ssr-geneve-8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-etat-major-srg-ssr-geneve-8"
+          "assistant-e-etat-major-srg-ssr-geneve-8",
+          "assistente-del-personale-srg-ssr-geneve-8"
         ],
         "en": [
           "assistant-e-etat-major-srg-ssr-geneve-8"
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:36.450Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1145,7 +1176,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-stab/49ebb65c-5a8e-4eb1-a9af-4be275b513b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:58.719Z",
+      "crawledAt": "2026-08-13T10:18:13.625Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1185,11 +1216,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "assistent-in-stab-srg-ssr-geneve-8"
+        "assistent-in-stab-srg-ssr-geneve-8",
+        "assistente-personale-srg-ssr-geneve-8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-stab-srg-ssr-geneve-8"
+          "assistent-in-stab-srg-ssr-geneve-8",
+          "assistente-personale-srg-ssr-geneve-8"
         ],
         "en": [
           "assistent-in-stab-srg-ssr-geneve-8"
@@ -1199,6 +1232,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:30.387Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1244,7 +1278,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/organisationsentwickler-in/04541eea-808a-4631-8796-d5085e1cc384",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:57.929Z",
+      "crawledAt": "2026-08-13T10:18:12.796Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1283,11 +1317,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "organisationsentwickler-in-srg-ssr-lausanne"
+        "organisationsentwickler-in-srg-ssr-lausanne",
+        "organizzatore-in-srg-ssr-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "organisationsentwickler-in-srg-ssr-lausanne"
+          "organisationsentwickler-in-srg-ssr-lausanne",
+          "organizzatore-in-srg-ssr-lausanne"
         ],
         "en": [
           "organisationsentwickler-in-srg-ssr-lausanne"
@@ -1343,7 +1379,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/developpeur-d-organisation-f-h-d/cb912a2d-4362-4131-a5ae-ca75e2eb505e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T21:49:57.042Z",
+      "crawledAt": "2026-08-13T10:18:11.826Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1384,6 +1420,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T11:51:24.572Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1429,7 +1466,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/sviluppatore-trice-organizzativo-a/62516d8b-57dc-4038-a3ef-e7a0c98fd9d2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:49:55.997Z",
+      "crawledAt": "2026-08-13T10:18:10.920Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1468,6 +1505,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T11:51:23.727Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1513,7 +1551,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/prozessanalyst-in/ba2e34a8-f6d3-4190-9557-30f463c1420d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:55.120Z",
+      "crawledAt": "2026-08-13T10:18:10.021Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1553,11 +1591,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "prozessanalyst-in-srg-ssr-bern"
+        "prozessanalyst-in-srg-ssr-bern",
+        "analista-di-processo-srg-ssr-bern-fc3b83"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prozessanalyst-in-srg-ssr-bern"
+          "prozessanalyst-in-srg-ssr-bern",
+          "analista-di-processo-srg-ssr-bern-fc3b83"
         ],
         "en": [
           "prozessanalyst-in-srg-ssr-bern"
@@ -1567,6 +1607,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:26.556Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1612,7 +1653,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analyste-processus-f-h-d/c995c8d0-ced2-41f8-b350-9f3cf248296f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-12T21:49:54.331Z",
+      "crawledAt": "2026-08-13T10:18:09.207Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1652,6 +1693,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T22:02:25.739Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1697,7 +1739,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analista-di-processo/e0464443-452e-4079-be1f-94ae62f7e1d7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:49:53.490Z",
+      "crawledAt": "2026-08-13T10:18:08.385Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1736,6 +1778,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-07-20T22:02:24.891Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1767,7 +1810,7 @@
         "it": "Stage intrattenimento, cultura e società: infotainment, magazine, show e quiz",
         "en": "Entertainment, culture and society: infotainment, magazine, show and quiz",
         "de": "Unterhaltung, Kultur und Gesellschaft: Infotainment, Magazin, Show und Quiz",
-        "fr": "Divertissement, culture et société: divertissement, magazine, spectacle et quiz"
+        "fr": "Stage intrattenimento, cultura e società: infotainment, magazine, show e quiz"
       },
       "description": "COSTRUISCI LA TUA CARRIERA CON NOI\n• Esperienza nella redazione di programmi di infotainment e dirette TV.\n• Coinvolgimento nella redazione dei quiz RSI.\n• Collaborazione con le redazioni Cultura, Società & Scienza e Intrattenimento.\n• Possibilità di contribuire creativamente all'ideazione e alla realizzazione di puntate TV.\n• Contatto diretto con le diverse figure professionali che compongono un team di produzione. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai uno spiccato interesse per il mondo dello spettacolo, dei quiz e della cultura?\n• Ti piacerebbe lavorare all'interno di una redazione TV?\n• Possiedi buone capacità di scrittura e sintesi?\n• Sei una persona curiosa, aperta e dinamica?\n• Hai facilità nel relazionarti con altre persone?\n• Hai buone conoscenze del territorio nazionale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre 2026 e febbraio 2027, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura lunedì 17 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
       "descriptionByLocale": {
@@ -1781,7 +1824,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-intrattenimento-cultura-e-societa-infotainment-magazine-show-e-quiz/e70d234c-38d4-4a09-9f15-d153b82f1dd4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:49:52.690Z",
+      "crawledAt": "2026-08-13T10:18:07.571Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1826,6 +1869,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-07-21T22:06:01.637Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1871,7 +1915,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:49:51.698Z",
+      "crawledAt": "2026-08-13T10:18:06.389Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1937,6 +1981,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:13.924Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1982,7 +2027,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-plattformentwicklung-efz/6fcf847a-745c-45d0-a119-9b0822815df2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:50.831Z",
+      "crawledAt": "2026-08-13T10:17:55.389Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2018,11 +2063,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich"
+        "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich",
+        "grundausbildung-come-informatiker-in-plattformentwicklung-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich"
+          "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich",
+          "grundausbildung-come-informatiker-in-plattformentwicklung-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-informatiker-in-plattformentwicklung-efz-srg-ssr-zurich"
@@ -2078,7 +2125,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-mediamatiker-in-efz/fc54677f-395d-495c-8698-8281912ea042",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:42.448Z",
+      "crawledAt": "2026-08-13T10:17:54.360Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2121,7 +2168,8 @@
         "basic-training-as-ict-specialist-efz-srg-ssr-zurich",
         "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich",
         "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich",
-        "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2130,7 +2178,8 @@
           "basic-training-as-ict-specialist-efz-srg-ssr-zurich",
           "grundausbildung-als-ict-fachfrau-mann-efz-srg-ssr-zurich",
           "formation-de-base-en-tant-que-specialiste-des-tic-efz-srg-ssr-zurich",
-          "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-ict-fachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundausbildung-come-mediamatiker-in-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-mediamatiker-in-efz-srg-ssr-zurich",
@@ -2191,7 +2240,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-efz-applikationsentwicklung/a5855233-f2ce-492c-8d91-f8ba68bf1913",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:36.313Z",
+      "crawledAt": "2026-08-13T10:17:53.333Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2228,11 +2277,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
+        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
+        "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
+          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
+          "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
@@ -2243,103 +2294,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:41.940Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "srg-ssr-0974f8752ac6",
-      "slug": "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich",
-        "en": "basic-education-as-a-specialist-information-and-documentation-efz-srg-ssr-zurich",
-        "de": "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "fr": "education-de-base-en-tant-que-specialiste-information-et-documentation-efz-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Grundausbildung als Fachfrau/Fachmann Information und Dokumentation EFZ",
-      "titleByLocale": {
-        "it": "Grundausbildung come Fachfrau/Fachmann Information e Dokumentation CFC",
-        "en": "Basic education as a specialist Information and Documentation EFZ",
-        "de": "Grundausbildung als Fachfrau/Fachmann Information und Dokumentation EFZ",
-        "fr": "Éducation de base en tant que spécialiste Information et documentation EFZ"
-      },
-      "description": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Du lernst, wie Langzeitaufbewahrung von Informationen jeglicher Art in digitaler und analoger Form umgesetzt wird\n• Du beschlagwortest Fotos und erschliesst TV- und Radiobeiträge für die Langzeitarchivierung.\n• Du lernst, komplexe Recherchen nach Videos, Fotos und Textinformationen durchzuführen und Informationen zu verifizieren.\n• Du organisierst Berufsinformationsanlässe und Führungen sowie absolvierst externe Praktika in einer Bibliothek und einem Verwaltungsarchiv. Wie kannst du dich bewerben? Lies den Leitfaden für die Bewerbung aufmerksam durch und übermittle uns deine Bewerbungsunterlagen und das Bewerbungsvideo. Was bringst du mit?\n• Abgeschlossene Sekundarschule Typ A oder in der gegliederten Oberstufe mit erweiterten Anforderungen E oder gleichwertige Schulbildung\n• Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten\n• Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich\n• Organisations-, Team- und Kommunikationsfähigkeit, hohe Motivation, Ausdauer, systematische und präzise Arbeitsweise, Zuverlässigkeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen von SRF\n• Berufsbildner:innen, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, Teamevents\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-      "descriptionByLocale": {
-        "it": "Quali sono i tuoi compiti? Con l'inizio dell'insegnamento nell'agosto 2027, vi impegnate nei seguenti argomenti:\n• Imparerai come lo stoccaggio a lungo termine di informazioni di qualsiasi tipo è implementato in forma digitale e analogica\n• Etichetta foto e accedi a TV e radio per l'archiviazione a lungo termine.\n• Imparerai a fare ricerche complesse per video, foto e informazioni di testo e verificare le informazioni.\n• Si organizzano eventi di informazioni di carriera e visite guidate, nonché fare stage esterni in una biblioteca e un archivio amministrativo. Come si può applicare? Leggi attentamente la guida dell'applicazione e invia i tuoi documenti di applicazione e il video dell'applicazione a noi. Cosa porti?\n• Scuola secondaria tipo A o scuola superiore suddivisa con requisiti estesi E o istruzione equivalente\n• Interessi in biblioteche, documentazione e archivi e i relativi problemi e lavori\n• Piacere di lavoro informatico, interesse per i media elettronici, alta competenza linguistica per via orale e per iscritto\n• Capacità organizzative, di squadra e di comunicazione, motivazione elevata, resistenza, metodi di lavoro sistematici e precisi, affidabilità Cosa puoi aspettare?\n• Insights e collaborazione in varie aree di lavoro e reparti di SRF\n• Formazione professionale: donne che vi sostengono in tutte le materie\n• Organizza studenti, eventi di squadra\n• 6 settimane di vacanza Ancora domande? Claudia Hirt Specialista Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme.",
-        "en": "What are your tasks? With the start of teaching in August 2027, you are committed to the following topics:\n• You will learn how long-term storage of information of any kind is implemented in digital and analog form\n• You tag photos and access TV and radio for long-term archiving.\n• You will learn to do complex research for videos, photos and text information and verify information.\n• You organize career information events and guided tours as well as do external internships in a library and an administrative archive. How can you apply? Read the application guide carefully and submit your application documents and the application video to us. What do you bring?\n• Secondary school type A or subdivided upper school with extended requirements E or equivalent education\n• Interest in libraries, documentation and archives and the related issues and works\n• Pleasure in computer work, interest in electronic media, high language competence orally and in writing\n• Organizational, team and communication skills, high motivation, endurance, systematic and precise working methods, reliability What can you look forward to?\n• Insights and collaboration in various work areas and departments of SRF\n• Vocational trainers: women who support you in all matters\n• Set up learners, team events\n• 6 weeks of vacation Still questions? Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day.",
-        "de": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Du lernst, wie Langzeitaufbewahrung von Informationen jeglicher Art in digitaler und analoger Form umgesetzt wird\n• Du beschlagwortest Fotos und erschliesst TV- und Radiobeiträge für die Langzeitarchivierung.\n• Du lernst, komplexe Recherchen nach Videos, Fotos und Textinformationen durchzuführen und Informationen zu verifizieren.\n• Du organisierst Berufsinformationsanlässe und Führungen sowie absolvierst externe Praktika in einer Bibliothek und einem Verwaltungsarchiv. Wie kannst du dich bewerben? Lies den Leitfaden für die Bewerbung aufmerksam durch und übermittle uns deine Bewerbungsunterlagen und das Bewerbungsvideo. Was bringst du mit?\n• Abgeschlossene Sekundarschule Typ A oder in der gegliederten Oberstufe mit erweiterten Anforderungen E oder gleichwertige Schulbildung\n• Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten\n• Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich\n• Organisations-, Team- und Kommunikationsfähigkeit, hohe Motivation, Ausdauer, systematische und präzise Arbeitsweise, Zuverlässigkeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen von SRF\n• Berufsbildner:innen, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, Teamevents\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-        "fr": "Quelles sont vos tâches ? Avec le début de l'enseignement en août 2027, vous êtes engagés dans les sujets suivants:\n• Vous apprendrez comment le stockage à long terme d'informations de toute nature est mis en œuvre sous forme numérique et analogique\n• Vous marquez des photos et accédez à la télévision et à la radio pour l'archivage à long terme.\n• Vous apprendrez à faire des recherches complexes pour des vidéos, des photos et des informations texte et vérifier l'information.\n• Vous organisez des événements d'information professionnelle et des visites guidées ainsi que des stages externes dans une bibliothèque et des archives administratives. Comment pouvez-vous postuler? Lisez attentivement le guide de demande et soumettez-nous vos documents de demande et la vidéo de demande. Qu'est-ce que tu apportes ?\n• Enseignement secondaire de type A ou secondaire subdivisé avec des exigences élargies E ou équivalent\n• Intérêt pour les bibliothèques, la documentation et les archives et les questions et travaux connexes\n• Plaisir pour le travail informatique, intérêt pour les médias électroniques, compétence linguistique élevée oralement et par écrit\n• Compétences organisationnelles, d'équipe et de communication, grande motivation, endurance, méthodes de travail systématiques et précises, fiabilité Que pouvez-vous attendre avec impatience?\n• Perspectives et collaboration dans divers domaines de travail et départements du FRS\n• Formateurs professionnels: les femmes qui vous soutiennent dans tous les domaines\n• Mettre en place des apprenants, des événements en équipe\n• 6 semaines de vacances Toujours des questions ? Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:35.451Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1-4",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
-      "requirements": [
-        "Abgeschlossene Sekundarschule Typ A oder in der gegliederten Oberstufe mit erweiterten Anforderungen E oder gleichwertige Schulbildung",
-        "Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten",
-        "Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich",
-        "Organisations-, Team- und Kommunikationsfähigkeit, hohe Motivation, Ausdauer, systematische und präzise Arbeitsweise, Zuverlässigkeit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten",
-          "Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "91370784-d240-4500-8efe-5f54893b9dfa",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
-        ],
-        "en": [
-          "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
-        ],
-        "fr": [
-          "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-03T12:33:40.331Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2385,7 +2339,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-multimediaelektroniker-in-efz/4d9c0d6d-3dd5-4080-87c2-aeff2808f4db",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:34.627Z",
+      "crawledAt": "2026-08-13T10:17:52.448Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2424,11 +2378,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
+          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+          "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
         ],
         "it": [
           "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
+          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+          "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
         ],
         "en": [
           "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
@@ -2439,7 +2395,8 @@
       },
       "previousSlugs": [
         "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
-        "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
+        "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+        "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:41.118Z",
@@ -2488,7 +2445,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:33.678Z",
+      "crawledAt": "2026-08-13T10:17:51.448Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2525,11 +2482,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
           "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ],
         "en": [
           "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
@@ -2540,10 +2499,110 @@
       },
       "previousSlugs": [
         "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:33:44.368Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "srg-ssr-0974f8752ac6",
+      "slug": "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich",
+      "slugByLocale": {
+        "it": "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich",
+        "en": "basic-education-as-a-specialist-information-and-documentation-efz-srg-ssr-zurich",
+        "de": "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "fr": "education-de-base-en-tant-que-specialiste-information-et-documentation-efz-srg-ssr-zurich"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Grundausbildung als Fachfrau/Fachmann Information und Dokumentation EFZ",
+      "titleByLocale": {
+        "it": "Grundausbildung come Fachfrau/Fachmann Information e Dokumentation CFC",
+        "en": "Basic education as a specialist Information and Documentation EFZ",
+        "de": "Grundausbildung als Fachfrau/Fachmann Information und Dokumentation EFZ",
+        "fr": "Éducation de base en tant que spécialiste Information et documentation EFZ"
+      },
+      "description": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Du lernst, wie Langzeitaufbewahrung von Informationen jeglicher Art in digitaler und analoger Form umgesetzt wird\n• Du beschlagwortest Fotos und erschliesst TV- und Radiobeiträge für die Langzeitarchivierung.\n• Du lernst, komplexe Recherchen nach Videos, Fotos und Textinformationen durchzuführen und Informationen zu verifizieren.\n• Du organisierst Berufsinformationsanlässe und Führungen sowie absolvierst externe Praktika in einer Bibliothek und einem Verwaltungsarchiv. Wie kannst du dich bewerben? Lies den \"_blank\">Leitfaden für die Bewerbung aufmerksam durch und übermittle uns deine Bewerbungsunterlagen und das Bewerbungsvideo. Was bringst du mit?\n• Abgeschlossene Sekundarschule Typ A oder in der gegliederten Oberstufe mit erweiterten Anforderungen E oder gleichwertige Schulbildung\n• Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten\n• Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich\n• Organisations-, Team- und Kommunikationsfähigkeit, hohe Motivation, Ausdauer, systematische und präzise Arbeitsweise, Zuverlässigkeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen von SRF\n• Berufsbildner:innen, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, Teamevents\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
+      "descriptionByLocale": {
+        "it": "Quali sono i tuoi compiti? Con l'inizio dell'insegnamento nell'agosto 2027, vi impegnate nei seguenti argomenti:\n• Imparerai come lo stoccaggio a lungo termine di informazioni di qualsiasi tipo è implementato in forma digitale e analogica\n• Etichetta foto e accedi a TV e radio per l'archiviazione a lungo termine.\n• Imparerai a fare ricerche complesse per video, foto e informazioni di testo e verificare le informazioni.\n• Si organizzano eventi di informazioni di carriera e visite guidate, nonché fare stage esterni in una biblioteca e un archivio amministrativo. Come si può applicare? Leggi attentamente la guida dell'applicazione e invia i tuoi documenti di applicazione e il video dell'applicazione a noi. Cosa porti?\n• Scuola secondaria tipo A o scuola superiore suddivisa con requisiti estesi E o istruzione equivalente\n• Interessi in biblioteche, documentazione e archivi e i relativi problemi e lavori\n• Piacere di lavoro informatico, interesse per i media elettronici, alta competenza linguistica per via orale e per iscritto\n• Capacità organizzative, di squadra e di comunicazione, motivazione elevata, resistenza, metodi di lavoro sistematici e precisi, affidabilità Cosa puoi aspettare?\n• Insights e collaborazione in varie aree di lavoro e reparti di SRF\n• Formazione professionale: donne che vi sostengono in tutte le materie\n• Organizza studenti, eventi di squadra\n• 6 settimane di vacanza Ancora domande? Claudia Hirt Specialista Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme.",
+        "en": "What are your tasks? With the start of teaching in August 2027, you are committed to the following topics:\n• You will learn how long-term storage of information of any kind is implemented in digital and analog form\n• You tag photos and access TV and radio for long-term archiving.\n• You will learn to do complex research for videos, photos and text information and verify information.\n• You organize career information events and guided tours as well as do external internships in a library and an administrative archive. How can you apply? Read the application guide carefully and submit your application documents and the application video to us. What do you bring?\n• Secondary school type A or subdivided upper school with extended requirements E or equivalent education\n• Interest in libraries, documentation and archives and the related issues and works\n• Pleasure in computer work, interest in electronic media, high language competence orally and in writing\n• Organizational, team and communication skills, high motivation, endurance, systematic and precise working methods, reliability What can you look forward to?\n• Insights and collaboration in various work areas and departments of SRF\n• Vocational trainers: women who support you in all matters\n• Set up learners, team events\n• 6 weeks of vacation Still questions? Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day.",
+        "de": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Du lernst, wie Langzeitaufbewahrung von Informationen jeglicher Art in digitaler und analoger Form umgesetzt wird\n• Du beschlagwortest Fotos und erschliesst TV- und Radiobeiträge für die Langzeitarchivierung.\n• Du lernst, komplexe Recherchen nach Videos, Fotos und Textinformationen durchzuführen und Informationen zu verifizieren.\n• Du organisierst Berufsinformationsanlässe und Führungen sowie absolvierst externe Praktika in einer Bibliothek und einem Verwaltungsarchiv. Wie kannst du dich bewerben? Lies den \"_blank\">Leitfaden für die Bewerbung aufmerksam durch und übermittle uns deine Bewerbungsunterlagen und das Bewerbungsvideo. Was bringst du mit?\n• Abgeschlossene Sekundarschule Typ A oder in der gegliederten Oberstufe mit erweiterten Anforderungen E oder gleichwertige Schulbildung\n• Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten\n• Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich\n• Organisations-, Team- und Kommunikationsfähigkeit, hohe Motivation, Ausdauer, systematische und präzise Arbeitsweise, Zuverlässigkeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen von SRF\n• Berufsbildner:innen, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, Teamevents\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
+        "fr": "Quelles sont vos tâches ? Avec le début de l'enseignement en août 2027, vous êtes engagés dans les sujets suivants:\n• Vous apprendrez comment le stockage à long terme d'informations de toute nature est mis en œuvre sous forme numérique et analogique\n• Vous marquez des photos et accédez à la télévision et à la radio pour l'archivage à long terme.\n• Vous apprendrez à faire des recherches complexes pour des vidéos, des photos et des informations texte et vérifier l'information.\n• Vous organisez des événements d'information professionnelle et des visites guidées ainsi que des stages externes dans une bibliothèque et des archives administratives. Comment pouvez-vous postuler? Lisez attentivement le guide de demande et soumettez-nous vos documents de demande et la vidéo de demande. Qu'est-ce que tu apportes ?\n• Enseignement secondaire de type A ou secondaire subdivisé avec des exigences élargies E ou équivalent\n• Intérêt pour les bibliothèques, la documentation et les archives et les questions et travaux connexes\n• Plaisir pour le travail informatique, intérêt pour les médias électroniques, compétence linguistique élevée oralement et par écrit\n• Compétences organisationnelles, d'équipe et de communication, grande motivation, endurance, méthodes de travail systématiques et précises, fiabilité Que pouvez-vous attendre avec impatience?\n• Perspectives et collaboration dans divers domaines de travail et départements du FRS\n• Formateurs professionnels: les femmes qui vous soutiennent dans tous les domaines\n• Mettre en place des apprenants, des événements en équipe\n• 6 semaines de vacances Toujours des questions ? Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-13T10:17:50.564Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1-4",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
+      "requirements": [
+        "Abgeschlossene Sekundarschule Typ A oder in der gegliederten Oberstufe mit erweiterten Anforderungen E oder gleichwertige Schulbildung",
+        "Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten",
+        "Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich",
+        "Organisations-, Team- und Kommunikationsfähigkeit, hohe Motivation, Ausdauer, systematische und präzise Arbeitsweise, Zuverlässigkeit"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Interesse an Bibliotheken, Dokumentationen und Archiven und den dazu gehörenden Fragestellungen und Arbeiten",
+          "Freude an Computerarbeit, Interesse an elektronischen Medien, hohe Sprachkompetenz mündlich und schriftlich"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "91370784-d240-4500-8efe-5f54893b9dfa",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "previousSlugs": [
+        "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+        ],
+        "en": [
+          "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        ],
+        "fr": [
+          "grundbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T12:33:40.331Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2573,7 +2632,7 @@
       "title": "Stage Digital Marketing Specialist",
       "titleByLocale": {
         "it": "Stage Digital Marketing Specialista",
-        "en": "Digital Marketing Specialist",
+        "en": "Stage Digital Marketing Specialist",
         "de": "Stage Digital Marketing Spezialist",
         "fr": "Stage Digital Marketing Spécialiste"
       },
@@ -2589,7 +2648,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T21:49:32.510Z",
+      "crawledAt": "2026-08-13T10:17:49.504Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2632,6 +2691,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-04T22:16:04.757Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2677,7 +2737,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T21:49:31.542Z",
+      "crawledAt": "2026-08-13T10:17:48.512Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2712,11 +2772,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+        "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+          "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
