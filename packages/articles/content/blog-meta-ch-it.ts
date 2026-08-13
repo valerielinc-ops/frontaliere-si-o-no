@@ -2608,6 +2608,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.title': 'Ospedali svizzeri, la pulizia va migliorata',
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.excerpt': 'Gli ospedali svizzeri stanno migliorando la pulizia, ma ci sono ancora carenze nella gestione dei dispositivi medici.',
     'blog.article.ospedali-svizzeri-pulizia-va-migliorata.imageAlt': 'Ospedali svizzeri con la bandiera della Svizzera',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.title': 'Incidente con un veicolo agricolo, morto un bambino di 9 anni',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.excerpt': 'Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera',
+    'blog.article.incidente-veicolo-agricolo-morto-bambino-9-anni.imageAlt': 'Incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera',
 };
 
 export default blogMetaChIt;

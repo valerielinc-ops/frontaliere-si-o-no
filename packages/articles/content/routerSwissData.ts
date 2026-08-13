@@ -895,6 +895,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'porsche-arretra-elettrico-taycan': { it: 'porsche-arretra-elettrico-taycan', en: 'porsche-backs-out-of-electric-taycan', de: 'porsche-gibt-electric-taycan-auf', fr: 'porsche-arrete-la-production-de-taycan' },
  'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni': { it: 'mezzo-agricolo-esce-di-strada-muore-bambino-di-nove-anni', en: 'agricultural-vehicle-exits-road-dies-9-year-old-child', de: 'landwirtschaftliches-fahrzeug-verlasst-fahrbahn-kind-9-jahre-verstorben', fr: 'v-c3-a9hicule-agricole-quitte-route-enfants-9-ans-verst' },
  'ospedali-svizzeri-pulizia-va-migliorata': { it: 'ospedali-svizzeri-pulizia-va-migliorata', en: 'swiss-hospitals-improve-pulizia', de: 'schweizer-krankenhaeuser-pulizia-im-besseren', fr: 'hopitaux-suisses-pulizia-mieux' },
+ 'incidente-veicolo-agricolo-morto-bambino-9-anni': { it: 'incidente-veicolo-agricolo-morto-bambino-9-anni', en: 'farm-vehicle-accident-dead-9-year-old-child', de: 'unfall-mit-einem-landwirtschaftlichen-fahrzeug-tot-9-jahriges-kind', fr: 'accident-avec-un-vehicule-agricole-mort-de-9-ans' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

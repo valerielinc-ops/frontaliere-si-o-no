@@ -33791,6 +33791,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-veicolo-agricolo-morto-bambino-9-anni': {
+    title: 'Incidente con un veicolo agricolo, morto un bambino di 9 anni',
+    description: 'Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera. L\'incidente è avvenuto lunedì 10 agosto sulla route',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, veicolo, agricolo, morto',
+    ogTitle: 'Incidente con un veicolo agricolo, morto un bambino di 9 anni',
+    ogDescription: 'Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d\'Aosta, Svizzera. L\'incidente è avvenuto lunedì 10 agosto sulla route du Châtelard, a Chandonne, nel comune di Liddes (VS).',
+    canonicalPath: '/articoli-svizzera/incidente-veicolo-agricolo-morto-bambino-9-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente con un veicolo agricolo, morto un bambino di 9 anni",
+      "description": "Un bambino di 9 anni è morto in un incidente con un veicolo agricolo nella Valle d'Aosta, Svizzera. L'incidente è avvenuto lunedì 10 agosto sulla route",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-veicolo-agricolo-morto-bambino-9-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente con un veicolo agricolo nella Valle d'Aosta, Svizzera"
+      },
+      "datePublished": "2026-08-13T23:04:09+00:00",
+      "dateModified": "2026-08-13T23:04:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-veicolo-agricolo-morto-bambino-9-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
