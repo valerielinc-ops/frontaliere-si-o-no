@@ -18,6 +18,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } from './shared/pdfKitTheme';
+import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 /**
  * Cache directory for the PDF content-hash manifest. Mirrors the convention
@@ -156,11 +157,7 @@ function extractArticleContent(
 
  // Unescape depending on delimiter style
  if (delimiter === "'") {
- value = value
- .replace(/\\n/g, '\n')
- .replace(/\\'/g, "'")
- .replace(/\\"/g, '"')
- .replace(/\\\\/g, '\\');
+ value = unescapeTsString(value, { n: '\n', "'": "'", '"': '"', '\\': '\\' });
  } else {
  // Backtick strings: newlines are literal, only \\` needs unescaping
  value = value.replace(/\\`/g, '`');

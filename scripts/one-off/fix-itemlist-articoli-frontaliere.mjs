@@ -41,6 +41,7 @@ import {
   escapeJsonString,
   NUMBER_OF_ITEMS_RE,
 } from '../lib/seo-pages-article-list.mjs';
+import { unescapeTsString } from '../lib/unescape-ts-string.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..', '..');
@@ -74,7 +75,7 @@ function loadBlogTitles(blogMetaSrc) {
   while ((m = re.exec(blogMetaSrc))) {
     const [, slug, rawTitle] = m;
     // Un-escape the single-quoted JS string literal (\' -> ', \\ -> \).
-    const title = rawTitle.replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+    const title = unescapeTsString(rawTitle, { "'": "'", '\\': '\\' });
     titles.set(slug, title);
   }
   return titles;

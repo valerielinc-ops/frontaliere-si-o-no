@@ -31,6 +31,7 @@ import {
   TOPONYMS_EXCLUDED_HOMOGRAPHS,
 } from '../scripts/lib/it-microcopy-guard.mjs';
 import { normalizeTitleCasing } from '../scripts/create-article.mjs';
+import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 const ROOT = resolve(__dirname, '..');
 
@@ -321,7 +322,7 @@ function scanPublishedMeta() {
     const locale = name.endsWith('-it') ? 'it' : name.endsWith('-en') ? 'en' : name.endsWith('-de') ? 'de' : 'fr';
     for (const m of src.matchAll(/'blog\.article\.([^']+)\.(title|excerpt)':\s*'((?:[^'\\]|\\.)*)'/g)) {
       const [, id, field, raw] = m;
-      const value = raw.replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+      const value = unescapeTsString(raw, { "'": "'", '\\': '\\' });
       scanned += 1;
       const fixes = findMicrocopyDefects(value, { locale, field: field as 'title' | 'excerpt' });
       if (fixes.length) offenders.push({ key: `${name}|${id}.${field}`, value, rules: fixes.map((f) => f.rule) });

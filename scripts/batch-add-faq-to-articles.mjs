@@ -31,6 +31,7 @@ import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushSco
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
 const args = process.argv.slice(2);
@@ -296,10 +297,10 @@ function extractBodyContent(fileContent) {
     let content = m[2];
     if (quoteChar === "'") {
       // Single-quoted TS string: unescape \' \n \\
-      content = content.replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
+      content = unescapeTsString(content, { "'": "'", n: '\n', '\\': '\\' });
     } else {
       // Backtick (template literal): unescape \` \$ \\
-      content = content.replace(/\\`/g, '`').replace(/\\\$/g, '$').replace(/\\\\/g, '\\');
+      content = unescapeTsString(content, { '`': '`', $: '$', '\\': '\\' });
     }
     bodies.push(content);
   }
