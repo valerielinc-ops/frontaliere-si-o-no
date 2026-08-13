@@ -9869,6 +9869,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'I numeri del giorno per i frontalieri – 13 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Bollettino frontalieri del 13 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'I numeri del 13 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.banca-cler-utili-aumento.title': 'Banca Cler: utili in aumento nel primo semestre',
+    'blog.article.banca-cler-utili-aumento.excerpt': 'Banca Cler: utili in aumento del 21% nel primo semestre. Ricavi saliti del 7% a 137 milioni di franchi.',
+    'blog.article.banca-cler-utili-aumento.imageAlt': 'Banca Cler, Lugano',
 };
 
 export default blogMetaIt;
