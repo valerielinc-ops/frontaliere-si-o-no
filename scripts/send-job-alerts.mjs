@@ -43,7 +43,15 @@ import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
 import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
-import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
+import { JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
+import {
+  JOB_ALERT_CADENCE_CEILING_DAYS,
+  decayStampAfterSend,
+  engagedSinceLastJobAlertSend,
+  isJobAlertDueToday,
+  nextJobAlertCadenceState,
+  openedSinceLastJobAlertSend,
+} from './lib/jobAlertCadence.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
@@ -64,6 +72,13 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
+// The UTC calendar day the cadence gate reasons about (#5705). Overridable from
+// the environment the same way send-daily-brief.mjs does it, for two reasons
+// that are not testing conveniences: a rerun inside the same day recomputes the
+// SAME due set and is therefore a no-op, and the cron's measured dispatch delay
+// (median 240 min, max 590 for the `33 0 * * *` slot) cannot push a run across
+// midnight into a different answer than the one the operator saw.
+const TODAY_ISO = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
 // Candidate-pool gate: jobs whose crawledAt (or postedDate fallback) falls
 // inside this window. NOTE: crawledAt refreshes on every re-crawl, so this is
 // an "inventory still listed as of the last day" gate, NOT a "new jobs" gate —
@@ -1221,6 +1236,13 @@ async function sendBatch(emails) {
     scheduleOutcomes.set(email, {
       scheduledFor: item.scheduledFor ?? null,
       sendTimeSource: item.meta?.sendTimeSource ?? item.sendTimeSource ?? null,
+      // Which provider actually carried it (`sent[i] === {...cascadeEmail,
+      // ...result}`, and `result.provider` is what mailerooMetaOnSent already
+      // reads above). The cadence engine needs it: Cloudflare has no webhook at
+      // all, so a send it carried can produce neither an open nor a click, and
+      // counting that silence would demote — and eventually retire — people for
+      // OUR blind spot (#5705 §4.3, ENGAGEMENT_BLIND_PROVIDERS).
+      provider: item.provider ?? null,
     });
   }
 
@@ -1607,38 +1629,59 @@ async function main() {
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
   }
 
-  // 2c. Resolve each alert's effective cadence tier, then gate on it.
-  // Engine-managed by default — recency of last_open_at/last_click_at on the
-  // root job_alert_subscribers/{email} doc (scripts/lib/jobAlertEngagementTier.mjs,
-  // owner design 2026-07-16) — unless the alert carries a sticky manual
-  // `frequencyOverride`, in which case the pinned frequency wins verbatim.
-  // `effectiveTier` is stamped onto each alert so the post-send batch below
-  // can persist it for observability (last_engagement_tier).
-  const WEEKLY_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
-  // Coincidentally the same magnitude as NEWSLETTER_COOLDOWN_MS above and
-  // send-newsletter.mjs's JOB_ALERT_COOLDOWN_MS, but a distinct guard: those
-  // two are cross-channel send dedup, this is the per-alert engagement tier.
-  // The gate is 36h but cron runs once/day → effective cadence is every other
-  // day (~48h). Tier and constant are named accordingly (OPEN_EVERY_OTHER_DAY).
-  const ENGAGEMENT_TIER_EVERY_OTHER_DAY_INTERVAL_MS = 36 * 60 * 60 * 1000;
+  // 2c. Resolve each alert's effective cadence, then gate on it (#5705).
+  //
+  // WHAT CHANGED, AND WHY THE OLD GATE COULD NOT STAY. Until 2026-08-13 this
+  // was three millisecond intervals — no gate at all on the `daily` tier, 36h
+  // on `every-other-day`, 7 days on `weekly` — driven by the engagement tier
+  // alone. Two things were wrong with it, both measured:
+  //
+  //   - Milliseconds against a cron whose dispatch delay is median 240 minutes
+  //     and max 590 do not produce the interval they name: the "36h" gate
+  //     behaved as 48h on a fast day and 72h on a slow one. The scale is now
+  //     UTC CALENDAR DAYS (scripts/lib/cadenceCalendar.mjs), so the due set is
+  //     a pure function of stored state and the day, and a rerun is a no-op.
+  //
+  //   - 1.025 alerts were on a cadence of one email a day, on a channel where
+  //     6.306 of 6.835 active digest alerts were created by a backfill from the
+  //     newsletter list rather than requested by anybody. The owner's decision
+  //     of 2026-08-13 is a ceiling: JOB_ALERT_CADENCE_CEILING_DAYS = 7, which
+  //     engagement may not lift, over the whole channel, with the alerts that
+  //     carry `frequencyOverride: true` as the single exemption — those hold
+  //     the person's own explicit choice about their own frequency.
+  //
+  // Reducing the frequency does NOT make these alerts consented; it makes them
+  // less invasive. "Should they receive this at all?" stays open and is the
+  // owner's (#5705).
+  //
+  // `effectiveTier` keeps carrying the ENGINE tier label (not the capped
+  // interval) so the capacity-cut priority below still serves the most engaged
+  // first and `last_engagement_tier` stays comparable with what previous runs
+  // wrote.
+  let decayedSkipped = 0;
+  const ceilingHeld = { daily: 0, 'every-other-day': 0 };
   alerts = alerts.filter((alert) => {
     const emailKey = alert.email.toLowerCase();
-    const verdict = resolveEffectiveJobAlertTier(alert, jobAlertProfiles.get(emailKey) || null, now);
-    alert.effectiveTier = verdict.tier;
-
-    if (!alert.lastMatchedAt) return true; // never sent — no interval to respect
-    const lastSent = typeof alert.lastMatchedAt.toMillis === 'function'
-      ? alert.lastMatchedAt.toMillis()
-      : new Date(alert.lastMatchedAt).getTime();
-
-    if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY) {
-      return now - lastSent >= WEEKLY_INTERVAL_MS;
+    const decision = isJobAlertDueToday({
+      alert,
+      sub: jobAlertProfiles.get(emailKey) || null,
+      todayIso: TODAY_ISO,
+      nowMs: now,
+    });
+    alert.effectiveTier = decision.tier;
+    alert.cadenceIntervalDays = decision.intervalDays;
+    alert.cadenceManual = decision.manual;
+    if (decision.decayed) {
+      decayedSkipped++;
+      return false;
     }
-    if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY) {
-      return now - lastSent >= ENGAGEMENT_TIER_EVERY_OTHER_DAY_INTERVAL_MS;
-    }
-    return true; // daily tier — no interval gate, same as legacy daily behavior
+    if (decision.ceilingApplied && ceilingHeld[decision.tier] != null) ceilingHeld[decision.tier]++;
+    return decision.due;
   });
+  if (decayedSkipped > 0) {
+    console.log(`   🪦 Cadence-decayed alerts skipped: ${decayedSkipped} (terminal state; the alert stays active — see scripts/lib/jobAlertCadence.mjs)`);
+  }
+  console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
 
   // 2d. Pre-generation capacity check: the loop below does real work per
   // alert (job scoring, live-link HEAD checks over the network, HTML
@@ -1833,7 +1876,14 @@ async function main() {
       text,
       alertId: alert.id,
       ref: alert.ref,
+      // The loaded alert doc itself, carried so the post-send batch can ask the
+      // cadence engine whether THIS send retires it (#5705) without re-reading
+      // Firestore. `ref` alone is not enough: the decay predicate needs the
+      // backfill markers, the manual pin and the current cadence_state.
+      alert,
       effectiveTier: alert.effectiveTier,
+      cadenceManual: alert.cadenceManual === true,
+      cadenceIntervalDays: alert.cadenceIntervalDays ?? null,
       matchCount: matched.length,
       sentMap,
       sentJobs,
@@ -1933,32 +1983,75 @@ async function main() {
   // 5. Update Firestore: lastMatchedAt + matchCount on the alert subdoc
   if (!DRY_RUN) {
     const { FieldValue } = await import('firebase-admin/firestore');
+
+    // Which addresses actually received something. Computed here rather than in
+    // 5b below because BOTH writes need it now: the alert-level decay stamp
+    // must not fire for a send that failed.
+    const sentEmails = [...new Set(
+      emailsToSend
+        .map((email) => email.to.toLowerCase())
+        .filter((email) => !failedEmailSet.has(email)),
+    )];
+
+    // 5a-bis. Advance the per-recipient cadence state (#5705).
+    //
+    // ISO strings, not serverTimestamp(): the engine is a pure function of the
+    // fields it reads back, and a sentinel cannot be read inside the batch that
+    // writes it. `last_sent_at` below keeps its serverTimestamp() — that field
+    // is the cross-channel 36h mutex and is not ours to change.
+    const cadenceSentAtIso = new Date().toISOString();
+    const cadenceStateByEmail = new Map();
+    for (const email of sentEmails) {
+      const sub = jobAlertProfiles.get(email) || {};
+      cadenceStateByEmail.set(email, nextJobAlertCadenceState({
+        sub,
+        // Read from the profile captured BEFORE this send, which is the whole
+        // point: "did they react to the previous email?", not to this one.
+        engaged: engagedSinceLastJobAlertSend(sub),
+        opened: openedSinceLastJobAlertSend(sub),
+        sentAtIso: cadenceSentAtIso,
+        provider: scheduleOutcomes.get(email)?.provider ?? null,
+      }));
+    }
+
     // email.ref points at job_alert_subscribers/{email}/alerts/{alertId} and was
     // captured during the load step above. Pre-filter then chunk past the
     // Firestore 500-op batch cap (emailsToSend can exceed it at scale; a single
     // commit() would throw and skip every lastMatchedAt/matchCount update).
     const toUpdate = emailsToSend.filter((email) => email.ref);
+    let decayedNow = 0;
     await commitInChunks(db, toUpdate, (batch, email) => {
+      const key = email.to.toLowerCase();
+      // The terminal stamp, when this send was the Nth in a row that drew no
+      // signal at all on a backfilled, engine-managed alert. It sets
+      // `cadence_state` and NOTHING else: `active` stays true, the keywords and
+      // the counters stay, and the document remains countable evidence that we
+      // stopped by ourselves rather than because anybody asked.
+      const decay = failedEmailSet.has(key) ? null : decayStampAfterSend({
+        alert: email.alert,
+        nextState: cadenceStateByEmail.get(key),
+        sentAtIso: cadenceSentAtIso,
+      });
+      if (decay) decayedNow++;
       batch.update(email.ref, {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
         // Persist the merged sent-job map (pruned to the dedup window + capped)
         // so the next run excludes these jobs and surfaces fresh ones.
         sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
+        ...(decay || {}),
       });
     });
     console.log('   📊 Firestore updated');
+    if (decayedNow > 0) {
+      console.log(`   🪦 Cadence decay recorded for ${decayedNow} backfilled alert(s) — terminal, active untouched`);
+    }
 
     // 5b. Mirror last_sent_at onto job_alert_subscribers/{email} (root doc),
     // the same field/shape newsletter_subscribers/{email}.last_sent_at already
     // carries. This is what lets send-newsletter.mjs apply a symmetric 36h
     // cooldown (see NEWSLETTER_COOLDOWN_MS above) — until this write existed,
     // the newsletter had no way to know a job alert had just gone out.
-    const sentEmails = [...new Set(
-      emailsToSend
-        .map((email) => email.to.toLowerCase())
-        .filter((email) => !failedEmailSet.has(email)),
-    )];
     // Adaptive-frequency observability: when a subscriber has >1 alert whose
     // effective tiers differ (e.g. one pinned daily, one engine-managed
     // weekly), surface the highest-cadence tier reached this run.
@@ -1971,6 +2064,15 @@ async function main() {
         effectiveTierByEmail.set(key, email.effectiveTier);
       }
     }
+    // Whose send this run was engine-managed. The per-recipient cadence clock
+    // (`ja_cadence_last_sent_at`) is written — and, in isJobAlertDueToday, read
+    // — only for those: a manually pinned daily alert must not stamp a clock
+    // that would then starve this person's engine-managed alerts, nor be
+    // starved by theirs. The pin is the one act of the person about their own
+    // frequency, and it lives on its own clock (#5705 D4).
+    const engineManagedSend = new Set(
+      emailsToSend.filter((email) => !email.cadenceManual).map((email) => email.to.toLowerCase()),
+    );
     if (sentEmails.length > 0) {
       await commitInChunks(db, sentEmails, (batch, email) => {
         // Per-user send-time observability (#3798 follow-up): mirror what the
@@ -1984,6 +2086,11 @@ async function main() {
           last_scheduled_for: outcome?.scheduledFor ?? null,
           last_send_time_source: outcome?.sendTimeSource ?? null,
           last_engagement_tier: effectiveTierByEmail.get(email) ?? null,
+          // The cadence state itself (#5705): tier, demotion streak, decay
+          // counter, provider and the per-recipient clock. Additive fields —
+          // nothing that existed before this issue is overwritten, which is
+          // what makes a revert of this PR a revert and not a migration.
+          ...(engineManagedSend.has(email) ? (cadenceStateByEmail.get(email) || {}) : {}),
         }, { merge: true });
       });
       console.log(`   📬 last_sent_at recorded for ${sentEmails.length} job-alert recipient(s)`);
