@@ -2470,6 +2470,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.title': 'Drug discounts, surveillance is ineffective',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.excerpt': 'The Federal Office of Public Health (FOPH) does not make use of all the tools available for drug market surveillance.',
     'blog.article.sconti-farmaci-vigilanza-poco-efficace.imageAlt': 'Frontalier trying to save on medications in Switzerland',
+    'blog.article.eclissi-solare-studi.title': 'Science studies the solar eclipse',
+    'blog.article.eclissi-solare-studi.excerpt': 'Scientists use the solar eclipse to better understand the Sun\'s atmosphere.',
+    'blog.article.eclissi-solare-studi.imageAlt': 'Solar eclipse observed from Ticino',
 };
 
 export default blogMetaChEn;
