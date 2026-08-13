@@ -9874,6 +9874,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swissquote-crollo-azienda.title': 'Swissquote, sharp drop in the stock market',
     'blog.article.swissquote-crollo-azienda.excerpt': 'The financial services company Swissquote suffered a sharp drop in the stock market, influenced by the weakness of cryptocurrencies and falling profits compared to analysts\' estimates.',
     'blog.article.swissquote-crollo-azienda.imageAlt': 'A photo of a computer showing a stock market crash at Swissquote',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.title': '«Tax on health contrary to the agreements»: the Hinny report is now public',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.excerpt': 'Pascal Hinny\'s expert opinion on the border agreement: the Italian health tax is an income tax and violates international agreements',
+    'blog.article.tassa-sulla-salute-contraria-agli-accordi-ora-e-pubblica-la-perizia-hinny.imageAlt': 'Editorial image related to: «Tassa sulla salute contraria agli accordi»: ora è pubblica la perizia Hinny',
 };
 
 export default blogMetaEn;
