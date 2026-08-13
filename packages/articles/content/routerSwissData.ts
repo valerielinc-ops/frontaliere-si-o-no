@@ -855,6 +855,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mucche-svizzere-canica': { it: 'mucche-svizzere-canica', en: 'swiss-cows-heatwave', de: 'schweizer-kuhe-hitzewelle', fr: 'vaches-suisses-canicule' },
  'mercati-affitti-cantone-berna': { it: 'mercati-affitti-cantone-berna', en: 'rental-market-canton-of-bern', de: 'mietmarkt-kanton-bern', fr: 'marche-locatif-canton-de-berne' },
  'sconti-farmaci-pazienti': { it: 'sconti-farmaci-pazienti', en: 'swiss-pharmaceutical-discounts-patients', de: 'gespensterrabatte-schweizer-arzneimittel-patienten', fr: 'remises-fantomes-medicaments-suisses-patients' },
+ 'mercati-affitti-canton-berna': { it: 'mercati-affitti-canton-berna', en: 'mercato-affitti-canton-berna', de: 'mercato-affitti-canton-berna', fr: 'mercato-affitti-canton-berna' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

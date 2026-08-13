@@ -2488,6 +2488,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sconti-farmaci-pazienti.title': 'Sconti fantasma sui farmaci: Milliardi verloren',
     'blog.article.sconti-farmaci-pazienti.excerpt': 'Die Eidgenössische Finanzkontrolle lehnt die Aufsicht des Bag ab',
     'blog.article.sconti-farmaci-pazienti.imageAlt': 'Gespensterrabatte auf Schweizer Arzneimittel: Milliarden verloren und wenige Einsparungen für Patienten',
+    'blog.article.mercati-affitti-canton-berna.title': 'Mietmarkt im Kanton Bern: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercati-affitti-canton-berna.excerpt': 'Die Mieten im Kanton Bern wachsen stetig. Entdecken Sie die durchschnittlichen Gebühren pro Zone und das Mietrecht.',
+    'blog.article.mercati-affitti-canton-berna.imageAlt': 'Eine Aussicht von Lugano auf dem See',
 };
 
 export default blogMetaChDe;

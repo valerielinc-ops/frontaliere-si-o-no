@@ -2488,6 +2488,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sconti-farmaci-pazienti.title': 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
     'blog.article.sconti-farmaci-pazienti.excerpt': 'Il Controllo federale finanze boccia la vigilanza dell\'UFSP',
     'blog.article.sconti-farmaci-pazienti.imageAlt': 'Sconti fantasma sui farmaci: miliardi persi e pochi risparmi per i pazienti',
+    'blog.article.mercati-affitti-canton-berna.title': 'Mercato degli affitti nel Canton Berna: canoni medi e diritto di locazione',
+    'blog.article.mercati-affitti-canton-berna.excerpt': 'Gli affitti nel Canton Berna sono in costante crescita. Scopri i canoni medi per zona e il diritto di locazione.',
+    'blog.article.mercati-affitti-canton-berna.imageAlt': 'Una panoramica di Lugano sul lago',
 };
 
 export default blogMetaChIt;
