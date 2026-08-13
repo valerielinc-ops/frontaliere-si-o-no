@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fondation-domus-3dabd2ac9637",
-      "slug": "cuisinier-100-fondation-domus-ch",
+      "slug": "fornello-100-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "cuisinier-100-fondation-domus-ch",
-        "it": "cuisinier-100-fondation-domus-ch",
-        "en": "cuisinier-100-fondation-domus-ch",
-        "de": "cuisinier-100-fondation-domus-ch"
+        "it": "fornello-100-fondation-domus-ardon",
+        "en": "cooker-100-fondation-domus-ardon",
+        "de": "kocher-100-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -64,7 +64,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-13T10:23:02.786Z"
+      "firstSeenAt": "2026-08-13T10:23:02.786Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-100-fondation-domus-ch"
+        ],
+        "en": [
+          "cuisinier-100-fondation-domus-ch"
+        ],
+        "de": [
+          "cuisinier-100-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-100-fondation-domus-ch"
+      ]
     }
   ]
 }

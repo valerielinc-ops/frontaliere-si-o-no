@@ -237,7 +237,7 @@
         "en": "medical-scientific-liaison-romandie-ticino-galderma-ch",
         "it": "medical-scientific-liaison-romandie-ticino-galderma-ch",
         "de": "medizinische-wissenschaftliche-verbindung-romandie-ticino-galderma-lausanne",
-        "fr": "liaison-medicale-scientifique-romandie-tessin-galderma-lausanne"
+        "fr": "liaison-scientifique-medicale-romandie-tessin-galderma-lausanne"
       },
       "company": "Galderma",
       "companyKey": "galderma",
@@ -293,7 +293,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-13T10:17:26.726Z"
+      "firstSeenAt": "2026-08-13T10:17:26.726Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "liaison-medicale-scientifique-romandie-tessin-galderma-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "liaison-medicale-scientifique-romandie-tessin-galderma-lausanne"
+      ]
     },
     {
       "id": "galderma-aa19f305918a",
