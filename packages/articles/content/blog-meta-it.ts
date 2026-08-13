@@ -9917,6 +9917,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.valute-frontiere-svizzera-italia.title': 'Valute e Frontiere: guida alle novità per frontalieri',
     'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analisi delle dinamiche tra Svizzera e Italia: dal cambio valuta alla fiscalità, ecco cosa devono sapere i lavoratori frontalieri.',
     'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Valico di frontiera tra Svizzera e Italia',
+    'blog.article.varese-lavoratori-nero-2026.title': 'Varese, oltre 50 lavoratori in nero scoperti, multe per mezzo milione',
+    'blog.article.varese-lavoratori-nero-2026.excerpt': 'La Finanza di Varese ha individuato oltre 50 lavoratori in nero e contestato oltre 280 violazioni in materia di certificazione fiscale.',
+    'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
 };
 
 export default blogMetaIt;

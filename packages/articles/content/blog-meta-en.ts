@@ -9916,6 +9916,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.valute-frontiere-svizzera-italia.title': 'Currencies and Borders: a guide to what\'s new for border workers',
     'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analysis of the dynamics between Switzerland and Italy: from currency exchange to taxation, here\'s what frontier workers need to know.',
     'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Swiss-Italian border crossing',
+    'blog.article.varese-lavoratori-nero-2026.title': 'Varese, over 50 black workers uncovered, fines for half a million',
+    'blog.article.varese-lavoratori-nero-2026.excerpt': 'The Finance Department of Varese identified over 50 black workers and challenged over 280 violations in terms of tax certification.',
+    'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
 };
 
 export default blogMetaEn;

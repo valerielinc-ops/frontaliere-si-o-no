@@ -9918,6 +9918,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.valute-frontiere-svizzera-italia.title': 'Devises et frontières : guide des nouveautés pour les frontaliers',
     'blog.article.valute-frontiere-svizzera-italia.excerpt': 'Analyse de la dynamique entre la Suisse et l\'Italie : du change à la fiscalité, voici ce que les travailleurs frontaliers doivent savoir.',
     'blog.article.valute-frontiere-svizzera-italia.imageAlt': 'Poste frontière entre la Suisse et l\'Italie',
+    'blog.article.varese-lavoratori-nero-2026.title': 'Varese, plus de 50 travailleurs en noir découverts, amendes d\'un demi-million',
+    'blog.article.varese-lavoratori-nero-2026.excerpt': 'La Finance de Varèse a identifié plus de 50 travailleurs au noir et contesté plus de 280 infractions en matière de certification fiscale.',
+    'blog.article.varese-lavoratori-nero-2026.imageAlt': 'Lavoratori in nero scoperti dalla Finanza di Varese',
 };
 
 export default blogMetaFr;
