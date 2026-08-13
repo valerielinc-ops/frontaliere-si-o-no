@@ -33,6 +33,14 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
+import {
+  JOB_ALERT_CADENCE_CEILING_DAYS,
+  estimateDailyVolume,
+  isBackfilledAlert,
+  isDecayed,
+  resolveJobAlertCadence,
+} from './lib/jobAlertCadence.mjs';
+import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 
 const LOOKUP_CHUNK_SIZE = 200; // emails per db.getAll() call — same batching as send-job-alerts.mjs
 
@@ -63,9 +71,27 @@ async function loadActiveAlerts(db) {
     .map((doc) => {
       const data = doc.data() || {};
       const email = String(doc.ref.parent.parent?.id || data.email || '').toLowerCase();
-      return { id: doc.id, email, frequency: data.frequency || 'daily', frequencyOverride: data.frequencyOverride === true };
+      return {
+        id: doc.id,
+        email,
+        frequency: data.frequency || 'daily',
+        frequencyOverride: data.frequencyOverride === true,
+        // Carried for the cadence block (#5705): the backfill markers, the
+        // terminal state and `paused` are all fields on this document, and a
+        // report that guessed them from the id alone would miss the 6.307th case.
+        backfilled_from: data.backfilled_from ?? null,
+        cadence_state: data.cadence_state ?? null,
+        paused: data.paused === true,
+        specificCompanyKey: data.specificCompanyKey ?? null,
+        active: data.active !== false,
+      };
     })
-    .filter((a) => a.email);
+    // The immediate CompanyAlerts belong to scripts/send-company-alerts.mjs, not
+    // to the digest this report describes (#5012 phase 2, shared predicate). All
+    // 15 of them carry `frequencyOverride: true` as of 2026-08-13, so counting
+    // them here put 15 pinned alerts in a volume estimate computed at the
+    // digest's cadence — a number for a send that never happens on this clock.
+    .filter((a) => a.email && !a.paused && !isImmediateCompanyAlert(a));
 }
 
 /**
@@ -102,14 +128,56 @@ export function emptyDistribution() {
  * @param {Map<string, object>} subscriberProfiles
  * @param {number} nowMs
  */
-export function aggregateEngagementTiers(alerts, subscriberProfiles, nowMs) {
+export function aggregateEngagementTiers(alerts, subscriberProfiles, nowMs, { ceilingDays = JOB_ALERT_CADENCE_CEILING_DAYS } = {}) {
   const manualByFrequency = { daily: 0, weekly: 0 };
   const engineDistribution = emptyDistribution();
   const delta = { improved: 0, regressed: 0, unchanged: 0, noPriorSnapshot: 0 };
+  // The cadence layer (#5705). Kept as a separate block on purpose: the four
+  // counters above are a live re-read of the SIGNAL and their meaning must not
+  // change, while these describe what the sender will actually do with it.
+  const cadence = {
+    ceilingDays,
+    decayed: 0,
+    ceilingHeld: 0,
+    backfilled: 0,
+    personCreated: 0,
+    neverEngaged: 0,
+    intervalsBefore: {},
+    intervalsAfter: {},
+    clickEvidence: {},
+  };
+  // What today's gate serves, per tier: no interval on `daily`, 36h on the open
+  // tier — which with one daily cron slot lands on every other day — 7 days on
+  // `weekly`. This is the honest "before" for the volume comparison.
+  const TODAY_INTERVAL_DAYS = {
+    [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 1,
+    [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 2,
+    [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 7,
+  };
 
   for (const alert of alerts) {
     const sub = subscriberProfiles.get(alert.email) || {};
     const verdict = resolveEffectiveJobAlertTier(alert, sub, nowMs);
+
+    if (isBackfilledAlert(alert)) cadence.backfilled++; else cadence.personCreated++;
+    if (!(Number(sub.open_count ?? sub.openCount ?? 0) > 0) && !(Number(sub.click_count ?? sub.clickCount ?? 0) > 0)) {
+      cadence.neverEngaged++;
+    }
+    if (isDecayed(alert)) {
+      // A decayed alert is still `active: true` — that is the point of the
+      // terminal state — so it is still in this query, and counting it as if it
+      // were being mailed would overstate the volume.
+      cadence.decayed++;
+      continue;
+    }
+    const decision = resolveJobAlertCadence(alert, sub, nowMs, { ceilingDays });
+    if (decision.ceilingApplied) cadence.ceilingHeld++;
+    const before = decision.manual ? decision.intervalDays : (TODAY_INTERVAL_DAYS[verdict.tier] ?? 7);
+    cadence.intervalsBefore[before] = (cadence.intervalsBefore[before] || 0) + 1;
+    cadence.intervalsAfter[decision.intervalDays] = (cadence.intervalsAfter[decision.intervalDays] || 0) + 1;
+    if (!decision.manual) {
+      cadence.clickEvidence[verdict.clickEvidence] = (cadence.clickEvidence[verdict.clickEvidence] || 0) + 1;
+    }
 
     if (verdict.manual) {
       manualByFrequency[verdict.tier] = (manualByFrequency[verdict.tier] || 0) + 1;
@@ -132,11 +200,13 @@ export function aggregateEngagementTiers(alerts, subscriberProfiles, nowMs) {
     }
   }
 
-  return { manualByFrequency, engineDistribution, delta, totalAlerts: alerts.length };
+  cadence.volumeBefore = estimateDailyVolume(cadence.intervalsBefore);
+  cadence.volumeAfter = estimateDailyVolume(cadence.intervalsAfter);
+  return { manualByFrequency, engineDistribution, delta, cadence, totalAlerts: alerts.length };
 }
 
 function formatReport(result) {
-  const { manualByFrequency, engineDistribution, delta, totalAlerts } = result;
+  const { manualByFrequency, engineDistribution, delta, cadence, totalAlerts } = result;
   const manualTotal = manualByFrequency.daily + manualByFrequency.weekly;
   const engineTotal = engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.DAILY]
     + engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]
@@ -160,6 +230,22 @@ function formatReport(result) {
   lines.push(`     - regressed (warmer→colder): ${delta.regressed}`);
   lines.push(`     - unchanged:                 ${delta.unchanged}`);
   lines.push(`     - no prior snapshot yet:     ${delta.noPriorSnapshot}`);
+  if (cadence) {
+    lines.push('');
+    lines.push(`   Cadence engine (#5705, ceiling ${cadence.ceilingDays ?? 'off'}d):`);
+    lines.push(`     - from the newsletter backfill: ${cadence.backfilled}`);
+    lines.push(`     - created by a person:          ${cadence.personCreated}`);
+    lines.push(`     - never opened nor clicked:     ${cadence.neverEngaged}`);
+    lines.push(`     - decayed (terminal, still active:true): ${cadence.decayed}`);
+    lines.push(`     - held at the ceiling this run:          ${cadence.ceilingHeld}`);
+    lines.push(`     - intervals served, before: ${JSON.stringify(cadence.intervalsBefore)}`);
+    lines.push(`     - intervals served, after:  ${JSON.stringify(cadence.intervalsAfter)}`);
+    lines.push(`     - expected volume: ${cadence.volumeBefore} → ${cadence.volumeAfter} emails/day`);
+    lines.push(`     - click evidence: ${JSON.stringify(cadence.clickEvidence)}`);
+    if (cadence.volumeAfter > cadence.volumeBefore) {
+      lines.push('     ⚠️  volume went UP — impossible by construction; the gate is not running.');
+    }
+  }
   return lines.join('\n');
 }
 

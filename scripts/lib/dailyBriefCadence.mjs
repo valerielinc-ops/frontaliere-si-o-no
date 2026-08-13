@@ -54,6 +54,12 @@ import {
   isScannerIp,
   toMillis,
 } from './syntheticClicks.mjs';
+import {
+  ENGAGEMENT_BLIND_PROVIDERS,
+  daysBetweenIso,
+  estimateDailyVolume,
+  utcDayOf,
+} from './cadenceCalendar.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -83,6 +89,21 @@ export {
   toMillis,
 };
 
+/**
+ * The calendar arithmetic, the blind-provider set and the volume estimator
+ * moved to scripts/lib/cadenceCalendar.mjs (#5705) for the same reason: the
+ * job-alert channel now runs a second cadence engine, and "how many days since
+ * we last mailed this person" has to be the SAME answer on both. Re-exported
+ * here unchanged — third application of the shim shape above, and the reason
+ * this file's tests did not have to move with them.
+ */
+export {
+  ENGAGEMENT_BLIND_PROVIDERS,
+  daysBetweenIso,
+  estimateDailyVolume,
+  utcDayOf,
+};
+
 /** Days between sends, ordered from most to least frequent. */
 export const DAILY_BRIEF_TIERS = Object.freeze([1, 2, 3, 5, 7]);
 
@@ -107,30 +128,7 @@ export const FREQUENCY_OVERRIDES = Object.freeze({
   off: null,
 });
 
-/**
- * Providers whose sends are invisible to us. Cloudflare has no webhook at all
- * ("no open/click", scripts/check-email-quotas.mjs), so a Cloudflare send that
- * draws no click proves nothing — counting it toward the demotion streak would
- * demote people for OUR blind spot. It is excluded from the denominator
- * (issue #5415 §3.2d).
- */
-export const ENGAGEMENT_BLIND_PROVIDERS = Object.freeze(new Set(['cloudflare']));
-
 // ── helpers ────────────────────────────────────────────────────────────────
-
-/** The UTC calendar day of a timestamp, as YYYY-MM-DD. */
-export function utcDayOf(value) {
-  const ms = toMillis(value);
-  return ms == null ? null : new Date(ms).toISOString().slice(0, 10);
-}
-
-/** Whole UTC days between two YYYY-MM-DD dates (b − a). */
-export function daysBetweenIso(fromIso, toIso) {
-  const from = Date.parse(`${fromIso}T00:00:00Z`);
-  const to = Date.parse(`${toIso}T00:00:00Z`);
-  if (!Number.isFinite(from) || !Number.isFinite(to)) return null;
-  return Math.round((to - from) / DAY_MS);
-}
 
 /** Snap any stored number onto the nearest tier at or below it, floor 1 day. */
 export function normalizeTier(days) {
@@ -519,17 +517,3 @@ export function openedSinceLastSend(sub) {
   return open != null && open > lastSent;
 }
 
-/**
- * Expected daily volume for a tier distribution — what the dry-run prints so a
- * rollout decision is made against the cascade cap instead of a hope (§3.6).
- * @param {Record<number, number>} byTier recipients per tier
- */
-export function estimateDailyVolume(byTier) {
-  let total = 0;
-  for (const [days, count] of Object.entries(byTier)) {
-    const n = Number(days);
-    if (!Number.isFinite(n) || n <= 0) continue;
-    total += count / n;
-  }
-  return Math.round(total);
-}

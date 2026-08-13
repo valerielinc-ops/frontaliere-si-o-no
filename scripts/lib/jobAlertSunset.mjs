@@ -45,6 +45,15 @@
  *                     inactive — worse than the newsletter case, there isn't
  *                     even an accidental exit) → one-time, capped return to
  *                     mailable. See scripts/lib/reprobeGuard.mjs (issue #5559).
+ *
+ * DECAY WINS OVER REPROBE (issue #5705 §5.4). A cadence decay
+ * (`cadence_state: 'decayed'`, scripts/lib/jobAlertCadence.mjs) is terminal by
+ * design and its only exit is an affirmative act by the person on the site.
+ * The re-probe above says the opposite — "mail them once more and see whether
+ * they react" — and on a channel nobody asked for that is the exact gesture the
+ * complaint was about. So a caller that knows the subscriber's alerts have
+ * decayed passes `cadenceDecayed: true` and the re-probe is withheld; the two
+ * mechanisms disagree, and the quieter one wins.
  */
 
 import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
@@ -105,7 +114,13 @@ function firstSeenMillis(sub) {
  * @param {string} noneReason
  * @returns {JobAlertSunsetVerdict}
  */
-function reprobeOrNone(sub, nowMs, noneReason) {
+function reprobeOrNone(sub, nowMs, noneReason, cadenceDecayed = false) {
+  // A decayed cadence is terminal (#5705 §5.4): re-probing it would undo, from
+  // a different module, the one decision this repo makes about a channel that
+  // was never requested.
+  if (cadenceDecayed) {
+    return { action: 'none', reason: `${noneReason} — re-probe withheld: cadence decayed (terminal)` };
+  }
   // sunset_reprobe_count / sunset_reprobed_at are deliberately their own field
   // names, NOT the bare reprobe_count/reprobed_at that
   // scripts/lib/suppressionDecay.mjs already owns on this same collection for
@@ -129,9 +144,13 @@ function reprobeOrNone(sub, nowMs, noneReason) {
  *
  * @param {object} sub Firestore job_alert_subscribers doc fields
  * @param {number} nowMs current time in ms
+ * @param {object} [options]
+ * @param {boolean} [options.cadenceDecayed] this subscriber's alerts have
+ *        reached the terminal cadence state (scripts/lib/jobAlertCadence.mjs).
+ *        Suppresses the re-probe only — see the header.
  * @returns {JobAlertSunsetVerdict}
  */
-export function classifyJobAlertSunset(sub, nowMs) {
+export function classifyJobAlertSunset(sub, nowMs, { cadenceDecayed = false } = {}) {
   const status = norm(sub?.status);
   const engaged = num(sub?.open_count ?? sub?.openCount) > 0 || num(sub?.click_count ?? sub?.clickCount) > 0;
 
@@ -139,7 +158,7 @@ export function classifyJobAlertSunset(sub, nowMs) {
   if (status === 'inactive') {
     return engaged
       ? { action: 'reactivate', reason: 'inactive job-alert subscriber has since opened/clicked' }
-      : reprobeOrNone(sub, nowMs, 'inactive, still no engagement');
+      : reprobeOrNone(sub, nowMs, 'inactive, still no engagement', cadenceDecayed);
   }
 
   // Never touch hard, cross-channel signals (bounce/complaint/suppression).
