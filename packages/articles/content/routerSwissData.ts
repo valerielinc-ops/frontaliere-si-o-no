@@ -845,6 +845,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'polpi-contro-granchio-blu': { it: 'polpi-contro-granchio-blu', en: 'polpi-vs-blue-crabs', de: 'polpi-gegen-blauer-krebs', fr: 'polpes-contre-cabres-bleus' },
  'governo-dice-no-iniziativa-alimentazione': { it: 'governo-dice-no-iniziativa-alimentazione', en: 'governo-dice-no-iniziativa-alimentazione', de: 'governo-dice-no-iniziativa-alimentazione', fr: 'governo-dice-no-iniziativa-alimentazione' },
  'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc': { it: 'autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc', en: 'argovia-udc-case', de: 'argovia-udc-sache', fr: 'affaire-udc-argovie' },
+ 'comprare-casa-berna-guida-mutuo': { it: 'comprare-casa-berna-guida-mutuo', en: 'buying-house-canton-bern-prices-mortgage', de: 'haus-kaufen-kanton-bern-preise-hypothek', fr: 'acheter-maison-canton-berne-prix-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2458,6 +2458,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Les autorités argoviennes sous enquête dans le cas de l\'ancien parlementaire UDC',
     'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Le canton souhaite préciser si la protection des deux victimes étrangères a été garantie par les autorités concernées',
     'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestation à Lugano contre la violence sexuelle',
+    'blog.article.comprare-casa-berna-guida-mutuo.title': 'Acheter une maison dans le canton de Berne : guide des prix et des prêts',
+    'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Découvrez les facteurs clés pour l\'achat d\'un bien immobilier dans le canton de Berne : viabilité du prêt, fonds propres nécessaires et gestion des frais accessoires.',
+    'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Maison moderne dans le canton de Berne',
 };
 
 export default blogMetaChFr;

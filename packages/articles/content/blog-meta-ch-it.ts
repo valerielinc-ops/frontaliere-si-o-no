@@ -2458,6 +2458,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.title': 'Autorità argoviesi sotto indagine per il caso dell’ex parlamentare UDC',
     'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.excerpt': 'Il Cantone intende chiarire se la tutela delle due vittime straniere è stata garantita dalle autorità coinvolte',
     'blog.article.autorita-argoviesi-sotto-indagine-per-il-caso-dell-ex-parlamentare-udc.imageAlt': 'Manifestazione a Lugano contro la violenza sessuale',
+    'blog.article.comprare-casa-berna-guida-mutuo.title': 'Comprare casa nel Canton Berna: guida ai prezzi e mutui',
+    'blog.article.comprare-casa-berna-guida-mutuo.excerpt': 'Scopri i fattori chiave per l\'acquisto di un immobile nel Canton Berna: sostenibilità del mutuo, fondi propri necessari e gestione delle spese accessorie.',
+    'blog.article.comprare-casa-berna-guida-mutuo.imageAlt': 'Abitazione moderna nel Cantone di Berna',
 };
 
 export default blogMetaChIt;
