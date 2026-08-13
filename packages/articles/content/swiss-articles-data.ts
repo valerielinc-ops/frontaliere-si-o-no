@@ -7201,6 +7201,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avvistamento-cicogne-bianche-castione',
+    category: 'pratico',
+    date: '2026-08-13T01:16:16.765Z',
+    image: '/images/blog/avvistamento-cicogne-bianche-castione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

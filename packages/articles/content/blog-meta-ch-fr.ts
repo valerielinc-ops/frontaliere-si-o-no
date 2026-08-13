@@ -2401,6 +2401,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'Plus DE GR : Churer Fest, entre trafic limité et mesures de sécurité',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'Du 14 au 16 août aura lieu la 35ème édition du Churer Fest dans la capitale rhétique. Pour assurer la sécurité de l\'événement, les forces de l\'ordre prendront différentes mesures.',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Fête à Chur',
+    'blog.article.avvistamento-cicogne-bianche-castione.title': 'Observation de cigognes blanches à Castione',
+    'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'Une foule d\'une cinquantaine de cigognes a été observée à Castione. Ficedula analyse le phénomène migratoire et les perspectives de nidification au Tessin.',
+    'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'Cigognes blanches perchées sur les toits à Castione',
 };
 
 export default blogMetaChFr;

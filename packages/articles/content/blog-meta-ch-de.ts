@@ -2401,6 +2401,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.title': 'Mehr GR: Churer Fest, zwischen eingeschränktem Verkehr und Sicherheitsmaßnahmen',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.excerpt': 'Vom 14. bis 16. August findet das 35. Churer Fest in der rätischen Landeshauptstadt statt. Um die Sicherheit der Veranstaltung zu gewährleisten, werden die Strafverfolgungsbehörden verschiedene Maßnahmen ergreifen.',
     'blog.article.churer-fest-traffico-limitato-misure-sicurezza.imageAlt': 'Fest in Chur',
+    'blog.article.avvistamento-cicogne-bianche-castione.title': 'Sichtung von Weißstörchen in Castione',
+    'blog.article.avvistamento-cicogne-bianche-castione.excerpt': 'In Castione wurde eine Herde von etwa fünfzig Störchen beobachtet. Ficedula analysiert das Migrationsphänomen und die Nistperspektiven im Tessin.',
+    'blog.article.avvistamento-cicogne-bianche-castione.imageAlt': 'Weißstörche auf den Dächern in Castione',
 };
 
 export default blogMetaChDe;

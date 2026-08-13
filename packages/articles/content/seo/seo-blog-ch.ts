@@ -31100,6 +31100,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avvistamento-cicogne-bianche-castione': {
+    title: 'Avvistamento di cicogne bianche a Castione | Frontaliere Ticino',
+    description: 'Circa 50 cicogne bianche avvistate a Castione durante la migrazione. Ficedula analizza il fenomeno e le prospettive di nidificazione in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, avvistamento, cicogne, bianche, castione',
+    ogTitle: 'Avvistamento di cicogne bianche a Castione',
+    ogDescription: 'Uno stormo di circa 50 cicogne bianche ha sostato a Castione. L\'associazione Ficedula spiega l\'importanza del fenomeno e le possibilità di nidificazione in Ticino.',
+    canonicalPath: '/articoli-svizzera/avvistamento-cicogne-bianche-castione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avvistamento di cicogne bianche a Castione",
+      "description": "Circa 50 cicogne bianche avvistate a Castione durante la migrazione. Ficedula analizza il fenomeno e le prospettive di nidificazione in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avvistamento-cicogne-bianche-castione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cicogne bianche appollaiate sui tetti a Castione"
+      },
+      "datePublished": "2026-08-13T01:16:16+00:00",
+      "dateModified": "2026-08-13T01:16:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avvistamento-cicogne-bianche-castione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
