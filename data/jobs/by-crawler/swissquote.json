@@ -1255,12 +1255,12 @@
     },
     {
       "id": "swissquote-b454e3a6b2ce",
-      "slug": "customer-care-representative-swissquote-gland",
+      "slug": "rappresentante-del-cliente-swissquote-gland",
       "slugByLocale": {
         "en": "customer-care-representative-swissquote-gland",
-        "it": "customer-care-representative-swissquote-gland",
+        "it": "rappresentante-del-cliente-swissquote-gland",
         "de": "customer-care-representative-swissquote-gland",
-        "fr": "customer-care-representative-swissquote-gland"
+        "fr": "representant-du-service-clientele-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1317,7 +1317,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:18:38.519Z"
+      "firstSeenAt": "2026-08-12T22:18:38.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-care-representative-swissquote-gland"
+        ],
+        "fr": [
+          "customer-care-representative-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "customer-care-representative-swissquote-gland"
+      ]
     }
   ]
 }

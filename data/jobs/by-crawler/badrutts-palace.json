@@ -325,16 +325,14 @@
         "chef-de-partie-m-w-d-badrutts-palace-ch",
         "chef-de-rang-m-w-d-badrutts-palace-ch",
         "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-partie-m-f-d-badrutts-palace-ch",
-        "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "chef-de-partie-m-f-d-badrutts-palace-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-m-w-d-badrutts-palace-ch",
           "chef-de-rang-m-w-d-badrutts-palace-ch",
           "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
-          "chef-de-partie-m-f-d-badrutts-palace-ch",
-          "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "chef-de-partie-m-f-d-badrutts-palace-ch"
         ],
         "de": [
           "chef-de-rang-m-w-d-badrutts-palace-ch",
@@ -990,9 +988,9 @@
     },
     {
       "id": "badrutts-palace-99bcbbe41d4e",
-      "slug": "painter-m-w-d-badrutt-s-palace-hotel-st-moritz",
+      "slug": "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "painter-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "it": "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "painter-m-f-d-badrutts-palace-ch",
         "de": "maler-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "peintre-h-f-d-badrutt-s-palace-hotel-st-moritz"
@@ -1046,7 +1044,7 @@
           "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
           "blanchisserie-pour-personnes-a-charge-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "painter-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "painter-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "spontaneous-application-badrutt-s-palace-hotel-st-moritz"
@@ -1072,7 +1070,7 @@
         "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
         "blanchisserie-pour-personnes-a-charge-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "painter-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "painter-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

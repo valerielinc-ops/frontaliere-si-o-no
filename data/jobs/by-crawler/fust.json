@@ -37,9 +37,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
-        "en": "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
+        "en": "service-technician-in-professional-solutions-fust-oberburen-6f9bad",
         "de": "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
-        "fr": "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen"
+        "fr": "technicien-de-service-en-solutions-professionnelles-fust-oberburen-6f9bad"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -51,11 +51,13 @@
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
-          "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
+          "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
+          "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen"
         ],
         "fr": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
-          "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
+          "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
+          "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen"
         ],
         "de": [
           "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
@@ -64,7 +66,9 @@
       "previousSlugs": [
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-wem241",
         "servicetechniker-in-professional-solutions-fust-oberburen",
-        "servicetechniker-in-professional-solutions-fust-oberburen-wem241"
+        "servicetechniker-in-professional-solutions-fust-oberburen-wem241",
+        "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
+        "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -159,7 +163,7 @@
     },
     {
       "id": "company-hh69tt",
-      "slug": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
+      "slug": "consulente-commerciale-in-interdiscount-wettingen-aargau",
       "company": "Interdiscount",
       "title": "Verkaufsberater:in",
       "location": "Wettingen, Aargau",
@@ -191,20 +195,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
-        "en": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
+        "it": "consulente-commerciale-in-interdiscount-wettingen-aargau",
+        "en": "sales-consultant-in-interdiscount-wettingen-aargau",
         "de": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
-        "fr": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt"
+        "fr": "consultant-en-ventes-interdiscount-wettingen-aargau"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-interdiscount-wettingen-aargau"
+          "verkaufsberater-in-interdiscount-wettingen-aargau",
+          "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-wettingen-aargau"
+        "verkaufsberater-in-interdiscount-wettingen-aargau",
+        "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -224,7 +236,7 @@
     },
     {
       "id": "company-91xd7f",
-      "slug": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f",
+      "slug": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufsberater:in Garden",
       "location": "Wöschnau, Solothurn",
@@ -258,10 +270,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f",
-        "en": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f",
+        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn",
+        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn",
         "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f",
-        "fr": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f"
+        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn"
       },
       "requirementsByLocale": {
         "it": [],
@@ -274,11 +286,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn"
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn",
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn"
+        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn",
+        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-woschnau-solothurn-91xd7f"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -298,7 +318,7 @@
     },
     {
       "id": "company-4x3rhq",
-      "slug": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Winterthur, Zürich",
@@ -332,10 +352,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
-        "en": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
+        "it": "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
+        "en": "sales-consultant-in-coop-genossenschaft-winterthur-zurich",
         "de": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
-        "fr": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
+        "fr": "consultant-en-ventes-coop-genossenschaft-winterthur-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -348,11 +368,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich"
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich",
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
+        ],
+        "en": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
+        ],
+        "fr": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich"
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich",
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -372,7 +400,7 @@
     },
     {
       "id": "company-5ohnss",
-      "slug": "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss",
+      "slug": "conduttore-rayon-in-chiosco-coop-genossenschaft-oberriet-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Kiosk",
       "location": "Oberriet, Sankt Gallen",
@@ -406,10 +434,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss",
-        "en": "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss",
+        "it": "conduttore-rayon-in-chiosco-coop-genossenschaft-oberriet-sankt-gallen",
+        "en": "rayon-conductor-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen",
         "de": "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss",
-        "fr": "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss"
+        "fr": "chef-de-rayon-dans-le-kiosque-coop-genossenschaft-oberriet-sankt-gallen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -422,11 +450,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen"
+          "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen",
+          "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss"
+        ],
+        "en": [
+          "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss"
+        ],
+        "fr": [
+          "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss"
         ]
       },
       "previousSlugs": [
-        "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen"
+        "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen",
+        "rayonleiter-in-kiosk-coop-genossenschaft-oberriet-sankt-gallen-5ohnss"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -446,7 +482,7 @@
     },
     {
       "id": "company-7uqg7n",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
+      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-mels-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Mels, Sankt Gallen",
@@ -478,20 +514,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
+        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-mels-sankt-gallen",
+        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-mels-sankt-gallen",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n"
+        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-mels-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n"
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -511,7 +555,7 @@
     },
     {
       "id": "company-4tcz5",
-      "slug": "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-degersheim-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Degersheim, Sankt Gallen",
@@ -545,10 +589,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-degersheim-sankt-gallen",
+        "en": "seller-fresh-products-coop-genossenschaft-degersheim-sankt-gallen",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5"
+        "fr": "vendeur-produits-frais-coop-genossenschaft-degersheim-sankt-gallen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -561,11 +605,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-sankt-gallen-04tcz5"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -585,7 +637,7 @@
     },
     {
       "id": "company-2d4e52",
-      "slug": "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52",
+      "slug": "personale-di-produzione-80-100-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Produktionsmitarbeiter:in 80-100%",
       "location": "Dietlikon",
@@ -617,20 +669,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52",
-        "en": "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52",
+        "it": "personale-di-produzione-80-100-two-spice-ag-dietlikon",
+        "en": "production-staff-in-80-100-two-spice-ag-dietlikon",
         "de": "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52",
-        "fr": "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52"
+        "fr": "personnel-de-production-80-a-100-two-spice-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon"
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon",
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52"
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon"
+        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon",
+        "produktionsmitarbeiter-in-80-100-two-spice-ag-dietlikon-2d4e52"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -682,9 +742,9 @@
       },
       "slugByLocale": {
         "it": "werkstatt-techniker-in-per-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc",
-        "en": "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc",
+        "en": "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "de": "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc",
-        "fr": "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
+        "fr": "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -694,19 +754,22 @@
           "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
         ],
         "en": [
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
         ],
         "de": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
         ],
         "fr": [
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
         ]
       },
       "previousSlugs": [
         "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
-        "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc"
+        "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-pcquoc",
+        "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-pcquoc"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7280,9 +7343,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-sankt-gallen-ce1e79",
-        "en": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-fl213j",
+        "en": "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-fl213j",
-        "fr": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-fl213j"
+        "fr": "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -7293,11 +7356,13 @@
         ],
         "en": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-fl213j",
-          "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-sankt-gallen"
+          "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-fl213j"
         ],
         "fr": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-fl213j",
-          "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen"
+          "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-fl213j"
         ],
         "de": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-fl213j"
@@ -7307,7 +7372,8 @@
         "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen",
         "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-fl213j",
         "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-sankt-gallen",
-        "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen"
+        "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen",
+        "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-fl213j"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7444,9 +7510,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "consulente-commerciale-in-coop-genossenschaft-st-gallen-sankt-gallen",
-        "en": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-kt1rc1",
+        "en": "sales-consultant-in-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-kt1rc1",
-        "fr": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-kt1rc1"
+        "fr": "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7464,11 +7530,13 @@
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-kt1rc1",
-          "sales-consultant-in-coop-genossenschaft-st-gallen-sankt-gallen"
+          "sales-consultant-in-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-kt1rc1"
         ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-kt1rc1",
-          "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen"
+          "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-kt1rc1"
         ],
         "de": [
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-kt1rc1"
@@ -7478,7 +7546,8 @@
         "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen",
         "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-kt1rc1",
         "sales-consultant-in-coop-genossenschaft-st-gallen-sankt-gallen",
-        "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen"
+        "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen",
+        "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-kt1rc1"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7531,10 +7600,10 @@
         "fr": "## Consultants en matière de vente : y compris Directeur adjoint\n\n**Coopérative Coop** — Rapperswil-Jona, Sankt Gallen, Svizzera\n\n## Tâche\n- Inspirer les clients avec des tendances et des nouveautés et les conseiller individuellement et selon le type est exactement votre chose – et votre tâche quotidienne.\n- Motivé vous aidez que le magasin semble toujours bien gardé.\n- Vous prenez soin de la gestion des marchandises sur notre zone de vente très consciencieusement.\n- La responsabilité de la gestion de la trésorerie vous incombe également.\n- Vous êtes l'adjoint de la direction en absence.\n\n## Exigences\n- Tu préfères travailler avec les gens. L'équipe et les clients ressentent votre passion jour après jour.\n- Achevé la formation professionnelle et/ou l'expérience de préférence en tant que vendeur de parfums:in, esthéticien:in ou drogué:in? Nous cherchons des gens comme vous.\n- Vous avez l'allemand sous contrôle – verbalement et par écrit. Et si vous connaissez des langues étrangères, tant mieux.\n- Le fait que vous devriez être flexible dans les ventes pendant les temps d'utilisation (Mo. à Sa.) est une question bien sûr pour vous.\n- Votre performance est importante pour vous. Vous créez la combinaison parfaite d'élégance et de naturel.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Rapperswil-Jona"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
-        "en": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
+        "it": "consulenti-di-vendita-incl-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "en": "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen",
         "de": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1",
-        "fr": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1"
+        "fr": "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7548,15 +7617,18 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1"
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
-          "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen"
+          "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1"
         ],
         "fr": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
-          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen"
+          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1"
         ],
         "de": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1"
@@ -7566,7 +7638,8 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona-sankt-gallen-6eg9o1",
         "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen"
+        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona-sankt-gallen",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-6eg9o1"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7620,9 +7693,9 @@
       },
       "slugByLocale": {
         "it": "amministratore-delegato-christ-uhren-schmuck-ag-chur-graubunden",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-61qgrp",
+        "en": "managing-director-christ-uhren-schmuck-ag-chur-graubunden",
         "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-61qgrp",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-61qgrp"
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-graubunden"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7640,11 +7713,13 @@
         ],
         "en": [
           "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-61qgrp",
-          "managing-director-christ-uhren-schmuck-ag-chur-graubunden"
+          "managing-director-christ-uhren-schmuck-ag-chur-graubunden",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-61qgrp"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-61qgrp",
-          "directeur-general-christ-uhren-schmuck-ag-chur-graubunden"
+          "directeur-general-christ-uhren-schmuck-ag-chur-graubunden",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-61qgrp"
         ],
         "de": [
           "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-61qgrp"
@@ -7654,7 +7729,8 @@
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-graubunden-61qgrp",
         "managing-director-christ-uhren-schmuck-ag-chur-graubunden",
-        "directeur-general-christ-uhren-schmuck-ag-chur-graubunden"
+        "directeur-general-christ-uhren-schmuck-ag-chur-graubunden",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-61qgrp"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7960,9 +8036,9 @@
       },
       "slugByLocale": {
         "it": "consulenti-di-vendita-incl-coop-genossenschaft-winterthur-zurich",
-        "en": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
+        "en": "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich",
         "de": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
-        "fr": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63"
+        "fr": "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7980,11 +8056,13 @@
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
-          "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich"
+          "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63"
         ],
         "fr": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
-          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich"
+          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63"
         ],
         "de": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63"
@@ -7994,7 +8072,8 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
         "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich",
-        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich"
+        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8049,10 +8128,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w",
-        "en": "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w",
+        "it": "venditore-in-cassa-servizi-assistenza-di-sabato-coop-genossenschaft-wald-zurich",
+        "en": "seller-in-cash-registers-services-saturday-assistance-coop-genossenschaft-wald-zurich",
         "de": "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w",
-        "fr": "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-assistance-du-samedi-coop-genossenschaft-wald-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8067,15 +8146,18 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich",
-          "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich-3yxa3w"
+          "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich-3yxa3w",
+          "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w"
         ],
         "en": [
           "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich-3yxa3w",
-          "seller-in-cash-registers-services-saturday-assistance-coop-genossenschaft-wald-zurich"
+          "seller-in-cash-registers-services-saturday-assistance-coop-genossenschaft-wald-zurich",
+          "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w"
         ],
         "fr": [
           "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich-3yxa3w",
-          "vendeur-dans-les-caisses-enregistreuses-services-assistance-du-samedi-coop-genossenschaft-wald-zurich"
+          "vendeur-dans-les-caisses-enregistreuses-services-assistance-du-samedi-coop-genossenschaft-wald-zurich",
+          "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w"
         ],
         "de": [
           "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich-3yxa3w"
@@ -8085,7 +8167,8 @@
         "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich",
         "verkaufer-in-kassen-services-samstagaushilfe-coop-genossenschaft-wald-zurich-3yxa3w",
         "seller-in-cash-registers-services-saturday-assistance-coop-genossenschaft-wald-zurich",
-        "vendeur-dans-les-caisses-enregistreuses-services-assistance-du-samedi-coop-genossenschaft-wald-zurich"
+        "vendeur-dans-les-caisses-enregistreuses-services-assistance-du-samedi-coop-genossenschaft-wald-zurich",
+        "verkaufer-in-kassen-services-samstagaushilfe-coop-wald-zurich-3yxa3w"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9603,9 +9686,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf-bern",
-          "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf-bern-lnrceh",
-          "product-purchasing-manager-outdoor-personalcare-coffee-kitchen-80-100-interdiscount-jegenstorf-bern"
+          "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf-bern"
         ],
         "fr": [
           "product-purchase-manager-outdoor-personalcare-cafe-kitchen-80-100-interdiscount-jegenstorf"
@@ -9614,8 +9695,7 @@
       "previousSlugs": [
         "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf-bern",
         "product-purchase-manager-outdoor-personalcare-cafe-kitchen-80-100-interdiscount-jegenstorf",
-        "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf-bern-lnrceh",
-        "product-purchasing-manager-outdoor-personalcare-coffee-kitchen-80-100-interdiscount-jegenstorf-bern"
+        "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf-bern-lnrceh"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -18605,8 +18685,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -18614,8 +18693,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

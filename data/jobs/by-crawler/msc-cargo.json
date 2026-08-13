@@ -246,12 +246,12 @@
     },
     {
       "id": "msc-cargo-2e9827752273",
-      "slug": "copywriter-6-months-contract-msc-geneva",
+      "slug": "copywriter-6-mesi-msc-group-geneva",
       "slugByLocale": {
         "en": "copywriter-6-months-contract-msc-geneva",
-        "it": "copywriter-6-months-contract-msc-geneva",
-        "de": "copywriter-6-months-contract-msc-geneva",
-        "fr": "copywriter-6-months-contract-msc-geneva"
+        "it": "copywriter-6-mesi-msc-group-geneva",
+        "de": "texter-6-monate-vertrag-msc-group-geneva",
+        "fr": "redacteur-contrat-de-6-mois-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -315,10 +315,10 @@
           "copywriter-6-months-contract-msc-geneva"
         ],
         "de": [
-          "texter-6-monate-vertrag-msc-group-geneva"
+          "copywriter-6-months-contract-msc-geneva"
         ],
         "fr": [
-          "redacteur-contrat-de-6-mois-msc-group-geneva"
+          "copywriter-6-months-contract-msc-geneva"
         ]
       },
       "previousSlugs": [
@@ -392,9 +392,6 @@
       "firstSeenAt": "2026-08-12T10:27:46.784Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
-        ],
-        "fr": [
           "senior-manager-digital-medias-payants-delivery-msc-group-geneva"
         ]
       },
@@ -568,7 +565,7 @@
         "en": "brand-manager-brand-product-msc-geneva",
         "it": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -616,9 +613,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-marques-marque-produit-msc-group-geneva"
-        ],
-        "fr": [
           "gestionnaire-de-marques-marque-produit-msc-group-geneva"
         ]
       },
@@ -724,7 +718,7 @@
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -770,17 +764,12 @@
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva",
-          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva",
-          "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
-        ],
-        "fr": [
           "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
         "casino-slots-and-technical-operations-manager-msc-geneva",
-        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva",
-        "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 83500,

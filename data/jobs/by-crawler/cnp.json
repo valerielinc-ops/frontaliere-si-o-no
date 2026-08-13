@@ -2477,12 +2477,12 @@
     },
     {
       "id": "cnp-8efb13e4fb6b",
-      "slug": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
+      "slug": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
-        "it": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
-        "en": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
-        "de": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        "it": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "nurse-adult-hospital-unit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "krankenschwester-erwachsenenkrankenhauseinheit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2537,7 +2537,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:03:01.773Z"
+      "firstSeenAt": "2026-08-12T22:03:01.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        ],
+        "en": [
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        ],
+        "de": [
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+      ]
     },
     {
       "id": "cnp-cd42283270bf",

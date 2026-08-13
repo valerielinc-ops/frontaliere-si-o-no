@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern",
         "it": "mitarbeiterin-collaboratore-trice-patientenaufnahme-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern",
-        "fr": "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
+        "en": "employee-patient-reception-staff-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "employe-personnel-d-accueil-des-patients-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -55,6 +55,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-patientenaufnahme-upd-bern"
         ]
       },

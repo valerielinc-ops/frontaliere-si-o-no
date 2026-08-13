@@ -2618,7 +2618,7 @@
     },
     {
       "id": "company-xs2crj",
-      "slug": "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj",
+      "slug": "chef-de-rank-nel-salario-orario-m-f-d-pizzeria-ristorante-molino-kilchberg",
       "company": "Pizzeria Ristorante Molino",
       "title": "Chef de Rang im Stundenlohn (m/w/d)",
       "location": "Kilchberg",
@@ -2695,19 +2695,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj",
-        "en": "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj",
+        "it": "chef-de-rank-nel-salario-orario-m-f-d-pizzeria-ristorante-molino-kilchberg",
+        "en": "chef-de-rank-in-the-hourly-wage-m-f-d-pizzeria-ristorante-molino-kilchberg",
         "de": "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj",
-        "fr": "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj"
+        "fr": "chef-de-rang-dans-le-salaire-horaire-h-f-d-pizzeria-ristorante-molino-kilchberg"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg"
+          "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg",
+          "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj"
+        ],
+        "en": [
+          "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj"
+        ],
+        "fr": [
+          "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj"
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg"
+        "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg",
+        "chef-de-rang-im-stundenlohn-m-w-d-pizzeria-ristorante-molino-kilchberg-xs2crj"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2799,13 +2807,19 @@
       },
       "slugByLocale": {
         "it": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne",
-        "en": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne-v6i717",
-        "de": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne-v6i717",
+        "en": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-payerne",
+        "de": "assistant-manager-m-w-d-societe-cooperative-migros-vaud-payerne",
         "fr": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne-v6i717"
       },
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne-v6i717"
+        ],
+        "en": [
+          "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne-v6i717"
+        ],
+        "de": [
           "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-payerne-v6i717"
         ]
       },
@@ -2830,7 +2844,7 @@
     },
     {
       "id": "company-l7xanr",
-      "slug": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
+      "slug": "venditore-in-frutta-e-verdura-genossenschaft-migros-zurich-wallisellen",
       "company": "Genossenschaft Migros Zürich",
       "title": "Verkäufer*in Früchte & Gemüse",
       "location": "Wallisellen",
@@ -2904,20 +2918,28 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
-        "en": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
+        "it": "venditore-in-frutta-e-verdura-genossenschaft-migros-zurich-wallisellen",
+        "en": "seller-in-fruits-vegetables-genossenschaft-migros-zurich-wallisellen",
         "de": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr",
-        "fr": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr"
+        "fr": "vendeur-en-fruits-et-legumes-genossenschaft-migros-zurich-wallisellen"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen"
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen",
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr"
+        ],
+        "en": [
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr"
+        ],
+        "fr": [
+          "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen"
+        "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen",
+        "verkaufer-in-fruchte-gemuse-genossenschaft-migros-zurich-wallisellen-l7xanr"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2937,7 +2959,7 @@
     },
     {
       "id": "company-vi0zdz",
-      "slug": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz",
+      "slug": "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
       "company": "Société coopérative Migros Vaud",
       "title": "Collaborateur polyvalent (H/F/D)",
       "location": "Romanel s/Lausanne",
@@ -2998,19 +3020,27 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz",
-        "en": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz",
-        "de": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz",
+        "it": "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+        "en": "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+        "de": "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
         "fr": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz"
       },
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne"
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz"
+        ],
+        "en": [
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz"
+        ],
+        "de": [
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz"
         ]
       },
       "previousSlugs": [
-        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne"
+        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne",
+        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-romanel-s-lausanne-vi0zdz"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3030,7 +3060,7 @@
     },
     {
       "id": "company-4dtzhe",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe",
+      "slug": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Allschwil",
@@ -3100,19 +3130,24 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe",
+        "it": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
         "en": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe",
         "de": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe",
-        "fr": "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe"
+        "fr": "instructeur-de-fitness-h-f-d-activ-fitness-allschwil"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-allschwil"
+          "fitness-instructor-m-w-d-activ-fitness-allschwil",
+          "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe"
+        ],
+        "fr": [
+          "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-allschwil"
+        "fitness-instructor-m-w-d-activ-fitness-allschwil",
+        "fitness-instructor-m-w-d-activ-fitness-allschwil-4dtzhe"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3132,7 +3167,7 @@
     },
     {
       "id": "company-k9yoy",
-      "slug": "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy",
+      "slug": "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-epalinges",
       "company": "Société coopérative Migros Vaud",
       "title": "Collaborateur polyvalent Epicerie (H/F/D)",
       "location": "Epalinges",
@@ -3193,19 +3228,27 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy",
-        "en": "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy",
-        "de": "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy",
+        "it": "collaboratore-multiuso-m-f-d-societe-cooperative-migros-vaud-epalinges",
+        "en": "multipurpose-collaborator-m-f-d-societe-cooperative-migros-vaud-epalinges",
+        "de": "mehrzweck-mitarbeiter-m-w-d-societe-cooperative-migros-vaud-epalinges",
         "fr": "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy"
       },
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges"
+          "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges",
+          "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy"
+        ],
+        "en": [
+          "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy"
+        ],
+        "de": [
+          "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy"
         ]
       },
       "previousSlugs": [
-        "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges"
+        "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges",
+        "collaborateur-polyvalent-epicerie-m-w-d-societe-cooperative-migros-vaud-epalinges-0k9yoy"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3296,8 +3339,8 @@
       },
       "slugByLocale": {
         "it": "responsable-de-rayon-boulangerie-convenience-m-w-d-societe-cooperative-migros-vaud-renens-nt1pbl",
-        "en": "responsable-de-rayon-boulangerie-convenience-m-w-d-societe-cooperative-migros-vaud-renens-nt1pbl",
-        "de": "responsable-de-rayon-boulangerie-convenience-m-w-d-societe-cooperative-migros-vaud-renens-nt1pbl",
+        "en": "head-of-department-bakery-convenience-m-f-d-societe-cooperative-migros-vaud-renens",
+        "de": "abteilungsleiter-backerei-convenience-m-w-d-societe-cooperative-migros-vaud-renens",
         "fr": "responsable-de-rayon-boulangerie-convenience-m-w-d-societe-cooperative-migros-vaud-renens-nt1pbl"
       },
       "needsRetranslation": true,
@@ -3328,7 +3371,7 @@
     },
     {
       "id": "company-g5cfy2",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2",
+      "slug": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5908c4",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Allschwil",
@@ -3398,19 +3441,24 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2",
+        "it": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5908c4",
         "en": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2",
         "de": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2",
-        "fr": "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2"
+        "fr": "instructeur-de-fitness-h-f-d-activ-fitness-allschwil-5908c4"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-allschwil-2"
+          "fitness-instructor-m-w-d-activ-fitness-allschwil-2",
+          "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2"
+        ],
+        "fr": [
+          "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-allschwil-2"
+        "fitness-instructor-m-w-d-activ-fitness-allschwil-2",
+        "fitness-instructor-m-w-d-activ-fitness-allschwil-g5cfy2"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3430,7 +3478,7 @@
     },
     {
       "id": "company-ywm2kc",
-      "slug": "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc",
+      "slug": "operatore-di-macchine-da-imballaggio-fresh-food-beverage-group-volketswil",
       "company": "Fresh Food & Beverage Group",
       "title": "Packmaschinenführer*in",
       "location": "Volketswil",
@@ -3501,19 +3549,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc",
-        "en": "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc",
+        "it": "operatore-di-macchine-da-imballaggio-fresh-food-beverage-group-volketswil",
+        "en": "packing-machine-operator-fresh-food-beverage-group-volketswil",
         "de": "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc",
-        "fr": "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc"
+        "fr": "operateur-de-machines-d-emballage-fresh-food-beverage-group-volketswil"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil"
+          "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil",
+          "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc"
+        ],
+        "en": [
+          "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc"
+        ],
+        "fr": [
+          "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc"
         ]
       },
       "previousSlugs": [
-        "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil"
+        "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil",
+        "packmaschinenfuhrer-in-fresh-food-beverage-group-volketswil-ywm2kc"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3581,7 +3637,7 @@
         "it": "senior-projektleiter-in-unternehmensentwicklung-befristet-migros-supermarkt-ag-zurich",
         "de": "senior-projektleiter-in-unternehmensentwicklung-befristet-migros-supermarkt-ag-zurich-pysw49",
         "en": "senior-project-manager-in-corporate-development-temporary-migros-supermarkt-ag-zurich",
-        "fr": "senior-projektleiter-in-unternehmensentwicklung-befristet-migros-supermarkt-ag-zurich"
+        "fr": "gestionnaire-principal-de-projet-en-developpement-corporatif-temporaire-migros-supermarkt-ag-zurich"
       },
       "titleByLocale": {
         "de": "Senior Projektleiter*in Unternehmensentwicklung, befristet",
@@ -4092,7 +4148,7 @@
         "fr": "chef-d-equipe-a-packerei-migros-ticino-oberbuchsiten",
         "it": "team-leader-in-packerei-migros-ticino-oberbuchsiten",
         "de": "teamleiter-in-packerei-migros-ticino-oberbuchsiten-1h21ew",
-        "en": "operativer-teamleiter-in-packstelle-migros-ticino-oberbuchsiten-1h21ew"
+        "en": "operational-team-leader-in-packstelle-migros-ticino-oberbuchsiten"
       },
       "titleByLocale": {
         "de": "Operativer Teamleiter*in Packstelle",
@@ -4135,11 +4191,19 @@
       },
       "addressLocality": "Oberbuchsiten",
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "operativer-teamleiter-in-packstelle-migros-ticino-oberbuchsiten-1h21ew"
+        ]
+      },
+      "previousSlugs": [
+        "operativer-teamleiter-in-packstelle-migros-ticino-oberbuchsiten-1h21ew"
+      ]
     },
     {
       "id": "company-vxjuoq",
-      "slug": "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq",
+      "slug": "professionista-responsabile-dei-non-alimentari-genossenschaft-migros-zurich-oberglatt",
       "company": "Genossenschaft Migros Zürich",
       "title": "Fachverantwortliche*r Non-Food",
       "location": "Oberglatt",
@@ -4211,19 +4275,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq",
-        "en": "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq",
+        "it": "professionista-responsabile-dei-non-alimentari-genossenschaft-migros-zurich-oberglatt",
+        "en": "professional-responsible-for-non-food-genossenschaft-migros-zurich-oberglatt",
         "de": "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq",
-        "fr": "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq"
+        "fr": "professionnel-responsable-des-produits-non-alimentaires-genossenschaft-migros-zurich-oberglatt"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt"
+          "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt",
+          "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq"
+        ],
+        "en": [
+          "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq"
+        ],
+        "fr": [
+          "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt"
+        "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt",
+        "fachverantwortliche-r-non-food-genossenschaft-migros-zurich-oberglatt-vxjuoq"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4243,7 +4315,7 @@
     },
     {
       "id": "company-uwprv9",
-      "slug": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9",
+      "slug": "specialist-vendor-in-service-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach",
       "company": "Genossenschaft Migros Basel",
       "title": "Fachverkäufer*in Bedienung Migros Wydehof Breitenbach",
       "location": "Breitenbach",
@@ -4306,20 +4378,25 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9",
+        "it": "specialist-vendor-in-service-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach",
         "en": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9",
         "de": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9",
-        "fr": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
+        "fr": "vendeur-specialise-en-service-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach"
+          "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach",
+          "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
+        ],
+        "fr": [
+          "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
         ]
       },
       "previousSlugs": [
-        "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach"
+        "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach",
+        "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4404,19 +4481,26 @@
       },
       "slugByLocale": {
         "it": "fachverkaufer-in-blumen-e-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8",
-        "en": "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8",
+        "en": "specialist-vendor-in-flowers-and-customer-service-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz",
         "de": "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8",
-        "fr": "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8"
+        "fr": "vendeur-specialise-en-fleurs-et-service-a-la-clientele-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz"
+        ],
+        "en": [
+          "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8"
+        ],
+        "fr": [
+          "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8"
         ]
       },
       "previousSlugs": [
-        "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz"
+        "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz",
+        "fachverkaufer-in-blumen-und-kundendienst-migros-rothausstrasse-muttenz-genossenschaft-migros-basel-muttenz-12mcu8"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4505,7 +4589,7 @@
       },
       "slugByLocale": {
         "it": "finanza-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches-8iqp7p",
-        "en": "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches-8iqp7p",
+        "en": "finance-business-partner-major-strategic-projects-and-projects-m-f-d-migros-industrie-ag-avenches",
         "de": "finanzen-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches-8iqp7p",
         "fr": "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches-8iqp7p"
       },
@@ -4513,10 +4597,14 @@
       "previousSlugsByLocale": {
         "it": [
           "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches"
+        ],
+        "en": [
+          "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches-8iqp7p"
         ]
       },
       "previousSlugs": [
-        "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches"
+        "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches",
+        "finance-business-partner-grands-projets-et-projets-strategiques-m-w-d-migros-industrie-ag-avenches-8iqp7p"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -6098,14 +6186,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fitness-instructor-m-w-d-activ-fitness-bern"
-        ]
-      },
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -18391,13 +18471,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-          "assistente-manager-fitness-club-activ-fitness-zofingen"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-        "assistente-manager-fitness-club-activ-fitness-zofingen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -19548,16 +19626,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-          "fitness-instructor-m-w-d-activ-fitness-zofingen"
+          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-        "fitness-instructor-m-w-d-activ-fitness-zofingen"
+        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -31302,8 +31378,7 @@
       "previousSlugsByLocale": {
         "it": [
           "betreuer-kundencenter-migros-bank-wallisellen",
-          "betreuer-kundencenter-migros-bank-wallisellen-7sc24v",
-          "betreuer-kundencenter-alle-migros-bank-wallisellen"
+          "betreuer-kundencenter-migros-bank-wallisellen-7sc24v"
         ],
         "en": [
           "betreuer-kundencenter-migros-bank-wallisellen-7sc24v"
@@ -31314,8 +31389,7 @@
       },
       "previousSlugs": [
         "betreuer-kundencenter-migros-bank-wallisellen",
-        "betreuer-kundencenter-migros-bank-wallisellen-7sc24v",
-        "betreuer-kundencenter-alle-migros-bank-wallisellen"
+        "betreuer-kundencenter-migros-bank-wallisellen-7sc24v"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -32162,16 +32236,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-          "fitness-instructor-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-        "fitness-instructor-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -37411,8 +37483,7 @@
           "kuchenchef-in-genossenschaft-migros-zurich-aganso",
           "kuchenchef-in-genossenschaft-migros-zurich",
           "fachleiter-in-metzgerei-genossenschaft-migros-zurich",
-          "specialist-manager-in-butchery-genossenschaft-migros-zurich",
-          "chefmetzger-in-genossenschaft-migros-zurich"
+          "specialist-manager-in-butchery-genossenschaft-migros-zurich"
         ]
       },
       "previousSlugs": [
@@ -37420,8 +37491,7 @@
         "kuchenchef-in-genossenschaft-migros-zurich-aganso",
         "kuchenchef-in-genossenschaft-migros-zurich",
         "fachleiter-in-metzgerei-genossenschaft-migros-zurich",
-        "specialist-manager-in-butchery-genossenschaft-migros-zurich",
-        "chefmetzger-in-genossenschaft-migros-zurich"
+        "specialist-manager-in-butchery-genossenschaft-migros-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -38683,9 +38753,9 @@
       "firstSeenAt": "2026-08-12T22:28:48.066Z",
       "slugByLocale": {
         "de": "stv-filialleiter-in-denner-ag-zurich-geicje",
-        "en": "stv-filialleiter-in-denner-ag-zurich",
-        "fr": "stv-filialleiter-in-denner-ag-zurich",
-        "it": "stv-filialleiter-in-denner-ag-zurich"
+        "en": "deputy-branch-manager-denner-ag-zurich",
+        "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich",
+        "it": "vice-direttore-di-negozio-denner-ag-zurich"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
@@ -38714,22 +38784,6 @@
       },
       "sourceLang": "de",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "vice-direttore-di-negozio-denner-ag-zurich"
-        ],
-        "en": [
-          "deputy-branch-manager-denner-ag-zurich"
-        ],
-        "fr": [
-          "directeur-adjoint-de-la-succursale-denner-ag-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "vice-direttore-di-negozio-denner-ag-zurich",
-        "deputy-branch-manager-denner-ag-zurich",
-        "directeur-adjoint-de-la-succursale-denner-ag-zurich"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -45153,16 +45207,14 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-          "fitness-instructor-m-w-d-activ-fitness-aarau"
+          "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-        "fitness-instructor-m-w-d-activ-fitness-aarau"
+        "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -45884,9 +45936,9 @@
       "firstSeenAt": "2026-08-12T22:28:48.066Z",
       "slugByLocale": {
         "de": "verkaufer-in-denner-ag-frauenfeld",
-        "en": "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld",
-        "fr": "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld",
-        "it": "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld"
+        "en": "seller-denner-ag-frauenfeld-008421",
+        "fr": "vendeur-denner-ag-frauenfeld-008421",
+        "it": "venditore-denner-ag-frauenfeld"
       },
       "titleByLocale": {
         "de": "Verkäufer*in im Stundenlohn",
@@ -45915,22 +45967,6 @@
       },
       "sourceLang": "de",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "venditore-denner-ag-frauenfeld"
-        ],
-        "en": [
-          "seller-denner-ag-frauenfeld-008421"
-        ],
-        "fr": [
-          "vendeur-denner-ag-frauenfeld-008421"
-        ]
-      },
-      "previousSlugs": [
-        "venditore-denner-ag-frauenfeld",
-        "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -48362,8 +48398,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
-          "cuciniera-gurten-park-im-grunen-wabern",
-          "chef-de-rang-gurten-park-im-grunen-wabern"
+          "cuciniera-gurten-park-im-grunen-wabern"
         ],
         "en": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl"
@@ -48374,8 +48409,7 @@
       },
       "previousSlugs": [
         "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
-        "cuciniera-gurten-park-im-grunen-wabern",
-        "chef-de-rang-gurten-park-im-grunen-wabern"
+        "cuciniera-gurten-park-im-grunen-wabern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -48599,8 +48633,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608",
-          "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee"
+          "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608"
         ],
         "en": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608"
@@ -48610,8 +48643,7 @@
         ]
       },
       "previousSlugs": [
-        "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608",
-        "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee"
+        "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -50153,8 +50185,7 @@
           "fitness-instructor-w-activ-fitness-zurich",
           "instructeur-fitness-w-m-d-activ-fitness-zurich",
           "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-          "fitness-instructor-m-w-d-activ-fitness-zurich"
+          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
         ],
         "en": [
           "fitness-instructor-w-activ-fitness-zurich"
@@ -50173,8 +50204,7 @@
         "fitness-instructor-w-activ-fitness-zurich",
         "instructeur-fitness-w-m-d-activ-fitness-zurich",
         "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-        "fitness-instructor-m-w-d-activ-fitness-zurich"
+        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -71955,14 +71985,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-          "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "fitness-instructor-m-w-d-activ-fitness-kloten"
+          "fitness-instructor-w-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-        "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "fitness-instructor-m-w-d-activ-fitness-kloten"
+        "fitness-instructor-w-m-d-activ-fitness-kloten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -72040,16 +72068,12 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-bern",
-        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
-        "personale-di-vendita-migrolino-bern",
-        "rappresentante-vendite-migrolino-bern"
+        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-bern",
-          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
-          "personale-di-vendita-migrolino-bern",
-          "rappresentante-vendite-migrolino-bern"
+          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-bern-tk36gc",
@@ -75236,15 +75260,13 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-meggen",
         "verkaufsmitarbeiter-in-migrolino-meggen-kata5d",
-        "rappresentante-vendite-migrolino-meggen",
-        "dipendente-commerciale-migrolino-meggen"
+        "rappresentante-vendite-migrolino-meggen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-meggen",
           "verkaufsmitarbeiter-in-migrolino-meggen-kata5d",
-          "rappresentante-vendite-migrolino-meggen",
-          "dipendente-commerciale-migrolino-meggen"
+          "rappresentante-vendite-migrolino-meggen"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-meggen-kata5d",
@@ -76138,17 +76160,13 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-stans",
         "verkaufsmitarbeiter-in-migrolino-stans-04c87b",
-        "verkaufsmitarbeiter-in-migrolino-stans-abtvka",
-        "personale-di-vendita-migrolino-stans",
-        "rappresentante-vendite-migrolino-stans"
+        "verkaufsmitarbeiter-in-migrolino-stans-abtvka"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-stans",
           "verkaufsmitarbeiter-in-migrolino-stans-04c87b",
-          "verkaufsmitarbeiter-in-migrolino-stans-abtvka",
-          "personale-di-vendita-migrolino-stans",
-          "rappresentante-vendite-migrolino-stans"
+          "verkaufsmitarbeiter-in-migrolino-stans-abtvka"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-stans-04c87b",
@@ -76375,16 +76393,12 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-kriens",
-        "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu",
-        "personale-di-vendita-migrolino-kriens",
-        "rappresentante-vendite-migrolino-kriens"
+        "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-kriens",
-          "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu",
-          "personale-di-vendita-migrolino-kriens",
-          "rappresentante-vendite-migrolino-kriens"
+          "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-kriens-h1z6lu",
@@ -76711,16 +76725,12 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
-        "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a",
-        "personale-di-vendita-migrolino-fullinsdorf",
-        "rappresentante-vendite-migrolino-fullinsdorf"
+        "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-fullinsdorf",
-          "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a",
-          "personale-di-vendita-migrolino-fullinsdorf",
-          "rappresentante-vendite-migrolino-fullinsdorf"
+          "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-fullinsdorf-sff82a",
@@ -78805,16 +78815,12 @@
       },
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-thun",
-        "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
-        "personale-di-vendita-migrolino-thun",
-        "rappresentante-vendite-migrolino-thun"
+        "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-thun",
-          "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
-          "personale-di-vendita-migrolino-thun",
-          "rappresentante-vendite-migrolino-thun"
+          "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
@@ -79966,21 +79972,17 @@
         "it": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
           "pianificatore-point-of-sale-cad-migrolino-suhr",
-          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
-          "cad-planer-in-zeichner-in-migrolino-suhr"
+          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
         ],
         "de": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
-          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
-          "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
+          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
         ]
       },
       "previousSlugs": [
         "verkaufsstellenplaner-in-cad-migrolino-suhr",
         "pianificatore-point-of-sale-cad-migrolino-suhr",
-        "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
-        "cad-planer-in-zeichner-in-migrolino-suhr",
-        "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
+        "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
       ],
       "firstSeenAt": "2026-07-04T11:29:00.801Z",
       "baseSalary": {
@@ -86824,15 +86826,13 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-volketswil",
         "verkaufsmitarbeiter-in-migrolino-volketswil-btgs0t",
-        "rappresentante-vendite-migrolino-volketswil",
-        "personale-di-vendita-migrolino-volketswil"
+        "rappresentante-vendite-migrolino-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-volketswil",
           "verkaufsmitarbeiter-in-migrolino-volketswil-btgs0t",
-          "rappresentante-vendite-migrolino-volketswil",
-          "personale-di-vendita-migrolino-volketswil"
+          "rappresentante-vendite-migrolino-volketswil"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-volketswil-btgs0t",
@@ -92338,8 +92338,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
-          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -92355,8 +92354,7 @@
         "fitness-instructor-aushilfe-m-w-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
-        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -99932,8 +99930,6 @@
         "seller-in-the-hourly-wage-denner-wilen-b",
         "seller-in-the-hourly-wage-denner-winterthur",
         "verkaufer-in-im-stundenlohn-denner-winterthur",
-        "salesperson-on-an-hourly-wage-denner-ag-winterthur",
-        "vendeur-a-salaire-horaire-denner-ag-winterthur",
         "venditore-con-salario-orario-denner-butschwil",
         "venditore-con-salario-orario-denner-frauenfeld",
         "venditore-con-salario-orario-denner-gossau-sg",
@@ -100011,8 +100007,7 @@
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6",
           "salesperson-on-an-hourly-wage-denner-ag-winterthur-eb758b",
-          "verkaufer-in-im-stundenlohn-denner-winterthur",
-          "salesperson-on-an-hourly-wage-denner-ag-winterthur"
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-ag-winterthur-oesw1q"
@@ -100020,8 +100015,7 @@
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-ag-winterthur-qxh2o6",
           "vendeur-a-salaire-horaire-denner-ag-winterthur-eb758b",
-          "verkaufer-in-im-stundenlohn-denner-winterthur",
-          "vendeur-a-salaire-horaire-denner-ag-winterthur"
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-06T13:36:23.051Z",
@@ -100136,8 +100130,7 @@
         "vendeur-denner-ag-chur",
         "verkaufer-in-denner-chur",
         "venditore-denner-ag-chur",
-        "venditore-denner-ag-chur-7e22e4",
-        "venditore-denner-ag-chur-2511ee"
+        "venditore-denner-ag-chur-7e22e4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -100150,8 +100143,7 @@
           "vendeur-denner-ag-chur",
           "verkaufer-in-denner-chur",
           "venditore-denner-ag-chur",
-          "venditore-denner-ag-chur-7e22e4",
-          "venditore-denner-ag-chur-2511ee"
+          "venditore-denner-ag-chur-7e22e4"
         ],
         "en": [
           "verkaufer-in-denner-ag-chur",
@@ -112058,13 +112050,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2"
         ]
       },
       "previousSlugs": [
-        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -112431,8 +112421,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya"
@@ -112442,8 +112431,7 @@
         ]
       },
       "previousSlugs": [
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -118018,14 +118006,12 @@
       },
       "previousSlugs": [
         "selbstandige-r-franchisepartner-in-im-familienbetrieb-ganze-schweiz-migrolino-suhr",
-        "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr",
-        "partner-in-franchising-indipendente-in-azienda-familiare-tutta-la-svizzera-migrolino-suhr-7y57tb"
+        "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "selbstandige-r-franchisepartner-in-im-familienbetrieb-ganze-schweiz-migrolino-suhr",
-          "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr",
-          "partner-in-franchising-indipendente-in-azienda-familiare-tutta-la-svizzera-migrolino-suhr-7y57tb"
+          "socio-in-franchising-autonomo-in-un-azienda-familiare-tutta-la-svizzera-migrolino-suhr"
         ],
         "de": [
           "selbstandige-r-franchisepartner-in-im-familienbetrieb-ganze-schweiz-migrolino-suhr"
@@ -124582,9 +124568,7 @@
         "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen",
         "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen-e7j9c4",
         "self-employed-franchise-partner-in-emmen-lu-migrolino-emmen-e7j9c4",
-        "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen",
-        "partner-indipendente-di-franchising-in-sursee-lu-migrolino-sursee",
-        "selbstandige-r-franchisepartner-in-sursee-lu-migrolino-sursee-jrdbj3"
+        "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -124600,8 +124584,7 @@
           "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen",
           "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen-e7j9c4",
           "self-employed-franchise-partner-in-emmen-lu-migrolino-emmen-e7j9c4",
-          "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen",
-          "partner-indipendente-di-franchising-in-sursee-lu-migrolino-sursee"
+          "socio-in-franchising-autonomo-a-emmen-lu-migrolino-emmen"
         ],
         "en": [
           "selfemployed-franchise-partner-in-emmen-lu-migrolino-emmen"
@@ -124609,8 +124592,7 @@
         "de": [
           "selbstandige-r-franchisepartner-in-in-sursee-lu-migrolino-sursee",
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-tankstelle-car-wash-in-sursee-lu",
-          "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen-e7j9c4",
-          "selbstandige-r-franchisepartner-in-sursee-lu-migrolino-sursee-jrdbj3"
+          "selbstandige-r-franchisepartner-in-emmen-lu-migrolino-emmen-e7j9c4"
         ],
         "fr": [
           "partenaire-franchise-independant-a-emmen-lu-migrolino-emmen-e7j9c4"
@@ -126701,8 +126683,7 @@
       "previousSlugsByLocale": {
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
-          "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
+          "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
@@ -126717,8 +126698,7 @@
         "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-aarau",
-        "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-aarau",
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
+        "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-aarau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -128452,8 +128432,7 @@
       "previousSlugsByLocale": {
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
-          "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
-          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
+          "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
@@ -128468,8 +128447,7 @@
         "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-bern",
-        "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-bern",
-        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
+        "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

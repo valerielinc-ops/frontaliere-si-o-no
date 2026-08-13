@@ -1352,15 +1352,15 @@
         ]
       },
       "previousSlugsByLocale": {
-        "fr": [
-          "gl-vat-accountant-richemont-meyrin"
-        ],
         "it": [
           "gl-vat-accountant-richemont-meyrin"
         ],
         "de": [
           "gl-vat-accounting-richemont-meyrin",
           "gl-und-mehrwertsteuerbuchhalter-richemont-meyrin"
+        ],
+        "fr": [
+          "gl-vat-accountant-richemont-meyrin"
         ]
       },
       "previousSlugs": [
@@ -1675,8 +1675,8 @@
       "id": "richemont-975ca5939f9b",
       "slug": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "en": "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "it": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
+        "en": "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "de": "finisher-im-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "fr": "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier"
       },
@@ -1720,14 +1720,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
-          "termineur-en-habillage-horloger-richemont-le-sentier"
-        ],
         "it": [
           "termineur-en-habillage-horloger-richemont-le-sentier",
           "rivestimenti-orologiai-jaeger-lecoultre-le-sentier",
           "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier"
+        ],
+        "en": [
+          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
+          "termineur-en-habillage-horloger-richemont-le-sentier"
         ],
         "de": [
           "termineur-en-habillage-horloger-richemont-le-sentier",
@@ -2208,13 +2208,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "fr": [
-          "procurement-process-manager-richemont-plan-les-ouates"
-        ],
         "it": [
           "procurement-process-manager-richemont-plan-les-ouates"
         ],
         "de": [
+          "procurement-process-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
           "procurement-process-manager-richemont-plan-les-ouates"
         ]
       },
@@ -2503,9 +2503,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont"
-        ],
         "it": [
           "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont",
           "project-manager-r-i-materials-modeling-richemont-delemont",
@@ -2514,6 +2511,9 @@
           "r-i-materials-modeling-project-manager-richemont-delemont",
           "r-i-project-manager-materials-modeling-richemont-delemont",
           "r-i-project-manager-materials-modelling-richemont-delemont"
+        ],
+        "en": [
+          "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont"
         ],
         "de": [
           "projektmanager-r-i-modellierungsmaterialien-richemont-delemont",
@@ -3887,12 +3887,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-categories-d-achat-richemont-plan-les-ouates",
-          "responsable-de-categorie-achats-richemont-plan-les-ouates",
-          "responsable-categorie-achats-richemont-plan-les-ouates",
-          "procurement-category-manager-richemont-plan-les-ouates"
-        ],
         "it": [
           "responsabile-categoria-acquisti-richemont-plan-les-ouates",
           "manager-delle-categorie-di-acquisto-richemont-plan-les-ouates",
@@ -3903,6 +3897,12 @@
           "category-manager-einkauf-richemont-plan-les-ouates",
           "kategorie-manager-fur-beschaffung-richemont-plan-les-ouates",
           "beschaffungskategorie-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "gestionnaire-de-categories-d-achat-richemont-plan-les-ouates",
+          "responsable-de-categorie-achats-richemont-plan-les-ouates",
+          "responsable-categorie-achats-richemont-plan-les-ouates",
+          "procurement-category-manager-richemont-plan-les-ouates"
         ]
       },
       "previousSlugs": [
@@ -4074,9 +4074,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "fr": [
-          "group-people-analytics-director-richemont-bellevue"
-        ],
         "it": [
           "direttore-di-gruppo-people-analytics-richemont-bellevue",
           "direttore-analytics-del-personale-richemont-bellevue",
@@ -4089,6 +4086,9 @@
           "personal-analytics-direktor-richemont-bellevue",
           "gruppenleiter-people-analytics-richemont-bellevue",
           "gruppe-personen-analytics-direktor-richemont-bellevue",
+          "group-people-analytics-director-richemont-bellevue"
+        ],
+        "fr": [
           "group-people-analytics-director-richemont-bellevue"
         ]
       },
@@ -5804,8 +5804,8 @@
       "id": "richemont-54f3558732c4",
       "slug": "costruttore-di-modelli-anaplan-cartier-villars-sur-glane",
       "slugByLocale": {
-        "en": "anaplan-model-builder-richemont-villars-sur-glane",
         "it": "costruttore-di-modelli-anaplan-cartier-villars-sur-glane",
+        "en": "anaplan-model-builder-richemont-villars-sur-glane",
         "de": "anaplan-modellbauer-cartier-villars-sur-glane",
         "fr": "anaplan-model-builder-richemont-villars-sur-glane"
       },
@@ -8605,8 +8605,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "responsable-outillage-et-programmation-f-h-richemont-le-brassus",
-          "strumenti-di-gestione-e-programmazione-f-h-vacheron-constantin-le-brassus"
+          "responsable-outillage-et-programmation-f-h-richemont-le-brassus"
         ],
         "de": [
           "responsable-outillage-et-programmation-m-w-d-vacheron-constantin-le-brassus"
@@ -8614,8 +8613,6 @@
       },
       "previousSlugs": [
         "responsable-outillage-et-programmation-f-h-richemont-le-brassus",
-        "manager-tools-und-programmierung-f-h-vacheron-constantin-le-brassus",
-        "strumenti-di-gestione-e-programmazione-f-h-vacheron-constantin-le-brassus",
         "responsable-outillage-et-programmation-m-w-d-vacheron-constantin-le-brassus"
       ],
       "salaryMin": 60500,
@@ -11507,8 +11504,8 @@
       "id": "richemont-88744095bff3",
       "slug": "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
       "slugByLocale": {
-        "en": "industrialization-project-manager-valfleurier-buttes",
         "it": "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
+        "en": "industrialization-project-manager-valfleurier-buttes",
         "de": "industrialisierung-projektmanager-valfleurier-buttes",
         "fr": "charge-de-projets-industrialisation-valfleurier-buttes"
       },
@@ -11552,15 +11549,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "project-manager-industrialization-valfleurier-buttes",
-          "charge-de-projets-industrialisation-valfleurier-buttes",
-          "charge-de-projets-industrialisation-richemont-buttes"
-        ],
         "it": [
           "charge-de-projets-industrialisation-richemont-buttes",
           "industrializzazione-di-project-manager-valfleurier-buttes",
           "charge-de-projets-industrialisation-valfleurier-buttes"
+        ],
+        "en": [
+          "project-manager-industrialization-valfleurier-buttes",
+          "charge-de-projets-industrialisation-valfleurier-buttes",
+          "charge-de-projets-industrialisation-richemont-buttes"
         ],
         "de": [
           "charge-de-projets-industrialisation-richemont-buttes",
@@ -13935,12 +13932,12 @@
     },
     {
       "id": "richemont-b2005538e5f0",
-      "slug": "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes",
+      "slug": "sistemi-e-software-mechatronic-dell-ingegnere-r-i-richemont-buttes",
       "slugByLocale": {
         "fr": "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes",
-        "it": "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes",
-        "en": "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes",
-        "de": "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes"
+        "it": "sistemi-e-software-mechatronic-dell-ingegnere-r-i-richemont-buttes",
+        "en": "r-i-engineer-mechatronic-systems-and-software-richemont-buttes",
+        "de": "r-i-ingenieur-mechatronische-systeme-und-software-richemont-buttes"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -13995,16 +13992,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:03:21.362Z"
+      "firstSeenAt": "2026-08-12T22:03:21.362Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes"
+        ],
+        "en": [
+          "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes"
+        ],
+        "de": [
+          "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-r-i-systemes-mecatroniques-et-logiciels-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-941a9a47eee9",
       "slug": "progetti-di-traine-ia-hr-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "fr": "stagiaire-projets-ia-rh-richemont-le-cret-du-locle",
         "it": "progetti-di-traine-ia-hr-cartier-manufacture-le-cret-du-locle",
         "en": "trainee-ia-hr-projects-cartier-manufacture-le-cret-du-locle",
-        "de": "trainee-ia-hr-projekte-cartier-manufacture-le-cret-du-locle"
+        "de": "trainee-ia-hr-projekte-cartier-manufacture-le-cret-du-locle",
+        "fr": "stagiaire-projets-ia-rh-richemont-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",

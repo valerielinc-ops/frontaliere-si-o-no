@@ -361,21 +361,15 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sauna-master-m-w-d-kulm-hotel-st-moritz",
-          "pool-attendant-m-w-d-kulm-hotel-st-moritz"
+          "sauna-master-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
           "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz"
-        ],
-        "fr": [
-          "pool-attendant-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
         "sauna-master-pool-attendant-m-w-d-kulm-hotel-st-moritz",
-        "sauna-master-m-w-d-kulm-hotel-st-moritz",
-        "saunamaster-m-w-d-kulm-hotel-st-moritz-st-moritz-0bba8e",
-        "pool-attendant-m-w-d-kulm-hotel-st-moritz"
+        "sauna-master-m-w-d-kulm-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-14T12:07:02.635Z",
       "salaryMin": 57500,
@@ -602,23 +596,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
+          "laundry-employee-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-          "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17",
-          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
+          "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17"
         ],
         "fr": [
-          "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-          "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
+          "laundry-employee-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
         "laundry-employee-m-w-d-kulm-hotel-st-moritz",
-        "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17",
-        "laundry-employee-washer-m-w-d-kulm-hotel-st-moritz"
+        "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz-6d5f17"
       ],
       "firstSeenAt": "2026-07-14T12:06:59.610Z",
       "salaryMin": 57500,
@@ -957,6 +947,10 @@
       "requirementsByLocale": {},
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
+      "previousSlugs": [
+        "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "florist-m-w-d-kulm-hotel-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "florist-m-w-d-kulm-hotel-st-moritz"
@@ -965,11 +959,11 @@
           "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
-      "previousSlugs": [
-        "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "florist-m-w-d-kulm-hotel-st-moritz"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2298,
+      "retranslationAttempts": 4,
       "firstSeenAt": "2026-08-04T11:37:44.761Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -981,11 +975,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 4,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2298,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kulm-hotel-fe14f6cf94b1",
@@ -1364,12 +1354,10 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
           "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "previousSlugs": [
-        "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
         "driver-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-08-11T22:01:54.606Z",

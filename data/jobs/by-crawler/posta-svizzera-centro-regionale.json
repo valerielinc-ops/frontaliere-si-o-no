@@ -2780,10 +2780,10 @@
       },
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
-        "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticket-controller-in-and-customer-advice-postauto-interlaken",
+        "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
+        "en": "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-interlaken"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken"
       },
       "sourceLang": "de",
       "department": "",
@@ -2820,14 +2820,18 @@
       "firstSeenAt": "2026-08-03T22:19:22.975Z",
       "previousSlugsByLocale": {
         "en": [
-          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
+          "ticket-controller-in-and-customer-advice-postauto-interlaken"
         ],
         "fr": [
-          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
+          "controleur-de-billetterie-in-et-conseil-client-postauto-interlaken"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
+        "ticket-controller-in-and-customer-advice-postauto-interlaken",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-interlaken"
       ],
       "needsRetranslation": true
     },

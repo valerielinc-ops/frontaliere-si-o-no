@@ -635,9 +635,9 @@
       "id": "gesundheitszentrum-fricktal-4e4090806af8",
       "slug": "assistenza-perioperativa-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "it": "assistenza-perioperativa-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "perioperative-assistance-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "assistance-perioperatoire-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -713,8 +713,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal",
         "it": "assistent-in-gesundheit-e-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "assistent-in-gesundheit-und-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal",
-        "fr": "assistent-in-gesundheit-und-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal"
+        "en": "assistant-in-health-and-social-affairs-ags-2027-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "assistant-dans-sante-et-affaires-sociales-ags-2027-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -762,6 +762,12 @@
         "it": [
           "assistent-in-gesundheit-und-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal",
           "assistent-in-gesundheit-e-soziales-ags-o-pflegeassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-ags-2027-m-w-d-gesundheitszentrum-fricktal"
         ]
       },
       "previousSlugs": [

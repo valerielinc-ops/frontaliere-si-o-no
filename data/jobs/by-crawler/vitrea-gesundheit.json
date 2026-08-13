@@ -602,9 +602,9 @@
       "id": "vitrea-gesundheit-d31e216ef397",
       "slug": "fisioterapista-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
-        "de": "physiotherapeutin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "it": "fisioterapista-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "en": "physiotherapist-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "de": "physiotherapeutin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "fr": "physiotherapeute-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
@@ -679,9 +679,9 @@
       "slug": "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
         "de": "mitarbeiterin-a-hotellerie-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "it": "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "it": "dipendenti-a-industria-alberghiera-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "employee-a-hotel-industry-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "salaries-a-industrie-hoteliere-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -724,22 +724,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipendenti-a-industria-alberghiera-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "en": [
-          "employee-a-hotel-industry-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "fr": [
-          "salaries-a-industrie-hoteliere-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ]
-      },
-      "previousSlugs": [
-        "dipendenti-a-industria-alberghiera-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "employee-a-hotel-industry-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "salaries-a-industrie-hoteliere-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

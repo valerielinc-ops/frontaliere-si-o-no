@@ -484,11 +484,12 @@
       "jobNumber": "WAG02398",
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
+        "hr-generalist-in-weisse-arena-ch",
+        "hr-generalist-in-weisse-arena-gruppe-laax"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "hr-generalist-in-weisse-arena-ch",
-          "hr-generalist-in-weisse-arena-gruppe-laax"
-        ],
         "it": [
           "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
           "hr-generalist-in-weisse-arena-ch",
@@ -497,15 +498,13 @@
         "en": [
           "hr-generalist-in-weisse-arena-ch"
         ],
+        "de": [
+          "hr-generalist-in-weisse-arena-ch"
+        ],
         "fr": [
           "hr-generalist-in-weisse-arena-ch"
         ]
       },
-      "previousSlugs": [
-        "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
-        "hr-generalist-in-weisse-arena-ch",
-        "hr-generalist-in-weisse-arena-gruppe-laax"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-02T10:50:35.047Z",
       "salaryMin": 57500,
@@ -606,8 +605,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-weisse-arena-ch",
         "it": "addetto-a-alle-vendite-weisse-arena-gruppe-laax",
-        "en": "mitarbeiter-in-verkauf-weisse-arena-ch",
-        "fr": "mitarbeiter-in-verkauf-weisse-arena-ch"
+        "en": "associate-sales-weisse-arena-gruppe-laax",
+        "fr": "collaborateur-trice-vente-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -654,8 +653,6 @@
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "associate-sales-weisse-arena-gruppe-laax",
-        "collaborateur-trice-vente-weisse-arena-gruppe-laax",
         "mitarbeiter-in-verkauf-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
@@ -663,10 +660,10 @@
           "mitarbeiter-in-verkauf-weisse-arena-ch"
         ],
         "en": [
-          "associate-sales-weisse-arena-gruppe-laax"
+          "mitarbeiter-in-verkauf-weisse-arena-ch"
         ],
         "fr": [
-          "collaborateur-trice-vente-weisse-arena-gruppe-laax"
+          "mitarbeiter-in-verkauf-weisse-arena-ch"
         ]
       },
       "salaryMin": 57500,
@@ -1224,27 +1221,12 @@
       "previousSlugsByLocale": {
         "it": [
           "receptionniste-in-weisse-arena-gruppe-laax",
-          "receptionist-in-weisse-arena-gruppe-laax",
-          "ricevitore-in-weisse-arena-gruppe-laax",
-          "receptionist-in-weisse-arena-ch"
-        ],
-        "en": [
-          "receptionist-in-weisse-arena-gruppe-laax",
-          "receptionist-in-weisse-arena-ch"
-        ],
-        "fr": [
-          "receptionniste-in-weisse-arena-gruppe-laax",
-          "receptionist-in-weisse-arena-ch"
-        ],
-        "de": [
-          "receptionist-in-weisse-arena-ch"
+          "receptionist-in-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
         "receptionniste-in-weisse-arena-gruppe-laax",
-        "receptionist-in-weisse-arena-gruppe-laax",
-        "ricevitore-in-weisse-arena-gruppe-laax",
-        "receptionist-in-weisse-arena-ch"
+        "receptionist-in-weisse-arena-gruppe-laax"
       ]
     },
     {
@@ -1399,9 +1381,9 @@
       "id": "weisse-arena-c174a2027d10",
       "slug": "guest-experience-host-weisse-arena-ch",
       "slugByLocale": {
-        "de": "guest-experience-host-weisse-arena-ch",
         "it": "guest-experience-host-weisse-arena-ch",
         "en": "guest-experience-host-weisse-arena-ch",
+        "de": "guest-experience-host-weisse-arena-ch",
         "fr": "hote-d-experience-invite-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -1619,9 +1601,9 @@
       "id": "weisse-arena-e2047832854f",
       "slug": "co-lead-guest-experience-weisse-arena-ch",
       "slugByLocale": {
-        "de": "co-lead-guest-experience-weisse-arena-ch",
         "it": "co-lead-guest-experience-weisse-arena-ch",
         "en": "co-lead-guest-experience-weisse-arena-ch",
+        "de": "co-lead-guest-experience-weisse-arena-ch",
         "fr": "codiriger-l-experience-des-invites-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",

@@ -144,15 +144,15 @@
         ]
       },
       "previousSlugsByLocale": {
-        "fr": [
-          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
-          "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich",
-          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
-        ],
         "it": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ],
         "en": [
+          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
+          "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich",
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ]
       },
@@ -403,14 +403,14 @@
         ]
       },
       "previousSlugsByLocale": {
-        "fr": [
-          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
-          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
-        ],
         "it": [
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ],
         "en": [
+          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ]
       },
@@ -4283,10 +4283,10 @@
         "it": [
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-zug-decathlon-ch"
         ],
-        "fr": [
+        "en": [
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-zug-decathlon-ch"
         ],
-        "en": [
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-80-decathlon-zug-decathlon-ch"
         ]
       },
@@ -4360,10 +4360,10 @@
           "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-ch",
           "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-bern"
         ],
-        "fr": [
+        "en": [
           "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-ch"
         ],
-        "en": [
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-ch"
         ]
       },
@@ -4437,10 +4437,10 @@
           "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch",
           "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-bern"
         ],
-        "fr": [
+        "en": [
           "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch"
         ],
-        "en": [
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch"
         ]
       },
@@ -4514,10 +4514,10 @@
           "sport-leader-verkaufsberater-m-w-d-befristet-60-hinwil-decathlon-ch",
           "sport-leader-verkaufsberater-m-w-d-befristet-60-hinwil-decathlon-hinwil"
         ],
-        "fr": [
+        "en": [
           "sport-leader-verkaufsberater-m-w-d-befristet-60-hinwil-decathlon-ch"
         ],
-        "en": [
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-60-hinwil-decathlon-ch"
         ]
       },
@@ -4539,10 +4539,10 @@
       "id": "decathlon-44c9a11711b2",
       "slug": "consigliere-location-m-f-contratto-orario-60-bogis-chavannes-decathlon-chavannes-de-bogis",
       "slugByLocale": {
-        "fr": "conseiller-ere-location-h-f-contrat-horaire-60-chavannes-de-bogis-decathlon-ch",
         "it": "consigliere-location-m-f-contratto-orario-60-bogis-chavannes-decathlon-chavannes-de-bogis",
         "en": "counsellor-location-m-f-hourly-contract-60-bogis-chavannes-decathlon-chavannes-de-bogis",
-        "de": "counsellor-location-m-w-stundenvertrag-60-bogis-chavannes-decathlon-chavannes-de-bogis"
+        "de": "counsellor-location-m-w-stundenvertrag-60-bogis-chavannes-decathlon-chavannes-de-bogis",
+        "fr": "conseiller-ere-location-h-f-contrat-horaire-60-chavannes-de-bogis-decathlon-ch"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4614,9 +4614,9 @@
       "id": "decathlon-967ef6f14ba3",
       "slug": "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach",
       "slugByLocale": {
-        "de": "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
         "it": "leader-sportivo-consulente-commerciale-m-f-d-80-decathlon-rickenbach-decathlon-rickenbach",
         "en": "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
+        "de": "sport-leader-verkaufsberater-m-w-d-80-decathlon-rickenbach-decathlon-ch",
         "fr": "leader-sportif-conseiller-commercial-h-f-d-80-decathlon-rickenbach-decathlon-rickenbach"
       },
       "company": "Decathlon",
@@ -4684,12 +4684,12 @@
     },
     {
       "id": "decathlon-69b6574770d4",
-      "slug": "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch",
+      "slug": "consigliere-speciale-velo-m-f-contratto-orario-50-confederazione-decathlon-geneve",
       "slugByLocale": {
         "fr": "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch",
-        "it": "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch",
-        "en": "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch",
-        "de": "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch"
+        "it": "consigliere-speciale-velo-m-f-contratto-orario-50-confederazione-decathlon-geneve",
+        "en": "special-adviser-velo-m-f-hourly-contract-50-confederation-decathlon-geneve",
+        "de": "sonderberater-velo-m-w-stundenvertrag-50-confederation-decathlon-geneve"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4743,7 +4743,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:03:27.843Z"
+      "firstSeenAt": "2026-08-12T22:03:27.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-specialite-velo-h-f-contrat-horaire-50-confederation-decathlon-ch"
+      ]
     }
   ]
 }

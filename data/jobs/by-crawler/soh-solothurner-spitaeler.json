@@ -14400,12 +14400,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-4ea4620ed1bc",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten",
+      "slug": "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten"
+        "it": "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "dipl-nursing-professional-imo-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "dipl-specialiste-des-soins-infirmiers-imo-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14460,7 +14460,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:51:26.077Z"
+      "firstSeenAt": "2026-08-12T21:51:26.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-solothurner-spitaeler-olten"
+      ]
     }
   ]
 }

@@ -7636,9 +7636,9 @@
       "id": "equans-38e4a06a62ea",
       "slug": "installatore-sanitario-in-equans-switzerland-st-gallen-109505",
       "slugByLocale": {
-        "de": "sanitarinstallateur-in-equans-st-gallen",
         "it": "installatore-sanitario-in-equans-switzerland-st-gallen-109505",
         "en": "sanitary-installer-in-equans-switzerland-st-gallen-109505",
+        "de": "sanitarinstallateur-in-equans-st-gallen",
         "fr": "installateur-sanitaire-in-equans-switzerland-st-gallen-109505"
       },
       "company": "Equans Switzerland",
@@ -7715,12 +7715,12 @@
     },
     {
       "id": "equans-25b87ccea19d",
-      "slug": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
+      "slug": "personale-di-sicurezza-ok-nel-salario-orario-zh-equans-switzerland-schlieren",
       "slugByLocale": {
         "de": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
-        "it": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
-        "en": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
-        "fr": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        "it": "personale-di-sicurezza-ok-nel-salario-orario-zh-equans-switzerland-schlieren",
+        "en": "security-staff-okay-in-the-hourly-wage-zh-equans-switzerland-schlieren",
+        "fr": "personnel-de-securite-ok-dans-le-salaire-horaire-zh-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7777,7 +7777,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T21:52:15.729Z"
+      "firstSeenAt": "2026-08-12T21:52:15.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        ],
+        "en": [
+          "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        ],
+        "fr": [
+          "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+      ]
     },
     {
       "id": "equans-18649b129c05",
@@ -7785,8 +7799,8 @@
       "slugByLocale": {
         "de": "servicetechniker-in-elektro-equans-bern",
         "it": "tecnico-a-di-servizio-elektro-equans-switzerland-bern",
-        "en": "servicetechniker-in-elektro-equans-bern",
-        "fr": "servicetechniker-in-elektro-equans-bern"
+        "en": "service-technician-elektro-equans-switzerland-bern",
+        "fr": "technicien-de-service-electrique-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7834,6 +7848,12 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-elektro-equans-bern"
+        ],
+        "en": [
+          "servicetechniker-in-elektro-equans-bern"
+        ],
+        "fr": [
+          "servicetechniker-in-elektro-equans-bern"
         ]
       },
       "previousSlugs": [
@@ -7855,12 +7875,12 @@
     },
     {
       "id": "equans-e896d7398041",
-      "slug": "automatikmonteur-in-equans-switzerland-brig",
+      "slug": "fiocco-automatico-equans-switzerland-brig",
       "slugByLocale": {
         "de": "automatikmonteur-in-equans-brig",
-        "it": "automatikmonteur-in-equans-switzerland-brig",
-        "en": "automatikmonteur-in-equans-switzerland-brig",
-        "fr": "automatikmonteur-in-equans-switzerland-brig"
+        "it": "fiocco-automatico-equans-switzerland-brig",
+        "en": "automatic-fitter-equans-switzerland-brig",
+        "fr": "monteur-automatique-equans-switzerland-brig"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7907,11 +7927,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automatikmonteur-in-equans-brig"
+          "automatikmonteur-in-equans-brig",
+          "automatikmonteur-in-equans-switzerland-brig"
+        ],
+        "en": [
+          "automatikmonteur-in-equans-switzerland-brig"
+        ],
+        "fr": [
+          "automatikmonteur-in-equans-switzerland-brig"
         ]
       },
       "previousSlugs": [
-        "automatikmonteur-in-equans-brig"
+        "automatikmonteur-in-equans-brig",
+        "automatikmonteur-in-equans-switzerland-brig"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -7929,12 +7957,12 @@
     },
     {
       "id": "equans-58152c009fd3",
-      "slug": "technischer-sachbearbeiter-luftung-w-m-d-equans-bern",
+      "slug": "agente-tecnico-ventilation-m-f-d-equans-switzerland-bern",
       "slugByLocale": {
         "de": "technischer-sachbearbeiter-luftung-w-m-d-equans-bern",
-        "it": "technischer-sachbearbeiter-luftung-w-m-d-equans-bern",
-        "en": "technischer-sachbearbeiter-luftung-w-m-d-equans-bern",
-        "fr": "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
+        "it": "agente-tecnico-ventilation-m-f-d-equans-switzerland-bern",
+        "en": "technical-agent-ventilation-m-f-d-equans-switzerland-bern",
+        "fr": "agent-technique-ventilation-h-f-d-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8004,13 +8032,16 @@
           "technologie-de-refrigeration-pour-commis-technique-equans-switzerland-bern",
           "clerk-tecnico-ventilazione-f-m-d-equans-switzerland-bern",
           "commis-technique-ventilation-f-m-d-equans-switzerland-bern",
-          "technical-clerk-ventilation-f-m-d-equans-switzerland-bern"
+          "technical-clerk-ventilation-f-m-d-equans-switzerland-bern",
+          "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
         ],
         "en": [
-          "technical-clerk-ventilation-f-m-d-equans-switzerland-bern-726f55"
+          "technical-clerk-ventilation-f-m-d-equans-switzerland-bern-726f55",
+          "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
         ],
         "fr": [
-          "commis-technique-ventilation-f-m-d-equans-switzerland-bern-726f55"
+          "commis-technique-ventilation-f-m-d-equans-switzerland-bern-726f55",
+          "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
         ]
       },
       "previousSlugs": [
@@ -8024,17 +8055,18 @@
         "technologie-de-refrigeration-pour-commis-technique-equans-switzerland-bern",
         "clerk-tecnico-ventilazione-f-m-d-equans-switzerland-bern",
         "commis-technique-ventilation-f-m-d-equans-switzerland-bern",
-        "technical-clerk-ventilation-f-m-d-equans-switzerland-bern"
+        "technical-clerk-ventilation-f-m-d-equans-switzerland-bern",
+        "technischer-sachbearbeiter-luftung-w-m-d-equans-bern"
       ]
     },
     {
       "id": "equans-1f83161be145",
-      "slug": "servicetechniker-in-kalte-equans-switzerland-bern",
+      "slug": "tecnico-di-servizio-a-freddo-equans-switzerland-bern-ef48ac",
       "slugByLocale": {
         "de": "servicetechniker-in-kalte-equans-bern",
-        "it": "servicetechniker-in-kalte-equans-switzerland-bern",
-        "en": "servicetechniker-in-kalte-equans-bern",
-        "fr": "servicetechniker-in-kalte-equans-bern"
+        "it": "tecnico-di-servizio-a-freddo-equans-switzerland-bern-ef48ac",
+        "en": "service-technician-in-cold-equans-switzerland-bern-ef48ac",
+        "fr": "technicien-de-service-a-froid-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8082,11 +8114,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-kalte-equans-bern",
+          "servicetechniker-in-kalte-equans-switzerland-bern"
+        ],
+        "en": [
+          "servicetechniker-in-kalte-equans-bern"
+        ],
+        "fr": [
           "servicetechniker-in-kalte-equans-bern"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-kalte-equans-bern"
+        "servicetechniker-in-kalte-equans-bern",
+        "servicetechniker-in-kalte-equans-switzerland-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8251,7 +8291,8 @@
         "service-technician-elektro-equans-switzerland-bern",
         "servicetechniker-in-elektro-equans-bern",
         "technicien-de-service-electrique-equans-switzerland-bern",
-        "servicetechniker-in-elektro-equans-switzerland-bern"
+        "servicetechniker-in-elektro-equans-switzerland-bern",
+        "servicetechniker-in-kalte-equans-switzerland-bern-jjzyqo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8277,7 +8318,8 @@
           "servicetechniker-in-kalte-equans-bern",
           "technicien-de-service-a-froid-equans-switzerland-bern",
           "technicien-de-service-electrique-equans-switzerland-bern",
-          "servicetechniker-in-kalte-equans-switzerland-bern"
+          "servicetechniker-in-kalte-equans-switzerland-bern",
+          "servicetechniker-in-kalte-equans-switzerland-bern-jjzyqo"
         ]
       },
       "needsRetranslation": true,
