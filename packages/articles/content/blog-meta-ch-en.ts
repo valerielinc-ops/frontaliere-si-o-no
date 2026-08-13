@@ -2587,6 +2587,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ferrovia-albula-chiusa.title': 'Albula railway line closed at least until tomorrow evening',
     'blog.article.ferrovia-albula-chiusa.excerpt': 'The Rhaetian Railway has closed the Albula railway line due to a landslide on the Beverin stream',
     'blog.article.ferrovia-albula-chiusa.imageAlt': 'Albula Railway closed',
+    'blog.article.chiusura-piscina-uzwil-siccita.title': 'Extreme drought: Uzwil municipal swimming pool closes',
+    'blog.article.chiusura-piscina-uzwil-siccita.excerpt': 'Potable water shortages in eastern Switzerland impose restrictions: Uzwil closes the pool to save up to 150,000 litres per day.',
+    'blog.article.chiusura-piscina-uzwil-siccita.imageAlt': 'Panoramic view of a Swiss lake on a summer day',
 };
 
 export default blogMetaChEn;

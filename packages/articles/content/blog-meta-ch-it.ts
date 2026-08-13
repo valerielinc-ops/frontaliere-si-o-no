@@ -2587,6 +2587,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ferrovia-albula-chiusa.title': 'Linea ferroviaria dell\'Albula chiusa almeno fino a domani sera',
     'blog.article.ferrovia-albula-chiusa.excerpt': 'La Ferrovia retica ha chiuso la linea ferroviaria dell\'Albula a causa di una frana sul torrente Beverin',
     'blog.article.ferrovia-albula-chiusa.imageAlt': 'Ferrovia Albula chiusa',
+    'blog.article.chiusura-piscina-uzwil-siccita.title': 'Siccità estrema: chiude la piscina comunale di Uzwil',
+    'blog.article.chiusura-piscina-uzwil-siccita.excerpt': 'La carenza d\'acqua potabile in Svizzera orientale impone restrizioni: Uzwil chiude la piscina per risparmiare fino a 150\'000 litri al giorno.',
+    'blog.article.chiusura-piscina-uzwil-siccita.imageAlt': 'Vista panoramica di un lago svizzero in una giornata estiva',
 };
 
 export default blogMetaChIt;
