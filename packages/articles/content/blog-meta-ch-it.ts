@@ -2422,6 +2422,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regolamento-eurovision-sicurezza-2027.title': 'Eurovision: nuove regole su sicurezza e età degli artisti',
     'blog.article.regolamento-eurovision-sicurezza-2027.excerpt': 'L\'UER aggiorna il regolamento del concorso: stop alla nazione ospitante in caso di guerra e innalzamento dell\'età minima a 18 anni.',
     'blog.article.regolamento-eurovision-sicurezza-2027.imageAlt': 'Palcoscenico moderno in una sala eventi svizzera',
+    'blog.article.opportunita-lavoro-rsi-svizzera.title': 'Opportunità di carriera presso la RSI: guida al portale',
+    'blog.article.opportunita-lavoro-rsi-svizzera.excerpt': 'Esplora le posizioni aperte e il percorso di candidatura presso la RSI Radiotelevisione svizzera di lingua italiana attraverso il portale ufficiale dedicato.',
+    'blog.article.opportunita-lavoro-rsi-svizzera.imageAlt': 'Sede della Radiotelevisione svizzera a Lugano',
 };
 
 export default blogMetaChIt;

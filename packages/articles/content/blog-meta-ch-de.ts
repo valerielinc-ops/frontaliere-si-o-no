@@ -2422,6 +2422,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.regolamento-eurovision-sicurezza-2027.title': 'Eurovision: Neue Regeln für die Sicherheit und das Alter von Künstlern',
     'blog.article.regolamento-eurovision-sicurezza-2027.excerpt': 'Die EBU aktualisiert die Wettbewerbsregeln: Stopp für das Gastland im Kriegsfall und Anhebung des Mindestalters auf 18 Jahre.',
     'blog.article.regolamento-eurovision-sicurezza-2027.imageAlt': 'Moderne Veranstaltungsbühne in einem Schweizer Veranstaltungsort',
+    'blog.article.opportunita-lavoro-rsi-svizzera.title': 'Karrierechancen bei CSR: Leitfaden zum Portal',
+    'blog.article.opportunita-lavoro-rsi-svizzera.excerpt': 'Entdecken Sie die offenen Stellen und den Bewerbungsprozess bei der RSI Radiotelevisione Svizzera in italienischer Sprache über das offizielle Portal.',
+    'blog.article.opportunita-lavoro-rsi-svizzera.imageAlt': 'RSI Radiotelevisione svizzera Hauptsitz in Lugano',
 };
 
 export default blogMetaChDe;
