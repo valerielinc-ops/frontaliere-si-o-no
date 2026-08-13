@@ -13,8 +13,12 @@ describe('emailSuppression sets', () => {
     expect([...ADDRESS_SUPPRESSED_STATUSES].sort()).toEqual(['bounced', 'complained', 'suppressed']);
   });
 
-  it('newsletter set adds the channel-level soft states (unsubscribe + inactive sunset)', () => {
-    expect([...NEWSLETTER_EXCLUDED_STATUSES].sort()).toEqual(['bounced', 'complained', 'inactive', 'suppressed', 'unsubscribed']);
+  it('newsletter set adds the channel-level soft states (unsubscribe + inactive sunset + expired opt-in)', () => {
+    // `expired` (#5692): three confirmation requests, one per day, unanswered.
+    // Channel-level like `inactive` — our own state, not a human instruction
+    // and not an address signal — so it is here and NOT in the job-alert or
+    // cross-channel sets, both of which are asserted unchanged around this.
+    expect([...NEWSLETTER_EXCLUDED_STATUSES].sort()).toEqual(['bounced', 'complained', 'expired', 'inactive', 'suppressed', 'unsubscribed']);
   });
 
   it('job-alert set adds only that channel\'s own inactive sunset (no unsubscribed — that is per-alert active:false)', () => {

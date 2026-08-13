@@ -43,7 +43,15 @@ export type NewsletterSubscriberStatus =
  | 'unsubscribed'
  | 'bounced'
  | 'complained'
- | 'suppressed';
+ | 'suppressed'
+ /**
+  * The double opt-in was asked for three times, one day apart, and never
+  * answered (#5692). Terminal and KEPT: the record is the proof of having
+  * asked and stopped, and it is what makes the backlog measurable without
+  * calling itself `pending` forever. Written by
+  * scripts/newsletter-confirmation-followups.mjs, never by a browser.
+  */
+ | 'expired';
 
 export type NewsletterSourceChannel =
  | 'popup'
@@ -438,6 +446,12 @@ const NEWSLETTER_STATUS_KIND: Record<NewsletterSubscriberStatus, 'subscription' 
  bounced: 'suppression',
  complained: 'suppression',
  suppressed: 'suppression',
+ // Not "we may mail this person" — the opposite: we asked three times and
+ // stopped (#5692). Classified here so an explicit `expired` write passes the
+ // post-filter byte-identically, the way every other suppression does; a fresh
+ // signup on such a document still infers `pending` and starts a new cycle,
+ // because that path never passes `status` explicitly.
+ expired: 'suppression',
 };
 
 export function inferNewsletterSubscriptionState(
@@ -743,6 +757,17 @@ export type NewsletterCaptureResult = {
  status: NewsletterSubscriberStatus;
  /** A recorded opt-out was binding on this document and this write did not lift it. */
  optedOut: boolean;
+ /**
+  * The document ALREADY carried `confirmed_at`/`confirmedAt` before this write.
+  *
+  * Reported because the caller cannot ask again without a second read, and
+  * because `status` does not answer it: 848 of the 1.498 `pending` documents
+  * measured on 2026-08-13 carry the stamp (the deliverability re-probe written
+  * by scripts/mailtrap-suppression-retry.mjs, where `pending` means "re-probe
+  * me"). Sending them "please confirm your subscription" is asking someone to
+  * do a thing they did — see services/subscriberConsent.mjs.
+  */
+ hadConfirmationProof: boolean;
 };
 
 export async function captureNewsletterSubscriber(
@@ -887,6 +912,31 @@ export async function captureNewsletterSubscriber(
  mergedData.unsubscribedAt = serverTimestamp();
  }
 
+ // A NEW confirmation cycle starts here, and only here (#5692).
+ //
+ // The condition is "this write produced a `pending` that the document was not
+ // already in", which covers the two cases that matter and no others:
+ //  - a brand-new signup — the ordinary case, and the anchor the four-day
+ //    window is measured from;
+ //  - a signup on a document that had ALREADY expired. Without this reset that
+ //    person is born out of attempts: `confirmation_attempts` still says 3 from
+ //    the previous cycle, the cap in newsletterConfirmationEmail.js refuses the
+ //    send, and a genuine new subscriber never receives a confirmation email
+ //    again — the failure mode of a terminal state that is kept rather than
+ //    deleted, and the reason it must be spelled out rather than assumed.
+ //
+ // A repeat submit while already `pending` deliberately does NOT reset: that is
+ // the same cycle, and resetting it would hand out unlimited attempts to
+ // anybody who resubmits the form.
+ //
+ // Nothing is deleted. `confirmation_expired_at` from the previous cycle stays
+ // on the document, and every individual request is in the events subcollection
+ // (`confirmation_email_sent`, carrying its attempt number).
+ if (subscriptionState.status === 'pending' && existingData?.status !== 'pending') {
+ mergedData.confirmation_attempts = 0;
+ mergedData.confirmation_cycle_started_at = serverTimestamp();
+ }
+
  // A granted re-opt-in must actually LIFT the opt-out, or the win-back
  // "riattiva" click makes someone `confirmed` and permanently unmailable:
  // scripts/send-newsletter.mjs drops any row carrying either spelling of the
@@ -972,7 +1022,22 @@ export async function captureNewsletterSubscriber(
  },
  });
 
- return { existed: alreadyActive, id: email, status: subscriptionState.status, optedOut };
+ // Read off `existingData`, which is already in hand — no second Firestore
+ // round-trip. The two field spellings are the ones
+ // `hasConfirmationProof` (functions/src/lib/subscriberConsent.js) reads, and
+ // the agreement between the two is asserted in
+ // tests/newsletter-confirmation-followup.test.ts rather than by importing a
+ // Cloud Functions module into the client bundle — the same shape the
+ // NEWSLETTER_EXCLUDED_STATUSES correspondence already uses above.
+ const hadConfirmationProof = !!(existingData?.confirmed_at || existingData?.confirmedAt);
+
+ return {
+ existed: alreadyActive,
+ id: email,
+ status: subscriptionState.status,
+ optedOut,
+ hadConfirmationProof,
+ };
 }
 
 export async function recordNewsletterClick(
@@ -1109,8 +1174,28 @@ export async function upsertNewsletterSubscriber(
  // here directly.
  if (result.optedOut) return result;
 
- // FRO-24: Send confirmation email for new pending subscribers
- if (result.status === 'pending' && !result.existed) {
+ // FRO-24: Send confirmation email for pending subscribers.
+ //
+ // The condition used to be `status === 'pending' && !result.existed`, and
+ // `existed` is `alreadyActive` — whether the document was ACTIVE before this
+ // write. That is a different question from "is this person being asked to
+ // confirm", and #5692 is what the difference costs: a write that lands on an
+ // active document and resolves to `pending` anyway (TaxCalendar's non-trusted
+ // branch passes `status: 'pending'` explicitly, and an explicit status beats
+ // the existing one in inferSubscriptionStateIgnoringOptOut) produced a
+ // `pending` record that was NEVER asked to confirm and had no way out of it.
+ // The gate now names the thing it is deciding.
+ //
+ // `!result.hadConfirmationProof` is the other half, and it is a REMOVAL of
+ // mail rather than an addition: 848 of the 1.498 `pending` documents already
+ // carry `confirmed_at` (the deliverability re-probe — services/subscriberConsent.mjs),
+ // and asking them to confirm again is asking for a thing they already did.
+ //
+ // Duplicate requests are not this branch's problem and must not be solved by
+ // narrowing it again: the 1-hour cooldown and the three-request cap both live
+ // at the send point (functions/src/newsletterConfirmationEmail.js), where
+ // every caller passes.
+ if (result.status === 'pending' && !result.hadConfirmationProof) {
  markNewsletterPendingLocally(input.email);
  requestConfirmationEmail(input.email).catch((err) => {
  console.warn('[newsletter] Confirmation email request failed (non-blocking):', err?.message || err);

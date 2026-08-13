@@ -55,10 +55,24 @@ export const POSITIVE_RECOVERY_EVENTS = new Set(['delivered', 'open', 'click']);
 export const MACHINE_INFERRED_SUPPRESSIONS = new Set(['inactive', 'suppressed', 'bounced']);
 
 /**
- * Suppressions a HUMAN declared. Consent decisions — never reversible by a
- * delivery signal, only by the human acting again (a fresh opt-in).
+ * Suppressions that turn on what the HUMAN did, not on what a machine inferred.
+ * Never reversible by a delivery signal — only by the human acting again (a
+ * fresh opt-in).
+ *
+ * `complained` and `unsubscribed` are the two decisions they declared.
+ * `expired` (#5692) is the third member and the one that needs saying out
+ * loud: it is what their SILENCE decided. We asked to confirm the subscription
+ * three times, one day apart, and stopped; nothing was inferred about the
+ * mailbox, so there is no inference for a `delivered` to disprove. It belongs
+ * here and not in MACHINE_INFERRED_SUPPRESSIONS because the alternative is
+ * concrete and wrong: an `open` on the third unanswered confirmation email
+ * would clear the state and re-activate a subscription that was never
+ * confirmed — reading a machine's proof-of-eyeballs as the click it exists to
+ * ask for. A real re-subscription still works, and is the only thing that
+ * does: it lands as a fresh `pending` with a new cycle
+ * (services/newsletterSubscribers.ts).
  */
-export const HUMAN_DECLARED_SUPPRESSIONS = new Set(['complained', 'unsubscribed']);
+export const HUMAN_DECLARED_SUPPRESSIONS = new Set(['complained', 'unsubscribed', 'expired']);
 
 /**
  * True when a positive event must NOT be allowed to change `status` at all:
