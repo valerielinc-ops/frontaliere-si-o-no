@@ -2410,6 +2410,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.evaso-bois-mermet.title': 'Evade dal carcere di Bois-Mermet: Nessun pericolo per la popolazione',
     'blog.article.evaso-bois-mermet.excerpt': 'Un detenuto è fuggito dal carcere di Bois-Mermet a Losanna. La polizia vodese assicura che non ci siano pericoli per la popolazione.',
     'blog.article.evaso-bois-mermet.imageAlt': 'Un detenuto evaso dal carcere di Bois-Mermet',
+    'blog.article.iva-aumento-sicurezza.title': 'Aumento IVA per sicurezza: proposto aumento di 0,5 punti percentuali',
+    'blog.article.iva-aumento-sicurezza.excerpt': 'Il Governo svizzero propone un aumento dell\'IVA di 0,5 punti percentuali per finanziare gli acquisti di armamenti.',
+    'blog.article.iva-aumento-sicurezza.imageAlt': 'Aumento IVA per sicurezza: come si applicherà e cosa significa per la Svizzera.',
 };
 
 export default blogMetaChIt;

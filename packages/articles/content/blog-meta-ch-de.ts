@@ -2410,6 +2410,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.evaso-bois-mermet.title': 'Ausbruch aus dem Gefängnis Bois-Mermet: Keine Gefahr für die Bevölkerung',
     'blog.article.evaso-bois-mermet.excerpt': 'Ein Häftling ist aus dem Gefängnis Bois-Mermet in Lausanne geflohen. Die Waadtländer Polizei sorgt dafür, dass keine Gefahr für die Bevölkerung besteht.',
     'blog.article.evaso-bois-mermet.imageAlt': 'Ein Gefangener entkam aus dem Gefängnis Bois-Mermet',
+    'blog.article.iva-aumento-sicurezza.title': 'IVA-Aufschlag für Sicherheit vorgeschlagen',
+    'blog.article.iva-aumento-sicurezza.excerpt': 'Die Schweizer Regierung schlägt eine Erhöhung der Mehrwertsteuer um 0,5 Prozentpunkte vor, um Rüstungskäufe zu finanzieren.',
+    'blog.article.iva-aumento-sicurezza.imageAlt': 'IVA-Anstieg für Sicherheit: wie es sich anwenden wird und was es für die Schweiz bedeutet.',
 };
 
 export default blogMetaChDe;
