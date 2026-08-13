@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Thu, 13 Aug 2026 05:49:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 06:19:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -16,6 +16,51 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 13. August 2026: 901 neue Stellenangebote gestern</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-08-13/</link>
+      <description><![CDATA[Die Zahlen von heute, 13. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Donnerstag, der 13. August 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+⚠️ Die Grenzüberwachung hat heute Morgen keine frischen Daten; der Abschnitt kehrt in der nächsten Ausgabe zurück. Live-Status: [Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 46 Fällen in der Schweiz und in 96 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.518 €/L |
+| Besozzo (VA) | 1.769 €/L |
+| Sondrio (SO) | 1.839 €/L |
+| Veduggio con Colzano (MB) | 1.849 €/L |
+| Arcisate (VA) | 1.854 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **25.55 € pro 50-Liter-Tank** wert (1.518 €/L in Italien gegenüber 2.029 €/L an der nächsten Schweizer Tankstelle).
+
+Die günstigste Schweizer Tankstelle ist heute **Alpina Tankstelle** (1.42 CHF/L, ≈ 1.516 €/L), bei Curon Venosta (BZ).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0685 €** wert (Schluss 2026-08-12). Gegenüber dem Vortag verliert er 0.0003 €; über sieben Tage beträgt die Veränderung -0.0023 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **901 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 4'700. Insgesamt sind **22'771** Anzeigen aktiv, von 846 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Thu, 13 Aug 2026 06:19:44 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-08-13</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-08-13.webp" medium="image"/>
+    </item>
     <item>
       <title>Die Finanzpolizei von Varese entdeckt Schwarzarbeiter und irreguläre Arbeiter</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/die-wachabteilung-von-varese-entdeckt-arbeitnehmer-in-der-schattenwirtschaft/</link>
@@ -2476,63 +2521,6 @@ Jobangebot im Tessin? Simulieren Sie Ihre [Netto-Gehaltsabrechnung](nav:payslip)
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalieri-m5s-vco-tassa-salute</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontalieri-m5s-vco-tassa-salute.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Wohnen in Roisan und Arbeiten im Wallis als Grenzgänger</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/leben-in-roisan-arbeiten-in-vallese-als-frontalier/</link>
-      <description><![CDATA[Grenzgänger, die in Roisan leben und im Wallis arbeiten, müssen die neuen Regeln und Fristen für die Steuererklärung kennen.]]></description>
-      <content:encoded><![CDATA[## Wohnen in Roisan und Arbeiten im Wallis als Grenzgänger
-
-- Grenzgänger, die in Roisan leben und im Wallis arbeiten, müssen ihre Steuererklärung in der Schweiz bis zum 31. Dezember eines jeden Jahres einreichen.
-- Das Doppelbesteuerungsabkommen Italien-Schweiz ist ein Abkommen zwischen den beiden Ländern, das zur Vermeidung der Doppelbesteuerung beiträgt.
-- Grenzgänger können sich an einen Finanzfachmann wenden, um eine persönliche Beratung zu erhalten.
-
-## Eckdaten
-
-- Was * *: Steuererklärung
-- Wann: bis zum 31. Dezember eines jeden Jahres
-- Wo: Schweiz
-- Wer: Grenzgänger
-- Betrag: nicht angegeben
-
-## # Das Doppelbesteuerungsabkommen Italien-Schweiz
-
-Das Doppelbesteuerungsabkommen Italien-Schweiz ist ein Abkommen zwischen den beiden Ländern, das zur Vermeidung der Doppelbesteuerung von Einkommen beiträgt. Diese Vereinbarung wurde 1972 unterzeichnet und trat 1977 in Kraft. Die Vereinbarung sieht vor, dass Einkünfte, die ein italienischer Staatsbürger in der Schweiz erzielt, nur einmal im Wohnsitzland besteuert werden. Das bedeutet, dass Grenzgänger, die in Roisan leben und im Wallis arbeiten, in beiden Ländern keine Einkommenssteuer zahlen müssen.
-
-### Konkrete Beispiele
-
-Angenommen, Sie haben einen Grenzgänger, der im Wallis jährlich 50 '000 Franken verdient. Ohne das Doppelbesteuerungsabkommen wäre er sowohl in Italien als auch in der Schweiz besteuert worden, was eine Einkommenssteuer von rund 12.000 Schweizer Franken pro Jahr bedeuten würde. Dank der Vereinbarung hat der
-Grenzgänger, die in Roisan leben und im Wallis arbeiten, müssen die neuen Regeln und Fristen für die Steuererklärung kennen. Das Doppelbesteuerungsabkommen Italien-Schweiz ist ein Abkommen zwischen den beiden Ländern, das zur Vermeidung der Doppelbesteuerung beiträgt. Grenzgänger können sich an einen Finanzfachmann wenden, um eine persönliche Beratung zu erhalten.
-
-Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 24. Mai 1936 unterzeichnet und soll die Doppelbesteuerung von Einkommen verhindern. Das Abkommen legt fest, dass Einkünfte nur in dem Land besteuert werden können, in dem sie erwirtschaftet werden. Wenn beispielsweise ein Grenzgänger im Wallis arbeitet und in Roisan wohnt, sind seine Einkünfte nur in der Schweiz steuerpflichtig.
-
-Die Steuererklärung der Grenzgänger ist obligatorisch und muss bis zum 31. März des Jahres eingereicht werden, das auf das Jahr folgt, in dem die Einkünfte erzielt wurden. Grenzgänger können die Steuererklärung elektronisch oder über einen Finanzfachmann einreichen.
-
-Konkretes Beispiel: Wenn ein Grenzgänger im Wallis arbeitet und ein Einkommen von CHF 50 '000 hat, muss er dieses Einkommen in der Schweiz deklarieren und die entsprechenden Steuern zahlen. Wenn er die Einkünfte nicht deklariert, könnte er mit einer Geldstrafe von CHF 10 '000 bestraft werden.
-
-Die Vorschriften für die Steuererklärung von Grenzgängern sind in Artikel 21 des Bundesbeschlusses vom 29. September 2008 (DF 2008-734) festgelegt. Der Artikel sieht vor, dass Grenzgänger die Erklärung der
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-Grenzgänger, die in Roisan leben und im Wallis arbeiten, müssen die neuen Regeln und Fristen für die Steuererklärung kennen. Das Doppelbesteuerungsabkommen Italien-Schweiz ist ein Abkommen zwischen den beiden Ländern, das zur Vermeidung der Doppelbesteuerung beiträgt. Grenzgänger können sich an einen Finanzfachmann wenden, um eine persönliche Beratung zu erhalten.
-
-Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 6. Juli 1936 unterzeichnet und am 14. März 1937 vom Schweizer Parlament ratifiziert. Diese Vereinbarung trägt dazu bei, eine Doppelbesteuerung von Einkommen zu vermeiden und so die Steuerbelastung für Grenzgänger zu verringern.
-
-Beispielsweise könnte ein Grenzgänger, der im Wallis arbeitet und in Roisan lebt, ein Einkommen von 80 '000 CHF pro Jahr haben. Nach dem Doppelbesteuerungsabkommen würde Ihr Einkommen in der Schweiz besteuert, nicht aber in Italien. Dies würde eine Senkung der Steuerlast um 20 % bedeuten.
-
-Die Grenzgänger müssen auch die Fristen für die Steuererklärung kennen. In der Schweiz ist die Frist für die Steuererklärung der 31. März eines jeden Jahres. Grenzgänger, die im Wallis arbeiten und in Roisan leben, müssen ihre Steuererklärung bis zu diesem Datum einreichen.
-
-Hier eine Checkliste für Grenzgänger, die im Wallis arbeiten und in Roisan leben:
-
-- Prüfen Sie, ob Sie dem Doppelbesteuerungsabkommen Italien-Schweiz unterliegen
-- Steuerpflichtiges Einkommen in der Schweiz berechnen
-- Prüfen Sie, ob Sie
-
-Jobangebot im Tessin? Simulieren Sie Ihre [Netto-Gehaltsabrechnung](nav:payslip): Bruttolohn, Familienstand und Wohngemeinde eingeben.]]></content:encoded>
-      <pubDate>Tue, 11 Aug 2026 14:54:50 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/vivere-roisan-lavorare-vallese-da-frontalieri</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-roisan-lavorare-vallese-da-frontalieri.webp" medium="image"/>
     </item>
   </channel>
 </rss>

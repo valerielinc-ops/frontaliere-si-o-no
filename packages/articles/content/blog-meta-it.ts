@@ -9864,6 +9864,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.title': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari',
     'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.excerpt': 'La Guardia di Finanza di Varese ha scoperto oltre 50 lavoratori in nero e 10 lavoratori irregolari durante i controlli estivi',
     'blog.article.la-guardia-di-finanza-di-varese-scopre-lavoratori-in-nero.imageAlt': 'La Guardia di Finanza di Varese scopre lavoratori in nero e irregolari durante i controlli estivi',
+    'blog.article.bollettino-frontaliere-2026-08-13.title': 'Bollettino del frontaliere – 13 agosto 2026: 901 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-13.excerpt': 'I numeri di oggi, 13 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-13.imageAlt': 'I numeri del giorno per i frontalieri – 13 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-13.seoDescription': 'Bollettino frontalieri del 13 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-13.ogDescription': 'I numeri del 13 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
