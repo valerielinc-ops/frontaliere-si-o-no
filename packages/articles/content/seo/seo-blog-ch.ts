@@ -31646,6 +31646,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-il-controllo-delle-finanze-critica-duramente-l-ufsp': {
+    title: 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    description: 'Il Controllo delle finanze critica duramente l\'Ufsp senza specificare la data o la motivazione della critica. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controllo, finanze, critica, duramente',
+    ogTitle: 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    ogDescription: 'Il Controllo delle finanze critica duramente l\'Ufsp senza specificare la data o la motivazione della critica.',
+    canonicalPath: '/articoli-svizzera/il-controllo-delle-finanze-critica-duramente-l-ufsp/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Controllo delle finanze critica duramente l'Ufsp",
+      "description": "Il Controllo delle finanze critica duramente l'Ufsp senza specificare la data o la motivazione della critica. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/il-controllo-delle-finanze-critica-duramente-l-ufsp.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una vista del Lago di Lugano"
+      },
+      "datePublished": "2026-08-13T03:34:02+00:00",
+      "dateModified": "2026-08-13T03:34:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-controllo-delle-finanze-critica-duramente-l-ufsp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

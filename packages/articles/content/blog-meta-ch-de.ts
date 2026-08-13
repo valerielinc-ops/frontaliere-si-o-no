@@ -2443,6 +2443,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eclissi-solare-svizzera-conclusa.title': 'Sonnenfinsternis: Show in der Schweiz beendet',
     'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'Die erwartete Sonnenfinsternis endete über der Schweiz, erreichte ihren Höhepunkt gegen 20:20 Uhr und endete mit dem Sonnenuntergang. Im Tessin und Graubünden erreichte die Sonnenbedeckung 91%.',
     'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Partielle Sonnenfinsternis über einer Schweizer Landschaft im Sonnenuntergang.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Die Finanzkontrolle kritisiert das BfS heftig',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Die Finanzkontrolle kritisiert das BfS heftig',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Luganer See',
 };
 
 export default blogMetaChDe;

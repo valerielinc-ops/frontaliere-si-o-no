@@ -2443,6 +2443,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eclissi-solare-svizzera-conclusa.title': 'Eclipse solaire : spectacle terminé en Suisse',
     'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'L\'éclipse solaire attendue a terminé son parcours au-dessus de la Suisse, atteignant son apogée vers 20h20 et se terminant avec le coucher du soleil. Au Tessin et dans les Grisons, la couverture solaire a atteint 91 %.',
     'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Éclipse solaire partielle au-dessus d\'un paysage suisse au coucher du soleil.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Le Contrôle des finances critique sévèrement l\'OFSP',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Le Contrôle des finances critique sévèrement l\'OFSP',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Vue de Lugano',
 };
 
 export default blogMetaChFr;

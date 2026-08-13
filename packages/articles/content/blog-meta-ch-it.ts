@@ -2443,6 +2443,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-solare-svizzera-conclusa.title': 'Eclissi solare: spettacolo concluso in Svizzera',
     'blog.article.eclissi-solare-svizzera-conclusa.excerpt': 'L\'attesa eclissi solare ha terminato il suo percorso sopra la Svizzera, raggiungendo il culmine verso le 20:20 e concludendosi con il tramonto. In Ticino e Grigioni, la copertura del sole ha raggiunto il 91%.',
     'blog.article.eclissi-solare-svizzera-conclusa.imageAlt': 'Eclissi solare parziale sopra un paesaggio svizzero al tramonto.',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.title': 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.excerpt': 'Il Controllo delle finanze critica duramente l\'Ufsp',
+    'blog.article.il-controllo-delle-finanze-critica-duramente-l-ufsp.imageAlt': 'Immagine di una vista del Lago di Lugano',
 };
 
 export default blogMetaChIt;
