@@ -9853,6 +9853,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.votazione-sulla-fortezza-2024.title': 'Vote sur la Forteresse : constitution du comité civique favorable',
     'blog.article.votazione-sulla-fortezza-2024.excerpt': 'Le comité civique « Faisons-nous belle - Oui le 27 septembre » soutient le projet de valorisation touristique et culturelle de la forteresse.',
     'blog.article.votazione-sulla-fortezza-2024.imageAlt': 'Un groupe de personnes discutant de la votation de la Fortezza.',
+    'blog.article.frontaliereticino-chiasso-2026.title': 'UE: nuove regole sugli imballaggi, una sfida per i piccoli commercianti',
+    'blog.article.frontaliereticino-chiasso-2026.excerpt': 'De nombreuses micro-entreprises envisagent de suspendre les expéditions en raison des charges administratives introduites par le nouveau règlement.',
+    'blog.article.frontaliereticino-chiasso-2026.imageAlt': 'frontalier en autoroute A2',
 };
 
 export default blogMetaFr;
