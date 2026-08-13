@@ -2578,6 +2578,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.title': 'Drug discounts are not withheld',
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.excerpt': 'Healthcare Rejects Allegations of Withholding Drug Discounts',
     'blog.article.gli-sconti-sui-farmaci-non-vengono-trattenuti.imageAlt': 'Patient in hospital',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.title': 'After almost 3 years, the Tesla strike in Sweden ends',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.excerpt': 'IF Metall has thrown in the towel after nearly three years on strike against Tesla\'s Swedish subsidiary.',
+    'blog.article.dopo-3-anni-termina-lo-sciopero-tesla-in-svezia.imageAlt': 'Image of a trade union protest in Sweden',
 };
 
 export default blogMetaChEn;
