@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-08-13T10:19:14.167Z",
+  "assembledAt": "2026-08-13T21:52:23.015Z",
   "jobs": [
     {
       "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
@@ -94,7 +94,7 @@
       "titleByLocale": {
         "it": "Senior Financial Contabile / Fachspezialist Rechnungswesen (m/w/d) 100%",
         "en": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/f/d) 100%",
-        "de": "Senior Financial Accountant / Facharzt Rechnungswesen (m/w/d) 100%",
+        "de": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
         "fr": "Senior Financial Comptable / Fachspezialist Rechnungswesen (m/w/d) 100%"
       },
       "crawledAt": "",
@@ -206,7 +206,7 @@
       "titleByLocale": {
         "it": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
         "en": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
-        "de": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
         "fr": "Projektleiter Kunstoffanwendungen Automobile (m/m/j) 100%"
       },
       "crawledAt": "",
@@ -270,7 +270,7 @@
       "titleByLocale": {
         "it": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
         "en": "Projektleiter Kunstoffanwendungen Industrie & Consumer (m/w/d) 100%",
-        "de": "Projektleiter Kunstoffanwendungen Industries & Consumer (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
         "fr": "Projektleiter Kunstoffanwendungen Industrie & Consommateur (m/p/d) 100%"
       },
       "crawledAt": "",
@@ -334,7 +334,7 @@
       "titleByLocale": {
         "it": "Polymechaniker (m/w/d) 100%",
         "en": "Polymechaniker (m/f/d) 100%",
-        "de": "Polymechaniker (m/w/d) 100 %",
+        "de": "Polymechaniker (m/w/d) 100%",
         "fr": "Polymécaniker (m/p/j) 100%"
       },
       "crawledAt": "",
@@ -400,7 +400,7 @@
       "titleByLocale": {
         "it": "IT Supporter 100%",
         "en": "EN Supporter 100%",
-        "de": "IT-Unterstützer zu 100 %",
+        "de": "IT Supporter 100%",
         "fr": "Support informatique 100%"
       },
       "crawledAt": "",
@@ -437,7 +437,8 @@
       "previousSlugs": [
         "it-supporter-100-ems-chemie-ag-domat-ems",
         "it-supporter-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Raumpfleger (m/w/d) 20%",
@@ -522,7 +523,7 @@
       },
       "titleByLocale": {
         "it": "IT System Ingegnere (m/w/d) 100%",
-        "en": "Engineer ZQ0% (m/f/d)",
+        "en": "IT System Engineer (m/w/d) 100%",
         "de": "IT System Ingenieur (m/w/d) 100%",
         "fr": "IT System Ingénieur (m/w/d) 100%"
       },
@@ -577,7 +578,7 @@
       },
       "titleByLocale": {
         "it": "Distribution Manager (m/w/d) 100%",
-        "en": "Distribution Manager (m/f/d) 100%",
+        "en": "Distribution Manager (m/w/d) 100%",
         "de": "Verteilungsmanager (m/w/d) 100%",
         "fr": "Gestionnaire de la distribution (m/m/j) 100%"
       },
@@ -603,7 +604,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-22T11:19:28.952Z"
+      "firstSeenAt": "2026-07-22T11:19:28.952Z",
+      "needsRetranslation": true
     },
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
