@@ -2497,6 +2497,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-berna.title': 'Geschäft in Bern eröffnen: Wahl der Rechtsform und Pflichten',
     'blog.article.aprire-un-attivita-canton-berna.excerpt': 'Eintragung einer Tätigkeit im Kanton Bern: Welche Verfahren und Voraussetzungen sind erforderlich?',
     'blog.article.aprire-un-attivita-canton-berna.imageAlt': 'Bild einer Schweizer Stadt',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.title': 'Öffentliche Verkehrsmittel Kanton Bern: Zonen und Tarife',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.excerpt': 'Informationen zu den Zonen und Tarifen der ÖV-Abos im Kanton Bern',
+    'blog.article.trasporti-pubblici-canton-berna-abbonamenti.imageAlt': 'Bus im Kanton Bern',
 };
 
 export default blogMetaChDe;
