@@ -2473,6 +2473,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eclissi-solare-studi.title': 'Wissenschaft studiert Sonnenfinsternis',
     'blog.article.eclissi-solare-studi.excerpt': 'Wissenschaftler nutzen die Sonnenfinsternis, um die Atmosphäre der Sonne besser zu verstehen.',
     'blog.article.eclissi-solare-studi.imageAlt': 'Sonnenfinsternis aus Ticino',
+    'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-Zug, Auftrag über 8,6 Millionen vergeben',
+    'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'Das Konsortium Bosciorina hat den Auftrag für den Bau der Gegenmauern zwischen Bioggio und Manno gewonnen.',
+    'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'Ein Foto eines Zuges, der durch die ticinesische Landschaft fährt.',
 };
 
 export default blogMetaChDe;

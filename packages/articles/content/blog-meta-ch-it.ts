@@ -2473,6 +2473,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-solare-studi.title': 'La scienza studia l\'eclissi solare',
     'blog.article.eclissi-solare-studi.excerpt': 'Gli scienziati utilizzano l\'eclissi solare per comprendere meglio l\'atmosfera del Sole.',
     'blog.article.eclissi-solare-studi.imageAlt': 'L\'eclissi solare vista dal Ticino',
+    'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-treno, aggiudicato un appalto da 8,6 milioni',
+    'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'Il Consorzio Bosciorina ha vinto l\'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno.',
+    'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'Una foto di un treno che passa attraverso il paesaggio ticinese.',
 };
 
 export default blogMetaChIt;

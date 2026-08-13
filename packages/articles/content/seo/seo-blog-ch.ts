@@ -32036,6 +32036,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tram-treno-aggiudicato-appalto': {
+    title: 'Tram-treno, aggiudicato un appalto da 8,6 milioni',
+    description: 'Il Consorzio Bosciorina ha vinto l\'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tram-treno, aggiudicato, appalto, milioni',
+    ogTitle: 'Tram-treno, aggiudicato un appalto da 8,6 milioni',
+    ogDescription: 'Il Consorzio Bosciorina ha vinto l\'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno.',
+    canonicalPath: '/articoli-svizzera/tram-treno-aggiudicato-appalto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tram-treno, aggiudicato un appalto da 8,6 milioni",
+      "description": "Il Consorzio Bosciorina ha vinto l'appalto per la realizzazione dei muri di controripa tra Bioggio e Manno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tram-treno-aggiudicato-appalto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di un treno che passa attraverso il paesaggio ticinese."
+      },
+      "datePublished": "2026-08-13T05:39:24+00:00",
+      "dateModified": "2026-08-13T05:39:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tram-treno-aggiudicato-appalto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

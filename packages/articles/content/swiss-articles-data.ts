@@ -7417,6 +7417,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tram-treno-aggiudicato-appalto',
+    category: 'novita',
+    date: '2026-08-13T05:39:24.864Z',
+    image: '/images/blog/tram-treno-aggiudicato-appalto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

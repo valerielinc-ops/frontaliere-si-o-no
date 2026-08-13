@@ -2473,6 +2473,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eclissi-solare-studi.title': 'La science étudie l\'éclipse solaire',
     'blog.article.eclissi-solare-studi.excerpt': 'Les scientifiques utilisent l\'éclipse solaire pour mieux comprendre l\'atmosphère du Soleil.',
     'blog.article.eclissi-solare-studi.imageAlt': 'Éclipse solaire observée du Tessin',
+    'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-train, attribué un marché de 8,6 millions',
+    'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'Le Consortium Bosciorina a remporté l\'appel d\'offres pour la réalisation des murs de contre-courant entre Bioggio et Manno.',
+    'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'Une photo d\'un train qui passe par le paysage ticinois.',
 };
 
 export default blogMetaChFr;

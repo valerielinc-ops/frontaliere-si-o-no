@@ -9859,6 +9859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.logistica-pallet-analisi-mercato.title': 'Logistique : l\'échange EPAL et les zones d\'ombre',
     'blog.article.logistica-pallet-analisi-mercato.excerpt': 'La nouvelle loi sur les palettes EPAL améliore l\'échange, mais le marché de l\'occasion reste un défi pour la traçabilité et la concurrence loyale.',
     'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Palettes dans un entrepôt logistique au Tessin',
+    'blog.article.lallarme-di-coldiretti-varese.title': 'Carburants de plus de 2 euros : l\'alarme pour les entreprises et les ménages',
+    'blog.article.lallarme-di-coldiretti-varese.excerpt': 'La course de l\'essence et du gazole au-delà du seuil de deux euros par litre produit un effet qui est transféré de la pompe aux champs, aux élevages et à l\'ensemble de la chaîne agroalimentaire.',
+    'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Le carburant est indispensable pour les tracteurs, les faucheuses, les véhicules de transport d\'animaux et de fourrage, les camions réfrigérés, les livraisons et la participation aux marchés.',
 };
 
 export default blogMetaFr;

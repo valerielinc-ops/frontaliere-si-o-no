@@ -9857,6 +9857,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.logistica-pallet-analisi-mercato.title': 'Logistics: EPAL interchange and shadow areas',
     'blog.article.logistica-pallet-analisi-mercato.excerpt': 'The new EPAL pallet law improves interchange, but the second-hand market remains a challenge for traceability and fair competition.',
     'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Pallets in a logistics warehouse in Ticino',
+    'blog.article.lallarme-di-coldiretti-varese.title': 'Fuels over 2 euros: the alarm for businesses and families',
+    'blog.article.lallarme-di-coldiretti-varese.excerpt': 'The run of gasoline and diesel over the threshold of two euros per liter produces an effect that is transferred from the pump to the fields, farms and the entire agri-food chain.',
+    'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Fuel is essential for tractors, mowers, animal and fodder transport vehicles, refrigerated vans, deliveries, and market participation.',
 };
 
 export default blogMetaEn;

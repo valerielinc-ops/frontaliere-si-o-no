@@ -2473,6 +2473,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eclissi-solare-studi.title': 'Science studies the solar eclipse',
     'blog.article.eclissi-solare-studi.excerpt': 'Scientists use the solar eclipse to better understand the Sun\'s atmosphere.',
     'blog.article.eclissi-solare-studi.imageAlt': 'Solar eclipse observed from Ticino',
+    'blog.article.tram-treno-aggiudicato-appalto.title': 'Tram-train, awarded a contract of 8.6 million',
+    'blog.article.tram-treno-aggiudicato-appalto.excerpt': 'The Bosciorina Consortium has won the contract for the construction of the rear walls between Bioggio and Manno.',
+    'blog.article.tram-treno-aggiudicato-appalto.imageAlt': 'A photo of a train passing through the Ticinese landscape.',
 };
 
 export default blogMetaChEn;

@@ -9858,6 +9858,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.logistica-pallet-analisi-mercato.title': 'Logistica: l\'interscambio EPAL e le zone d\'ombra',
     'blog.article.logistica-pallet-analisi-mercato.excerpt': 'La nuova legge sui pallet EPAL migliora l\'interscambio, ma il mercato dell\'usato resta una sfida per la tracciabilità e la concorrenza leale.',
     'blog.article.logistica-pallet-analisi-mercato.imageAlt': 'Pallet in un magazzino logistico in Ticino',
+    'blog.article.lallarme-di-coldiretti-varese.title': 'Carburanti oltre 2 euro: l\'allarme per imprese e famiglie',
+    'blog.article.lallarme-di-coldiretti-varese.excerpt': 'La corsa di benzina e gasolio oltre la soglia dei due euro al litro produce un effetto che dalla pompa si trasferisce ai campi, agli allevamenti e all\'intera filiera agroalimentare.',
+    'blog.article.lallarme-di-coldiretti-varese.imageAlt': 'Il carburante è indispensabile per trattori, falciatrici, mezzi destinati al trasporto degli animali e del foraggio, furgoni refrigerati, consegne e partecipazione ai mercati.',
 };
 
 export default blogMetaIt;
