@@ -43,6 +43,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { truncateToClause } from '../../build-plugins/shared/clauseTail.mjs';
+import { unescapeTsString } from '../lib/unescape-ts-string.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const SEO_DIR = path.join(ROOT, 'packages', 'articles', 'content', 'seo');
@@ -121,15 +122,15 @@ function readMetaTitles() {
     const rx = /'blog\.article\.([^']+)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
     let m;
     while ((m = rx.exec(src)) !== null) {
-      if (!map.has(m[1])) map.set(m[1], m[2].replace(/\\'/g, "'").replace(/\\\\/g, '\\'));
+      if (!map.has(m[1])) map.set(m[1], unescapeSingle(m[2]));
     }
   }
   return map;
 }
 
 const escapeSingle = (s) => s.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-const unescapeSingle = (s) => s.replace(/\\'/g, "'").replace(/\\\\/g, '\\');
-const unescapeDouble = (s) => s.replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+const unescapeSingle = (s) => unescapeTsString(s, { "'": "'", '\\': '\\' });
+const unescapeDouble = (s) => unescapeTsString(s, { '"': '"', '\\': '\\' });
 
 const metaTitles = readMetaTitles();
 console.log(`meta title disponibili: ${metaTitles.size}`);
