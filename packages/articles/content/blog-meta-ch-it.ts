@@ -2383,6 +2383,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-solare-cardada.title': 'Eclissi solare a Cardada: duecento persone incantate',
     'blog.article.eclissi-solare-cardada.excerpt': 'Duecento persone si sono recate a Cardada per osservare l\'eclissi solare del 12 agosto 2026, con un\'eclissi parziale del 91%.',
     'blog.article.eclissi-solare-cardada.imageAlt': 'Duecento persone incantate dall\'eclissi solare a Cardada',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.title': 'Eclissi solare del 12 agosto: come vederla in Svizzera',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.excerpt': 'In Svizzera la copertura massima del Sole arriverà al 92% poco prima del tramonto il 12 agosto 2026, promettendo uno spettacolo unico.',
+    'blog.article.eclissi-solare-agosto-2026-svizzera.imageAlt': 'Eclissi solare osservata da una località svizzera',
 };
 
 export default blogMetaChIt;
