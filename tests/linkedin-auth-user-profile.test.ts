@@ -273,6 +273,58 @@ describe('Firestore rules — salary_survey collection (#5792)', () => {
 });
 
 /**
+ * Social proof counter — second of the six `read, write: if true`
+ * collections tracked by #5792. `write: if true` let any visitor set
+ * `total` to an arbitrary number (or delete the doc) instead of nudging it
+ * by one; closed to an increment-by-exactly-one envelope. `list` had zero
+ * legitimate caller — every read is a `getDoc` on the single known doc id
+ * `counters/simulations` — so it is closed outright, same shape as
+ * `consulting_orders`.
+ */
+describe('Firestore rules — counters collection (#5792)', () => {
+  const rules = readFileSync(resolve(root, 'firestore.rules'), 'utf8');
+  const countersBlock = matchBlock(rules, 'match /counters/{counterId}');
+  const own = directRules(countersBlock);
+
+  it('keeps anonymous get for the social-proof badge', () => {
+    expect(own).toContain('allow get: if true');
+  });
+
+  it('closes list — no client ever queries the collection', () => {
+    expect(own).toContain('allow list: if false');
+  });
+
+  it('does not allow an unbounded write', () => {
+    expect(own).not.toMatch(/allow[^;:]*\bwrite\b[^;:]*:\s*if\s+true/);
+  });
+
+  it('bounds create/update to an increment of exactly one, no extra fields', () => {
+    expect(own).toContain("request.resource.data.keys().hasOnly(['total', 'updatedAt'])");
+    expect(own).toContain('request.resource.data.total == 1');
+    expect(own).toContain('request.resource.data.total == resource.data.total + 1');
+  });
+
+  it('never allows delete', () => {
+    expect(own).toContain('allow delete: if false');
+  });
+
+  it('matches the payload registerSimulationForSocialProof actually sends', () => {
+    const service = readFileSync(
+      resolve(root, 'services/firestoreService.ts'),
+      'utf8'
+    );
+    const fn = service.slice(
+      service.indexOf('export async function registerSimulationForSocialProof'),
+      service.indexOf('// ─── Dashboard: Saved Simulations')
+    );
+    expect(fn).toContain("f.doc(db, 'counters', 'simulations')");
+    expect(fn).toContain('total: f.increment(1)');
+    expect(fn).toContain('updatedAt: f.serverTimestamp()');
+    expect(fn).toContain('{ merge: true }');
+  });
+});
+
+/**
  * The metric, written as an assertion so it cannot drift back (#5751).
  *
  * Before: two PII collections whose `list` an unauthenticated browser could
