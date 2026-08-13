@@ -1,8 +1,8 @@
 /**
- * emailScannerRanges.mjs — the IP ranges corporate mail scanners click from.
+ * emailScannerRanges.js — the IP ranges corporate mail scanners click from.
  *
  * DATA, NOT LOGIC (issue #5674). The detection lives in
- * scripts/lib/dailyBriefCadence.mjs; this file is the list it reads, so adding
+ * ./syntheticClicks.js; this file is the list it reads, so adding
  * a range is an edit to a table with a provenance column and not a change to a
  * classifier. Every entry carries the whois answer that justifies it and the
  * date it was checked, because a range that cannot be re-verified cannot be
