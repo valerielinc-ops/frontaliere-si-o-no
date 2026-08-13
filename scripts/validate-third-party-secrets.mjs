@@ -30,7 +30,10 @@ const SUSPICIOUS_PATTERNS = [
   },
   {
     name: 'secret-like query parameter',
-    regex: /https?:\/\/[^\s"'<>]*[?&](?:token|api[_-]?key|secret|signature|sig|auth|access_token|client_secret)=(?!\$\{)[^&\s"'<>]{8,}/gi,
+    // Excludes template placeholders (`${...}`) and a small set of literal
+    // non-secret placeholder values used by audit/probe scripts that
+    // deliberately send an invalid token (e.g. scripts/check-sent-email-links.mjs).
+    regex: /https?:\/\/[^\s"'<>]*[?&](?:token|api[_-]?key|secret|signature|sig|auth|access_token|client_secret)=(?!\$\{)(?!(?:placeholder|invalid|dummy|example|fake)\b)[^&\s"'<>]{8,}/gi,
   },
   {
     name: 'Spindox ATS URL',
