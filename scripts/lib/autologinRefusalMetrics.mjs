@@ -94,13 +94,22 @@ export const LOCKOUT_RATE_URGENT = 0.05;
 export const MIN_SAMPLE = 50;
 
 /**
- * How many `auth_code_not_yet_valid` events are OURS.
+ * How many `auth_code_not_yet_valid` events are OURS, on a quiet day.
  *
  * The synthetic probe presents a deliberately future-stamped code, so it scores
  * one clock refusal every time it runs (daily from the monitor, daily from
  * newsletter-qa, plus manual dispatches). The budget is what keeps the clock
  * alarm from firing on the health check that proves the endpoint is alive — the
  * self-inflicted-alert shape that makes a monitor get muted.
+ *
+ * This is only the DEFAULT `evaluate()` falls back to, and the floor
+ * check-autologin-refusal-rate.mjs's caller-supplied `clockBudget` is clamped
+ * to (#5757): a fixed number shared between the monitor and every
+ * newsletter-qa.mjs run is exactly as tight as its busiest day, so a run of
+ * manual QA iterations before a send could exhaust it and either mask a real
+ * skew or trip a false one. The caller sizes the real budget from
+ * scripts/lib/autologinProbeLog.mjs's durable, per-source counts instead —
+ * this constant only guards the days before that history exists.
  */
 export const CLOCK_PROBE_BUDGET = 6;
 
