@@ -145,6 +145,7 @@ export async function persistMailjetEvent(db, eventData) {
  if (type === 'delivered' || type === 'open' || type === 'click') {
  const current = (await subscriberRef.get()).data() || {};
  Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+ subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
@@ -262,6 +263,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  if (type === 'delivered' || type === 'open' || type === 'click') {
  const current = (await subscriberRef.get()).data() || {};
  Object.assign(topUpdate, positiveEventStatusFields({
+ subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
