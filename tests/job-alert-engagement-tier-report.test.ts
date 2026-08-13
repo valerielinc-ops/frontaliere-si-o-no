@@ -9,6 +9,12 @@ const NOW = 1_700_000_000_000;
 const DAY = 24 * 60 * 60 * 1000;
 const daysAgo = (n: number) => NOW - n * DAY;
 
+// Since #5767 the engine asks WHAT was clicked before it calls it engagement:
+// a bare `last_click_at` is no longer proof, so the fixtures that mean "this
+// person really clicked" carry the url the webhooks write beside it.
+const JOB_AD_URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/annuncio-1';
+const clicked = (n: number) => ({ last_click_at: daysAgo(n), last_clicked_url: JOB_AD_URL });
+
 function alert(overrides: Record<string, unknown> = {}) {
   return {
     id: 'a1',
@@ -35,7 +41,7 @@ describe('aggregateEngagementTiers', () => {
   it('classifies an engine-managed alert into the live tier', () => {
     const alerts = [alert({ email: 'a@x.com' }), alert({ email: 'b@x.com' }), alert({ email: 'c@x.com' })];
     const profiles = new Map([
-      ['a@x.com', { last_click_at: daysAgo(1) }],
+      ['a@x.com', clicked(1)],
       ['b@x.com', { last_open_at: daysAgo(2) }],
       ['c@x.com', {}],
     ]);
@@ -46,7 +52,7 @@ describe('aggregateEngagementTiers', () => {
 
   it('flags an improvement when the live tier warms up vs. the last stamped snapshot', () => {
     const alerts = [alert({ email: 'a@x.com' })];
-    const profiles = new Map([['a@x.com', { last_click_at: daysAgo(1), last_engagement_tier: JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY }]]);
+    const profiles = new Map([['a@x.com', { ...clicked(1), last_engagement_tier: JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY }]]);
     const result = aggregateEngagementTiers(alerts, profiles, NOW);
     expect(result.delta.improved).toBe(1);
     expect(result.delta.regressed).toBe(0);
@@ -62,7 +68,7 @@ describe('aggregateEngagementTiers', () => {
 
   it('counts unchanged when the live tier matches the last stamped snapshot', () => {
     const alerts = [alert({ email: 'a@x.com' })];
-    const profiles = new Map([['a@x.com', { last_click_at: daysAgo(1), last_engagement_tier: JOB_ALERT_ENGAGEMENT_TIERS.DAILY }]]);
+    const profiles = new Map([['a@x.com', { ...clicked(1), last_engagement_tier: JOB_ALERT_ENGAGEMENT_TIERS.DAILY }]]);
     const result = aggregateEngagementTiers(alerts, profiles, NOW);
     expect(result.delta.unchanged).toBe(1);
   });
