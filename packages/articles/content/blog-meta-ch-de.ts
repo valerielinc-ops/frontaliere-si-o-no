@@ -2428,6 +2428,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scienza-medicina-attualita-svizzera.title': 'Wissenschaft und Medizin: Updates und Einblicke',
     'blog.article.scienza-medicina-attualita-svizzera.excerpt': 'Ein Blick auf die von der Region veröffentlichten Wissenschafts- und Medizinabschnitte mit thematischen Vertiefungen zu Gesundheit und wissenschaftlicher Forschung in der Schweiz.',
     'blog.article.scienza-medicina-attualita-svizzera.imageAlt': 'Wissenschaftliches Forschungslabor in einer Schweizer Umgebung',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.title': 'Lehre und Berufsausbildung im Kanton Bern: Praxisleitfaden',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.excerpt': 'So finden Sie eine Lehrstelle, verstehen den Lehrvertrag, die Entlohnung und die Berufsmaturität im dualen Berner System.',
+    'blog.article.apprendistato-formazione-professionale-canton-berna.imageAlt': 'Berufsschul-Werkstatt in Bern mit Lehrlingen bei der Arbeit',
 };
 
 export default blogMetaChDe;
