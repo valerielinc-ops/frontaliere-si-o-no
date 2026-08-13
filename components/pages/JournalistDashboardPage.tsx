@@ -523,6 +523,10 @@ export default function JournalistDashboardPage(): React.ReactElement {
           <p className="text-subtle max-w-sm mx-auto">{t('journalistDashboard.gate.subtitle')}</p>
         </div>
         <div className="mt-6 space-y-4">
+          {/* No consent notice: signing in here subscribes the visitor, but the
+              write is App.tsx's under `signInAutoSubscribe` (displayed: false),
+              so a rendered formula would not be the stored one. Declared in
+              `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx (#5739). */}
           <SocialSignInButtons locale={locale} googleWidth={320} errorContext="journalistDashboard.gate" />
         </div>
       </div>

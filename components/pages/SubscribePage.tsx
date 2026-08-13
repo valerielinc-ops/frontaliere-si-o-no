@@ -566,6 +566,15 @@ const SubscribePage: React.FC = () => {
               </div>
 
               <p className="mb-5 text-center text-sm text-on-accent/75">{copy.signInPrompt}</p>
+              {/* No consent notice here, and it is a declared gap rather than an
+                  oversight (#5739): signing in from this page subscribes the
+                  visitor, but the write happens in App.tsx's auth listener under
+                  `signInAutoSubscribe` — an Italian-only, `displayed: false`
+                  formula. Rendering any of the shown formulas beside these
+                  buttons would put one sentence on screen and keep another in
+                  the document. See the header of SocialSignInButtons.tsx and the
+                  `SIGN_IN_SURFACES` table in
+                  tests/consent-shown-at-signup.test.tsx, which lists this page. */}
               <SocialSignInButtons locale={locale} errorContext="subscribePage" googleWidth={320} />
 
               <div className="my-5 flex items-center gap-3">

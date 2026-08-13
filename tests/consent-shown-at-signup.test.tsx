@@ -447,6 +447,20 @@ function consentGateViolations(src: string, declaredNotices: number): string[] {
   return problems;
 }
 
+/**
+ * The mirror rule, for a call site that deliberately shows nothing.
+ *
+ * It may store as many formulas as it likes; what it may not do is store one
+ * that CLAIMS to have been shown. Same asymmetry as everywhere else in this
+ * file — a missing proof is a gap, a fabricated one is a defence that collapses
+ * — and pulled out of the assertion below so the shape can be driven at the
+ * bottom of this file. It cannot be sampled from the repo: a call site with
+ * this defect is exactly what the assertion forbids.
+ */
+function recordedNotShownViolations(src: string): ConsentTextKey[] {
+  return proofKeysIn(src).filter((k) => CONSENT_TEXTS[k]?.displayed);
+}
+
 describe('every signup path is classified', () => {
   const paths = discoverSignupPaths();
 
@@ -503,10 +517,8 @@ describe('the verdicts hold', () => {
 
   it.each(notShown)('%s still stores only formulas nobody has been shown', (file, v) => {
     const g = v as Extract<Verdict, { verdict: 'recorded-not-shown' }>;
-    const src = read(file);
-    const displayedStored = proofKeysIn(src).filter((k) => CONSENT_TEXTS[k]?.displayed);
     expect(
-      displayedStored,
+      recordedNotShownViolations(read(file)),
       `${file} now stores a displayed formula — ${g.onFire} (${g.issue})`,
     ).toEqual([]);
   });
@@ -570,6 +582,305 @@ describe('the verdicts hold', () => {
     ).toEqual([]);
   });
 
+});
+
+/**
+ * THE SCREENS THAT SUBSCRIBE SOMEBODY WITHOUT WRITING ANYTHING (#5739).
+ *
+ * `discoverSignupPaths` defines a signup path as a file that WRITES the
+ * document, and that rule has one blind spot, with a name: a screen can put a
+ * provider button in front of an anonymous visitor and let the auth listener in
+ * `App.tsx` do the write. Nothing in such a file matches `CREATES_SUBSCRIBER`,
+ * so every rule above passes over it — and the visitor is a subscriber anyway.
+ *
+ * This is #5764's question asked of this file: what shape has the population
+ * never contained? Not "a gate with the wrong notice" — that one is sampled ten
+ * times over. It is "a gate that is not a gate by our own definition". Measured
+ * on the tree that produced this block: twenty-two files open a federated
+ * sign-in, five of them show the visitor NOTHING before the write, and not one
+ * of the five was visible to any assertion in this file.
+ *
+ * WHAT THIS BLOCK DOES NOT DO, and why that is the point. It does not demand a
+ * notice on those five. The write for a provider click stores
+ * `signInAutoSubscribe`/`chatbotSignIn`, and those are Italian-only,
+ * `displayed: false` entries; rendering `communicationsSignIn` next to the
+ * button would put one sentence on screen and keep another in the document,
+ * which is worse than silence, because it manufactures a proof instead of
+ * leaving one missing. `SaveSignInPromptModal` says exactly this at its own
+ * provider buttons and has since #5712.
+ *
+ * So the rule enforced here is the one that IS available, and it is the one
+ * nothing else guards: a surface may show nothing, but nothing may CLAIM to
+ * have been shown. Flipping `signInAutoSubscribe` to `displayed: true` — the
+ * tempting one-line "fix", and the one App.tsx's own `onFire` note warns about
+ * — turns every silent screen below into a false record, and until now the
+ * whole suite would have stayed green while it happened.
+ */
+const OPENS_FEDERATED_SIGNIN =
+  /<SocialSignInButtons|renderGoogleButton(WithReadiness)?\s*\(|signInWithLinkedIn\s*\(|promptOneTap\s*\(/;
+
+type SignInSurface =
+  /**
+   * Writes the provider branch itself, with the notice for it on screen. Fully
+   * covered by the VERDICTS table above; declared here so the two populations
+   * cannot silently disagree about which files those are.
+   */
+  | { consent: 'self'; why: string }
+  /**
+   * Renders a notice for its OWN email branch. The provider click beside it is
+   * written by the App.tsx listener under a `displayed: false` formula, so the
+   * document claims nothing about what that visitor read.
+   */
+  | { consent: 'email-branch-only'; why: string }
+  /** Shows nothing at all before the write, which happens in App.tsx. */
+  | { consent: 'none'; why: string; issue: string }
+  /** Neither a gate nor a visitor surface. */
+  | { consent: 'not-a-gate'; why: string };
+
+const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
+  'App.tsx': {
+    consent: 'not-a-gate',
+    why: 'this file IS the listener that writes; the only button it mounts itself is the admin re-auth, and its One Tap prompt is drawn by Google in a cross-origin iframe (see services/authService.ts above)',
+  },
+  'components/shared/SocialSignInButtons.tsx': {
+    consent: 'not-a-gate',
+    why: 'the shared control, mounted by eight of the files below — it records nothing and belongs to whichever screen renders it',
+  },
+
+  'components/community/JobBoard.tsx': {
+    consent: 'self',
+    why: 'both gate surfaces write the provider branch as communicationsSignIn and render that sentence',
+  },
+  'components/fisco/TaxCalendar.tsx': {
+    consent: 'self',
+    why: 'the reminder panel writes communicationsSignIn and renders it',
+  },
+  'components/pages/PublisherPublishPage.tsx': {
+    consent: 'self',
+    why: 'the publish gate writes communicationsSignIn and renders it',
+  },
+
+  'components/community/NewsletterPopup.tsx': { consent: 'email-branch-only', why: 'checkbox form' },
+  'components/shared/SubscriptionCTA.tsx': { consent: 'email-branch-only', why: 'checkbox form' },
+  'components/shared/PdfDownloadGate.tsx': { consent: 'email-branch-only', why: 'checkbox form' },
+  'components/community/OfferwallNewsletterGate.tsx': {
+    consent: 'email-branch-only',
+    why: 'checkbox form',
+  },
+  'components/community/Newsletter.tsx': { consent: 'email-branch-only', why: 'two address forms' },
+  'components/community/WeeklyDigest.tsx': { consent: 'email-branch-only', why: 'subscribe row' },
+  'components/shared/LeadMagnetCTA.tsx': {
+    consent: 'email-branch-only',
+    why: 'two guide-for-address forms',
+  },
+  'components/calculator/MobileCalcLayout.tsx': {
+    consent: 'email-branch-only',
+    why: 'analysis-gate email form',
+  },
+  'components/community/JobOrphanView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
+  'components/community/JobBridgeView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
+  'components/community/JobExpiredView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
+  'components/community/SaveSignInPromptModal.tsx': {
+    consent: 'email-branch-only',
+    why: 'the file that states this position in its own source, and the reason it is a position and not an oversight',
+  },
+
+  'components/pages/SubscribePage.tsx': {
+    consent: 'none',
+    issue: '#5739',
+    why: 'the paid-plan page: provider buttons, an email/password login and a checkout button, none of which writes a subscriber — the App.tsx listener does, under signInAutoSubscribe',
+  },
+  'components/pages/JournalistDashboardPage.tsx': {
+    consent: 'none',
+    issue: '#5739',
+    why: 'the press-room sign-in gate, same shape and same writer',
+  },
+  'components/calculator/CalculatorPaywall.tsx': {
+    consent: 'none',
+    issue: '#5739',
+    why: 'the calculator paywall offers Google and LinkedIn and writes nothing itself',
+  },
+  'components/shared/AiChatbot.tsx': {
+    consent: 'none',
+    issue: '#5739',
+    why: 'the assistant asks the visitor to sign in to continue the conversation; App.tsx writes it under chatbotSignIn, whose text says in so many words that no consent box was offered',
+  },
+  'components/pages/UserProfile.tsx': {
+    consent: 'none',
+    issue: '#5739',
+    why: 'the profile page draws its own sign-in when nobody is signed in; its VERDICTS entry above covers only the preference merge it performs afterwards',
+  },
+};
+
+/**
+ * What the listener stores for a provider click, read from App.tsx rather than
+ * listed — `act: 'authentication'` is what makes a key the answer to "somebody
+ * pressed a provider button", and it is the field that cannot be faked without
+ * misdescribing the gesture. `resubscribeLink` is deliberately excluded by that
+ * filter: an emailed link is not a button on any of these screens.
+ */
+const AUTH_LISTENER_KEYS = proofKeysIn(read('App.tsx')).filter(
+  (k) => CONSENT_TEXTS[k].act === 'authentication',
+);
+
+/**
+ * The one rule a silent screen can still break, as a pure function so the
+ * shapes below can be driven against it.
+ *
+ * Reads the same way round as the register: `displayed: false` is not a defect
+ * here, it is the honest answer. Only a formula that CLAIMS to have been shown
+ * has to actually be on screen.
+ */
+function falseProofViolations(
+  surfaceSrc: string,
+  writerKeys: readonly ConsentTextKey[],
+): string[] {
+  const rendered = new Set(renderedKeysIn(surfaceSrc).map(sentenceOf));
+  return writerKeys
+    .filter((k) => CONSENT_TEXTS[k].displayed && !rendered.has(sentenceOf(k)))
+    .map(
+      (k) =>
+        `the provider click on this screen is written as '${k}' (displayed: true) and this screen ` +
+        'never renders that sentence — the document would claim a disclosure that did not happen',
+    );
+}
+
+describe('every screen that opens a federated sign-in is classified (#5739)', () => {
+  function discoverSignInSurfaces(): string[] {
+    return ['App.tsx', ...walk('components')]
+      .filter((rel) => OPENS_FEDERATED_SIGNIN.test(stripComments(read(rel))))
+      .sort();
+  }
+  const surfaces = discoverSignInSurfaces();
+  const entries = Object.entries(SIGN_IN_SURFACES);
+
+  it('the discovery found the sign-in surfaces at all', () => {
+    expect(surfaces.length).toBeGreaterThan(15);
+    expect(surfaces).toContain('components/shared/SocialSignInButtons.tsx');
+    expect(surfaces).toContain('components/pages/SubscribePage.tsx');
+    // The listener's own keys have to exist, or every rule below is vacuous.
+    expect(AUTH_LISTENER_KEYS.length, 'App.tsx no longer stores an authentication formula').toBeGreaterThan(0);
+  });
+
+  it('no sign-in surface is missing a classification', () => {
+    expect(
+      surfaces.filter((p) => !(p in SIGN_IN_SURFACES)),
+      'a new screen with a provider button must say what it shows before the listener writes',
+    ).toEqual([]);
+  });
+
+  it('no classification is stale', () => {
+    expect(
+      Object.keys(SIGN_IN_SURFACES).filter((p) => !surfaces.includes(p)),
+      'this file no longer opens a federated sign-in — delete its entry',
+    ).toEqual([]);
+  });
+
+  it.each(entries)('%s: no screen claims a disclosure it did not make', (file) => {
+    expect(falseProofViolations(read(file), AUTH_LISTENER_KEYS), file).toEqual([]);
+  });
+
+  it.each(entries.filter(([, v]) => v.consent === 'self'))(
+    '%s really does write the provider branch itself',
+    (file) => {
+      // The discriminator, mechanical rather than declared: only an
+      // `authentication` act describes a provider click, so a file claiming to
+      // cover its own social branch has to store one.
+      const acts = proofKeysIn(read(file)).map((k) => CONSENT_TEXTS[k].act);
+      expect(acts, `${file} stores no authentication formula — its provider click is App.tsx's`)
+        .toContain('authentication');
+      expect(VERDICTS[file]?.verdict, `${file} must also carry a 'shown' verdict above`).toBe('shown');
+    },
+  );
+
+  it.each(entries.filter(([, v]) => v.consent === 'email-branch-only'))(
+    '%s shows its own branch and leaves the provider branch to the listener',
+    (file) => {
+      const src = read(file);
+      expect(renderedKeysIn(src).length, `${file} renders no notice — classify it as 'none'`)
+        .toBeGreaterThan(0);
+      expect(
+        proofKeysIn(src).map((k) => CONSENT_TEXTS[k].act),
+        `${file} now stores an authentication formula — reclassify it as 'self'`,
+      ).not.toContain('authentication');
+    },
+  );
+
+  it.each(entries.filter(([, v]) => v.consent === 'none'))(
+    '%s shows nothing, and stores nothing either',
+    (file) => {
+      // Both halves matter. Showing nothing is a declared gap; STORING something
+      // while showing nothing on a file the VERDICTS table cannot see would be
+      // the original defect, reached through the blind spot instead of the door.
+      const src = read(file);
+      expect(renderedKeysIn(src), `${file} now renders a notice — reclassify it`).toEqual([]);
+      expect(
+        proofKeysIn(src).filter((k) => CONSENT_TEXTS[k].displayed),
+        `${file} stores a displayed formula and shows nothing`,
+      ).toEqual([]);
+    },
+  );
+
+  it('counts the silent screens instead of leaving them to be discovered', () => {
+    // Not a threshold to be tuned: the list IS the report. It went from
+    // "invisible" to five, and a sixth has to be added here on the day it ships.
+    const silent = entries.filter(([, v]) => v.consent === 'none').map(([f]) => f);
+    expect(silent.sort()).toEqual(
+      [
+        'components/calculator/CalculatorPaywall.tsx',
+        'components/pages/JournalistDashboardPage.tsx',
+        'components/pages/SubscribePage.tsx',
+        'components/pages/UserProfile.tsx',
+        'components/shared/AiChatbot.tsx',
+      ].sort(),
+    );
+  });
+
+  /**
+   * The rule driven in both directions, because the failing half cannot be
+   * sampled: the repo would have to contain the defect for that, and this is
+   * what keeps it out. Sources, not files, for the same reason as the block at
+   * the bottom of this file.
+   */
+  describe('the rule fails on the shape it exists to catch', () => {
+    const silent = '<div><SocialSignInButtons locale={locale} /></div>';
+    const withNotice = `<div><SocialSignInButtons locale={locale} />
+      <ConsentNotice consentKey="communicationsSignIn" locale={locale} /></div>`;
+
+    it('passes a silent screen while the listener stores a displayed:false formula', () => {
+      // The position this repo is in, and the one it may stay in: a gap, stated.
+      expect(falseProofViolations(silent, ['signInAutoSubscribe'])).toEqual([]);
+      expect(falseProofViolations(silent, ['chatbotSignIn'])).toEqual([]);
+    });
+
+    it('fails a silent screen the moment that formula claims to have been shown', () => {
+      // Somebody flips `displayed` without touching any screen. Every assertion
+      // in this file was green through that change until now.
+      expect(falseProofViolations(silent, ['communicationsSignIn']).join('\n'))
+        .toMatch(/never renders that sentence/);
+    });
+
+    it('passes the screen that does render the sentence being stored', () => {
+      expect(falseProofViolations(withNotice, ['communicationsSignIn'])).toEqual([]);
+    });
+
+    it('is not satisfied by a notice that only exists in a comment', () => {
+      expect(
+        falseProofViolations(
+          `{/* <ConsentNotice consentKey="communicationsSignIn" /> */}${silent}`,
+          ['communicationsSignIn'],
+        ).join('\n'),
+      ).toMatch(/never renders that sentence/);
+    });
+
+    it('compares the sentence and not the key, like every other rule here', () => {
+      // `communicationsSignInEmail` is byte-identical to `communicationsSignIn`
+      // in all four locales; a screen rendering either has shown both.
+      expect(falseProofViolations(withNotice, ['communicationsSignInEmail'])).toEqual([]);
+      expect(falseProofViolations(withNotice, ['communicationsOptIn']).join('\n'))
+        .toMatch(/never renders that sentence/);
+    });
+  });
 });
 
 describe('ConsentNotice renders the bytes that get stored', () => {
@@ -805,9 +1116,31 @@ describe('what the displayed formulas may and may not say', () => {
       expect(Object.keys(COMMUNICATIONS_PAGE_REVISIONS)).toContain(
         ADVERTISING_NAMED_FROM_PAGE_VERSION,
       );
-      // …and it may not run ahead of the page: a floor above the current
-      // version excludes people whose sentence names advertising.
-      expect(ADVERTISING_NAMED_FROM_PAGE_VERSION <= COMMUNICATIONS_PAGE_VERSION).toBe(true);
+      /**
+       * …and it may not run ahead of the page: a floor above the current
+       * version excludes people whose sentence names advertising.
+       *
+       * ASKED THROUGH THE SENDER'S OWN COMPARISON, and not with `<=` on the two
+       * strings (#5739, reviewer nit on #5777). `consentCoversAdvertising`
+       * compares on (date, revision) for a stated reason — `2026-08-13.10` is
+       * not below `2026-08-13.2` — and a lexicographic compare here agrees with
+       * it for nine revisions and then stops agreeing, on the one day the
+       * difference exists. A test that decides the same question by a different
+       * rule than the code is not a check on the code; it is a second
+       * implementation, and the day they part company this one passes.
+       *
+       * It is asked of the SENTENCE a gate stores today rather than of the bare
+       * identifier, because that string is what the sender will actually read
+       * off a subscriber's document, in whichever locale the person signed up.
+       */
+      for (const locale of CONSENT_LOCALES) {
+        expect(
+          consentCoversAdvertising({
+            consent_text: consentDisplayText('communicationsOptIn', locale),
+          }),
+          `a consent collected today in ${locale} must clear ADVERTISING_NAMED_FROM_PAGE_VERSION`,
+        ).toBe(true);
+      }
     });
 
     /**
@@ -876,6 +1209,12 @@ describe('what the displayed formulas may and may not say', () => {
         expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-14.1)` })).toBe(true);
         expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-12.9)` })).toBe(false);
         expect(consentCoversAdvertising({})).toBe(false);
+        // The wrong answer, pinned as a literal so nobody can read the two
+        // assertions above as belt-and-braces: on strings, `.10` really does
+        // sort below `.2`, and the version floor is a `>=` on that comparison.
+        // This is the shape the assertion in the sibling test used to be
+        // written in (#5739).
+        expect('2026-08-13.10' < '2026-08-13.2').toBe(true);
       });
     });
 
@@ -1345,6 +1684,45 @@ describe('the guard itself fails on the shapes it exists to catch', () => {
     expect(
       consentGateViolations(gateSource(['communicationsOptIn'], ['communicationsOptIn']), 1),
     ).toEqual([]);
+  });
+
+  it('passes a gate with only the social branch', () => {
+    // The other half of the pair above, and not symmetric with it by accident:
+    // a screen whose only way through is a provider button stores ONE entry,
+    // `act: 'authentication'`, and shows the same sentence a two-branch gate
+    // shows. Missing from this block until #5739, which is why the rule that
+    // one notice may cover two acts had never been exercised on the case where
+    // there is only one.
+    expect(
+      consentGateViolations(gateSource(['communicationsSignIn'], ['communicationsSignIn']), 1),
+    ).toEqual([]);
+  });
+
+  it('lets a deliberately silent call site stay silent, and refuses one that boasts', () => {
+    /**
+     * The `recorded-not-shown` verdict, driven both ways (#5739).
+     *
+     * The passing case is the position App.tsx and `services/authService.ts`
+     * hold today: formulas stored, nothing on screen, `displayed: false` saying
+     * so. That has to keep passing, or the rule would push those call sites
+     * into rendering something — and the only sentence they could render is one
+     * they do not store.
+     *
+     * The failing case is the one that never appears in the repo, because this
+     * assertion is what keeps it out: the same silent file, storing a formula
+     * that claims it was read.
+     */
+    const silentSite = `
+      import { consentProof } from '@/services/consentTexts';
+      const save = () => upsertNewsletterSubscriber(db, {
+        email,
+        ...consentProof('signInAutoSubscribe', 'social_signin'),
+      });
+    `;
+    expect(recordedNotShownViolations(silentSite)).toEqual([]);
+    expect(
+      recordedNotShownViolations(silentSite.replace('signInAutoSubscribe', 'communicationsSignIn')),
+    ).toEqual(['communicationsSignIn']);
   });
 
   it('fails a gate whose notice contradicts the document it writes', () => {

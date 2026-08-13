@@ -625,6 +625,15 @@ const UserProfile: React.FC = () => {
  }, [user?.uid]);
 
  // Google One Tap: prompt when user is not signed in
+ //
+ // A sign-in from here subscribes the visitor — App.tsx's listener writes the
+ // document under `signInAutoSubscribe` — and this page renders no consent
+ // notice. Declared rather than overlooked (#5739): that entry is Italian-only
+ // and `displayed: false`, so any formula rendered beside this button would
+ // differ from the stored one, and One Tap draws its own prompt in a
+ // cross-origin iframe we cannot render into at all. Listed in
+ // `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx; the `merge-update`
+ // verdict in the same file covers only the preference write further down.
  useEffect(() => {
  if (user || authLoading) return;
  

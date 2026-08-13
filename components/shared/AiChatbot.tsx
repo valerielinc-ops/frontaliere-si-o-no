@@ -509,6 +509,13 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  return;
  }
  eagerAuth();
+ // Signing in from the assistant subscribes the visitor: App.tsx writes the
+ // document under `chatbotSignIn`, whose text says in as many words that no
+ // consent box was offered. Nothing about consent is rendered here on purpose —
+ // that entry is Italian-only and `displayed: false`, so a notice would show a
+ // sentence other than the one stored, which is the fabricated proof the
+ // register exists to refuse (#5739, see SocialSignInButtons.tsx). This screen
+ // is declared in `SIGN_IN_SURFACES`, tests/consent-shown-at-signup.test.tsx.
  // On mobile, One Tap / GIS iframe can overlap and steal touches from CTA buttons.
  // Keep the explicit CTA buttons only for reliable tapping.
  let timer: ReturnType<typeof setTimeout> | null = null;

@@ -22,6 +22,32 @@
  *  - `onGoogleFallback`: extra side-effect (e.g. capture email + analytics)
  *    invoked alongside the Google sign-in when the fallback button is used
  *  - `mountEnabled`: gate the GIS mount on extra conditions (e.g. modal slot)
+ *
+ * WHY THERE IS NO <ConsentNotice> IN HERE (#5739)
+ * ----------------------------------------------
+ * Pressing one of these buttons subscribes the visitor: the auth listener in
+ * App.tsx writes a `newsletter_subscribers` document as soon as the sign-in
+ * completes. So the obvious improvement is to render the consent formula right
+ * here, once, and have every mount point inherit it. It is the wrong move, in
+ * two independent ways, and both are cheap to re-discover the hard way:
+ *
+ *  - the formula App.tsx stores for that click is `signInAutoSubscribe`, an
+ *    Italian-only `displayed: false` entry. Rendering `communicationsSignIn`
+ *    beside the button would put one sentence on screen and keep a different
+ *    one in the document — a fabricated proof, which is a worse position in
+ *    front of an authority than an admitted gap (see services/consentTexts.ts);
+ *  - six of the eight screens that mount this component already render their
+ *    own notice for their own email branch. A second one here is the exact
+ *    defect #5765 removed: two statements about one decision, one of them
+ *    stored. `tests/consent-shown-at-signup.test.tsx` counts notices per gate
+ *    and would fail on all six.
+ *
+ * The state that follows from that — screens where a provider button subscribes
+ * somebody with nothing on screen — is a declared gap, not an oversight: every
+ * such screen is listed in `SIGN_IN_SURFACES` in that test file, and the rule
+ * it does enforce is that nothing may CLAIM to have been shown. Closing the gap
+ * properly means giving App.tsx a formula it can honestly display at EVERY
+ * sign-in entry point, One Tap included — which is #5726, not a prop here.
  */
 
 import React, { useEffect, useRef, useState } from 'react';
