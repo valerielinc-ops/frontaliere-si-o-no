@@ -11568,5 +11568,129 @@
         "pending": 222
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-14T14:35:02.933Z",
+    "label": "before",
+    "total": 27010,
+    "needsRetranslation": 10533,
+    "suppressed": 54,
+    "incomplete": 11896,
+    "complete": 15114,
+    "slotsPresent": 15114,
+    "flaggedAmongSlotsPresent": 184,
+    "verifiedTranslated": 14930,
+    "sourceCopyExcused": 501,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 63,
+      "en": 39,
+      "de": 52,
+      "fr": 56
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2152
+      },
+      {
+        "company": "Roche",
+        "pending": 581
+      },
+      {
+        "company": "Genossenschaft Migros Luzern",
+        "pending": 477
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 272
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 263
+      },
+      {
+        "company": "LANDI",
+        "pending": 261
+      },
+      {
+        "company": "Galenica AG (Galenica)",
+        "pending": 246
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 231
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-14T16:02:10.394Z",
+    "label": "after",
+    "total": 27010,
+    "needsRetranslation": 10342,
+    "suppressed": 55,
+    "incomplete": 11890,
+    "complete": 15120,
+    "slotsPresent": 15120,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15120,
+    "sourceCopyExcused": 501,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 63,
+      "en": 39,
+      "de": 52,
+      "fr": 56
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2150
+      },
+      {
+        "company": "Roche",
+        "pending": 581
+      },
+      {
+        "company": "Genossenschaft Migros Luzern",
+        "pending": 477
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 272
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 263
+      },
+      {
+        "company": "LANDI",
+        "pending": 261
+      },
+      {
+        "company": "Galenica AG (Galenica)",
+        "pending": 246
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 231
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      }
+    ]
   }
 ]
