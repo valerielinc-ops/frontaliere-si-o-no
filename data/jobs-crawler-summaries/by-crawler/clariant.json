@@ -1,18 +1,55 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-08-14T10:15:33.606Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-08-14T21:35:31.400Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3542,
-  "avgDurationMs": 3542,
+  "durationMs": 5349,
+  "avgDurationMs": 5349,
   "durationHistory": [
-    3542
+    5349
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clariant-0f4a3cc6e705",
+      "slug": "intern-corporate-strategy-innovation-clariant-pratteln",
+      "company": "Clariant",
+      "companyKey": "clariant",
+      "companyDomain": "clariant.com",
+      "title": "Intern Corporate Strategy & Innovation",
+      "location": "Pratteln",
+      "canton": "BL",
+      "url": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
+      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T21:35:28.077Z",
+      "addressLocality": "Pratteln",
+      "addressRegion": "Basel-Landschaft",
+      "streetAddress": "Rothausstrasse 61",
+      "postalCode": "4132",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "sector": "Chimica Speciale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
+      "jobReqId": "41492",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "clariant-74dc35ebdfa6",
@@ -26,7 +63,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:15:31.051Z",
+      "crawledAt": "2026-08-14T21:35:27.437Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
