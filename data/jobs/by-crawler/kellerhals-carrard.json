@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-08-13T22:19:13.592Z",
+  "assembledAt": "2026-08-14T10:30:00.404Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-b30bdefad83f",
@@ -33,7 +33,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2731679",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.791Z",
+      "crawledAt": "2026-08-14T10:29:56.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2731679",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "sachbearbeiterin-finanzen-anwendungssupport-80-100-kellerhals-carrard-zurich",
         "supporto-finanziario-e-applicazioni-80-100-kellerhals-carrard-zurich"
@@ -111,7 +112,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.789Z",
+      "crawledAt": "2026-08-14T10:29:56.441Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -190,7 +191,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.788Z",
+      "crawledAt": "2026-08-14T10:29:56.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,7 +254,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2639350",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.787Z",
+      "crawledAt": "2026-08-14T10:29:56.438Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -306,6 +307,69 @@
       }
     },
     {
+      "id": "kellerhals-carrard-5adbfb3c729a",
+      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+      "slugByLocale": {
+        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+      "titleByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
+        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
+      },
+      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+      "descriptionByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
+        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:29:56.437Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:51:03.188Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kellerhals-carrard-59cb2c47bf96",
       "slug": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich",
       "slugByLocale": {
@@ -336,7 +400,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.786Z",
+      "crawledAt": "2026-08-14T10:29:56.436Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -364,68 +428,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kellerhals-carrard-5adbfb3c729a",
-      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-      "slugByLocale": {
-        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-      "titleByLocale": {
-        "it": "Avvio senior & Venture Capital Lawyer (80%-100%)",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
-        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
-      },
-      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-      "descriptionByLocale": {
-        "it": "Avviamento senior & Venture Capital Lawyer (80%-100%) — posizione a Kellerhals Carrard a Zurigo (ZH), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
-        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.786Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T22:51:03.188Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -461,7 +463,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.784Z",
+      "crawledAt": "2026-08-14T10:29:56.434Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -478,6 +480,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "initiativbewerbung-kellerhals-carrard-basel",
         "applicazione-d-iniziativa-kellerhals-carrard-basel"
@@ -539,7 +542,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.783Z",
+      "crawledAt": "2026-08-14T10:29:56.433Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -618,7 +621,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.780Z",
+      "crawledAt": "2026-08-14T10:29:56.430Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -635,6 +638,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "wildcard-bewerbung-kellerhals-carrard-bern",
         "applicazione-wildcard-kellerhals-carrard-bern"
@@ -696,7 +700,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.779Z",
+      "crawledAt": "2026-08-14T10:29:56.429Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -759,7 +763,7 @@
       "title": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
       "titleByLocale": {
         "it": "Substitut/-in Banking, Finanza & Fintech e Kapitalmarktrecht",
-        "en": "Substitute/-in Banking, Finance & Fintech and Capital Market Law",
+        "en": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
         "de": "Substitut/-in Banking, Finanzen & Fintech und Kapitalmarktrecht",
         "fr": "Substitut/-in Droit bancaire, financier et fintech et du marché des capitaux"
       },
@@ -775,7 +779,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.777Z",
+      "crawledAt": "2026-08-14T10:29:56.427Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -838,7 +842,7 @@
       "title": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
       "titleByLocale": {
         "it": "Avvocato / Avvocato (100%) nel team bancario",
-        "en": "Lawyer / Lawyer (100%) in the banking team",
+        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "de": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "fr": "Avocat / Avocat (100%) dans l'équipe bancaire"
       },
@@ -854,7 +858,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.775Z",
+      "crawledAt": "2026-08-14T10:29:56.426Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -871,6 +875,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
         "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
@@ -929,7 +934,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:19:09.773Z",
+      "crawledAt": "2026-08-14T10:29:56.424Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -946,6 +951,7 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
         "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
