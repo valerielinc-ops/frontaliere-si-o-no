@@ -899,6 +899,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-lavoro-berna-salari': { it: 'mercato-lavoro-berna-salari', en: 'labor-market-bern-salaries', de: 'arbeitsmarkt-bern-loehne', fr: 'marche-travail-berne-salaires' },
  'intelligenza-animali-domestici-ricerca': { it: 'intelligenza-animali-domestici-ricerca', en: 'intelligence-dogs-cats-research', de: 'intelligenz-hunde-katzen-forschung', fr: 'intelligence-chiens-chats-recherche' },
  'imposta-successione-donazione-berna': { it: 'imposta-successione-donazione-berna', en: 'inheritance-gift-tax-bern-rates', de: 'erbschafts-schenkungssteuer-bern-steuersatz', fr: 'impot-succession-donation-berne-taux' },
+ 'imposta-di-succesione-e-donazione-canton-berna-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-berna-aliquote', en: 'inheritance-and-donation-tax-canton-berne-rates', de: 'erbschafts-und-schenkungssteuer-kanton-bern-zahlungen', fr: 'taxe-sur-la-succesions-et-la-donation-canton-de-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

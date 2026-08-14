@@ -2620,6 +2620,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Erbschafts- und Schenkungssteuer Kanton Bern: Steuersätze',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Leitfaden zu den Sätzen nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen und Erklärungsfristen im Kanton Bern.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'Blick auf die Berner Altstadt mit dem Zytglogge-Turm',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Erbschaftssteuern im Kanton Bern',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Kennen Sie die Sätze nach Verwandtschaftsgrad und die Befreiungen für Ehepartner und Nachkommen',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Familie diskutiert Erbschafts- und Schenkungssteuer in Bern',
 };
 
 export default blogMetaChDe;

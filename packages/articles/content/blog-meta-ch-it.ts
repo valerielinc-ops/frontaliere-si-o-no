@@ -2620,6 +2620,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Imposta successione e donazione Cantone Berna: aliquote',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Guida alle aliquote per grado di parentela, esenzioni per coniugi e discendenti e termini di dichiarazione nel Cantone di Berna.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'Veduta del centro storico di Berna con la Zytglogge',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Imposte di successione nel Canton Berna',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Conoscere le aliquote per grado di parentela e le esenzioni per coniuge e discendenti',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Famiglia che discute l\'imposta di successione e donazione a Berna',
 };
 
 export default blogMetaChIt;

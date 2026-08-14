@@ -7858,6 +7858,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposta-di-succesione-e-donazione-canton-berna-aliquote',
+    category: 'fiscale',
+    date: '2026-08-14T01:09:05.964Z',
+    image: '/images/blog/imposta-di-succesione-e-donazione-canton-berna-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
