@@ -36,19 +36,26 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad",
+        "en": "seller-with-warehouse-responsibility-a-60-80-in-the-herisau-branch-jysk-herisau",
         "de": "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad"
+        "fr": "vendeur-responsable-de-l-entrepot-a-60-80-dans-la-succursale-de-herisau-jysk-herisau"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau"
+        "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau",
+        "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-herisau-jysk-herisau-1ysqad"
       ],
       "salaryMin": 52000,
       "salaryMax": 78800,
@@ -141,7 +148,7 @@
     },
     {
       "id": "company-9tate8",
-      "slug": "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8",
+      "slug": "responsabilita-del-magazzino-a-40-60-nel-ramo-baden-dattwil-jysk-baden",
       "company": "JYSK",
       "title": "Lagerverantwortung (a) 40 - 60 % in der Filiale Baden Dättwil",
       "location": "Baden",
@@ -173,20 +180,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8",
-        "en": "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8",
+        "it": "responsabilita-del-magazzino-a-40-60-nel-ramo-baden-dattwil-jysk-baden",
+        "en": "warehouse-responsibility-a-40-60-in-the-baden-dattwil-branch-jysk-baden",
         "de": "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8",
-        "fr": "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8"
+        "fr": "responsabilite-de-l-entrepot-a-40-60-dans-la-branche-baden-dattwil-jysk-baden"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden"
+          "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden",
+          "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8"
+        ],
+        "en": [
+          "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8"
+        ],
+        "fr": [
+          "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8"
         ]
       },
       "previousSlugs": [
-        "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden"
+        "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden",
+        "lagerverantwortung-a-40-60-in-der-filiale-baden-dattwil-jysk-baden-9tate8"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,
