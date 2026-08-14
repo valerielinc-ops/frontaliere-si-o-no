@@ -44,19 +44,38 @@
  * NO robots meta at all — never the alias page this build writes.
  *
  * Note what that means and what this gate does NOT do: it stops the build
- * claiming fixes it cannot deliver. It does not repair the URLs. The four
- * retired articles are still live and indexable in all four locales, and the 21
- * alias orphans still answer with a soft-404. Repairing either needs the
- * shard-side publisher (fast-publish), not this build.
+ * claiming fixes it cannot deliver. It does not repair the URLs.
  *
- * WHY GATE RATHER THAN SHIP OR REROUTE
- * ────────────────────────────────────
+ * WHERE THE REPAIR LIVES — READ THIS BEFORE ADDING A REDIRECT HERE
+ * ───────────────────────────────────────────────────────────────
+ * It is `EDGE_RETIRED_PATHS` in `infra/cloudflare-worker/locale-router.js`
+ * (issue #5369 §4, 2026-08-14). The Worker is the only layer in FRONT of the
+ * shard for all eight prefixes, so it answers a retired path — 301 to a real
+ * substitute, or 410 Gone — before `serveShard` ever runs, whatever the
+ * append-only shard still holds. `tests/edge-retired-paths.test.ts` re-derives
+ * that table from THIS build's own declarations (this plugin family's tables,
+ * `data/article-redirects.json`, `data/legacy-aliases.json`) minus the corpus
+ * slug registries, and fails in both directions.
+ *
+ * So a redirect declared under one of these prefixes still has to be declared
+ * where it is declared today — that stays the source of truth for the target —
+ * but it is not LIVE until the edge table carries it too. That test is what
+ * makes forgetting the second half impossible rather than invisible.
+ *
+ * WHY GATE HERE AND REROUTE THERE, RATHER THAN SHIP
+ * ────────────────────────────────────────────────
  * Shipping means putting the sections back into deploy.yml's push loop — a
  * full-replace force-push of this build's near-empty subtree over a shard the
- * corpus owns, which is the wipe BUILD_EMIT_SKIP exists to prevent. Rerouting
- * means teaching the Worker a redirect table, forking the source of truth
- * across two repos and requiring a Worker deploy to take effect. Not emitting
- * what cannot be delivered is the one call this build can make alone.
+ * corpus owns, which is the wipe BUILD_EMIT_SKIP exists to prevent. Not
+ * emitting what cannot be delivered is the one call this build can make alone;
+ * delivering it is the Worker's, and both halves are now covered.
+ *
+ * Two objections this comment used to raise against rerouting, both since
+ * measured false: the source of truth is NOT forked across two repos (the
+ * Worker lives in this one, and the test derives its table from these very
+ * files), and it does NOT require a manual Worker deploy —
+ * `.github/workflows/deploy-worker.yml` deploys on every push to main touching
+ * `infra/cloudflare-worker/**`.
  */
 
 import { EXTERNALLY_SERVED_SECTIONS } from '../../scripts/lib/externally-served-paths.mjs';
