@@ -2614,6 +2614,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-berna-salari.title': 'Wages and the labour market in the Canton of Bern',
     'blog.article.mercato-lavoro-berna-salari.excerpt': 'Analysis of sectors, wage levels and labour regulations in the Canton of Bern. Information on contracts, minimum wage and protections for workers.',
     'blog.article.mercato-lavoro-berna-salari.imageAlt': 'View of the Federal Palace in Bern, the administrative heart of Switzerland.',
+    'blog.article.intelligenza-animali-domestici-ricerca.title': 'Smarter dogs and cats: the new discoveries',
+    'blog.article.intelligenza-animali-domestici-ricerca.excerpt': 'Recent research into the cognitive abilities of pets is transforming the way we educate them and the relationship between humans and four-legged friends.',
+    'blog.article.intelligenza-animali-domestici-ricerca.imageAlt': 'Owner interacting with their dog in a Swiss park',
+    'blog.article.imposta-successione-donazione-berna.title': 'Inheritance and donation tax Canton Bern: rates',
+    'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide to rates for degree of kinship, exemptions for spouses and descendants and terms of declaration in the Canton of Bern.',
+    'blog.article.imposta-successione-donazione-berna.imageAlt': 'View of the historic center of Bern with the Zytglogge tower',
 };
 
 export default blogMetaChEn;

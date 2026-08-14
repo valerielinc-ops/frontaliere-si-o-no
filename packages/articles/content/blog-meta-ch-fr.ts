@@ -2614,6 +2614,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-lavoro-berna-salari.title': 'Salaires et marché du travail dans le canton de Berne',
     'blog.article.mercato-lavoro-berna-salari.excerpt': 'Analyse des secteurs, des niveaux de salaire et de la réglementation du travail dans le canton de Berne. Informations sur les contrats, le salaire minimum et les protections pour les travailleurs.',
     'blog.article.mercato-lavoro-berna-salari.imageAlt': 'Vue du Palais fédéral à Berne, cœur administratif de la Suisse.',
+    'blog.article.intelligenza-animali-domestici-ricerca.title': 'Chiens et chats plus intelligents : les nouvelles découvertes',
+    'blog.article.intelligenza-animali-domestici-ricerca.excerpt': 'Les recherches récentes sur les capacités cognitives des animaux de compagnie transforment la façon dont ils sont éduqués et la relation entre les humains et les amis à quatre pattes.',
+    'blog.article.intelligenza-animali-domestici-ricerca.imageAlt': 'Propriétaire interagissant avec son chien dans un parc suisse',
+    'blog.article.imposta-successione-donazione-berna.title': 'Impôt succession et donation Canton de Berne : taux',
+    'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide des taux par degré de parenté, exemptions pour conjoints et descendants et délais de déclaration dans le canton de Berne.',
+    'blog.article.imposta-successione-donazione-berna.imageAlt': 'Vue sur la vieille ville de Berne avec la tour Zytglogge',
 };
 
 export default blogMetaChFr;

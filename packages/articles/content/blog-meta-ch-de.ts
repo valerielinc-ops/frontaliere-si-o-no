@@ -2614,6 +2614,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-berna-salari.title': 'Löhne und Arbeitsmarkt im Kanton Bern',
     'blog.article.mercato-lavoro-berna-salari.excerpt': 'Branchenanalysen, Lohnniveaus und arbeitsrechtliche Regelungen im Kanton Bern. Informationen zu Verträgen, Mindestlohn und Arbeitnehmerschutz.',
     'blog.article.mercato-lavoro-berna-salari.imageAlt': 'Blick auf das Bundeshaus in Bern, das administrative Herz der Schweiz.',
+    'blog.article.intelligenza-animali-domestici-ricerca.title': 'Intelligentere Hunde und Katzen: die neuen Entdeckungen',
+    'blog.article.intelligenza-animali-domestici-ricerca.excerpt': 'Jüngste Forschungen zu den kognitiven Fähigkeiten von Haustieren verändern die Art und Weise, wie sie erzogen werden, und die Beziehung zwischen Menschen und vierbeinigen Freunden.',
+    'blog.article.intelligenza-animali-domestici-ricerca.imageAlt': 'Besitzer interagiert mit seinem Hund in einem Schweizer Park',
+    'blog.article.imposta-successione-donazione-berna.title': 'Erbschafts- und Schenkungssteuer Kanton Bern: Steuersätze',
+    'blog.article.imposta-successione-donazione-berna.excerpt': 'Leitfaden zu den Sätzen nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen und Erklärungsfristen im Kanton Bern.',
+    'blog.article.imposta-successione-donazione-berna.imageAlt': 'Blick auf die Berner Altstadt mit dem Zytglogge-Turm',
 };
 
 export default blogMetaChDe;

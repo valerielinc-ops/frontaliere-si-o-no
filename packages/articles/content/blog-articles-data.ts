@@ -29748,6 +29748,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'registrarsi-alla-cassa-di-disoccupazione-ocst',
+ category: 'pratico',
+ date: '2026-08-14T00:49:57.782Z',
+ image: '/images/blog/registrarsi-alla-cassa-di-disoccupazione-ocst.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

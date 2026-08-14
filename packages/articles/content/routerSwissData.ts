@@ -897,6 +897,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ospedali-svizzeri-pulizia-va-migliorata': { it: 'ospedali-svizzeri-pulizia-va-migliorata', en: 'swiss-hospitals-improve-pulizia', de: 'schweizer-krankenhaeuser-pulizia-im-besseren', fr: 'hopitaux-suisses-pulizia-mieux' },
  'incidente-veicolo-agricolo-morto-bambino-9-anni': { it: 'incidente-veicolo-agricolo-morto-bambino-9-anni', en: 'farm-vehicle-accident-dead-9-year-old-child', de: 'unfall-mit-einem-landwirtschaftlichen-fahrzeug-tot-9-jahriges-kind', fr: 'accident-avec-un-vehicule-agricole-mort-de-9-ans' },
  'mercato-lavoro-berna-salari': { it: 'mercato-lavoro-berna-salari', en: 'labor-market-bern-salaries', de: 'arbeitsmarkt-bern-loehne', fr: 'marche-travail-berne-salaires' },
+ 'intelligenza-animali-domestici-ricerca': { it: 'intelligenza-animali-domestici-ricerca', en: 'intelligence-dogs-cats-research', de: 'intelligenz-hunde-katzen-forschung', fr: 'intelligence-chiens-chats-recherche' },
+ 'imposta-successione-donazione-berna': { it: 'imposta-successione-donazione-berna', en: 'inheritance-gift-tax-bern-rates', de: 'erbschafts-schenkungssteuer-bern-steuersatz', fr: 'impot-succession-donation-berne-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2614,6 +2614,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-berna-salari.title': 'Salari e mercato del lavoro nel Canton Berna',
     'blog.article.mercato-lavoro-berna-salari.excerpt': 'Analisi dei settori, livelli salariali e normative sul lavoro nel Canton Berna. Informazioni su contratti, salario minimo e tutele per i lavoratori.',
     'blog.article.mercato-lavoro-berna-salari.imageAlt': 'Veduta del Palazzo Federale a Berna, cuore amministrativo della Svizzera.',
+    'blog.article.intelligenza-animali-domestici-ricerca.title': 'Cani e gatti più intelligenti: le nuove scoperte',
+    'blog.article.intelligenza-animali-domestici-ricerca.excerpt': 'Le recenti ricerche sulle capacità cognitive degli animali domestici stanno trasformando il modo di educarli e la relazione tra umani e amici a quattro zampe.',
+    'blog.article.intelligenza-animali-domestici-ricerca.imageAlt': 'Proprietario che interagisce con il proprio cane in un parco svizzero',
+    'blog.article.imposta-successione-donazione-berna.title': 'Imposta successione e donazione Cantone Berna: aliquote',
+    'blog.article.imposta-successione-donazione-berna.excerpt': 'Guida alle aliquote per grado di parentela, esenzioni per coniugi e discendenti e termini di dichiarazione nel Cantone di Berna.',
+    'blog.article.imposta-successione-donazione-berna.imageAlt': 'Veduta del centro storico di Berna con la Zytglogge',
 };
 
 export default blogMetaChIt;
