@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonarsource",
-  "assembledAt": "2026-08-14T10:32:11.985Z",
+  "assembledAt": "2026-08-14T09:46:57.862Z",
   "jobs": [
     {
       "id": "sonarsource-ac3e5b1dc0bc",
@@ -683,18 +683,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-development-representative-sonarsource-ch",
-        "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva"
+        "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva",
+        "data-product-analista-sonarsource-sonar-geneva",
+        "data-product-analyst-sonarsource-ch",
+        "datenproduktanalytiker-sonarsource-sonar-geneva",
+        "data-product-analyste-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-development-representative-sonarsource-ch",
-          "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva"
+          "rappresentante-per-lo-sviluppo-delle-vendite-sonarsource-sonar-geneva",
+          "data-product-analista-sonarsource-sonar-geneva",
+          "data-product-analyst-sonarsource-ch",
+          "datenproduktanalytiker-sonarsource-sonar-geneva",
+          "data-product-analyste-sonarsource-sonar-geneva"
         ],
         "de": [
-          "sales-development-representative-sonarsource-ch"
+          "sales-development-representative-sonarsource-ch",
+          "datenproduktanalytiker-sonarsource-sonar-geneva"
         ],
         "fr": [
-          "sales-development-representative-sonarsource-ch"
+          "sales-development-representative-sonarsource-ch",
+          "data-product-analyste-sonarsource-sonar-geneva"
+        ],
+        "en": [
+          "data-product-analyst-sonarsource-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:43.110Z",
