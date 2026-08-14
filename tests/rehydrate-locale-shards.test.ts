@@ -38,12 +38,72 @@ describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defe
     expect(script).toMatch(/SHARD_CLONE_CACHE_DIR\/locale-\$loc\/\$loc/);
   });
 
+  /**
+   * The body of the post-clone `if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]; then`
+   * cache-write guard, delimited STRUCTURALLY: from the guard line to the
+   * first `else`/`fi` at the guard's OWN indentation, so a nested block's
+   * deeper-indented closer cannot end the window early. The regex is
+   * specific enough (`; then` with no `&&`) to only match this write guard,
+   * not the earlier cache-HIT read guard (`if [ -n ... ] && [ -d ... ]; then`).
+   *
+   * This used to be `script.slice(idx, idx + 400)` from the "rehydrated
+   * $loc: ..." echo anchor. That window was measured at 117 chars to
+   * `SHARD_CLONE_CACHE_DIR` (margin 283) and 300 chars to `|| true` (margin
+   * 100, i.e. ~2 extra comment lines) — same fragile-window class as the
+   * 700-byte window repaired in tests/rehydrate-section-shards.test.ts and
+   * the 200-byte one in tests/compact-article-shard-history.test.ts in this
+   * same PR (#5369 §8).
+   */
+  function cacheWriteGuardBody(): string {
+    const lines = script.split('\n');
+    const guardRx = /^\s*if \[ -n "\$\{SHARD_CLONE_CACHE_DIR:-\}" \]; then\s*$/;
+    const guardIdx = lines.findIndex((l) => guardRx.test(l));
+    expect(guardIdx, 'post-clone SHARD_CLONE_CACHE_DIR write guard not found').toBeGreaterThan(-1);
+    const indent = lines[guardIdx].match(/^\s*/)![0];
+    const closerRx = new RegExp(`^${indent}(?:else|fi)\\b`);
+    let endIdx = -1;
+    for (let i = guardIdx + 1; i < lines.length; i += 1) {
+      if (closerRx.test(lines[i])) { endIdx = i; break; }
+    }
+    expect(endIdx, 'cache-write guard never closes at its own indentation').toBeGreaterThan(guardIdx);
+    return lines.slice(guardIdx + 1, endIdx).join('\n');
+  }
+
   it('populates the cross-job cache only after a verified successful clone+copy, guarded so a cache-write failure cannot abort the script', () => {
-    const idx = script.indexOf('echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"');
-    expect(idx).toBeGreaterThan(-1);
-    const block = script.slice(idx, idx + 400);
-    expect(block).toContain('SHARD_CLONE_CACHE_DIR');
-    expect(block).toMatch(/\|\|\s*true/);
+    const body = cacheWriteGuardBody();
+    expect(body).toContain('SHARD_CLONE_CACHE_DIR');
+    expect(body).toMatch(/\|\|\s*true/);
+  });
+
+  it('the cache-write guard window is bounded by structure, not by a byte count', () => {
+    // Pins the fix above: prepending a long comment inside the guard must not
+    // change what the window contains. Simulated on a copy of the script so
+    // the real file is untouched — the previous 400-char slice failed this.
+    const lines = script.split('\n');
+    const guardRx = /^\s*if \[ -n "\$\{SHARD_CLONE_CACHE_DIR:-\}" \]; then\s*$/;
+    const guardIdx = lines.findIndex((l) => guardRx.test(l));
+    const echoIdx = lines.findIndex((l) => l.includes('echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"'));
+    const padded = [
+      ...lines.slice(0, guardIdx),
+      ...Array.from({ length: 8 }, (_, n) => `      # padding comment ${n} — behaviour unchanged`),
+      ...lines.slice(guardIdx),
+    ].join('\n');
+    const echoOffset = padded.indexOf('echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"');
+    expect(echoIdx).toBeGreaterThan(-1);
+    expect(
+      padded.slice(echoOffset, echoOffset + 400).includes('|| true'),
+      'a fixed 400-char window loses the cache-write assertion to a handful of comment lines',
+    ).toBe(false);
+    // …while the structural bound still finds it.
+    const pLines = padded.split('\n');
+    const pGuardIdx = pLines.findIndex((l) => guardRx.test(l));
+    const indent = pLines[pGuardIdx].match(/^\s*/)![0];
+    const closerRx = new RegExp(`^${indent}(?:else|fi)\\b`);
+    let pEnd = -1;
+    for (let i = pGuardIdx + 1; i < pLines.length; i += 1) {
+      if (closerRx.test(pLines[i])) { pEnd = i; break; }
+    }
+    expect(pLines.slice(pGuardIdx + 1, pEnd).join('\n')).toMatch(/\|\|\s*true/);
   });
 
   it('does not touch the fail-hard posture on a cache miss (unchanged: exit 1 on clone failure / missing subtree)', () => {
