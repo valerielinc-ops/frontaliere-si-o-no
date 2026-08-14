@@ -21,7 +21,11 @@ import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { tryClaudeHaikuFallback } from './claudeHaikuFallback.js';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-const DEFAULT_MODEL = 'gemini-2.0-flash-lite';
+// Alias "latest": 'gemini-2.0-flash-lite' e' RITIRATO (verificato il 2026-08-14
+// contro il listing live dell'API). Questo endpoint serve i bottoni "Compila con
+// AI" / "AI optimize" e chiama Gemini direttamente, quindi ogni click pagava un
+// 404 garantito prima del fallback.
+const DEFAULT_MODEL = 'gemini-flash-lite-latest';
 const MAX_PROMPT_CHARS = 8000;
 const PROVIDER_TIMEOUT_MS = 18000;
 

@@ -249,7 +249,7 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
   try {
     const raw = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'gemini-2.0-flash', maxTokens: 4000, temperature: 0.3 }
+      { model: 'gemini-flash-latest', maxTokens: 4000, temperature: 0.3 }
     );
     if (!raw) throw new Error('Empty LLM response');
 
