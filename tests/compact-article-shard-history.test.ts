@@ -185,12 +185,68 @@ describe('compact-article-shard-history.sh — structural invariants (issue #488
     expect(line).toMatch(/\|\|\s*cap_rc=\$\?/);
   });
 
+  /**
+   * The body of a `then` branch, delimited STRUCTURALLY: from the guard line to
+   * the first `else`/`fi` at the guard's OWN indentation, so a nested block's
+   * deeper-indented closer cannot end the window early.
+   *
+   * Replaces a `script.slice(idx, idx + 200)`. That window was not wrong, it was
+   * FRAGILE: `exit 0` sat at offset 119 of 200, a margin of 75 characters. One
+   * extra comment line inside the guard — or a slightly longer `echo` — pushed
+   * the match past the end and turned this test red WITHOUT the script's
+   * behaviour changing at all. Same class as the 700-byte window repaired in
+   * tests/rehydrate-section-shards.test.ts in this PR (margin there: 52), and
+   * the reason that one was fixed applies here unchanged.
+   *
+   * The invariant is not "exit 0 appears within N bytes of the guard". It is
+   * "the not-provisioned guard exits instead of falling through", and that is
+   * what this expresses.
+   */
+  function thenBranchOf(src: string, guardRx: RegExp): string {
+    const lines = src.split('\n');
+    const guardIdx = lines.findIndex((l) => guardRx.test(l));
+    expect(guardIdx, `guard ${guardRx} not found`).toBeGreaterThan(-1);
+    const indent = lines[guardIdx].match(/^\s*/)![0];
+    const closerRx = new RegExp(`^${indent}(?:else|elif|fi)\\b`);
+    let endIdx = -1;
+    for (let i = guardIdx + 1; i < lines.length; i += 1) {
+      if (closerRx.test(lines[i])) {
+        endIdx = i;
+        break;
+      }
+    }
+    expect(endIdx, `guard ${guardRx} never closes at its own indentation`).toBeGreaterThan(guardIdx);
+    return lines.slice(guardIdx + 1, endIdx).join('\n');
+  }
+
+  const KEY_GUARD_RX = /^\s*if \[ -z "\$key_val" \]; then\s*$/;
+
   it('skips silently (exit 0) when the deploy key secret is not provisioned, matching both sibling scripts', () => {
     expect(script).toMatch(/key_var="SHARD_\$\{SECTION_UPPER\}_\$\{LOC_UPPER\}_DEPLOY_KEY"/);
-    const idx = script.indexOf('if [ -z "$key_val" ]; then');
-    expect(idx).toBeGreaterThan(-1);
-    const block = script.slice(idx, idx + 200);
-    expect(block).toMatch(/exit 0/);
+    expect(thenBranchOf(script, KEY_GUARD_RX)).toMatch(/exit 0/);
+  });
+
+  it('the not-provisioned guard window is bounded by structure, not by a byte count', () => {
+    // Pins the fix above. Injecting a long comment inside the guard changes no
+    // behaviour, so the assertion must survive it. Under the old
+    // `slice(idx, idx + 200)` this padding pushed `exit 0` out of the window
+    // (it sat at offset 119 of 200 — a 75-character margin) and the test went
+    // red on a comment.
+    const lines = script.split('\n');
+    const guardIdx = lines.findIndex((l) => KEY_GUARD_RX.test(l));
+    expect(guardIdx).toBeGreaterThan(-1);
+    const padded = [
+      ...lines.slice(0, guardIdx + 1),
+      ...Array.from({ length: 12 }, (_, i) => `  # padding comment line ${i} that changes no behaviour whatsoever`),
+      ...lines.slice(guardIdx + 1),
+    ].join('\n');
+
+    // The byte window this replaced would now MISS it — that is the bug.
+    const padIdx = padded.indexOf('if [ -z "$key_val" ]; then');
+    expect(padded.slice(padIdx, padIdx + 200).includes('exit 0')).toBe(false);
+
+    // The structural window still finds it.
+    expect(thenBranchOf(padded, KEY_GUARD_RX)).toMatch(/exit 0/);
   });
 
   it('cleans up its keyfile and staging dir via an EXIT trap (incident #4734 class)', () => {
