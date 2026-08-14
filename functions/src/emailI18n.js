@@ -20,6 +20,16 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Guide pratiche per frontalieri',
  confirmNotYou: '<strong>Non ti sei iscritto?</strong> Ignora questa email in tutta sicurezza. Il link è valido per 7 giorni.',
 
+ // Solleciti (#5692) — la CORNICE, non un testo nuovo. Chi non ha confermato
+ // non ha acconsentito: sopra e sotto queste righe c'è la stessa identica email
+ // di conferma, con lo stesso identico link. Niente offerte, niente urgenza.
+ confirmReminderSubject: 'Promemoria: conferma la tua iscrizione alla newsletter – Frontaliere Ticino',
+ confirmReminderLastSubject: 'Ultimo promemoria: conferma la tua iscrizione alla newsletter – Frontaliere Ticino',
+ confirmReminderLead: 'Ti avevamo scritto {when} per chiederti di confermare l\'iscrizione alla newsletter, e non abbiamo ricevuto risposta. Il link qui sotto è ancora valido, se vuoi confermare adesso.',
+ confirmReminderWhenDated: 'il {date}',
+ confirmReminderWhenUndated: 'qualche giorno fa',
+ confirmReminderLastNotice: '<strong>Questo è l\'ultimo promemoria.</strong> Se non confermi non riceverai altro da noi, e non devi fare nulla perché sia così.',
+
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  // Verification email (password sign-up)
@@ -70,6 +80,13 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Practical guides for cross-border workers',
  confirmNotYou: '<strong>Didn\'t subscribe?</strong> You can safely ignore this email. The link is valid for 7 days.',
 
+ confirmReminderSubject: 'Reminder: confirm your newsletter subscription – Frontaliere Ticino',
+ confirmReminderLastSubject: 'Last reminder: confirm your newsletter subscription – Frontaliere Ticino',
+ confirmReminderLead: 'We wrote to you {when} to ask you to confirm your newsletter subscription, and we have not heard back. The link below is still valid, if you would like to confirm now.',
+ confirmReminderWhenDated: 'on {date}',
+ confirmReminderWhenUndated: 'a few days ago',
+ confirmReminderLastNotice: '<strong>This is the last reminder.</strong> If you do not confirm you will not hear from us again, and you do not have to do anything for that to be the case.',
+
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'Verify your email – Frontaliere Ticino',
@@ -115,6 +132,13 @@ const TRANSLATIONS = {
  confirmWeeklyGuides: '📖 Praktische Ratgeber für Grenzgänger',
  confirmNotYou: '<strong>Nicht angemeldet?</strong> Sie können diese E-Mail ignorieren. Der Link ist 7 Tage gültig.',
 
+ confirmReminderSubject: 'Erinnerung: Newsletter-Anmeldung bestätigen – Frontaliere Ticino',
+ confirmReminderLastSubject: 'Letzte Erinnerung: Newsletter-Anmeldung bestätigen – Frontaliere Ticino',
+ confirmReminderLead: 'Wir haben Ihnen {when} geschrieben und Sie gebeten, Ihre Newsletter-Anmeldung zu bestätigen; eine Antwort haben wir nicht erhalten. Der Link unten ist weiterhin gültig, falls Sie jetzt bestätigen möchten.',
+ confirmReminderWhenDated: 'am {date}',
+ confirmReminderWhenUndated: 'vor einigen Tagen',
+ confirmReminderLastNotice: '<strong>Dies ist die letzte Erinnerung.</strong> Wenn Sie nicht bestätigen, hören Sie nichts mehr von uns — und dafür müssen Sie nichts tun.',
+
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'E-Mail bestätigen – Frontaliere Ticino',
@@ -159,6 +183,13 @@ const TRANSLATIONS = {
  confirmWeeklyTax: '📋 Mises à jour fiscales et réglementaires',
  confirmWeeklyGuides: '📖 Guides pratiques pour frontaliers',
  confirmNotYou: '<strong>Vous ne vous êtes pas inscrit ?</strong> Vous pouvez ignorer cet e-mail en toute sécurité. Le lien est valable 7 jours.',
+
+ confirmReminderSubject: 'Rappel : confirmez votre inscription à la newsletter – Frontaliere Ticino',
+ confirmReminderLastSubject: 'Dernier rappel : confirmez votre inscription à la newsletter – Frontaliere Ticino',
+ confirmReminderLead: 'Nous vous avons écrit {when} pour vous demander de confirmer votre inscription à la newsletter, et nous n\'avons pas eu de réponse. Le lien ci-dessous est toujours valable, si vous souhaitez confirmer maintenant.',
+ confirmReminderWhenDated: 'le {date}',
+ confirmReminderWhenUndated: 'il y a quelques jours',
+ confirmReminderLastNotice: '<strong>Ceci est le dernier rappel.</strong> Si vous ne confirmez pas, vous n\'aurez plus de nouvelles de notre part, et vous n\'avez rien à faire pour cela.',
 
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 

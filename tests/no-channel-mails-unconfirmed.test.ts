@@ -42,6 +42,8 @@ import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
 import { classifySunset } from '../scripts/lib/subscriberSunset.mjs';
 import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
 import { hasConsentEvidence, recoveredStatus } from '../scripts/lib/suppressionDecay.mjs';
+import { planConfirmationFollowups } from '../scripts/newsletter-confirmation-followups.mjs';
+import { DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH } from '../functions/src/lib/confirmationFollowup.js';
 // The sender population is shared with tests/no-channel-mails-opted-out.test.ts
 // — see tests/helpers/senders.ts for why it must not be discovered twice.
 import { ROOT, read, stripComments, discoverSenders } from './helpers/senders';
@@ -60,6 +62,26 @@ type Verdict =
   | { verdict: 're-permission'; why: string }
   /** Does not choose recipients from the subscriber collections at all. */
   | { verdict: 'not-a-broadcast'; why: string }
+  /**
+   * IS the request for the proof. There is exactly one such channel and there
+   * can only ever be one: the double opt-in confirmation, and the two reminders
+   * that are the same email again (#5692).
+   *
+   * It cannot be `gated` — gating it on `hasConfirmationProof` returning true
+   * would make it inert, since the whole population it exists for is the people
+   * for whom it returns false. It is not `re-permission` either: those two
+   * channels write to somebody who DID consent once and has gone quiet. And it
+   * is not a broadcast — no content, no offer, one link, sent only to an address
+   * that submitted the form itself.
+   *
+   * What it owes this file is the OTHER direction of the same gate: it must
+   * consult the proof in order to EXCLUDE the 842 `pending` documents that
+   * already carry `confirmed_at`, because asking somebody to confirm what they
+   * confirmed in June is its own kind of unsolicited mail. That is asserted
+   * below both as a scan and by driving the planner, because a scan alone would
+   * pass on a file that reads the gate and ignores the answer.
+   */
+  | { verdict: 'consent-request'; why: string; gateIn?: string }
   /**
    * Reaches an address this file cannot vouch for, and is recorded as a FACT
    * rather than tolerated in silence — the shape the precedent file uses for
@@ -105,6 +127,11 @@ const VERDICTS: Record<string, Verdict> = {
   'scripts/send-onboarding-drip.mjs': {
     verdict: 'gated',
     why: '#5700 — was the known-gap entry this file recorded (admitted `pending` on isActive, and anchored enrollment on created_at when no stamp existed); both are gone, and the enrollment fallback with them',
+  },
+  'scripts/newsletter-confirmation-followups.mjs': {
+    verdict: 'consent-request',
+    why: '#5692 — reminders #2 and #3 of the double opt-in, the same email and the same link as #1. Its recipients are unconfirmed BY DEFINITION; what it consults the gate for is the opposite exclusion, the 842 `pending` re-probes that already carry `confirmed_at`',
+    gateIn: 'functions/src/lib/confirmationFollowup.js',
   },
   /**
    * The two alert channels, and the reason they are NOT simply "the newsletter
@@ -194,8 +221,25 @@ describe('every sender is classified', () => {
 describe('the verdicts hold', () => {
   const entries = Object.entries(VERDICTS);
   const gated = entries.filter(([, v]) => v.verdict === 'gated') as Array<[string, Extract<Verdict, { verdict: 'gated' }>]>;
+  const consentRequests = entries.filter(([, v]) => v.verdict === 'consent-request') as Array<
+    [string, Extract<Verdict, { verdict: 'consent-request' }>]
+  >;
   const gaps = entries.filter(([, v]) => v.verdict === 'known-gap');
   const notBroadcast = entries.filter(([, v]) => v.verdict === 'not-a-broadcast');
+
+  it('there is exactly one consent-request channel', () => {
+    // The label is the one that says "this channel may mail an address with no
+    // proof of consent". If a second file ever earns it, that is a review, not
+    // a line in a table: there is only one double opt-in on this site.
+    expect(consentRequests.map(([f]) => f)).toEqual(['scripts/newsletter-confirmation-followups.mjs']);
+  });
+
+  it.each(consentRequests)('%s consults the gate to EXCLUDE the already-confirmed', (file, v) => {
+    const where = v.gateIn || file;
+    expect(stripComments(read(where)), `${where} must call hasConfirmationProof()`).toMatch(CALLS_GATE);
+    expect(read(where)).toMatch(/from '[^']*subscriberConsent\.(mjs|js)'/);
+    expect(stripComments(read(where))).not.toMatch(/function hasConfirmationProof/);
+  });
 
   it.each(gated)('%s consults the shared gate', (file, v) => {
     const where = v.gateIn || file;
@@ -231,6 +275,50 @@ describe('the verdicts hold', () => {
     const lapsed = { status: 'pending', sends: 99, last_sent_at: '2020-01-01T00:00:00.000Z', created_at: '2020-01-01T00:00:00.000Z' };
     expect(classifySunset(lapsed, Date.now()).action).toBe('none');
     expect(classifyDormantWinback({ ...lapsed, engagement_level: 'dormant' }, Date.now()).action).toBe('none');
+  });
+});
+
+describe('the consent-request channel, driven — the label is earned, not claimed', () => {
+  // The scan above proves the gate is reached. This proves the answer is
+  // obeyed, on the one population that would be harmed if it were not: the 842
+  // `pending` documents that already carry `confirmed_at`, which
+  // scripts/mailtrap-suppression-retry.mjs put back to `pending` as a
+  // deliverability re-probe. A reminder to them is a request to re-consent to
+  // something they consented to months ago.
+  const NOW = Date.parse('2026-09-01T12:00:00.000Z');
+  const ctx = { now: NOW, epochMs: Date.parse(DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH) };
+  const daysAgo = (d: number) => new Date(NOW - d * 24 * 60 * 60 * 1000).toISOString();
+
+  it.each(['confirmed_at', 'confirmedAt'])('a `pending` document carrying %s is never mailed', (stamp) => {
+    const reProbe = {
+      id: 'reprobe@example.com',
+      data: { status: 'pending', isActive: true, created_at: daysAgo(1), [stamp]: daysAgo(200) },
+    };
+    const plan = planConfirmationFollowups([reProbe], ctx);
+    expect(plan.send).toEqual([]);
+    // …and it is not closed either. The proof gate runs before anything counts
+    // attempts, so a re-probe is neither asked nor expired.
+    expect(plan.expire).toEqual([]);
+    expect(plan.skipped).toEqual({ 'already-confirmed': 1 });
+  });
+
+  it('the same document without the stamp IS mailed — so the assertion above is not vacuous', () => {
+    const fresh = { id: 'fresh@example.com', data: { status: 'pending', isActive: false, created_at: daysAgo(1) } };
+    expect(planConfirmationFollowups([fresh], ctx).send).toHaveLength(1);
+  });
+
+  it('the gate is asked before the counter, so three old sends cannot expire a confirmed address', () => {
+    const reProbe = {
+      id: 'reprobe@example.com',
+      data: {
+        status: 'pending',
+        created_at: daysAgo(1),
+        confirmed_at: daysAgo(200),
+        confirmation_attempts: 3,
+        confirmation_sent_at: daysAgo(9),
+      },
+    };
+    expect(planConfirmationFollowups([reProbe], ctx)).toMatchObject({ send: [], expire: [] });
   });
 });
 

@@ -492,6 +492,14 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
  * files, different question; neither list can stand in for the other.
  */
 export const NON_SUBSCRIBER_SENDERS: Readonly<Record<string, string>> = Object.freeze({
+  // #5692. The one entry here that DOES write to newsletter_subscribers, and it
+  // is still not a channel: it carries the double opt-in request itself —
+  // reminders #2 and #3, the same email and the same link as #1. Its recipients
+  // are precisely the people who are not on any channel yet, and listing it on
+  // /comunicazioni/ as something a subscriber receives would say the opposite of
+  // what it is. What a subscriber receives once they confirm is listed above.
+  'scripts/newsletter-confirmation-followups.mjs':
+    'the double opt-in request, sent to somebody who is not a subscriber yet — the mail that asks, not one the subscription brings',
   'scripts/send-cold-emails.mjs': 'employer outreach over employer_contacts — never touches a subscriber collection',
   'scripts/preview-welcome-email.mjs': 'single --target-email preview tool for the owner',
   'scripts/monitor-gsc-job-indexation.mjs': 'ops alert to the owner',

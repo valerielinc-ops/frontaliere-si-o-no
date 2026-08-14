@@ -51,6 +51,20 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 /** The terminal status. A record reaching it is KEPT, never deleted. */
 export const CONFIRMATION_EXPIRED_STATUS = 'expired';
 
+/**
+ * The ONLY status a confirmation request may be addressed to.
+ *
+ * An allowlist of one, and deliberately not the `NEWSLETTER_EXCLUDED_STATUSES`
+ * exclusion set every other channel uses. The two are not interchangeable here:
+ * an exclusion set answers "is this address suppressed", and the answer for
+ * `expired`, `confirmed` or an unknown future status would be "no, go ahead" —
+ * which is right for a newsletter and wrong for a consent request, where the
+ * only person who may be asked to confirm is one whose confirmation is
+ * genuinely outstanding. Named so the channel gate in
+ * tests/no-channel-mails-opted-out.test.ts can point at it.
+ */
+export const CONFIRMATION_REQUEST_STATUS = 'pending';
+
 /** Three requests, the first one included. */
 export const MAX_CONFIRMATION_ATTEMPTS = 3;
 
@@ -164,6 +178,23 @@ export function confirmationAttemptsUsed(data) {
   const stampBelongsToCycle =
     lastAttempt != null && (cycleStart == null || lastAttempt >= cycleStart);
   return Math.max(counted, stampBelongsToCycle ? 1 : 0);
+}
+
+/**
+ * When the FIRST request of this cycle went out — the date a reminder states.
+ *
+ * Strictly the first, never `confirmation_sent_at`: that field is overwritten
+ * by every send, so on the third request it holds the date of the second, and
+ * an email that says «ti avevamo scritto il <ieri>» when it means «tre giorni
+ * fa» is a factual claim we would be making wrongly to somebody who has not
+ * consented to hear from us at all. Returns null rather than a near-enough
+ * date; the copy has an undated wording for exactly that case.
+ *
+ * @param {Record<string, any>|null|undefined} data
+ * @returns {number|null}
+ */
+export function confirmationFirstSentAt(data) {
+  return firstMillis(data?.confirmation_first_sent_at, data?.confirmationFirstSentAt);
 }
 
 /**
@@ -305,7 +336,7 @@ export function decideConfirmationFollowup(data, { now, epochMs }) {
   // Terminal, and terminal means terminal: no further request, and no deletion
   // either. The record IS the evidence.
   if (status === CONFIRMATION_EXPIRED_STATUS) return skip('already-expired');
-  if (status !== 'pending') return skip('not-pending');
+  if (status !== CONFIRMATION_REQUEST_STATUS) return skip('not-pending');
 
   // Before any counting — see the docblock. 848 of the 1.498 land here.
   if (hasConfirmationProof(data)) return skip('already-confirmed');
@@ -346,6 +377,84 @@ export function decideConfirmationFollowup(data, { now, epochMs }) {
     attempt: attempts + 1,
     attempts,
     reason: attempts === 0 ? 'first-ask' : 'reminder',
+  };
+}
+
+/**
+ * The fields that record a request having gone out, as a plain object.
+ *
+ * Shared by BOTH senders — the Cloud Function that sends request #1 and
+ * scripts/newsletter-confirmation-followups.mjs that sends #2 and #3 — because
+ * the counter this writes is the whole evidence of "asked three times and
+ * stopped". A second copy of these four lines is how one sender comes to skip
+ * the increment, and a cap counting a number nobody increments is not a cap.
+ *
+ * `stamp` is injected rather than taken because the two runtimes disagree about
+ * what a timestamp is: the Cloud Function passes
+ * `admin.firestore.FieldValue.serverTimestamp()`, the runner passes the ISO
+ * string it already uses for the expiry write in the same batch.
+ *
+ * @param {object} args
+ * @param {number} args.attemptsBefore what confirmationAttemptsUsed() said before this send
+ * @param {boolean} args.isCycleSend false for a login link or an already-confirmed re-probe
+ * @param {string|null} [args.messageId]
+ * @param {string} args.locale
+ * @param {unknown} args.stamp
+ * @returns {Record<string, unknown>}
+ */
+export function buildConfirmationSentFields({ attemptsBefore, isCycleSend, messageId, locale, stamp }) {
+  const fields = {
+    confirmation_sent_at: stamp,
+    confirmation_message_id: messageId ?? null,
+    preferred_locale: locale,
+    updated_at: stamp,
+  };
+  // Only a real cycle send consumes one of the three. A passwordless login link
+  // and a deliverability re-probe of an already-confirmed address are not
+  // double opt-in requests, and counting them would spend somebody else's cap.
+  if (isCycleSend) {
+    fields.confirmation_attempts = attemptsBefore + 1;
+    if (attemptsBefore === 0) fields.confirmation_first_sent_at = stamp;
+  }
+  return fields;
+}
+
+/**
+ * The per-attempt evidence, in the subcollection that survives the next
+ * overwrite of the flat fields — so "asked three times, then stopped" reads as
+ * one sequence next to the `confirmation_expired` event that ends it.
+ *
+ * @param {object} args
+ * @param {string} args.email
+ * @param {number} args.attemptsBefore
+ * @param {boolean} args.isCycleSend
+ * @param {string|null} [args.messageId]
+ * @param {string} args.locale
+ * @param {string} args.occurredAt ISO
+ * @param {unknown} [args.timestamp] server timestamp where the runtime has one
+ * @returns {Record<string, unknown>}
+ */
+export function buildConfirmationSentEvent({
+  email,
+  attemptsBefore,
+  isCycleSend,
+  messageId,
+  locale,
+  occurredAt,
+  timestamp,
+}) {
+  return {
+    email,
+    event_type: 'confirmation_email_sent',
+    source_channel: 'newsletter_confirmation',
+    message_id: messageId ?? null,
+    locale,
+    // `null` when the send was not part of a cycle, so a login link is never
+    // counted as an ask afterwards.
+    confirmation_attempt: isCycleSend ? attemptsBefore + 1 : null,
+    confirmation_attempts_max: MAX_CONFIRMATION_ATTEMPTS,
+    timestamp: timestamp === undefined ? occurredAt : timestamp,
+    occurred_at: occurredAt,
   };
 }
 
