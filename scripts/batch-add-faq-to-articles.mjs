@@ -391,7 +391,11 @@ function discoverArticles() {
 // Preferred models for FAQ (Gemini free tier — reliable JSON output)
 const FAQ_MODELS = [
   AI_MODELS.GEMINI_FLASH,
-  AI_MODELS.GEMINI_2_FLASH,
+  // Era AI_MODELS.GEMINI_2_FLASH, ritirato da Google il 2026-08-14 (HTTP 404 "no
+  // longer available"). Resta in AI_MODELS perche' il matcher del 404 lo esaurisce
+  // da solo al primo tentativo, ma non ha senso metterlo QUI come preferenza: una
+  // catena di preferenza dovrebbe nominare modelli vivi.
+  AI_MODELS.GEMINI_FLASH_LITE_LATEST,
   AI_MODELS.GEMINI_FLASH_LITE,
 ];
 

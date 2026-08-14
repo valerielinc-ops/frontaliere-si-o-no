@@ -214,7 +214,8 @@ async function initAI() {
 // (AI_MODELS.*). When Google renames a model on the Gemini API, fix it there first.
 const NEWSLETTER_AI_CHAIN = [
   'gemini-2.5-flash',           // Google — 1500 req/day free, fast
-  'gemini-2.0-flash',           // Google — 1500 req/day free, reliable
+  'gemini-flash-latest',        // Google — alias sullo stable corrente (era gemini-2.0-flash,
+  //                                ritirato 2026-08-14: HTTP 404 "no longer available")
   'gpt-4.1-nano',               // GitHub Models — proven workhorse in past sends
   'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
   'gemma-4-31b-it',             // Google — 14,400 req/day free

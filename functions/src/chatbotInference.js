@@ -5,7 +5,7 @@
  * off the browser, enable multi-provider fallback, and cache common FAQ answers.
  *
  * Provider chain (free-first):
- * 1. Gemini (gemini-2.0-flash-lite → gemini-1.5-flash-8b) — primary
+ * 1. Gemini (gemini-flash-lite-latest → gemini-flash-latest) — primary
  * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
  * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
  * 4. Groq llama-3.1-8b-instant — last-resort free fallback
@@ -25,9 +25,16 @@ import { tryClaudeHaikuFallback, CLAUDE_HAIKU_MODEL } from './claudeHaikuFallbac
 
 // ── Model chain (free-first, non-deprecated) ────────────────────────────────
 
+// Alias "latest", non id versionati: seguono da soli le promozioni di Google e
+// sono l'unica forma che non rimarcisce. Entrambi gli id precedenti
+// ('gemini-2.0-flash-lite' e 'gemini-1.5-flash-8b') sono RITIRATI — verificato
+// il 2026-08-14 contro il listing live dell'API (54 modelli offerti, nessuno dei
+// due presente). Questo file chiama l'endpoint Gemini direttamente con `fetch`,
+// quindi il matcher 404 di scripts/lib/ai-models.mjs non lo protegge: ogni
+// interazione del chatbot sitewide pagava DUE 404 garantiti prima del fallback.
 const GEMINI_MODELS = [
- 'gemini-2.0-flash-lite', // Primary: replaces deprecated gemini-2.0-flash
- 'gemini-1.5-flash-8b', // Secondary: lighter model, also on free tier
+ 'gemini-flash-lite-latest', // Primary: alias sullo stable lite corrente
+ 'gemini-flash-latest', // Secondary: alias sullo stable flash corrente
 ];
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
