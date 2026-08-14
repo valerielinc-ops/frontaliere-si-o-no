@@ -137,7 +137,14 @@ describe('findSlugPromptLeak — instruction vocabulary beyond the kebab-case pr
       'slug-terzo-pilastro-3a-schweiz',
       'slug-terzo-pilastro-3a-suisse',
       'slug-terzo-pilastro-3a-vantaggi-2026-basilea',
-    ])('rejects "%s" — a real live slug the old rule called clean', (slug) => {
+      // These seven are DETECTOR inputs, and stay seven even as production is
+      // repaired: the rule must keep rejecting the string whether or not any
+      // article still carries it. Two of them (`slug-gaggiolo-*`) were fixed
+      // upstream on 2026-08-13 and left KNOWN_LEGACY_LEAKS in #5510 — which is
+      // a statement about the ALLOWLIST, not about the pattern. Whether an
+      // allowlist entry still describes something live is asserted in
+      // `tests/slug-leak-allowlist-liveness.test.ts`, deliberately not here.
+    ])('rejects "%s" — a slug shape the old rule called clean', (slug) => {
       expect(findSlugPromptLeak(slug), `"${slug}" must be rejected`).not.toBeNull();
       expect(findSlugPromptLeak(slug)!.pattern).toBe('schema-placeholder-prefix');
     });
