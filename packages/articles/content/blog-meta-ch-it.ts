@@ -2623,6 +2623,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Imposte di successione nel Canton Berna',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Conoscere le aliquote per grado di parentela e le esenzioni per coniuge e discendenti',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Famiglia che discute l\'imposta di successione e donazione a Berna',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Fatture ospedaliere in Svizzera: cosa prevede la legge',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'Per legge in Svizzera ogni paziente riceve una copia delle fatture emesse a suo nome, ma la comprensione resta complessa per i non addetti.',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Documenti e fatture in un ufficio svizzero',
 };
 
 export default blogMetaChIt;
