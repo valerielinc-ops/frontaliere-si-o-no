@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-08-14T08:59:46.586Z",
+  "assembledAt": "2026-08-14T10:12:35.753Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-13T21:49:13.994Z",
+      "crawledAt": "2026-08-14T10:12:28.239Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -157,7 +158,8 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "id": "corner-banca-9a08d15ac96b",
@@ -175,7 +177,7 @@
       "titleByLocale": {
         "it": "Employe Collection Team Zürich",
         "en": "Employee Collection Team Zürich",
-        "de": "Mitarbeitersammlung Team Zürich",
+        "de": "Employee Collection Team Zürich",
         "fr": "Équipe de recouvrement des employés Zürich"
       },
       "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
@@ -263,7 +265,9 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-365d1802d2a9",
@@ -348,7 +352,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-f7239bf896ee",
@@ -441,7 +447,9 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-115c1c6e6274",
@@ -557,7 +565,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-ad06ea5940ec",
@@ -640,7 +650,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-765f9177286d",
@@ -739,7 +751,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-dbb98bc09916",
@@ -846,7 +860,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-373e7d69efb6",
@@ -855,7 +871,7 @@
         "it": "gestione-delle-controversie-dei-lavoratori-corner-banca-wallisellen",
         "en": "employee-consumer-dispute-management-corner-banca-wallisellen",
         "de": "employee-consumer-dispute-management-corner-banca-wallisellen",
-        "fr": "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen"
+        "fr": "employee-consumer-dispute-management-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -865,7 +881,7 @@
         "it": "Gestione delle controversie dei lavoratori",
         "en": "Employee Consumer Dispute Management",
         "de": "Mitarbeiter Consumer Dispute Management",
-        "fr": "Gestion des litiges avec les consommateurs"
+        "fr": "Employee Consumer Dispute Management"
       },
       "description": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
       "descriptionByLocale": {
@@ -911,13 +927,15 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-13T21:49:13.979Z",
       "previousSlugs": [
-        "employee-consumer-dispute-management-corner-banca-wallisellen"
+        "employee-consumer-dispute-management-corner-banca-wallisellen",
+        "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "employee-consumer-dispute-management-corner-banca-wallisellen"
         ],
         "fr": [
+          "gestion-des-litiges-avec-les-consommateurs-corner-banca-wallisellen",
           "employee-consumer-dispute-management-corner-banca-wallisellen"
         ]
       },
@@ -935,7 +953,9 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-5409dd1c8ba8",
@@ -1031,7 +1051,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-03b4c35cbb33",
@@ -1121,7 +1143,8 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "id": "corner-banca-9edf9a711b5c",
@@ -1140,7 +1163,7 @@
         "it": "Responsabile Senior della Conformità - rif. 1111",
         "en": "Senior Compliance Officer - ref. 1111",
         "de": "Senior Compliance Officer - ref. 1111",
-        "fr": "Agent de conformité principal - réf. 1111"
+        "fr": "Senior Compliance Officer  - ref. 1111"
       },
       "description": "We are looking for an experienced Senior Compliance Officer to join our Compliance team. The ideal candidate has solid experience in the banking sector and a comprehensive understanding of compliance processes beyond Anti-Money Laundering (AML), including cross-border, sanctions, regulatory reporting, compliance risk assessment, and oversight of Compliance-related projects.\n\nKey Responsibilities\n\n• Collaborate effectively with colleagues across different departments, including IT;\n\n• Adopt a proactive and critical approach when identifying and implementing new solutions;\n\n• Work independently and manage priorities autonomously;\n\n• Handle a high volume of complex cases efficiently and accurately.\n\n• Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.\n\n• Proven expertise not only in AML Compliance, but also in:\n\no Cross-border, sanctions and consolidated supervision on affiliates;\n\no Compliance reporting, training and regulatory monitoring;\n\no Compliance Risk Assessment;\n\no Coordination and supervision of Compliance-related projects.\n\n• University degree in Law, Economics, or a related discipline.\n\n• CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.\n\n• Advanced proficiency in Microsoft Office, particularly Microsoft Excel.\n\n• Strong team-oriented mindset and excellent problem-solving skills.\n\n• Resident in Ticino or willing to relocate",
       "descriptionByLocale": {
@@ -1188,13 +1211,15 @@
       "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T21:49:13.974Z",
+      "crawledAt": "2026-08-14T10:12:28.199Z",
       "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano"
+        "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano"
+          "senior-compliance-officer-ref-1111-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -1231,7 +1256,7 @@
       "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
       "titleByLocale": {
         "it": "Consulente Fiscale (Private Banking) - ref. 1117",
-        "en": "Fiscale Consultant (Private Banking) - ref. 11",
+        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
         "de": "Steuerberater (Private Banking) – Ref. 1117",
         "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
       },
@@ -1283,7 +1308,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-13T21:49:13.972Z",
+      "crawledAt": "2026-08-14T10:12:28.197Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -1293,6 +1318,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1309,6 +1335,1018 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-bb79fcc27fb5",
+      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
+        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
+        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
+      "titleByLocale": {
+        "it": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
+        "de": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
+        "fr": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086"
+      },
+      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+        "de": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+        "fr": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+        "Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+        "Languages: Italian / English native proficiency / French / German is a plus",
+        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+          "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+          "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+          "Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+          "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+          "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+          "Experience: At least 3 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.239Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.239Z"
+    },
+    {
+      "id": "corner-banca-62309aa78f00",
+      "slug": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
+        "en": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
+        "de": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
+        "fr": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Collection Team Zürich -  ref. 1068",
+      "titleByLocale": {
+        "it": "Employee Collection Team Zürich - ref. 1068",
+        "en": "Employee Collection Team Zürich - ref. 1068",
+        "de": "Employee Collection Team Zürich -  ref. 1068",
+        "fr": "Employee Collection Team Zürich - ref. 1068"
+      },
+      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+      "descriptionByLocale": {
+        "it": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+        "de": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset",
+        "fr": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\n• Phone contact with clients for credit management and debt recovery\n\n• Active listening to clients’ situations and identification of sustainable payment solutions\n\n• Negotiation of repayment plans and monitoring of agreed arrangements\n\n• Management and updating of cases in internal systems\n\n• Collaboration with the team to monitor open positions\n\n• Maintaining a professional and empathetic approach even in sensitive situations\n\n• Commercial training (commercial apprenticeship or equivalent qualification)\n\n• Native German and good knowledge of English\n\n• Excellent communication skills and strong customer listening abilities\n\n• Aptitude for managing customer relationships over the phone\n\n• Empathy, mediation skills, and solution-oriented mindset\n\n• Attention to detail and organizational skills\n\n• Team spirit and reliability\n\nIdeal profile\n\n• Young, motivated person eager to grow professionally\n\n• Ability to remain calm and professional even in difficult conversations\n\n• Team-oriented attitude and collaborative mindset"
+      },
+      "requirements": [
+        "Commercial training (commercial apprenticeship or equivalent qualification)",
+        "Native German and good knowledge of English",
+        "Excellent communication skills and strong customer listening abilities",
+        "Aptitude for managing customer relationships over the phone",
+        "Empathy, mediation skills, and solution-oriented mindset",
+        "Attention to detail and organizational skills",
+        "Team spirit and reliability\n\nIdeal profile",
+        "Young, motivated person eager to grow professionally",
+        "Ability to remain calm and professional even in difficult conversations",
+        "Team-oriented attitude and collaborative mindset"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability\n\nIdeal profile",
+          "Young, motivated person eager to grow professionally",
+          "Ability to remain calm and professional even in difficult conversations",
+          "Team-oriented attitude and collaborative mindset"
+        ],
+        "en": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability\n\nIdeal profile",
+          "Young, motivated person eager to grow professionally",
+          "Ability to remain calm and professional even in difficult conversations",
+          "Team-oriented attitude and collaborative mindset"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.238Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.238Z"
+    },
+    {
+      "id": "corner-banca-1d7c28de0e82",
+      "slug": "it-auditor-ref-1087-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "it-auditor-ref-1087-corner-banca-lugano",
+        "en": "it-auditor-ref-1087-corner-banca-lugano",
+        "de": "it-auditor-ref-1087-corner-banca-lugano",
+        "fr": "it-auditor-ref-1087-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "IT Auditor  - ref. 1087",
+      "titleByLocale": {
+        "it": "IT Auditor - ref. 1087",
+        "en": "IT Auditor  - ref. 1087",
+        "de": "IT Auditor - ref. 1087",
+        "fr": "IT Auditor - ref. 1087"
+      },
+      "description": "Reporting to the Head of IT Audit, you will be a key technical expert within the internal audit team. You will be operating in a bank where technology represents a key pillar of the business strategy, with a strong focus on the in-house development of proprietary banking solutions. Your primary mission is to conduct in-depth, risk-based audits across our modern and complex technology landscapes and evaluate IT risks, security controls, and regulatory compliance (FINMA). A central part of your role will be to actively pioneer the future of our audit function by developing and integrating advanced methodologies that leverage data analytics and agentic AI. For this role, we are seeking a hands-on IT Auditor with a strong background in the financial industry and a passion for technology and innovation. Swiss Domicile is mandatory.\n\n•       Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.\n\n•       Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.\n\n•       Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.\n\n•       Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.\n\n•       Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.\n\n•       Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.\n\n• Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.\n\n•       Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.\n\n•       Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.\n\n•       Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.\n\n•       Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.\n\n•       Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.\n\n•       Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.\n\n•       Mandatory Requirement: Domicile in Switzerland is required.",
+      "descriptionByLocale": {
+        "it": "Reporting to the Head of IT Audit, you will be a key technical expert within the internal audit team. You will be operating in a bank where technology represents a key pillar of the business strategy, with a strong focus on the in-house development of proprietary banking solutions. Your primary mission is to conduct in-depth, risk-based audits across our modern and complex technology landscapes and evaluate IT risks, security controls, and regulatory compliance (FINMA). A central part of your role will be to actively pioneer the future of our audit function by developing and integrating advanced methodologies that leverage data analytics and agentic AI. For this role, we are seeking a hands-on IT Auditor with a strong background in the financial industry and a passion for technology and innovation. Swiss Domicile is mandatory.\n\n•       Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.\n\n•       Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.\n\n•       Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.\n\n•       Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.\n\n•       Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.\n\n•       Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.\n\n• Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.\n\n•       Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.\n\n•       Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.\n\n•       Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.\n\n•       Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.\n\n•       Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.\n\n•       Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.\n\n•       Mandatory Requirement: Domicile in Switzerland is required.",
+        "en": "Reporting to the Head of IT Audit, you will be a key technical expert within the internal audit team. You will be operating in a bank where technology represents a key pillar of the business strategy, with a strong focus on the in-house development of proprietary banking solutions. Your primary mission is to conduct in-depth, risk-based audits across our modern and complex technology landscapes and evaluate IT risks, security controls, and regulatory compliance (FINMA). A central part of your role will be to actively pioneer the future of our audit function by developing and integrating advanced methodologies that leverage data analytics and agentic AI. For this role, we are seeking a hands-on IT Auditor with a strong background in the financial industry and a passion for technology and innovation. Swiss Domicile is mandatory.\n\n•       Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.\n\n•       Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.\n\n•       Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.\n\n•       Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.\n\n•       Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.\n\n•       Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.\n\n• Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.\n\n•       Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.\n\n•       Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.\n\n•       Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.\n\n•       Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.\n\n•       Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.\n\n•       Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.\n\n•       Mandatory Requirement: Domicile in Switzerland is required.",
+        "de": "Reporting to the Head of IT Audit, you will be a key technical expert within the internal audit team. You will be operating in a bank where technology represents a key pillar of the business strategy, with a strong focus on the in-house development of proprietary banking solutions. Your primary mission is to conduct in-depth, risk-based audits across our modern and complex technology landscapes and evaluate IT risks, security controls, and regulatory compliance (FINMA). A central part of your role will be to actively pioneer the future of our audit function by developing and integrating advanced methodologies that leverage data analytics and agentic AI. For this role, we are seeking a hands-on IT Auditor with a strong background in the financial industry and a passion for technology and innovation. Swiss Domicile is mandatory.\n\n•       Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.\n\n•       Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.\n\n•       Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.\n\n•       Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.\n\n•       Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.\n\n•       Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.\n\n• Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.\n\n•       Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.\n\n•       Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.\n\n•       Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.\n\n•       Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.\n\n•       Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.\n\n•       Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.\n\n•       Mandatory Requirement: Domicile in Switzerland is required.",
+        "fr": "Reporting to the Head of IT Audit, you will be a key technical expert within the internal audit team. You will be operating in a bank where technology represents a key pillar of the business strategy, with a strong focus on the in-house development of proprietary banking solutions. Your primary mission is to conduct in-depth, risk-based audits across our modern and complex technology landscapes and evaluate IT risks, security controls, and regulatory compliance (FINMA). A central part of your role will be to actively pioneer the future of our audit function by developing and integrating advanced methodologies that leverage data analytics and agentic AI. For this role, we are seeking a hands-on IT Auditor with a strong background in the financial industry and a passion for technology and innovation. Swiss Domicile is mandatory.\n\n•       Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.\n\n•       Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.\n\n•       Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.\n\n•       Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.\n\n•       Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.\n\n•       Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.\n\n• Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.\n\n•       Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.\n\n•       Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.\n\n•       Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.\n\n•       Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.\n\n•       Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.\n\n•       Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.\n\n•       Mandatory Requirement: Domicile in Switzerland is required."
+      },
+      "requirements": [
+        "Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.",
+        "Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.",
+        "Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.",
+        "Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.",
+        "Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.",
+        "Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.",
+        "Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.",
+        "Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.",
+        "Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.",
+        "Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.",
+        "Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.",
+        "Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.",
+        "Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.",
+        "Mandatory Requirement: Domicile in Switzerland is required."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.",
+          "Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.",
+          "Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.",
+          "Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.",
+          "Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.",
+          "Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.",
+          "Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.",
+          "Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.",
+          "Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.",
+          "Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.",
+          "Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.",
+          "Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.",
+          "Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.",
+          "Mandatory Requirement: Domicile in Switzerland is required."
+        ],
+        "en": [
+          "Execute and Lead IT Audit Engagements: Take an active role in planning, executing, and reporting on risk-based audits covering information technology, infrastructure, data privacy, and information security.",
+          "Audit Modern Technology Landscapes: Perform in-depth assessments of IT processes, risks, and controls within a cutting-edge environment (AI, cloud, CI/CD pipelines), critically evaluating the design and effectiveness of the internal control system.",
+          "Shape Audit Strategy: Contribute your IT and security expertise to the risk-based audit planning process, helping to define key areas of focus and strategic priorities.",
+          "Enhance Audit Methodologies: Drive the modernization of our audit approaches by developing and integrating advanced techniques using data analytics and leveraging AI-driven tools to enhance audit effectiveness, increase assurance, and automate testing.",
+          "Collaborate on Joint Audits: Lead or assist in integrated audits with the business audit team and manage co-sourced audit engagements with external partners.",
+          "Support Ad-Hoc Projects: Work independently on ad-hoc assignments and special projects as required by management.",
+          "Education & Certifications: A Bachelor's or master's degree in ICT or equivalent. A professional certification such as CISA, CISM, or CISSP is highly desirable, as is a commitment to obtaining one.",
+          "Core Experience: 4+ years of hands-on experience in a technical capacity (e.g., IT Audit, IT Security, IT Risk Management, or IT Compliance) within the Swiss financial industry.",
+          "Frameworks & Regulations: Strong knowledge of IT audit methodologies and frameworks (e.g., COBIT, ISO 27001, NIST) and a solid understanding of the Swiss regulatory landscape, or the willingness to rapidly develop this knowledge.",
+          "Data & AI: Relevant experience with data analytics tools (e.g., Python, SQL, Power BI), combined with the ability to develop and apply AI-driven solutions in an audit context, or a strong willingness to develop this capability.",
+          "Language Skills: Excellent verbal and written communication skills in both Italian and English are required. German language skills are a plus.",
+          "Key Competencies: Strong interpersonal and communication skills, the ability to explain complex technical issues to non-technical stakeholders, effective team collaboration, a capacity for rapid learning, and high adaptability to change.",
+          "Travel: Availability for travel approximately up to 10% within Switzerland and also abroad.",
+          "Mandatory Requirement: Domicile in Switzerland is required."
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-23",
+      "url": "https://jobs.corner.ch/o/it-auditor-ref-1087",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.234Z",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.234Z"
+    },
+    {
+      "id": "corner-banca-414e92898c99",
+      "slug": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+        "en": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+        "de": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
+        "fr": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Legal Collection case Manager  - ref. 1095",
+      "titleByLocale": {
+        "it": "Legal Collection case Manager - ref. 1095",
+        "en": "Legal Collection case Manager  - ref. 1095",
+        "de": "Legal Collection case Manager - ref. 1095",
+        "fr": "Legal Collection case Manager - ref. 1095"
+      },
+      "description": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+      "descriptionByLocale": {
+        "it": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+        "en": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+        "de": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+        "fr": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field)."
+      },
+      "requirements": [
+        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
+        "A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.",
+        "Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.",
+        "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
+        "The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.",
+        "High attention to detail and commitment to accuracy.",
+        "Proficiency in Microsoft Office and case management systems.",
+        "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field)."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
+          "A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.",
+          "Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.",
+          "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
+          "The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.",
+          "High attention to detail and commitment to accuracy.",
+          "Proficiency in Microsoft Office and case management systems.",
+          "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field)."
+        ],
+        "en": [
+          "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
+          "A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.",
+          "Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.",
+          "Strong goal-oriented mindset, organizational abilities, and problem-solving skills.",
+          "The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.",
+          "High attention to detail and commitment to accuracy.",
+          "Proficiency in Microsoft Office and case management systems.",
+          "Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field)."
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.233Z",
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.233Z"
+    },
+    {
+      "id": "corner-banca-8cbfd38d6413",
+      "slug": "customer-analytics-officer-ref-1072-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "customer-analytics-officer-ref-1072-corner-banca-lugano",
+        "en": "customer-analytics-officer-ref-1072-corner-banca-lugano",
+        "de": "customer-analytics-officer-ref-1072-corner-banca-lugano",
+        "fr": "customer-analytics-officer-ref-1072-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Analytics Officer  - ref-  1072",
+      "titleByLocale": {
+        "it": "Customer Analytics Officer - ref- 1072",
+        "en": "Customer Analytics Officer  - ref-  1072",
+        "de": "Customer Analytics Officer - ref- 1072",
+        "fr": "Customer Analytics Officer - ref- 1072"
+      },
+      "description": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
+      "descriptionByLocale": {
+        "it": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
+        "en": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
+        "de": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich",
+        "fr": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluent in Italian & English, German an advantage\n\n• Workplace: Lugano / Zurich"
+      },
+      "requirements": [
+        "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+        "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+        "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+        "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+        "Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)",
+        "Advanced knowledge of MS Excel",
+        "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+        "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+        "Analytical and solution oriented mindset, excellent problem solving abilities",
+        "Self-motivated and proactive personality",
+        "Outstanding communication skills. Fluent in Italian & English, German an advantage",
+        "Workplace: Lugano / Zurich"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+          "Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)",
+          "Advanced knowledge of MS Excel",
+          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+          "Analytical and solution oriented mindset, excellent problem solving abilities",
+          "Self-motivated and proactive personality",
+          "Outstanding communication skills. Fluent in Italian & English, German an advantage",
+          "Workplace: Lugano / Zurich"
+        ],
+        "en": [
+          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+          "Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)",
+          "Advanced knowledge of MS Excel",
+          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+          "Analytical and solution oriented mindset, excellent problem solving abilities",
+          "Self-motivated and proactive personality",
+          "Outstanding communication skills. Fluent in Italian & English, German an advantage",
+          "Workplace: Lugano / Zurich"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.corner.ch/o/customer-analytics-officer-ref-1072",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.232Z",
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.232Z"
+    },
+    {
+      "id": "corner-banca-2fd5dbfa7f6e",
+      "slug": "information-security-specialist-ref-1108-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "en": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "de": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "fr": "information-security-specialist-ref-1108-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Information Security Specialist  -  ref. 1108",
+      "titleByLocale": {
+        "it": "Information Security Specialista - ref. 1108",
+        "en": "Information Security Specialist  -  ref. 1108",
+        "de": "Information Security Spezialist - ref. 1108",
+        "fr": "Information Security Spécialiste - ref. 1108"
+      },
+      "description": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
+        "en": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
+        "de": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
+        "fr": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "3–7+ years in Information Security, IT Risk, or Security Governance",
+        "Experience in project security / security assurance / control frameworks",
+        "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+        "Certifications such as CISSP, CISM, CISA are an advantage",
+        "Fluent English and Italian (mandatory). German and/or French is a plus",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "3–7+ years in Information Security, IT Risk, or Security Governance",
+          "Experience in project security / security assurance / control frameworks",
+          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+          "Certifications such as CISSP, CISM, CISA are an advantage",
+          "Fluent English and Italian (mandatory). German and/or French is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "3–7+ years in Information Security, IT Risk, or Security Governance",
+          "Experience in project security / security assurance / control frameworks",
+          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+          "Certifications such as CISSP, CISM, CISA are an advantage",
+          "Fluent English and Italian (mandatory). German and/or French is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.230Z",
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.230Z"
+    },
+    {
+      "id": "corner-banca-e65fc0f2f4ac",
+      "slug": "fi-administration-e-business-support-ref-1105-1116-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "fi-administration-e-business-support-ref-1105-1116-corner-banca-lugano",
+        "en": "fi-administration-e-business-support-ref-1105-1116-corner-banca-lugano",
+        "de": "fi-administration-e-business-support-ref-1105-1116-corner-banca-lugano",
+        "fr": "fi-administration-e-business-support-ref-1105-1116-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "FI Administration & Business Support  - ref. 1105 - 1116",
+      "titleByLocale": {
+        "it": "FI Administration & Business Support - ref. 1105 - 1116",
+        "en": "FI Administration & Business Support  - ref. 1105 - 1116",
+        "de": "FI Administration & Business Support - ref. 1105 - 1116",
+        "fr": "FI Administration & Business Support - ref. 1105 - 1116"
+      },
+      "description": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n•  Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n•  Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n•  Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n•  Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
+        "en": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n•  Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n•  Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
+        "de": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n•  Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n•  Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
+        "fr": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n•  Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n•  Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Excellent knowledge of Microsoft Office (especially Excel and Word)",
+        "Ability to draft administrative documentation in at least two national languages",
+        "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
+        "Fast learner, operational flexibility and solution-oriented mindset",
+        "Team-oriented attitude and ability to collaborate across functions",
+        "Excellent knowledge of national languages and English (written and spoken)",
+        "Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Excellent knowledge of Microsoft Office (especially Excel and Word)",
+          "Ability to draft administrative documentation in at least two national languages",
+          "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
+          "Fast learner, operational flexibility and solution-oriented mindset",
+          "Team-oriented attitude and ability to collaborate across functions",
+          "Excellent knowledge of national languages and English (written and spoken)",
+          "Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Excellent knowledge of Microsoft Office (especially Excel and Word)",
+          "Ability to draft administrative documentation in at least two national languages",
+          "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
+          "Fast learner, operational flexibility and solution-oriented mindset",
+          "Team-oriented attitude and ability to collaborate across functions",
+          "Excellent knowledge of national languages and English (written and spoken)",
+          "Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1105-1116",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.229Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.229Z"
+    },
+    {
+      "id": "corner-banca-0b72c7144b4f",
+      "slug": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+        "en": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+        "de": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+        "fr": "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109",
+      "titleByLocale": {
+        "it": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109",
+        "en": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109",
+        "de": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109",
+        "fr": "Senior Security GRC (Governance, Risk & Compliance) Banking - ref. 1109"
+      },
+      "description": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)\n\n• Based in Ticino, or willing to relocate to Ticino",
+      "descriptionByLocale": {
+        "it": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)\n\n• Based in Ticino, or willing to relocate to Ticino",
+        "en": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)\n\n• Based in Ticino, or willing to relocate to Ticino",
+        "de": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)\n\n• Based in Ticino, or willing to relocate to Ticino",
+        "fr": "We are looking for a Senior Security GRC professional to join our team and strengthen our cybersecurity, risk, and compliance capabilities in a regulated banking environment.\n\nIn this role, you will act as a liaison between IT, business leadership, and regulators, ensuring that security and compliance are effectively embedded across the organization.\n\nKey responsibilities:\n\n• Execute cyber & ICT risk assessments, BIA, and risk treatment plans\n\n• Ensure compliance with FINMA circulars, ISO 27001, LPD, PCI DSS and relevant regulations\n\n• Oversee third-party / vendor risk management\n\n• Maintain and enhance the ISMS, policies, and controls framework\n\n• Oversee IT & security audits (internal/external)\n\n• Develop GRC dashboards, KPIs and reporting for CISO\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)\n\n• Strong knowledge of ISO 27001, NIST, PCI DSS\n\n• Experience with regulatory environments (FINMA highly valued)\n\n• Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus\n\n• Ability to translate technical risks into business insights\n\n• Fluent English and Italian (mandatory). German (strong advantage)\n\n• Based in Ticino, or willing to relocate to Ticino"
+      },
+      "requirements": [
+        "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
+        "Strong knowledge of ISO 27001, NIST, PCI DSS",
+        "Experience with regulatory environments (FINMA highly valued)",
+        "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
+        "Ability to translate technical risks into business insights",
+        "Fluent English and Italian (mandatory). German (strong advantage)",
+        "Based in Ticino, or willing to relocate to Ticino"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
+          "Strong knowledge of ISO 27001, NIST, PCI DSS",
+          "Experience with regulatory environments (FINMA highly valued)",
+          "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
+          "Ability to translate technical risks into business insights",
+          "Fluent English and Italian (mandatory). German (strong advantage)",
+          "Based in Ticino, or willing to relocate to Ticino"
+        ],
+        "en": [
+          "5+ years in Cybersecurity, IT Risk, Audit, or GRC (banking/fintech preferred)",
+          "Strong knowledge of ISO 27001, NIST, PCI DSS",
+          "Experience with regulatory environments (FINMA highly valued)",
+          "Professional certifications (CISSP, CISM, CISA, CRISC, CDPSE) are a plus",
+          "Ability to translate technical risks into business insights",
+          "Fluent English and Italian (mandatory). German (strong advantage)",
+          "Based in Ticino, or willing to relocate to Ticino"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.229Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.229Z"
+    },
+    {
+      "id": "corner-banca-c2be30cf246d",
+      "slug": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
+        "en": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
+        "de": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
+        "fr": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Consumer Dispute Management  - ref. 1103",
+      "titleByLocale": {
+        "it": "Employee Consumer Dispute Management - ref. 1103",
+        "en": "Employee Consumer Dispute Management - ref. 1103",
+        "de": "Employee Consumer Dispute Management - ref. 1103",
+        "fr": "Employee Consumer Dispute Management  - ref. 1103"
+      },
+      "description": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
+      "descriptionByLocale": {
+        "it": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
+        "en": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
+        "de": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
+        "fr": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities"
+      },
+      "requirements": [
+        "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
+        "Excellent language skills in German, French, English, and Italian (both spoken and written).",
+        "Analytical, structured, accurate, and reliable working style.",
+        "Strong customer orientation and excellent communication skills.",
+        "Ability to work under pressure and enjoy working in a dynamic environment."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
+          "Excellent language skills in German, French, English, and Italian (both spoken and written).",
+          "Analytical, structured, accurate, and reliable working style.",
+          "Strong customer orientation and excellent communication skills.",
+          "Ability to work under pressure and enjoy working in a dynamic environment."
+        ],
+        "en": [
+          "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
+          "Excellent language skills in German, French, English, and Italian (both spoken and written).",
+          "Analytical, structured, accurate, and reliable working style.",
+          "Strong customer orientation and excellent communication skills.",
+          "Ability to work under pressure and enjoy working in a dynamic environment."
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.211Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.211Z"
+    },
+    {
+      "id": "corner-banca-701736bd33cc",
+      "slug": "employee-backoffice-ref-1110-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "employee-backoffice-ref-1110-corner-banca-lugano",
+        "en": "employee-backoffice-ref-1110-corner-banca-lugano",
+        "de": "employee-backoffice-ref-1110-corner-banca-lugano",
+        "fr": "employee-backoffice-ref-1110-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Backoffice  -  ref. 1110",
+      "titleByLocale": {
+        "it": "Employee Backoffice - ref. 1110",
+        "en": "Employee Backoffice  -  ref. 1110",
+        "de": "Employee Backoffice - ref. 1110",
+        "fr": "Employee Backoffice - ref. 1110"
+      },
+      "description": "We are looking for a dedicated candidate to join our Backoffice team at Cornèrcard.\n\nIn this role, you will play a crucial part in supporting the team with administrative tasks and ensuring the smooth operation of the department.\n\n• Handle customer enquiries received via email and written correspondence in German, French, Italian and English.\n\n• Maintain, update and manage customer records for credit and prepaid cardholders, ensuring data accuracy and completeness within the company's systems.\n\n• Receive, analyse and manage complaints, enquiries and requests relating to payment cards.\n\n• Ensure timely, accurate and customer-focused handling of all requests, contributing to a high level of customer satisfaction.\n\n• Comply with internal procedures, quality standards and applicable regulatory requirements.\n\n• Proactively identify appropriate solutions to customer issues and escalate more complex cases to the relevant department when necessary.\n\n• Perform administrative and back-office activities, including the preparation and processing of operational reports, lists and documentation.\n\n• Maintain accurate customer records and documentation across the company's information systems.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).\n\n• Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.\n\n• High level of accuracy, reliability and attention to detail.\n\n• Strong customer service orientation, organisational skills and problem-solving abilities.\n\n• Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.\n\n• Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "We are looking for a dedicated candidate to join our Backoffice team at Cornèrcard.\n\nIn this role, you will play a crucial part in supporting the team with administrative tasks and ensuring the smooth operation of the department.\n\n• Handle customer enquiries received via email and written correspondence in German, French, Italian and English.\n\n• Maintain, update and manage customer records for credit and prepaid cardholders, ensuring data accuracy and completeness within the company's systems.\n\n• Receive, analyse and manage complaints, enquiries and requests relating to payment cards.\n\n• Ensure timely, accurate and customer-focused handling of all requests, contributing to a high level of customer satisfaction.\n\n• Comply with internal procedures, quality standards and applicable regulatory requirements.\n\n• Proactively identify appropriate solutions to customer issues and escalate more complex cases to the relevant department when necessary.\n\n• Perform administrative and back-office activities, including the preparation and processing of operational reports, lists and documentation.\n\n• Maintain accurate customer records and documentation across the company's information systems.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).\n\n• Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.\n\n• High level of accuracy, reliability and attention to detail.\n\n• Strong customer service orientation, organisational skills and problem-solving abilities.\n\n• Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.\n\n• Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.\n\n• Resident in Ticino or willing to relocate",
+        "en": "We are looking for a dedicated candidate to join our Backoffice team at Cornèrcard.\n\nIn this role, you will play a crucial part in supporting the team with administrative tasks and ensuring the smooth operation of the department.\n\n• Handle customer enquiries received via email and written correspondence in German, French, Italian and English.\n\n• Maintain, update and manage customer records for credit and prepaid cardholders, ensuring data accuracy and completeness within the company's systems.\n\n• Receive, analyse and manage complaints, enquiries and requests relating to payment cards.\n\n• Ensure timely, accurate and customer-focused handling of all requests, contributing to a high level of customer satisfaction.\n\n• Comply with internal procedures, quality standards and applicable regulatory requirements.\n\n• Proactively identify appropriate solutions to customer issues and escalate more complex cases to the relevant department when necessary.\n\n• Perform administrative and back-office activities, including the preparation and processing of operational reports, lists and documentation.\n\n• Maintain accurate customer records and documentation across the company's information systems.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).\n\n• Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.\n\n• High level of accuracy, reliability and attention to detail.\n\n• Strong customer service orientation, organisational skills and problem-solving abilities.\n\n• Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.\n\n• Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.\n\n• Resident in Ticino or willing to relocate",
+        "de": "We are looking for a dedicated candidate to join our Backoffice team at Cornèrcard.\n\nIn this role, you will play a crucial part in supporting the team with administrative tasks and ensuring the smooth operation of the department.\n\n• Handle customer enquiries received via email and written correspondence in German, French, Italian and English.\n\n• Maintain, update and manage customer records for credit and prepaid cardholders, ensuring data accuracy and completeness within the company's systems.\n\n• Receive, analyse and manage complaints, enquiries and requests relating to payment cards.\n\n• Ensure timely, accurate and customer-focused handling of all requests, contributing to a high level of customer satisfaction.\n\n• Comply with internal procedures, quality standards and applicable regulatory requirements.\n\n• Proactively identify appropriate solutions to customer issues and escalate more complex cases to the relevant department when necessary.\n\n• Perform administrative and back-office activities, including the preparation and processing of operational reports, lists and documentation.\n\n• Maintain accurate customer records and documentation across the company's information systems.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).\n\n• Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.\n\n• High level of accuracy, reliability and attention to detail.\n\n• Strong customer service orientation, organisational skills and problem-solving abilities.\n\n• Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.\n\n• Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.\n\n• Resident in Ticino or willing to relocate",
+        "fr": "We are looking for a dedicated candidate to join our Backoffice team at Cornèrcard.\n\nIn this role, you will play a crucial part in supporting the team with administrative tasks and ensuring the smooth operation of the department.\n\n• Handle customer enquiries received via email and written correspondence in German, French, Italian and English.\n\n• Maintain, update and manage customer records for credit and prepaid cardholders, ensuring data accuracy and completeness within the company's systems.\n\n• Receive, analyse and manage complaints, enquiries and requests relating to payment cards.\n\n• Ensure timely, accurate and customer-focused handling of all requests, contributing to a high level of customer satisfaction.\n\n• Comply with internal procedures, quality standards and applicable regulatory requirements.\n\n• Proactively identify appropriate solutions to customer issues and escalate more complex cases to the relevant department when necessary.\n\n• Perform administrative and back-office activities, including the preparation and processing of operational reports, lists and documentation.\n\n• Maintain accurate customer records and documentation across the company's information systems.\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).\n\n• Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.\n\n• High level of accuracy, reliability and attention to detail.\n\n• Strong customer service orientation, organisational skills and problem-solving abilities.\n\n• Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.\n\n• Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).",
+        "Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.",
+        "High level of accuracy, reliability and attention to detail.",
+        "Strong customer service orientation, organisational skills and problem-solving abilities.",
+        "Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.",
+        "Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).",
+          "Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.",
+          "High level of accuracy, reliability and attention to detail.",
+          "Strong customer service orientation, organisational skills and problem-solving abilities.",
+          "Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.",
+          "Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Excellent knowledge of Microsoft Office, particularly Excel (data management, filters and list processing), Word (business correspondence) and Outlook (email management).",
+          "Strong IT proficiency, with the ability to work efficiently and accurately across multiple systems and applications simultaneously.",
+          "High level of accuracy, reliability and attention to detail.",
+          "Strong customer service orientation, organisational skills and problem-solving abilities.",
+          "Excellent command of German (Proficiency, Native), French, Italian and English, both written and spoken.",
+          "Previous experience in a similar customer service, back-office or administrative role, preferably within the banking or financial services sector.",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.210Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.210Z"
+    },
+    {
+      "id": "corner-banca-7ff3f5e20765",
+      "slug": "employee-underwriting-e-cash-ref-1113-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "employee-underwriting-e-cash-ref-1113-corner-banca-lugano",
+        "en": "employee-underwriting-e-cash-ref-1113-corner-banca-lugano",
+        "de": "employee-underwriting-e-cash-ref-1113-corner-banca-lugano",
+        "fr": "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Underwriting è-Cash   - ref. 1113",
+      "titleByLocale": {
+        "it": "Employee Underwriting è-Cash - ref. 1113",
+        "en": "Employee Underwriting è-Cash - ref. 1113",
+        "de": "Employee Underwriting è-Cash   - ref. 1113",
+        "fr": "Employee Underwriting è-Cash - ref. 1113"
+      },
+      "description": "We are looking for a customer-focused and detail-oriented candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities:\n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "We are looking for a customer-focused and detail-oriented candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities:\n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate",
+        "en": "We are looking for a customer-focused and detail-oriented candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities:\n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate",
+        "de": "We are looking for a customer-focused and detail-oriented candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities:\n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate",
+        "fr": "We are looking for a customer-focused and detail-oriented candidate to join our team. The main responsibilities of this role include:\n\nKey responsibilities:\n\n• Analysis of small credit requests using dedicated tools and received documentation\n\n• Administration of returned contracts\n\n• Office checks on execution and bankruptcies, addresses, employers, additional documentation\n\n• Credit disbursement\n\n• Customer care for existing clients without delay\n\n• Handling emails and calls from clients and external partners\n\n• Sending payment policies, extinguishing extracts, detailed calculations\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Experience in analyzing salary certificates\n\n• Precision and autonomy, proactive spirit\n\n• Great sense of responsibility and decision-making skills\n\n• Enjoy working in a team and direct contact with clients and external partners\n\n• Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client\n\n• Resident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Experience in analyzing salary certificates",
+        "Precision and autonomy, proactive spirit",
+        "Great sense of responsibility and decision-making skills",
+        "Enjoy working in a team and direct contact with clients and external partners",
+        "Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Experience in analyzing salary certificates",
+          "Precision and autonomy, proactive spirit",
+          "Great sense of responsibility and decision-making skills",
+          "Enjoy working in a team and direct contact with clients and external partners",
+          "Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Experience in analyzing salary certificates",
+          "Precision and autonomy, proactive spirit",
+          "Great sense of responsibility and decision-making skills",
+          "Enjoy working in a team and direct contact with clients and external partners",
+          "Knowledge of spoken and written French is mandatory, German and Italian to be able to read documents received from client",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-ref-1113",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:12:28.201Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T10:12:28.201Z"
     }
   ]
 }
