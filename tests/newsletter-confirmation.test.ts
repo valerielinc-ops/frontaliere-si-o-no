@@ -191,6 +191,45 @@ describe('handleSubscriptionManagement — confirm action', () => {
     expect(doc.isActive).toBe(true);
   });
 
+  // #5681 — the confirm event previously recorded no IP/UA at all, unlike
+  // the ESP webhook `click`/`open` event writes which already carry
+  // `metadata.ip`/`metadata.user_agent` (see newsletterMailtrapWebhookCore.js).
+  it('records metadata.ip/metadata.user_agent on the confirm event when the request carries them', { timeout: 60000 }, async () => {
+    const { handleSubscriptionManagement } = await import(
+      '../functions/src/newsletterSubscriptionManagement.js'
+    );
+    const { generateConfirmationToken } = await import(
+      '../functions/src/newsletterConfirmationEmail.js'
+    );
+
+    const secret = 'test-secret-forensics';
+    const email = 'forensics-confirm@example.com';
+    const token = generateConfirmationToken(email, secret);
+    const db = createFakeDb();
+    db.docs['newsletter_subscribers/forensics-confirm@example.com'] = { status: 'pending', isActive: false };
+
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email,
+      token,
+      secret,
+      locale: 'it',
+      db,
+      // Same shape `functions/index.js` builds via buildUnsubscribeForensics(req):
+      // anonymized IP + truncated UA, already allowlist-copied by forensicsFields().
+      forensics: { unsubscribe_ip: '203.0.113.0', unsubscribe_user_agent: 'Mozilla/5.0 TestAgent' },
+    });
+
+    expect(result.status).toBe(200);
+    const confirmEvent = db.events.find(
+      (e: any) => e.collection.includes('/events') && e.event_type === 'confirm',
+    );
+    expect(confirmEvent).toBeTruthy();
+    expect(confirmEvent.metadata).toBeTruthy();
+    expect(confirmEvent.metadata.ip).toBe('203.0.113.0');
+    expect(confirmEvent.metadata.user_agent).toBe('Mozilla/5.0 TestAgent');
+  });
+
   it('returns success for already confirmed subscriber', { timeout: 60000 }, async () => {
     const { handleSubscriptionManagement } = await import(
       '../functions/src/newsletterSubscriptionManagement.js'
