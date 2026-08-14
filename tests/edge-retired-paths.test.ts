@@ -216,11 +216,26 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
   });
 
   it('never lists a URL the corpus still publishes', () => {
+    // "Still publishes" means the LOCAL registries (packages/articles/content/
+    // router{Blog,Swiss}Data.ts) still carry the slug — and those registries are
+    // sync-owned: pull-articles-corpus.mjs only prunes a retired id once
+    // scripts/lib/corpus-removal-guard.mjs sees a bridge for it in
+    // legacyRedirectsPlugin.ts's `redirects` table, so a fresh retirement is
+    // ALWAYS declared here first and lands in the local registries some sync
+    // cycles later — never the other way round. Flagging that ordinary lag as a
+    // "resurrection" would make every retirement red for the hours between the
+    // bridge PR and the next sync, for no defect. An id IS a genuine
+    // resurrection only when the corpus still serves it and NOTHING here
+    // declares it dead — i.e. it is missing from declaredRedirects() too, which
+    // is exactly the alias-orphan case this guards (data/legacy-aliases.json
+    // rows have no bridge and no human decision behind them).
     const live = liveCorpusSlugs();
-    const resurrected = actualKeys.filter((k) => live.has(lastSegment(k)));
+    const declaredFrom = new Set(declaredRedirects().keys());
+    const resurrected = actualKeys.filter((k) => live.has(lastSegment(k)) && !declaredFrom.has(k));
     expect(
       resurrected,
-      `These slugs are back in BLOG_SLUGS/SWISS_SLUGS — the edge is deleting live pages:\n${resurrected.join('\n')}`,
+      `These slugs are back in BLOG_SLUGS/SWISS_SLUGS with no bridge declaring them dead — `
+        + `the edge is deleting live pages:\n${resurrected.join('\n')}`,
     ).toEqual([]);
   });
 
@@ -228,9 +243,9 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
     // 4 retired-with-no-substitute + 20 alias orphans; 34 declared redirects
-    // under the eight prefixes + 15 from data/article-redirects.json (the 3
-    // prompt-leak renames, plus 12 for the nanako#356 cross-section duplicate
-    // retirements added the same day).
+    // under the eight prefixes + 3 from data/article-redirects.json + 12 for
+    // the nanako#356 cross-section duplicate retirements (bridge in
+    // legacyRedirectsPlugin.ts, same day).
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
       total: 73,
       gone: 24,

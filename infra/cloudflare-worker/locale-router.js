@@ -1206,12 +1206,11 @@ export const EDGE_RETIRED_PATHS = {
   // ── 301 — cross-section duplicate retirements, nanako#356 (12 URLs). Three
   // svizzera articles withdrawn in favour of a frontaliere-section winner
   // chosen on GA4 (the retired side was 0/0/0 pageviews/sessions/users in all
-  // three). Slugs read from data/retired-articles.json at
-  // nanako@ff2ac2f8 (`gh api .../contents/data/retired-articles.json?ref=main`),
-  // which is the only remaining source for them post-merge — the corpus files
-  // that carried the four locale slugs are gone. Targets confirmed live 200 on
-  // the corpus's published API (manifest commit ff2ac2f8) before being written
-  // here.
+  // three). Bridge declared in build-plugins/legacyRedirectsPlugin.ts. Slugs
+  // read from data/retired-articles.json at nanako@ff2ac2f8
+  // (`gh api .../contents/data/retired-articles.json?ref=main`), the only
+  // remaining source post-merge. Targets confirmed live 200 on the corpus's
+  // published API (manifest commit ff2ac2f8) before being written here.
   '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
   '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
   '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
