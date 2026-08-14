@@ -11,7 +11,7 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-13T21:50:39.435Z",
+  "updatedAt": "2026-08-14T10:13:54.649Z",
   "seedMetaByUrl": {
     "https://jobs.skyguide.ch/job/Geneva-System-Integration-and-Test-Engineer-%2880-100%29/1425050133/": {
       "location": "Geneva",
@@ -25,14 +25,14 @@
       "company": "Skyguide",
       "postedDate": "2026-08-10"
     },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&oder-Genf-Head-of-Corporate-Audit-%28100%29/1424690433/": {
-      "location": "Wangen b. Düb. &/oder Genf",
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&ou-Gen%C3%A8ve-Head-of-Corporate-Audit-%28100%29/1424690533/": {
+      "location": "Wangen b. Düb. &/ou Genève",
       "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-10"
     },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&ou-Gen%C3%A8ve-Head-of-Corporate-Audit-%28100%29/1424690533/": {
-      "location": "Wangen b. Düb. &/ou Genève",
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&oder-Genf-Head-of-Corporate-Audit-%28100%29/1424690433/": {
+      "location": "Wangen b. Düb. &/oder Genf",
       "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-10"
