@@ -9921,6 +9921,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Beginn der Vorbereitungsarbeiten für den ehemaligen Schulplatz in Lugano',
     'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'Ab Montag, dem 17. August, werden die fünf temporären Austauschpunkte eingerichtet, die das Botta-Vordach ersetzen werden.',
     'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Vorbereitende Arbeiten für das ehemalige Schulareal in Lugano.',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'So melden Sie sich bei der OCST-Arbeitslosenkasse an',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Kein Termin erforderlich. Sie können sich in wenigen Minuten von zu Hause aus online anmelden.',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Redaktionelles Bild zu: Come registrarsi alla cassa di disoccupazione OCST',
 };
 
 export default blogMetaDe;
