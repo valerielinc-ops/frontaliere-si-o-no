@@ -87,6 +87,19 @@ jobs:
             --label seo-audit \
             --workflow "${{ github.workflow }}"
 
+      # Closer half (#5437 — this title had none). A clean scan means zero
+      # placeholders flagged, i.e. the `check` step's own exit code is 0.
+      - name: Resolve placeholder-definitions issue on clean scan
+        if: steps.check.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "[glossario-definitions] term pages shipping placeholder DefinedTerm.description" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Upload report artifact
         if: always()
         uses: actions/upload-artifact@v7

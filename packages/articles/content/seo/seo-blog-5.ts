@@ -54693,7 +54693,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/frontaliereticino-chi-sono-i-frontalieri-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Un ristorante in Lugano, Ticino, con camerieri in servizio. Max 125 char"
+        "caption": "Un ristorante in Lugano, Ticino, con camerieri in servizio"
       },
       "datePublished": "2026-07-24T15:31:34+00:00",
       "dateModified": "2026-07-24T15:31:34+00:00",
@@ -67576,6 +67576,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-preparatori-piazzale-ex-scuole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-registrarsi-alla-cassa-di-disoccupazione-ocst': {
+    title: 'Come registrarsi alla cassa di disoccupazione OCST',
+    description: 'Nessun appuntamento necessario. Puoi annunciarti online da casa in pochi minuti. Registrati all\'Ufficio Regionale di Collocamento competente per il tuo',
+    keywords: 'frontalieri, ticino, svizzera, italia, registrarsi, alla, cassa, disoccupazione',
+    ogTitle: 'Come registrarsi alla cassa di disoccupazione OCST',
+    ogDescription: 'Nessun appuntamento necessario. Puoi annunciarti online da casa in pochi minuti. Registrati all\'Ufficio Regionale di Collocamento competente per il tuo domicilio — entro il primo giorno di disoccupazione.',
+    canonicalPath: '/articoli-frontaliere/registrarsi-alla-cassa-di-disoccupazione-ocst',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come registrarsi alla cassa di disoccupazione OCST",
+      "description": "Nessun appuntamento necessario. Puoi annunciarti online da casa in pochi minuti. Registrati all'Ufficio Regionale di Collocamento competente per il tuo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/registrarsi-alla-cassa-di-disoccupazione-ocst.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Come registrarsi alla cassa di disoccupazione OCST"
+      },
+      "datePublished": "2026-08-14T00:49:57+00:00",
+      "dateModified": "2026-08-14T00:49:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/registrarsi-alla-cassa-di-disoccupazione-ocst/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ocst-donna-lavoro-servizi': {
+    title: 'OCST donna-lavoro: tutela e supporto | Frontaliere Ticino',
+    description: 'Scopri i servizi di supporto, consulenza legale, corsi e orientamento professionale offerti da OCST donna-lavoro per le lavoratrici in difficoltà.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocst, donna-lavoro, tutela, supporto',
+    ogTitle: 'OCST donna-lavoro: tutela e supporto per le lavoratrici',
+    ogDescription: 'Scopri i servizi di supporto, consulenza legale, corsi e orientamento professionale offerti da OCST donna-lavoro per le lavoratrici in difficoltà.',
+    canonicalPath: '/articoli-frontaliere/ocst-donna-lavoro-servizi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCST donna-lavoro: tutela e supporto",
+      "description": "Scopri i servizi di supporto, consulenza legale, corsi e orientamento professionale offerti da OCST donna-lavoro per le lavoratrici in difficoltà.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocst-donna-lavoro-servizi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sportello di supporto per i lavoratori in Ticino"
+      },
+      "datePublished": "2026-08-14T01:14:02+00:00",
+      "dateModified": "2026-08-14T01:14:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ocst-donna-lavoro-servizi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-no-rimborso-ticino-2020': {
+    title: 'Ticino 2020: nessun rimborso ai Comuni. ‘Responsabilità da entrambe le parti’',
+    description: 'Il governo risponde picche a chi chiedeva un risarcimento per i soldi spesi a favore del progetto poi naufragato. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, nessun, rimborso, comuni, responsabilità',
+    ogTitle: 'Ticino 2020: nessun rimborso ai Comuni | Frontaliere Ticino',
+    ogDescription: 'Il governo risponde picche a chi chiedeva un risarcimento per i soldi spesi a favore del progetto poi naufragato.',
+    canonicalPath: '/articoli-frontaliere/no-rimborso-ticino-2020',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino 2020: nessun rimborso ai Comuni. ‘Responsabilità da entrambe le parti’",
+      "description": "Il governo risponde picche a chi chiedeva un risarcimento per i soldi spesi a favore del progetto poi naufragato. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/no-rimborso-ticino-2020.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri ticinesi in attesa di risarcimento"
+      },
+      "datePublished": "2026-08-14T01:34:24+00:00",
+      "dateModified": "2026-08-14T01:34:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/no-rimborso-ticino-2020/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crisi-aziendali-mimit-tavoli-monitoraggio-2026': {
+    title: 'Crisi aziendali, al Mimit 37 tavoli attivi: Beko Europe sotto osservazione',
+    description: 'Crisi aziendali al Mimit: i tavoli attivi scendono a 37 e i lavoratori a rischio calano sotto i 30 mila. Monitoraggio rafforzato per Beko Europe.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, aziendali, mimit, tavoli',
+    ogTitle: 'Crisi aziendali al Mimit: 37 tavoli attivi e Beko Europe',
+    ogDescription: 'Il quadro del ministero delle Imprese e del Made in Italy sulle crisi aziendali: 37 tavoli attivi, lavoratori a rischio sotto i 30 mila e 46 tavoli di monitoraggio.',
+    canonicalPath: '/articoli-frontaliere/crisi-aziendali-mimit-tavoli-monitoraggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi aziendali, al Mimit 37 tavoli attivi: Beko Europe sotto osservazione",
+      "description": "Crisi aziendali al Mimit: i tavoli attivi scendono a 37 e i lavoratori a rischio calano sotto i 30 mila. Monitoraggio rafforzato per Beko Europe.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crisi-aziendali-mimit-tavoli-monitoraggio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione al ministero delle Imprese e del Made in Italy sulle crisi aziendali"
+      },
+      "datePublished": "2026-08-14T01:41:49+00:00",
+      "dateModified": "2026-08-14T01:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-aziendali-mimit-tavoli-monitoraggio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-como-gera-lario-nuoto-record': {
+    title: 'Nuoto da Como a Gera Lario: record storico per Hector Pardoe',
+    description: 'L\'atleta olimpico Hector Pardoe ha percorso 47,54 km a nuoto da Como a Gera Lario in 10 ore e 41 minuti, stabilendo un record storico sul lago. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuoto, como, gera, lario',
+    ogTitle: 'Nuoto Como-Gera Lario: record storico di Hector Pardoe',
+    ogDescription: 'L\'atleta olimpico britannico Hector Pardoe ha nuotato per 47,54 km da Como a Gera Lario in 10 ore, 41 minuti e 31 secondi.',
+    canonicalPath: '/articoli-frontaliere/como-gera-lario-nuoto-record',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuoto da Como a Gera Lario: record storico per Hector Pardoe",
+      "description": "L'atleta olimpico Hector Pardoe ha percorso 47,54 km a nuoto da Como a Gera Lario in 10 ore e 41 minuti, stabilendo un record storico sul lago. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-gera-lario-nuoto-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Como con acque limpide e montagne"
+      },
+      "datePublished": "2026-08-14T02:19:33+00:00",
+      "dateModified": "2026-08-14T02:19:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-gera-lario-nuoto-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-barasso-riqualificazione-piazza-san-martino': {
+    title: 'Barasso: Piazza San Martino si rinnova per l\'Assunta',
+    description: 'Il Comune di Barasso completa il restyling verde di Piazza San Martino in vista della Festa dell\'Assunta. Scopri i dettagli degli interventi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, barasso, piazza, martino, rinnova',
+    ogTitle: 'Barasso rinnova Piazza San Martino per la Festa dell\'Assunta',
+    ogDescription: 'Nuove fioriere, essenze botaniche e interventi di riqualificazione nel centro storico di Barasso. Tutti i dettagli sui lavori comunali.',
+    canonicalPath: '/articoli-frontaliere/barasso-riqualificazione-piazza-san-martino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barasso: Piazza San Martino si rinnova per l'Assunta",
+      "description": "Il Comune di Barasso completa il restyling verde di Piazza San Martino in vista della Festa dell'Assunta. Scopri i dettagli degli interventi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/barasso-riqualificazione-piazza-san-martino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza San Martino a Barasso rinnovata con nuove fioriere ed essenze botaniche"
+      },
+      "datePublished": "2026-08-14T02:27:03+00:00",
+      "dateModified": "2026-08-14T02:27:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/barasso-riqualificazione-piazza-san-martino/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

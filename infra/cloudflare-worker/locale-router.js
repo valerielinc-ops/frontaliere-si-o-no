@@ -1044,6 +1044,297 @@ async function servePushedEdgeFile(pathname) {
   }
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+// RETIRED PATHS, SERVED AT THE EDGE (issue #5369 §4)
+// ────────────────────────────────────────────────────────────────────────────
+//
+// THE DEFECT THIS CLOSES
+// ──────────────────────
+// The two article sections run with `<SECTION>_BUILD_EMIT_SKIP=true`; matchSection
+// below sends their eight prefixes to `SECTION_ORIGIN[section][locale]` with no
+// apex fallback, and deploy.yml excludes them from the full-replace shard push.
+// The shard is therefore APPEND-ONLY for those prefixes: nothing this repo builds
+// can remove or overwrite a page already on it.
+//
+// So retiring an article did not deindex it. `legacyRedirectsPlugin`'s table is
+// the site's declaration of "this URL is gone, go there instead", but for a path
+// under those eight prefixes the bridge it writes into dist/ is deleted by
+// scripts/lib/rehydrate-trunk-guard.sh and never reaches the serving path.
+// build-plugins/shared/unshippableSections.ts made the build STOP emitting those
+// inert bridges — correct, and it left the URLs exactly as they were.
+//
+// MEASURED ON THE LIVE APEX, 2026-08-14, bare URLs, no `-L` (a `?cb=1` probe
+// measures a different origin on some apex paths — see wrangler.toml):
+//
+//   38/38 legacyRedirectsPlugin entries under the eight prefixes answer 200.
+//     22/38 → the "Pagina spostata" bridge, noindex,follow + canonical → target.
+//             STALE SHARD FILES from the last full-replace push before the flag
+//             went on: they work by an accident of history, not because anything
+//             ships them. The next full-replace push removes them.
+//     16/38 → the ORIGINAL RETIRED ARTICLE, `index, follow, max-snippet:-1, …`,
+//             SELF-canonical. Google is being told to index four withdrawn
+//             articles in four locales. One of the four
+//             (prezzi-proprieta-svizzera-aumentano) is declared unpublishable at
+//             the source: it cites five Swiss laws that do not exist.
+//      0/38 → 404.
+//    3/3 entries of data/article-redirects.json (merged into the SAME map at
+//             closeBundle, issue #5352) answer 200 `index, follow` SELF-canonical
+//             at BOTH ends: /en|/de|/fr .../slug-gaggiolo-*/ and the clean
+//             .../gaggiolo-*/ they redirect to are a live duplicate pair.
+//   20/21 data/legacy-aliases.json orphanPaths under the same prefixes answer
+//             200 with the shard's "Pagina non disponibile" soft-landing and
+//             NO robots meta and NO canonical — a soft-404, indexable. The 21st,
+//             /articoli-frontaliere/kebab-case-3-5-words-max-40-chars/, is not an
+//             orphan at all any more: the corpus publishes an article at that
+//             slug, so the alias row is stale and the URL is left alone (the
+//             prompt-leak rename cluster, issue #5369 §6, not this one).
+//   Control: /articoli-frontaliere/questo-non-esiste-xyz/ → 404 + noindex, so the
+//             200s above are real, not the CDN's courtesy HTML for unknown paths.
+//
+// WHY HERE AND NOT A FAST-PUBLISH ON THE SHARD
+// ────────────────────────────────────────────
+// A fast-publish repairs the sixteen URLs that exist today and nothing else: it
+// is a manual step per retirement, on a repo this one cannot force-replace, and
+// the append-only shard keeps the old bytes underneath. The Worker is the only
+// layer that sits in FRONT of the shard for every one of the eight prefixes, so
+// a path listed here is answered before `serveShard` ever runs — whatever the
+// shard still holds. And it is no longer a manual deploy: .github/workflows/
+// deploy-worker.yml deploys this file on every push to main that touches
+// infra/cloudflare-worker/**, so an entry added here goes live with the merge.
+//
+// THE FORM IS CHOSEN PER URL, NOT ONE RULE FOR ALL
+// ───────────────────────────────────────────────
+//   value = '<path>'  →  301 to a substitute that EXISTS and is equivalent.
+//                        Strongest signal, transfers the ranking, one hop. Used
+//                        for every retirement whose legacyRedirectsPlugin target
+//                        is a real document. All 30 distinct targets below were
+//                        measured 200 on 2026-08-14 before being written here —
+//                        a 301 into a 404 would be worse than the defect.
+//   value = null      →  410 Gone: withdrawn ON PURPOSE with NO substitute.
+//                        Used where the plugin's only "target" is the section
+//                        ROOT (a redirect to a hub is a soft-404 to Google and
+//                        keeps the URL alive) and for the alias orphans, which
+//                        never had a document at all. The body carries
+//                        `noindex` as well, so status and meta say the same
+//                        thing — the exact incoherence measured above, where the
+//                        soft-404s carried neither.
+//
+// A live article is never listed. `tests/edge-retired-paths.test.ts` re-derives
+// this whole table from legacyRedirectsPlugin's own literal, from
+// data/legacy-aliases.json and from the corpus slug registries, and fails on any
+// drift in EITHER direction — a retirement declared in the build but missing
+// here, or an entry here for a slug the corpus still publishes. That test is the
+// mechanism: the next retired article cannot reach main still indexable.
+export const EDGE_RETIRED_PATHS = {
+  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (22 URLs).
+  '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
+  '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
+  '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
+  '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',
+  '/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/': '/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/',
+  '/articoli-frontaliere/tassa-transito-svizzera-2023/': '/articoli-frontaliere/tassa-transito-svizzera-2026/',
+  '/en/cross-border-articles/transit-fee-switzerland-2023/': '/en/cross-border-articles/transit-fee-switzerland-2026/',
+  '/de/grenzgaenger-artikel/transitgebuehr-schweiz-2023/': '/de/grenzgaenger-artikel/transitgebuehr-schweiz-2026/',
+  '/fr/articles-frontalier/frais-de-transit-suisse-2023/': '/fr/articles-frontalier/frais-de-transit-suisse-2026/',
+  '/en/cross-border-articles/speed-controls-ticino-2026/': '/en/cross-border-articles/ticino-speed-controls-2026/',
+  '/articoli-frontaliere/frontalieri-ticino-calo-dati-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
+  '/en/cross-border-articles/cross-border-workers-ticino-decline-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
+  '/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-daten-2025/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
+  '/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
+  '/en/cross-border-articles/cross-border-workers-ticino-data-decline-q4-2025/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
+  '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-q4-2025/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
+  '/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
+  '/en/cross-border-articles/cross-border-workers-ticino-decline-q4-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
+  '/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-q4-2025-daten/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
+  '/fr/articles-frontalier/frontaliers-tessin-baisse-donnees-2025/': '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/',
+  '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-q4-2025/': '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/',
+  '/fr/articles-frontalier/frontaliers-tessin-baisse-donnees-q4-2025/': '/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/',
+
+  // ── 301 — retired articles WITH an equivalent substitute (12 URLs).
+  '/articoli-frontaliere/caldo-torrido-lavoro-ticino/': '/articoli-frontaliere/caldo-lavoro-frontalieri-ticino/',
+  '/en/cross-border-articles/hot-weather-work-ticino/': '/en/cross-border-articles/heat-work-cross-border-ticino/',
+  '/de/grenzgaenger-artikel/heisses-wetter-arbeit-tessin/': '/de/grenzgaenger-artikel/hitze-arbeitsgrenze-tessin/',
+  '/fr/articles-frontalier/chaleur-torrida-travail-tessin/': '/fr/articles-frontalier/chaleur-travail-frontalier-tessin/',
+  '/articoli-svizzera/lavoro-forzato-catene-svizzere/': '/articoli-svizzera/lavoro-forzato-svizzera/',
+  '/en/swiss-articles/forced-labour-swiss-supply-chains/': '/en/swiss-articles/forced-labor-swiss-supply-chains/',
+  '/de/schweiz-artikel/zwangsarbeit-schweizer-lieferketten/': '/de/schweiz-artikel/zwangsarbeit-in-schweizer-lieferketten/',
+  '/fr/articles-suisse/travail-force-chaines-approvisionnement-suisse/': '/fr/articles-suisse/travail-force-dans-les-chaines-dapprovisionnement-suisses/',
+  '/articoli-frontaliere/vivere-maslianico-lavorare-ticino-frontaliere/': '/vivere-in-ticino/comuni-di-frontiera/maslianico/',
+  '/en/cross-border-articles/live-maslianico-work-ticino-cross-border/': '/en/living-in-ticino/border-municipalities/maslianico/',
+  '/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/': '/de/leben-im-tessin/grenzgemeinden/maslianico/',
+  '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/': '/fr/vivre-au-tessin/communes-frontiere/maslianico/',
+
+  // ── 301 — prompt-leak slug renames declared in data/article-redirects.json
+  // (3 URLs). Not retirements: the article is fine, the URL carried the prompt's
+  // own `slug-` placeholder. Both ends are live 200 `index, follow` self-canonical
+  // today, i.e. a duplicate pair, because push-article-shard-incremental.sh only
+  // ever ADDS. The 301 is the half that was missing. It does NOT touch the four
+  // `kebab-case-*` slugs tests/scripts/create-article-prompt-leak-slug.test.ts
+  // deliberately leaves live — those are excluded by the live-slug rule below.
+  '/en/cross-border-articles/slug-gaggiolo-traffic/': '/en/cross-border-articles/gaggiolo-traffic/',
+  '/de/grenzgaenger-artikel/slug-gaggiolo-verkehr/': '/de/grenzgaenger-artikel/gaggiolo-verkehr/',
+  '/fr/articles-frontalier/slug-gaggiolo-traffic/': '/fr/articles-frontalier/gaggiolo-traffic/',
+
+  // ── 410 — retired article with NO substitute (4 URLs).
+  '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/': null,
+  '/en/cross-border-articles/swiss-property-prices-rise/': null,
+  '/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/': null,
+  '/fr/articles-frontalier/prix-immobilier-suisse-augmentent/': null,
+
+  // ── 410 — alias orphans (20 URLs).
+  '/de/grenzgaenger-artikel/banken-gewerkschaften-plattform-vereinbarung/': null,
+  '/articoli-frontaliere/addiofrontalierelongo/': null,
+  '/articoli-frontaliere/tassa-salute-frontalieri/': null,
+  '/de/grenzgaenger-artikel/rega-helikopter-locarno/': null,
+  '/de/grenzgaenger-artikel/tessin-justiz-referendum-2026/': null,
+  '/de/grenzgaenger-artikel/bahnhofsicherheit-tessin-2026/': null,
+  '/en/cross-border-articles/malpensa-arrest-cross-border-worker-murder-2026/': null,
+  '/en/cross-border-articles/bossi-wanted-good-for-ticino/': null,
+  '/en/cross-border-articles/swiss-italy-car-fuel-prices/': null,
+  '/fr/articles-frontalier/referendum-justice-tessin-2026/': null,
+  '/en/cross-border-articles/swiss-neutrality-initiative/': null,
+  '/de/grenzgaenger-artikel/immobilienmarkt-ticino/': null,
+  '/en/cross-border-articles/naspi-unemployment-frontaliers/': null,
+  '/articoli-frontaliere/governo-tavolo-frontalieri-2026/': null,
+  '/en/cross-border-articles/rega-helicopter-locarno/': null,
+  '/en/cross-border-articles/switzerland-public-service-tv-fee/': null,
+  '/articoli-frontaliere/frontalieri-redditi-2026/': null,
+  '/articoli-frontaliere/calo-frontalieri-ticino-economia/': null,
+  '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/': null,
+  '/articoli-frontaliere/accesso-libero-alle-rive/': null,
+};
+
+// Cache-Control for a retirement 301. Longer than NOT_FOUND_CACHE_CONTROL on
+// purpose: unlike a 404, which can turn into a 200 the moment a page is
+// published, a retirement is a decision — re-checking it every 5 minutes buys
+// nothing and the eyeball-side cache is what keeps a crawler's repeat hits off
+// the Worker. Still bounded (not immutable) so unwinding a retirement takes
+// hours, not a cache purge.
+const RETIRED_MOVED_CACHE_CONTROL = 'public, max-age=3600, s-maxage=86400';
+
+// Locale copy for the 410 body. Deliberately tiny and self-contained: no CSS
+// file, no bundle, no SPA boot. A Gone page has one job — say so to the crawler
+// and give the human one live link — and any asset reference here would be a
+// second request into the very shard this response exists to bypass.
+const GONE_COPY = {
+  it: {
+    title: 'Pagina rimossa',
+    lede: 'Questo articolo è stato ritirato e non verrà ripubblicato.',
+    cta: 'Vai a tutti gli articoli',
+  },
+  en: {
+    title: 'Page removed',
+    lede: 'This article has been withdrawn and will not be republished.',
+    cta: 'Browse all articles',
+  },
+  de: {
+    title: 'Seite entfernt',
+    lede: 'Dieser Artikel wurde zurückgezogen und wird nicht erneut veröffentlicht.',
+    cta: 'Alle Artikel ansehen',
+  },
+  fr: {
+    title: 'Page supprimée',
+    lede: 'Cet article a été retiré et ne sera pas republié.',
+    cta: 'Voir tous les articles',
+  },
+};
+
+// Table lookup, tolerant of the two forms a crawler actually sends for the same
+// resource. The keys are the canonical directory form (trailing slash) because
+// that is the form legacyRedirectsPlugin and data/legacy-aliases.json declare;
+// Googlebot re-requests both the slashless and the /index.html form from memory,
+// and a miss on either would serve the retired article again — the whole defect.
+// hasOwnProperty, not `in`: a path like /articoli-frontaliere/constructor/ must
+// not inherit a match from Object.prototype.
+function lookupRetired(pathname) {
+  const own = (key) => Object.prototype.hasOwnProperty.call(EDGE_RETIRED_PATHS, key);
+  if (own(pathname)) return EDGE_RETIRED_PATHS[pathname];
+  if (!pathname.endsWith('/') && own(`${pathname}/`)) return EDGE_RETIRED_PATHS[`${pathname}/`];
+  if (pathname.endsWith('/index.html')) {
+    const dir = pathname.slice(0, -'index.html'.length);
+    if (own(dir)) return EDGE_RETIRED_PATHS[dir];
+  }
+  return undefined;
+}
+
+/** Locale of a retired path — its section route first, then the /en|/de|/fr prefix. */
+function retiredLocale(pathname) {
+  const sec = matchSection(pathname);
+  if (sec) return sec.locale;
+  const m = pathname.match(LOCALE_RE);
+  return m ? m[1] : 'it';
+}
+
+/** The one live link a 410 offers: the retired path's own section root. */
+function retiredHubPath(pathname, locale) {
+  const sec = matchSection(pathname);
+  if (sec) return `${sec.prefix}/`;
+  return locale === 'it' ? '/' : `/${locale}/`;
+}
+
+/**
+ * The 410 body. `noindex` is the point of it: the measured defect was a soft-404
+ * that carried NEITHER the status NOR the meta, so this response states the same
+ * thing twice (status 410, meta robots noindex, X-Robots-Tag noindex) and a
+ * crawler that honours any one of the three deindexes the URL. No canonical —
+ * pointing a gone page at a hub is the soft-404 shape all over again.
+ */
+function buildGonePage(pathname) {
+  const locale = retiredLocale(pathname);
+  const copy = GONE_COPY[locale] || GONE_COPY.it;
+  const hub = retiredHubPath(pathname, locale);
+  return `<!doctype html>
+<html lang="${locale}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>${copy.title} — Frontaliere Ticino</title>
+</head>
+<body>
+<main>
+<h1>${copy.title}</h1>
+<p>${copy.lede}</p>
+<p><a href="${hub}">${copy.cta}</a></p>
+</main>
+</body>
+</html>
+`;
+}
+
+/**
+ * Returns the edge response for a retired path — 301 to its substitute, or 410
+ * Gone — and null for every other path, which is every path the site actually
+ * serves.
+ *
+ * Exported for tests/edge-retired-paths.test.ts, which exercises THIS function
+ * (status, Location, robots meta) rather than grepping the source: the defect it
+ * guards was invisible to source-level checks, because the build genuinely
+ * contained a correct redirect table the serving path never read.
+ */
+export function retiredEdgeResponse(url) {
+  const target = lookupRetired(url.pathname);
+  if (target === undefined) return null;
+  if (target === null) {
+    return new Response(buildGonePage(url.pathname), {
+      status: 410,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+        'X-Robots-Tag': 'noindex',
+      },
+    });
+  }
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: target + url.search + url.hash,
+      'Cache-Control': RETIRED_MOVED_CACHE_CONTROL,
+    },
+  });
+}
+
+
 // Returns a within-locale 301 Response when the requested path is a company-hub
 // orphaned only by a wrong-locale company prefix (e.g. the IT `azienda-` prefix
 // kept on an /fr `trouver-emploi-*` route), otherwise null. The fix swaps ONLY
@@ -1441,6 +1732,18 @@ export default {
     // path that never had a fast R2-published copy.
     const pushedEdgeResponse = await servePushedEdgeFile(url.pathname);
     if (pushedEdgeResponse) return pushedEdgeResponse;
+
+    // Retired paths (issue #5369 §4) — 301 to a substitute, or 410 Gone. Must
+    // run BEFORE matchSection: every one of these lives under a section prefix,
+    // so matchSection would hand it to the append-only shard, which still holds
+    // the withdrawn article and serves it 200 `index, follow`. Synchronous table
+    // lookup, no subrequest — nothing about a retirement needs the origin's
+    // opinion, and asking for it is exactly how the defect survived six days.
+    // Placed AFTER servePushedEdgeFile because the two sets are disjoint by
+    // construction (apex files vs. section paths) and that keeps the existing
+    // fail-open ordering untouched.
+    const retiredResponse = retiredEdgeResponse(url);
+    if (retiredResponse) return retiredResponse;
 
     // Section shard — checked BEFORE the locale match so an /en|/de|/fr section
     // path (e.g. /en/find-jobs-ticino/..., /en/find-jobs-zurich/...) resolves to

@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import {
   coverageReport,
   inventory,
@@ -90,18 +92,18 @@ const ACTION_YML = path.resolve(__dirname, '..', '.github', 'actions', 'report-f
  *
  * Per aggiungerne una: non farlo. Il test è qui esattamente per impedirlo.
  */
-const KNOWN_UNCOVERED: string[] = [
-  'app-auth-health-monitor.yml\tApp-auth monitor crashed: app-auth-health-monitor failing',
-  'article-hub-landing-watchdog.yml\tArticle hub landing degraded: missing grid or stale article set',
-  'cathedral-seo-gates-check.yml\tSEO gates regression: ${name} above baseline',
-  'crawler-health-monitor.yml\t[crawler-health] ${slug}: crawler unhealthy',
-  'gh-pat-expiry-monitor.yml\tPAT monitor crashed: gh-pat-expiry-monitor failing',
-  'glossario-definitions-monitor.yml\t[glossario-definitions] term pages shipping placeholder DefinedTerm.description',
-  'hydrated-article-parity.yml\tHydrated article parity: the hub renders articles the client does not have',
-  'pages-publish-lag-watchdog.yml\tPages publish-lag monitor crashed',
-  'sitemap-shard-size-monitor.yml\t[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls',
-  'sitemap-shard-size-monitor.yml\t[sitemap-shard-size] WARNING: shard(s) at or above 40k urls',
-];
+// 2026-08-13 (#5437 cluster `igiene-ciclo`): tutte e 10 le righe che stavano
+// qui sono state risolte nella stessa PR — la classe pericola (nessun
+// chiuditore, quindi immortale al primo fallimento reale) è stata azzerata,
+// non ridotta. Ognuna ha ricevuto il "sibling-resolve-step" prescritto sopra
+// (uno step gemello `--resolve` con titolo identico), tranne
+// `crawler-health-monitor.yml` che aveva già un closer FUNZIONANTE — una `gh
+// issue close` diretta — ma invisibile a questo inventario perché non passa
+// da `github-issue-creator.mjs`: convertito alla stessa forma canonica per
+// diventare visibile, non per cambiarne il comportamento. Se questa lista
+// torna a crescere, la riga aggiunta prende esattamente lo stesso trattamento
+// invece di sedimentare qui.
+const KNOWN_UNCOVERED: string[] = [];
 
 /**
  * BASELINE A SCALARE — titoli che MATCHANO `TITLE_RE` ma nominano qualcosa che
@@ -247,6 +249,15 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // gemello esista davvero e col titolo identico, carattere per carattere.
       'deploy-publish.yml': 'sibling-resolve-step',
       'post-deploy-validate-live.yml': 'sibling-resolve-step',
+      // terza adozione (#5369 §7): il gate di memoria del build. Titolo
+      // custom in italiano, fuori da `TITLE_RE`, quindi ancora
+      // `sibling-resolve-step`. NON è in contraddizione con la nota qui sopra
+      // sui «due di `deploy.yml` che non vanno adottati»: quelli sono gli
+      // opener degli shard, che girano dentro job `continue-on-error` e non
+      // hanno mai uno step `conclusion: failure` da nominare. Questo invece è
+      // `if: failure()` su un job che fallisce davvero, ed è proprio il caso
+      // in cui la jobs API ha lo step rotto da mettere nel body.
+      'deploy.yml': 'sibling-resolve-step',
     };
     expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
     for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);
@@ -363,5 +374,136 @@ describe('report-workflow-failure: cosa finisce nel body (#5437)', () => {
     });
     expect(body).toContain('nessun estratto disponibile');
     expect(Object.keys(CLOSERS)).toContain('sibling-resolve-step');
+  });
+});
+
+/**
+ * Review finding on PR #5802: `sitemap-shard-size-monitor.yml`'s resolve step
+ * used to gate on the run's DOMINANT `severity` string instead of the
+ * report's actual content. `criticals`/`warnings` are independent per-shard
+ * arrays (scripts/check-sitemap-shard-size.mjs ~140-145 — a shard lands in
+ * exactly one of the two, never both), so a single run can have
+ * criticals.length > 0 (severity=='critical') AND warnings.length > 0 at the
+ * same time, on DIFFERENT shards. The old condition
+ * (`steps.check.outcome == 'success' || steps.severity.outputs.severity ==
+ * 'warning'`) evaluates to false for that run, so the whole resolve step was
+ * skipped — the WARNING title was then neither refreshed nor resolved, stuck
+ * open until a fully clean run that might never come while another shard
+ * stays chronically critical.
+ *
+ * Both tests below read the LIVE workflow text, not a re-implementation of
+ * its logic — the second one runs the actual `run:` shell of the resolve
+ * step under `bash`. Mutation-checked manually: reverting the step's `if:`
+ * and `run:` to the pre-#5802 text turns the first test red (the extracted
+ * condition evaluates to `false` for the critical-dominant case) and the
+ * second one red too (nothing is written to the call log, since the step
+ * never runs) — restoring the fix turns both green again.
+ */
+describe('sitemap-shard-size-monitor: il resolve step legge il report, non la severity dominante (#5802)', () => {
+  const WF_FILE = path.join(WORKFLOWS_DIR, 'sitemap-shard-size-monitor.yml');
+  const STEP_NAME = 'Resolve shard-size issues no longer applicable';
+  const TITLE_CRITICAL = '[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls';
+  const TITLE_WARNING = '[sitemap-shard-size] WARNING: shard(s) at or above 40k urls';
+
+  function extractIfCondition(src: string, stepName: string): string {
+    const escaped = stepName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const m = src.match(new RegExp(`- name:\\s*${escaped}\\r?\\n\\s*if:\\s*(.+?)\\r?\\n`));
+    if (!m) throw new Error(`if: condition not found for step "${stepName}"`);
+    return m[1].trim();
+  }
+
+  /**
+   * Evaluates the step's OWN `if:` text for a given `steps.*` context.
+   * Deliberately not a general GitHub Actions expression evaluator: it knows
+   * only the two tokens this condition currently uses, and throws if the
+   * extracted text contains anything else — so a future edit that swaps in a
+   * new step output fails this test loudly instead of silently evaluating
+   * something the test never checked (the same failure shape #5437 exists to
+   * catch: a guard that looks like coverage but isn't).
+   */
+  function evalGhIf(condition: string, ctx: { checkOutcome: string; severity: string }): boolean {
+    const js = condition
+      .split('steps.check.outcome').join(JSON.stringify(ctx.checkOutcome))
+      .split('steps.severity.outputs.severity').join(JSON.stringify(ctx.severity));
+    if (/steps\.|github\.|inputs\./.test(js)) {
+      throw new Error(`evalGhIf: unrecognized token in "${js}" — extend this helper's context first`);
+    }
+    // GitHub Actions `==`/`!=` on two string literals behave like JS `==`/`!=`.
+    return new Function(`"use strict"; return (${js});`)() as boolean;
+  }
+
+  it("the step's own `if:` gate runs on a critical-dominant run, not just success/warning", () => {
+    const src = fs.readFileSync(WF_FILE, 'utf-8');
+    const cond = extractIfCondition(src, STEP_NAME);
+    // The bug: pre-#5802 text (`severity == 'warning'`) evaluates this to
+    // false — a critical-dominant run skipped the step outright.
+    expect(evalGhIf(cond, { checkOutcome: 'failure', severity: 'critical' })).toBe(true);
+    // Both pre-existing cases must keep working.
+    expect(evalGhIf(cond, { checkOutcome: 'success', severity: '' })).toBe(true);
+    expect(evalGhIf(cond, { checkOutcome: 'failure', severity: 'warning' })).toBe(true);
+    // A crash with no report at all (fetch error) must still skip it — there
+    // is nothing in the report to resolve against.
+    expect(evalGhIf(cond, { checkOutcome: 'failure', severity: 'none' })).toBe(false);
+  });
+
+  it('resolves the WARNING title from a critical-dominant run whose warning shards recovered', () => {
+    const src = fs.readFileSync(WF_FILE, 'utf-8');
+    const runBody = findStepRun(src, STEP_NAME)?.run;
+    expect(runBody, `run: body not found for step "${STEP_NAME}"`).toBeTruthy();
+
+    // Same run, two different shards: one still critical (severity=='critical'
+    // this run), the OTHER — the one that used to trip the WARNING title — has
+    // recovered (`warnings` is empty). Real, not synthetic: `criticals` and
+    // `warnings` are independent arrays, never derived from one another.
+    const report = { criticals: ['still-critical.xml'], warnings: [] as string[] };
+
+    const script = runBody!
+      .replace(/\$\{\{\s*github\.repository\s*\}\}/g, 'o/r')
+      .replace(/\$\{\{\s*github\.run_id\s*\}\}/g, '999')
+      .replace(/\$\{\{\s*github\.workflow\s*\}\}/g, 'sitemap-shard-size-monitor');
+    // If this fails, the run: body grew a new `${{ }}` context ref this test
+    // does not substitute — extend the replace() list above, don't relax this.
+    expect(script).not.toMatch(/\$\{\{/);
+
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-resolve-'));
+    try {
+      fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(tmp, 'data', 'sitemap-shard-size-report.json'), JSON.stringify(report));
+      fs.mkdirSync(path.join(tmp, 'scripts', 'lib'), { recursive: true });
+      // Stand-in for scripts/lib/github-issue-creator.mjs: the real one talks
+      // to `gh`. This one just records what it was invoked with, so the test
+      // proves WHICH titles the extracted shell actually tried to resolve.
+      fs.writeFileSync(
+        path.join(tmp, 'scripts', 'lib', 'github-issue-creator.mjs'),
+        "import { appendFileSync } from 'node:fs';\n"
+          + "appendFileSync(process.env.CALL_LOG, JSON.stringify(process.argv.slice(2)) + '\\n');\n",
+      );
+      const callLog = path.join(tmp, 'calls.jsonl');
+      fs.writeFileSync(callLog, '');
+
+      execFileSync('bash', ['-c', script], {
+        cwd: tmp,
+        env: { ...process.env, CALL_LOG: callLog, GH_TOKEN: 'x' },
+      });
+
+      const calls = fs
+        .readFileSync(callLog, 'utf-8')
+        .trim()
+        .split('\n')
+        .filter(Boolean)
+        .map((l) => JSON.parse(l) as string[]);
+      const resolvedTitles = calls
+        .filter((a) => a.includes('--resolve'))
+        .map((a) => a[a.indexOf('--title') + 1]);
+
+      // The fix: a warning shard that recovered gets its title closed even
+      // though a DIFFERENT shard keeps the run critical-dominant.
+      expect(resolvedTitles).toContain(TITLE_WARNING);
+      // Unchanged: a still-critical shard means the CRITICAL title must stay
+      // open — this step must not resolve everything just because it ran.
+      expect(resolvedTitles).not.toContain(TITLE_CRITICAL);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
   });
 });
