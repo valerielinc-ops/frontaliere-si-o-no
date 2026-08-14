@@ -18,6 +18,7 @@ import {
   professionKeywordQuery,
 } from './lib/keyword-page-paths.mjs';
 import { isPromotable } from './lib/profession-taxonomy.mjs';
+import { carryForwardGscClusterPages } from './lib/gsc-cluster-carry-forward.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const GSC_PATH = path.join(ROOT, 'data/gsc-orphan-queries.json');
@@ -210,6 +211,37 @@ for (const cluster of topClusters) {
   });
 }
 
+// Previous run's config, read ONCE and shared by both carry-forward blocks
+// below (GSC-cluster here, profession-gap further down) — a single source
+// of "what did we publish last time" for both, instead of two independent
+// reads that could read two different states if this script raced its own
+// output (AGENTS.md #6).
+let prevConfigPages = [];
+try {
+  prevConfigPages = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8')).pages || [];
+} catch { /* first run or unreadable previous config — nothing to carry */ }
+
+// ── GSC-cluster carry-forward (#5631) ─────────────────────────────────────
+// The profession-gap feed below persists its own pages across
+// regenerations; plain GSC-cluster pages (no `source` field, generated
+// straight from the loop above) never got the same protection, even though
+// this script rebuilds `keywordPages` from scratch every run and
+// `topClusters` keeps only the top 50 by clicks. A cluster that ranks 51st
+// this run is a real, still-live, still-indexed page with no memory of ever
+// existing — it 301s on the next deploy for a ranking reason that has
+// nothing to do with its own traffic. See scripts/lib/gsc-cluster-carry-
+// forward.mjs for the full defect history and why the drop condition
+// mirrors the profession-gap block's own supersession check.
+const carriedGscPages = carryForwardGscClusterPages(prevConfigPages, {
+  usedSlugs: new Set(keywordPages.map(p => p.slug)),
+  genericPatterns: GENERIC_PATTERNS,
+  coveredKeywords: COVERED_KEYWORDS,
+});
+if (carriedGscPages.length > 0) {
+  console.log(`GSC-cluster carry-forward: ${carriedGscPages.length} page(s) kept alive despite falling out of the top-50 cluster ranking this run`);
+}
+keywordPages.push(...carriedGscPages);
+
 // ── Profession-gap feed (#3396) ──────────────────────────────────────────
 // data/profession-keyword-opportunities.json is produced weekly by
 // scripts/profession-keyword-opportunities.mjs (on-site search ∪ crawler
@@ -235,12 +267,11 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
     const usedSlugs = new Set(keywordPages.map(p => p.slug));
     const usedProfessions = new Set();
 
-    // Carry forward previously fed pages (unless a dedicated landing took over).
-    let prevPages = [];
-    try {
-      prevPages = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8')).pages || [];
-    } catch { /* first run or unreadable previous config — nothing to carry */ }
-    for (const page of prevPages) {
+    // Carry forward previously fed pages (unless a dedicated landing took
+    // over). Reuses `prevConfigPages`, read once above and shared with the
+    // GSC-cluster carry-forward block (#5631) — one read of "what did we
+    // publish last time", not two.
+    for (const page of prevConfigPages) {
       if (page?.source !== 'profession-gap' || !page.professionId) continue;
       if (dedicatedCovered.has(page.professionId)) continue;
       if (usedSlugs.has(page.slug)) continue;

@@ -1099,6 +1099,17 @@ jobs:
           # what caused it to OOM (rc=134) at real production scale.
           spawn_capped validate:sitemap-pages        /tmp/spm.log \
             npm run validate:sitemap-pages
+          # Issue #5655 item 2: dedicated, UNSAMPLED dist/ coverage gate for
+          # the GSC keyword-landing family (build-plugins/jobsSeoPagesPlugin.ts
+          # KEYWORD_LANDING_MIN_JOBS region). audit:all's AUDIT_SAMPLE_RATE
+          # makes a set-membership check unsound (an unsampled URL and an
+          # absent one look identical), so this lives here instead — same
+          # light pool as the other unsampled full-dist walkers
+          # (audit:spa-bundle-injection above). See the script's own header
+          # for the exact check and why only the sitemap→dist direction is
+          # blocking.
+          spawn_capped validate:keyword-landing-coverage /tmp/kwlc.log \
+            npm run validate:keyword-landing-coverage
           spawn_capped validate:jobs-quality         /tmp/v2.log \
             npm run validate:jobs-quality
           spawn_capped validate:sitemap-links        /tmp/v3.log \
