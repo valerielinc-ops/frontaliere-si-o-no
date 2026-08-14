@@ -526,8 +526,12 @@
           // 3. Run the inline anti-adblock fallback IIFE (defined as inert
           //    text/plain script below — we eval its body once via new Function
           //    so the parser never sees it as executable JS during LCP).
+          //    Gated behind the same hasAdsConsent() as step 1: this IIFE
+          //    fetches from fundingchoicesmessages.google.com and can render
+          //    the "disable ad blocker" overlay — same CMP/ad script as the
+          //    loader, so it cannot run before consent either (#5894 review).
           var inert = document.getElementById('fc-fallback-src');
-          if (inert && !inert.dataset.fcRan) {
+          if (inert && !inert.dataset.fcRan && hasAdsConsent()) {
             inert.dataset.fcRan = '1';
             try { (new Function(inert.textContent))(); } catch(e) { /* fail-soft */ }
           }
