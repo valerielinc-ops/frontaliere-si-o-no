@@ -98,10 +98,48 @@ const MB = 1048576;
 export const RSS_CEILING_FRACTION = 0.807;
 
 /**
- * Pavimento assoluto su `MemAvailable` dell'host, in MB. Vedi il docblock:
+ * Pavimento ASSOLUTO su `MemAvailable` dell'host, in MB. Vedi il docblock:
  * 384 MB sotto il minimo osservato su una build verde.
+ *
+ * Resta un assoluto perche' una delle due ragioni che lo fissano lo e': Node
+ * deve avere abbastanza memoria per scrivere la diagnosi e uscire, e quel
+ * fabbisogno non cambia con la taglia dell'host. E' il PAVIMENTO del
+ * pavimento — vedi {@link HOST_AVAIL_FLOOR_FRACTION} per la meta' che scala.
  */
 export const DEFAULT_HOST_AVAIL_FLOOR_MB = 768;
+
+/**
+ * Frazione di `MemTotal` sotto la quale `MemAvailable` conta come pressione.
+ *
+ * ─── Perche' esiste (#5831 item 5) ──────────────────────────────────────
+ *
+ * Il reviewer di #5816 ha notato un'asimmetria reale fra le due soglie: il
+ * tetto RSS e' espresso come FRAZIONE di `MemTotal` ({@link
+ * RSS_CEILING_FRACTION}) e quindi riscala da solo se il runner cambia
+ * taglia, mentre il pavimento era un assoluto calibrato su un runner
+ * specifico da 15 988 MB. `deploy.yml` gira su `ubuntu-latest` per tutti i
+ * suoi job (verificato: 4 occorrenze, nessun runner large/self-hosted), che
+ * e' un'etichetta gestita da GitHub, non una taglia fissata dal repo: se
+ * quella spec cambiasse, il tetto seguirebbe e il pavimento no.
+ *
+ * Su un host PIU' GRANDE un pavimento assoluto diventa progressivamente
+ * irraggiungibile — la build morirebbe di pressione host senza che questa
+ * meta' del gate dica niente, e resterebbe solo il tetto RSS, cioe' proprio
+ * la meta' che il docblock sopra descrive come «non vede la verita'».
+ *
+ * 768 / 15 988 = 0,048. Espresso cosi', la soglia effettiva e' il MASSIMO
+ * fra l'assoluto e la frazione:
+ *
+ *   host 15 988 MB (oggi) → max(768,  767) =  768 MB  ← INVARIATO
+ *   host  8 192 MB        → max(768,  393) =  768 MB  ← l'assoluto protegge
+ *   host 32 768 MB        → max(768, 1573) = 1573 MB  ← la frazione scala
+ *
+ * Cioe': sul runner attuale il comportamento e' byte-identico a prima (e
+ * `tests/build-memory-guard.test.ts` lo pinna), e la regola non si allenta
+ * mai — puo' solo STRINGERE su un host diverso, coerente con la direzione
+ * `'raise'` che gia' governa l'override da env.
+ */
+export const HOST_AVAIL_FLOOR_FRACTION = 0.048;
 
 /** Intervallo di campionamento e campioni consecutivi richiesti. */
 export const DEFAULT_SAMPLE_INTERVAL_MS = 5000;
@@ -247,8 +285,15 @@ export function resolveThresholds(
   const ceiling = applyTighteningOverride(ceilingDefault, env.BUILD_MEM_RSS_CEILING_MB, 'lower');
   // Il pavimento host ha senso solo dove `MemAvailable` esiste davvero.
   const hostReadable = readHostAvailableMb(procMeminfoPath) !== null;
-  const floor = applyTighteningOverride(
+  // Come il tetto, anche il pavimento si deriva dalla `MemTotal` dell'host —
+  // ma senza mai scendere sotto l'assoluto, che copre la headroom di cui Node
+  // ha bisogno per scrivere la diagnosi. Vedi HOST_AVAIL_FLOOR_FRACTION.
+  const floorDefault = Math.max(
     DEFAULT_HOST_AVAIL_FLOOR_MB,
+    Math.round(totalMb * HOST_AVAIL_FLOOR_FRACTION),
+  );
+  const floor = applyTighteningOverride(
+    floorDefault,
     env.BUILD_MEM_HOST_FLOOR_MB,
     'raise',
   );

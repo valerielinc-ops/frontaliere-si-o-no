@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import {
   RSS_CEILING_FRACTION,
   DEFAULT_HOST_AVAIL_FLOOR_MB,
+  HOST_AVAIL_FLOOR_FRACTION,
   DEFAULT_CONSECUTIVE_SAMPLES,
   FAILURE_ISSUE_TITLE,
   readHostAvailableMb,
@@ -130,6 +131,91 @@ describe('le env possono solo STRINGERE la soglia', () => {
 
   it('il pavimento host si spegne (null) dove MemAvailable non e\' leggibile', () => {
     expect(resolveThresholds({} as NodeJS.ProcessEnv, '/nope/meminfo').hostAvailFloorMb).toBeNull();
+  });
+});
+
+/**
+ * L'osservatore di #5831 item 5 — il pavimento host deve riscalare con la
+ * taglia del runner, come gia' fa il tetto RSS.
+ *
+ * Il dubbio del reviewer di #5816 era un'asimmetria vera: `rssCeilingMb` e'
+ * una frazione di `MemTotal` e segue l'host, `hostAvailFloorMb` era un
+ * assoluto tarato su un runner da 15 988 MB. `deploy.yml` gira su
+ * `ubuntu-latest`, un'etichetta la cui spec la decide GitHub, non il repo.
+ *
+ * Questi test pinnano le DUE meta' della regola, che tirano in direzioni
+ * opposte e per ragioni diverse:
+ *   - la frazione, perche' su un host grande un assoluto diventa
+ *     irraggiungibile e questa meta' del gate smette di vedere;
+ *   - l'assoluto, perche' su un host piccolo Node deve comunque avere la
+ *     headroom per scrivere la diagnosi e uscire.
+ */
+describe('il pavimento host riscala con la taglia del runner (#5831 item 5)', () => {
+  /** `/proc/meminfo` sintetico per un host di `totalMb`, con `availMb` liberi. */
+  function meminfoFor(totalMb: number, availMb = Math.round(totalMb / 2)): string {
+    return [
+      `MemTotal:       ${totalMb * 1024} kB`,
+      `MemFree:          ${Math.round(availMb / 2) * 1024} kB`,
+      `MemAvailable:    ${availMb * 1024} kB`,
+    ].join('\n') + '\n';
+  }
+
+  const floorFor = (totalMb: number): number | null =>
+    resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(meminfoFor(totalMb))).hostAvailFloorMb;
+
+  it('sul runner ATTUALE il valore e\' invariato: nessun cambio di comportamento oggi', () => {
+    // La proprieta' che rende sicura questa modifica. 15988 × 0,048 = 767,4
+    // → 767, che perde contro l'assoluto 768. Se un domani la frazione venisse
+    // alzata al punto da superare l'assoluto QUI, questo test lo dice prima
+    // che il gate inizi a bocciare build che oggi passano.
+    expect(floorFor(15988)).toBe(DEFAULT_HOST_AVAIL_FLOOR_MB);
+    // …e resta sotto il minimo verde piu' basso mai misurato (leg de, 1152 MB),
+    // altrimenti il gate boccerebbe una build che sarebbe arrivata in fondo.
+    expect(floorFor(15988)!).toBeLessThan(1152);
+  });
+
+  it('su un host PIU\' GRANDE la frazione vince e il pavimento sale', () => {
+    // 32 GB: un assoluto da 768 MB sarebbe il 2,3% dell'host, cioe' un
+    // pavimento che in pratica non scatta mai.
+    expect(floorFor(32768)).toBe(Math.round(32768 * HOST_AVAIL_FLOOR_FRACTION));
+    expect(floorFor(32768)!).toBeGreaterThan(DEFAULT_HOST_AVAIL_FLOOR_MB);
+  });
+
+  it('su un host PIU\' PICCOLO vince l\'assoluto: la headroom della diagnosi non scala', () => {
+    expect(floorFor(8192)).toBe(DEFAULT_HOST_AVAIL_FLOOR_MB);
+    expect(floorFor(4096)).toBe(DEFAULT_HOST_AVAIL_FLOOR_MB);
+  });
+
+  it('il pavimento non scende MAI sotto l\'assoluto, per nessuna taglia plausibile', () => {
+    for (const totalMb of [2048, 4096, 8192, 15988, 16384, 32768, 65536, 131072]) {
+      const floor = floorFor(totalMb)!;
+      expect(floor, `host da ${totalMb} MB`).toBeGreaterThanOrEqual(DEFAULT_HOST_AVAIL_FLOOR_MB);
+      // …ed e' monotono non decrescente nella taglia dell'host.
+      expect(floor, `host da ${totalMb} MB`).toBeGreaterThanOrEqual(
+        Math.round(totalMb * HOST_AVAIL_FLOOR_FRACTION) < DEFAULT_HOST_AVAIL_FLOOR_MB
+          ? DEFAULT_HOST_AVAIL_FLOOR_MB
+          : Math.round(totalMb * HOST_AVAIL_FLOOR_FRACTION),
+      );
+    }
+  });
+
+  it('l\'override da env puo\' ancora solo STRINGERE, anche contro il pavimento scalato', () => {
+    const big = tmpMeminfo(meminfoFor(32768));
+    const scaled = Math.round(32768 * HOST_AVAIL_FLOOR_FRACTION); // 1573
+    // Un valore che ALLENTA (sotto il pavimento scalato) viene scartato…
+    const loosened = resolveThresholds(
+      { BUILD_MEM_HOST_FLOOR_MB: '900' } as NodeJS.ProcessEnv,
+      big,
+    );
+    expect(loosened.hostAvailFloorMb).toBe(scaled);
+    expect(loosened.ignoredOverrides).toContain('BUILD_MEM_HOST_FLOOR_MB');
+    // …e uno che stringe passa.
+    const tightened = resolveThresholds(
+      { BUILD_MEM_HOST_FLOOR_MB: '2000' } as NodeJS.ProcessEnv,
+      big,
+    );
+    expect(tightened.hostAvailFloorMb).toBe(2000);
+    expect(tightened.ignoredOverrides).not.toContain('BUILD_MEM_HOST_FLOOR_MB');
   });
 });
 
