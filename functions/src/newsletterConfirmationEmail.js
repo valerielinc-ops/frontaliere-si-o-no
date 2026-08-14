@@ -13,7 +13,7 @@
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
-import { t, htmlLang, normalizeLocale } from './emailI18n.js';
+import { normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
 import {
@@ -21,34 +21,31 @@ import {
   resolveNewsletterTokenPolicy,
   TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
-import { dataControllerFooterLine } from './lib/dataControllerIdentity.js';
+import {
+  CONFIRMATION_FRAMES,
+  CONFIRMATION_FROM_EMAIL,
+  buildConfirmationRequestEmail,
+  confirmationConfirmUrl,
+  confirmationFrameForAttempt,
+} from './lib/confirmationEmailContent.js';
 import {
   confirmationSendRefusal,
   isConfirmationCycleSend,
   confirmationAttemptsUsed,
+  confirmationFirstSentAt,
   lastConfirmationAttemptAt,
-  MAX_CONFIRMATION_ATTEMPTS,
+  buildConfirmationSentFields,
+  buildConfirmationSentEvent,
 } from './lib/confirmationFollowup.js';
 
-const BASE_URL = 'https://frontaliereticino.ch';
-const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
-const BRAND_BLUE = '#2563EB';
-const BRAND_DARK = '#0f172a';
-const LIGHT_BG = '#f3f4f6';
-const CARD_BG = '#ffffff';
-const TEXT_COLOR = '#1f2937';
-const MUTED_COLOR = '#6b7280';
-const BORDER_COLOR = '#dbe2ea';
-const CONFIRMATION_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour
+// The template, the sender address and the confirm URL now live in
+// lib/confirmationEmailContent.js: scripts/newsletter-confirmation-followups.mjs
+// composes requests #2 and #3 from the same module, and a Cloud Functions file
+// is not importable from a script. Re-exported so every existing importer of
+// this module — tests included — keeps working unchanged.
+export { buildNewsletterConfirmationEmailHtml } from './lib/confirmationEmailContent.js';
 
-function escapeHtml(str) {
- return String(str || '')
- .replace(/&/g, '&amp;')
- .replace(/</g, '&lt;')
- .replace(/>/g, '&gt;')
- .replace(/"/g, '&quot;')
- .replace(/'/g, '&#039;');
-}
+const CONFIRMATION_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour
 
 /**
  * The confirmation link's credential — scoped to `confirm` and dated (#5704).
@@ -76,74 +73,6 @@ export function generateConfirmationToken(email, secret, { policy, scheme, now }
     scheme,
     ...(now === undefined ? {} : { now }),
   });
-}
-
-export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') {
- const lang = normalizeLocale(locale);
- const year = new Date().getFullYear();
- return `<!DOCTYPE html>
-<html lang="${htmlLang(lang)}">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${t(lang, 'confirmSubject')}</title>
-</head>
-<body style="margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
- <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};padding:32px 16px;">
- <tr><td align="center">
- <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
- <tr><td style="text-align:center;padding-bottom:24px;">
- <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="text-decoration:none;">
- <img src="${BASE_URL}/icons/icon-192x192.png" alt="${t(lang, 'brandName')}" width="48" height="48" style="display:block;margin:0 auto 8px;border-radius:12px;" />
- <div style="font-size:22px;font-weight:800;color:${BRAND_BLUE};">${t(lang, 'brandName')}</div>
- <div style="font-size:12px;color:${MUTED_COLOR};letter-spacing:.04em;">${t(lang, 'brandTagline')}</div>
- </a>
- </td></tr>
- <tr><td style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:16px;padding:32px 28px;">
- <div style="font-size:28px;font-weight:800;color:${BRAND_DARK};padding-bottom:8px;">${t(lang, 'confirmTitle')}</div>
- <div style="font-size:15px;line-height:1.6;color:${TEXT_COLOR};padding-bottom:20px;">
- ${t(lang, 'confirmIntro')}
- </div>
- <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
- <tr><td align="center">
- <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(confirmUrl)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.02em;">
- ${t(lang, 'confirmButton')}
- </a>
- </td></tr>
- </table>
- <div style="font-size:13px;color:${MUTED_COLOR};padding-bottom:10px;">
- ${t(lang, 'confirmAltLink')}
- </div>
- <div style="background:#f8fafc;border:1px solid ${BORDER_COLOR};border-radius:8px;padding:12px;font-size:12px;color:${MUTED_COLOR};word-break:break-all;">
- ${escapeHtml(confirmUrl)}
- </div>
- <div style="border-top:1px solid ${BORDER_COLOR};margin:24px 0;"></div>
- <div style="font-size:14px;color:${TEXT_COLOR};line-height:1.6;">
- ${t(lang, 'confirmWeeklyTitle')}
- <ul style="padding-left:20px;margin:10px 0;">
- <li>${t(lang, 'confirmWeeklyExchange')}</li>
- <li>${t(lang, 'confirmWeeklyJobs')}</li>
- <li>${t(lang, 'confirmWeeklyTax')}</li>
- <li>${t(lang, 'confirmWeeklyGuides')}</li>
- </ul>
- </div>
- <div style="border-top:1px solid ${BORDER_COLOR};margin:24px 0;"></div>
- <div style="font-size:13px;color:${MUTED_COLOR};line-height:1.6;">
- ${t(lang, 'confirmNotYou')}
- </div>
- </td></tr>
- <tr><td style="text-align:center;padding:20px 0 8px;">
- <div style="font-size:12px;color:${MUTED_COLOR};">
- ${t(lang, 'copyright', { year })} ·
- <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${MUTED_COLOR};text-decoration:none;">frontaliereticino.ch</a>
- </div>
- <div style="font-size:11px;color:${MUTED_COLOR};margin-top:6px;">${escapeHtml(dataControllerFooterLine(lang))}</div>
- </td></tr>
- </table>
- </td></tr>
- </table>
-</body>
-</html>`;
 }
 
 export async function sendNewsletterConfirmationEmail({ email, locale, sourcePath, secret, db: injectedDb, purpose }) {
@@ -248,23 +177,36 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
    tokenPolicy = resolveNewsletterTokenPolicy({});
  }
  const token = generateConfirmationToken(normalizedEmail, secret, { policy: tokenPolicy });
- const returnPath = (sourcePath && sourcePath !== '/') ? sourcePath : '';
  // No auth token embedded in the URL — the confirm action's Cloud Function
  // response returns a fresh custom token for auto-login. This avoids the
  // Firebase custom token 1-hour expiry problem entirely.
- const finalUrl = `${BASE_URL}${returnPath}?action=confirm_newsletter&email=${encodeURIComponent(normalizedEmail)}&token=${token}`;
+ const finalUrl = confirmationConfirmUrl({ email: normalizedEmail, token, sourcePath });
+
+ // Which of the three this is, decided from the SAME counter the cap reads and
+ // the write below increments (#5692). This function normally sends request #1,
+ // but it is also the send point the follow-up runner reaches through, and the
+ // "resend" button can land on a document that already has one or two behind
+ // it — so the frame is derived, never assumed. A login link and an
+ // already-confirmed re-probe are not in a cycle at all, and get the plain
+ // email: telling somebody "this is the last reminder" when they have confirmed
+ // and are simply signing in would be false, and alarming.
+ const isCycleSend = isConfirmationCycleSend({ data, purpose });
+ const attemptsBefore = confirmationAttemptsUsed(data);
+ const frame = isCycleSend ? confirmationFrameForAttempt(attemptsBefore + 1) : CONFIRMATION_FRAMES.FIRST;
+ const { subject, html, tags } = buildConfirmationRequestEmail({
+ locale: emailLocale,
+ confirmUrl: finalUrl,
+ frame,
+ firstSentAt: confirmationFirstSentAt(data),
+ });
 
  const { sent, failed } = await sendEmailCascade([{
  payload: {
- from: FROM_EMAIL,
+ from: CONFIRMATION_FROM_EMAIL,
  to: normalizedEmail,
- subject: t(emailLocale, 'confirmSubject'),
- html: buildNewsletterConfirmationEmailHtml(finalUrl, emailLocale),
- tags: [
- { name: 'campaign_id', value: 'confirmation' },
- { name: 'type', value: 'transactional' },
- { name: 'locale', value: emailLocale },
- ],
+ subject,
+ html,
+ tags,
  },
  recipient: { email: normalizedEmail },
  meta: {},
@@ -286,37 +228,34 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  //
  // Only for a real cycle send: a passwordless login link and a re-probe of an
  // already-confirmed address are not double opt-in requests and must not
- // consume one of the three.
- const isCycleSend = isConfirmationCycleSend({ data, purpose });
- const attemptsBefore = confirmationAttemptsUsed(data);
- const subscriberUpdate = {
- confirmation_sent_at: admin.firestore.FieldValue.serverTimestamp(),
- confirmation_message_id: messageId,
- preferred_locale: emailLocale,
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- };
- if (isCycleSend) {
- subscriberUpdate.confirmation_attempts = attemptsBefore + 1;
- if (attemptsBefore === 0) {
- subscriberUpdate.confirmation_first_sent_at = admin.firestore.FieldValue.serverTimestamp();
- }
- }
- await subscriberRef.update(subscriberUpdate);
-
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
- email: normalizedEmail,
- event_type: 'confirmation_email_sent',
- source_channel: 'newsletter_confirmation',
- message_id: messageId,
+ // consume one of the three. `isCycleSend`/`attemptsBefore` are read ABOVE, from
+ // the same values that chose the frame, so the email and the ledger can never
+ // describe different attempts.
+ //
+ // Both writes come from lib/confirmationFollowup.js because the follow-up
+ // runner performs them too, for requests #2 and #3. A second copy of the
+ // increment here is how one of the two senders would eventually stop counting.
+ await subscriberRef.update(
+ buildConfirmationSentFields({
+ attemptsBefore,
+ isCycleSend,
+ messageId,
  locale: emailLocale,
- // The per-attempt evidence, in the subcollection that survives the next
- // overwrite of the flat fields. `null` when the send was not part of a
- // cycle, so a login link is never counted as an ask afterwards.
- confirmation_attempt: isCycleSend ? attemptsBefore + 1 : null,
- confirmation_attempts_max: MAX_CONFIRMATION_ATTEMPTS,
+ stamp: admin.firestore.FieldValue.serverTimestamp(),
+ }),
+ );
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add(
+ buildConfirmationSentEvent({
+ email: normalizedEmail,
+ attemptsBefore,
+ isCycleSend,
+ messageId,
+ locale: emailLocale,
+ occurredAt: new Date().toISOString(),
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
- occurred_at: new Date().toISOString(),
- });
+ }),
+ );
 
  return { success: true, messageId };
 }
