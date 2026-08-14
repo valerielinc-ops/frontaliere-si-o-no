@@ -343,6 +343,18 @@ export default function CompanyFollowButton({
           ? t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')
           : t('jobAlert.companyFollow.hint', 'Ricevi una email quando questa azienda pubblica nuovi lavori.')}
       </p>
+      {!following && (
+        // #5902 review round 1: handleFollow (above) records this same
+        // consentKey via upgradeConsent — the notice must be on screen in the
+        // signed-in branch too, not only on the anonymous capture form below,
+        // or the write would assert consent_text_displayed:true for a formula
+        // nobody saw.
+        <ConsentNotice
+          consentKey="communicationsOptIn"
+          locale={locale}
+          className="mt-2 text-[11px] text-muted leading-relaxed block"
+        />
+      )}
       {following && (
         // Entry point to the dedicated manager (#5012 phase 2). Built through
         // buildPath, never a hardcoded /it|/en|… segment — that is what
