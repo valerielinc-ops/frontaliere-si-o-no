@@ -7849,6 +7849,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-successione-donazione-berna',
+    category: 'fiscale',
+    date: '2026-08-14T00:58:50.097Z',
+    image: '/images/blog/imposta-successione-donazione-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

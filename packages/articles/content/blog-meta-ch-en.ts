@@ -2617,6 +2617,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.intelligenza-animali-domestici-ricerca.title': 'Smarter dogs and cats: the new discoveries',
     'blog.article.intelligenza-animali-domestici-ricerca.excerpt': 'Recent research into the cognitive abilities of pets is transforming the way we educate them and the relationship between humans and four-legged friends.',
     'blog.article.intelligenza-animali-domestici-ricerca.imageAlt': 'Owner interacting with their dog in a Swiss park',
+    'blog.article.imposta-successione-donazione-berna.title': 'Inheritance and donation tax Canton Bern: rates',
+    'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide to rates for degree of kinship, exemptions for spouses and descendants and terms of declaration in the Canton of Bern.',
+    'blog.article.imposta-successione-donazione-berna.imageAlt': 'View of the historic center of Bern with the Zytglogge tower',
 };
 
 export default blogMetaChEn;
