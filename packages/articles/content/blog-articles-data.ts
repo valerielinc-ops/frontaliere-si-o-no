@@ -29811,6 +29811,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-alpeggio-vallemaggia-2026',
+ category: 'pratico',
+ date: '2026-08-14T03:00:39.287Z',
+ image: '/images/blog/incidente-alpeggio-vallemaggia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

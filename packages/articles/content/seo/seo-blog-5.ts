@@ -67853,6 +67853,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-alpeggio-vallemaggia-2026': {
+    title: 'Grave incidente in alpeggio: 27enne cade in Vallemaggia',
+    description: 'Tragedia in Vallemaggia: un 27enne italiano è precipitato per 10 metri mentre lavorava in alpeggio sull\'alpe Robiei. Trasportato d\'urgenza in elicottero, è',
+    keywords: 'frontalieri, ticino, svizzera, italia, grave, incidente, alpeggio, 27enne',
+    ogTitle: 'Grave incidente in Vallemaggia: 27enne cade in alpeggio',
+    ogDescription: 'Un giovane italiano di 27 anni è gravemente ferito dopo una caduta di dieci metri in un alpeggio della Vallemaggia (Ticino). Soccorso in elicottero, è in pericolo di vita. L\'incidente solleva interrogativi sulla sicurezza in montagna.',
+    canonicalPath: '/articoli-frontaliere/incidente-alpeggio-vallemaggia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grave incidente in alpeggio: 27enne cade in Vallemaggia",
+      "description": "Tragedia in Vallemaggia: un 27enne italiano è precipitato per 10 metri mentre lavorava in alpeggio sull'alpe Robiei. Trasportato d'urgenza in elicottero, è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-alpeggio-vallemaggia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soccorritori in elicottero durante un intervento di salvataggio in montagna in Vallemaggia, Ticino."
+      },
+      "datePublished": "2026-08-14T03:00:39+00:00",
+      "dateModified": "2026-08-14T03:00:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-alpeggio-vallemaggia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

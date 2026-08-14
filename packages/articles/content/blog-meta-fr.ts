@@ -9945,6 +9945,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Cyclopédale Piambello : vers l\'achèvement',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Derniers travaux en cours entre Porto Ceresio et Bisuschio pour la piste cyclable du Piambello. Le président Sartorio compte fermer le chantier d\'ici le printemps prochain.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Piste cyclable et piétonne du Piambello immergée dans la nature, prête pour l\'inauguration.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Accident grave dans l\'alpage : 27 ans tombe dans Vallemaggia',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Un jeune Italien de 27 ans s\'est écrasé d\'une dizaine de mètres dans une zone accidentée de l\'alpage Robiei, dans le Vallemaggia (Tessin). Son état est grave et sa vie est en danger.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Secouristes dans un hélicoptère lors d\'une opération de sauvetage en montagne dans la Vallemaggia, Tessin.',
 };
 
 export default blogMetaFr;

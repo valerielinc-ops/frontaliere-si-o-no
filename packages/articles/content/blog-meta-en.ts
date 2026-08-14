@@ -9943,6 +9943,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Pedestrian cycle Piambello: towards completion',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Last works in progress between Porto Ceresio and Bisuschio for the pedestrian cycle of Piambello. Chairman Sartorio plans to close the construction site by next spring.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Piambello cycling and walking path immersed in nature, ready for inauguration.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Serious accident in the mountain range: 27-year-old falls in Vallemaggia',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'A 27-year-old Italian crashed for about ten meters in a rugged area on the Robiei Alps, in Vallemaggia (Ticino). His condition is serious and his life is in danger.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Rescue workers in a helicopter during a mountain rescue operation in Vallemaggia, Ticino.',
 };
 
 export default blogMetaEn;
