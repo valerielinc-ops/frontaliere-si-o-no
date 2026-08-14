@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-13T07:20:56.741Z",
+  "assembledAt": "2026-08-14T07:29:07.662Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -3877,43 +3877,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AmGsbPe.jpg"
-    },
-    {
-      "id": "guidle:ARrHhaK",
-      "title": "Alcest (FR)",
-      "titleByLocale": {
-        "it": "Alcest (FR)",
-        "en": "Alcest (FR)",
-        "de": "Alcest (FR)",
-        "fr": "Alceste (FR)"
-      },
-      "description": "Wie so oft verlangen ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren.",
-      "descriptionByLocale": {
-        "it": "Wie so oft verlangen ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren.",
-        "en": "How often ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren.",
-        "de": "Wie so oft verlangen ALCEST ihren Hörer:innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen sie ihre Musik in einem Ausbruch an Emotion kulminieren.",
-        "fr": "Wie so oft verlangen ALCEST ihren Hörer :innen Geduld ab, mäandern durch verschiedene Stimmungen, und lassen ihre Musik in einem Ausbruch an Emotion kulminieren."
-      },
-      "startDate": "2026-08-13",
-      "endDate": "2026-08-13",
-      "startTime": "19:00",
-      "category": "Metal / Hardcore",
-      "venue": "KiFF - Kultur in der Futterfabrik",
-      "comune": "Aarau",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/alcest-fr_ARrHhaK",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Tellistrasse 118",
-        "postalCode": "5000"
-      },
-      "geo": {
-        "lat": 47.3985618,
-        "lng": 8.0647273
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-ARrHhaK.jpg"
     },
     {
       "id": "guidle:AEXsUJY",
@@ -12922,6 +12885,41 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AbHDkMJ.jpg"
+    },
+    {
+      "id": "guidle:AnXf5f8",
+      "title": "Werckmeister Harmonien",
+      "titleByLocale": {
+        "it": "Werckmeister Harmonien",
+        "en": "Werckmeister Harmonien",
+        "de": "Werckmeister Harmonien",
+        "fr": "cre"
+      },
+      "description": "Musiktheater-Performance von Thom Luz",
+      "descriptionByLocale": {
+        "it": "Musiktheater-Performance von Thom Luz",
+        "en": "Musiktheater-Performance by Thom Luz",
+        "de": "Musiktheater-Performance von Thom Luz",
+        "fr": "Musiktheater-Performance de Thom Luz"
+      },
+      "startDate": "2027-04-22",
+      "endDate": "2027-05-02",
+      "startTime": "19:30",
+      "category": "Opera",
+      "venue": "Opernhaus im Quartier",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/werckmeister-harmonien_AnXf5f8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "8000"
+      },
+      "geo": {
+        "lat": 47.3652122,
+        "lng": 8.546674
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AnXf5f8.jpg"
     }
   ]
 }
