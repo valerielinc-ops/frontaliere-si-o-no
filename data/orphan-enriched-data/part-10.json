@@ -17772,9 +17772,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "collaboratore-trice-empfang-administration-tertianum-zurich",
-        "en": "collaboratore-trice-empfang-administration-tertianum-zurich",
-        "de": "collaboratore-trice-empfang-administration-tertianum-zurich",
-        "fr": "collaboratore-trice-empfang-administration-tertianum-zurich"
+        "en": "reception-administration-tertianum-zurich",
+        "de": "mitarbeiter-in-empfang-administration-tertianum-zurich",
+        "fr": "reception-administration-tertianum-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/collaboratore-trice-empfang-administration-tertianum-zurich",
@@ -17788,6 +17788,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
