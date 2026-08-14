@@ -194,22 +194,51 @@ describe('il lettore locale e\' immune allo sparse checkout', () => {
   });
 });
 
-describe('la premessa del rimedio: il gemello di questo lato e\' VIVO', () => {
+describe('la premessa del rimedio: il gemello di questo lato e\' RAGGIUNGIBILE', () => {
   // Se questa premessa cade, il rimedio giusto cambia — un ricevitore per un
   // ramo morto e' rumore. Il test la fissa cosi' che spegnere la pipeline
   // diventi una decisione cosciente e non un'erosione silenziosa.
+  //
+  // Lo spegnimento e' avvenuto, ed e' stato cosciente: il 2026-08-14 lo
+  // `schedule` di publish-journalist-articles.yml e' stato rimosso su decisione
+  // del proprietario (#5794), perche' i due repo drenavano la STESSA coda
+  // Firestore `journalist_articles` e chi perdeva la corsa non vedeva mai
+  // l'articolo. Questo test ha fatto il suo lavoro: ha fermato la modifica
+  // finche' qualcuno non ha guardato.
+  //
+  // La premessa pero' NON e' caduta, ha cambiato forma. Il workflow conserva
+  // `workflow_dispatch`, quindi il percorso resta percorribile a comando e
+  // `scripts/create-article.mjs` di questo lato resta eseguibile: una guardia
+  // messa solo nel corpus continua a NON proteggerlo. Percio' qui si asserisce
+  // che il gemello sia raggiungibile, non che giri da solo — e se un giorno
+  // sparisse anche il dispatch, il test tornerebbe a fermare la modifica.
   const journalist = path.join(WF_DIR, 'publish-journalist-articles.yml');
 
-  it('publish-journalist-articles.yml gira a schedule ed esegue il generatore', () => {
+  it('publish-journalist-articles.yml resta invocabile ed esegue il generatore', () => {
     const src = fs.readFileSync(journalist, 'utf-8');
     const doc = YAML.parse(src) as Record<string, any>;
     const on = (doc.on ?? doc[true as unknown as string]) as Record<string, any>;
 
-    expect(on.schedule, 'la pipeline giornalisti deve essere ancora a schedule').toBeTruthy();
+    expect(
+      on.schedule || 'workflow_dispatch' in on,
+      'la pipeline giornalisti deve restare invocabile (schedule o workflow_dispatch)',
+    ).toBeTruthy();
     expect(
       /node scripts\/publish-journalist-article\.mjs/.test(src),
       'la pipeline giornalisti deve ancora eseguire scripts/publish-journalist-article.mjs',
     ).toBe(true);
+  });
+
+  it('lo schedule resta spento finche\' qualcuno non decide il contrario', () => {
+    // L'altra meta' della decisione #5794: rimetterlo ricrea la corsa sulla coda
+    // condivisa, quindi deve costare una modifica a questo test e non un
+    // ritocco distratto al cron.
+    const doc = YAML.parse(fs.readFileSync(journalist, 'utf-8')) as Record<string, any>;
+    const on = (doc.on ?? doc[true as unknown as string]) as Record<string, any>;
+    expect(
+      on.schedule,
+      'lo schedule del publisher giornalisti del SITO deve restare spento: la coda e\' del corpus (#5794)',
+    ).toBeFalsy();
   });
 
   it('publish-journalist-article.mjs importa ancora da create-article.mjs', () => {
