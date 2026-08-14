@@ -69,7 +69,14 @@ const ITEM_COST_MS = Number(process.env.FOLLOWUP_ITEM_COST_MS || 8_000);
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
-const MAX_ATTEMPTS = 3;
+// Exported (#5524 item 3) so a test can tie this number to the `fu-attempt:N`
+// labels that actually exist in the repo (`ROUTING_LABELS` in
+// triage-sweep.mjs) instead of the two constants drifting apart in silence —
+// `gh issue edit --add-label` fails on a label that was never created, so a
+// bump here without a matching label would strand issues at the new ceiling
+// forever, unnoticed (no error, just a park that never reaches `needs-human`
+// nor gets excluded from re-triage by `ROUTING_LABELS`).
+export const MAX_ATTEMPTS = 3;
 // Cap di letture `gh issue view` per la scansione del beacon di quota. Il beacon
 // sta sull'ultima issue processata, quindi in regime normale si trova alla prima
 // o seconda lettura; il cap serve solo a impedire che una coda lunga trasformi il
@@ -1007,7 +1014,11 @@ function main() {
   }
 }
 
-function runDrain() {
+// Esportata (#5524 item 2) così un test può invocarla direttamente con `gh`
+// mockato, invece di spawnare un processo reale: è l'unico modo di osservare
+// "cosa stampa --dry-run a slot occupato" senza duplicare la logica in un
+// secondo file. `main()` resta la sola CLI entry (guardia più sotto).
+export function runDrain() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`followup-drainer${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
   if (budget.enabled) {
@@ -1156,10 +1167,24 @@ function runDrain() {
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
   // può mai toccare la issue di una run viva (evita di togliere agent:fix mentre
   // il fix è in corso), e la promozione resta l'unica pending → mai cancellata.
+  //
+  // #5524 item 2: quel `return` precedeva ogni ramo che usa `DRY` per stampare
+  // "cosa farei" (RESCUE+PARK, CRAWLER RESCUE, DRAIN sono tutti SOTTO questa
+  // riga) — quindi `--dry-run` a slot occupato non mostrava mai la preview che
+  // è l'unico motivo per cui lo si lancia: chi lo usa per capire cosa
+  // succederebbe restava senza risposta, indistinguibile da "non ha nemmeno
+  // guardato". In modalità reale il `return` resta invariato (invariante di
+  // sicurezza sopra). In `--dry-run` non c'è nessuna mutazione da proteggere —
+  // `edit()` e ogni ramo `if (DRY)` sotto sono già no-op — quindi si continua:
+  // il resto della funzione calcola e logga cosa accadrebbe SE lo slot fosse
+  // libero, invece di uscire muta.
   const inflight = inFlightFixCount();
   if (inflight > 0) {
-    console.log(`slot issue-fix occupato (in-flight=${inflight}) → nessuna azione.`);
-    return;
+    if (!DRY) {
+      console.log(`slot issue-fix occupato (in-flight=${inflight}) → nessuna azione.`);
+      return;
+    }
+    console.log(`[dry] slot issue-fix occupato (in-flight=${inflight}) → in modalità reale l'esecuzione si fermerebbe qui; continuo a mostrare la preview ipotetica (nessuna mutazione: --dry-run).`);
   }
 
   // --- RESCUE + PARK: agent:fix orfani (nessuna PR, nessuna run, vecchi) -------

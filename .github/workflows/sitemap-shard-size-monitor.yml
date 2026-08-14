@@ -154,6 +154,54 @@ jobs:
             --label "$label" \
             --workflow "${{ github.workflow }}"
 
+      # Closer half (#5437 — both titles above had none). Both titles resolve
+      # from THIS RUN'S REPORT CONTENT, not from the derived `severity` output.
+      # `criticals`/`warnings` are independent per-shard arrays
+      # (scripts/check-sitemap-shard-size.mjs ~140-145 — a shard lands in
+      # exactly one of the two, mutually exclusive), so a single run can have
+      # criticals.length > 0 (severity=='critical') AND warnings.length > 0 at
+      # the same time, on different shards. Gating on the dominant severity
+      # string — as this step used to — made that combination skip the step
+      # ENTIRELY: the WARNING title was then neither refreshed nor resolved,
+      # stuck open until a fully clean run that may never come while another
+      # shard stays chronically critical (review finding on #5802). Reading
+      # `.criticals`/`.warnings` straight from the report resolves each title
+      # independently: a shard sliding back under its OWN threshold recovers
+      # its title regardless of what any other shard is doing. The race this
+      # step was written to avoid still holds: while `warnings` is non-empty
+      # the open step above is actively refreshing that title in the same run,
+      # so it is correctly left alone here.
+      - name: Resolve shard-size issues no longer applicable
+        if: steps.check.outcome == 'success' || steps.severity.outputs.severity != 'none'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          report=data/sitemap-shard-size-report.json
+          title_critical="[sitemap-shard-size] CRITICAL: shard(s) at or above 45k urls"
+          title_warning="[sitemap-shard-size] WARNING: shard(s) at or above 40k urls"
+
+          criticals=0
+          warnings=0
+          if [ -f "$report" ]; then
+            criticals=$(jq -r '.criticals | length' "$report")
+            warnings=$(jq -r '.warnings | length' "$report")
+          fi
+
+          if [ "$criticals" -eq 0 ]; then
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$title_critical" \
+              --workflow "${{ github.workflow }}" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+          if [ "$warnings" -eq 0 ]; then
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$title_warning" \
+              --workflow "${{ github.workflow }}" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+
       - name: Upload report artifact
         if: always()
         uses: actions/upload-artifact@v7

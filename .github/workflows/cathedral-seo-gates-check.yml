@@ -398,6 +398,34 @@ jobs:
           echo "Gates check reported regressed=${regressed} errors=${errors} — failing the workflow."
           exit 1
 
+      # Closer half (#5437 — this title had none). Per-gate, not per-run: a
+      # gate whose STATUS this run is `pass`/`improved` gets its own regression
+      # issue resolved even while OTHER gates still regress — the opener above
+      # is the same granularity (one issue per gate name). `error` status is
+      # deliberately excluded: an evaluation error is inconclusive, not proof
+      # the gate recovered. `always()` so this still runs when `failgate`
+      # itself fails the job (mixed regressed/recovered gates in the same run).
+      - name: Resolve regression issues for gates back under baseline
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ ! -f data/cathedral-seo-gates-verdict.json ]; then
+            echo "No verdict file — nothing to resolve."
+            exit 0
+          fi
+          mapfile -t recovered < <(jq -r '.gates[] | select(.status == "pass" or .status == "improved") | .name' \
+            data/cathedral-seo-gates-verdict.json)
+          for name in "${recovered[@]}"; do
+            title="SEO gates regression: ${name} above baseline"
+            node scripts/lib/github-issue-creator.mjs --resolve \
+              --title "$title" \
+              --workflow "${{ github.workflow }}" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          done
+
       - name: Report unexpected failure to GitHub Issues
         # failgate both opens the issue AND fails the job, so its conclusion
         # alone can't tell "failed with issue" from "failed without issue"

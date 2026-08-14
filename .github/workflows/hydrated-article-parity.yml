@@ -164,3 +164,17 @@ jobs:
             --priority high \
             --label validation-failure \
             --workflow "${{ github.workflow }}"
+
+      # Closer half (#5437 — this title had none). Mirrors the open condition:
+      # same gate on `open_issue` so a dispatch run that opted out of opening
+      # also opts out of resolving (it never touched the canonical issue).
+      - name: Resolve the issue on green
+        if: steps.check.outcome == 'success' && github.event.inputs.open_issue != 'false'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Hydrated article parity: the hub renders articles the client does not have" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

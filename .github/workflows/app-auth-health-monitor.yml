@@ -159,3 +159,23 @@ jobs:
             --priority 2 \
             --label automation \
             --workflow "App Auth Health Monitor"
+
+      # Closer half of the step above (#5437 — the class of issue nobody could
+      # ever close). The negation is the exact complement of the self-alert
+      # condition: it runs whenever the monitor's OWN code did NOT crash — the
+      # healthy path (alertmint skipped, APP_TOKEN present) AND the intentional
+      # App-auth-down path (alertmint failed ON PURPOSE, intentional_fail=true)
+      # both count as "the monitor is not broken", even though the latter still
+      # fails the job. `always()` so the step is reached even after alertmint's
+      # intentional `exit 1`.
+      - name: Resolve self-alert crash issue when the monitor itself is healthy
+        if: always() && !(failure() && steps.alertmint.conclusion == 'failure' && steps.alertmint.outputs.intentional_fail != 'true')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "App-auth monitor crashed: app-auth-health-monitor failing" \
+            --workflow "App Auth Health Monitor" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
