@@ -356,6 +356,81 @@ export function buildTitleWithBrand(
 }
 
 /**
+ * Regex del suffisso brand riconosciuto da {@link normalizeShellTitle}.
+ *
+ * Esportata perche' il round-trip h1/title (vedi sotto) e' verificabile solo
+ * se chi confronta e chi emette usano LA STESSA definizione di «suffisso».
+ */
+export const SHELL_BRAND_SUFFIX_RX = /\s*\|\s*Frontaliere Ticino\s*$/i;
+
+/**
+ * Escape HTML per il solo BUDGET di lunghezza di {@link normalizeShellTitle}.
+ *
+ * Deliberatamente inline e NON importato da `./htmlEscape`: questo file e'
+ * `mode: identical` in `scripts/ci/loop-sync-manifest.json` e il suo gemello
+ * `host/shared/titleSuffix.ts` sul corpus sta FUORI dall'allowlist del mirror
+ * dell'engine, quindi va copiato a mano. `host/shared/htmlEscape.ts` non
+ * esiste sul corpus (verificato su origin), e un import verso un file che
+ * dall'altro lato non c'e' romperebbe il gemello a import time — la classe
+ * «un contratto che non ha forma di import» che il manifest stesso cita.
+ * Quattro sostituzioni duplicate costano meno di una dipendenza non
+ * trasportabile; sono identiche a `esc` di htmlTemplate.ts e a `escHtml` di
+ * shared/htmlEscape.ts, e `tests/seo/h1-title-brand-roundtrip.test.ts` pinna
+ * che restino tali.
+ */
+export function escapeForBudget(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/**
+ * Normalizza il `<title>` fornito da un callsite nella forma finale emessa
+ * da `buildSeoPageHtml`: strip del brand pre-esistente, `trim`, e ri-applica
+ * il brand via {@link buildTitleWithBrand} (che garantisce il cap SERP a 66).
+ *
+ * Molti plugin spediscono bundle di copy col brand gia' cotto dentro il
+ * titolo. Senza questo strip+re-apply quei titoli scavalcano il cap e fanno
+ * scattare `audit:title-length` sulle headline lunghe.
+ *
+ * ─── Perche' vive QUI e non piu' dentro seoPageShell.ts (#5831 item 4) ───
+ *
+ * Il reviewer di #5816 ha chiesto se `buildSeoPageHtml` applichi al `<title>`
+ * trasformazioni ULTERIORI al solo suffisso brand: se lo facesse,
+ * `differentiateH1FromTitle` — che riceve il titolo PRE-brand — confronterebbe
+ * una stringa diversa da quella che finisce davvero in pagina, e le
+ * duplicazioni `<title>`===`<h1>` tornerebbero senza che il gate le veda.
+ *
+ * La risposta tracciata e' NO: le uniche trasformazioni sono (1) strip del
+ * brand, (2) `trim`, (3) ri-append condizionale del brand — nessun troncamento
+ * (vedi il punto 3 del docblock di modulo: la headline oltre il cap e'
+ * restituita VERBATIM). Quindi il confronto pre-brand e quello post-brand
+ * coincidono.
+ *
+ * Ma quella era una garanzia scritta solo in prosa, e la prosa non fallisce.
+ * Spostata qui — modulo foglia, senza la superficie di asset SSG di
+ * seoPageShell — l'invariante e' finalmente ESEGUIBILE, ed e' pinnata da
+ * `tests/seo/h1-title-brand-roundtrip.test.ts`. Se qualcuno aggiunge un
+ * troncamento a questa funzione o a `buildTitleWithBrand`, quel test diventa
+ * rosso invece di lasciar rientrare il difetto in silenzio.
+ *
+ * @param measureLength budget di lunghezza. Il default misura sulla stringa
+ *   ESCAPED: `htmlTemplate.ts` rende questo titolo attraverso `esc(title)`
+ *   esattamente una volta, quindi un `&`/`<`/`>`/`"` grezzo in una headline
+ *   fornita dal callsite (nome azienda/citta' interpolato a monte) non deve
+ *   poter sforare il cap DOPO che la decisione e' gia' stata presa.
+ */
+export function normalizeShellTitle(
+  rawTitle: string,
+  measureLength: (s: string) => number = (s) => escapeForBudget(s).length,
+): string {
+  const stripped = String(rawTitle || '').replace(SHELL_BRAND_SUFFIX_RX, '').trim();
+  return buildTitleWithBrand(stripped, TITLE_BRAND_SUFFIX, undefined, measureLength);
+}
+
+/**
  * Compose a <title> around a variable-length local-SEO token (comune/city
  * name) that must never be truncated — same "never drop the place, shrink
  * the boilerplate around it" policy as {@link composeSerpJobTitle}'s city
