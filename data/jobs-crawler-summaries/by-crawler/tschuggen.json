@@ -1,18 +1,55 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-08-13T21:50:44.310Z",
-  "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
+  "generatedAt": "2026-08-14T10:18:08.154Z",
+  "total": 9,
+  "newCount": 1,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11841,
-  "avgDurationMs": 11841,
+  "unchangedCount": 1,
+  "durationMs": 14037,
+  "avgDurationMs": 14037,
   "durationHistory": [
-    11841
+    14037
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "tschuggen-3bb13bd50cb8",
+      "slug": "assistant-front-office-manager-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Assistant Front Office Manager (m/w/d) Wintersaison 2026/2027",
+      "location": "Arosa",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1387/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:17:56.133Z",
+      "addressLocality": "Arosa",
+      "postalCode": "7050",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1387/Description/1",
+      "department": "Rooms Division",
+      "hotelName": "Tschuggen Grand Hotel",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "tschuggen-2b3e4d6fe36e",
@@ -26,7 +63,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1356/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:34.801Z",
+      "crawledAt": "2026-08-14T10:17:57.748Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -63,7 +100,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1386/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:35.960Z",
+      "crawledAt": "2026-08-14T10:17:59.342Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -100,7 +137,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1385/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:36.750Z",
+      "crawledAt": "2026-08-14T10:18:00.364Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -137,7 +174,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:37.752Z",
+      "crawledAt": "2026-08-14T10:18:01.353Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -174,7 +211,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:38.540Z",
+      "crawledAt": "2026-08-14T10:18:02.362Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -211,7 +248,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1067/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:39.541Z",
+      "crawledAt": "2026-08-14T10:18:03.358Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -248,7 +285,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:40.546Z",
+      "crawledAt": "2026-08-14T10:18:04.363Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -272,10 +309,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "tschuggen-ae2824a9a3e9",
-      "slug": "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+      "slug": "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
       "companyDomain": "tschuggencollection.ch",
@@ -302,15 +342,17 @@
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
       "firstSeenAt": "2026-08-01T10:55:36.238Z",
-      "_qualityScore": 85,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
