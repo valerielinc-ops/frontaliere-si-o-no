@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-08-14T10:16:53.565Z",
+  "assembledAt": "2026-08-14T21:30:54.677Z",
   "jobs": [
     {
       "id": "sophia-genetics-a85899187eab",
@@ -33,7 +33,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:47.530Z",
+      "crawledAt": "2026-08-14T21:30:47.621Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -98,7 +98,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/D92BC8459B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:47.398Z",
+      "crawledAt": "2026-08-14T21:30:47.237Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -134,6 +134,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:25:48.183Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -178,7 +179,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:47.275Z",
+      "crawledAt": "2026-08-14T21:30:46.970Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -243,7 +244,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:47.217Z",
+      "crawledAt": "2026-08-14T21:30:46.697Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -322,7 +323,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8E7597EE55/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:47.013Z",
+      "crawledAt": "2026-08-14T21:30:46.248Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -358,6 +359,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:15.168Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -402,7 +404,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0D9E533066/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:46.936Z",
+      "crawledAt": "2026-08-14T21:30:46.087Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -438,6 +440,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:54.577Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -482,7 +485,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/29E6DA069F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:46.837Z",
+      "crawledAt": "2026-08-14T21:30:45.825Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -556,7 +559,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:46.787Z",
+      "crawledAt": "2026-08-14T21:30:45.694Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -594,6 +597,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:10:52.959Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -606,6 +610,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sophia-genetics-95e70a357565",
+      "slug": "production-associate-sophia-genetics-rolle",
+      "slugByLocale": {
+        "en": "production-associate-sophia-genetics-rolle",
+        "it": "production-associate-sophia-genetics-rolle",
+        "de": "production-associate-sophia-genetics-rolle",
+        "fr": "production-associate-sophia-genetics-rolle"
+      },
+      "company": "SOPHiA GENETICS",
+      "companyKey": "sophia-genetics",
+      "companyDomain": "sophiagenetics.com",
+      "title": "Production Associate",
+      "titleByLocale": {
+        "en": "Production Associate",
+        "it": "Production Associate",
+        "de": "Production Associate",
+        "fr": "Production Associate"
+      },
+      "description": "Do you bring hands-on production experience and the discipline to follow established procedures in a quality-focused environment? Are you comfortable completing routine production tasks accurately, efficiently and flexibly as processes evolve?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Production Operator and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days PW for this opportunity, connected to our Switzerland office.\n\nOur Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n\nYour Mission\n As a Production Operator, you will support the day-to-day preparation of our production bundles through picking, packing and filling activities. You will follow defined procedures, maintain consistent quality and help the team increase production capacity as processes are improved.\n Production\n\n• Complete picking, packing and filling activities accurately and consistently in line with established procedures.\n\n• Contribute to the reliable preparation of production bundles that support our wider patient-focused mission.\n\n• Launch production orders following make-to-stock and make-to-order strategies\n\n• Apply and Follow Medical Devices production standards (GxPs)\n\n• Perform line clearance process\n Warehouse\n\n• Preparing outgoing shipments and maintain shipment records\n\n• Inspecting the stocks and reporting about the damaged products in SOPHiA GENETICS structured systems\n\n• Recording all the materials received in SOPHiA GENETICS ERP & Using warehouse management systems\n\n• Managing cleanliness and tidiness of the warehouse on a day to day basis\n\n• Following all the warehouse safety procedures and guidelines",
+      "descriptionByLocale": {
+        "en": "Do you bring hands-on production experience and the discipline to follow established procedures in a quality-focused environment? Are you comfortable completing routine production tasks accurately, efficiently and flexibly as processes evolve?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Production Operator and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days PW for this opportunity, connected to our Switzerland office.\n\nOur Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n\nYour Mission\n As a Production Operator, you will support the day-to-day preparation of our production bundles through picking, packing and filling activities. You will follow defined procedures, maintain consistent quality and help the team increase production capacity as processes are improved.\n Production\n\n• Complete picking, packing and filling activities accurately and consistently in line with established procedures.\n\n• Contribute to the reliable preparation of production bundles that support our wider patient-focused mission.\n\n• Launch production orders following make-to-stock and make-to-order strategies\n\n• Apply and Follow Medical Devices production standards (GxPs)\n\n• Perform line clearance process\n Warehouse\n\n• Preparing outgoing shipments and maintain shipment records\n\n• Inspecting the stocks and reporting about the damaged products in SOPHiA GENETICS structured systems\n\n• Recording all the materials received in SOPHiA GENETICS ERP & Using warehouse management systems\n\n• Managing cleanliness and tidiness of the warehouse on a day to day basis\n\n• Following all the warehouse safety procedures and guidelines",
+        "it": "Do you bring hands-on production experience and the discipline to follow established procedures in a quality-focused environment? Are you comfortable completing routine production tasks accurately, efficiently and flexibly as processes evolve?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Production Operator and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days PW for this opportunity, connected to our Switzerland office.\n\nOur Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n\nYour Mission\n As a Production Operator, you will support the day-to-day preparation of our production bundles through picking, packing and filling activities. You will follow defined procedures, maintain consistent quality and help the team increase production capacity as processes are improved.\n Production\n\n• Complete picking, packing and filling activities accurately and consistently in line with established procedures.\n\n• Contribute to the reliable preparation of production bundles that support our wider patient-focused mission.\n\n• Launch production orders following make-to-stock and make-to-order strategies\n\n• Apply and Follow Medical Devices production standards (GxPs)\n\n• Perform line clearance process\n Warehouse\n\n• Preparing outgoing shipments and maintain shipment records\n\n• Inspecting the stocks and reporting about the damaged products in SOPHiA GENETICS structured systems\n\n• Recording all the materials received in SOPHiA GENETICS ERP & Using warehouse management systems\n\n• Managing cleanliness and tidiness of the warehouse on a day to day basis\n\n• Following all the warehouse safety procedures and guidelines",
+        "de": "Do you bring hands-on production experience and the discipline to follow established procedures in a quality-focused environment? Are you comfortable completing routine production tasks accurately, efficiently and flexibly as processes evolve?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Production Operator and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days PW for this opportunity, connected to our Switzerland office.\n\nOur Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n\nYour Mission\n As a Production Operator, you will support the day-to-day preparation of our production bundles through picking, packing and filling activities. You will follow defined procedures, maintain consistent quality and help the team increase production capacity as processes are improved.\n Production\n\n• Complete picking, packing and filling activities accurately and consistently in line with established procedures.\n\n• Contribute to the reliable preparation of production bundles that support our wider patient-focused mission.\n\n• Launch production orders following make-to-stock and make-to-order strategies\n\n• Apply and Follow Medical Devices production standards (GxPs)\n\n• Perform line clearance process\n Warehouse\n\n• Preparing outgoing shipments and maintain shipment records\n\n• Inspecting the stocks and reporting about the damaged products in SOPHiA GENETICS structured systems\n\n• Recording all the materials received in SOPHiA GENETICS ERP & Using warehouse management systems\n\n• Managing cleanliness and tidiness of the warehouse on a day to day basis\n\n• Following all the warehouse safety procedures and guidelines",
+        "fr": "Do you bring hands-on production experience and the discipline to follow established procedures in a quality-focused environment? Are you comfortable completing routine production tasks accurately, efficiently and flexibly as processes evolve?\n If this sounds like you and you are driven by purpose, join the SOPHiA GENETICS Production team as a Production Operator and enable us to make a positive impact on the outcomes for cancer and rare disease patients worldwide.\n The nature of this role means you can expect to be in the office 5 days PW for this opportunity, connected to our Switzerland office.\n\nOur Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n\nYour Mission\n As a Production Operator, you will support the day-to-day preparation of our production bundles through picking, packing and filling activities. You will follow defined procedures, maintain consistent quality and help the team increase production capacity as processes are improved.\n Production\n\n• Complete picking, packing and filling activities accurately and consistently in line with established procedures.\n\n• Contribute to the reliable preparation of production bundles that support our wider patient-focused mission.\n\n• Launch production orders following make-to-stock and make-to-order strategies\n\n• Apply and Follow Medical Devices production standards (GxPs)\n\n• Perform line clearance process\n Warehouse\n\n• Preparing outgoing shipments and maintain shipment records\n\n• Inspecting the stocks and reporting about the damaged products in SOPHiA GENETICS structured systems\n\n• Recording all the materials received in SOPHiA GENETICS ERP & Using warehouse management systems\n\n• Managing cleanliness and tidiness of the warehouse on a day to day basis\n\n• Following all the warehouse safety procedures and guidelines"
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "url": "https://apply.workable.com/sophia-genetics/j/DCBD3D6F1B/",
+      "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T21:30:45.537Z",
+      "addressLocality": "Rolle",
+      "addressRegion": "Vaud",
+      "streetAddress": "La Pièce 12",
+      "postalCode": "1180",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Health-Tech / Genomica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://apply.workable.com/sophia-genetics/j/DCBD3D6F1B/",
+      "jobReqId": "DCBD3D6F1B",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T21:30:45.537Z"
     },
     {
       "id": "sophia-genetics-c95859987d12",
@@ -638,7 +709,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/A5F8F7F93B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:46.580Z",
+      "crawledAt": "2026-08-14T21:30:45.116Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -703,7 +774,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:16:45.961Z",
+      "crawledAt": "2026-08-14T21:30:43.866Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -723,6 +794,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T12:25:46.924Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
