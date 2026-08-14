@@ -27,8 +27,6 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { render, cleanup, act } from '@testing-library/react';
 import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED } from '@/services/adsConsent';
@@ -156,25 +154,32 @@ describe('ads-consent gate — no ad script before consent', () => {
     expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
   });
 
-  it('Prebid (header bidding) carries the gate before its sticky latch — SOURCE-level', () => {
-    // Deliberately a source assertion, and the reason is worth stating: Prebid
-    // is behind `PREBID_ENABLED = false`, a hardcoded master flag, and
-    // `prebidActiveFor()` additionally requires bidders configured through
-    // VITE_PREBID_CONFIG. The runtime path is therefore unreachable today, and
-    // a behavioural test would assert "no script was injected" while proving
-    // only that the feature is switched off — the first version of this test
-    // did exactly that and the mutation harness scored it as a hole.
+  it('Prebid (header bidding) injects NOTHING when no decision has been made', async () => {
+    // Prebid broadcasts bid requests to third-party bidders and forwards the
+    // TCF consent string, so it is squarely an advertising script.
     //
-    // The gate still belongs in the code: Prebid broadcasts bid requests to
-    // third-party bidders and forwards the TCF string, so whenever that flag
-    // flips it must already be consent-gated rather than needing to remember.
-    const src = readFileSync(resolve(__dirname, '..', 'services/headerBidding.ts'), 'utf8');
-    const gateAt = src.indexOf('if (!isAdsConsentGranted()) return;');
-    const latchAt = src.indexOf('scriptRequested = true;');
-    expect(gateAt).toBeGreaterThan(-1);
-    // Before the latch: gating after it would mark the script "requested" on a
-    // blocked call and lock out a visitor who accepts later in the session.
-    expect(gateAt).toBeLessThan(latchAt);
+    // Reached through the module's own `__testing` handle. An earlier version
+    // of this test called `requestHeaderBids()` and asserted "no script" — but
+    // that returns early on `PREBID_ENABLED === false` long before the gate, so
+    // it proved only that the feature is off. The mutation harness scored it as
+    // a hole, and `__testing.ensurePrebidScript` is the entry point that
+    // actually exercises the gate (it is what the existing
+    // tests/header-bidding-script-error.test.ts uses for the same reason).
+    const { __testing } = await import('@/services/headerBidding');
+    __testing.resetForTests();
+    __testing.ensurePrebidScript();
+    expect(document.querySelector('script[src="/assets/prebid.js"]')).toBeNull();
+    expect(injectedAdScripts()).toEqual([]);
+  });
+
+  it('Prebid DOES load once consent is granted', async () => {
+    // The counterpart: proves the block above is caused by consent and not by
+    // the feature simply being inert.
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    const { __testing } = await import('@/services/headerBidding');
+    __testing.resetForTests();
+    __testing.ensurePrebidScript();
+    expect(document.querySelector('script[src="/assets/prebid.js"]')).not.toBeNull();
   });
 
   it('SPA <GptAdSlot> injects NOTHING when no decision has been made', async () => {
