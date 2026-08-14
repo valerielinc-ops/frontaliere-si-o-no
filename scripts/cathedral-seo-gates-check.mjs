@@ -65,6 +65,10 @@ const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdic
  *   doc comment on the `title-length` gate spec below) and its exit code
  *   should decide regressed/pass instead of a raw current-vs-baseline count
  *   comparison.
+ * @property {boolean} [readsOwnReport] true when the underlying audit script
+ *   emits no JSON to stdout at all and extractCurrent instead reads a report
+ *   file directly (see the `orphan-sitemap-pages` gate spec below) —
+ *   evaluateGate() must not bail out on a failed stdout JSON parse for these.
  * @property {string} notes
  */
 
@@ -142,6 +146,10 @@ export const GATES = [
     auditCmd: 'npm run audit:orphan-sitemap-pages',
     rebaselineCmd: 'npm run audit:orphan-sitemap-pages:rebaseline',
     baselineFile: 'data/orphan-pages-baseline.json',
+    // This gate's stdout is never JSON (see readsOwnReport below), so
+    // evaluateGate() must not bail out on a failed JSON parse before calling
+    // extractCurrent.
+    readsOwnReport: true,
     // audit-orphan-pages-in-sitemaps has no `--json` mode, but it always writes
     // its machine-readable report to data/orphan-pages-audit.json (line 804)
     // before exiting. Read THAT. The previous reader regexed the human table on
@@ -407,7 +415,11 @@ export async function evaluateGate(gate) {
     exitCode: result.code,
   };
 
-  if (!parsed) {
+  // Gates whose extractCurrent reads its own report file (readsOwnReport)
+  // never emit JSON to stdout by design — bailing out here on a failed parse
+  // would mean extractCurrent, and the freshness check it performs, never
+  // runs at all. Only bail for gates that actually depend on `parsed`.
+  if (!parsed && !gate.readsOwnReport) {
     entry.status = 'error';
     entry.error = 'Could not parse audit output as JSON.';
     entry.tailStderr = result.stderr.split('\n').slice(-20).join('\n');
