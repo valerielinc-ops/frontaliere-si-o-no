@@ -44,6 +44,7 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
@@ -1950,17 +1951,31 @@ async function assembleJobs() {
   }
 
   // Deduplicate slice jobs: last-write wins (newest assembledAt per identity)
-  const byIdentity = new Map();
-  for (const tagged of allTagged) {
-    const identity = assemblerIdentity(tagged.job);
-    if (!identity) continue;
-    const existing = byIdentity.get(identity);
-    if (!existing || tagged.assembledAt >= existing.assembledAt) {
-      byIdentity.set(identity, tagged);
-    }
+  // — EXCEPT for `needsRetranslation`, which is merged per-record instead of
+  // being decided by whichever copy has the newest timestamp (#5645).
+  //
+  // WHY THE EXCEPTION. The same job is routinely committed by several crawlers
+  // (measured on b10e8eed: 931 slugs present in more than one by-crawler
+  // slice). `mark-locale-mismatched-jobs.mjs` marks every copy, but a crawler
+  // that re-crawls one of those slices afterwards rebuilds its records from
+  // scratch — without the flag — and gives that slice a fresher `assembledAt`.
+  // Taking that copy whole is exactly the "keep one side" resolution that
+  // corpus PR #329 had to abandon on an append-only registry: it does not lose
+  // an update, it DELETES a record's state. Same commit, same measurement: 223
+  // slugs whose committed copies disagree on `needsRetranslation`, 25 of them
+  // with the mark only on the copy that loses this very race — 25 marks thrown
+  // away on every assembly, re-detected and re-written by the next marker run,
+  // forever. That is the #5637 failure re-entering through the dedup.
+  const { winners: sliceJobs, marksCarried, collapsed } = dedupeByIdentityPreservingMarks(
+    allTagged,
+    assemblerIdentity
+  );
+  if (marksCarried > 0) {
+    console.log(
+      `  🔁 Duplicate-identity merge: carried ${marksCarried} needsRetranslation mark(s) `
+        + `onto the surviving copy (${collapsed} duplicate record(s) collapsed)`
+    );
   }
-
-  const sliceJobs = [...byIdentity.values()].map((t) => t.job);
 
   // Merge baseline + slice jobs
   // Deduplicate across them: slice jobs take precedence over baseline
@@ -1986,21 +2001,32 @@ async function assembleJobs() {
   // to the same slug. Since slugs are used as the unique page identifier
   // by the build system, we must guarantee no duplicate slugs.
   // Keep the first occurrence (newest postedDate thanks to sort above).
-  const seenSlugs = new Set();
+  // Two records with DIFFERENT identities can still share a slug (37 such
+  // slugs on b10e8eed). Dropping one of them here has the same consequence as
+  // the identity dedup above, so it gets the same per-record treatment: the
+  // discarded copy's `needsRetranslation` is carried onto the kept one instead
+  // of leaving with it.
+  const keptBySlug = new Map();
   let slugDupeCount = 0;
+  let slugDupeMarksCarried = 0;
   const deduped = sorted.filter((job) => {
     const slug = String(job.slug || '').trim();
     if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
-    if (seenSlugs.has(slug)) {
+    const kept = keptBySlug.get(slug);
+    if (kept) {
       slugDupeCount++;
+      slugDupeMarksCarried += carryForwardMarks(kept, job);
       return false;
     }
-    seenSlugs.add(slug);
+    keptBySlug.set(slug, job);
     return true;
   });
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+    if (slugDupeMarksCarried > 0) {
+      console.log(`     ↳ carried ${slugDupeMarksCarried} needsRetranslation mark(s) onto the kept copy`);
+    }
   }
 
   // ── Per-locale slug collision guard (translator-hallucination defense) ─

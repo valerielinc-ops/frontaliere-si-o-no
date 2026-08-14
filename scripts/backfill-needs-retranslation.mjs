@@ -44,7 +44,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { updateSliceCompareAndSwap } from './lib/job-mark-persistence.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -144,45 +144,59 @@ function main() {
   let slicesChanged = 0;
   const touchedByCompany = new Map();
 
+  // The write goes through the shared compare-and-swap (#5645): this script
+  // scans every committed slice, and the crawler groups that own those files
+  // are in a different concurrency group from anything that runs here — a
+  // stale parse written back would delete whatever landed in between. The
+  // closure below re-counts from scratch on every attempt, as
+  // updateSliceCompareAndSwap requires.
   for (const f of files) {
     const fp = path.join(SLICES_DIR, f);
-    let raw;
-    try {
-      raw = fs.readFileSync(fp, 'utf8');
-    } catch (err) {
-      console.error(`! read failed for ${f}: ${err.message}`);
-      continue;
-    }
-    let data;
-    try {
-      data = JSON.parse(raw);
-    } catch (err) {
-      console.error(`! JSON parse failed for ${f}: ${err.message}`);
-      continue;
-    }
-    const list = Array.isArray(data) ? data : Array.isArray(data.jobs) ? data.jobs : [];
-    const crawlerKey = (data && data.crawlerKey) || f.replace(/\.json$/, '');
-
+    let crawlerKey = f.replace(/\.json$/, '');
+    let scannedInSlice = 0;
+    let alreadyInSlice = 0;
     let touchedInSlice = 0;
-    for (const job of list) {
-      totalJobs++;
-      if (job.needsRetranslation) {
-        totalAlreadyFlagged++;
-        continue;
-      }
-      if (shouldFlag(job, args.mode)) {
-        job.needsRetranslation = true;
-        touchedInSlice++;
-        totalTouched++;
-      }
+
+    const outcome = updateSliceCompareAndSwap(
+      fp,
+      (list, data) => {
+        crawlerKey = (data && data.crawlerKey) || f.replace(/\.json$/, '');
+        scannedInSlice = 0;
+        alreadyInSlice = 0;
+        touchedInSlice = 0;
+        for (const job of list) {
+          scannedInSlice++;
+          if (job.needsRetranslation) {
+            alreadyInSlice++;
+            continue;
+          }
+          if (shouldFlag(job, args.mode)) {
+            job.needsRetranslation = true;
+            touchedInSlice++;
+          }
+        }
+        return touchedInSlice;
+      },
+      { dryRun: !args.write }
+    );
+
+    if (outcome.unreadable) {
+      console.error(`! read or JSON parse failed for ${f} — slice skipped`);
+      continue;
+    }
+
+    totalJobs += scannedInSlice;
+    totalAlreadyFlagged += alreadyInSlice;
+
+    if (outcome.lost) {
+      console.warn(`! ${f}: another writer kept winning the compare-and-swap — slice left untouched`);
+      continue;
     }
 
     if (touchedInSlice > 0) {
       touchedByCompany.set(crawlerKey, touchedInSlice);
+      totalTouched += touchedInSlice;
       slicesChanged++;
-      if (args.write) {
-        writeJsonAtomic(fp, data);
-      }
     }
   }
 
