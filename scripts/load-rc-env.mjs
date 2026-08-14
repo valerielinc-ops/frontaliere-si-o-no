@@ -30,8 +30,14 @@ import { pathToFileURL } from 'node:url';
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
 // that scripts expect.  One RC param may map to multiple env vars.
-
-const RC_TO_ENV = {
+//
+// Exported (not just module-local) so tests/rc-to-env-secrets-coverage.test.ts
+// can check it against functions/src/remoteConfigSecrets.js's dual-read RC
+// params — the ones that file's own comments say "scripts/load-rc-env.mjs
+// bridges into process.env" — instead of only exercising this map at runtime
+// against a live Remote Config template, where a missing key surfaces as
+// nothing worse than a silently `undefined` env var (see #5737).
+export const RC_TO_ENV = {
   // Client-visible keys
   GEMINI_API_KEY:                 ['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'],
   BING_API_KEY:                   ['BING_API_KEY'],
