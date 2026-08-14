@@ -1,0 +1,138 @@
+name: Newsletter confirmation follow-ups
+
+# Manda la 2ª e la 3ª richiesta di conferma a chi si è iscritto e non ha mai
+# cliccato, e chiude in `expired` chi ha esaurito i tre tentativi. Il motore è
+# scripts/newsletter-confirmation-followups.mjs (#5692), i testi sono quelli
+# dell'email di conferma con una cornice diversa (#5827).
+#
+# ── PERCHÉ NON SPEDISCE ANCORA ─────────────────────────────────────────────
+#
+# Il comando usa `--apply` SOLO se la repo-variable CONFIRMATION_FOLLOWUPS_ARMED
+# vale 'true'. Senza, gira in dry-run: conta, decide, stampa, e non scrive né
+# spedisce niente. È voluto e non è timidezza — il runner scrive uno stato
+# TERMINALE (`expired`) e spedisce posta, e nessuna delle due cose si annulla
+# rieseguendo lo script.
+#
+# Per accendere: Settings → Secrets and variables → Actions → Variables →
+# CONFIRMATION_FOLLOWUPS_ARMED = true. Per spegnere, rimuoverla.
+#
+# Prima di accendere conviene un `workflow_dispatch` con `apply: false` e
+# leggere il sommario: dice quanti sono dovuti oggi, quanti verrebbero chiusi,
+# e quanti sono esclusi e per quale ragione.
+#
+# ── PERCHÉ UN SOLO GIRO AL GIORNO ──────────────────────────────────────────
+#
+# La cadenza è "una richiesta al giorno, massimo tre" e vive nel runner, non
+# qui: è lui a decidere chi è dovuto guardando `confirmation_attempts` e
+# l'ultimo invio. Un secondo giro nella stessa giornata non spedirebbe nulla
+# di nuovo, quindi non serve — e se un giorno servisse, la protezione deve
+# restare nello stato e non nella spaziatura dei cron, perché i cron di questo
+# repo slittano di ore.
+
+on:
+  schedule:
+    # 08:17 UTC — mattina in Svizzera, fuori dagli slot di send-daily-brief
+    # (06:33 / 09:33) per non contendere runner e quota email.
+    - cron: '17 8 * * *'
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Spedisci e scrivi davvero (senza, è un dry-run)'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  # Mai due giri insieme: due processi che leggono lo stesso ledger di tentativi
+  # possono spedire due volte alla stessa persona. Non si cancella il giro in
+  # corso, si aspetta.
+  group: newsletter-confirmation-followups
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  follow-ups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Decide the mode
+        id: mode
+        env:
+          ARMED: ${{ vars.CONFIRMATION_FOLLOWUPS_ARMED }}
+          DISPATCH_APPLY: ${{ inputs.apply }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          # Lo schedule spedisce solo se la repo-variable è armata. Un dispatch
+          # manuale spedisce solo se chi lo lancia spunta `apply` E la variabile
+          # è armata: la spunta da sola non basta, così l'interruttore resta uno.
+          apply=false
+          if [ "$ARMED" = "true" ]; then
+            if [ "$EVENT_NAME" = "schedule" ]; then
+              apply=true
+            elif [ "$DISPATCH_APPLY" = "true" ]; then
+              apply=true
+            fi
+          fi
+          echo "apply=$apply" >> "$GITHUB_OUTPUT"
+          if [ "$apply" = "true" ]; then
+            echo "::notice::Modalità APPLY — spedisce e scrive."
+          else
+            echo "::notice::Modalità DRY-RUN — nessun invio, nessuna scrittura. Per accendere: repo variable CONFIRMATION_FOLLOWUPS_ARMED=true."
+          fi
+
+      - name: Run follow-ups
+        id: run
+        run: |
+          if [ "${{ steps.mode.outputs.apply }}" = "true" ]; then
+            node scripts/newsletter-confirmation-followups.mjs --apply --json | tee /tmp/followups.json
+          else
+            node scripts/newsletter-confirmation-followups.mjs --json | tee /tmp/followups.json
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Newsletter confirmation follow-ups"
+            echo ""
+            echo "Modalità: **${{ steps.mode.outputs.apply == 'true' && 'APPLY' || 'DRY-RUN' }}**"
+            echo ""
+            if [ -s /tmp/followups.json ]; then
+              echo '```json'
+              cat /tmp/followups.json
+              echo '```'
+            else
+              echo "_Nessun sommario prodotto._"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
