@@ -9936,6 +9936,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Crise d\'entreprise, au Mimit 37 tables actives : Beko Europe sous observation',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'Les tables de crise d\'entreprise au ministère des Entreprises et du Made in Italy tombent à 37, tandis que les tables de surveillance montent à 46.',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Réunion au ministère des Entreprises et du Made in Italy sur les crises d\'entreprise',
+    'blog.article.como-gera-lario-nuoto-record.title': 'Natation de Côme à Gera Lario : record historique pour Hector Pardoe',
+    'blog.article.como-gera-lario-nuoto-record.excerpt': 'L\'athlète olympique britannique Hector Pardoe a parcouru à la nage 47,54 km de Côme à Gera Lario en 10 heures, 41 minutes et 31 secondes.',
+    'blog.article.como-gera-lario-nuoto-record.imageAlt': 'Paysage du lac de Côme avec eau claire et montagnes',
 };
 
 export default blogMetaFr;

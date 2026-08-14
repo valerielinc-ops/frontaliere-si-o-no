@@ -2644,6 +2644,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-lucerna.title': 'Permis de colonisation C Lucerne : exigences et demande',
     'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Guide complet du permis de colonisation C dans le canton de Lucerne : critères d\'intégration, exigences et procédures.',
     'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'Permis d\'établissement C canton de Lucerne conditions et demande',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Lucerne : validité et prolongation',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'Les exigences pour le permis L de courte durée dans le canton de Lucerne, sa validité et comment obtenir une prolongation.',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'Une vue panoramique de Lugano, Suisse, avec un focus sur le quartier financier.',
 };
 
 export default blogMetaChFr;

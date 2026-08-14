@@ -2644,6 +2644,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-lucerna.title': 'Niederlassungsbewilligung C Luzern: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Vollständiger Leitfaden zur C-Siedlungsgenehmigung im Kanton Luzern: Integrationskriterien, Anforderungen und Verfahren.',
     'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'C-Ausweis Niederlassungsbewilligung Kanton Luzern Voraussetzungen',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Kurzaufenthaltsbewilligung L im Kanton Luzern: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'Die Voraussetzungen für die Kurzaufenthaltsbewilligung L im Kanton Luzern, deren Gültigkeit und wie eine Verlängerung zu erreichen ist.',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'Eine aussicht auf Lugano, Schweiz, mit Schwerpunkt auf dem Finanzbezirk.',
 };
 
 export default blogMetaChDe;

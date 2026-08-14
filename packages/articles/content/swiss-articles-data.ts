@@ -7930,6 +7930,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-canton-lucerna-validita-e-proroga',
+    category: 'fiscale',
+    date: '2026-08-14T02:16:15.151Z',
+    image: '/images/blog/permesso-l-canton-lucerna-validita-e-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

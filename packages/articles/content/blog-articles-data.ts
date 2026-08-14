@@ -29784,6 +29784,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-gera-lario-nuoto-record',
+ category: 'novita',
+ date: '2026-08-14T02:19:33.225Z',
+ image: '/images/blog/como-gera-lario-nuoto-record.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
