@@ -29838,6 +29838,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casorate-sempione-pigne-san-tito',
+ category: 'novita',
+ date: '2026-08-14T05:11:54.830Z',
+ image: '/images/blog/casorate-sempione-pigne-san-tito.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

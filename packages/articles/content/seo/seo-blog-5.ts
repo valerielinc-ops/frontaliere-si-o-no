@@ -67970,6 +67970,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casorate-sempione-pigne-san-tito': {
+    title: 'Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito',
+    description: 'Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate con pigne e materiali di recupero coloreranno via Genova per la festa decennale di San',
+    keywords: 'frontalieri, ticino, svizzera, italia, casorate, sempione, settemila, pigne',
+    ogTitle: 'Casorate Sempione: settemila pigne e due anni di lavoro per San Tito',
+    ogDescription: 'Il progetto del Centro Diurno Disabili di Iris Gallarate ha coinvolto ragazzi e ragazze nella raccolta di settemila pigne e nella realizzazione di oltre 150 decorazioni floreali con materiali di recupero per abbellire via Genova in occasione',
+    canonicalPath: '/articoli-frontaliere/casorate-sempione-pigne-san-tito',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito",
+      "description": "Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate con pigne e materiali di recupero coloreranno via Genova per la festa decennale di San",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casorate-sempione-pigne-san-tito.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ragazzi del Cdd di Iris Gallarate che dipingono pigne per le decorazioni di via Genova a Casorate Sempione"
+      },
+      "datePublished": "2026-08-14T05:11:54+00:00",
+      "dateModified": "2026-08-14T05:11:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casorate-sempione-pigne-san-tito/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

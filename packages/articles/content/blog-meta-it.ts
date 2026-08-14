@@ -9953,6 +9953,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: il sentiero Rio dei Gioghi riaprirà dopo l\'estate',
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Lavori di recupero finiti nel sentiero Rio dei Gioghi a Ligurno, parte del Sentiero Italia CAI e del PLIS Valle della Bevera, finanziati da Interreg Italia-Svizzera SINTAB.',
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Sentiero Rio dei Gioghi ristrutturato a Ligurno con palizzate in legno e canaletta in pietrame',
+    'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito',
+    'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate coloreranno via Genova per la festa decennale di San Tito a Casorate Sempione',
+    'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Ragazzi del Cdd di Iris Gallarate che dipingono pigne per le decorazioni di via Genova a Casorate Sempione',
 };
 
 export default blogMetaIt;

@@ -9951,6 +9951,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: Der Rio dei Gioghi-Weg wird nach dem Sommer wieder geöffnet',
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Abgeschlossene Sanierungsarbeiten am Rio dei Gioghi-Weg in Ligurien, Teil des Sentiero Italia Cai und des PLIS Valle della Bevera, finanziert von Interreg Italia-Schweiz SINTAB.',
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Wiederhergestellter Weg Rio dei Gioghi in Ligurno mit Holzpfählen und Steinentwässerung',
+    'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: 7000 Tannenzapfen für San Tito',
+    'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Über 150 Dekorationen von Nutzern der CD von Iris Gallarate werden die Via Genova für das zehnjährige Fest von San Tito in Casorate Sempione einfärben',
+    'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Junge Menschen vom CDD von Iris Gallarate bemalen Kiefernzapfen für die Dekoration der Via Genova in Casorate Sempione',
 };
 
 export default blogMetaDe;

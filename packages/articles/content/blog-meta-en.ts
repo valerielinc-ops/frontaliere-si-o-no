@@ -9952,6 +9952,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: the Rio dei Gioghi trail will reopen after the summer',
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Finished recovery works on the Rio dei Gioghi trail in Ligurno, part of the Sentiero Italia CAI and the PLIs Valle della Bevera, financed by Interreg Italia-Svizzera SINTAB.',
     'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Restored Rio dei Gioghi trail in Ligurno with wooden palisades and stone drainage channel',
+    'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: 7,000 pine cones for San Tito feast',
+    'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Over 150 decorations made by users of the CD of Iris Gallarate will color via Genoa for the ten-year celebration of San Tito in Casorate Sempione',
+    'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Young people from Iris Gallarate CDD painting pine cones for via Genova decorations in Casorate Sempione',
 };
 
 export default blogMetaEn;
