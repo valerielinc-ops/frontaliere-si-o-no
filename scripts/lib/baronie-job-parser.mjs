@@ -203,7 +203,8 @@ export function parseBaronieDetailHtml(html) {
   if (jsonLdMatch) {
     try {
       const ld = JSON.parse(jsonLdMatch[1]);
-      const job = ld['@type'] === 'JobPosting' ? ld : null;
+      const candidates = Array.isArray(ld) ? ld : Array.isArray(ld?.['@graph']) ? ld['@graph'] : [ld];
+      const job = candidates.find((node) => node && node['@type'] === 'JobPosting') || null;
       if (job) {
         if (job.jobLocation?.address) {
           const addr = job.jobLocation.address;
