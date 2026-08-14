@@ -2662,6 +2662,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-lucerna.title': 'Apprenticeship and vocational training in the Canton of Lucerne',
     'blog.article.apprendistato-lucerna.excerpt': 'How to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Canton of Lucerne.',
     'blog.article.apprendistato-lucerna.imageAlt': 'Young people in Lucerne learn a trade in a vocational school.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Lucerne Cantonal Scholarships: Requirements and Amounts',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Find out about the requirements and amounts of scholarships offered by the Canton of Lucerne.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Image of Lucerne, with a focus on academic life and students.',
 };
 
 export default blogMetaChEn;

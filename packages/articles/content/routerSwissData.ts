@@ -913,6 +913,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-lucerna-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-lucerna-iscrizione-e-cicli', en: 'lucerne-school-system-enrollment-and-cycles', de: 'kantonales-schulsystem-luzern-einschreibung-und-zyklen', fr: 'systeme-scolaire-canton-lucerne-inscription-et-cycles' },
  'asilo-nido-e-custodia-bambini-canton-lucerna-costi': { it: 'asilo-nido-e-custodia-bambini-canton-lucerna-costi', en: 'kindergarten-and-childcare-in-the-canton-of-lucerne-costs', de: 'asilo-nido-e-custodia-bambini-kanton-luzern-kosten', fr: 'asilo-nido-e-custodia-bambini-canton-de-lucerne-couts' },
  'apprendistato-lucerna': { it: 'apprendistato-lucerna', en: 'apprenticeship-lucerne', de: 'ausbildung-luzern', fr: 'apprentissage-lucerne' },
+ 'borsedi-studio-lucerne-requisiti-e-importi': { it: 'borsedi-studio-lucerne-requisiti-e-importi', en: 'scholarship-lucerne', de: 'stipendium-luzern', fr: 'bourse-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

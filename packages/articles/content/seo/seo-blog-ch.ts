@@ -34493,6 +34493,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borsedi-studio-lucerne-requisiti-e-importi': {
+    title: 'Borse di studio cantonale di Lucerna: requisiti e importi',
+    description: 'Scopri i requisiti e gli importi delle borse di studio offerte dal Cantone di Lucerna. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, cantonale, lucerna',
+    ogTitle: 'Borse di studio cantonale di Lucerna: requisiti e importi',
+    ogDescription: 'Scopri i requisiti e gli importi delle borse di studio offerte dal Cantone di Lucerna.',
+    canonicalPath: '/articoli-svizzera/borsedi-studio-lucerne-requisiti-e-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio cantonale di Lucerna: requisiti e importi",
+      "description": "Scopri i requisiti e gli importi delle borse di studio offerte dal Cantone di Lucerna. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borsedi-studio-lucerne-requisiti-e-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di Lucerna, con un focus sulla vita accademica e gli studenti."
+      },
+      "datePublished": "2026-08-14T03:21:47+00:00",
+      "dateModified": "2026-08-14T03:21:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borsedi-studio-lucerne-requisiti-e-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

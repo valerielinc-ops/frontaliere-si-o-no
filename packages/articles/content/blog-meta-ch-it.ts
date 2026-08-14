@@ -2662,6 +2662,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-lucerna.title': 'Apprendistato e formazione professionale nel Cantone di Lucerna',
     'blog.article.apprendistato-lucerna.excerpt': 'Come trovare un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Lucerna.',
     'blog.article.apprendistato-lucerna.imageAlt': 'Giovani in Lucerna apprendono un mestiere in una scuola professionale.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Borse di studio cantonale di Lucerna: requisiti e importi',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Scopri i requisiti e gli importi delle borse di studio offerte dal Cantone di Lucerna.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Immagine di Lucerna, con un focus sulla vita accademica e gli studenti.',
 };
 
 export default blogMetaChIt;
