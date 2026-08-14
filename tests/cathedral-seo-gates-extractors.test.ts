@@ -287,6 +287,75 @@ describe('#5169 — the gate replays the deployed dist instead of rebuilding it'
  * (a `node -e` one-liner) so the exact 2026-08-10 numbers can be pinned
  * without needing a real dist/ build.
  */
+/**
+ * Issue #5830 — the live cathedral-seo-gates-check.yml run after the heap fix
+ * (#5820/#5553) still reported `orphan-sitemap-pages: status=error current=?
+ * baseline=?`. Root cause: evaluateGate() bailed out with a generic "Could
+ * not parse audit output as JSON" error BEFORE ever calling extractCurrent —
+ * audit-orphan-pages-in-sitemaps.mjs prints a human table (no braces/brackets)
+ * to stdout, so `tryParseJson(result.stdout)` always returns null for this
+ * gate, and the freshness-checked report-file reader added for #5169
+ * (readable via `extract({}, ...)` directly, see above) was dead code on the
+ * real evaluateGate() path. `readsOwnReport: true` on the gate spec now tells
+ * evaluateGate() to skip that early bail and call extractCurrent regardless.
+ * These tests spawn a real child process (unlike the direct `extract(...)`
+ * calls above) so they exercise the exact code path the live run takes.
+ */
+describe('#5830 — evaluateGate() must not swallow a readsOwnReport gate before extractCurrent runs', () => {
+  const fakeReportGate = (overrides = {}) => ({
+    name: 'fake-report-gate',
+    // Mimics audit-orphan-pages-in-sitemaps.mjs: a human table, no JSON, on stdout.
+    cmd: ['node', '-e', 'process.stdout.write("Mode: x\\nTOTAL   10   2   20.0%\\n");'],
+    auditCmd: 'npm run fake-report-gate',
+    rebaselineCmd: 'npm run fake-report-gate:rebaseline',
+    baselineFile: null,
+    readsOwnReport: true,
+    extractCurrent: () => 2,
+    extractBaseline: () => 0,
+    notes: 'fake gate for #5830 regression test',
+    ...overrides,
+  });
+
+  it('calls extractCurrent (readsOwnReport) even though stdout is not JSON', async () => {
+    const entry = await evaluateGate(fakeReportGate());
+    expect(entry.status).not.toBe('error');
+    expect(entry.current).toBe(2);
+  });
+
+  it('still surfaces extractCurrent\'s own error (e.g. a stale/missing report) instead of the generic parse message', async () => {
+    const entry = await evaluateGate(
+      fakeReportGate({
+        extractCurrent: () => {
+          throw new Error('data/orphan-pages-audit.json is stale');
+        },
+      }),
+    );
+    expect(entry.status).toBe('error');
+    expect(entry.error).toMatch(/stale/);
+    expect(entry.error).not.toMatch(/Could not parse audit output as JSON/);
+  });
+
+  it('a gate WITHOUT readsOwnReport still bails with the generic parse error on non-JSON stdout (no regression)', async () => {
+    const entry = await evaluateGate(
+      fakeReportGate({
+        readsOwnReport: false,
+        extractCurrent: () => {
+          throw new Error('should never be called');
+        },
+      }),
+    );
+    expect(entry.status).toBe('error');
+    expect(entry.error).toBe('Could not parse audit output as JSON.');
+  });
+
+  it('the real orphan-sitemap-pages gate spec is marked readsOwnReport', () => {
+    const gate = (GATES as Array<Record<string, unknown>>).find(
+      (g) => g.name === 'orphan-sitemap-pages',
+    )!;
+    expect(gate.readsOwnReport).toBe(true);
+  });
+});
+
 describe('#5528 — usesOwnRatchet trusts the audit exit code, not a raw count delta', () => {
   const fakeGate = (overrides) => ({
     name: 'fake-gate',
