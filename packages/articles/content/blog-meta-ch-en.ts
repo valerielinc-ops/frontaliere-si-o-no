@@ -2647,6 +2647,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Short-term permit L in the Canton of Lucerne: validity and extension',
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'The requirements for the short-term L permit in the Canton of Lucerne, its validity and how to obtain an extension.',
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'A scenic view of Lugano, Switzerland, with a focus on the city\'s financial district.',
+    'blog.article.permesso-l-breve-durata-lucerna.title': 'L Lucerne permit: duration, extension and restrictions',
+    'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Complete Guide to Short-Term L Permit in the Canton of Lucerne: Validity, Conditions of Extension and Regulatory Steps.',
+    'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Short-term L permit in Canton Lucerne',
 };
 
 export default blogMetaChEn;

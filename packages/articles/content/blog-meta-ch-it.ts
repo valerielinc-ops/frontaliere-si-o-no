@@ -2647,6 +2647,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Permesso L di breve durata nel Cantone di Lucerna: validità e proroga',
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'I requisiti per il permesso L di breve durata nel Cantone di Lucerna, la sua validità e come ottenere una proroga.',
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'Un\'immagine della città di Lugano vista dal lago, con un focus sulla zona finanziaria.',
+    'blog.article.permesso-l-breve-durata-lucerna.title': 'Permesso L Lucerna: durata, proroga e vincoli',
+    'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Guida completa al permesso L di breve durata nel Cantone di Lucerna: validità, condizioni di proroga e passaggi normativi.',
+    'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Permesso L di breve durata nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

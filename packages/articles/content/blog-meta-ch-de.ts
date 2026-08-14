@@ -2647,6 +2647,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Kurzaufenthaltsbewilligung L im Kanton Luzern: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'Die Voraussetzungen für die Kurzaufenthaltsbewilligung L im Kanton Luzern, deren Gültigkeit und wie eine Verlängerung zu erreichen ist.',
     'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'Eine aussicht auf Lugano, Schweiz, mit Schwerpunkt auf dem Finanzbezirk.',
+    'blog.article.permesso-l-breve-durata-lucerna.title': 'Erlaubt IN Luzern: Dauer, Verlängerung und Einschränkungen',
+    'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Vollständiger Leitfaden zur Kurzzeitbewilligung L im Kanton Luzern: Gültigkeit, Verlängerungsbedingungen und regulatorische Schritte.',
+    'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Kurzaufenthaltsbewilligung L im Kanton Luzern',
 };
 
 export default blogMetaChDe;
