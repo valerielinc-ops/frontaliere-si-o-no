@@ -24,9 +24,13 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
+// La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
+// due copie che divergono al primo stato nuovo, in silenzio.
+import { bulletsWithoutState, extractSection } from '../lib/pr-body-sections-check.mjs';
 
 const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
 const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
+const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
 
 /**
  * Best-effort extraction of the PR body text from a `gh pr create` shell
@@ -71,6 +75,31 @@ export function extractPrBody(command) {
   return undefined;
 }
 
+/**
+ * Stampa (senza bloccare) i bullet di `## Non implementato (ancora)` privi di
+ * stato letterale. Esportata per il test.
+ *
+ * @param {string} body corpo della PR
+ * @returns {string[]} i bullet segnalati
+ */
+export function warnAboutStatelessBullets(body) {
+  const section = extractSection(String(body ?? ''), NON_IMPL_ANCORA_RE);
+  if (section === null) return [];
+  const stateless = bulletsWithoutState(section);
+  if (stateless.length === 0) return [];
+  process.stderr.write(
+    `\n⚠️  pr-body-check-gate (advisory, NON blocca): ${stateless.length} bullet di `
+    + '`## Non implementato (ancora)` non dichiara uno stato letterale.\n'
+    + 'Ogni voce residua vuole `in questa PR` / `PR concatenata #N` / `per scelta` / '
+    + '`by construction` / `blocked: <causa>` (AGENTS.md #8, REVIEW.md).\n'
+    + 'Senza stato la voce viene riaperta come issue di follow-up da '
+    + 'scripts/ci/followup-has-candidates.mjs, anche quando è già chiusa.\n'
+    + stateless.map((b) => `  · ${b.slice(0, 140)}\n`).join('')
+    + '\n',
+  );
+  return stateless;
+}
+
 async function main() {
   let command = '';
   try {
@@ -110,6 +139,18 @@ async function main() {
 
   const hasImpl = HEADER_IMPL_RE.test(body);
   const hasNon = HEADER_NON_RE.test(body);
+
+  // ADVISORY (mai bloccante): i bullet di `## Non implementato (ancora)` che
+  // non dichiarano uno stato letterale. È l'unico momento in cui l'autore vede
+  // il difetto PRIMA che diventi una issue di follow-up spuria — a valle
+  // `scripts/ci/followup-has-candidates.mjs` riapre ogni bullet senza stato.
+  // Stampato anche quando gli header ci sono, cioè sul percorso di uscita
+  // verde: se lo stampassimo solo in caso di blocco non lo vedrebbe nessuno.
+  // Tutto dentro try/catch: un difetto di QUESTO avviso non deve mai impedire
+  // a una PR di nascere.
+  try {
+    warnAboutStatelessBullets(body);
+  } catch { /* advisory: non blocca mai */ }
 
   if (hasImpl && hasNon) {
     process.exit(0);
