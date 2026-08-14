@@ -64,24 +64,40 @@ const VALID_PDF_BASE64 = Buffer.from('%PDF-1.4 fake', 'utf8').toString('base64')
  * Firestore double covering both handlers: doc get/set/update plus the
  * `events` subcollection add. `getImpl` can be made to throw to exercise the
  * fail-OPEN path.
+ *
+ * `runTransaction` is here because sendNewsletterConfirmationEmail writes its
+ * ledger inside one since #5843: the counter is re-derived from a read taken
+ * in the transaction, so two simultaneous resend clicks increment sequentially
+ * instead of both writing the same attempt number. This double just runs the
+ * callback — the conflict/retry behaviour that fix depends on is exercised
+ * against a versioned double in tests/newsletter-confirmation-ledger-atomicity.test.ts.
+ * What matters here is only that the guard verdicts below are still reached.
  */
 function makeDb(docData: Record<string, unknown> | null, opts: { getThrows?: boolean } = {}) {
   const writes: Record<string, any>[] = [];
   const events: Record<string, any>[] = [];
+  const docRef: any = {
+    get: async () => {
+      if (opts.getThrows) throw new Error('UNAVAILABLE: simulated Firestore outage');
+      return { exists: docData !== null, data: () => docData || {} };
+    },
+    set: async (data: any) => { writes.push(data); },
+    update: async (data: any) => { writes.push(data); },
+    collection: () => ({
+      add: async (data: any) => { events.push(data); },
+      doc: () => ({ __event: true }),
+    }),
+  };
   const db = {
     writes,
     events,
-    collection: () => ({
-      doc: () => ({
-        get: async () => {
-          if (opts.getThrows) throw new Error('UNAVAILABLE: simulated Firestore outage');
-          return { exists: docData !== null, data: () => docData || {} };
-        },
-        set: async (data: any) => { writes.push(data); },
-        update: async (data: any) => { writes.push(data); },
-        collection: () => ({ add: async (data: any) => { events.push(data); } }),
+    collection: () => ({ doc: () => docRef }),
+    runTransaction: async (fn: (tx: any) => Promise<any>) =>
+      fn({
+        get: async (ref: any) => ref.get(),
+        update: (_ref: any, data: any) => { writes.push(data); },
+        set: (ref: any, data: any) => { (ref?.__event ? events : writes).push(data); },
       }),
-    }),
   };
   return db;
 }
