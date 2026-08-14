@@ -34025,6 +34025,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuova-notifiche-di-cessazione-delle-inquieste-del-sisi': {
+    title: 'Nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
+    description: 'La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d\'inchiesta svizzero sulla sicurezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, notifiche, cessazione, inquieste',
+    ogTitle: 'Nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
+    ogDescription: 'La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d\'inchiesta svizzero sulla sicurezza.',
+    canonicalPath: '/articoli-svizzera/nuova-notifiche-di-cessazione-delle-inquieste-del-sisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova notifiche di cessazione delle inquieste (aviazione) del SISI",
+      "description": "La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d'inchiesta svizzero sulla sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La pubblicazione di una nuova notifiche di cessazione delle inquieste (aviazione) del SISI"
+      },
+      "datePublished": "2026-08-14T01:30:17+00:00",
+      "dateModified": "2026-08-14T01:30:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nuova-notifiche-di-cessazione-delle-inquieste-del-sisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

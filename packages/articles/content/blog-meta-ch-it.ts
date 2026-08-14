@@ -2626,6 +2626,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Fatture ospedaliere in Svizzera: cosa prevede la legge',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'Per legge in Svizzera ogni paziente riceve una copia delle fatture emesse a suo nome, ma la comprensione resta complessa per i non addetti.',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Documenti e fatture in un ufficio svizzero',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'Nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d\'inchiesta svizzero sulla sicurezza.',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'La pubblicazione di una nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
 };
 
 export default blogMetaChIt;

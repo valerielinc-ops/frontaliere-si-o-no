@@ -2626,6 +2626,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Factures hospitalières en Suisse : ce que prévoit la loi',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'En droit suisse, chaque patient reçoit une copie des factures émises en son nom, mais la compréhension reste complexe pour les non-professionnels.',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Documents et factures dans un bureau suisse',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'Nouvelle notification de cessation des enquêtes (aviation) du SISI',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'La notification de cessation des investigations (aviation) du SISI a été publiée sur le site internet du Service d\'enquête suisse sur la sécurité.',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Publication d\'une nouvelle notification de cessation des enquêtes (aviation) du SISI',
 };
 
 export default blogMetaChFr;
