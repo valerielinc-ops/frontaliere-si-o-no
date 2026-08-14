@@ -1720,6 +1720,68 @@ export function matchedAnchors(articleText, anchors) {
  * @param {string} sourceText
  * @param {{minRecall?: number, minAnchors?: number}} [opts]
  */
+/**
+ * Group anchors by the source sentence that carries them, so one sentence is
+ * quoted ONCE with every anchor it holds instead of once per anchor.
+ *
+ * ── Why ───────────────────────────────────────────────────────────────────
+ *
+ * `anchorEvidence` hands the writer the source's own sentence for each missing
+ * anchor, which is what makes the repair mechanical rather than recalled. But a
+ * source sentence rarely carries one number: "l'aliquota ordinaria resta al 5,3%
+ * mentre quella ridotta scende all'1,1% e la soglia si ferma all'1,5%" carries
+ * three, and it used to be pasted into the prompt three times, verbatim.
+ *
+ * That is not cosmetic. Every failed attempt re-runs the gates and re-appends
+ * their `fix` text — `evidence` is capped at 200 chars, `fix` is not — and the
+ * prompt is what the model roster refuses on size: on 2026-08-14 the estimate
+ * went 8274 → 9740 tokens in a single retry, and 41 of the ~104 candidate models
+ * were skipped pre-flight because the request exceeded their input cap (the most
+ * permissive being 8000). Measured on a five-sentence source with clustered
+ * anchors: 16 quotations, 5 distinct — 1133 characters, ~283 tokens, of text the
+ * writer had already been shown.
+ *
+ * Deliberately NOT shared across the two gates. `source-key-rates-dropped` and
+ * `source-fidelity-low` fire together and their missing sets overlap by
+ * construction, so a ledger spanning both would drop a few more repeats — but it
+ * was measured at only 43 tokens on top of what grouping already saves (905 →
+ * 591 with grouping alone, → 548 with the shared ledger), and it costs the
+ * property that every issue is self-contained: the second gate would say "see
+ * the sentence quoted above", which is true only while both issues reach the
+ * model, in that order, un-truncated by `formatRemediation`'s cap. Forty-three
+ * tokens is not worth an invariant that holds by luck of ordering — and
+ * `tests/scripts/article-gates-propositive.test.ts` pins the self-containment
+ * on purpose ("hands back the source sentence carrying each dropped fact").
+ *
+ * The instruction is not weakened: every missing anchor is still named, still in
+ * the exact literal form `matchedAnchors` credits (via renderAnchorForPrompt),
+ * and still next to the source text that proves it. Only the repetition goes.
+ *
+ * @param sourceText the source body to quote from
+ * @param anchorList missing anchors, in the order they should be presented
+ * @param bullet line prefix (the two gates indent differently)
+ */
+function groupedAnchorEvidence(sourceText, anchorList, bullet = '') {
+  /** @type {Map<string, string[]>} evidence sentence → labels it carries */
+  const byEvidence = new Map();
+  const withoutEvidence = [];
+  for (const a of anchorList) {
+    const label = renderAnchorForPrompt(a);
+    const evidence = anchorEvidence(sourceText, a);
+    if (!evidence) { withoutEvidence.push(label); continue; }
+    if (!byEvidence.has(evidence)) byEvidence.set(evidence, []);
+    byEvidence.get(evidence).push(label);
+  }
+  const lines = [];
+  for (const [evidence, labels] of byEvidence) {
+    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${evidence}»`);
+  }
+  // Anchors the matcher could not locate in the source degrade to their name
+  // only, never to a wrong quote (see anchorEvidence).
+  for (const label of withoutEvidence) lines.push(`${bullet}${label}`);
+  return lines.join('\n');
+}
+
 export function checkSourceFidelity(articleText, sourceText, opts = {}) {
   const issues = [];
   const minRecall = opts.minRecall ?? 0.5;
@@ -1748,10 +1810,7 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       // asked the writer for a string that could not satisfy the gate quoting it.
       + `(${missingPct.map(renderAnchorForPrompt).join(', ')}) — senza queste il dato resta incomprensibile`,
       `percentuali fonte: ${srcPct.map(renderAnchorForPrompt).join(', ')}`,
-      `${missingPct.map((p) => {
-        const evidence = anchorEvidence(sourceText, p);
-        return evidence ? `${renderAnchorForPrompt(p)} — la fonte dice: «${evidence}»` : '';
-      }).filter(Boolean).join('\n')}\n`
+      `${groupedAnchorEvidence(sourceText, missingPct)}\n`
       + `Reintegra nel testo le percentuali ${missingPct.map(renderAnchorForPrompt).join(' e ')} spiegando a cosa si riferiscono, `
       + `come fa la fonte. Scrivile ESATTAMENTE nella forma indicata qui sopra: il controllo è letterale e vuole la `
       + `virgola decimale, quindi "5,3%" conta e "5.3%" no — anche se la fonte usa il punto. `
@@ -1791,11 +1850,7 @@ export function checkSourceFidelity(articleText, sourceText, opts = {}) {
       + `Per ognuno hai qui sotto la frase della fonte da cui ricavarlo — riusala, non ricostruirla a memoria. `
       + `Scrivi ogni dato nella forma ESATTA indicata qui sotto: il controllo è letterale, `
       + `quindi "5,3%" conta e "5.3%" no, "1 gennaio 2024" conta e "2024-01-01" no.\n`
-      + `${missing.slice(0, 10).map((a) => {
-        const label = renderAnchorForPrompt(a);
-        const evidence = anchorEvidence(sourceText, a);
-        return evidence ? `  • ${label} — la fonte dice: «${evidence}»` : `  • ${label}`;
-      }).join('\n')}\n`
+      + `${groupedAnchorEvidence(sourceText, missing.slice(0, 10), '  • ')}\n`
       + `Ogni dato della fonte è verificato: riportarlo è sempre corretto. Se un fatto ti sembra dubbio, `
       + `attribuiscilo alla fonte invece di ometterlo. Non sostituire i dati della fonte con formulazioni generiche.`,
     ));
