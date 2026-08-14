@@ -8,13 +8,13 @@
     "maxDeltaPp": 3
   },
   "scanned": 2220043,
-  "totalOffenders": 15,
-  "totalRatePct": 0.0007,
+  "totalOffenders": 0,
+  "totalRatePct": 0,
   "byFeature": {
     "spa-other": {
       "scanned": 1567,
-      "offenders": 1,
-      "ratePct": 0.0638
+      "offenders": 0,
+      "ratePct": 0
     },
     "blog": {
       "scanned": 13769,
@@ -38,8 +38,8 @@
     },
     "spa-locale": {
       "scanned": 4276,
-      "offenders": 12,
-      "ratePct": 0.2806
+      "offenders": 0,
+      "ratePct": 0
     },
     "eventi": {
       "scanned": 5892,
@@ -48,8 +48,8 @@
     },
     "profession-canton": {
       "scanned": 1132,
-      "offenders": 2,
-      "ratePct": 0.1767
+      "offenders": 0,
+      "ratePct": 0
     },
     "profession-city": {
       "scanned": 210,
@@ -93,10 +93,11 @@
     }
   },
   "byLocale": {
-    "it": 1,
-    "de": 7,
-    "fr": 2,
-    "en": 5
+    "it": 0,
+    "de": 0,
+    "fr": 0,
+    "en": 0
   },
-  "_comment": "Rate-based baseline for audit-h1-title-duplicates (title === h1). Tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance)."
+  "_comment": "Rate-based baseline for audit-h1-title-duplicates (title === h1). Tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance).",
+  "_provenance": "Numeratori aggiornati a mano il 2026-08-14 (#5312 §3). NON sono un campione: l'ultimo seed FULL-CORPUS (run 31197413400, 2026-08-07) misura 31 offender — spa-locale 24, spa-other 5, profession-canton 2 — e le due correzioni ALLA FONTE che li chiudono sono entrambe coperte da un test sull'INTERO spazio delle combinazioni, non su un campione: PR #5337 (quattro famiglie di confine + landing BFS, 29 duplicati, tests/bfs-salary-border-hub-h1-title-differentiation.test.ts) e questa PR (profession-canton + il gemello latente profession-city, tests/profession-landings-h1-title-differentiation.test.ts). Conferma indipendente: 18 run consecutivi di validate-dist-postbuild dal 2026-08-09 al 2026-08-13, tutti passed=true, 16 con offendersTotal=0 e 2 con =2 al 25% di campionamento con salt rotante — cioe' ~1-2 offender full-corpus, non 15 e non 31. I DENOMINATORI `scanned` restano quelli del 2026-07-22 di proposito: prenderli dal seed 08-07 senza prenderne anche i numeratori mescolerebbe due misure diverse nello stesso file. Restano quindi conservativi (piu' alti del reale), il che ALLARGA le soglie, non le stringe. La rigenerazione canonica e' seed-title-baselines.yml su un dist reidratato; questa modifica muove solo i numeratori verso il basso, che e' l'unica direzione che un ratchet accetta senza una misura nuova."
 }
