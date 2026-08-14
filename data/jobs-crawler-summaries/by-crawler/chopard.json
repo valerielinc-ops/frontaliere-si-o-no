@@ -1,18 +1,19 @@
 {
   "key": "chopard",
   "label": "Chopard",
-  "generatedAt": "2026-08-14T10:22:46.800Z",
+  "generatedAt": "2026-08-14T21:33:52.761Z",
   "total": 7,
-  "newCount": 2,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4670,
-  "avgDurationMs": 4670,
+  "durationMs": 4143,
+  "avgDurationMs": 4143,
   "durationHistory": [
-    4670
+    4143
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "chopard-51dd98312b73",
       "slug": "financial-controlling-intern-chopard-meyrin",
@@ -25,7 +26,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:22:43.269Z",
+      "crawledAt": "2026-08-14T21:33:49.972Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -42,11 +43,12 @@
       "postedDate": "2026-08-14",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
       "jobReqId": "2351",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-14T10:22:43.269Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:22:43.317Z",
+      "crawledAt": "2026-08-14T21:33:50.020Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -79,16 +81,15 @@
       "postedDate": "2026-08-13",
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "jobReqId": "2570",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-14T10:22:43.317Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "chopard-d9aab7dd07ce",
       "slug": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
@@ -101,7 +102,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2594?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:22:43.335Z",
+      "crawledAt": "2026-08-14T21:33:50.037Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -140,7 +141,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:22:43.338Z",
+      "crawledAt": "2026-08-14T21:33:50.040Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -178,7 +179,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:22:43.341Z",
+      "crawledAt": "2026-08-14T21:33:50.042Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -216,7 +217,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:22:43.344Z",
+      "crawledAt": "2026-08-14T21:33:50.045Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -254,7 +255,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2529?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:22:43.346Z",
+      "crawledAt": "2026-08-14T21:33:50.046Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
