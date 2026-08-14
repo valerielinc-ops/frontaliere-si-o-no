@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 export type JobBoardFilterAlertCtaStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -46,6 +47,8 @@ export interface JobBoardFilterAlertCtaProps {
   onImpression?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertOneTap;
+  /** Optional override for the consent-proof upgrade (used by tests). */
+  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
 
 export default function JobBoardFilterAlertCta({
@@ -58,6 +61,7 @@ export default function JobBoardFilterAlertCta({
   onErrored,
   onImpression,
   subscribe = subscribeJobAlertOneTap,
+  upgradeConsent = upgradeBackfilledAlertConsent,
 }: JobBoardFilterAlertCtaProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobBoardFilterAlertCtaStatus>('idle');
@@ -70,12 +74,18 @@ export default function JobBoardFilterAlertCta({
       // not one specific job listing (same as JobMatchAlertCta.tsx).
       await subscribe(userId, email, keywordLabel, locale, undefined, cantonCode ?? null);
       setStatus('success');
+      // #5876 — the person pressed a button that activates an alert, with the
+      // notice above on screen. If their alert came from the travaso, that act
+      // is what turns a deduced consent into an explicit one. Deliberately not
+      // awaited into this CTA's error path: a proof that fails to land must
+      // never present a successful subscription as a failure.
+      void upgradeConsent(email, locale).catch(() => {});
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [cantonCode, email, keywordLabel, locale, onErrored, onSubscribed, subscribe, userId]);
+  }, [cantonCode, email, keywordLabel, locale, onErrored, onSubscribed, subscribe, upgradeConsent, userId]);
 
   // Impression = genuinely on screen, never merely mounted (issue #5039).
   const impressionRef = useImpressionTracker(() => { if (onImpression) onImpression(); });
@@ -105,6 +115,11 @@ export default function JobBoardFilterAlertCta({
         )}
         {t('jobAlert.boardFilterCta.cta', 'Avvisami per questa ricerca')}
       </button>
+      <ConsentNotice
+        consentKey="communicationsOptIn"
+        locale={locale}
+        className="mt-2 text-[11px] text-muted leading-relaxed block"
+      />
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">
           {t('jobAlert.boardFilterCta.error', "Non sono riuscito a creare l'alert. Riprova.")}
