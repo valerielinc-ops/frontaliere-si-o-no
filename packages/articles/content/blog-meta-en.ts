@@ -9943,6 +9943,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Pedestrian cycle Piambello: towards completion',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Last works in progress between Porto Ceresio and Bisuschio for the pedestrian cycle of Piambello. Chairman Sartorio plans to close the construction site by next spring.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Piambello cycling and walking path immersed in nature, ready for inauguration.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Serious accident in the mountain range: 27-year-old falls in Vallemaggia',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'A 27-year-old Italian crashed for about ten meters in a rugged area on the Robiei Alps, in Vallemaggia (Ticino). His condition is serious and his life is in danger.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Rescue workers in a helicopter during a mountain rescue operation in Vallemaggia, Ticino.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Award-winning magazine for innovative packaging',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum is among the top 60 mini-companies in Italy at the national final in Rome on 4-5 June 2026. European recognition \'The Entrepreneurial School\' received in Riga for collaboration with universities and companies.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Students from Keynes Institute of Gazzada presenting mushroom-based packaging during school project',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: the Rio dei Gioghi trail will reopen after the summer',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Finished recovery works on the Rio dei Gioghi trail in Ligurno, part of the Sentiero Italia CAI and the PLIs Valle della Bevera, financed by Interreg Italia-Svizzera SINTAB.',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Restored Rio dei Gioghi trail in Ligurno with wooden palisades and stone drainage channel',
+    'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: 7,000 pine cones for San Tito feast',
+    'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Over 150 decorations made by users of the CD of Iris Gallarate will color via Genoa for the ten-year celebration of San Tito in Casorate Sempione',
+    'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Young people from Iris Gallarate CDD painting pine cones for via Genova decorations in Casorate Sempione',
 };
 
 export default blogMetaEn;

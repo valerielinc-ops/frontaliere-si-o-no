@@ -30,11 +30,15 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { join, relative, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  SCAN_TEST_TIMEOUT_MS,
+  assertScanCompleted,
+  scanDistHtml,
+} from '../helpers/distHtmlScan';
 
-const REPO_ROOT = resolve(__dirname, '..', '..');
-const DIST_ROOT = join(REPO_ROOT, 'dist');
+const DIST_ROOT = resolve(__dirname, '..', '..', 'dist');
 
 const ALLOWED_MISSING: ReadonlySet<string> = new Set([
   '/404.html',
@@ -58,78 +62,51 @@ const NOINDEX_RE =
 // canonical target already carries the breadcrumb.
 const BRIDGE_PAGE_RE = /Questa URL\s+(?:legacy|azienda|alias|di ricerca|dell[’'\\s]annuncio)/i;
 
-function walkHtml(dir: string): string[] {
-  if (!existsSync(dir)) return [];
-  const out: string[] = [];
-  const stack: string[] = [dir];
-  while (stack.length) {
-    const cur = stack.pop() as string;
-    let entries: import('node:fs').Dirent[];
-    try {
-      // withFileTypes → one readdir syscall per dir instead of readdir + a
-      // statSync per entry. validate-dist rehydrates the locale shards into
-      // dist (~2M files); the old per-entry statSync doubled the syscall count
-      // on the whole tree and was the heaviest unbounded full-dist walk in
-      // gate:seo-source. This test must read EVERY indexable page (it asserts
-      // breadcrumb coverage across all of dist), so it cannot be sampled like
-      // cathedral-hreflang-x-default — the win here is a leaner walk, not a
-      // smaller sample. Coverage is byte-for-byte unchanged.
-      entries = readdirSync(cur, { withFileTypes: true });
-    } catch {
-      continue;
-    }
-    for (const ent of entries) {
-      const full = join(cur, ent.name);
-      if (ent.isDirectory()) {
-        if (ent.name === 'assets' || ent.name === 'node_modules') continue;
-        stack.push(full);
-      } else if (ent.isFile() && full.endsWith('.html')) {
-        out.push(full);
-      }
-    }
-  }
-  return out;
-}
-
-function fileToUrlPath(filePath: string, distRoot: string): string {
-  const rel = '/' + relative(distRoot, filePath).split('\\').join('/');
-  if (rel === '/index.html') return '/index.html';
-  if (rel.endsWith('/index.html')) return rel.slice(0, -'index.html'.length);
-  return rel;
+function fileToUrlPath(relPath: string): string {
+  if (relPath === '/index.html') return '/index.html';
+  if (relPath.endsWith('/index.html')) return relPath.slice(0, -'index.html'.length);
+  return relPath;
 }
 
 describe('SEO: breadcrumb coverage (D.2)', () => {
-  const files = walkHtml(DIST_ROOT);
-
-  if (files.length === 0) {
+  if (!existsSync(DIST_ROOT)) {
     it.skip('no dist/ — run `vite build` first to exercise coverage', () => {
       /* intentional skip */
     });
     return;
   }
 
-  const missing: Array<{ url: string; file: string }> = [];
+  // Scans EVERY indexable page (breadcrumb coverage cannot be sampled like
+  // cathedral-hreflang-x-default), so this must use the shared streaming
+  // scan — a materialised string[] of dist/'s ~3.8M HTML files run inside
+  // describe() itself (not an it()) is the exact OOM/stall pattern #5729
+  // fixed for the four gate:dist-quality tests; this file scans on every
+  // gate:seo-source run and was missed by that migration.
+  it('every non-exempt dist/ HTML page includes a BreadcrumbList JSON-LD block', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    const missing: Array<{ url: string; file: string }> = [];
 
-  for (const f of files) {
-    const url = fileToUrlPath(f, DIST_ROOT);
-    if (ALLOWED_MISSING.has(url)) continue;
-    // Zero-byte files are corrupted artifacts (e.g. from an OOM crash mid-build),
-    // not real indexable pages — skip them rather than counting as coverage gaps.
-    let st;
-    try { st = statSync(f); } catch { continue; }
-    if (st.size === 0) continue;
-    const html = readFileSync(f, 'utf-8');
-    // Noindex pages never surface BreadcrumbList in SERPs — skip by design.
-    if (NOINDEX_RE.test(html)) continue;
-    // Canonical bridge pages consolidate signals into their canonical target
-    // and are therefore exempt from the breadcrumb coverage requirement.
-    if (BRIDGE_PAGE_RE.test(html)) continue;
-    if (!BREADCRUMB_JSONLD_RE.test(html)) {
-      missing.push({ url, file: relative(REPO_ROOT, f) });
-    }
-  }
+    const scan = scanDistHtml(DIST_ROOT, (relPath, html) => {
+      const url = fileToUrlPath(relPath);
+      if (ALLOWED_MISSING.has(url)) return;
+      // Zero-byte files are corrupted artifacts (e.g. from an OOM crash
+      // mid-build), not real indexable pages — skip rather than count as a
+      // coverage gap.
+      if (html.length === 0) return;
+      // Noindex pages never surface BreadcrumbList in SERPs — skip by design.
+      if (NOINDEX_RE.test(html)) return;
+      // Canonical bridge pages consolidate signals into their canonical target
+      // and are therefore exempt from the breadcrumb coverage requirement.
+      if (BRIDGE_PAGE_RE.test(html)) return;
+      if (!BREADCRUMB_JSONLD_RE.test(html)) {
+        missing.push({ url, file: `dist${relPath}` });
+      }
+    });
+    assertScanCompleted(
+      scan,
+      'breadcrumb coverage',
+      missing.map((m) => `${m.url}  (${m.file})`),
+    );
 
-  it('every non-exempt dist/ HTML page includes a BreadcrumbList JSON-LD block', () => {
     if (missing.length > 0) {
       const sample = missing.slice(0, 20).map((m) => `  - ${m.url}  (${m.file})`).join('\n');
       const tail = missing.length > 20 ? `\n  …and ${missing.length - 20} more` : '';

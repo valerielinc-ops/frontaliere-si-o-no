@@ -2659,6 +2659,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Garderie et garde d\'enfants Canton de Lucerne : coûts',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'Les frais de crèche et de garde d\'enfants dans le canton de Lucerne sont soumis à plusieurs facteurs.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Une famille avec enfants dans un scénario de vie quotidienne en Suisse, avec un focus sur la région du canton de Lucerne.',
+    'blog.article.apprendistato-lucerna.title': 'Apprentissage et formation professionnelle dans le canton de Lucerne',
+    'blog.article.apprendistato-lucerna.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, une rémunération d\'apprenti et une maturité professionnelle dans le canton de Lucerne.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Jeunes gens à Lucerne apprennent un métier dans une école professionnelle.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Bourses cantonales de Lucerne : exigences et montants',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Découvrez les exigences et les montants des bourses offertes par le canton de Lucerne.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Image de Lucerne, avec un focus sur la vie universitaire et les étudiants.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'Un laser qui voit, écoute et se corrige tout seul',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'Un système développé par Empa, SUPSI et Bystronic qui utilise des caméras et des microphones pour évaluer la qualité de la coupe des métaux et adapter les paramètres de manière autonome.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'Un système laser suisse utilisant des caméras et des microphones pour évaluer la qualité du découpage des métaux et adapter automatiquement les paramètres.',
 };
 
 export default blogMetaChFr;

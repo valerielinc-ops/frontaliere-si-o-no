@@ -152,6 +152,25 @@ import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
 import { assertNoSlugPromptLeak, stripSlugPromptLeak, findSlugPromptLeak } from './lib/slug-prompt-leak-guard.mjs';
 import { fixMicrocopy } from './lib/it-microcopy-guard.mjs';
 import { cleanFaqPairs, sanitizePromptPlaceholders } from './lib/prompt-placeholder-guard.mjs';
+// Il protocollo di riferimento del prompt di selezione headline (issue #188).
+// Le due liste del prompt — candidate e articoli gia' pubblicati — avevano la
+// STESSA sintassi `[n]`, quindi un riferimento del modello era leggibile in due
+// modi e il clamp lo risolveva in silenzio verso la posizione 0. Qui le due
+// liste hanno sintassi disgiunte e il parsing RIFIUTA un riferimento ambiguo
+// invece di indovinarlo. Vedi l'intestazione del modulo.
+import {
+  formatCandidateList,
+  formatPublishedDigest,
+  parseHeadlineSelection,
+  selectionCorrectionNote,
+  SELECTION_REJECTION,
+} from './lib/headline-selection-protocol.mjs';
+// Dedup della FONTE fra sezione frontaliere e sezione nazionale (issue #251).
+// Il ledger URL→id esiste da sempre ma era letto per sezione, quindi lo stesso
+// documento di fonte poteva generare un articolo in entrambe. Vedi
+// l'intestazione del modulo per la differenza fra duplicare il CONTENUTO
+// (bloccato) e coprire lo stesso TEMA con due tagli (ammesso).
+import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1184,6 +1203,13 @@ const RUN_REPORT = {
     attemptsTotal: 0,
     attemptsRecent: 0,
     attemptsUndated: 0,
+    // Risposte del modello RIGETTATE dal protocollo di selezione (issue #188).
+    // Prima erano invisibili: un indice fuori range veniva clampato a 0 e il run
+    // proseguiva come se la scelta fosse valida, con una sola riga di log in
+    // mezzo a migliaia. Contarle e' cio' che rende osservabile un prompt che
+    // smette di funzionare — p.es. dopo un cambio di modello.
+    responsesRejected: 0,
+    rejectionReasons: {},
   },
   duplicateReasonBreakdown: {},
   // Pre-generation pool-exhaustion diagnostics (2026-07-21): the Fase 1 news
@@ -1193,6 +1219,12 @@ const RUN_REPORT = {
   // summary instead of requiring a raw-log grep after the fact.
   preFilterDrops: {
     urlAlreadyUsed: 0,
+    // Sottoinsieme del precedente: la fonte aveva gia' prodotto un articolo
+    // NELL'ALTRA sezione (issue #251). Contato a parte perche' e' il numeratore
+    // che dice quanto spesso il caso capita davvero — prima del gate non era
+    // osservabile in nessun modo, si vedeva solo a valle come due articoli
+    // pubblicati sullo stesso materiale.
+    urlUsedOtherSection: 0,
     topicAlreadyCovered: 0,
   },
   discardedHeadlineSamples: [],
@@ -1852,15 +1884,24 @@ if (!IS_FRONTALIERE) {
 // revenue). Svizzera branch reframes the selection criteria around NATIONAL
 // Swiss relevance (federal/cantonal policy, economy, fisco, lavoro, vita, casa)
 // for a general Swiss-resident audience — NOT a frontaliere/Ticino angle.
+//
+// LE DUE LISTE HANNO SINTASSI DISGIUNTE (issue #188). Le candidate portano una
+// CHIAVE NOMINATA `H<n>` con separatore `»`; gli articoli gia' pubblicati non
+// portano piu' ne' id ne' parentesi quadre — solo `• <titolo> — <excerpt>`.
+// Prima erano marcati entrambi con `[…]`: le candidate per posizione, il corpus
+// per id, e il modello poteva rispondere con un numero nudo indistinguibile fra
+// le due liste. Le due liste NON devono tornare a condividere un marcatore: le
+// costruisce headline-selection-protocol.mjs e le asserisce
+// tests/headline-selection-protocol.test.ts.
 function HEADLINE_SELECTION_PROMPT(headlineList, recentArticles) {
   return IS_FRONTALIERE
     ? `Sei un editor del sito Frontaliere Ticino (frontaliereticino.ch).
 Devi scegliere UN articolo da queste headline di notizie ticinesi per scrivere un pezzo per i frontalieri.
 
-HEADLINE DISPONIBILI:
+HEADLINE DISPONIBILI — ognuna ha una CHIAVE «H<n>» prima del simbolo «»». La chiave è l'UNICA cosa che puoi selezionare:
 ${headlineList}
 
-ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti):
+ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti). Questo elenco NON ha chiavi e NON è selezionabile: serve solo a dirti di cosa si è già parlato.
 ${recentArticles}
 
 CRITERI DI SELEZIONE (in ordine di priorità):
@@ -1878,18 +1919,18 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 
 ${JSON_QUOTE_SAFETY_RULE_IT}
 
-Rispondi con un JSON object (no markdown, no code fences):
+Rispondi con un JSON object (no markdown, no code fences). Usa la CHIAVE della headline scelta, mai un numero nudo e mai il titolo di un articolo già pubblicato:
 {
-  "selectedIndex": <numero dell'headline scelta>,
+  "selectedId": "<chiave della headline scelta, esattamente nella forma H1, H2, …>",
   "reason": "<perché questa notizia è rilevante per i frontalieri, max 2 frasi>"
 }`
     : `Sei un editor di un sito di informazione svizzera a livello NAZIONALE (frontaliereticino.ch, sezione Svizzera).
 Devi scegliere UN articolo da queste headline di notizie per scrivere un pezzo di interesse nazionale per chi vive o lavora in Svizzera.
 
-HEADLINE DISPONIBILI:
+HEADLINE DISPONIBILI — ognuna ha una CHIAVE «H<n>» prima del simbolo «»». La chiave è l'UNICA cosa che puoi selezionare:
 ${headlineList}
 
-ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti):
+ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti). Questo elenco NON ha chiavi e NON è selezionabile: serve solo a dirti di cosa si è già parlato.
 ${recentArticles}
 
 CRITERI DI SELEZIONE (in ordine di priorità):
@@ -1909,9 +1950,9 @@ CRITERI DI SELEZIONE (in ordine di priorità):
 
 ${JSON_QUOTE_SAFETY_RULE_IT}
 
-Rispondi con un JSON object (no markdown, no code fences):
+Rispondi con un JSON object (no markdown, no code fences). Usa la CHIAVE della headline scelta, mai un numero nudo e mai il titolo di un articolo già pubblicato:
 {
-  "selectedIndex": <numero dell'headline scelta>,
+  "selectedId": "<chiave della headline scelta, esattamente nella forma H1, H2, …>",
   "reason": "<perché questa notizia è di interesse nazionale per chi vive o lavora in Svizzera, max 2 frasi>"
 }`;
 }
@@ -2039,6 +2080,27 @@ function loadSourceUrls() {
   }
 }
 
+/**
+ * I ledger URL→id di TUTTE le sezioni, non solo di quella attiva (issue #251).
+ *
+ * `loadSourceUrls()` sopra apre `SECTION.sourceUrlsFile`, cioe' un file solo:
+ * e' corretto per quota e registrazione, ed e' esattamente cio' che rendeva il
+ * dedup della fonte cieco sull'altra sezione. Letti freschi a ogni chiamata e
+ * tolleranti al file assente, come i lettori di registro qui accanto.
+ */
+function loadAllSectionSourceUrls() {
+  const bySection = {};
+  for (const [name, cfg] of Object.entries(ARTICLE_SECTION_CONFIGS)) {
+    let map = {};
+    try {
+      const parsed = JSON.parse(read(cfg.sourceUrlsFile));
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) map = parsed;
+    } catch { /* ledger assente, vuoto o non ancora scritto */ }
+    bySection[name] = map;
+  }
+  return bySection;
+}
+
 function saveSourceUrls(map) {
   try {
     // Keep only last 500 entries to avoid unbounded growth
@@ -2135,14 +2197,23 @@ function extractUrlSlugWords(rawUrl) {
   }
 }
 
-/** Check if a headline URL was already used for an existing article */
+/**
+ * Check if a headline URL was already used for an existing article.
+ *
+ * Il ramo esatto guarda i ledger di TUTTE le sezioni (issue #251): lo stesso
+ * documento di fonte poteva generare due articoli pubblicati come contenuti
+ * distinti, uno per sezione. La chiave e' l'URL normalizzato, cioe' l'identita'
+ * della FONTE: gli slug dei due articoli sono diversi per costruzione e
+ * confrontarli non avrebbe trovato niente. Il blocco e' quindi sul contenuto
+ * duplicato, non sulla copertura dello stesso tema — due pezzi sulla stessa
+ * vicenda da due URL diversi restano ammessi in entrambe le sezioni. Vedi
+ * lib/cross-section-dedup.mjs.
+ */
 function isSourceUrlAlreadyUsed(headlineUrl) {
-  const sourceUrls = loadSourceUrls();
   const normalized = normalizeNewsUrl(headlineUrl);
-  // Exact match
-  if (sourceUrls[normalized]) {
-    return { used: true, articleId: sourceUrls[normalized], signal: 'exact_url' };
-  }
+  // Exact match — sezione attiva per prima, poi le sorelle.
+  const exact = findCrossSectionSourceDuplicate(normalized, loadAllSectionSourceUrls(), SECTION_NAME);
+  if (exact.used) return exact;
   // Fuzzy URL slug vs existing article ID match
   const urlWords = extractUrlSlugWords(headlineUrl);
   if (urlWords.length < 2) return { used: false };
@@ -4716,6 +4787,49 @@ function prioritizeFrontalieriHeadlines(headlines) {
   return headlines;
 }
 
+// ── Il rigetto che ha preso il posto del clamp (issue #188) ──────
+//
+// Un riferimento fuori range (o ambiguo) NON e' una scelta da salvare: e' una
+// risposta da rigettare. Il clamp a 0 pubblicava una headline diversa da quella
+// motivata — la `reason` finita nel run report descriveva un altro articolo.
+// Qui si ritenta con un promemoria esplicito, e se il modello non si corregge
+// la selezione fallisce in modo pulito.
+//
+// Il costo e' limitato: al primo tentativo valido si esce, quindi il caso
+// normale resta UNA chiamata. Il tetto e' piu' basso per i batch (2) che per la
+// selezione finale (3) perche' un batch rigettato si puo' semplicemente
+// saltare — restano gli altri batch — mentre la finale non ha ripieghi.
+const HEADLINE_SELECTION_MAX_ATTEMPTS_BATCH = 2;
+const HEADLINE_SELECTION_MAX_ATTEMPTS_FINAL = 3;
+
+async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAttempts) {
+  let last = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const prompt = attempt === 1
+      ? basePrompt
+      : `${basePrompt}\n\n${selectionCorrectionNote(last?.rejection, candidateCount)}`;
+    const rawText = await callLLM(
+      [{ role: 'user', content: prompt }],
+      { model: GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 512, jsonMode: true },
+    );
+    const parsed = parseHeadlineSelection(rawText, candidateCount);
+    if (parsed.ok) return { ...parsed, attempts: attempt };
+    last = parsed;
+    console.error(
+      `  ⚠️  ${label}: risposta RIGETTATA (${parsed.rejection}: ${parsed.detail}) — tentativo ${attempt}/${maxAttempts}`,
+    );
+    RUN_REPORT.selectionUsage.responsesRejected += 1;
+    RUN_REPORT.selectionUsage.rejectionReasons[parsed.rejection] =
+      (RUN_REPORT.selectionUsage.rejectionReasons[parsed.rejection] || 0) + 1;
+  }
+  return {
+    ok: false,
+    rejection: last?.rejection ?? SELECTION_REJECTION.UNPARSEABLE,
+    detail: last?.detail ?? '',
+    attempts: maxAttempts,
+  };
+}
+
 // ── Step 1d: Use Gemini to select the best article ──────────
 async function selectArticle(headlines) {
   // Get existing article info for duplicate detection (all sections — shared id/SEO/i18n namespace)
@@ -4728,11 +4842,17 @@ async function selectArticle(headlines) {
   titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
   const existingTitles = titleMatches.map(m => m[2]);
-  // Build compact "title — excerpt" list for last 30 articles (most relevant for duplicate avoidance)
-  const recentArticles = titleMatches.slice(-30).map(m => {
-    const exMatch = excerptMatches.find(e => e[1] === m[1]);
-    return `• [${m[1]}] ${m[2]}${exMatch ? ' — ' + exMatch[2].slice(0, 100) : ''}`;
-  }).join('\n');
+  // Build compact "title — excerpt" list for last 30 articles (most relevant for
+  // duplicate avoidance). SENZA l'id (issue #188): il primo campo era `[${m[1]}]`,
+  // cioe' l'id dell'articolo fra le stesse parentesi quadre che marcavano la
+  // POSIZIONE nella lista delle candidate. Al modello l'id non serve — non puo'
+  // sceglierlo — e la sua sola presenza rendeva un riferimento leggibile in due modi.
+  const recentArticles = formatPublishedDigest(
+    titleMatches.slice(-30).map((m) => ({
+      title: m[2],
+      excerpt: excerptMatches.find((e) => e[1] === m[1])?.[2] ?? '',
+    })),
+  );
 
   // Chunking: if too many headlines, split into batches to avoid token overflow
   const MAX_HEADLINES_PER_BATCH = 50;
@@ -4746,85 +4866,61 @@ async function selectArticle(headlines) {
     }
     // Run LLM selection for each batch
     for (const [batchIdx, batch] of batches.entries()) {
-      const headlineList = batch.map((h, i) => {
-        const tag = h._frontalieriBoosted ? ' ⭐FRONTALIERI' : '';
-        const recencyTag = h._undatedFallback ? ' ⏳UNDATED' : '';
-        return `[${i}] (${h.source}${tag}${recencyTag}) ${h.headline}`;
-      }).join('\n');
+      const headlineList = formatCandidateList(batch);
       const prompt = HEADLINE_SELECTION_PROMPT(headlineList, recentArticles);
       console.error(`🤖 Selezione batch ${batchIdx + 1}/${batches.length} (${batch.length} headline)...`);
-      const rawText = await callLLM(
-        [{ role: 'user', content: prompt }],
-        { model: GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 512, jsonMode: true },
+      const picked = await requestHeadlineSelection(
+        prompt,
+        batch.length,
+        `Batch ${batchIdx + 1}`,
+        HEADLINE_SELECTION_MAX_ATTEMPTS_BATCH,
       );
-      const cleaned = rawText.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
-      let selection;
-      try {
-        selection = JSON.parse(cleaned);
-      } catch {
-        const idxMatch = cleaned.match(/"selectedIndex"\s*:\s*(\d+)/);
-        const reasonMatch = cleaned.match(/"reason"\s*:\s*"([^"]*)/);
-        if (idxMatch) {
-          console.error(`  ⚠️  JSON troncato — recovery da selectedIndex=${idxMatch[1]}`);
-          selection = {
-            selectedIndex: parseInt(idxMatch[1], 10),
-            reason: reasonMatch ? reasonMatch[1] : '(reason troncata)',
-          };
-        } else {
-          console.error(`  ⚠️  Batch ${batchIdx + 1}: impossibile parsare selezione, skip`);
-          console.error(`     Risposta: ${cleaned.slice(0, 200)}`);
-          continue;
-        }
+      if (!picked.ok) {
+        // Niente clamp: un batch senza una scelta valida si SALTA. Prendere la
+        // posizione 0 significherebbe far entrare in finale una headline che
+        // nessuno ha scelto, con la `reason` di un'altra.
+        console.error(`  ⏭️  Batch ${batchIdx + 1} scartato (${picked.rejection}) — nessuna scelta valida dopo ${picked.attempts} tentativi`);
+        continue;
       }
-      let idx = selection.selectedIndex;
-      if (typeof idx !== 'number' || idx < 0 || idx >= batch.length) {
-        console.error(`  ⚠️  Batch ${batchIdx + 1}: indice ${idx} fuori range (0-${batch.length - 1}), clamp a 0`);
-        idx = 0;
-      }
-      batchWinners.push({ ...batch[idx], _batchReason: selection.reason });
+      batchWinners.push({ ...batch[picked.index], _batchReason: picked.reason });
     }
     // Now select from batch winners
     trimmed = batchWinners;
     console.error(`🔄 Batch selection completata: ${batchWinners.length} finalisti`);
   }
   // Single-batch or batch-winner selection
-  const headlineList = trimmed.map((h, i) => {
-    const tag = h._frontalieriBoosted ? ' ⭐FRONTALIERI' : '';
-    const recencyTag = h._undatedFallback ? ' ⏳UNDATED' : '';
-    return `[${i}] (${h.source}${tag}${recencyTag}) ${h.headline}`;
-  }).join('\n');
+  if (trimmed.length === 0) {
+    const err = new Error('❌ SELEZIONE FALLITA: nessuna headline candidata da sottoporre al modello.');
+    err.qualityReject = true;
+    err.selectionRejected = true;
+    throw err;
+  }
+  const headlineList = formatCandidateList(trimmed);
   const prompt = HEADLINE_SELECTION_PROMPT(headlineList, recentArticles);
   console.error(`🤖 Selezione articolo finale tra ${trimmed.length} headline...`);
-  const rawText = await callLLM(
-    [{ role: 'user', content: prompt }],
-    { model: GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 512, jsonMode: true },
+  const picked = await requestHeadlineSelection(
+    prompt,
+    trimmed.length,
+    'Selezione finale',
+    HEADLINE_SELECTION_MAX_ATTEMPTS_FINAL,
   );
-  console.error(`  ✅ Selezione completata`);
-  const cleaned = rawText.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
-  let selection;
-  try {
-    selection = JSON.parse(cleaned);
-  } catch {
-    const idxMatch = cleaned.match(/"selectedIndex"\s*:\s*(\d+)/);
-    const reasonMatch = cleaned.match(/"reason"\s*:\s*"([^"]*)/);
-    if (idxMatch) {
-      console.error(`  ⚠️  JSON troncato — recovery da selectedIndex=${idxMatch[1]}`);
-      selection = {
-        selectedIndex: parseInt(idxMatch[1], 10),
-        reason: reasonMatch ? reasonMatch[1] : '(reason troncata)',
-      };
-    } else {
-      // Last resort: pick first headline
-      console.error(`  ⚠️  Impossibile parsare selezione finale, fallback a indice 0`);
-      console.error(`     Risposta: ${cleaned.slice(0, 200)}`);
-      selection = { selectedIndex: 0, reason: '(selezione automatica — parse fallito)' };
-    }
+  if (!picked.ok) {
+    // Qui stava «fallback a indice 0». Ripiegare sulla prima headline pubblica
+    // un articolo che nessuno ha scelto, con la `reason` di un altro: e' il
+    // difetto di #188, non un ripiego. Errore marcato `qualityReject` perche'
+    // il loop chiamante lo tratti come «nessun articolo accettabile con questa
+    // headline» e passi al prossimo candidato/pool, senza far fallire il run.
+    const err = new Error(
+      `❌ SELEZIONE RIGETTATA dopo ${picked.attempts} tentativi (${picked.rejection}: ${picked.detail}). `
+      + 'Nessun fallback: pubblicare una headline non scelta significa pubblicare una motivazione che descrive un altro articolo.',
+    );
+    err.qualityReject = true;
+    err.selectionRejected = true;
+    throw err;
   }
-  let idx = selection.selectedIndex;
-  if (typeof idx !== 'number' || idx < 0 || idx >= trimmed.length) {
-    console.error(`  ⚠️  Indice ${idx} fuori range (0-${trimmed.length - 1}), clamp a 0`);
-    idx = 0;
-  }
+  console.error(`  ✅ Selezione completata (${picked.key}, ${picked.attempts} tentativ${picked.attempts === 1 ? 'o' : 'i'})`);
+  const selection = { reason: picked.reason };
+  const idx = picked.index;
   const chosen = trimmed[idx];
   const tokenize = (s) => (s || '')
     .toLowerCase()
@@ -9286,12 +9382,17 @@ async function main() {
       headlines = headlines.filter(h => {
         const check = isSourceUrlAlreadyUsed(h.url);
         if (check.used) {
-          console.error(`  🔗 Headline scartata (URL già usata → ${check.articleId}): ${h.headline.slice(0, 60)}…`);
+          // `check.section` esiste solo sul ramo esatto; il ramo fuzzy
+          // (url_slug_match) non sa da quale sezione venga l'id che ha matchato.
+          const where = check.crossSection ? ` — sezione ${check.section}` : '';
+          console.error(`  🔗 Headline scartata (URL già usata → ${check.articleId}${where}): ${h.headline.slice(0, 60)}…`);
           RUN_REPORT.preFilterDrops.urlAlreadyUsed += 1;
+          if (check.crossSection) RUN_REPORT.preFilterDrops.urlUsedOtherSection += 1;
           recordDiscardedHeadline({
-            reason: 'url_already_used',
+            reason: check.crossSection ? 'url_already_used_cross_section' : 'url_already_used',
             headline: h.headline,
             existingId: check.articleId,
+            existingSection: check.section ?? null,
             signal: check.signal,
           });
           return false;

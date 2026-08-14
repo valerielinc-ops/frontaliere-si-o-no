@@ -7975,6 +7975,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'apprendistato-lucerna',
+    category: 'pratico',
+    date: '2026-08-14T03:04:05.706Z',
+    image: '/images/blog/apprendistato-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'borsedi-studio-lucerne-requisiti-e-importi',
+    category: 'fiscale',
+    date: '2026-08-14T03:21:47.909Z',
+    image: '/images/blog/borsedi-studio-lucerne-requisiti-e-importi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'laser-vede-ascolta-si-corregge-da-solo',
+    category: 'pratico',
+    date: '2026-08-14T05:16:21.746Z',
+    image: '/images/blog/laser-vede-ascolta-si-corregge-da-solo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

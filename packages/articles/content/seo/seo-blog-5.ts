@@ -67853,6 +67853,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-alpeggio-vallemaggia-2026': {
+    title: 'Grave incidente in alpeggio: 27enne cade in Vallemaggia',
+    description: 'Tragedia in Vallemaggia: un 27enne italiano è precipitato per 10 metri mentre lavorava in alpeggio sull\'alpe Robiei. Trasportato d\'urgenza in elicottero, è',
+    keywords: 'frontalieri, ticino, svizzera, italia, grave, incidente, alpeggio, 27enne',
+    ogTitle: 'Grave incidente in Vallemaggia: 27enne cade in alpeggio',
+    ogDescription: 'Un giovane italiano di 27 anni è gravemente ferito dopo una caduta di dieci metri in un alpeggio della Vallemaggia (Ticino). Soccorso in elicottero, è in pericolo di vita. L\'incidente solleva interrogativi sulla sicurezza in montagna.',
+    canonicalPath: '/articoli-frontaliere/incidente-alpeggio-vallemaggia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grave incidente in alpeggio: 27enne cade in Vallemaggia",
+      "description": "Tragedia in Vallemaggia: un 27enne italiano è precipitato per 10 metri mentre lavorava in alpeggio sull'alpe Robiei. Trasportato d'urgenza in elicottero, è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-alpeggio-vallemaggia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soccorritori in elicottero durante un intervento di salvataggio in montagna in Vallemaggia, Ticino."
+      },
+      "datePublished": "2026-08-14T03:00:39+00:00",
+      "dateModified": "2026-08-14T03:00:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-alpeggio-vallemaggia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-istituto-keynes-gazzada-micelio-imballaggi': {
+    title: 'Gazzada premiato per imballaggi innovativi | Frontaliere Ticino',
+    description: 'L\'Istituto Keynes di Gazzada Schianno ottiene riconoscimento nazionale ed europeo: Nycelyum tra le prime 60 mini-imprese d\'Italia e premio \'The Entrepreneurial',
+    keywords: 'frontalieri, ticino, svizzera, italia, gazzada, premiato, imballaggi, innovativi',
+    ogTitle: 'Istituto Keynes di Gazzada premiato in Europa per imballaggi con micelio',
+    ogDescription: 'Doppio riconoscimento per l\'Istituto Keynes di Gazzada Schianno: la mini-impresa studentesca Nycelyum raggiunge la finale nazionale di Impresa in Azione a Roma tra le prime 60 d\'Italia e la scuola ottiene il premio europeo \'The Entrepreneurial',
+    canonicalPath: '/articoli-frontaliere/istituto-keynes-gazzada-micelio-imballaggi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gazzada premiato per imballaggi innovativi",
+      "description": "L'Istituto Keynes di Gazzada Schianno ottiene riconoscimento nazionale ed europeo: Nycelyum tra le prime 60 mini-imprese d'Italia e premio 'The Entrepreneurial",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/istituto-keynes-gazzada-micelio-imballaggi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti dell'Istituto Keynes di Gazzada presentano imballaggi realizzati con micelio durante progetto scolastico"
+      },
+      "datePublished": "2026-08-14T03:18:02+00:00",
+      "dateModified": "2026-08-14T03:18:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/istituto-keynes-gazzada-micelio-imballaggi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantello-rio-dei-gioghi-sentiero-riapertura': {
+    title: 'Cantello: il sentiero Rio dei Gioghi riaprirà dopo l\'estate',
+    description: 'Lavori di recupero terminati nel sentiero Rio dei Gioghi a Ligurno, parte del Sentiero Italia CAI e del PLIS Valle della Bevera, finanziati da Interreg',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantello, sentiero, gioghi, riaprirà',
+    ogTitle: 'Cantello - Sentiero Rio dei Gioghi riapre dopo l\'estate: lavori finiti',
+    ogDescription: 'Il sentiero Rio dei Gioghi a Ligurno, nel Comune di Cantello, ha concluso i lavori di recupero e messa in sicurezza. Fa parte del Sentiero Italia CAI e del PLIS Valle della Bevera, finanziato da Interreg VI-A Italia-Svizzera tramite il progetto',
+    canonicalPath: '/articoli-frontaliere/cantello-rio-dei-gioghi-sentiero-riapertura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantello: il sentiero Rio dei Gioghi riaprirà dopo l'estate",
+      "description": "Lavori di recupero terminati nel sentiero Rio dei Gioghi a Ligurno, parte del Sentiero Italia CAI e del PLIS Valle della Bevera, finanziati da Interreg",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantello-rio-dei-gioghi-sentiero-riapertura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sentiero Rio dei Gioghi ristrutturato a Ligurno con palizzate in legno e canaletta in pietrame"
+      },
+      "datePublished": "2026-08-14T03:35:19+00:00",
+      "dateModified": "2026-08-14T03:35:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantello-rio-dei-gioghi-sentiero-riapertura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casorate-sempione-pigne-san-tito': {
+    title: 'Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito',
+    description: 'Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate con pigne e materiali di recupero coloreranno via Genova per la festa decennale di San',
+    keywords: 'frontalieri, ticino, svizzera, italia, casorate, sempione, settemila, pigne',
+    ogTitle: 'Casorate Sempione: settemila pigne e due anni di lavoro per San Tito',
+    ogDescription: 'Il progetto del Centro Diurno Disabili di Iris Gallarate ha coinvolto ragazzi e ragazze nella raccolta di settemila pigne e nella realizzazione di oltre 150 decorazioni floreali con materiali di recupero per abbellire via Genova in occasione',
+    canonicalPath: '/articoli-frontaliere/casorate-sempione-pigne-san-tito',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito",
+      "description": "Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate con pigne e materiali di recupero coloreranno via Genova per la festa decennale di San",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casorate-sempione-pigne-san-tito.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ragazzi del Cdd di Iris Gallarate che dipingono pigne per le decorazioni di via Genova a Casorate Sempione"
+      },
+      "datePublished": "2026-08-14T05:11:54+00:00",
+      "dateModified": "2026-08-14T05:11:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casorate-sempione-pigne-san-tito/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

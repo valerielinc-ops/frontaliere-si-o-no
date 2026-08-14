@@ -915,7 +915,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N] [--consecutive-gate N] [--gate-window-hours H] [--resolve]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--resolve]');
     process.exit(1);
   }
 
@@ -943,6 +943,17 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
     })(),
     workflow: get('--workflow'),
     reopenWithinHours: Number(get('--reopen-within-hours') || 0),
+    // Same semantics as the `buildSha` option: the commit the BUILD was made
+    // from (`workflow_run.head_sha` / `deploy_ref`), NEVER the head_sha of the
+    // run that observed the failure — for a workflow_run-triggered validation
+    // those differ, and only the build one proves staleness. Measured on the
+    // 2nd reopen of #5729: validation head_sha ae8b2d9a compares "behind" the
+    // fix (→ would have reopened, wrongly), while build 8085cd36 compares
+    // "ahead" of it, i.e. built 37 min BEFORE the fix landed.
+    // Empty string → null → unconditional reopen, the fail-safe default: a
+    // caller that has no build SHA must not get an abstention built on a value
+    // it never supplied.
+    buildSha: get('--build-sha') || null,
     consecutiveGate: Number.isFinite(consecutiveGate) ? consecutiveGate : 0,
     gateWindowHours: Number(get('--gate-window-hours') || DEFAULT_CRAWLER_GATE_WINDOW_HOURS),
   }).then(() => {

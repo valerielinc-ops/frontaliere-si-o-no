@@ -2659,6 +2659,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Kindergarten and childcare in the canton of Lucerne: costs',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'The costs for daycare and childcare in the Canton of Lucerne are subject to several factors.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'A family with children in a daily life scene in Switzerland, with a focus on the region of the Canton Lucerne.',
+    'blog.article.apprendistato-lucerna.title': 'Apprenticeship and vocational training in the Canton of Lucerne',
+    'blog.article.apprendistato-lucerna.excerpt': 'How to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Canton of Lucerne.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Young people in Lucerne learn a trade in a vocational school.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Lucerne Cantonal Scholarships: Requirements and Amounts',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Find out about the requirements and amounts of scholarships offered by the Canton of Lucerne.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Image of Lucerne, with a focus on academic life and students.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'A laser that sees, hears and corrects itself',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'A system developed by Empa, SUPSI and Bystronic that uses cameras and microphones to evaluate the quality of metal cutting and adapt settings independently.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'A Swiss laser system using cameras and microphones to evaluate the quality of metal cutting and adjust settings automatically.',
 };
 
 export default blogMetaChEn;

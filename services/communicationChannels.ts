@@ -89,15 +89,32 @@
  * property this whole page is built around, and the reason no sponsor is
  * named anywhere in it.
  *
- * WHO IT DOES NOT COVER, AND WHY THAT IS NOT A LOOPHOLE
- * ----------------------------------------------------
- * The owner's stated defence against "I never agreed to advertising" is the
- * formula that names it plus the switch that stops it. A subscriber whose
- * stored `consent_text` points at a page version OLDER than
- * `ADVERTISING_NAMED_FROM_PAGE_VERSION` read a page that did not name it, so
- * that defence does not exist for them and the blast may not reach them.
- * `services/publisherBlastMatch.mjs` enforces it. Today that is every existing
- * subscriber; the audience refills with the people who read the new sentence.
+ * WHO IT COVERS — THE WHOLE LIST, RETROACTIVELY, SINCE 2026-08-14
+ * ---------------------------------------------------------------
+ * #5759 shipped with a fourth part that is no longer there. A subscriber whose
+ * stored `consent_text` pointed at a page version older than
+ * `ADVERTISING_NAMED_FROM_PAGE_VERSION` was excluded from the blast, on the
+ * ground that the page they read did not name advertising — which on the day
+ * it shipped was every existing subscriber, the audience being expected to
+ * refill with people who read the new sentence.
+ *
+ * The owner was told that this is what it meant and answered on 2026-08-14:
+ * do not wait, third-party advertising may reach the whole list. So the filter
+ * is gone (`consentCoversAdvertising`, services/publisherBlastMatch.mjs) and
+ * what is left standing is the pair in points 1 and 3 above — the page that
+ * names the category, and the switch that turns it off — applied to people who
+ * were subscribed before either existed. That is weaker than waiting, it is
+ * the owner's call, and the file that carries the decision says so in the
+ * function that used to enforce the opposite.
+ *
+ * Two things follow, and both are asserted rather than hoped for:
+ *   - the page may not go on saying that early subscribers are exempt. It said
+ *     exactly that until this change, in four locales, in `CATEGORY_NOTE` and
+ *     in the `cadence` below — a page that describes a filter the sender does
+ *     not apply is worse than one that describes none;
+ *   - the switch and the naming are now the ENTIRE defence, so
+ *     `tests/consent-shown-at-signup.test.tsx` keeping them inseparable stops
+ *     being a formality.
  *
  * The channel itself stays `suspended`. Naming it creates the basis on which
  * it could run; turning the workflow back on is an act on the Actions API, and
@@ -161,14 +178,21 @@ export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 /**
  * The first page version whose text named third-party advertising.
  *
- * FROZEN. It is not "the current version": moving it forward would retroactively
- * disqualify people whose stored sentence really did name advertising, which is
- * the opposite of what it is for. It moves only if the disclosure is withdrawn
- * and re-issued, which is a new owner decision.
+ * FROZEN, and since 2026-08-14 no longer a filter on anything. It gated the ad
+ * blast from #5759 until the owner decided that the disclosure applies to the
+ * whole list including the people who subscribed before it existed; what it
+ * records now is a date — the revision at which `/comunicazioni/` grew its
+ * "Pubblicità di terzi" section — which stays true whatever is done with it.
  *
- * `services/publisherBlastMatch.mjs` carries the same literal — it cannot
- * import this file — and `tests/consent-shown-at-signup.test.tsx` fails if the
- * two disagree or if this version was never published.
+ * `advertisingDisclosureWasShown` (services/publisherBlastMatch.mjs) still
+ * reads it, to REPORT per recipient whether their own proof predates the
+ * naming. That number is the measurable cost of the retroactive decision, so
+ * the constant has to keep meaning what it says.
+ *
+ * It moves only if the disclosure is withdrawn and re-issued, which is a new
+ * owner decision. `services/publisherBlastMatch.mjs` carries the same literal —
+ * it cannot import this file — and `tests/consent-shown-at-signup.test.tsx`
+ * fails if the two disagree or if this version was never published.
  */
 export const ADVERTISING_NAMED_FROM_PAGE_VERSION = '2026-08-13.2';
 
@@ -446,10 +470,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat de ce site.',
     },
     cadence: {
-      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Non ha mai spedito: zero annunci a pagamento in coda al momento della sospensione. Se verrà riattivato partirà solo verso chi si è iscritto dopo il 13 agosto 2026, cioè dopo che questa pagina ha iniziato a nominare la pubblicità di terzi, e mai verso chi lo ha disattivato dalle proprie preferenze.',
-      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. It has never sent anything: zero paid ads queued at the time. If it is switched back on it will only reach people who subscribed after 13 August 2026, that is, after this page began naming third-party advertising — and never anyone who has switched it off in their preferences.',
-      de: 'Seit dem 12. August 2026 ausgesetzt: der Workflow ist deaktiviert, es geht nichts hinaus. Er hat nie etwas versendet: null bezahlte Anzeigen in der Warteschlange. Bei einer Reaktivierung erreicht er nur Personen, die sich nach dem 13. August 2026 angemeldet haben — also nachdem diese Seite Werbung Dritter zu nennen begann — und nie jemanden, der ihn in den eigenen Einstellungen abgeschaltet hat.',
-      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Il n’a jamais rien envoyé : zéro annonce payante en attente. S’il est réactivé, il n’atteindra que les personnes inscrites après le 13 août 2026, c’est-à-dire après que cette page a commencé à nommer la publicité de tiers, et jamais quelqu’un qui l’a désactivé depuis ses préférences.',
+      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Non ha mai spedito: zero annunci a pagamento in coda al momento della sospensione. Se verrà riattivato potrà raggiungere tutte le persone iscritte, comprese quelle iscritte prima che questa pagina nominasse la pubblicità di terzi, e mai chi lo ha disattivato dalle proprie preferenze o ha chiesto di non ricevere più email.',
+      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. It has never sent anything: zero paid ads queued at the time. If it is switched back on it may reach everyone who is subscribed, including people who subscribed before this page named third-party advertising — and never anyone who has switched it off in their preferences or asked to stop receiving email.',
+      de: 'Seit dem 12. August 2026 ausgesetzt: der Workflow ist deaktiviert, es geht nichts hinaus. Er hat nie etwas versendet: null bezahlte Anzeigen in der Warteschlange. Bei einer Reaktivierung kann er alle angemeldeten Personen erreichen, auch jene, die sich angemeldet haben, bevor diese Seite Werbung Dritter nannte — und nie jemanden, der ihn in den eigenen Einstellungen abgeschaltet oder den Erhalt von E-Mails abbestellt hat.',
+      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Il n’a jamais rien envoyé : zéro annonce payante en attente. S’il est réactivé, il pourra atteindre toutes les personnes inscrites, y compris celles inscrites avant que cette page ne nomme la publicité de tiers, et jamais quelqu’un qui l’a désactivé depuis ses préférences ou qui a demandé à ne plus recevoir d’e-mails.',
     },
   }),
 ]);
@@ -468,6 +492,14 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
  * files, different question; neither list can stand in for the other.
  */
 export const NON_SUBSCRIBER_SENDERS: Readonly<Record<string, string>> = Object.freeze({
+  // #5692. The one entry here that DOES write to newsletter_subscribers, and it
+  // is still not a channel: it carries the double opt-in request itself —
+  // reminders #2 and #3, the same email and the same link as #1. Its recipients
+  // are precisely the people who are not on any channel yet, and listing it on
+  // /comunicazioni/ as something a subscriber receives would say the opposite of
+  // what it is. What a subscriber receives once they confirm is listed above.
+  'scripts/newsletter-confirmation-followups.mjs':
+    'the double opt-in request, sent to somebody who is not a subscriber yet — the mail that asks, not one the subscription brings',
   'scripts/send-cold-emails.mjs': 'employer outreach over employer_contacts — never touches a subscriber collection',
   'scripts/preview-welcome-email.mjs': 'single --target-email preview tool for the owner',
   'scripts/monitor-gsc-job-indexation.mjs': 'ops alert to the owner',
@@ -543,7 +575,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-08-13.3';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-08-14.1';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -563,6 +595,12 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // Renumbered from .2 to .3 on rebase: #5759 claimed .2 first for the
   // advertising category, and that entry is already shipped and frozen.
   '2026-08-13.3': '0d6e0b9159efb394',
+  // Owner decisions of 2026-08-14, both of which change what the page says and
+  // therefore what a consent collected from now on means: the advertising note
+  // stops claiming that early subscribers are exempt, and "Chi tratta i tuoi
+  // dati" grows the recipients, the profiling and the business-transfer
+  // disclosures. `2026-08-13.3` above is untouched — people were pointed at it.
+  '2026-08-14.1': '28c22f25c931e7ab',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */

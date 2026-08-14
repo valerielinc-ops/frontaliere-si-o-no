@@ -2659,6 +2659,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Asilo nido e custodia bambini Canton Lucerna: costi',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Lucerna sono soggetti a diversi fattori.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Una famiglia con bambini in una scena di vita quotidiana in Svizzera, con un focus sulla regione del Canton Lucerna.',
+    'blog.article.apprendistato-lucerna.title': 'Apprendistato e formazione professionale nel Cantone di Lucerna',
+    'blog.article.apprendistato-lucerna.excerpt': 'Come trovare un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Lucerna.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Giovani in Lucerna apprendono un mestiere in una scuola professionale.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Borse di studio cantonale di Lucerna: requisiti e importi',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Scopri i requisiti e gli importi delle borse di studio offerte dal Cantone di Lucerna.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Immagine di Lucerna, con un focus sulla vita accademica e gli studenti.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'Un laser che vede, ascolta e si corregge da solo',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'Un sistema sviluppato da Empa, SUPSI e Bystronic che utilizza telecamere e microfoni per valutare la qualità del taglio dei metalli e adattare autonomamente le impostazioni.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'Un sistema laser svizzero che utilizza telecamere e microfoni per valutare la qualità del taglio dei metalli e adattare autonomamente le impostazioni.',
 };
 
 export default blogMetaChIt;

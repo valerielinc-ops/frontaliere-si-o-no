@@ -9944,6 +9944,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Ciclopedonale Piambello: verso il completamento',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Ultimi lavori in corso tra Porto Ceresio e Bisuschio per la ciclopedonale del Piambello. Il presidente Sartorio conta di chiudere il cantiere entro la prossima primavera.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Percorso ciclopedonale del Piambello immerso nella natura, pronto per essere inaugurato.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Grave incidente in alpeggio: 27enne cade in Vallemaggia',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Un giovane italiano di 27 anni è precipitato per circa dieci metri in una zona impervia sull\'alpe Robiei, in Vallemaggia (Ticino). Le sue condizioni sono gravi e la vita è in pericolo.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Soccorritori in elicottero durante un intervento di salvataggio in montagna in Vallemaggia, Ticino.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Gazzada premiato per imballaggi innovativi',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum tra le prime 60 mini-imprese d\'Italia alla finale nazionale di Roma il 4-5 giugno 2026. Riconoscimento europeo \'The Entrepreneurial School\' ricevuto a Riga per collaborazione con università e aziende.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Studenti dell\'Istituto Keynes di Gazzada presentano imballaggi realizzati con micelio durante progetto scolastico',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: il sentiero Rio dei Gioghi riaprirà dopo l\'estate',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Lavori di recupero finiti nel sentiero Rio dei Gioghi a Ligurno, parte del Sentiero Italia CAI e del PLIS Valle della Bevera, finanziati da Interreg Italia-Svizzera SINTAB.',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Sentiero Rio dei Gioghi ristrutturato a Ligurno con palizzate in legno e canaletta in pietrame',
+    'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito',
+    'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate coloreranno via Genova per la festa decennale di San Tito a Casorate Sempione',
+    'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Ragazzi del Cdd di Iris Gallarate che dipingono pigne per le decorazioni di via Genova a Casorate Sempione',
 };
 
 export default blogMetaIt;

@@ -912,6 +912,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-lucerna': { it: 'assegni-familiari-canton-lucerna', en: 'family-allowances-in-the-canton-of-lucerne-amounts-and-application', de: 'familienzulagen-im-kanton-luzern-betrage-und-antrag', fr: 'allocations-familiales-dans-le-canton-de-lucerne-montants-et-demande' },
  'sistema-scolastico-canton-lucerna-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-lucerna-iscrizione-e-cicli', en: 'lucerne-school-system-enrollment-and-cycles', de: 'kantonales-schulsystem-luzern-einschreibung-und-zyklen', fr: 'systeme-scolaire-canton-lucerne-inscription-et-cycles' },
  'asilo-nido-e-custodia-bambini-canton-lucerna-costi': { it: 'asilo-nido-e-custodia-bambini-canton-lucerna-costi', en: 'kindergarten-and-childcare-in-the-canton-of-lucerne-costs', de: 'asilo-nido-e-custodia-bambini-kanton-luzern-kosten', fr: 'asilo-nido-e-custodia-bambini-canton-de-lucerne-couts' },
+ 'apprendistato-lucerna': { it: 'apprendistato-lucerna', en: 'apprenticeship-lucerne', de: 'ausbildung-luzern', fr: 'apprentissage-lucerne' },
+ 'borsedi-studio-lucerne-requisiti-e-importi': { it: 'borsedi-studio-lucerne-requisiti-e-importi', en: 'scholarship-lucerne', de: 'stipendium-luzern', fr: 'bourse-lucerne' },
+ 'laser-vede-ascolta-si-corregge-da-solo': { it: 'laser-vede-ascolta-si-corregge-da-solo', en: 'laser-sees-listens-and-corrects-itself', de: 'lasersystem-erkannt-hoert-und-korrektiert-sichselbst', fr: 'systeme-laser-qui-voyant-entendant-et-corrige' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

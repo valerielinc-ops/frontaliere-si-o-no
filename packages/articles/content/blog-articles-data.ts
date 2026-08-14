@@ -29811,6 +29811,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-alpeggio-vallemaggia-2026',
+ category: 'pratico',
+ date: '2026-08-14T03:00:39.287Z',
+ image: '/images/blog/incidente-alpeggio-vallemaggia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'istituto-keynes-gazzada-micelio-imballaggi',
+ category: 'novita',
+ date: '2026-08-14T03:18:02.287Z',
+ image: '/images/blog/istituto-keynes-gazzada-micelio-imballaggi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cantello-rio-dei-gioghi-sentiero-riapertura',
+ category: 'novita',
+ date: '2026-08-14T03:35:19.453Z',
+ image: '/images/blog/cantello-rio-dei-gioghi-sentiero-riapertura.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'casorate-sempione-pigne-san-tito',
+ category: 'novita',
+ date: '2026-08-14T05:11:54.830Z',
+ image: '/images/blog/casorate-sempione-pigne-san-tito.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -2659,6 +2659,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Kindergarten und Kinderbetreuung im Kanton Luzern: Kosten',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'Die Kosten für Kindertagesstätten und Kinderbetreuung im Kanton Luzern unterliegen verschiedenen Faktoren.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Eine Familie mit Kindern in einem Alltagslebensszenario in der Schweiz, mit einem Fokus auf die Region des Kantons Luzern.',
+    'blog.article.apprendistato-lucerna.title': 'Lehre und Berufsausbildung im Kanton Luzern',
+    'blog.article.apprendistato-lucerna.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Luzern.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Junge Menschen in Luzern lernen ein Handwerk in einer Berufsschule.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Kantonsstipendien Luzern: Voraussetzungen und Beträge',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Informieren Sie sich über die Anforderungen und die Höhe der Stipendien des Kantons Luzern.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Bild von Luzern, mit einem Focus auf akademisches Leben und Studierende.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'Ein Laser, der sieht, hört und sich selbst korrigiert',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'Ein von Empa, SUPSI und Bystronic entwickeltes System, das mithilfe von Kameras und Mikrofonen die Qualität des Metallschnitts bewertet und die Einstellungen selbstständig anpasst.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'Ein Schweizer Lasersystem, das Kameras und Mikrofone verwendet, um die Qualität des Metall-Schnitts zu bewerten und die Einstellungen automatisch anzupassen.',
 };
 
 export default blogMetaChDe;

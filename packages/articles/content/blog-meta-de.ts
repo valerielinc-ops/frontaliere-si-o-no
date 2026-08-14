@@ -9942,6 +9942,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Fußgängerzone Piambello: auf dem Weg zur Fertigstellung',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Letzte laufende Arbeiten zwischen Porto Ceresio und Bisuschio für den Rad- und Fußgängerweg des Piambello. Präsident Sartorio rechnet damit, die Baustelle bis zum nächsten Frühjahr zu schließen.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Rad- und Wanderweg Piambello inmitten der Natur, bereit für die Einweihung.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Schwerer Unfall auf der Alm: 27-Jähriger fällt im Maggiatal',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Ein 27-jähriger Italiener stürzte etwa zehn Meter in einem unwegsamen Gebiet auf der Robiei-Alm im Maggiatal (Tessin) ab. Sein Zustand ist ernst und sein Leben ist in Gefahr.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Rettungskräfte in einem Helikopter während eines Bergrettungseinsatzes im Maggiatal, Tessin.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Gazzada für innovative Verpackungen ausgezeichnet',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum unter den ersten 60 Mini-Unternehmen Italiens beim nationalen Finale in Rom am 4.-5. Juni 2026. Europäische Auszeichnung \'The Entrepreneurial School\' in Riga für die Zusammenarbeit mit Universitäten und Unternehmen.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Schüler des Keynes-Instituts Gazzada präsentieren Pilz-basierte Verpackungen im Schulprojekt',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: Der Rio dei Gioghi-Weg wird nach dem Sommer wieder geöffnet',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Abgeschlossene Sanierungsarbeiten am Rio dei Gioghi-Weg in Ligurien, Teil des Sentiero Italia Cai und des PLIS Valle della Bevera, finanziert von Interreg Italia-Schweiz SINTAB.',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Wiederhergestellter Weg Rio dei Gioghi in Ligurno mit Holzpfählen und Steinentwässerung',
+    'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: 7000 Tannenzapfen für San Tito',
+    'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Über 150 Dekorationen von Nutzern der CD von Iris Gallarate werden die Via Genova für das zehnjährige Fest von San Tito in Casorate Sempione einfärben',
+    'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Junge Menschen vom CDD von Iris Gallarate bemalen Kiefernzapfen für die Dekoration der Via Genova in Casorate Sempione',
 };
 
 export default blogMetaDe;
