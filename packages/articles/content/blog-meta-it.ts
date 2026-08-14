@@ -9941,6 +9941,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.barasso-riqualificazione-piazza-san-martino.title': 'Barasso: Piazza San Martino si rinnova per l\'Assunta',
     'blog.article.barasso-riqualificazione-piazza-san-martino.excerpt': 'Il Comune di Barasso ha completato un intervento di arredo urbano e restyling verde in Piazza San Martino in vista della Festa dell\'Assunta.',
     'blog.article.barasso-riqualificazione-piazza-san-martino.imageAlt': 'Piazza San Martino a Barasso rinnovata con nuove fioriere ed essenze botaniche',
+    'blog.article.ciclopedonale-piambello-completamento.title': 'Ciclopedonale Piambello: verso il completamento',
+    'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Ultimi lavori in corso tra Porto Ceresio e Bisuschio per la ciclopedonale del Piambello. Il presidente Sartorio conta di chiudere il cantiere entro la prossima primavera.',
+    'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Percorso ciclopedonale del Piambello immerso nella natura, pronto per essere inaugurato.',
 };
 
 export default blogMetaIt;
