@@ -26,9 +26,11 @@
  * bot gate open so the only thing that can stop the injection is consent.
  */
 
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { render, cleanup, act } from '@testing-library/react';
-import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
+import { ADSENSE_LOADER_CONTENT, OFFERWALL_FC_SNIPPET } from '@/build-plugins/constants';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED } from '@/services/adsConsent';
 
 const REAL_UA =
@@ -63,6 +65,47 @@ function runStaticLoader(): void {
   new Function(ADSENSE_LOADER_CONTENT)();
   // Also exercise the interaction path, which the loader wires on `observe()`.
   document.dispatchEvent(new Event('scroll'));
+}
+
+const INDEX_HTML_SOURCE = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
+
+/**
+ * Extracts the JS body of index.html's Funding Choices loader `<script>` block
+ * — the one containing `function loadFc()` — same extraction strategy as
+ * tests/index-html-fc-loader.test.ts, reused here to actually EXECUTE it
+ * rather than just pattern-match its source.
+ */
+function indexHtmlFcLoaderJs(): string {
+  const fnStart = INDEX_HTML_SOURCE.indexOf('function loadFc()');
+  const scriptStart = INDEX_HTML_SOURCE.lastIndexOf('<script>', fnStart);
+  const scriptEnd = INDEX_HTML_SOURCE.indexOf('</script>', fnStart);
+  return INDEX_HTML_SOURCE.slice(scriptStart + '<script>'.length, scriptEnd);
+}
+
+/**
+ * OFFERWALL_FC_SNIPPET is TWO concatenated `<script>` tags (registry, then the
+ * FC network loader). Isolates the second one — the one that can actually
+ * inject an advertising script into the DOM — so it can be run on its own.
+ */
+function offerwallFcLoaderJs(): string {
+  const blocks = OFFERWALL_FC_SNIPPET.split('<script>')
+    .slice(1)
+    .map((block) => block.split('</script>')[0]);
+  const loader = blocks.find((block) => block.includes('fundingchoicesmessages.google.com'));
+  if (!loader) throw new Error('OFFERWALL_FC_SNIPPET: Funding Choices loader block not found');
+  return loader;
+}
+
+function runIndexHtmlFcLoader(): void {
+  (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback = (cb) => cb();
+  // eslint-disable-next-line no-new-func
+  new Function(indexHtmlFcLoaderJs())();
+}
+
+function runOfferwallFcLoader(): void {
+  (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback = (cb) => cb();
+  // eslint-disable-next-line no-new-func
+  new Function(offerwallFcLoaderJs())();
 }
 
 beforeEach(() => {
@@ -187,6 +230,20 @@ describe('ads-consent gate — no ad script before consent', () => {
     render(<GptAdSlot adUnitPath="/123/rail" sizes={[[300, 600]]} />);
     expect(document.querySelector(GPT_SELECTOR)).toBeNull();
   });
+
+  it('index.html Funding Choices (CMP) loader injects NOTHING when no decision has been made', () => {
+    // Google Funding Choices carries the TCF v2.2 consent string that AdSense
+    // reads to decide personalized-vs-non-personalized ads. Nothing gates
+    // AdSense/GPT from requesting ads until our own consent is granted, so
+    // there is no reason for this CMP script to reach the DOM any earlier.
+    runIndexHtmlFcLoader();
+    expect(injectedAdScripts()).toEqual([]);
+  });
+
+  it('OFFERWALL_FC_SNIPPET (static blog-detail pages) loader injects NOTHING when no decision has been made', () => {
+    runOfferwallFcLoader();
+    expect(injectedAdScripts()).toEqual([]);
+  });
 });
 
 describe('ads-consent gate — the gate is reachable, and opens', () => {
@@ -208,6 +265,24 @@ describe('ads-consent gate — the gate is reachable, and opens', () => {
     const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
     render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
     expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
+  });
+
+  it('index.html Funding Choices (CMP) loader DOES inject once consent is granted', () => {
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    runIndexHtmlFcLoader();
+    expect(injectedAdScripts()).not.toEqual([]);
+    expect(
+      document.querySelector('script[src*="fundingchoicesmessages.google.com"]'),
+    ).not.toBeNull();
+  });
+
+  it('OFFERWALL_FC_SNIPPET (static blog-detail pages) loader DOES inject once consent is granted', () => {
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    runOfferwallFcLoader();
+    expect(injectedAdScripts()).not.toEqual([]);
+    expect(
+      document.querySelector('script[src*="fundingchoicesmessages.google.com"]'),
+    ).not.toBeNull();
   });
 });
 

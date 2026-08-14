@@ -485,9 +485,19 @@
          message still renders if an ad-blocker is detected. -->
     <script>
       (function(){
+        // Fail-closed advertising-consent read, same contract as
+        // ADSENSE_LOADER_CONTENT (build-plugins/constants.ts) and
+        // services/adsConsent.ts (#5842/#5894) — only a literal 'granted'
+        // opens the gate; anything else (null, 'denied', a thrown read) blocks.
+        function hasAdsConsent(){
+          try { return window.localStorage.getItem('frontaliere_ads_consent') === 'granted'; } catch(e) { return false; }
+        }
         function loadFc(){
           // 1. Inject FundingChoices loader (ad-blocking recovery message).
-          if (!document.querySelector('script[data-fc-loader]')) {
+          // Gated behind the same advertising consent as AdSense/GPT/Prebid:
+          // this is the CMP/ad script the ads-consent-gate test suite's
+          // injectedAdScripts() helper matches against fundingchoicesmessages.google.com.
+          if (!document.querySelector('script[data-fc-loader]') && hasAdsConsent()) {
             var s = document.createElement('script');
             s.async = true;
             // NOTE: do NOT set crossOrigin. Google FC `/i/pub-XXX` does not serve
