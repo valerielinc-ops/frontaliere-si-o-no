@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-08-13T22:00:02.963Z",
+  "updatedAt": "2026-08-14T10:15:26.137Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -92,12 +92,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-10"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036788/store-manager-zurich-altstetten-80-100": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-10"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036809/sales-agent-ebikon-mall-of-switzerland-80": {
       "location": "Ebikon",
       "canton": "LU",
@@ -122,17 +116,17 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-10"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-06-02"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036847/sales-agent-schaffhausen-60-100": {
       "location": "Schaffhausen",
       "canton": "SH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-12"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036670/agent-support-technique-2%E1%B5%89-niveau-80-100": {
+      "location": "Bussigny",
+      "canton": "VD",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-14"
     }
   }
 }
