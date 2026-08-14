@@ -56283,10 +56283,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "sales-advisor-coop-genossenschaft-st-gallen",
+        "de": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-prjmg5",
+        "it": "consulente-di-vendita-coop-genossenschaft-st-gallen",
         "en": "sales-advisor-coop-genossenschaft-st-gallen",
-        "de": "sales-advisor-coop-genossenschaft-st-gallen",
-        "fr": "sales-advisor-coop-genossenschaft-st-gallen"
+        "fr": "conseiller-de-vente-coop-genossenschaft-st-gallen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-san-gallo/sales-advisor-coop-genossenschaft-st-gallen",
@@ -56300,6 +56300,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

@@ -72325,9 +72325,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-aliment-coop-genossenschaft-winterthur",
-        "en": "vendeur-aliment-coop-genossenschaft-winterthur",
-        "de": "vendeur-aliment-coop-genossenschaft-winterthur",
+        "de": "verkaufer-in-food-coop-genossenschaft-winterthur-zurich-kmw0i5",
+        "it": "addetto-alla-vendita-food-coop-genossenschaft-winterthur",
+        "en": "sales-assistant-food-coop-genossenschaft-winterthur",
         "fr": "vendeur-aliment-coop-genossenschaft-winterthur"
       },
       "localePaths": {
@@ -72342,6 +72342,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
