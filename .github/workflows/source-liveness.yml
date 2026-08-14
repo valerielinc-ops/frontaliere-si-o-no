@@ -1,0 +1,113 @@
+name: Source Liveness
+
+# Daily check that the PostHog ingestion feeding the monitoring fleet is
+# actually alive, and the ONE place that reports it when it is not.
+#
+# WHY THIS EXISTS
+# ---------------
+# PostHog ingestion for project 157802 stopped on 2026-07-23 and resumed on
+# 2026-08-10. For three weeks every monitor reading it kept running against a
+# dead source and kept exiting 0 — a HogQL query over an empty window is a
+# successful HTTP 200, so nothing failed and nothing was reported. Issues
+# #5606/#5607/#5608 were opened out of that hole (noise indistinguishable from
+# signal), and #5607/#5670 were then closed with the reasoning "PostHog is
+# blind" after it had silently stopped being true.
+#
+# The guard in scripts/lib/source-liveness.mjs makes the monitors abstain when
+# the source is dead. This workflow is the other half: it makes the outage
+# itself visible, once, instead of twelve times as twelve fake regressions.
+#
+# Runs daily rather than weekly on purpose — the point is to shorten the
+# detection window, and a weekly cadence would have caught the 2026-07-23
+# outage no sooner than the monitors it protects.
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md.
+
+on:
+  schedule:
+    # Daily 06:40 UTC — ahead of the weekly PostHog monitors (Tue 07:25,
+    # Wed 07:40) so a dead source is already on record when they run.
+    - cron: '40 6 * * *'
+  workflow_dispatch:
+    inputs:
+      windowDays:
+        description: 'Liveness window in days (complete UTC days, today excluded)'
+        required: false
+        type: string
+        default: '7'
+      dryRun:
+        description: 'Probe and report, but never open an issue'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: source-liveness
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  liveness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # load-rc-env.mjs needs firebase-admin from node_modules to read
+        # Remote Config; the check itself only uses node built-ins + gh CLI.
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Probe PostHog liveness
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_LIVENESS_WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
+        # Exits 0 even when the source is dead — the deduped issue it opens IS
+        # the alarm. A non-zero exit would additionally trip the `if: failure()`
+        # step below and file a second, less informative issue for the same
+        # outage. See the header of scripts/check-source-liveness.mjs.
+        run: node scripts/check-source-liveness.mjs ${{ inputs.dryRun && '--dry-run' || '' }}
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
