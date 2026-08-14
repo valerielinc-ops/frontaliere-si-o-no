@@ -46,11 +46,13 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeE
 import { JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import {
   JOB_ALERT_CADENCE_CEILING_DAYS,
+  JOB_ALERT_REACTIVATION_BLOCKS,
   decayStampAfterSend,
   engagedSinceLastJobAlertSend,
   isJobAlertDueToday,
   nextJobAlertCadenceState,
   openedSinceLastJobAlertSend,
+  reactivationAfterReturnVisit,
 } from './lib/jobAlertCadence.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
@@ -1640,6 +1642,75 @@ async function main() {
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
   }
 
+  // 2b-bis. Bring back the alerts whose owner came back to the site (#5705,
+  // owner's decision of 2026-08-14).
+  //
+  // WHY HERE. The decision needs the newsletter document, the job-alert document
+  // and the alert itself; all three were loaded by the batched getAll above, so
+  // this costs zero extra reads. It runs BEFORE the cadence gate on purpose —
+  // an alert reactivated on this pass is due today like any other, which is the
+  // behaviour "torna attivo da solo quando la persona torna sul sito" describes.
+  // And it runs on the sender rather than in the browser because
+  // `job_alert_subscribers/{email}` is `allow write: if true` in firestore.rules:
+  // the stamp the site writes is a claim, and every one of the seven refusals is
+  // re-checked here against state the browser cannot forge. The full argument is
+  // in the docblock of reactivationAfterReturnVisit.
+  //
+  // Filter 5 of the owner's list — "an alert the person switched off never comes
+  // back" — is also true by construction on this path: the query above only
+  // loads `active == true`, so a switched-off alert is not even in `alerts`. The
+  // predicate is still asked, because a guard that holds only because of how its
+  // caller happens to query is the shape this repo keeps finding broken.
+  {
+    const reactivationNowIso = new Date().toISOString();
+    const reactivations = [];
+    const refusedByReason = {};
+    for (const alert of alerts) {
+      const emailKey = alert.email.toLowerCase();
+      const verdict = reactivationAfterReturnVisit({
+        alert,
+        sub: jobAlertProfiles.get(emailKey) || null,
+        newsletter: subscriberProfiles.get(emailKey) || null,
+        nowIso: reactivationNowIso,
+      });
+      if (verdict.reactivate) {
+        reactivations.push({ alert, emailKey, verdict });
+        // Apply to the in-memory copies so the cadence gate below, and the
+        // post-send state, both see the reactivated document rather than a
+        // stale decayed one.
+        Object.assign(alert, verdict.alertFields);
+        const profile = jobAlertProfiles.get(emailKey);
+        if (profile) Object.assign(profile, verdict.subFields);
+        // NOT_DECAYED is the answer for every live alert in the run, i.e. almost
+        // all of them: counting it would drown the log in the uninteresting case.
+      } else if (verdict.verdict !== JOB_ALERT_REACTIVATION_BLOCKS.NOT_DECAYED) {
+        refusedByReason[verdict.verdict] = (refusedByReason[verdict.verdict] || 0) + 1;
+      }
+    }
+    if (reactivations.length > 0 || Object.keys(refusedByReason).length > 0) {
+      console.log(`   🔁 Return-visit reactivations: ${reactivations.length}; refused: ${JSON.stringify(refusedByReason)}`);
+    }
+    if (reactivations.length > 0 && !DRY_RUN) {
+      // Two passes, because commitInChunks contracts for AT MOST ONE operation
+      // per item (scripts/lib/firestore-batch.mjs) — the op cap it enforces is
+      // computed from the slice length, so two writes per item would silently
+      // let a batch exceed 500 and throw away the whole chunk.
+      await commitInChunks(
+        db,
+        reactivations.filter((item) => item.alert.ref),
+        (batch, item) => batch.update(item.alert.ref, item.verdict.alertFields),
+      );
+      // One write per ADDRESS: the per-recipient counters are shared, so two
+      // reactivated alerts on the same person are one identical reset.
+      const subFieldsByEmail = new Map();
+      for (const item of reactivations) subFieldsByEmail.set(item.emailKey, item.verdict.subFields);
+      await commitInChunks(db, [...subFieldsByEmail], (batch, [emailKey, fields]) => {
+        batch.set(db.collection('job_alert_subscribers').doc(emailKey), fields, { merge: true });
+      });
+      console.log(`   🔁 ${reactivations.length} decayed alert(s) reactivated — cadence_decayed_at kept as the record of what we did`);
+    }
+  }
+
   // 2c. Resolve each alert's effective cadence, then gate on it (#5705).
   //
   // WHAT CHANGED, AND WHY THE OLD GATE COULD NOT STAY. Until 2026-08-13 this
@@ -2022,6 +2093,12 @@ async function main() {
         opened: openedSinceLastJobAlertSend(sub),
         sentAtIso: cadenceSentAtIso,
         provider: scheduleOutcomes.get(email)?.provider ?? null,
+        // The instant the cascade actually aimed this message at, which is not
+        // always now: computeScheduledSendAt defers to the recipient's preferred
+        // hour, today or tomorrow. A SECOND daily slot has to see a message that
+        // is scheduled and has not left yet as "already due" — otherwise it
+        // stacks another one on top (#5705, owner's decision of 2026-08-14).
+        scheduledFor: scheduleOutcomes.get(email)?.scheduledFor ?? null,
       }));
     }
 
@@ -2034,7 +2111,8 @@ async function main() {
     await commitInChunks(db, toUpdate, (batch, email) => {
       const key = email.to.toLowerCase();
       // The terminal stamp, when this send was the Nth in a row that drew no
-      // signal at all on a backfilled, engine-managed alert. It sets
+      // signal at all on an engine-managed alert — EVERY alert since the owner's
+      // decision of 2026-08-14, not only the backfilled ones. It sets
       // `cadence_state` and NOTHING else: `active` stays true, the keywords and
       // the counters stay, and the document remains countable evidence that we
       // stopped by ourselves rather than because anybody asked.
@@ -2047,6 +2125,13 @@ async function main() {
       batch.update(email.ref, {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
+        // The per-ALERT half of the two-slot guard. `lastMatchedAt` says "we
+        // served this alert today"; this says "and the message is aimed at THIS
+        // instant", which is what a second slot needs when the first one
+        // scheduled the send for tomorrow morning instead of sending it now.
+        // Written on every send, null included, so a stale future stamp can
+        // never hold an alert silent forever.
+        cadence_scheduled_for: scheduleOutcomes.get(key)?.scheduledFor ?? null,
         // Persist the merged sent-job map (pruned to the dedup window + capped)
         // so the next run excludes these jobs and surfaces fresh ones.
         sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),

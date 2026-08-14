@@ -20,6 +20,7 @@ import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoo
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
@@ -85,14 +86,13 @@ const NewsletterPopup: React.FC = () => {
  const exitIntentFired = useRef(false);
  const [triggerSource, setTriggerSource] = useState<'smart' | 'exit_intent' | 'pageviews'>('smart');
 
- // Never show popup for crawlers / bots — they must see full page content
- const isCrawlerVisitor = useMemo(
- () =>
- /bot|crawler|spider|crawling|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i.test(
- navigator.userAgent || ''
- ),
- []
- );
+ // Never show popup for crawlers / bots — they must see full page content.
+ // The pattern moved to functions/src/lib/returnVisit.js (#5705): it was
+ // duplicated byte-for-byte here and in JobBoard.tsx, and the return-visit rule
+ // that decides whether a decayed job alert comes back needs the SAME verdict.
+ // Three bodies of one rule is how the click classifier of #5674 came to have
+ // three that disagreed.
+ const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
 
  // Pre-fill email from auth account (checks providerData for Facebook users)
  useEffect(() => {

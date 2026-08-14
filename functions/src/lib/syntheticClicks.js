@@ -140,6 +140,21 @@ export function isOptOutLink(url) {
   return typeof url === 'string' && url !== '' && OPT_OUT_LINK_RE.test(url);
 }
 
+/**
+ * True when this URL is the preference centre — the other link somebody follows
+ * to receive LESS.
+ *
+ * Exported (the regex above was already here and already consumed by
+ * `linkClassOf`) because the return-visit rule of #5705 needs the same two
+ * classes the click rule needs: a session that STARTS on the unsubscribe route
+ * or in the preference centre is somebody leaving, and must not be read as a
+ * return of interest. Re-deriving "is this the preference centre" beside this
+ * file is how the daily brief's click rule ended up with three bodies.
+ */
+export function isPreferencesLink(url) {
+  return typeof url === 'string' && url !== '' && PREFERENCES_LINK_RE.test(url);
+}
+
 /** True when the user-agent (or the provider's own bot flag) is not a reader. */
 export function isAutomationAgent(userAgent) {
   return typeof userAgent === 'string' && userAgent !== '' && AUTOMATION_AGENT_RE.test(userAgent);
@@ -185,7 +200,7 @@ export function isScannerIp(ip, ranges = EMAIL_SCANNER_IP_RANGES) {
 /** Which kind of link this is — the input to the "contradictory window" rule. */
 function linkClassOf(url) {
   if (isOptOutLink(url)) return 'opt-out';
-  if (typeof url === 'string' && PREFERENCES_LINK_RE.test(url)) return 'preferences';
+  if (isPreferencesLink(url)) return 'preferences';
   if (typeof url === 'string' && SOCIAL_LINK_RE.test(url)) return 'social';
   return 'content';
 }
