@@ -146,9 +146,9 @@ describe('headline-selection-protocol — strato 1: il parsing RIFIUTA invece di
     expect(r.reason).toBe('rilevante');
   });
 
-  it('tollera code fence, minuscole e spazi nella chiave', () => {
+  it('tollera code fence e spazi nella chiave', () => {
     for (const raw of [
-      '```json\n{"selectedId":"h1","reason":"x"}\n```',
+      '```json\n{"selectedId":"H1","reason":"x"}\n```',
       '{"selectedId":" H 1 ","reason":"x"}',
     ]) {
       const r = parseHeadlineSelection(raw, 2);
@@ -156,6 +156,13 @@ describe('headline-selection-protocol — strato 1: il parsing RIFIUTA invece di
       if (!r.ok) throw new Error('unreachable');
       expect(r.index).toBe(0);
     }
+  });
+
+  it('RIGETTA una chiave minuscola — il prompt di correzione mostra solo maiuscolo (#5849 item 4)', () => {
+    const r = parseHeadlineSelection('{"selectedId":"h1","reason":"x"}', 2);
+    expect(r.ok).toBe(false);
+    if (r.ok) throw new Error('unreachable');
+    expect(r.rejection).toBe(SELECTION_REJECTION.UNKNOWN_KEY);
   });
 
   it('un NUMERO NUDO è ambiguo e viene rigettato — è il difetto di #188', () => {
