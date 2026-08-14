@@ -2641,6 +2641,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Le permis de séjour B à Lucerne : exigences et procédure',
     'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'Le titre de séjour B dans le canton de Lucerne est un type de titre de séjour qui peut être renouvelé. Voici les exigences, les documents à produire et la procédure de renouvellement.',
     'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'Le permis de séjour B dans le Canton de Lucerne',
+    'blog.article.permesso-domicilio-c-lucerna.title': 'Permis de colonisation C Lucerne : exigences et demande',
+    'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Guide complet du permis de colonisation C dans le canton de Lucerne : critères d\'intégration, exigences et procédures.',
+    'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'Permis d\'établissement C canton de Lucerne conditions et demande',
 };
 
 export default blogMetaChFr;

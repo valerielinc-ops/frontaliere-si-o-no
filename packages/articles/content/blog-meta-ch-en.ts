@@ -2641,6 +2641,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Residence permit B in Lucerne: requirements and procedure',
     'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'The B residence permit in the Canton of Lucerne is a type of residence permit that can be renewed. Here are the requirements, the documents to be produced and the renewal procedure.',
     'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'The B permit in the Canton of Lucerne',
+    'blog.article.permesso-domicilio-c-lucerna.title': 'Residence permit C Lucerne: requirements and application',
+    'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Complete guide to the C settlement permit in the canton of Lucerne: integration criteria, requirements and procedure.',
+    'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'C permit residence in Lucerne canton requirements and application',
 };
 
 export default blogMetaChEn;

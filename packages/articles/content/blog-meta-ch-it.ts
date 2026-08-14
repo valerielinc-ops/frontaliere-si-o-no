@@ -2641,6 +2641,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Il permesso di dimora B a Lucerna: requisiti e procedura',
     'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'Il permesso di dimora B nel Cantone di Lucerna è un tipo di permesso di soggiorno che può essere rinnovato. Ecco i requisiti, i documenti da produrre e la procedura di rinnovo.',
     'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'Il permesso di dimora B nel Cantone di Lucerna',
+    'blog.article.permesso-domicilio-c-lucerna.title': 'Permesso di domicilio C Lucerna: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Guida completa al permesso di domicilio C nel Cantone di Lucerna: criteri di integrazione, requisiti e procedura.',
+    'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'Permesso di domicilio C nel Cantone di Lucerna requisiti e domanda',
 };
 
 export default blogMetaChIt;
