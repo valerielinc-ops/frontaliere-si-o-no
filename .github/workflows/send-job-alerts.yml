@@ -65,27 +65,36 @@ on:
     # AFTER the newsletter. The two workflows have no data dependency and
     # separate `concurrency` groups, so the ordering is not required.
     - cron: '33 0 * * *'
-    # SECONDO SLOT — 15:07 UTC. Aggiunto il 2026-08-14 su decisione del
+    # SECONDO SLOT — 12:07 UTC. Aggiunto il 2026-08-14 su decisione del
     # proprietario, ora che il soffitto di cadenza e' tolto e la tabella
     # [1, 3, 7] e' di nuovo in vigore: chi clicca ha diritto a un invio al
     # giorno, e un solo giro che parte in media alle 04:33 lascia indietro
     # tutti quelli la cui ora preferita cade dopo.
     #
-    # Perche' le 15:00, con la misura gia' in questo file: il ritardo mediano
-    # di dispatch per ora nominale e' 00h 240m, 02h 199m, 03h 159m, 05h 147m,
-    # 10h 109m, 15h 65m, 21h 62m, 22h 51m. Le 15h stanno nella banda a basso
-    # ritardo (~65m -> partenza effettiva ~16:12) e restano abbastanza presto
-    # da lasciare mezza giornata utile a computeScheduledSendAt, che schedula
-    # ogni iscritto alla PROSSIMA occorrenza della sua ora preferita: piu'
-    # tardi parte il giro, piu' gente ha gia' passato la propria ora e slitta a
-    # domani. 21h e 22h hanno ritardo minore ma partirebbero di sera, quando
-    # quasi tutte le ore preferite sono passate — il ritardo piu' basso
-    # comprerebbe la copertura peggiore.
+    # IL VINCOLO CHE DECIDE L'ORA, e viene prima di ogni considerazione sul
+    # ritardo: la guardia anti-doppione e' una funzione pura del GIORNO UTC —
+    # un avviso servito oggi non e' piu' dovuto oggi. Se lo slittamento di
+    # dispatch spinge un giro oltre la mezzanotte, i due giri cadono in due
+    # giorni UTC DIVERSI e il gate li vede come due invii legittimi. Con lo
+    # slittamento massimo misurato qui sotto (590m), il nominale deve quindi
+    # stare sotto le ~14:10.
+    #
+    # Le 15:07 erano la prima scelta, per il ritardo basso, e sono state
+    # scartate proprio per questo: 15:07 + 590m = 00:57 del giorno dopo.
+    #
+    # Fra le ore ammesse dal vincolo si sceglie col ritardo misurato (00h 240m,
+    # 02h 199m, 03h 159m, 05h 147m, 10h 109m, 15h 65m, 21h 62m, 22h 51m): le
+    # 12h stanno nella parte bassa della banda ammessa, e 12:07 + 590m = 21:57
+    # resta nello stesso giorno anche nel caso peggiore. Le ore a ritardo
+    # minore (15h, 21h, 22h) violano tutte il vincolo, e partirebbero comunque
+    # troppo tardi per computeScheduledSendAt, che schedula ogni iscritto alla
+    # PROSSIMA occorrenza della sua ora preferita: piu' tardi parte il giro,
+    # piu' gente ha gia' passato la propria ora e slitta a domani.
     #
     # Il minuto :07 vale solo a non impilarsi sugli altri cron: lo stesso audit
     # dice che il minuto NON e' load-bearing (150m a :00, 149m a :15/:30/:45,
     # 158m fuori).
-    - cron: '7 15 * * *'
+    - cron: '7 12 * * *'
   workflow_dispatch:
     inputs:
       target_email:
@@ -124,7 +133,7 @@ jobs:
     #
     # Da armare solo dopo che e' su main la logica che tratta un avviso gia'
     # spedito — o gia' PROGRAMMATO e non ancora partito — come non piu' dovuto.
-    if: github.event.schedule != '7 15 * * *' || vars.JOB_ALERT_SECOND_SLOT_ARMED == 'true'
+    if: github.event.schedule != '7 12 * * *' || vars.JOB_ALERT_SECOND_SLOT_ARMED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
