@@ -64,6 +64,46 @@ export function blocksToHtml(blocks: Block[]): string {
 const JOB_DESC_HTML_CACHE_MAX = 10_000;
 const jobDescHtmlCache = new Map<string, string>();
 
+/**
+ * Demote employer-supplied `<h1>` headings to `<h2>` inside embedded ATS markup.
+ *
+ * `computeJobDescriptionTextToHtml`'s passthrough branch below matches
+ * `h[1-6]` and then returns the source HTML essentially verbatim — so an ATS
+ * that ships its own document outline (Workday/SmartRecruiters exports, and
+ * anything pasted out of MS Word) lands its `<h1>`s straight into the static
+ * job page, which already owns exactly one `<h1>`: the hero title emitted by
+ * `jobsSeoPagesPlugin.ts` (`<h1 class="hero-title">`).
+ *
+ * Measured on the live page named in issue #5845 item 1,
+ * `/en/find-jobs-graubunden/client-support-officer-efg-st-moritz/`: 10 `<h1>`
+ * elements in the served HTML — 1 hero title plus 9 employer headings ("Our
+ * Company", "Job Description", "Main Responsibilities", "Skills and
+ * experience", "Our Values", "Application", …), all inside
+ * `<section class="section"><h4>Role overview</h4>`, i.e. the `summaryHtml`
+ * built from this function. That is the multi-`<h1>` family
+ * `tests/dist-single-h1-per-page.test.ts` reports: the gate is right, the
+ * pages are wrong.
+ *
+ * `<h2>` and not `<h3>`+: the AST branch of this same file already renders a
+ * level-2 source heading as `<h2>` inside that identical container
+ * (`blocksToHtml`), so demoting to `<h2>` keeps the two rendering paths
+ * emitting the same outline for the same input rather than inventing a third
+ * convention. Levels 2-6 are left alone — only `<h1>` breaks a page-level
+ * invariant.
+ *
+ * Attributes are preserved (only the tag name is rewritten) so nothing that
+ * downstream CSS or `stripExternalHtmlAttributes` relies on shifts as a side
+ * effect. Regexes are function-local: a module-scope `/g` literal shared
+ * across calls carries `lastIndex` state that a future `.test()`/`.exec()`
+ * caller would silently trip over.
+ */
+export function demoteEmbeddedH1(html: string): string {
+  if (!html) return '';
+  return html
+    .replace(/<h1(\s[^>]*)?>/gi, (_m, attrs: string | undefined) => `<h2${attrs || ''}>`)
+    .replace(/<\/h1\s*>/gi, '</h2>');
+}
+
 function computeJobDescriptionTextToHtml(text: string): string {
   if (/<(p|ul|ol|li|h[1-6]|br|strong|em)\b/i.test(text)) {
     // Pre-structured HTML still needs literal-markdown scrub — descriptions
@@ -88,9 +128,11 @@ function computeJobDescriptionTextToHtml(text: string): string {
     if (doubleStars % 2 !== 0) {
       s = s.replace(/\*\*/g, '');
     }
-    return s
-      .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>')
-      .replace(/[_=~]{3,}/g, ' ');
+    return demoteEmbeddedH1(
+      s
+        .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>')
+        .replace(/[_=~]{3,}/g, ' '),
+    );
   }
   const blocks = parseJobDescription(text);
   return blocksToHtml(blocks);
