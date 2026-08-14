@@ -2641,6 +2641,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Die Aufenthaltsbewilligung B in Luzern: Voraussetzungen und Verfahren',
     'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Luzern ist eine Art Aufenthaltsbewilligung, die erneuert werden kann. Hier sind die Anforderungen, die einzureichenden Dokumente und das Erneuerungsverfahren.',
     'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'Das B-Erlaubnis im Kanton Luzern',
+    'blog.article.permesso-domicilio-c-lucerna.title': 'Niederlassungsbewilligung C Luzern: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Vollständiger Leitfaden zur C-Siedlungsgenehmigung im Kanton Luzern: Integrationskriterien, Anforderungen und Verfahren.',
+    'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'C-Ausweis Niederlassungsbewilligung Kanton Luzern Voraussetzungen',
 };
 
 export default blogMetaChDe;
