@@ -5431,12 +5431,22 @@ ${hrefTags}
  // the canonical points to the proper `/en/…` cluster member.
  if (!italianPageExists) {
  // Locale roots (/en/, /de/, /fr/) are owned by the post-loop "Locale-root
- // SPA shells" block (line ~3300) which mirrors the full IT root with
+ // SPA shells" block (further down this hook) which mirrors the full IT root with
  // locale rewrites + locale-correct SEO injection — a richer artifact
  // (~106 KB) than what this branch can produce here (~25 KB shell). Letting
  // both branches emit creates a write race against the same path. Skip
  // here so the post-loop branch is the single owner.
- const isLocaleRoot = url.path === '/en/' || url.path === '/de/' || url.path === '/fr/';
+ //
+ // Compare against `/en` and NOT `/en/`: `url.path` is the sitemap path
+ // NORMALIZED WITHOUT a trailing slash (see the SitemapUrl construction —
+ // `pathNoSlash = rawPath.replace(/\/+$/, '')`, `/` being the only path that
+ // keeps its slash). With the `'/en/'` form this guard could not be true for
+ // ANY input, so #5468's "the loop continues on the three locale roots" was
+ // inert: what actually keeps them out today is the `italianUrls` filter
+ // above (`!p.startsWith('/en')` &c.). That makes this a real safety net
+ // again rather than one that reads as protection and cannot fire — if the
+ // filter is ever relaxed, the write race #5468 closed stays closed.
+ const isLocaleRoot = url.path === '/en' || url.path === '/de' || url.path === '/fr';
  if (isLocaleRoot) {
  count++;
  continue;
@@ -5445,12 +5455,13 @@ ${hrefTags}
  /* dir created by _qw */
  const primaryLocale = detectLocale(url.path);
  let pageHtml = buildPage(primaryLocale, url.path, seo, url.hreflangs);
- // Inject the homepage SEO content block on locale roots (/en/, /de/, /fr/)
- // — same prerendered prose pattern used for the IT homepage, lifts the
- // text-to-HTML ratio above the 10 % gate.
- if (url.path === '/en/' || url.path === '/de/' || url.path === '/fr/') {
- pageHtml = injectHomepageSeoContent(pageHtml, primaryLocale as HpSeoLocale);
- }
+ // No homepage-SEO injection for the three locale roots here: the
+ // `isLocaleRoot` guard above already `continue`d on exactly that condition,
+ // so a second test of it is unreachable by local control flow whatever
+ // `url.path` holds.
+ // Their SEO block is injected by the post-loop "Locale-root SPA shells"
+ // ratchet via renderLocaleRootShell → injectHomepageSeoContent, which runs
+ // unconditionally and is idempotent — the single owner, as the guard says.
  // Calculator landings (/calcola-stipendio/, /calculate-salary/, etc.):
  // inject the calculator-specific SEO block with locale-correct copy.
  const calcLocale = calculatorLocaleForPath(url.path);

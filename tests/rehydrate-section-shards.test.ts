@@ -107,11 +107,72 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(liveCode).not.toMatch(/sparse-checkout/);
   });
 
+  /**
+   * The success branch of the `if [ -d "$tmp/$sub" ]` copy guard, delimited
+   * STRUCTURALLY: from the guard line to the first `else`/`fi` at the guard's
+   * own indentation, so the nested `if [ -n "${SHARD_CLONE_CACHE_DIR:-}" ]`
+   * closer (deeper indent) cannot end it early.
+   *
+   * This used to be `script.slice(idx, idx + 700)`. That window was measured
+   * at 648 chars to `SHARD_CLONE_CACHE_DIR` — a margin of 52 characters, i.e.
+   * one extra comment line or a slightly wordier `::warning::` message between
+   * the clone and the cache write would have turned this test red with the
+   * script's BEHAVIOUR unchanged (issue #5369 §8). A byte count is not the
+   * invariant; "the cache write sits inside the branch that runs only after a
+   * verified copy" is, and that is what this reads.
+   */
+  function copyGuardSuccessBranch(): string {
+    const lines = script.split('\n');
+    const guardIdx = lines.findIndex((l) => /^\s*if \[ -d "\$tmp\/\$sub" \]; then\s*$/.test(l));
+    expect(guardIdx, 'copy guard `if [ -d "$tmp/$sub" ]; then` not found').toBeGreaterThan(-1);
+    const indent = lines[guardIdx].match(/^\s*/)![0];
+    const closerRx = new RegExp(`^${indent}(?:else|fi)\\b`);
+    let endIdx = -1;
+    for (let i = guardIdx + 1; i < lines.length; i += 1) {
+      if (closerRx.test(lines[i])) { endIdx = i; break; }
+    }
+    expect(endIdx, 'copy guard never closes at its own indentation').toBeGreaterThan(guardIdx);
+    return lines.slice(guardIdx + 1, endIdx).join('\n');
+  }
+
   it('populates the cross-job cache only after a verified successful clone+copy', () => {
-    const idx = script.indexOf('git clone --depth 1 --single-branch --branch main');
-    const block = script.slice(idx, idx + 700);
-    expect(block).toMatch(/if \[ -d "\$tmp\/\$sub" \]/);
-    expect(block).toContain('SHARD_CLONE_CACHE_DIR');
+    const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
+    const guardIdx = script.indexOf('if [ -d "$tmp/$sub" ]; then');
+    expect(cloneIdx, 'network clone not found').toBeGreaterThan(-1);
+    expect(guardIdx, 'copy guard must come AFTER the network clone').toBeGreaterThan(cloneIdx);
+
+    const branch = copyGuardSuccessBranch();
+    // The copy itself, and the cache write, both inside the verified branch.
+    expect(branch).toContain('cp -r "$tmp/$sub" "dist/$sub"');
+    expect(branch).toContain('SHARD_CLONE_CACHE_DIR');
+  });
+
+  it('the copy-guard window is bounded by structure, not by a byte count', () => {
+    // Pins the fix above: prepending a long comment inside the guard must not
+    // change what the window contains. Simulated on a copy of the script so the
+    // real file is untouched — the previous 700-char slice failed this.
+    const lines = script.split('\n');
+    const guardIdx = lines.findIndex((l) => /^\s*if \[ -d "\$tmp\/\$sub" \]; then\s*$/.test(l));
+    const padded = [
+      ...lines.slice(0, guardIdx + 1),
+      ...Array.from({ length: 12 }, (_, n) => `      # padding comment ${n} — behaviour unchanged`),
+      ...lines.slice(guardIdx + 1),
+    ].join('\n');
+    const cloneOffset = padded.indexOf('git clone --depth 1 --single-branch --branch main');
+    expect(
+      padded.slice(cloneOffset, cloneOffset + 700).includes('SHARD_CLONE_CACHE_DIR'),
+      'a fixed 700-char window loses the cache write to a dozen comment lines',
+    ).toBe(false);
+    // …while the structural bound still finds it.
+    const indent = lines[guardIdx].match(/^\s*/)![0];
+    const pLines = padded.split('\n');
+    const pGuard = pLines.findIndex((l) => /^\s*if \[ -d "\$tmp\/\$sub" \]; then\s*$/.test(l));
+    const closerRx = new RegExp(`^${indent}(?:else|fi)\\b`);
+    let pEnd = -1;
+    for (let i = pGuard + 1; i < pLines.length; i += 1) {
+      if (closerRx.test(pLines[i])) { pEnd = i; break; }
+    }
+    expect(pLines.slice(pGuard + 1, pEnd).join('\n')).toContain('SHARD_CLONE_CACHE_DIR');
   });
 
   it('preserves the unchanged fail-soft posture: no set -e, warnings + continue on failure', () => {
