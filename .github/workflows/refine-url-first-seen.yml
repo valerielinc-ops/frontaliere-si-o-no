@@ -164,6 +164,6 @@ jobs:
           - GSC API refinement applicato a \`data/url-first-seen.json\`. Vedi step log per stats (URL refinati, ancora a fallback, finestra GSC effettiva).
 
           ## Non implementato (ancora)
-          - Niente — chore data update. Per re-tuning della logica vedi script + workflow su \`main\`.
+          Nessuno — chore data update, nessun residuo. Il re-tuning della logica vive nello script e nel workflow su \`main\`, ed è un task a sé.
           EOF
           )"

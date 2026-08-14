@@ -347,6 +347,42 @@ jobs:
           fi
           echo "Aggregate: is_aggregate=$(grep is_aggregate= "$GITHUB_OUTPUT" | tail -1)"
 
+      - name: Closing keyword for the PR body (zero-Claude)
+        id: closing
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # Il prompt scriveva `Closes #$ISSUE_NUMBER` INCONDIZIONATAMENTE. Su una
+        # follow-up aggregata multi-item quella riga è esattamente ciò che
+        # `pr-body-contract.yml` fallisce (blocco «Closes #N targeting a
+        # multi-item follow-up aggregate»): la PR nasce ROSSA, e se passasse
+        # chiuderebbe al merge un'aggregata con item ancora dovuti — mentre il
+        # circuit-breaker qui sopra ne fa UNO per run. Successo reale due volte
+        # il 2026-08-14: #5848 e #5862, entrambe corrette a mano dopo il rosso.
+        #
+        # Perché NON riusare `steps.tier.outputs.is_aggregate`: quel detector ha
+        # un fallback sweep/batch con conteggio di target-noun che il gate non
+        # ha, quindi i due possono dare risposte diverse sullo stesso input — ed
+        # è la risposta del GATE che decide se la PR è rossa. Qui si chiama la
+        # stessa `isAggregate()` che `pr-body-contract.yml` rispecchia, via
+        # scripts/lib/pr-body-generator-contract.mjs. Generatore e giudice
+        # condividono una sola definizione: non possono più litigare.
+        #
+        # Fail-open: qualunque errore → `Closes #N`, cioè il comportamento
+        # precedente. Un'infrastruttura giù non deve trasformare una chiusura
+        # legittima in una issue che resta aperta per sempre.
+        run: |
+          set -uo pipefail
+          ref=$(gh issue view "$ISSUE_NUMBER" --json number,title,body,labels 2>/dev/null \
+                | node scripts/lib/pr-body-generator-contract.mjs --closing-ref 2>/dev/null) || ref=""
+          if [ -z "$ref" ]; then
+            ref="Closes #${ISSUE_NUMBER}"
+            echo "closing-ref: fallback → $ref"
+          fi
+          echo "closing_ref=$ref" >> "$GITHUB_OUTPUT"
+          echo "Closing ref: $ref"
+
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
         if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -513,11 +549,21 @@ jobs:
                ```
                ## Implementato
                - <cosa fa il fix>
-               Closes #$ISSUE_NUMBER
+               ${{ steps.closing.outputs.closing_ref }}
 
                ## Non implementato (ancora)
                - <scope NON fatto> — <STATO LETTERALE>
                ```
+               **La riga di chiusura qui sopra è già calcolata, copiala VERBATIM.** Non
+               sostituirla con `Closes #$ISSUE_NUMBER` di tua iniziativa: se dice
+               `Addresses #$ISSUE_NUMBER` è perché questa issue è una follow-up **aggregata
+               multi-item**, e su quelle `pr-body-contract.yml` fallisce ogni `Closes` — la PR
+               nasce rossa (successo reale: #5848 e #5862). `Addresses` non è una keyword
+               GitHub, quindi non chiude niente al merge: è voluto, l'aggregata la chiude
+               `reconcile-followups.mjs` quando TUTTI i suoi item risultano fatti, e il
+               circuit-breaker qui sopra te ne fa fare uno solo. La riga esce da
+               `scripts/lib/pr-body-generator-contract.mjs`, che usa la stessa `isAggregate()`
+               che il gate rispecchia.
                **Lo STATO LETTERALE è obbligatorio su OGNI bullet** e va scelto fra questi cinque,
                scritti esattamente così (AGENTS.md #8; `out of scope` / `follow-up` / `posposto`
                sono la tassonomia vecchia, ABOLITA — non usarli):
