@@ -2633,7 +2633,7 @@ function _exhaustSkipCause(model) {
   switch (reason) {
     case 'quota':        return 'daily limit / consecutive 429s';
     case 'timeout':      return 'timeout circuit-breaker';
-    case 'stale':        return 'stale credentials (HTTP 401)';
+    case 'stale':        return 'model no longer available (removed from provider listing)';
     case 'content':      return 'repeated unusable content';
     case 'nonretryable': return `non-retryable provider error${detail ? ` (${detail})` : ''}`;
     default:             return reason;

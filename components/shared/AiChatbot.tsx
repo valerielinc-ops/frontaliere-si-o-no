@@ -3,9 +3,9 @@
  *
  * Inference architecture (free-first, multi-provider fallback):
  * 1. Firebase Function `chatbotInference` (server-side, keeps key off browser)
- * — tries gemini-2.0-flash-lite → gemini-1.5-flash-8b internally
+ * — tries gemini-flash-lite-latest → gemini-1.5-flash-8b internally
  * 2. Browser-side direct Gemini call (fallback when Function is unreachable)
- * — uses gemini-2.0-flash-lite (replaces deprecated gemini-2.0-flash)
+ * — uses gemini-flash-lite-latest (gemini-2.0-flash-lite retired 2026-08-14)
  * 3. Local deterministic fallback (always available, no network required)
  * — keyword-matched FAQ answers with internal navigation links
  */

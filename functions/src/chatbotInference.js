@@ -5,7 +5,7 @@
  * off the browser, enable multi-provider fallback, and cache common FAQ answers.
  *
  * Provider chain (free-first):
- * 1. Gemini (gemini-2.0-flash-lite → gemini-1.5-flash-8b) — primary
+ * 1. Gemini (gemini-flash-lite-latest → gemini-1.5-flash-8b) — primary
  * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
  * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
  * 4. Groq llama-3.1-8b-instant — last-resort free fallback
@@ -26,7 +26,10 @@ import { tryClaudeHaikuFallback, CLAUDE_HAIKU_MODEL } from './claudeHaikuFallbac
 // ── Model chain (free-first, non-deprecated) ────────────────────────────────
 
 const GEMINI_MODELS = [
- 'gemini-2.0-flash-lite', // Primary: replaces deprecated gemini-2.0-flash
+ // gemini-2.0-flash-lite is RETIRED (HTTP 404 "no longer available", 2026-08-14 —
+ // see scripts/lib/ai-models.mjs AI_MODELS.GEMINI_2_FLASH_LITE). Alias tracks
+ // Google's current stable flash-lite without needing another hardcoded rename.
+ 'gemini-flash-lite-latest', // Primary
  'gemini-1.5-flash-8b', // Secondary: lighter model, also on free tier
 ];
 
