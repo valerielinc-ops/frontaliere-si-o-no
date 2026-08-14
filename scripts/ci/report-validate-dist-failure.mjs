@@ -597,13 +597,23 @@ function reportBuild({ dryRun }) {
     process.stdout.write(JSON.stringify([{ title, labels: ['Bug'], body: description }], null, 2) + '\n');
     return Promise.resolve();
   }
+  // NIENTE `reopenWithinHours` qui: si eredita DEFAULT_REOPEN_WITHIN_HOURS
+  // (720h). C'era `6`, ereditato dal reporter post-deploy qui sopra, dove i 6h
+  // sono giusti — quello collassa un flap rosso→verde→rosso dentro UN ciclo di
+  // deploy (#928/#931/#937/#941) e ha `buildSha` per il guard anti-latenza
+  // #5539. Questo NO: gira dentro il job di build, la build che ha rotto è
+  // sempre quella corrente, e il rosso torna a distanza di giorni. Misurato
+  // 2026-08-14: 22 issue con il titolo IDENTICO `CI Failure (build): Deploy to
+  // GitHub Pages` (#1290 … #5864) — una coniatura per ogni ricaduta oltre i 6h
+  // dal verde che aveva chiuso la precedente, sulla issue che #5121 dichiara
+  // canonica. Il collasso della matrice a 4 locali NON dipende da questa
+  // finestra: quello lo fa il dedup sulle issue APERTE, che è incondizionato.
   return createGithubIssue({
     title,
     description,
     priority: 1,
     labels: ['Bug'],
     workflow: workflowName,
-    reopenWithinHours: 6,
   });
 }
 

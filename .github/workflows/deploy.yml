@@ -2231,9 +2231,20 @@ jobs:
 
           Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
             --priority 1 \
-            --reopen-within-hours 6 \
             --label Bug \
             --workflow "${WORKFLOW}"
+          # NESSUN --reopen-within-hours: si eredita il default del creator
+          # (DEFAULT_REOPEN_WITHIN_HOURS, 720h). Qui c'era `6`, e quel 6
+          # contraddiceva la sua stessa intenzione dichiarata allo step
+          # "Resolve …" qui sotto — «close↔reopen on ONE issue per cause».
+          # Con 6h la riapertura funziona solo se il rosso torna entro 6h dal
+          # verde che ha chiuso; a cadenza giornaliera non torna mai. Misura
+          # 2026-08-14: le gemelle #5771/#5772/#5773 sono state chiuse
+          # 2026-08-13T08:51Z, il guard è riscaduto 27,7h dopo, e i tre leg
+          # hanno coniato #5868/#5869/#5872 invece di riaprirle. Il contrasto
+          # che lo prova: #5864, chiusa 12:32:46Z e riaperta 13:35:37Z (1,05h,
+          # dentro i 6h). Il 6h resta giusto SOLO per i validatori post-deploy,
+          # che collassano un flap rosso→verde→rosso dentro UN ciclo di deploy.
 
       - name: Surface a stale-locale shard push failure (#2658)
         # The gate passed and the push itself failed — THIS is the shard-repo /
@@ -2270,9 +2281,11 @@ jobs:
           **Branch:** ${BRANCH}
           Il guard di ordinamento CDN (#2569) è PASSATO in questo run — la causa non è la CDN. Probabili cause: errore transiente di rete/artifact-service, conflitto di push, deploy key shard scaduta." \
             --priority 1 \
-            --reopen-within-hours 6 \
             --label Bug \
             --workflow "${WORKFLOW}"
+          # NESSUN --reopen-within-hours: default 720h del creator. Vedi la nota
+          # allo step gemello sopra — stessa coppia surface↔resolve, stessa
+          # cadenza, stesso motivo per cui `6` non teneva la issue canonica.
 
       - name: Resolve stale-locale shard issues on successful push (#2658)
         # Mirror of BOTH surfacing steps: a green push closes whichever of the
@@ -2384,9 +2397,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Build succeeded → close the canonical "CI Failure (build)" issue if
-          # open. Paired with --reopen-within-hours 6 on the reporter above so the
+          # open. Paired with the reopen window of the reporter above so the
           # close↔reopen cycle stays on ONE canonical issue (no per-run storm,
           # no stale issue while green). Idempotent no-op when nothing is open.
+          # Quel reporter (report-validate-dist-failure.mjs, reportBuild) NON
+          # nomina più `reopenWithinHours: 6`: eredita i 720h di default, ed è
+          # ciò che rende vera questa riga — con 6h la coppia si spezzava a ogni
+          # ricaduta oltre le 6h dal verde, e le issue canoniche erano 22.
           node scripts/lib/github-issue-creator.mjs \
             --resolve \
             --title "CI Failure (build): ${{ github.workflow }}" \

@@ -115,9 +115,21 @@ inputs:
     required: false
     default: '2'
   reopen-within-hours:
-    description: 'Finestra di riapertura per il flap rosso→verde→rosso (#928/#931).'
+    description: >-
+      Finestra di riapertura, in ore. VUOTO (il default) = si eredita
+      DEFAULT_REOPEN_WITHIN_HOURS di scripts/lib/github-issue-creator.mjs, oggi
+      720h. Un numero RESTRINGE e vuole un motivo scritto (lo pretende
+      tests/reopen-window-narrowing-gate.test.ts); `0` disattiva la riapertura.
+
+      Qui c'era `default: '6'`, ed era un DEFAULT OMBRA: #5850 ha reso la
+      riapertura il comportamento normale del creator, ma ogni adottante di
+      questa action continuava a ricevere 6h senza chiederle — cioè il difetto
+      che #5850 chiudeva, un piano sopra. I 6h nascono dal flap rosso→verde→rosso
+      dentro UN ciclo di deploy (#928/#931/#937/#941): giusti per un validatore
+      post-deploy, che infatti li passa esplicitamente, sbagliati per un guasto
+      che ricade a giorni di distanza.
     required: false
-    default: '6'
+    default: ''
   entity:
     description: >-
       Discriminante per-entità del job (locale, section, shard…). Serve a

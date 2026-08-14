@@ -424,7 +424,18 @@ export function reportMode({ dryRun }) {
   const logFromJob = process.env.LOG_FROM_JOB || '';
   const closedBy = process.env.CLOSED_BY || '';
   const priority = Number(process.env.ISSUE_PRIORITY || '2') || 2;
-  const reopenWithinHours = Number(process.env.REOPEN_WITHIN_HOURS || '6') || 6;
+  // REOPEN_WITHIN_HOURS assente/vuoto → `null` → il creator applica
+  // DEFAULT_REOPEN_WITHIN_HOURS (720h). Il fallback `|| '6') || 6` che stava
+  // qui era il secondo DEFAULT OMBRA di questa catena: nessun chiamante di
+  // report-failure/action.yml chiedeva 6h, le riceveva e basta, e la
+  // riapertura resa normale da #5850 non arrivava a nessuno di loro.
+  //
+  // `0` esplicito DEVE sopravvivere (è l'opt-out documentato), quindi la
+  // conversione non può passare da `||`: si testa `Number.isFinite` sul valore
+  // grezzo e si lascia `null` in tutti gli altri casi.
+  const rawReopen = (process.env.REOPEN_WITHIN_HOURS || '').trim();
+  const parsedReopen = rawReopen === '' ? NaN : Number(rawReopen);
+  const reopenWithinHours = Number.isFinite(parsedReopen) ? parsedReopen : null;
   const labels = (process.env.ISSUE_LABELS || 'Bug')
     .split(/[\n,]/).map((s) => s.trim()).filter(Boolean);
 
