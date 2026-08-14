@@ -9,10 +9,29 @@ name: Publish Journalist Articles (queued → live pipeline)
 # retry push to main), reusing the exact same secrets — no new ones needed.
 
 on:
-  schedule:
-    # Every 15 minutes — a journalist expects to see their article go live
-    # soon after hitting "Submit", not on the next daily cron.
-    - cron: '*/15 * * * *'
+  # SCHEDULE REMOVED 2026-08-14 by the owner — this publisher no longer runs on
+  # its own. The twin in nanakokyobashi-rgb/frontaliere-articles now owns the
+  # queue and runs every 15 minutes in its place.
+  #
+  # Why: both repos ran this workflow against the SAME Firestore queue
+  # (`journalist_articles`), and a doc flipped to status:'published' is never
+  # reprocessed — so whoever lost the race never saw that article at all. This
+  # side polled every 15 minutes against the twin's every 2 hours, so this side
+  # won almost always and the corpus never received the article. The corpus is
+  # the repo that OWNS the content, so an article that lands only here is one
+  # `pull-articles-corpus.mjs` later reports as "upstream drops <slug> but
+  # nothing retired it" — a fail-closed stop that turns `seo-completeness` and
+  # `sitemap-slug-integrity` red on EVERY branch and blocks all merges until a
+  # human restores it by hand. Measured 2026-08-13: it cost ~1h30 of blocked
+  # merges and a manual restore PR (frontaliere-articles#284). See #5794.
+  #
+  # Latency is preserved: the twin moved from '15 */2 * * *' to '*/15 * * * *'
+  # in the same change, so a journalist still sees the article go live within
+  # ~15 minutes of hitting Submit — it simply travels corpus → site through the
+  # normal sync instead of being written here.
+  #
+  # `workflow_dispatch` stays: a manual run is still useful to drain the queue
+  # on demand, and it cannot cause the race because it is not periodic.
   workflow_dispatch: {}
 
 concurrency:
