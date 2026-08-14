@@ -1019,11 +1019,66 @@ jobs:
           # the failures file gets the row — the failed task vanishes and
           # the parent step prints "✅ All passed". This silently masked
           # the title-length regression in post-deploy run 25377607613.
+          #
+          # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833). This job's own YAML
+          # is loaded from whichever ref GitHub resolves for a `workflow_run`
+          # trigger — in practice `main` HEAD at dispatch time — while the
+          # CODE it checks out is pinned to the `deploy_ref` input, the build
+          # SHA (see the Checkout step above). A gate added to this file AND
+          # to `package.json` in the same PR therefore has a window where a
+          # build dispatched just BEFORE that PR merged is validated by a
+          # workflow definition from just AFTER it: `npm run <script>` then
+          # fails with `Missing script`, not because anything on the page is
+          # wrong, but because `deploy_ref`'s package.json genuinely predates
+          # the gate. Measured: run 31765361020, deploy_ref
+          # 0c8299133 (2026-08-14T00:38:26Z) validated by a workflow that
+          # already had `validate:keyword-landing-coverage`, added by
+          # e9a8a9e8a65 (2026-08-14T01:04:38Z, 7 commits later).
+          #
+          # Fetched ONCE, before the pool starts (not per-gate, and not
+          # unconditionally trusted): `origin/main`'s package.json is the
+          # source of truth for "does this script exist going forward". A
+          # gate missing from the pinned deploy_ref AND from origin/main is a
+          # real bug (wrong script name, or a genuine deletion) and must
+          # still fail loud — only "exists on main, not yet on this old
+          # build" is safe to treat as a skip. `|| true` on both git calls:
+          # a fetch failure (network blip, shallow-clone quirk) must fall
+          # back to the pre-existing behaviour, never widen the gate by
+          # skipping something we failed to verify.
+          #
+          # (Throughout this comment the input is named WITHOUT its prefix, on
+          # purpose. check-workflow-input-injection.mjs counts input references
+          # across the WHOLE text of a run: step, comments included, and fails
+          # CLOSED on every one it cannot locate inside an Actions expression it
+          # managed to parse. It cannot tell prose from an interpolation that
+          # escaped its parser, and it must not try: a `#` does not stop a
+          # multi-line value that leaves the comment and executes. Same lesson
+          # as PR #5817 — the gate is right, so the comment changes, not the
+          # gate.)
+          #
+          # The skip row below writes a LITERAL `rc=0`, same idiom as the
+          # report-only rows (audit:discover-eligibility, audit:job-title-
+          # locale below): the timings-file parser only ever greps
+          # `rc=[0-9]+$`, so a non-numeric sentinel would fall into ITS "no rc
+          # parsed" branch, which counts as FAIL — the opposite of what a
+          # skip must do. The true state ("skip", not "ran and passed") is
+          # preserved in the per-gate log file instead, exactly like those
+          # siblings preserve their real rc in the log after hard-coding 0.
+          git fetch --depth=1 origin main -q 2>/dev/null || true
+          git show origin/main:package.json > /tmp/pkg-main.json 2>/dev/null || true
+
           spawn_capped() {
             local name=$1; local logfile=$2; shift 2
             wait_slot
             (
               set +e
+              if ! node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$name" 2>/dev/null; then
+                if [ -s /tmp/pkg-main.json ] && node -e "process.exit(require('/tmp/pkg-main.json').scripts?.[process.argv[1]] ? 0 : 1)" "$name" 2>/dev/null; then
+                  echo "[spawn_capped] skip: npm script \"$name\" is not defined in this build's package.json (deploy_ref predates its addition) but IS present on origin/main — treating as skip, not fail. See spawn_capped's DEPLOY_REF/WORKFLOW SKEW GUARD comment (#5833)." > "$logfile"
+                  awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"$name(skipped-deploy_ref-drift)\", 0}" >> /tmp/post-build-timings.txt
+                  exit 0
+                fi
+              fi
               start=$(date +%s.%N)
               "$@" > "$logfile" 2>&1
               rc=$?
@@ -1984,11 +2039,32 @@ jobs:
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
           set +e
+          # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833) — this job also
+          # checks out the `deploy_ref` input (a pinned build SHA) above, while
+          # its own workflow YAML is loaded fresh from main at workflow_run
+          # dispatch time (see validate-dist-postbuild's spawn_capped for the
+          # full incident writeup, and for why the input is named without its
+          # prefix here — the anti-injection gate counts references in comments
+          # too, and fails closed). A chain step added in the same PR as its
+          # npm script can therefore reference a script this older pinned
+          # checkout doesn't have yet, producing "npm error Missing script"
+          # instead of a real gate result. Same guard as spawn_capped: skip
+          # (rc=0, not fail) only when the script is confirmed missing here
+          # but present on origin/main.
+          git fetch --depth=1 origin main -q 2>/dev/null || true
+          git show origin/main:package.json > /tmp/pkg-main.json 2>/dev/null || true
           for chain_step in \
             "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
             "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
           ; do
             IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
+            if ! node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$step_name" 2>/dev/null; then
+              if [ -s /tmp/pkg-main.json ] && node -e "process.exit(require('/tmp/pkg-main.json').scripts?.[process.argv[1]] ? 0 : 1)" "$step_name" 2>/dev/null; then
+                echo "[BFS-chain] skip: npm script \"$step_name\" is not defined in this build's package.json (deploy_ref predates its addition) but IS present on origin/main — treating as skip, not fail. See DEPLOY_REF/WORKFLOW SKEW GUARD comment above (#5833)." > "$step_log"
+                awk -v n="$step_name(skipped-deploy_ref-drift)" "BEGIN{printf \"%-40s %7.2f rc=0\n\", n, 0}" >> /tmp/post-build-timings.txt
+                continue
+              fi
+            fi
             start=$(date +%s.%N)
             eval "$step_cmd" > "$step_log" 2>&1
             rc=$?
