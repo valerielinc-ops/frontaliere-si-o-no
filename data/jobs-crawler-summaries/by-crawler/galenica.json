@@ -1,37 +1,35 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-13T21:51:23.434Z",
-  "total": 389,
+  "generatedAt": "2026-08-14T10:15:29.143Z",
+  "total": 382,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 143146,
-  "avgDurationMs": 143146,
+  "unchangedCount": 0,
+  "durationMs": 116925,
+  "avgDurationMs": 116925,
   "durationHistory": [
-    143146
+    116925
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Sachbearbeiter Kundenservice / Retouren (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Apotheker / Apothekerin (w/m/d)",
+      "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3123585.4040618",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3124729.4043063",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Sachbearbeiter Kundenservice / Retouren (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Apotheker / Apothekerin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern",
-      "id": "galenica-6cb3d2ffea38",
+      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "id": "galenica-25b3b3a2ecd7",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -42,7 +40,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -51,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
