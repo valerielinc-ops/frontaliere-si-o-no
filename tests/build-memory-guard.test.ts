@@ -7,11 +7,14 @@ import {
   RSS_CEILING_FRACTION,
   DEFAULT_HOST_AVAIL_FLOOR_MB,
   DEFAULT_CONSECUTIVE_SAMPLES,
+  CALIBRATION_HOST_TOTAL_MB,
+  CALIBRATION_DRIFT_TOLERANCE,
   FAILURE_ISSUE_TITLE,
   readHostAvailableMb,
   readHostTotalMb,
   applyTighteningOverride,
   resolveThresholds,
+  detectCalibrationDrift,
   createGuardState,
   observeSample,
   formatBreachDiagnosis,
@@ -130,6 +133,52 @@ describe('le env possono solo STRINGERE la soglia', () => {
 
   it('il pavimento host si spegne (null) dove MemAvailable non e\' leggibile', () => {
     expect(resolveThresholds({} as NodeJS.ProcessEnv, '/nope/meminfo').hostAvailFloorMb).toBeNull();
+  });
+});
+
+describe('drift di calibrazione — il pavimento assoluto non riscala, il warning deve dirlo (#5831)', () => {
+  it('nessun warning quando MemTotal combacia con la calibrazione', () => {
+    expect(detectCalibrationDrift(CALIBRATION_HOST_TOTAL_MB)).toBeNull();
+  });
+
+  it('nessun warning entro tolleranza (runner 16 GB reale)', () => {
+    // 15988 MB e' esattamente la calibrazione: il fixture MEMINFO_16GB non
+    // deve MAI generare un warning, altrimenti ogni build verde ne stampa uno.
+    const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(MEMINFO_16GB));
+    expect(t.calibrationDriftWarning).toBeNull();
+  });
+
+  it('warning quando MemTotal si allontana oltre la tolleranza (classe macchina diversa)', () => {
+    const doubledMb = Math.round(CALIBRATION_HOST_TOTAL_MB * 2);
+    const msg = detectCalibrationDrift(doubledMb);
+    expect(msg).not.toBeNull();
+    expect(msg).toContain(String(doubledMb));
+    expect(msg).toContain(String(CALIBRATION_HOST_TOTAL_MB));
+    expect(msg).toContain('hostAvailFloorMb');
+  });
+
+  it('resolveThresholds espone il warning quando il runner e\' piu\' piccolo del calibrato', () => {
+    const smallMeminfo = [
+      'MemTotal:        7000000 kB',
+      'MemFree:          423936 kB',
+      'MemAvailable:    2594560 kB',
+    ].join('\n') + '\n';
+    const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(smallMeminfo));
+    expect(t.calibrationDriftWarning).not.toBeNull();
+    // Il warning e' SOLO osservabilita': la soglia continua a scalare come sempre.
+    expect(t.rssCeilingMb).toBe(Math.round(readHostTotalMb(tmpMeminfo(smallMeminfo)) * RSS_CEILING_FRACTION));
+    expect(t.hostAvailFloorMb).toBe(DEFAULT_HOST_AVAIL_FLOOR_MB);
+  });
+
+  it('il confine esatto della tolleranza non genera falsi positivi', () => {
+    const justInside = Math.floor(CALIBRATION_HOST_TOTAL_MB * (1 + CALIBRATION_DRIFT_TOLERANCE));
+    expect(detectCalibrationDrift(justInside)).toBeNull();
+    const justOutside = Math.ceil(CALIBRATION_HOST_TOTAL_MB * (1 + CALIBRATION_DRIFT_TOLERANCE)) + 1;
+    expect(detectCalibrationDrift(justOutside)).not.toBeNull();
+  });
+
+  it('niente warning quando MemAvailable non e\' leggibile — non c\'e\' nessun pavimento da proteggere', () => {
+    expect(resolveThresholds({} as NodeJS.ProcessEnv, '/nope/meminfo').calibrationDriftWarning).toBeNull();
   });
 });
 
