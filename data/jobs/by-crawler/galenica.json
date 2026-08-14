@@ -751,8 +751,6 @@
         "fr": "Pharma-Assistant / Pharma-Assistant (h/f/d)"
       },
       "id": "galenica-b4a5e77b374e",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -770,7 +768,17 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4e482e"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4e482e"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",

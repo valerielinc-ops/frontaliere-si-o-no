@@ -76,8 +76,15 @@ function loadLogoManifest() {
  * email template renders its coloured initial-letter avatar. We deliberately do
  * NOT fall back to Clearbit (CDN defunct → broken image) or a Google favicon
  * (grey globe) — both look broken in an inbox.
+ *
+ * Exported (#5536) so scripts/send-saved-jobs-digest.mjs joins against the
+ * SAME manifest the coverage measurement was taken against (72.9% of jobs /
+ * 81.16% of companies, `data/company-logos-manifest.json`, 453 companies) —
+ * a second companyKey→logo join (e.g. re-deriving from
+ * public/images/brands/ like scripts/send-job-alerts.mjs does) would drift
+ * from that number.
  */
-function resolveLogoUrl(job) {
+export function resolveLogoUrl(job) {
   const manifest = loadLogoManifest();
   const key = job.companyKey || '';
 

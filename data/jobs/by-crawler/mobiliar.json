@@ -440,25 +440,6 @@
         ]
       },
       "sfJobId": "1165216955",
-      "previousSlugs": [
-        "frontend-entwickler-w-m-d-mobiliar-ch",
-        "frontend-entwickler-w-m-d-die-mobiliar-bern",
-        "sviluppatore-front-end-m-f-d-die-mobiliar-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "frontend-entwickler-w-m-d-mobiliar-ch",
-          "sviluppatore-front-end-m-f-d-die-mobiliar-bern"
-        ],
-        "en": [
-          "frontend-entwickler-w-m-d-die-mobiliar-bern"
-        ],
-        "fr": [
-          "frontend-entwickler-w-m-d-mobiliar-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-13T10:18:48.638Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -471,7 +452,28 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-13T10:18:48.638Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "frontend-entwickler-w-m-d-mobiliar-ch",
+          "sviluppatore-front-end-m-f-d-die-mobiliar-bern",
+          "developpeur-angulaire-frontend-w-m-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "frontend-entwickler-w-m-d-die-mobiliar-bern"
+        ],
+        "fr": [
+          "frontend-entwickler-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "frontend-entwickler-w-m-d-mobiliar-ch",
+        "frontend-entwickler-w-m-d-die-mobiliar-bern",
+        "sviluppatore-front-end-m-f-d-die-mobiliar-bern",
+        "developpeur-angulaire-frontend-w-m-d-die-mobiliar-bern"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "mobiliar-2237bbe43d0d",

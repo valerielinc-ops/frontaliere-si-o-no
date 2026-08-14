@@ -1839,7 +1839,7 @@
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
         "de": "senior-sales-associate-cartier-geneva",
-        "fr": "senior-sales-associate-richemont-geneva"
+        "fr": "senior-sales-associate-richemont-geneva-n74jn7"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -1962,7 +1962,8 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7"
+          "senior-sales-associate-richemont-geneva-n74jn7",
+          "senior-sales-associate-richemont-geneva"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.473Z",
@@ -4721,7 +4722,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-20T12:05:33.069Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4733,7 +4733,16 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "engineer-r-i-firmware-architecture-ultra-low-power-h-f-richemont-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "engineer-r-i-firmware-architecture-ultra-low-power-h-f-richemont-neuchatel"
+      ]
     },
     {
       "id": "richemont-633ee6e18509",
@@ -6072,39 +6081,6 @@
       "jobReqId": "jr130201",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anaplan-model-builder-richemont-villars-sur-glane",
-        "costruttore-di-modelli-di-pianificazione-collegato-cartier-villars-sur-glane",
-        "connected-planning-model-builder-richemont-villars-sur-glane",
-        "vernetzter-planungsmodellbauer-cartier-villars-sur-glane",
-        "constructeur-de-modeles-de-planification-connecte-cartier-villars-sur-glane",
-        "connected-planning-model-builder-cartier-villars-sur-glane",
-        "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anaplan-model-builder-richemont-villars-sur-glane",
-          "costruttore-di-modelli-di-pianificazione-collegato-cartier-villars-sur-glane",
-          "connected-planning-model-builder-richemont-villars-sur-glane",
-          "vernetzter-planungsmodellbauer-cartier-villars-sur-glane",
-          "constructeur-de-modeles-de-planification-connecte-cartier-villars-sur-glane",
-          "connected-planning-model-builder-cartier-villars-sur-glane",
-          "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
-        ],
-        "en": [
-          "connected-planning-model-builder-richemont-villars-sur-glane"
-        ],
-        "de": [
-          "anaplan-model-builder-richemont-villars-sur-glane",
-          "vernetzter-planungsmodellbauer-cartier-villars-sur-glane"
-        ],
-        "fr": [
-          "anaplan-model-builder-richemont-villars-sur-glane",
-          "constructeur-de-modeles-de-planification-connecte-cartier-villars-sur-glane"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T10:27:46.150Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -6116,7 +6092,40 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-12T10:27:46.150Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anaplan-model-builder-richemont-villars-sur-glane",
+          "costruttore-di-modelli-di-pianificazione-collegato-cartier-villars-sur-glane",
+          "connected-planning-model-builder-richemont-villars-sur-glane",
+          "vernetzter-planungsmodellbauer-cartier-villars-sur-glane",
+          "constructeur-de-modeles-de-planification-connecte-cartier-villars-sur-glane",
+          "connected-planning-model-builder-cartier-villars-sur-glane",
+          "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
+        ],
+        "de": [
+          "anaplan-model-builder-richemont-villars-sur-glane",
+          "vernetzter-planungsmodellbauer-cartier-villars-sur-glane"
+        ],
+        "fr": [
+          "anaplan-model-builder-richemont-villars-sur-glane",
+          "constructeur-de-modeles-de-planification-connecte-cartier-villars-sur-glane"
+        ],
+        "en": [
+          "connected-planning-model-builder-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "anaplan-model-builder-richemont-villars-sur-glane",
+        "costruttore-di-modelli-di-pianificazione-collegato-cartier-villars-sur-glane",
+        "connected-planning-model-builder-richemont-villars-sur-glane",
+        "vernetzter-planungsmodellbauer-cartier-villars-sur-glane",
+        "constructeur-de-modeles-de-planification-connecte-cartier-villars-sur-glane",
+        "connected-planning-model-builder-cartier-villars-sur-glane",
+        "costruttore-di-modelli-anaplan-cartier-villars-sur-glane"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "richemont-c5a63ba23e1a",
