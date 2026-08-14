@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-08-14T10:20:25.236Z",
+  "assembledAt": "2026-08-14T21:34:45.243Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -24,13 +24,13 @@
         "it": "Capireparto",
         "en": "Department Heads",
         "de": "Fachbereichsleiter",
-        "fr": "Chapitre"
+        "fr": "Capireparto"
       },
       "slugByLocale": {
         "it": "capireparto-lis-lugano-istituti-sociali-pregassona",
         "en": "department-heads-lis-lugano-istituti-sociali-pregassona",
         "de": "fachbereichsleiter-lis-lugano-istituti-sociali-pregassona",
-        "fr": "chapitre-lis-lugano-istituti-sociali-pregassona"
+        "fr": "capireparto-lis-lugano-istituti-sociali-pregassona"
       },
       "descriptionByLocale": {
         "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di capireparto alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione può prevedere l'attribuzione di nomine (art. 5 e ss. ROCIS) e incarichi per funzione stabile (art. 11 e ss. ROCIS) interni. Le posizioni sono aperte sia a candidature femminili che maschili. Il presente concorso resta aperto anche in assenza di un effettivo fabbisogno di personale.\n• Requisiti di ordine generale, quelli previsti dal ROCIS e in particolare: - cittadinanza svizzera o stranieri con permesso di lavoro; - condotta ineccepibile; - costituzione fisica e psichica sana; - idoneità alla funzione.\n• Requisiti di ordine particolare: - diploma di infermiere in cure generali SSSCI o SUP o titolo equivalente; - diploma of Advanced Studies SUPSI in gestione sanitaria DAS GES o l'impegno a intraprendere la specifica formazione e a ottenerlo nei tempi concordati; - attitudine alla conduzione del personale e capacità organizzative, di coordinamento e di controllo; - sensibilità nell'approccio relazionale con la persona anziana; - facilità di comunicazione interpersonale e spiccate doti relazionali; - conoscenza dello strumento gestionale RAI. Mansioni generali di riferimento per il settore sociosanitario: Gestire, partecipare e/o provvedere personalmente alle cure degli ospiti delle Case per anziani e del Centro Diurno Terapeutico dell'Ente autonomo Lugano Istituti Sociali sulla base dei programmi di lavoro, delle necessità contingenti e delle priorità definite dai superiori, secondo la formazione conseguita e la funzione attribuita. Stipendio annuo - Fascia XIII (capireparto), classi 14-15-16 classe 14: min CHF 82'372.30 / max CHF 97'199.35 classe 15: min CHF 86'927.80 / max CHF 102'574.80 classe 16: min CHF 92'919.50 / max CHF 109'644.90 Nell'ambito delle anzidette possibilità di retribuzione può essere riconosciuta l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio. Le offerte devono essere corredate dai seguenti documenti: - lettera di presentazione - curriculum vitae - fotografia recente - certificati di studio e di lavoro - questionario sullo stato di salute - autocertificazione casellario giudiziale Oltre ai documenti da allegare inizialmente, in un secondo momento potrà essere richiesto di presentare l'estratto del casellario giudiziale per privati. Condizioni di presentazione delle candidature Le candidature devono essere inoltrate in forma elettronica tramite lo sportello online seguendo la procedura indicata sul sito internet dell'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ entro le ore 23:59 di domenica 13 dicembre 2026 L'Ufficio Risorse Umane resta a cortese disposizione (t. 058 866 34 11) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, ecc) tramite il quale candidarsi. Lugano Istituti Sociali non potrà, in nessun caso, considerare candidature e allegati trasmessi tramite alti canali (forma cartacea, email, fax, ecc.). LUGANO ISTITUTI SOCIALI IL CONSIGLIO DI AMMINISTRAZIONE Capitolato di concorso Questionario sullo stato di salute Questionario relativo al casellario giudiziale",
@@ -50,7 +50,8 @@
         "chapter-lis-lugano-istituti-sociali-pregassona",
         "kapitel-lis-lugano-istituti-sociali-pregassona",
         "capo-reparto-lis-lugano-istituti-sociali-pregassona",
-        "capireparto"
+        "capireparto",
+        "chapitre-lis-lugano-istituti-sociali-pregassona"
       ],
       "sourceLang": "it",
       "currency": "CHF",
@@ -86,14 +87,16 @@
           "kapitel-lis-lugano-istituti-sociali-pregassona"
         ],
         "fr": [
-          "capireparto-lis-lugano-istituti-sociali-pregassona-845mpk"
+          "capireparto-lis-lugano-istituti-sociali-pregassona-845mpk",
+          "chapitre-lis-lugano-istituti-sociali-pregassona"
         ]
       },
       "addressLocality": "Pregassona",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true
     },
     {
       "title": "Infermieri",
@@ -270,7 +273,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenti di cura",
@@ -293,13 +297,13 @@
       "titleByLocale": {
         "it": "Assistenti di cura",
         "en": "Care Assistants",
-        "de": "Pflegehelfer",
+        "de": "Assistenti di cura",
         "fr": "Aides soignants"
       },
       "slugByLocale": {
         "it": "assistenti-di-cura",
         "en": "care-assistants-lis-lugano-istituti-sociali-pregassona",
-        "de": "pflegehelfer-lis-lugano-istituti-sociali-pregassona",
+        "de": "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
         "fr": "aides-soignants-lis-lugano-istituti-sociali-pregassona"
       },
       "descriptionByLocale": {
@@ -354,6 +358,7 @@
         ],
         "de": [
           "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
+          "pflegehelfer-lis-lugano-istituti-sociali-pregassona",
           "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona"
         ]
       },
@@ -363,8 +368,10 @@
         "assistants-de-soins-lis-lugano-istituti-sociali-pregassona",
         "assistenti-di-cura-lis-lugano-istituti-sociali-lugano",
         "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
-        "assistente-di-cura-lis-lugano-istituti-sociali-pregassona"
-      ]
+        "assistente-di-cura-lis-lugano-istituti-sociali-pregassona",
+        "pflegehelfer-lis-lugano-istituti-sociali-pregassona"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratori sanitari",
@@ -510,7 +517,8 @@
           "collaborateurs-de-sante-lis-lugano-istituti-sociali-pregassona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori settore animazione",
@@ -696,7 +704,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Educatori sociali",
@@ -820,7 +829,8 @@
           "enseignants-sociaux-lis-lugano-istituti-sociali-pregassona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -1010,7 +1020,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Capisquadra - chef di cucina",
