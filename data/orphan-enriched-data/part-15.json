@@ -15222,7 +15222,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 308
+          "impressions": 315
         },
         {
           "query": "lavoro chiasso",
@@ -15320,7 +15320,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 590,
+      "totalImpressions": 601,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -24476,13 +24476,13 @@
       "queries": [
         {
           "query": "educatore sociale offerte lavoro ticino",
-          "clicks": 6,
-          "impressions": 56
+          "clicks": 7,
+          "impressions": 60
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
           "clicks": 20,
-          "impressions": 50
+          "impressions": 52
         },
         {
           "query": "offerte lavoro educatore ticino",
@@ -24502,7 +24502,7 @@
         {
           "query": "offerte di lavoro educatore svizzera italiana",
           "clicks": 5,
-          "impressions": 26
+          "impressions": 27
         },
         {
           "query": "lavoro educatrice ticino",
@@ -24510,8 +24510,18 @@
           "impressions": 21
         },
         {
+          "query": "educatore canton ticino",
+          "clicks": 4,
+          "impressions": 21
+        },
+        {
           "query": "offerte lavoro educatore svizzera",
           "clicks": 4,
+          "impressions": 21
+        },
+        {
+          "query": "offerte lavoro educatrice ticino",
+          "clicks": 2,
           "impressions": 21
         },
         {
@@ -24522,7 +24532,7 @@
         {
           "query": "educatrice ticino lavoro",
           "clicks": 1,
-          "impressions": 19
+          "impressions": 20
         },
         {
           "query": "educatore mendrisio lavoro",
@@ -24530,29 +24540,24 @@
           "impressions": 19
         },
         {
-          "query": "educatore canton ticino",
-          "clicks": 4,
-          "impressions": 18
-        },
-        {
           "query": "educatore ticino",
           "clicks": 0,
           "impressions": 18
         },
         {
-          "query": "offerte lavoro educatrice ticino",
-          "clicks": 2,
-          "impressions": 17
-        },
-        {
           "query": "offerte di lavoro educatrice ticino",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "offerte lavoro educatore canton ticino",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
+        },
+        {
+          "query": "lavoro educatore ticino",
+          "clicks": 0,
+          "impressions": 15
         },
         {
           "query": "offerte lavoro educatore",
@@ -24560,23 +24565,18 @@
           "impressions": 15
         },
         {
-          "query": "lavoro educatore ticino",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
           "query": "offerte di lavoro educatrice asilo nido svizzera italiana",
           "clicks": 1,
           "impressions": 12
         },
         {
-          "query": "educatrice ticino",
-          "clicks": 1,
+          "query": "educatore sociale ticino",
+          "clicks": 3,
           "impressions": 11
         }
       ],
-      "totalImpressions": 778,
-      "totalClicks": 74,
+      "totalImpressions": 807,
+      "totalClicks": 77,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {
@@ -29360,10 +29360,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-zurich-e7ddba"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-zurich-e7ddba",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-zurich-e7ddba",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-zurich-e7ddba",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-zurich-e7ddba"
+        "it": "/cerca-lavoro-zurigo/food-sales-assistant-coop-genossenschaft-zurich-e7ddba",
+        "en": "/en/find-jobs-zurich/food-sales-assistant-coop-genossenschaft-zurich-e7ddba",
+        "de": "/de/jobs-in-zurich/food-sales-assistant-coop-genossenschaft-zurich-e7ddba",
+        "fr": "/fr/trouver-emploi-zurich/food-sales-assistant-coop-genossenschaft-zurich-e7ddba"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -55524,6 +55524,64 @@
       ]
     },
     {
+      "slug": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden/"
+      },
+      "queries": [
+        {
+          "query": "job liebherr",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "job liebherr",
+      "title": "Responsabile offerte acquisizioni difesa liebherr",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Baden",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+        "en": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+        "de": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+        "fr": "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+        "en": "/en/find-jobs-basel/responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+        "de": "/de/jobs-im-basel/responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden",
+        "fr": "/fr/trouver-emploi-bale/responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "responsabile-rischi-gestione-attivi-e-passivi-alm-e-rischio-di-liquidita-corner-banca-lugano",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/responsabile-rischi-gestione-attivi-e-passivi-alm-e-rischio-di-liquidita-corner-banca-lugano",
@@ -59708,10 +59766,10 @@
         "fr": "sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
-        "en": "/en/find-jobs-zurich/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "it": "/cerca-lavoro-turgovia/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
+        "en": "/en/find-jobs-thurgau/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
         "de": "/de/jobs-im-bern/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon",
-        "fr": "/fr/trouver-emploi-zurich/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
+        "fr": "/fr/trouver-emploi-thurgovie/sales-consultant-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
