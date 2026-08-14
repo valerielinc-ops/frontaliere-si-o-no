@@ -29,6 +29,8 @@ import {
   JOB_ALERT_CADENCE_TIERS,
   JOB_ALERT_DECAY_AFTER_SLOW_SENDS,
   JOB_ALERT_DEMOTION_STREAK,
+  JOB_ALERT_REACTIVATION_BLOCKS,
+  alreadyServedToday,
   cadenceStateOf,
   decayStampAfterSend,
   engagedSinceLastJobAlertSend,
@@ -39,10 +41,12 @@ import {
   nextJobAlertCadenceState,
   normalizeCadenceTier,
   openedSinceLastJobAlertSend,
+  reactivationAfterReturnVisit,
   recipientsWithAllAlertsDecayed,
   resolveJobAlertCadence,
   seedJobAlertTier,
 } from '../scripts/lib/jobAlertCadence.mjs';
+import { RETURN_VISIT_VERDICTS } from '../functions/src/lib/returnVisit.js';
 import { JOB_ALERT_ENGAGEMENT_TIERS } from '../scripts/lib/jobAlertEngagementTier.mjs';
 import {
   makeAlertUnsubscribeUrl,
@@ -529,11 +533,37 @@ describe('decay: terminal, preserved, and counted in sends', () => {
     expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: woken, sentAtIso })).toBe(null);
   });
 
-  // SHAPE 7 again, on the other axis: the ceiling is symmetric, decay is not.
-  it('decays a backfilled alert and leaves an identically silent person-made one alone', () => {
+  // SHAPE 7, REVERSED BY THE OWNER ON 2026-08-14. Until that day this test read
+  // "decays a backfilled alert and leaves an identically silent person-made one
+  // alone" — the D6 asymmetry. The owner extended decay to every alert, so the
+  // assertion that used to prove the exemption now proves it is gone. The shape
+  // is the one that mattered: an alert a PERSON created, silent for eight weekly
+  // sends, which the previous code path returned null for.
+  it('decays a person-made alert too, not only a backfilled one (owner, 2026-08-14)', () => {
     const state = afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS);
     expect(decayStampAfterSend({ alert: backfilledAlert(), nextState: state, sentAtIso })).not.toBe(null);
-    expect(decayStampAfterSend({ alert: personAlert(), nextState: state, sentAtIso })).toBe(null);
+    const made = decayStampAfterSend({ alert: personAlert(), nextState: state, sentAtIso });
+    expect(made).not.toBe(null);
+    expect(made.cadence_state).toBe(JOB_ALERT_CADENCE_STATES.DECAYED);
+    // …and it is still not an opt-out: `active` is not in the stamp for either.
+    expect(made).not.toHaveProperty('active');
+  });
+
+  it('still never decays a pinned alert, whichever population it belongs to', () => {
+    // The one exemption survives the D6 change: `frequencyOverride: true` is an
+    // explicit act of the person about their own frequency (254 alerts, 239 of
+    // them with no `backfilled_from` at all), and extending decay to everybody
+    // must not quietly swallow it.
+    const state = afterSilentSends(JOB_ALERT_DECAY_AFTER_SLOW_SENDS);
+    for (const alert of [
+      backfilledAlert({ frequencyOverride: true }),
+      personAlert({ frequencyOverride: true }),
+    ]) {
+      expect(decayStampAfterSend({ alert, nextState: state, sentAtIso })).toBe(null);
+    }
+    // `frequencyOverride: false` is a choice too — to be governed by the engine
+    // — so it decays like anybody else. 178 production alerts carry it.
+    expect(decayStampAfterSend({ alert: personAlert({ frequencyOverride: false }), nextState: state, sentAtIso })).not.toBe(null);
   });
 
   it('recognises the backfill by the field as well as by the document id', () => {
@@ -624,6 +654,348 @@ describe('decay: terminal, preserved, and counted in sends', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// TWO SEND SLOTS A DAY (owner, 2026-08-14) — and one email.
+//
+// The protection is in the STATE, never in the spacing of the two crons: this
+// repo's 00:33 slot has a measured dispatch delay of median 240 minutes and max
+// 590, so two slots that look comfortably apart overlap on a bad morning. The
+// shapes below are the ones a "they are far enough apart" design never sees.
+describe('a second slot on the same day sends nothing twice', () => {
+  const MORNING = Date.parse('2026-08-13T04:33:00Z'); // slot 1, after the median slip
+  const AFTERNOON = Date.parse('2026-08-13T16:41:00Z'); // slot 2, after its own slip
+
+  it('refuses an alert the first slot already served today, on the alert clock', () => {
+    const alert = backfilledAlert({ lastMatchedAt: new Date(MORNING).toISOString() });
+    expect(alreadyServedToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON }).served).toBe(true);
+    expect(isJobAlertDueToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON }).due).toBe(false);
+  });
+
+  it('refuses on the recipient clock too, so a second alert of theirs is not the second email', () => {
+    const profile = sub({ ja_cadence_last_sent_at: new Date(MORNING).toISOString() });
+    // A different alert of the same person, never sent itself.
+    expect(isJobAlertDueToday({ alert: personAlert({ id: 'x9' }), sub: profile, todayIso: TODAY, nowMs: AFTERNOON }).due).toBe(false);
+  });
+
+  // THE CASE THE OWNER NAMED: scheduled, and not gone yet.
+  it('treats a send that is scheduled and has not left yet as already due', () => {
+    // computeScheduledSendAt aimed this at the recipient's preferred hour
+    // TOMORROW, because the hour had already passed when slot 1 ran. Nothing has
+    // been delivered; a second slot that only looked at "was it sent" would
+    // stack another message on top of it.
+    const alert = backfilledAlert({
+      lastMatchedAt: daysAgo(1),
+      cadence_scheduled_for: '2026-08-14T02:12:00Z',
+    });
+    const verdict = alreadyServedToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON });
+    expect(verdict.served).toBe(true);
+    expect(verdict.reason).toContain('has not left yet');
+    expect(isJobAlertDueToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON, ceilingDays: null }).due).toBe(false);
+  });
+
+  it('also refuses when the scheduled instant has already passed but fell on today', () => {
+    // Slot 1 ran at 00:40 and aimed at 02:12 today; slot 2 runs at 16:41. The
+    // message is gone, and it is today's.
+    const alert = backfilledAlert({ lastMatchedAt: daysAgo(1), cadence_scheduled_for: '2026-08-13T02:12:00Z' });
+    expect(alreadyServedToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON }).served).toBe(true);
+  });
+
+  it('does NOT refuse on a schedule stamp from a previous run days ago', () => {
+    // The fail-closed field must not become a permanent gag: an old stamp is
+    // spent, and the interval gate takes over from there.
+    const alert = backfilledAlert({ lastMatchedAt: daysAgo(7), cadence_scheduled_for: daysAgo(7) });
+    expect(alreadyServedToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON }).served).toBe(false);
+    expect(isJobAlertDueToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON }).due).toBe(true);
+  });
+
+  it('treats an unreadable schedule stamp as a send in flight, not as no send', () => {
+    const alert = backfilledAlert({ lastMatchedAt: daysAgo(7), cadence_scheduled_for: 'whenever' });
+    const verdict = alreadyServedToday({ alert, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON });
+    expect(verdict.served).toBe(true);
+    expect(verdict.reason).toContain('unreadable');
+  });
+
+  it('protects a manually pinned daily alert too, through its own alert clock', () => {
+    // The RECIPIENT clock is deliberately skipped for a pin — the two live on
+    // separate clocks — so if the guard depended on it a pinned alert would be
+    // the one shape two slots could double-send.
+    const pinned = backfilledAlert({
+      frequencyOverride: true,
+      frequency: 'daily',
+      lastMatchedAt: new Date(MORNING).toISOString(),
+    });
+    expect(isJobAlertDueToday({ alert: pinned, sub: sub(), todayIso: TODAY, nowMs: AFTERNOON }).due).toBe(false);
+    // …and it is still due the NEXT day, which is what a pin means.
+    expect(isJobAlertDueToday({ alert: pinned, sub: sub(), todayIso: '2026-08-14', nowMs: AFTERNOON + 86400000 }).due).toBe(true);
+  });
+
+  it('reads the camelCase spelling of the recipient clock, where a miss means a SECOND email', () => {
+    // 458 production documents on this channel carry only camelCase stamps
+    // (#5673). Everywhere else a missed spelling reads as "no signal"; here it
+    // reads as "never sent today", which is the fail-OPEN direction and the one
+    // that mails somebody twice.
+    const camel = sub({ jaCadenceLastSentAt: new Date(MORNING).toISOString() });
+    expect(alreadyServedToday({ alert: personAlert(), sub: camel, todayIso: TODAY, nowMs: AFTERNOON }).served).toBe(true);
+    const camelSchedule = sub({ jaCadenceScheduledFor: '2026-08-14T02:12:00Z' });
+    expect(alreadyServedToday({ alert: personAlert(), sub: camelSchedule, todayIso: TODAY, nowMs: AFTERNOON }).served).toBe(true);
+  });
+
+  it('records the scheduled instant on every send, null included, so no stamp is ever stale', () => {
+    const scheduled = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_last_sent_at: daysAgo(7) }),
+      engaged: false,
+      sentAtIso: new Date(MORNING).toISOString(),
+      provider: 'resend',
+      scheduledFor: '2026-08-14T02:12:00Z',
+    });
+    expect(scheduled.ja_cadence_scheduled_for).toBe('2026-08-14T02:12:00Z');
+    const immediate = nextJobAlertCadenceState({
+      sub: sub({ ja_cadence_last_sent_at: daysAgo(7), ja_cadence_scheduled_for: '2026-08-14T02:12:00Z' }),
+      engaged: false,
+      sentAtIso: new Date(MORNING).toISOString(),
+      provider: 'resend',
+    });
+    // Explicitly null, NOT absent: a merge that omitted the field would leave
+    // yesterday's future instant in place and hold the recipient silent until
+    // it passed.
+    expect(immediate).toHaveProperty('ja_cadence_scheduled_for', null);
+  });
+
+  it('gives the same due set for both slots of the same day, whatever the state', () => {
+    for (const { name, alert, sub: profile } of [
+      { name: 'never sent', alert: backfilledAlert(), sub: sub() },
+      { name: 'sent this morning', alert: backfilledAlert({ lastMatchedAt: new Date(MORNING).toISOString() }), sub: sub() },
+      { name: 'sent a week ago', alert: backfilledAlert({ lastMatchedAt: daysAgo(7) }), sub: sub() },
+      { name: 'scheduled for tomorrow', alert: backfilledAlert({ lastMatchedAt: daysAgo(7), cadence_scheduled_for: '2026-08-14T02:12:00Z' }), sub: sub() },
+    ]) {
+      const slotOne = isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: MORNING });
+      const slotTwo = isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: AFTERNOON });
+      // Same answer both times — which is what makes running the gate twice in
+      // one day safe. The one that matters is "sent this morning": in the real
+      // run slot 2 reads the stamp slot 1 wrote, and must then say no.
+      expect(slotOne.due, name).toBe(slotTwo.due);
+    }
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COMING BACK (owner, 2026-08-14). A decayed alert returns to life on its own
+// when the person returns to the site — with the seven refusals he approved.
+describe('a decayed alert comes back when the person does', () => {
+  const NOW_ISO = new Date(NOW).toISOString();
+  const UID = 'firebase-uid-9f2c';
+  const READER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
+
+  /** A backfilled alert we retired ten days ago, still active:true. */
+  function decayed(overrides: Record<string, unknown> = {}) {
+    return backfilledAlert({
+      userId: UID,
+      lastMatchedAt: daysAgo(10),
+      cadence_state: JOB_ALERT_CADENCE_STATES.DECAYED,
+      cadence_decayed_at: daysAgo(10),
+      cadence_decay_reason: `no human signal in ${JOB_ALERT_DECAY_AFTER_SLOW_SENDS} weekly sends`,
+      cadence_sends_at_decay: JOB_ALERT_DECAY_AFTER_SLOW_SENDS,
+      ...overrides,
+    });
+  }
+
+  /** The root document with a visit stamp that passes every filter. */
+  function visited(overrides: Record<string, unknown> = {}) {
+    return sub({
+      userId: UID,
+      status: 'active',
+      ja_cadence_tier: 7,
+      ja_cadence_weekly_sends: JOB_ALERT_DECAY_AFTER_SLOW_SENDS,
+      ja_cadence_last_sent_at: daysAgo(10),
+      last_site_visit_at: daysAgo(1),
+      last_site_visit_uid: UID,
+      last_site_visit_ua: READER_UA,
+      last_site_visit_entry: JOB_AD_URL,
+      last_site_visit_visible: true,
+      last_site_visit_prerender: false,
+      ...overrides,
+    });
+  }
+
+  const decide = (alert: unknown, profile: unknown, newsletter: unknown = null) =>
+    reactivationAfterReturnVisit({ alert, sub: profile, newsletter, nowIso: NOW_ISO });
+
+  it('brings it back, and keeps the record of why we had stopped', () => {
+    const verdict = decide(decayed(), visited());
+    expect(verdict.reactivate).toBe(true);
+    expect(verdict.alertFields.cadence_state).toBe(JOB_ALERT_CADENCE_STATES.ACTIVE);
+    expect(verdict.alertFields.cadence_reactivated_at).toBe(NOW_ISO);
+    // The evidence of what WE did is not erased by what THEY did: the decay
+    // stamp is the record we would show an authority, and a reactivation is one
+    // more fact on top of it, not a rewrite of it.
+    expect(verdict.alertFields).not.toHaveProperty('cadence_decayed_at');
+    expect(verdict.alertFields).not.toHaveProperty('cadence_decay_reason');
+    // And it never touches the flags the person controls.
+    expect(verdict.alertFields).not.toHaveProperty('active');
+    expect(verdict.alertFields).not.toHaveProperty('paused');
+  });
+
+  it('is not theatre: the reactivated alert survives the next send instead of re-decaying at once', () => {
+    // The decay counter is at N by construction. Without the reset the very next
+    // send would re-stamp the terminal state and the person would get exactly
+    // one email for having come back.
+    const verdict = decide(decayed(), visited());
+    const alert = { ...decayed(), ...verdict.alertFields };
+    const profile = { ...visited(), ...verdict.subFields };
+    expect(isJobAlertDueToday({ alert, sub: profile, todayIso: TODAY, nowMs: NOW }).due).toBe(true);
+    const next = nextJobAlertCadenceState({ sub: profile, engaged: false, sentAtIso: NOW_ISO, provider: 'resend' });
+    expect(next.ja_cadence_weekly_sends).toBe(1);
+    expect(decayStampAfterSend({ alert, nextState: next, sentAtIso: NOW_ISO })).toBe(null);
+  });
+
+  it('does not promote them: a page view is not a click', () => {
+    // "Engagement is a measurement, and a measurement is never permission."
+    // Coming back resets the counters and leaves the TIER exactly where the
+    // person's own signal put it — which also keeps this write free of side
+    // effects on their other alerts, since these fields are per recipient.
+    const verdict = decide(decayed(), visited());
+    expect(verdict.subFields).not.toHaveProperty('ja_cadence_tier');
+    expect(verdict.subFields.ja_cadence_weekly_sends).toBe(0);
+    expect(verdict.subFields.ja_cadence_sends_since_engagement).toBe(0);
+  });
+
+  // ── the seven refusals ───────────────────────────────────────────────────
+
+  it('refuses an anonymous visit — there is nobody to reactivate', () => {
+    const verdict = decide(decayed(), visited({ last_site_visit_uid: null }));
+    expect(verdict.reactivate).toBe(false);
+    expect(verdict.verdict).toBe(RETURN_VISIT_VERDICTS.ANONYMOUS);
+  });
+
+  it('refuses a session that started on the unsubscribe link — from the real builder', () => {
+    for (const url of [makeAlertUnsubscribeUrl('backfill-newsletter', EMAIL), makeAllAlertsUnsubscribeUrl(EMAIL)]) {
+      const verdict = decide(decayed(), visited({ last_site_visit_entry: url }));
+      expect(verdict.reactivate, url).toBe(false);
+      expect(verdict.verdict, url).toBe(RETURN_VISIT_VERDICTS.OPT_OUT_ENTRY);
+    }
+  });
+
+  it('refuses a crawler and an automation client', () => {
+    expect(decide(decayed(), visited({ last_site_visit_ua: 'Mozilla/5.0 (compatible; Googlebot/2.1)' })).verdict)
+      .toBe(RETURN_VISIT_VERDICTS.CRAWLER_AGENT);
+    expect(decide(decayed(), visited({ last_site_visit_ua: 'python-requests/2.31.0' })).verdict)
+      .toBe(RETURN_VISIT_VERDICTS.AUTOMATION_AGENT);
+  });
+
+  it('refuses a prefetch', () => {
+    expect(decide(decayed(), visited({ last_site_visit_prerender: true })).verdict).toBe(RETURN_VISIT_VERDICTS.PREFETCH);
+    expect(decide(decayed(), visited({ last_site_visit_visible: false })).verdict).toBe(RETURN_VISIT_VERDICTS.PREFETCH);
+  });
+
+  it('NEVER brings back an alert the person switched off, however perfect the visit', () => {
+    // This is the whole reason decay does not touch `active`. If it did, these
+    // two documents would be one shape and this branch could not exist.
+    for (const alert of [decayed({ active: false }), decayed({ paused: true })]) {
+      const verdict = decide(alert, visited());
+      expect(verdict.reactivate).toBe(false);
+      expect(verdict.verdict).toBe(JOB_ALERT_REACTIVATION_BLOCKS.SWITCHED_OFF);
+    }
+  });
+
+  it('refuses a suppressed address, on either document', () => {
+    for (const status of ['bounced', 'complained', 'suppressed', 'inactive']) {
+      const verdict = decide(decayed(), visited({ status }));
+      expect(verdict.verdict, status).toBe(JOB_ALERT_REACTIVATION_BLOCKS.SUPPRESSED);
+    }
+  });
+
+  it('refuses when the NEWSLETTER document records an opt-out — the #5688 shape', () => {
+    // A person who clicked "disiscriviti" leaves no trace at all on the
+    // job-alert document: 127 of 127 addresses suppressed after an LPD
+    // complaint still had active alerts. Both recorded forms are tried, because
+    // an opt-out is a status OR an append-only stamp.
+    for (const newsletter of [{ status: 'unsubscribed' }, { status: 'active', unsubscribed_at: daysAgo(3) }, { status: 'bounced' }]) {
+      const verdict = decide(decayed(), visited(), newsletter);
+      expect(verdict.reactivate, JSON.stringify(newsletter)).toBe(false);
+      expect(verdict.verdict, JSON.stringify(newsletter)).toBe(JOB_ALERT_REACTIVATION_BLOCKS.CHANNEL_OPT_OUT);
+    }
+    // …and a later, explicit re-opt-in is not an opt-out.
+    expect(decide(decayed(), visited(), { status: 'active', unsubscribed_at: daysAgo(9), resubscribed_at: daysAgo(2) }).reactivate).toBe(true);
+  });
+
+  // ── the identity binding, which is what makes the stamp a fact ───────────
+
+  it('refuses a visit whose identity does not match the owner of the alert', () => {
+    expect(decide(decayed(), visited({ last_site_visit_uid: 'somebody-else' })).verdict)
+      .toBe(JOB_ALERT_REACTIVATION_BLOCKS.UNIDENTIFIED);
+    // A backfilled alert whose subscriber never signed in carries userId: null.
+    // It can never be reactivated this way — the fail-closed answer to "we do
+    // not know who this is" — and keeps the preference-centre exit like anyone.
+    expect(decide(decayed({ userId: null }), visited({ userId: null })).verdict)
+      .toBe(JOB_ALERT_REACTIVATION_BLOCKS.UNIDENTIFIED);
+  });
+
+  it('accepts the identity from the root document when the alert has none', () => {
+    expect(decide(decayed({ userId: null }), visited()).reactivate).toBe(true);
+  });
+
+  // ── fail-closed, and idempotent across the two slots of the day ──────────
+
+  it('refuses a document with no visit stamp at all', () => {
+    const verdict = decide(decayed(), sub({ userId: UID, status: 'active' }));
+    expect(verdict.reactivate).toBe(false);
+    expect(verdict.verdict).toBe(RETURN_VISIT_VERDICTS.NO_VISIT);
+  });
+
+  it('refuses a visit that predates the decay — otherwise the first run would undo it', () => {
+    // The stamp was already on the document when we retired the alert. Reading
+    // it as a return would make the terminal state impossible to reach.
+    expect(decide(decayed(), visited({ last_site_visit_at: daysAgo(11) })).verdict)
+      .toBe(JOB_ALERT_REACTIVATION_BLOCKS.STALE_VISIT);
+    expect(decide(decayed({ cadence_decayed_at: null }), visited()).verdict)
+      .toBe(JOB_ALERT_REACTIVATION_BLOCKS.STALE_VISIT);
+  });
+
+  it('acts on a visit exactly once, so the second slot of the day is a no-op', () => {
+    const first = decide(decayed(), visited());
+    expect(first.reactivate).toBe(true);
+    // Slot 2 reads what slot 1 wrote. Without the consumed stamp it would write
+    // the same reactivation again — and, worse, reset the decay counter a
+    // second time off a visit that is days old.
+    const afterSlotOne = { ...visited(), ...first.subFields };
+    const alertAfter = { ...decayed(), ...first.alertFields };
+    expect(decide(alertAfter, afterSlotOne).verdict).toBe(JOB_ALERT_REACTIVATION_BLOCKS.NOT_DECAYED);
+    // …and even if the alert somehow decays again later, the SAME visit cannot
+    // resurrect it a second time.
+    const decayedAgain = { ...alertAfter, cadence_state: JOB_ALERT_CADENCE_STATES.DECAYED, cadence_decayed_at: daysAgo(2) };
+    expect(decide(decayedAgain, afterSlotOne).verdict).toBe(JOB_ALERT_REACTIVATION_BLOCKS.ALREADY_CONSUMED);
+  });
+
+  it('does nothing at all to an alert that is not decayed, or whose state it cannot read', () => {
+    expect(decide(backfilledAlert(), visited()).verdict).toBe(JOB_ALERT_REACTIVATION_BLOCKS.NOT_DECAYED);
+    expect(decide(backfilledAlert(), visited()).alertFields).toBe(null);
+    // An unreadable state is NOT repaired into `active` by a visit: we do not
+    // know what it means, and guessing would be a fail-open write.
+    const unknown = decide(backfilledAlert({ cadence_state: 'wat' }), visited());
+    expect(unknown.reactivate).toBe(false);
+    expect(unknown.verdict).toBe(JOB_ALERT_REACTIVATION_BLOCKS.NOT_DECAYED);
+  });
+
+  it('reads the whole visit stamp in camelCase too', () => {
+    const camel = sub({
+      userId: UID,
+      status: 'active',
+      ja_cadence_weekly_sends: JOB_ALERT_DECAY_AFTER_SLOW_SENDS,
+      lastSiteVisitAt: daysAgo(1),
+      lastSiteVisitUid: UID,
+      lastSiteVisitUa: READER_UA,
+      lastSiteVisitEntry: JOB_AD_URL,
+      lastSiteVisitVisible: true,
+      lastSiteVisitPrerender: false,
+    });
+    expect(decide(decayed(), camel).reactivate).toBe(true);
+    // and the consumed stamp is honoured in camelCase as well, or the second
+    // slot would act on the same visit again.
+    expect(decide(decayed(), { ...camel, jaCadenceReturnVisitConsumedAt: daysAgo(0) }).verdict)
+      .toBe(JOB_ALERT_REACTIVATION_BLOCKS.ALREADY_CONSUMED);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 describe('the sender actually consumes the engine', () => {
   // Read as TEXT, never imported: send-job-alerts.mjs pulls ~12 files under
   // data/ and public/ at module scope, so importing it here would be red in a
@@ -641,6 +1013,25 @@ describe('the sender actually consumes the engine', () => {
     expect(senderSource).toContain('isJobAlertDueToday(');
     expect(senderSource).toContain('nextJobAlertCadenceState(');
     expect(senderSource).toContain('decayStampAfterSend(');
+  });
+
+  it('calls the reactivation rule, and calls it BEFORE the cadence gate', () => {
+    // A module that is correct, tested and never called is exactly how
+    // jobAlertEngagementTier.mjs sat unconsumed for weeks under a green suite
+    // (#5767). And the ORDER is load-bearing: an alert reactivated after the
+    // gate has run would come back and then wait a whole interval before its
+    // first send, which is not "torna attivo quando la persona torna".
+    expect(senderSource).toContain('reactivationAfterReturnVisit(');
+    expect(senderSource.indexOf('reactivationAfterReturnVisit('))
+      .toBeLessThan(senderSource.indexOf('isJobAlertDueToday('));
+  });
+
+  it('records the scheduled instant on both clocks, which is what makes two slots safe', () => {
+    // Without these two writes the guard in alreadyServedToday has nothing to
+    // read, and a second daily slot stacks a message on top of one that has not
+    // left yet — the case the owner named.
+    expect(senderSource).toContain('cadence_scheduled_for:');
+    expect(senderSource).toContain('scheduledFor: scheduleOutcomes.get(email)?.scheduledFor');
   });
 
   it('no longer carries the millisecond intervals the calendar gate replaced', () => {

@@ -22,9 +22,20 @@
  *  3. Decides "is this alert due today?" as a pure function of stored state and
  *     the calendar day.
  *  4. Advances the stored state after a send, and stamps a TERMINAL, PRESERVED
- *     `cadence_state: 'decayed'` once a backfilled alert has taken
+ *     `cadence_state: 'decayed'` once an alert has taken
  *     JOB_ALERT_DECAY_AFTER_SLOW_SENDS sends on the slowest tier without a
- *     single signal.
+ *     single signal. EVERY alert, since the owner's decision of 2026-08-14 —
+ *     see decayStampAfterSend, which used to require the backfill.
+ *  5. Brings a decayed alert back when the person returns to the site, subject
+ *     to the seven refusals the owner approved — see
+ *     reactivationAfterReturnVisit, and functions/src/lib/returnVisit.js for the
+ *     four of them the page load itself decides.
+ *  6. Refuses to serve an alert twice in one day, or to stack a send on top of
+ *     one that is scheduled and has not left yet — see alreadyServedToday. That
+ *     is what makes a SECOND daily cron slot safe, and it is deliberately in the
+ *     state rather than in the spacing of the two crons: this repo's cron slots
+ *     slip by a measured median of 240 minutes and up to 590, so two slots that
+ *     are "far enough apart" are only far enough apart on a good day.
  *
  * THE CEILING, AND WHY IT SWALLOWS THE SCALE (owner, 2026-08-13)
  * ─────────────────────────────────────────────────────────────
@@ -83,6 +94,18 @@
  */
 
 import { toMillis } from './syntheticClicks.mjs';
+import { isCrossChannelStop, isJobAlertExcluded } from '../../functions/src/lib/emailSuppression.js';
+// Re-exported, not just imported: a caller that acts on a refusal needs the
+// whole vocabulary, and the four verdicts the page load decides are half of it.
+// Two import lines for one decision is how a caller ends up comparing against a
+// string literal instead of a constant.
+import {
+  RETURN_VISIT_VERDICTS,
+  classifyReturnVisit,
+  readReturnVisitStamp,
+} from '../../functions/src/lib/returnVisit.js';
+
+export { RETURN_VISIT_VERDICTS };
 import { ENGAGEMENT_BLIND_PROVIDERS, daysBetweenIso, estimateDailyVolume, utcDayOf } from './cadenceCalendar.mjs';
 import {
   JOB_ALERT_CLICK_EVIDENCE,
@@ -185,10 +208,13 @@ const demote = (days) => JOB_ALERT_CADENCE_TIERS[Math.min(JOB_ALERT_CADENCE_TIER
  * measured 2026-08-13 on the digest population: 6.306 backfilled against 529
  * created by a person.
  *
- * Only these decay. The asymmetry is the owner's D6: the slower intervals apply
- * to everybody (they are all ≥ today's, so nobody receives MORE), but retiring
- * an alert somebody deliberately created is a different decision and not this
- * one.
+ * THIS NO LONGER DECIDES WHO DECAYS (owner, 2026-08-14). Until that day the
+ * answer to D6 was "only the backfilled ones", and `decayStampAfterSend` gated
+ * on this predicate. The owner has since decided that decay applies to EVERY
+ * alert, including the ones people created themselves. The predicate stays
+ * because provenance is still worth reading — the report separates the two
+ * populations, and `backfilled_from` is the field that says which alerts nobody
+ * asked for — but it is no longer a decay precondition.
  */
 export function isBackfilledAlert(alert) {
   return alert?.id === 'backfill-newsletter'
@@ -340,6 +366,94 @@ export function resolveJobAlertCadence(alert, sub, nowMs, {
   };
 }
 
+// ── two send slots a day, and one email (owner, 2026-08-14) ────────────────
+
+/**
+ * Everything the sender may have written when it served this alert, in the two
+ * spellings production carries. `ja_cadence_*` is written by this repo in
+ * snake_case only — but `scripts/lib/subscriberFromFirestoreRow.mjs` and the
+ * report scripts hand callers camelCase projections, and a reader that knows one
+ * spelling answers "never sent" for the other. Here that answer is fail-OPEN:
+ * it is the one direction in which a missing stamp produces a SECOND email.
+ */
+function servedStamps({ alert, sub, manual }) {
+  return {
+    alertLastSent: alert?.lastMatchedAt ?? alert?.last_matched_at ?? null,
+    alertScheduledFor: alert?.cadence_scheduled_for ?? alert?.cadenceScheduledFor ?? null,
+    recipientLastSent: manual
+      ? null
+      : (sub?.ja_cadence_last_sent_at ?? sub?.jaCadenceLastSentAt ?? null),
+    recipientScheduledFor: manual
+      ? null
+      : (sub?.ja_cadence_scheduled_for ?? sub?.jaCadenceScheduledFor
+        ?? sub?.last_scheduled_for ?? sub?.lastScheduledFor ?? null),
+  };
+}
+
+/**
+ * Has this alert ALREADY been served for `todayIso` — including by a message
+ * that is scheduled and has not left yet?
+ *
+ * THE OWNER ASKED FOR TWO SEND SLOTS A DAY, AND THIS IS THE WHOLE DEFENCE.
+ * ──────────────────────────────────────────────────────────────────────────
+ * The protection against a double send cannot live in the spacing of the two
+ * cron slots. `.github/workflows/send-job-alerts.yml` records a measured
+ * dispatch delay of median 240 minutes and max 590 for the 00:33 slot: two slots
+ * placed hours apart drift into each other on a bad morning, and "they are far
+ * enough apart" stops being true exactly on the day it matters. Two processes
+ * over one piece of state make each other harmless IN THE STATE — the second
+ * slot has to look at an alert the first one served and see "not due", whatever
+ * the clock says. That is this function, and it is asked BEFORE any interval
+ * arithmetic so it cannot be undone by a tier, a ceiling or a pin.
+ *
+ * THE SCHEDULED-BUT-NOT-SENT CASE, which the owner named specifically.
+ * The sender does not always hand a message to the ESP for immediate delivery:
+ * `computeScheduledSendAt` (scripts/lib/send-schedule.mjs) aims it at the
+ * recipient's preferred hour, TODAY if that hour is still ahead and TOMORROW if
+ * it has passed. The docblock of that function reasons about double sends and
+ * concludes "there's no double-send risk" — resting, in as many words, on "the
+ * newsletter/job-alert cron itself runs once daily". A second slot retires that
+ * premise. So a message whose scheduled instant is still in the FUTURE counts as
+ * already due: not only for the rest of today, but until it has actually gone
+ * out, because until then a second one would land on top of it.
+ *
+ * Both clocks are read, per-ALERT and per-RECIPIENT, and the per-recipient one
+ * is skipped for a manually pinned alert for the same reason the interval gate
+ * skips it: the pin is the person's own act about their own frequency and lives
+ * on its own clock. A pinned alert is still protected — by its own alert-level
+ * stamp, which is unconditional.
+ *
+ * @returns {{ served: boolean, reason: string|null }}
+ */
+export function alreadyServedToday({ alert, sub, todayIso, nowMs, manual = isManuallyPinned(alert) }) {
+  const stamps = servedStamps({ alert, sub, manual });
+
+  for (const [which, value] of [['alert', stamps.alertLastSent], ['recipient', stamps.recipientLastSent]]) {
+    if (value == null) continue;
+    if (utcDayOf(value) === todayIso) {
+      return { served: true, reason: `already served today on the ${which} clock` };
+    }
+  }
+
+  for (const [which, value] of [['alert', stamps.alertScheduledFor], ['recipient', stamps.recipientScheduledFor]]) {
+    if (value == null) continue;
+    const atMs = toMillis(value);
+    if (atMs == null) {
+      // A scheduling stamp we cannot read is not proof that nothing is in
+      // flight. Silence costs one email; the other answer costs two.
+      return { served: true, reason: `an unreadable ${which} schedule stamp — treated as a send in flight` };
+    }
+    if (Number.isFinite(nowMs) && atMs > nowMs) {
+      return { served: true, reason: `a ${which} send is scheduled for ${new Date(atMs).toISOString()} and has not left yet` };
+    }
+    if (utcDayOf(atMs) === todayIso) {
+      return { served: true, reason: `a ${which} send was scheduled for today` };
+    }
+  }
+
+  return { served: false, reason: null };
+}
+
 // ── the send decision ──────────────────────────────────────────────────────
 
 /**
@@ -348,8 +462,11 @@ export function resolveJobAlertCadence(alert, sub, nowMs, {
  * Pure function of (alert, subscriber, todayIso) — which is what makes a rerun
  * a no-op and absorbs the cron's 240-minute median dispatch delay.
  *
- * Three gates, all of which must pass:
+ * Four gates, all of which must pass:
  *   - the alert's lifecycle state is `active` (fail-closed: see cadenceStateOf);
+ *   - nothing has served it today and nothing is in flight for it
+ *     (`alreadyServedToday` — the two-slot guard, asked FIRST of the three that
+ *     follow so no interval, ceiling or pin can talk over it);
  *   - the alert itself has waited its interval, measured from `lastMatchedAt`,
  *     the per-alert stamp the sender already writes;
  *   - the RECIPIENT has waited it too, measured from `ja_cadence_last_sent_at`.
@@ -378,9 +495,21 @@ export function isJobAlertDueToday({ alert, sub, todayIso, nowMs, ...options }) 
     };
   }
 
+  // The two-slot guard, before the interval arithmetic. A second run on the
+  // same day sees a served alert as not due even if the interval says otherwise
+  // — and an interval is only ever ≥ 1 day today, which is precisely the kind of
+  // implicit protection this repo has watched break: it holds because of an
+  // arithmetic coincidence, not because anybody stated it.
+  const served = alreadyServedToday({ alert, sub, todayIso, nowMs, manual: cadence.manual });
+  if (served.served) {
+    return { ...cadence, due: false, decayed: false, reason: `${cadence.reason}; ${served.reason}` };
+  }
+
   const gates = [
-    ['alert', utcDayOf(alert?.lastMatchedAt)],
-    ...(cadence.manual ? [] : [['recipient', utcDayOf(sub?.ja_cadence_last_sent_at)]]),
+    ['alert', utcDayOf(alert?.lastMatchedAt ?? alert?.last_matched_at)],
+    ...(cadence.manual
+      ? []
+      : [['recipient', utcDayOf(sub?.ja_cadence_last_sent_at ?? sub?.jaCadenceLastSentAt)]]),
   ];
 
   let waited = null;
@@ -420,7 +549,9 @@ export function isJobAlertDueToday({ alert, sub, todayIso, nowMs, ...options }) 
  * as never-mailed and reset everybody's history.
  */
 function lastCadenceSendMs(sub) {
-  return toMillis(sub?.ja_cadence_last_sent_at) ?? toMillis(sub?.last_sent_at) ?? null;
+  return toMillis(sub?.ja_cadence_last_sent_at ?? sub?.jaCadenceLastSentAt)
+    ?? toMillis(sub?.last_sent_at ?? sub?.lastSentAt)
+    ?? null;
 }
 
 /**
@@ -487,10 +618,18 @@ export function openedSinceLastJobAlertSend(sub) {
  * @param {object} args.sub current root-doc fields
  * @param {boolean} args.engaged a human click since the last send
  * @param {boolean} [args.opened] an open since the last send
+ * `ja_cadence_scheduled_for` is the instant the cascade actually aimed the
+ * message at, or null when it went out immediately. It is written on EVERY send,
+ * null included — a stale future stamp left over from a previous run would hold
+ * the recipient silent forever, which is the one way this fail-closed field can
+ * do harm. It is what `alreadyServedToday` reads to keep the second slot of the
+ * day from stacking a message on top of one that has not left yet.
+ *
  * @param {string} args.sentAtIso ISO timestamp of the send being recorded
  * @param {string|null} [args.provider] the cascade provider that carried it
+ * @param {string|null} [args.scheduledFor] ISO instant the send was aimed at
  */
-export function nextJobAlertCadenceState({ sub, engaged, opened = false, sentAtIso, provider = null }) {
+export function nextJobAlertCadenceState({ sub, engaged, opened = false, sentAtIso, provider = null, scheduledFor = null }) {
   const sentAtMs = Date.parse(sentAtIso) || 0;
   const current = normalizeCadenceTier(sub?.ja_cadence_tier)
     ?? normalizeCadenceTier(seedJobAlertTier(sub, sentAtMs).tierDays)
@@ -530,6 +669,7 @@ export function nextJobAlertCadenceState({ sub, engaged, opened = false, sentAtI
     ja_cadence_sends_since_engagement: streak,
     ja_cadence_weekly_sends: slowSends,
     ja_cadence_last_send_provider: provider ?? null,
+    ja_cadence_scheduled_for: scheduledFor ?? null,
     ...(tier !== current ? { ja_cadence_tier_updated_at: sentAtIso } : {}),
   };
 }
@@ -538,10 +678,28 @@ export function nextJobAlertCadenceState({ sub, engaged, opened = false, sentAtI
  * The terminal stamp to write on the ALERT document, or `null` when this send
  * does not retire it.
  *
+ * WHO DECAYS: EVERYBODY (owner, 2026-08-14, superseding D6).
+ * ─────────────────────────────────────────────────────────
+ * Until that decision this function began with `if (!isBackfilledAlert(alert))
+ * return null` and only retired the 6.306 alerts the newsletter backfill
+ * created. The owner extended it to every alert, the ones people created
+ * themselves included. The reasoning that made the asymmetry defensible ran out:
+ * decay is not a punishment and not a deletion, it is us noticing that eight
+ * consecutive weekly sends drew no signal of any kind. That observation is
+ * exactly as true of an alert somebody set up in March and forgot as it is of
+ * one nobody ever asked for, and the person who created it keeps the two things
+ * the asymmetry was protecting — `active` untouched, so the alert is still
+ * theirs and still listed, and a one-click way back through the preference
+ * centre. What changes is that we stop mailing into silence.
+ *
  * Preconditions, each of which is a decision and not a detail:
- *   - the alert came from the backfill (owner's D6: an alert somebody created
- *     on purpose is not retired by this mechanism);
- *   - it is not manually pinned (the pin is the person's own act);
+ *   - it is not manually pinned. THE ONE EXEMPTION, and the reason the D6 change
+ *     above does not swallow it: `frequencyOverride: true` is an explicit act of
+ *     the person about their own frequency (measured 2026-08-13: 254 alerts,
+ *     239 of them with no `backfilled_from` at all, and 178 further alerts carry
+ *     `frequencyOverride: false` — a field people demonstrably use). Retiring an
+ *     alert whose frequency somebody chose by hand would overrule the only party
+ *     the consent exists to protect;
  *   - it is not already decayed (the stamp records the moment we gave up, and
  *     rewriting it would move the evidence);
  *   - the post-send decay counter has reached N.
@@ -584,7 +742,6 @@ export function recipientsWithAllAlertsDecayed(alerts) {
 }
 
 export function decayStampAfterSend({ alert, nextState, sentAtIso, decayAfter = JOB_ALERT_DECAY_AFTER_SLOW_SENDS }) {
-  if (!isBackfilledAlert(alert)) return null;
   if (isManuallyPinned(alert)) return null;
   if (!isCadenceSendable(alert)) return null;
   const sends = Number(nextState?.ja_cadence_weekly_sends) || 0;
@@ -594,5 +751,180 @@ export function decayStampAfterSend({ alert, nextState, sentAtIso, decayAfter = 
     cadence_decayed_at: sentAtIso,
     cadence_decay_reason: `no human signal in ${decayAfter} weekly sends`,
     cadence_sends_at_decay: sends,
+  };
+}
+
+// ── coming back (owner, 2026-08-14) ────────────────────────────────────────
+
+/**
+ * Why a decayed alert did NOT come back on this pass. `OK` is the only value
+ * that writes anything; every other one is a documented refusal, and the four
+ * that the page load itself decides come through unchanged from
+ * `RETURN_VISIT_VERDICTS` so a log line names one rule and not two.
+ */
+export const JOB_ALERT_REACTIVATION_BLOCKS = Object.freeze({
+  OK: 'ok',
+  NOT_DECAYED: 'not-decayed',
+  SWITCHED_OFF: 'switched-off-by-the-person',
+  CHANNEL_OPT_OUT: 'channel-opt-out',
+  SUPPRESSED: 'address-suppressed',
+  UNIDENTIFIED: 'visit-not-bound-to-this-person',
+  STALE_VISIT: 'visit-predates-the-decay',
+  ALREADY_CONSUMED: 'visit-already-consumed',
+});
+
+/** The trimmed identity of an alert or a subscriber document, or ''. */
+const ownerUidOf = (doc) => String(doc?.userId ?? doc?.user_id ?? '').trim();
+
+/**
+ * Does this return visit bring a decayed alert back to life?
+ *
+ * THE DECISION, AND THE OBJECTION THE OWNER ANSWERED (2026-08-14)
+ * ──────────────────────────────────────────────────────────────
+ * A decayed alert reactivates BY ITSELF when the person comes back to the site.
+ * The objection was put to the owner before he chose: this is an inference. We
+ * deduce a wish to receive email from a behaviour — opening a web page — that
+ * is not about email at all, on a channel where 6.306 of the alerts were never
+ * requested in the first place. He chose the automatic behaviour, and asked in
+ * the same breath that the inference not be drawn where it is obviously wrong.
+ * The seven cases below are his list. Nothing here is a judgement call added on
+ * top of it.
+ *
+ * WHY THE DECISION IS TAKEN HERE, AND NOT IN THE BROWSER OR IN A TRIGGER
+ * ─────────────────────────────────────────────────────────────────────
+ * The page load records a FACT ("a session was seen"); this function takes the
+ * DECISION, and the sender calls it. Three reasons, in order of weight:
+ *
+ *  1. `firestore.rules` grants `allow write: if true` on
+ *     `job_alert_subscribers/{email}` — the grant services/jobAlertService.ts
+ *     needs to create the parent document. Anything the browser writes there is
+ *     therefore a CLAIM, not a fact, and a browser that decided "reactivate"
+ *     would be a way for anyone to resume email to any address. Every filter
+ *     below is re-run server-side on what was stored, and the visit has to name
+ *     an identity that matches a field the browser cannot set — the alert's own
+ *     denormalized `userId`.
+ *  2. Four of the seven filters are statements about STORED STATE, not about the
+ *     page: an active opt-out, a suppressed address, an alert the person
+ *     switched off. The sender already holds all of it — it reads the newsletter
+ *     document, the job-alert document and the alert in the same batched
+ *     `getAll` — so the decision costs zero extra reads there and would cost
+ *     three documents per page view in a Cloud Function on visit.
+ *  3. The decision only has an effect at the moment we would next mail. Taking
+ *     it then means taking it against the FRESHEST state: a bounce or an opt-out
+ *     that lands between the visit and the send is seen, where a trigger that
+ *     wrote `cadence_state: 'active'` at visit time would already have committed.
+ *
+ * FAIL-CLOSED, and the default is "no". Every unknown — no stamp, an unreadable
+ * instant, an unrecognised session, an unreadable lifecycle state — returns a
+ * refusal. The alert stays decayed, and the exit the design has always had (an
+ * affirmative act in the preference centre) stays open.
+ *
+ * WHAT IT DOES NOT DO: it does not clear `cadence_decayed_at`,
+ * `cadence_decay_reason` or `cadence_sends_at_decay`. Those record that we
+ * stopped by ourselves after N attempts without anybody asking — the evidence
+ * the terminal state exists to keep — and a reactivation is one more fact on top
+ * of that history, not an erasure of it.
+ *
+ * @param {object} args
+ * @param {object} args.alert the `alerts/{alertId}` document
+ * @param {object|null} args.sub the `job_alert_subscribers/{email}` document
+ * @param {object|null} [args.newsletter] the `newsletter_subscribers/{email}` document
+ * @param {string} args.nowIso the instant to stamp the reactivation with
+ * @param {object} [args.options] forwarded to classifyReturnVisit
+ * @returns {{ reactivate: boolean, verdict: string, reason: string,
+ *             alertFields: object|null, subFields: object|null }}
+ */
+export function reactivationAfterReturnVisit({ alert, sub, newsletter = null, nowIso, ...options }) {
+  const no = (verdict, reason) => ({ reactivate: false, verdict, reason, alertFields: null, subFields: null });
+
+  // Only a document we ourselves retired can come back this way. An `unknown`
+  // lifecycle state is deliberately NOT repaired into `active` by a visit: we do
+  // not know what it means, and guessing here would be a fail-open write.
+  if (!isDecayed(alert)) return no(JOB_ALERT_REACTIVATION_BLOCKS.NOT_DECAYED, 'the alert is not in the decayed state');
+
+  // 5. An alert the PERSON switched off, which never comes back on its own.
+  // This is the whole reason decay does not touch `active`: if it did, the two
+  // would be one field and this branch could not exist. `paused` is the same
+  // kind of act on the other axis (#4298), and gets the same answer.
+  if (alert?.active !== true) return no(JOB_ALERT_REACTIVATION_BLOCKS.SWITCHED_OFF, 'the person switched this alert off');
+  if (alert?.paused === true) return no(JOB_ALERT_REACTIVATION_BLOCKS.SWITCHED_OFF, 'the person paused this alert');
+
+  // 4. A suppressed address, and 3. this channel's own opt-out — one predicate,
+  // functions/src/lib/emailSuppression.js, the same one the sender applies.
+  if (isJobAlertExcluded(sub?.status)) {
+    return no(JOB_ALERT_REACTIVATION_BLOCKS.SUPPRESSED, `the job-alert document says '${String(sub?.status)}'`);
+  }
+  // 3. A global opt-out. `isCrossChannelStop` is the predicate #5688 exists for:
+  // a person who clicked "disiscriviti" left no trace at all on the job-alert
+  // document, and 127 of 127 addresses suppressed after an LPD complaint kept
+  // their alerts. A missing newsletter document is not an unknown — it is an
+  // address that never had one, and it cannot carry an instruction to stop.
+  if (newsletter && isCrossChannelStop(newsletter)) {
+    return no(JOB_ALERT_REACTIVATION_BLOCKS.CHANNEL_OPT_OUT, 'the newsletter document records an opt-out or a suppression');
+  }
+
+  // 1, 2, 6 and 7 — the page load itself.
+  const visit = readReturnVisitStamp(sub);
+  const classified = classifyReturnVisit(visit, options);
+  if (!classified.returned) return no(classified.verdict, classified.reason);
+
+  // The identity binding. `userId` is denormalized onto every alert document
+  // (services/jobAlertService.ts writes it, and the backfill copies the
+  // newsletter document's `user_id`), and it is not a field the browser can set
+  // on the alert — which is what turns the recorded uid from a claim into a
+  // check. A backfilled alert whose subscriber never signed in carries
+  // `userId: null`, so it can never be reactivated this way: that is the
+  // fail-closed answer to "we do not know who this is", and those alerts keep
+  // the preference-centre exit like everybody else.
+  const boundUid = ownerUidOf(alert) || ownerUidOf(sub);
+  if (!boundUid || boundUid !== visit.uid) {
+    return no(JOB_ALERT_REACTIVATION_BLOCKS.UNIDENTIFIED, 'the session identity does not match the owner of this alert');
+  }
+
+  // A visit that happened BEFORE we gave up is not a return. Without this the
+  // first run after the decay would immediately undo it, using a stamp that was
+  // already on the document when the decay was written.
+  const decayedAtMs = toMillis(alert?.cadence_decayed_at ?? alert?.cadenceDecayedAt);
+  if (decayedAtMs == null || !(visit.atMs > decayedAtMs)) {
+    return no(JOB_ALERT_REACTIVATION_BLOCKS.STALE_VISIT, 'the visit is older than the decay, or the decay has no readable instant');
+  }
+
+  // Consumed once, and once only. This is the two-slot guard again, on the other
+  // axis: without it the second run of the day would read the same stamp and
+  // write the same reactivation, and a rerun would not be a no-op.
+  const consumedMs = toMillis(sub?.ja_cadence_return_visit_consumed_at ?? sub?.jaCadenceReturnVisitConsumedAt);
+  const reactivatedMs = toMillis(alert?.cadence_reactivated_at ?? alert?.cadenceReactivatedAt);
+  for (const seen of [consumedMs, reactivatedMs]) {
+    if (seen != null && visit.atMs <= seen) {
+      return no(JOB_ALERT_REACTIVATION_BLOCKS.ALREADY_CONSUMED, 'this visit has already been acted on');
+    }
+  }
+
+  const visitIso = new Date(visit.atMs).toISOString();
+  return {
+    reactivate: true,
+    verdict: JOB_ALERT_REACTIVATION_BLOCKS.OK,
+    reason: `return visit at ${visitIso} by the person who owns this alert`,
+    alertFields: {
+      cadence_state: JOB_ALERT_CADENCE_STATES.ACTIVE,
+      cadence_reactivated_at: nowIso,
+      cadence_reactivation_visit_at: visitIso,
+      cadence_reactivation_reason: 'return visit to the site',
+    },
+    // The counters have to be reset or the reactivation is theatre: the decay
+    // counter is already at N, so the very next send would re-stamp the terminal
+    // state and the alert would come back for exactly one email.
+    //
+    // The TIER is deliberately left alone. A visit to a web page is not a click
+    // on a job advert, and "engagement is a measurement, and a measurement is
+    // never permission" — coming back earns the cadence the person's own signal
+    // already earns them, no more. It is also the only way to keep this write
+    // free of side effects on the recipient's OTHER alerts, which share these
+    // per-recipient fields.
+    subFields: {
+      ja_cadence_weekly_sends: 0,
+      ja_cadence_sends_since_engagement: 0,
+      ja_cadence_return_visit_consumed_at: visitIso,
+    },
   };
 }

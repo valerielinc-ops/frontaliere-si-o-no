@@ -33,6 +33,7 @@ export {
   ipInCidr,
   isAutomationAgent,
   isOptOutLink,
+  isPreferencesLink,
   isScannerIp,
   toMillis,
 } from '../../functions/src/lib/syntheticClicks.js';
