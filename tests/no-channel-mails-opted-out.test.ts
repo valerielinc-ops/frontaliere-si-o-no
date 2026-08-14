@@ -54,6 +54,8 @@ import { classifyDormantWinback } from '../scripts/lib/dormantWinback.mjs';
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { shouldSkipSubscriber } from '../functions/src/jobAlertBackfillCore.js';
 import { dedupeRecipients } from '../scripts/send-daily-brief.mjs';
+import { planConfirmationFollowups } from '../scripts/newsletter-confirmation-followups.mjs';
+import { DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH } from '../functions/src/lib/confirmationFollowup.js';
 import { ROOT, read, stripComments, discoverSenders } from './helpers/senders';
 
 const OPTED_OUT = 'optout@example.com';
@@ -308,6 +310,39 @@ describe('the senders, driven', () => {
     expect(shouldSkipSubscriber(OPTED_OUT, SPA_STAMP_ONLY)).toBe('suppressed');
   });
 
+  it('newsletter-confirmation-followups: an opt-out between two reminders stops the cycle', () => {
+    // The shape nothing had ever seen, because until #5692 this cycle could not
+    // reach a second message: somebody signs up, gets request #1, and clicks
+    // "disiscriviti" in ANOTHER email — or replies STOP — before request #2 is
+    // due. The document is still `pending`, it still has one attempt spare, and
+    // the only thing that says stop is the stamp. Asserted in the camelCase-only
+    // spelling as well, which is the one 458 production rows carry and the one a
+    // status check cannot see.
+    const NOW = Date.parse('2026-09-01T12:00:00.000Z');
+    const ctx = { now: NOW, epochMs: Date.parse(DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH) };
+    const daysAgo = (d: number) => new Date(NOW - d * 24 * 60 * 60 * 1000).toISOString();
+    const midCycle = {
+      status: 'pending',
+      isActive: false,
+      created_at: daysAgo(2),
+      confirmation_attempts: 1,
+      confirmation_first_sent_at: daysAgo(2),
+      confirmation_sent_at: daysAgo(2),
+    };
+
+    // The control: without the stamp, reminder #2 is due today.
+    expect(planConfirmationFollowups([{ id: OPTED_OUT, data: midCycle }], ctx).send).toHaveLength(1);
+
+    for (const stamp of ['unsubscribed_at', 'unsubscribedAt']) {
+      const plan = planConfirmationFollowups(
+        [{ id: OPTED_OUT, data: { ...midCycle, [stamp]: OPT_OUT_STAMP } }],
+        ctx,
+      );
+      expect(plan.send, `${stamp} must stop the cycle`).toEqual([]);
+      expect(plan.skipped).toEqual({ 'opt-out': 1 });
+    }
+  });
+
   it('the lifecycle classifiers refuse to act on an opted-out document', () => {
     // Both tracks send real mail (sunset notice, win-back stage 1/2) and both
     // can flip a document back to mailable — `reactivate`, `reprobe`. The
@@ -336,6 +371,20 @@ describe('the senders, driven', () => {
 type Verdict =
   | { verdict: 'cross-channel'; why: string; gateIn?: string }
   | { verdict: 'newsletter-channel'; why: string; gateIn?: string }
+  /**
+   * The double opt-in request itself (#5692), and the only channel whose status
+   * rule is an ALLOWLIST rather than an exclusion set.
+   *
+   * The difference is not cosmetic. `NEWSLETTER_EXCLUDED_STATUSES` answers "is
+   * this address suppressed", and for `expired`, for `confirmed`, and for any
+   * status added after it was written, the answer is "no — go ahead". That is
+   * right for a newsletter and wrong here: the only person who may be asked to
+   * confirm is one whose confirmation is genuinely outstanding, so the rule is
+   * `status === CONFIRMATION_REQUEST_STATUS` and nothing else passes. The
+   * opt-out half is unchanged and shared — a recorded opt-out ends the cycle on
+   * the spot, in either spelling.
+   */
+  | { verdict: 'consent-request'; why: string; gateIn?: string }
   /** Does not choose recipients from `newsletter_subscribers` at all. */
   | { verdict: 'not-a-broadcast'; why: string };
 
@@ -379,6 +428,11 @@ const VERDICTS: Record<string, Verdict> = {
     why: 'two-stage win-back at the dormant end of the engagement score — same reasoning as the sunset above',
     gateIn: 'scripts/lib/dormantWinback.mjs',
   },
+  'scripts/newsletter-confirmation-followups.mjs': {
+    verdict: 'consent-request',
+    why: '#5692 — reminders #2 and #3 of the double opt-in. An opt-out recorded between two reminders stops the cycle immediately (issue rule 4), through the same shared predicate every other channel uses; the status half is the allowlist of one, not the exclusion set',
+    gateIn: 'functions/src/lib/confirmationFollowup.js',
+  },
   'scripts/send-cold-emails.mjs': {
     verdict: 'not-a-broadcast',
     why: 'employer outreach over employer_contacts — never touches the subscriber collections',
@@ -404,6 +458,12 @@ const READS_OPT_OUT = /isNewsletterOptOutBinding\s*\(|isCrossChannelStop\s*\(/;
 const GATE_BY_VERDICT: Record<string, RegExp> = {
   'cross-channel': /isCrossChannelStop\s*\(/,
   'newsletter-channel': /isNewsletterExcluded\s*\(|NEWSLETTER_EXCLUDED_STATUSES|MAILABLE_STATUSES/,
+  // Named, so the narrowing is visible: this channel does not consult the
+  // exclusion set at all, it admits one status and refuses every other. Reading
+  // the set here instead would be a policy change in the permissive direction —
+  // it would let `expired` and `confirmed` through — and it would silently
+  // satisfy the 'newsletter-channel' line of this table.
+  'consent-request': /CONFIRMATION_REQUEST_STATUS/,
 };
 
 describe('every sender is classified', () => {

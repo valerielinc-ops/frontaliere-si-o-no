@@ -73,7 +73,11 @@ const SENDERS: Array<{ file: string; kind: 'recurring' | 'transactional' | 'outr
   // link to is the #5684 defect, restated on the one channel where the switch
   // is the entire defence.
   { file: 'services/publisherBlastEmail.mjs', kind: 'recurring', what: 'publisher ad blast' },
-  { file: 'functions/src/newsletterConfirmationEmail.js', kind: 'transactional', what: 'double opt-in confirmation' },
+  // Re-pointed by #5692 from functions/src/newsletterConfirmationEmail.js, which
+  // is now only the SENDER: the template moved to lib/ so the follow-up runner
+  // can compose reminders #2 and #3 from it without importing a Cloud Function.
+  // This registry is about what the reader receives, so it follows the words.
+  { file: 'functions/src/lib/confirmationEmailContent.js', kind: 'transactional', what: 'double opt-in confirmation' },
   { file: 'functions/src/sendCalculatorReport.js', kind: 'transactional', what: 'calculator report' },
 ];
 

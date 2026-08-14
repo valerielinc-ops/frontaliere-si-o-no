@@ -57,14 +57,26 @@ import {
   decideConfirmationFollowup,
   confirmationSendRefusal,
   confirmationAttemptsUsed,
+  confirmationFirstSentAt,
   isConfirmationCycleSend,
   buildConfirmationExpiryFields,
+  buildConfirmationSentFields,
+  buildConfirmationSentEvent,
   MAX_CONFIRMATION_ATTEMPTS,
   MIN_ATTEMPT_INTERVAL_MS,
   CONFIRMATION_WINDOW_MS,
   CONFIRMATION_EXPIRED_STATUS,
   DEFAULT_CONFIRMATION_FOLLOWUP_EPOCH,
 } from '../functions/src/lib/confirmationFollowup.js';
+import {
+  CONFIRMATION_FRAMES,
+  buildNewsletterConfirmationEmailHtml,
+  confirmationEmailSubject,
+  confirmationFrameForAttempt,
+  confirmationReminderBanner,
+  formatConfirmationDate,
+} from '../functions/src/lib/confirmationEmailContent.js';
+import { t } from '../functions/src/emailI18n.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES, isNewsletterExcluded } from '../services/emailSuppression.mjs';
 import {
@@ -73,7 +85,7 @@ import {
   HUMAN_DECLARED_SUPPRESSIONS,
   MACHINE_INFERRED_SUPPRESSIONS,
 } from '../functions/src/lib/subscriberReactivation.js';
-import { planConfirmationFollowups, maskEmail } from '../scripts/newsletter-confirmation-followups.mjs';
+import { planConfirmationFollowups, buildFollowupRequest, maskEmail } from '../scripts/newsletter-confirmation-followups.mjs';
 import { captureNewsletterSubscriber, upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { FUNCTIONS_BASE } from '@/services/functionsBase';
 
@@ -473,8 +485,27 @@ describe('the cap lives at the send point, where every caller passes', () => {
     expect(src).toMatch(/confirmationSendRefusal\(\{\s*data,\s*purpose,\s*now\s*\}\)/);
     expect(src).toMatch(/CONFIRMATION_COOLDOWN_MS/);
     expect(src).toMatch(/cooldown_active/);
-    expect(src).toMatch(/confirmation_attempts\s*=\s*attemptsBefore \+ 1/);
+    // Re-pointed by the same PR that wired the reminders: the increment moved
+    // into buildConfirmationSentFields, which the follow-up runner shares. What
+    // this line asserts is unchanged — the counter is written where the mail
+    // actually leaves — and the arithmetic itself is asserted on the builder.
+    expect(src).toMatch(/buildConfirmationSentFields\(\{/);
     expect(src.indexOf('confirmationSendRefusal({')).toBeLessThan(src.indexOf('sendEmailCascade(['));
+  });
+
+  it('the frame the reader sees comes from the counter the cap reads', () => {
+    // Two facts that must never disagree: the email that says "this is the last
+    // reminder" is the same event that writes `confirmation_attempts: 3`. They
+    // are computed from one pair of values, above the send, and used by both.
+    const src = read('functions/src/newsletterConfirmationEmail.js');
+    const attemptsAt = src.indexOf('const attemptsBefore = confirmationAttemptsUsed(data)');
+    expect(attemptsAt).toBeGreaterThan(-1);
+    expect(attemptsAt).toBeLessThan(src.indexOf('sendEmailCascade(['));
+    expect(src).toMatch(/confirmationFrameForAttempt\(attemptsBefore \+ 1\)/);
+    // A login link is not a cycle send, so it never gets a reminder frame — an
+    // already-confirmed subscriber signing in must not be told they are about to
+    // stop hearing from us.
+    expect(src).toMatch(/isCycleSend \? confirmationFrameForAttempt\(attemptsBefore \+ 1\) : CONFIRMATION_FRAMES\.FIRST/);
   });
 });
 
@@ -513,26 +544,296 @@ describe('the runner plans, it does not remember', () => {
     expect(maskEmail('')).toBe('***');
   });
 
-  it('puts no mail on the wire, so no reminder can ship without a channel verdict', () => {
-    // A tripwire, not a preference. tests/helpers/senders.ts derives the sender
-    // population from `sendEmailCascade` on disk; the day this file imports it,
-    // tests/no-channel-mails-unconfirmed.test.ts and
-    // tests/no-channel-mails-opted-out.test.ts both fail until it carries an
-    // explicit verdict in each — which is exactly the review the reminder text
-    // needs before it reaches anybody.
-    const src = read('scripts/newsletter-confirmation-followups.mjs');
-    const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/.*$/gm, '$1');
-    expect(code).not.toMatch(/sendEmailCascade/);
-    // And it must not have found a side door either: no provider client, no
-    // fetch to a send endpoint.
-    expect(code).not.toMatch(/resend|mailgun|mailjet|maileroo|mailtrap/i);
+  /**
+   * The question the last four defects in this area failed: which shapes has
+   * the SEND path never been shown?
+   *
+   * Until this PR the runner could not send, so every one of these was a shape
+   * that had never been tested against an outbound message — only against a
+   * decision printed to a log. `plan.send` is the only queue the cascade is
+   * handed, so a document absent from it cannot be mailed by construction, and
+   * that is what each row asserts.
+   */
+  const NEVER_MAILED: Array<[string, Record<string, any>, string]> = [
+    ['`pending` with confirmed_at — the 842 re-probes', pendingDoc({ confirmed_at: daysAgo(200), isActive: true }), 'already-confirmed'],
+    ['…in the camelCase spelling', pendingDoc({ confirmedAt: daysAgo(200) }), 'already-confirmed'],
+    ['at the third attempt (it is expired, not asked a fourth time)', pendingDoc({ confirmation_attempts: 3, confirmation_sent_at: hoursAgo(30) }), null as any],
+    ['already `expired` — terminal is terminal', pendingDoc({ status: CONFIRMATION_EXPIRED_STATUS, confirmation_attempts: 3 }), 'already-expired'],
+    ['an opt-out that arrived between two reminders', pendingDoc({ confirmation_attempts: 1, confirmation_sent_at: hoursAgo(25), unsubscribedAt: daysAgo(1) }), 'opt-out'],
+    ['a camelCase-only timestamp on a hard-bounced address', pendingDoc({ confirmationSentAt: hoursAgo(25), confirmationAttempts: 1, bounce_severity: 'hard' }), 'address-signal'],
+    ['no creation stamp at all — fail-closed', { email: 'x@example.com', status: 'pending' }, 'no-creation-stamp'],
+    ['created before the epoch', pendingDoc({ created_at: '2026-04-01T00:00:00.000Z' }), 'backlog'],
+    ['asked less than 20h ago', pendingDoc({ confirmation_attempts: 1, confirmation_sent_at: hoursAgo(19) }), 'too-soon'],
+    ['no longer `pending`', pendingDoc({ status: 'unsubscribed' }), 'not-pending'],
+  ];
+
+  it.each(NEVER_MAILED)('no message is composed for %s', (_label, data, reason) => {
+    const plan = planConfirmationFollowups([{ id: 'x@example.com', data }], ctx);
+    expect(plan.send).toEqual([]);
+    if (reason) expect(plan.skipped).toEqual({ [reason]: 1 });
+    // The third-attempt row is the one that is not skipped: it closes.
+    else expect(plan.expire).toHaveLength(1);
   });
 
-  it('writes nothing unless asked: dry-run is the default', () => {
+  it('counts the never-asked backlog apart, instead of folding it into `backlog`', () => {
+    // The 31. `pending`, created before the epoch, no proof and no request ever
+    // recorded — people who submitted a form and were written to zero times.
+    // They are backlog like the other 480, and the difference matters: what they
+    // are owed is a FIRST confirmation email, which is a different act. The
+    // number has to survive the summary for anyone to decide about them.
+    const backlog = [
+      { id: 'never@example.com', data: pendingDoc({ created_at: '2026-04-01T00:00:00.000Z' }) },
+      { id: 'asked@example.com', data: pendingDoc({ created_at: '2026-04-01T00:00:00.000Z', confirmation_sent_at: '2026-04-02T00:00:00.000Z' }) },
+      { id: 'reprobe@example.com', data: pendingDoc({ created_at: '2026-04-01T00:00:00.000Z', confirmed_at: daysAgo(200) }) },
+    ];
+    const plan = planConfirmationFollowups(backlog, ctx);
+    expect(plan.send).toEqual([]);
+    expect(plan.neverAskedBacklog).toBe(1);
+    // A re-probe is `already-confirmed`, not backlog, and must never be counted
+    // among the people waiting to be asked for the first time.
+    expect(plan.skipped).toEqual({ backlog: 2, 'already-confirmed': 1 });
+  });
+
+  it('a post-epoch signup that was never asked gets the FIRST email, not a reminder', () => {
+    // The same "never asked" shape on the other side of the epoch: this one IS
+    // in scope, and what it is owed is request #1 with no banner on it.
+    const item = { id: 'new@example.com', data: pendingDoc({ created_at: hoursAgo(2) }) };
+    const [due] = planConfirmationFollowups([item], ctx).send;
+    expect(due.decision).toMatchObject({ action: 'send', attempt: 1, reason: 'first-ask' });
+    const req = buildFollowupRequest(due, { secret: 'test-secret' });
+    expect(req.meta.frame).toBe(CONFIRMATION_FRAMES.FIRST);
+    expect(req.payload.subject).toBe('Conferma la tua iscrizione alla newsletter – Frontaliere Ticino');
+    expect(req.payload.html).not.toContain('Ti avevamo scritto');
+  });
+
+  it('sends through the shared cascade, in the open — the scan is the contract', () => {
+    // This assertion replaces the tripwire that stood here while the copy did
+    // not exist. It used to read `expect(code).not.toMatch(/sendEmailCascade/)`,
+    // and its whole purpose was to force this review: the day the send was
+    // wired, tests/helpers/senders.ts would find this file and both channel
+    // gates would demand a verdict for it. They now have one — `consent-request`
+    // in each — so what is left to assert is the shape of the wiring: the send
+    // is visible to that scan, and it did not go around it.
+    const src = read('scripts/newsletter-confirmation-followups.mjs');
+    const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[^:])\/\/.*$/gm, '$1');
+    expect(code).toMatch(/sendEmailCascade\s*\(/);
+    // No provider client of its own: everything goes through the cascade, which
+    // is what makes the quota pacing, the fallback and the audit apply.
+    expect(code).not.toMatch(/resend|mailgun|mailjet|maileroo|mailtrap/i);
+    // And the copy comes from the shared module — a local template here would be
+    // a second set of words in a consent path, which is the one thing the
+    // owner's decision ruled out.
+    expect(code).toMatch(/from '\.\.\/functions\/src\/lib\/confirmationEmailContent\.js'/);
+    expect(code).not.toMatch(/<!DOCTYPE html>/i);
+  });
+
+  it('writes nothing and sends nothing unless asked: dry-run is the default', () => {
     const src = read('scripts/newsletter-confirmation-followups.mjs');
     expect(src).toMatch(/includes\('--apply'\)/);
-    // The write helpers are reached only after the apply guard returns.
-    expect(src.indexOf("if (!apply)")).toBeLessThan(src.indexOf('commitInChunks(db, expiring'));
+    // Both the send and the write helpers are reached only after the apply guard
+    // returns. A delivered email is as irreversible as a terminal status.
+    // Sliced to main() because the send helper is DEFINED above it — the
+    // question is where it is CALLED.
+    const body = src.slice(src.indexOf('async function main()'));
+    expect(body.indexOf('if (!apply)')).toBeLessThan(body.indexOf('sendConfirmationRequests(db,'));
+    expect(body.indexOf('if (!apply)')).toBeLessThan(body.indexOf('commitInChunks(db, expiring'));
+  });
+
+  it('fails closed when the link cannot be signed', () => {
+    // An unsigned confirm link is a link that cannot confirm, and the attempt it
+    // would consume is not given back. The guard has to be a refusal to send,
+    // not a fallback to an unsigned URL.
+    const src = read('scripts/newsletter-confirmation-followups.mjs');
+    const guard = src.slice(src.indexOf('const secret = process.env.NEWSLETTER_SECRET'));
+    expect(guard).toMatch(/if \(!secret\)/);
+    expect(guard.indexOf('if (!secret)')).toBeLessThan(guard.indexOf('sendConfirmationRequests(db,'));
+  });
+
+  it('counts an attempt only against a message that actually left', () => {
+    // The ledger writes run over the cascade's `sent`, never over the plan. A
+    // provider failure must cost a day, not one of the three: the opposite
+    // ordering would spend somebody's whole cycle on an outage.
+    const src = read('scripts/newsletter-confirmation-followups.mjs');
+    const fn = src.slice(src.indexOf('async function sendConfirmationRequests'));
+    expect(fn).toMatch(/commitInChunks\(db, sent,/);
+    expect(fn).not.toMatch(/commitInChunks\(db, (due|items|requests),/);
+  });
+});
+
+describe('the words of a reminder: the confirmation email, re-framed and nothing more', () => {
+  const FIRST_SENT = Date.parse('2026-08-20T09:15:00.000Z');
+  const reminderItem = (attempt: number, locale = 'it', overrides: Record<string, any> = {}) => ({
+    id: 'r@example.com',
+    data: pendingDoc({
+      preferred_locale: locale,
+      confirmation_attempts: attempt - 1,
+      confirmation_first_sent_at: new Date(FIRST_SENT).toISOString(),
+      ...overrides,
+    }),
+    decision: { action: 'send', attempt, attempts: attempt - 1, reason: 'reminder' },
+  });
+
+  it('the body below the banner is the confirmation email, byte for byte', () => {
+    // The owner's decision, as an assertion rather than as a promise: «riusare il
+    // testo dell'email di conferma esistente, cambiando solo la cornice». A
+    // reminder is the plain email with a banner glued to the front — so removing
+    // the banner has to give the plain email back, exactly.
+    const plain = buildNewsletterConfirmationEmailHtml('https://frontaliereticino.ch/?action=confirm_newsletter');
+    for (const frame of [CONFIRMATION_FRAMES.REMINDER, CONFIRMATION_FRAMES.LAST]) {
+      const framed = buildNewsletterConfirmationEmailHtml(
+        'https://frontaliereticino.ch/?action=confirm_newsletter',
+        'it',
+        { frame, firstSentAt: FIRST_SENT },
+      );
+      const banner = confirmationReminderBanner('it', { frame, firstSentAt: FIRST_SENT });
+      expect(banner.length).toBeGreaterThan(80);
+      // …and the subject line, which is the one other thing that changes.
+      expect(framed.replace(banner, '').replace(confirmationEmailSubject('it', { frame }), confirmationEmailSubject('it', {})))
+        .toBe(plain);
+    }
+  });
+
+  it('adds no link of its own — the confirm link is the only one that changes', () => {
+    const hrefs = (html: string) => (html.match(/href="([^"]*)"/g) || []).sort();
+    const plain = buildNewsletterConfirmationEmailHtml('https://frontaliereticino.ch/?action=confirm_newsletter');
+    const last = buildNewsletterConfirmationEmailHtml(
+      'https://frontaliereticino.ch/?action=confirm_newsletter',
+      'it',
+      { frame: CONFIRMATION_FRAMES.LAST, firstSentAt: FIRST_SENT },
+    );
+    expect(hrefs(last)).toEqual(hrefs(plain));
+  });
+
+  it('the first reminder says when we wrote, in each of the four languages', () => {
+    const expected: Record<string, string> = {
+      it: 'Ti avevamo scritto il 20 agosto 2026',
+      en: 'We wrote to you on 20 August 2026',
+      de: 'Wir haben Ihnen am 20. August 2026',
+      fr: 'Nous vous avons écrit le 20 août 2026',
+    };
+    for (const [locale, sentence] of Object.entries(expected)) {
+      const req = buildFollowupRequest(reminderItem(2, locale), { secret: 'test-secret' });
+      expect(req.meta.frame).toBe(CONFIRMATION_FRAMES.REMINDER);
+      expect(req.payload.html, locale).toContain(sentence);
+      // …and it does NOT claim to be the last one.
+      expect(req.payload.html, locale).not.toContain(t(locale, 'confirmReminderLastNotice'));
+      expect(req.payload.subject).toBe(t(locale, 'confirmReminderSubject'));
+    }
+  });
+
+  it('the second reminder says it is the last, and that doing nothing is enough', () => {
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const req = buildFollowupRequest(reminderItem(3, locale), { secret: 'test-secret' });
+      expect(req.meta.frame).toBe(CONFIRMATION_FRAMES.LAST);
+      expect(req.payload.html, locale).toContain(t(locale, 'confirmReminderLead').split('{when}')[0]);
+      expect(req.payload.html, locale).toContain(t(locale, 'confirmReminderLastNotice'));
+      expect(req.payload.subject).toBe(t(locale, 'confirmReminderLastSubject'));
+    }
+  });
+
+  it('carries no offer and no urgency — the vocabulary a consent request may not use', () => {
+    // Not a style note. Anything persuasive in this mail is persuasion aimed at
+    // somebody who has not consented to be persuaded, and the whole reason the
+    // owner chose to reuse the existing body is that new words here are new
+    // claims. The list is the marketing register, in four languages.
+    const forbidden = /gratis|free\b|sconto|offerta|promo|discount|angebot|rabatt|kostenlos|offre|gratuit|réduction|subito|hurry|scade tra|expires in|last chance|ultima occasione|solo per te|jetzt sichern/i;
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      for (const attempt of [2, 3]) {
+        const { payload } = buildFollowupRequest(reminderItem(attempt, locale), { secret: 'test-secret' });
+        const banner = confirmationReminderBanner(locale, {
+          frame: attempt === 3 ? CONFIRMATION_FRAMES.LAST : CONFIRMATION_FRAMES.REMINDER,
+          firstSentAt: FIRST_SENT,
+        });
+        expect(banner, `${locale}/${attempt}`).not.toMatch(forbidden);
+        expect(payload.subject, `${locale}/${attempt}`).not.toMatch(forbidden);
+      }
+    }
+  });
+
+  it('never states a date it does not have — the undated wording, not «il undefined»', () => {
+    // A document can reach a reminder with no first-send anchor: a row written
+    // before the counter existed, whose only stamp is the overwritten
+    // `confirmation_sent_at`. Reading THAT as "the day we first wrote" would put
+    // the date of the previous reminder in the sentence, which is a false
+    // statement made to somebody who has not consented to hear from us at all.
+    const noAnchor = reminderItem(3, 'it', { confirmation_first_sent_at: undefined, confirmation_sent_at: daysAgo(1) });
+    const { payload } = buildFollowupRequest(noAnchor, { secret: 'test-secret' });
+    expect(payload.html).toContain('qualche giorno fa');
+    expect(payload.html).not.toMatch(/undefined|NaN|Invalid Date/);
+    // The last-reminder notice still has to be there: losing the date must not
+    // cost the recipient the one sentence that says nothing more is coming.
+    expect(payload.html).toContain(t('it', 'confirmReminderLastNotice'));
+  });
+
+  it('a fourth request could not be composed as a fresh signup', () => {
+    // Belt and braces behind the cap: if the counter were ever bypassed, the
+    // frame must not reset to "thanks for subscribing".
+    expect(confirmationFrameForAttempt(4)).toBe(CONFIRMATION_FRAMES.LAST);
+    expect(confirmationFrameForAttempt(99)).toBe(CONFIRMATION_FRAMES.LAST);
+  });
+
+  it('the date is the reader\'s calendar date, not UTC\'s', () => {
+    // 23:40 UTC on the 20th is the 21st in Ticino. The date in this sentence is
+    // the one the recipient can check against their own inbox.
+    const lateEvening = Date.parse('2026-08-20T23:40:00.000Z');
+    expect(formatConfirmationDate(lateEvening, 'it')).toBe('21 agosto 2026');
+    expect(formatConfirmationDate(null, 'it')).toBeNull();
+    expect(formatConfirmationDate(undefined, 'de')).toBeNull();
+  });
+});
+
+describe('the ledger both senders write, and the shapes it has never seen', () => {
+  it('is one definition, shared by the Cloud Function and the runner', () => {
+    // The construct that produced every drift defect in this area was a copied
+    // check. The counter is the whole evidence of "asked three times and
+    // stopped", so it has one writer.
+    const cf = read('functions/src/newsletterConfirmationEmail.js');
+    const runner = read('scripts/newsletter-confirmation-followups.mjs');
+    for (const src of [cf, runner]) {
+      expect(src).toMatch(/buildConfirmationSentFields\(/);
+      expect(src).toMatch(/buildConfirmationSentEvent\(/);
+      // Neither may hand-roll the increment.
+      expect(src.replace(/\/\*[\s\S]*?\*\//g, '')).not.toMatch(/confirmation_attempts:\s*attemptsBefore/);
+    }
+  });
+
+  it('counts the attempt and anchors the window on the first send only', () => {
+    const first = buildConfirmationSentFields({
+      attemptsBefore: 0, isCycleSend: true, messageId: 'm1', locale: 'it', stamp: 'STAMP',
+    });
+    expect(first).toMatchObject({ confirmation_attempts: 1, confirmation_first_sent_at: 'STAMP' });
+
+    const second = buildConfirmationSentFields({
+      attemptsBefore: 1, isCycleSend: true, messageId: 'm2', locale: 'de', stamp: 'STAMP',
+    });
+    expect(second.confirmation_attempts).toBe(2);
+    // The anchor is written once and never moved: it is the date the reminders
+    // state, and a moving anchor would also stretch the window indefinitely.
+    expect(second).not.toHaveProperty('confirmation_first_sent_at');
+  });
+
+  it('a login link and a re-probe leave the counter alone', () => {
+    const notACycle = buildConfirmationSentFields({
+      attemptsBefore: 2, isCycleSend: false, messageId: 'm', locale: 'it', stamp: 'STAMP',
+    });
+    expect(notACycle).not.toHaveProperty('confirmation_attempts');
+    expect(notACycle).not.toHaveProperty('confirmation_first_sent_at');
+    expect(buildConfirmationSentEvent({
+      email: 'x@example.com', attemptsBefore: 2, isCycleSend: false, messageId: 'm', locale: 'it', occurredAt: 'ISO',
+    }).confirmation_attempt).toBeNull();
+  });
+
+  it('reads the first-send anchor in both spellings, and refuses to guess', () => {
+    // 458 documents in this collection carry only the camelCase stamp (#5673),
+    // and the reminder's date comes from this reader.
+    const iso = '2026-08-20T09:15:00.000Z';
+    expect(confirmationFirstSentAt({ confirmation_first_sent_at: iso })).toBe(Date.parse(iso));
+    expect(confirmationFirstSentAt({ confirmationFirstSentAt: iso })).toBe(Date.parse(iso));
+    expect(confirmationFirstSentAt({ confirmation_first_sent_at: fsTimestamp(iso) })).toBe(Date.parse(iso));
+    // NOT the last send, and not the creation date: either would put a wrong
+    // date in a sentence addressed to somebody who has not consented.
+    expect(confirmationFirstSentAt({ confirmation_sent_at: iso })).toBeNull();
+    expect(confirmationFirstSentAt({ created_at: iso })).toBeNull();
   });
 });
 

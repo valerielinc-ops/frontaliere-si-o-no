@@ -431,10 +431,20 @@ describe('channel coverage — "la copertura, non il campione" (#5682 point 4)',
     // reaches an inbox. Both import forms count: most senders reach for the
     // cascade with a dynamic `await import(...)` inside the send function
     // rather than a static import at the top.
+    //
+    // stripComments for the reason stated where it is defined, and it is the
+    // false-positive direction this time rather than the false-negative one:
+    // scripts/newsletter-confirmation-followups.mjs explains in its docblock
+    // WHY it reaches for functions/src/emailCascade.js instead of this shim —
+    // the double opt-in request carries no unsubscribe link and must not, so it
+    // is not a mass channel — and naming the shim in that sentence was enough
+    // to book it into the audit it had just finished explaining it is outside
+    // of. A guard that a file cannot discuss without joining is a guard nobody
+    // can document around.
     const senders = fs.readdirSync(dir)
       .filter((f) => f.endsWith('.mjs'))
       .filter((f) => {
-        const src = fs.readFileSync(path.join(dir, f), 'utf8');
+        const src = stripComments(fs.readFileSync(path.join(dir, f), 'utf8'));
         return src.includes('email-cascade.mjs') && /\bsendEmailCascade\b/.test(src);
       });
     expect(senders.length).toBeGreaterThan(5);
@@ -443,6 +453,25 @@ describe('channel coverage — "la copertura, non il campione" (#5682 point 4)',
       unregistered,
       `these senders reach real inboxes but are not in MASS_EMAIL_CHANNELS, so the post-send link audit would not name them: ${unregistered.join(', ')}`,
     ).toEqual([]);
+  });
+
+  it('the double opt-in request is outside this audit, and says so in code', () => {
+    // Recorded as a fact rather than left to the filter above. The confirmation
+    // request and its two reminders (#5692) reach an inbox through
+    // functions/src/emailCascade.js, the same door the Cloud Functions senders
+    // use, because this audit requires an unsubscribe link in every body and
+    // that mail may not carry one: the recipient has no subscription to leave,
+    // and the only link it is allowed to contain is the confirm link.
+    //
+    // If this ever fails because the file switched to the shim, the fix is NOT
+    // to add an unsubscribe link to a consent request — it is to decide, on
+    // purpose, that the channel became a mass channel.
+    const src = fs.readFileSync(path.join(REPO_ROOT, 'scripts/newsletter-confirmation-followups.mjs'), 'utf8');
+    const code = stripComments(src);
+    expect(code).toMatch(/\bsendEmailCascade\b/);
+    expect(code).toMatch(/from '\.\.\/functions\/src\/emailCascade\.js'/);
+    expect(code).not.toContain('email-cascade.mjs');
+    expect(Object.keys(MASS_EMAIL_CHANNELS)).not.toContain('newsletter-confirmation-followups.mjs');
   });
 
   it('covers every mass channel issue #5682 lists', () => {
