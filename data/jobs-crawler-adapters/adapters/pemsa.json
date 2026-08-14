@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-13T21:54:54.248Z",
+  "updatedAt": "2026-08-14T10:18:44.167Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/cuoco-di-cucina-moderna-2687139/": {
       "location": "Locarno",
@@ -793,24 +793,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-30"
     },
-    "https://www.pemsa.ch/it/job/meccanico-di-autoveicoli-2685214/": {
-      "location": "Agno",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-29"
-    },
-    "https://www.pemsa.ch/it/job/consulente-del-personale-nel-settore-delle-finiture-2685206/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-29"
-    },
-    "https://www.pemsa.ch/it/job/assistente-di-agenzia-50-60-2685200/": {
-      "location": "Bienne",
-      "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-29"
-    },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-idraulici-afc-2685186/": {
       "location": "Aigle",
       "canton": "VD",
@@ -980,24 +962,6 @@
       "postedDate": "2026-07-21"
     },
     "https://www.pemsa.ch/it/job/muratore-cat-a-2684146/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-21"
-    },
-    "https://www.pemsa.ch/it/job/aiuto-carpentiere-2684143/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-21"
-    },
-    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-2684139/": {
-      "location": "Bulle",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-21"
-    },
-    "https://www.pemsa.ch/it/job/installatori-di-binari-di-alimentazione-strutture-metalliche-2684136/": {
       "location": "Fribourg",
       "canton": "FR",
       "company": "PEMSA",

@@ -177,7 +177,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'Der Kanton Tessin stimmt dem Ausländer- und Grenzgängerstopp zu, allerdings mit begrenzten Effekten, während die Schweiz die SVP-Initiative mit 54,79 % ablehnt.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Landschaft mit See und Bergen zwischen Schweiz und Italien in der Nähe des Tessins.',
     'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Treni gestoppt Stabio-Gallarate: Grüne kritisieren Region und Trenord',
-    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Schließung der Eisenbahnstrecke Stabio-Gallarate bis 5. Juli für Bauarbeiten, mit schweren Unannehmlichkeiten für über 5.000 tägliche Fahrgäste. **Verbindliche Einschränkungen**',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Schließung der Eisenbahnstrecke Stabio-Gallarate bis 5. Juli für Bauarbeiten, mit schweren Unannehmlichkeiten für über 5.000 tägliche Fahrgäste.',
     'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Berufspendler vor geschlossener Eisenbahnstation',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'KI-Jobangebote in der Schweiz: Rekord und Trends 2025',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'Im Jahr 2025 steigen die Stellenangebote mit KI‑Kompetenzen in der Schweiz auf 25 000, +9 000 gegenüber dem Vorjahr. Die Gehälter liegen über dem Durchschnitt im Gesundheits‑ und Energiesektor.',

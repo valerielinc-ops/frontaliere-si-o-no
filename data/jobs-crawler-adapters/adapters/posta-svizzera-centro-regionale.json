@@ -11,6 +11,7 @@
   "seedUrls": [
     "https://job.post.ch/search/?locale=it_IT",
     "https://job.post.ch/search/?locale=de_DE",
+    "https://job.post.ch/default/job/Mitarbeiterin-Contact-Center/74455-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74507-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74497-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74503-de_DE",
@@ -183,8 +184,6 @@
     "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Dienstleistung-und-Administration/73905-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73867-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73997-de_DE",
-    "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73917-de_DE",
-    "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Kundendialog-EFZ-Kriens/73872-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73994-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73996-de_DE",
     "https://job.post.ch/default/job/Praxisintegriertes-Bachelorstudium-in-Informatik/73888-de_DE",
@@ -194,8 +193,6 @@
     "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73932-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73857-de_DE",
     "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73910-de_DE",
-    "https://job.post.ch/default/job/Lehre-als-Kaufmann-frau-EFZ-Bank/73976-de_DE",
-    "https://job.post.ch/default/job/Lehre-als-Informatikerin-EFZ-Plattformentwicklung/73960-de_DE",
     "https://job.post.ch/default/job/Immobilienbewirtschafterin/74215-de_DE",
     "https://job.post.ch/default/job/Kundenberaterin/74378-de_DE",
     "https://job.post.ch/default/job/Kundenberaterin/74227-de_DE",
@@ -213,9 +210,7 @@
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
     "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74126-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Abend-Pakete/74336-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73500-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
     "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74483-fr_FR",
     "https://job.post.ch/default/job/G%C3%A9ranteG%C3%A9rant-d'immeubles-R%C3%A9gion-nord-vaudoise-et-neuch%C3%A2teloise/74461-fr_FR",
     "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74116-fr_FR",
@@ -248,13 +243,13 @@
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9eemploy%C3%A9-de-commerce-CFC-way-up-Services-et-administration-Valais-%28FR%29/74055-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9eemploy%C3%A9-de-commerce-CFC%2C-Services-et-administration-Berne-%28francophone%29/74054-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Vaud/74047-fr_FR",
-    "https://job.post.ch/default/job/Apprentissage-d'agenteagent-d'exploitation-CFC%E2%80%AF-%E2%80%AFVaud/73863-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Neuch%C3%A2tel/74042-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Jura/74041-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Berne-%28francophone%29/74039-fr_FR",
     "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien%E2%80%AFAFP-Neuch%C3%A2tel/74037-fr_FR",
-    "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Fribourg-%28francophone%29/73777-fr_FR"
+    "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Fribourg-%28francophone%29/73777-fr_FR",
+    "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Vaud/74046-fr_FR"
   ],
   "notes": "Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.",
-  "updatedAt": "2026-08-13T22:00:24.658Z"
+  "updatedAt": "2026-08-14T10:20:55.720Z"
 }

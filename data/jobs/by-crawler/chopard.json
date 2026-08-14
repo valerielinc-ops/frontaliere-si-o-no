@@ -1,6 +1,6 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-08-13T21:54:21.008Z",
+  "assembledAt": "2026-08-14T10:22:46.799Z",
   "jobs": [
     {
       "id": "chopard-b4f414c250a6",
@@ -16,7 +16,7 @@
       "companyDomain": "chopard.com",
       "title": "CHEF DE PROJET IT - PRODUITS, B2B (H/F)",
       "titleByLocale": {
-        "it": "IT PROGETTO HEAD - PRODOTTI, B2B (M/F)",
+        "it": "CHEF DE PROJET IT - PRODUITS, B2B (H/F)",
         "en": "IT PROJECT HEAD - PRODUCTS, B2B (H/F)",
         "de": "IT PROJECT HEAD - PRODUKTE, B2B (H/F)",
         "fr": "CHEF DE PROJET IT - PRODUITS, B2B (H/F)"
@@ -33,7 +33,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2529?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-13T21:54:18.319Z",
+      "crawledAt": "2026-08-14T10:22:43.346Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -69,6 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:25:40.412Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "baseSalary": {
@@ -113,7 +114,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-13T21:54:18.318Z",
+      "crawledAt": "2026-08-14T10:22:43.344Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -177,7 +178,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-13T21:54:18.314Z",
+      "crawledAt": "2026-08-14T10:22:43.341Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -197,6 +198,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:09:12.285Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -241,7 +243,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-13T21:54:18.311Z",
+      "crawledAt": "2026-08-14T10:22:43.338Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -305,7 +307,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2594?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-13T21:54:18.294Z",
+      "crawledAt": "2026-08-14T10:22:43.335Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -338,6 +340,140 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "chopard-158c37bc1fa3",
+      "slug": "agent-qualite-production-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "fr": "agent-qualite-production-h-f-d-chopard-fleurier",
+        "it": "agent-qualite-production-h-f-d-chopard-fleurier",
+        "en": "agent-qualite-production-h-f-d-chopard-fleurier",
+        "de": "agent-qualite-production-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Agent Qualité Production (H/F/D)",
+      "titleByLocale": {
+        "fr": "Agent Qualité Production (H/F/D)",
+        "it": "Agent Qualité Production (f/m/d)",
+        "en": "Agent Qualité Production (H/F/D)",
+        "de": "Agent Qualité Production (H/F/D)"
+      },
+      "description": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
+        "it": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
+        "en": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
+        "de": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-14T10:22:43.317Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
+      "jobReqId": "2570",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T10:22:43.317Z"
+    },
+    {
+      "id": "chopard-51dd98312b73",
+      "slug": "financial-controlling-intern-chopard-meyrin",
+      "slugByLocale": {
+        "en": "financial-controlling-intern-chopard-meyrin",
+        "it": "financial-controlling-intern-chopard-meyrin",
+        "de": "financial-controlling-intern-chopard-meyrin",
+        "fr": "financial-controlling-intern-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Financial Controlling Intern",
+      "titleByLocale": {
+        "en": "Financial Controlling Intern",
+        "it": "Financial Controlling Tirocinante",
+        "de": "Financial Controlling Praktikant",
+        "fr": "Financial Controlling Stagiaire"
+      },
+      "description": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+      "descriptionByLocale": {
+        "en": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+        "it": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+        "de": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+        "fr": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T10:22:43.269Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
+      "jobReqId": "2351",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T10:22:43.269Z"
     }
   ]
 }

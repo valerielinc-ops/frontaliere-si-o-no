@@ -1,5 +1,46 @@
 [
   {
+    "slug": "studente-di-lavoro-in-stadler-rail-olten",
+    "title": "Werkstudent:in",
+    "titleByLocale": {
+      "it": "Studente di lavoro:in",
+      "en": "Working student",
+      "de": "Werkstudent:in",
+      "fr": "Étudiant actif"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Olten",
+    "addressLocality": "Olten",
+    "descriptionByLocale": {
+      "it": "PROFIL\n• Iscritto:r Student:in (Bachelor/Master) in Ingegneria elettrica / Sistemi, Ingegneria dei trasporti o campo di studio comparabile\n• Interessi in sistemi critici di sicurezza e progetti di digitalizzazione nell'ambiente ferroviario\n• pensiero analitico e metodo di lavoro strutturato\n• Gestione sicura di MS Office; La conoscenza dei sistemi ERP o sistemi simili è vantaggiosa Molto buona conoscenza del tedesco, altre lingue utili TASK\n• Supporta il nostro dipartimento E-IX-",
+      "en": "PROFIL\n• Enrolled:r Student:in (Bachelor/Master) in Electrical / Systems Engineering, Transport Engineering or comparable field of study\n• Interest in safety-critical systems and digitization projects in the railway environment\n• Analytical thinking and structured working method\n• Safe handling of MS Office; Knowledge of ERP systems or similar systems is advantageous Very good knowledge of German, other languages beneficial TASK\n• Support our E-IXL department in the development of safety-critical software for electronic signal boxes\n• Creation and maintenance of documentation",
+      "de": "PROFIL\n\n• Eingeschriebene:r Student:in (Bachelor/Master) in Elektro-/Systemtechnik, Verkehrsingenieurwesen oder vergleichbarer Studienrichtung\n\n• Interesse an sicherheitskritischen Systemen und Digitalisierungsprojekten im Bahnumfeld\n\n• Analytisches Denken und strukturierte Arbeitsweise\n\n• Sicherer Umgang mit MS Office; Kenntnisse in ERP-Systemen oder ähnlichen Systemen von Vorteil\n\n• Sehr gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\nAUFGABEN\n\n• Unterstützung unserer Abteilung E-IXL bei der Entwicklung sicherheitskritischer Software für elektronische Stellwerke\n\n• Erstellung und Pflege von Dokumentation",
+      "fr": "PROFIL\n• Étudiant inscrit (Licence/Master) en génie électrique/systèmes, génie des transports ou domaine d'études comparable\n• Intérêt pour les systèmes critiques pour la sécurité et les projets de numérisation dans l'environnement ferroviaire\n• Pensée analytique et mode de travail structuré\n• Gestion confiante du MS Office ; La connaissance des systèmes ERP ou de systèmes similaires est un avantage\n• Une très bonne connaissance de l'allemand, d'autres langues est un avantage TÂCHES\n• Soutien de notre département E-IXL dans le développement de logiciels critiques pour la sécurité des verrouillages électroniques\n• Création et maintenance de documentation"
+    },
+    "slugByLocale": {
+      "it": "studente-di-lavoro-in-stadler-rail-olten",
+      "en": "working-student-stadler-rail-olten",
+      "de": "werkstudent-in-stadler-rail-ch",
+      "fr": "etudiant-actif-stadler-rail-olten"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-08-14T10:33:17.258Z",
+    "previousSlugs": [
+      "werkstudent-in-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "werkstudent-in-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "4600",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "ict-system-engineer-in-stadler-rail-bussnang",
     "title": "ICT Systemingenieur:in",
     "titleByLocale": {

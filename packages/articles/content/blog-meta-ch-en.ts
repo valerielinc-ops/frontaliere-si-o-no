@@ -177,7 +177,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'The Canton of Ticino approves restrictions on foreign residents, but with limited effects, while Switzerland rejects the Swiss People\'s Party initiative with 54.79%.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Landscape of lake and mountains between Switzerland and Italy near Ticino.',
     'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Trains Halted Stabio-Gallarate: Greens Criticize Region & Trenord',
-    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Closure of Stabio-Gallarate railway line until July 5 for maintenance, causing severe disruptions for over 5,000 daily passengers. **Mandatory Constraints** met for title translation (59 characters).',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Closure of Stabio-Gallarate railway line until July 5 for maintenance, causing severe disruptions for over 5,000 daily passengers.',
     'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Commuters waiting in front of closed railway station',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'AI job offers in Switzerland: record and trends 2025',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'In 2025 the job offers with AI skills in Switzerland rise to 25,000, +9,000 compared to the previous year. Salaries above average in health and energy.',

@@ -1,35 +1,32 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-08-13T22:07:44.899Z",
-  "total": 9,
+  "generatedAt": "2026-08-14T10:35:18.095Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 34350,
-  "avgDurationMs": 34350,
+  "unchangedCount": 0,
+  "durationMs": 43085,
+  "avgDurationMs": 43085,
   "durationHistory": [
-    34350
+    43085
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "diakoniewerk-neumuenster-869fb74f287d",
-      "slug": "collaboratore-trice-mitarbeiterin-empfang-befristet-bis-01-03-2027-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "id": "diakoniewerk-neumuenster-248f74fa28d3",
+      "slug": "dipl-infermieristica-professionale-dipl-specialista-infermieristica-visita-spital-zollikerberg-a-casa-diakoniewerk",
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
       "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Mitarbeiter / Mitarbeiterin Empfang - befristet bis 01.03.2027 Middle Office /",
-      "needsRetranslation": true,
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann - Visit - Spital Zollikerberg Zuhause",
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c9ecc3e3-62a1-4359-bd07-3ffb89cc3cb2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8782fbfa-ba42-4b72-a9bf-a8803450e770,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:21:02.139Z",
+      "crawledAt": "2026-08-13T10:43:14.729Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,7 +40,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c9ecc3e3-62a1-4359-bd07-3ffb89cc3cb2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8782fbfa-ba42-4b72-a9bf-a8803450e770,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -56,5 +53,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
