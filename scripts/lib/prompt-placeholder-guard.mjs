@@ -224,6 +224,70 @@ const TEXT_LITERALS = SCHEMA_PLACEHOLDER_LITERALS.filter((l) => !SLUG_OWNED_LITE
  *   · `scaffold`      — il campo contiene il preambolo del prompt. Il testo che
  *                       segue e' input, non articolo.
  */
+/**
+ * L'unita' di misura del budget, nelle lingue in cui il traduttore la puo'
+ * riscrivere. E' questo token a portare il segnale: senza, `160` e' un numero
+ * qualunque e il campo e' legittimo.
+ */
+export const CHAR_UNIT_RE =
+  /(?:chars?|characters?|caratteri|carattere|caractères|caracteres|Zeichen|signes?|tekens?)\b/i;
+
+/** Uno span parentetico abbastanza corto da essere un inciso, non una frase. */
+const PARENTHETICAL_RE = /\(([^()]{1,60})\)/g;
+
+/**
+ * L'invariante: un numero di 2-4 cifre ADIACENTE a un'unita' di caratteri, nei
+ * due ordini possibili. «adiacente» = al massimo 12 caratteri non-cifra in
+ * mezzo, che copre `160 caratteri`, `160 char`, `160 Zeichen`, `160 di
+ * caratteri` senza arrivare a legare un numero e un'unita' che stanno in due
+ * proposizioni diverse.
+ */
+const BUDGET_NUM_UNIT_RE = new RegExp(
+  `(?:\\d{2,4}\\s*[^()\\d]{0,12}?${CHAR_UNIT_RE.source})` +
+    `|(?:${CHAR_UNIT_RE.source}[^()\\d]{0,12}?\\s*\\d{2,4})`,
+  'i',
+);
+
+/**
+ * Controllo STRUTTURALE del budget parentetico (#5847 item 2): isola ogni
+ * inciso fra parentesi e valuta l'invariante sul suo CONTENUTO, invece di
+ * codificare la forma intera — terminatore compreso — in un solo pattern.
+ *
+ * Tollera per costruzione il drift del modello dentro le parentesi (parole in
+ * piu', qualificatori, punteggiatura, ordine diverso) e resta insensibile al
+ * verbo, che non e' mai stato il segnale. Vedi la nota estesa sulla regola
+ * `budget-parenthetical`.
+ *
+ * @param {string} value
+ * @returns {{ found: string, index: number }|null}
+ */
+export function matchBudgetParenthetical(value) {
+  const s = typeof value === 'string' ? value : '';
+  if (!s) return null;
+  const rx = new RegExp(PARENTHETICAL_RE.source, 'g'); // istanza fresca: `lastIndex` non condiviso
+  let m;
+  while ((m = rx.exec(s)) !== null) {
+    if (BUDGET_NUM_UNIT_RE.test(m[1])) return { found: m[0], index: m.index };
+  }
+  return null;
+}
+
+/**
+ * Applica una regola a un valore, qualunque sia la sua FORMA.
+ *
+ * Una regola porta `rx` (pattern) **oppure** `match` (controllo strutturale).
+ * Tutti i consumatori passano di qui, cosi' una regola strutturale non e'
+ * invisibile a uno di loro — che e' il modo in cui un guard smette di guardare
+ * senza che nessun test diventi rosso.
+ *
+ * @returns {{ found: string, index: number }|null}
+ */
+export function matchRule(rule, value) {
+  if (typeof rule.match === 'function') return rule.match(value);
+  const m = rule.rx.exec(value);
+  return m ? { found: m[0], index: m.index } : null;
+}
+
 export const PLACEHOLDER_RULES = Object.freeze([
   // ── Forme che nessun letterale copre ────────────────────────────────────
   {
@@ -256,7 +320,41 @@ export const PLACEHOLDER_RULES = Object.freeze([
     // FALSO POSITIVO: e' l'unita' di misura a fare il lavoro. `(max ` da solo
     // compare in campi body legittimi («max 15.000 CHF/anno», «max 9
     // ore/giorno», «max 1 page»), e nessuno di quei campi nomina caratteri.
-    rx: /\(\s*(?:max|max\.|massimo|maximum|maximal|máximo)\s+\d{2,4}\s*(?:chars?|characters?|caratteri|carattere|caractères|caracteres|Zeichen)\s*\)/i,
+    //
+    // ── PERCHE' NON E' PIU' UNA REGEX SOLA (#5847 item 2) ────────────────
+    //
+    // La forma precedente era:
+    //
+    //   /\(\s*(?:max|massimo|…)\s+\d{2,4}\s*(?:chars?|caratteri|…)\s*\)/i
+    //
+    // e pretendeva la parentesi di chiusura SUBITO dopo l'unita'. E' una
+    // FINESTRA FRAGILE: codifica in un solo pattern sia l'invariante sia il
+    // suo terminatore, quindi qualunque parola in piu' dentro le parentesi la
+    // faceva mancare — «(max. 160 caratteri circa)», «(max 160 characters,
+    // no more)», «(ca. 160 Zeichen)». Cioe' un FALSO NEGATIVO: il segnaposto
+    // veniva pubblicato, che e' esattamente il difetto che questa regola
+    // esiste per fermare.
+    //
+    // Allargare la regex avrebbe solo spostato il bordo: la prossima parafrasi
+    // del modello sarebbe caduta appena fuori dal nuovo bordo. La matrice che
+    // conta e' questa:
+    //
+    //   mutazione                       | finestra fragile | controllo strutturale
+    //   invariante rotta                | rosso            | rosso
+    //   testo innocuo aggiunto dentro   | ROSSO (falso     | verde
+    //   le parentesi                    |  negativo)       |
+    //
+    // Quindi il controllo ora ESEGUE LA PROVA invece di evitarla: isola lo
+    // span parentetico e valuta l'invariante SUL SUO CONTENUTO. L'invariante
+    // e' quella che il commento sopra gia' dichiarava — **un numero adiacente
+    // a un'unita' di caratteri** — e tutto il resto dentro le parentesi e'
+    // libero. Il verbo (`max`/`massimo`/`ca.`/niente) smette di essere
+    // vincolante, perche' non e' mai stato lui a portare il segnale.
+    //
+    // Il tetto di 60 caratteri sullo span e' cio' che lo tiene un INCISO: una
+    // frase intera fra parentesi che parla di caratteri e' prosa editoriale,
+    // non un budget incollato dallo schema.
+    match: matchBudgetParenthetical,
     why: "Inciso col budget di caratteri dello schema (`(max 160 chars)`): sopravvive alla traduzione del segnaposto in en/de/fr, dove nessun letterale italiano arriva.",
   },
   {
@@ -301,9 +399,9 @@ export function findPromptPlaceholders(value) {
   if (typeof value !== 'string' || !value) return [];
   const hits = [];
   for (const rule of PLACEHOLDER_RULES) {
-    const m = rule.rx.exec(value);
+    const m = matchRule(rule, value);
     if (!m) continue;
-    hits.push({ rule: rule.id, kind: rule.kind, found: m[0].trim(), index: m.index });
+    hits.push({ rule: rule.id, kind: rule.kind, found: m.found.trim(), index: m.index });
   }
   return hits;
 }
@@ -373,7 +471,9 @@ export function stripSchemaHeadingLine(value) {
     const first = lines[0].trim();
     if (!/^#{1,6}\s/.test(first)) break;
     const heading = first.replace(/^#{1,6}\s*/, '').trim();
-    const echo = PLACEHOLDER_RULES.some((r) => r.kind === 'schema-echo' && r.rx.test(heading));
+    const echo = PLACEHOLDER_RULES.some(
+      (r) => r.kind === 'schema-echo' && matchRule(r, heading) !== null,
+    );
     if (!echo) break;
     lines.shift();
     while (lines.length && !lines[0].trim()) lines.shift();
@@ -397,7 +497,7 @@ export function truncateAtPromptScaffold(value) {
   let cut = -1;
   for (const rule of PLACEHOLDER_RULES) {
     if (rule.kind !== 'scaffold') continue;
-    const m = rule.rx.exec(value);
+    const m = matchRule(rule, value);
     if (m && (cut === -1 || m.index < cut)) cut = m.index;
   }
   if (cut < 0) return { value, removed: 0 };

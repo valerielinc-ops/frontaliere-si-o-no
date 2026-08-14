@@ -513,3 +513,221 @@ describe('coerenza interna delle regole', () => {
     }
   });
 });
+
+// ═════════════════════════════════════════════════════════════════════════════
+// #5847 — i tre item deferred di #5812
+// ═════════════════════════════════════════════════════════════════════════════
+
+/**
+ * ITEM 2 — la regex `budget-parenthetical` era una FINESTRA FRAGILE.
+ *
+ * Pretendeva la parentesi di chiusura subito dopo l'unita', quindi qualunque
+ * parola in piu' dentro le parentesi la faceva mancare. Misurato sulla matrice
+ * qui sotto: la forma vecchia ne rilevava **4 su 14**, cioe' 10 falsi negativi —
+ * e un falso negativo qui significa il segnaposto PUBBLICATO, che e' il difetto
+ * che #5812 esisteva per chiudere.
+ *
+ * Il controllo ora isola lo span parentetico e valuta l'invariante sul suo
+ * contenuto (`matchBudgetParenthetical`). La matrice e' scritta come DRIFT DEL
+ * MODELLO — qualificatore x unita' x lingua x testo di coda — non come quattro
+ * fixture: e' la variazione a essere il soggetto del test.
+ */
+describe('#5847 item 2 — budget-parenthetical tollera il drift del modello', () => {
+  const isBudget = (s: string) =>
+    findPromptPlaceholders(s).some((h) => h.rule === 'budget-parenthetical');
+
+  // Le 4 lingue di produzione, la forma canonica.
+  const CANONICHE = [
+    'Sottotitolo con dati concreti DALLA FONTE (max 160 char)',
+    'Subtitle with concrete data FROM THE SOURCE (max 160 characters)',
+    'Untertitel mit konkreten Angaben AUS DER QUELLE (max 160 Zeichen)',
+    'Sous-titre avec des données concrètes DE LA SOURCE (max 160 caractères)',
+  ];
+
+  // Il drift: e' questa la lista che la forma vecchia mancava in blocco.
+  const DRIFT = [
+    'Excerpt (max. 160 caratteri circa)',
+    'Excerpt (max 160 characters, no more)',
+    'Excerpt (ca. 160 Zeichen)',
+    'Excerpt (160 caratteri)',
+    'Excerpt (al massimo 160 caratteri)',
+    'Excerpt (environ 160 signes)',
+    'Excerpt (máximo 160 caracteres aprox.)',
+    'Excerpt (non oltre 160 caratteri)',
+    'Excerpt (Zeichen: 160)',
+    'Excerpt (limite: 160 caratteri)',
+  ];
+
+  // Il bordo che NON deve muoversi: e' l'unita' di misura a fare il lavoro.
+  const LEGITTIMI = [
+    "Il contributo e' plafonato (max 15.000 CHF/anno) per il frontaliere.",
+    "L'orario e' limitato (max 9 ore/giorno) dal contratto collettivo.",
+    'Il modulo occupa una facciata (max 1 page).',
+    'La franchigia annua (max 2500 CHF) resta invariata nel 2026.',
+    'Il permesso G dura un anno (12 mesi) e si rinnova automaticamente.',
+    'Lo sportello riceve su appuntamento (dalle 9 alle 17).',
+    'La domanda va inviata entro 30 giorni (termine perentorio).',
+  ];
+
+  it.each(CANONICHE)('rileva la forma canonica: %s', (s) => {
+    expect(isBudget(s)).toBe(true);
+  });
+
+  it.each(DRIFT)('rileva il drift del modello: %s', (s) => {
+    expect(isBudget(s)).toBe(true);
+  });
+
+  it.each(LEGITTIMI)('NON scatta su prosa legittima: %s', (s) => {
+    expect(isBudget(s)).toBe(false);
+  });
+
+  it('la forma vecchia mancava 10 delle 14 varianti — il regresso e\' fissato qui', () => {
+    // La regex esatta che questa PR sostituisce. Se qualcuno la reintroduce,
+    // questo test dice quanto costa: il conteggio, non un'opinione.
+    const VECCHIA =
+      /\(\s*(?:max|max\.|massimo|maximum|maximal|máximo)\s+\d{2,4}\s*(?:chars?|characters?|caratteri|carattere|caractères|caracteres|Zeichen)\s*\)/i;
+    const tutte = [...CANONICHE, ...DRIFT];
+    expect(tutte.filter((s) => VECCHIA.test(s))).toHaveLength(4);
+    expect(tutte.filter((s) => isBudget(s))).toHaveLength(14);
+  });
+
+  it('un inciso lungo resta prosa editoriale, non un budget incollato', () => {
+    // Il tetto sullo span e' cio' che tiene la regola un INCISO. Una frase
+    // intera fra parentesi che parla di caratteri e' scrittura umana.
+    expect(
+      isBudget(
+        'Il riassunto (che secondo le linee guida redazionali non dovrebbe mai superare i 160 caratteri complessivi) resta breve.',
+      ),
+    ).toBe(false);
+  });
+
+  it('il controllo strutturale non e\' invisibile a nessun consumatore', () => {
+    // Una regola con `match` invece di `rx` deve passare da `matchRule` in TUTTI
+    // i consumatori: uno solo che legga `rule.rx` direttamente la salterebbe in
+    // silenzio, ed e' esattamente la forma «guardia che non guarda».
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../../scripts/lib/prompt-placeholder-guard.mjs'),
+      'utf8',
+    );
+    // L'unica lettura diretta ammessa e' il fallback DENTRO `matchRule`: e' il
+    // punto in cui una regola a sola `rx` viene applicata. Qualunque altra e' un
+    // consumatore che salterebbe le regole strutturali.
+    const letture = src.match(/\b(?:rule|r)\.rx\b/g) || [];
+    expect(letture, 'una regola strutturale sarebbe invisibile a un consumatore').toHaveLength(1);
+    const matchRuleSrc = src.slice(src.indexOf('export function matchRule'));
+    expect(matchRuleSrc.slice(0, 300)).toContain('rule.rx.exec');
+    const budget = PLACEHOLDER_RULES.find((r) => r.id === 'budget-parenthetical');
+    expect(typeof budget?.match, 'la regola non e\' piu\' strutturale').toBe('function');
+  });
+});
+
+/**
+ * ITEM 1 — il falso positivo FAQ temuto dal reviewer NON produce un `throw`.
+ *
+ * La preoccupazione era: «stripFaqNumberedLabels potrebbe troncare una domanda
+ * reale che comincia per coincidenza come lo schema, bloccando la pubblicazione
+ * di un articolo genuino». La prima meta' e' vera, la seconda no, e la
+ * differenza e' strutturale: la regola e' `kind: 'schema-label'`, cioe'
+ * RIPARABILE — `sanitizePromptPlaceholders` prende il ramo `label-stripped` e
+ * prosegue. Il `throw` appartiene a `schema-echo`/`scaffold`, che una domanda
+ * vera non puo' produrre (il valore dovrebbe essere l'etichetta e basta).
+ *
+ * Quindi il costo massimo del falso positivo e' cosmetico: un prefisso tolto da
+ * una frase che senza sta meglio. Nessun articolo genuino viene bloccato.
+ */
+describe('#5847 item 1 — il falso positivo FAQ ripara, non blocca', () => {
+  const articolo = (q: string, a: string) => ({
+    id: 'test-articolo',
+    content: {
+      it: {
+        title: 'Titolo vero',
+        excerpt: 'Un excerpt reale con dati concreti sul frontalierato ticinese.',
+        faq: [
+          { q, a },
+          { q: 'Quali documenti servono per il permesso G?', a: 'Servono il contratto di lavoro firmato e un documento di identita valido.' },
+          { q: 'Quanto dura la procedura in Ticino?', a: 'La procedura richiede in media tra le due e le quattro settimane lavorative.' },
+        ],
+      },
+    },
+  });
+
+  it('una domanda VERA col prefisso dello schema viene ripulita e SOPRAVVIVE', () => {
+    const data = articolo(
+      'Domanda frequente 1: quali sono i portali di annunci di lavoro in Ticino?',
+      'I portali principali sono quelli cantonali e i grandi aggregatori svizzeri, aggiornati ogni giorno.',
+    );
+    expect(() => sanitizePromptPlaceholders(data)).not.toThrow();
+    const faq = data.content.it.faq!;
+    expect(faq, 'la coppia genuina e stata scartata invece che riparata').toHaveLength(3);
+    expect(faq[0].q).toBe('Quali sono i portali di annunci di lavoro in Ticino?');
+    expect(faq[0].a).toContain('portali principali');
+  });
+
+  it('lo schema PURO invece viene scartato: e la differenza che conta', () => {
+    const data = articolo(
+      'Domanda frequente 1 basata sui fatti dell articolo?',
+      'Risposta con dati DALLA FONTE. 50-100 parole.',
+    );
+    expect(() => sanitizePromptPlaceholders(data)).not.toThrow();
+    expect(data.content.it.faq, 'lo schema puro e sopravvissuto').toHaveLength(2);
+  });
+
+  it('la regola FAQ numerata e riparabile per costruzione (schema-label, non schema-echo)', () => {
+    const r = PLACEHOLDER_RULES.find((x) => x.id === 'faq-numbered-label');
+    expect(r?.kind, 'se diventasse schema-echo, un falso positivo bloccherebbe davvero').toBe(
+      'schema-label',
+    );
+  });
+});
+
+/**
+ * ITEM 3 — nessun call-site di `clampSeoDescriptions` sfugge al guard.
+ *
+ * Misurato: la funzione e' dichiarata a `scripts/create-article.mjs:10998`, NON
+ * e' esportata, e ha **un solo** call-site (`:11028`), immediatamente dopo
+ * `sanitizePromptPlaceholders(data)` (`:11027`). Non esiste percorso di bypass.
+ *
+ * Il test esistente fissava l'ORDINE al call-site noto — che non si accorgerebbe
+ * di un SECONDO call-site che comparisse altrove, ne' di un `export` che aprisse
+ * la funzione a un altro file. Sono quelle due mutazioni a essere fissate qui.
+ */
+describe('#5847 item 3 — clampSeoDescriptions non ha percorsi di bypass', () => {
+  const SRC = fs.readFileSync(
+    path.resolve(__dirname, '../../scripts/create-article.mjs'),
+    'utf8',
+  );
+
+  it('resta module-private: non e esportata', () => {
+    expect(SRC).not.toMatch(/export\s+(?:async\s+)?function\s+clampSeoDescriptions/);
+    expect(SRC).not.toMatch(/export\s*\{[^}]*\bclampSeoDescriptions\b/);
+  });
+
+  it('ha esattamente UN call-site, e il guard lo precede', () => {
+    // `(?<!function\s)` toglie la DICHIARAZIONE dal conteggio: senza, la riga
+    // `function clampSeoDescriptions(data) {` verrebbe contata come chiamata.
+    const CALL_RE = /(?<!function\s)\bclampSeoDescriptions\(/g;
+    const chiamate = SRC.match(CALL_RE) || [];
+    expect(chiamate, 'un secondo call-site bypasserebbe il guard').toHaveLength(1);
+    const iClamp = SRC.search(/(?<!function\s)\bclampSeoDescriptions\(/);
+    const iGuard = SRC.lastIndexOf('sanitizePromptPlaceholders(data)', iClamp);
+    expect(iGuard, 'nessun sanitize prima del clamp').toBeGreaterThan(-1);
+    // Adiacenti: il guard e il clamp sono due righe consecutive dello stesso blocco.
+    expect(iClamp - iGuard, 'il guard non e piu adiacente al clamp').toBeLessThan(400);
+  });
+
+  it('nessun ALTRO file del repo la nomina (non c\'e superficie condivisa)', () => {
+    const dir = path.resolve(__dirname, '../../scripts');
+    const trovati: string[] = [];
+    const scan = (d: string) => {
+      for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+        const p = path.join(d, e.name);
+        if (e.isDirectory()) { if (e.name !== 'node_modules') scan(p); continue; }
+        if (!/\.(mjs|js|ts)$/.test(e.name)) continue;
+        if (p.endsWith('create-article.mjs')) continue;
+        if (fs.readFileSync(p, 'utf8').includes('clampSeoDescriptions')) trovati.push(p);
+      }
+    };
+    scan(dir);
+    expect(trovati, `clampSeoDescriptions nominata fuori da create-article.mjs: ${trovati.join(', ')}`).toHaveLength(0);
+  });
+});
