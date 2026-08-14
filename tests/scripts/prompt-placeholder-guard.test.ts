@@ -13,6 +13,7 @@ import {
   orphanFaqLocales,
   sanitizePromptPlaceholders,
 } from '../../scripts/lib/prompt-placeholder-guard.mjs';
+import { unescapeTsString, tsStringEscapesWithNewlineAs } from '../../scripts/lib/unescape-ts-string.mjs';
 
 /**
  * prompt-placeholder-guard.test.ts — banco del GEMELLO SITO del guard sui
@@ -494,6 +495,101 @@ describe('controllo — un articolo pulito passa senza modifiche', () => {
     const prima = JSON.stringify(data);
     expect(sanitizePromptPlaceholders(data)).toEqual([]);
     expect(JSON.stringify(data)).toBe(prima);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 6. GATE — il PUBBLICATO, non il percorso di scrittura (ratchet, #5834)
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// I blocchi sopra provano che il guard blocca la SCRITTURA di un nuovo
+// segnaposto. Non dicono niente su cio' che e' gia' pubblicato: uno script
+// one-off, una bonifica fatta a mano, o un `git revert` puo' rimettere un
+// segnaposto nel pubblicato senza passare da `sanitizePromptPlaceholders`, e
+// nessun test sopra se ne accorgerebbe.
+//
+// Misurato il 2026-08-14 (issue #5834, che rifa' la misura della PR #5812
+// perche' i numeri di una issue scadono in fretta su questo repo):
+//   117.255 campi scansionati, 16.780 file, 0 offender.
+// Baseline comoda: qualunque numero > 0 e' un regresso, non serve una soglia
+// a conteggio assoluto che altrove sfarfalla.
+//
+// Stessa estrazione escape-aware gia' usata da `staticPagesPlugin.ts` per
+// leggere `blog-body/<locale>/*.ts` (`/'blog\.article\.([^']+)\.(campo)'\s*:\s*'((?:[^'\\]|\\.)*)'/g`
+// + `unescapeTsString`), generalizzata al nome di campo cosi' da coprire in un
+// solo giro `title`/`excerpt`/`imageAlt`/`body1..bodyN`/`faq`/`seoDescription`/
+// `ogDescription` — le stesse chiavi, ovunque compaiano, senza doverle
+// enumerare a mano (un campo nuovo nello schema resta coperto automaticamente).
+describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittura e bonifica', () => {
+  const CONTENT_ROOT = path.join(ROOT, 'packages', 'articles', 'content');
+  const FIELD_RX = /'blog\.article\.([^']+)\.([a-zA-Z0-9]+)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+
+  function collectContentFiles(): string[] {
+    const files: string[] = [];
+    for (const sub of ['blog-body', 'blog-body-ch']) {
+      const base = path.join(CONTENT_ROOT, sub);
+      if (!fs.existsSync(base)) continue;
+      for (const locale of fs.readdirSync(base)) {
+        const dir = path.join(base, locale);
+        if (!fs.statSync(dir).isDirectory()) continue;
+        for (const f of fs.readdirSync(dir)) {
+          if (f.endsWith('.ts')) files.push(path.join(dir, f));
+        }
+      }
+    }
+    for (const f of fs.readdirSync(CONTENT_ROOT)) {
+      if (/^blog-meta.*\.ts$/.test(f)) files.push(path.join(CONTENT_ROOT, f));
+    }
+    return files;
+  }
+
+  type Offender = { file: string; id: string; field: string; rules: string[] };
+
+  function scanContent(): { totalFields: number; offenders: Offender[] } {
+    let totalFields = 0;
+    const offenders: Offender[] = [];
+    for (const file of collectContentFiles()) {
+      const src = fs.readFileSync(file, 'utf-8');
+      const rx = new RegExp(FIELD_RX.source, 'g');
+      let m: RegExpExecArray | null;
+      while ((m = rx.exec(src)) !== null) {
+        const [, id, field, raw] = m;
+        const value = unescapeTsString(raw, tsStringEscapesWithNewlineAs(' '));
+        totalFields += 1;
+        const hits = findPromptPlaceholders(value);
+        if (hits.length) {
+          offenders.push({ file: path.relative(ROOT, file), id, field, rules: hits.map((h) => h.rule) });
+        }
+      }
+    }
+    return { totalFields, offenders };
+  }
+
+  it('scansiona almeno ~100k campi — la soglia che distingue "zero offender" da "zero file letti"', () => {
+    // Difende contro un gate che passa a vuoto: un path rinominato, una
+    // cartella spostata, un worktree sparse configurato male. La misura reale
+    // e' ~117k; 100k lascia margine al normale via-vai editoriale senza
+    // indebolire il segnale se lo scan smette di leggere quasi tutto.
+    const { totalFields } = scanContent();
+    expect(totalFields).toBeGreaterThanOrEqual(100_000);
+  });
+
+  it('0 offender: nessun campo pubblicato porta un segnaposto del prompt', () => {
+    const { offenders } = scanContent();
+    if (offenders.length) {
+      const sample = offenders
+        .slice(0, 10)
+        .map((o) => `  ${o.file} :: blog.article.${o.id}.${o.field} — ${o.rules.join(', ')}`)
+        .join('\n');
+      const more = offenders.length > 10 ? `\n  ... e altri ${offenders.length - 10}` : '';
+      throw new Error(
+        `${offenders.length} campo/i pubblicato/i con segnaposto del prompt del modello:\n${sample}${more}\n\n` +
+          'Il ratchet e\' 0: la scrittura ha il suo guard (sanitizePromptPlaceholders), quindi un offender qui ' +
+          'e\' entrato da un percorso non coperto (script one-off, bonifica a mano, revert). Ripara il campo ' +
+          '(o rigenera l\'articolo) invece di alzare questa soglia.',
+      );
+    }
+    expect(offenders).toEqual([]);
   });
 });
 
