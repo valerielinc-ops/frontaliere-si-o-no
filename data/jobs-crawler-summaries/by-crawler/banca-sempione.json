@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-08-14T10:55:58.900Z",
+  "generatedAt": "2026-08-14T21:44:22.166Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4629,
-  "avgDurationMs": 4629,
+  "durationMs": 4361,
+  "avgDurationMs": 4361,
   "durationHistory": [
-    4629
+    4361
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -54,9 +54,9 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
