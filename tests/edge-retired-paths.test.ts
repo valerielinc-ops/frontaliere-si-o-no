@@ -228,11 +228,13 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
     // 4 retired-with-no-substitute + 20 alias orphans; 34 declared redirects
-    // under the eight prefixes + 3 from data/article-redirects.json.
+    // under the eight prefixes + 15 from data/article-redirects.json (the 3
+    // prompt-leak renames, plus 12 for the nanako#356 cross-section duplicate
+    // retirements added the same day).
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 61,
+      total: 73,
       gone: 24,
-      moved: 37,
+      moved: 49,
     });
   });
 });

@@ -1202,6 +1202,28 @@ export const EDGE_RETIRED_PATHS = {
   '/articoli-frontaliere/calo-frontalieri-ticino-economia/': null,
   '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/': null,
   '/articoli-frontaliere/accesso-libero-alle-rive/': null,
+
+  // ── 301 — cross-section duplicate retirements, nanako#356 (12 URLs). Three
+  // svizzera articles withdrawn in favour of a frontaliere-section winner
+  // chosen on GA4 (the retired side was 0/0/0 pageviews/sessions/users in all
+  // three). Slugs read from data/retired-articles.json at
+  // nanako@ff2ac2f8 (`gh api .../contents/data/retired-articles.json?ref=main`),
+  // which is the only remaining source for them post-merge — the corpus files
+  // that carried the four locale slugs are gone. Targets confirmed live 200 on
+  // the corpus's published API (manifest commit ff2ac2f8) before being written
+  // here.
+  '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
+  '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
+  '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+  '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
+  '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
+  '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',
+  '/de/schweiz-artikel/domino-effekt-gefallene-unternehmen-schweiz/': '/de/grenzgaenger-artikel/unternehmenspleiten-schweiz-1994/',
+  '/fr/articles-suisse/effet-domino-filiale-dentreprise-suisse/': '/fr/articles-frontalier/faillites-entreprises-suisse-1994/',
+  '/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/': '/articoli-frontaliere/matrimonio-aziendale-vallemaggia-100/',
+  '/en/swiss-articles/a-union-of-four-construction-companies-in-vallemaggia/': '/en/cross-border-articles/vallemaggia-business-merger-100-jobs/',
+  '/de/schweiz-artikel/eine-verbindung-von-vier-bauunternehmen-in-vallemaggia/': '/de/grenzgaenger-artikel/vallemaggia-firmenfusion-100-jobs/',
+  '/fr/articles-suisse/un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia/': '/fr/articles-frontalier/fusion-entreprise-vallemaggia-100-emplois/',
 };
 
 // Cache-Control for a retirement 301. Longer than NOT_FOUND_CACHE_CONTROL on
