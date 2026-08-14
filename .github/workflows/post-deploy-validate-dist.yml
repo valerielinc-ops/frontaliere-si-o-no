@@ -1023,7 +1023,7 @@ jobs:
           # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833). This job's own YAML
           # is loaded from whichever ref GitHub resolves for a `workflow_run`
           # trigger — in practice `main` HEAD at dispatch time — while the
-          # CODE it checks out is pinned to `inputs.deploy_ref`, the build
+          # CODE it checks out is pinned to the `deploy_ref` input, the build
           # SHA (see the Checkout step above). A gate added to this file AND
           # to `package.json` in the same PR therefore has a window where a
           # build dispatched just BEFORE that PR merged is validated by a
@@ -1045,6 +1045,16 @@ jobs:
           # a fetch failure (network blip, shallow-clone quirk) must fall
           # back to the pre-existing behaviour, never widen the gate by
           # skipping something we failed to verify.
+          #
+          # (Throughout this comment the input is named WITHOUT its prefix, on
+          # purpose. check-workflow-input-injection.mjs counts input references
+          # across the WHOLE text of a run: step, comments included, and fails
+          # CLOSED on every one it cannot locate inside an Actions expression it
+          # managed to parse. It cannot tell prose from an interpolation that
+          # escaped its parser, and it must not try: a `#` does not stop a
+          # multi-line value that leaves the comment and executes. Same lesson
+          # as PR #5817 — the gate is right, so the comment changes, not the
+          # gate.)
           #
           # The skip row below writes a LITERAL `rc=0`, same idiom as the
           # report-only rows (audit:discover-eligibility, audit:job-title-
@@ -2030,10 +2040,12 @@ jobs:
           : > /tmp/post-build-failures.txt
           set +e
           # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833) — this job also
-          # checks out `inputs.deploy_ref` (a pinned build SHA) above, while
+          # checks out the `deploy_ref` input (a pinned build SHA) above, while
           # its own workflow YAML is loaded fresh from main at workflow_run
           # dispatch time (see validate-dist-postbuild's spawn_capped for the
-          # full incident writeup). A chain step added in the same PR as its
+          # full incident writeup, and for why the input is named without its
+          # prefix here — the anti-injection gate counts references in comments
+          # too, and fails closed). A chain step added in the same PR as its
           # npm script can therefore reference a script this older pinned
           # checkout doesn't have yet, producing "npm error Missing script"
           # instead of a real gate result. Same guard as spawn_capped: skip
