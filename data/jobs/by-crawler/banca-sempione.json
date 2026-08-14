@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-08-13T22:29:44.247Z",
+  "assembledAt": "2026-08-14T10:55:58.899Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -71,7 +71,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -125,9 +126,9 @@
           "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -291,6 +292,7 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",

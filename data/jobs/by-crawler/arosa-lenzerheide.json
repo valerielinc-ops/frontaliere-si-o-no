@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-08-13T21:51:12.795Z",
+  "assembledAt": "2026-08-14T10:14:42.280Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:51:10.363Z",
+      "crawledAt": "2026-08-14T10:14:39.902Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -69,6 +69,250 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:20:12.754Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "arosa-lenzerheide-4fac9b112f86",
+      "slug": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
+      "slugByLocale": {
+        "it": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
+        "en": "patroller-in-arosa-lenzerheide-lenzerheide",
+        "de": "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+        "fr": "patrouilleur-dans-arosa-lenzerheide-lenzerheide"
+      },
+      "company": "Arosa Lenzerheide",
+      "companyKey": "arosa-lenzerheide",
+      "companyDomain": "arosalenzerheide.swiss",
+      "title": "Patrouilleur:in",
+      "titleByLocale": {
+        "it": "pattugliatore: in",
+        "en": "patroller:in",
+        "de": "Patrouilleur:in",
+        "fr": "patrouilleur: dans"
+      },
+      "description": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab Dezember 2026) suchen wir dich als\n\nPatrouilleur:in\n\nbei der Lenzerheide Bergbahnen AG.\n\nDeine Aufgaben:\n\n• Signalisation, Markierung und Sicherung der Schneesportanlagen\n• Rettung und erste Hilfe von verunfallten Personen\n• Mitarbeit bei Lawinensicherungsarbeiten\n• Zusammenarbeit mit weiteren Rettungs- und Bergungsorganisationen\n• Die Ausbildung als Patrouilleur:in A oder B von Seilbahnen Schweiz oder die Bereitschaft zur Ausbildung\n• Sehr gute Ski- und Geländefahrkenntnisse\n• Körperliche und psychische Belastbarkeit\n• Freude am Kontakt mit unseren Gästen\n• Eine zuverlässige, selbstständige und verantwortungsvolle Arbeitsweise\n• Eine hohe Dienstleistungsbereitschaft und Teamfähigkeit\n• Bereitschaft zu unregelmässigen Einsatztagen\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Noah Reinhart gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
+      "descriptionByLocale": {
+        "it": "• Lavorare dove gli altri vanno in vacanza.\n\nLenzerheide Bergbahnen AG collega persone, natura e tecnologia in uno dei mondi montani più impressionanti della Svizzera. Con spirito di squadra, innovazione e passione, creiamo esperienze indimenticabili per i nostri ospiti ogni giorno. Unisciti al nostro team e plasma il futuro della mobilità nel cuore delle Alpi.\n\nPer la stagione invernale 2026/27 (da dicembre 2026) ti stiamo cercando come\n\npattugliatore: in\n\npresso Lenzerheide Bergbahnen AG.\n\nI vostri compiti:\n\n• Segnaletica, marcatura e protezione delle strutture sportive neve\n• Soccorso e primo soccorso delle persone ferite\n• Cooperazione nel settore della protezione delle valanghe\n• Cooperazione con altre organizzazioni di soccorso e di recupero\n• Formazione come pattugliatore: in A o B di Seilbahnen Svizzera o la volontà di formare\n• Molto buono sci e off-road competenze\n• Resistenza fisica e psicologica\n• Gioia di contatto con i nostri ospiti\n• Un modo di lavorare affidabile, indipendente e responsabile\n• Alta disponibilità a fornire servizi e lavoro di squadra\n• Prontezza per giorni operativi irregolari\nCome dipendente stagionale: presso Lenzerheide Bergbahnen AG si beneficiano di numerosi vantaggi.\nSe avete domande, Noah Reinhart è a vostra disposizione. Attendiamo con ansia la vostra applicazione.",
+        "en": "• Work where others go on holiday.\n\nLenzerheide Bergbahnen AG connects people, nature and technology in one of the most impressive mountain worlds in Switzerland. With team spirit, innovation and passion, we create unforgettable experiences for our guests every day. Join our team and shape the future of mobility in the heart of the Alps.\n\nFor the winter season 2026/27 (from December 2026) we are looking for you as\n\npatroller:in\n\nat Lenzerheide Bergbahnen AG.\n\nYour tasks:\n\n• Signalling, marking and securing of snow sports facilities\n• Rescue and first aid of injured persons\n• Cooperation in avalanche protection work\n• Cooperation with other rescue and recovery organisations\n• Training as patroller: in A or B of Seilbahnen Switzerland or willingness to train\n• Very good skiing and off-road skills\n• Physical and psychological resilience\n• Joy of contact with our guests\n• A reliable, independent and responsible way of working\n• High willingness to provide services and teamwork\n• Readiness for irregular operational days\nAs a seasonal employee: at Lenzerheide Bergbahnen AG you benefit from many benefits.\nIf you have any questions, Noah Reinhart is at your disposal. We look forward to your application.",
+        "de": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab Dezember 2026) suchen wir dich als\n\nPatrouilleur:in\n\nbei der Lenzerheide Bergbahnen AG.\n\nDeine Aufgaben:\n\n• Signalisation, Markierung und Sicherung der Schneesportanlagen\n• Rettung und erste Hilfe von verunfallten Personen\n• Mitarbeit bei Lawinensicherungsarbeiten\n• Zusammenarbeit mit weiteren Rettungs- und Bergungsorganisationen\n• Die Ausbildung als Patrouilleur:in A oder B von Seilbahnen Schweiz oder die Bereitschaft zur Ausbildung\n• Sehr gute Ski- und Geländefahrkenntnisse\n• Körperliche und psychische Belastbarkeit\n• Freude am Kontakt mit unseren Gästen\n• Eine zuverlässige, selbstständige und verantwortungsvolle Arbeitsweise\n• Eine hohe Dienstleistungsbereitschaft und Teamfähigkeit\n• Bereitschaft zu unregelmässigen Einsatztagen\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Noah Reinhart gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
+        "fr": "• Travaillez là où les autres vont en vacances.\n\nLenzerheide Bergbahnen AG relie les gens, la nature et la technologie dans l'un des mondes montagneux les plus impressionnants de Suisse. Avec l'esprit d'équipe, l'innovation et la passion, nous créons chaque jour des expériences inoubliables pour nos clients. Rejoignez notre équipe et façonnez l'avenir de la mobilité au cœur des Alpes.\n\nPour la saison d'hiver 2026/27 (à partir de Décembre 2026) nous vous recherchons comme\n\npatrouilleur: dans\n\nà Lenzerheide Bergbahnen AG.\n\nVos tâches :\n\n• Signalisation, marquage et sécurisation des installations de sports de neige\n• Sauvetage et premiers secours des blessés\n• Coopération en matière de protection des avalanches\n• Coopération avec d'autres organisations de sauvetage et de récupération\n• Entraînement comme patrouilleur: en A ou B de Seilbahnen Suisse ou volonté de s'entraîner\n• Très bonnes compétences en ski et hors route\n• Résistance physique et psychologique\n• Joy de contact avec nos invités\n• Une manière de travailler fiable, indépendante et responsable\n• Haute volonté de fournir des services et du travail d'équipe\n• Préparation pour les jours de fonctionnement irréguliers\nEn tant qu'employé saisonnier : chez Lenzerheide Bergbahnen AG, vous bénéficiez de nombreux avantages.\nSi vous avez des questions, Noah Reinhart est à votre disposition. Nous attendons avec impatience votre candidature."
+      },
+      "needsRetranslation": true,
+      "location": "Lenzerheide",
+      "canton": "GR",
+      "url": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
+      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:14:39.123Z",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7078",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Turismo / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "applyUrl": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0036",
+      "previousSlugs": [
+        "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+        "pattugliatore-in-arosa-lenzerheide-lenzerheide"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "patrouilleur-in-arosa-lenzerheide-lenzerheide",
+          "pattugliatore-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "en": [
+          "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "fr": [
+          "patrouilleur-in-arosa-lenzerheide-lenzerheide"
+        ]
+      },
+      "firstSeenAt": "2026-07-21T11:44:58.522Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "arosa-lenzerheide-e395443a90d0",
+      "slug": "collaboratore-trice-beschneiung-arosa-lenzerheide",
+      "slugByLocale": {
+        "it": "collaboratore-trice-beschneiung-arosa-lenzerheide",
+        "en": "associate-beschneiung-arosa-lenzerheide-lenzerheide",
+        "de": "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
+        "fr": "collaborateur-trice-beschneiung-arosa-lenzerheide-lenzerheide"
+      },
+      "company": "Arosa Lenzerheide",
+      "companyKey": "arosa-lenzerheide",
+      "companyDomain": "arosalenzerheide.swiss",
+      "title": "Mitarbeiter:in Beschneiung",
+      "titleByLocale": {
+        "it": "Collaboratore/trice Beschneiung",
+        "en": "Associate Beschneiung",
+        "de": "Mitarbeiter:in Beschneiung",
+        "fr": "Collaborateur/trice Beschneiung"
+      },
+      "description": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab November 2026) suchen wir dich als\n\nMitarbeiter:in Beschneiung\n\nbei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Technische Beschneiung der Pisten\n• Betreuung, Überwachung und Wartung der zugeteilten Schneeanlage /-erzeuger\n• Mithilfe bei Reparaturen und Unterhaltsarbeiten\n• Vorzugsweise eine elektrische, mechanische oder handwerkliche Grundausbildung\n• Gute körperliche Fitness und Belastbarkeit\n• Bereitschaft für Nacht- und Wochenendeinsätze\n• Winter- und Wetterhärte\n• Führerausweis Kategorie B\n• Sehr gute Deutschkenntnisse\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Stefan Walser gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
+      "descriptionByLocale": {
+        "it": "• Lavorare dove gli altri vanno in vacanza.\n\nLenzerheide Bergbahnen AG collega persone, natura e tecnologia in uno dei mondi montani più impressionanti della Svizzera. Con spirito di squadra, innovazione e passione, creiamo esperienze indimenticabili per i nostri ospiti ogni giorno. Unisciti al nostro team e plasma il futuro della mobilità nel cuore delle Alpi.\n\nPer la stagione invernale 2026/27 (da novembre 2026) vi stiamo cercando come\n\nDipendenti: nell'innevamento\n\na Lenzerheide Bergbahnen AG\n\nI vostri compiti:\n\n• Innevamento tecnico delle piste\n• Cura, supervisione e manutenzione del sistema neve assegnato / produttori\n• Assistenza in riparazioni e lavori di manutenzione\n• Preferibilmente un design di base elettrico, meccanico o manuale\n• Buona forma fisica e resistenza\n• Prontezza per gli incarichi di notte e di fine settimana\n• Durezza invernale e meteo\n• Titolo di guida della categoria B\n• Molto buona conoscenza del tedesco\nCome dipendente stagionale: presso Lenzerheide Bergbahnen AG si beneficiano di numerosi vantaggi.\nSe avete domande, Stefan Walser è a vostra disposizione. Attendiamo con ansia la vostra applicazione.",
+        "en": "• Work where others go on holiday.\n\nLenzerheide Bergbahnen AG connects people, nature and technology in one of the most impressive mountain worlds in Switzerland. With team spirit, innovation and passion, we create unforgettable experiences for our guests every day. Join our team and shape the future of mobility in the heart of the Alps.\n\nFor the winter season 2026/27 (from November 2026) we are looking for you as\n\nEmployee: in snowmaking\n\nat Lenzerheide Bergbahnen AG\n\nYour tasks:\n\n• Technical snowmaking of slopes\n• Care, supervision and maintenance of the assigned snow system / producers\n• Assistance in repairs and maintenance work\n• Preferably an electrical, mechanical or manual basic design\n• Good physical fitness and resilience\n• Readiness for night and weekend assignments\n• Winter and weather hardness\n• Category B driving licence\n• Very good knowledge of German\nAs a seasonal employee: at Lenzerheide Bergbahnen AG you benefit from many benefits.\nIf you have any questions, Stefan Walser is at your disposal. We look forward to your application.",
+        "de": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab November 2026) suchen wir dich als\n\nMitarbeiter:in Beschneiung\n\nbei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Technische Beschneiung der Pisten\n• Betreuung, Überwachung und Wartung der zugeteilten Schneeanlage /-erzeuger\n• Mithilfe bei Reparaturen und Unterhaltsarbeiten\n• Vorzugsweise eine elektrische, mechanische oder handwerkliche Grundausbildung\n• Gute körperliche Fitness und Belastbarkeit\n• Bereitschaft für Nacht- und Wochenendeinsätze\n• Winter- und Wetterhärte\n• Führerausweis Kategorie B\n• Sehr gute Deutschkenntnisse\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Stefan Walser gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
+        "fr": "• Travaillez là où les autres vont en vacances.\n\nLenzerheide Bergbahnen AG relie les gens, la nature et la technologie dans l'un des mondes montagneux les plus impressionnants de Suisse. Avec l'esprit d'équipe, l'innovation et la passion, nous créons des expériences inoubliables pour nos clients chaque jour. Rejoignez notre équipe et façonnez l'avenir de la mobilité au cœur des Alpes.\n\nPour la saison d'hiver 2026/27 (à partir de novembre 2026), nous vous recherchons comme\n\nEmployé: dans l'enneigement\n\nchez Lenzerheide Bergbahnen AG\n\nVos tâches:\n\n• Déneigement technique des pistes\n• Soins, supervision et entretien du système de neige assigné / producteurs\n• Assistance aux travaux de réparation et d ' entretien\n• De préférence une conception de base électrique, mécanique ou manuelle\n• Bonne condition physique et résilience\n• Préparation aux affectations de nuit et de fin de semaine\n• Dureté hivernale et météorologique\n• Permis de conduire de catégorie B\n• Très bonne connaissance de l'allemand\nEn tant qu'employé saisonnier : chez Lenzerheide Bergbahnen AG, vous bénéficiez de nombreux avantages.\nSi vous avez des questions, Stefan Walser est à votre disposition. Nous attendons avec impatience votre candidature."
+      },
+      "needsRetranslation": true,
+      "location": "Lenzerheide",
+      "canton": "GR",
+      "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
+      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:14:38.092Z",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7078",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0021",
+      "previousSlugs": [
+        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
+        "collaboratore-trice-beschneiung-arosa-lenzerheide"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
+          "collaboratore-trice-beschneiung-arosa-lenzerheide"
+        ],
+        "en": [
+          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
+        ],
+        "fr": [
+          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
+        ]
+      },
+      "firstSeenAt": "2026-07-12T22:16:26.830Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "arosa-lenzerheide-9d49b2d99658",
+      "slug": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
+      "slugByLocale": {
+        "it": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
+        "en": "company-electrician-in-arosa-lenzerheide-lenzerheide",
+        "de": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
+        "fr": "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide"
+      },
+      "company": "Arosa Lenzerheide",
+      "companyKey": "arosa-lenzerheide",
+      "companyDomain": "arosalenzerheide.swiss",
+      "title": "Betriebselektriker:in",
+      "titleByLocale": {
+        "it": "Azienda elettrica:in",
+        "en": "Company electrician:in",
+        "de": "Betriebselektriker:in",
+        "fr": "Électricien d'entreprise:in"
+      },
+      "description": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nPer sofort oder nach Vereinbarung suchen wir dich als\n\nBetriebselektriker:in\n\n80 - 100% Pensum, bei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Unterhalt und Betrieb der elektronischen Anlagen sowie der Gebäudeinfrastruktur\n• Störungsbehebung an Steuerungen und Bahnanlagen\n• Durchführung von Wartungs- und Instandhaltungsarbeiten\n• Dokumentation und Berichterstattung von Arbeitsprozessen\n• Eine abgeschlossene technische Berufsausbildung (Elektroinstallateur EFZ, Montageelektriker EFZ, Automatiker EFZ oder vergleichbare Ausbildung)\n• Art. 13 NIV von Vorteil oder Bereitschaft diese zu erlangen\n• Belastbare, flexible und kontaktfreudige Persönlichkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Gute Kenntnisse in den MS-Office Programmen\n• Bereitschaft für Wochenendeinsätze und Pikettdienst\nAls Jahresmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Philipp Fux gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
+      "descriptionByLocale": {
+        "it": "• Lavorare dove gli altri vanno in vacanza.\n\nLenzerheide Bergbahnen AG collega persone, natura e tecnologia in uno dei mondi montani più impressionanti della Svizzera. Con spirito di squadra, innovazione e passione, creiamo esperienze indimenticabili per i nostri ospiti ogni giorno. Unisciti al nostro team e plasma il futuro della mobilità nel cuore delle Alpi.\n\nImmediatamente o con accordo ti stiamo cercando come\n\nAzienda elettrica:in\n\n80 - 100% carico di lavoro a Lenzerheide Bergbahnen AG\n\nI vostri compiti:\n\n• Manutenzione e funzionamento di apparecchiature elettroniche e infrastrutture di costruzione\n• Servizi di risoluzione dei problemi di installazione e di controllo\n• Manutenzione e manutenzione\n• Documentazione e reporting dei processi di lavoro\n• Formazione professionale tecnica completa (Electrician EFZ, Assembly Electrician EFZ, Automatic EFZ o formazione simile)\n• Art. 13 NIV di vantaggio o di volontà di ottenerlo\n• Personalità resiliente, flessibile e socievole\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Buona conoscenza dei programmi MS-Office\n• Prontezza per gli incarichi di fine settimana e piketting\nCome dipendente annuale: a Lenzerheide Bergbahnen AG beneficia di numerosi vantaggi.\nSe avete domande, Othmar Kurath è a vostra disposizione. Attendiamo con ansia la vostra applicazione.",
+        "en": "• Work where others go on holiday.\n\nLenzerheide Bergbahnen AG connects people, nature and technology in one of the most impressive mountain worlds in Switzerland. With team spirit, innovation and passion, we create unforgettable experiences for our guests every day. Join our team and shape the future of mobility in the heart of the Alps.\n\nImmediately or by agreement we are looking for you as\n\nCompany electrician:in\n\n80 - 100% workload at Lenzerheide Bergbahnen AG\n\nYour tasks:\n\n• Maintenance and operation of electronic equipment and building infrastructure\n• Control and railway installation troubleshooting services\n• Maintenance and maintenance work\n• Documentation and reporting of work processes\n• Completed technical vocational training (Electrician EFZ, Assembly Electrician EFZ, Automatic EFZ or similar training)\n• Art. 13 NIV of advantage or willingness to obtain it\n• Resilient, flexible and sociable personality\n• Very good knowledge of German in word and writing\n• Good knowledge of MS-Office programs\n• Readiness for weekend assignments and piketting\nAs an annual employee: at Lenzerheide Bergbahnen AG you benefit from many benefits.\nIf you have any questions, Othmar Kurath is at your disposal. We look forward to your application.",
+        "de": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nPer sofort oder nach Vereinbarung suchen wir dich als\n\nBetriebselektriker:in\n\n80 - 100% Pensum, bei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Unterhalt und Betrieb der elektronischen Anlagen sowie der Gebäudeinfrastruktur\n• Störungsbehebung an Steuerungen und Bahnanlagen\n• Durchführung von Wartungs- und Instandhaltungsarbeiten\n• Dokumentation und Berichterstattung von Arbeitsprozessen\n• Eine abgeschlossene technische Berufsausbildung (Elektroinstallateur EFZ, Montageelektriker EFZ, Automatiker EFZ oder vergleichbare Ausbildung)\n• Art. 13 NIV von Vorteil oder Bereitschaft diese zu erlangen\n• Belastbare, flexible und kontaktfreudige Persönlichkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Gute Kenntnisse in den MS-Office Programmen\n• Bereitschaft für Wochenendeinsätze und Pikettdienst\nAls Jahresmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Philipp Fux gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
+        "fr": "• Travaillez là où les autres vont en vacances.\n\nLenzerheide Bergbahnen AG relie les gens, la nature et la technologie dans l'un des mondes montagneux les plus impressionnants de Suisse. Avec l'esprit d'équipe, l'innovation et la passion, nous créons des expériences inoubliables pour nos clients chaque jour. Rejoignez notre équipe et façonnez l'avenir de la mobilité au cœur des Alpes.\n\nImmédiatement ou par accord, nous vous recherchons comme\n\nÉlectricien d'entreprise:in\n\n80 - 100% de la charge de travail à Lenzerheide Bergbahnen AG\n\nVos tâches:\n\n• Entretien et exploitation du matériel électronique et des infrastructures de construction\n• Services de contrôle et de dépannage des installations ferroviaires\n• Travaux d ' entretien\n• Documentation et rapports sur les processus de travail\n• Formation professionnelle technique terminée (EFZ électricien, EFZ électricien d'assemblage, EFZ automatique ou formation similaire)\n• Art. 13 NIV d'avantage ou de volonté de l'obtenir\n• Personnalité résiliente, flexible et sociable\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Bonne connaissance des programmes MS-Office\n• État de préparation pour les affectations de fin de semaine et le piquetage\nEn tant qu'employé annuel : chez Lenzerheide Bergbahnen AG, vous bénéficiez de nombreux avantages.\nSi vous avez des questions, Othmar Kurath est à votre disposition. Nous attendons avec impatience votre candidature."
+      },
+      "needsRetranslation": true,
+      "location": "Lenzerheide",
+      "canton": "GR",
+      "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
+      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:14:37.487Z",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7078",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0012",
+      "previousSlugs": [
+        "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
+        "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
+        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide",
+        "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
+          "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
+          "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "en": [
+          "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
+        ],
+        "fr": [
+          "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
+          "entreprise-electricien-in-arosa-lenzerheide-lenzerheide"
+        ]
+      },
+      "firstSeenAt": "2026-07-12T22:16:25.136Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -160,251 +404,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "arosa-lenzerheide-4fac9b112f86",
-      "slug": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
-      "slugByLocale": {
-        "it": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
-        "en": "patroller-in-arosa-lenzerheide-lenzerheide",
-        "de": "patrouilleur-in-arosa-lenzerheide-lenzerheide",
-        "fr": "patrouilleur-dans-arosa-lenzerheide-lenzerheide"
       },
-      "company": "Arosa Lenzerheide",
-      "companyKey": "arosa-lenzerheide",
-      "companyDomain": "arosalenzerheide.swiss",
-      "title": "Patrouilleur:in",
-      "titleByLocale": {
-        "it": "pattugliatore: in",
-        "en": "patroller:in",
-        "de": "Patrouilleur:in",
-        "fr": "patrouilleur: dans"
-      },
-      "description": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab Dezember 2026) suchen wir dich als\n\nPatrouilleur:in\n\nbei der Lenzerheide Bergbahnen AG.\n\nDeine Aufgaben:\n\n• Signalisation, Markierung und Sicherung der Schneesportanlagen\n• Rettung und erste Hilfe von verunfallten Personen\n• Mitarbeit bei Lawinensicherungsarbeiten\n• Zusammenarbeit mit weiteren Rettungs- und Bergungsorganisationen\n• Die Ausbildung als Patrouilleur:in A oder B von Seilbahnen Schweiz oder die Bereitschaft zur Ausbildung\n• Sehr gute Ski- und Geländefahrkenntnisse\n• Körperliche und psychische Belastbarkeit\n• Freude am Kontakt mit unseren Gästen\n• Eine zuverlässige, selbstständige und verantwortungsvolle Arbeitsweise\n• Eine hohe Dienstleistungsbereitschaft und Teamfähigkeit\n• Bereitschaft zu unregelmässigen Einsatztagen\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Noah Reinhart gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
-      "descriptionByLocale": {
-        "it": "• Lavorare dove gli altri vanno in vacanza.\n\nLenzerheide Bergbahnen AG collega persone, natura e tecnologia in uno dei mondi montani più impressionanti della Svizzera. Con spirito di squadra, innovazione e passione, creiamo esperienze indimenticabili per i nostri ospiti ogni giorno. Unisciti al nostro team e plasma il futuro della mobilità nel cuore delle Alpi.\n\nPer la stagione invernale 2026/27 (da dicembre 2026) ti stiamo cercando come\n\npattugliatore: in\n\npresso Lenzerheide Bergbahnen AG.\n\nI vostri compiti:\n\n• Segnaletica, marcatura e protezione delle strutture sportive neve\n• Soccorso e primo soccorso delle persone ferite\n• Cooperazione nel settore della protezione delle valanghe\n• Cooperazione con altre organizzazioni di soccorso e di recupero\n• Formazione come pattugliatore: in A o B di Seilbahnen Svizzera o la volontà di formare\n• Molto buono sci e off-road competenze\n• Resistenza fisica e psicologica\n• Gioia di contatto con i nostri ospiti\n• Un modo di lavorare affidabile, indipendente e responsabile\n• Alta disponibilità a fornire servizi e lavoro di squadra\n• Prontezza per giorni operativi irregolari\nCome dipendente stagionale: presso Lenzerheide Bergbahnen AG si beneficiano di numerosi vantaggi.\nSe avete domande, Noah Reinhart è a vostra disposizione. Attendiamo con ansia la vostra applicazione.",
-        "en": "• Work where others go on holiday.\n\nLenzerheide Bergbahnen AG connects people, nature and technology in one of the most impressive mountain worlds in Switzerland. With team spirit, innovation and passion, we create unforgettable experiences for our guests every day. Join our team and shape the future of mobility in the heart of the Alps.\n\nFor the winter season 2026/27 (from December 2026) we are looking for you as\n\npatroller:in\n\nat Lenzerheide Bergbahnen AG.\n\nYour tasks:\n\n• Signalling, marking and securing of snow sports facilities\n• Rescue and first aid of injured persons\n• Cooperation in avalanche protection work\n• Cooperation with other rescue and recovery organisations\n• Training as patroller: in A or B of Seilbahnen Switzerland or willingness to train\n• Very good skiing and off-road skills\n• Physical and psychological resilience\n• Joy of contact with our guests\n• A reliable, independent and responsible way of working\n• High willingness to provide services and teamwork\n• Readiness for irregular operational days\nAs a seasonal employee: at Lenzerheide Bergbahnen AG you benefit from many benefits.\nIf you have any questions, Noah Reinhart is at your disposal. We look forward to your application.",
-        "de": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab Dezember 2026) suchen wir dich als\n\nPatrouilleur:in\n\nbei der Lenzerheide Bergbahnen AG.\n\nDeine Aufgaben:\n\n• Signalisation, Markierung und Sicherung der Schneesportanlagen\n• Rettung und erste Hilfe von verunfallten Personen\n• Mitarbeit bei Lawinensicherungsarbeiten\n• Zusammenarbeit mit weiteren Rettungs- und Bergungsorganisationen\n• Die Ausbildung als Patrouilleur:in A oder B von Seilbahnen Schweiz oder die Bereitschaft zur Ausbildung\n• Sehr gute Ski- und Geländefahrkenntnisse\n• Körperliche und psychische Belastbarkeit\n• Freude am Kontakt mit unseren Gästen\n• Eine zuverlässige, selbstständige und verantwortungsvolle Arbeitsweise\n• Eine hohe Dienstleistungsbereitschaft und Teamfähigkeit\n• Bereitschaft zu unregelmässigen Einsatztagen\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Noah Reinhart gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
-        "fr": "• Travaillez là où les autres vont en vacances.\n\nLenzerheide Bergbahnen AG relie les gens, la nature et la technologie dans l'un des mondes montagneux les plus impressionnants de Suisse. Avec l'esprit d'équipe, l'innovation et la passion, nous créons chaque jour des expériences inoubliables pour nos clients. Rejoignez notre équipe et façonnez l'avenir de la mobilité au cœur des Alpes.\n\nPour la saison d'hiver 2026/27 (à partir de Décembre 2026) nous vous recherchons comme\n\npatrouilleur: dans\n\nà Lenzerheide Bergbahnen AG.\n\nVos tâches :\n\n• Signalisation, marquage et sécurisation des installations de sports de neige\n• Sauvetage et premiers secours des blessés\n• Coopération en matière de protection des avalanches\n• Coopération avec d'autres organisations de sauvetage et de récupération\n• Entraînement comme patrouilleur: en A ou B de Seilbahnen Suisse ou volonté de s'entraîner\n• Très bonnes compétences en ski et hors route\n• Résistance physique et psychologique\n• Joy de contact avec nos invités\n• Une manière de travailler fiable, indépendante et responsable\n• Haute volonté de fournir des services et du travail d'équipe\n• Préparation pour les jours de fonctionnement irréguliers\nEn tant qu'employé saisonnier : chez Lenzerheide Bergbahnen AG, vous bénéficiez de nombreux avantages.\nSi vous avez des questions, Noah Reinhart est à votre disposition. Nous attendons avec impatience votre candidature."
-      },
-      "needsRetranslation": true,
-      "location": "Lenzerheide",
-      "canton": "GR",
-      "url": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
-      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:51:09.180Z",
-      "addressLocality": "Lenzerheide",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7078",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0036",
-      "previousSlugs": [
-        "patrouilleur-in-arosa-lenzerheide-lenzerheide",
-        "pattugliatore-in-arosa-lenzerheide-lenzerheide"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "patrouilleur-in-arosa-lenzerheide-lenzerheide",
-          "pattugliatore-in-arosa-lenzerheide-lenzerheide"
-        ],
-        "en": [
-          "patrouilleur-in-arosa-lenzerheide-lenzerheide"
-        ],
-        "fr": [
-          "patrouilleur-in-arosa-lenzerheide-lenzerheide"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T11:44:58.522Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "arosa-lenzerheide-e395443a90d0",
-      "slug": "collaboratore-trice-beschneiung-arosa-lenzerheide",
-      "slugByLocale": {
-        "it": "collaboratore-trice-beschneiung-arosa-lenzerheide",
-        "en": "associate-beschneiung-arosa-lenzerheide-lenzerheide",
-        "de": "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-        "fr": "collaborateur-trice-beschneiung-arosa-lenzerheide-lenzerheide"
-      },
-      "company": "Arosa Lenzerheide",
-      "companyKey": "arosa-lenzerheide",
-      "companyDomain": "arosalenzerheide.swiss",
-      "title": "Mitarbeiter:in Beschneiung",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Beschneiung",
-        "en": "Associate Beschneiung",
-        "de": "Mitarbeiter:in Beschneiung",
-        "fr": "Collaborateur/trice Beschneiung"
-      },
-      "description": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab November 2026) suchen wir dich als\n\nMitarbeiter:in Beschneiung\n\nbei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Technische Beschneiung der Pisten\n• Betreuung, Überwachung und Wartung der zugeteilten Schneeanlage /-erzeuger\n• Mithilfe bei Reparaturen und Unterhaltsarbeiten\n• Vorzugsweise eine elektrische, mechanische oder handwerkliche Grundausbildung\n• Gute körperliche Fitness und Belastbarkeit\n• Bereitschaft für Nacht- und Wochenendeinsätze\n• Winter- und Wetterhärte\n• Führerausweis Kategorie B\n• Sehr gute Deutschkenntnisse\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Stefan Walser gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
-      "descriptionByLocale": {
-        "it": "• Lavorare dove gli altri vanno in vacanza.\n\nLenzerheide Bergbahnen AG collega persone, natura e tecnologia in uno dei mondi montani più impressionanti della Svizzera. Con spirito di squadra, innovazione e passione, creiamo esperienze indimenticabili per i nostri ospiti ogni giorno. Unisciti al nostro team e plasma il futuro della mobilità nel cuore delle Alpi.\n\nPer la stagione invernale 2026/27 (da novembre 2026) vi stiamo cercando come\n\nDipendenti: nell'innevamento\n\na Lenzerheide Bergbahnen AG\n\nI vostri compiti:\n\n• Innevamento tecnico delle piste\n• Cura, supervisione e manutenzione del sistema neve assegnato / produttori\n• Assistenza in riparazioni e lavori di manutenzione\n• Preferibilmente un design di base elettrico, meccanico o manuale\n• Buona forma fisica e resistenza\n• Prontezza per gli incarichi di notte e di fine settimana\n• Durezza invernale e meteo\n• Titolo di guida della categoria B\n• Molto buona conoscenza del tedesco\nCome dipendente stagionale: presso Lenzerheide Bergbahnen AG si beneficiano di numerosi vantaggi.\nSe avete domande, Stefan Walser è a vostra disposizione. Attendiamo con ansia la vostra applicazione.",
-        "en": "• Work where others go on holiday.\n\nLenzerheide Bergbahnen AG connects people, nature and technology in one of the most impressive mountain worlds in Switzerland. With team spirit, innovation and passion, we create unforgettable experiences for our guests every day. Join our team and shape the future of mobility in the heart of the Alps.\n\nFor the winter season 2026/27 (from November 2026) we are looking for you as\n\nEmployee: in snowmaking\n\nat Lenzerheide Bergbahnen AG\n\nYour tasks:\n\n• Technical snowmaking of slopes\n• Care, supervision and maintenance of the assigned snow system / producers\n• Assistance in repairs and maintenance work\n• Preferably an electrical, mechanical or manual basic design\n• Good physical fitness and resilience\n• Readiness for night and weekend assignments\n• Winter and weather hardness\n• Category B driving licence\n• Very good knowledge of German\nAs a seasonal employee: at Lenzerheide Bergbahnen AG you benefit from many benefits.\nIf you have any questions, Stefan Walser is at your disposal. We look forward to your application.",
-        "de": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nFür die Wintersaison 2026/27 (ab November 2026) suchen wir dich als\n\nMitarbeiter:in Beschneiung\n\nbei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Technische Beschneiung der Pisten\n• Betreuung, Überwachung und Wartung der zugeteilten Schneeanlage /-erzeuger\n• Mithilfe bei Reparaturen und Unterhaltsarbeiten\n• Vorzugsweise eine elektrische, mechanische oder handwerkliche Grundausbildung\n• Gute körperliche Fitness und Belastbarkeit\n• Bereitschaft für Nacht- und Wochenendeinsätze\n• Winter- und Wetterhärte\n• Führerausweis Kategorie B\n• Sehr gute Deutschkenntnisse\nAls Saisonmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Stefan Walser gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
-        "fr": "• Travaillez là où les autres vont en vacances.\n\nLenzerheide Bergbahnen AG relie les gens, la nature et la technologie dans l'un des mondes montagneux les plus impressionnants de Suisse. Avec l'esprit d'équipe, l'innovation et la passion, nous créons des expériences inoubliables pour nos clients chaque jour. Rejoignez notre équipe et façonnez l'avenir de la mobilité au cœur des Alpes.\n\nPour la saison d'hiver 2026/27 (à partir de novembre 2026), nous vous recherchons comme\n\nEmployé: dans l'enneigement\n\nchez Lenzerheide Bergbahnen AG\n\nVos tâches:\n\n• Déneigement technique des pistes\n• Soins, supervision et entretien du système de neige assigné / producteurs\n• Assistance aux travaux de réparation et d ' entretien\n• De préférence une conception de base électrique, mécanique ou manuelle\n• Bonne condition physique et résilience\n• Préparation aux affectations de nuit et de fin de semaine\n• Dureté hivernale et météorologique\n• Permis de conduire de catégorie B\n• Très bonne connaissance de l'allemand\nEn tant qu'employé saisonnier : chez Lenzerheide Bergbahnen AG, vous bénéficiez de nombreux avantages.\nSi vous avez des questions, Stefan Walser est à votre disposition. Nous attendons avec impatience votre candidature."
-      },
-      "needsRetranslation": true,
-      "location": "Lenzerheide",
-      "canton": "GR",
-      "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
-      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:51:08.464Z",
-      "addressLocality": "Lenzerheide",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7078",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0021",
-      "previousSlugs": [
-        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-beschneiung-arosa-lenzerheide"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-beschneiung-arosa-lenzerheide"
-        ],
-        "en": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
-        ],
-        "fr": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
-        ]
-      },
-      "firstSeenAt": "2026-07-12T22:16:26.830Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "arosa-lenzerheide-9d49b2d99658",
-      "slug": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
-      "slugByLocale": {
-        "it": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
-        "en": "company-electrician-in-arosa-lenzerheide-lenzerheide",
-        "de": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-        "fr": "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide"
-      },
-      "company": "Arosa Lenzerheide",
-      "companyKey": "arosa-lenzerheide",
-      "companyDomain": "arosalenzerheide.swiss",
-      "title": "Betriebselektriker:in",
-      "titleByLocale": {
-        "it": "Azienda elettrica:in",
-        "en": "Company electrician:in",
-        "de": "Betriebselektriker:in",
-        "fr": "Électricien d'entreprise:in"
-      },
-      "description": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nPer sofort oder nach Vereinbarung suchen wir dich als\n\nBetriebselektriker:in\n\n80 - 100% Pensum, bei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Unterhalt und Betrieb der elektronischen Anlagen sowie der Gebäudeinfrastruktur\n• Störungsbehebung an Steuerungen und Bahnanlagen\n• Durchführung von Wartungs- und Instandhaltungsarbeiten\n• Dokumentation und Berichterstattung von Arbeitsprozessen\n• Eine abgeschlossene technische Berufsausbildung (Elektroinstallateur EFZ, Montageelektriker EFZ, Automatiker EFZ oder vergleichbare Ausbildung)\n• Art. 13 NIV von Vorteil oder Bereitschaft diese zu erlangen\n• Belastbare, flexible und kontaktfreudige Persönlichkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Gute Kenntnisse in den MS-Office Programmen\n• Bereitschaft für Wochenendeinsätze und Pikettdienst\nAls Jahresmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Philipp Fux gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
-      "descriptionByLocale": {
-        "it": "• Lavorare dove gli altri vanno in vacanza.\n\nLenzerheide Bergbahnen AG collega persone, natura e tecnologia in uno dei mondi montani più impressionanti della Svizzera. Con spirito di squadra, innovazione e passione, creiamo esperienze indimenticabili per i nostri ospiti ogni giorno. Unisciti al nostro team e plasma il futuro della mobilità nel cuore delle Alpi.\n\nImmediatamente o con accordo ti stiamo cercando come\n\nAzienda elettrica:in\n\n80 - 100% carico di lavoro a Lenzerheide Bergbahnen AG\n\nI vostri compiti:\n\n• Manutenzione e funzionamento di apparecchiature elettroniche e infrastrutture di costruzione\n• Servizi di risoluzione dei problemi di installazione e di controllo\n• Manutenzione e manutenzione\n• Documentazione e reporting dei processi di lavoro\n• Formazione professionale tecnica completa (Electrician EFZ, Assembly Electrician EFZ, Automatic EFZ o formazione simile)\n• Art. 13 NIV di vantaggio o di volontà di ottenerlo\n• Personalità resiliente, flessibile e socievole\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Buona conoscenza dei programmi MS-Office\n• Prontezza per gli incarichi di fine settimana e piketting\nCome dipendente annuale: a Lenzerheide Bergbahnen AG beneficia di numerosi vantaggi.\nSe avete domande, Othmar Kurath è a vostra disposizione. Attendiamo con ansia la vostra applicazione.",
-        "en": "• Work where others go on holiday.\n\nLenzerheide Bergbahnen AG connects people, nature and technology in one of the most impressive mountain worlds in Switzerland. With team spirit, innovation and passion, we create unforgettable experiences for our guests every day. Join our team and shape the future of mobility in the heart of the Alps.\n\nImmediately or by agreement we are looking for you as\n\nCompany electrician:in\n\n80 - 100% workload at Lenzerheide Bergbahnen AG\n\nYour tasks:\n\n• Maintenance and operation of electronic equipment and building infrastructure\n• Control and railway installation troubleshooting services\n• Maintenance and maintenance work\n• Documentation and reporting of work processes\n• Completed technical vocational training (Electrician EFZ, Assembly Electrician EFZ, Automatic EFZ or similar training)\n• Art. 13 NIV of advantage or willingness to obtain it\n• Resilient, flexible and sociable personality\n• Very good knowledge of German in word and writing\n• Good knowledge of MS-Office programs\n• Readiness for weekend assignments and piketting\nAs an annual employee: at Lenzerheide Bergbahnen AG you benefit from many benefits.\nIf you have any questions, Othmar Kurath is at your disposal. We look forward to your application.",
-        "de": "• Da arbeiten, wo andere Ferien machen.\n\nDie Lenzerheide Bergbahnen AG verbinden Menschen, Natur und Technik in einer der eindrucksvollsten Bergwelten der Schweiz. Mit Teamgeist, Innovation und Leidenschaft schaffen wir täglich unvergessliche Erlebnisse für unsere Gäste. Werde Teil unseres Teams und gestalte mit uns die Zukunft der Mobilität im Herzen der Alpen.\n\nPer sofort oder nach Vereinbarung suchen wir dich als\n\nBetriebselektriker:in\n\n80 - 100% Pensum, bei der Lenzerheide Bergbahnen AG\n\nDeine Aufgaben:\n\n• Unterhalt und Betrieb der elektronischen Anlagen sowie der Gebäudeinfrastruktur\n• Störungsbehebung an Steuerungen und Bahnanlagen\n• Durchführung von Wartungs- und Instandhaltungsarbeiten\n• Dokumentation und Berichterstattung von Arbeitsprozessen\n• Eine abgeschlossene technische Berufsausbildung (Elektroinstallateur EFZ, Montageelektriker EFZ, Automatiker EFZ oder vergleichbare Ausbildung)\n• Art. 13 NIV von Vorteil oder Bereitschaft diese zu erlangen\n• Belastbare, flexible und kontaktfreudige Persönlichkeit\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Gute Kenntnisse in den MS-Office Programmen\n• Bereitschaft für Wochenendeinsätze und Pikettdienst\nAls Jahresmitarbeiter:in bei der Lenzerheide Bergbahnen AG profitierst du von vielen Benefits.\nBei Fragen steht dir Philipp Fux gerne zur Verfügung. Wir freuen uns auf deine Bewerbung.",
-        "fr": "• Travaillez là où les autres vont en vacances.\n\nLenzerheide Bergbahnen AG relie les gens, la nature et la technologie dans l'un des mondes montagneux les plus impressionnants de Suisse. Avec l'esprit d'équipe, l'innovation et la passion, nous créons des expériences inoubliables pour nos clients chaque jour. Rejoignez notre équipe et façonnez l'avenir de la mobilité au cœur des Alpes.\n\nImmédiatement ou par accord, nous vous recherchons comme\n\nÉlectricien d'entreprise:in\n\n80 - 100% de la charge de travail à Lenzerheide Bergbahnen AG\n\nVos tâches:\n\n• Entretien et exploitation du matériel électronique et des infrastructures de construction\n• Services de contrôle et de dépannage des installations ferroviaires\n• Travaux d ' entretien\n• Documentation et rapports sur les processus de travail\n• Formation professionnelle technique terminée (EFZ électricien, EFZ électricien d'assemblage, EFZ automatique ou formation similaire)\n• Art. 13 NIV d'avantage ou de volonté de l'obtenir\n• Personnalité résiliente, flexible et sociable\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Bonne connaissance des programmes MS-Office\n• État de préparation pour les affectations de fin de semaine et le piquetage\nEn tant qu'employé annuel : chez Lenzerheide Bergbahnen AG, vous bénéficiez de nombreux avantages.\nSi vous avez des questions, Othmar Kurath est à votre disposition. Nous attendons avec impatience votre candidature."
-      },
-      "needsRetranslation": true,
-      "location": "Lenzerheide",
-      "canton": "GR",
-      "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
-      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:51:07.851Z",
-      "addressLocality": "Lenzerheide",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7078",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0012",
-      "previousSlugs": [
-        "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-        "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide",
-        "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-          "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-          "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
-        ],
-        "en": [
-          "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
-        ],
-        "fr": [
-          "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-          "entreprise-electricien-in-arosa-lenzerheide-lenzerheide"
-        ]
-      },
-      "firstSeenAt": "2026-07-12T22:16:25.136Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }

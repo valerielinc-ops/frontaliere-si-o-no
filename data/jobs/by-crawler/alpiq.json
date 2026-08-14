@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-13T22:21:48.173Z",
+  "assembledAt": "2026-08-14T10:44:02.449Z",
   "jobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-13T22:21:45.090Z",
+      "crawledAt": "2026-08-14T10:43:59.929Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -61,75 +61,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "alpiq-e1fbe0ada2de",
-      "slug": "archivist-in-all-100-alpiq-olten",
-      "slugByLocale": {
-        "it": "archivista-tutte-100-alpiq-olten",
-        "en": "archivist-in-all-100-alpiq-olten",
-        "de": "archivist-in-all-100-alpiq-olten",
-        "fr": "archiviste-dans-tous-100-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Archivist:in (all) 100%",
-      "titleByLocale": {
-        "it": "Archivista (tutte) 100%",
-        "en": "Archivist (all) 100%",
-        "de": "Archivist:in (all) 100%",
-        "fr": "Archiviste (tous) 100%"
-      },
-      "description": "Archivist:in (all) 100%\n\nTyp: Permanent | Ort: Olten | Model: Vor Ort, max. 1 Tag HO | Reiset&auml;tigkeit: Selten innerhalb der CH&Uuml;ber unsAlpiq geh&ouml;rt zu den f&uuml;hrenden Stromproduzenten der Schweiz und ist ein bedeutender Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Archivist:in (all) 100% Tipo: Permanente | Località: Olten | Modello: Sul posto, max. 1 giorno HO | Attività di viaggio: Raramente all'interno della CHChi siamoAlpiq è uno dei principali produttori di energia elettrica in Svizzera ed è un importante fornitore di servizi energetici in Europa. Con sede a Losanna e un forte portafoglio di... Olten - 100% permanente",
-        "en": "Archivist:in (all) 100% Type: Permanent, Location: Olten, Model: On site, max. 1 day HO, Travel activity: Rarely within CHAbout usAlps is one of Switzerland's leading electricity producers and is a major provider of energy services in Europe. Headquartered in Lausanne and with a strong portfolio of... Olten - 100% Permanent",
-        "de": "Archivist:in (all) 100% Typ: Permanent | Ort: Olten | Model: Vor Ort, max. 1 Tag HO | Reisetätigkeit: Selten innerhalb der CHÜber unsAlpiq gehört zu den führenden Stromproduzenten der Schweiz und ist ein bedeutender Anbieter von Energiedienstleistungen in Europa. Mit Hauptsitz in Lausanne und einem starken Portfolio aus… Olten - 100% Permanent",
-        "fr": "Archiviste:en (all) 100% Type: Permanent, Emplacement: Olten, Modèle: Sur place, max. 1 jour HO, Activité de voyage: Rarement au sein de CHÀ propos de nousAlps est l'un des principaux producteurs d'électricité en Suisse et est un important fournisseur de services énergétiques en Europe. Basé à Lausanne et avec un portefeuille... Olten - 100% Permanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9601",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:18:49.339Z",
-      "firstSeenAt": "2026-07-06T12:57:17.444Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "archivist-in-all-100-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "archivist-in-all-100-alpiq-olten"
-      ]
     },
     {
       "id": "alpiq-dbe206690861",
@@ -176,7 +107,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T22:21:45.092Z",
+      "crawledAt": "2026-08-14T10:43:59.931Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -197,75 +128,6 @@
       },
       "previousSlugs": [
         "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
-      ]
-    },
-    {
-      "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
-      "slugByLocale": {
-        "it": "elettricista-automatico-alpiq-martigny",
-        "en": "electricien-ne-automaticien-ne-alpiq-martigny",
-        "de": "elektriker-automatisch-alpiq-martigny",
-        "fr": "electricien-ne-automatiqueien-ne-alpiq-martigny"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Electricien(ne) - automaticien(ne)",
-      "titleByLocale": {
-        "it": "Elettricista - Automatico",
-        "en": "Electrician - Automatician",
-        "de": "Elektriker - Automatisch",
-        "fr": "Électricien(ne) - automatiqueien(ne)"
-      },
-      "description": "Electricien(ne) - automaticien(ne)\n\nMartigny - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Electricien(ne) - automaticien(ne) Martigny - 100% Permanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Martigny",
-      "canton": "",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressLocality": "Martigny",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:18:49.337Z",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 61,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "electricien-ne-automaticien-ne-alpiq-martigny"
-        ]
-      },
-      "previousSlugs": [
-        "electricien-ne-automaticien-ne-alpiq-martigny"
       ]
     }
   ]

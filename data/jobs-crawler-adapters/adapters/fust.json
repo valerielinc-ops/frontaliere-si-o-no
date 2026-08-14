@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/qualitaetsverantwortliche-r-heimlieferung/3eec0dc5-4d44-4d66-a81f-798aec116503",
     "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/ad78f06a-769d-471d-8fec-7aecff07d90e",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/9a8b83d2-42a6-4eb2-a7f7-be0f7bc6cb85",
     "https://jobs.fust.ch/offene-stellen/business-project-manager/1a7f6069-30a6-4390-9c3b-49699e400ff7",
@@ -90,6 +91,12 @@
     "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/8f537667-e488-45e9-b7b9-ecc8745a6c94"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/qualitaetsverantwortliche-r-heimlieferung/3eec0dc5-4d44-4d66-a81f-798aec116503": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/ad78f06a-769d-471d-8fec-7aecff07d90e": {
       "location": "San Gallo",
       "canton": "SG",
@@ -560,5 +567,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-13T21:49:24.786Z"
+  "updatedAt": "2026-08-14T10:12:46.526Z"
 }

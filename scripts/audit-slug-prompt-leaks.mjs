@@ -50,6 +50,23 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  * fails. Removing an entry is how the remediation half of #5334 tightens the
  * gate; nothing here should ever be ADDED.
  *
+ * ── AND REMOVING AN ENTRY IS NOT OPTIONAL (#5510) ────────────────────────
+ *
+ * An allowlist is a claim about production: "this slug leaks, and we accept
+ * it for now". A claim nobody re-checks stops being a claim and becomes a
+ * blind spot — the exclusion outlives the defect and then silently covers the
+ * NEXT article that happens to be named the same way. That is not
+ * hypothetical here: two entries below (`slug-gaggiolo-traffic`,
+ * `slug-gaggiolo-verkehr`) were repaired upstream and the list kept excusing
+ * them for days, because nothing in this repo ever asked whether an excuse
+ * was still needed.
+ *
+ * So `checkDeadAllowlistEntries` below fails the audit on an entry that no
+ * longer corresponds to a leak in any scanned source. The direction is the
+ * unusual one — the gate goes red because production got BETTER — and it is
+ * deliberate: the only way to clear it is to delete the line, which is
+ * exactly the bookkeeping that was never happening.
+ *
  * Two distinct families, both from the same prompt:
  *
  * 1. The four `kebab-case-…` ids reported in the issue. These are the visible
@@ -87,19 +104,34 @@ export const KNOWN_LEGACY_LEAKS = Object.freeze(new Set([
   // vitest sweep that shares its sources, red on `main` for every PR in the
   // repo.
   //
-  // Twelve slug positions, seven distinct strings, four articles. All are
+  // Was twelve slug positions, seven distinct strings, four articles. All are
   // en/de/fr slugs: the Italian URL, which carries the traffic, is correct in
-  // all four cases. They are NOT rewritten here — see the PR body; a published
-  // article URL cannot be changed without a redirect, and article pages have
-  // no `previousSlugs` bridge (that mechanism is job-board only, in
-  // `build-plugins/jobsSeoPagesPlugin.ts`).
+  // all four cases.
   //
   // These live in `packages/articles/content/`, which is a DOWNSTREAM MIRROR
   // of `nanakokyobashi-rgb/frontaliere-articles` (`scripts/pull-articles-corpus.mjs`).
   // Repairing them here would be overwritten by the next sync; the decision
   // belongs upstream.
-  'slug-gaggiolo-traffic',
-  'slug-gaggiolo-verkehr',
+  //
+  // ── Down to FIVE, 2026-08-14 (#5510) ─────────────────────────────────────
+  //
+  // `slug-gaggiolo-traffic` and `slug-gaggiolo-verkehr` are gone from this
+  // list because they no longer describe anything. Measured on origin/main:
+  // `routerBlogData.ts` now reads
+  //   'gaggiolo-traffico': { …, en: 'gaggiolo-traffic', de: 'gaggiolo-verkehr', … }
+  // — the label is off the slug — and the two old URLs answer **301** to the
+  // clean ones (`/en/cross-border-articles/slug-gaggiolo-traffic/` →
+  // `/en/cross-border-articles/gaggiolo-traffic/`). So the rename happened
+  // upstream WITH a redirect, and the paragraph above that called the redirect
+  // bridge job-board-only is simply out of date: article pages have one, and
+  // it is live. That is why it is deleted rather than corrected.
+  //
+  // The other five are still live and still dirty, verified 2026-08-14 against
+  // an invented control slug that answers 404 (so a 200 here means a page is
+  // really served, not the CDN's catch-all): all five answer 200, and the
+  // served HTML repeats the placeholder in `<link rel="canonical">` and
+  // `<meta property="og:url">` — it is what a crawler and a shared link show,
+  // not merely an internal id.
   'slug-traffico-da-record',
   'slug-terzo-pilastro-3a-switzerland',
   'slug-terzo-pilastro-3a-schweiz',
@@ -148,6 +180,52 @@ export function extractSitemapSlugs(src) {
   return out;
 }
 
+/** Every source kind that must be readable before a "dead" verdict is allowed. */
+const REQUIRED_KINDS = Object.freeze(['registry']);
+
+/**
+ * Allowlist entries that no longer match a leak in the sources actually read.
+ *
+ * Exported and taking its inputs as arguments so the vitest guard in
+ * `tests/slug-leak-allowlist-liveness.test.ts` asserts THIS function rather
+ * than a second implementation of the same idea — the drift between an audit
+ * and its test is the failure this repo keeps rediscovering.
+ *
+ * Why the registries alone are enough to convict, even in a sparse worktree
+ * where `public/` is absent: a slug cannot reach a sitemap without being in a
+ * registry first. The sitemaps are generated FROM the two registries and
+ * `scripts/ci/check-blog-slugs-sitemap-sync.mjs` enforces that correspondence
+ * in both directions, so "in a sitemap but in no registry" is a state that
+ * gate already fails on. A missing sitemap can therefore only hide a
+ * duplicate sighting, never the only one — which is the safe direction. When
+ * a REGISTRY is missing the verdict is withheld entirely (`enforceable:
+ * false`) instead of guessed, because that is the direction that would
+ * fabricate a dead entry out of an unread file.
+ *
+ * @param {Iterable<string>} leakedSlugs slugs found AND flagged in this run
+ * @param {ReadonlyArray<{ path: string, kind: string }>} scanned sources read
+ * @returns {{ enforceable: boolean, dead: string[], reason: string | null }}
+ */
+export function findDeadAllowlistEntries(leakedSlugs, scanned) {
+  for (const kind of REQUIRED_KINDS) {
+    const need = SOURCES.filter((s) => s.kind === kind).length;
+    const got = scanned.filter((s) => s.kind === kind).length;
+    if (got < need) {
+      return {
+        enforceable: false,
+        dead: [],
+        reason: `solo ${got}/${need} sorgenti di tipo "${kind}" lette — verdetto sospeso`,
+      };
+    }
+  }
+  const seen = new Set(leakedSlugs);
+  return {
+    enforceable: true,
+    dead: [...KNOWN_LEGACY_LEAKS].filter((slug) => !seen.has(slug)),
+    reason: null,
+  };
+}
+
 function main() {
   const asJson = process.argv.includes('--json');
   const scanned = [];
@@ -163,7 +241,7 @@ function main() {
     }
     const src = readFileSync(abs, 'utf8');
     const slugs = kind === 'registry' ? extractRegistrySlugs(src) : extractSitemapSlugs(src);
-    scanned.push({ path: rel, slugs: slugs.length });
+    scanned.push({ path: rel, kind, slugs: slugs.length });
     for (const slug of slugs) {
       if (!findSlugPromptLeak(slug)) continue;
       if (!leaks.has(slug)) leaks.set(slug, new Set());
@@ -182,15 +260,17 @@ function main() {
 
   const fresh = [...leaks.keys()].filter((s) => !KNOWN_LEGACY_LEAKS.has(s));
   const legacySeen = [...leaks.keys()].filter((s) => KNOWN_LEGACY_LEAKS.has(s));
+  const { enforceable, dead, reason } = findDeadAllowlistEntries(leaks.keys(), scanned);
 
   if (asJson) {
     console.log(JSON.stringify({
       scanned, missing,
       fresh: fresh.map((s) => ({ slug: s, ...findSlugPromptLeak(s), sources: [...leaks.get(s)] })),
       legacy: legacySeen,
-      ok: fresh.length === 0,
+      dead, deadEnforceable: enforceable, deadReason: reason,
+      ok: fresh.length === 0 && dead.length === 0,
     }, null, 2));
-    process.exit(fresh.length === 0 ? 0 : 1);
+    process.exit(fresh.length === 0 && dead.length === 0 ? 0 : 1);
   }
 
   const totalSlugs = scanned.reduce((n, s) => n + s.slugs, 0);
@@ -205,22 +285,42 @@ function main() {
     for (const slug of legacySeen) console.log(`   – ${slug}`);
   }
 
-  if (fresh.length === 0) {
+  if (!enforceable) {
+    console.log(`\n   ⓘ voci morte dell'allowlist NON verificate: ${reason}`);
+  }
+
+  if (fresh.length === 0 && dead.length === 0) {
     console.log('\n✅ Nessuno slug contaminato dal template del prompt oltre a quelli noti.');
+    if (enforceable) console.log(`   e le ${KNOWN_LEGACY_LEAKS.size} voci di KNOWN_LEGACY_LEAKS descrivono tutte un leak reale.`);
     process.exit(0);
   }
 
-  console.error(`\n❌ ${fresh.length} NUOVI slug contaminati dal template del prompt:`);
-  for (const slug of fresh) {
-    const leak = findSlugPromptLeak(slug);
-    console.error(`   – "${slug}" (${leak.pattern}: "${leak.match}")`);
-    console.error(`     in: ${[...leaks.get(slug)].join(', ')}`);
+  if (fresh.length) {
+    console.error(`\n❌ ${fresh.length} NUOVI slug contaminati dal template del prompt:`);
+    for (const slug of fresh) {
+      const leak = findSlugPromptLeak(slug);
+      console.error(`   – "${slug}" (${leak.pattern}: "${leak.match}")`);
+      console.error(`     in: ${[...leaks.get(slug)].join(', ')}`);
+    }
+    console.error(
+      '\nIl gate pre-scrittura in scripts/lib/slug-prompt-leak-guard.mjs e\' stato aggirato: ' +
+      'questi slug sono gia\' routabili e a un sync di distanza dall\'essere indicizzati. ' +
+      'Non aggiungerli a KNOWN_LEGACY_LEAKS — vanno rinominati con redirect previousSlugs.',
+    );
   }
-  console.error(
-    '\nIl gate pre-scrittura in scripts/lib/slug-prompt-leak-guard.mjs e\' stato aggirato: ' +
-    'questi slug sono gia\' routabili e a un sync di distanza dall\'essere indicizzati. ' +
-    'Non aggiungerli a KNOWN_LEGACY_LEAKS — vanno rinominati con redirect previousSlugs.',
-  );
+
+  if (dead.length) {
+    console.error(`\n❌ ${dead.length} voci di KNOWN_LEGACY_LEAKS non corrispondono piu' a un leak reale:`);
+    for (const slug of dead) console.error(`   – "${slug}"`);
+    console.error(
+      "\nNon e' una regressione: e' produzione che e' migliorata e l'allowlist che non l'ha " +
+      "seguita. Una voce che non descrive piu' niente non e' inerte — resta armata a coprire " +
+      "il PROSSIMO slug con lo stesso nome, e quello non lo vedrebbe piu' nessuno. " +
+      'Rimedio: cancellare le righe qui sopra da KNOWN_LEGACY_LEAKS. Se invece lo slug ti ' +
+      "risulta ancora pubblicato, il difetto e' nel detector o nelle sorgenti lette, non qui.",
+    );
+  }
+
   process.exit(1);
 }
 
