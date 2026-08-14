@@ -32,6 +32,7 @@ import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
+import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
 const args = process.argv.slice(2);
@@ -647,15 +648,37 @@ async function translateFaq(faqArray, targetLang) {
   return results.length > 0 ? results : null;
 }
 
-/** Validate FAQ array: min 1 pair, q>10 chars, a>20 chars */
+/**
+ * Validate FAQ array: min 1 pair, q>10 chars, a>20 chars, nessun SEGNAPOSTO.
+ *
+ * Il filtro di sola FORMA che stava qui (`q.length > 10 && a.length > 20`) e'
+ * lo stesso che `scripts/create-article.mjs` aveva, e che #5812 ha sostituito
+ * li' con `cleanFaqPairs`: una coppia segnaposto dello schema del prompt
+ * («Domanda frequente 1 basata sui fatti dell'articolo?» / «Risposta con dati
+ * DALLA FONTE. 50-100 parole.») e' lunga abbastanza e passa qualunque
+ * controllo di lunghezza. Questo script e' funnel-critical per la stessa
+ * superficie: genera FAQ via LLM (`generateFaqIT`/`generateTopUpFaqIT`), le
+ * scrive nei body file pubblicati (`insertFaqIntoBodyFile`), e da li'
+ * `engine/ogPagesPlugin.ts` ne fa schema FAQPage — quindi un segnaposto che
+ * passa di qua esce come structured data falso esattamente come passava di la'.
+ *
+ * `minPairs: 1` NON e' un allentamento: e' la soglia che questa funzione ha
+ * sempre avuto, e va tenuta perche' il chiamante arma il top-up proprio sul
+ * caso 1-2 coppie (vedi `MIN_FAQ_PAIRS`). La soglia delle 2 coppie
+ * dell'engine resta il default di `cleanFaqPairs` per chi scrive il campo
+ * finito. Il cap a 7 resta qui, dov'era.
+ */
 function validateFaq(faq) {
   if (!Array.isArray(faq)) return null;
-  const valid = faq
-    .filter(pair =>
-      pair && typeof pair.q === 'string' && typeof pair.a === 'string' &&
-      pair.q.length > 10 && pair.a.length > 20
-    )
-    .slice(0, 7); // Cap at 7 pairs
+  const { pairs, repaired, dropped } = cleanFaqPairs(faq, { minPairs: 1 });
+  const placeholders = dropped.filter(d => d.placeholder);
+  if (placeholders.length) {
+    console.error(`  ⚠️  FAQ: ${placeholders.length} coppie SEGNAPOSTO scartate (${placeholders.map(d => d.reason).join('; ')})`);
+  }
+  if (repaired) {
+    console.error(`  ✍️  FAQ: ${repaired} coppie ripulite dall'etichetta dello schema`);
+  }
+  const valid = (pairs || []).slice(0, 7); // Cap at 7 pairs
   return valid.length >= 1 ? valid : null;
 }
 
