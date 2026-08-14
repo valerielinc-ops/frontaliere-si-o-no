@@ -9927,6 +9927,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'Comment s\'inscrire à la caisse de chômage OCST',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Pas de rendez-vous nécessaire, vous pouvez faire votre annonce en ligne depuis chez vous en quelques minutes.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Image éditoriale relative à: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST femme-travail : protection et soutien',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Services de soutien, de conseil et de protection juridique pour les travailleuses en difficulté, avec des cours et une orientation professionnelle.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Guichet de soutien pour les travailleurs au Tessin',
 };
 
 export default blogMetaFr;

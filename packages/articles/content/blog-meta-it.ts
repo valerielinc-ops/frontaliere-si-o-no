@@ -9926,6 +9926,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'Come registrarsi alla cassa di disoccupazione OCST',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Nessun appuntamento necessario. Puoi annunciarti online da casa in pochi minuti.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Immagine editoriale relativa a: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST donna-lavoro: tutela e supporto',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Servizi di supporto, consulenza e tutela legale per le lavoratrici in difficoltà, con corsi e orientamento professionale.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Sportello di supporto per i lavoratori in Ticino',
 };
 
 export default blogMetaIt;
