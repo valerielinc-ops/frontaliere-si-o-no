@@ -153,24 +153,28 @@ export function dedupeByIdentityPreservingMarks(tagged, identityOf) {
 }
 
 /**
- * Mark one slice with a compare-and-swap on its bytes.
+ * Read-modify-write one job slice with a compare-and-swap on its bytes.
  *
  * `writeJsonAtomic` makes the write itself indivisible; it does not stop us
  * from writing a document we parsed BEFORE another process rewrote the same
  * file. So the bytes are re-read immediately before the write and, when they
- * moved, the whole read-apply cycle restarts on the fresh content — our mark is
- * re-applied to the other writer's document instead of the other writer's
+ * moved, the whole read-mutate cycle restarts on the fresh content — our change
+ * is re-applied to the other writer's document instead of the other writer's
  * document being thrown away.
+ *
+ * `mutate(list, data)` must be REPEATABLE: it can run several times, once per
+ * attempt, and must report its own counts from scratch each time (the callers
+ * here reset their accumulators inside the closure for exactly this reason).
+ * It returns how many records it changed; 0 means nothing to write.
  *
  * The residual window (between the verification read and `renameSync`) is not
  * zero and cannot be, without a lock every one of the ~580 crawler write sites
  * would have to take. It is a few microseconds of syscall against a cycle that
  * parses a whole slice, which is the difference that matters.
  *
- * @returns {{marked: number, present: string[], wrote: boolean, retries: number, lost: boolean, unreadable: boolean}}
+ * @returns {{changed: number, wrote: boolean, retries: number, lost: boolean, unreadable: boolean}}
  */
-export function markSliceCompareAndSwap(filePath, slugs, { dryRun = false } = {}) {
-  const present = new Set();
+export function updateSliceCompareAndSwap(filePath, mutate, { dryRun = false } = {}) {
   let retries = 0;
 
   for (let attempt = 1; attempt <= MAX_SLICE_WRITE_ATTEMPTS; attempt += 1) {
@@ -178,27 +182,21 @@ export function markSliceCompareAndSwap(filePath, slugs, { dryRun = false } = {}
     try {
       raw = fs.readFileSync(filePath, 'utf8');
     } catch {
-      return { marked: 0, present: [...present], wrote: false, retries, lost: false, unreadable: true };
+      return { changed: 0, wrote: false, retries, lost: false, unreadable: true };
     }
     let data;
     try {
       data = JSON.parse(raw);
     } catch {
       // An unreadable slice must not sink the whole pass.
-      return { marked: 0, present: [...present], wrote: false, retries, lost: false, unreadable: true };
+      return { changed: 0, wrote: false, retries, lost: false, unreadable: true };
     }
 
     const list = Array.isArray(data) ? data : data?.jobs || [];
-    const marked = applyMarks(list, slugs);
-    // Record every slug present in this slice, not just the ones mutated: a job
-    // already carrying the flag is resolved, not missing.
-    present.clear();
-    for (const job of Array.isArray(list) ? list : []) {
-      if (job && slugs.has(job.slug)) present.add(job.slug);
-    }
+    const changed = mutate(list, data) || 0;
 
-    if (marked === 0 || dryRun) {
-      return { marked, present: [...present], wrote: false, retries, lost: false, unreadable: false };
+    if (changed === 0 || dryRun) {
+      return { changed, wrote: false, retries, lost: false, unreadable: false };
     }
 
     // ── compare-and-swap ────────────────────────────────────────────────────
@@ -206,7 +204,7 @@ export function markSliceCompareAndSwap(filePath, slugs, { dryRun = false } = {}
     try {
       current = fs.readFileSync(filePath, 'utf8');
     } catch {
-      return { marked: 0, present: [...present], wrote: false, retries, lost: false, unreadable: true };
+      return { changed: 0, wrote: false, retries, lost: false, unreadable: true };
     }
     if (current !== raw) {
       // Someone else committed to this slice while we were working. Their
@@ -216,10 +214,45 @@ export function markSliceCompareAndSwap(filePath, slugs, { dryRun = false } = {}
     }
 
     writeJsonAtomic(filePath, data);
-    return { marked, present: [...present], wrote: true, retries, lost: false, unreadable: false };
+    return { changed, wrote: true, retries, lost: false, unreadable: false };
   }
 
-  return { marked: 0, present: [...present], wrote: false, retries, lost: true, unreadable: false };
+  return { changed: 0, wrote: false, retries, lost: true, unreadable: false };
+}
+
+/**
+ * Mark one slice, through the compare-and-swap above.
+ *
+ * @returns {{marked: number, present: string[], wrote: boolean, retries: number, lost: boolean, unreadable: boolean}}
+ */
+export function markSliceCompareAndSwap(filePath, slugs, { dryRun = false } = {}) {
+  let present = [];
+
+  const outcome = updateSliceCompareAndSwap(
+    filePath,
+    (list) => {
+      const marked = applyMarks(list, slugs);
+      // Record every slug present in this slice, not just the ones mutated: a
+      // job already carrying the flag is resolved, not missing. Rebuilt on every
+      // attempt, so a retry cannot double-count it.
+      const seen = new Set();
+      for (const job of Array.isArray(list) ? list : []) {
+        if (job && slugs.has(job.slug)) seen.add(job.slug);
+      }
+      present = [...seen];
+      return marked;
+    },
+    { dryRun }
+  );
+
+  return {
+    marked: outcome.changed,
+    present,
+    wrote: outcome.wrote,
+    retries: outcome.retries,
+    lost: outcome.lost,
+    unreadable: outcome.unreadable,
+  };
 }
 
 /**

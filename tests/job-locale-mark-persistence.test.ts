@@ -443,3 +443,25 @@ describe('#5645 — the cross-runner path: git-commit-data.sh must not drop the 
     expect(merged.jobs[0].needsRetranslation).toBeUndefined();
   });
 });
+
+describe('#5645 — the whole class of writers, not just the one in the issue', () => {
+  // AGENTS.md #6: a fix for a pattern is a fix for the pattern's siblings. The
+  // two below share the exact antipattern, each in one half of it.
+  const read = (rel: string) => fs.readFileSync(path.resolve(__dirname, '..', 'scripts', rel), 'utf8');
+
+  it('reconcile-duplicate-stable-id-jobs carries the mark off the record it drops', () => {
+    // It collapses same-`id` duplicates INSIDE one slice and keeps one whole —
+    // and it already knew that dropping a record must not drop its slugs. The
+    // monotone flag needed the same treatment, or the collapse deletes it.
+    const source = read('reconcile-duplicate-stable-id-jobs.mjs');
+    expect(source).toContain('carryForwardMarks(winner, dropped)');
+  });
+
+  it('backfill-needs-retranslation writes its slices through the compare-and-swap', () => {
+    const source = read('backfill-needs-retranslation.mjs');
+    expect(source).toContain('updateSliceCompareAndSwap(');
+    // The direct atomic write is what made it clobberable: atomic per file,
+    // blind to anything another writer committed since the read.
+    expect(source).not.toContain('writeJsonAtomic(');
+  });
+});
