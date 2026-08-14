@@ -609,12 +609,16 @@
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-2",
           "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler",
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che"
+        ],
+        "en": [
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-6jtlpa"
         ]
       },
       "previousSlugs": [
         "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-2",
         "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler",
-        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che"
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che",
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-6jtlpa"
       ],
       "salaryMin": 100000,
       "salaryMax": 175500,
@@ -693,11 +697,39 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
-          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che"
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che",
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che",
+          "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler"
+        ],
+        "en": [
+          "individual-customer-advisor-lugano-f-m-80-100-banca-cler-8440-iva-che",
+          "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
+          "individual-customer-advisor-lugano-m-f-80-100-bank-cler-8440-mwst-che"
+        ],
+        "de": [
+          "individueller-kundenberater-lugano-w-m-80-100-banca-cler-8440-iva-che",
+          "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che",
+          "individueller-kundenberater-lugano-m-w-80-100-bank-cler-8440-mwst-che"
+        ],
+        "fr": [
+          "conseiller-client-individuel-lugano-f-m-80-100-banca-cler-8440-iva-che",
+          "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che",
+          "conseiller-client-individuel-lugano-h-f-80-100-bank-cler-8440-mwst-che"
         ]
       },
       "previousSlugs": [
-        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che"
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che",
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che",
+        "individual-customer-advisor-lugano-f-m-80-100-banca-cler-8440-iva-che",
+        "individueller-kundenberater-lugano-w-m-80-100-banca-cler-8440-iva-che",
+        "conseiller-client-individuel-lugano-f-m-80-100-banca-cler-8440-iva-che",
+        "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
+        "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che",
+        "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che",
+        "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler",
+        "individual-customer-advisor-lugano-m-f-80-100-bank-cler-8440-mwst-che",
+        "individueller-kundenberater-lugano-m-w-80-100-bank-cler-8440-mwst-che",
+        "conseiller-client-individuel-lugano-h-f-80-100-bank-cler-8440-mwst-che"
       ],
       "salaryMin": 100000,
       "salaryMax": 175500,
