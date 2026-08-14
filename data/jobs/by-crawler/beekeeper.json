@@ -204,7 +204,7 @@
         "en": "senior-account-manager-beekeeper-zurich",
         "it": "senior-account-manager-beekeeper-zurich",
         "de": "senior-account-manager-beekeeper-zurich",
-        "fr": "senior-account-manager-beekeeper-zurich"
+        "fr": "gestionnaire-principal-de-comptes-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",
@@ -266,10 +266,10 @@
     },
     {
       "id": "beekeeper-9e07ba368d0d",
-      "slug": "marketing-assistant-internship-f-m-zurich-beekeeper-zurich",
+      "slug": "marketing-assistant-stage-m-f-zurigo-beekeeper-zurich",
       "slugByLocale": {
         "en": "marketing-assistant-internship-f-m-zurich-beekeeper-zurich",
-        "it": "marketing-assistant-internship-f-m-zurich-beekeeper-zurich",
+        "it": "marketing-assistant-stage-m-f-zurigo-beekeeper-zurich",
         "de": "marketing-assistant-internship-f-m-zurich-beekeeper-zurich",
         "fr": "marketing-assistant-internship-f-m-zurich-beekeeper-zurich"
       },
@@ -328,7 +328,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-13T21:55:20.891Z"
+      "firstSeenAt": "2026-08-13T21:55:20.891Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-assistant-internship-f-m-zurich-beekeeper-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-assistant-internship-f-m-zurich-beekeeper-zurich"
+      ]
     }
   ]
 }

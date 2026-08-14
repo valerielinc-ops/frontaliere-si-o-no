@@ -88,7 +88,7 @@
     },
     {
       "id": "company-iamsdx",
-      "slug": "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
+      "slug": "venditore-in-food-coop-genossenschaft-zurich-b14a6a",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -122,10 +122,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
-        "en": "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
+        "it": "venditore-in-food-coop-genossenschaft-zurich-b14a6a",
+        "en": "seller-in-food-coop-genossenschaft-zurich-b14a6a",
         "de": "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a"
       },
       "requirementsByLocale": {
         "it": [],
@@ -138,11 +138,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-genossenschaft-zurich"
+          "verkaufer-in-food-coop-genossenschaft-zurich",
+          "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-zurich"
+        "verkaufer-in-food-coop-genossenschaft-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -240,7 +248,7 @@
     },
     {
       "id": "company-fzz950",
-      "slug": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
+      "slug": "consulente-commerciale-in-interdiscount-heimberg-bern",
       "company": "Interdiscount",
       "title": "Verkaufsberater:in",
       "location": "Heimberg, Bern",
@@ -272,20 +280,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
-        "en": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
+        "it": "consulente-commerciale-in-interdiscount-heimberg-bern",
+        "en": "sales-consultant-in-interdiscount-heimberg-bern",
         "de": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
-        "fr": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950"
+        "fr": "consultant-en-ventes-interdiscount-heimberg-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-interdiscount-heimberg-bern"
+          "verkaufsberater-in-interdiscount-heimberg-bern",
+          "verkaufsberater-in-interdiscount-heimberg-bern-fzz950"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-heimberg-bern-fzz950"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-heimberg-bern-fzz950"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-heimberg-bern"
+        "verkaufsberater-in-interdiscount-heimberg-bern",
+        "verkaufsberater-in-interdiscount-heimberg-bern-fzz950"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -339,9 +355,9 @@
       },
       "slugByLocale": {
         "it": "koch-kochin-con-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41",
-        "en": "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41",
+        "en": "koch-kochin-with-additional-function-managing-director-in-coop-genossenschaft-gossau",
         "de": "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41",
-        "fr": "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41"
+        "fr": "koch-kochin-avec-fonction-supplementaire-directeur-general-in-coop-genossenschaft-gossau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -355,10 +371,17 @@
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau"
+        ],
+        "en": [
+          "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41"
+        ],
+        "fr": [
+          "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau"
+        "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau",
+        "koch-kochin-mit-zusatzfunktion-geschaftsfuhrer-in-coop-genossenschaft-gossau-klqf41"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -379,7 +402,7 @@
     },
     {
       "id": "company-33g0n7",
-      "slug": "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-basel-basel-stadt",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Basel, Basel-Stadt",
@@ -414,10 +437,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-basel-basel-stadt",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-basel-basel-stadt",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-basel-basel-stadt"
       },
       "requirementsByLocale": {
         "it": [],
@@ -431,11 +454,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt"
+          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt",
+          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt"
+        "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt",
+        "verkaufer-in-kassen-services-coop-genossenschaft-basel-stadt-33g0n7"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -455,7 +486,7 @@
     },
     {
       "id": "company-4tnwnw",
-      "slug": "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-munchenstein-basel-landschaft",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Münchenstein, Basel-Landschaft",
@@ -489,10 +520,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-munchenstein-basel-landschaft",
+        "en": "seller-fresh-products-coop-genossenschaft-munchenstein-basel-landschaft",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw"
+        "fr": "vendeur-produits-frais-coop-genossenschaft-munchenstein-basel-landschaft"
       },
       "requirementsByLocale": {
         "it": [],
@@ -505,11 +536,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-munchenstein-basel-landschaft-4tnwnw"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -774,7 +813,7 @@
     },
     {
       "id": "company-1x5gvf",
-      "slug": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
+      "slug": "amministratore-delegato-in-ristorante-coop-genossenschaft-sarnen-obwalden",
       "company": "Coop Genossenschaft",
       "title": "Geschäftsführer:in Restaurant",
       "location": "Sarnen, Obwalden",
@@ -808,10 +847,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
-        "en": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
+        "it": "amministratore-delegato-in-ristorante-coop-genossenschaft-sarnen-obwalden",
+        "en": "managing-director-in-restaurant-coop-genossenschaft-sarnen-obwalden",
         "de": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf",
-        "fr": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf"
+        "fr": "directeur-general-au-restaurant-coop-genossenschaft-sarnen-obwalden"
       },
       "requirementsByLocale": {
         "it": [],
@@ -824,11 +863,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden"
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden",
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf"
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden"
+        "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden",
+        "geschaftsfuhrer-in-restaurant-coop-genossenschaft-sarnen-obwalden-1x5gvf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -883,7 +930,7 @@
         "it": "ict-supporter-in-coop-schafisheim-aargau-0g50id",
         "en": "ict-supporter-in-coop-schafisheim-aargau-0g50id",
         "de": "ict-supporter-in-coop-schafisheim-aargau-0g50id",
-        "fr": "ict-supporter-in-coop-schafisheim-aargau-0g50id"
+        "fr": "soutien-aux-tic-en-coop-genossenschaft-schafisheim-aargau"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -899,12 +946,14 @@
           "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id"
         ],
         "fr": [
-          "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id"
+          "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id",
+          "ict-supporter-in-coop-schafisheim-aargau-0g50id"
         ]
       },
       "previousSlugs": [
         "ict-supporter-in-coop-genossenschaft-schafisheim-aargau",
-        "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id"
+        "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id",
+        "ict-supporter-in-coop-schafisheim-aargau-0g50id"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -924,7 +973,7 @@
     },
     {
       "id": "company-bylqpu",
-      "slug": "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu",
+      "slug": "venditore-in-prodotti-freschi-coop-genossenschaft-munchenstein-basel-landschaft",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte Convenience",
       "location": "Münchenstein, Basel-Landschaft",
@@ -958,10 +1007,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu",
-        "en": "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu",
+        "it": "venditore-in-prodotti-freschi-coop-genossenschaft-munchenstein-basel-landschaft",
+        "en": "seller-in-fresh-products-convenience-coop-genossenschaft-munchenstein-basel-landschaft",
         "de": "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu",
-        "fr": "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu"
+        "fr": "vendeur-en-produits-frais-coop-genossenschaft-munchenstein-basel-landschaft"
       },
       "requirementsByLocale": {
         "it": [],
@@ -974,11 +1023,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft"
+          "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft",
+          "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft"
+        "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft",
+        "verkaufer-in-frischprodukte-convenience-coop-genossenschaft-munchenstein-basel-landschaft-bylqpu"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -998,7 +1055,7 @@
     },
     {
       "id": "company-vxbpxo",
-      "slug": "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo",
+      "slug": "venditore-in-food-coop-genossenschaft-matten-bei-interlaken-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Matten bei Interlaken, Bern",
@@ -1032,10 +1089,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo",
-        "en": "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo",
+        "it": "venditore-in-food-coop-genossenschaft-matten-bei-interlaken-bern",
+        "en": "seller-in-food-coop-genossenschaft-matten-bei-interlaken-bern",
         "de": "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo",
-        "fr": "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-matten-bei-interlaken-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1049,21 +1106,25 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern",
-          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo"
+          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo",
+          "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo"
         ],
         "en": [
-          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo"
+          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo",
+          "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo"
         ],
         "fr": [
-          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo"
+          "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo",
+          "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern",
-        "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo"
+        "verkaufer-in-food-coop-genossenschaft-matten-bei-interlaken-bern-vxbpxo",
+        "verkaufer-in-food-coop-matten-bei-interlaken-bern-vxbpxo"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1083,7 +1144,7 @@
     },
     {
       "id": "company-rfwhdi",
-      "slug": "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi",
+      "slug": "specialista-manutenzione-aziendale-specializzata-coop-genossenschaft-schafisheim-aargau",
       "company": "Coop Genossenschaft",
       "title": "Fachmann / Fachfrau Betriebsunterhalt",
       "location": "Schafisheim, Aargau",
@@ -1117,10 +1178,10 @@
         "fr": "## Spécialiste / maintenance d'entreprise spécialisée\n\n**Coopérative de coopératives** — Schafisheim, Aargau, Svizzera\n\n## Tâche\n- Vous prenez soin de l'entretien de nos bâtiments, installations, machines et équipements et effectuez vous-même des réparations mineures.\n- Vous gardez nos installations extérieures en ordre et participez également aux travaux de jardinage.\n- Sont des artisans externes: en nous, accompagner et coordonner leur travail sur place.\n- Vous assisterez aux événements et veillerez à ce que nos salles de réunion soient prêtes au besoin.\n- Vous vous occupez de la distribution des fournitures de bureau et de la gestion des entrepôts de nos entreprises de nettoyage externe.\n- Vous marchez avec les yeux ouverts à travers la région, reconnaissez le besoin d'action et prenez soin de lui.\n\n## Exigences\n- Vous avez suivi un apprentissage en tant que spécialiste / spécialiste de la maintenance d'entreprise et déjà plusieurs années d'expérience professionnelle dans le service domestique.\n- Vous êtes habile en artisanat et aimez vous attaquer.\n- Vous travaillez de manière indépendante, fiable et orientée vers la solution.\n- Vous aimez être en contact avec les gens et agir amical et sûr envers les différentes parties prenantes.\n- Vous avez une bonne connaissance de l'allemand en paroles et en écriture.\n- Vous pouvez utiliser Word, Excel et Outlook en toute sécurité.\n- Vous avez le permis de conduire de catégorie B. Catégorie BE est un plus.\n\n## Ce que nous offrons\n- Avantages: Prestations pour activités de loisirs\n- Conditions d'emploi: Contrat de travail total (GAV)\n- Heures de travail: 5 semaines de congés\n- Formation: soutien à l'éducation et à la formation externes\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé: Offres sportives: Tournoi de volleyball et randonnée\n\n## Votre personne à contacter\nTobias Widmer\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Schafisheim"
       },
       "slugByLocale": {
-        "it": "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi",
-        "en": "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi",
+        "it": "specialista-manutenzione-aziendale-specializzata-coop-genossenschaft-schafisheim-aargau",
+        "en": "specialist-specialist-company-maintenance-coop-genossenschaft-schafisheim-aargau",
         "de": "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi",
-        "fr": "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi"
+        "fr": "specialiste-maintenance-d-entreprise-specialisee-coop-genossenschaft-schafisheim-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1134,11 +1195,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau"
+          "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau",
+          "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi"
+        ],
+        "en": [
+          "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi"
+        ],
+        "fr": [
+          "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi"
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau"
+        "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau",
+        "fachmann-fachfrau-betriebsunterhalt-coop-genossenschaft-schafisheim-aargau-rfwhdi"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1158,7 +1227,7 @@
     },
     {
       "id": "company-ucvogu",
-      "slug": "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu",
+      "slug": "installatore-sanitario-in-riscaldamento-installatore-in-allrounder-in-tecnologia-della-casa-coop-genossenschaft",
       "company": "Coop Genossenschaft",
       "title": "Sanitärinstallateur:in / Heizungsinstallateur:in / Allrounder:in Haustechnik",
       "location": "Schafisheim, Aargau",
@@ -1190,20 +1259,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu",
-        "en": "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu",
+        "it": "installatore-sanitario-in-riscaldamento-installatore-in-allrounder-in-tecnologia-della-casa-coop-genossenschaft",
+        "en": "sanitary-installer-in-heating-installer-in-allrounder-in-house-technology-coop-genossenschaft-schafisheim-aargau",
         "de": "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu",
-        "fr": "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu"
+        "fr": "installateur-sanitaire-in-chauffage-in-allrounder-in-technologie-domestique-coop-genossenschaft-schafisheim-aargau"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau"
+          "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau",
+          "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu"
+        ],
+        "en": [
+          "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu"
+        ],
+        "fr": [
+          "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau"
+        "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau",
+        "sanitarinstallateur-in-heizungsinstallateur-in-allrounder-in-haustechnik-coop-genossenschaft-schafisheim-aargau-ucvogu"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1361,18 +1438,15 @@
       "previousSlugsByLocale": {
         "it": [
           "business-project-manager-fust-oberburen-sankt-gallen",
-          "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
           "responsabile-progetto-aziendale-fust-swiss-household-services-ag-oberburen-sankt-gallen"
         ],
         "fr": [
-          "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
           "gestionnaire-de-projet-operationnel-fust-swiss-household-services-ag-oberburen",
           "gestionnaire-de-projet-operationnel-fust-swiss-household-services-ag-oberburen-sankt-gallen"
         ]
       },
       "previousSlugs": [
         "business-project-manager-fust-oberburen-sankt-gallen",
-        "business-project-manager-fust-oberburen-sankt-gallen-3y8gp4",
         "responsabile-progetto-aziendale-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "gestionnaire-de-projet-operationnel-fust-swiss-household-services-ag-oberburen",
         "gestionnaire-de-projet-operationnel-fust-swiss-household-services-ag-oberburen-sankt-gallen"
@@ -8155,16 +8229,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-2",
-          "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
-          "consulente-vendite-in-giardino-jumbo-division-der-coop-genossenschaft-laupen-bern"
+          "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-2"
         ],
         "en": [
-          "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
           "sales-consultant-in-garden-jumbo-division-der-coop-genossenschaft-laupen-bern"
         ],
         "fr": [
-          "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
           "consultant-commercial-en-jardin-jumbo-division-der-coop-genossenschaft-laupen-bern"
         ],
         "de": [
@@ -8174,7 +8244,6 @@
       "previousSlugs": [
         "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-2",
         "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
-        "consulente-vendite-in-giardino-jumbo-division-der-coop-genossenschaft-laupen-bern",
         "sales-consultant-in-garden-jumbo-division-der-coop-genossenschaft-laupen-bern",
         "consultant-commercial-en-jardin-jumbo-division-der-coop-genossenschaft-laupen-bern"
       ],
@@ -8237,16 +8306,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-interdiscount-lachen-schwyz",
-          "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
-          "consulente-commerciale-in-interdiscount-lachen-schwyz",
           "verkaufsberater-in-interdiscount-lachen"
         ],
         "en": [
-          "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
           "sales-consultant-in-interdiscount-lachen-schwyz"
         ],
         "fr": [
-          "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
           "consultant-en-ventes-interdiscount-lachen-schwyz"
         ],
         "de": [
@@ -8256,7 +8321,6 @@
       "previousSlugs": [
         "verkaufsberater-in-interdiscount-lachen-schwyz",
         "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
-        "consulente-commerciale-in-interdiscount-lachen-schwyz",
         "sales-consultant-in-interdiscount-lachen-schwyz",
         "consultant-en-ventes-interdiscount-lachen-schwyz",
         "verkaufsberater-in-interdiscount-lachen"
@@ -8330,7 +8394,6 @@
         "it": [
           "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-widnau-sankt-gallen",
           "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-widnau-sankt-gallen-eqj6je",
-          "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-widnau-sankt-gallen",
           "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen"
         ],
         "en": [
@@ -10211,18 +10274,11 @@
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
-          "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-d9d7f7",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
-          "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich"
+          "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-d9d7f7"
         ],
         "fr": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
-          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-d9d7f7",
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
-          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich"
-        ],
-        "de": [
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63"
+          "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-d9d7f7"
         ]
       },
       "previousSlugs": [
@@ -10230,10 +10286,7 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-bdgh63",
         "consulenti-di-vendita-incl-coop-genossenschaft-winterthur-zurich",
         "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-d9d7f7",
-        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-bdgh63",
-        "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur-zurich",
         "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-d9d7f7",
-        "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich",
         "consulenti-di-vendita-incl-coop-genossenschaft-winterthur-d9d7f7"
       ],
@@ -13073,7 +13126,6 @@
         ],
         "fr": [
           "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau-aargau",
-          "oui-coop-genossenschaft-aarau-aargau",
           "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
         ]
       },
@@ -13083,7 +13135,6 @@
         "sales-consultant-in-household-coop-genossenschaft-aarau-aargau",
         "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau-aargau",
         "verkaufsberater-in-haushalt-coop-city-aarau-aargau",
-        "oui-coop-genossenschaft-aarau-aargau",
         "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
       ],
       "baseSalary": {
@@ -13389,7 +13440,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-rickenbach-thurgau"
       },
@@ -13410,7 +13461,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
           "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-          "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
@@ -13420,8 +13470,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
-        "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-        "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau"
+        "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16513,7 +16562,6 @@
         "fr": [
           "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
           "lageriste-in-coop-genossenschaft-oberentfelden",
-          "lageriste-in-coop-genossenschaft-oberentfelden-aargau",
           "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
         ],
         "de": [
@@ -16529,7 +16577,6 @@
         "warehouse-worker-coop-genossenschaft-oberentfelden",
         "lagerist-in-livique-oberentfelden-aargau-cncnay",
         "lageriste-in-coop-genossenschaft-oberentfelden",
-        "lageriste-in-coop-genossenschaft-oberentfelden-aargau",
         "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
       ],
       "salaryMin": 62000,
@@ -16608,7 +16655,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn-7c9gqx",
           "cook-cook-f-m-d-coop-genossenschaft-olten",
-          "cook-cook-f-m-d-coop-genossenschaft-olten-solothurn",
           "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn"
         ],
         "fr": [
@@ -16621,8 +16667,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn-7c9gqx",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-olten",
         "cook-cook-f-m-d-coop-genossenschaft-olten",
-        "cuire-cuire-f-m-d-coop-genossenschaft-olten",
-        "cook-cook-f-m-d-coop-genossenschaft-olten-solothurn"
+        "cuire-cuire-f-m-d-coop-genossenschaft-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -17252,13 +17297,11 @@
           "cuire-m-w-d-coop-genossenschaft-chur-b9c935",
           "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
           "chef-m-w-d-coop-genossenschaft-chur",
           "kochin-koch-m-w-d-coop-genossenschaft-chur",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
           "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
-          "chef-m-w-d-coop-genossenschaft-chur-graubunden",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-chur"
         ],
         "de": [
@@ -17266,12 +17309,10 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cook-cook-f-m-d-coop-genossenschaft-chur",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cuire-cuire-f-m-d-coop-genossenschaft-chur",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
         ]
       },
@@ -17286,13 +17327,11 @@
         "cuire-m-w-d-coop-genossenschaft-chur-b9c935",
         "cuire-m-w-d-coop-genossenschaft-chur-4j1lnt",
         "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
         "chef-m-w-d-coop-genossenschaft-chur",
         "kochin-koch-m-w-d-coop-genossenschaft-chur",
         "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
         "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
         "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
-        "chef-m-w-d-coop-genossenschaft-chur-graubunden",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur"
       ]
@@ -20801,9 +20840,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -20811,9 +20848,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

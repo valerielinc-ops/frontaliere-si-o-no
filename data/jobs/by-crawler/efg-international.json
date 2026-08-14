@@ -890,7 +890,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "general-services-employee-efg-international-ag-geneve",
+        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -923,14 +923,12 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ]
     },
@@ -1837,9 +1835,9 @@
       },
       "crawledAt": "2026-08-13T21:53:02.844Z",
       "slugByLocale": {
-        "it": "switchboard-operator-efg-international-ag-lugano",
+        "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -1865,19 +1863,15 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano",
-          "operatore-di-commutazione-efg-international-ag-lugano"
+          "switchboard-operator-efg-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "operatore-di-commutazione-efg-international-ag-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
       ]
     },
@@ -2542,7 +2536,7 @@
     },
     {
       "id": "efg-6413",
-      "slug": "finance-internship-efg-geneve",
+      "slug": "finanza-internship-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Finance Internship",
       "location": "Geneve",
@@ -2591,10 +2585,10 @@
       },
       "crawledAt": "2026-08-13T21:53:02.806Z",
       "slugByLocale": {
-        "it": "finance-internship-efg-geneve",
+        "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
-        "de": "finance-internship-efg-geneve",
-        "fr": "finance-internship-efg-geneve"
+        "de": "finanzen-internship-efg-international-ag-geneve",
+        "fr": "stages-financiers-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2613,7 +2607,21 @@
       },
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-13T21:53:02.806Z"
+      "firstSeenAt": "2026-08-13T21:53:02.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-internship-efg-geneve"
+        ],
+        "de": [
+          "finance-internship-efg-geneve"
+        ],
+        "fr": [
+          "finance-internship-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "finance-internship-efg-geneve"
+      ]
     },
     {
       "id": "efg-6326",
