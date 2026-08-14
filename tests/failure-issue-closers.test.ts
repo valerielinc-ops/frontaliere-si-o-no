@@ -249,6 +249,15 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // gemello esista davvero e col titolo identico, carattere per carattere.
       'deploy-publish.yml': 'sibling-resolve-step',
       'post-deploy-validate-live.yml': 'sibling-resolve-step',
+      // terza adozione (#5369 §7): il gate di memoria del build. Titolo
+      // custom in italiano, fuori da `TITLE_RE`, quindi ancora
+      // `sibling-resolve-step`. NON è in contraddizione con la nota qui sopra
+      // sui «due di `deploy.yml` che non vanno adottati»: quelli sono gli
+      // opener degli shard, che girano dentro job `continue-on-error` e non
+      // hanno mai uno step `conclusion: failure` da nominare. Questo invece è
+      // `if: failure()` su un job che fallisce davvero, ed è proprio il caso
+      // in cui la jobs API ha lo step rotto da mettere nel body.
+      'deploy.yml': 'sibling-resolve-step',
     };
     expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
     for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);

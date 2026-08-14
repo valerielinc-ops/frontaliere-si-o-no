@@ -204,6 +204,7 @@ import {
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { logBuildMem } from './shared/buildMemLog';
+import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -1031,7 +1032,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    description: string,
    requirements: string[],
  ): CleanedFallbackContent => {
-   const key = `${description.length}${description}${requirements.join('')}`;
+   // Digest, non la concatenazione: la chiave viveva in 5 copie simultanee al
+   // picco di memoria della build. Vedi shared/canonicalCleanedKey.ts.
+   const key = canonicalCleanedKey(description, requirements);
    const cached = canonicalCleanedCache.get(key);
    if (cached !== undefined) {
      _canonicalCleanedHits += 1;
@@ -2564,7 +2567,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  : Array.isArray(job?.requirements)
  ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
  : [];
- const key = `${description.length}${description}${requirements.join('')}`;
+ // Stessa chiave di `memoCanonicalCleaned` — e DEVE restare la stessa
+ // funzione, non una copia: se le due espressioni divergono il pre-pass
+ // popola chiavi che il ciclo principale non trova mai, e la cache passa
+ // silenziosamente da 96,5 % di hit a 0 % (il costo tornerebbe inline, non
+ // ci sarebbe nessun errore). Una definizione sola in
+ // shared/canonicalCleanedKey.ts, che e' anche dove sta la ragione per cui
+ // non e' piu' la concatenazione del testo.
+ const key = canonicalCleanedKey(description, requirements);
  if (seen.has(key) || canonicalCleanedCache.has(key)) continue;
  seen.add(key);
  tuples.push({ key, description, requirements });

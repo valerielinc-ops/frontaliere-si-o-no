@@ -73,6 +73,7 @@ import {
   CTA_PRIMARY_CLASS,
   renderStatGrid,
   pickStatTileTone,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -352,7 +353,32 @@ export function renderProfessionCityPage(opts: {
   };
   const prose = renderCantonSeoProse(proseOpts);
 
-  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cityDisplay)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(role, cityDisplay))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cityDisplay))}</p></header>`;
+  // ── Stessa collisione di professionCantonLandings.ts, qui ancora LATENTE ──
+  //
+  // Il secondo candidato del `<title>` e' `BRIDGE_COPY[locale].title`, e per
+  // due locali quel template e' identico a `COPY[locale].h1`:
+  //
+  //   en   h1 `${r} jobs in ${c}`      ==  bridge title
+  //   de   h1 `${r}-Stellen in ${c}`   ==  bridge title
+  //
+  // Oggi `audit:h1-title-duplicates` misura ZERO offender in questa famiglia,
+  // e non perche' il difetto non ci sia: perche' nessuna coppia
+  // professione+citta' ha ancora sforato i 66 caratteri. E' la stessa forma
+  // che sul gemello per cantone e' gia' viva (Schaffhausen + «Optiker
+  // optometrist» = 67 caratteri). Il primo nome di citta' lungo la accende.
+  //
+  // Ripararla solo dove si vede lascerebbe il gemello armato — ed e'
+  // precisamente la ragione per cui il repo controlla i pattern fratelli.
+  // Ambito: solo l'elemento `<h1>` (breadcrumb e JSON-LD tengono l'headline
+  // non taggato), come `bfsSalaryLandingsPlugin.ts`.
+  const pageTitle = composePlaceTitle(
+    [c.metaTitle(role, cityDisplay), BRIDGE_COPY[locale].title(role, cityDisplay)],
+    TITLE_MAX_CHARS,
+    (s) => esc(s).length,
+  );
+  const h1Display = differentiateH1FromTitle(c.h1(role, cityDisplay), pageTitle, locale);
+
+  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cityDisplay)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(h1Display)}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cityDisplay))}</p></header>`;
 
   const main = `<div class="cl-fun">${breadcrumb}
 ${header}
@@ -391,11 +417,13 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
   // truncating — same "shrink the boilerplate, never the role/place" policy
   // as employerProfilePagesPlugin.ts / composeSerpJobTitle (audit:title-length
   // regression #4593, this family never had a fallback before).
-  const titleCandidates = [c.metaTitle(role, cityDisplay), BRIDGE_COPY[locale].title(role, cityDisplay)];
-
+  // Calcolato sopra come `pageTitle`, prima dell'header, cosi' l'H1 si
+  // confronta con la stringa ESATTA che finisce nel `<title>` (confrontarlo
+  // con `c.metaTitle(...)` compilerebbe e non scatterebbe mai: il caso che
+  // collide e' quello in cui il metaTitle viene scartato).
   const html = buildSeoPageHtml({
     locale,
-    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
+    title: pageTitle,
     description: c.metaDesc(snapshot.liveCount, role, cityDisplay),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),

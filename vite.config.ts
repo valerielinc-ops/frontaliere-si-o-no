@@ -48,6 +48,7 @@ import {
   writeRegistryResetPlugin,
   writeRegistryReportPlugin,
 } from './build-plugins/writeRegistryLifecyclePlugin';
+import { buildMemoryGuardPlugin } from './build-plugins/shared/buildMemoryGuard';
 // flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly,
 // then flatHtmlRedirectPlugin (post-processor) converts each flat .html with a sibling /index.html into a
 // 301-style redirect bridge to close ~3.2k Semrush hreflang↔canonical conflicts.
@@ -603,10 +604,21 @@ export default defineConfig(({ mode }) => {
  host: '0.0.0.0',
  },
  plugins: [
+ // Campiona RSS del processo + MemAvailable dell'host per tutta la build e la
+ // fa fallire con un errore NOMINATO prima che l'host la uccida (#5369 §7).
+ // Sta per primo perche' il suo `buildStart` deve armare il campionatore prima
+ // che qualunque altra fase allochi: la fase piu' costosa (~7,7 GB di RSS) e'
+ // il bundle di Vite/Rollup, che finisce PRIMA del primo closeBundle. Un
+ // campionatore armato solo in closeBundle non la vedrebbe mai.
+ // Soglie e derivazione: build-plugins/shared/buildMemoryGuard.ts.
+ buildMemoryGuardPlugin(),
  // Resets the cross-plugin write registry at every buildStart so watch-mode
- // rebuilds don't carry stale claims. Must be FIRST so it runs before any
- // plugin's closeBundle starts calling claim(). Also configures the per-build
- // content dump dir from WRITE_COLLISION_DUMP env var.
+ // rebuilds don't carry stale claims. Must run before any plugin's closeBundle
+ // starts calling claim() — i.e. before every EMITTER. `buildMemoryGuardPlugin`
+ // above is the only entry that precedes it and it never calls claim() (it
+ // writes dist/build-memory-peak.json with plain fs, outside the registry), so
+ // the invariant this comment protects is unchanged. Also configures the
+ // per-build content dump dir from WRITE_COLLISION_DUMP env var.
  writeRegistryResetPlugin({ rootDir: __dirname }),
  ...allPlugins.map(withProfile),
  // #5001 punto 2 — genera le hero card richieste dalle famiglie SEO statiche.

@@ -61,6 +61,7 @@ import {
   CTA_PRIMARY_CLASS,
   renderStatGrid,
   pickStatTileTone,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 
 // MIN_JOBS, professionLabel and the below-floor bridge now come from
@@ -234,7 +235,44 @@ export function renderProfessionCantonPage(opts: {
     ctaLabel: c.cta(cantonName),
   });
 
-  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(role, cantonName))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cantonName))}</p></header>`;
+  // ── Il <title> va calcolato PRIMA dell'H1, non dopo ────────────────────
+  //
+  // `composePlaceTitle` sceglie il primo candidato che sta nei 66 caratteri.
+  // Il secondo candidato e' `PROFESSION_BRIDGE_COPY[locale].title`, e per DUE
+  // locali quel template e' **byte per byte lo stesso** di `COPY[locale].h1`:
+  //
+  //   en   h1 `${r} jobs in Canton ${c}`      ==  bridge title, identico
+  //   de   h1 `${r}-Stellen im Kanton ${c}`   ==  bridge title, identico
+  //   it   h1 `Lavoro come ${r} nel Canton ${c}`  vs `Lavoro ${r} Canton ${c}`
+  //   fr   h1 `Emploi ${r} dans le canton ${c}`   vs `Emplois ${r} dans …`
+  //
+  // Quindi ogni volta che `metaTitle` sfora il cap, le pagine de/en escono con
+  // `<title>` e `<h1>` uguali. Non e' un'ipotesi: e' esattamente la coppia che
+  // il seed full-corpus del 2026-08-07 (run 31197413400) misura come gli unici
+  // due offender `profession-canton` di `audit:h1-title-duplicates` —
+  // `de/arbeit-schaffhausen-optiker-optometrist/` e
+  // `en/jobs-schaffhausen-optician-optometrist/`, dove
+  // «Optiker optometrist» + «Schaffhausen» porta il metaTitle a 67 caratteri.
+  //
+  // Il rimedio e' quello che #5337 ha applicato alle altre cinque famiglie:
+  // differenziare l'**H1**, mai il `<title>` — `shared/titleSuffix.ts` impone
+  // che un headline lungo si riscriva alla fonte invece di tagliarlo, e il
+  // titolo tiene le sue keyword in entrambi i casi. Non ritocco i due template
+  // di copy perche' curerebbe questa coppia e lascerebbe la classe: qualunque
+  // professione o cantone piu' lungo la ricrea. Cosi' invece la collisione non
+  // puo' piu' uscire dal renderer, quale che sia il candidato scelto.
+  //
+  // Ambito: il solo elemento `<h1>`. La coda del breadcrumb e il
+  // BreadcrumbList JSON-LD tengono l'headline non taggato — stessa
+  // separazione di `bfsSalaryLandingsPlugin.ts` (`h1Display`).
+  const pageTitle = composePlaceTitle(
+    [c.metaTitle(role, cantonName), PROFESSION_BRIDGE_COPY[locale].title(role, cantonName)],
+    TITLE_MAX_CHARS,
+    (s) => esc(s).length,
+  );
+  const h1Display = differentiateH1FromTitle(c.h1(role, cantonName), pageTitle, locale);
+
+  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(h1Display)}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cantonName))}</p></header>`;
 
   // Cross-link to the salary-intent page (#4461) for the pairs it emits — the
   // job-intent → salary-intent direction of the bidirectional hub-spoke rule
@@ -284,11 +322,14 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
   // template in the codebase; a longer role keyword + longer canton name
   // (e.g. DE "Graubünden") can clear TITLE_MAX_CHARS (66) with no fallback
   // before this fix (audit:title-length regression #4593).
-  const titleCandidates = [c.metaTitle(role, cantonName), PROFESSION_BRIDGE_COPY[locale].title(role, cantonName)];
-
+  //
+  // Calcolato sopra come `pageTitle`, prima dell'header: l'H1 deve poter
+  // confrontarsi con la stringa ESATTA che finisce nel `<title>`. Confrontarlo
+  // con `c.metaTitle(...)` compilerebbe e non scatterebbe mai, perche' il caso
+  // che collide e' proprio quello in cui il metaTitle viene scartato.
   const html = buildSeoPageHtml({
     locale,
-    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
+    title: pageTitle,
     description: c.metaDesc(snapshot.liveCount, role, cantonName),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),

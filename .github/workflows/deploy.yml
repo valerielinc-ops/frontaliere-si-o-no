@@ -513,6 +513,37 @@ jobs:
 
           npm run build:ci 2>&1 | tee /tmp/build.log
 
+      # Legge il referto che `buildMemoryGuardPlugin` scrive SEMPRE (verde o
+      # rosso) in /tmp/build-memory-peak.json, e lo espone come output. Sta
+      # subito dopo il build e gira `always()` perche' il caso che conta e'
+      # proprio quello in cui il build e' rosso.
+      #
+      # `breach` vuoto = il build e' fallito per altro (o non e' fallito): in
+      # quel caso lo step di report qui sotto NON parte, altrimenti qualunque
+      # rosso aprirebbe una issue di memoria e il titolo perderebbe significato.
+      - name: Read build memory report
+        id: memguard
+        if: always()
+        shell: bash
+        run: |
+          set -o pipefail
+          breach=''
+          peak=''
+          avail=''
+          if [ -f /tmp/build-memory-peak.json ]; then
+            breach=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.breach??""))' || true)
+            peak=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakRssMb??""))' || true)
+            avail=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minHostAvailMb??""))' || true)
+            cat /tmp/build-memory-peak.json
+          else
+            echo "[memguard] nessun referto: il processo di build non ha mai chiuso (host-kill) o il guard non era armato"
+          fi
+          {
+            echo "breach=$breach"
+            echo "peak_rss_mb=$peak"
+            echo "min_host_avail_mb=$avail"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Verify critical dist pages before upload
         if: matrix.locale == 'it'
         run: node scripts/validate-critical-dist-pages.mjs
@@ -2289,6 +2320,62 @@ jobs:
           # ancora in corso non è scaricabile, quindi l'estratto arriva solo
           # dal diag file /tmp/build-failure-diag.txt se uno step lo scrive).
           node scripts/ci/report-validate-dist-failure.mjs --mode report --scope build
+
+      # ── Il gate di memoria della build (#5369 §7) ────────────────────────
+      #
+      # Titolo DEDICATO e non `CI Failure (build)`: sono due guasti diversi e
+      # collassarli sulla stessa issue perderebbe l'unica cosa che serve
+      # sapere, cioe' che a rompere e' stata la crescita del picco e non un
+      # test. La condizione su `steps.memguard.outputs.breach` e' cio' che
+      # tiene il titolo onesto: senza, ogni build rossa aprirebbe questa issue.
+      #
+      # CHI CHIUDE: lo step gemello "Resolve build memory issue on green" qui
+      # sotto, con `mode: resolve` e il TITOLO IDENTICO — e' il modello
+      # `sibling-resolve-step`. Il reconciler centrale NON copre questo titolo
+      # (non matcha il suo `TITLE_RE`, `Workflow|Crawler|CI Failure: `), quindi
+      # quella meta' locale e' l'unica che c'e'. Cambiare il titolo qui senza
+      # cambiarlo la' lascia la issue aperta per sempre: e' il guasto di #5470,
+      # e `tests/build-memory-guard.test.ts` confronta le due occorrenze.
+      - name: Report build memory breach to GitHub Issues
+        if: failure() && steps.memguard.outputs.breach != ''
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'il picco di memoria della build risale sopra la soglia'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '1'
+          labels: Bug
+          entity: ${{ matrix.locale }}
+          diag-file: /tmp/build-failure-diag.txt
+          context: |
+            - **Soglia sfondata:** `${{ steps.memguard.outputs.breach }}`
+            - **Picco RSS del processo di build:** ${{ steps.memguard.outputs.peak_rss_mb }} MB
+            - **MemAvailable minimo dell'host:** ${{ steps.memguard.outputs.min_host_avail_mb }} MB
+            - Il build è stato fermato di proposito **prima** che l'host lo uccidesse.
+              Un kill dell'host lascia lo step su `in_progress` senza exit code, e in
+              quello stato nessuno step `if: failure()` viene valutato — è così che il
+              leg IT del run 31672320271 è sparito senza aprire nulla, bloccando gli
+              shard de/fr/en (#5773 / #5772 / #5771).
+            - Profilo di riferimento (run 31747139648, 2026-08-13, verde 4/4): ~7,7 GB di
+              RSS e ~4,1 GB di heap **vivo** sono già residenti quando parte il primo
+              plugin di `closeBundle`; altri +4,3 GB di heap vivo li aggiunge una fase
+              sola, fra le milestone `[mem] jobsSeoPages: collector created` e
+              `[mem] jobsSeoPages: after company-landing`. Grep sul log del run:
+              `[mem] `, `[profile-mem] `, `[hostmem] `.
+            - Le soglie e la loro derivazione stanno in
+              `build-plugins/shared/buildMemoryGuard.ts`. **Non alzarle**: il tetto è già
+              calibrato sotto il punto di kill osservato su questo runner, alzarlo
+              riporta il guasto opaco.
+
+      - name: Resolve build memory issue on green
+        if: success()
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          mode: resolve
+          title: 'il picco di memoria della build risale sopra la soglia'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Resolve build GitHub Issue on success
         if: success()
