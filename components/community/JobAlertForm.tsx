@@ -18,6 +18,7 @@ import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import {
   loadGatingState,
   saveGatingState,
@@ -204,8 +205,13 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
   const persistAlert = useCallback(
     async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<JobAlert> => {
-      const { createAlert } = await import("@/services/jobAlertService");
+      const { createAlert, upgradeBackfilledAlertConsent } = await import("@/services/jobAlertService");
       const alert = await createAlert(uid, email, config);
+      // #5876 — operating this form is the explicit act, with the notice next
+      // to the button as the stored formula. If this person also carries a
+      // travaso alert, the act converts its deduced consent into an explicit
+      // one. Not awaited: the alert is created either way.
+      void upgradeBackfilledAlertConsent(email, config.locale).catch(() => {});
       setAlerts((prev) => [alert, ...prev]);
       import("@/services/analytics")
         .then(({ Analytics }) =>
@@ -492,6 +498,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  ? (t('jobAlert.create') || 'Crea alert')
  : (t('jobAlert.loginRequired') || 'Accedi per creare un alert')}
  </button>
+
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[11px] text-muted leading-relaxed block"
+              />
 
  {/* Advanced filters toggle */}
  <button
