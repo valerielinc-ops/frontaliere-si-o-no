@@ -2653,6 +2653,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-lucerna.title': 'Allocations familiales dans le canton de Lucerne : montants et demande',
     'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Qui peut demander les allocations familiales dans le canton de Lucerne et comment procéder.',
     'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari dans le Canton de Lucerne: import et demande',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Système scolaire cantonal de Lucerne : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Renseignez-vous sur les cycles scolaires, l\'âge d\'inscription et le calendrier scolaire pour le canton de Lucerne',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'image scolaire dans un institut lucerne',
 };
 
 export default blogMetaChFr;

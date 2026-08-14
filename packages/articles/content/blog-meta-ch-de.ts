@@ -2653,6 +2653,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-lucerna.title': 'Familienzulagen im Kanton Luzern: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Wer im Kanton Luzern Familienzulagen beantragen kann und wie es weitergeht.',
     'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari im Kanton Luzern: Beträge und Antragstellung',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Kantonales Schulsystem Luzern: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Informieren Sie sich über die Schulzyklen, das Einschreibealter und den Schulkalender für den Kanton Luzern',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'szenische schule in einem institut lucerne',
 };
 
 export default blogMetaChDe;
