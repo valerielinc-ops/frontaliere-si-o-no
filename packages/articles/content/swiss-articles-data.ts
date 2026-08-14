@@ -7912,6 +7912,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-lucerna-requisiti',
+    category: 'fiscale',
+    date: '2026-08-14T01:57:31.131Z',
+    image: '/images/blog/permesso-dimora-b-lucerna-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2638,6 +2638,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-lucerna-2026.title': 'Krankenkassenprämien Kanton Luzern und Prämienverbilligung',
     'blog.article.premi-cassa-malati-lucerna-2026.excerpt': 'Das Gesetz über die obligatorischen Krankenversicherungen im Kanton Luzern: Prämienklassen, Franchisen, alternative Modelle und Voraussetzungen für die Prämienverbilligung.',
     'blog.article.premi-cassa-malati-lucerna-2026.imageAlt': 'Schweizer Lebensstil mit Wohnungen und lokalen Märkten',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Die Aufenthaltsbewilligung B in Luzern: Voraussetzungen und Verfahren',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Luzern ist eine Art Aufenthaltsbewilligung, die erneuert werden kann. Hier sind die Anforderungen, die einzureichenden Dokumente und das Erneuerungsverfahren.',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'Das B-Erlaubnis im Kanton Luzern',
 };
 
 export default blogMetaChDe;

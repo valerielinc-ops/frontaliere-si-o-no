@@ -2638,6 +2638,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-lucerna-2026.title': 'Primes caisse-maladie Canton de Lucerne et réduction des primes',
     'blog.article.premi-cassa-malati-lucerna-2026.excerpt': 'La loi sur les assurances-maladie obligatoires dans le canton de Lucerne : fourchettes de primes, franchises, modèles alternatifs et conditions pour obtenir la réduction des primes.',
     'blog.article.premi-cassa-malati-lucerna-2026.imageAlt': 'Vie suisse avec logements et marchés locaux',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Le permis de séjour B à Lucerne : exigences et procédure',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'Le titre de séjour B dans le canton de Lucerne est un type de titre de séjour qui peut être renouvelé. Voici les exigences, les documents à produire et la procédure de renouvellement.',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'Le permis de séjour B dans le Canton de Lucerne',
 };
 
 export default blogMetaChFr;
