@@ -7948,6 +7948,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assegni-familiari-canton-lucerna',
+    category: 'fiscale',
+    date: '2026-08-14T02:31:40.998Z',
+    image: '/images/blog/assegni-familiari-canton-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

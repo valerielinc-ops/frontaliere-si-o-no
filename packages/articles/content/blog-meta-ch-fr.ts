@@ -2650,6 +2650,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-lucerna.title': 'Permis L Lucerne : durée, prolongation et contraintes',
     'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Guide complet du permis L de courte durée dans le canton de Lucerne : validité, conditions de prolongation et étapes réglementaires.',
     'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Permis de courte durée L dans le canton de Lucerne',
+    'blog.article.assegni-familiari-canton-lucerna.title': 'Allocations familiales dans le canton de Lucerne : montants et demande',
+    'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Qui peut demander les allocations familiales dans le canton de Lucerne et comment procéder.',
+    'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari dans le Canton de Lucerne: import et demande',
 };
 
 export default blogMetaChFr;
