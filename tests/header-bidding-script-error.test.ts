@@ -18,6 +18,12 @@ function getPrebidScriptEl(): HTMLScriptElement | null {
 describe('headerBidding — script-load-error guard (issue #2860)', () => {
   beforeEach(() => {
     vi.useFakeTimers();
+    // Prebid is now behind the advertising-consent gate (#5842):
+    // `ensurePrebidScript()` returns before injecting unless consent is
+    // granted. These tests are about the script-load-error guard, not about
+    // consent, so they grant it and keep asserting exactly what they did
+    // before. The gate's own behaviour is covered by tests/ads-consent-gate.test.tsx.
+    localStorage.setItem('frontaliere_ads_consent', 'granted');
     __testing.resetForTests();
   });
 
