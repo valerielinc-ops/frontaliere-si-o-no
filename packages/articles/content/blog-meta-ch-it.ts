@@ -2656,6 +2656,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Sistema scolastico cantonale di Lucerna: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Informati sui cicli di scuola, età di iscrizione e calendario scolastico per il Cantone di Lucerna',
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'immagine scolastica in un istituto lucernese',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Asilo nido e custodia bambini Canton Lucerna: costi',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Lucerna sono soggetti a diversi fattori.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Una famiglia con bambini in una scena di vita quotidiana in Svizzera, con un focus sulla regione del Canton Lucerna.',
 };
 
 export default blogMetaChIt;
