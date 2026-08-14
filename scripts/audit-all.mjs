@@ -69,6 +69,7 @@ import { factory as contentDuplicates } from './audit-content-duplicates.mjs';
 import { factory as faqpageValidity } from './audit-faqpage-validity.mjs';
 import { factory as imageObjectLicense } from './audit-image-object-license.mjs';
 import { factory as noLiteralMarkdown } from './audit-no-literal-markdown.mjs';
+import { factory as breadcrumbCoverage } from './audit-breadcrumb-coverage.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
@@ -83,6 +84,7 @@ const REGISTRY = [
   { factory: faqpageValidity, name: 'faqpage-validity' },
   { factory: imageObjectLicense, name: 'image-object-license' },
   { factory: noLiteralMarkdown, name: 'no-literal-markdown' },
+  { factory: breadcrumbCoverage, name: 'breadcrumb-coverage' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────
