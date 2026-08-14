@@ -43,6 +43,7 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
+import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -681,7 +682,18 @@ async function main() {
     const projectId = process.env.POSTHOG_PROJECT_ID;
     const host = process.env.POSTHOG_HOST;
     if (apiKey && projectId) {
-      current.posthog = await fetchPostHogCls({ apiKey, projectId, host });
+      // A dead source answers HogQL with a successful, empty result — the
+      // CLS query then returns null p75s, which used to read as a genuine
+      // "⚪ n/a" measurement rather than a source that could not be measured
+      // at all. Rule liveness first (issue #5881).
+      const liveness = await checkPostHogLiveness({ apiKey, projectId, host });
+      if (liveness.alive) {
+        current.posthog = await fetchPostHogCls({ apiKey, projectId, host });
+      } else {
+        const msg = `PostHog CLS skipped (source not alive: ${liveness.reason})`;
+        current.warnings.push(msg);
+        log('⚪', msg);
+      }
     } else {
       const msg = 'PostHog CLS skipped (POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID not set)';
       current.warnings.push(msg);

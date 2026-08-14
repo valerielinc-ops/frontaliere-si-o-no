@@ -23,6 +23,7 @@ import { fetchGa4Pages } from './lib/evidence/ga4Fetcher.mjs';
 import { fetchPosthogPages } from './lib/evidence/posthogFetcher.mjs';
 import { buildClusterStats } from './lib/evidence/clusterStatsBuilder.mjs';
 import { DEFAULT_WINDOW_DAYS } from './lib/evidence/constants.mjs';
+import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
@@ -75,6 +76,18 @@ async function main() {
     fetchPosthogPages({ startDate, endDate }),
   ]);
 
+  // A dead PostHog source answers HogQL with a successful, empty result set —
+  // fetchPosthogPages() sees no error and returns {pages: {}}, which reads
+  // identically to "genuinely zero traffic". Rule the source's actual
+  // liveness over the same window so a silent outage surfaces as a fetcher
+  // failure (evidence.posthog.error) instead of a clean zero (issue #5881).
+  if (!posthogResult.error) {
+    const liveness = await checkPostHogLiveness({ windowDays });
+    if (!liveness.alive) {
+      posthogResult.error = `source not alive: ${liveness.reason}`;
+    }
+  }
+
   const failures = [];
   if (gscResult.error) failures.push(`gsc: ${gscResult.error}`);
   if (ga4Result.error) failures.push(`ga4: ${ga4Result.error}`);
@@ -100,7 +113,9 @@ async function main() {
       pages: gscResult.pages || {},
     },
     ga4: ga4Result.error ? {} : { pages: ga4Result.pages },
-    posthog: { pages: posthogResult.pages || {} },
+    posthog: posthogResult.error
+      ? { pages: posthogResult.pages || {}, error: posthogResult.error }
+      : { pages: posthogResult.pages || {} },
     clusterStats,
     publishedArticleEmbeddings: EMBEDDINGS_PATH,
   };

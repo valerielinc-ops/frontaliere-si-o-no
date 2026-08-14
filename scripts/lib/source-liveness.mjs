@@ -266,18 +266,29 @@ export async function abstainIfSourceDead(monitorName, opts = {}) {
  *                    test asserts these are *declared*, so they cannot be
  *                    forgotten, and asserts the guarded ones actually import
  *                    and call the guard.
+ *
+ * funnel-metrics-snapshot.mjs and quality-alerts.mjs stay `guarded: false`
+ * on purpose: neither reads PostHog directly (funnel-metrics-snapshot only
+ * parses revenue-monitor's --json output; quality-alerts only parses
+ * data/evidence-index.json), so there is no PostHog call in either file for
+ * a guard to wrap. Both were fixed at the source instead — revenue-monitor.mjs
+ * now withholds `current.posthog` on a dead source (so funnel-metrics-
+ * snapshot's `sourcesOk.cls` reads false, not a stale truthy object), and
+ * build-evidence-index.mjs now stamps `posthog.error` on a dead source (so
+ * quality-alerts' B.4.posthog-fetch-failure detector fires instead of
+ * staying silent on a clean-looking empty result). See issue #5881.
  */
 export const POSTHOG_MONITORS = [
   { path: 'scripts/posthog-error-issue-sync.mjs', guarded: true, emits: 'opens GitHub issues (stability/app-error)' },
   { path: 'scripts/cwv-monitor-check.mjs', guarded: true, emits: 'opens GitHub issues (performance/cwv-regression)' },
   { path: 'scripts/campaign-goal-check.mjs', guarded: true, emits: 'opens GitHub issues (campaign-goal) + exit 1' },
   { path: 'scripts/profession-keyword-opportunities.mjs', guarded: true, emits: 'workflow opens a deduped SEO issue' },
-  { path: 'scripts/revenue-monitor.mjs', guarded: false, emits: 'CLS verdict table + history jsonl' },
+  { path: 'scripts/revenue-monitor.mjs', guarded: true, emits: 'CLS verdict table + history jsonl' },
   { path: 'scripts/funnel-metrics-snapshot.mjs', guarded: false, emits: 'comments on tracker issues #886/#855/#888/#857' },
-  { path: 'scripts/build-evidence-index.mjs', guarded: false, emits: 'data/evidence-index.json (drives thin-page filtering)' },
-  { path: 'scripts/fetch-thin-page-promotions.mjs', guarded: false, emits: 'exit 2/3 + promotion URL set' },
-  { path: 'scripts/fetch-article-performance.mjs', guarded: false, emits: 'data/article-performance.json (winners/losers)' },
-  { path: 'scripts/refresh-noslash-keep.mjs', guarded: false, emits: 'data/noslash-keep.json URL keep-list' },
-  { path: 'scripts/refresh-indexed-cluster-urls.mjs', guarded: false, emits: 'data/indexed-cluster-urls.json' },
+  { path: 'scripts/build-evidence-index.mjs', guarded: true, emits: 'data/evidence-index.json (drives thin-page filtering)' },
+  { path: 'scripts/fetch-thin-page-promotions.mjs', guarded: true, emits: 'exit 2/3 + promotion URL set' },
+  { path: 'scripts/fetch-article-performance.mjs', guarded: true, emits: 'data/article-performance.json (winners/losers)' },
+  { path: 'scripts/refresh-noslash-keep.mjs', guarded: true, emits: 'data/noslash-keep.json URL keep-list' },
+  { path: 'scripts/refresh-indexed-cluster-urls.mjs', guarded: true, emits: 'data/indexed-cluster-urls.json' },
   { path: 'scripts/quality-alerts.mjs', guarded: false, emits: 'alert exit code 8 (email channel), reads evidence-index' },
 ];

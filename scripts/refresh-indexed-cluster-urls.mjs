@@ -50,6 +50,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -287,22 +288,31 @@ async function main() {
 
   // ─── PostHog ───────────────────────────────────────────────────────────
   if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
-    try {
-      const rows = await fetchPosthog(startDate, endDate);
-      let clusterSeen = 0, kept = 0;
-      for (const row of rows) {
-        const normalized = normalizeClusterPath(row.path);
-        if (!normalized) continue;
-        clusterSeen += 1;
-        if (row.views < minImpressions) continue;
-        indexed.add(normalized);
-        kept += 1;
+    const liveness = await checkPostHogLiveness();
+    if (!liveness.alive) {
+      // A dead source answers HogQL with a successful empty result, which
+      // used to be recorded as ok:true rowsScanned:0 — indistinguishable
+      // from a real quiet day. Record it as unhealthy instead (issue #5881).
+      sources.posthog = { ok: false, reason: `source not alive: ${liveness.reason}` };
+      console.error(`[indexed-cluster-urls] PostHog: source not alive (${liveness.reason})`);
+    } else {
+      try {
+        const rows = await fetchPosthog(startDate, endDate);
+        let clusterSeen = 0, kept = 0;
+        for (const row of rows) {
+          const normalized = normalizeClusterPath(row.path);
+          if (!normalized) continue;
+          clusterSeen += 1;
+          if (row.views < minImpressions) continue;
+          indexed.add(normalized);
+          kept += 1;
+        }
+        sources.posthog = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
+        console.error(`[indexed-cluster-urls] PostHog: ${kept} non-aggregator cluster paths kept from ${clusterSeen} cluster URLs (${rows.length} rows)`);
+      } catch (err) {
+        sources.posthog = { ok: false, reason: err.message };
+        console.error(`[indexed-cluster-urls] PostHog: ${err.message}`);
       }
-      sources.posthog = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
-      console.error(`[indexed-cluster-urls] PostHog: ${kept} non-aggregator cluster paths kept from ${clusterSeen} cluster URLs (${rows.length} rows)`);
-    } catch (err) {
-      sources.posthog = { ok: false, reason: err.message };
-      console.error(`[indexed-cluster-urls] PostHog: ${err.message}`);
     }
   } else {
     sources.posthog = { ok: false, reason: 'missing POSTHOG_* env' };

@@ -50,6 +50,7 @@ import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
 import { GSC_MIN_IMP } from './lib/evidence/constants.mjs';
+import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -83,6 +84,11 @@ async function fetchPosthog(windowHours) {
   const PID = process.env.POSTHOG_PROJECT_ID;
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
   if (!PID || !KEY) throw new Error('POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing');
+  // A dead source answers HogQL with a successful, empty result — which used
+  // to leave the promoted-URL set silently at zero growth instead of
+  // counting toward the partial/fatal exit code (issue #5881).
+  const liveness = await checkPostHogLiveness({ apiKey: KEY, projectId: PID, host: HOST });
+  if (!liveness.alive) throw new Error(`source not alive: ${liveness.reason}`);
   const query = `
     SELECT properties.$pathname AS path, count() AS hits
     FROM events

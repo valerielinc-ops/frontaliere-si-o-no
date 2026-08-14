@@ -377,10 +377,16 @@ describe('the PostHog monitor fleet is fully declared', () => {
     // on purpose.
     const guarded = POSTHOG_MONITORS.filter((m: { guarded: boolean }) => m.guarded).map((m: { path: string }) => m.path).sort();
     expect(guarded).toEqual([
+      'scripts/build-evidence-index.mjs',
       'scripts/campaign-goal-check.mjs',
       'scripts/cwv-monitor-check.mjs',
+      'scripts/fetch-article-performance.mjs',
+      'scripts/fetch-thin-page-promotions.mjs',
       'scripts/posthog-error-issue-sync.mjs',
       'scripts/profession-keyword-opportunities.mjs',
+      'scripts/refresh-indexed-cluster-urls.mjs',
+      'scripts/refresh-noslash-keep.mjs',
+      'scripts/revenue-monitor.mjs',
     ]);
   });
 

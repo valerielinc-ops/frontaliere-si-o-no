@@ -41,6 +41,7 @@ import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import { fetchGa4ByPage } from './lib/perf-sources/ga4.mjs';
 import { fetchPostHogByPage } from './lib/perf-sources/posthog.mjs';
 import { fetchAdsenseChannelRevenue } from './lib/perf-sources/adsense.mjs';
+import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 import {
   composeScores,
   buildWinnerFingerprint,
@@ -394,7 +395,14 @@ async function main() {
   const [gsc, ga4, posthog, adsense] = await Promise.all([
     safe('gsc', () => fetchGscByPage({ windowDays: WINDOW_DAYS })),
     safe('ga4', () => fetchGa4ByPage({ windowDays: WINDOW_DAYS })),
-    safe('posthog', () => fetchPostHogByPage({ windowDays: WINDOW_DAYS })),
+    safe('posthog', async () => {
+      // A dead source answers HogQL with a successful, empty result — which
+      // used to read as "ok, 0 rows" and let the scoring fall back to 0
+      // instead of skipping the source. Rule liveness first (issue #5881).
+      const liveness = await checkPostHogLiveness();
+      if (!liveness.alive) throw new Error(`source not alive: ${liveness.reason}`);
+      return fetchPostHogByPage({ windowDays: WINDOW_DAYS });
+    }),
     safe('adsense', () => fetchAdsenseChannelRevenue({ windowDays: WINDOW_DAYS })),
   ]);
 
