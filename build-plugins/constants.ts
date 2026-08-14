@@ -24,6 +24,13 @@ import { execSync } from 'child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
+// Single source of truth for the ads-consent storage contract (#5842). Imported
+// rather than re-typed so the inline static loader below and the SPA gate in
+// AdSenseBanner/GptAdSlot cannot drift apart: the emitted loader string is
+// derived from these constants at build time. Safe to import here — every DOM
+// access in that module is behind a `typeof window === 'undefined'` guard, so
+// module scope is inert under Node.
+import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED } from '../services/adsConsent';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import { WEBKIT_ORIGIN_REDACTED_FRAME, ORIGIN_REDACTED_MIN_FRAMES } from '../services/benignErrorPatterns';
 import {
@@ -621,7 +628,7 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;if(window.localStorage.getItem('reader_noads_active')==='true')return;var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
+export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;if(window.localStorage.getItem('reader_noads_active')==='true')return;if(!(function(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}')==='${ADS_CONSENT_GRANTED}';}catch(e){return false;}})())return;var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
@@ -653,12 +660,18 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  * MUST stay byte-aligned with index.html's loadFc()/registry on the essentials
  * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
  * tests/index-html-fc-loader.test.ts for the CORS rationale — googlefcPresent
- * signal, requestIdleCallback/DOMContentLoaded deferral for LCP). The drift
- * guard lives in tests/offerwall-static-fc-snippet.test.ts. The registry's
- * behaviour mirrors components/community/OfferwallNewsletterGate.tsx
- * (ensureOfferwallRegistry), which is idempotent (`if (cc.registry) return`) and
- * so no-ops when this parse-time copy already set it — the gate still installs
- * the window.__ftOfferwallSubscribe hook this registry delegates to.
+ * signal, requestIdleCallback/DOMContentLoaded deferral for LCP, and — since
+ * #5894 — the same fail-closed advertising-consent read as ADSENSE_LOADER_
+ * CONTENT/index.html before the loader `<script>` is appended: only a literal
+ * ADS_CONSENT_GRANTED opens it). The drift guard lives in
+ * tests/offerwall-static-fc-snippet.test.ts. The registry's behaviour mirrors
+ * components/community/OfferwallNewsletterGate.tsx (ensureOfferwallRegistry),
+ * which is idempotent (`if (cc.registry) return`) and so no-ops when this
+ * parse-time copy already set it — the gate still installs the
+ * window.__ftOfferwallSubscribe hook this registry delegates to. The registry
+ * itself stays consent-UNGATED (it defines a callback object, makes no network
+ * call, and must exist before FC — whenever it eventually loads — can call
+ * into it).
  *
  * The anti-adblock fallback IIFE that index.html also runs from loadFc() is
  * deliberately NOT included here — it is a separate feature, out of scope for

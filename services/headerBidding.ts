@@ -27,6 +27,7 @@ import type { GptSize } from '@/components/shared/GptAdSlot';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { bidsForAdUnit, hasConfiguredBidders } from '@/services/prebidConfig';
+import { isAdsConsentGranted } from '@/services/adsConsent';
 
 /**
  * Master flag for the entire header-bidding stack. Flip to `true` ONLY once the
@@ -120,6 +121,15 @@ function handleScriptLoadError(): void {
 }
 
 function ensurePrebidScript(): void {
+  // ── ADVERTISING CONSENT GATE (#5842) ────────────────────────────────
+  // Prebid is an advertising script: it broadcasts bid requests to third-party
+  // bidders and forwards the TCF consent string to them. Today it is reachable
+  // only from inside a `googletag.cmd` callback, which cannot drain while
+  // gpt.js is blocked — so it is *transitively* gated already. That is exactly
+  // the kind of guarantee this workspace has been burned by: a contract with no
+  // import form, holding only as long as an unrelated call site keeps its
+  // shape. Gated explicitly, before the sticky `scriptRequested` latch.
+  if (!isAdsConsentGranted()) return;
   if (scriptRequested || typeof document === 'undefined') return;
   scriptRequested = true;
   pbjs(); // ensure window.pbjs.que exists before the bundle evaluates

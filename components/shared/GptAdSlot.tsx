@@ -23,6 +23,7 @@ import { trackAdEvent } from '@/services/adAnalytics';
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
+import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 
 // Master flag for the GPT stack (PoC activated in #2289). Flip to `false`
 // (one-line, then deploy) to disable every GPT slot if GPT serving regresses
@@ -56,6 +57,12 @@ const gtag = (): any => {
 };
 
 function ensureGptScript(): void {
+  // ── ADVERTISING CONSENT GATE (#5842) ────────────────────────────────
+  // Placed BEFORE the `gptScriptRequested` latch on purpose: that latch is
+  // sticky and module-scoped, so gating after it would mark the script as
+  // "requested" on a blocked call and permanently lock out a visitor who
+  // accepts later in the same page view. Fails closed — services/adsConsent.ts.
+  if (!isAdsConsentGranted()) return;
   if (gptScriptRequested || typeof document === 'undefined') return;
   gptScriptRequested = true;
   gtag();
@@ -160,6 +167,10 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   const onEmptyChangeRef = useRef(onEmptyChange);
   onEmptyChangeRef.current = onEmptyChange;
   const active = GPT_ENABLED && enabled && IS_PROD && !SKIP_FOR_BOT && !killed;
+  // Re-arms the define/display effect when the visitor answers the ads-consent
+  // banner (#5842), so accepting fills the rail in the same page view.
+  const [adsConsentTick, setAdsConsentTick] = useState(0);
+  useEffect(() => onAdsConsentChange(() => setAdsConsentTick((t) => t + 1)), []);
 
   useEffect(() => {
     if (!active) return;
@@ -285,7 +296,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         /* fail-soft */
       }
     };
-  }, [active, adUnitPath, sizes]);
+  }, [active, adUnitPath, sizes, adsConsentTick]);
 
   if (!active) return null;
 

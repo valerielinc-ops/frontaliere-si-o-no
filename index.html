@@ -485,9 +485,19 @@
          message still renders if an ad-blocker is detected. -->
     <script>
       (function(){
+        // Fail-closed advertising-consent read, same contract as
+        // ADSENSE_LOADER_CONTENT (build-plugins/constants.ts) and
+        // services/adsConsent.ts (#5842/#5894) — only a literal 'granted'
+        // opens the gate; anything else (null, 'denied', a thrown read) blocks.
+        function hasAdsConsent(){
+          try { return window.localStorage.getItem('frontaliere_ads_consent') === 'granted'; } catch(e) { return false; }
+        }
         function loadFc(){
           // 1. Inject FundingChoices loader (ad-blocking recovery message).
-          if (!document.querySelector('script[data-fc-loader]')) {
+          // Gated behind the same advertising consent as AdSense/GPT/Prebid:
+          // this is the CMP/ad script the ads-consent-gate test suite's
+          // injectedAdScripts() helper matches against fundingchoicesmessages.google.com.
+          if (!document.querySelector('script[data-fc-loader]') && hasAdsConsent()) {
             var s = document.createElement('script');
             s.async = true;
             // NOTE: do NOT set crossOrigin. Google FC `/i/pub-XXX` does not serve
@@ -516,8 +526,12 @@
           // 3. Run the inline anti-adblock fallback IIFE (defined as inert
           //    text/plain script below — we eval its body once via new Function
           //    so the parser never sees it as executable JS during LCP).
+          //    Gated behind the same hasAdsConsent() as step 1: this IIFE
+          //    fetches from fundingchoicesmessages.google.com and can render
+          //    the "disable ad blocker" overlay — same CMP/ad script as the
+          //    loader, so it cannot run before consent either (#5894 review).
           var inert = document.getElementById('fc-fallback-src');
-          if (inert && !inert.dataset.fcRan) {
+          if (inert && !inert.dataset.fcRan && hasAdsConsent()) {
             inert.dataset.fcRan = '1';
             try { (new Function(inert.textContent))(); } catch(e) { /* fail-soft */ }
           }
