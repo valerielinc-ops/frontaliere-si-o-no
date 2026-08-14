@@ -456,9 +456,26 @@ export function repairTextField(value, { allowTruncate = false } = {}) {
  * approfitta per cancellarle sta facendo un secondo lavoro che nessuno ha
  * misurato — esattamente il modo in cui una bonifica diventa una regressione.
  *
+ * ## `minPairs`, e perche' non e' sempre 2
+ *
+ * La soglia delle 2 coppie e' quella di `ogPagesPlugin.ts` sul campo PUBBLICATO,
+ * e resta il default: chi scrive un `faq` finito lo vuole sopra la soglia
+ * dell'engine o non lo vuole affatto.
+ *
+ * `scripts/batch-add-faq-to-articles.mjs` pero' non chiama questa funzione sul
+ * campo finito: la chiama su un risultato INTERMEDIO che il suo `MIN_FAQ_PAIRS`
+ * (3) valuta dopo, e il suo percorso di top-up e' armato **esattamente** dal
+ * caso 1-2 coppie (`validFaq.length > 0 && validFaq.length < MIN_FAQ_PAIRS` →
+ * seconda chiamata LLM che le completa). Collassare a `null` sotto le 2 li'
+ * spegnerebbe il top-up per il caso di UNA coppia, che e' proprio quello che
+ * esiste per essere recuperato — una regressione silenziosa introdotta da un
+ * guard sui segnaposto, cioe' la stessa forma di errore che `dropShort`
+ * descrive qui sopra. Da li' si passa `minPairs: 1`, e la soglia vera resta
+ * dove gia' era, nel chiamante.
+ *
  * @returns {{ pairs: Array<{q:string,a:string}>|null, repaired: number, dropped: Array }}
  */
-export function cleanFaqPairs(pairs, { dropShort = true } = {}) {
+export function cleanFaqPairs(pairs, { dropShort = true, minPairs = 2 } = {}) {
   if (!Array.isArray(pairs)) return { pairs: null, repaired: 0, dropped: [] };
   const kept = [];
   const dropped = [];
@@ -488,7 +505,7 @@ export function cleanFaqPairs(pairs, { dropShort = true } = {}) {
     if (q.stripped || a.stripped) repaired += 1;
     kept.push({ ...pair, q: nextQ, a: nextA });
   }
-  return { pairs: kept.length >= 2 ? kept : null, repaired, dropped };
+  return { pairs: kept.length >= minPairs ? kept : null, repaired, dropped };
 }
 
 /**
@@ -516,6 +533,18 @@ export function cleanFaqPairs(pairs, { dropShort = true } = {}) {
  * `hasFile` e' richiesto perche' l'assenza del file `it` e' un difetto di
  * un'altra classe (un articolo pubblicato solo in traduzione): li' cancellare
  * distruggerebbe l'unico contenuto rimasto invece di ripararlo.
+ *
+ * ## A chi serve, visto che oggi non ha chiamanti
+ *
+ * Nessuno la chiama nel percorso di SCRITTURA, ed e' voluto: li' la FAQ `it` e
+ * le sue traduzioni nascono e cadono insieme, quindi un orfano non si forma.
+ * Serve al percorso di BONIFICA — quello che tocca il gia' pubblicato — dove
+ * invece si forma sempre, perche' i letterali italiani matchano solo su `it`.
+ * Quel percorso e' tracciato in #5834 (il ratchet sul pubblicato che oggi il
+ * sito non ha; il corpus lo ha, e ha anche il suo `repair-prompt-placeholders`).
+ * Fino ad allora resta esercitata dal solo banco: e' una funzione pura, e la
+ * cosa che protegge — non lasciare tre chiavi orfane dietro una riparazione —
+ * si sbaglia molto piu' facilmente riscrivendola che leggendola.
  *
  * @param {Record<string, {hasFile?: boolean, hasFaq?: boolean}>} faqByLocale
  * @param {{sourceLocale?: string}} [opts]

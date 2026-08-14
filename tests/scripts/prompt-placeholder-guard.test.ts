@@ -10,6 +10,7 @@ import {
   findPromptPlaceholders,
   hasPromptPlaceholder,
   cleanFaqPairs,
+  orphanFaqLocales,
   sanitizePromptPlaceholders,
 } from '../../scripts/lib/prompt-placeholder-guard.mjs';
 
@@ -249,6 +250,108 @@ describe('wiring — il guard e\' cablato sul percorso di scrittura CONDIVISO', 
       /const validFaq = rawFaq\.filter/.test(createArticleSrc),
       'il vecchio filtro di sola FORMA e\' ancora al suo posto: una FAQ segnaposto lo supera (stampava "✅ FAQ: 3 coppie valide" sullo schema puro)',
     ).toBe(false);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 3-bis. WIRING — il SECONDO generatore che scrive FAQ nei body pubblicati
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// `create-article.mjs` non e' l'unico produttore di FAQ del sito.
+// `batch-add-faq-to-articles.mjs` genera coppie via LLM
+// (`generateFaqIT`/`generateTopUpFaqIT`), le traduce e le scrive nei body file
+// pubblicati (`insertFaqIntoBodyFile`) — da cui `engine/ogPagesPlugin.ts` fa lo
+// schema FAQPage. Aveva la copia esatta del filtro di sola FORMA che questa PR
+// ha tolto dall'altro lato (`q.length > 10 && a.length > 20` in `validateFaq`),
+// quindi la stessa FAQ segnaposto usciva come structured data reale passando di
+// qua. Trovato in review su questa PR, non da un gate: e' la ragione per cui il
+// blocco esiste.
+
+describe('wiring — batch-add-faq-to-articles.mjs, il secondo produttore di FAQ', () => {
+  const BATCH = path.join(ROOT, 'scripts', 'batch-add-faq-to-articles.mjs');
+  const batchSrc = fs.readFileSync(BATCH, 'utf-8');
+
+  it('importa il guard condiviso', () => {
+    expect(batchSrc).toMatch(/from '\.\/lib\/prompt-placeholder-guard\.mjs'/);
+  });
+
+  it('validateFaq passa da cleanFaqPairs, non piu\' da un filtro di sola lunghezza', () => {
+    const i = batchSrc.indexOf('function validateFaq');
+    expect(i, 'validateFaq non trovata').toBeGreaterThan(0);
+    const corpo = batchSrc.slice(i, i + 1200);
+    expect(corpo, 'validateFaq non chiama il guard').toContain('cleanFaqPairs(faq');
+    expect(
+      /pair\.q\.length > 10 && pair\.a\.length > 20/.test(corpo),
+      'il filtro di sola FORMA e\' ancora dentro validateFaq: una coppia segnaposto dello schema e\' lunga abbastanza e lo supera',
+    ).toBe(false);
+  });
+
+  it('conserva la soglia di UNA coppia, perche\' e\' quella che arma il top-up', () => {
+    // `MIN_FAQ_PAIRS` (3) e il ramo `validFaq.length > 0 && validFaq.length <
+    // MIN_FAQ_PAIRS` vivono nel CHIAMANTE: se validateFaq collassasse a null
+    // sotto le 2 coppie, il top-up non partirebbe mai per il caso di UNA — che
+    // e' esattamente il caso per cui esiste.
+    const i = batchSrc.indexOf('function validateFaq');
+    const corpo = batchSrc.slice(i, i + 1200);
+    expect(corpo, 'la soglia dell\'engine (2) e\' stata importata dove non serve').toContain('minPairs: 1');
+    expect(corpo, 'il cap a 7 e\' sparito').toContain('slice(0, 7)');
+  });
+
+  it('minPairs non allenta il default: chi scrive il campo finito resta a 2', () => {
+    // Il difetto che questo previene: aggiungere `minPairs` e lasciarlo a 1
+    // ovunque spegnerebbe la soglia di `ogPagesPlugin.ts` sul percorso di
+    // create-article.mjs, cioe' proprio la protezione che la PR installa.
+    const unaCoppiaVera = [{ q: 'Chi paga i contributi del frontaliere?', a: 'Li versa il datore di lavoro svizzero, con la quota a carico del dipendente trattenuta in busta paga.' }];
+    expect(cleanFaqPairs(unaCoppiaVera).pairs, 'il default deve restare la soglia dell\'engine (2)').toBeNull();
+    expect(cleanFaqPairs(unaCoppiaVera, { minPairs: 1 }).pairs).toHaveLength(1);
+  });
+
+  it('una FAQ segnaposto viene scartata anche con minPairs: 1 — la soglia non e\' una scappatoia', () => {
+    // L'asserzione che rende non vacuo il blocco: abbassare la soglia non deve
+    // far passare il CONTENUTO che il guard esiste per fermare.
+    const schema = [
+      { q: 'Domanda frequente 1 basata sui fatti dell\'articolo?', a: 'Risposta con dati DALLA FONTE. 50-100 parole.' },
+      { q: 'Domanda frequente 2', a: 'Risposta pratica basata sulla fonte. 50-100 parole.' },
+    ];
+    const { pairs, dropped } = cleanFaqPairs(schema, { minPairs: 1 });
+    expect(pairs, 'lo schema puro e\' passato con la soglia abbassata').toBeNull();
+    expect(dropped.filter((d: any) => d.placeholder).length).toBe(2);
+  });
+});
+
+describe('orphanFaqLocales — esercitata dal banco finche\' la bonifica (#5834) non la cabla', () => {
+  // Non ha chiamanti nel percorso di scrittura, per costruzione (li' la FAQ it
+  // e le sue traduzioni nascono e cadono insieme). Il test esiste perche' un
+  // export puro senza nessuno che lo eserciti e' cio' che marcisce in silenzio.
+  it('segnala le locali tradotte rimaste senza originale it', () => {
+    expect(
+      orphanFaqLocales({
+        it: { hasFile: true, hasFaq: false },
+        en: { hasFile: true, hasFaq: true },
+        de: { hasFile: true, hasFaq: true },
+        fr: { hasFile: true, hasFaq: false },
+      }),
+    ).toEqual(['de', 'en']);
+  });
+
+  it('non tocca niente se it ha ancora la sua FAQ', () => {
+    expect(
+      orphanFaqLocales({
+        it: { hasFile: true, hasFaq: true },
+        en: { hasFile: true, hasFaq: true },
+      }),
+    ).toEqual([]);
+  });
+
+  it('non tocca niente se il file it non esiste — e\' un difetto di un\'altra classe', () => {
+    // Un articolo pubblicato solo in traduzione: qui cancellare distruggerebbe
+    // l'unico contenuto rimasto invece di ripararlo.
+    expect(
+      orphanFaqLocales({
+        it: { hasFile: false, hasFaq: false },
+        en: { hasFile: true, hasFaq: true },
+      }),
+    ).toEqual([]);
   });
 });
 
