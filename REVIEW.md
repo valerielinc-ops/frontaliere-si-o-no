@@ -78,8 +78,22 @@ PR body DEVE avere:
 - Lista cosa la PR fa.
 
 ## Non implementato (ancora)
-- Piano di completamento: scope ancora dovuto + stato/next-step (in questa PR / PR concatenata #N / blocked: <causa>). «Nessuno» = task completo. Vedi AGENTS.md #8.
+- <scope ancora dovuto> — <stato letterale>
 ```
+
+«Nessuno» al posto dei bullet = task completo (AGENTS.md #8).
+
+Gli **stati letterali** ammessi sono CINQUE, e sono quelli che le macchine riconoscono — `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`, da cui `scripts/ci/followup-has-candidates.mjs` importa `bulletState()`. Elencarne solo tre qui rendeva questo doc più stretto dei gate, quindi un `per scelta` legittimo tornava come finding:
+
+| stato | significato | il task resta aperto? |
+|---|---|---|
+| `in questa PR` | è già nel diff che si sta mergiando | no |
+| `PR concatenata #N` | tracciato altrove, col NUMERO | no (lo tiene la catena) |
+| `per scelta` / `by construction` | un no motivato, non un rinvio | no |
+| `blocked: decisione del proprietario` | un no di chi decide | no |
+| `blocked: <causa tecnica>` | lavoro sospeso su una causa esterna | **sì** |
+
+`per scelta` e `by construction` non sono una scappatoia con un nome nuovo: valgono **solo** se il bullet porta anche il motivo. Un bullet che dice `per scelta` e basta è un `out of scope` travestito → 🔴.
 
 ### Reviewer behavior
 
