@@ -54,13 +54,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chauffeur-cat-c-m-f-d-planzer-chavornay",
-        "katzenfahrer-c-m-w-d-planzer-chavornay",
-        "guidatore-di-gatti-c-m-f-d-planzer-chavornay"
+        "katzenfahrer-c-m-w-d-planzer-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-cat-c-m-f-d-planzer-chavornay",
-          "guidatore-di-gatti-c-m-f-d-planzer-chavornay"
+          "chauffeur-cat-c-m-f-d-planzer-chavornay"
         ],
         "en": [
           "chauffeur-cat-c-m-f-d-planzer-chavornay"
@@ -136,13 +134,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "personalverantwortlicher-m-w-d-planzer-winterthur",
-        "responsabile-personale-m-f-d-planzer-winterthur"
+        "personalverantwortlicher-m-w-d-planzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "personalverantwortlicher-m-w-d-planzer-winterthur",
-          "responsabile-personale-m-f-d-planzer-winterthur"
+          "personalverantwortlicher-m-w-d-planzer-winterthur"
         ],
         "en": [
           "personalverantwortlicher-m-w-d-planzer-winterthur"
@@ -282,13 +278,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-m-w-d-planzer-seewen",
-        "chauffeur-cat-c-m-f-d-planzer-seewen"
+        "chauffeur-kat-c-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-m-w-d-planzer-seewen",
-          "chauffeur-cat-c-m-f-d-planzer-seewen"
+          "chauffeur-kat-c-m-w-d-planzer-seewen"
         ],
         "en": [
           "chauffeur-kat-c-m-w-d-planzer-seewen"
@@ -367,8 +361,7 @@
         "collaboratore-trice-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
         "employee-envelope-chauffeur-cat-b-be-m-f-d-planzer-kolliken",
         "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
-        "enveloppe-des-employes-chauffeur-cat-b-be-m-f-d-planzer-kolliken",
-        "chauffeur-cat-be-night-m-f-d-planzer-kolliken"
+        "enveloppe-des-employes-chauffeur-cat-b-be-m-f-d-planzer-kolliken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -376,8 +369,7 @@
           "collaboratore-trice-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
           "employee-envelope-chauffeur-cat-b-be-m-f-d-planzer-kolliken",
           "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
-          "enveloppe-des-employes-chauffeur-cat-b-be-m-f-d-planzer-kolliken",
-          "chauffeur-cat-be-night-m-f-d-planzer-kolliken"
+          "enveloppe-des-employes-chauffeur-cat-b-be-m-f-d-planzer-kolliken"
         ],
         "en": [
           "chauffeur-kat-be-nacht-m-w-d-planzer-kolliken",
@@ -476,8 +468,8 @@
       "slugByLocale": {
         "de": "lehrstelle-strassentransportfachmann-frau-efz-planzer-kallnach",
         "it": "apprendistato-specialista-in-trasporti-stradali-cfc-planzer-kallnach",
-        "en": "lehrstelle-strassentransportfachmann-frau-efz-planzer-kallnach",
-        "fr": "lehrstelle-strassentransportfachmann-frau-efz-planzer-kallnach"
+        "en": "apprenticeship-of-road-transport-specialist-efz-planzer-kallnach",
+        "fr": "apprentissage-du-specialiste-des-transports-routiers-efz-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -525,6 +517,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-strassentransportfachmann-frau-efz-planzer-kallnach"
+        ],
+        "en": [
+          "lehrstelle-strassentransportfachmann-frau-efz-planzer-kallnach"
+        ],
+        "fr": [
+          "lehrstelle-strassentransportfachmann-frau-efz-planzer-kallnach"
         ]
       },
       "previousSlugs": [
@@ -550,8 +548,8 @@
       "slugByLocale": {
         "de": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-kallnach",
         "it": "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-kallnach",
-        "en": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-kallnach",
-        "fr": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-kallnach"
+        "en": "apprenticeship-logistician-in-efz-field-of-specialization-warehouse-planzer-kallnach",
+        "fr": "apprentissage-logisticien-dans-efz-domaine-de-specialisation-entrepot-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -600,6 +598,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-kallnach"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-kallnach"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-kallnach"
         ]
       },
       "previousSlugs": [
@@ -625,8 +629,8 @@
       "slugByLocale": {
         "de": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-lyss",
         "it": "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-lyss",
-        "en": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-lyss",
-        "fr": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-lyss"
+        "en": "apprenticeship-logistician-in-efz-field-of-specialization-warehouse-planzer-lyss",
+        "fr": "apprentissage-logisticien-dans-efz-domaine-de-specialisation-entrepot-planzer-lyss"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -674,6 +678,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-lyss"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-lyss"
+        ],
+        "fr": [
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-lyss"
         ]
       },
@@ -1021,7 +1031,7 @@
         "it": "scelta-logistica-m-f-d-planzer-kallnach",
         "en": "logistics-picking-m-f-d-planzer-kallnach",
         "de": "logistiker-kommissionierung-m-w-d-planzer-kallnach",
-        "fr": "logistiker-kommissionierung-m-w-d-planzer-kallnach"
+        "fr": "recherche-logistique-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1066,8 +1076,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "logistiker-kommissionierung-m-w-d-planzer-kallnach",
-        "collecte-logistique-m-f-d-planzer-kallnach",
-        "recherche-logistique-h-f-d-planzer-kallnach"
+        "collecte-logistique-m-f-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1078,7 +1087,6 @@
         ],
         "fr": [
           "collecte-logistique-m-f-d-planzer-kallnach",
-          "recherche-logistique-h-f-d-planzer-kallnach",
           "logistiker-kommissionierung-m-w-d-planzer-kallnach"
         ]
       },

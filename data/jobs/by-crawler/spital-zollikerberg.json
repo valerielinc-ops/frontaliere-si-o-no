@@ -55,8 +55,7 @@
         "dipl-nursing-professional-dipl-care-professional-pool-spital-zollikerberg-zollikerberg",
         "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg",
         "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-spital-zollikerberg-zollikerberg",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,8 +63,7 @@
           "dipl-nursing-professional-dipl-care-professional-pool-spital-zollikerberg-zollikerberg",
           "dipl-pflegefachfrau-dipl-pflegefachmann-pool-spital-zollikerberg-zollikerberg",
           "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-spital-zollikerberg-zollikerberg",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-zollikerberg-zollikerberg"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg"
@@ -217,13 +215,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg-zollikerberg",
-        "dipl-esperto-dipl-esperti-anestesia-cura-nds-hf-stazionario-spital-zollikerberg-zollikerberg"
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
-          "dipl-esperto-dipl-esperti-anestesia-cura-nds-hf-stazionario-spital-zollikerberg-zollikerberg"
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
         ],
         "en": [
           "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
@@ -330,8 +326,8 @@
       "slugByLocale": {
         "de": "wissenschaftlicher-mitarbeiter-wissenschaftliche-mitarbeiterin-projektmanagement-im",
         "it": "wissenschaftlicher-collaboratore-trice-wissenschaftliche-mitarbeiterin-projektmanagement-im-gesundheitswesen-middle-office-spital-zollikerberg",
-        "en": "wissenschaftlicher-mitarbeiter-wissenschaftliche-mitarbeiterin-projektmanagement-im",
-        "fr": "wissenschaftlicher-mitarbeiter-wissenschaftliche-mitarbeiterin-projektmanagement-im"
+        "en": "research-assistant-research-assistant-project-management-in-the-healthcare-middle-office-spital-zollikerberg",
+        "fr": "assistant-de-recherche-assistant-de-recherche-gestion-de-projet-dans-le-milieu-de-la-sante-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -378,6 +374,12 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftlicher-mitarbeiter-wissenschaftliche-mitarbeiterin-projektmanagement-im"
+        ],
+        "en": [
+          "wissenschaftlicher-mitarbeiter-wissenschaftliche-mitarbeiterin-projektmanagement-im"
+        ],
+        "fr": [
+          "wissenschaftlicher-mitarbeiter-wissenschaftliche-mitarbeiterin-projektmanagement-im"
         ]
       },
       "previousSlugs": [
@@ -399,12 +401,12 @@
     },
     {
       "id": "spital-zollikerberg-4cc3b655b10d",
-      "slug": "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische",
+      "slug": "foundation-diakoniewerk-neumunster-application-manager-clinical-processs-middle-office-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische",
-        "it": "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische",
-        "en": "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische",
-        "fr": "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
+        "it": "foundation-diakoniewerk-neumunster-application-manager-clinical-processs-middle-office-spital-zollikerberg-zollikerberg",
+        "en": "foundation-diakoniewerk-neumunster-application-manager-clinical-processes-middle-office-spital-zollikerberg-zollikerberg",
+        "fr": "fondation-diakoniewerk-neumunster-gestionnaire-d-applications-processus-cliniques-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -460,7 +462,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
+        ],
+        "en": [
+          "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
+        ],
+        "fr": [
+          "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
+        ]
+      },
+      "previousSlugs": [
+        "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
+      ]
     },
     {
       "id": "spital-zollikerberg-d1b0a4055b99",
