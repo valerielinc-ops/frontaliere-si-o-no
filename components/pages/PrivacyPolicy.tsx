@@ -124,9 +124,12 @@ export const PrivacyPolicy: React.FC = () => {
           <div className="space-y-3 text-subtle">
             <p>
               Utilizziamo strumenti di analisi per comprendere come gli utenti interagiscono con il sito
-              e migliorare il servizio. Questi strumenti sono attivati <strong>solo previo tuo consenso</strong>
-              (art. 6, par. 1, lett. a, GDPR; art. 6 nLPD), espresso tramite il banner cookie; in assenza di
-              consenso non vengono caricati. Puoi modificare o revocare il consenso in qualsiasi momento.
+              e migliorare il servizio. <strong>Non presentiamo un banner di raccolta del consenso</strong>: questi
+              strumenti si attivano automaticamente dalla tua prima visita, sulla base del <strong>legittimo
+              interesse</strong> del Titolare a comprendere l'uso del sito (art. 6, par. 1, lett. f, GDPR; art. 31
+              nLPD). Puoi opporti in qualsiasi momento tramite le impostazioni del tuo browser o estensioni come
+              «uBlock Origin» (vedi sotto); non offriamo al momento un controllo di preferenza equivalente
+              all'interno del sito.
             </p>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Google Analytics 4</h3>
@@ -141,7 +144,9 @@ export const PrivacyPolicy: React.FC = () => {
               <p className="text-sm">
                 Analisi comportamentale anonima con dati ospitati in Europa (Francoforte).
                 Registra visualizzazioni di pagina e percorsi di navigazione per ottimizzare l'esperienza utente.
-                Non raccoglie dati personali identificabili (PII) e non effettua profilazione individuale.
+                Non raccoglie dati personali identificabili (PII) e non effettua profilazione individuale. Per un
+                campione del <strong>30% delle sessioni</strong> registra inoltre una riproduzione video anonima
+                della navigazione (session replay), per individuare problemi di usabilità.
               </p>
             </div>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
@@ -152,8 +157,8 @@ export const PrivacyPolicy: React.FC = () => {
               </p>
             </div>
             <p className="text-sm italic mt-2">
-              Puoi disabilitare la raccolta di statistiche dal banner cookie (rifiutando la categoria
-              «Analytics»), tramite le impostazioni del tuo browser o estensioni come «uBlock Origin».
+              Puoi disabilitare la raccolta di statistiche tramite le impostazioni del tuo browser o
+              estensioni come «uBlock Origin».
             </p>
           </div>
         </div>
@@ -256,28 +261,37 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2 flex items-center gap-2">
                 <Mail className="text-accent flex-shrink-0" size={18} />
-                Frequenza adattiva del bollettino quotidiano
+                Tracciamento di aperture e clic, punteggio di engagement
               </h3>
               <p className="text-sm">
-                Il <em>Bollettino del Frontaliere</em> non viene inviato con la stessa frequenza a tutti. Per non
-                riempire la casella di chi non lo legge, la frequenza di invio si adatta al singolo destinatario:
-                registriamo le <strong>aperture e i clic sui link del bollettino</strong> — gli stessi eventi che i
-                fornitori di posta ci comunicano già per newsletter e job alert — e da questi ricaviamo un intervallo
-                fra un invio e il successivo, da un giorno a una settimana. Chi clicca torna alla frequenza
-                giornaliera; dopo tre invii senza alcuna interazione l'intervallo si allunga di un passo.
+                Per ogni email che ti inviamo (newsletter, job alert, bollettino) registriamo se l'hai
+                <strong> aperta</strong> e se hai <strong> cliccato</strong> su un link — gli stessi eventi che il
+                fornitore di posta ci comunica già in modo standard. Da questi eventi calcoliamo un
+                <strong> punteggio di engagement</strong> (0-100, basato su tasso di apertura, tasso di clic e
+                recenza dell'ultima interazione) che determina: la priorità con cui ricevi i nostri invii, l'invio
+                di email di ri-coinvolgimento a chi è diventato inattivo e, in assenza di risposta, la
+                <strong> sospensione</strong> automatica degli invii verso indirizzi rimasti a lungo senza alcuna
+                interazione. Un clic sul link di cancellazione non conta come engagement.
               </p>
               <p className="text-sm mt-2">
-                <strong>Cosa conserviamo.</strong> Sul tuo record di iscrizione: la data dell'ultimo bollettino
-                inviato, l'intervallo corrente in giorni, il numero di invii consecutivi senza interazione e
-                l'eventuale frequenza che hai scelto tu. Non profiliamo il contenuto dei clic oltre al fatto che sono
-                avvenuti.
+                <strong>Frequenza adattiva del bollettino quotidiano.</strong> Il <em>Bollettino del Frontaliere</em>
+                non viene inviato con la stessa frequenza a tutti: usando le stesse aperture e clic ricaviamo un
+                intervallo fra un invio e il successivo, da un giorno a una settimana. Chi clicca torna alla
+                frequenza giornaliera; dopo tre invii senza alcuna interazione l'intervallo si allunga di un passo.
               </p>
               <p className="text-sm mt-2">
-                <strong>Base giuridica e opposizione.</strong> Legittimo interesse a limitare la frequenza delle
-                comunicazioni, con opposizione effettiva: dal link <em>«Gestisci preferenze»</em> in fondo a ogni
-                bollettino puoi fissare tu la frequenza (da giornaliera a settimanale) oppure disattivare il solo
-                bollettino, lasciando attivi newsletter e job alert. Una frequenza scelta da te prevale sempre
-                sull'algoritmo.
+                <strong>Cosa conserviamo.</strong> Sul tuo record di iscrizione: conteggio e data di aperture/clic,
+                il punteggio di engagement corrente, la data dell'ultimo bollettino inviato, l'intervallo corrente
+                in giorni, il numero di invii consecutivi senza interazione e l'eventuale frequenza che hai scelto
+                tu. Non profiliamo il contenuto dei clic oltre al fatto che sono avvenuti.
+              </p>
+              <p className="text-sm mt-2">
+                <strong>Base giuridica e opposizione.</strong> Legittimo interesse a misurare l'efficacia degli
+                invii, limitarne la frequenza verso chi non li legge e non continuare a scrivere a indirizzi
+                inattivi. Dal link <em>«Gestisci preferenze»</em> in fondo a ogni email puoi fissare tu la
+                frequenza del bollettino (da giornaliera a settimanale), disattivare il solo bollettino lasciando
+                attivi newsletter e job alert, oppure cancellarti del tutto. Una frequenza scelta da te prevale
+                sempre sull'algoritmo.
               </p>
             </div>
           </div>
@@ -311,11 +325,10 @@ export const PrivacyPolicy: React.FC = () => {
           <div className="space-y-3 text-subtle">
             <p>
               Il sito utilizza cookie e tecnologie di storage locale per funzionare e per migliorare la tua
-              esperienza. Al primo accesso un banner ti consente di <strong>accettare, rifiutare o personalizzare</strong>
-              le categorie non essenziali (Analytics e Pubblicità); i cookie tecnici sono sempre attivi perché
-              indispensabili. Le tue scelte sono memorizzate e modificabili in qualsiasi momento. Le categorie non
-              essenziali sono caricate solo dopo il consenso, in conformità alla Direttiva ePrivacy 2002/58/CE e
-              all'art. 122 del Codice Privacy.
+              esperienza. I cookie tecnici sono sempre attivi perché indispensabili al funzionamento del sito. Le
+              categorie non essenziali (Analytics e Pubblicità) si attivano automaticamente dalla tua prima visita,
+              senza un banner di raccolta del consenso preventivo — vedi «Analisi Anonima del Traffico» e
+              «Pubblicità» per la base giuridica e come opporti.
             </p>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Cookie Tecnici</h3>
@@ -328,15 +341,15 @@ export const PrivacyPolicy: React.FC = () => {
               <h3 className="font-medium text-heading mb-2">Cookie Analytics</h3>
               <p className="text-sm">
                 Cookie di Google Analytics, PostHog e Microsoft Clarity per statistiche anonime
-                (vedi sezione «Analisi Anonima del Traffico»). Soggetti a consenso.
+                (vedi sezione «Analisi Anonima del Traffico»). Attivi dalla prima visita, non soggetti a consenso
+                preventivo.
               </p>
             </div>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Cookie Pubblicitari</h3>
               <p className="text-sm">
-                Cookie di Google AdSense per la visualizzazione di annunci (vedi sezione «Pubblicità»).
-                Soggetti a consenso; in assenza di consenso vengono mostrati, ove disponibili, annunci non
-                personalizzati.
+                Cookie di Google AdSense per la visualizzazione di annunci, anche personalizzati (vedi sezione
+                «Pubblicità»). Attivi dalla prima visita, non soggetti a consenso preventivo.
               </p>
             </div>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
@@ -364,11 +377,12 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Consenso e personalizzazione</h3>
               <p className="text-sm">
-                Per gli utenti dello Spazio Economico Europeo, del Regno Unito e della Svizzera, la
-                personalizzazione degli annunci avviene solo previo consenso, raccolto tramite il banner cookie in
-                conformità alla policy di Google sul consenso degli utenti UE. Se rifiuti la categoria
-                «Pubblicità», potranno comunque essere mostrati annunci <strong>non personalizzati</strong>.
-                Puoi gestire le preferenze pubblicitarie di Google in qualsiasi momento su{' '}
+                <strong>Non presentiamo un banner di raccolta del consenso</strong>: gli annunci, anche
+                personalizzati, possono essere mostrati dalla tua prima visita. Per gli utenti dello Spazio
+                Economico Europeo, del Regno Unito e della Svizzera comunichiamo comunque a Google, tramite Google
+                Consent Mode v2, un segnale di consenso predefinito concesso, in assenza di un meccanismo che
+                raccolga una scelta esplicita. Puoi gestire le preferenze pubblicitarie di Google in qualsiasi
+                momento su{' '}
                 <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-accent underline">adssettings.google.com</a>{' '}
                 e informarti su{' '}
                 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-accent underline">come Google usa i dati</a>.
@@ -398,6 +412,16 @@ export const PrivacyPolicy: React.FC = () => {
               Quando la base è il consenso, puoi revocarlo in qualsiasi momento senza che ciò pregiudichi la
               liceità dei trattamenti svolti prima della revoca.
             </p>
+            <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
+              <h3 className="font-medium text-heading mb-2">Cessione, fusione o vendita dell'attività</h3>
+              <p className="text-sm">
+                Se il sito, o un suo ramo di attività, viene ceduto, conferito o fuso in un'altra azienda, i dati
+                che trattiamo possono essere trasferiti a chi acquista, insieme all'attività, e il trattamento
+                prosegue alle condizioni descritte in questa informativa. Se dopo il trasferimento le finalità
+                cambiano, te ne verrà data notizia aggiornando questa pagina prima che il cambiamento abbia
+                effetto.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -559,10 +583,12 @@ export const PrivacyPolicy: React.FC = () => {
                 trattiamo, a richiederne cancellazione e correzione, e a non subire discriminazioni per l'esercizio
                 dei tuoi diritti. <strong>Non vendiamo</strong> i tuoi dati personali in cambio di denaro. L'utilizzo
                 di cookie pubblicitari potrebbe configurare una «vendita» o «condivisione» secondo il CPRA: puoi
-                esercitare l'opzione <strong>«Do Not Sell or Share My Personal Information»</strong> rifiutando la
-                categoria «Pubblicità» nel banner cookie e impostando i controlli su{' '}
-                <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-accent underline">adssettings.google.com</a>.
-                Onoriamo i segnali di preferenza di tipo Global Privacy Control (GPC) ove tecnicamente disponibili.
+                esercitare l'opzione <strong>«Do Not Sell or Share My Personal Information»</strong> impostando i
+                controlli su{' '}
+                <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-accent underline">adssettings.google.com</a>{' '}
+                o tramite le impostazioni del tuo browser o estensioni come «uBlock Origin»; non offriamo al
+                momento un controllo di preferenza equivalente all'interno del sito, né rileviamo automaticamente
+                segnali di tipo Global Privacy Control (GPC).
               </p>
             </div>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
