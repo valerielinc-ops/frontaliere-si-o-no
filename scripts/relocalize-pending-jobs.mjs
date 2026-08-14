@@ -22,8 +22,14 @@
  * Environment:
  *   - Requires the same API keys as the shared crawler (GH_MODELS_PAT, etc.)
  *   - GOOGLE_APPLICATION_CREDENTIALS for Firestore-backed score store
- *   - RELOCALIZE_MAX_JOBS — max jobs to re-localize (default: 200)
+ *   - RELOCALIZE_MAX_JOBS — max jobs to re-localize (default: RELOCALIZE_DEFAULT_MAX_JOBS)
  *   - RELOCALIZE_DRY_RUN — set to '1' to only report, not run (default: '0')
+ *   - RELOCALIZE_ALLOW_NO_TRAFFIC — '1' to run without traffic priority on purpose
+ *
+ * Priority (issue #5650): the queue (10.192 jobs on 2026-08-14) is two orders of
+ * magnitude larger than any per-run cap, so the ordering IS the decision. See
+ * scripts/lib/job-traffic-priority.mjs for the traffic source, the measured
+ * ×17,5 gain over the previous ordering, and the oldest-first reserve.
  */
 
 import fs from 'node:fs';
@@ -39,6 +45,12 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import {
+  assertTrafficPriorityUsable,
+  buildTrafficPriority,
+  formatPriorityReport,
+  TRAFFIC_SOURCE_PATH,
+} from './lib/job-traffic-priority.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -49,6 +61,11 @@ const ROOT = path.resolve(__dirname, '..');
 
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const JOB_POPULARITY_PATH = path.join(ROOT, TRAFFIC_SOURCE_PATH);
+// Deliberate run without traffic priority (e.g. a local dry run with no data/).
+// Anything else that finds the traffic source empty must FAIL, not degrade —
+// see assertTrafficPriorityUsable() for why silence is the defect here.
+const ALLOW_NO_TRAFFIC = String(process.env.RELOCALIZE_ALLOW_NO_TRAFFIC || '0') === '1';
 const TRANSLATION_CACHE_DIR = path.join(ROOT, 'data', 'translation-cache');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
@@ -62,6 +79,31 @@ const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
 // (re-crawl) — see needsTranslation() and the direct-scan in run().
 const MAX_RETRANSLATION_ATTEMPTS = 3;
 
+/**
+ * Default cascade cap when neither --max-jobs nor RELOCALIZE_MAX_JOBS is given.
+ *
+ * Was 100. Raised to 900 for issue #5650, and the number is a MEASUREMENT, not
+ * a preference: on run 31766645401 (2026-08-14) Phase 2b translated its full
+ * 100-job cap in 9,0 minutes — 11,1 jobs/min — against a 90-minute cascade
+ * window (JOBS_CASCADE_DEADLINE_MS in translate-pending.yml). 90 × 11,1 ≈ 999,
+ * so at the observed best throughput the cap, not the clock, was what stopped
+ * the drain, and it stopped it at ~10% of the window.
+ *
+ * The constraint that stops it now is the 90-minute cascade deadline itself,
+ * which is measured from RUN_START and therefore already self-throttling: on
+ * the slow runs (31690534255: 87,3 min for the same 100 jobs, 1,15 jobs/min,
+ * every free model exhausted) the clock binds long before 900 and the run stops
+ * exactly where it stopped before. So this raise can only ever ADD drained
+ * jobs; it cannot lengthen a run. Raising the deadline instead would take the
+ * time from the Phase 2c Argos mop-up, which is the free unlimited pass — a
+ * strictly worse trade.
+ *
+ * Not a budget knob: the cascade's cost is wall-clock, and both tiers it
+ * reaches (free HTTP cascade, Claude CLI Haiku on the existing Max
+ * subscription) are already paid for.
+ */
+export const RELOCALIZE_DEFAULT_MAX_JOBS = 900;
+
 // Parse --max-jobs from CLI args (takes precedence over env var)
 function parseMaxJobs() {
   const args = process.argv.slice(2);
@@ -70,7 +112,7 @@ function parseMaxJobs() {
     const val = Number(args[idx + 1]);
     if (!isNaN(val) && val > 0) return val;
   }
-  return Number(process.env.RELOCALIZE_MAX_JOBS) || 100;
+  return Number(process.env.RELOCALIZE_MAX_JOBS) || RELOCALIZE_DEFAULT_MAX_JOBS;
 }
 
 const MAX_JOBS = parseMaxJobs();
@@ -416,6 +458,38 @@ function sortByPriority(a, b) {
   const aDate = a.datePosted ? new Date(a.datePosted).getTime() : 0;
   const bDate = b.datePosted ? new Date(b.datePosted).getTime() : 0;
   return bDate - aDate;
+}
+
+/**
+ * Order the pending queue by served traffic, with an oldest-first reserve.
+ *
+ * The I/O half of scripts/lib/job-traffic-priority.mjs (which is pure so the
+ * observer can import it from a sparse worktree). Reads the daily Firestore
+ * `job_views` export, orders, prints the queue-age block, and REFUSES to
+ * continue on an unusable traffic source.
+ *
+ * @param {object[]} pending
+ * @returns {object[]} the same jobs, reordered
+ */
+function orderPendingByTraffic(pending) {
+  let popularity = readJson(JOB_POPULARITY_PATH);
+  if (!popularity || typeof popularity !== 'object' || Array.isArray(popularity)) {
+    if (!ALLOW_NO_TRAFFIC) {
+      throw new Error(
+        `traffic priority unusable: ${TRAFFIC_SOURCE_PATH} is missing or not an object. ` +
+        'It is committed daily by refresh-job-popularity.yml; a run without it would ' +
+        'order the queue by nothing while still reporting progress. Set ' +
+        'RELOCALIZE_ALLOW_NO_TRAFFIC=1 to run without traffic priority on purpose.',
+      );
+    }
+    console.warn(`⚠️  ${TRAFFIC_SOURCE_PATH} unreadable — running WITHOUT traffic priority (RELOCALIZE_ALLOW_NO_TRAFFIC=1).`);
+    popularity = {};
+  }
+
+  const { order, stats } = buildTrafficPriority(pending, popularity);
+  for (const line of formatPriorityReport(stats)) console.log(line);
+  assertTrafficPriorityUsable(stats, { allowEmpty: ALLOW_NO_TRAFFIC });
+  return order;
 }
 
 /**
@@ -955,7 +1029,11 @@ async function main() {
     return;
   }
 
-  // Sort by priority (needsRetranslation first, then most recent datePosted)
+  // Flag-first ordering only. The ordering that decides WHICH jobs make the cap
+  // is applied AFTER the pre-clear below (orderPendingByTraffic) — applying it
+  // here too would be wasted work, and the pre-clear rebuilds `pending` from
+  // scratch, which is exactly how the old `pending.sort(sortByPriority)` came to
+  // be silently discarded on every run that pre-cleared anything.
   pending.sort(sortByPriority);
 
   // Group by company
@@ -1007,6 +1085,18 @@ async function main() {
       console.log(`🎯 Company filter re-applied after pre-clear: ${pending.length} jobs for ${COMPANY_KEY_FILTER}\n`);
     }
   }
+
+  // ── Traffic-weighted ordering (issue #5650) ────────────────────────────
+  // Applied HERE, after the pre-clear, because the pre-clear rebuilds `pending`
+  // and would otherwise discard it. This is the decision the cap makes: the
+  // queue is far larger than any per-run cap, so the only lever that changes
+  // what users see is WHICH jobs the cap contains. Ordered by served pageviews
+  // (data/job-popularity.json, Firestore job_views), with a fixed share of the
+  // batch drawn oldest-first so the tail cannot starve. An unusable traffic
+  // source throws instead of falling back — see assertTrafficPriorityUsable.
+  const orderedPending = orderPendingByTraffic(pending);
+  pending.length = 0;
+  for (const j of orderedPending) pending.push(j);
 
   // Build ordered list of (companyKey, jobCount) pairs from priority-sorted pending jobs, capped at MAX_JOBS
   const effectiveMax = Math.min(MAX_JOBS, pending.length);

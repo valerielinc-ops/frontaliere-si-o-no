@@ -1384,6 +1384,10 @@ function _responseCacheKey(messages, o) {
     ns: o.cacheNamespace || '',
     bfc: !!o.bypassForceChain,
     fc: (process.env.AI_MODELS_FORCE_CHAIN || '').trim(),
+    // Same argument as `fc` one line up: AI_MODELS_PREFER changes WHICH model
+    // answers an otherwise identical request, so a preferred and a
+    // non-preferred call must not share a cache entry.
+    pf: (process.env.AI_MODELS_PREFER || '').trim(),
   }));
 }
 
@@ -2486,6 +2490,64 @@ function _recordLastResortOutcome(model, outcome) {
   if (tier) _stats.lastResort[tier][outcome]++;
 }
 
+// Set once a fully-unknown AI_MODELS_PREFER has been warned about — same
+// warn-once discipline as _competingTiersWarned. Reset by resetState().
+let _preferredModelsWarned = false;
+
+/**
+ * AI_MODELS_PREFER — CSV of model ids to move to the FRONT of the already
+ * score-sorted chain, keeping the whole rest of the chain behind them as
+ * fallback. Unset/blank → no-op (the shipped default everywhere except the
+ * step that opts in).
+ *
+ * ── Why this exists, when AI_MODELS_FORCE_CHAIN already does something ────
+ *
+ * FORCE_CHAIN *replaces* the chain: it pins exactly the listed ids and throws
+ * away ~180 models of fallback. That is correct for a diagnostic run and wrong
+ * for production. `opts.model` does not help either — it does
+ * `chain.slice(idx)`, so requesting the LAST entry (which is where the opt-in
+ * tiers live) yields a one-model chain with no fallback at all.
+ *
+ * PREFER is the missing third shape: reorder, never truncate. Nothing is
+ * dropped, so a preferred model that fails falls through to exactly the chain
+ * it would have used anyway.
+ *
+ * ── What it is for ───────────────────────────────────────────────────────
+ *
+ * A paid model that always converts cannot win a score race against ~180 free
+ * models. `AI_COMPETING_TIERS` promotes claude-cli to tier 0, but promotion
+ * only removes the tier PENALTY — ranking within tier 0 is by accumulated
+ * score, and a tier that is never called accumulates none, so it stays at 0 and
+ * loses to every model with a positive history. Measured on translate-pending
+ * run 31690534255 (2026-08-13): 46 free models exhausted, 12 fallbacks, and
+ * `last-resort: omniroute/local/claude-cli not reached this run` — the promoted
+ * tier was never even skipped, it was never reached. PREFER is what turns
+ * "eligible" into "tried first".
+ *
+ * Ids not present in the chain are still honoured (prepended), matching
+ * `opts.model`'s behaviour for an unknown id — a preference for a model this
+ * chain does not list is a preference, not a typo to silently ignore. An entry
+ * list that is entirely empty after trimming warns ONCE and is ignored; this
+ * never throws.
+ *
+ * @param {string[]} chain
+ * @returns {string[]}
+ */
+function _applyPreferredModels(chain) {
+  const raw = (process.env.AI_MODELS_PREFER || '').trim();
+  if (!raw) return chain;
+  const wanted = [...new Set(raw.split(',').map((s) => s.trim()).filter(Boolean))];
+  if (wanted.length === 0) {
+    if (!_preferredModelsWarned) {
+      _preferredModelsWarned = true;
+      console.warn(`⚠️ AI_MODELS_PREFER="${raw}" has no usable entries — ignored.`);
+    }
+    return chain;
+  }
+  const rest = chain.filter((m) => !wanted.includes(m));
+  return [...wanted, ...rest];
+}
+
 function sortChainByScore(chain) {
   // Build index map for tiebreaker (lower index = better in original order)
   const indexMap = new Map(chain.map((m, i) => [m, i]));
@@ -2584,6 +2646,10 @@ export function getPreferredModel({ model: startModel, chain: chainOverride } = 
     else if (idx < 0) chain = [startModel, ...chain.filter((m) => m !== startModel)];
   }
   chain = sortChainByScore(chain);
+  // Mirrors callLLM's ordering exactly — without this, a caller building a
+  // model-aware cache key would key on the model the chain WOULD have picked,
+  // not the one AI_MODELS_PREFER makes it pick.
+  chain = _applyPreferredModels(chain);
   for (const m of chain) {
     if (_shouldSkipExhausted(m)) continue;
     if (isProviderCoolingDown(getProvider(m))) continue;
@@ -2690,6 +2756,7 @@ export function resetState() {
   _stats.lastResort = _freshLastResortStats();
   _lastResortOrderWarned = false;
   _competingTiersWarned = false;
+  _preferredModelsWarned = false;
   _claudeCliCallsThisRun = 0;
   _claudeCliMaxCallsWarned = false;
   _responseCache.clear();
@@ -4370,6 +4437,7 @@ export async function callLLM(messages, opts = {}) {
   // A forced chain keeps its explicit order (no score reshuffle).
   if (!_forcedChain.length) {
     chain = sortChainByScore(chain);
+    chain = _applyPreferredModels(chain);
   }
 
   const errors = [];
