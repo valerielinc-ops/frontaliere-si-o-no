@@ -219,6 +219,21 @@ jobs:
           # is now healthy in data/crawler-health.json. Without this, a recovered
           # crawler's issue lingers open forever (the open step only creates,
           # never closes). Matches by slug parsed from the issue title.
+          #
+          # Routed through `github-issue-creator.mjs --resolve` — not a raw `gh
+          # issue close` (what this step did before #5437) — with the title
+          # REBUILT from `$slug` in the exact literal shape the opener above
+          # uses (`title="[crawler-health] ${slug}: crawler unhealthy"`). A raw
+          # `gh issue close` closed the issue at runtime just fine but was
+          # INVISIBLE to the static coupling gate
+          # (tests/failure-issue-closers.test.ts): it never mentions
+          # `github-issue-creator.mjs`, so the inventory in
+          # failure-issue-inventory.mjs has no way to see it and this title
+          # showed up as "no closer" — a working closer the gate could not see,
+          # the exact failure mode #5437 exists to catch (it already happened
+          # once with a COMMENT claiming a closer that did not exist,
+          # alert-pat-down.mjs #5432; this is the same shape with working code
+          # instead of a comment).
           if [ ! -f data/crawler-health.json ]; then
             echo "No health state file; nothing to reconcile."
             exit 0
@@ -230,14 +245,16 @@ jobs:
             echo "No open [crawler-health] issues."
             exit 0
           fi
-          while IFS=$'\t' read -r num title; do
-            slug=$(printf '%s' "$title" | sed -E 's/^\[crawler-health\] ([^:]+):.*/\1/')
+          while IFS=$'\t' read -r num open_title; do
+            slug=$(printf '%s' "$open_title" | sed -E 's/^\[crawler-health\] ([^:]+):.*/\1/')
             status=$(jq -r --arg s "$slug" '.crawlers[$s].status // "unknown"' data/crawler-health.json)
             if [ "$status" = "healthy" ]; then
-              echo "Closing #$num — ${slug} is healthy again."
-              gh issue close "$num" --repo "$GH_REPO" \
-                --comment "✅ Auto-closed: crawler \`${slug}\` is now **healthy** in \`data/crawler-health.json\` (recovered)." \
-                || echo "Failed to close #$num (continuing)."
+              title="[crawler-health] ${slug}: crawler unhealthy"
+              echo "Resolving #$num (\"${title}\") — ${slug} is healthy again."
+              node scripts/lib/github-issue-creator.mjs --resolve \
+                --title "$title" \
+                --workflow "${{ github.workflow }}" \
+                --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             else
               echo "Keeping #$num — ${slug} status=${status}."
             fi

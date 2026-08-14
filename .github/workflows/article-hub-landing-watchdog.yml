@@ -146,3 +146,16 @@ jobs:
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
+
+      # The body above PROMISED an auto-resolve that did not exist (#5437: the
+      # dangerous class — a title nobody could ever close).
+      - name: Resolve degraded issue on green
+        if: steps.health.conclusion == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Article hub landing degraded: missing grid or stale article set" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
