@@ -8,6 +8,7 @@ import {
   deleteAlert,
   findCompanyAlert,
   subscribeCompanyAlert,
+  upgradeBackfilledAlertConsent,
 } from '@/services/jobAlertService';
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
@@ -58,6 +59,7 @@ export interface CompanyFollowButtonProps {
   lookup?: typeof findCompanyAlert;
   subscribe?: typeof subscribeCompanyAlert;
   unfollow?: typeof deleteAlert;
+  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
   captureEmail?: (email: string, intent: { company: string; companyKey?: string | null }) => Promise<void>;
 }
 
@@ -119,6 +121,7 @@ export default function CompanyFollowButton({
   lookup = findCompanyAlert,
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
+  upgradeConsent = upgradeBackfilledAlertConsent,
   captureEmail,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
@@ -158,13 +161,20 @@ export default function CompanyFollowButton({
         title: sourceJobTitle ?? null,
       });
       setAlertId(created.id);
+      // #5876 — following a company is the same explicit act, behind the same
+      // notice (rendered below on the capture form), as the other 7 surfaces
+      // this issue wires up. If this email also carries a travaso alert, the
+      // act converts its deduced consent into an explicit one. Never awaited
+      // into the error path: a proof that fails to land must not turn a
+      // successful follow into an error toast.
+      void upgradeConsent(email as string, locale).catch(() => {});
       setStatus('following');
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, upgradeConsent, userId]);
 
   /**
    * Anonymous submit. Reuses the site's ONE consent mechanism end to end:

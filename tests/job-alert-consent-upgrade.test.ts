@@ -386,6 +386,7 @@ describe('what is stored is what was on screen', () => {
     'components/community/JobDetailJobAlertButton.tsx',
     'components/community/SavedJobsAlertNudge.tsx',
     'components/community/JobAlertForm.tsx',
+    'components/community/CompanyFollowButton.tsx',
     'components/calculator/SalaryAlertCTA.tsx',
   ];
 
