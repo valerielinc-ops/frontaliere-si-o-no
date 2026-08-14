@@ -9957,6 +9957,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione : 2 ans de travail pour la fête de San Tito',
     'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Plus de 150 décorations réalisées par les utilisateurs du Cdd d\'Iris Gallarate coloreront via Gênes pour la fête décennale de San Tito à Casorate Sempione',
     'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Jeunes du CDD d\'Iris Gallarate peignant des pommes de pin pour les décorations de la via Genova à Casorate Sempione',
+    'blog.article.bollettino-frontaliere-2026-08-14.title': 'Bulletin du frontalier – 14 août 2026 : 864 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-14.excerpt': 'Les chiffres du jour, 14 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-14.imageAlt': 'Les chiffres du jour pour les frontaliers – 14 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-14.seoDescription': 'Bulletin du frontalier du 14 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-14.ogDescription': 'Les chiffres du 14 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
