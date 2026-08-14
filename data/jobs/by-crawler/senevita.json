@@ -1,6 +1,6 @@
 {
   "crawlerKey": "senevita",
-  "assembledAt": "2026-08-14T10:19:30.102Z",
+  "assembledAt": "2026-08-14T09:43:34.836Z",
   "jobs": [
     {
       "id": "senevita-1575b0a60431",
@@ -5789,18 +5789,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon",
-        "fachfrau-mann-gesundheit-cfc-m-w-i-50-100-senevita-lu-ebikon"
+        "fachfrau-mann-gesundheit-cfc-m-w-i-50-100-senevita-lu-ebikon",
+        "schnupperlehre-fachfrau-mann-gesundheit-cfc-assistent-in-gesundheit-e-soziales-afp-senevita-lu-ebikon",
+        "professional-health-efz-assistant-in-health-and-social-eba-senevita-lu-ebikon",
+        "schnupperlehre-fachfrau-mann-gesundheit-efz-assistent-in-gesundheit-und-soziales-eba",
+        "sante-professionnelle-efz-assistant-en-sante-et-social-eba-senevita-lu-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon",
-          "fachfrau-mann-gesundheit-cfc-m-w-i-50-100-senevita-lu-ebikon"
+          "fachfrau-mann-gesundheit-cfc-m-w-i-50-100-senevita-lu-ebikon",
+          "schnupperlehre-fachfrau-mann-gesundheit-cfc-assistent-in-gesundheit-e-soziales-afp-senevita-lu-ebikon",
+          "professional-health-efz-assistant-in-health-and-social-eba-senevita-lu-ebikon",
+          "schnupperlehre-fachfrau-mann-gesundheit-efz-assistent-in-gesundheit-und-soziales-eba",
+          "sante-professionnelle-efz-assistant-en-sante-et-social-eba-senevita-lu-ebikon"
         ],
         "en": [
-          "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon"
+          "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon",
+          "professional-health-efz-assistant-in-health-and-social-eba-senevita-lu-ebikon"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon"
+          "fachfrau-mann-gesundheit-efz-m-w-i-50-100-senevita-lu-ebikon",
+          "sante-professionnelle-efz-assistant-en-sante-et-social-eba-senevita-lu-ebikon"
+        ],
+        "de": [
+          "schnupperlehre-fachfrau-mann-gesundheit-efz-assistent-in-gesundheit-und-soziales-eba"
         ]
       },
       "firstSeenAt": "2026-08-07T21:46:52.004Z",
@@ -8987,7 +9000,28 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schnupperlehre-koch-kochin-efz-senevita-lu-ebikon",
+          "cook-chef-efz-senevita-lu-ebikon",
+          "cuisiniere-chef-efz-senevita-lu-ebikon"
+        ],
+        "en": [
+          "cook-chef-efz-senevita-lu-ebikon"
+        ],
+        "de": [
+          "schnupperlehre-koch-kochin-efz-senevita-lu-ebikon"
+        ],
+        "fr": [
+          "cuisiniere-chef-efz-senevita-lu-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "schnupperlehre-koch-kochin-efz-senevita-lu-ebikon",
+        "cook-chef-efz-senevita-lu-ebikon",
+        "cuisiniere-chef-efz-senevita-lu-ebikon"
+      ]
     },
     {
       "id": "senevita-8f9bbe09cad2",
