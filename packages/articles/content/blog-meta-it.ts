@@ -9956,6 +9956,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casorate-sempione-pigne-san-tito.title': 'Casorate Sempione: settemila pigne e due anni di lavoro per la festa di San Tito',
     'blog.article.casorate-sempione-pigne-san-tito.excerpt': 'Oltre 150 decorazioni realizzate dagli utenti del Cdd di Iris Gallarate coloreranno via Genova per la festa decennale di San Tito a Casorate Sempione',
     'blog.article.casorate-sempione-pigne-san-tito.imageAlt': 'Ragazzi del Cdd di Iris Gallarate che dipingono pigne per le decorazioni di via Genova a Casorate Sempione',
+    'blog.article.bollettino-frontaliere-2026-08-14.title': 'Bollettino del frontaliere – 14 agosto 2026: 864 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-14.excerpt': 'I numeri di oggi, 14 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-14.imageAlt': 'I numeri del giorno per i frontalieri – 14 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-14.seoDescription': 'Bollettino frontalieri del 14 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-14.ogDescription': 'I numeri del 14 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
