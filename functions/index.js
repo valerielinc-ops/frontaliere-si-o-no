@@ -813,7 +813,7 @@ export const sendCalculatorReport = onRequest(
  * chatbotInference — Server-side AI inference endpoint for the site chatbot.
  *
  * Keeps the Gemini API key off the browser, provides multi-model fallback
- * (gemini-2.0-flash-lite → gemini-1.5-flash-8b), and caches common FAQ answers.
+ * (gemini-flash-lite-latest → gemini-flash-latest), and caches common FAQ answers.
  *
  * POST { messages: [{role, content},...], systemPrompt: string }
  * → { ok: true, text: string, model: string, source: 'cache'|'gemini' }

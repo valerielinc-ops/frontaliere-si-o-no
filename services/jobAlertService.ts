@@ -14,6 +14,11 @@
 
 import type { Firestore } from 'firebase/firestore';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import {
+  buildJobAlertConsentProof,
+  planJobAlertConsentUpgrade,
+  type UpgradeSkipReason,
+} from './jobAlertConsentUpgrade';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -414,6 +419,102 @@ export async function deleteAlert(email: string, alertId: string): Promise<void>
     unsubscribed_at: serverTimestamp(),
     unsubscribe_source: 'profile_ui',
   });
+}
+
+/**
+ * Record the consent proof on this person's TRAVASO alerts, because they just
+ * pressed a button that says "attiva alert" (#5876).
+ *
+ * WHY IT IS A SEPARATE CALL AND NOT A LINE INSIDE `createAlert`
+ * ------------------------------------------------------------
+ * What gets stored is the sentence that was ON SCREEN, and only the call site
+ * knows whether it rendered one. Making this an explicit call keeps the pairing
+ * mechanical and greppable — a file calls this function IF AND ONLY IF it
+ * renders `<ConsentNotice consentKey="communicationsOptIn">`, which
+ * `tests/job-alert-consent-upgrade.test.ts` asserts per file. Folding it into
+ * `createAlert` would have made every present and future caller of the write
+ * path claim a disclosure it may never have made, which is the exact
+ * fabrication `displayed` was invented to prevent (#5712).
+ *
+ * WHY IT ENUMERATES BY EMAIL AND NOT VIA `getUserAlerts`
+ * -----------------------------------------------------
+ * `getUserAlerts` queries `where('userId','==',uid)`, and **not one** of the
+ * 6.295 travaso alerts on production carries a `userId` — `buildAlertPayload`
+ * writes `userId: data?.user_id || null` and the newsletter documents it was
+ * built from had no `user_id` (measured 2026-08-14: 0 of 6.295). Those alerts
+ * are therefore invisible to every userId-scoped query in this file. The path
+ * `job_alert_subscribers/{email}/alerts` reaches them, and `firestore.rules`
+ * grants both the read and the update on the caller's own email.
+ *
+ * NEVER THROWS INTO A CTA. It returns a tally instead: a proof that failed to
+ * land must not turn a successful subscription into an error toast. The tally
+ * is what a caller can log.
+ */
+export async function upgradeBackfilledAlertConsent(
+  email: string,
+  locale?: string | null,
+  opts?: { sourceUrl?: string | null },
+): Promise<{ upgraded: number; skipped: Partial<Record<UpgradeSkipReason, number>>; failed: number }> {
+  const skipped: Partial<Record<UpgradeSkipReason, number>> = {};
+  let upgraded = 0;
+  let failed = 0;
+
+  const normalizedEmail = normalizeEmail(email);
+  if (!normalizedEmail) return { upgraded, skipped, failed };
+
+  const db = await getDb();
+  const { collection, doc, getDoc, getDocs, updateDoc, serverTimestamp } =
+    await import('firebase/firestore');
+
+  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
+  // The parent document carries the account-level opt-out; a read failure must
+  // NOT be read as "no opt-out recorded", so it aborts instead of defaulting.
+  let subscriber: Record<string, unknown> | null = null;
+  try {
+    const subSnap = await getDoc(subscriberRef);
+    subscriber = subSnap.exists() ? (subSnap.data() as Record<string, unknown>) : null;
+  } catch {
+    return { upgraded, skipped, failed: 1 };
+  }
+
+  const proof = buildJobAlertConsentProof({
+    locale,
+    sourceUrl:
+      opts?.sourceUrl
+      ?? (typeof window !== 'undefined' && window.location ? window.location.href : null),
+    stampedAt: serverTimestamp(),
+  });
+
+  let alerts;
+  try {
+    alerts = await getDocs(collection(subscriberRef, ALERTS_SUBCOLLECTION));
+  } catch {
+    return { upgraded, skipped, failed: 1 };
+  }
+
+  for (const alertDoc of alerts.docs) {
+    const decision = planJobAlertConsentUpgrade({
+      alert: alertDoc.data() as Record<string, unknown>,
+      subscriber,
+      proof,
+    });
+    if (decision.write !== true) {
+      const reason = decision.reason;
+      skipped[reason] = (skipped[reason] || 0) + 1;
+      continue;
+    }
+    try {
+      // A field-level update: `status`, `active` and every counter are left
+      // exactly as they are. Nothing here can make anybody contactable who was
+      // not already — see the header of services/jobAlertConsentUpgrade.ts.
+      await updateDoc(alertDoc.ref, { ...decision.payload });
+      upgraded += 1;
+    } catch {
+      failed += 1;
+    }
+  }
+
+  return { upgraded, skipped, failed };
 }
 
 /**

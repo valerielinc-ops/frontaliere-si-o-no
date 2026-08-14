@@ -1,6 +1,6 @@
 {
   "crawlerKey": "barry-callebaut",
-  "assembledAt": "2026-08-14T10:32:05.661Z",
+  "assembledAt": "2026-08-14T21:50:13.308Z",
   "jobs": [
     {
       "id": "barry-callebaut-f859fe4257d1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Business-Development-Manager-CEE&MEA-8005/1407656600/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.707Z",
+      "crawledAt": "2026-08-14T21:50:09.889Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -95,7 +95,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Forest-Risk-&-Monitoring-Manager-8005/1407527300/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.706Z",
+      "crawledAt": "2026-08-14T21:50:09.888Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,7 +170,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-FSQR-Customer-Value-Systems-&-Compliance-Manager-8005/1416955300/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.704Z",
+      "crawledAt": "2026-08-14T21:50:09.887Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,7 +246,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Head-of-Sourcing%2C-General-Services-8005/1419041800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.702Z",
+      "crawledAt": "2026-08-14T21:50:09.886Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -261,10 +261,14 @@
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Head-of-Sourcing%2C-General-Services-8005/1419041800/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-13T22:29:24.229Z",
+      "previousSlugs": [
+        "head-of-sourcing-general-services-barry-callebaut-ch",
+        "responsabile-sourcing-general-services-barry-callebaut-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-sourcing-general-services-barry-callebaut-ch"
+          "head-of-sourcing-general-services-barry-callebaut-ch",
+          "responsabile-sourcing-general-services-barry-callebaut-zurich"
         ],
         "de": [
           "head-of-sourcing-general-services-barry-callebaut-ch"
@@ -273,9 +277,7 @@
           "head-of-sourcing-general-services-barry-callebaut-ch"
         ]
       },
-      "previousSlugs": [
-        "head-of-sourcing-general-services-barry-callebaut-ch"
-      ],
+      "firstSeenAt": "2026-08-13T22:29:24.229Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -321,7 +323,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.701Z",
+      "crawledAt": "2026-08-14T21:50:09.885Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -394,7 +396,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Area-Sales-Manager-8005/1410029700/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:32:02.700Z",
+      "crawledAt": "2026-08-14T21:50:09.884Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -474,7 +476,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Executive-Assistant-CPCO-8005/1405562000/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.698Z",
+      "crawledAt": "2026-08-14T21:50:09.882Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -546,7 +548,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager%2C-Group-Accounting-&-Reporting-8005/1399308500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.697Z",
+      "crawledAt": "2026-08-14T21:50:09.881Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -622,7 +624,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Commercial-Excellence-Manager-FM-&-Specialties-8005/1387640800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:32:02.692Z",
+      "crawledAt": "2026-08-14T21:50:09.877Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",

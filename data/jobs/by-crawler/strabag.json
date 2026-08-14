@@ -1,6 +1,6 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-08-14T10:34:42.324Z",
+  "assembledAt": "2026-08-14T21:45:06.669Z",
   "jobs": [
     {
       "id": "strabag-0fb2d8770e1b",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1a74fa72-67f8-4d0c-964d-6f853a79fc46/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:37.008Z",
+      "crawledAt": "2026-08-14T21:45:03.747Z",
       "addressLocality": "CH- 8315 Lindau, Rigacher 1",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/66086708-9ca4-44b9-a136-82c22dfbf9b7/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.871Z",
+      "crawledAt": "2026-08-14T21:45:03.717Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/531ad36d-6332-4bd9-9953-ca29caac8902/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.854Z",
+      "crawledAt": "2026-08-14T21:45:03.689Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,105 +212,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenmechaniker-in-efz-strabag-lindau",
+        "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau",
+        "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
+        "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
+        "baumaschinenmechaniker-in-efz-strabag-lindau-ykrzs9",
         "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenmechaniker-in-efz-strabag-lindau",
+          "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau",
+          "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau",
+          "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau",
+          "baumaschinenmechaniker-in-efz-strabag-lindau-ykrzs9",
           "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321"
         ],
         "en": [
-          "baumaschinenmechaniker-in-efz-strabag-lindau"
+          "baumaschinenmechaniker-in-efz-strabag-lindau",
+          "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau"
         ],
         "fr": [
-          "baumaschinenmechaniker-in-efz-strabag-lindau"
+          "baumaschinenmechaniker-in-efz-strabag-lindau",
+          "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau"
         ]
       },
       "firstSeenAt": "2026-08-13T10:37:52.080Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "strabag-74525e0715fe",
-      "slug": "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren",
-      "slugByLocale": {
-        "it": "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren",
-        "en": "machine-operator-in-rotary-drilling-systems-special-underground-construction-strabag-ag-schlieren",
-        "de": "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren",
-        "fr": "machine-operateur-dans-les-systemes-de-forage-rotatifs-construction-souterraine-speciale-strabag-ag-schlieren"
-      },
-      "company": "STRABAG AG",
-      "companyKey": "strabag",
-      "companyDomain": "strabag.ch",
-      "title": "Maschinist:in Drehbohranlagen Spezialtiefbau",
-      "titleByLocale": {
-        "it": "Operatore macchina: in sistemi di perforazione rotante speciale costruzione sotterranea",
-        "en": "Machine operator: in rotary drilling systems special underground construction",
-        "de": "Maschinist:in Drehbohranlagen Spezialtiefbau",
-        "fr": "Machine opérateur: dans les systèmes de forage rotatifs construction souterraine spéciale"
-      },
-      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nMaschinist:in Drehbohranlagen Spezialtiefbau\n Dein Beitrag bei uns\n\n• Verantwortlich für Baustellen des Spezialtiefbaus in der Rolle des:der Maschinist:in der Leistungs- und Zudiengeräte\n\n• Sie bohren Rühlwandträger und Pfähle mit und ohne Verrohrungsanlage\n\n• Sie bedienen eine Drehbohranlage Typ Bauer oder Liebherr\n\n• Erfahrung mit SOB- und FDP-Pfahlsystem\n\n• In Zusammenarbeit mit dem Bohrmeister organisieren Sie die Baustelle und führen ein kleines Team von Mitarbeitenden\n\n• Zu der Bedienung des Bohrgerätes gehört auch die digitale Erfassung des Bohrablaufes mittels iPad für das Drehbohrgerät sowie auch die Materialbestellung für das Bohrgerät zu Ihren Aufgaben\n\n• Wartung der Geräte\n Was für uns zählt\n\n• Abgeschlossene Berufsausbildung als Grundbauer:in oder Mechaniker:in wünschenswert\n\n• Erfahrung als Maschinist:in auf Drehboranlagen\n\n• Verantwortungsbewusst und lösungsorientiert\n\n• Ausgeprägtes und gutes Sicherheitsdenken\n\n• Durchsetzungsvermögen und hohe Sozialkompetenz\n\n• Führerschein Kat. B\n\nUnser Mehrwert für dich\n Bei uns arbeitest du mit modernen Maschinen und neuster Technik, die deinen Arbeitsalltag spannend und abwechslungsreich machen. Ein eingespieltes Team steht hinter dir und packt gemeinsam mit dir an - hier zählt Zusammenhalt. Wir fördern dich mit gezielten Weiterbildungen und geben dir den Raum, dich fachlich wie persönlich weiterzuentwickeln. So wächst du mit deinen Aufgaben, übernimmst Verantwortung und gestaltest deine Zukunft aktiv mit - Tag für Tag, Projekt für Projekt.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• wettbewerbsfähige Vergütung\n\n• Gesundheitsförderung\n\nKontakt\n Rexhep Elmazi\nUnterrohrstrasse 5\n\n8952 Schlieren\n\n+41 44 874 26 00\n Jetzt bewerben",
-      "descriptionByLocale": {
-        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nOperatore macchina: in sistemi di perforazione rotante speciale costruzione sotterranea\nIl tuo contributo con noi\n\n• Responsabile per cantieri di ingegneria civile speciale nel ruolo di:il macchinista:in potenza e attrezzature aggiuntive\n\n• Essi perforano pareti di raffreddamento e pali con e senza sistema di tubazioni\n\n• È possibile utilizzare un sistema di perforazione rotante tipo Bauer o Liebherr\n\n• Esperienza con sistema di pitch SOB e FDP\n\n• In collaborazione con il maestro di trapano, si organizza il cantiere e guidare un piccolo team di dipendenti\n\n• Il funzionamento del dispositivo di perforazione include anche la registrazione digitale della sequenza di perforazione per mezzo di iPad per il dispositivo di perforazione rotante e l'ordine materiale per il dispositivo di perforazione.\n\n• Manutenzione delle attrezzature\nCosa ci importa\n\n• Formazione professionale completa come costruttore di base:in o meccanico:in auspicabile\n\n• Esperienza come macchinista:in torni\n\n• Responsabile e orientata alla soluzione\n\n• Forte e buon pensiero di sicurezza\n\n• Forze e competenze sociali elevate\n\n• Patente di guida Cat. B\n\nIl nostro valore aggiunto per te\nCon noi, si lavora con macchine moderne e l'ultima tecnologia che rendono il vostro lavoro quotidiano emozionante e vario. Un team consolidato sta dietro di voi e affronta insieme a voi - qui la coesione conta. Vi sosteniamo con una formazione mirata e vi diamo lo spazio per sviluppare sia professionalmente che personalmente. In questo modo, crescete con i vostri compiti, assumetevi la responsabilità e formate attivamente il vostro futuro - giorno per giorno, progetto per progetto.\n:::\n\n• Diverse opportunità di formazione\n\n• Retribuzione competitiva\n\n• Promozione della salute\n\nInformazioni di contatto\nRexhep Elmazi\nLinea di discesa 5\n\n8952 Incisioni\n\n+41 44 874 26 00\nApplicare ora",
-        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nMachine operator: in rotary drilling systems special underground construction\nYour contribution with us\n\n• Responsible for construction sites of special civil engineering in the role of:the machinist:in the power and additional equipment\n\n• They drill cooling wall girders and piles with and without piping system\n\n• You operate a rotary drilling system type Bauer or Liebherr\n\n• Experience with SOB and FDP pitch system\n\n• In cooperation with the drill master, you organize the construction site and lead a small team of employees\n\n• The operation of the drilling device also includes the digital recording of the drilling sequence by means of iPad for the rotary drilling device as well as the material ordering for the drilling device.\n\n• Maintenance of equipment\nWhat matters to us\n\n• Completed vocational training as a basic builder:in or mechanic:in desirable\n\n• Experience as a machinist:in on lathes\n\n• Responsible and solution-oriented\n\n• Strong and good security thinking\n\n• Enforcement and high social skills\n\n• Driving licence Cat. B\n\nOur added value for you\nWith us, you work with modern machines and the latest technology that make your day-to-day work exciting and varied. A well-established team stands behind you and tackles together with you - here cohesion counts. We support you with targeted further education and give you the space to develop both professionally and personally. In this way, you grow with your tasks, take on responsibility and actively shape your future - day by day, project by project.\n:::\n\n• Diverse training opportunities\n\n• Competitive remuneration\n\n• Health promotion\n\nContact details\nRexhep Elmazi\nDownpipe line 5\n\n8952 Engravings\n\n+41 44 874 26 00\nApply now",
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nMaschinist:in Drehbohranlagen Spezialtiefbau\nDein Beitrag bei uns\n\n• Verantwortlich für Baustellen des Spezialtiefbaus in der Rolle des:der Maschinist:in der Leistungs- und Zudiengeräte\n\n• Sie bohren Rühlwandträger und Pfähle mit und ohne Verrohrungsanlage\n\n• Sie bedienen eine Drehbohranlage Typ Bauer oder Liebherr\n\n• Erfahrung mit SOB- und FDP-Pfahlsystem\n\n• In Zusammenarbeit mit dem Bohrmeister organisieren Sie die Baustelle und führen ein kleines Team von Mitarbeitenden\n\n• Zu der Bedienung des Bohrgerätes gehört auch die digitale Erfassung des Bohrablaufes mittels iPad für das Drehbohrgerät sowie auch die Materialbestellung für das Bohrgerät zu Ihren Aufgaben\n\n• Wartung der Geräte\nWas für uns zählt\n\n• Abgeschlossene Berufsausbildung als Grundbauer:in oder Mechaniker:in wünschenswert\n\n• Erfahrung als Maschinist:in auf Drehboranlagen\n\n• Verantwortungsbewusst und lösungsorientiert\n\n• Ausgeprägtes und gutes Sicherheitsdenken\n\n• Durchsetzungsvermögen und hohe Sozialkompetenz\n\n• Führerschein Kat. B\n\nUnser Mehrwert für dich\nBei uns arbeitest du mit modernen Maschinen und neuster Technik, die deinen Arbeitsalltag spannend und abwechslungsreich machen. Ein eingespieltes Team steht hinter dir und packt gemeinsam mit dir an - hier zählt Zusammenhalt. Wir fördern dich mit gezielten Weiterbildungen und geben dir den Raum, dich fachlich wie persönlich weiterzuentwickeln. So wächst du mit deinen Aufgaben, übernimmst Verantwortung und gestaltest deine Zukunft aktiv mit - Tag für Tag, Projekt für Projekt.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• wettbewerbsfähige Vergütung\n\n• Gesundheitsförderung\n\nKontakt\nRexhep Elmazi\nUnterrohrstrasse 5\n\n8952 Schlieren\n\n+41 44 874 26 00\nJetzt bewerben",
-        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nMachine opérateur: dans les systèmes de forage rotatifs construction souterraine spéciale\nVotre contribution avec nous\n\n• Responsable des chantiers de génie civil dans le rôle de:l'usinage:dans la puissance et les équipements supplémentaires\n\n• Ils forent les poutres et les pieux de refroidissement avec et sans système de tuyauterie\n\n• Vous utilisez un système de forage rotatif de type Bauer ou Liebherr\n\n• Expérience avec le système de pas SOB et FDP\n\n• En collaboration avec le maître de forage, vous organisez le chantier et dirigez une petite équipe d'employés\n\n• Le fonctionnement de l'appareil de forage comprend également l'enregistrement numérique de la séquence de forage au moyen d'iPad pour l'appareil de forage rotatif ainsi que la commande de matériel pour l'appareil de forage.\n\n• Entretien du matériel\nCe qui nous importe\n\n• Formation professionnelle complète en tant que constructeur de base:en ou mécanicien:en désir\n\n• Expérience en machiniste: sur les tours\n\n• Responsable et orienté vers la solution\n\n• Une bonne pensée en matière de sécurité\n\n• Application de la loi et compétences sociales élevées\n\n• Permis de conduire Cat. B\n\nNotre valeur ajoutée pour vous\nAvec nous, vous travaillez avec des machines modernes et les dernières technologies qui rendent votre travail quotidien passionnant et varié. Une équipe bien établie se tient derrière vous et s'attaque avec vous - ici la cohésion compte. Nous vous accompagnons avec une éducation complémentaire ciblée et vous donnons l'espace pour développer à la fois professionnellement et personnellement. De cette façon, vous grandissez avec vos tâches, prenez vos responsabilités et façonnez activement votre avenir - jour après jour, projet par projet.\n:::\n\n• Différentes possibilités de formation\n\n• Rémunération concurrentielle\n\n• Promotion de la santé\n\nCoordonnées\nRexhep Elmazi\nLigne de conduite 5\n\n8952 Gravures\n\n+41 44 874 26 00\nAppliquer maintenant"
-      },
-      "needsRetranslation": true,
-      "location": "Schlieren",
-      "canton": "ZH",
-      "url": "https://www.jobs.ch/en/vacancies/detail/a912bb49-b8db-48e0-a810-c62e83fb6769/",
-      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.831Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "streetAddress": "Unterrohrstrasse 5",
-      "category": "Costruzioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Costruzioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/a912bb49-b8db-48e0-a810-c62e83fb6769/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "machine-operator-in-rotary-drilling-systems-special-underground-construction-strabag-ag-schlieren",
-        "machine-operateur-dans-les-systemes-de-forage-rotatifs-construction-souterraine-speciale-strabag-ag-schlieren",
-        "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren",
-        "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "machine-operator-in-rotary-drilling-systems-special-underground-construction-strabag-ag-schlieren",
-          "machine-operateur-dans-les-systemes-de-forage-rotatifs-construction-souterraine-speciale-strabag-ag-schlieren",
-          "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren",
-          "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren"
-        ],
-        "en": [
-          "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren"
-        ],
-        "fr": [
-          "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T22:02:18.916Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -356,7 +282,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6860464a-4c0e-4eef-88f1-bc7d91c20113/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.709Z",
+      "crawledAt": "2026-08-14T21:45:03.658Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,11 +349,11 @@
         "de": "Konstrukteur:in Holz- und Schalungsbau",
         "fr": "Construction en bois et coffrage"
       },
-      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nKonstrukteur:in Holz- und Schalungsbau\n Dein Beitrag bei uns\n\n• Erstellen von Werk- und Produktionsplänen mittels Cadwork 2D/3D\n\n• Konstruieren von anspruchsvollen Freiformen\n\n• Aufbereitung von Maschinendaten für CNC-Abbund (CAD-CAM-Schnittstelle)\n\n• Erstellen von Materiallisten, Massenauszügen und Verladeplänen\n\n• Fachliche Anleitung und Unterstützung von gewerblichen Mitarbeitenden\n\n• Umsetzung von Arbeitssicherheit, Gesundheits- und Umweltschutz\n\n• Rapporte erstellen\n Was für uns zählt\n\n• Abgeschlossene Lehre als Zimmermann:Zimmerin EFZ oder Vorarbeiter:in/Polier:in mit Fachrichtung Holzbau\n\n• Mehrjährige Berufserfahrung im Holzbau wünschenswert\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Hands-on-Mentalität und Macher-Qualitäten runden Ihr Profil ab\n\nUnser Mehrwert für dich\n Bei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, die modernste Arbeitsbedingungen für die Planung und Umsetzung innovativer Holzbauprojekte bietet. Als Konstrukteur:in arbeitest du an spannenden und anspruchsvollen Projekten - von der Detailplanung über die Ausführungsplanung bis hin zur technischen Begleitung der Realisierung. Dich erwarten abwechslungsreiche Aufgaben, moderne Planungswerkzeuge und ein motiviertes Umfeld, in dem deine Ideen gefragt sind. Wir setzen auf faire Anstellungsbedingungen sowie gezielte Weiterbildungen, die dich fachlich und persönlich weiterbringen. Werde Teil eines Betriebs, der den Holzbau mit Leidenschaft lebt und die Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Home Office\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Robert Schnekenburger\n\n+41 52 355 05 55\n Jetzt bewerben",
+      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nKonstrukteur:in Holz- und Schalungsbau\n Dein Beitrag bei uns\n\n• Du planst und konstruierst spannende Holzbauprojekte mit Cadwork 2D/3D.\n\n• Du entwickelst anspruchsvolle Freiformen und setzt architektonische Ideen präzise um.\n\n• Du bereitest Produktionsdaten für moderne CNC-Anlagen auf.\n\n• Du erstellst Materiallisten, Auszüge und Verladepläne als Grundlage für eine effiziente Umsetzung.\n\n• Du gibst dein Fachwissen weiter und unterstützt Kolleg:innen bei technischen Fragen.\n\n• Du trägst aktiv zu einer sicheren, nachhaltigen und professionellen Arbeitsweise bei.\n\n• Du dokumentierst Projekte und behältst den Überblick über die wichtigsten Kennzahlen und Rapporte.\n\nWas für uns zählt\n\n• Du hast eine Ausbildung als Zimmermann:Zimmerin EFZ oder eine Weiterbildung als Vorarbeiter:in bzw. Polier:in im Holzbau abgeschlossen.\n\n• Du kennst die Holzbauwelt aus der Praxis und bringst idealerweise einige Jahre Erfahrung mit.\n\n• Du arbeitest eigenverantwortlich, lösungsorientiert und mit viel Engagement.\n\n• Teamgeist, Verlässlichkeit und ein unkomplizierter Umgang mit Menschen zeichnen dich aus.\n\n• Du bist ein:e Macher:in, übernimmst Verantwortung und bringst Projekte aktiv voran.\n\nUnser Mehrwert für dich\n Hier entsteht Zukunft. Und du kannst sie mitgestalten.\n Während in Lindau unsere neue Holzbauhalle wächst, suchen wir Menschen, die gemeinsam mit uns den modernen Holzbau weiterdenken. Bei uns erwarten dich innovative Projekte, neueste Technologien und ein Team, das Zusammenarbeit auf Augenhöhe lebt.\n Als Konstrukteur:in übernimmst du Verantwortung für anspruchsvolle Holzbauprojekte und begleitest diese von der Planung bis zur Ausführung. Du arbeitest mit modernen Tools, bringst dein Know-how ein und entwickelst gemeinsam mit erfahrenen Kolleg:innen intelligente Lösungen für spannende Bauvorhaben.\n Dazu kommen faire Anstellungsbedingungen, individuelle Weiterbildungsmöglichkeiten und ein Team, das nicht nur zusammenarbeitet, sondern auch zusammen lacht.\n Kurz gesagt: Ein Arbeitsplatz mit Perspektive, Leidenschaft für Holz und viel Raum für deine Entwicklung.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Home Office\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Robert Schnekenburger\n\n+41 52 355 05 55\n Jetzt bewerben",
       "descriptionByLocale": {
         "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nConstructor: in legno e costruzione di casseforme\nIl tuo contributo con noi\n\n• Creazione di piani di lavoro e di produzione utilizzando Cadwork 2D/3D\n\n• Costruzione di forme libere esigenti\n\n• Preparazione dei dati della macchina per il binding CNC (interfaccia CAD-CAM)\n\n• Preparazione di liste di materiali, estratti di massa e piani di carico\n\n• Guida professionale e supporto ai dipendenti commerciali\n\n• Attuazione della sicurezza del lavoro, della salute e della tutela dell'ambiente\n\n• Creare rapporti\nCosa ci importa\n\n• Apprendistato completo come falegname:Zimmerin EFZ o avanzi:in/Polier:in con specializzazione nella costruzione del legno\n\n• Diversi anni di esperienza professionale nella costruzione del legno desiderabile\n\n• Metodi di lavoro indipendenti, impegnati e affidabili\n\n• Approccio cooperativo e godimento del lavoro di squadra\n\n• Mano sulla mentalità e qualità del creatore completano il vostro profilo\n\nIl nostro valore aggiunto per te\nCon noi, un team giovane e dinamico vi aspetta con vera coesione, grigliate congiunte e chiacchierata serale rilassata. Investiamo attivamente nel futuro: Il nostro nuovo grande edificio in legno è attualmente in costruzione a Lindau, che offre le più recenti condizioni di lavoro per la progettazione e l'attuazione di progetti innovativi di costruzione in legno. Come costruttore, si lavora su progetti entusiasmanti e stimolanti - dalla pianificazione dettagliata alla pianificazione dell'esecuzione e supporto tecnico per l'implementazione. Puoi aspettarti varie attività, strumenti di pianificazione moderni e un ambiente motivato in cui le tue idee sono richieste. Ci concentriamo sulle condizioni di lavoro eque, così come mirata formazione ulteriore che vi aiuterà a progredire professionalmente e personalmente. Entra a far parte di una società che vive la costruzione del legno con passione e costruisce il futuro.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Attività sportive\n\n• Retribuzione competitiva\n\n• Sconti per il personale\n\n• Riconciliazione della vita familiare e professionale\n\n• Home Ufficio\n\n• Promozione della salute\n\n• Eventi del personale\n\n• Buone connessioni di trasporto\n\nInformazioni di contatto\nRobert Schnekenburger\n\n+41 52 355 05 55\nApplicare ora",
         "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nConstructor:in wood and formwork construction\nYour contribution with us\n\n• Creating work and production plans using Cadwork 2D/3D\n\n• Construction of demanding freeforms\n\n• Preparation of machine data for CNC binding (CAD-CAM interface)\n\n• Preparation of lists of materials, mass extracts and loading plans\n\n• Professional guidance and support for commercial employees\n\n• Implementation of occupational safety, health and environmental protection\n\n• Creating rapports\nWhat matters to us\n\n• Completed apprenticeship as carpenter:Zimmerin EFZ or foremen:in/Polier:in with specialisation in timber construction\n\n• Several years of professional experience in timber construction desirable\n\n• Independent, committed and reliable working methods\n\n• Cooperative approach and enjoyment of teamwork\n\n• Hands-on mentality and maker qualities round off your profile\n\nOur added value for you\nWith us, a young, dynamic team awaits you with real cohesion, joint barbecues and relaxed evening chat. We are actively investing in the future: Our new, large wood construction hall is currently being built in Lindau, which offers the latest working conditions for the planning and implementation of innovative wood construction projects. As a constructor, you work on exciting and challenging projects - from detailed planning to execution planning and technical support for implementation. You can expect varied tasks, modern planning tools and a motivated environment in which your ideas are in demand. We focus on fair employment conditions as well as targeted further training that will help you to advance professionally and personally. Become part of a company that lives the timber construction with passion and builds the future.\n:::\n\n• Diverse training opportunities\n\n• Parking\n\n• Free drinks\n\n• Sports activities\n\n• Competitive remuneration\n\n• Staff discounts\n\n• Reconciliation of family and professional life\n\n• Home Office\n\n• Health promotion\n\n• Staff events\n\n• Good transport connections\n\nContact details\nRobert Schnekenburger\n\n+41 52 355 05 55\nApply now",
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nKonstrukteur:in Holz- und Schalungsbau\nDein Beitrag bei uns\n\n• Erstellen von Werk- und Produktionsplänen mittels Cadwork 2D/3D\n\n• Konstruieren von anspruchsvollen Freiformen\n\n• Aufbereitung von Maschinendaten für CNC-Abbund (CAD-CAM-Schnittstelle)\n\n• Erstellen von Materiallisten, Massenauszügen und Verladeplänen\n\n• Fachliche Anleitung und Unterstützung von gewerblichen Mitarbeitenden\n\n• Umsetzung von Arbeitssicherheit, Gesundheits- und Umweltschutz\n\n• Rapporte erstellen\nWas für uns zählt\n\n• Abgeschlossene Lehre als Zimmermann:Zimmerin EFZ oder Vorarbeiter:in/Polier:in mit Fachrichtung Holzbau\n\n• Mehrjährige Berufserfahrung im Holzbau wünschenswert\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Hands-on-Mentalität und Macher-Qualitäten runden Ihr Profil ab\n\nUnser Mehrwert für dich\nBei uns erwartet dich ein junges, dynamisches Team mit echtem Zusammenhalt, gemeinsamen Grillabenden und entspanntem Feierabendplausch. Wir investieren aktiv in die Zukunft: Aktuell entsteht unsere neue, grosse Holzbauhalle in Lindau, die modernste Arbeitsbedingungen für die Planung und Umsetzung innovativer Holzbauprojekte bietet. Als Konstrukteur:in arbeitest du an spannenden und anspruchsvollen Projekten - von der Detailplanung über die Ausführungsplanung bis hin zur technischen Begleitung der Realisierung. Dich erwarten abwechslungsreiche Aufgaben, moderne Planungswerkzeuge und ein motiviertes Umfeld, in dem deine Ideen gefragt sind. Wir setzen auf faire Anstellungsbedingungen sowie gezielte Weiterbildungen, die dich fachlich und persönlich weiterbringen. Werde Teil eines Betriebs, der den Holzbau mit Leidenschaft lebt und die Zukunft baut.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Home Office\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nRobert Schnekenburger\n\n+41 52 355 05 55\nJetzt bewerben",
+        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nKonstrukteur:in Holz- und Schalungsbau\nDein Beitrag bei uns\n\n• Du planst und konstruierst spannende Holzbauprojekte mit Cadwork 2D/3D.\n\n• Du entwickelst anspruchsvolle Freiformen und setzt architektonische Ideen präzise um.\n\n• Du bereitest Produktionsdaten für moderne CNC-Anlagen auf.\n\n• Du erstellst Materiallisten, Auszüge und Verladepläne als Grundlage für eine effiziente Umsetzung.\n\n• Du gibst dein Fachwissen weiter und unterstützt Kolleg:innen bei technischen Fragen.\n\n• Du trägst aktiv zu einer sicheren, nachhaltigen und professionellen Arbeitsweise bei.\n\n• Du dokumentierst Projekte und behältst den Überblick über die wichtigsten Kennzahlen und Rapporte.\n\nWas für uns zählt\n\n• Du hast eine Ausbildung als Zimmermann:Zimmerin EFZ oder eine Weiterbildung als Vorarbeiter:in bzw. Polier:in im Holzbau abgeschlossen.\n\n• Du kennst die Holzbauwelt aus der Praxis und bringst idealerweise einige Jahre Erfahrung mit.\n\n• Du arbeitest eigenverantwortlich, lösungsorientiert und mit viel Engagement.\n\n• Teamgeist, Verlässlichkeit und ein unkomplizierter Umgang mit Menschen zeichnen dich aus.\n\n• Du bist ein:e Macher:in, übernimmst Verantwortung und bringst Projekte aktiv voran.\n\nUnser Mehrwert für dich\nHier entsteht Zukunft. Und du kannst sie mitgestalten.\nWährend in Lindau unsere neue Holzbauhalle wächst, suchen wir Menschen, die gemeinsam mit uns den modernen Holzbau weiterdenken. Bei uns erwarten dich innovative Projekte, neueste Technologien und ein Team, das Zusammenarbeit auf Augenhöhe lebt.\nAls Konstrukteur:in übernimmst du Verantwortung für anspruchsvolle Holzbauprojekte und begleitest diese von der Planung bis zur Ausführung. Du arbeitest mit modernen Tools, bringst dein Know-how ein und entwickelst gemeinsam mit erfahrenen Kolleg:innen intelligente Lösungen für spannende Bauvorhaben.\nDazu kommen faire Anstellungsbedingungen, individuelle Weiterbildungsmöglichkeiten und ein Team, das nicht nur zusammenarbeitet, sondern auch zusammen lacht.\nKurz gesagt: Ein Arbeitsplatz mit Perspektive, Leidenschaft für Holz und viel Raum für deine Entwicklung.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Home Office\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nRobert Schnekenburger\n\n+41 52 355 05 55\nJetzt bewerben",
         "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nConstruction en bois et coffrage\nVotre contribution avec nous\n\n• Création de plans de travail et de production en utilisant Cadwork 2D/3D\n\n• Construction de formes libres exigeantes\n\n• Préparation des données de la machine pour la fixation CNC (interface CAD-CAM)\n\n• Préparation des listes de matériaux, des extraits de masse et des plans de chargement\n\n• Orientation professionnelle et soutien aux employés commerciaux\n\n• Mise en œuvre de la sécurité, de la santé et de la protection de l'environnement au travail\n\n• Création de rapports\nCe qui nous importe\n\n• Apprentissage en tant que menuisier: Zimmerin EFZ ou contremaître:in/Polier:en avec spécialisation dans la construction en bois\n\n• Plusieurs années d'expérience professionnelle dans la construction de bois souhaitable\n\n• Méthodes de travail indépendantes, engagées et fiables\n\n• Approche coopérative et travail d ' équipe\n\n• La mentalité pratique et les qualités du fabricant complètent votre profil\n\nNotre valeur ajoutée pour vous\nAvec nous, une équipe jeune et dynamique vous attend avec une réelle cohésion, des barbecues communs et un chat de soirée décontracté. Nous investissons activement dans l'avenir : Notre nouveau grand hall de construction en bois est en cours de construction à Lindau, qui offre les dernières conditions de travail pour la planification et la mise en œuvre de projets de construction en bois innovants. En tant que constructeur, vous travaillez sur des projets passionnants et stimulants - de la planification détaillée à la planification de l'exécution et le soutien technique pour la mise en œuvre. Vous pouvez vous attendre à des tâches variées, des outils de planification modernes et un environnement motivé dans lequel vos idées sont en demande. Nous nous concentrons sur les conditions d'emploi équitables ainsi que sur la formation continue ciblée qui vous aidera à progresser professionnellement et personnellement. Faites partie d'une entreprise qui vit la construction de bois avec passion et construit l'avenir.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Activités sportives\n\n• Rémunération concurrentielle\n\n• Remises au personnel\n\n• Rapprochement de la vie familiale et professionnelle\n\n• Ministère de l ' intérieur\n\n• Promotion de la santé\n\n• Manifestations du personnel\n\n• Bonnes liaisons de transport\n\nCoordonnées\nRobert Schnekenburger\n\n+41 52 355 05 55\nAppliquer maintenant"
       },
       "needsRetranslation": true,
@@ -436,7 +362,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/c4dcaf21-c057-4cdc-be48-2b4edb651b9f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.580Z",
+      "crawledAt": "2026-08-14T21:45:03.618Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -483,86 +409,6 @@
       }
     },
     {
-      "id": "strabag-0b2911a5d3a1",
-      "slug": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
-      "slugByLocale": {
-        "it": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
-        "en": "polisher-in-civil-engineering-and-road-construction-strabag-ag-subingen",
-        "de": "polier-in-tiefbau-und-strassenbau-strabag-subingen",
-        "fr": "polisher-en-genie-civil-et-construction-routiere-strabag-ag-subingen"
-      },
-      "company": "STRABAG AG",
-      "companyKey": "strabag",
-      "companyDomain": "strabag.ch",
-      "title": "Polier:in Tiefbau und Strassenbau",
-      "titleByLocale": {
-        "it": "Polier:in genio civile e Strassenbau",
-        "en": "Polisher:in civil engineering and road construction",
-        "de": "Polier:in Tiefbau und Strassenbau",
-        "fr": "Polisher:en génie civil et construction routière"
-      },
-      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nPolier:in Tiefbau und Strassenbau\n Dein Beitrag bei uns\n\n• Operative Leitung von Baustellen im Strassen- und Tiefbau\n\n• Führung und Koordination des Baustellenpersonals sowie der Subunternehmer\n\n• Einsatzplanung von Personal, Maschinen und Material\n\n• Überwachung der Termine sowie der Ausführungsqualität\n\n• Sicherstellung der Arbeitssicherheit auf der Baustelle\n\n• Erstellung von Tagesrapporten und Massaufnahmen\n Was für uns zählt\n\n• Abgeschlossene Berufsbildung zum:zur Polier:in\n\n• Mehrjährige Berufserfahrung als Polier:in im Strassen- und Tiefbau\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Macher-Qualitäten runden dein Profil ab\n\nUnser Mehrwert für dich\n Gesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\n Arbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\n Weiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\n Gemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\n Neugierig geworden?\n Bewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Du liebst den Geruch von frischem Asphalt und behältst auf der Baustelle stets den Überblick. Mit deiner Erfahrung und deinem Drive führst du dein Team zum Erfolg und sorgst dafür, dass unsere Projekte termingerecht und in höchster Qualität abgeschlossen werden. Packen wir es gemeinsam an!\n\nSiegfried Bieri\nGewerbestrasse 8a\n\n4553 Subingen\n\n+41 32 613 34 60\n Jetzt bewerben",
-      "descriptionByLocale": {
-        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nLucidatore:in ingegneria civile e costruzione stradale\nIl tuo contributo con noi\n\n• Gestione operativa dei cantieri stradali e di ingegneria civile\n\n• Gestione e coordinamento del personale edilizio e subappaltatori\n\n• Progettazione operativa di personale, macchinari e materiali\n\n• Monitoraggio delle scadenze e qualità dell'esecuzione\n\n• Garantire la sicurezza sul luogo di lavoro\n\n• Preparazione di relazioni e misurazioni giornaliere\nCosa ci importa\n\n• Formazione professionale completa per: a Polisher:in\n\n• Diversi anni di esperienza professionale come polisher: in ingegneria stradale e civile\n\n• Metodi di lavoro indipendenti, impegnati e affidabili\n\n• Approccio cooperativo e godimento del lavoro di squadra\n\n• Le qualità dei creatori completano il tuo profilo\n\nIl nostro valore aggiunto per te\nSalute e benessere\n\n• Benessere sul posto di lavoro: la salute e la sicurezza sono la nostra priorità\n\n• Divertimento sul posto di lavoro: caffè gratuito, tè e frutta fresca per una piacevole pausa\nAmbiente di lavoro e mobilità\n\n• Veicolo aziendale con uso privato (a seconda della posizione): flessibile e confortevole sulla strada\n\n• Company Bike: per brevi distanze al cantiere o all'ufficio ecologico mobile\n\n• Ambiente di lavoro moderno: uffici di alta qualità con infrastrutture IT di prima classe\nFormazione e carriera\n\n• Ulteriore istruzione: offerta completa di formazione e formazione nel nostro Group Academy\n\n• Carriera & sviluppo: opportunità versatili per lo sviluppo professionale e personale e opportunità di carriera interessanti\nComunità ed Eventi\n\n• Esperienze condivise: birre post-lavoro regolari, griglie ed eventi di squadra per una forte coesione\n\n• Eventi dei dipendenti: Vari eventi in patria e all'estero, come il torneo annuale di calcio in Germania\nSei diventato curioso?\nApplicare ora e diventare parte della nostra squadra. Non vediamo l'ora di vederti!\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• Attività sportive\n\n• Retribuzione competitiva\n\n• Sconti per il personale\n\n• Riconciliazione della vita familiare e professionale\n\n• Promozione della salute\n\n• Eventi del personale\n\n• Buone connessioni di trasporto\n\nInformazioni di contatto\nAmate l'odore di asfalto fresco e conservate sempre una panoramica sul cantiere. Con la tua esperienza e la tua guida, guiderai il tuo team al successo e ti assicurerai che i nostri progetti siano completati nel tempo e nella massima qualità. Cerchiamo di affrontarlo insieme!\n\nSiegfried Bieri\nStrada commerciale 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nApplicare ora",
-        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nPolisher:in civil engineering and road construction\nYour contribution with us\n\n• Operational management of road and civil engineering construction sites\n\n• Management and coordination of construction site staff and subcontractors\n\n• Operational planning of personnel, machinery and materials\n\n• Monitoring of deadlines and execution quality\n\n• Ensuring safety at work on site\n\n• Preparation of daily reports and measurements\nWhat matters to us\n\n• Completed vocational training for:to Polisher:in\n\n• Several years of professional experience as a polisher: in road and civil engineering\n\n• Independent, committed and reliable working methods\n\n• Cooperative approach and enjoyment of teamwork\n\n• Maker qualities round off your profile\n\nOur added value for you\nHealth and well-being\n\n• Well-being in the workplace: health and safety are our top priority\n\n• Enjoyment in the workplace: free coffee, tea and fresh fruit for a pleasant break\nWorking environment and mobility\n\n• Company vehicle with private use (depending on position): flexible and comfortable on the road\n\n• Company Bike: for short distances to the construction site or office environmentally friendly mobile\n\n• Modern working environment: high-quality offices with first-class IT infrastructure\nFurther education and career\n\n• Further education: comprehensive training and further education offer in our own Group Academy\n\n• Career & development: versatile opportunities for professional and personal development as well as attractive career opportunities\nCommunity and Events\n\n• Shared experiences: regular after-work beers, grills and team events for a strong cohesion\n\n• Employee events: Various events at home and abroad, such as the annual football tournament in Germany\nHave you become curious?\nApply now and become part of our team. We look forward to seeing you!\n\n• Diverse training opportunities\n\n• Parking\n\n• Sports activities\n\n• Competitive remuneration\n\n• Staff discounts\n\n• Reconciliation of family and professional life\n\n• Health promotion\n\n• Staff events\n\n• Good transport connections\n\nContact details\nYou love the smell of fresh asphalt and always keep an overview on the construction site. With your experience and drive, you will lead your team to success and ensure that our projects are completed on time and in the highest quality. Let us tackle it together!\n\nSiegfried Bieri\nCommercial road 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nApply now",
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nPolier:in Tiefbau und Strassenbau\nDein Beitrag bei uns\n\n• Operative Leitung von Baustellen im Strassen- und Tiefbau\n\n• Führung und Koordination des Baustellenpersonals sowie der Subunternehmer\n\n• Einsatzplanung von Personal, Maschinen und Material\n\n• Überwachung der Termine sowie der Ausführungsqualität\n\n• Sicherstellung der Arbeitssicherheit auf der Baustelle\n\n• Erstellung von Tagesrapporten und Massaufnahmen\nWas für uns zählt\n\n• Abgeschlossene Berufsbildung zum:zur Polier:in\n\n• Mehrjährige Berufserfahrung als Polier:in im Strassen- und Tiefbau\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Macher-Qualitäten runden dein Profil ab\n\nUnser Mehrwert für dich\nGesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\nArbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\nWeiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\nGemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\nNeugierig geworden?\nBewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nDu liebst den Geruch von frischem Asphalt und behältst auf der Baustelle stets den Überblick. Mit deiner Erfahrung und deinem Drive führst du dein Team zum Erfolg und sorgst dafür, dass unsere Projekte termingerecht und in höchster Qualität abgeschlossen werden. Packen wir es gemeinsam an!\n\nSiegfried Bieri\nGewerbestrasse 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nJetzt bewerben",
-        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nPolisher:en génie civil et construction routière\nVotre contribution avec nous\n\n• Gestion opérationnelle des chantiers de construction de routes et de génie civil\n\n• Gestion et coordination du personnel et des sous-traitants du chantier\n\n• Planification opérationnelle du personnel, des machines et des matériaux\n\n• Contrôle des délais et de la qualité de l'exécution\n\n• Assurer la sécurité au travail sur place\n\n• Établissement de rapports et de mesures quotidiens\nCe qui nous importe\n\n• Formation professionnelle complète pour:\n\n• Plusieurs années d'expérience professionnelle comme polisseur : en génie routier et civil\n\n• Méthodes de travail indépendantes, engagées et fiables\n\n• Approche coopérative et travail d ' équipe\n\n• Les qualités du fabricant complètent votre profil\n\nNotre valeur ajoutée pour vous\nSanté et bien-être\n\n• Bien-être en milieu de travail : la santé et la sécurité sont notre priorité absolue\n\n• Amusement sur le lieu de travail: café gratuit, thé et fruits frais pour une pause agréable\nEnvironnement de travail et mobilité\n\n• Véhicule d'entreprise à usage privé (selon la position): flexible et confortable sur la route\n\n• Entreprise Vélo: pour de courtes distances jusqu'au chantier ou bureau écologique mobile\n\n• Environnement de travail moderne : bureaux de haute qualité dotés d'une infrastructure informatique de première classe\nEnseignement supérieur et carrière\n\n• Formation complémentaire: offre complète de formation et de perfectionnement dans notre propre Académie de groupe\n\n• Carrière & perfectionnement : des opportunités polyvalentes pour le développement professionnel et personnel ainsi que des opportunités de carrière attrayantes\nCommunauté et événements\n\n• Expériences partagées: bières régulières après le travail, grillades et événements d'équipe pour une cohésion forte\n\n• Événements des employés: Divers événements au pays et à l'étranger, comme le tournoi de football annuel en Allemagne\nTu es devenu curieux ?\nPostulez maintenant et faites partie de notre équipe. Nous avons hâte de vous voir!\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Activités sportives\n\n• Rémunération concurrentielle\n\n• Remises au personnel\n\n• Rapprochement de la vie familiale et professionnelle\n\n• Promotion de la santé\n\n• Manifestations du personnel\n\n• Bonnes liaisons de transport\n\nCoordonnées\nVous aimez l'odeur de l'asphalte frais et gardez toujours un aperçu sur le chantier. Avec votre expérience et votre conduite, vous dirigerez votre équipe vers le succès et vous assurerez que nos projets sont terminés à temps et dans la plus haute qualité. Agissons ensemble !\n\nSiegfried Bieri\nRoute commerciale 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nAppliquer maintenant"
-      },
-      "needsRetranslation": true,
-      "location": "Subingen",
-      "canton": "SO",
-      "url": "https://www.jobs.ch/en/vacancies/detail/91717b96-c39c-4394-973b-08edfd4fb024/",
-      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.548Z",
-      "addressLocality": "Subingen",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "0000",
-      "streetAddress": "Gewerbestrasse 8",
-      "category": "Costruzioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Costruzioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/91717b96-c39c-4394-973b-08edfd4fb024/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "polier-in-tiefbau-und-strassenbau-strabag-subingen",
-        "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "polier-in-tiefbau-und-strassenbau-strabag-subingen",
-          "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
-        ],
-        "en": [
-          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
-        ],
-        "fr": [
-          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:56:30.853Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "strabag-30fe0936b1bf",
       "slug": "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld",
       "slugByLocale": {
@@ -594,7 +440,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/3b0ac532-699e-44bb-8aea-bdc663e6128b/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.431Z",
+      "crawledAt": "2026-08-14T21:45:03.244Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -656,6 +502,86 @@
       }
     },
     {
+      "id": "strabag-0b2911a5d3a1",
+      "slug": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
+      "slugByLocale": {
+        "it": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
+        "en": "polisher-in-civil-engineering-and-road-construction-strabag-ag-subingen",
+        "de": "polier-in-tiefbau-und-strassenbau-strabag-subingen",
+        "fr": "polisher-en-genie-civil-et-construction-routiere-strabag-ag-subingen"
+      },
+      "company": "STRABAG AG",
+      "companyKey": "strabag",
+      "companyDomain": "strabag.ch",
+      "title": "Polier:in Tiefbau und Strassenbau",
+      "titleByLocale": {
+        "it": "Polier:in genio civile e Strassenbau",
+        "en": "Polisher:in civil engineering and road construction",
+        "de": "Polier:in Tiefbau und Strassenbau",
+        "fr": "Polisher:en génie civil et construction routière"
+      },
+      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nPolier:in Tiefbau und Strassenbau\n Dein Beitrag bei uns\n\n• Operative Leitung von Baustellen im Strassen- und Tiefbau\n\n• Führung und Koordination des Baustellenpersonals sowie der Subunternehmer\n\n• Einsatzplanung von Personal, Maschinen und Material\n\n• Überwachung der Termine sowie der Ausführungsqualität\n\n• Sicherstellung der Arbeitssicherheit auf der Baustelle\n\n• Erstellung von Tagesrapporten und Massaufnahmen\n Was für uns zählt\n\n• Abgeschlossene Berufsbildung zum:zur Polier:in\n\n• Mehrjährige Berufserfahrung als Polier:in im Strassen- und Tiefbau\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Macher-Qualitäten runden dein Profil ab\n\nUnser Mehrwert für dich\n Gesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\n Arbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\n Weiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\n Gemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\n Neugierig geworden?\n Bewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Du liebst den Geruch von frischem Asphalt und behältst auf der Baustelle stets den Überblick. Mit deiner Erfahrung und deinem Drive führst du dein Team zum Erfolg und sorgst dafür, dass unsere Projekte termingerecht und in höchster Qualität abgeschlossen werden. Packen wir es gemeinsam an!\n\nSiegfried Bieri\nGewerbestrasse 8a\n\n4553 Subingen\n\n+41 32 613 34 60\n Jetzt bewerben",
+      "descriptionByLocale": {
+        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nLucidatore:in ingegneria civile e costruzione stradale\nIl tuo contributo con noi\n\n• Gestione operativa dei cantieri stradali e di ingegneria civile\n\n• Gestione e coordinamento del personale edilizio e subappaltatori\n\n• Progettazione operativa di personale, macchinari e materiali\n\n• Monitoraggio delle scadenze e qualità dell'esecuzione\n\n• Garantire la sicurezza sul luogo di lavoro\n\n• Preparazione di relazioni e misurazioni giornaliere\nCosa ci importa\n\n• Formazione professionale completa per: a Polisher:in\n\n• Diversi anni di esperienza professionale come polisher: in ingegneria stradale e civile\n\n• Metodi di lavoro indipendenti, impegnati e affidabili\n\n• Approccio cooperativo e godimento del lavoro di squadra\n\n• Le qualità dei creatori completano il tuo profilo\n\nIl nostro valore aggiunto per te\nSalute e benessere\n\n• Benessere sul posto di lavoro: la salute e la sicurezza sono la nostra priorità\n\n• Divertimento sul posto di lavoro: caffè gratuito, tè e frutta fresca per una piacevole pausa\nAmbiente di lavoro e mobilità\n\n• Veicolo aziendale con uso privato (a seconda della posizione): flessibile e confortevole sulla strada\n\n• Company Bike: per brevi distanze al cantiere o all'ufficio ecologico mobile\n\n• Ambiente di lavoro moderno: uffici di alta qualità con infrastrutture IT di prima classe\nFormazione e carriera\n\n• Ulteriore istruzione: offerta completa di formazione e formazione nel nostro Group Academy\n\n• Carriera & sviluppo: opportunità versatili per lo sviluppo professionale e personale e opportunità di carriera interessanti\nComunità ed Eventi\n\n• Esperienze condivise: birre post-lavoro regolari, griglie ed eventi di squadra per una forte coesione\n\n• Eventi dei dipendenti: Vari eventi in patria e all'estero, come il torneo annuale di calcio in Germania\nSei diventato curioso?\nApplicare ora e diventare parte della nostra squadra. Non vediamo l'ora di vederti!\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• Attività sportive\n\n• Retribuzione competitiva\n\n• Sconti per il personale\n\n• Riconciliazione della vita familiare e professionale\n\n• Promozione della salute\n\n• Eventi del personale\n\n• Buone connessioni di trasporto\n\nInformazioni di contatto\nAmate l'odore di asfalto fresco e conservate sempre una panoramica sul cantiere. Con la tua esperienza e la tua guida, guiderai il tuo team al successo e ti assicurerai che i nostri progetti siano completati nel tempo e nella massima qualità. Cerchiamo di affrontarlo insieme!\n\nSiegfried Bieri\nStrada commerciale 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nApplicare ora",
+        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nPolisher:in civil engineering and road construction\nYour contribution with us\n\n• Operational management of road and civil engineering construction sites\n\n• Management and coordination of construction site staff and subcontractors\n\n• Operational planning of personnel, machinery and materials\n\n• Monitoring of deadlines and execution quality\n\n• Ensuring safety at work on site\n\n• Preparation of daily reports and measurements\nWhat matters to us\n\n• Completed vocational training for:to Polisher:in\n\n• Several years of professional experience as a polisher: in road and civil engineering\n\n• Independent, committed and reliable working methods\n\n• Cooperative approach and enjoyment of teamwork\n\n• Maker qualities round off your profile\n\nOur added value for you\nHealth and well-being\n\n• Well-being in the workplace: health and safety are our top priority\n\n• Enjoyment in the workplace: free coffee, tea and fresh fruit for a pleasant break\nWorking environment and mobility\n\n• Company vehicle with private use (depending on position): flexible and comfortable on the road\n\n• Company Bike: for short distances to the construction site or office environmentally friendly mobile\n\n• Modern working environment: high-quality offices with first-class IT infrastructure\nFurther education and career\n\n• Further education: comprehensive training and further education offer in our own Group Academy\n\n• Career & development: versatile opportunities for professional and personal development as well as attractive career opportunities\nCommunity and Events\n\n• Shared experiences: regular after-work beers, grills and team events for a strong cohesion\n\n• Employee events: Various events at home and abroad, such as the annual football tournament in Germany\nHave you become curious?\nApply now and become part of our team. We look forward to seeing you!\n\n• Diverse training opportunities\n\n• Parking\n\n• Sports activities\n\n• Competitive remuneration\n\n• Staff discounts\n\n• Reconciliation of family and professional life\n\n• Health promotion\n\n• Staff events\n\n• Good transport connections\n\nContact details\nYou love the smell of fresh asphalt and always keep an overview on the construction site. With your experience and drive, you will lead your team to success and ensure that our projects are completed on time and in the highest quality. Let us tackle it together!\n\nSiegfried Bieri\nCommercial road 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nApply now",
+        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nPolier:in Tiefbau und Strassenbau\nDein Beitrag bei uns\n\n• Operative Leitung von Baustellen im Strassen- und Tiefbau\n\n• Führung und Koordination des Baustellenpersonals sowie der Subunternehmer\n\n• Einsatzplanung von Personal, Maschinen und Material\n\n• Überwachung der Termine sowie der Ausführungsqualität\n\n• Sicherstellung der Arbeitssicherheit auf der Baustelle\n\n• Erstellung von Tagesrapporten und Massaufnahmen\nWas für uns zählt\n\n• Abgeschlossene Berufsbildung zum:zur Polier:in\n\n• Mehrjährige Berufserfahrung als Polier:in im Strassen- und Tiefbau\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Macher-Qualitäten runden dein Profil ab\n\nUnser Mehrwert für dich\nGesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\nArbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\nWeiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\nGemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\nNeugierig geworden?\nBewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nDu liebst den Geruch von frischem Asphalt und behältst auf der Baustelle stets den Überblick. Mit deiner Erfahrung und deinem Drive führst du dein Team zum Erfolg und sorgst dafür, dass unsere Projekte termingerecht und in höchster Qualität abgeschlossen werden. Packen wir es gemeinsam an!\n\nSiegfried Bieri\nGewerbestrasse 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nJetzt bewerben",
+        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nPolisher:en génie civil et construction routière\nVotre contribution avec nous\n\n• Gestion opérationnelle des chantiers de construction de routes et de génie civil\n\n• Gestion et coordination du personnel et des sous-traitants du chantier\n\n• Planification opérationnelle du personnel, des machines et des matériaux\n\n• Contrôle des délais et de la qualité de l'exécution\n\n• Assurer la sécurité au travail sur place\n\n• Établissement de rapports et de mesures quotidiens\nCe qui nous importe\n\n• Formation professionnelle complète pour:\n\n• Plusieurs années d'expérience professionnelle comme polisseur : en génie routier et civil\n\n• Méthodes de travail indépendantes, engagées et fiables\n\n• Approche coopérative et travail d ' équipe\n\n• Les qualités du fabricant complètent votre profil\n\nNotre valeur ajoutée pour vous\nSanté et bien-être\n\n• Bien-être en milieu de travail : la santé et la sécurité sont notre priorité absolue\n\n• Amusement sur le lieu de travail: café gratuit, thé et fruits frais pour une pause agréable\nEnvironnement de travail et mobilité\n\n• Véhicule d'entreprise à usage privé (selon la position): flexible et confortable sur la route\n\n• Entreprise Vélo: pour de courtes distances jusqu'au chantier ou bureau écologique mobile\n\n• Environnement de travail moderne : bureaux de haute qualité dotés d'une infrastructure informatique de première classe\nEnseignement supérieur et carrière\n\n• Formation complémentaire: offre complète de formation et de perfectionnement dans notre propre Académie de groupe\n\n• Carrière & perfectionnement : des opportunités polyvalentes pour le développement professionnel et personnel ainsi que des opportunités de carrière attrayantes\nCommunauté et événements\n\n• Expériences partagées: bières régulières après le travail, grillades et événements d'équipe pour une cohésion forte\n\n• Événements des employés: Divers événements au pays et à l'étranger, comme le tournoi de football annuel en Allemagne\nTu es devenu curieux ?\nPostulez maintenant et faites partie de notre équipe. Nous avons hâte de vous voir!\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Activités sportives\n\n• Rémunération concurrentielle\n\n• Remises au personnel\n\n• Rapprochement de la vie familiale et professionnelle\n\n• Promotion de la santé\n\n• Manifestations du personnel\n\n• Bonnes liaisons de transport\n\nCoordonnées\nVous aimez l'odeur de l'asphalte frais et gardez toujours un aperçu sur le chantier. Avec votre expérience et votre conduite, vous dirigerez votre équipe vers le succès et vous assurerez que nos projets sont terminés à temps et dans la plus haute qualité. Agissons ensemble !\n\nSiegfried Bieri\nRoute commerciale 8a\n\n4553 Subingen\n\n+41 32 613 34 60\nAppliquer maintenant"
+      },
+      "needsRetranslation": true,
+      "location": "Subingen",
+      "canton": "SO",
+      "url": "https://www.jobs.ch/en/vacancies/detail/91717b96-c39c-4394-973b-08edfd4fb024/",
+      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T21:45:03.213Z",
+      "addressLocality": "Subingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "0000",
+      "streetAddress": "Gewerbestrasse 8",
+      "category": "Costruzioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Edilizia / Costruzioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/91717b96-c39c-4394-973b-08edfd4fb024/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "polier-in-tiefbau-und-strassenbau-strabag-subingen",
+        "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "polier-in-tiefbau-und-strassenbau-strabag-subingen",
+          "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
+        ],
+        "en": [
+          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
+        ],
+        "fr": [
+          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T12:56:30.853Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "strabag-895e3b670673",
       "slug": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
       "slugByLocale": {
@@ -687,7 +613,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/4c2e0647-3362-4287-aa16-ae3983e2b6c6/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.314Z",
+      "crawledAt": "2026-08-14T21:45:03.181Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -821,7 +747,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6d111b87-0c32-4bbf-bf57-95fb37b9bb82/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.199Z",
+      "crawledAt": "2026-08-14T21:45:03.151Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,7 +831,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/36714bd6-99e0-4dc4-a1d0-4732dae93e15/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:36.080Z",
+      "crawledAt": "2026-08-14T21:45:03.117Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -985,7 +911,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/a9acfb00-78c8-4e98-b53b-118a2e8c4a49/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:35.931Z",
+      "crawledAt": "2026-08-14T21:45:03.083Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1065,7 +991,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/d9beec7b-09bf-4d33-992e-bf269ddc1c54/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:35.748Z",
+      "crawledAt": "2026-08-14T21:45:03.040Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1145,7 +1071,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/80748808-c17f-4544-a490-7dadb245d973/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:35.653Z",
+      "crawledAt": "2026-08-14T21:45:02.989Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1225,7 +1151,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/53756f83-23a6-4b6d-8958-71d55ee14465/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:34:35.620Z",
+      "crawledAt": "2026-08-14T21:45:02.530Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1272,6 +1198,157 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "strabag-50bad27bb627",
+      "slug": "grundbauer-in-schweisser-in-spezialtiefbau-80-100-strabag-schlieren",
+      "slugByLocale": {
+        "de": "grundbauer-in-schweisser-in-spezialtiefbau-80-100-strabag-schlieren",
+        "it": "grundbauer-in-schweisser-in-spezialtiefbau-80-100-strabag-schlieren",
+        "en": "grundbauer-in-schweisser-in-spezialtiefbau-80-100-strabag-schlieren",
+        "fr": "grundbauer-in-schweisser-in-spezialtiefbau-80-100-strabag-schlieren"
+      },
+      "company": "STRABAG AG",
+      "companyKey": "strabag",
+      "companyDomain": "strabag.ch",
+      "title": "Grundbauer:in / Schweisser:in Spezialtiefbau 80-100%",
+      "titleByLocale": {
+        "de": "Grundbauer:in / Schweisser:in Spezialtiefbau 80-100%",
+        "it": "Grundbauer:in / Schweisser:in Spezialtiefbau 80-100%",
+        "en": "Grundbauer:in / Schweisser:in Spezialtiefbau 80-100%",
+        "fr": "Grundbauer:in / Schweisser:in Spezialtiefbau 80-100%"
+      },
+      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nGrundbauer:in / Schweisser:in Spezialtiefbau 80-100%\n Dein Beitrag bei uns\n\n• Mehrjährige Erfahrung als Schweisser:in und/oder im Grundbau\n\n• Zertifizierte Kenntnisse im Schutzgasschweissen von Vorteil\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Sorgfalt, Sicherheitsbewusstsein und sorgfältiger Umgang mit Maschinen und Geräten\n\n• Führerausweis Kategorie B\n\n• Belastbarkeit und gute Deutschkenntnisse runden Ihr Profil ab\n Was für uns zählt\n\n• Durchführung von Schweissarbeiten zur Herstellung von Baugrubensicherungen\n\n• Umsetzung und Montage von konstruktiven Stahlbau-Lösungen\n\n• Unterstützung des Teams bei Einsätzen auf Baustellen im Grundbau\n\n• Mithilfe bei der Arbeitsvorbereitung für verschiedene Projekte\n\n• Sicherstellung und Umsetzung aller relevanten Sicherheitsvorschriften\n\nUnser Mehrwert für dich\n\n• Anspruchsvolle Spezialtiefbauprojekte, bei denen kein Tag wie der andere ist\n\n• Ein eingespieltes Team, das zusammenhält, auf der Baustelle und beim Feierabendbier\n\n• Grillplausch und coole Firmenevents wie unser Weihnachtsessen\n\n• Topmoderne Geräte und Ausrüstung, mit denen das Arbeiten Spass macht\n\n• Faire Anstellungsbedingungen und Weiterbildungen, die dich wirklich weiterbringen\n :::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 44 874 26 00\n Jetzt bewerben",
+      "descriptionByLocale": {
+        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nGrundbauer:in / Schweisser:in Spezialtiefbau 80-100%\n Dein Beitrag bei uns\n\n• Mehrjährige Erfahrung als Schweisser:in und/oder im Grundbau\n\n• Zertifizierte Kenntnisse im Schutzgasschweissen von Vorteil\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Sorgfalt, Sicherheitsbewusstsein und sorgfältiger Umgang mit Maschinen und Geräten\n\n• Führerausweis Kategorie B\n\n• Belastbarkeit und gute Deutschkenntnisse runden Ihr Profil ab\n Was für uns zählt\n\n• Durchführung von Schweissarbeiten zur Herstellung von Baugrubensicherungen\n\n• Umsetzung und Montage von konstruktiven Stahlbau-Lösungen\n\n• Unterstützung des Teams bei Einsätzen auf Baustellen im Grundbau\n\n• Mithilfe bei der Arbeitsvorbereitung für verschiedene Projekte\n\n• Sicherstellung und Umsetzung aller relevanten Sicherheitsvorschriften\n\nUnser Mehrwert für dich\n\n• Anspruchsvolle Spezialtiefbauprojekte, bei denen kein Tag wie der andere ist\n\n• Ein eingespieltes Team, das zusammenhält, auf der Baustelle und beim Feierabendbier\n\n• Grillplausch und coole Firmenevents wie unser Weihnachtsessen\n\n• Topmoderne Geräte und Ausrüstung, mit denen das Arbeiten Spass macht\n\n• Faire Anstellungsbedingungen und Weiterbildungen, die dich wirklich weiterbringen\n :::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 44 874 26 00\n Jetzt bewerben",
+        "it": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nGrundbauer:in / Schweisser:in Spezialtiefbau 80-100%\n Dein Beitrag bei uns\n\n• Mehrjährige Erfahrung als Schweisser:in und/oder im Grundbau\n\n• Zertifizierte Kenntnisse im Schutzgasschweissen von Vorteil\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Sorgfalt, Sicherheitsbewusstsein und sorgfältiger Umgang mit Maschinen und Geräten\n\n• Führerausweis Kategorie B\n\n• Belastbarkeit und gute Deutschkenntnisse runden Ihr Profil ab\n Was für uns zählt\n\n• Durchführung von Schweissarbeiten zur Herstellung von Baugrubensicherungen\n\n• Umsetzung und Montage von konstruktiven Stahlbau-Lösungen\n\n• Unterstützung des Teams bei Einsätzen auf Baustellen im Grundbau\n\n• Mithilfe bei der Arbeitsvorbereitung für verschiedene Projekte\n\n• Sicherstellung und Umsetzung aller relevanten Sicherheitsvorschriften\n\nUnser Mehrwert für dich\n\n• Anspruchsvolle Spezialtiefbauprojekte, bei denen kein Tag wie der andere ist\n\n• Ein eingespieltes Team, das zusammenhält, auf der Baustelle und beim Feierabendbier\n\n• Grillplausch und coole Firmenevents wie unser Weihnachtsessen\n\n• Topmoderne Geräte und Ausrüstung, mit denen das Arbeiten Spass macht\n\n• Faire Anstellungsbedingungen und Weiterbildungen, die dich wirklich weiterbringen\n :::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 44 874 26 00\n Jetzt bewerben",
+        "en": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nGrundbauer:in / Schweisser:in Spezialtiefbau 80-100%\n Dein Beitrag bei uns\n\n• Mehrjährige Erfahrung als Schweisser:in und/oder im Grundbau\n\n• Zertifizierte Kenntnisse im Schutzgasschweissen von Vorteil\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Sorgfalt, Sicherheitsbewusstsein und sorgfältiger Umgang mit Maschinen und Geräten\n\n• Führerausweis Kategorie B\n\n• Belastbarkeit und gute Deutschkenntnisse runden Ihr Profil ab\n Was für uns zählt\n\n• Durchführung von Schweissarbeiten zur Herstellung von Baugrubensicherungen\n\n• Umsetzung und Montage von konstruktiven Stahlbau-Lösungen\n\n• Unterstützung des Teams bei Einsätzen auf Baustellen im Grundbau\n\n• Mithilfe bei der Arbeitsvorbereitung für verschiedene Projekte\n\n• Sicherstellung und Umsetzung aller relevanten Sicherheitsvorschriften\n\nUnser Mehrwert für dich\n\n• Anspruchsvolle Spezialtiefbauprojekte, bei denen kein Tag wie der andere ist\n\n• Ein eingespieltes Team, das zusammenhält, auf der Baustelle und beim Feierabendbier\n\n• Grillplausch und coole Firmenevents wie unser Weihnachtsessen\n\n• Topmoderne Geräte und Ausrüstung, mit denen das Arbeiten Spass macht\n\n• Faire Anstellungsbedingungen und Weiterbildungen, die dich wirklich weiterbringen\n :::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 44 874 26 00\n Jetzt bewerben",
+        "fr": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nGrundbauer:in / Schweisser:in Spezialtiefbau 80-100%\n Dein Beitrag bei uns\n\n• Mehrjährige Erfahrung als Schweisser:in und/oder im Grundbau\n\n• Zertifizierte Kenntnisse im Schutzgasschweissen von Vorteil\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Sorgfalt, Sicherheitsbewusstsein und sorgfältiger Umgang mit Maschinen und Geräten\n\n• Führerausweis Kategorie B\n\n• Belastbarkeit und gute Deutschkenntnisse runden Ihr Profil ab\n Was für uns zählt\n\n• Durchführung von Schweissarbeiten zur Herstellung von Baugrubensicherungen\n\n• Umsetzung und Montage von konstruktiven Stahlbau-Lösungen\n\n• Unterstützung des Teams bei Einsätzen auf Baustellen im Grundbau\n\n• Mithilfe bei der Arbeitsvorbereitung für verschiedene Projekte\n\n• Sicherstellung und Umsetzung aller relevanten Sicherheitsvorschriften\n\nUnser Mehrwert für dich\n\n• Anspruchsvolle Spezialtiefbauprojekte, bei denen kein Tag wie der andere ist\n\n• Ein eingespieltes Team, das zusammenhält, auf der Baustelle und beim Feierabendbier\n\n• Grillplausch und coole Firmenevents wie unser Weihnachtsessen\n\n• Topmoderne Geräte und Ausrüstung, mit denen das Arbeiten Spass macht\n\n• Faire Anstellungsbedingungen und Weiterbildungen, die dich wirklich weiterbringen\n :::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Rexhep Elmazi\n\n+41 44 874 26 00\n Jetzt bewerben"
+      },
+      "needsRetranslation": true,
+      "location": "Schlieren",
+      "canton": "ZH",
+      "url": "https://www.jobs.ch/en/vacancies/detail/2a2c7c43-353e-4123-be37-cd52ac30722d/",
+      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T21:45:01.725Z",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8952",
+      "streetAddress": "Schlieren",
+      "category": "Costruzioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Edilizia / Costruzioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/2a2c7c43-353e-4123-be37-cd52ac30722d/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T21:45:01.725Z"
+    },
+    {
+      "id": "strabag-74525e0715fe",
+      "slug": "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren",
+      "slugByLocale": {
+        "it": "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren",
+        "en": "machine-operator-in-rotary-drilling-systems-special-underground-construction-strabag-ag-schlieren",
+        "de": "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren",
+        "fr": "machine-operateur-dans-les-systemes-de-forage-rotatifs-construction-souterraine-speciale-strabag-ag-schlieren"
+      },
+      "company": "STRABAG AG",
+      "companyKey": "strabag",
+      "companyDomain": "strabag.ch",
+      "title": "Maschinist:in Drehbohranlagen Spezialtiefbau",
+      "titleByLocale": {
+        "it": "Operatore macchina: in sistemi di perforazione rotante speciale costruzione sotterranea",
+        "en": "Machine operator: in rotary drilling systems special underground construction",
+        "de": "Maschinist:in Drehbohranlagen Spezialtiefbau",
+        "fr": "Machine opérateur: dans les systèmes de forage rotatifs construction souterraine spéciale"
+      },
+      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nMaschinist:in Drehbohranlagen Spezialtiefbau\n Dein Beitrag bei uns\n\n• Verantwortlich für Baustellen des Spezialtiefbaus in der Rolle des:der Maschinist:in der Leistungs- und Zudiengeräte\n\n• Sie bohren Rühlwandträger und Pfähle mit und ohne Verrohrungsanlage\n\n• Sie bedienen eine Drehbohranlage Typ Bauer oder Liebherr\n\n• Erfahrung mit SOB- und FDP-Pfahlsystem\n\n• In Zusammenarbeit mit dem Bohrmeister organisieren Sie die Baustelle und führen ein kleines Team von Mitarbeitenden\n\n• Zu der Bedienung des Bohrgerätes gehört auch die digitale Erfassung des Bohrablaufes mittels iPad für das Drehbohrgerät sowie auch die Materialbestellung für das Bohrgerät zu Ihren Aufgaben\n\n• Wartung der Geräte\n Was für uns zählt\n\n• Abgeschlossene Berufsausbildung als Grundbauer:in oder Mechaniker:in wünschenswert\n\n• Erfahrung als Maschinist:in auf Drehboranlagen\n\n• Verantwortungsbewusst und lösungsorientiert\n\n• Ausgeprägtes und gutes Sicherheitsdenken\n\n• Durchsetzungsvermögen und hohe Sozialkompetenz\n\n• Führerschein Kat. B\n\nUnser Mehrwert für dich\n Bei uns arbeitest du mit modernen Maschinen und neuster Technik, die deinen Arbeitsalltag spannend und abwechslungsreich machen. Ein eingespieltes Team steht hinter dir und packt gemeinsam mit dir an - hier zählt Zusammenhalt. Wir fördern dich mit gezielten Weiterbildungen und geben dir den Raum, dich fachlich wie persönlich weiterzuentwickeln. So wächst du mit deinen Aufgaben, übernimmst Verantwortung und gestaltest deine Zukunft aktiv mit - Tag für Tag, Projekt für Projekt.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• wettbewerbsfähige Vergütung\n\n• Gesundheitsförderung\n\nKontakt\n Rexhep Elmazi\nUnterrohrstrasse 5\n\n8952 Schlieren\n\n+41 44 874 26 00\n Jetzt bewerben",
+      "descriptionByLocale": {
+        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nOperatore macchina: in sistemi di perforazione rotante speciale costruzione sotterranea\nIl tuo contributo con noi\n\n• Responsabile per cantieri di ingegneria civile speciale nel ruolo di:il macchinista:in potenza e attrezzature aggiuntive\n\n• Essi perforano pareti di raffreddamento e pali con e senza sistema di tubazioni\n\n• È possibile utilizzare un sistema di perforazione rotante tipo Bauer o Liebherr\n\n• Esperienza con sistema di pitch SOB e FDP\n\n• In collaborazione con il maestro di trapano, si organizza il cantiere e guidare un piccolo team di dipendenti\n\n• Il funzionamento del dispositivo di perforazione include anche la registrazione digitale della sequenza di perforazione per mezzo di iPad per il dispositivo di perforazione rotante e l'ordine materiale per il dispositivo di perforazione.\n\n• Manutenzione delle attrezzature\nCosa ci importa\n\n• Formazione professionale completa come costruttore di base:in o meccanico:in auspicabile\n\n• Esperienza come macchinista:in torni\n\n• Responsabile e orientata alla soluzione\n\n• Forte e buon pensiero di sicurezza\n\n• Forze e competenze sociali elevate\n\n• Patente di guida Cat. B\n\nIl nostro valore aggiunto per te\nCon noi, si lavora con macchine moderne e l'ultima tecnologia che rendono il vostro lavoro quotidiano emozionante e vario. Un team consolidato sta dietro di voi e affronta insieme a voi - qui la coesione conta. Vi sosteniamo con una formazione mirata e vi diamo lo spazio per sviluppare sia professionalmente che personalmente. In questo modo, crescete con i vostri compiti, assumetevi la responsabilità e formate attivamente il vostro futuro - giorno per giorno, progetto per progetto.\n:::\n\n• Diverse opportunità di formazione\n\n• Retribuzione competitiva\n\n• Promozione della salute\n\nInformazioni di contatto\nRexhep Elmazi\nLinea di discesa 5\n\n8952 Incisioni\n\n+41 44 874 26 00\nApplicare ora",
+        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nMachine operator: in rotary drilling systems special underground construction\nYour contribution with us\n\n• Responsible for construction sites of special civil engineering in the role of:the machinist:in the power and additional equipment\n\n• They drill cooling wall girders and piles with and without piping system\n\n• You operate a rotary drilling system type Bauer or Liebherr\n\n• Experience with SOB and FDP pitch system\n\n• In cooperation with the drill master, you organize the construction site and lead a small team of employees\n\n• The operation of the drilling device also includes the digital recording of the drilling sequence by means of iPad for the rotary drilling device as well as the material ordering for the drilling device.\n\n• Maintenance of equipment\nWhat matters to us\n\n• Completed vocational training as a basic builder:in or mechanic:in desirable\n\n• Experience as a machinist:in on lathes\n\n• Responsible and solution-oriented\n\n• Strong and good security thinking\n\n• Enforcement and high social skills\n\n• Driving licence Cat. B\n\nOur added value for you\nWith us, you work with modern machines and the latest technology that make your day-to-day work exciting and varied. A well-established team stands behind you and tackles together with you - here cohesion counts. We support you with targeted further education and give you the space to develop both professionally and personally. In this way, you grow with your tasks, take on responsibility and actively shape your future - day by day, project by project.\n:::\n\n• Diverse training opportunities\n\n• Competitive remuneration\n\n• Health promotion\n\nContact details\nRexhep Elmazi\nDownpipe line 5\n\n8952 Engravings\n\n+41 44 874 26 00\nApply now",
+        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nMaschinist:in Drehbohranlagen Spezialtiefbau\nDein Beitrag bei uns\n\n• Verantwortlich für Baustellen des Spezialtiefbaus in der Rolle des:der Maschinist:in der Leistungs- und Zudiengeräte\n\n• Sie bohren Rühlwandträger und Pfähle mit und ohne Verrohrungsanlage\n\n• Sie bedienen eine Drehbohranlage Typ Bauer oder Liebherr\n\n• Erfahrung mit SOB- und FDP-Pfahlsystem\n\n• In Zusammenarbeit mit dem Bohrmeister organisieren Sie die Baustelle und führen ein kleines Team von Mitarbeitenden\n\n• Zu der Bedienung des Bohrgerätes gehört auch die digitale Erfassung des Bohrablaufes mittels iPad für das Drehbohrgerät sowie auch die Materialbestellung für das Bohrgerät zu Ihren Aufgaben\n\n• Wartung der Geräte\nWas für uns zählt\n\n• Abgeschlossene Berufsausbildung als Grundbauer:in oder Mechaniker:in wünschenswert\n\n• Erfahrung als Maschinist:in auf Drehboranlagen\n\n• Verantwortungsbewusst und lösungsorientiert\n\n• Ausgeprägtes und gutes Sicherheitsdenken\n\n• Durchsetzungsvermögen und hohe Sozialkompetenz\n\n• Führerschein Kat. B\n\nUnser Mehrwert für dich\nBei uns arbeitest du mit modernen Maschinen und neuster Technik, die deinen Arbeitsalltag spannend und abwechslungsreich machen. Ein eingespieltes Team steht hinter dir und packt gemeinsam mit dir an - hier zählt Zusammenhalt. Wir fördern dich mit gezielten Weiterbildungen und geben dir den Raum, dich fachlich wie persönlich weiterzuentwickeln. So wächst du mit deinen Aufgaben, übernimmst Verantwortung und gestaltest deine Zukunft aktiv mit - Tag für Tag, Projekt für Projekt.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• wettbewerbsfähige Vergütung\n\n• Gesundheitsförderung\n\nKontakt\nRexhep Elmazi\nUnterrohrstrasse 5\n\n8952 Schlieren\n\n+41 44 874 26 00\nJetzt bewerben",
+        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nMachine opérateur: dans les systèmes de forage rotatifs construction souterraine spéciale\nVotre contribution avec nous\n\n• Responsable des chantiers de génie civil dans le rôle de:l'usinage:dans la puissance et les équipements supplémentaires\n\n• Ils forent les poutres et les pieux de refroidissement avec et sans système de tuyauterie\n\n• Vous utilisez un système de forage rotatif de type Bauer ou Liebherr\n\n• Expérience avec le système de pas SOB et FDP\n\n• En collaboration avec le maître de forage, vous organisez le chantier et dirigez une petite équipe d'employés\n\n• Le fonctionnement de l'appareil de forage comprend également l'enregistrement numérique de la séquence de forage au moyen d'iPad pour l'appareil de forage rotatif ainsi que la commande de matériel pour l'appareil de forage.\n\n• Entretien du matériel\nCe qui nous importe\n\n• Formation professionnelle complète en tant que constructeur de base:en ou mécanicien:en désir\n\n• Expérience en machiniste: sur les tours\n\n• Responsable et orienté vers la solution\n\n• Une bonne pensée en matière de sécurité\n\n• Application de la loi et compétences sociales élevées\n\n• Permis de conduire Cat. B\n\nNotre valeur ajoutée pour vous\nAvec nous, vous travaillez avec des machines modernes et les dernières technologies qui rendent votre travail quotidien passionnant et varié. Une équipe bien établie se tient derrière vous et s'attaque avec vous - ici la cohésion compte. Nous vous accompagnons avec une éducation complémentaire ciblée et vous donnons l'espace pour développer à la fois professionnellement et personnellement. De cette façon, vous grandissez avec vos tâches, prenez vos responsabilités et façonnez activement votre avenir - jour après jour, projet par projet.\n:::\n\n• Différentes possibilités de formation\n\n• Rémunération concurrentielle\n\n• Promotion de la santé\n\nCoordonnées\nRexhep Elmazi\nLigne de conduite 5\n\n8952 Gravures\n\n+41 44 874 26 00\nAppliquer maintenant"
+      },
+      "needsRetranslation": true,
+      "location": "Schlieren",
+      "canton": "ZH",
+      "url": "https://www.jobs.ch/en/vacancies/detail/a912bb49-b8db-48e0-a810-c62e83fb6769/",
+      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:34:36.831Z",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8952",
+      "streetAddress": "Unterrohrstrasse 5",
+      "category": "Costruzioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Edilizia / Costruzioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/a912bb49-b8db-48e0-a810-c62e83fb6769/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "machine-operator-in-rotary-drilling-systems-special-underground-construction-strabag-ag-schlieren",
+        "machine-operateur-dans-les-systemes-de-forage-rotatifs-construction-souterraine-speciale-strabag-ag-schlieren",
+        "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren",
+        "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "machine-operator-in-rotary-drilling-systems-special-underground-construction-strabag-ag-schlieren",
+          "machine-operateur-dans-les-systemes-de-forage-rotatifs-construction-souterraine-speciale-strabag-ag-schlieren",
+          "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren",
+          "operatore-macchina-in-sistemi-di-perforazione-rotante-speciale-costruzione-sotterranea-strabag-ag-schlieren"
+        ],
+        "en": [
+          "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren"
+        ],
+        "fr": [
+          "maschinist-in-drehbohranlagen-spezialtiefbau-strabag-schlieren"
+        ]
+      },
+      "firstSeenAt": "2026-08-12T22:02:18.916Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -10,6 +10,11 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-accounting-m-w-d/14372da2-ad87-46f8-bad3-cbaf8da9c0d0",
+    "https://jobs.sbb.ch/v2/offene-stellen/personaldisponent-in-fahrbahn/e912fcd5-db60-4d3a-a4ee-6b8b3364c21e",
+    "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/bffe9ea8-6fb7-4ff1-97d6-7dfc7a9090dd",
+    "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-treasury-risk-management-m-w-d/5e3d2406-f76e-42cd-989b-aebcb89e59e7",
+    "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-equipe-voie-ferree/6ac70bbb-20ad-4609-9a68-43e946864dde",
     "https://jobs.sbb.ch/v2/offene-stellen/betriebskoordinator-in-80-in-stansstad/32908248-9cbc-418c-ba49-41162a18e158",
     "https://jobs.sbb.ch/v2/offene-stellen/mecanicienne-installations-de-securite-ferroviaires/e091e734-1fb9-4b84-9f64-7a01da785da6",
     "https://jobs.sbb.ch/v2/offene-stellen/technicienne-qualifiee-maintenance/049e8e36-b350-4282-b07a-99b67f108fd4",
@@ -22,7 +27,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/45ba4b39-eb3a-413e-ba6e-ec61d6937bdd",
     "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/3c16811e-e8d9-482a-aa12-9b550dccc910",
     "https://jobs.sbb.ch/v2/offene-stellen/formatore-trice-professionale-meccanica/57a29208-1b69-4038-90b3-6a3b46e4d1a1",
-    "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/bffe9ea8-6fb7-4ff1-97d6-7dfc7a9090dd",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a",
     "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/10719ad8-25ed-4e94-8b09-39804183f449",
     "https://jobs.sbb.ch/v2/offene-stellen/transport-logistiker-in/656b54cd-1c60-4b2b-8a94-c5d02980aecf",
@@ -163,5 +167,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-14T10:26:31.988Z"
+  "updatedAt": "2026-08-14T21:30:52.374Z"
 }

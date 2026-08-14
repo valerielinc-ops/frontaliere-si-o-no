@@ -164,7 +164,14 @@ import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
-// CookieBanner removed — consent is silently granted by default (see consentService.ts)
+// CookieBanner removed — consent is silently granted by default (see consentService.ts).
+// It has NOT come back: AdsConsentBanner below asks about advertising only (#5842).
+// Analytics/PostHog/Clarity remain ungated and keep the silent default above —
+// owner decision, they are covered by the honest disclosure from #5832.
+// Imported eagerly, not lazily: it must be able to paint on the first frame of a
+// cold visit, and a lazy chunk would let ad scripts stay blocked behind a banner
+// that has not arrived yet.
+import AdsConsentBanner from '@/components/shared/AdsConsentBanner';
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
 // PostHog init is NOT eager here: firing it at module-eval pulled posthog-js +
@@ -3817,6 +3824,8 @@ const App: React.FC = () => {
    );
    return footerPortalTarget ? createPortal(footerJsx, footerPortalTarget) : footerJsx;
  })()}
+ {/* Advertising consent prompt (#5842) — fixed overlay, renders null once answered */}
+ <AdsConsentBanner />
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">

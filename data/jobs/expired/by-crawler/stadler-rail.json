@@ -1,5 +1,52 @@
 [
   {
+    "slug": "elettricista-in-garanzia-stadler-rail-bussnang",
+    "title": "Elektriker:in Garantie & Nacharbeiten",
+    "titleByLocale": {
+      "it": "Elettricista: in garanzia",
+      "en": "Electrician: in guarantee & rework",
+      "de": "Elektriker:in Garantie & Nacharbeiten",
+      "fr": "Électricien: en garantie et retravail"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n• Formazione professionale completa come tecnico meccatronico:in, elettricista:in o paragonabile\n\n• La conoscenza pneumatica è vantaggiosa\n\n• Sensibilizzazione di alta qualità\n\n• Metodi di lavoro autonomi, affidabili e flessibili\n\n• Volontà di viaggiare 80% a livello nazionale e internazionale, patente di guida Cat. B presente\n\n• Buona conoscenza della lingua tedesca e inglese, altre lingue benefiche\n\nTASKS\n\n• Alimentazione elettrica dei veicoli ferroviari\n\n• Attuazione di varie opere elettriche con elenchi di cavi, schemi e documentazione\n\n• Montaggio dei componenti secondo i disegni e le liste delle parti e il montaggio dei collegamenti a vite in base alla coppia\n\n• Completamento dei rapporti di prova e delle gru e dei lavori di incollaggio\n\n• Pianificazione della prova e degli aiuti necessari, pezzi di ricambio e strumenti per l'uso del servizio\n\n• Supporto per l'accettazione del cliente",
+      "en": "PROFILE\n\n• Completed vocational training as a mechatronics technician:in, electrician:in or comparable\n\n• Pneumatic knowledge is advantageous\n\n• High quality awareness\n\n• Self-employed, reliable and flexible working methods\n\n• Willingness to travel 80% nationally and internationally, driving license Cat. B present\n\n• Good knowledge of German and English, other languages beneficial\n\nTASKS\n\n• Feed-in of electrical changes to rail vehicles\n\n• Implementation of various electrical works using cable lists, schematics and documentation\n\n• Mounting of components according to drawings and parts lists and mounting of screw connections according to torque\n\n• Completion of test reports and crane and gluing work\n\n• Planning of the necessary test and aids, spare parts and tools for service use\n\n• Support for customer acceptance",
+      "de": "PROFIL\n\n• Abgeschlossene Berufsausbildung als Mechatroniker:in, Elektriker:in oder vergleichbar\n\n• Pneumatische Kenntnisse von Vorteil\n\n• Hohes Qualitätsbewusstsein\n\n• Selbständige, zuverlässige und flexible Arbeitsweise\n\n• Reisebereitschaft von 80% national und international, Führerschein Kat. B vorhanden\n\n• Gute Deutsch- und Englischkenntnisse, weitere Sprachen von Vorteil\n\nAUFGABEN\n\n• Einpflegen elektrischer Änderungen an Schienenfahrzeugen\n\n• Durchführung verschiedener elektrischer Arbeiten anhand von Kabellisten, Schaltplänen und Dokumentationen\n\n• Montage von Komponenten nach Zeichnungen und Stücklisten sowie anbringen von Schraubverbindungen gemäss Drehmoment\n\n• Ausfüllen von Prüfprotokollen sowie Kran- und Klebearbeiten\n\n• Planung der erforderlichen Prüf- und Hilfsmittel, Ersatzteile sowie Werkzeuge für den Serviceeinsatz\n\n• Unterstützung bei Kundenabnahmen",
+      "fr": "PROFIL\n\n• Formation professionnelle complétée en tant que technicien mécatronique:in, électricien:in ou comparable\n\n• La connaissance pneumatique est avantageuse\n\n• Sensibilisation de haute qualité\n\n• Méthodes de travail indépendantes, fiables et flexibles\n\n• Volonté de voyager 80% à l'échelle nationale et internationale, permis de conduire Cat. B présent\n\n• Bonne connaissance de l'allemand et de l'anglais, autres langues bénéfiques\n\nTÂCHES\n\n• Prise en charge des modifications électriques des véhicules ferroviaires\n\n• Mise en œuvre de divers travaux électriques utilisant des listes de câbles, des schémas et de la documentation\n\n• Montage des composants selon les schémas et les listes de pièces et montage des raccords à vis selon le couple\n\n• Achèvement des rapports d'essais et des travaux de grue et de collage\n\n• Planification des essais et des aides nécessaires, des pièces de rechange et des outils d'utilisation\n\n• Support pour l'acceptation du client"
+    },
+    "slugByLocale": {
+      "it": "elettricista-in-garanzia-stadler-rail-bussnang",
+      "en": "electrician-in-guarantee-rework-stadler-rail-bussnang",
+      "de": "elektriker-in-garantie-nacharbeiten-stadler-rail-ch",
+      "fr": "electricien-en-garantie-et-retravail-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-08-14T21:54:23.683Z",
+    "previousSlugs": [
+      "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
+      ],
+      "en": [
+        "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
+      ],
+      "fr": [
+        "elektriker-in-garantie-nacharbeiten-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "studente-di-lavoro-in-stadler-rail-olten",
     "title": "Werkstudent:in",
     "titleByLocale": {
@@ -352,53 +399,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "projektleiter-garantie-e-nacharbeit-stadler-rail-frauenfeld",
-    "title": "Projektleiter Garantie und Nacharbeit",
-    "titleByLocale": {
-      "it": "Projektleiter Garantie e Nacharbeit",
-      "en": "Project manager guarantee and rework",
-      "de": "Projektleiter Garantie und Nacharbeit",
-      "fr": "Garantie et retravail du gestionnaire de projet"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "Frauenfeld",
-    "addressLocality": "Frauenfeld",
-    "descriptionByLocale": {
-      "it": "PROFESSIONALE\n• Studi tecnici completi (HF/FH) in ingegneria meccanica, ingegneria elettrica, meccatronica, ingegneria del veicolo o formazione tecnica di base con corrispondente ulteriore formazione e diversi anni di esperienza del project manager.\n• Diversi anni di esperienza professionale nella gestione dei progetti, messa in servizio, dopo le vendite, l'ingegneria dei servizi o la lavorazione della garanzia nell'ambiente industriale o un forte vantaggio per l'organizzazione e la pianificazione. L'esperienza ferroviaria è benefica.\n• Metodo di lavoro analitico, strutturato e orientato alla soluzione\n• Il pensiero imprenditoriale con una chiara consapevolezza dei costi e dei risultati\n• Resistenza alla comunicazione e assertività nell'ambiente di progetto nazionale e internazionale\n• Buona visione e alta comprensione tecnica per il rilevamento dei difetti a livello di componenti e montaggio\n• Alto senso di responsabilità e forti capacità di leadership\n• Volontà di viaggiare per incarichi di progetto in Europa\n• Ottima conoscenza del tedesco e dell'inglese (almeno livello B2) TASKS\n• Responsabilità complessiva per la pianificazione, il controllo e l'attuazione della fase di garanzia e rielaborazione del progetto\n• Garantire un'elevata disponibilità della flotta attraverso la risoluzione dei problemi strutturati e il controllo delle azioni\n• Organizzazione professionale e laterale dei dipendenti in luoghi esterni\n• Controllo di qualità, scadenze, costi e risorse nel contratto di garanzia\n• Stabilimento, organizzazione e funzionamento di sedi di garanzia esterne secondo i requisiti contrattuali\n• Gestione interfaccia tra clienti, dipartimenti specializzati interni, fornitori e fornitori di servizi esterni\n• Garantire la disponibilità di materiali e pezzi di ricambio, compreso il coordinamento logistico\n• Creazione di report di stato, report di missione e recensioni di progetti\n• Effettuare ispezioni e controlli di qualità sui veicoli per il recupero e gli incidenti nonché bogie verificate\n• Validazione della soluzione tecnica per la completezza (istruzioni di lavoro, materiale, sforzo ...)\n• Buon contatto con il cliente e con i corrispondenti responsabili dell'ufficio Stadler.",
-      "en": "PROFILE\n• Completed technical studies (HF/FH) in mechanical engineering, electrical engineering, mechatronics, vehicle engineering or basic technical training with corresponding further training and several years of project manager experience.\n• Several years of professional experience in project management, commissioning, after sales, service engineering or warranty processing in the industrial environment or a strong flair for organization and planning. Railway experience is beneficial.\n• Analytical, structured and solution-oriented working method\n• Entrepreneurial thinking with a pronounced awareness of costs and results\n• Communication strength and assertiveness in the national and international project environment\n• Good eye and high technical understanding for defect detection at component and assembly level\n• High sense of responsibility and strong leadership skills\n• Willingness to travel for project assignments within Europe\n• Very good knowledge of German and English (at least level B2) TASKS\n• Overall responsibility for planning, controlling and implementing the guarantee and rework phase in the project\n• Ensuring a high fleet availability through structured troubleshooting and action control\n• Professional and lateral organisation of employees at external locations\n• Control of quality, deadlines, costs and resources within the guarantee contract\n• Establishment, organisation and operation of external warranty locations in accordance with contractual requirements\n• Interface management between customers, internal specialist departments, suppliers and external service providers\n• Ensuring material and spare parts availability including logistics coordination\n• Creation of status reports, mission reports and project reviews\n• Carry out inspections and quality controls on the refit and accident vehicles as well as audited bogies\n• Validation of the technical solution for completeness (work instructions, material, effort ...)\n• Good contact with the customer and the corresponding Stadler office managers.",
-      "de": "PROFIL\n\n• Abgeschlossenes technisches Studium (HF/FH) in Maschinenbau, Elektrotechnik, Mechatronik, Fahrzeugtechnik oder technische Grundausbildung mit entsprechender Weiterbildung und mehrjähriger Projektleitererfahrung.\n\n• Mehrjährige Berufserfahrung im Projektmanagement, in der Inbetriebsetzung, im After Sales, Service Engineering oder der Garantieabwicklung im industriellen Umfeld oder ausgeprägtes Flair für Organisation und Planung. Bahnerfahrung von Vorteil.\n\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n\n• Unternehmerisches Denken mit ausgeprägtem Kosten- und Ergebnisbewusstsein\n\n• Kommunikationsstärke und Durchsetzungsfähigkeit im nationalen und internationalen Projektumfeld\n\n• Gutes Auge und hohes technisches Verständnis zur Mangelerkennung auf Komponenten- und Baugruppenebene\n\n• Hohes Verantwortungsbewusstsein sowie ausgeprägte Führungskompetenz\n\n• Reisebereitschaft für Projekteinsätze innerhalb Europas\n\n• Sehr gute Deutsch- und Englischkenntnisse (mindestens Niveau B2)\n\nAUFGABEN\n\n• Gesamtverantwortung für die Planung, Steuerung und Umsetzung der Garantie- und Nacharbeitsphase im Projekt\n\n• Sicherstellung einer hohen Flottenverfügbarkeit durch strukturierte Störungsbearbeitung und Massnahmensteuerung\n\n• Fachliche und laterale Organisation der Mitarbeitenden an Aussenstandorten\n\n• Steuerung von Qualität, Terminen, Kosten und Ressourcen innerhalb des Garantieauftrags\n\n• Aufbau, Organisation und Betrieb von Garantie-Aussenstandorten gemäss vertraglichen Vorgaben\n\n• Schnittstellenmanagement zwischen Kunden, internen Fachabteilungen, Lieferanten und externen Dienstleistern\n\n• Sicherstellung der Material- und Ersatzteilverfügbarkeit inklusive Logistikkoordination\n\n• Erstellung von Statusberichten, Einsatzrapporten und Projekt-Reviews\n\n• Durchführung von Inspektionen und Qualitätskontrollen an den Refit und Unfall-Fahrzeugen sowie revisionierten Drehgestellen\n\n• Validierung der technischen Lösung auf Vollständigkeit (Arbeitsanweisung, Material, Aufwand …)\n\n• Guten Kontakt zum Kunden und den entsprechenden Aussenstandortleitern von Stadler.",
-      "fr": "PROFIL\n• Études techniques complétées (HF/FH) en génie mécanique, en génie électrique, en mécatronique, en génie des véhicules ou en formation technique de base avec formation complémentaire correspondante et plusieurs années d'expérience de gestionnaire de projet.\n• Plusieurs années d'expérience professionnelle dans la gestion de projet, la mise en service, après vente, l'ingénierie de service ou le traitement de garantie dans l'environnement industriel ou un style fort pour l'organisation et la planification. L'expérience ferroviaire est bénéfique.\n• Méthode de travail analytique, structurée et orientée vers la solution\n• La pensée entrepreneuriale avec une prise de conscience marquée des coûts et des résultats\n• La force de la communication et l'affirmation de soi dans l'environnement national et international des projets\n• Bonne compréhension visuelle et technique pour la détection des défauts au niveau des composants et de l'assemblage\n• Un sens élevé des responsabilités et de solides compétences en leadership\n• Volonté de voyager pour des missions de projet en Europe\n• Très bonne connaissance de l'allemand et de l'anglais (au moins niveau B2) TÂCHES\n• Responsabilité globale de la planification, du contrôle et de la mise en œuvre de la phase de garantie et de retravail dans le projet\n• Assurer une grande disponibilité de la flotte grâce au dépannage structuré et au contrôle d'action\n• Organisation professionnelle et latérale des salariés dans des lieux extérieurs\n• Contrôle de la qualité, des délais, des coûts et des ressources dans le cadre du contrat de garantie\n• Établissement, organisation et exploitation de sites de garantie externes conformément aux exigences contractuelles\n• Gestion des interfaces entre clients, services spécialisés internes, fournisseurs et prestataires de services externes\n• Assurer la disponibilité du matériel et des pièces de rechange, y compris la coordination logistique\n• Établissement de rapports de situation, de rapports de mission et d'examens de projets\n• Effectuer des inspections et des contrôles de qualité sur les véhicules de réparation et d'accident ainsi que sur les bogies audités\n• Validation de la solution technique pour l'exhaustivité (instructions de travail, matériel, effort...)\n• Bon contact avec le client et les responsables de bureau correspondants."
-    },
-    "slugByLocale": {
-      "it": "projektleiter-garantie-e-nacharbeit-stadler-rail-frauenfeld",
-      "en": "project-manager-guarantee-and-rework-stadler-rail-frauenfeld",
-      "de": "projektleiter-garantie-und-nacharbeit-stadler-rail-ch",
-      "fr": "garantie-et-retravail-du-gestionnaire-de-projet-stadler-rail-frauenfeld"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-08-06T11:58:33.464Z",
-    "previousSlugs": [
-      "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
-      ],
-      "en": [
-        "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
-      ],
-      "fr": [
-        "projektleiter-garantie-und-nacharbeit-stadler-rail-ch"
-      ]
-    },
-    "postalCode": "8500",
-    "salaryMin": 79000,
-    "salaryMax": 120000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "systemingenieur-in-brems-e-pneumatiksysteme-per-spezialfahrzeuge-stadler-rail-bussnang",
     "title": "Systemingenieur:in Brems- und Pneumatiksysteme für Spezialfahrzeuge",
     "titleByLocale": {
@@ -524,51 +524,6 @@
     "postalCode": "8404",
     "salaryMin": 73500,
     "salaryMax": 111500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "dipendente-del-dogano-stadler-rail-altenrhein",
-    "title": "Mitarbeiter:in Zollabwicklung",
-    "titleByLocale": {
-      "it": "Dipendente del Dogano",
-      "en": "Associate Zollabwicklung",
-      "de": "Mitarbeiter:in Zollabwicklung",
-      "fr": "Employé du dédouanement"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "Altenrhein",
-    "addressLocality": "Altenrhein",
-    "descriptionByLocale": {
-      "it": "PROFILO\n• Formazione commerciale completa, possibilmente con perfezionamento nel settore doganale\n• Esperienza nelle pratiche doganali nel settore dell'importazione e dell'esportazione\n• Buona conoscenza del diritto doganale e della materia degli accordi preferenziali\n• L'esperienza nell'utilizzo di SAP GTS è un vantaggio\n• Elevata precisione e un modo di lavorare strutturato e indipendente\n• Personalità resiliente, responsabile e affidabile\n• Ottimo tedesco e buona conoscenza dell'inglese scritto e parlato COMPITI\n• Preparazione di documenti doganali (dichiarazioni doganali di esportazione e carnet ATA), certificati di circolazione delle merci e istruzioni di sdoganamento\n• Controllo delle dichiarazioni doganali di importazione ed esportazione\n• Classificazione delle merci secondo le tariffe doganali CH, UE e Regno Unito\n• Ottenimento e controllo della prova dell'origine (ad es. EUR.1, dichiarazioni dei fornitori)\n• Collaborazione attiva con autorità doganali, spedizionieri doganali, fornitori e servizi interni\n• Monitoraggio delle scadenze e dei processi rilevanti per la dogana\n• Aggiornamento dei dati anagrafici rilevanti per la dogana\n• Garantire il rispetto dei requisiti legali",
-      "en": "PROFILE\n• Completed commercial training, ideally with further training in the customs sector\n• Experience in customs processing in the import and export sector\n• Good knowledge of customs law and the subject of preferential agreements\n• Experience in dealing with SAP GTS is an advantage\n• High accuracy as well as a structured and independent way of working\n• Resilient, responsible and reliable personality\n• Very good German and good written and spoken English skills TASKS\n• Preparation of customs documents (export customs declarations and ATA Carnet), Movement of goods certificates and customs clearance instructions\n• Checking import and export customs declarations\n• Classification of goods according to the CH, EU and UK customs tariffs\n• Obtaining and checking proof of origin (e.g. EUR.1, supplier declarations)\n• Active cooperation with customs authorities, customs agents, suppliers and internal departments\n• Monitoring of customs-relevant deadlines and processes\n• Maintenance of customs-relevant master data\n• Ensuring compliance with legal requirements",
-      "de": "PROFIL\n\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung im Zollbereich\n\n•\nErfahrung in der Zollabwicklung im Import- und Exportbereich\n\n• Gute Kenntnisse im Zollrecht sowie zum Thema Präferenzabkommen\n\n• Erfahrung im Umgang mit SAP GTS von Vorteil\n\n•\nHohe Genauigkeit sowie eine strukturierte und selbstständige Arbeitsweise\n\n•\nBelastbare, verantwortungsbewusste und zuverlässige Persönlichkeit\n\n• Sehr gute Deutsch- sowie gute Englischkenntnisse in Wort und Schrift\n\nAUFGABEN\n\n• Erstellung von Zolldokumenten (Exportzollanmeldungen und Carnet ATA), Warenverkehrsbescheinigungen und Verzollungsinstruktionen\n\n• Prüfung von Import- und Exportzollanmeldungen\n\n• Tarifierung von Waren gemäss CH-, EU- und UK-Zolltarif\n\n• Einholung und Prüfung von Ursprungsnachweisen (z. B. EUR.1, Lieferantenerklärungen)\n\n• Aktive Zusammenarbeit mit Zollbehörden, Zollagenten, Lieferanten und internen Stellen\n\n• Überwachung zollrelevanter Fristen und Prozesse\n\n• Pflege zollrelevanter Stammdaten\n\n• Sicherstellung der Einhaltung gesetzlicher Vorgaben",
-      "fr": "PROFIL\n• Formation commerciale terminée, idéalement complétée par une formation complémentaire dans le secteur douanier\n• Expérience dans le traitement douanier dans le secteur de l'import et de l'export\n• Bonne connaissance du droit douanier et du sujet des accords préférentiels\n• Une expérience dans la gestion de SAP GTS est un avantage\n• Grande précision ainsi qu'une manière de travailler structurée et indépendante\n• Personnalité résiliente, responsable et fiable\n• Très bonne maîtrise de l'allemand et de l'anglais écrit et parlé TÂCHES\n• Préparation des documents douaniers (déclarations en douane d'exportation et Carnet ATA), certificats de circulation des marchandises et instructions de dédouanement\n• Contrôle des déclarations en douane d'importation et d'exportation\n• Classification des marchandises selon les tarifs douaniers de la Suisse, de l'UE et du Royaume-Uni\n• Obtention et contrôle des preuves d'origine (par ex. EUR.1, déclarations des fournisseurs)\n• Coopération active avec les autorités douanières, les agents en douane, les fournisseurs et les services internes\n• Surveillance des délais et des processus pertinents pour les douanes\n• Gestion des données de base pertinentes pour les douanes\n• Garantir le respect des exigences légales"
-    },
-    "slugByLocale": {
-      "it": "dipendente-del-dogano-stadler-rail-altenrhein",
-      "en": "associate-zollabwicklung-stadler-rail-altenrhein",
-      "de": "mitarbeiter-in-zollabwicklung-stadler-rail-ch",
-      "fr": "employe-du-dedouanement-stadler-rail-altenrhein"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-08-05T11:38:37.657Z",
-    "previousSlugs": [
-      "mitarbeiter-in-zollabwicklung-stadler-rail-ch",
-      "customs-clearance-employee-stadler-rail-altenrhein"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "mitarbeiter-in-zollabwicklung-stadler-rail-ch"
-      ],
-      "en": [
-        "customs-clearance-employee-stadler-rail-altenrhein"
-      ]
-    },
-    "postalCode": "9423",
-    "salaryMin": 57500,
-    "salaryMax": 87000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

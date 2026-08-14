@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-08-14T10:36:20.007Z",
+  "assembledAt": "2026-08-14T21:42:14.431Z",
   "jobs": [
     {
       "title": "Head of Retail Media 100%",
@@ -35,9 +35,10 @@
         "fr": "Responsable Retail Media 100%"
       },
       "sourceLang": "it",
+      "id": "manor-7248838867be",
+      "firstSeenAt": "2026-08-14T10:36:13.546Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "id": "manor-7248838867be",
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -53,8 +54,7 @@
       },
       "addressLocality": "Basel Head of Retail",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-14T10:36:13.546Z"
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Logistiker*in EFZ / EBA",
@@ -84,14 +84,15 @@
       },
       "titleByLocale": {
         "it": "Logistiker*in CFC / AFP",
-        "de": "Logistiker*in EFZ / EBA",
         "en": "Logistiker*in EFZ / EBA",
+        "de": "Logistiker*in EFZ / EBA",
         "fr": "Logistiker*in EFZ / EBA"
       },
       "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-2d335ec48093",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:36:13.546Z",
+      "crawledAt": "",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -107,45 +108,107 @@
       },
       "addressLocality": "Möhlin Logistikerin EFZ EBA",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-14T10:36:13.546Z"
+      "employmentType": "FULL_TIME"
     },
     {
-      "title": "Collaborateur/trice Merchandising (Décoration Non Food) 100%",
+      "title": "Mitarbeiter*in Logistic/Wareneingang 80%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-Merchandising-%28D%C3%A9coration-Non-Food%29-100/1364619255/",
-      "location": "Lausanne Collaborateurtrice Merchandising (Décoration",
+      "url": "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-LogisticWareneingang-80/1364621855/",
+      "location": "Zürich Mitarbeiterin LogisticWareneingang 80",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "logistics",
+      "description": "Mitarbeiter*in Logistic/Wareneingang 80% presso Manor, con sede a Zürich Mitarbeiterin LogisticWareneingang 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Logistic/Wareneingang 80% presso Manor, con sede a Zürich Mitarbeiterin LogisticWareneingang 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionByLocale": {
+        "it": "Mitarbeiter*in Logistic/Wareneingang 80% presso Manor, con sede a Zürich Mitarbeiterin LogisticWareneingang 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Mitarbeiter*in Logistic/Wareneingang 80% at Manor, located in Zürich Mitarbeiterin LogisticWareneingang 80, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Logistic/Wareneingang 80% bei Manor, gelegen in Zürich Mitarbeiterin LogisticWareneingang 80, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Logistic/Wareneingang 80% chez Manor, situé à Zürich Mitarbeiterin LogisticWareneingang 80, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-08-14",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistic-wareneingang-80-zurich-mitarbeiterin-logisticwareneingang-80",
+      "slugByLocale": {
+        "it": "manor-mitarbeiter-in-logistic-wareneingang-80-zurich-mitarbeiterin-logisticwareneingang-80",
+        "en": "manor-mitarbeiter-in-logistic-wareneingang-80-zurich-mitarbeiterin-logisticwareneingang-80",
+        "de": "manor-mitarbeiter-in-logistic-wareneingang-80-zurich-mitarbeiterin-logisticwareneingang-80",
+        "fr": "manor-mitarbeiter-in-logistic-wareneingang-80-zurich-mitarbeiterin-logisticwareneingang-80"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice*in Logistic/Wareneingang 80%",
+        "de": "Mitarbeiter*in Logistic/Wareneingang 80%",
+        "en": "Mitarbeiter*in Logistic/Wareneingang 80%",
+        "fr": "Mitarbeiter*in Logistic/Wareneingang 80%"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-50652db8a74a",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58800,
+          "maxValue": 89200,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Zürich Mitarbeiterin LogisticWareneingang 80",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T21:42:10.018Z"
+    },
+    {
+      "title": "Collaborateur/trice Merchandising (Non Food) 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-Merchandising-%28Non-Food%29-100/1364619255/",
+      "location": "Lausanne Collaborateurtrice Merchandising (Non",
       "canton": "VD",
       "country": "CH",
       "category": "design",
-      "description": "Collaborateur/trice Merchandising (Décoration Non Food) 100% presso Manor, con sede a Lausanne Collaborateurtrice Merchandising (Décoration, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaborateur/trice Merchandising (Décoration Non Food) 100% presso Manor, con sede a Lausanne Collaborateurtrice Merchandising (Décoration, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "description": "Collaborateur/trice Merchandising (Non Food) 100% presso Manor, con sede a Lausanne Collaborateurtrice Merchandising (Non, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Collaborateur/trice Merchandising (Non Food) 100% presso Manor, con sede a Lausanne Collaborateurtrice Merchandising (Non, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Collaborateur/trice Merchandising (Décoration Non Food) 100% presso Manor, con sede a Lausanne Collaborateurtrice Merchandising (Décoration, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "it": "Collaborateur/trice Merchandising (Non Food) 100% presso Manor, con sede a Lausanne Collaborateurtrice Merchandising (Non, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
         "en": "Collaborateur/trice Merchandising (Décoration Non Food) 100% at Manor, located in Lausanne Collaborateurtrice Merchandising (Décoration, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Collaborateur/trice Merchandising (Décoration Non Food) 100% bei Manor, gelegen in Lausanne Collaborateurtrice Merchandising (Décoration, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Collaborateur/trice Merchandising (Décoration Non Food) 100% chez Manor, situé à Lausanne Collaborateurtrice Merchandising (Décoration, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
       },
       "postedDate": "2026-08-14",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration",
+      "slug": "manor-collaborateur-trice-merchandising-non-food-100-lausanne-collaborateurtrice-merchandising-non",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration",
+        "it": "manor-collaborateur-trice-merchandising-non-food-100-lausanne-collaborateurtrice-merchandising-non",
         "en": "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration",
         "de": "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration",
         "fr": "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice Merchandising (Décoration Non Food) 100%",
+        "it": "Collaborateur/trice Merchandising (Non Food) 100%",
         "en": "Collaborateur/trice Merchandising (Décoration Non Food) 100%",
         "de": "Collaborateur/trice Merchandising (Décoration Non Food) 100%",
-        "fr": "Collaborateur/trice Merchandising (Décoration Non Food) 100%"
+        "fr": "Collaborateur/trice Marchandising (Décoration Non Food) 100%"
       },
       "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-5c1d2ae4a242",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-merchandising-decoration-non-food-100-lausanne-collaborateurtrice-merchandising-decoration"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:36:13.546Z",
+      "crawledAt": "",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -159,10 +222,117 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Lausanne Collaborateurtrice Merchandising (Décoration",
+      "addressLocality": "Lausanne Collaborateurtrice Merchandising (Non",
       "addressRegion": "VD",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "title": "Mitarbeiter*in Visual Merchandising 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Visual-Merchandising-60/1364649955/",
+      "location": "Aarau Mitarbeiterin Visual Merchandising",
+      "canton": "AG",
+      "country": "CH",
+      "category": "design",
+      "description": "Mitarbeiter*in Visual Merchandising 60% presso Manor, con sede a Aarau Mitarbeiterin Visual Merchandising, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Visual Merchandising 60% presso Manor, con sede a Aarau Mitarbeiterin Visual Merchandising, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionByLocale": {
+        "it": "Mitarbeiter*in Visual Merchandising 60% presso Manor, con sede a Aarau Mitarbeiterin Visual Merchandising, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Mitarbeiter*in Visual Merchandising 60% at Manor, located in Aarau Mitarbeiterin Visual Merchandising, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Visual Merchandising 60% bei Manor, gelegen in Aarau Mitarbeiterin Visual Merchandising, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Visual Merchandising 60% chez Manor, situé à Aarau Mitarbeiterin Visual Merchandising, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-08-14",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-visual-merchandising-60-aarau-mitarbeiterin-visual-merchandising",
+      "slugByLocale": {
+        "it": "manor-mitarbeiter-in-visual-merchandising-60-aarau-mitarbeiterin-visual-merchandising",
+        "en": "manor-mitarbeiter-in-visual-merchandising-60-aarau-mitarbeiterin-visual-merchandising",
+        "de": "manor-mitarbeiter-in-visual-merchandising-60-aarau-mitarbeiterin-visual-merchandising",
+        "fr": "manor-mitarbeiter-in-visual-merchandising-60-aarau-mitarbeiterin-visual-merchandising"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice*in Visual Merchandising 60%",
+        "de": "Mitarbeiter*in Visual Merchandising 60%",
+        "en": "Mitarbeiter*in Visual Merchandising 60%",
+        "fr": "Mitarbeiter*in Visual Merchandising 60%"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-902001abe666",
+      "salaryMin": 37200,
+      "salaryMax": 56400,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 37200,
+          "maxValue": 56400,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Aarau Mitarbeiterin Visual Merchandising",
+      "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-14T10:36:13.546Z"
+      "firstSeenAt": "2026-08-14T21:42:10.018Z"
+    },
+    {
+      "title": "Mitarbeiter*in Kundendienst 30%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Kundendienst-30/1364620155/",
+      "location": "Winterthur Mitarbeiterin Kundendienst 30",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "retail",
+      "description": "Deutschesprache in Wort und Schrift, gepflegtes Erscheinungsbild, MS Office Kenntnissen, Freude im Umgang mit Anspruchsvoller Kundschaft, offene Persönlichkeit, Arbeitszeiten: 2 -3 Spätschichten von 17.00 -20.30 Uhr, gerne auch Samstags ganzer Tag.",
+      "descriptionIt": "Deutschesprache in Wort und Schrift, gepflegtes Erscheinungsbild, MS Office Kenntnissen, Freude im Umgang mit Anspruchsvoller Kundschaft, offene Persönlichkeit, Arbeitszeiten: 2 -3 Spätschichten von 17.00 -20.30 Uhr, gerne auch Samstags ganzer Tag.",
+      "descriptionByLocale": {
+        "it": "## Collaboratore/trice*in Kundendienst 30%\n\n**Manor AG** — Winterthur Mitarbeiterin Kundendienst 30 (ZH)\n\nDeutschesprache in Wort und Schrift, gepflegtes Erscheinungsbild, MS Office Kenntnissen, Freude im Umgang mit Anspruchsvoller Kundschaft, offene Persönlichkeit, Arbeitszeiten: 2 -3 Spätschichten von 17.00 -20.30 Uhr, gerne auch Samstags ganzer Tag.\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
+        "en": "Mitarbeiter*in Kundendienst 30% at Manor, located in Winterthur Mitarbeiterin Kundendienst 30, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Kundendienst 30% bei Manor, gelegen in Winterthur Mitarbeiterin Kundendienst 30, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Kundendienst 30% chez Manor, situé à Winterthur Mitarbeiterin Kundendienst 30, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-08-14",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30",
+      "slugByLocale": {
+        "it": "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30",
+        "en": "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30",
+        "de": "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30",
+        "fr": "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice*in Kundendienst 30%",
+        "de": "Mitarbeiter*in Kundendienst 30%",
+        "en": "Mitarbeiter*in Kundendienst 30%",
+        "fr": "Mitarbeiter*in Kundendienst 30%"
+      },
+      "sourceLang": "de",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-8cb33796890e",
+      "salaryMin": 24900,
+      "salaryMax": 38300,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 24900,
+          "maxValue": 38300,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Winterthur Mitarbeiterin Kundendienst 30",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T21:42:10.018Z"
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising 80%",
@@ -725,60 +895,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Verkauf Parfümerie 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-40/1364532555/",
-      "location": "Schaffhausen Mitarbeiterin Verkauf Parfümerie",
-      "canton": "SH",
-      "country": "CH",
-      "category": "sales",
-      "description": "Mitarbeiter*in Verkauf Parfümerie 40% presso Manor, con sede a Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton Sciaffusa, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Verkauf Parfümerie 40% presso Manor, con sede a Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton Sciaffusa, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Verkauf Parfümerie 40% presso Manor, con sede a Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton Sciaffusa, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Verkauf Parfümerie 40% at Manor, located in Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton of Schaffhausen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 40% bei Manor, gelegen in Schaffhausen Mitarbeiterin Verkauf Parfümerie, Kanton Schaffhausen, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Verkauf Parfümerie 40% chez Manor, situé à Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton de Schaffhouse, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-08-13",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
-        "de": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
-        "fr": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita Parfümerie 40%",
-        "en": "Mitarbeiter*in Sales Parfümerie 40%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 40%",
-        "fr": "Mitarbeiter*in Vente Parfümerie 40%"
-      },
-      "sourceLang": "it",
-      "id": "manor-94fffa145b15",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T22:19:19.718Z",
-      "crawledAt": "",
-      "salaryMin": 27400,
-      "salaryMax": 42000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 27400,
-          "maxValue": 42000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Schaffhausen Mitarbeiterin Verkauf Parfümerie",
-      "addressRegion": "SH",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "title": "Mitarbeiter*in Kasse/Kundendienst 80%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -849,70 +965,58 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Projektleiter Facility Management 100%",
+      "title": "Mitarbeiter*in Verkauf Parfümerie 40%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Projektleiter-Facility-Management-100/1364514655/",
-      "location": "Basel Projektleiter Facility Management",
-      "canton": "BS",
+      "url": "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-40/1364532555/",
+      "location": "Schaffhausen Mitarbeiterin Verkauf Parfümerie",
+      "canton": "SH",
       "country": "CH",
-      "category": "retail",
-      "description": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
-      "descriptionIt": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM \n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten. \nIT Affinität wird vorausgesetzt.",
+      "category": "sales",
+      "description": "Mitarbeiter*in Verkauf Parfümerie 40% presso Manor, con sede a Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton Sciaffusa, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Verkauf Parfümerie 40% presso Manor, con sede a Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton Sciaffusa, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Compiti fondamentali:\ncompiti di gestione del core 70%:\n• Supporto olistico dei progetti operativi centrale FM, grandi magazzini e centri di distribuzione\n• Supporto e ottimizzazione continua dei processi operativi FM\n\n20% compiti fondamentali STRATEGIC:\n• Iniziazione di modifiche ottimizzate operativamente. (Innovazione)\n\n10% compiti fondamentali ADMINISTRATIVE:\n•Coordinamento Termink e coordinamento delle riunioni con le società contraenti, la gestione dei protocolli, l'assistenza nella pianificazione degli eventi interni, la creazione di un grafico di organizzazione, il supporto amministrativo nel team FM BAZ. Centralizzazione e standardizzazione delle attività amministrative.\nL'affinità IT è necessaria.",
-        "en": "Projektleiter Facility Management 100% at Manor, located in Basel Projektleiter Facility Management, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
-        "fr": "Projektleiter Facility Management 100% chez Manor, situé à Basel Projektleiter Facility Management, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "it": "Mitarbeiter*in Verkauf Parfümerie 40% presso Manor, con sede a Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton Sciaffusa, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Mitarbeiter*in Verkauf Parfümerie 40% at Manor, located in Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton of Schaffhausen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Verkauf Parfümerie 40% bei Manor, gelegen in Schaffhausen Mitarbeiterin Verkauf Parfümerie, Kanton Schaffhausen, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Verkauf Parfümerie 40% chez Manor, situé à Schaffhausen Mitarbeiterin Verkauf Parfümerie, Canton de Schaffhouse, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
       },
       "postedDate": "2026-08-13",
       "source": "company-website",
-      "slug": "project-manager-facility-management-100-manor-ag-basel-projektleiter-facility-management",
+      "slug": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
-        "it": "project-manager-facility-management-100-manor-ag-basel-projektleiter-facility-management",
-        "en": "manor-projektleiter-facility-management-100-basel-projektleiter-facility-management",
-        "de": "manor-projektleiter-facility-management-100-basel-projektleiter-facility-management",
-        "fr": "gestionnaire-de-projet-gestion-des-installations-100-manor-ag-basel-projektleiter-facility-management"
+        "it": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
+        "en": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
+        "de": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie",
+        "fr": "manor-mitarbeiter-in-verkauf-parfumerie-40-schaffhausen-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
-        "it": "Project Manager Facility Management 100%",
-        "de": "Projektleiter Facility Management 100%",
-        "en": "Project Manager Facility Management 100%",
-        "fr": "Gestionnaire de projet Gestion des installations 100%"
+        "it": "Collaboratore/trice*in vendita Parfümerie 40%",
+        "en": "Mitarbeiter*in Sales Parfümerie 40%",
+        "de": "Mitarbeiter*in Verkauf Parfümerie 40%",
+        "fr": "Mitarbeiter*in Vente Parfümerie 40%"
       },
-      "sourceLang": "de",
+      "sourceLang": "it",
+      "id": "manor-94fffa145b15",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T22:19:19.718Z",
       "crawledAt": "",
-      "id": "manor-6ae5a7162e1c",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
+      "salaryMin": 27400,
+      "salaryMax": 42000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
+          "minValue": 27400,
+          "maxValue": 42000,
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Basel Projektleiter Facility Management",
-      "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-13T10:44:23.566Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-projektleiter-facility-management-100-basel-projektleiter-facility-management"
-        ],
-        "fr": [
-          "manor-projektleiter-facility-management-100-basel-projektleiter-facility-management"
-        ]
-      },
-      "previousSlugs": [
-        "manor-projektleiter-facility-management-100-basel-projektleiter-facility-management"
-      ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "addressLocality": "Schaffhausen Mitarbeiterin Verkauf Parfümerie",
+      "addressRegion": "SH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Verkauf Papeterie/Multimedia 70%",
@@ -1789,127 +1893,6 @@
       "addressLocality": "Lausanne Collaborateurtrice supermarché (Boulangerie)",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
-    },
-    {
-      "title": "Mitarbeiter*in Logistik 100% Wareneingang Offline",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-100-Wareneingang-Offline/1363512155/",
-      "location": "Möhlin Mitarbeiterin Logistik 100",
-      "canton": "AG",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Mitarbeiter*in Logistik 100% Wareneingang Offline presso Manor, con sede a Möhlin Mitarbeiterin Logistik 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Logistik 100% Wareneingang Offline presso Manor, con sede a Möhlin Mitarbeiterin Logistik 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik 100% Wareneingang Offline presso Manor, con sede a Möhlin Mitarbeiterin Logistik 100, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik 100% Wareneingang Offline at Manor, located in Möhlin Mitarbeiterin Logistik 100, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik 100% Wareneingang Offline bei Manor, gelegen in Möhlin Mitarbeiterin Logistik 100, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik 100% Wareneingang Offline chez Manor, situé à Möhlin Mitarbeiterin Logistik 100, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-08-11",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-100-wareneingang-offline-mohlin-mitarbeiterin-logistik-100",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-100-wareneingang-offline-mohlin-mitarbeiterin-logistik-100",
-        "en": "manor-mitarbeiter-in-logistik-100-wareneingang-offline-mohlin-mitarbeiterin-logistik-100",
-        "de": "manor-mitarbeiter-in-logistik-100-wareneingang-offline-mohlin-mitarbeiterin-logistik-100",
-        "fr": "mitarbeiter-in-logistik-100-wareneingang-hors-ligne-manor-ag-mohlin-mitarbeiterin-logistik-100"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik 100% Wareneingang Offline",
-        "en": "Mitarbeiter*in Logistik 100% Wareneingang Offline",
-        "de": "Mitarbeiter*in Logistik 100% Wareneingang Offline",
-        "fr": "Mitarbeiter*in Logistik 100% Wareneingang Hors ligne"
-      },
-      "sourceLang": "it",
-      "id": "manor-39a1ec6be86a",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:49:27.135Z",
-      "crawledAt": "",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Möhlin Mitarbeiterin Logistik 100",
-      "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2
-    },
-    {
-      "title": "Mitarbeiter*in Logistik VZ FFFCD 1 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-VZ-FFFCD-1-100/1363512055/",
-      "location": "Möhlin Mitarbeiterin Logistik VZ",
-      "canton": "AG",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Mitarbeiter*in Logistik VZ FFFCD 1 100% presso Manor, con sede a Möhlin Mitarbeiterin Logistik VZ, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Logistik VZ FFFCD 1 100% presso Manor, con sede a Möhlin Mitarbeiterin Logistik VZ, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Logistik VZ FFFCD 1 100% presso Manor, con sede a Möhlin Mitarbeiterin Logistik VZ, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Logistik VZ FFFCD 1 100% at Manor, located in Möhlin Mitarbeiterin Logistik VZ, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Logistik VZ FFFCD 1 100% bei Manor, gelegen in Möhlin Mitarbeiterin Logistik VZ, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Logistik VZ FFFCD 1 100% chez Manor, situé à Möhlin Mitarbeiterin Logistik VZ, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-08-11",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-vz-fffcd-1-100-mohlin-mitarbeiterin-logistik-vz",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-logistik-vz-fffcd-1-100-mohlin-mitarbeiterin-logistik-vz",
-        "en": "manor-mitarbeiter-in-logistik-vz-fffcd-1-100-mohlin-mitarbeiterin-logistik-vz",
-        "de": "manor-mitarbeiter-in-logistik-vz-fffcd-1-100-mohlin-mitarbeiterin-logistik-vz",
-        "fr": "manor-mitarbeiter-in-logistik-vz-fffcd-1-100-mohlin-mitarbeiterin-logistik-vz"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Logistik VZ FFFCD 1 100%",
-        "en": "Mitarbeiter*in Logistik VZ FFFCD 1 100%",
-        "de": "Mitarbeiter*in Logistik VZ FFFCD 1 100%",
-        "fr": "Mitarbeiter*in Logistik VZ FFFCD 1 100%"
-      },
-      "sourceLang": "it",
-      "id": "manor-1a88fc9cfb78",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-vz-fffcd-2-100-mohlin-mitarbeiterin-logistik-vz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-vz-fffcd-2-100-mohlin-mitarbeiterin-logistik-vz"
-        ],
-        "de": [
-          "manor-mitarbeiter-in-logistik-vz-fffcd-2-100-mohlin-mitarbeiterin-logistik-vz"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:49:27.135Z",
-      "crawledAt": "",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Möhlin Mitarbeiterin Logistik VZ",
-      "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2
     },
     {
@@ -2338,7 +2321,7 @@
       "addressLocality": "Zug Mitarbeiterin Verkauf 50",
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "title": "Collaborateur/trice supermarché (Charcuteries & Fromages) 80%",
@@ -2756,9 +2739,10 @@
         "fr": "Retail Media Coordinateur 100%"
       },
       "sourceLang": "it",
+      "id": "manor-aad0a4cd329e",
+      "firstSeenAt": "2026-08-14T10:36:13.546Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "id": "manor-aad0a4cd329e",
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -2774,8 +2758,7 @@
       },
       "addressLocality": "Basel Retail Media Coordinator",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-14T10:36:13.546Z"
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Kassierer*in Fashion 30%",
@@ -4285,60 +4268,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Visual Merchandiser 80%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hinwil-Visual-Merchandiser-80/1361730455/",
-      "location": "Hinwil Visual Merchandiser 80",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "design",
-      "description": "Visual Merchandiser 80% presso Manor, con sede a Hinwil Visual Merchandiser 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Visual Merchandiser 80% presso Manor, con sede a Hinwil Visual Merchandiser 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Visual Merchandiser 80% presso Manor, con sede a Hinwil Visual Merchandiser 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Visual Merchandiser 80% at Manor, located in Hinwil Visual Merchandiser 80, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Visual Merchandiser 80% bei Manor, gelegen in Hinwil Visual Merchandiser 80, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Visual Merchandiser 80% chez Manor, situé à Hinwil Visual Merchandiser 80, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-07-21",
-      "source": "company-website",
-      "slug": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
-      "slugByLocale": {
-        "it": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
-        "en": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
-        "de": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
-        "fr": "marchandiser-visuel-80-manor-ag-hinwil-visual-merchandiser-80"
-      },
-      "titleByLocale": {
-        "it": "Visual Merchandiser 80%",
-        "en": "Visual Merchandiser 80%",
-        "de": "Visual Merchandiser 80%",
-        "fr": "Marchandiser visuel 80%"
-      },
-      "sourceLang": "it",
-      "id": "manor-3629c012450f",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-21T12:42:21.972Z",
-      "crawledAt": "",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Hinwil Visual Merchandiser 80",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "title": "Assistent*in Restaurant 100%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -4629,59 +4558,68 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Mitarbeiter*in Supermarkt 20%",
+      "title": "Polydesigner*in 3D 80%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Supermarkt-20/1361735355/",
-      "location": "Sargans Mitarbeiterin Supermarkt 20",
-      "canton": "SG",
+      "url": "https://positions.manor.ch/job/Hinwil-Polydesignerin-3D-80/1361730455/",
+      "location": "Hinwil Polydesignerin 3D 80",
+      "canton": "ZH",
       "country": "CH",
-      "category": "retail",
-      "description": "Mitarbeiter*in Supermarkt 20% presso Manor, con sede a Sargans Mitarbeiterin Supermarkt 20, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Supermarkt 20% presso Manor, con sede a Sargans Mitarbeiterin Supermarkt 20, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "category": "design",
+      "description": "Polydesigner*in 3D 80% presso Manor, con sede a Hinwil Polydesignerin 3D 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Polydesigner*in 3D 80% presso Manor, con sede a Hinwil Polydesignerin 3D 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "descriptionByLocale": {
-        "it": "Mitarbeiter*in Supermarkt 20% presso Manor, con sede a Sargans Mitarbeiterin Supermarkt 20, Canton San Gallo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Supermarkt 20% at Manor, located in Sargans Mitarbeiterin Supermarkt 20, Canton of St. Gallen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Supermarkt 20% bei Manor, gelegen in Sargans Mitarbeiterin Supermarkt 20, Kanton St. Gallen, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Supermarkt 20% chez Manor, situé à Sargans Mitarbeiterin Supermarkt 20, Canton de Saint-Gall, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+        "it": "Polydesigner*in 3D 80% presso Manor, con sede a Hinwil Polydesignerin 3D 80, Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Visual Merchandiser 80% at Manor, located in Hinwil Visual Merchandiser 80, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Visual Merchandiser 80% bei Manor, gelegen in Hinwil Visual Merchandiser 80, Kanton Zürich, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Visual Merchandiser 80% chez Manor, situé à Hinwil Visual Merchandiser 80, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
       },
       "postedDate": "2026-07-21",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-supermarkt-20-sargans-mitarbeiterin-supermarkt-20",
+      "slug": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-supermarkt-20-sargans-mitarbeiterin-supermarkt-20",
-        "en": "manor-mitarbeiter-in-supermarkt-20-sargans-mitarbeiterin-supermarkt-20",
-        "de": "manor-mitarbeiter-in-supermarkt-20-sargans-mitarbeiterin-supermarkt-20",
-        "fr": "manor-mitarbeiter-in-supermarkt-20-sargans-mitarbeiterin-supermarkt-20"
+        "it": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
+        "en": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
+        "de": "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80",
+        "fr": "marchandiser-visuel-80-manor-ag-hinwil-visual-merchandiser-80"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt 20%",
-        "en": "Mitarbeiter*in Supermarkt 20%",
-        "de": "Mitarbeiter*in Supermarkt 20%",
-        "fr": "Mitarbeiter* en Supermarkt 20%"
+        "it": "Polydesigner*in 3D 80%",
+        "fr": "Polydesigner*in 3D 80%",
+        "en": "Polydesigner*in 3D 80%",
+        "de": "Polydesigner*in 3D 80%"
       },
       "sourceLang": "it",
-      "id": "manor-4da88dd64dc3",
+      "id": "manor-3629c012450f",
       "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-polydesigner-in-3d-80-hinwil-polydesignerin-3d-80",
+          "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80"
+        ]
+      },
+      "previousSlugs": [
+        "manor-polydesigner-in-3d-80-hinwil-polydesignerin-3d-80",
+        "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80"
+      ],
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
-      "salaryMin": 13700,
-      "salaryMax": 21000,
+      "salaryMin": 58800,
+      "salaryMax": 89200,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 13700,
-          "maxValue": 21000,
+          "minValue": 58800,
+          "maxValue": 89200,
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Sargans Mitarbeiterin Supermarkt 20",
-      "addressRegion": "SG",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2
+      "addressLocality": "Hinwil Polydesignerin 3D 80",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Parfümerie 20%",
@@ -4865,7 +4803,7 @@
       "title": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596555/",
+      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Herrenkonfektion-20/1361596355/",
       "location": "Spreitenbach Mitarbeiterin Verkauf Herrenkonfektion",
       "canton": "AG",
       "country": "CH",
@@ -4889,15 +4827,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Herrenkonfektion 20%",
-        "en": "Mitarbeiter*in Sales Herrenkonfektion 20%",
         "de": "Mitarbeiter*in Verkauf Herrenkonfektion 20%",
+        "en": "Mitarbeiter*in Sales Herrenkonfektion 20%",
         "fr": "Mitarbeiter*in Vente Herrenkonfektion 20%"
       },
       "sourceLang": "it",
-      "id": "manor-647a61351fe5",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:44:23.566Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-671edaf3ce9a",
       "salaryMin": 14800,
       "salaryMax": 22700,
       "currency": "CHF",
@@ -4913,61 +4850,8 @@
       },
       "addressLocality": "Spreitenbach Mitarbeiterin Verkauf Herrenkonfektion",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "title": "Mitarbeiter*in Kasse 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Kasse-40/1361597155/",
-      "location": "Spreitenbach Mitarbeiterin Kasse 40",
-      "canton": "AG",
-      "country": "CH",
-      "category": "sales",
-      "description": "Mitarbeiter*in Kasse 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Kasse 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Mitarbeiter*in Kasse 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Kasse 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Mitarbeiter*in Kasse 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Kasse 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Mitarbeiter*in Kasse 40% at Manor, located in Spreitenbach Mitarbeiterin Kasse 40, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Mitarbeiter*in Kasse 40% bei Manor, gelegen in Spreitenbach Mitarbeiterin Kasse 40, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Mitarbeiter*in Kasse 40% chez Manor, situé à Spreitenbach Mitarbeiterin Kasse 40, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-07-20",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
-      "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
-        "en": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
-        "de": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
-        "fr": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Kasse 40%",
-        "en": "Mitarbeiter in Kasse 40%",
-        "de": "Mitarbeiter*in Kasse 40%",
-        "fr": "Mitarbeiter en Kasse 40%"
-      },
-      "sourceLang": "it",
-      "id": "manor-cfc0646eac8a",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-20T13:02:14.490Z",
-      "crawledAt": "",
-      "salaryMin": 29600,
-      "salaryMax": 45400,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 29600,
-          "maxValue": 45400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Spreitenbach Mitarbeiterin Kasse 40",
-      "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T21:42:10.018Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Papeterie & Accesoires 60%",
@@ -5332,6 +5216,61 @@
       "addressLocality": "Luzern Mitarbeiterin Verkauf DamenmodeLingerie",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME"
+    },
+    {
+      "title": "Mitarbeiter*in Kasse 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Kasse-40/1361597155/",
+      "location": "Spreitenbach Mitarbeiterin Kasse 40",
+      "canton": "AG",
+      "country": "CH",
+      "category": "sales",
+      "description": "Mitarbeiter*in Kasse 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Kasse 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Kasse 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Kasse 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionByLocale": {
+        "it": "Mitarbeiter*in Kasse 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Kasse 40, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Mitarbeiter*in Kasse 40% at Manor, located in Spreitenbach Mitarbeiterin Kasse 40, Canton of Aargau, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Mitarbeiter*in Kasse 40% bei Manor, gelegen in Spreitenbach Mitarbeiterin Kasse 40, Kanton Aargau, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Mitarbeiter*in Kasse 40% chez Manor, situé à Spreitenbach Mitarbeiterin Kasse 40, Canton de Argovie, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-07-20",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
+      "slugByLocale": {
+        "it": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
+        "en": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
+        "de": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40",
+        "fr": "manor-mitarbeiter-in-kasse-40-spreitenbach-mitarbeiterin-kasse-40"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice*in Kasse 40%",
+        "en": "Mitarbeiter in Kasse 40%",
+        "de": "Mitarbeiter*in Kasse 40%",
+        "fr": "Mitarbeiter en Kasse 40%"
+      },
+      "sourceLang": "it",
+      "id": "manor-cfc0646eac8a",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T13:02:14.490Z",
+      "crawledAt": "",
+      "salaryMin": 29600,
+      "salaryMax": 45400,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 29600,
+          "maxValue": 45400,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Spreitenbach Mitarbeiterin Kasse 40",
+      "addressRegion": "AG",
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur/trice cuisine (Manora) 60%",
@@ -5866,60 +5805,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Collaborateur/trice vente (Confection Dames) 80%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-vente-%28Confection-Dames%29-80/1360456755/",
-      "location": "Chavannes de Bogis Collaborateurtrice",
-      "canton": "VD",
-      "country": "CH",
-      "category": "sales",
-      "description": "Collaborateur/trice vente (Confection Dames) 80% presso Manor, con sede a Chavannes de Bogis Collaborateurtrice, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaborateur/trice vente (Confection Dames) 80% presso Manor, con sede a Chavannes de Bogis Collaborateurtrice, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Collaborateur/trice vente (Confection Dames) 80% presso Manor, con sede a Chavannes de Bogis Collaborateurtrice, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice vente (Confection Dames) 80% at Manor, located in Chavannes de Bogis Collaborateurtrice, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice vente (Confection Dames) 80% bei Manor, gelegen in Chavannes de Bogis Collaborateurtrice, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice vente (Confection Dames) 80% chez Manor, situé à Chavannes de Bogis Collaborateurtrice, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-07-15",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
-      "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
-        "de": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
-        "fr": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice"
-      },
-      "titleByLocale": {
-        "it": "Collaborateur/trice vente (Confection Dames) 80%",
-        "en": "Collaborateur/trice vente (Confection Dames) 80%",
-        "de": "Collaborateur/trice vente (Confection Dames) 80%",
-        "fr": "Collaborateur/trice vente (Défense Dames) 80%"
-      },
-      "sourceLang": "it",
-      "id": "manor-398c904901af",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-15T12:02:19.603Z",
-      "crawledAt": "",
-      "salaryMin": 57600,
-      "salaryMax": 88800,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57600,
-          "maxValue": 88800,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Chavannes de Bogis Collaborateurtrice",
-      "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "title": "Collaborateur/trice vente (Confection Messieurs) Etudiant/e 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -6229,6 +6114,60 @@
       "employmentType": "FULL_TIME"
     },
     {
+      "title": "Collaborateur/trice vente (Confection Dames) 80%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-vente-%28Confection-Dames%29-80/1360456755/",
+      "location": "Chavannes de Bogis Collaborateurtrice",
+      "canton": "VD",
+      "country": "CH",
+      "category": "sales",
+      "description": "Collaborateur/trice vente (Confection Dames) 80% presso Manor, con sede a Chavannes de Bogis Collaborateurtrice, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Collaborateur/trice vente (Confection Dames) 80% presso Manor, con sede a Chavannes de Bogis Collaborateurtrice, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionByLocale": {
+        "it": "Collaborateur/trice vente (Confection Dames) 80% presso Manor, con sede a Chavannes de Bogis Collaborateurtrice, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+        "en": "Collaborateur/trice vente (Confection Dames) 80% at Manor, located in Chavannes de Bogis Collaborateurtrice, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Collaborateur/trice vente (Confection Dames) 80% bei Manor, gelegen in Chavannes de Bogis Collaborateurtrice, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Collaborateur/trice vente (Confection Dames) 80% chez Manor, situé à Chavannes de Bogis Collaborateurtrice, Canton de Vaud, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-07-15",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
+      "slugByLocale": {
+        "it": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
+        "en": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
+        "de": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice",
+        "fr": "manor-collaborateur-trice-vente-confection-dames-80-chavannes-de-bogis-collaborateurtrice"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur/trice vente (Confection Dames) 80%",
+        "en": "Collaborateur/trice vente (Confection Dames) 80%",
+        "de": "Collaborateur/trice vente (Confection Dames) 80%",
+        "fr": "Collaborateur/trice vente (Défense Dames) 80%"
+      },
+      "sourceLang": "it",
+      "id": "manor-398c904901af",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-15T12:02:19.603Z",
+      "crawledAt": "",
+      "salaryMin": 57600,
+      "salaryMax": 88800,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57600,
+          "maxValue": 88800,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Chavannes de Bogis Collaborateurtrice",
+      "addressRegion": "VD",
+      "employmentType": "FULL_TIME"
+    },
+    {
       "title": "Mitarbeiter Verkauf Accessoires Damen/Herren 50%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -6264,17 +6203,14 @@
       "id": "manor-9cd73c7b3cb3",
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-verkauf-accessoires-damen-herren-50-aarau-mitarbeiter-verkauf-accessoires",
-          "manor-mitarbeiter-verkauf-lingerie-accessoires-50-aarau-mitarbeiter-verkauf-lingerie"
+          "manor-mitarbeiter-verkauf-accessoires-damen-herren-50-aarau-mitarbeiter-verkauf-accessoires"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-verkauf-accessoires-damen-herren-50-aarau-mitarbeiter-verkauf-accessoires",
-        "manor-mitarbeiter-verkauf-lingerie-accessoires-50-aarau-mitarbeiter-verkauf-lingerie"
+        "manor-mitarbeiter-verkauf-accessoires-damen-herren-50-aarau-mitarbeiter-verkauf-accessoires"
       ],
       "firstSeenAt": "2026-07-16T11:40:44.759Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 37000,
       "salaryMax": 56800,
       "currency": "CHF",
@@ -6290,7 +6226,9 @@
       },
       "addressLocality": "Aarau Mitarbeiter Verkauf Accessoires",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Buyer 80%",
@@ -6656,7 +6594,7 @@
       "addressLocality": "Winterthur Mitarbeiterin Verkauf (Warenpflege)",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "title": "Mitarbeiter*in Logistik (Weihnachten/Winter Sale 2026)",
@@ -6720,82 +6658,6 @@
       },
       "addressLocality": "Hochdorf Mitarbeiterin Logistik (WeihnachtenWinter",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "title": "Mitarbeiter/in Logistik 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Logistik-40/1354956955/",
-      "location": "Winterthur Mitarbeiterin Logistik 40",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "logistics",
-      "description": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
-      "descriptionIt": "Gute mündliche Deutschkenntnisse \nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden \n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag. \nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
-      "descriptionByLocale": {
-        "it": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
-        "en": "Mitarbeiter/in Logistik 40% at Manor, located in Winterthur Mitarbeiterin Logistik 40, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
-        "fr": "Mitarbeiter/in Logistik 40% chez Manor, situé à Winterthur Mitarbeiterin Logistik 40, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-07-09",
-      "source": "company-website",
-      "slug": "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
-        "en": "employees-in-logistics-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
-        "de": "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
-        "fr": "employes-en-logistique-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
-      },
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica 40%",
-        "en": "Employees/in Logistics 40 %",
-        "de": "Mitarbeiter/in Logistik 40%",
-        "fr": "Employés/en logistique 40 %"
-      },
-      "sourceLang": "de",
-      "id": "manor-93314cb78ff1",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
-        "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
-        "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
-        "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
-          "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
-          "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
-        ],
-        "en": [
-          "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
-        ],
-        "de": [
-          "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20"
-        ],
-        "fr": [
-          "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T11:47:02.974Z",
-      "crawledAt": "",
-      "salaryMin": 29400,
-      "salaryMax": 44600,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 29400,
-          "maxValue": 44600,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Winterthur Mitarbeiterin Logistik 40",
-      "addressRegion": "ZH",
       "employmentType": "FULL_TIME"
     },
     {
@@ -7056,6 +6918,82 @@
       },
       "addressLocality": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "addressRegion": "LU",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "title": "Mitarbeiter/in Logistik 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Logistik-40/1354956955/",
+      "location": "Winterthur Mitarbeiterin Logistik 40",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "logistics",
+      "description": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
+      "descriptionIt": "Gute mündliche Deutschkenntnisse \nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden \n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag. \nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
+      "descriptionByLocale": {
+        "it": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
+        "en": "Mitarbeiter/in Logistik 40% at Manor, located in Winterthur Mitarbeiterin Logistik 40, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
+        "fr": "Mitarbeiter/in Logistik 40% chez Manor, situé à Winterthur Mitarbeiterin Logistik 40, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-07-09",
+      "source": "company-website",
+      "slug": "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
+      "slugByLocale": {
+        "it": "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
+        "en": "employees-in-logistics-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
+        "de": "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
+        "fr": "employes-en-logistique-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+      },
+      "titleByLocale": {
+        "it": "Addetto/a alla logistica 40%",
+        "en": "Employees/in Logistics 40 %",
+        "de": "Mitarbeiter/in Logistik 40%",
+        "fr": "Employés/en logistique 40 %"
+      },
+      "sourceLang": "de",
+      "id": "manor-93314cb78ff1",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
+        "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
+        "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
+        "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
+          "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
+          "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+        ],
+        "de": [
+          "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T11:47:02.974Z",
+      "crawledAt": "",
+      "salaryMin": 29400,
+      "salaryMax": 44600,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 29400,
+          "maxValue": 44600,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Winterthur Mitarbeiterin Logistik 40",
+      "addressRegion": "ZH",
       "employmentType": "FULL_TIME"
     },
     {
@@ -7693,61 +7631,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Collaborateur/trice vente (Confection Dames) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%29-50/1351453155/",
-      "location": "Genève 1 Collaborateurtrice vente",
-      "canton": "GE",
-      "country": "CH",
-      "category": "sales",
-      "description": "Collaborateur/trice vente (Confection Dames) 50% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaborateur/trice vente (Confection Dames) 50% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Collaborateur/trice vente (Confection Dames) 50% presso Manor, con sede a Genève 1 Collaborateurtrice vente, Canton Ginevra, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice vente (Confection Dames) 50% du 24.08.2026 at Manor, located in Genève 1 Collaborateurtrice vente, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice vente (Confection Dames) 50% du 24.08.2026 bei Manor, gelegen in Genève 1 Collaborateurtrice vente, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice vente (Confection Dames) 50% du 24.08.2026 chez Manor, situé à Genève 1 Collaborateurtrice vente, Canton de Genève, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-07-04",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente",
-      "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente",
-        "en": "current-collaborator-confection-dames-50-of-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente",
-        "de": "aktueller-mitarbeiter-confection-dames-50-vom-24-08-2026-manor-ag-geneve-1-collaborateurtrice-vente",
-        "fr": "manor-collaborateur-trice-vente-confection-dames-50-du-24-08-2026-geneve-1-collaborateurtrice-vente"
-      },
-      "titleByLocale": {
-        "it": "Collaborateur/trice vente (Confection Dames) 50%",
-        "en": "Current collaborator (Confection Dames) 50% of 24.08.2026",
-        "de": "Aktueller Mitarbeiter (Confection Dames) 50 % vom 24.08.2026",
-        "fr": "Collaborateur/trice vente (Confective Dames) 50% du 24.08.2026"
-      },
-      "sourceLang": "it",
-      "id": "manor-c0d8a64b6096",
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "salaryMin": 36000,
-      "salaryMax": 55500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36000,
-          "maxValue": 55500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Genève 1 Collaborateurtrice vente",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
       "title": "Mitarbeiter*in Logistik Warenausgang 100%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -8367,68 +8250,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "title": "Assistant/e Floor Manager (Confection dames) 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistante-Floor-Manager-%28Confection-dames%29-100/1359016255/",
-      "location": "Genève 1 Assistante Floor",
-      "canton": "GE",
-      "country": "CH",
-      "category": "management",
-      "description": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
-      "descriptionIt": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
-      "descriptionByLocale": {
-        "it": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
-        "en": "Assistant/e Floor Manager (Confection dames) 100% at Manor, located in Genève 1 Assistante Floor, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Assistant/e Floor Manager (Confection dames) 100% bei Manor, gelegen in Genève 1 Assistante Floor, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)"
-      },
-      "postedDate": "2026-07-01",
-      "source": "company-website",
-      "slug": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor",
-      "slugByLocale": {
-        "it": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor",
-        "en": "assistant-floor-manager-100-manor-ag-geneve-1-assistante-floor",
-        "de": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor",
-        "fr": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor"
-      },
-      "titleByLocale": {
-        "it": "Assistant Floor Manager 100%",
-        "en": "Assistant/e Floor Manager (Confection dames) 100%",
-        "de": "Assistent/e Floor Manager (Confection dames) 100%",
-        "fr": "Assistante/Chef de Floor E (Confiserie Dames) à 100 %"
-      },
-      "sourceLang": "fr",
-      "id": "manor-cb9884010e77",
-      "previousSlugs": [
-        "manor-assistant-floor-manager-confection-dames-100-geneve-1-assistant-floor"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-assistant-floor-manager-confection-dames-100-geneve-1-assistant-floor"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T12:11:24.549Z",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Genève 1 Assistante Floor",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "title": "Assistant/e Floor Manager (Beauty) 100%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -8542,6 +8363,68 @@
       },
       "addressLocality": "Chur Mitarbeiterin Service 50",
       "addressRegion": "GR",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "title": "Assistant/e Floor Manager (Confection dames) 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistante-Floor-Manager-%28Confection-dames%29-100/1359016255/",
+      "location": "Genève 1 Assistante Floor",
+      "canton": "GE",
+      "country": "CH",
+      "category": "management",
+      "description": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
+      "descriptionIt": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
+      "descriptionByLocale": {
+        "it": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
+        "en": "Assistant/e Floor Manager (Confection dames) 100% at Manor, located in Genève 1 Assistante Floor, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Assistant/e Floor Manager (Confection dames) 100% bei Manor, gelegen in Genève 1 Assistante Floor, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)"
+      },
+      "postedDate": "2026-07-01",
+      "source": "company-website",
+      "slug": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor",
+      "slugByLocale": {
+        "it": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor",
+        "en": "assistant-floor-manager-100-manor-ag-geneve-1-assistante-floor",
+        "de": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor",
+        "fr": "manor-assistant-e-floor-manager-confection-dames-100-geneve-1-assistante-floor"
+      },
+      "titleByLocale": {
+        "it": "Assistant Floor Manager 100%",
+        "en": "Assistant/e Floor Manager (Confection dames) 100%",
+        "de": "Assistent/e Floor Manager (Confection dames) 100%",
+        "fr": "Assistante/Chef de Floor E (Confiserie Dames) à 100 %"
+      },
+      "sourceLang": "fr",
+      "id": "manor-cb9884010e77",
+      "previousSlugs": [
+        "manor-assistant-floor-manager-confection-dames-100-geneve-1-assistant-floor"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-assistant-floor-manager-confection-dames-100-geneve-1-assistant-floor"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T12:11:24.549Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Genève 1 Assistante Floor",
+      "addressRegion": "GE",
       "employmentType": "FULL_TIME"
     },
     {
