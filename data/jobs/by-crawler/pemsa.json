@@ -1,7 +1,65 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-08-13T10:23:26.213Z",
+  "assembledAt": "2026-08-14T10:18:45.210Z",
   "jobs": [
+    {
+      "title": "Cuoco di cucina moderna",
+      "slug": "cuoco-di-cucina-moderna-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/cuoco-di-cucina-moderna-2687139/",
+      "applyUrl": "https://www.pemsa.ch/it/job/cuoco-di-cucina-moderna-2687139/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-08-13",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-08-28",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Cuoco di cucina moderna\n\n## Missione :\n• Lavoro tramite agenzia interinale\n• Per un noto ristorante nel Locarnese\n• Saper unire la tradizione gastronomica e i sapori del territorio con tecniche innovative\n• Tipologie di cottura avanzate e un’estetica raffinata del piatto\n• Ridurre gli sprechi e valorizzare le materie prime locali\n\n## Profilo :\n• Comprovata esperienza pregressa nel settore della ristorazione\n• Lavorare in maniera autonoma\n• Automunito",
+      "titleByLocale": {
+        "it": "Cuoco di cucina moderna",
+        "en": "Cuoco di cucina moderna",
+        "de": "Cuoco di cucina moderna",
+        "fr": "Cuoco di cucina moderna"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Cuoco di cucina moderna\n\n## Missione :\n• Lavoro tramite agenzia interinale\n• Per un noto ristorante nel Locarnese\n• Saper unire la tradizione gastronomica e i sapori del territorio con tecniche innovative\n• Tipologie di cottura avanzate e un’estetica raffinata del piatto\n• Ridurre gli sprechi e valorizzare le materie prime locali\n\n## Profilo :\n• Comprovata esperienza pregressa nel settore della ristorazione\n• Lavorare in maniera autonoma\n• Automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Cuoco di cucina moderna in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Cuoco di cucina moderna in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Cuoco di cucina moderna à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "cuoco-di-cucina-moderna-pemsa-locarno",
+        "en": "cuoco-di-cucina-moderna-pemsa-locarno",
+        "de": "cuoco-di-cucina-moderna-pemsa-locarno",
+        "fr": "cuoco-di-cucina-moderna-pemsa-locarno"
+      },
+      "id": "pemsa-43fe4b1e4d9e",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T10:18:45.206Z"
+    },
     {
       "title": "Tecnico telematico",
       "slug": "tecnico-telematico-pemsa-geneve",
@@ -101,7 +159,6 @@
         "fr": "electriciseur-avec-certificat-federal-de-capacite-cfc-pemsa-geneve"
       },
       "id": "pemsa-5ec556faf9d0",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -159,7 +216,6 @@
         "fr": "designer-bim-dans-le-secteur-electrique-pemsa-geneve"
       },
       "id": "pemsa-10c09d5b2e99",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -230,8 +286,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:23:26.209Z"
+      "firstSeenAt": "2026-08-13T10:23:26.209Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elettricista specializzato in ristrutturazioni",
@@ -275,7 +331,6 @@
         "fr": "electricien-specialise-dans-les-renovations-pemsa-geneve"
       },
       "id": "pemsa-a8195f2fc498",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -356,7 +411,6 @@
         "fr": "designer-electrique-pemsa-geneve"
       },
       "id": "pemsa-71d4710bcf88",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -414,7 +468,6 @@
         "fr": "afc-installateur-electrique-pemsa-geneve"
       },
       "id": "pemsa-a03a060f55d1",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -472,7 +525,6 @@
         "fr": "installateur-de-canaux-cables-expert-pemsa-geneve"
       },
       "id": "pemsa-4e09b199740c",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -530,7 +582,6 @@
         "fr": "reparations-petits-travaux-electriques-pemsa-geneve"
       },
       "id": "pemsa-2ae3fba5f28b",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -588,7 +639,6 @@
         "fr": "direction-electrique-pemsa-geneve"
       },
       "id": "pemsa-66d1d838462f",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -646,7 +696,6 @@
         "fr": "emballage-electrique-pemsa-geneve"
       },
       "id": "pemsa-84794c896aa6",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -717,8 +766,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:23:26.209Z"
+      "firstSeenAt": "2026-08-13T10:23:26.209Z",
+      "needsRetranslation": true
     },
     {
       "title": "Muratore e carpentiere",
@@ -762,7 +811,6 @@
         "fr": "mur-et-menuisier-pemsa-geneve"
       },
       "id": "pemsa-314b1a47343d",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1105,7 +1153,6 @@
         "fr": "applicateur-de-resine-pemsa-lausanne"
       },
       "id": "pemsa-5eae3fb0bd53",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1205,7 +1252,7 @@
         "it": "Idraulico impianti Riscaldamento",
         "en": "Heating Plant Mechanic",
         "de": "Heizanlagen Mechaniker",
-        "fr": "Installations hydrauliques Chauffage"
+        "fr": "Idraulico impianti Riscaldamento"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico impianti Riscaldamento\n\n## Missione :\n• Posa impianti riscaldamento\n• Posa tubazioni sotto muro\n• Supporto installazione centrali termiche e pompe di calore\n\n## Profilo :\n• Comprovata esperienza nel settore di almeno 4 anni\n• Buona conoscenza materiali usati in Svizzera\n• Conoscenza approfondita delle norme di sicurezza da adottare in cantiere\n• Persona autonunita\n• Residenza di massimo 40 km da luogo d’incarico",
@@ -1216,8 +1263,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
         "en": "hydraulic-plants-heating-pemsa-lugano",
-        "de": "hydraulische-anlagen-heizung-pemsa-lugano",
-        "fr": "installations-hydrauliques-chauffage-pemsa-lugano"
+        "de": "heizanlagen-mechaniker-pemsa-lugano",
+        "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
       },
       "id": "pemsa-29d7020763d6",
       "salaryMin": 49500,
@@ -1263,8 +1310,8 @@
           "idraulico-impianti-riscaldamento-pemsa-mendrisio",
           "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
           "hydraulische-anlagen-heizung-pemsa-lugano",
-          "heizanlagen-mechaniker-pemsa-lugano",
-          "hydraulische-heilpflanzen-pemsa-lugano"
+          "hydraulische-heilpflanzen-pemsa-lugano",
+          "heizanlagen-mechaniker-pemsa-lugano"
         ]
       },
       "previousSlugs": [
@@ -1279,11 +1326,11 @@
         "impianti-riscaldamento-pemsa-lugano",
         "hydraulische-anlagen-heizung-pemsa-lugano",
         "installations-hydrauliques-chauffage-pemsa-lugano",
-        "heizanlagen-mechaniker-pemsa-lugano",
         "idraulico-impianti-sanitari-pemsa-lugano",
         "hydraulic-health-plants-pemsa-lugano",
         "hydraulische-heilpflanzen-pemsa-lugano",
-        "installations-sanitaires-hydrauliques-pemsa-lugano"
+        "installations-sanitaires-hydrauliques-pemsa-lugano",
+        "heizanlagen-mechaniker-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -1325,7 +1372,7 @@
       "slugByLocale": {
         "it": "operatore-di-macchine-m1-e-m2-pemsa-lausanne",
         "en": "machine-operator-m1-and-m2-pemsa-lausanne",
-        "de": "maschinenbediener-m1-und-m2-pemsa-lausanne",
+        "de": "m1-und-m2-maschinenfuhrer-pemsa-lausanne",
         "fr": "operateur-de-machine-m1-et-m2-pemsa-lausanne"
       },
       "id": "pemsa-0eb4004e6632",
@@ -1345,10 +1392,12 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "maschinenbediener-m1-und-m2-pemsa-lausanne",
           "m1-und-m2-maschinenfuhrer-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "maschinenbediener-m1-und-m2-pemsa-lausanne",
         "m1-und-m2-maschinenfuhrer-pemsa-lausanne"
       ]
     },
@@ -1389,8 +1438,8 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-cadempino",
-        "en": "tubist-welding-pemsa-cadempino",
-        "de": "schlauchschwei-en-pemsa-cadempino",
+        "en": "welder-tig-specialist-pemsa-cadempino",
+        "de": "schwei-er-tig-spezialist-pemsa-cadempino",
         "fr": "soudage-de-tubes-pemsa-cadempino"
       },
       "id": "pemsa-723d6fa22670",
@@ -1410,13 +1459,17 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "en": [
+          "tubist-welding-pemsa-cadempino",
           "welder-tig-specialist-pemsa-cadempino"
         ],
         "de": [
+          "schlauchschwei-en-pemsa-cadempino",
           "schwei-er-tig-spezialist-pemsa-cadempino"
         ]
       },
       "previousSlugs": [
+        "tubist-welding-pemsa-cadempino",
+        "schlauchschwei-en-pemsa-cadempino",
         "welder-tig-specialist-pemsa-cadempino",
         "schwei-er-tig-spezialist-pemsa-cadempino"
       ]
@@ -1459,7 +1512,7 @@
       "slugByLocale": {
         "it": "muratore-tradizionale-qualificato-pemsa-lausanne",
         "en": "qualified-traditional-wall-pemsa-lausanne",
-        "de": "qualifizierte-traditionelle-mauer-pemsa-lausanne",
+        "de": "qualifizierter-traditioneller-maurer-pemsa-lausanne",
         "fr": "mur-traditionnel-qualifie-pemsa-lausanne"
       },
       "id": "pemsa-df9318b7be54",
@@ -1479,10 +1532,12 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "qualifizierte-traditionelle-mauer-pemsa-lausanne",
           "qualifizierter-traditioneller-maurer-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "qualifizierte-traditionelle-mauer-pemsa-lausanne",
         "qualifizierter-traditioneller-maurer-pemsa-lausanne"
       ]
     },
@@ -1523,9 +1578,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
-        "en": "hydraulic-pemsa-lugano",
-        "de": "hydraulik-pemsa-lugano",
-        "fr": "hydraulique-pemsa-lugano"
+        "en": "plumber-pemsa-lugano",
+        "de": "schlosser-pemsa-lugano",
+        "fr": "plombier-pemsa-lugano"
       },
       "id": "pemsa-5613f8d8d891",
       "salaryMin": 49500,
@@ -1550,12 +1605,15 @@
           "plombier-experimente-pemsa-lugano"
         ],
         "en": [
+          "hydraulic-pemsa-lugano",
           "plumber-pemsa-lugano"
         ],
         "de": [
+          "hydraulik-pemsa-lugano",
           "schlosser-pemsa-lugano"
         ],
         "fr": [
+          "hydraulique-pemsa-lugano",
           "plombier-pemsa-lugano"
         ]
       },
@@ -1564,6 +1622,9 @@
         "idraulico-servizio-riparazioni-pemsa-lugano",
         "installateur-hydraulique-expert-pemsa-lugano",
         "plombier-experimente-pemsa-lugano",
+        "hydraulic-pemsa-lugano",
+        "hydraulik-pemsa-lugano",
+        "hydraulique-pemsa-lugano",
         "plumber-pemsa-lugano",
         "schlosser-pemsa-lugano",
         "plombier-pemsa-lugano"
@@ -1607,7 +1668,7 @@
       "slugByLocale": {
         "it": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne",
         "en": "expert-builder-in-civil-engineering-pemsa-lausanne",
-        "de": "expert-builder-im-tiefbau-pemsa-lausanne",
+        "de": "experte-fur-ziegelarbeiten-in-der-bauingenieurkunst-pemsa-lausanne",
         "fr": "constructeur-expert-en-genie-civil-pemsa-lausanne"
       },
       "id": "pemsa-5e50f808a413",
@@ -1627,10 +1688,12 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "expert-builder-im-tiefbau-pemsa-lausanne",
           "experte-fur-ziegelarbeiten-in-der-bauingenieurkunst-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "expert-builder-im-tiefbau-pemsa-lausanne",
         "experte-fur-ziegelarbeiten-in-der-bauingenieurkunst-pemsa-lausanne"
       ]
     },
@@ -1676,7 +1739,6 @@
         "fr": "perforateur-perforateur-experimente-pemsa-lausanne"
       },
       "id": "pemsa-288a8018641c",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1787,7 +1849,7 @@
       "slugByLocale": {
         "it": "operatore-di-macchina-m6-operatori-di-finitrici-per-asfalto-pemsa-lausanne",
         "en": "machine-operator-m6-asphalt-finishing-operators-pemsa-lausanne",
-        "de": "maschinenbediener-m6-asphaltveredelungsbediener-pemsa-lausanne",
+        "de": "m6-maschinenschlosser-asphaltfinisher-betrieber-pemsa-lausanne",
         "fr": "operateur-de-machine-m6-operateurs-de-finition-d-asphalte-pemsa-lausanne"
       },
       "id": "pemsa-f9b79700b021",
@@ -1807,10 +1869,12 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "maschinenbediener-m6-asphaltveredelungsbediener-pemsa-lausanne",
           "m6-maschinenschlosser-asphaltfinisher-betrieber-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "maschinenbediener-m6-asphaltveredelungsbediener-pemsa-lausanne",
         "m6-maschinenschlosser-asphaltfinisher-betrieber-pemsa-lausanne"
       ]
     },
@@ -1909,7 +1973,7 @@
       "slugByLocale": {
         "it": "autista-esperto-di-finitrice-pemsa-lausanne",
         "en": "expert-purchasing-driver-pemsa-lausanne",
-        "de": "fachkundiger-kauffahrer-pemsa-lausanne",
+        "de": "experte-fur-asphaltfinisher-fahrer-pemsa-lausanne",
         "fr": "pilote-d-achat-expert-pemsa-lausanne"
       },
       "id": "pemsa-278234ac5479",
@@ -1929,10 +1993,12 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "fachkundiger-kauffahrer-pemsa-lausanne",
           "experte-fur-asphaltfinisher-fahrer-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "fachkundiger-kauffahrer-pemsa-lausanne",
         "experte-fur-asphaltfinisher-fahrer-pemsa-lausanne"
       ]
     },
@@ -2282,8 +2348,8 @@
       "slugByLocale": {
         "it": "piastrellista-qualificato-pemsa-lausanne",
         "en": "qualified-tile-pemsa-lausanne",
-        "de": "qualifiziertes-tile-pemsa-lausanne",
-        "fr": "tuiles-qualifiees-pemsa-lausanne"
+        "de": "qualifizierter-kachelbauer-pemsa-lausanne",
+        "fr": "macon-qualifie-pemsa-lausanne"
       },
       "id": "pemsa-5fe9aeeab448",
       "salaryMin": 60500,
@@ -2302,13 +2368,17 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "qualifiziertes-tile-pemsa-lausanne",
           "qualifizierter-kachelbauer-pemsa-lausanne"
         ],
         "fr": [
+          "tuiles-qualifiees-pemsa-lausanne",
           "macon-qualifie-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "qualifiziertes-tile-pemsa-lausanne",
+        "tuiles-qualifiees-pemsa-lausanne",
         "qualifizierter-kachelbauer-pemsa-lausanne",
         "macon-qualifie-pemsa-lausanne"
       ]
@@ -2522,8 +2592,8 @@
       "slugByLocale": {
         "it": "elettricista-industriale-pemsa-montreux",
         "en": "industrial-electricity-pemsa-montreux",
-        "de": "industriestrom-pemsa-montreux",
-        "fr": "electricite-industrielle-pemsa-montreux"
+        "de": "industrieelektriker-pemsa-montreux",
+        "fr": "electricien-industriel-pemsa-montreux"
       },
       "id": "pemsa-2aafa596f010",
       "salaryMin": 60500,
@@ -2542,13 +2612,17 @@
       "firstSeenAt": "2026-08-10T10:34:28.411Z",
       "previousSlugsByLocale": {
         "de": [
+          "industriestrom-pemsa-montreux",
           "industrieelektriker-pemsa-montreux"
         ],
         "fr": [
+          "electricite-industrielle-pemsa-montreux",
           "electricien-industriel-pemsa-montreux"
         ]
       },
       "previousSlugs": [
+        "industriestrom-pemsa-montreux",
+        "electricite-industrielle-pemsa-montreux",
         "industrieelektriker-pemsa-montreux",
         "electricien-industriel-pemsa-montreux"
       ]
@@ -2726,7 +2800,7 @@
         "it": "piastrellista-m-f-pemsa-biel-bienne",
         "en": "piastellista-m-f-pemsa-biel-bienne",
         "de": "piastelista-m-w-pemsa-biel-bienne",
-        "fr": "piastrelista-m-f-pemsa-biel-bienne"
+        "fr": "piastellista-m-w-d-pemsa-biel-bienne"
       },
       "id": "pemsa-db33b91477cc",
       "salaryMin": 68500,
@@ -2745,10 +2819,12 @@
       "firstSeenAt": "2026-08-07T21:49:32.782Z",
       "previousSlugsByLocale": {
         "fr": [
+          "piastrelista-m-f-pemsa-biel-bienne",
           "piastellista-m-w-d-pemsa-biel-bienne"
         ]
       },
       "previousSlugs": [
+        "piastrelista-m-f-pemsa-biel-bienne",
         "piastellista-m-w-d-pemsa-biel-bienne"
       ]
     },
@@ -2777,7 +2853,7 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Gru mobile su cingoli\n\n## Il tuo incarico:\n• Guidare e manovrare una gru cingolata in diversi cantieri\n• Eseguire operazioni di sollevamento e spostamento di carichi\n• Partecipare a lavori speciali e di ingegneria civile\n• Effettuare i consueti controlli della macchina prima dell’uso\n• Installare e posizionare la gru in conformità con le istruzioni di sicurezza\n• Lavorare in coordinamento con le squadre presenti in cantiere\n• Rispettare rigorosamente le norme di sicurezza e le procedure di sollevamento.\n\n• ## E ora parliamo un po’ di te?\n• Esperienza comprovata nella conduzione di gru cingolate ;\n• Esperienza in lavori speciali, ingegneria civile o lavori pubblici ;\n• Padronanza delle operazioni di sollevamento e imbracatura;\n• Buona conoscenza delle norme di sicurezza relative al sollevamento;\n• Capacità di lavorare con precisione e autonomia;\n• Patente / formazione gruista SUVA categoria A, se richiesta per la macchina e le operazioni in questione;\n• Altra patente di operatore kbmf M7 / lavori speciali costituisce un plus\n• Il tuo referente:\nIl tuo referente per questa posizione è Yannick. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Trattore mobile su cingoli",
-        "en": "Mobile crane on tracks",
+        "en": "Gru mobile su cingoli",
         "de": "Raupenkranführer",
         "fr": "Grutier sur chenilles"
       },
@@ -2790,7 +2866,7 @@
       "slugByLocale": {
         "it": "gru-mobile-su-cingoli-pemsa-geneve",
         "en": "mobile-crane-on-tracks-pemsa-geneve",
-        "de": "mobilkran-auf-gleisen-pemsa-geneve",
+        "de": "raupenkranfuhrer-pemsa-geneve",
         "fr": "grue-mobile-sur-rails-pemsa-geneve"
       },
       "id": "pemsa-ff509035dae8",
@@ -2811,11 +2887,13 @@
       "previousSlugsByLocale": {
         "de": [
           "mobile-kranfahrer-pemsa-geneve",
+          "mobilkran-auf-gleisen-pemsa-geneve",
           "raupenkranfuhrer-pemsa-geneve"
         ]
       },
       "previousSlugs": [
         "mobile-kranfahrer-pemsa-geneve",
+        "mobilkran-auf-gleisen-pemsa-geneve",
         "raupenkranfuhrer-pemsa-geneve"
       ]
     },
@@ -3039,7 +3117,7 @@
       "titleByLocale": {
         "it": "Giardinidae",
         "en": "Gardener",
-        "de": "Gärten",
+        "de": "Giardiniere",
         "fr": "Jardinier"
       },
       "descriptionByLocale": {
@@ -3050,9 +3128,9 @@
       },
       "slugByLocale": {
         "it": "giardiniere-pemsa-bellinzona",
-        "en": "gardens-pemsa-bellinzona",
-        "de": "garten-pemsa-bellinzona",
-        "fr": "jardins-pemsa-bellinzona"
+        "en": "gardener-pemsa-bellinzona",
+        "de": "giardiniere-pemsa-bellinzona",
+        "fr": "jardinier-pemsa-bellinzona"
       },
       "id": "pemsa-354a4aeb3491",
       "salaryMin": 49500,
@@ -3071,13 +3149,21 @@
       "firstSeenAt": "2026-08-07T21:49:32.782Z",
       "previousSlugsByLocale": {
         "en": [
+          "gardens-pemsa-bellinzona",
           "gardener-pemsa-bellinzona"
         ],
         "fr": [
+          "jardins-pemsa-bellinzona",
           "jardinier-pemsa-bellinzona"
+        ],
+        "de": [
+          "garten-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
+        "gardens-pemsa-bellinzona",
+        "garten-pemsa-bellinzona",
+        "jardins-pemsa-bellinzona",
         "gardener-pemsa-bellinzona",
         "jardinier-pemsa-bellinzona"
       ]
@@ -3249,7 +3335,7 @@
       "slugByLocale": {
         "it": "regolatore-su-finitrice-pemsa-geneve",
         "en": "adjuster-on-finishing-machine-pemsa-geneve",
-        "de": "justiervorrichtung-an-der-endbearbeitungsmaschine-pemsa-geneve",
+        "de": "justierer-auf-einer-fertigbearbeitungsmaschine-pemsa-geneve",
         "fr": "ajusteur-sur-machine-de-finition-pemsa-geneve"
       },
       "id": "pemsa-c61724518289",
@@ -3269,10 +3355,12 @@
       "firstSeenAt": "2026-08-07T21:49:32.782Z",
       "previousSlugsByLocale": {
         "de": [
+          "justiervorrichtung-an-der-endbearbeitungsmaschine-pemsa-geneve",
           "justierer-auf-einer-fertigbearbeitungsmaschine-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "justiervorrichtung-an-der-endbearbeitungsmaschine-pemsa-geneve",
         "justierer-auf-einer-fertigbearbeitungsmaschine-pemsa-geneve"
       ]
     },
@@ -3436,7 +3524,7 @@
       "slugByLocale": {
         "it": "installatore-di-impianti-di-riscaldamento-vd-pemsa-renens-vd",
         "en": "vd-heating-system-installer-pemsa-renens-vd",
-        "de": "vd-heizsysteminstallateur-pemsa-renens-vd",
+        "de": "vd-heizsystem-installateur-pemsa-renens-vd",
         "fr": "installation-du-systeme-de-chauffage-vd-pemsa-renens-vd"
       },
       "id": "pemsa-600610cf2028",
@@ -3456,10 +3544,12 @@
       "firstSeenAt": "2026-08-07T01:12:30.156Z",
       "previousSlugsByLocale": {
         "de": [
+          "vd-heizsysteminstallateur-pemsa-renens-vd",
           "vd-heizsystem-installateur-pemsa-renens-vd"
         ]
       },
       "previousSlugs": [
+        "vd-heizsysteminstallateur-pemsa-renens-vd",
         "vd-heizsystem-installateur-pemsa-renens-vd"
       ]
     },
@@ -3557,9 +3647,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "electricity-pemsa-lugano",
-        "de": "strom-pemsa-lugano",
-        "fr": "electricite-pemsa-lugano"
+        "en": "electrician-pemsa-lugano",
+        "de": "elektriker-pemsa-lugano",
+        "fr": "electricien-pemsa-lugano"
       },
       "id": "pemsa-d6d1116f1fad",
       "salaryMin": 49500,
@@ -3578,16 +3668,22 @@
       "firstSeenAt": "2026-08-06T11:37:56.117Z",
       "previousSlugsByLocale": {
         "en": [
+          "electricity-pemsa-lugano",
           "electrician-pemsa-lugano"
         ],
         "de": [
+          "strom-pemsa-lugano",
           "elektriker-pemsa-lugano"
         ],
         "fr": [
+          "electricite-pemsa-lugano",
           "electricien-pemsa-lugano"
         ]
       },
       "previousSlugs": [
+        "electricity-pemsa-lugano",
+        "strom-pemsa-lugano",
+        "electricite-pemsa-lugano",
         "electrician-pemsa-lugano",
         "elektriker-pemsa-lugano",
         "electricien-pemsa-lugano"
@@ -3711,7 +3807,7 @@
       "slugByLocale": {
         "it": "macchinista-pemsa-lugano",
         "en": "earrings-pemsa-lugano",
-        "de": "ohrringe-pemsa-lugano",
+        "de": "aber-die-linie-pemsa-lugano",
         "fr": "boucles-d-oreille-pemsa-lugano"
       },
       "id": "pemsa-c8742ef82fe3",
@@ -3731,10 +3827,12 @@
       "firstSeenAt": "2026-08-05T22:26:44.220Z",
       "previousSlugsByLocale": {
         "de": [
+          "ohrringe-pemsa-lugano",
           "aber-die-linie-pemsa-lugano"
         ]
       },
       "previousSlugs": [
+        "ohrringe-pemsa-lugano",
         "aber-die-linie-pemsa-lugano"
       ]
     },
@@ -3776,7 +3874,7 @@
       "slugByLocale": {
         "it": "muratore-pemsa-bellinzona",
         "en": "wall-pemsa-bellinzona",
-        "de": "wand-pemsa-bellinzona",
+        "de": "wandschicht-pemsa-bellinzona",
         "fr": "mur-pemsa-bellinzona"
       },
       "id": "pemsa-09f0fd2e9858",
@@ -3796,10 +3894,12 @@
       "firstSeenAt": "2026-08-05T22:26:44.220Z",
       "previousSlugsByLocale": {
         "de": [
+          "wand-pemsa-bellinzona",
           "wandschicht-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
+        "wand-pemsa-bellinzona",
         "wandschicht-pemsa-bellinzona"
       ]
     },
@@ -3829,7 +3929,7 @@
       "titleByLocale": {
         "it": "Carpentiere",
         "en": "Carpenter",
-        "de": "Tischler",
+        "de": "Carpentiere",
         "fr": "Charpentier"
       },
       "descriptionByLocale": {
@@ -3840,9 +3940,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-pemsa-bellinzona",
-        "en": "carpenters-pemsa-bellinzona",
-        "de": "schreiner-pemsa-bellinzona",
-        "fr": "charpentiers-pemsa-bellinzona"
+        "en": "carpenter-pemsa-bellinzona",
+        "de": "carpentiere-pemsa-bellinzona",
+        "fr": "charpentier-pemsa-bellinzona"
       },
       "id": "pemsa-93de3c5c08b0",
       "salaryMin": 49500,
@@ -3870,13 +3970,13 @@
         ],
         "en": [
           "carpenters-pemsa-bellinzona",
-          "carpenter-pemsa-bellinzona",
-          "mason-carpenter-pemsa-bellinzona"
+          "mason-carpenter-pemsa-bellinzona",
+          "carpenter-pemsa-bellinzona"
         ],
         "fr": [
           "charpentiers-pemsa-bellinzona",
-          "charpentier-pemsa-bellinzona",
-          "macon-charpentier-pemsa-bellinzona"
+          "macon-charpentier-pemsa-bellinzona",
+          "charpentier-pemsa-bellinzona"
         ],
         "de": [
           "schreiner-pemsa-bellinzona",
@@ -3889,12 +3989,12 @@
         "carpenters-pemsa-bellinzona",
         "schreiner-pemsa-bellinzona",
         "charpentiers-pemsa-bellinzona",
-        "carpenter-pemsa-bellinzona",
-        "charpentier-pemsa-bellinzona",
         "muratore-carpentiere-pemsa-bellinzona",
         "maurer-zimmerer-pemsa-bellinzona",
         "mason-carpenter-pemsa-bellinzona",
-        "macon-charpentier-pemsa-bellinzona"
+        "macon-charpentier-pemsa-bellinzona",
+        "carpenter-pemsa-bellinzona",
+        "charpentier-pemsa-bellinzona"
       ],
       "needsRetranslation": true
     },
@@ -4042,7 +4142,7 @@
         "fr": "Couvreur m/f/d – 100%"
       },
       "descriptionByLocale": {
-        "it": "Pemsa Valais vi accompagna nella ricerca di un impiego, sia che si tratti di incarichi a tempo determinato che di posti di lavoro a tempo indeterminato.\n\n## Il tuo incarico:\n• Eseguire l’installazione, la ristrutturazione e la manutenzione di tutti i tipi di coperture, adattando le tecniche ai materiali utilizzati.\n• Garantire l’impermeabilità e l’isolamento ottimali delle coperture per assicurare l’efficienza energetica degli edifici.\n• Valutare lo stato delle coperture, individuare eventuali anomalie e proporre gli interventi più appropriati.\n• Leggere e interpretare i progetti, gli schemi e i documenti tecnici al fine di eseguire lavori precisi, conformi alle norme e ai requisiti del progetto.\n• Installare, verificare e mettere in sicurezza le attrezzature per il lavoro in quota (ponteggi, protezioni collettive, dispositivi anticaduta, ecc.).\n• Collaborare efficacemente con le diverse figure professionali in cantiere per garantire uno svolgimento dei lavori fluido e coordinato.\n• Rispettare rigorosamente le norme di sicurezza, mantenendo il cantiere pulito, organizzato e conforme agli standard di qualità dell’azienda.\n\n## E ora parliamo di te?\n• Diploma CFC di copritetto  oppure un’esperienza comprovata di almeno 2-3 anni.\n• Buona conoscenza delle norme svizzere vigenti.\n• Patente di guida. Sei:\n• Autonomo/a, preciso/a e rispettoso/a delle scadenze.\n• A tuo agio nel lavorare in quota.\n• Affidabile, puntuale e attento/a alla qualità del lavoro svolto.\n• In grado di lavorare sia in squadra che in modo indipendente.\n• Residente nel Vallese o nello Chablais / Riviera\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Francisco Grade, che ti seguirà, ti fornirà consigli e risponderà a tutte le tue domande relative al ruolo. Questo lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
+        "it": "Pemsa Valais vi accompagna nella ricerca di un impiego, sia che si tratti di incarichi a tempo determinato che di posti di lavoro a tempo indeterminato.\n\n## Il tuo incarico:\n• Eseguire l’installazione, la ristrutturazione e la manutenzione di tutti i tipi di coperture, adattando le tecniche ai materiali utilizzati.\n• Garantire l’impermeabilità e l’isolamento ottimali delle coperture per assicurare l’efficienza energetica degli edifici.\n• Valutare lo stato delle coperture, individuare eventuali anomalie e proporre gli interventi più appropriati.\n• Leggere e interpretare i progetti, gli schemi e i documenti tecnici al fine di eseguire lavori precisi, conformi alle norme e ai requisiti del progetto.\n• Installare, verificare e mettere in sicurezza le attrezzature per il lavoro in quota (ponteggi, protezioni collettive, dispositivi anticaduta, ecc.).\n• Collaborare efficacemente con le diverse figure professionali in cantiere per garantire uno svolgimento dei lavori fluido e coordinato.\n• Rispettare rigorosamente le norme di sicurezza, mantenendo il cantiere pulito, organizzato e conforme agli standard di qualità dell’azienda.\n\n## E ora parliamo di te?\n• Diploma CFC di copritetto &amp;amp;amp;nbsp;oppure un’esperienza comprovata di almeno 2-3 anni.\n• Buona conoscenza delle norme svizzere vigenti.\n• Patente di guida. Sei:\n• Autonomo/a, preciso/a e rispettoso/a delle scadenze.\n• A tuo agio nel lavorare in quota.\n• Affidabile, puntuale e attento/a alla qualità del lavoro svolto.\n• In grado di lavorare sia in squadra che in modo indipendente.\n• Residente nel Vallese o nello Chablais / Riviera\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Francisco Grade, che ti seguirà, ti fornirà consigli e risponderà a tutte le tue domande relative al ruolo. Questo lavoro non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea! Risponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
         "en": "Pemsa Valais accompanies you in the search for a job, whether it be fixed-term jobs or permanent jobs.\n\nYour assignment:\n• Perform the installation, renovation and maintenance of all types of roofs, adapting techniques to the materials used.\n• Ensure the waterproofness and optimal insulation of roofs to ensure the energy efficiency of buildings.\n• Assess the state of roofs, identify any anomalies and propose the most appropriate interventions.\n• Read and interpret projects, diagrams and technical documents in order to perform precise works, in accordance with the standards and requirements of the project.\n\n• Install, verify and secure equipment for work at altitude (bridges, collective protections, anticaduta devices, etc.).\n• Work effectively with the different professional figures on site to ensure smooth and coordinated work.\n• Strictly respect safety standards, keeping the site clean, organised and compliant with quality standards of the company.\n\nAnd now we're talking about you?\n• CFC's job as a roof cover or a proven experience of at least 2-3 years.\n• Good knowledge of the Swiss rules in force.\n• Patent driving.\n• Sei:\n• Autonomous, precise and respectful of deadlines.\n• At ease in working at altitude.\n• Reliable, punctual and attentive to the quality of the work done.\n• Able to work both as a team and independently.\n• 3912 in the Valais or in the Chablais / Riviera\n\nYour contact person: Your contact person for this position is Francisco Grade, who will follow you, will give you advice and answer all your role questions. This job does not exactly match what you are looking for, but our values interest you? Do not hesitate to send us your spontaneous application! We will only answer applications whose profile corresponds to the description you have requested.",
         "de": "Pemsa Wallis begleitet Sie bei der Jobsuche, ob befristete oder dauerhafte Jobs.\n\nIhre Aufgabe:\n• Führen Sie die Installation, Renovierung und Wartung aller Arten von Dächern, Anpassung der Techniken an die verwendeten Materialien.\n• Sicherstellen Sie die Wasserdichtigkeit und optimale Isolierung der Dächer, um die Energieeffizienz von Gebäuden zu gewährleisten.\n• Assess den Zustand der Dächer, identifizieren Sie etwaige Anomalien und schlagen Sie die am besten geeigneten Interventionen vor.\n• Lesen und interpretieren Sie Projekte, Diagramme und technische Dokumente, um präzise Arbeiten durchzuführen, in Übereinstimmung mit den Standards und Anforderungen des Projekts.\n\n• Installation, Überprüfung und sichere Ausrüstung für Arbeiten in der Höhe (Brücken, kollektive Schutzsysteme, anticaduta Geräte, etc.).\n• Arbeiten Sie effektiv mit den verschiedenen professionellen Zahlen vor Ort, um eine reibungslose und koordinierte Arbeit zu gewährleisten.\n• Streng Einhaltung der Sicherheitsstandards, halten Sie die Website sauber, organisiert und mit den Qualitätsstandards des Unternehmens.\n\nUnd jetzt sprechen wir über Sie?\n• CFC-Job als Dachdecker oder eine nachgewiesene Erfahrung von mindestens 2-3 Jahren.\n• Gute Kenntnis der geltenden Schweizer Regeln.\n• Patentfahren.\n• Sei:\n• Autonom, präzise und termintreu.\n• Leichtes Arbeiten in der Höhe.\n• Zuverlässig, pünktlich und aufmerksam auf die Qualität der geleisteten Arbeit.\n• Able, um sowohl als Team als auch unabhängig zu arbeiten.\n• 3912 im Wallis oder in der Chablais / Riviera.\n\nIhr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Francisco Grade, der Ihnen folgen wird, berät Sie und beantwortet alle Ihre Rollenfragen. Dieser Job passt nicht genau zu dem, was Sie suchen, aber unsere Werte interessieren Sie? Zögern Sie nicht, uns Ihre spontane Bewerbung zu senden! Wir beantworten nur Bewerbungen, deren Profil der von Ihnen gewünschten Beschreibung entspricht.",
         "fr": "Pemsa Valais vous accompagne dans la recherche d'un emploi, qu'il s'agisse d'emplois à durée déterminée ou d'emplois permanents.\n\nVotre mission :\n• Effectuer l'installation, la rénovation et l'entretien de tous les types de toits, en adaptant les techniques aux matériaux utilisés.\n• Assurer l'étanchéité et l'isolation optimale des toits pour assurer l'efficacité énergétique des bâtiments.\n• Évaluer l'état des toits, identifier les anomalies et proposer les interventions les plus appropriées.\n• Lire et interpréter les projets, les diagrammes et les documents techniques afin d'effectuer des travaux précis, conformément aux normes et exigences du projet.\n\n• Installer, vérifier et sécuriser les équipements pour le travail en altitude (ponts, protections collectives, dispositifs anti-cacuta, etc.).\n• Travailler efficacement avec les différents professionnels sur place pour assurer un travail harmonieux et coordonné.\n• Respecter strictement les normes de sécurité, en gardant le site propre, organisé et conforme aux normes de qualité de l'entreprise.\n\nEt maintenant nous parlons de vous?\n• le travail de CFC comme couverture de toit ou expérience éprouvée d'au moins 2-3 ans.\n• Bonne connaissance des règles suisses en vigueur.\n• Conduite par brevet.\n• Sei:\n• Autonome, précise et respectueuse des délais.\n• A l'aise dans le travail en altitude.\n• Fiable, ponctuel et attentif à la qualité du travail effectué.\n• Capable de travailler en équipe et indépendamment.\n• 3912 au Valais ou au Chablais / Riviera\n\nVotre personne de contact : Votre personne de contact pour ce poste est Francisco Grade, qui vous suivra, vous donnera des conseils et répondra à toutes vos questions. Ce travail ne correspond pas exactement à ce que vous cherchez, mais nos valeurs vous intéressent? N'hésitez pas à nous envoyer votre candidature spontanée! Nous répondrons uniquement aux demandes dont le profil correspond à la description que vous avez demandée."
@@ -4450,7 +4550,7 @@
         "it": "responsabile-di-progetto-nel-settore-elettrico-pemsa-geneve",
         "en": "project-manager-in-electrical-sector-pemsa-geneve",
         "de": "projektmanager-im-elektrobereich-pemsa-geneve",
-        "fr": "chef-de-projet-en-electricite-pemsa-geneve"
+        "fr": "responsable-di-progetto-nel-settore-elettrico-pemsa-geneve"
       },
       "id": "pemsa-4cb07dda61c0",
       "salaryMin": 83500,
@@ -4476,6 +4576,7 @@
         ],
         "fr": [
           "chef-de-projet-electrique-pemsa-geneve",
+          "chef-de-projet-en-electricite-pemsa-geneve",
           "responsable-di-progetto-nel-settore-elettrico-pemsa-geneve"
         ]
       },
@@ -4483,6 +4584,7 @@
         "electrical-project-manager-pemsa-geneve",
         "projektleiter-elektrotechnik-pemsa-geneve",
         "chef-de-projet-electrique-pemsa-geneve",
+        "chef-de-projet-en-electricite-pemsa-geneve",
         "responsable-di-progetto-nel-settore-elettrico-pemsa-geneve"
       ]
     },
@@ -5237,7 +5339,7 @@
       "slugByLocale": {
         "it": "installatore-di-impianti-di-ventilazione-vd-pemsa-renens-vd",
         "en": "vd-ventilation-system-installer-pemsa-renens-vd",
-        "de": "vd-luftungsanlage-pemsa-renens-vd",
+        "de": "installateur-fur-luftungsanlagen-vd-pemsa-renens-vd",
         "fr": "installation-du-systeme-de-ventilation-vd-pemsa-renens-vd"
       },
       "id": "pemsa-b9a95d2c9ff5",
@@ -5257,10 +5359,12 @@
       "firstSeenAt": "2026-08-04T11:40:37.386Z",
       "previousSlugsByLocale": {
         "de": [
+          "vd-luftungsanlage-pemsa-renens-vd",
           "installateur-fur-luftungsanlagen-vd-pemsa-renens-vd"
         ]
       },
       "previousSlugs": [
+        "vd-luftungsanlage-pemsa-renens-vd",
         "installateur-fur-luftungsanlagen-vd-pemsa-renens-vd"
       ]
     },
@@ -5301,9 +5405,9 @@
       },
       "slugByLocale": {
         "it": "muratore-edile-pemsa-geneve",
-        "en": "building-wall-pemsa-geneve",
-        "de": "gebaudemauer-pemsa-geneve",
-        "fr": "mur-de-construction-pemsa-geneve"
+        "en": "construction-bricklayer-pemsa-geneve",
+        "de": "maurer-in-hochbau-pemsa-geneve",
+        "fr": "macon-du-batiment-pemsa-geneve"
       },
       "id": "pemsa-4893dab20192",
       "salaryMin": 60500,
@@ -5322,16 +5426,22 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "en": [
+          "building-wall-pemsa-geneve",
           "construction-bricklayer-pemsa-geneve"
         ],
         "de": [
+          "gebaudemauer-pemsa-geneve",
           "maurer-in-hochbau-pemsa-geneve"
         ],
         "fr": [
+          "mur-de-construction-pemsa-geneve",
           "macon-du-batiment-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "building-wall-pemsa-geneve",
+        "gebaudemauer-pemsa-geneve",
+        "mur-de-construction-pemsa-geneve",
         "construction-bricklayer-pemsa-geneve",
         "maurer-in-hochbau-pemsa-geneve",
         "macon-du-batiment-pemsa-geneve"
@@ -5375,7 +5485,7 @@
       "slugByLocale": {
         "it": "dispositivo-di-regolazione-del-rastrello-per-asfalto-pemsa-geneve",
         "en": "asphalt-rake-adjustment-device-pemsa-geneve",
-        "de": "asphaltrechenverstelleinrichtung-pemsa-geneve",
+        "de": "einstellvorrichtung-fur-asphalt-rechen-pemsa-geneve",
         "fr": "dispositif-de-reglage-du-rateau-d-asphalte-pemsa-geneve"
       },
       "id": "pemsa-dec0bc6f830a",
@@ -5395,10 +5505,12 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "de": [
+          "asphaltrechenverstelleinrichtung-pemsa-geneve",
           "einstellvorrichtung-fur-asphalt-rechen-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "asphaltrechenverstelleinrichtung-pemsa-geneve",
         "einstellvorrichtung-fur-asphalt-rechen-pemsa-geneve"
       ]
     },
@@ -5428,7 +5540,7 @@
       "titleByLocale": {
         "it": "Meccanico di macchine agricole CFC (m/f/d)",
         "en": "Agricultural Mechanic EFZ (m/f/d)",
-        "de": "Landwirtschaftliche Maschinen EFZ (m/w/d)",
+        "de": "Meccanico di macchine agricole EFZ (m/f/d)",
         "fr": "Mécanicien agricole EFZ (m/f/d)"
       },
       "descriptionByLocale": {
@@ -5611,7 +5723,7 @@
       "titleByLocale": {
         "it": "Posatore di parquet CFC / AFP (m/f/d)",
         "en": "Parquet Layer EFZ / EBA (m/f/d)",
-        "de": "EFZ / EBA (m/w/d) Parkettspender",
+        "de": "Posatore di parquet EFZ / EBA (m/f/d)",
         "fr": "Poseur de parquet EFZ / EBA (m/f/d)"
       },
       "descriptionByLocale": {
@@ -5999,7 +6111,7 @@
       "titleByLocale": {
         "it": "Carpentiere AFC / AEP (m/f/d)",
         "en": "Carpenter AFC / AEP (m/f/d)",
-        "de": "Carpenter AFC / AEP (m/w/d)",
+        "de": "Carpentiere AFC / AEP (m/f/d)",
         "fr": "Charpentier AFC / AEP (m/f/d)"
       },
       "descriptionByLocale": {
@@ -6266,7 +6378,7 @@
       "titleByLocale": {
         "it": "Idraulico AFC / AEC (m/f/d)",
         "en": "AFC/AEC Plumber (m/f/d)",
-        "de": "Hydraulische AFC / AEC (m/w/d)",
+        "de": "Idraulico AFC / AEC (m/f/d)",
         "fr": "Plombier AFC/AEC (m/f/d)"
       },
       "descriptionByLocale": {
@@ -6466,8 +6578,8 @@
       "slugByLocale": {
         "it": "costruttore-di-casseforme-pemsa-fribourg",
         "en": "formwork-manufacturer-pemsa-fribourg",
-        "de": "schalungshersteller-pemsa-fribourg",
-        "fr": "fabricant-de-coffrage-pemsa-fribourg"
+        "de": "schalungsbauer-in-pemsa-fribourg",
+        "fr": "coffreur-boiseur-pemsa-fribourg"
       },
       "id": "pemsa-577dc33eb159",
       "salaryMin": 68500,
@@ -6486,13 +6598,17 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "de": [
+          "schalungshersteller-pemsa-fribourg",
           "schalungsbauer-in-pemsa-fribourg"
         ],
         "fr": [
+          "fabricant-de-coffrage-pemsa-fribourg",
           "coffreur-boiseur-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "schalungshersteller-pemsa-fribourg",
+        "fabricant-de-coffrage-pemsa-fribourg",
         "schalungsbauer-in-pemsa-fribourg",
         "coffreur-boiseur-pemsa-fribourg"
       ]
@@ -6535,7 +6651,7 @@
       "slugByLocale": {
         "it": "installatore-di-impianti-di-ventilazione-pemsa-fribourg",
         "en": "installation-of-ventilation-systems-pemsa-fribourg",
-        "de": "installation-von-luftungssystemen-pemsa-fribourg",
+        "de": "luftungsanlagenmonteur-pemsa-fribourg",
         "fr": "installation-des-systemes-de-ventilation-pemsa-fribourg"
       },
       "id": "pemsa-ced8ca9be7eb",
@@ -6555,10 +6671,12 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "de": [
+          "installation-von-luftungssystemen-pemsa-fribourg",
           "luftungsanlagenmonteur-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "installation-von-luftungssystemen-pemsa-fribourg",
         "luftungsanlagenmonteur-pemsa-fribourg"
       ]
     },
@@ -6599,9 +6717,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-per-acquedotti-pemsa-massagno",
-        "en": "idraulic-for-acquedotts-pemsa-massagno",
-        "de": "idraulik-fur-akquedots-pemsa-massagno",
-        "fr": "idraulique-pour-les-acquedotts-pemsa-massagno"
+        "en": "water-pipeline-technician-pemsa-massagno",
+        "de": "wasserleitungsinstallateur-in-pemsa-massagno",
+        "fr": "technicien-en-reseaux-d-eau-pemsa-massagno"
       },
       "id": "pemsa-759fc5abf432",
       "salaryMin": 49500,
@@ -6620,16 +6738,22 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "en": [
+          "idraulic-for-acquedotts-pemsa-massagno",
           "water-pipeline-technician-pemsa-massagno"
         ],
         "de": [
+          "idraulik-fur-akquedots-pemsa-massagno",
           "wasserleitungsinstallateur-in-pemsa-massagno"
         ],
         "fr": [
+          "idraulique-pour-les-acquedotts-pemsa-massagno",
           "technicien-en-reseaux-d-eau-pemsa-massagno"
         ]
       },
       "previousSlugs": [
+        "idraulic-for-acquedotts-pemsa-massagno",
+        "idraulik-fur-akquedots-pemsa-massagno",
+        "idraulique-pour-les-acquedotts-pemsa-massagno",
         "water-pipeline-technician-pemsa-massagno",
         "wasserleitungsinstallateur-in-pemsa-massagno",
         "technicien-en-reseaux-d-eau-pemsa-massagno"
@@ -6730,8 +6854,8 @@
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-grancia",
         "en": "hydraulic-installer-pemsa-grancia",
-        "de": "hydraulikinstallateur-pemsa-grancia",
-        "fr": "installation-hydraulique-pemsa-grancia"
+        "de": "sanitarinstallateur-in-pemsa-grancia",
+        "fr": "installateur-sanitaire-pemsa-grancia"
       },
       "id": "pemsa-f3dda8bffde0",
       "salaryMin": 49500,
@@ -6750,13 +6874,17 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "de": [
+          "hydraulikinstallateur-pemsa-grancia",
           "sanitarinstallateur-in-pemsa-grancia"
         ],
         "fr": [
+          "installation-hydraulique-pemsa-grancia",
           "installateur-sanitaire-pemsa-grancia"
         ]
       },
       "previousSlugs": [
+        "hydraulikinstallateur-pemsa-grancia",
+        "installation-hydraulique-pemsa-grancia",
         "sanitarinstallateur-in-pemsa-grancia",
         "installateur-sanitaire-pemsa-grancia"
       ]
@@ -6856,8 +6984,8 @@
       },
       "slugByLocale": {
         "it": "carpentiere-con-grande-esperienza-pemsa-fribourg",
-        "en": "carpenters-with-great-experience-pemsa-fribourg",
-        "de": "schreiner-mit-gro-er-erfahrung-pemsa-fribourg",
+        "en": "experienced-carpenter-pemsa-fribourg",
+        "de": "erfahrener-zimmermann-pemsa-fribourg",
         "fr": "charpentiers-avec-une-grande-experience-pemsa-fribourg"
       },
       "id": "pemsa-9261c85aef5b",
@@ -6877,13 +7005,17 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "en": [
+          "carpenters-with-great-experience-pemsa-fribourg",
           "experienced-carpenter-pemsa-fribourg"
         ],
         "de": [
+          "schreiner-mit-gro-er-erfahrung-pemsa-fribourg",
           "erfahrener-zimmermann-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "carpenters-with-great-experience-pemsa-fribourg",
+        "schreiner-mit-gro-er-erfahrung-pemsa-fribourg",
         "experienced-carpenter-pemsa-fribourg",
         "erfahrener-zimmermann-pemsa-fribourg"
       ]
@@ -6926,7 +7058,7 @@
       "slugByLocale": {
         "it": "progettista-di-strutture-metalliche-pemsa-fribourg",
         "en": "planner-of-metal-structures-pemsa-fribourg",
-        "de": "planer-fur-metallkonstruktionen-pemsa-fribourg",
+        "de": "metallkonstruktionsplaner-pemsa-fribourg",
         "fr": "planificateur-de-structures-metalliques-pemsa-fribourg"
       },
       "id": "pemsa-ebafb644c006",
@@ -6946,10 +7078,12 @@
       "firstSeenAt": "2026-08-03T22:16:21.747Z",
       "previousSlugsByLocale": {
         "de": [
+          "planer-fur-metallkonstruktionen-pemsa-fribourg",
           "metallkonstruktionsplaner-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "planer-fur-metallkonstruktionen-pemsa-fribourg",
         "metallkonstruktionsplaner-pemsa-fribourg"
       ]
     },
@@ -7104,9 +7238,9 @@
       },
       "slugByLocale": {
         "it": "montatore-di-ponteggi-pemsa-fribourg",
-        "en": "bridge-fitting-pemsa-fribourg",
-        "de": "bruckenbeschlag-pemsa-fribourg",
-        "fr": "montage-des-ponts-pemsa-fribourg"
+        "en": "scaffolder-pemsa-fribourg",
+        "de": "gerustbauer-pemsa-fribourg",
+        "fr": "monteur-d-echafaudages-pemsa-fribourg"
       },
       "id": "pemsa-b89a2802cd48",
       "salaryMin": 68500,
@@ -7125,16 +7259,22 @@
       "firstSeenAt": "2026-07-31T22:15:34.380Z",
       "previousSlugsByLocale": {
         "en": [
+          "bridge-fitting-pemsa-fribourg",
           "scaffolder-pemsa-fribourg"
         ],
         "de": [
+          "bruckenbeschlag-pemsa-fribourg",
           "gerustbauer-pemsa-fribourg"
         ],
         "fr": [
+          "montage-des-ponts-pemsa-fribourg",
           "monteur-d-echafaudages-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "bridge-fitting-pemsa-fribourg",
+        "bruckenbeschlag-pemsa-fribourg",
+        "montage-des-ponts-pemsa-fribourg",
         "scaffolder-pemsa-fribourg",
         "gerustbauer-pemsa-fribourg",
         "monteur-d-echafaudages-pemsa-fribourg"
@@ -7167,7 +7307,7 @@
         "it": "Progettista di impianti antincendio a sprinkler / Sicurezza antincendio (M/F/D)",
         "en": "Fire Suppression System Designer / Fire Safety (M/F/D)",
         "de": "Entwässerungssystemdesigner / Brandschutz (M/F/D)",
-        "fr": "Conception de systèmes d'incendie (H/F/D) / Sécurité incendie"
+        "fr": "Progettista di impianti antincendio a sprinkler / Sicurezza antincendio (M/F/D)"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Progettista di impianti antincendio a sprinkler / Sicurezza antincendio (M/F/D)\n\n## Il tuo incarico:\n• Effettuare rilievi degli impianti esistenti in loco\n• Elaborare progetti esecutivi per impianti antincendio a sprinkler (schemi di disposizione, isometrici, dettagli tecnici)\n• Partecipare alla progettazione degli impianti in conformità alle norme vigenti\n• Effettuare il dimensionamento e i calcoli idraulici\n• Garantire l’aggiornamento dei progetti durante la fase esecutiva e al termine dei lavori\n• Collaborare con i team di progetto per garantire la fattibilità tecnica\n\n## E ora parliamo un po’ di te?\n• Formazione tecnica in disegno, CFC come disegnatore tecnico, progettista o titolo equivalente\n• Esperienza di almeno 3 anni nel settore degli sprinkler / della protezione antincendio (indispensabile)\n• Buona padronanza di AutoCAD, Revit/BIM (costituisce un vantaggio)\n• Conoscenze di calcolo idraulico degli impianti sprinkler\n• Capacità di effettuare rilievi in loco in modo autonomo\n• Mentalità rigorosa, metodica e orientata alle soluzioni\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
@@ -7179,7 +7319,7 @@
         "it": "progettista-di-impianti-antincendio-a-sprinkler-sicurezza-antincendio-m-f-d-pemsa-geneve",
         "en": "fire-sprinkler-fire-systems-designer-fire-safety-m-f-d-pemsa-geneve",
         "de": "planer-fur-brandschutzsysteme-brandschutz-m-f-d-pemsa-geneve",
-        "fr": "conception-de-systemes-d-incendie-d-arrosage-d-incendie-securite-incendie-m-f-d-pemsa-geneve"
+        "fr": "progettista-di-impianti-antincendio-a-sprinkler-sicurezza-antincendio-m-w-d-pemsa-geneve"
       },
       "id": "pemsa-b627097de031",
       "salaryMin": 60500,
@@ -7200,6 +7340,7 @@
         "fr": [
           "conception-de-systemes-d-incendie-d-arrosage-securite-incendie-m-f-d-pemsa-geneve",
           "designer-specialise-dans-les-systemes-d-incendie-par-arrosage-m-f-d-pemsa-geneve",
+          "conception-de-systemes-d-incendie-d-arrosage-d-incendie-securite-incendie-m-f-d-pemsa-geneve",
           "progettista-di-impianti-antincendio-a-sprinkler-sicurezza-antincendio-m-w-d-pemsa-geneve"
         ],
         "it": [
@@ -7223,6 +7364,7 @@
         "designer-specializing-in-sprinkler-fire-systems-m-f-d-pemsa-geneve",
         "konstrukteur-spezialisiert-auf-sprinklerfeuersysteme-m-f-d-pemsa-geneve",
         "sprinkleranlagenplaner-brandschutzsicherheit-m-w-d-pemsa-geneve",
+        "conception-de-systemes-d-incendie-d-arrosage-d-incendie-securite-incendie-m-f-d-pemsa-geneve",
         "progettista-di-impianti-antincendio-a-sprinkler-sicurezza-antincendio-m-w-d-pemsa-geneve"
       ],
       "needsRetranslation": true
@@ -7264,8 +7406,8 @@
       },
       "slugByLocale": {
         "it": "lattoniere-copritetto-m-f-pemsa-plan-les-ouates",
-        "en": "lactoniere-couple-m-f-pemsa-plan-les-ouates",
-        "de": "lactoniere-paar-m-w-pemsa-plan-les-ouates",
+        "en": "roofing-cladding-m-w-d-pemsa-plan-les-ouates",
+        "de": "dachdecker-verkleidung-m-w-d-pemsa-plan-les-ouates",
         "fr": "toiture-revetement-m-f-pemsa-plan-les-ouates"
       },
       "id": "pemsa-6df608c84099",
@@ -7285,9 +7427,11 @@
       "firstSeenAt": "2026-07-30T22:17:02.245Z",
       "previousSlugsByLocale": {
         "en": [
+          "lactoniere-couple-m-f-pemsa-plan-les-ouates",
           "roofing-cladding-m-w-d-pemsa-plan-les-ouates"
         ],
         "de": [
+          "lactoniere-paar-m-w-pemsa-plan-les-ouates",
           "dachdecker-verkleidung-m-w-d-pemsa-plan-les-ouates"
         ],
         "fr": [
@@ -7296,6 +7440,8 @@
       },
       "previousSlugs": [
         "toiture-chaudronnier-m-f-pemsa-plan-les-ouates",
+        "lactoniere-couple-m-f-pemsa-plan-les-ouates",
+        "lactoniere-paar-m-w-pemsa-plan-les-ouates",
         "roofing-cladding-m-w-d-pemsa-plan-les-ouates",
         "dachdecker-verkleidung-m-w-d-pemsa-plan-les-ouates"
       ]
@@ -7338,7 +7484,7 @@
       "slugByLocale": {
         "it": "muratore-casseriere-e-carpentiere-pemsa-vaulruz",
         "en": "mason-cashier-and-carpenter-pemsa-vaulruz",
-        "de": "freimaurer-kassierer-und-schreiner-pemsa-vaulruz",
+        "de": "maurer-schaler-und-zimmermann-pemsa-vaulruz",
         "fr": "mason-caissier-et-charpentier-pemsa-vaulruz"
       },
       "id": "pemsa-f8d5a373049d",
@@ -7358,10 +7504,12 @@
       "firstSeenAt": "2026-07-30T11:22:37.420Z",
       "previousSlugsByLocale": {
         "de": [
+          "freimaurer-kassierer-und-schreiner-pemsa-vaulruz",
           "maurer-schaler-und-zimmermann-pemsa-vaulruz"
         ]
       },
       "previousSlugs": [
+        "freimaurer-kassierer-und-schreiner-pemsa-vaulruz",
         "maurer-schaler-und-zimmermann-pemsa-vaulruz"
       ]
     },
@@ -7471,7 +7619,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
-        "en": "team-leader-industrial-infrastructures-railway-power-lines-pemsa-fribourg",
+        "en": "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
         "de": "teamleiter-industrieanlagen-bahnstromleitungen-pemsa-fribourg",
         "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-fribourg"
       },
@@ -7492,6 +7640,7 @@
       "firstSeenAt": "2026-07-30T11:22:37.420Z",
       "previousSlugsByLocale": {
         "en": [
+          "team-leader-industrial-infrastructures-railway-power-lines-pemsa-fribourg",
           "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg"
         ],
         "de": [
@@ -7500,6 +7649,7 @@
       },
       "previousSlugs": [
         "verantwortlicher-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg",
+        "team-leader-industrial-infrastructures-railway-power-lines-pemsa-fribourg",
         "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-fribourg"
       ],
       "retranslationAttempts": 0,
@@ -7995,7 +8145,7 @@
       "slugByLocale": {
         "it": "progettista-di-ingegneria-civile-m-f-d-pemsa-geneve",
         "en": "civil-engineering-planner-m-f-d-pemsa-geneve",
-        "de": "tiefbauplaner-m-f-d-pemsa-geneve",
+        "de": "bauingenieur-m-w-d-pemsa-geneve",
         "fr": "planificateur-de-genie-civil-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-3946f3430bf6",
@@ -8015,10 +8165,12 @@
       "firstSeenAt": "2026-07-30T11:22:37.420Z",
       "previousSlugsByLocale": {
         "de": [
+          "tiefbauplaner-m-f-d-pemsa-geneve",
           "bauingenieur-m-w-d-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "tiefbauplaner-m-f-d-pemsa-geneve",
         "bauingenieur-m-w-d-pemsa-geneve"
       ]
     },
@@ -8117,9 +8269,9 @@
       },
       "slugByLocale": {
         "it": "falegname-a-ebanista-di-laboratorio-pemsa-plan-les-ouates",
-        "en": "laboratory-carpenter-a-ebanist-pemsa-plan-les-ouates",
-        "de": "labor-zimmermann-ein-ebanist-pemsa-plan-les-ouates",
-        "fr": "charpentier-de-laboratoire-ebaniste-pemsa-plan-les-ouates"
+        "en": "workshop-cabinetmaker-pemsa-plan-les-ouates",
+        "de": "schreiner-in-pemsa-plan-les-ouates",
+        "fr": "menuisier-ere-d-atelier-pemsa-plan-les-ouates"
       },
       "id": "pemsa-476b69ef39a1",
       "salaryMin": 60500,
@@ -8138,16 +8290,22 @@
       "firstSeenAt": "2026-07-30T11:22:37.420Z",
       "previousSlugsByLocale": {
         "en": [
+          "laboratory-carpenter-a-ebanist-pemsa-plan-les-ouates",
           "workshop-cabinetmaker-pemsa-plan-les-ouates"
         ],
         "de": [
+          "labor-zimmermann-ein-ebanist-pemsa-plan-les-ouates",
           "schreiner-in-pemsa-plan-les-ouates"
         ],
         "fr": [
+          "charpentier-de-laboratoire-ebaniste-pemsa-plan-les-ouates",
           "menuisier-ere-d-atelier-pemsa-plan-les-ouates"
         ]
       },
       "previousSlugs": [
+        "laboratory-carpenter-a-ebanist-pemsa-plan-les-ouates",
+        "labor-zimmermann-ein-ebanist-pemsa-plan-les-ouates",
+        "charpentier-de-laboratoire-ebaniste-pemsa-plan-les-ouates",
         "workshop-cabinetmaker-pemsa-plan-les-ouates",
         "schreiner-in-pemsa-plan-les-ouates",
         "menuisier-ere-d-atelier-pemsa-plan-les-ouates"
@@ -8191,7 +8349,7 @@
       "slugByLocale": {
         "it": "falegname-a-installatore-trice-pemsa-plan-les-ouates",
         "en": "carpenter-installer-pemsa-plan-les-ouates",
-        "de": "zimmermann-installation-pemsa-plan-les-ouates",
+        "de": "schreiner-monteur-pemsa-plan-les-ouates",
         "fr": "charpentier-installateur-pemsa-plan-les-ouates"
       },
       "id": "pemsa-d5cc6a888964",
@@ -8211,203 +8369,14 @@
       "firstSeenAt": "2026-07-30T11:22:37.420Z",
       "previousSlugsByLocale": {
         "de": [
+          "zimmermann-installation-pemsa-plan-les-ouates",
           "schreiner-monteur-pemsa-plan-les-ouates"
         ]
       },
       "previousSlugs": [
+        "zimmermann-installation-pemsa-plan-les-ouates",
         "schreiner-monteur-pemsa-plan-les-ouates"
       ]
-    },
-    {
-      "title": "MECCANICO DI AUTOVEICOLI",
-      "slug": "meccanico-di-autoveicoli-pemsa-agno",
-      "url": "https://www.pemsa.ch/it/job/meccanico-di-autoveicoli-2685214/",
-      "applyUrl": "https://www.pemsa.ch/it/job/meccanico-di-autoveicoli-2685214/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Agno",
-      "addressLocality": "Agno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-29",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-08-13",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MECCANICO DI AUTOVEICOLI\n\n## Missione :\n• Contratto TEMPORANEO di 2/3 mesi (per sostituzione infortunio), tramite agenzia.\n• Riparazione/manutenzione su autoveicoli, furgoni e motoveicoli.\n\n## Profilo :\n• Esperienza di almeno 5 anni come meccanico d’auto.\n• AFC di meccanico di manutenzione per automobili costituirà titolo preferenziale.\n• Completa autonomia nell’effettuare riparazioni, manutenzione e tagliandi su tutti i tipi di mezzi (auto/moto/furgoni).\n• Disponibilità IMMEDDIATA.\n• Residenza in Ticino o nella fascia di confine.",
-      "titleByLocale": {
-        "it": "MECCANICO DI AUTOVEICOLI",
-        "en": "AUTOMOTIVE MECHANIC",
-        "de": "AUTOMECHANIKER",
-        "fr": "MÉCANICIEN AUTOMOBILE"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MECCANICO DI AUTOVEICOLI\n\n## Missione :\n• Contratto TEMPORANEO di 2/3 mesi (per sostituzione infortunio), tramite agenzia.\n• Riparazione/manutenzione su autoveicoli, furgoni e motoveicoli.\n\n## Profilo :\n• Esperienza di almeno 5 anni come meccanico d’auto.\n• AFC di meccanico di manutenzione per automobili costituirà titolo preferenziale.\n• Completa autonomia nell’effettuare riparazioni, manutenzione e tagliandi su tutti i tipi di mezzi (auto/moto/furgoni).\n• Disponibilità IMMEDDIATA.\n• Residenza in Ticino o nella fascia di confine.",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have been working for hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents. We will not lie to you, but we are demanding. So if you are a motivated and entusiast, join the clan for the position of AUTOVEICOL MECHANICAL\n\nMission:\n• 2/3 month TEMPORARY contract (for accident replacement), by agency.\n• Repair/maintenance on motor vehicles, vans and motor vehicles.\n\n• Experience of at least 5 years as a car mechanic.\n• AFC of car maintenance mechanic will be a preferred title.\n• Completing autonomy in. performing repairs, maintenance and coupons on all types of vehicles (car/motorbike/vans).\n• IMMEDDIATA availability.\n• Residence in Ticino or in the border belt.",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit eines Dauerarbeitskräftes? Seit 30 Jahren arbeiten wir für hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht belügen, aber wir sind anspruchsvoll. Wenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position von AUTOVEICOL MECHANICAL bei.\n\n• Reparatur/Wartung von Kraftfahrzeugen, Lieferwagen und Kraftfahrzeugen.\n\n• Erfahrung von mindestens 5 Jahren als Automechaniker.\n• AFC des Autoinstandhaltungsmechanikers wird ein bevorzugter Titel sein.\n• Vollendung der Autonomie in. Durchführung von Reparaturen, Wartung und Gutscheine auf allen Arten von Fahrzeugen (Auto / Motorrad / Vans).\n• IMMEDDIATA Verfügbarkeit.\n• Wohnsitz im Tessin oder im Grenzgürtel.",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous travaillons pour des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Donc, si vous êtes un motivé et entusiast, rejoignez le clan pour la position d'autoVEICOL MECHANICAL\n\nMission:\n• 2/3 mois contrat TEMPORAIRE (pour le remplacement d'accidents), par agence.\n• Réparation/entretien sur véhicules à moteur, camionnettes et véhicules à moteur.\n\n• Expérience d'au moins 5 ans en tant que mécanicien automobile.\n• AFC de mécanicien d'entretien automobile sera un titre privilégié.\n• Compléter l'autonomie dans. effectuer des réparations, l'entretien et les coupons sur tous les types de véhicules (voiture/moto/fourgonnette).\n• Disponibilité IMMEDDIATA.\n• Résidence à Ticino ou dans la ceinture frontière."
-      },
-      "slugByLocale": {
-        "it": "meccanico-di-autoveicoli-pemsa-agno",
-        "en": "motor-vehicles-pemsa-agno",
-        "de": "kraftfahrzeuge-pemsa-agno",
-        "fr": "vehicules-a-moteur-pemsa-agno"
-      },
-      "id": "pemsa-62d7a7b32052",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T22:11:56.505Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "automotive-mechanic-pemsa-agno"
-        ],
-        "de": [
-          "automechaniker-pemsa-agno"
-        ],
-        "fr": [
-          "mecanicien-automobile-pemsa-agno"
-        ],
-        "it": [
-          "meccanico-autoriparatore-pemsa-agno"
-        ]
-      },
-      "previousSlugs": [
-        "meccanico-autoriparatore-pemsa-agno",
-        "automotive-mechanic-pemsa-agno",
-        "automechaniker-pemsa-agno",
-        "mecanicien-automobile-pemsa-agno"
-      ]
-    },
-    {
-      "title": "Consulente del personale nel settore delle finiture",
-      "slug": "consulente-del-personale-nel-settore-delle-finiture-pemsa-fribourg",
-      "url": "https://www.pemsa.ch/it/job/consulente-del-personale-nel-settore-delle-finiture-2685206/",
-      "applyUrl": "https://www.pemsa.ch/it/job/consulente-del-personale-nel-settore-delle-finiture-2685206/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Fribourg",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-29",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-08-13",
-      "description": "Pemsa è un’azienda svizzera specializzata nel reclutamento e nella fornitura di personale nei settori dell’elettricità, delle costruzioni, dell’edilizia e dell’industria. Il suo know-how si basa su 30 anni di esperienza e su un’offerta diversificata e qualificata. Per rafforzare il nostro team di Friburgo, stiamo cercando un/una Consulente del personale nel settore delle finiture. Il tuo incarico:\n• Sviluppare la tua attività avvalendoti della tua conoscenza del tessuto economico friburghese, in particolare nei settori delle finiture, quali falegnameria, pittura, piastrellatura o settori affini.\n• Prospezione commerciale, sia telefonica che sul campo.\n• Analizzerai le esigenze dei clienti, individuerai i profili idonei attraverso diverse tecniche di sourcing, condurrai i colloqui di selezione ed effettuerai le verifiche delle referenze.\n• Seguire a livello amministrativo e operativo gli incarichi, nonché gestire i programmi dei collaboratori in delega.\n\n## E ora parliamo di te?\n• Preferibilmente con un background nel settore delle finiture edili o con esperienza nel collocamento del personale, nel reclutamento o nelle relazioni con i clienti.\n• Desideri mettere a frutto la tua esperienza sul campo e/o commerciale in un ruolo incentrato sul reclutamento, la consulenza, le relazioni con i clienti e lo sviluppo commerciale.\n• Sono benvenuti sia i professionisti con esperienza che desiderano affrontare una nuova sfida, sia i giovani motivati e desiderosi di apprendere il mestiere di consulente del personale.\n• Ottima padronanza della lingua francese; la conoscenza di un’altra lingua costituisce un vantaggio.\n• Patente di guida.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Maria. Con oltre 17 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Consulente del personale nel settore delle finiture",
-        "en": "Personnel Consultant in the Finishing Sector",
-        "de": "Personalberater im Bereich Innenausbau",
-        "fr": "Consultant en personnel dans le secteur des finitions"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è un’azienda svizzera specializzata nel reclutamento e nella fornitura di personale nei settori dell’elettricità, delle costruzioni, dell’edilizia e dell’industria. Il suo know-how si basa su 30 anni di esperienza e su un’offerta diversificata e qualificata. Per rafforzare il nostro team di Friburgo, stiamo cercando un/una Consulente del personale nel settore delle finiture. Il tuo incarico:\n• Sviluppare la tua attività avvalendoti della tua conoscenza del tessuto economico friburghese, in particolare nei settori delle finiture, quali falegnameria, pittura, piastrellatura o settori affini.\n• Prospezione commerciale, sia telefonica che sul campo.\n• Analizzerai le esigenze dei clienti, individuerai i profili idonei attraverso diverse tecniche di sourcing, condurrai i colloqui di selezione ed effettuerai le verifiche delle referenze.\n• Seguire a livello amministrativo e operativo gli incarichi, nonché gestire i programmi dei collaboratori in delega.\n\n## E ora parliamo di te?\n• Preferibilmente con un background nel settore delle finiture edili o con esperienza nel collocamento del personale, nel reclutamento o nelle relazioni con i clienti.\n• Desideri mettere a frutto la tua esperienza sul campo e/o commerciale in un ruolo incentrato sul reclutamento, la consulenza, le relazioni con i clienti e lo sviluppo commerciale.\n• Sono benvenuti sia i professionisti con esperienza che desiderano affrontare una nuova sfida, sia i giovani motivati e desiderosi di apprendere il mestiere di consulente del personale.\n• Ottima padronanza della lingua francese; la conoscenza di un’altra lingua costituisce un vantaggio.\n• Patente di guida.\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Maria. Con oltre 17 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "Pemsa is a Swiss company specializing in the recruitment and supply of personnel in the fields of electricity, construction, construction and industry. Its know-how is based on 30 years of experience and on a diversified and qualified offer. To strengthen our team in Freiburg, we are looking for a staff consultant in the field of finishing.\n\nYour assignment:\n• Develop your business by making use of your knowledge of the economic fabric of the region, especially in the finishing sectors, such as falegnameria, painting, tiling or similar sectors.\n• Commercial prospecting, both on the telephone and on the field.\n• Analyze the needs of customers, individuate suitable profiles through various techniques of the department, conduct selection interviews and carry out the verification of references.\n• Follow the tasks at the administrative and operational level, as well as manage the programs of the delegates.\n\nAnd now we talk about you?\n• Preferably with a background in the field of construction finishes or with experience in the placement of staff, recruitment or customer relations.\n• Want to put your experience to use in the field and/or business in a role focused on recruitment, advice, customer relations and business development.\n• We are welcome both experienced professionals who want to face a new challenge, as well as young motivated and eager to learn the profession of staff consultant.\n\n• Ottima mastery of the French language; knowledge of another language is an advantage.\n• Patent driving.\n\nYour contact person: Your contact person for this position is Maria. With over 17 years of experience in the recruitment sector, will be able to accompany you, advise you and answer all your position questions. This position does not exactly match what you are looking for, but our values interest you? Do not hesitate to send us your spontaneous candidacy! We will only answer applications whose profile corresponds to the description you have requested.",
-        "de": "Pemsa ist ein Schweizer Unternehmen, das sich auf die Personalbeschaffung und -versorgung in den Bereichen Strom, Bau, Bau und Industrie spezialisiert hat. Sein Know-how basiert auf 30 Jahren Erfahrung und einem diversifizierten und qualifizierten Angebot. Um unser Team in Freiburg zu stärken, suchen wir einen Personalberater im Bereich Finishing.\n\nIhre Aufgabe:\n• Ihr Unternehmen entwickeln, indem Sie Ihre Kenntnisse über das wirtschaftliche Gefüge der Region, vor allem in den Veredelungsbranchen, wie falegnameria, Malerei, Fliesen oder ähnliche Sektoren nutzen.\n• Handelsprospektion, sowohl am Telefon als auch auf dem Feld.\n• Analysieren Sie die Bedürfnisse der Kunden, dividualisieren Sie geeignete Profile durch verschiedene Techniken der Abteilung, führen Sie Auswahlinterviews und Durchführung der Überprüfung von Referenzen.\n• Folgen Sie den Aufgaben auf administrativer und operativer Ebene, sowie verwalten Sie die Programme der Delegierten.\n\nUnd jetzt sprechen wir über Sie?\n• Bevorzugt mit einem Hintergrund im Bereich der Konstruktion beendet oder mit Erfahrung in der Platzierung von Personal, Rekrutierung oder Kundenbeziehungen.\n• Möchten Sie Ihre Erfahrung in den Bereich und / oder Geschäft in einer Rolle in der Rekrutierung, Beratung, Kundenbeziehungen und Geschäftsentwicklung konzentriert setzen.\n• Wir sind sowohl erfahrene Fachleute willkommen, die eine neue Herausforderung, sowie junge motiviert und eifrig den Beruf des Mitarbeiterberaters lernen wollen.\n\n• Ottima-Meisterschaft in der französischen Sprache; Kenntnisse in einer anderen Sprache sind ein Vorteil.\n• Patentfahren.\n\nIhr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Maria. Mit über 17 Jahren Erfahrung im Personalwesen können Sie sich begleiten, beraten und alle Ihre Fragen beantworten. Diese Position passt nicht genau zu dem, was Sie suchen, aber unsere Werte interessieren Sie? Zögern Sie nicht, uns Ihre spontane Kandidatur zu schicken! Wir beantworten nur Bewerbungen, deren Profil der von Ihnen gewünschten Beschreibung entspricht.",
-        "fr": "Pemsa est une entreprise suisse spécialisée dans le recrutement et la fourniture de personnel dans les domaines de l'électricité, de la construction, de la construction et de l'industrie. Son savoir-faire repose sur 30 ans d'expérience et sur une offre diversifiée et qualifiée.\n\nVotre mission :\n• Développer votre entreprise en utilisant votre connaissance du tissu économique de la région, en particulier dans les secteurs de finition, tels que falegnameria, peinture, labour ou secteurs similaires.\n• Prospection commerciale, à la fois au téléphone et sur le terrain.\n• Analyser les besoins des clients, sélectionner des profils appropriés à travers diverses techniques du département, mener des entretiens de sélection et effectuer la vérification des références.\n• Suivre les tâches au niveau administratif et opérationnel, ainsi que gérer les programmes des délégués.\n\nEt maintenant nous parlons de vous?\n• De préférence avec une expérience dans le domaine des finitions de construction ou avec une expérience dans le placement du personnel, le recrutement ou les relations avec la clientèle.\n• Vous voulez mettre votre expérience à profit dans le domaine et/ou l'entreprise dans un rôle axé sur le recrutement, les conseils, les relations avec la clientèle et le développement des affaires.\n• Nous sommes les bienvenus à la fois les professionnels expérimentés qui veulent faire face à un nouveau défi, ainsi que les jeunes motivés et désireux d'apprendre la profession de consultant du personnel.\n\n• Maîtrise de la langue française par Ottima; la connaissance d'une autre langue est un avantage.\n• Conduite par brevet.\n\nVotre personne de contact: Votre personne de contact pour ce poste est Maria. Avec plus de 17 ans d'expérience dans le secteur du recrutement, vous pourrez vous accompagner, vous conseiller et répondre à toutes vos questions de poste. Ce poste ne correspond pas exactement à ce que vous cherchez, mais nos valeurs vous intéressent? N'hésitez pas à nous envoyer votre candidature spontanée! Nous répondrons uniquement aux demandes dont le profil correspond à la description que vous avez demandée."
-      },
-      "slugByLocale": {
-        "it": "consulente-del-personale-nel-settore-delle-finiture-pemsa-fribourg",
-        "en": "personnel-consultant-in-the-finishing-sector-pemsa-fribourg",
-        "de": "personalberater-im-finishing-bereich-pemsa-fribourg",
-        "fr": "consultant-en-personnel-dans-le-secteur-de-la-finition-pemsa-fribourg"
-      },
-      "id": "pemsa-64ad90190d5f",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T22:11:56.505Z"
-    },
-    {
-      "title": "Assistente di agenzia 50–60%",
-      "slug": "assistente-di-agenzia-50-60-pemsa-bienne",
-      "url": "https://www.pemsa.ch/it/job/assistente-di-agenzia-50-60-2685200/",
-      "applyUrl": "https://www.pemsa.ch/it/job/assistente-di-agenzia-50-60-2685200/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bienne",
-      "addressLocality": "Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-29",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-08-13",
-      "description": "Pemsa è una società svizzera specializzata nel reclutamento e nella fornitura di personale, attiva da oltre 30 anni nei settori dell’elettricità, delle costruzioni, dell’edilizia e dell’industria. Grazie alla sua rete di agenzie in Svizzera e al suo approccio orientato alla vicinanza, Pemsa affianca i propri clienti e collaboratori con soluzioni personalizzate, ponendo la persona al centro delle proprie priorità. Per rafforzare il nostro team di Bienne, stiamo cercando un/una Assistente di agenzia 50–60%.\n\n## La tua missione:\n• Accoglienza in sede e telefonica\n• Gestione amministrativa dei collaboratori in distacco\n• Redazione e monitoraggio dei contratti di incarico\n• Registrazione dei resoconti delle ore lavorative\n• Supporto amministrativo ai consulenti del personale\n\n## E ora parliamo di te?\n• In possesso di una formazione come impiegato/a commerciale o titolo ritenuto equivalente\n• Bilingue francese/tedesco , sia orale che scritta obbligatoria\n• Prima esperienza in un’agenzia di collocamento o nell’amministrazione delle risorse umane, un vantaggio\n• Buona padronanza della scrittura\n• Ottima conoscenza di Microsoft Office\n• Conoscenza di un ERP di settore, un vantaggio\n• Residente nella regione\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Maria. Con oltre 17 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Assistente di agenzia 50–60%",
-        "en": "Agency Assistant 50–60%",
-        "de": "Agenturassistent/in 50–60%",
-        "fr": "Assistant(e) d'agence 50–60%"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è una società svizzera specializzata nel reclutamento e nella fornitura di personale, attiva da oltre 30 anni nei settori dell’elettricità, delle costruzioni, dell’edilizia e dell’industria. Grazie alla sua rete di agenzie in Svizzera e al suo approccio orientato alla vicinanza, Pemsa affianca i propri clienti e collaboratori con soluzioni personalizzate, ponendo la persona al centro delle proprie priorità. Per rafforzare il nostro team di Bienne, stiamo cercando un/una Assistente di agenzia 50–60%.\n\n## La tua missione:\n• Accoglienza in sede e telefonica\n• Gestione amministrativa dei collaboratori in distacco\n• Redazione e monitoraggio dei contratti di incarico\n• Registrazione dei resoconti delle ore lavorative\n• Supporto amministrativo ai consulenti del personale\n\n## E ora parliamo di te?\n• In possesso di una formazione come impiegato/a commerciale o titolo ritenuto equivalente\n• Bilingue francese/tedesco , sia orale che scritta obbligatoria\n• Prima esperienza in un’agenzia di collocamento o nell’amministrazione delle risorse umane, un vantaggio\n• Buona padronanza della scrittura\n• Ottima conoscenza di Microsoft Office\n• Conoscenza di un ERP di settore, un vantaggio\n• Residente nella regione\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Maria. Con oltre 17 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
-        "en": "Pemsa is a Swiss company specializing in recruitment and supply of staff, active for over 30 years in the fields of electricity, construction, construction and industry. Thanks to its network of agencies in Switzerland and its approach oriented to proximity, Pemsa supports its customers and collaborators with customized solutions, placing the person at the center of its priorities. To strengthen our team of Bienne, we are looking for an agency assistant 50.60%.\n\nYour mission:\n• Reception at the office and telephone\n• Administrative management of staff on secondment\n• Drafting and monitoring of assignment contracts\n• Recording of work time reports\n• Administrative support to staff advisors\n\nAnd now we're talking about you?\n• In possession of training as a commercial employee or title deemed equivalent\n• French/German Bpingue, both oral and written mandatory\n• First experience in a employment agency or in the administration of human resources, an advantage\n• Good mastery of writing\n• Ottima knowledge of Microsoft Office\n• Knowledge of an ERP sector, an advantage •mmergeand in the region\n\nYour contact person: Your contact person for this position is Maria. With over 17 years of experience in the recruitment sector, she will be able to accompany you, advise you and answer all your questions related to the position. We will answer only the applications whose profile corresponds to the description requested.",
-        "de": "Pemsa ist ein Schweizer Unternehmen, spezialisiert auf Personalbeschaffung und -versorgung, das seit über 30 Jahren in den Bereichen Strom, Bau, Bau und Industrie tätig ist. Dank seines Netzwerks von Agenturen in der Schweiz und seinem näheorientierten Ansatz unterstützt Pemsa seine Kunden und Mitarbeiter mit maßgeschneiderten Lösungen und stellt die Person in den Mittelpunkt ihrer Prioritäten. Um unser Team von Bienne zu stärken, suchen wir einen Agenturassistenten 50,60%.\n\nIhre Aufgabe:\n• Empfang im Büro und Telefon\n• Verwaltungsmanagement des abgeordneten Personals\n• Entwurf und Überwachung von Aufträgen\n• Aufzeichnung von Arbeitszeitberichten\n• Verwaltungsunterstützung für Mitarbeiterberater\n\nUnd jetzt sprechen wir über Sie?\n• Im Besitz einer Ausbildung als kaufmännischer Mitarbeiter oder Titel als gleichwertig\n• Französisch/Deutsch Bpingue, sowohl mündliche als auch schriftliche Pflicht\n• Erste Erfahrung in einer Arbeitsagentur oder in der Verwaltung der Humanressourcen, ein Vorteil\n• Gute Beherrschung des Schreibens\n• Ottima Kenntnisse von Microsoft Office\n• Kenntnisse eines ERP-Sektors, ein Vorteil •mmergeand in der Region\n\nIhr Ansprechpartner: Ihr Ansprechpartner für diese Stelle ist Maria. Mit über 17 Jahren Erfahrung im Bereich Personalbeschaffung kann sie Sie begleiten, beraten und alle Fragen rund um die Stelle beantworten. Wir beantworten nur die Bewerbungen, deren Profil der gewünschten Beschreibung entspricht.",
-        "fr": "Pemsa est une entreprise suisse spécialisée dans le recrutement et la fourniture de personnel, active depuis plus de 30 ans dans les domaines de l'électricité, de la construction, de la construction et de l'industrie. Grâce à son réseau d'agences en Suisse et à son approche de proximité, Pemsa accompagne ses clients et collaborateurs avec des solutions personnalisées, plaçant la personne au centre de ses priorités.\n\nVotre mission:\n• Réception au bureau et par téléphone\n• Gestion administrative du personnel détaché\n• Rédaction et suivi des contrats de mission\n• Enregistrement des rapports de travail\n• Appui administratif aux conseillers du personnel\n\nEt maintenant nous parlons de vous?\n• En possession de formation comme employé commercial ou titre considéré comme équivalent\n• Bpingue français/allemand, à la fois oral et écrit obligatoire\n• Première expérience dans une agence de travail ou dans l'administration des ressources humaines, un avantage\n• Bonne maîtrise de l'écriture\n• Connaissance Ottima de Microsoft Office\n• Connaissance d'un secteur ERP, un avantage\n• mmergeand dans la région\n\nVotre personne-ressource : Votre personne-ressource pour ce poste est Maria. Avec plus de 17 ans d'expérience dans le secteur du recrutement, elle pourra vous accompagner, vous conseiller et répondre à toutes vos questions relatives au poste. Nous répondrons uniquement aux candidatures dont le profil correspond à la description demandée."
-      },
-      "slugByLocale": {
-        "it": "assistente-di-agenzia-50-60-pemsa-bienne",
-        "en": "agency-assistant-50-60-pemsa-bienne",
-        "de": "agenturassistent-50-60-pemsa-bienne",
-        "fr": "assistant-de-l-agence-50-60-pemsa-bienne"
-      },
-      "id": "pemsa-6423edba15bc",
-      "salaryMin": 41100,
-      "salaryMax": 62400,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T22:11:56.505Z"
     },
     {
       "title": "Installatore di impianti idraulici AFC",
@@ -8703,7 +8672,6 @@
         "fr": "operateur-de-grue-vusa-a-pemsa-lausanne"
       },
       "id": "pemsa-99592a831f72",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -8879,7 +8847,7 @@
       "slugByLocale": {
         "it": "tecnico-a-di-officina-elettronica-pemsa-vevey",
         "en": "electronics-workshop-technician-pemsa-vevey",
-        "de": "elektronik-werkstatttechniker-in-pemsa-vevey",
+        "de": "techniker-a-di-officina-elettronica-pemsa-vevey",
         "fr": "technicien-ne-d-atelier-electronique-pemsa-vevey"
       },
       "id": "pemsa-a32b62fb7142",
@@ -8902,6 +8870,7 @@
           "technician-a-di-officina-elettronica-pemsa-vevey"
         ],
         "de": [
+          "elektronik-werkstatttechniker-in-pemsa-vevey",
           "techniker-a-di-officina-elettronica-pemsa-vevey"
         ],
         "fr": [
@@ -8911,6 +8880,7 @@
       "previousSlugs": [
         "technician-a-di-officina-elettronica-pemsa-vevey",
         "technicien-a-di-officina-elettronica-pemsa-vevey",
+        "elektronik-werkstatttechniker-in-pemsa-vevey",
         "techniker-a-di-officina-elettronica-pemsa-vevey"
       ]
     },
@@ -9024,9 +8994,9 @@
       },
       "slugByLocale": {
         "it": "posatore-di-pavimentazione-pemsa-fribourg",
-        "en": "floor-cutter-pemsa-fribourg",
-        "de": "bodenschneider-pemsa-fribourg",
-        "fr": "coupe-plancher-pemsa-fribourg"
+        "en": "flooring-installer-pemsa-fribourg",
+        "de": "bodenleger-in-pemsa-fribourg",
+        "fr": "poseur-de-revetements-de-sol-pemsa-fribourg"
       },
       "id": "pemsa-816bd7d4c819",
       "salaryMin": 68500,
@@ -9045,16 +9015,22 @@
       "firstSeenAt": "2026-07-27T12:38:35.478Z",
       "previousSlugsByLocale": {
         "en": [
+          "floor-cutter-pemsa-fribourg",
           "flooring-installer-pemsa-fribourg"
         ],
         "de": [
+          "bodenschneider-pemsa-fribourg",
           "bodenleger-in-pemsa-fribourg"
         ],
         "fr": [
+          "coupe-plancher-pemsa-fribourg",
           "poseur-de-revetements-de-sol-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "floor-cutter-pemsa-fribourg",
+        "bodenschneider-pemsa-fribourg",
+        "coupe-plancher-pemsa-fribourg",
         "flooring-installer-pemsa-fribourg",
         "bodenleger-in-pemsa-fribourg",
         "poseur-de-revetements-de-sol-pemsa-fribourg"
@@ -9097,7 +9073,7 @@
       },
       "slugByLocale": {
         "it": "operario-addetto-alla-gru-a-torre-pemsa-fribourg",
-        "en": "tower-crane-operator-pemsa-fribourg",
+        "en": "operario-associate-alla-gru-a-torre-pemsa-fribourg",
         "de": "turmkranfuhrer-pemsa-fribourg",
         "fr": "operateur-de-grue-a-tour-pemsa-fribourg"
       },
@@ -9118,10 +9094,12 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "en": [
+          "tower-crane-operator-pemsa-fribourg",
           "operario-associate-alla-gru-a-torre-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "tower-crane-operator-pemsa-fribourg",
         "operario-associate-alla-gru-a-torre-pemsa-fribourg"
       ]
     },
@@ -9276,9 +9254,9 @@
       },
       "slugByLocale": {
         "it": "guarnizione-pemsa-fribourg",
-        "en": "gasket-pemsa-fribourg",
-        "de": "dichtung-pemsa-fribourg",
-        "fr": "joint-pemsa-fribourg"
+        "en": "temporary-worker-roofing-pemsa-fribourg",
+        "de": "temporarer-mitarbeiter-dachbau-pemsa-fribourg",
+        "fr": "travailleur-temporaire-toiture-pemsa-fribourg"
       },
       "id": "pemsa-0b36e2dfb2b4",
       "salaryMin": 68500,
@@ -9297,16 +9275,22 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "en": [
+          "gasket-pemsa-fribourg",
           "temporary-worker-roofing-pemsa-fribourg"
         ],
         "de": [
+          "dichtung-pemsa-fribourg",
           "temporarer-mitarbeiter-dachbau-pemsa-fribourg"
         ],
         "fr": [
+          "joint-pemsa-fribourg",
           "travailleur-temporaire-toiture-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "gasket-pemsa-fribourg",
+        "dichtung-pemsa-fribourg",
+        "joint-pemsa-fribourg",
         "temporary-worker-roofing-pemsa-fribourg",
         "temporarer-mitarbeiter-dachbau-pemsa-fribourg",
         "travailleur-temporaire-toiture-pemsa-fribourg"
@@ -9349,9 +9333,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-taverne",
-        "en": "sauce-tubist-pemsa-taverne",
+        "en": "welder-tube-welder-pemsa-taverne",
         "de": "schwei-er-rohrschwei-er-pemsa-taverne",
-        "fr": "sauce-tubiste-pemsa-taverne"
+        "fr": "soudeur-tube-welding-pemsa-taverne"
       },
       "id": "pemsa-4a3904a12876",
       "salaryMin": 49500,
@@ -9372,13 +9356,17 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "en": [
+          "sauce-tubist-pemsa-taverne",
           "welder-tube-welder-pemsa-taverne"
         ],
         "fr": [
+          "sauce-tubiste-pemsa-taverne",
           "soudeur-tube-welding-pemsa-taverne"
         ]
       },
       "previousSlugs": [
+        "sauce-tubist-pemsa-taverne",
+        "sauce-tubiste-pemsa-taverne",
         "welder-tube-welder-pemsa-taverne",
         "soudeur-tube-welding-pemsa-taverne"
       ]
@@ -9478,7 +9466,7 @@
       "slugByLocale": {
         "it": "progettista-di-impianti-elettrici-pemsa-bulle",
         "en": "electric-plant-designer-pemsa-bulle",
-        "de": "elektrischer-anlagenbauer-pemsa-bulle",
+        "de": "elektroanlagen-designer-pemsa-bulle",
         "fr": "conception-d-installations-electriques-pemsa-bulle"
       },
       "id": "pemsa-c6ae7837c727",
@@ -9498,10 +9486,12 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "de": [
+          "elektrischer-anlagenbauer-pemsa-bulle",
           "elektroanlagen-designer-pemsa-bulle"
         ]
       },
       "previousSlugs": [
+        "elektrischer-anlagenbauer-pemsa-bulle",
         "elektroanlagen-designer-pemsa-bulle"
       ]
     },
@@ -9543,7 +9533,7 @@
       "slugByLocale": {
         "it": "idraulico-con-esperienza-pemsa-agno",
         "en": "hydraulic-with-experience-pemsa-agno",
-        "de": "hydraulisch-mit-erfahrung-pemsa-agno",
+        "de": "temporarer-job-mit-langfristiger-sicherheit-pemsa-agno",
         "fr": "hydraulique-avec-experience-pemsa-agno"
       },
       "id": "pemsa-2a3953c16352",
@@ -9563,10 +9553,12 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "de": [
+          "hydraulisch-mit-erfahrung-pemsa-agno",
           "temporarer-job-mit-langfristiger-sicherheit-pemsa-agno"
         ]
       },
       "previousSlugs": [
+        "hydraulisch-mit-erfahrung-pemsa-agno",
         "temporarer-job-mit-langfristiger-sicherheit-pemsa-agno"
       ]
     },
@@ -9608,8 +9600,8 @@
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-mendrisio",
         "en": "hydraulic-installer-pemsa-mendrisio",
-        "de": "hydraulikinstallateur-pemsa-mendrisio",
-        "fr": "installation-hydraulique-pemsa-mendrisio"
+        "de": "installateur-pemsa-mendrisio",
+        "fr": "installateur-pemsa-mendrisio"
       },
       "id": "pemsa-bc08e630bc60",
       "salaryMin": 49500,
@@ -9628,13 +9620,17 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "de": [
+          "hydraulikinstallateur-pemsa-mendrisio",
           "installateur-pemsa-mendrisio"
         ],
         "fr": [
+          "installation-hydraulique-pemsa-mendrisio",
           "installateur-pemsa-mendrisio"
         ]
       },
       "previousSlugs": [
+        "hydraulikinstallateur-pemsa-mendrisio",
+        "installation-hydraulique-pemsa-mendrisio",
         "installateur-pemsa-mendrisio"
       ]
     },
@@ -9732,9 +9728,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-manno",
-        "en": "idraulation-pemsa-manno",
-        "de": "idraulierung-pemsa-manno",
-        "fr": "idraulement-pemsa-manno"
+        "en": "hydraulic-pemsa-manno",
+        "de": "hydraulische-pemsa-manno",
+        "fr": "hydraulique-pemsa-manno"
       },
       "id": "pemsa-e1f4ab89b836",
       "salaryMin": 49500,
@@ -9753,16 +9749,22 @@
       "firstSeenAt": "2026-07-24T22:15:26.057Z",
       "previousSlugsByLocale": {
         "en": [
+          "idraulation-pemsa-manno",
           "hydraulic-pemsa-manno"
         ],
         "de": [
+          "idraulierung-pemsa-manno",
           "hydraulische-pemsa-manno"
         ],
         "fr": [
+          "idraulement-pemsa-manno",
           "hydraulique-pemsa-manno"
         ]
       },
       "previousSlugs": [
+        "idraulation-pemsa-manno",
+        "idraulierung-pemsa-manno",
+        "idraulement-pemsa-manno",
         "hydraulic-pemsa-manno",
         "hydraulische-pemsa-manno",
         "hydraulique-pemsa-manno"
@@ -9806,7 +9808,7 @@
       "slugByLocale": {
         "it": "muratori-a-e-b-cantiere-di-calcestruzzo-pemsa-vaulruz",
         "en": "masons-a-and-b-concrete-building-pemsa-vaulruz",
-        "de": "freimaurer-a-und-b-betonbau-pemsa-vaulruz",
+        "de": "maurer-a-und-b-betonbaustelle-pemsa-vaulruz",
         "fr": "masons-a-et-b-batiment-en-beton-pemsa-vaulruz"
       },
       "id": "pemsa-6c11cbbb39d8",
@@ -9826,10 +9828,12 @@
       "firstSeenAt": "2026-07-22T22:15:21.638Z",
       "previousSlugsByLocale": {
         "de": [
+          "freimaurer-a-und-b-betonbau-pemsa-vaulruz",
           "maurer-a-und-b-betonbaustelle-pemsa-vaulruz"
         ]
       },
       "previousSlugs": [
+        "freimaurer-a-und-b-betonbau-pemsa-vaulruz",
         "maurer-a-und-b-betonbaustelle-pemsa-vaulruz"
       ]
     },
@@ -10042,7 +10046,7 @@
       "slugByLocale": {
         "it": "installatore-di-quadri-elettrici-cablatore-di-quadri-elettrici-m-f-d-pemsa-geneve",
         "en": "electric-panel-installer-electric-panel-cab-m-f-d-pemsa-geneve",
-        "de": "elektroinstallationsgerat-elektrokabine-m-f-d-pemsa-geneve",
+        "de": "elektrischer-rahmeninstallateur-kabelbaummontage-m-w-d-pemsa-geneve",
         "fr": "installateur-de-panneaux-electriques-cabine-de-panneaux-electriques-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-bcb8e6a4b0cb",
@@ -10062,10 +10066,12 @@
       "firstSeenAt": "2026-07-21T11:23:36.348Z",
       "previousSlugsByLocale": {
         "de": [
+          "elektroinstallationsgerat-elektrokabine-m-f-d-pemsa-geneve",
           "elektrischer-rahmeninstallateur-kabelbaummontage-m-w-d-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "elektroinstallationsgerat-elektrokabine-m-f-d-pemsa-geneve",
         "elektrischer-rahmeninstallateur-kabelbaummontage-m-w-d-pemsa-geneve"
       ]
     },
@@ -10164,7 +10170,7 @@
       "slugByLocale": {
         "it": "muratore-cat-b-pemsa-fribourg",
         "en": "mason-cat-b-pemsa-fribourg",
-        "de": "freimaurer-kat-b-pemsa-fribourg",
+        "de": "mauerer-cat-b-pemsa-fribourg",
         "fr": "mason-cat-b-pemsa-fribourg"
       },
       "id": "pemsa-e8044e5bd7c4",
@@ -10184,10 +10190,12 @@
       "firstSeenAt": "2026-07-21T11:23:36.348Z",
       "previousSlugsByLocale": {
         "de": [
+          "freimaurer-kat-b-pemsa-fribourg",
           "mauerer-cat-b-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "freimaurer-kat-b-pemsa-fribourg",
         "mauerer-cat-b-pemsa-fribourg"
       ]
     },
@@ -10229,7 +10237,7 @@
       "slugByLocale": {
         "it": "muratore-cat-a-pemsa-fribourg",
         "en": "mason-cat-a-pemsa-fribourg",
-        "de": "freimaurer-kat-a-pemsa-fribourg",
+        "de": "mauerer-kategorie-a-pemsa-fribourg",
         "fr": "macon-cat-a-pemsa-fribourg"
       },
       "id": "pemsa-d89a908571e4",
@@ -10249,213 +10257,13 @@
       "firstSeenAt": "2026-07-21T11:23:36.348Z",
       "previousSlugsByLocale": {
         "de": [
+          "freimaurer-kat-a-pemsa-fribourg",
           "mauerer-kategorie-a-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
+        "freimaurer-kat-a-pemsa-fribourg",
         "mauerer-kategorie-a-pemsa-fribourg"
-      ]
-    },
-    {
-      "title": "Aiuto carpentiere",
-      "slug": "aiuto-carpentiere-pemsa-fribourg",
-      "url": "https://www.pemsa.ch/it/job/aiuto-carpentiere-2684143/",
-      "applyUrl": "https://www.pemsa.ch/it/job/aiuto-carpentiere-2684143/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Fribourg",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-08-13",
-      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Aiuto carpentiere\n\n## Il tuo incarico:\n• Collaborare alla preparazione e alla posa degli elementi della struttura portante\n• Partecipare ai lavori di montaggio e assemblaggio\n• Trasportare e preparare i materiali\n• Mantenere il cantiere pulito e sicuro\n• Assistere i professionisti in varie attività tecniche\n\n## E ora parliamo di te?\n• Esperienza nel settore come aiutante carpentiere di almeno 1 anno\n• Buona forma fisica\n• Spirito di squadra e motivazione\n• Senso di responsabilità e rispetto delle norme di sicurezza\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Aiuto carpentiere",
-        "en": "Carpenter Assistant",
-        "de": "Schreinereibeihilfe",
-        "fr": "Assistant charpentier"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Aiuto carpentiere\n\n## Il tuo incarico:\n• Collaborare alla preparazione e alla posa degli elementi della struttura portante\n• Partecipare ai lavori di montaggio e assemblaggio\n• Trasportare e preparare i materiali\n• Mantenere il cantiere pulito e sicuro\n• Assistere i professionisti in varie attività tecniche\n\n## E ora parliamo di te?\n• Esperienza nel settore come aiutante carpentiere di almeno 1 anno\n• Buona forma fisica\n• Spirito di squadra e motivazione\n• Senso di responsabilità e rispetto delle norme di sicurezza\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Aiuto carpentiere in Fribourg. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Aiuto carpentiere in Fribourg. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Aiuto carpentiere à Fribourg. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
-      },
-      "slugByLocale": {
-        "it": "aiuto-carpentiere-pemsa-fribourg",
-        "en": "carpentry-aid-pemsa-fribourg",
-        "de": "schreinereibeihilfe-pemsa-fribourg",
-        "fr": "aides-a-la-menuiserie-pemsa-fribourg"
-      },
-      "id": "pemsa-bd4769fd2d78",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-21T11:23:36.348Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "assistant-carpenter-pemsa-fribourg",
-          "carpenter-s-assistant-pemsa-fribourg",
-          "carpenter-assistant-pemsa-fribourg"
-        ],
-        "fr": [
-          "aide-carpentiere-pemsa-fribourg",
-          "aide-maitre-charpentier-pemsa-fribourg",
-          "aide-charpentier-pemsa-fribourg",
-          "assistant-charpentier-pemsa-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "aide-carpentiere-pemsa-fribourg",
-        "aide-maitre-charpentier-pemsa-fribourg",
-        "assistant-carpenter-pemsa-fribourg",
-        "carpenter-s-assistant-pemsa-fribourg",
-        "aide-charpentier-pemsa-fribourg",
-        "carpenter-assistant-pemsa-fribourg",
-        "assistant-charpentier-pemsa-fribourg"
-      ],
-      "needsRetranslation": true
-    },
-    {
-      "title": "Installatore elettricista AFC",
-      "slug": "installatore-elettricista-afc-pemsa-bulle",
-      "url": "https://www.pemsa.ch/it/job/installatore-elettricista-afc-2684139/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-elettricista-afc-2684139/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bulle",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "elettricità",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-08-13",
-      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC\n\n## Il tuo incarico:\n• Realizzare gli impianti elettrici (installazione, cablaggio, collegamento e messa in servizio) nel rispetto delle norme vigenti.\n• Garantire la manutenzione preventiva e correttiva delle apparecchiature, diagnosticare i guasti e intervenire tempestivamente.\n• Leggere e interpretare i progetti e gli schemi tecnici per garantire interventi precisi.\n• Applicare rigorosamente le norme di sicurezza e le procedure di qualità.\n• Collaborare con il capocantiere e le altre figure professionali per garantire il corretto svolgimento dei lavori.\n\n## E ora parliamo un po’ di te?\n• Un diploma CFC come installatore elettrico\n• Una buona conoscenza delle apparecchiature elettriche di uso comune\n• Una comprovata esperienza nell’installazione e nella riparazione\n• Patente di guida\n• Buone capacità di lettura di progetti e schemi\n• Autonomo, rigoroso e orientato alle soluzioni\n• Capace di gestire le priorità e di prendere iniziative\n• A proprio agio nei rapporti con i clienti e dotato di un buon spirito di squadra\n• Attento alla qualità del lavoro e al rispetto delle scadenze\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Installatore elettricista AFC",
-        "en": "Electrician Installer AFC",
-        "de": "Elektriker Installateur AFC",
-        "fr": "Installateur Électricien AFC"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Installatore elettricista AFC\n\n## Il tuo incarico:\n• Realizzare gli impianti elettrici (installazione, cablaggio, collegamento e messa in servizio) nel rispetto delle norme vigenti.\n• Garantire la manutenzione preventiva e correttiva delle apparecchiature, diagnosticare i guasti e intervenire tempestivamente.\n• Leggere e interpretare i progetti e gli schemi tecnici per garantire interventi precisi.\n• Applicare rigorosamente le norme di sicurezza e le procedure di qualità.\n• Collaborare con il capocantiere e le altre figure professionali per garantire il corretto svolgimento dei lavori.\n\n## E ora parliamo un po’ di te?\n• Un diploma CFC come installatore elettrico\n• Una buona conoscenza delle apparecchiature elettriche di uso comune\n• Una comprovata esperienza nell’installazione e nella riparazione\n• Patente di guida\n• Buone capacità di lettura di progetti e schemi\n• Autonomo, rigoroso e orientato alle soluzioni\n• Capace di gestire le priorità e di prendere iniziative\n• A proprio agio nei rapporti con i clienti e dotato di un buon spirito di squadra\n• Attento alla qualità del lavoro e al rispetto delle scadenze\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "Do you want the freedom of temporary work and the safety of permanent employment? For 30 years we have been joining hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, proposing them the best talents. However, we do not hide that we are demanding. So, if you are a motivated and extremely enthusiastic person, join our team for the position of Electric Installer AFC\n\nYour assignment:\n• To carry out electrical installations (installation, cablaggio, connection and commissioning) in compliance with the current regulations.\n• To ensure preventive and corrective maintenance of equipment, diagnose faults and intervene promptly.\n• To read and interpret the technical projects and schemes to ensure precise interventions.\n• To strictly apply safety standards and quality procedures.\n• To collaborate with the foreman and other professional figures to ensure the correct performance of the work.\n\nAnd now let's talk a little bit about you?\n• A CFC diploma as an electrical installer\n• A good knowledge of common electrical equipment\n• A proven experience in.installation and repair\n• Driving Patent\n• Good reading skills of projects and schemes\n• Autonomous, rigorous and solution-oriented\n• Able to manage priorities and take initiatives\n• A comfortable relationship with customers and equipped with a good team spirit\n• Careful to the quality of work and to the compliance of deadlines\n\nYour contact person: Your contact person for this position is Laeti Aia. Will you be able to accompany you, advise you and answer all your position questions. This position does not exactly match what you are looking for, but our values interest you? Do not hesitate to send us your spontaneous application! We will only answer applications whose profile corresponds to the description you have requested.",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit der Dauerbeschäftigung? Seit 30 Jahren schließen wir uns hunderten von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz an und schlagen ihnen die besten Talente vor. Wir verstecken uns aber nicht, dass wir fordern. Wenn Sie also ein motivierter und äußerst begeisterter Mensch sind, treten Sie unserem Team für die Position des Elektro-Installers AFC bei.\n\nIhre Aufgabe:\n• Elektroinstallationen (Abschaltung, Anschluss und Inbetriebnahme) entsprechend den geltenden Vorschriften durchzuführen.\n• vorbeugende und korrektive Wartung der Geräte zu gewährleisten, Fehler zu diagnostizieren und sofort einzugreifen.\n• technische Projekte und Pläne zu lesen und zu interpretieren, um präzise Eingriffe zu gewährleisten.\n• strikte Anwendung von Sicherheitsstandards und Qualitätsverfahren.\n• mit dem Vorarbeiter und anderen professionellen Zahlen zusammenzuarbeiten, um die korrekte Durchführung der Arbeit sicherzustellen.\n\nUnd jetzt lassen Sie uns ein wenig über Sie sprechen?\n• Ein CFC Diplom als Elektroinstallateur\n• Eine gute Kenntnis der gemeinsamen elektrischen Geräte\n• Eine bewährte Erfahrung in..\n\nIhr Ansprechpartner: Ihr Ansprechpartner für diese Position ist Laeti Aia. Können Sie sich begleiten, beraten und beantworten Sie alle Ihre Fragen. Diese Position passt nicht genau zu dem, was Sie suchen, aber unsere Werte interessieren Sie? Zögern Sie nicht, uns Ihre spontane Bewerbung zu senden! Wir beantworten nur Bewerbungen, deren Profil der von Ihnen gewünschten Beschreibung entspricht.",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité du travail permanent? Depuis 30 ans, nous rejoignons des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur proposant les meilleurs talents. Cependant, nous ne cacheons pas que nous sommes exigeants. Donc, si vous êtes une personne motivée et extrêmement enthousiaste, rejoignez notre équipe pour le poste d'Installateur électrique AFC\n\nVotre mission:\n• Effectuer des installations électriques (installation, cabine, raccordement et mise en service) dans le respect des réglementations en vigueur.\n• Assurer l'entretien préventif et correctif des équipements, diagnostiquer les défauts et intervenir rapidement.\n• Lire et interpréter les projets et les schémas techniques pour assurer des interventions précises.\n• Appliquer strictement les normes de sécurité et les procédures de qualité.\n• Collaborer avec le contremaître et d'autres personnalités professionnelles pour assurer la bonne exécution du travail.\n\nEt maintenant parlons un peu de vous?\n• Un diplôme CFC en tant qu'installateur électrique\n• Une bonne connaissance des équipements électriques communs\n• Une expérience éprouvée en installation et réparation\n• Conduite de brevets\n• Bonnes compétences de lecture de projets et de programmes\n• Autonome, rigoureuse et orientée vers la solution\n• Capable de gérer les priorités et de prendre des initiatives\n• Une relation confortable avec les clients et équipée d'un bon esprit d'équipe\n• Attention à la qualité du travail et au respect des délais\n\nVotre personne de contact : Votre personne de contact pour ce poste est Laeti Aia. Vous accompagnerez, vous conseillerez et répondrez à toutes vos questions. Cette position ne correspond pas exactement à ce que vous cherchez, mais nos valeurs vous intéressent? N'hésitez pas à nous envoyer votre candidature spontanée! Nous répondrons uniquement aux demandes dont le profil correspond à la description que vous avez demandée."
-      },
-      "slugByLocale": {
-        "it": "installatore-elettricista-afc-pemsa-bulle",
-        "en": "electrical-installation-afc-pemsa-bulle",
-        "de": "elektrische-anlage-afc-pemsa-bulle",
-        "fr": "installation-electrique-afc-pemsa-bulle"
-      },
-      "id": "pemsa-5092ead5c40f",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-21T11:23:36.348Z"
-    },
-    {
-      "title": "Installatori di binari di alimentazione / Strutture metalliche",
-      "slug": "installatori-di-binari-di-alimentazione-strutture-metalliche-pemsa-fribourg",
-      "url": "https://www.pemsa.ch/it/job/installatori-di-binari-di-alimentazione-strutture-metalliche-2684136/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatori-di-binari-di-alimentazione-strutture-metalliche-2684136/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Fribourg",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-21",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-08-13",
-      "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Installatori di binari di alimentazione / Strutture metalliche\n\n## Il tuo incarico:\nInstallatori di binari di alimentazione / Strutture metalliche (M/F) per intervenire in diversi cantieri in Svizzera.\n\n## I tuoi compiti\n• Montaggio e assemblaggio di binari di alimentazione.\n• Posa e montaggio di strutture metalliche.\n• Lavori in quota con l’ausilio di una piattaforma aerea.\n• Lettura dei progetti e rispetto delle istruzioni tecniche.\n• Rigoroso rispetto delle norme di sicurezza in cantiere.\n• Lavoro in squadra su progetti industriali e ferroviari.\n\n## E ora parliamo di te?\n• Esperienza comprovata nel montaggio di strutture metalliche o binari di alimentazione.\n• Patente per piattaforme aeree (PEMP) obbligatoria.\n• Buona forma fisica e idoneità al lavoro in quota.\n• Autonomia, rigore e spirito di squadra.\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-      "titleByLocale": {
-        "it": "Installatori di binari di alimentazione / Strutture metalliche",
-        "en": "Installers of Feeding Binaries / Metallic Structures",
-        "de": "Installatoren von Zuführungsbinären / Metallische Strukturen",
-        "fr": "Installateurs de Binaux d'Alimentation / Structures Métalliques"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, entra a far parte del nostro team per la posizione di Installatori di binari di alimentazione / Strutture metalliche\n\n## Il tuo incarico:\nInstallatori di binari di alimentazione / Strutture metalliche (M/F) per intervenire in diversi cantieri in Svizzera.\n\n## I tuoi compiti\n• Montaggio e assemblaggio di binari di alimentazione.\n• Posa e montaggio di strutture metalliche.\n• Lavori in quota con l’ausilio di una piattaforma aerea.\n• Lettura dei progetti e rispetto delle istruzioni tecniche.\n• Rigoroso rispetto delle norme di sicurezza in cantiere.\n• Lavoro in squadra su progetti industriali e ferroviari.\n\n## E ora parliamo di te?\n• Esperienza comprovata nel montaggio di strutture metalliche o binari di alimentazione.\n• Patente per piattaforme aeree (PEMP) obbligatoria.\n• Buona forma fisica e idoneità al lavoro in quota.\n• Autonomia, rigore e spirito di squadra.\n• Patente di guida\n\n## Il tuo referente:\nIl tuo referente per questa posizione è Laetitia. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.",
-        "en": "Do you want the freedom of temporary work and the safety of permanent employment? For 30 years we have been joining hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, proposing them the best talents. However, we do not hide that we are demanding. So if you are a motivated and extremely enthusiastic person, you become part of our team for the position of Power-track installers / Metal structures\n\nYour assignment: Power-track installers / Metal structures (M/F) to intervene in various construction sites in Switzerland.\n\nYour tasks\n• Mounting and assembly of supply tracks.\n• Laying and assembly of metal structures.\n• Work at altitude with the help of an aerial platform.\n• Reading of projects and compliance with technical instructions.\n• Strict compliance with safety standards on site.\n• Working in teams on industrial and railway projects.\n\nAnd now let's talk about you?\n• Experience proven in mounting metal structures or power supply tracks.\n• Patente for mandatory aerial platforms (PEMPs).\n• Good physical form and fitness for work at altitude.\n• Autonomy, rigor and team spirit.\n• Patente driving\n\nYour contact person: Your contact person for this position is Laeti Aia. Will you be able to accompany you, advise you and answer all your position questions. This position does not exactly match what you are looking for, but our values interest you? Do not hesitate to send us your spontaneous application! We will only answer applications whose profile corresponds to the description you have requested.",
-        "de": "Sie wollen die Freiheit der Zeitarbeit und die Sicherheit der Dauerbeschäftigung? Seit 30 Jahren schließen wir uns hunderten von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz an und schlagen ihnen die besten Talente vor. Wir verstecken uns aber nicht, dass wir fordern. Wenn Sie also motiviert und äußerst begeistert sind, werden Sie Teil unseres Teams für die Position von Power-Track-Installateuren / Metallkonstruktionen\n\nIhre Aufgabe: Power-Track-Installateure / Metallkonstruktionen (M/F) greifen in verschiedenen Baustellen in der Schweiz ein.\n\nIhre Aufgaben\n• Montage und Montage von Versorgungsgleisen.\n• Verlegen und Zusammenbau von Metallkonstruktionen.\n• Arbeiten in der Höhe mit Hilfe einer Luftplattform.\n• Lesen von Projekten und Einhaltung technischer Anweisungen.\n• Strenge Einhaltung der Sicherheitsstandards vor Ort.\n• Arbeiten in Teams an Industrie- und Eisenbahnprojekten.\n\nUnd jetzt lassen Sie uns über Sie sprechen?\n• Erfahrung in der Montage von Metallstrukturen oder Netzteilspuren nachgewiesen.\n• Patent für obligatorische Luftplattformen (PEMPs).\n• Gute körperliche Form und Fitness für die Arbeit in der Höhe.\n• toxisch, Strenge und Teamgeist.\n• Patent fahren\n\nIhr Ansprechpartner: Ihr Ansprechpartner für diese Position ist Laeti Aia. Können Sie sich begleiten, beraten und beantworten Sie alle Ihre Fragen. Diese Position passt nicht genau zu dem, was Sie suchen, aber unsere Werte interessieren Sie? Zögern Sie nicht, uns Ihre spontane Bewerbung zu senden! Wir beantworten nur Bewerbungen, deren Profil der von Ihnen gewünschten Beschreibung entspricht.",
-        "fr": "Vous voulez la liberté du travail temporaire et la sécurité du travail permanent? Depuis 30 ans, nous rejoignons des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur proposant les meilleurs talents. Cependant, nous ne cacheons pas que nous sommes exigeants. Donc, si vous êtes une personne motivée et extrêmement enthousiaste, vous devenez membre de notre équipe pour la position d'installateurs Power-track / Structures métalliques\n\nVotre mission : installateurs de voie électrique / Structures métalliques (M/F) pour intervenir dans divers chantiers de construction en Suisse.\n\nVos tâches\n• Montage et assemblage de voies d'approvisionnement.\n• Mise en place et montage de structures métalliques.\n• Travail à l'altitude avec l'aide d'une plate-forme aérienne.\n• Lecture des projets et conformité aux instructions techniques.\n• Respect strict des normes de sécurité sur place.\n• Travail en équipe sur des projets industriels et ferroviaires.\n\nEt maintenant parlons de vous?\n• Expérience éprouvée dans le montage de structures métalliques ou de pistes d'alimentation.\n• Brevet pour les plates-formes aériennes obligatoires (Papis).\n• Bonne forme physique et aptitude au travail à l'altitude.\n• Autonomie, rigueur et esprit d'équipe.\n• Conduite brevetée\n\nVotre personne de contact : Votre personne de contact pour ce poste est Laeti Aia. Vous accompagnerez, vous conseillerez et répondrez à toutes vos questions. Cette position ne correspond pas exactement à ce que vous cherchez, mais nos valeurs vous intéressent? N'hésitez pas à nous envoyer votre candidature spontanée! Nous répondrons uniquement aux demandes dont le profil correspond à la description que vous avez demandée."
-      },
-      "slugByLocale": {
-        "it": "installatori-di-binari-di-alimentazione-strutture-metalliche-pemsa-fribourg",
-        "en": "power-track-installers-metal-structures-pemsa-fribourg",
-        "de": "power-track-installateure-metallkonstruktionen-pemsa-fribourg",
-        "fr": "installateurs-de-voies-electriques-structures-metalliques-pemsa-fribourg"
-      },
-      "id": "pemsa-b3698f6e0017",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-21T11:23:36.348Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "installatoren-von-zufuhrungsbinaren-metallische-strukturen-pemsa-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "installatoren-von-zufuhrungsbinaren-metallische-strukturen-pemsa-fribourg"
       ]
     },
     {
@@ -10496,7 +10304,7 @@
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lamone",
         "en": "pipe-welder-pemsa-lamone",
-        "de": "rohrschwei-er-pemsa-lamone",
+        "de": "wig-schwei-er-rohrschlosser-pemsa-lamone",
         "fr": "soudeur-tuyauteur-pemsa-lamone"
       },
       "id": "pemsa-fc8acded61ae",
@@ -10522,12 +10330,14 @@
           "soudeur-tig-tuyauteur-pemsa-lamone"
         ],
         "de": [
+          "rohrschwei-er-pemsa-lamone",
           "wig-schwei-er-rohrschlosser-pemsa-lamone"
         ]
       },
       "previousSlugs": [
         "tig-welder-pipefitter-pemsa-lamone",
         "soudeur-tig-tuyauteur-pemsa-lamone",
+        "rohrschwei-er-pemsa-lamone",
         "wig-schwei-er-rohrschlosser-pemsa-lamone"
       ]
     },
@@ -10568,9 +10378,9 @@
       },
       "slugByLocale": {
         "it": "operatore-operatrice-di-regolazione-m-f-d-pemsa-geneve",
-        "en": "operating-unit-m-f-d-pemsa-geneve",
-        "de": "betriebseinheit-m-f-d-pemsa-geneve",
-        "fr": "unite-d-exploitation-m-f-d-pemsa-geneve"
+        "en": "machine-operator-m-w-d-pemsa-geneve",
+        "de": "maschinenbetreiber-m-w-d-pemsa-geneve",
+        "fr": "operateur-operatrice-de-regulation-m-w-d-pemsa-geneve"
       },
       "id": "pemsa-6dd949a4c33b",
       "salaryMin": 60500,
@@ -10589,16 +10399,22 @@
       "firstSeenAt": "2026-07-17T22:03:15.572Z",
       "previousSlugsByLocale": {
         "en": [
+          "operating-unit-m-f-d-pemsa-geneve",
           "machine-operator-m-w-d-pemsa-geneve"
         ],
         "de": [
+          "betriebseinheit-m-f-d-pemsa-geneve",
           "maschinenbetreiber-m-w-d-pemsa-geneve"
         ],
         "fr": [
+          "unite-d-exploitation-m-f-d-pemsa-geneve",
           "operateur-operatrice-de-regulation-m-w-d-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "operating-unit-m-f-d-pemsa-geneve",
+        "betriebseinheit-m-f-d-pemsa-geneve",
+        "unite-d-exploitation-m-f-d-pemsa-geneve",
         "machine-operator-m-w-d-pemsa-geneve",
         "maschinenbetreiber-m-w-d-pemsa-geneve",
         "operateur-operatrice-de-regulation-m-w-d-pemsa-geneve"
@@ -10698,8 +10514,8 @@
       },
       "slugByLocale": {
         "it": "idraulico-per-acquedotti-pemsa-lugano",
-        "en": "idraulic-for-acquedotts-pemsa-lugano",
-        "de": "idraulik-fur-akquedots-pemsa-lugano",
+        "en": "hydraulic-for-acquedotti-pemsa-lugano",
+        "de": "hydraulischer-umfang-fur-aquedotti-pemsa-lugano",
         "fr": "idraulique-pour-les-acquedotts-pemsa-lugano"
       },
       "id": "pemsa-9003d5844e18",
@@ -10719,13 +10535,17 @@
       "firstSeenAt": "2026-07-17T11:01:04.901Z",
       "previousSlugsByLocale": {
         "en": [
+          "idraulic-for-acquedotts-pemsa-lugano",
           "hydraulic-for-acquedotti-pemsa-lugano"
         ],
         "de": [
+          "idraulik-fur-akquedots-pemsa-lugano",
           "hydraulischer-umfang-fur-aquedotti-pemsa-lugano"
         ]
       },
       "previousSlugs": [
+        "idraulic-for-acquedotts-pemsa-lugano",
+        "idraulik-fur-akquedots-pemsa-lugano",
         "hydraulic-for-acquedotti-pemsa-lugano",
         "hydraulischer-umfang-fur-aquedotti-pemsa-lugano"
       ]
@@ -10835,9 +10655,9 @@
       "description": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Subacqueo esperto\n\n## Il tuo incarico:\nIn qualità di sommozzatore professionista, operi in cantieri tecnici in ambiente subacqueo per eseguire lavori di ingegneria civile, manutenzione, ispezione e riparazione. Svolgi i tuoi incarichi nel rigoroso rispetto delle procedure operative, delle norme di sicurezza iperbariche e dei requisiti di qualità specifici per gli interventi subacquei.\nI tuoi compiti principali:\n\n## E ora parliamo di te?\n• Sei in possesso del Certificato di Idoneità all’Iperbaria (CAH) – Menzione A, Classe II , indispensabile per l’esercizio di questa funzione.\n• Possiedi un certificato di idoneità medica all’iperbaria in corso di validità, conformemente alla normativa vigente.\n• Idealmente, hai maturato una prima esperienza in lavori subacquei, in interventi iperbarici o in cantieri di ingegneria civile.\n• Padroneggi le tecniche di saldatura e taglio subacqueo, nonché l’utilizzo di attrezzature idrauliche, pneumatiche e di materiale specifico per gli interventi subacquei.\n• Rigoroso, organizzato e metodico, applichi con precisione le procedure di lavoro e le norme di sicurezza specifiche per gli interventi iperbarici.\n• Siete in grado di operare in ambienti tecnici impegnativi, talvolta ristretti o complessi, mantenendo sempre la calma e il senso dell’analisi.\n• Autonomo ma capace di lavorare in squadra, dimostri un forte senso di responsabilità, un eccellente spirito di squadra e un impegno costante per il successo dei cantieri.\n• Flessibile, rapidamente disponibile e mobile in tutta l’area del Lago Lemano, in particolare nelle regioni di Losanna e Ginevra, siete disposti a intervenire in base alle esigenze dei diversi cantieri.\n\n## Ti interessa?\nAmi e padroneggi il tuo mestiere e vuoi mettere le tue competenze al servizio di progetti che contano davvero?\nAllora questa offerta è fatta apposta per te.\nDa noi, la tua competenza fa la differenza e contribuisce direttamente al successo dei cantieri.\n\n## Cosa offriamo:\nIl tuo referente per questa posizione è Valentin COLIN. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
       "titleByLocale": {
         "it": "Subacqueo esperto",
-        "fr": "Expert plongeur",
         "en": "Diver expert",
-        "de": "Taucherexperte"
+        "de": "Taucherexperte",
+        "fr": "Subacqueo esperto"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà del lavoro temporaneo e la sicurezza di un impiego a tempo indeterminato? Da 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti. Non ti nascondiamo però che siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Subacqueo esperto\n\n## Il tuo incarico:\nIn qualità di sommozzatore professionista, operi in cantieri tecnici in ambiente subacqueo per eseguire lavori di ingegneria civile, manutenzione, ispezione e riparazione. Svolgi i tuoi incarichi nel rigoroso rispetto delle procedure operative, delle norme di sicurezza iperbariche e dei requisiti di qualità specifici per gli interventi subacquei.\nI tuoi compiti principali:\n\n## E ora parliamo di te?\n• Sei in possesso del Certificato di Idoneità all’Iperbaria (CAH) – Menzione A, Classe II , indispensabile per l’esercizio di questa funzione.\n• Possiedi un certificato di idoneità medica all’iperbaria in corso di validità, conformemente alla normativa vigente.\n• Idealmente, hai maturato una prima esperienza in lavori subacquei, in interventi iperbarici o in cantieri di ingegneria civile.\n• Padroneggi le tecniche di saldatura e taglio subacqueo, nonché l’utilizzo di attrezzature idrauliche, pneumatiche e di materiale specifico per gli interventi subacquei.\n• Rigoroso, organizzato e metodico, applichi con precisione le procedure di lavoro e le norme di sicurezza specifiche per gli interventi iperbarici.\n• Siete in grado di operare in ambienti tecnici impegnativi, talvolta ristretti o complessi, mantenendo sempre la calma e il senso dell’analisi.\n• Autonomo ma capace di lavorare in squadra, dimostri un forte senso di responsabilità, un eccellente spirito di squadra e un impegno costante per il successo dei cantieri.\n• Flessibile, rapidamente disponibile e mobile in tutta l’area del Lago Lemano, in particolare nelle regioni di Losanna e Ginevra, siete disposti a intervenire in base alle esigenze dei diversi cantieri.\n\n## Ti interessa?\nAmi e padroneggi il tuo mestiere e vuoi mettere le tue competenze al servizio di progetti che contano davvero?\nAllora questa offerta è fatta apposta per te.\nDa noi, la tua competenza fa la differenza e contribuisce direttamente al successo dei cantieri.\n\n## Cosa offriamo:\nIl tuo referente per questa posizione è Valentin COLIN. Saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.",
@@ -10849,10 +10669,9 @@
         "it": "subacqueo-esperto-pemsa-lausanne",
         "en": "diver-expert-pemsa-lausanne",
         "de": "taucherexperte-pemsa-lausanne",
-        "fr": "expert-plongeur-pemsa-lausanne"
+        "fr": "subacqueo-esperto-pemsa-lausanne"
       },
       "id": "pemsa-ea2fe58b3e19",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -10866,7 +10685,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-13T10:23:26.209Z"
+      "firstSeenAt": "2026-08-13T10:23:26.209Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "expert-plongeur-pemsa-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "expert-plongeur-pemsa-lausanne"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Idraulico impianti Riscaldamento",
@@ -10895,7 +10723,7 @@
         "it": "Idraulico impianti Riscaldamento",
         "en": "Heating Systems Plumber",
         "de": "Heizungsmonteur",
-        "fr": "Installations hydrauliques Chauffage"
+        "fr": "Idraulico impianti Riscaldamento"
       },
       "descriptionByLocale": {
         "it": "Pemsa è leader svizzero nel settore del collocamento specializzato nei campi della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Con una profonda comprensione delle esigenze tecniche e normative del mercato svizzero, Pemsa si distingue per la capacità di connettere talenti qualificati con aziende di punta, valorizzando le competenze specifiche di ogni candidato. La nostra expertise consolidata ci consente di proporre soluzioni di reclutamento su misura, garantendo un abbinamento ottimale tra profilo professionale e contesto aziendale. Affidarsi a Pemsa significa scegliere un partner competente, impegnato a supportare la crescita professionale e il successo duraturo sia dei candidati sia delle imprese clienti.\n\n## Missione:\n• Installazione professionale di impianti di riscaldamento a pavimento, garantendo efficienza e conformità alle normative svizzere in vigore.\n• Assistenza tecnica durante l’installazione e la messa in funzione di centrali termiche, collaborando strettamente con i team di ingegneria e manutenzione.\n• Documentazione dettagliata dei lavori svolti, rispettando le procedure aziendali e le richieste di qualità Pemsa.\n\n## Profilo:\n• Esperienza minima di 4 anni comprovata in Svizzera nell’installazione di impianti di riscaldamento a pavimento e supporto nell’installazione di centrali termiche.\n• Residenza situata entro un raggio massimo di 30 km dal luogo di lavoro, per garantire tempestività e flessibilità operativa.\n• Ottima padronanza della lingua italiana, madrelingua indispensabile per una comunicazione efficace all’interno del team e con i clienti.\n• Possesso di patente di guida svizzera valida, requisito fondamentale per gli spostamenti frequenti tra cantieri e sedi aziendali.\n• Profonda conoscenza tecnica e normativa nel settore della tecnica del riscaldamento, con capacità di leggere e interpretare planimetrie e schemi tecnici.\n• Capacità di lavorare in modo autonomo e organizzato, dimostrando responsabilità e precisione nell’esecuzione dei compiti assegnati.\n• Flessibilità e attitudine positiva al lavoro di squadra, adattandosi alle esigenze dinamiche dei cantieri in Svizzera.\n\n## Ton interlocuteur/trice :\nIn qualità di consulente senior di Pemsa, ti accompagnerò in tutte le fasi del processo di selezione, offrendo un supporto personalizzato e professionale per valorizzare al meglio il tuo profilo tecnico. La nostra esperienza approfondita nel settore e la conoscenza del mercato del lavoro in Svizzera ci permettono di valorizzare le tue competenze e garantirti opportunità in linea con le tue aspettative. La nostra attenzione alla soddisfazione del candidato è al centro del nostro approccio di Employee Advocacy, promuovendo un ambiente di lavoro sostenibile e gratificante.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
@@ -10906,8 +10734,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
-        "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
+        "de": "heizungsmonteur-pemsa-sigirino",
+        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -10930,7 +10758,11 @@
           "heizungsanlagen-installateur-pemsa-sigirino",
           "heizungsinstallateur-pemsa-sigirino",
           "heizungsanlageninstallateur-pemsa-sigirino",
+          "hydraulische-anlagen-heizung-pemsa-sigirino",
           "heizungsmonteur-pemsa-sigirino"
+        ],
+        "fr": [
+          "installations-hydrauliques-chauffage-pemsa-sigirino"
         ]
       },
       "previousSlugs": [
@@ -10938,6 +10770,8 @@
         "heizungsanlagen-installateur-pemsa-sigirino",
         "heizungsinstallateur-pemsa-sigirino",
         "heizungsanlageninstallateur-pemsa-sigirino",
+        "hydraulische-anlagen-heizung-pemsa-sigirino",
+        "installations-hydrauliques-chauffage-pemsa-sigirino",
         "heizungsmonteur-pemsa-sigirino"
       ],
       "needsRetranslation": true
@@ -10979,9 +10813,9 @@
       },
       "slugByLocale": {
         "it": "consulente-del-personale-pemsa-lugano",
-        "en": "personal-advisor-pemsa-lugano",
-        "de": "personal-advisor-pemsa-lugano",
-        "fr": "conseiller-personnel-pemsa-lugano"
+        "en": "hr-consultant-pemsa-lugano",
+        "de": "personalberater-in-pemsa-lugano",
+        "fr": "consultant-en-ressources-humaines-pemsa-lugano"
       },
       "id": "pemsa-51f34ac02264",
       "salaryMin": 49500,
@@ -11000,16 +10834,21 @@
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
       "previousSlugsByLocale": {
         "en": [
+          "personal-advisor-pemsa-lugano",
           "hr-consultant-pemsa-lugano"
         ],
         "de": [
+          "personal-advisor-pemsa-lugano",
           "personalberater-in-pemsa-lugano"
         ],
         "fr": [
+          "conseiller-personnel-pemsa-lugano",
           "consultant-en-ressources-humaines-pemsa-lugano"
         ]
       },
       "previousSlugs": [
+        "personal-advisor-pemsa-lugano",
+        "conseiller-personnel-pemsa-lugano",
         "hr-consultant-pemsa-lugano",
         "personalberater-in-pemsa-lugano",
         "consultant-en-ressources-humaines-pemsa-lugano"
@@ -11224,7 +11063,7 @@
       "slugByLocale": {
         "it": "tecnico-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne",
         "en": "specialized-technician-in-bituminous-waterproofing-pemsa-lausanne",
-        "de": "spezialist-fur-bituminose-dichtung-pemsa-lausanne",
+        "de": "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne",
         "fr": "technicien-specialise-en-etancheite-bitumineuse-pemsa-lausanne"
       },
       "id": "pemsa-8bc01fdd31bd",
@@ -11244,10 +11083,12 @@
       "firstSeenAt": "2026-08-12T10:23:47.343Z",
       "previousSlugsByLocale": {
         "de": [
+          "spezialist-fur-bituminose-dichtung-pemsa-lausanne",
           "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
+        "spezialist-fur-bituminose-dichtung-pemsa-lausanne",
         "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne"
       ]
     },
@@ -11369,9 +11210,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-mendrisio",
-        "en": "idraulation-pemsa-mendrisio",
-        "de": "idraulierung-pemsa-mendrisio",
-        "fr": "idraulement-pemsa-mendrisio"
+        "en": "plumber-pemsa-mendrisio",
+        "de": "klempner-pemsa-mendrisio",
+        "fr": "plumbier-pemsa-mendrisio"
       },
       "id": "pemsa-57dfc3d858e1",
       "salaryMin": 49500,
@@ -11392,16 +11233,22 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
+          "idraulation-pemsa-mendrisio",
           "plumber-pemsa-mendrisio"
         ],
         "de": [
+          "idraulierung-pemsa-mendrisio",
           "klempner-pemsa-mendrisio"
         ],
         "fr": [
+          "idraulement-pemsa-mendrisio",
           "plumbier-pemsa-mendrisio"
         ]
       },
       "previousSlugs": [
+        "idraulation-pemsa-mendrisio",
+        "idraulierung-pemsa-mendrisio",
+        "idraulement-pemsa-mendrisio",
         "plumber-pemsa-mendrisio",
         "klempner-pemsa-mendrisio",
         "plumbier-pemsa-mendrisio"
@@ -11444,9 +11291,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-chiasso",
-        "en": "hydraulic-pemsa-chiasso",
-        "de": "hydraulik-pemsa-chiasso",
-        "fr": "hydraulique-pemsa-chiasso"
+        "en": "plumber-pemsa-chiasso",
+        "de": "schlosser-pemsa-chiasso",
+        "fr": "plombier-pemsa-chiasso"
       },
       "id": "pemsa-fee9f7e92dbe",
       "salaryMin": 49500,
@@ -11467,16 +11314,22 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
+          "hydraulic-pemsa-chiasso",
           "plumber-pemsa-chiasso"
         ],
         "de": [
+          "hydraulik-pemsa-chiasso",
           "schlosser-pemsa-chiasso"
         ],
         "fr": [
+          "hydraulique-pemsa-chiasso",
           "plombier-pemsa-chiasso"
         ]
       },
       "previousSlugs": [
+        "hydraulic-pemsa-chiasso",
+        "hydraulik-pemsa-chiasso",
+        "hydraulique-pemsa-chiasso",
         "plumber-pemsa-chiasso",
         "schlosser-pemsa-chiasso",
         "plombier-pemsa-chiasso"
@@ -11524,7 +11377,6 @@
         "fr": "machine-a-scier-le-beton-hopping-pemsa-lausanne"
       },
       "id": "pemsa-1b64b95235a8",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -11634,12 +11486,11 @@
       },
       "slugByLocale": {
         "it": "macchinista-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "en": "driver-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "de": "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "fr": "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
+        "en": "knife-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "de": "messer-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "fr": "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
       },
       "id": "pemsa-843c3ee54b8d",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -11659,12 +11510,24 @@
           "but-m1-m2-m3-m6-m7-pemsa-lausanne",
           "m1-m2-m3-m6-m7-pemsa-lausanne",
           "mais-m1-m2-m3-m6-m7-pemsa-lausanne"
+        ],
+        "en": [
+          "driver-m1-m2-m3-m6-m7-pemsa-lausanne"
+        ],
+        "de": [
+          "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne"
+        ],
+        "fr": [
+          "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
         "but-m1-m2-m3-m6-m7-pemsa-lausanne",
         "m1-m2-m3-m6-m7-pemsa-lausanne",
-        "mais-m1-m2-m3-m6-m7-pemsa-lausanne"
+        "mais-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "driver-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
       ]
     },
     {
@@ -11709,7 +11572,6 @@
         "fr": "operateur-de-vusa-pemsa-lausanne"
       },
       "id": "pemsa-5b6a6cf39c44",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -11824,7 +11686,6 @@
         "fr": "genie-civil-nacellista-pemsa-lausanne"
       },
       "id": "pemsa-6380097da88e",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
