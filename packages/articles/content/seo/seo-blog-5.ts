@@ -67736,6 +67736,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-gera-lario-nuoto-record': {
+    title: 'Nuoto da Como a Gera Lario: record storico per Hector Pardoe',
+    description: 'L\'atleta olimpico Hector Pardoe ha percorso 47,54 km a nuoto da Como a Gera Lario in 10 ore e 41 minuti, stabilendo un record storico sul lago. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuoto, como, gera, lario',
+    ogTitle: 'Nuoto Como-Gera Lario: record storico di Hector Pardoe',
+    ogDescription: 'L\'atleta olimpico britannico Hector Pardoe ha nuotato per 47,54 km da Como a Gera Lario in 10 ore, 41 minuti e 31 secondi.',
+    canonicalPath: '/articoli-frontaliere/como-gera-lario-nuoto-record',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuoto da Como a Gera Lario: record storico per Hector Pardoe",
+      "description": "L'atleta olimpico Hector Pardoe ha percorso 47,54 km a nuoto da Como a Gera Lario in 10 ore e 41 minuti, stabilendo un record storico sul lago. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-gera-lario-nuoto-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Como con acque limpide e montagne"
+      },
+      "datePublished": "2026-08-14T02:19:33+00:00",
+      "dateModified": "2026-08-14T02:19:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-gera-lario-nuoto-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-barasso-riqualificazione-piazza-san-martino': {
+    title: 'Barasso: Piazza San Martino si rinnova per l\'Assunta',
+    description: 'Il Comune di Barasso completa il restyling verde di Piazza San Martino in vista della Festa dell\'Assunta. Scopri i dettagli degli interventi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, barasso, piazza, martino, rinnova',
+    ogTitle: 'Barasso rinnova Piazza San Martino per la Festa dell\'Assunta',
+    ogDescription: 'Nuove fioriere, essenze botaniche e interventi di riqualificazione nel centro storico di Barasso. Tutti i dettagli sui lavori comunali.',
+    canonicalPath: '/articoli-frontaliere/barasso-riqualificazione-piazza-san-martino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barasso: Piazza San Martino si rinnova per l'Assunta",
+      "description": "Il Comune di Barasso completa il restyling verde di Piazza San Martino in vista della Festa dell'Assunta. Scopri i dettagli degli interventi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/barasso-riqualificazione-piazza-san-martino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza San Martino a Barasso rinnovata con nuove fioriere ed essenze botaniche"
+      },
+      "datePublished": "2026-08-14T02:27:03+00:00",
+      "dateModified": "2026-08-14T02:27:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/barasso-riqualificazione-piazza-san-martino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

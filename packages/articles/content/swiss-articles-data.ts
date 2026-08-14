@@ -7930,6 +7930,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-canton-lucerna-validita-e-proroga',
+    category: 'fiscale',
+    date: '2026-08-14T02:16:15.151Z',
+    image: '/images/blog/permesso-l-canton-lucerna-validita-e-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'permesso-l-breve-durata-lucerna',
+    category: 'pratico',
+    date: '2026-08-14T02:23:24.579Z',
+    image: '/images/blog/permesso-l-breve-durata-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'assegni-familiari-canton-lucerna',
+    category: 'fiscale',
+    date: '2026-08-14T02:31:40.998Z',
+    image: '/images/blog/assegni-familiari-canton-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'sistema-scolastico-canton-lucerna-iscrizione-e-cicli',
+    category: 'pratico',
+    date: '2026-08-14T02:37:30.479Z',
+    image: '/images/blog/sistema-scolastico-canton-lucerna-iscrizione-e-cicli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

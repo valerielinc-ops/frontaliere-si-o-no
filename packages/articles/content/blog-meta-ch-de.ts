@@ -2644,6 +2644,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-lucerna.title': 'Niederlassungsbewilligung C Luzern: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Vollständiger Leitfaden zur C-Siedlungsgenehmigung im Kanton Luzern: Integrationskriterien, Anforderungen und Verfahren.',
     'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'C-Ausweis Niederlassungsbewilligung Kanton Luzern Voraussetzungen',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Kurzaufenthaltsbewilligung L im Kanton Luzern: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'Die Voraussetzungen für die Kurzaufenthaltsbewilligung L im Kanton Luzern, deren Gültigkeit und wie eine Verlängerung zu erreichen ist.',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'Eine aussicht auf Lugano, Schweiz, mit Schwerpunkt auf dem Finanzbezirk.',
+    'blog.article.permesso-l-breve-durata-lucerna.title': 'Erlaubt IN Luzern: Dauer, Verlängerung und Einschränkungen',
+    'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Vollständiger Leitfaden zur Kurzzeitbewilligung L im Kanton Luzern: Gültigkeit, Verlängerungsbedingungen und regulatorische Schritte.',
+    'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Kurzaufenthaltsbewilligung L im Kanton Luzern',
+    'blog.article.assegni-familiari-canton-lucerna.title': 'Familienzulagen im Kanton Luzern: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Wer im Kanton Luzern Familienzulagen beantragen kann und wie es weitergeht.',
+    'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari im Kanton Luzern: Beträge und Antragstellung',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Kantonales Schulsystem Luzern: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Informieren Sie sich über die Schulzyklen, das Einschreibealter und den Schulkalender für den Kanton Luzern',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'szenische schule in einem institut lucerne',
 };
 
 export default blogMetaChDe;

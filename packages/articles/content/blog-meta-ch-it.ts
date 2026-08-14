@@ -2644,6 +2644,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-lucerna.title': 'Permesso di domicilio C Lucerna: requisiti e domanda',
     'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Guida completa al permesso di domicilio C nel Cantone di Lucerna: criteri di integrazione, requisiti e procedura.',
     'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'Permesso di domicilio C nel Cantone di Lucerna requisiti e domanda',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Permesso L di breve durata nel Cantone di Lucerna: validità e proroga',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'I requisiti per il permesso L di breve durata nel Cantone di Lucerna, la sua validità e come ottenere una proroga.',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'Un\'immagine della città di Lugano vista dal lago, con un focus sulla zona finanziaria.',
+    'blog.article.permesso-l-breve-durata-lucerna.title': 'Permesso L Lucerna: durata, proroga e vincoli',
+    'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Guida completa al permesso L di breve durata nel Cantone di Lucerna: validità, condizioni di proroga e passaggi normativi.',
+    'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Permesso L di breve durata nel Cantone di Lucerna',
+    'blog.article.assegni-familiari-canton-lucerna.title': 'Assegni familiari nel Cantone di Lucerna: importi e domanda',
+    'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Chi può richiedere gli assegni familiari nel Cantone di Lucerna e come procedere.',
+    'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari nel Cantone di Lucerna: importi e domanda',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Sistema scolastico cantonale di Lucerna: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Informati sui cicli di scuola, età di iscrizione e calendario scolastico per il Cantone di Lucerna',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'immagine scolastica in un istituto lucernese',
 };
 
 export default blogMetaChIt;

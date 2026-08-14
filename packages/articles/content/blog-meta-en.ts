@@ -9934,6 +9934,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Business crises, at Mimit 37 active tables: Beko Europe under observation',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'The company crisis tables at the Ministry of Business and Made in Italy fall to 37, while the monitoring tables rise to 46.',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Meeting at the Ministry of Enterprises and Made in Italy on corporate crises',
+    'blog.article.como-gera-lario-nuoto-record.title': 'Swimming from Como to Gera Lario: historical record for Hector Pardoe',
+    'blog.article.como-gera-lario-nuoto-record.excerpt': 'British Olympic athlete Hector Pardoe swam 47.54 km from Como to Gera Lario in 10 hours, 41 minutes and 31 seconds.',
+    'blog.article.como-gera-lario-nuoto-record.imageAlt': 'Lake Como landscape with clear water and mountains',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.title': 'Barasso: Piazza San Martino is renewed for the Assumption',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.excerpt': 'The Municipality of Barasso has completed an intervention of urban furniture and green restyling in Piazza San Martino in view of the Feast of the Assumption.',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.imageAlt': 'San Martino square in Barasso renewed with new planters and botanical species',
 };
 
 export default blogMetaEn;

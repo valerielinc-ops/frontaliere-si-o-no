@@ -2644,6 +2644,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-lucerna.title': 'Residence permit C Lucerne: requirements and application',
     'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Complete guide to the C settlement permit in the canton of Lucerne: integration criteria, requirements and procedure.',
     'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'C permit residence in Lucerne canton requirements and application',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Short-term permit L in the Canton of Lucerne: validity and extension',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'The requirements for the short-term L permit in the Canton of Lucerne, its validity and how to obtain an extension.',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'A scenic view of Lugano, Switzerland, with a focus on the city\'s financial district.',
+    'blog.article.permesso-l-breve-durata-lucerna.title': 'L Lucerne permit: duration, extension and restrictions',
+    'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Complete Guide to Short-Term L Permit in the Canton of Lucerne: Validity, Conditions of Extension and Regulatory Steps.',
+    'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Short-term L permit in Canton Lucerne',
+    'blog.article.assegni-familiari-canton-lucerna.title': 'Family allowances in the Canton of Lucerne: amounts and application',
+    'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Who can claim family allowances in the Canton of Lucerne and how to proceed.',
+    'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari in the Canton of Lucerne: import and application',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Lucerne cantonal school system: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Find out about the school cycles, enrolment age and school calendar for the Canton of Lucerne',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'scenic school in a lucerne institute',
 };
 
 export default blogMetaChEn;
