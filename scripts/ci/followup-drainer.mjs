@@ -46,11 +46,22 @@ import {
   extractWorkflowRefs,
   repoRelativeTail,
 } from '../lib/workflow-scope-detect.mjs';
-import { detectSecretsScoped, matchSecretsScopedLabel } from '../lib/secrets-scope-detect.mjs';
+import {
+  detectRemoteConfigScoped,
+  detectSecretsScoped,
+  matchSecretsScopedLabel,
+  matchSecretsScopedShape,
+} from '../lib/secrets-scope-detect.mjs';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 
-export { detectWorkflowScoped, detectSecretsScoped, matchSecretsScopedLabel };
+export {
+  detectWorkflowScoped,
+  detectSecretsScoped,
+  matchSecretsScopedLabel,
+  detectRemoteConfigScoped,
+  matchSecretsScopedShape,
+};
 
 // --- BUDGET DI RUN (#5162) ---------------------------------------------------
 // Il job `drain` ha 6 minuti per SETUP + LAVORO, e il setup non è una costante:
@@ -753,11 +764,14 @@ const reparkGenOf = (iss) => {
  * concreto E nessun path di codice non-workflow citato — niente falsi
  * positivi sulla parola da sola. null/errore → conservativo (skip retry, non
  * rischiare un re-fail garantito). */
-function isWorkflowScoped(num) {
+function isWorkflowScoped(num, prefetched = null) {
   try {
     // `labels` is fetched (not just title/body) because the shared detector recognises a
     // monitor auto-file by the `ci-timeout` label as well as by the title prefix (#5595).
-    const d = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']);
+    // `prefetched` lets `isCapabilityScoped` reuse the SAME `gh issue view` for both
+    // capability guards (#5838) instead of paying it twice per candidate.
+    const d = prefetched
+      || gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']);
     return detectWorkflowScoped(`${d?.title || ''}\n${d?.body || ''}`, {
       title: d?.title || '',
       labels: d?.labels,
@@ -772,6 +786,36 @@ function isWorkflowScoped(num) {
  * already-fetched labels, no extra `gh` call needed. */
 function isSecretsScoped(iss) {
   return detectSecretsScoped(names(iss));
+}
+
+/**
+ * Capability-guard UNICO per il parked-retry: WF-scope **o** secrets-scope, con una
+ * sola `gh issue view` invece di due.
+ *
+ * Prima di #5838 il secrets-scope qui era puro sulle label gia' in mano, quindi
+ * gratis — ma per questo non vedeva la forma Remote Config, che vive nel TESTO. Fare
+ * una seconda fetch avrebbe raddoppiato il costo per candidata dentro un `runBudget`
+ * che conta i millisecondi: `isWorkflowScoped` gia' scarica `title,body,labels`, cioe'
+ * esattamente cio' che serve anche a `matchSecretsScopedShape`. Un solo giro, e la
+ * copertura sale invece di scendere.
+ *
+ * Senza questo, una follow-up «scrivi X su Remote Config» parcheggiata dal pre-flight
+ * verrebbe ri-accodata dal parked-retry a ogni tick e ri-parcheggiata subito dopo: un
+ * ciclo un-park → park che non finisce mai e che sposta il rumore invece di toglierlo.
+ *
+ * Fail-closed su errore (`true` = resta parked), come `isWorkflowScoped`: un re-fail
+ * garantito costa piu' di un retry mancato.
+ */
+function isCapabilityScoped(iss) {
+  if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
+  try {
+    const d = gh(['issue', 'view', String(iss.number), '--repo', REPO, '--json', 'title,body,labels']);
+    if (isWorkflowScoped(iss.number, d)) return true;
+    return Boolean(matchSecretsScopedShape({
+      labels: names(d),
+      text: `${d?.title || ''}\n${d?.body || ''}`,
+    }));
+  } catch { return true; }
 }
 
 function edit(num, { add = [], remove = [] }) {
@@ -1139,7 +1183,7 @@ export function runDrain() {
       }
       if (!budget.take(`#${iss.number} (parked-retry)`, ITEM_COST_MS)) break;
       // capability-guard → resta parked (WF-scope: push bloccato; secrets-scope: credenziali mai disponibili)
-      if (isWorkflowScoped(iss.number) || isSecretsScoped(iss)) { skippedWf++; continue; }
+      if (isCapabilityScoped(iss)) { skippedWf++; continue; }
       // (too-large escalation gestita dal pass dedicato sopra, no cooldown)
       const gen = reparkGenOf(iss) + 1;
       const prevGen = reparkGenOf(iss) ? `fu-reparked:${reparkGenOf(iss)}` : null;
@@ -1520,10 +1564,28 @@ export function runDrain() {
     // POSTHOG_* / GEMINI_API_KEY+GH_MODELS_PAT) never available to `issue-fix`
     // (GH_TOKEN only). Promoting always burns a full Claude run that ends
     // `blocked-secrets` — park pre-promotion instead, zero Claude tokens spent.
-    const secretsMatch = matchSecretsScopedLabel(names(cand));
+    //
+    // Dal 2026-08-14 il match non e' piu' solo la label (#5838). Rimisurato: il bucket
+    // contava ANCORA 7/14gg, e **nessuna delle 7 portava una delle 3 label** — il gate
+    // esisteva e non guardava questa forma. La famiglia che accelera (3 delle 7, tutte
+    // negli ultimi 3 giorni) e' «imposta un parametro su Remote Config», che il filer
+    // delle follow-up etichetta per funnel e non per capability: il segnale deve venire
+    // dal TESTO, come per `detectWorkflowScoped`. Vedi l'intestazione di
+    // `secrets-scope-detect.mjs` per le tre congiunzioni e la valvola di promozione.
+    const secretsMatch = matchSecretsScopedShape({
+      labels: names(cand),
+      text: `${cand.title}\n${body || ''}`,
+    });
     if (secretsMatch) {
-      console.log(`PARK #${cand.number} (secrets-scoped: label \`${secretsMatch.label}\`) → no promozione, credenziali non disponibili in issue-fix`);
-      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5057)**: questa issue porta la label \`${secretsMatch.label}\`, categoria il cui fix richiede sempre \`${secretsMatch.secret}\` (${secretsMatch.reason}) — credenziale caricata via Firebase Remote Config, non disponibile nell'ambiente \`issue-fix\` (solo \`GH_TOKEN\` GitHub App). Promuoverla a \`agent:fix\` brucerebbe un run Claude intero per arrivare sempre alla stessa conclusione \`blocked-secrets\`. **Non promuovo**: serve una sessione con Firebase SA/PAT (locale o owner). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-secrets -->`;
+      const via = secretsMatch.via === 'label'
+        ? `label \`${secretsMatch.label}\``
+        : `scrittura Remote Config (${(secretsMatch.params || []).join(', ')})`;
+      console.log(`PARK #${cand.number} (secrets-scoped: ${via}) → no promozione, credenziali non disponibili in issue-fix`);
+      const preamble = secretsMatch.via === 'label'
+        ? `questa issue porta la label \`${secretsMatch.label}\`, categoria il cui fix richiede sempre \`${secretsMatch.secret}\` (${secretsMatch.reason})`
+        : `il fix di questa issue e' **esclusivamente** una scrittura su Firebase Remote Config e richiede \`${secretsMatch.secret}\` (${secretsMatch.reason})`;
+      const ref = secretsMatch.via === 'label' ? '#5057' : '#5057/#5838';
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, ${ref})**: ${preamble} — credenziale caricata via Firebase Remote Config, non disponibile nell'ambiente \`issue-fix\` (solo \`GH_TOKEN\` GitHub App). Promuoverla a \`agent:fix\` brucerebbe un run Claude intero per arrivare sempre alla stessa conclusione \`blocked-secrets\`. **Non promuovo**: serve una sessione con Firebase SA/PAT (locale o owner). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-secrets -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (secrets-scoped)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
