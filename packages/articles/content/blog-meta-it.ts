@@ -9944,6 +9944,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Ciclopedonale Piambello: verso il completamento',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Ultimi lavori in corso tra Porto Ceresio e Bisuschio per la ciclopedonale del Piambello. Il presidente Sartorio conta di chiudere il cantiere entro la prossima primavera.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Percorso ciclopedonale del Piambello immerso nella natura, pronto per essere inaugurato.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Grave incidente in alpeggio: 27enne cade in Vallemaggia',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Un giovane italiano di 27 anni è precipitato per circa dieci metri in una zona impervia sull\'alpe Robiei, in Vallemaggia (Ticino). Le sue condizioni sono gravi e la vita è in pericolo.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Soccorritori in elicottero durante un intervento di salvataggio in montagna in Vallemaggia, Ticino.',
 };
 
 export default blogMetaIt;

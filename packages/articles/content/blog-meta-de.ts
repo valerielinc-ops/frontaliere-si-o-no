@@ -9942,6 +9942,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ciclopedonale-piambello-completamento.title': 'Fußgängerzone Piambello: auf dem Weg zur Fertigstellung',
     'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Letzte laufende Arbeiten zwischen Porto Ceresio und Bisuschio für den Rad- und Fußgängerweg des Piambello. Präsident Sartorio rechnet damit, die Baustelle bis zum nächsten Frühjahr zu schließen.',
     'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Rad- und Wanderweg Piambello inmitten der Natur, bereit für die Einweihung.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Schwerer Unfall auf der Alm: 27-Jähriger fällt im Maggiatal',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Ein 27-jähriger Italiener stürzte etwa zehn Meter in einem unwegsamen Gebiet auf der Robiei-Alm im Maggiatal (Tessin) ab. Sein Zustand ist ernst und sein Leben ist in Gefahr.',
+    'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Rettungskräfte in einem Helikopter während eines Bergrettungseinsatzes im Maggiatal, Tessin.',
 };
 
 export default blogMetaDe;
