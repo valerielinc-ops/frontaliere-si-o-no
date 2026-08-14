@@ -2668,6 +2668,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'Un laser qui voit, écoute et se corrige tout seul',
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'Un système développé par Empa, SUPSI et Bystronic qui utilise des caméras et des microphones pour évaluer la qualité de la coupe des métaux et adapter les paramètres de manière autonome.',
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'Un système laser suisse utilisant des caméras et des microphones pour évaluer la qualité du découpage des métaux et adapter automatiquement les paramètres.',
+    'blog.article.sisma-colombia-morti-feriti.title': 'Le bilan du séisme s\'alourdit : 281 morts et environ 4 000 blessés',
+    'blog.article.sisma-colombia-morti-feriti.excerpt': 'Le tremblement de terre de magnitude 7,4 a frappé la Colombie, causant des dommages et des victimes.',
+    'blog.article.sisma-colombia-morti-feriti.imageAlt': 'Un avion de reconnaissance en vol au-dessus de la Colombie après le tremblement de terre',
 };
 
 export default blogMetaChFr;

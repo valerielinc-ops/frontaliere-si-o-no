@@ -2668,6 +2668,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'A laser that sees, hears and corrects itself',
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'A system developed by Empa, SUPSI and Bystronic that uses cameras and microphones to evaluate the quality of metal cutting and adapt settings independently.',
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'A Swiss laser system using cameras and microphones to evaluate the quality of metal cutting and adjust settings automatically.',
+    'blog.article.sisma-colombia-morti-feriti.title': 'The earthquake\'s toll rises: 281 dead and about 4,000 injured',
+    'blog.article.sisma-colombia-morti-feriti.excerpt': 'The magnitude 7.4 earthquake hit Colombia, causing damage and casualties.',
+    'blog.article.sisma-colombia-morti-feriti.imageAlt': 'An aerial view of the Colombia after the earthquake',
 };
 
 export default blogMetaChEn;

@@ -915,6 +915,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-lucerna': { it: 'apprendistato-lucerna', en: 'apprenticeship-lucerne', de: 'ausbildung-luzern', fr: 'apprentissage-lucerne' },
  'borsedi-studio-lucerne-requisiti-e-importi': { it: 'borsedi-studio-lucerne-requisiti-e-importi', en: 'scholarship-lucerne', de: 'stipendium-luzern', fr: 'bourse-lucerne' },
  'laser-vede-ascolta-si-corregge-da-solo': { it: 'laser-vede-ascolta-si-corregge-da-solo', en: 'laser-sees-listens-and-corrects-itself', de: 'lasersystem-erkannt-hoert-und-korrektiert-sichselbst', fr: 'systeme-laser-qui-voyant-entendant-et-corrige' },
+ 'sisma-colombia-morti-feriti': { it: 'sisma-colombia-morti-feriti', en: 'colombia-earthquake-deaths-injuries', de: 'erdbeben-kolumbien-tote-verletzte', fr: 'seisme-colombie-morts-blesses' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

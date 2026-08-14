@@ -2668,6 +2668,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'Ein Laser, der sieht, hört und sich selbst korrigiert',
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'Ein von Empa, SUPSI und Bystronic entwickeltes System, das mithilfe von Kameras und Mikrofonen die Qualität des Metallschnitts bewertet und die Einstellungen selbstständig anpasst.',
     'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'Ein Schweizer Lasersystem, das Kameras und Mikrofone verwendet, um die Qualität des Metall-Schnitts zu bewerten und die Einstellungen automatisch anzupassen.',
+    'blog.article.sisma-colombia-morti-feriti.title': 'Die Bilanz des Erdbebens steigt: 281 Tote und rund 4.000 Verletzte',
+    'blog.article.sisma-colombia-morti-feriti.excerpt': 'Das Erdbeben der Stärke 7,4 traf Kolumbien und verursachte Schäden und Opfer.',
+    'blog.article.sisma-colombia-morti-feriti.imageAlt': 'Ein Aufklärungsflugzeug in der Luft über Kolumbien nach dem Erdbeben',
 };
 
 export default blogMetaChDe;
