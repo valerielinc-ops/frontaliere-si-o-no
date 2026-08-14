@@ -1464,7 +1464,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Bâtiment administratif au Tessin',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Troisième pilier 3a : avantages pour les frontaliers dans le canton de Bâle',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'La nouvelle convention double imposition Italie-Suisse et le régime transitoire pour les frontaliers.',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in francese, massimo 125 caratteri',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Image éditoriale relative à: Troisième pilier 3a : avantages pour les frontaliers dans le canton de Bâle',
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontaliers : d\'où viennent les travailleurs au Tessin',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Les données de l\'Office fédéral de la statistique révèlent l\'origine des travailleurs avec le permis G : boom en Brianza, stable Como et Varese.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Vue panoramique d\'une ville tessinoise avec infrastructures urbaines',
@@ -2361,7 +2361,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Image éditoriale relative à: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
     'blog.article.trenino-rossoschanf-livigno.title': 'De S-chanf à Livigno en train, Coire dit oui',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'Le canton des Grisons souhaite travailler avec des partenaires de Lombardie pour réaliser une liaison ferroviaire entre l\'Engadine et la Haute-Valtelline.',
-    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Une galerie ferroviaire suisse avec une vue panoramique sur le lac de Lugano, avec un train en arrivée ou en partance. Max 125 char.',
+    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Une galerie ferroviaire suisse avec une vue panoramique sur le lac de Lugano, avec un train en arrivée ou en partance',
     'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Permis L de courte durée Canton de Berne : validité et prorogation',
     'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Le permis L de courte durée dans le canton de Berne : validité, prorogation, conditions et contraintes liées à l\'employeur.',
     'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Une vue panoramique de Lugano avec le lac de Lugano',
@@ -2620,6 +2620,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Impôt succession et donation Canton de Berne : taux',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide des taux par degré de parenté, exemptions pour conjoints et descendants et délais de déclaration dans le canton de Berne.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'Vue sur la vieille ville de Berne avec la tour Zytglogge',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Impôts sur les successions dans le canton de Berne',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Connaître les taux par degré de parenté et les exemptions pour conjoint et descendants',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Famille discutant la taxe sur la succession et la donation à Berne',
 };
 
 export default blogMetaChFr;

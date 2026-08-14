@@ -1464,7 +1464,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Administrative building in Ticino',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Third pillar 3a: benefits for border workers in the canton of Basel',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'The new Italy-Switzerland double taxation convention and the transitional regime for border workers.',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in inglese, massimo 125 caratteri',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Editorial image related to: Third pillar 3a: benefits for border workers in the canton of Basel',
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Frontier workers: where workers arrive in Ticino',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Data from the Federal Statistical Office reveal the origin of workers with G: boom permits in Brianza, Como and Varese buildings.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Panoramic view of a Ticino city with urban infrastructure',
@@ -2361,7 +2361,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Editorial image related to: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
     'blog.article.trenino-rossoschanf-livigno.title': 'From S-chanf to Livigno by train, Chur says yes',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'The Canton of Graubünden wants to work together with the partners of Lombardy to create a railway connection between the Engadine and Alta Valtellina.',
-    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'A Swiss railway gallery with a panoramic view of Lake Lugano, with a train arriving or departing. Max 125 char.',
+    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'A Swiss railway gallery with a panoramic view of Lake Lugano, with a train arriving or departing',
     'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Short-term permit L Canton Bern: validity and extension',
     'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'The short-term L permit in the Canton of Bern: validity, extension, conditions and constraints related to the employer.',
     'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'A panoramic view of Lugano with Lake Lugano',
@@ -2620,6 +2620,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Inheritance and donation tax Canton Bern: rates',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide to rates for degree of kinship, exemptions for spouses and descendants and terms of declaration in the Canton of Bern.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'View of the historic center of Bern with the Zytglogge tower',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Inheritance taxes in the Canton of Bern',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Know the kinship rates and exemptions for spouses and descendants',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Family discussing inheritance and donation tax in Bern',
 };
 
 export default blogMetaChEn;

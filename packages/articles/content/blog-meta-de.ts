@@ -8909,7 +8909,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Eine Ansicht von Lugano mit der Schweizer Währung.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Wer sind die Grenzgänger im Tessin? Die Antwort ist hier.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'Im Tessin arbeiten rund 25\'000 Grenzgänger, aber wer sind sie und was tun sie?',
-    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Ein Restaurant in Lugano, Ticino, mit Bedienungen im Dienst. Max 125 Char',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Ein Restaurant in Lugano, Ticino, mit Bedienungen im Dienst',
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP: Mobilitätsentwicklung zwischen Lombardei und Graubünden',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'Das TRIP-Projekt zielt darauf ab, die Mobilität zwischen der Lombardei und Graubünden zu entwickeln.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'Ein grenzüberschreitender Zug in Bewegung durch die Alpen.',
@@ -9924,6 +9924,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'So melden Sie sich bei der OCST-Arbeitslosenkasse an',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Kein Termin erforderlich. Sie können sich in wenigen Minuten von zu Hause aus online anmelden.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Redaktionelles Bild zu: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST Frau-Arbeit: Schutz und Unterstützung',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Unterstützungs-, Beratungs- und Rechtsschutzdienste für Arbeitnehmerinnen in Schwierigkeiten, mit Kursen und Berufsberatung.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Unterstützungsschalter für Arbeitnehmer im Tessin',
 };
 
 export default blogMetaDe;

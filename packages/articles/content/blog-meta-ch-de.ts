@@ -1464,7 +1464,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-frontaliere-g-procedura-ticino.imageAlt': 'Verwaltungsgebäude im Tessin',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.title': 'Dritte Säule 3a: Vorteile für Grenzgänger im Kanton Basel',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.excerpt': 'Das neue Doppelbesteuerungsabkommen Italien-Schweiz und die Übergangsregelung für Grenzgänger.',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Descrizione dell\'immagine in tedesco, massimo 125 caratteri',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-basilea.imageAlt': 'Redaktionelles Bild zu: Dritte Säule 3a: Vorteile für Grenzgänger im Kanton Basel',
     'blog.article.mappa-frontalieri-lombardi-ticino.title': 'Grenzgänger: Woher kommen die Arbeiter im Tessin?',
     'blog.article.mappa-frontalieri-lombardi-ticino.excerpt': 'Die Daten des Bundesamtes für Statistik zeigen die Herkunft der Arbeitnehmer mit der Genehmigung G: Boom in der Brianza, Gebäude Como und Varese.',
     'blog.article.mappa-frontalieri-lombardi-ticino.imageAlt': 'Panoramablick auf eine Stadt im Tessin mit städtischer Infrastruktur',
@@ -2361,7 +2361,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.climatizzatori-ad-alta-quota-i-ricercatori-rilevano-le-tracce-dei-refrigeranti.imageAlt': 'Redaktionelles Bild zu: Climatizzatori ad alta quota: i ricercatori rilevano le tracce dei refrigeranti',
     'blog.article.trenino-rossoschanf-livigno.title': 'Von S-chanf nach Livigno mit dem Zug, Chur sagt ja',
     'blog.article.trenino-rossoschanf-livigno.excerpt': 'Der Kanton Graubünden will mit Partnern aus der Lombardei zusammenarbeiten, um eine Bahnverbindung zwischen Engadin und Oberveltlin zu realisieren.',
-    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Eine Schweizer Eisenbahngalerie mit einem Panoramablick auf den Luganersee, mit einem ankommenden oder abfahrenden Zug. Max 125 Char.',
+    'blog.article.trenino-rossoschanf-livigno.imageAlt': 'Eine Schweizer Eisenbahngalerie mit einem Panoramablick auf den Luganersee, mit einem ankommenden oder abfahrenden Zug',
     'blog.article.permesso-l-di-breve-durata-canton-berna.title': 'Kurzaufenthaltsbewilligung L Kanton Bern: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-di-breve-durata-canton-berna.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Bern: Gültigkeit, Verlängerung, Bedingungen und an den Arbeitgeber geknüpfte Auflagen.',
     'blog.article.permesso-l-di-breve-durata-canton-berna.imageAlt': 'Eine Panoramabild von Lugano mit dem Luganersee',
@@ -2620,6 +2620,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Erbschafts- und Schenkungssteuer Kanton Bern: Steuersätze',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Leitfaden zu den Sätzen nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen und Erklärungsfristen im Kanton Bern.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'Blick auf die Berner Altstadt mit dem Zytglogge-Turm',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Erbschaftssteuern im Kanton Bern',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Kennen Sie die Sätze nach Verwandtschaftsgrad und die Befreiungen für Ehepartner und Nachkommen',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Familie diskutiert Erbschafts- und Schenkungssteuer in Bern',
 };
 
 export default blogMetaChDe;

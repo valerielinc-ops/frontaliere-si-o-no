@@ -8911,7 +8911,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Una vista di Lugano con la valuta svizzera.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Chi sono i frontalieri in Ticino? La risposta è qui.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'Sono circa 25\'000 frontalieri a lavorare in Ticino, ma chi sono e cosa fanno?',
-    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un ristorante in Lugano, Ticino, con camerieri in servizio. Max 125 char',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un ristorante in Lugano, Ticino, con camerieri in servizio',
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP: sviluppo mobilità tra Lombardia e Grigioni',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'Un treno ferroviario transfrontaliero in movimento attraverso le Alpi.',
@@ -9926,6 +9926,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'Come registrarsi alla cassa di disoccupazione OCST',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Nessun appuntamento necessario. Puoi annunciarti online da casa in pochi minuti.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Immagine editoriale relativa a: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST donna-lavoro: tutela e supporto',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Servizi di supporto, consulenza e tutela legale per le lavoratrici in difficoltà, con corsi e orientamento professionale.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Sportello di supporto per i lavoratori in Ticino',
 };
 
 export default blogMetaIt;

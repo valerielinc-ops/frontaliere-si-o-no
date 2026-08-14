@@ -8910,7 +8910,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'A view of Lugano with the Swiss currency.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Who are the frontier workers in Ticino? The answer is here.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'There are about 25,000 border workers working in Ticino, but who are they and what do they do?',
-    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'A restaurant in Lugano, Ticino, with waiters in service. Max 125 char',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'A restaurant in Lugano, Ticino, with waiters in service',
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP: mobility development between Lombardy and Graubünden',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'The TRIP project aims to develop mobility between Lombardy and Graubünden.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'A transfrontier train in motion through the Alps.',
@@ -9925,6 +9925,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'How to register with the OCST unemployment fund',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'No appointments needed. You can advertise online from home in minutes.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Editorial image related to: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST woman-work: protection and support',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Support services, advice and legal protection for workers in difficulty, with courses and professional guidance.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Support desk for workers in Ticino',
 };
 
 export default blogMetaEn;

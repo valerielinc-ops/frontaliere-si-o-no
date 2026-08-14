@@ -8912,7 +8912,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Une vue de Lugano avec la monnaie suisse.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Qui sont les frontaliers au Tessin ? La réponse est ici.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'Environ 25000 frontaliers travaillent au Tessin, mais qui sont-ils et que font-ils ?',
-    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un restaurant à Lugano, Ticino, avec des serveurs en service. Max 125 Char',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un restaurant à Lugano, Ticino, avec des serveurs en service',
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP : développement de la mobilité entre la Lombardie et les Grisons',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'Le projet TRIP vise à développer la mobilité entre la Lombardie et les Grisons.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'Un train transfrontalier en mouvement à travers les Alpes.',
@@ -9927,6 +9927,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'Comment s\'inscrire à la caisse de chômage OCST',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Pas de rendez-vous nécessaire, vous pouvez faire votre annonce en ligne depuis chez vous en quelques minutes.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Image éditoriale relative à: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST femme-travail : protection et soutien',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Services de soutien, de conseil et de protection juridique pour les travailleuses en difficulté, avec des cours et une orientation professionnelle.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Guichet de soutien pour les travailleurs au Tessin',
 };
 
 export default blogMetaFr;

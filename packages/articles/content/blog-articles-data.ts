@@ -29757,6 +29757,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ocst-donna-lavoro-servizi',
+ category: 'pratico',
+ date: '2026-08-14T01:14:02.377Z',
+ image: '/images/blog/ocst-donna-lavoro-servizi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
