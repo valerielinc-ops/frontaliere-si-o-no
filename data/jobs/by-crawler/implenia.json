@@ -3031,12 +3031,6 @@
       "applyUrl": "https://jobs.implenia.com/job/Senior-Bauleiter-Umbau-%28wmd%29/13378-de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-bauleiter-umbau-w-m-d-implenia-ch",
-        "bauleiter-umbau-w-m-d-implenia-glattpark-opfikon",
-        "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
-        "conversione-senior-construction-manager-f-m-d-implenia-glattpark-opfikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-bauleiter-umbau-w-m-d-implenia-ch",
@@ -3047,8 +3041,12 @@
           "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon"
         ]
       },
-      "firstSeenAt": "2026-08-13T22:17:43.455Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "senior-bauleiter-umbau-w-m-d-implenia-ch",
+        "bauleiter-umbau-w-m-d-implenia-glattpark-opfikon",
+        "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
+        "conversione-senior-construction-manager-f-m-d-implenia-glattpark-opfikon"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3060,7 +3058,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T22:17:43.455Z",
+      "needsRetranslation": true
     },
     {
       "id": "implenia-c0bbfbc455f7",

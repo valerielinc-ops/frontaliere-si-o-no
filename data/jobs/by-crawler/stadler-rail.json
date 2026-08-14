@@ -12951,9 +12951,9 @@
     },
     {
       "id": "stadler-rail-0a5c1c08b17c",
-      "slug": "project-manager-depot-infrastructure-stadler-rail-ch",
+      "slug": "responsabile-progetto-deposito-e-infrastrutture-stadler-rail-frauenfeld",
       "slugByLocale": {
-        "it": "project-manager-depot-infrastructure-stadler-rail-ch",
+        "it": "responsabile-progetto-deposito-e-infrastrutture-stadler-rail-frauenfeld",
         "en": "project-manager-depot-infrastructure-stadler-rail-ch",
         "de": "project-manager-depot-infrastructure-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-depot-et-infrastructure-stadler-rail-frauenfeld"
@@ -13011,7 +13011,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-depot-infrastructure-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-depot-infrastructure-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-4aa1fccd8842",
