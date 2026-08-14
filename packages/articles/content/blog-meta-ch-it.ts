@@ -2635,6 +2635,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Imposte cantonali canton Lucerna: aliquote e deduzioni',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Guida alle imposte cantonali e comunali nel Cantone di Lucerna con aliquote, scaglioni, deduzioni e portale ufficiale dell\'amministrazione fiscale.',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Imposte cantonali e comunali nel Cantone di Lucerna',
+    'blog.article.premi-cassa-malati-lucerna-2026.title': 'Premi cassa malati Canton Lucerna e riduzione premi',
+    'blog.article.premi-cassa-malati-lucerna-2026.excerpt': 'La legge sulle assicurazioni malattie obbligatorie nel Canton Lucerna: fasce di premio, franchigie, modelli alternativi e requisiti per ottenere la riduzione dei premi.',
+    'blog.article.premi-cassa-malati-lucerna-2026.imageAlt': 'Scena di vita in Svizzera con alloggi e mercati locali',
 };
 
 export default blogMetaChIt;
