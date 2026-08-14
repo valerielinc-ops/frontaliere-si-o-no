@@ -1,16 +1,16 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-14T10:19:23.561Z",
+  "generatedAt": "2026-08-14T21:30:29.632Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3801,
-  "avgDurationMs": 3801,
+  "durationMs": 4392,
+  "avgDurationMs": 4392,
   "durationHistory": [
-    3801
+    4392
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/secretaire-hf-gestion-dossier-medicalarchives-centrales",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:19:21.454Z",
+      "crawledAt": "2026-08-14T21:30:27.478Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:19:21.476Z",
+      "crawledAt": "2026-08-14T21:30:27.505Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T10:19:21.478Z",
+      "crawledAt": "2026-08-14T21:30:27.513Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
