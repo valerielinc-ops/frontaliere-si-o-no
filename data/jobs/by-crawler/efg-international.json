@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-08-13T21:53:06.629Z",
+  "assembledAt": "2026-08-14T10:23:38.079Z",
   "jobs": [
     {
       "id": "efg-6384",
@@ -135,7 +135,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.869Z",
+      "crawledAt": "2026-08-14T10:23:34.493Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -160,7 +160,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6336",
@@ -356,7 +357,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.867Z",
+      "crawledAt": "2026-08-14T10:23:34.491Z",
       "slugByLocale": {
         "it": "responsabile-governance-e-supervisione-del-rischio-legale-e-conformita-efg-international-ag-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -393,7 +394,8 @@
       },
       "previousSlugs": [
         "governance-risk-oversight-manager-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -538,7 +540,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.864Z",
+      "crawledAt": "2026-08-14T10:23:34.489Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -577,7 +579,8 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -702,7 +705,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.863Z",
+      "crawledAt": "2026-08-14T10:23:34.487Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -741,7 +744,8 @@
       },
       "previousSlugs": [
         "iam-support-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -792,7 +796,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.861Z",
+      "crawledAt": "2026-08-14T10:23:34.486Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -835,7 +839,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -858,7 +863,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -886,11 +891,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.859Z",
+      "crawledAt": "2026-08-14T10:23:34.484Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -923,14 +928,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1056,7 +1064,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.857Z",
+      "crawledAt": "2026-08-14T10:23:34.482Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1101,7 +1109,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1254,7 +1263,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.855Z",
+      "crawledAt": "2026-08-14T10:23:34.480Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1379,7 +1388,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.852Z",
+      "crawledAt": "2026-08-14T10:23:34.477Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1561,7 +1570,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.850Z",
+      "crawledAt": "2026-08-14T10:23:34.475Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1599,7 +1608,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1650,7 +1660,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.848Z",
+      "crawledAt": "2026-08-14T10:23:34.473Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1693,7 +1703,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -1744,7 +1755,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.846Z",
+      "crawledAt": "2026-08-14T10:23:34.472Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1782,7 +1793,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -1805,7 +1817,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -1833,11 +1845,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.844Z",
+      "crawledAt": "2026-08-14T10:23:34.470Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -1863,17 +1875,22 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2020,7 +2037,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.835Z",
+      "crawledAt": "2026-08-14T10:23:34.462Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2080,7 +2097,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2131,7 +2149,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.833Z",
+      "crawledAt": "2026-08-14T10:23:34.460Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2201,7 +2219,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2335,7 +2353,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.831Z",
+      "crawledAt": "2026-08-14T10:23:34.458Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2373,7 +2391,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6385",
@@ -2496,7 +2515,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.826Z",
+      "crawledAt": "2026-08-14T10:23:34.453Z",
       "slugByLocale": {
         "it": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
         "en": "business-risk-manager-pb-coo-brm-efg-lugano",
@@ -2544,7 +2563,7 @@
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
-      "description": "General Info\n\n- Department: CFO\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n- Internship - starting asap - minimum duration 6 months with possible extension\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe intern will support the Internal Control System for Finance (ICS FIN) by assisting in the implementation of the rotation plan, liaising with international locations on control execution, and acting as a first line support desk for ICS FIN-related queries. The role contributes to the preparation of ICS FIN reports for senior management and committees, supports the Annual Risk and Control Self Assessment, and helps maintain and improve ICS FIN documentation and processes.\n\nKey Responsibilities\n\n1. Support the ICS FIN rotation plan implementation\nAssist in the implementation of the Internal Control System for Finance (ICS FIN) rotation plan under the guidance of senior team members.\nHelp coordinate the planning and scheduling of control testing activities across different finance areas.\nMaintain an overview of the rotation plan status (e.g. completed, ongoing and upcoming activities) and prepare simple summaries for the team.\n\n2. Liaising with international locations on ICS FIN execution\nSupport communication with international locations involved in the execution of ICS FIN controls.\nHelp collect information, documentation and status updates from local finance teams.\nAssist in following up on outstanding actions, clarifications or missing documentation, escalating issues to senior colleagues when needed.\n\n3. First line support desk\nAct as a first point of contact for basic questions related to ICS FIN processes, tools and documentation.\nProvide initial guidance to users based on existing procedures, manuals and instructions.\nRecord and categorise incoming queries and issues, and forward more complex topics to the appropriate team members.\n\n4. Preparation of ICS FIN reports for senior management and committees\nAssist in preparing regular and ad hoc ICS FIN reports for senior management and relevant committees.\nSupport data collection, consolidation and formatting of information on control execution, findings and remediation status.\nHelp ensure that reports are accurate, consistent and delivered within agreed deadlines.\n\n5. Support in the Annual ICS FIN Risk and Control Self Assessment (RCSA)\nTake an active role in supporting the Annual Risk and Control Self Assessment for ICS FIN.\nAssist in organising the assessment process (e.g. timelines, participants, documentation requirements).\nHelp gather input from stakeholders, compile results and prepare summaries of key risks, controls and findings.\nSupport the documentation of conclusions and follow-up actions arising from the assessment.\n\n6. Maintenance and improvement of ICS FIN\nContribute to the maintenance of ICS FIN documentation (e.g. control descriptions, procedures, guidelines and templates).\nAssist in identifying opportunities to simplify, clarify or improve existing ICS FIN processes and materials.\nSupport small improvement initiatives, such as updating checklists, enhancing guidance documents or improving data quality in ICS FIN tools.\n\n## Special Tasks\n\n1. Learning and development\nParticipate actively in on-the-job training on ICS FIN concepts, risk and control frameworks and finance processes.\nBuild understanding of internal control principles, risk assessment and the role of ICS FIN within the finance function.\nDevelop familiarity with the tools and systems used to document and monitor ICS FIN controls.\n\n2. Cross-functional collaboration\nSupport interactions with other finance and control functions (e.g. local finance teams, risk management, compliance, internal audit) as part of ICS FIN activities.\nAssist in coordinating information flows and ensuring that relevant stakeholders receive the required ICS FIN documentation and updates.\n\n3. Ad-hoc support\nPerform ad-hoc tasks related to ICS FIN, such as data checks, file organisation, preparation of presentations or simple analyses.\nProvide general administrative and organisational support to the ICS FIN team as needed.\n\nWho we are looking for\n\n- Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.\n\n- Strong analytical skills and ability to structure and synthesise information.\n\n- Good command of office tools, in particular spreadsheets and presentations.\n\n- Strong written and verbal communication skills.\n\n- Ability to work collaboratively with Finance, IT and other stakeholders.\n\n- High attention to detail, reliability and good organisational skills.\n\n- Proactive, curious and willing to learn in a project driven environment.\n\n- Very good command of English and French (written and spoken).\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+      "description": "General Info\n\n- Department: CFO\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n- Internship - starting asap - minimum duration 6 months with possible extension\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nAs a Finance intern within ICS FIN, you will gain hands-on exposure to internal controls, risk assessment and finance processes in an international private banking environment. You will support the implementation of the ICS FIN rotation plan, coordinate with international locations, help respond to day-to-day queries, and contribute to reports and documentation used by senior management and committees. This internship offers a practical opportunity to build your understanding of Finance control frameworks while working closely with experienced colleagues across the organisation.\n\nKey Responsibilities\n\nICS FIN rotation plan and control testing\n\n-\nSupport the implementation of the ICS FIN rotation plan and learn how Finance controls are organised, tested and monitored.\n\n-\nHelp plan and schedule control testing activities across Finance areas.\n\n-\nTrack completed, ongoing and upcoming activities, and prepare clear summaries for the team.\n\nInternational coordination and support desk\n\n-\nCoordinate with international locations and local Finance teams involved in executing ICS FIN controls.\n\n-\nCollect documentation, information and status updates, and follow up on open points.\n\n-\nAct as a first point of contact for routine ICS FIN questions related to processes, tools and documentation.\n\n-\nGuide users using existing procedures and escalate more complex topics when needed.\n\nReporting, risk assessment and documentation\n\n-\nContribute to regular and ad hoc ICS FIN reports for senior management and committees.\n\n-\nHelp prepare clear reporting material on control execution, findings and remediation status.\n\n-\nSupport the annual ICS FIN Risk and Control Self-Assessment process.\n\n-\nHelp coordinate timelines, participants, documentation requirements and stakeholder input.\n\n-\nMaintain ICS FIN documents, including control descriptions, procedures, guidelines and templates.\n\n-\nSuggest practical improvements to simplify processes, guidance documents and data quality.\n\nLearning, collaboration and ad hoc support\n\n-\nLearn about internal controls, risk assessment, Finance processes and the role of ICS FIN within the Finance function.\n\n-\nGain practical experience with tools used to document and monitor Finance controls.\n\n-\nCollaborate with colleagues across Finance, Risk, Compliance and Internal Audit.\n\n-\nSupport ad hoc activities such as data checks, file organisation, presentations and simple analyses.\n\n-\nProvide organisational support to the ICS FIN team and gain insight into the day-to-day work of a Finance control function.\n\nWho we are looking for\n\n-\nCurrently pursuing a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems or a related field.\n\n-\nCurious and analytical, with the ability to structure information and draw clear insights.\n\n-\nComfortable using office tools, especially spreadsheets and presentations, and eager to strengthen these skills in a Finance environment.\n\n-\nClear communicator, both in writing and verbally, with the confidence to interact with different stakeholders.\n\n-\nCollaborative and open-minded, with an interest in working across Finance, IT and control-related functions.\n\n-\nReliable, organised and attentive to detail, with a willingness to take ownership of assigned tasks.\n\n-\nProactive, motivated and eager to learn in a hands-on, project-driven environment.\n\n-\nVery good command of English and French, both written and spoken.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
       "requirements": [],
       "featured": false,
       "postedDate": "2026-08-13",
@@ -2560,7 +2579,7 @@
         "fr": "Stages financiers"
       },
       "descriptionByLocale": {
-        "en": "General Info\n\n- Department: CFO\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\n- Internship - starting asap - minimum duration 6 months with possible extension\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe intern will support the Internal Control System for Finance (ICS FIN) by assisting in the implementation of the rotation plan, liaising with international locations on control execution, and acting as a first line support desk for ICS FIN-related queries. The role contributes to the preparation of ICS FIN reports for senior management and committees, supports the Annual Risk and Control Self Assessment, and helps maintain and improve ICS FIN documentation and processes.\n\nKey Responsibilities\n\n1. Support the ICS FIN rotation plan implementation\nAssist in the implementation of the Internal Control System for Finance (ICS FIN) rotation plan under the guidance of senior team members.\nHelp coordinate the planning and scheduling of control testing activities across different finance areas.\nMaintain an overview of the rotation plan status (e.g. completed, ongoing and upcoming activities) and prepare simple summaries for the team.\n\n2. Liaising with international locations on ICS FIN execution\nSupport communication with international locations involved in the execution of ICS FIN controls.\nHelp collect information, documentation and status updates from local finance teams.\nAssist in following up on outstanding actions, clarifications or missing documentation, escalating issues to senior colleagues when needed.\n\n3. First line support desk\nAct as a first point of contact for basic questions related to ICS FIN processes, tools and documentation.\nProvide initial guidance to users based on existing procedures, manuals and instructions.\nRecord and categorise incoming queries and issues, and forward more complex topics to the appropriate team members.\n\n4. Preparation of ICS FIN reports for senior management and committees\nAssist in preparing regular and ad hoc ICS FIN reports for senior management and relevant committees.\nSupport data collection, consolidation and formatting of information on control execution, findings and remediation status.\nHelp ensure that reports are accurate, consistent and delivered within agreed deadlines.\n\n5. Support in the Annual ICS FIN Risk and Control Self Assessment (RCSA)\nTake an active role in supporting the Annual Risk and Control Self Assessment for ICS FIN.\nAssist in organising the assessment process (e.g. timelines, participants, documentation requirements).\nHelp gather input from stakeholders, compile results and prepare summaries of key risks, controls and findings.\nSupport the documentation of conclusions and follow-up actions arising from the assessment.\n\n6. Maintenance and improvement of ICS FIN\nContribute to the maintenance of ICS FIN documentation (e.g. control descriptions, procedures, guidelines and templates).\nAssist in identifying opportunities to simplify, clarify or improve existing ICS FIN processes and materials.\nSupport small improvement initiatives, such as updating checklists, enhancing guidance documents or improving data quality in ICS FIN tools.\n\n## Special Tasks\n\n1. Learning and development\nParticipate actively in on-the-job training on ICS FIN concepts, risk and control frameworks and finance processes.\nBuild understanding of internal control principles, risk assessment and the role of ICS FIN within the finance function.\nDevelop familiarity with the tools and systems used to document and monitor ICS FIN controls.\n\n2. Cross-functional collaboration\nSupport interactions with other finance and control functions (e.g. local finance teams, risk management, compliance, internal audit) as part of ICS FIN activities.\nAssist in coordinating information flows and ensuring that relevant stakeholders receive the required ICS FIN documentation and updates.\n\n3. Ad-hoc support\nPerform ad-hoc tasks related to ICS FIN, such as data checks, file organisation, preparation of presentations or simple analyses.\nProvide general administrative and organisational support to the ICS FIN team as needed.\n\nWho we are looking for\n\n- Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.\n\n- Strong analytical skills and ability to structure and synthesise information.\n\n- Good command of office tools, in particular spreadsheets and presentations.\n\n- Strong written and verbal communication skills.\n\n- Ability to work collaboratively with Finance, IT and other stakeholders.\n\n- High attention to detail, reliability and good organisational skills.\n\n- Proactive, curious and willing to learn in a project driven environment.\n\n- Very good command of English and French (written and spoken).\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+        "en": "General Info\n- Department: CFO\n- Work time Percentage: 100%\n- Location: Geneva\n- Internship - starting asap - minimum duration 6 months with possible extension\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nAs a Finance intern within ICS FIN, you will gain hands-on exposure to internal controls, risk assessment and finance processes in an international private banking environment. You will support the implementation of the ICS FIN rotation plan, coordinate with international locations, help respond to day-to-day queries, and contribute to reports and documentation used by senior management and committees. This internship offers a practical opportunity to build your understanding of Finance control frameworks while working closely with experienced colleagues across the organisation.\n\nKey Responsibilities\n\nICS FIN rotation plan and control testing\n\n-\nSupport the implementation of the ICS FIN rotation plan and learn how Finance controls are organised, tested and monitored.\n\n-\nHelp plan and schedule control testing activities across Finance areas.\n\n-\nTrack completed, ongoing and upcoming activities, and prepare clear summaries for the team.\n\nInternational coordination and support desk\n\n-\nCoordinate with international locations and local Finance teams involved in executing ICS FIN controls.\n\n-\nCollect documentation, information and status updates, and follow up on open points.\n\n-\nAct as a first point of contact for routine ICS FIN questions related to processes, tools and documentation.\n\n-\nGuide users using existing procedures and escalate more complex topics when needed.\n\nReporting, risk assessment and documentation\n\n-\nContribute to regular and ad hoc ICS FIN reports for senior management and committees.\n\n-\nHelp prepare clear reporting material on control execution, findings and remediation status.\n\n-\nSupport the annual ICS FIN Risk and Control Self-Assessment process.\n\n-\nHelp coordinate timelines, participants, documentation requirements and stakeholder input.\n\n-\nMaintain ICS FIN documents, including control descriptions, procedures, guidelines and templates.\n\n-\nSuggest practical improvements to simplify processes, guidance documents and data quality.\n\nLearning, collaboration and ad hoc support\n\n-\nLearn about internal controls, risk assessment, Finance processes and the role of ICS FIN within the Finance function.\n\n-\nGain practical experience with tools used to document and monitor Finance controls.\n\n-\nCollaborate with colleagues across Finance, Risk, Compliance and Internal Audit.\n\n-\nSupport ad hoc activities such as data checks, file organisation, presentations and simple analyses.\n\n-\nProvide organisational support to the ICS FIN team and gain insight into the day-to-day work of a Finance control function.\n\nWho we are looking for\n\n-\nCurrently pursuing a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems or a related field.\n\n-\nCurious and analytical, with the ability to structure information and draw clear insights.\n\n-\nComfortable using office tools, especially spreadsheets and presentations, and eager to strengthen these skills in a Finance environment.\n\n-\nClear communicator, both in writing and verbally, with the confidence to interact with different stakeholders.\n\n-\nCollaborative and open-minded, with an interest in working across Finance, IT and control-related functions.\n\n-\nReliable, organised and attentive to detail, with a willingness to take ownership of assigned tasks.\n\n-\nProactive, motivated and eager to learn in a hands-on, project-driven environment.\n\n-\nVery good command of English and French, both written and spoken.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
         "it": "Informazioni generali\n\n- Dipartimento: CFO\n\n- Tempo di lavoro Percentuale: 100%\n\n- Ubicazione: Ginevra\n\n- Stage - avvio asap - durata minima 6 mesi con possibile estensione\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLo stagista sosterrà il Sistema di Controllo Interno per le Finanze (ICS FIN) aiutando nell'attuazione del piano di rotazione, legandosi con sedi internazionali sull'esecuzione del controllo, e agendo come primo banco di supporto linea per le domande relative alla FIN ICS. Il ruolo contribuisce alla preparazione dei rapporti ICS FIN per la gestione e i comitati senior, supporta l'annuale Risk and Control Self Assessment, e aiuta a mantenere e migliorare la documentazione e i processi ICS FIN.\n\nPrincipali responsabilità\n\n1. Supporta l'implementazione del piano di rotazione ICS FIN\nAssistere nell'attuazione del piano di rotazione del sistema di controllo interno per le finanze (ICS FIN) sotto la guida dei membri del team senior.\nAiuta a coordinare la pianificazione e la pianificazione delle attività di test di controllo in diversi settori finanziari.\nMantenere una panoramica dello stato del piano di rotazione (ad esempio attività completate, in corso e in arrivo) e preparare semplici riassunti per il team.\n\n2. Liaising con sedi internazionali sull'esecuzione ICS FIN\nComunicazione di supporto con sedi internazionali coinvolte nell'esecuzione dei controlli ICS FIN.\nAiuta a raccogliere informazioni, documentazione e aggiornamenti di stato dai team di finanza locale.\nAssistere a seguire su azioni eccezionali, chiarimenti o documentazione mancante, escalation problemi a colleghi senior quando necessario.\n\n3. Prima linea di supporto scrivania\nAgire come primo punto di contatto per domande di base relative ai processi, strumenti e documentazione ICS FIN.\nFornire una guida iniziale agli utenti in base a procedure, manuali e istruzioni esistenti.\nRegistrare e classificare domande e problemi in arrivo e inoltrare argomenti più complessi ai membri del team appropriati.\n\n4. Preparazione delle relazioni ICS FIN per la gestione e i comitati senior\nAssistere nella preparazione di relazioni regolari e ad hoc ICS FIN per la gestione senior e comitati pertinenti.\nSupporta la raccolta, il consolidamento e la formattazione delle informazioni sull'esecuzione del controllo, i risultati e lo stato di bonifica.\nAiuto a garantire che i rapporti siano precisi, coerenti e consegnati entro scadenze concordate.\n\n5. Sostegno alla valutazione annuale del rischio e del controllo ICS FIN (RCSA)\nPrendere un ruolo attivo nel sostenere la valutazione annuale del rischio e del controllo di auto per ICS FIN.\nAssistere nell'organizzazione del processo di valutazione (ad esempio termini, partecipanti, requisiti di documentazione).\nAiuta a raccogliere input da parti interessate, compilare i risultati e preparare i riassunti dei rischi, dei controlli e dei risultati chiave.\nSostenere la documentazione delle conclusioni e delle azioni di follow-up derivanti dalla valutazione.\n\n6. Manutenzione e miglioramento dell'ICS FIN\nContribuisci alla manutenzione della documentazione ICS FIN (ad esempio descrizioni di controllo, procedure, linee guida e modelli).\nAssistere nell'individuazione delle opportunità per semplificare, chiarire o migliorare i processi e i materiali ICS FIN esistenti.\nSostenere piccole iniziative di miglioramento, come l'aggiornamento delle liste di controllo, migliorare i documenti di guida o migliorare la qualità dei dati negli strumenti ICS FIN.\n\n## Compiti speciali\n\n1. Apprendimento e sviluppo\nPartecipa attivamente alla formazione on-the-job sui concetti, sui quadri di rischio e di controllo e sui processi finanziari.\nCostruire la comprensione dei principi di controllo interno, la valutazione del rischio e il ruolo di ICS FIN all'interno della funzione finanziaria.\nSviluppare familiarità con gli strumenti e i sistemi utilizzati per documentare e monitorare i controlli ICS FIN.\n\n2. Collaborazione interfunzionale\nSupporta le interazioni con altre funzioni di finanza e controllo (ad esempio i team di finanza locale, gestione dei rischi, conformità, audit interno) nell'ambito delle attività ICS FIN.\nAssistere nel coordinamento dei flussi di informazioni e garantire che le parti interessate pertinenti ricevano la documentazione e gli aggiornamenti richiesti dalla ICS FIN.\n\n3. Supporto ad hoc\nEseguire attività ad-hoc relative a ICS FIN, come i controlli dei dati, l'organizzazione dei file, la preparazione di presentazioni o semplici analisi.\nFornire supporto amministrativo e organizzativo generale al team ICS FIN come necessario.\n\nChi stiamo cercando\n\n- Attualmente iscritta a un Bachelor o Master in Finanza, Contabilità, Business Administration, Sistemi Informativi, o un campo relativo.\n\n- Forte capacità analitiche e capacità di struttura e sintesi delle informazioni.\n\n- Buon comando di strumenti di ufficio, in particolare fogli di calcolo e presentazioni.\n\n- Forte capacità di comunicazione scritta e verbale.\n\n- Capacità di lavorare in collaborazione con Finance, IT e altri stakeholder.\n\n- Alta attenzione ai dettagli, affidabilità e buone capacità organizzative.\n\n- Proattivo, curioso e disposto ad imparare in un ambiente guidato dal progetto.\n\n- Ottimo comando di inglese e francese (scritto e parlato).\n\nI nostri valori\n\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\n- Passionato: Impegnarsi e lottare per l'eccellenza\n\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
         "de": "Allgemeine Informationen\n\n- Abteilung: CFO\n\n- Arbeitszeit Prozentsatz: 100%\n\n- Standort: Genf\n\n- Praktikum - Start asap - Mindestdauer 6 Monate mit möglicher Verlängerung\n\nUnser Unternehmen\n\nEFG International ist eine globale Private Banking Gruppe, die Private Banking und Asset Management Services anbietet. Wir bedienen Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und ist bestrebt, ein Arbeitgeber der Wahl zu sein.\n\nUnser Ziel und unsere Mission\n\nUnternehmergeist befähigen, Werte zu schaffen – heute und für die Zukunft.\n\nStellenbeschreibung\n\nDer Praktikant wird das Internal Control System for Finance (ICS FIN) unterstützen, indem er bei der Umsetzung des Rotationsplans hilft, mit internationalen Standorten bei der Kontrolleabwicklung zusammenarbeitet und als First Line Support Desk für ICS FIN-bezogene Anfragen fungiert. Die Rolle trägt zur Erstellung von ICS FIN-Berichten für die Geschäftsleitung und die Ausschüsse bei, unterstützt die jährliche Risiko- und Kontrollselbstbewertung und hilft, die ICS FIN-Dokumentation und -Prozesse zu pflegen und zu verbessern.\n\nHauptzuständigkeiten\n\n1. Unterstützung der Umsetzung des ICS FIN-Rotationsplans\nUnterstützung bei der Umsetzung des Rotationsplans des Internen Kontrollsystems für Finanzen (ICS FIN) unter Anleitung von leitenden Teammitgliedern.\nHilfe bei der Koordination der Planung und Planung von Kontrolltestaktivitäten in verschiedenen Finanzbereichen.\nBehalten Sie einen Überblick über den Status des Rotationsplans (z. B. abgeschlossene, laufende und bevorstehende Aktivitäten) und erstellen Sie einfache Zusammenfassungen für das Team.\n\n2. Zusammenarbeit mit internationalen Standorten bei der Ausführung von ICS FIN\nUnterstützung der Kommunikation mit internationalen Standorten, die an der Durchführung von ICS FIN-Kontrollen beteiligt sind.\nHelfen Sie, Informationen, Dokumentation und Statusaktualisierungen von lokalen Finanzteams zu sammeln.\nUnterstützung bei der Weiterverfolgung von ausstehenden Maßnahmen, Klarstellungen oder fehlender Dokumentation und bei Bedarf eskalierende Probleme für ältere Kollegen.\n\n3. First Line Support Desk\nHandeln Sie als erster Ansprechpartner für grundlegende Fragen zu ICS FIN Prozessen, Tools und Dokumentation.\nGeben Sie den Benutzern eine erste Anleitung basierend auf bestehenden Verfahren, Handbüchern und Anweisungen.\nErfassen und kategorisieren Sie eingehende Anfragen und Probleme und leiten Sie komplexere Themen an die entsprechenden Teammitglieder weiter.\n\n4. Erstellung von ICS FIN-Berichten für die Geschäftsleitung und die Ausschüsse\nUnterstützung bei der Erstellung regelmäßiger und ad hoc ICS FIN-Berichte für die Geschäftsleitung und die zuständigen Ausschüsse.\nUnterstützung der Datenerfassung, -konsolidierung und -formatierung von Informationen über die Durchführung von Kontrollen, Feststellungen und den Sanierungsstatus.\nHelfen Sie sicherzustellen, dass Berichte korrekt, konsistent und innerhalb der vereinbarten Fristen geliefert werden.\n\n5. Unterstützung bei der jährlichen ICS FIN Risk and Control Self Assessment (RCSA)\nÜbernahme einer aktiven Rolle bei der Unterstützung der jährlichen Risiko- und Kontrollselbstbewertung für ICS FIN.\nUnterstützung bei der Organisation des Bewertungsprozesses (z. B. Zeitpläne, Teilnehmer, Dokumentationsanforderungen).\nHelfen Sie, Input von Interessengruppen zu sammeln, Ergebnisse zusammenzustellen und Zusammenfassungen der wichtigsten Risiken, Kontrollen und Ergebnisse vorzubereiten.\nUnterstützung der Dokumentation von Schlussfolgerungen und Folgemaßnahmen, die sich aus der Bewertung ergeben.\n\n6. Wartung und Verbesserung von ICS FIN\nBeitrag zur Pflege der ICS FIN-Dokumentation (z. B. Kontrollbeschreibungen, Verfahren, Richtlinien und Vorlagen).\nUnterstützung bei der Identifizierung von Möglichkeiten zur Vereinfachung, Klärung oder Verbesserung bestehender ICS FIN-Prozesse und -Materialien.\nUnterstützen Sie kleine Verbesserungsinitiativen, z. B. die Aktualisierung von Checklisten, die Verbesserung von Leitfäden oder die Verbesserung der Datenqualität in ICS FIN-Tools.\n\n## Besondere Aufgaben\n\n1. Lernen und Entwicklung\nBeteiligen Sie sich aktiv an On-the-Job-Schulungen zu ICS FIN-Konzepten, Risiko- und Kontrollrahmen und Finanzierungsprozessen.\nAufbau eines Verständnisses der internen Kontrollprinzipien, der Risikobewertung und der Rolle von ICS FIN innerhalb der Finanzfunktion.\nVertrautheit mit den Tools und Systemen, die zur Dokumentation und Überwachung von ICS FIN-Kontrollen verwendet werden.\n\n2. Funktionale Zusammenarbeit\nUnterstützung von Interaktionen mit anderen Finanz- und Kontrollfunktionen (z. B. lokale Finanzteams, Risikomanagement, Compliance, interne Revision) im Rahmen der ICS FIN-Aktivitäten.\nUnterstützung bei der Koordinierung des Informationsflusses und Gewährleistung, dass relevante Interessengruppen die erforderlichen ICS FIN-Dokumentationen und Aktualisierungen erhalten.\n\n3. Ad-hoc-Unterstützung\nFühren Sie Ad-hoc-Aufgaben im Zusammenhang mit ICS FIN durch, z. B. Datenprüfungen, Dateiorganisation, Vorbereitung von Präsentationen oder einfache Analysen.\nBei Bedarf allgemeine administrative und organisatorische Unterstützung für das ICS FIN-Team.\n\nWen wir suchen\n\n- Derzeit in einem Bachelor- oder Master-Abschluss in Finanzen, Rechnungswesen, Betriebswirtschaft, Informationssysteme oder einem verwandten Bereich eingeschrieben.\n\n- Starke analytische Fähigkeiten und Fähigkeit zur Strukturierung und Synthese von Informationen.\n\n- Gute Beherrschung von Office-Tools, insbesondere Tabellenkalkulationen und Präsentationen.\n\n- Starke schriftliche und verbale Kommunikationsfähigkeiten.\n\n- Fähigkeit, mit Finanzen, IT und anderen Stakeholdern zusammenzuarbeiten.\n\n- Hohe Liebe zum Detail, Zuverlässigkeit und gute organisatorische Fähigkeiten.\n\n- Proaktiv, neugierig und bereit, in einer projektorientierten Umgebung zu lernen.\n\n- Sehr gute Englisch- und Französischkenntnisse (geschrieben und gesprochen).\n\nUnsere Werte\n\n- Verantwortlichkeit: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie Suche nach kontinuierlicher Verbesserung\n\n- Hands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben\n\n- Lösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\n- Partnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie Ihrem Lebenslauf beim Ausfüllen des Antrags ein Anschreiben beifügen.\n\nAntragstellung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
         "fr": "Informations générales\n\n- Département: CFO\n\n- Temps de travail Pourcentage: 100%\n\n- Lieu : Genève\n\n- Stage - début dès - durée minimale 6 mois avec prolongation possible\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLe stagiaire appuiera le Système de contrôle interne pour les finances (ICS FIN) en aidant à la mise en œuvre du plan de rotation, en assurant la liaison avec les sites internationaux sur l'exécution du contrôle et en servant de bureau d'appui de première ligne pour les questions relatives à ICS FIN. Ce rôle contribue à la préparation des rapports FIN du CSI à l'intention de la haute direction et des comités, appuie l'autoévaluation annuelle des risques et du contrôle et aide à maintenir et à améliorer la documentation et les processus FIN du CSI.\n\nPrincipales responsabilités\n\n1. Soutenir la mise en œuvre du plan de rotation ICS FIN\nAider à la mise en oeuvre du plan de rotation du Système de contrôle interne pour les finances (SIC FIN) sous la direction des membres supérieurs de l'équipe.\nAider à coordonner la planification et le calendrier des activités d'essais de contrôle dans différents domaines financiers.\nTenir un aperçu de l'état du plan de rotation (p. ex. activités terminées, en cours et à venir) et préparer des résumés simples pour l'équipe.\n\n2. Liaison avec des sites internationaux sur l'exécution ICS FIN\nSoutenir la communication avec les sites internationaux impliqués dans l'exécution des contrôles ICS FIN.\nAider à recueillir des informations, de la documentation et des mises à jour de l'état d'avancement auprès des équipes financières locales.\nAider à assurer le suivi des mesures en suspens, des clarifications ou des documents manquants, et à accroître les problèmes aux collègues supérieurs au besoin.\n\n3. Bureau d ' appui de première ligne\nAgir comme premier point de contact pour les questions de base concernant les processus, les outils et la documentation d'ICS FIN.\nFournir des conseils initiaux aux utilisateurs en fonction des procédures, des manuels et des instructions existants.\nEnregistrez et catégorisez les questions et les enjeux entrants, et transmettez des sujets plus complexes aux membres de l'équipe appropriés.\n\n4. Préparation des rapports ICS FIN à l'intention de la haute direction et des comités\nAider à l'élaboration de rapports réguliers et ponctuels ICS FIN à l'intention de la haute direction et des comités compétents.\nAppuyer la collecte, la consolidation et la mise en forme de données sur l'exécution des contrôles, les constatations et l'état de la remise en état.\nAider à s'assurer que les rapports sont exacts, cohérents et livrés dans les délais convenus.\n\n5. Soutien à l'auto-évaluation annuelle du risque et du contrôle de l'ICS FIN (RCSA)\nParticiper activement à l'autoévaluation annuelle du risque et du contrôle pour ICS FIN.\nAider à organiser le processus d'évaluation (par exemple calendrier, participants, exigences en matière de documentation).\nAider à recueillir les commentaires des intervenants, à compiler les résultats et à préparer des résumés des principaux risques, contrôles et constatations.\nAppuyer la documentation des conclusions et des actions de suivi découlant de l'évaluation.\n\n6. Entretien et amélioration de ICS FIN\nContribuer à la maintenance de la documentation ICS FIN (p. ex. descriptions de contrôle, procédures, lignes directrices et modèles).\nAider à identifier les possibilités de simplifier, de clarifier ou d'améliorer les processus et les documents existants du CSI FIN.\nAppuyer de petites initiatives d'amélioration, comme la mise à jour des listes de contrôle, l'amélioration des documents d'orientation ou l'amélioration de la qualité des données dans les outils ICS FIN.\n\n## Tâches spéciales\n\n1. Apprentissage et développement\nParticiper activement à la formation en cours d'emploi sur les concepts ICS FIN, les cadres de risque et de contrôle et les processus financiers.\nMieux comprendre les principes de contrôle interne, l'évaluation des risques et le rôle de l'ICS FIN dans la fonction financière.\nDévelopper la connaissance des outils et des systèmes utilisés pour documenter et surveiller les contrôles ICS FIN.\n\n2. Collaboration interfonctionnelle\nSoutenir les interactions avec d'autres fonctions de finances et de contrôle (p. ex., les équipes financières locales, la gestion des risques, la conformité, l'audit interne) dans le cadre des activités du CSI FIN.\nAider à coordonner les flux d'information et veiller à ce que les parties prenantes concernées reçoivent la documentation et les mises à jour requises du CSI FIN.\n\n3. Appui ad hoc\nEffectuer des tâches ad hoc liées à ICS FIN, telles que la vérification des données, l'organisation des fichiers, la préparation de présentations ou de simples analyses.\nFournir un soutien administratif et organisationnel général à l'équipe ICS FIN au besoin.\n\nQui nous cherchons\n\n- Actuellement inscrit à un baccalauréat ou maîtrise en finance, comptabilité, administration des affaires, systèmes d'information, ou un domaine connexe.\n\n- Forte capacité d'analyse et capacité de structurer et de synthétiser l'information.\n\n- Bonne maîtrise des outils de bureau, en particulier des feuilles de calcul et des présentations.\n\n- Forte capacité de communication écrite et verbale.\n\n- Capacité de travailler en collaboration avec les Finances, les TI et d'autres intervenants.\n\n- Une grande attention aux détails, à la fiabilité et aux bonnes compétences organisationnelles.\n\n- Proactive, curieuse et disposée à apprendre dans un environnement axé sur le projet.\n\n- Très bonne maîtrise de l'anglais et du français (écrit et parlé).\n\nNos valeurs\n\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n\n- Passionné : être engagé et rechercher l'excellence\n\n- Une solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\n- Orientation vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
@@ -2570,7 +2589,7 @@
         "byLocale": {
           "en": {
             "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">CFO</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li><li><span lang=\"EN-GB\">Internship - starting asap - minimum duration 6 months with possible extension</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\"> We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">The intern will support the Internal Control System for Finance (ICS FIN) by assisting in the implementation of the rotation plan, liaising with international locations on control execution, and acting as a first line support desk for ICS FIN-related queries. The role contributes to the preparation of ICS FIN reports for senior management and committees, supports the Annual Risk and Control Self Assessment, and helps maintain and improve ICS FIN documentation and processes.</span></span></p><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Key Responsibilities</strong></span></p><p><span>1. Support the ICS FIN rotation plan implementation</span><br><span>Assist in the implementation of the Internal Control System for Finance (ICS FIN) rotation plan under the guidance of senior team members.</span><br><span>Help coordinate the planning and scheduling of control testing activities across different finance areas.</span><br><span>Maintain an overview of the rotation plan status (e.g. completed, ongoing and upcoming activities) and prepare simple summaries for the team.</span><br><br><span>2. Liaising with international locations on ICS FIN execution</span><br><span>Support communication with international locations involved in the execution of ICS FIN controls.</span><br><span>Help collect information, documentation and status updates from local finance teams.</span><br><span>Assist in following up on outstanding actions, clarifications or missing documentation, escalating issues to senior colleagues when needed.</span><br><br><span>3. First line support desk</span><br><span>Act as a first point of contact for basic questions related to ICS FIN processes, tools and documentation.</span><br><span>Provide initial guidance to users based on existing procedures, manuals and instructions.</span><br><span>Record and categorise incoming queries and issues, and forward more complex topics to the appropriate team members.</span><br><br><span>4. Preparation of ICS FIN reports for senior management and committees</span><br><span>Assist in preparing regular and ad hoc ICS FIN reports for senior management and relevant committees.</span><br><span>Support data collection, consolidation and formatting of information on control execution, findings and remediation status.</span><br><span>Help ensure that reports are accurate, consistent and delivered within agreed deadlines.</span><br><br><span>5. Support in the Annual ICS FIN Risk and Control Self Assessment (RCSA)</span><br><span>Take an active role in supporting the Annual Risk and Control Self Assessment for ICS FIN.</span><br><span>Assist in organising the assessment process (e.g. timelines, participants, documentation requirements).</span><br><span>Help gather input from stakeholders, compile results and prepare summaries of key risks, controls and findings.</span><br><span>Support the documentation of conclusions and follow-up actions arising from the assessment.</span><br><br><span>6. Maintenance and improvement of ICS FIN</span><br><span>Contribute to the maintenance of ICS FIN documentation (e.g. control descriptions, procedures, guidelines and templates).</span><br><span>Assist in identifying opportunities to simplify, clarify or improve existing ICS FIN processes and materials.</span><br><span>Support small improvement initiatives, such as updating checklists, enhancing guidance documents or improving data quality in ICS FIN tools.</span></p><p><span>Special Tasks: </span></p><p><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">1. Learning and development</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Participate actively in on-the-job training on ICS FIN concepts, risk and control frameworks and finance processes.</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Build understanding of internal control principles, risk assessment and the role of ICS FIN within the finance function.</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Develop familiarity with the tools and systems used to document and monitor ICS FIN controls.</span></span><br><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">2. Cross-functional collaboration</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Support interactions with other finance and control functions (e.g. local finance teams, risk management, compliance, internal audit) as part of ICS FIN activities.</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Assist in coordinating information flows and ensuring that relevant stakeholders receive the required ICS FIN documentation and updates.</span></span><br><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">3. Ad-hoc support</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Perform ad-hoc tasks related to ICS FIN, such as data checks, file organisation, preparation of presentations or simple analyses.</span></span><br><span style=\"font-family: \"Fira Sans Light\", sans-serif;\"><span style=\"font-size: 9pt; letter-spacing: 0.1pt; line-height: 120%;\">Provide general administrative and organisational support to the ICS FIN team as needed.</span></span></p><p><span> </span></p><p><span lang=\"EN-GB\"> <strong>Who we are looking for </strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Currently enrolled in a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems, or a related field.</span></li><li><span>Strong analytical skills and ability to structure and synthesise information.</span></li><li><span>Good command of office tools, in particular spreadsheets and presentations.</span></li><li><span>Strong written and verbal communication skills.</span></li><li><span>Ability to work collaboratively with Finance, IT and other stakeholders.</span></li><li><span>High attention to detail, reliability and good organisational skills.</span></li><li><span>Proactive, curious and willing to learn in a project driven environment.</span></li><li><span>Very good command of English and French (written and spoken).</span></li></ul><p><span> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">CFO</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li><li><span lang=\"EN-GB\">Internship - starting asap - minimum duration 6 months with possible extension</span></li></ul><p><span> </span></p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\"> We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span>As a Finance intern within ICS FIN, you will gain hands-on exposure to internal controls, risk assessment and finance processes in an international private banking environment. You will support the implementation of the ICS FIN rotation plan, coordinate with international locations, help respond to day-to-day queries, and contribute to reports and documentation used by senior management and committees. This internship offers a practical opportunity to build your understanding of Finance control frameworks while working closely with experienced colleagues across the organisation.</span></p><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Key Responsibilities</strong></span></p><p><i><span>ICS FIN rotation plan and control testing</span></i></p><ul style=\"list-style-type: disc;\"><li><p><span>Support the implementation of the ICS FIN rotation plan and learn how Finance controls are organised, tested and monitored.</span></p></li><li><p><span>Help plan and schedule control testing activities across Finance areas.</span></p></li><li><p><span>Track completed, ongoing and upcoming activities, and prepare clear summaries for the team.</span></p></li></ul><p><i><span lang=\"FR-CH\">International coordination and support desk</span></i></p><ul style=\"list-style-type: disc;\"><li><p><span>Coordinate with international locations and local Finance teams involved in executing ICS FIN controls.</span></p></li><li><p><span>Collect documentation, information and status updates, and follow up on open points.</span></p></li><li><p><span>Act as a first point of contact for routine ICS FIN questions related to processes, tools and documentation.</span></p></li><li><p><span>Guide users using existing procedures and escalate more complex topics when needed.</span></p></li></ul><p><i><span>Reporting, risk assessment and documentation</span></i></p><ul style=\"list-style-type: disc;\"><li><p><span>Contribute to regular and ad hoc ICS FIN reports for senior management and committees.</span></p></li><li><p><span>Help prepare clear reporting material on control execution, findings and remediation status.</span></p></li><li><p><span>Support the annual ICS FIN Risk and Control Self-Assessment process.</span></p></li><li><p><span>Help coordinate timelines, participants, documentation requirements and stakeholder input.</span></p></li><li><p><span lang=\"FR-CH\">Maintain ICS FIN documents, including control descriptions, procedures, guidelines and templates.</span></p></li><li><p><span>Suggest practical improvements to simplify processes, guidance documents and data quality.</span></p></li></ul><p><i><span>Learning, collaboration and ad hoc support</span></i></p><ul style=\"list-style-type: disc;\"><li><p><span>Learn about internal controls, risk assessment, Finance processes and the role of ICS FIN within the Finance function.</span></p></li><li><p><span>Gain practical experience with tools used to document and monitor Finance controls.</span></p></li><li><p><span>Collaborate with colleagues across Finance, Risk, Compliance and Internal Audit.</span></p></li><li><p><span>Support ad hoc activities such as data checks, file organisation, presentations and simple analyses.</span></p></li><li><p><span>Provide organisational support to the ICS FIN team and gain insight into the day-to-day work of a Finance control function.</span></p></li></ul><p><span> </span></p><p><span lang=\"EN-GB\"> <strong>Who we are looking for </strong></span></p><ul style=\"list-style-type: disc;\"><li><p><span>Currently pursuing a Bachelor’s or Master’s degree in Finance, Accounting, Business Administration, Information Systems or a related field.</span></p></li><li><p><span>Curious and analytical, with the ability to structure information and draw clear insights.</span></p></li><li><p><span>Comfortable using office tools, especially spreadsheets and presentations, and eager to strengthen these skills in a Finance environment.</span></p></li><li><p><span>Clear communicator, both in writing and verbally, with the confidence to interact with different stakeholders.</span></p></li><li><p><span>Collaborative and open-minded, with an interest in working across Finance, IT and control-related functions.</span></p></li><li><p><span>Reliable, organised and attentive to detail, with a willingness to take ownership of assigned tasks.</span></p></li><li><p><span>Proactive, motivated and eager to learn in a hands-on, project-driven environment.</span></p></li><li><p><span>Very good command of English and French, both written and spoken.</span></p></li></ul><p><span> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p><span> </span></p>"
             ],
             "responsibilities": [],
             "requirements": [],
@@ -2579,11 +2598,11 @@
             "highlights": [],
             "keywords": [],
             "sections": [],
-            "readingMinutes": 6
+            "readingMinutes": 4
           }
         }
       },
-      "crawledAt": "2026-08-13T21:53:02.806Z",
+      "crawledAt": "2026-08-14T10:23:34.435Z",
       "slugByLocale": {
         "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
@@ -2621,7 +2640,8 @@
       },
       "previousSlugs": [
         "finance-internship-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -2813,7 +2833,8 @@
         "back-office-cash-reconciliation-specialist-efg-geneve",
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -3317,7 +3338,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -3632,7 +3654,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -3800,7 +3823,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -4052,7 +4076,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -4074,7 +4099,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -4159,7 +4184,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -4419,7 +4445,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -4602,7 +4629,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4831,7 +4859,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4923,7 +4952,8 @@
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
