@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-08-14T10:14:22.181Z",
+  "assembledAt": "2026-08-14T09:51:45.514Z",
   "jobs": [
     {
       "id": "sro-6abd7add22f4",
@@ -2243,15 +2243,32 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal",
-        "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-endoscopia-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-caregiver-endoscopy-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal",
+        "dipl-endoscopie-du-soignant-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal",
-          "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-endoscopia-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-caregiver-endoscopy-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal",
+          "dipl-endoscopie-du-soignant-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal"
+          "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal",
+          "dipl-caregiver-endoscopy-60-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-endoscopie-du-soignant-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-23T11:22:14.916Z",
@@ -2408,18 +2425,41 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
-        "dipl-infermieristica-professionale-hf-fh-day-clinic-recuperare-stanza-40-80-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-infermieristica-professionale-hf-fh-day-clinic-recuperare-stanza-40-80-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-psychiatrische-dienste-marktgasse-18",
+        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+        "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+        "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
+        "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
-          "dipl-infermieristica-professionale-hf-fh-day-clinic-recuperare-stanza-40-80-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-infermieristica-professionale-hf-fh-day-clinic-recuperare-stanza-40-80-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-psychiatrische-dienste-marktgasse-18",
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+          "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
+          "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+          "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-psychiatrische-dienste-marktgasse-18"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
+          "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-08T09:48:33.017Z",
