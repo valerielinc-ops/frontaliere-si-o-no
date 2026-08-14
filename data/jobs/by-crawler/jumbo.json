@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-14T10:16:47.328Z",
+  "assembledAt": "2026-08-14T09:18:23.063Z",
   "jobs": [
     {
       "id": "jumbo-4694e46a-ffa",
@@ -871,22 +871,42 @@
       "previousSlugs": [
         "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
         "responsabile-di-progetto-warenflusssteuerung-jumbo-dietlikon",
-        "responsabile-di-progetto-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-wjrqgy"
+        "responsabile-di-progetto-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-wjrqgy",
+        "responsabile-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-0bhu6q",
+        "head-in-goods-flow-control-jumbo-division-der-coop-genossenschaft-dietlikon",
+        "leiter-in-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-0bhu6q",
+        "tete-dans-le-controle-du-flux-des-marchandises-jumbo-division-der-coop-genossenschaft-dietlikon",
+        "leiter-in-warenflusssteuerung-jumbo-dietlikon",
+        "head-in-goods-flow-control-jumbo-dietlikon",
+        "tete-dans-le-controle-du-flux-des-marchandises-jumbo-dietlikon",
+        "responsabile-warenflusssteuerung-jumbo-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
           "responsabile-di-progetto-warenflusssteuerung-jumbo-dietlikon",
-          "responsabile-di-progetto-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-wjrqgy"
+          "responsabile-di-progetto-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-wjrqgy",
+          "responsabile-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-0bhu6q",
+          "head-in-goods-flow-control-jumbo-division-der-coop-genossenschaft-dietlikon",
+          "leiter-in-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-0bhu6q",
+          "tete-dans-le-controle-du-flux-des-marchandises-jumbo-division-der-coop-genossenschaft-dietlikon",
+          "leiter-in-warenflusssteuerung-jumbo-dietlikon",
+          "head-in-goods-flow-control-jumbo-dietlikon",
+          "tete-dans-le-controle-du-flux-des-marchandises-jumbo-dietlikon",
+          "responsabile-warenflusssteuerung-jumbo-dietlikon"
         ],
         "en": [
-          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon"
+          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
+          "head-in-goods-flow-control-jumbo-division-der-coop-genossenschaft-dietlikon"
         ],
         "de": [
-          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon"
+          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
+          "leiter-in-warenflusssteuerung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-0bhu6q",
+          "leiter-in-warenflusssteuerung-jumbo-dietlikon"
         ],
         "fr": [
-          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon"
+          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
+          "tete-dans-le-controle-du-flux-des-marchandises-jumbo-division-der-coop-genossenschaft-dietlikon"
         ]
       },
       "needsRetranslation": true,
@@ -20510,12 +20530,20 @@
           "• Du bist engagiert und stets gut gelaunt."
         ]
       },
-      "previousSlugs": [
-        "seller-in-cash-registers-services-jumbo-widnau",
-        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-widnau",
-        "verkaufer-in-kassen-services-jumbo-widnau",
-        "venditore-in-cassa-servizi-jumbo-widnau"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-13T10:19:10.575Z",
       "previousSlugsByLocale": {
         "it": [
           "seller-in-cash-registers-services-jumbo-widnau",
@@ -20532,20 +20560,13 @@
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-widnau"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:19:10.575Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "seller-in-cash-registers-services-jumbo-widnau",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-widnau",
+        "verkaufer-in-kassen-services-jumbo-widnau",
+        "venditore-in-cassa-servizi-jumbo-widnau"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-24af9c87-a20",
@@ -20610,12 +20631,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen",
-        "sales-consultant-in-garden-jumbo-laupen",
-        "consultant-commercial-en-jardin-jumbo-laupen",
-        "consulente-vendite-in-giardino-jumbo-laupen"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-13T10:19:10.571Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garten-jumbo-laupen",
@@ -20630,20 +20659,13 @@
           "consultant-commercial-en-jardin-jumbo-laupen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:19:10.571Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-laupen",
+        "sales-consultant-in-garden-jumbo-laupen",
+        "consultant-commercial-en-jardin-jumbo-laupen",
+        "consulente-vendite-in-giardino-jumbo-laupen"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-74f1bf07-5e8",
@@ -20738,9 +20760,9 @@
       "id": "jumbo-9543c484-5e6",
       "slug": "addetto-a-alle-vendite-food-06-00-bis-10-00-uhr-auffuller-in-coop-genossenschaft-zurich-ht95iy",
       "slugByLocale": {
+        "de": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-genossenschaft-zurich-ht95iy",
         "it": "addetto-a-alle-vendite-food-06-00-bis-10-00-uhr-auffuller-in-coop-genossenschaft-zurich-ht95iy",
         "en": "associate-sales-food-06-00-bis-10-00-uhr-auffuller-in-coop-genossenschaft-zurich-ht95iy",
-        "de": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-genossenschaft-zurich-ht95iy",
         "fr": "collaborateur-trice-vente-food-06-00-bis-10-00-uhr-auffuller-in-coop-genossenschaft-zurich-ht95iy"
       },
       "company": "JUMBO",
@@ -20796,10 +20818,7 @@
           "• Du liebst die Arbeit mit Menschen – mit der Kundschaft oder deinem Team."
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-jumbo-zurich",
-        "addetto-a-alle-vendite-food-06-00-bis-10-00-uhr-auffuller-in-jumbo-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-jumbo-zurich",
@@ -20815,8 +20834,10 @@
           "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-jumbo-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T21:52:19.164Z",
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-jumbo-zurich",
+        "addetto-a-alle-vendite-food-06-00-bis-10-00-uhr-auffuller-in-jumbo-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20828,7 +20849,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T21:52:19.164Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-7d3dff42-dd2",

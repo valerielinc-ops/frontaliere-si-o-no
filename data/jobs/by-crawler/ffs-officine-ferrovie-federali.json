@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-08-14T10:33:32.439Z",
+  "assembledAt": "2026-08-14T09:06:32.434Z",
   "jobs": [
     {
       "id": "sbb-8d3be0752091",
@@ -7691,11 +7691,14 @@
         "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten",
         "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
         "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "responsabile-di-progetto-nella-gestione-della-rete-committente-committente-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "project-manager-network-management-client-builder-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "projektleiter-in-netzmanagement-auftraggeber-in-bauherr-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "gestionnaire-de-projet-gestion-reseau-client-client-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-in-road-ffs-officine-ferrovie-federali-zurich-altstetten",
           "responsabile-di-progetto-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
           "project-manager-technical-systems-electrical-systems-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
           "projektleiter-in-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
@@ -7714,24 +7717,28 @@
           "berufsbildner-in-automation-ffs-officine-ferrovie-federali-zurich-altstetten",
           "formateur-triceen-automatisation-ffs-officine-ferrovie-federali-zurich-altstetten",
           "responsabile-di-progetto-infrastrukturplanung-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "pianificatore-di-risorse-in-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "pianificatore-di-risorse-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "responsabile-di-progetto-nella-gestione-della-rete-committente-committente-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "en": [
           "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
           "project-manager-technical-systems-electrical-systems-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
           "section-manager-tunnel-in-the-zurich-stadelhofen-major-project-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "resource-planner-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "project-manager-network-management-client-builder-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "de": [
           "projektleiter-in-technische-anlagen-elektroanlagen-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
           "abschnittsleiter-in-tunnel-im-grossprojekt-zurich-stadelhofen-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "ressourcenplaner-in-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "projektleiter-in-netzmanagement-auftraggeber-in-bauherr-in-ffs-officine-ferrovie-federali-zurich-altstetten"
         ],
         "fr": [
           "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
           "gestionnaire-de-projet-dans-les-systemes-techniques-electriques-50hz-ffs-officine-ferrovie-federali-zurich-altstetten",
           "chef-de-section-en-tunnel-dans-le-projet-stadelhofen-de-zurich-ffs-officine-ferrovie-federali-zurich-altstetten",
-          "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "planificateur-de-ressources-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "gestionnaire-de-projet-gestion-reseau-client-client-ffs-officine-ferrovie-federali-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-07-20T12:41:16.466Z",
@@ -8735,11 +8742,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-14T10:30:29.843Z",
       "previousSlugs": [
-        "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-luzern"
+        "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-luzern",
+        "cross-entry-locomotive-engineer-passenger-12-2026-ffs-officine-ferrovie-federali-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-luzern"
+          "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-luzern",
+          "cross-entry-locomotive-engineer-passenger-12-2026-ffs-officine-ferrovie-federali-chur"
+        ],
+        "en": [
+          "cross-entry-locomotive-engineer-passenger-12-2026-ffs-officine-ferrovie-federali-chur"
         ]
       },
       "firstSeenAt": "2026-07-14T11:04:23.065Z",
