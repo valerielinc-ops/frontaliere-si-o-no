@@ -15,10 +15,17 @@
  *   - `/index.html` (homepage)
  *   - `/404.html`   (GitHub Pages SPA fallback)
  *
- * The test is a **no-op when `dist/` does not exist or is empty**, so it
- * does not require a pre-build step to run (Vitest will just skip).
- * In CI, the suite runs AFTER `vite build` (see pre-push hook), so any
- * indexable page missing breadcrumbs will fail the push.
+ * Mirror of `scripts/audit-breadcrumb-coverage.mjs` — that script sibling
+ * runs inside `npm run audit:all`, blocking, against the SAME dist/ as part
+ * of the single unified walk (`validate-dist-postbuild` job). Per the
+ * pattern `tests/seo/faqpage-validity.test.ts` and
+ * `tests/seo/image-object-license-fields.test.ts` already established, this
+ * file therefore only runs when `RUN_DIST_GATES=1` is set (opt-in, no
+ * workflow sets it) — running it unconditionally inside `gate:seo-source`
+ * was a SECOND full-corpus walk of a dist/ that has outgrown what a vitest
+ * gate can bound in wall time (issue #5874: the walk aborted after its
+ * budget, 768k files in, never reaching a verdict). The real gate is the
+ * audit-all auditor; this vitest copy stays as a standalone/manual check.
  *
  * Breadcrumb injection is verified in each page-emitting build plugin:
  *   - build-plugins/staticPagesPlugin.ts
@@ -69,8 +76,8 @@ function fileToUrlPath(relPath: string): string {
 }
 
 describe('SEO: breadcrumb coverage (D.2)', () => {
-  if (!existsSync(DIST_ROOT)) {
-    it.skip('no dist/ — run `vite build` first to exercise coverage', () => {
+  if (process.env.RUN_DIST_GATES !== '1' || !existsSync(DIST_ROOT)) {
+    it.skip('set RUN_DIST_GATES=1 after `npx vite build` to enable this gate — the real gate is npm run audit:breadcrumb-coverage (audit-all)', () => {
       /* intentional skip */
     });
     return;
@@ -80,8 +87,9 @@ describe('SEO: breadcrumb coverage (D.2)', () => {
   // cathedral-hreflang-x-default), so this must use the shared streaming
   // scan — a materialised string[] of dist/'s ~3.8M HTML files run inside
   // describe() itself (not an it()) is the exact OOM/stall pattern #5729
-  // fixed for the four gate:dist-quality tests; this file scans on every
-  // gate:seo-source run and was missed by that migration.
+  // fixed for the four gate:dist-quality tests. This file is opt-in
+  // (RUN_DIST_GATES=1, see file header) and no workflow sets it — the real
+  // gate is scripts/audit-breadcrumb-coverage.mjs via `npm run audit:all`.
   it('every non-exempt dist/ HTML page includes a BreadcrumbList JSON-LD block', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const missing: Array<{ url: string; file: string }> = [];
 

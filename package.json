@@ -287,6 +287,7 @@
     "audit:discover-eligibility": "node scripts/audit-discover-eligibility.mjs",
     "audit:no-literal-markdown": "node scripts/audit-no-literal-markdown.mjs",
     "audit:faqpage-validity": "node scripts/audit-faqpage-validity.mjs",
+    "audit:breadcrumb-coverage": "node scripts/audit-breadcrumb-coverage.mjs",
     "audit:parser-quality": "node scripts/audit-parser-quality.mjs",
     "audit:parser-quality:rebaseline": "node scripts/audit-parser-quality.mjs --rebaseline",
     "audit:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --dry-run",
