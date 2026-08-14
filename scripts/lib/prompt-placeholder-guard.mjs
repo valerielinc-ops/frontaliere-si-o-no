@@ -120,12 +120,27 @@
  * qualcuno li copra) ma non producono matcher qui — vedi l'intestazione.
  */
 export const SCHEMA_PLACEHOLDER_LITERALS = Object.freeze([
-  'kebab-case-3-5-words-max-40-chars',
+  // ── I cinque segnaposto d'IDENTITÀ, delimitati (valerielinc-ops#5544) ──
+  //
+  // Erano `kebab-case-3-5-words-max-40-chars` e `slug-it`/`slug-en`/`slug-de`/
+  // `slug-fr`, cioè valori che erano ANCHE risposte valide: un'eco del modello
+  // era indistinguibile da una scelta, e 28 sono usciti come URL pubblici.
+  // Delimitati da `<<`/`>>` stanno fuori dall'alfabeto di uno slug e l'eco è
+  // decidibile — vedi il blocco «IDENTITÀ DELL'ARTICOLO» in
+  // `scripts/create-article.mjs`, che è la sorgente di questi byte.
+  //
+  // Restano qui, e NON in `SLUG_OWNED_LITERALS`, per una ragione misurata:
+  // `findSlugPromptLeak()` ne riconosce 1 su 5 (aggancia `<<ID: …>>` solo
+  // perché il testo contiene «kebab-case», e manca tutti e quattro i
+  // `<<SLUG:…>>`). Delegarli allo slug guard significherebbe allargarlo, cioè
+  // spostare la misura che ne fissa l'aggressività. Da qui invece diventano
+  // `TEXT_LITERALS` e si prendono un matcher testuale senza toccare niente.
+  '<<ID: kebab-case ASCII, 3-5 parole, max 40 char>>',
+  '<<SLUG:it = ID>>',
+  '<<SLUG:en>>',
+  '<<SLUG:de>>',
+  '<<SLUG:fr>>',
   'max 125 chars',
-  'slug-it',
-  'slug-en',
-  'slug-de',
-  'slug-fr',
   "Titolo giornalistico con keyword (OBBLIGATORIO ≤ 60 caratteri totali, target 50-55. Il suffisso ' | Frontaliere Ticino' viene aggiunto automaticamente — NON includerlo nel title)",
   'Sottotitolo con dati concreti DALLA FONTE (max 160 chars)',
   "Inizia con '## In breve' (3-4 bullet TL;DR ≤80 char) + '## Fatti chiave' (5-8 coppie **Cosa/Quando/Dove/Chi/Importo**: valore). Poi il LEAD: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole (escluse TL;DR/Fatti chiave). Min 1 ### sotto-sezione.",
@@ -154,6 +169,13 @@ export const SCHEMA_PLACEHOLDER_LITERALS = Object.freeze([
  * vedere. Duplicarli qui creerebbe due verita' sullo stesso campo.
  */
 export const SLUG_OWNED_LITERALS = Object.freeze([
+  // STORICI dal 2026-08-14 (valerielinc-ops#5544): il template non li mostra
+  // più, quindi non compaiono in `SCHEMA_PLACEHOLDER_LITERALS` e il filtro che
+  // costruisce `TEXT_LITERALS` non li incontra. Restano elencati perché
+  // restano VERI: sono nel registro pubblicato (28 slug live), li classifica
+  // `findSlugPromptLeak()`, e i produttori secondari che il prompt non lo
+  // vedono mai possono ancora emetterli. Toglierli non allenterebbe un gate
+  // ma perderebbe la traccia di quale famiglia lo slug guard sta coprendo.
   'kebab-case-3-5-words-max-40-chars',
   'slug-it',
   'slug-en',

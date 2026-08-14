@@ -4967,6 +4967,112 @@ async function selectArticle(headlines) {
   return chosen;
 }
 
+/**
+ * ── IDENTITÀ DELL'ARTICOLO: SEGNAPOSTO DECIDIBILI ────────────────────────
+ *
+ * Lo schema mostrava i due campi che diventano URL con valori d'esempio che
+ * erano ANCHE risposte valide (`kebab-case-3-5-words-max-40-chars`,
+ * `slug-it`/`slug-en`/…), quindi un'eco del modello era indistinguibile da una
+ * scelta e passava `slugifySlugPart()` senza una riga di log. Quattro sono
+ * usciti come URL pubblici permanenti, 24 altri attraverso gli slug di locale.
+ *
+ * Delimitati da `<<`/`>>` gli stessi segnaposto costano +37 caratteri (+11
+ * token stimati con `estimateRequestTokens`) e un'eco diventa DECIDIBILE: `<`,
+ * `>` e `:` sono fuori dall'alfabeto di uno slug sanitizzato. Il controllo va
+ * quindi sul valore GREZZO — la sanitizzazione cancella proprio quei tre
+ * caratteri, cioè la prova.
+ *
+ * Il razionale completo, la misura «1 su 5» del classificatore storico sui
+ * segnaposto nuovi e il caso della riformulazione stanno in
+ * `tests/create-article-identity-schema.test.ts`, che è anche ciò che li pinna.
+ */
+
+/** Apertura e chiusura del segnaposto. Fuori dall'alfabeto di uno slug, per costruzione. */
+export const IDENTITY_TOKEN_OPEN = '<<';
+export const IDENTITY_TOKEN_CLOSE = '>>';
+
+/**
+ * Il segnaposto del campo `id`, con dentro la SPECIFICA di formato — la stessa
+ * informazione che il vecchio `kebab-case-3-5-words-max-40-chars` portava,
+ * senza essere più una risposta valida.
+ */
+export const ID_PLACEHOLDER = `${IDENTITY_TOKEN_OPEN}ID: kebab-case ASCII, 3-5 parole, max 40 char${IDENTITY_TOKEN_CLOSE}`;
+
+/**
+ * Il segnaposto dello slug di `locale`. Il nome del token è DIVERSO da quello
+ * dell'id (`SLUG:<locale>` contro `ID`), così un'eco dice da QUALE dei due
+ * campi è arrivata — è ciò che rende visibile lo scambio fra i due.
+ *
+ * L'italiano è il caso speciale: `validate()` fa `data.slugs.it = data.id`
+ * sempre, quindi chiedere al modello un valore indipendente per `slugs.it`
+ * significa chiedergliene due per un solo URL e buttarne via uno in silenzio.
+ * Il token lo dice invece di lasciarlo dedurre.
+ */
+export function slugPlaceholder(locale) {
+  const l = String(locale);
+  const body = l === 'it' ? 'SLUG:it = ID' : `SLUG:${l}`;
+  return `${IDENTITY_TOKEN_OPEN}${body}${IDENTITY_TOKEN_CLOSE}`;
+}
+
+/** Tutti i segnaposto d'identità che il template deve mostrare, nell'ordine dello schema. */
+export const IDENTITY_PLACEHOLDERS = Object.freeze([
+  ID_PLACEHOLDER,
+  ...['it', 'en', 'de', 'fr'].map(slugPlaceholder),
+]);
+
+/** Le ragioni per cui un campo d'identità viene rigettato. Nessuna è recuperabile indovinando. */
+export const IDENTITY_REJECTION = Object.freeze({
+  /** Valore assente o vuoto. Non è ambiguo: chi chiama decide se sintetizzarlo. */
+  EMPTY: 'empty',
+  /** Residuo di `<<`/`>>`/`:`: il modello ha ricopiato lo schema. Decidibile. */
+  PLACEHOLDER_ECHO: 'placeholder_echo',
+  /** L'`id` porta un token `SLUG`, o uno slug porta il token `ID`: i due campi scambiati. */
+  CROSS_FIELD_ECHO: 'cross_field_echo',
+});
+
+/** Qualunque carattere che uno slug sanitizzato (`[a-z0-9-]`) non può contenere e il segnaposto sì. */
+const IDENTITY_DELIMITER_RE = /[<>:]/;
+
+/**
+ * Legge UN campo d'identità della risposta del modello. **Rifiuta invece di
+ * indovinare**, e va chiamata sul valore GREZZO: è lì che i delimitatori
+ * esistono ancora.
+ *
+ * @param {unknown} raw valore restituito dal modello.
+ * @param {{field?: 'id'|'slug', locale?: string}} opts
+ * @returns {{ok: true, value: string}|{ok: false, rejection: string, detail: string}}
+ */
+export function parseArticleIdentityField(raw, opts = {}) {
+  const field = opts.field === 'id' ? 'id' : 'slug';
+  const locale = opts.locale ? String(opts.locale) : '';
+  const label = `${field}${locale ? `.${locale}` : ''}`;
+  const value = String(raw ?? '').trim();
+  if (!value) {
+    return { ok: false, rejection: IDENTITY_REJECTION.EMPTY, detail: `campo \`${label}\` vuoto` };
+  }
+  if (IDENTITY_DELIMITER_RE.test(value)) {
+    const upper = value.toUpperCase();
+    const mentionsSlug = upper.includes('SLUG');
+    const mentionsId = /(^|[^A-Z])ID([^A-Z]|$)/.test(upper);
+    // Un `id` che riporta un token SLUG (o viceversa) non è solo un'eco: è il
+    // modello che ha scambiato i due campi, cioè esattamente la confusione che
+    // lo schema vecchio rendeva possibile. Merita una ragione propria.
+    if ((field === 'id' && mentionsSlug) || (field === 'slug' && mentionsId && !mentionsSlug)) {
+      return {
+        ok: false,
+        rejection: IDENTITY_REJECTION.CROSS_FIELD_ECHO,
+        detail: `\`${label}\` contiene il segnaposto dell'ALTRO campo: "${value.slice(0, 80)}"`,
+      };
+    }
+    return {
+      ok: false,
+      rejection: IDENTITY_REJECTION.PLACEHOLDER_ECHO,
+      detail: `\`${label}\` porta ancora un delimitatore di segnaposto: "${value.slice(0, 80)}"`,
+    };
+  }
+  return { ok: true, value };
+}
+
 // ── Step 2: Generate article via GitHub Models (multi-call) ─
 async function callGemini(pageContent, url, sourceContext = null) {
   // Get existing article IDs to avoid duplicates (all sections — shared id/SEO/i18n namespace)
@@ -5351,13 +5457,13 @@ VIOLAZIONE = articolo bocciato in fact-check con verdict=FAIL + critical:fatti_i
 
 Genera JSON (no markdown, no code fences):
 {
-  "id": "kebab-case-3-5-words-max-40-chars",
+  "id": "<<ID: kebab-case ASCII, 3-5 parole, max 40 char>>",
   "category": "one of: ${CATEGORIES.join(', ')}",
   "image": "one of: ${AVAILABLE_IMAGES.slice(0, 15).join(', ')}... (scegli la più adatta)",
   "hasCalculator": true,
   ${imagePromptSchemaLine}
   "imageAlt": { "it": "max 125 chars", "en": "max 125 chars", "de": "max 125 chars", "fr": "max 125 chars" },
-  "slugs": { "it": "slug-it", "en": "slug-en", "de": "slug-de", "fr": "slug-fr" },
+  "slugs": { "it": "<<SLUG:it = ID>>", "en": "<<SLUG:en>>", "de": "<<SLUG:de>>", "fr": "<<SLUG:fr>>" },
   "content": {
     "it": {
       "title": "Titolo giornalistico con keyword (OBBLIGATORIO ≤ 60 caratteri totali, target 50-55. Il suffisso ' | Frontaliere Ticino' viene aggiunto automaticamente — NON includerlo nel title)",
@@ -6331,6 +6437,18 @@ function validate(data, opts = {}) {
     throw err;
   }
 
+  // Eco DECIDIBILE del segnaposto, sul valore grezzo: prima del
+  // classificatore storico e prima della sanitizzazione, che cancella i
+  // delimitatori. qualityReject => il chiamante RIGENERA; EMPTY non si
+  // propaga (il blocco sotto sintetizza l'id dal titolo, come sempre).
+  const idVerdict = parseArticleIdentityField(data.id, { field: 'id' });
+  if (!idVerdict.ok && idVerdict.rejection !== IDENTITY_REJECTION.EMPTY) {
+    const err = new Error(`id RIGETTATO (${idVerdict.rejection}): ${idVerdict.detail}`);
+    err.qualityReject = true;
+    err.identityRejected = true;
+    throw err;
+  }
+
   // The prompt shows the id field as `"id": "kebab-case-3-5-words-max-40-chars"`,
   // and models sometimes echo that placeholder instead of replacing it — either
   // verbatim, or with the `kebab-case-` prefix glued onto a real slug. Four of
@@ -6591,6 +6709,12 @@ function validate(data, opts = {}) {
   for (const locale of ['en', 'de', 'fr']) {
     if (data.slugs[locale]) {
       const original = data.slugs[locale];
+      // Eco decidibile, sul GREZZO: la sanitizzazione cancella i delimitatori.
+      const localeVerdict = parseArticleIdentityField(original, { field: 'slug', locale });
+      if (!localeVerdict.ok && localeVerdict.rejection !== IDENTITY_REJECTION.EMPTY) {
+        console.warn(`  \u26a0\ufe0f  Slug ${locale} RIGETTATO: ${localeVerdict.detail}`);
+        data.slugs[locale] = '';
+      }
       data.slugs[locale] = String(data.slugs[locale])
         .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
         .toLowerCase()
