@@ -30,7 +30,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { render, cleanup, act } from '@testing-library/react';
-import { ADSENSE_LOADER_CONTENT, OFFERWALL_FC_SNIPPET } from '@/build-plugins/constants';
+import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED } from '@/services/adsConsent';
 
 const REAL_UA =
@@ -83,29 +83,32 @@ function indexHtmlFcLoaderJs(): string {
 }
 
 /**
- * OFFERWALL_FC_SNIPPET is TWO concatenated `<script>` tags (registry, then the
- * FC network loader). Isolates the second one — the one that can actually
- * inject an advertising script into the DOM — so it can be run on its own.
+ * NOT covered here on purpose: OFFERWALL_FC_SNIPPET.
+ *
+ * It looks like the natural twin of the index.html loader below, and a consent
+ * gate was briefly added to it. It has to come back out, because
+ * `offerwallFcSnippet` is a SCALAR FIELD OF `SiteShellContract` — the cross-repo
+ * contract whose other half lives in nanakokyobashi-rgb/frontaliere-articles
+ * under `host/`. Editing that string changes the digest asserted by
+ * tests/articles-shell-contract-fingerprint.test.ts on BOTH repos, so it can
+ * only move as a coordinated pair of PRs. That guard is the only thing covering
+ * a contract with no import form; the last time the two halves diverged the
+ * result was `TypeError: <member> is not a function` at render time with CI
+ * green on both sides.
+ *
+ * And the trade is not worth it: Funding Choices is Google's adblock-RECOVERY
+ * message, EEA-only by design, and Switzerland is not EEA — gating it buys
+ * approximately zero consent coverage while forcing a two-repo change. The
+ * scripts that actually serve ads (adsbygoogle.js, gpt.js, prebid.js) are all
+ * gated and behaviourally tested above.
+ *
+ * If you ever do need to gate it, ship `host/siteShellBootstrap.ts` on the
+ * corpus in the same change and re-record the digest in both repos.
  */
-function offerwallFcLoaderJs(): string {
-  const blocks = OFFERWALL_FC_SNIPPET.split('<script>')
-    .slice(1)
-    .map((block) => block.split('</script>')[0]);
-  const loader = blocks.find((block) => block.includes('fundingchoicesmessages.google.com'));
-  if (!loader) throw new Error('OFFERWALL_FC_SNIPPET: Funding Choices loader block not found');
-  return loader;
-}
-
 function runIndexHtmlFcLoader(): void {
   (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback = (cb) => cb();
   // eslint-disable-next-line no-new-func
   new Function(indexHtmlFcLoaderJs())();
-}
-
-function runOfferwallFcLoader(): void {
-  (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback = (cb) => cb();
-  // eslint-disable-next-line no-new-func
-  new Function(offerwallFcLoaderJs())();
 }
 
 beforeEach(() => {
@@ -240,10 +243,6 @@ describe('ads-consent gate — no ad script before consent', () => {
     expect(injectedAdScripts()).toEqual([]);
   });
 
-  it('OFFERWALL_FC_SNIPPET (static blog-detail pages) loader injects NOTHING when no decision has been made', () => {
-    runOfferwallFcLoader();
-    expect(injectedAdScripts()).toEqual([]);
-  });
 });
 
 describe('ads-consent gate — the gate is reachable, and opens', () => {
@@ -276,14 +275,6 @@ describe('ads-consent gate — the gate is reachable, and opens', () => {
     ).not.toBeNull();
   });
 
-  it('OFFERWALL_FC_SNIPPET (static blog-detail pages) loader DOES inject once consent is granted', () => {
-    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
-    runOfferwallFcLoader();
-    expect(injectedAdScripts()).not.toEqual([]);
-    expect(
-      document.querySelector('script[src*="fundingchoicesmessages.google.com"]'),
-    ).not.toBeNull();
-  });
 });
 
 describe('ads-consent gate — banner wiring', () => {
