@@ -1,18 +1,55 @@
 {
   "key": "spitex-zuerich",
   "label": "Spitex Zürich",
-  "generatedAt": "2026-08-13T21:53:08.209Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-14T10:17:55.365Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 17578,
-  "avgDurationMs": 17578,
+  "unchangedCount": 1,
+  "durationMs": 18412,
+  "avgDurationMs": 18412,
   "durationHistory": [
-    17578
+    18412
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "spitex-zuerich-4090b76ef7ba",
+      "slug": "dipl-pflegefachfrau-mann-mit-fallfuhrung-psychiatrie-60-a-spitex-zuerich-zurich",
+      "company": "Spitex Zürich",
+      "companyKey": "spitex-zuerich",
+      "companyDomain": "spitex-zuerich.ch",
+      "title": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a)",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0ltsce1nk44swtiyyxom5pdobyx4j1p",
+      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:17:40.941Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8000",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/0ltsce1nk44swtiyyxom5pdobyx4j1p",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "spitex-zuerich-460f5e5c7f49",
@@ -27,7 +64,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:52:56.019Z",
+      "crawledAt": "2026-08-14T10:17:43.969Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/nl9cf76xb2jlvlyl9idzjlg5x0rzj2b",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:52:57.504Z",
+      "crawledAt": "2026-08-14T10:17:45.003Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/py24tr8kcwhav0qwm3dfaqbpuitj0rs",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:52:58.507Z",
+      "crawledAt": "2026-08-14T10:17:46.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/jzni3a9y33rycfe1yv6io2sh48gqojf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:52:59.961Z",
+      "crawledAt": "2026-08-14T10:17:47.521Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ui3t7tv680e4hueff634rq8p897izdc",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:53:01.415Z",
+      "crawledAt": "2026-08-14T10:17:48.553Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:53:02.955Z",
+      "crawledAt": "2026-08-14T10:17:50.090Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/3z63p0d34rnt62mbsgjnxdzoby4vvsl",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:53:03.949Z",
+      "crawledAt": "2026-08-14T10:17:51.608Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:53:05.005Z",
+      "crawledAt": "2026-08-14T10:17:53.101Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8py3fp47kmu9qgsundvik7gfkhkkbit",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:52:54.522Z",
+      "crawledAt": "2026-08-14T10:17:42.441Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -346,7 +383,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spitex-zuerich-c92d56fb2361",
       "slug": "mitarbeitende-hauswirtschaft-e-betreuung-50-70-a-spitex-zurich",
@@ -376,15 +416,16 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "firstSeenAt": "2026-06-17T13:39:31.550Z",
-      "_qualityScore": 77,
+      "salaryMin": 51500,
+      "salaryMax": 78100,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
