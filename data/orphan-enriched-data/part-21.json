@@ -25971,9 +25971,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen",
-        "en": "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen",
-        "de": "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen",
-        "fr": "fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen"
+        "en": "specialist-health-efz-spitaler-fmi-ag-unterseen",
+        "de": "fachfrau-fachmann-gesundheit-efz-fmi-unterseen",
+        "fr": "specialiste-de-la-sante-efz-spitaler-fmi-ag-unterseen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/fachfrau-fachmann-gesundheit-cfc-spitaler-fmi-ag-unterseen",
@@ -25987,6 +25987,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
