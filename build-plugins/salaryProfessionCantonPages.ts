@@ -88,6 +88,7 @@ import {
   TABLE_HEAD_CLASS,
   TABLE_CELL_CLASS,
   renderStatGrid,
+  differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 
 /** Minimum real active jobs for a (canton, profession) salary page to be emitted. */
@@ -457,7 +458,33 @@ export function renderSalaryProfessionCantonPage(opts: {
   <span aria-current="page">${esc(role)} · ${esc(cantonName)}</span>
 </nav>`;
 
-  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">\u{1F4B0}</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(role, cantonName))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(role, cantonName, grossYearStr, netMonthStr))}</p></header>`;
+  // ── Terza istanza della stessa collisione, trovata dal sibling-check ───
+  //
+  // Identica a professionCantonLandings.ts / professionCityLandings.ts: il
+  // secondo candidato del `<title>` e' `BRIDGE_COPY[locale].title`, e qui
+  // coincide con `COPY[locale].h1` su TRE locali su quattro, non due:
+  //
+  //   en   `${r} salary in Canton ${c}`        ==  bridge title
+  //   de   `${r}-Lohn im Kanton ${c}`          ==  bridge title
+  //   fr   `Salaire ${r} dans le canton ${c}`  ==  bridge title
+  //   it   `Stipendio ${r} nel Canton ${c}`    vs  `Stipendio ${r} Canton ${c}`
+  //
+  // E il `metaTitle` di questa famiglia e' il piu' lungo di tutte
+  // («— lordo {grossYear} e netto»), quindi e' anche quella che raggiunge il
+  // fallback piu' spesso. Il gemello `salaryStatsChCantonPages.ts` la stessa
+  // trappola l'aveva gia' chiusa a modo suo (candidato `${h1} · 2026`);
+  // questo file era rimasto indietro.
+  //
+  // Stesso rimedio degli altri due: titolo prima, H1 differenziato dopo, e
+  // solo sull'elemento `<h1>` (breadcrumb e JSON-LD tengono l'headline nudo).
+  const pageTitle = composePlaceTitle(
+    [c.metaTitle(role, cantonName, grossYearStr), BRIDGE_COPY[locale].title(role, cantonName)],
+    TITLE_MAX_CHARS,
+    (s) => esc(s).length,
+  );
+  const h1Display = differentiateH1FromTitle(c.h1(role, cantonName), pageTitle, locale);
+
+  const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">\u{1F4B0}</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(h1Display)}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(role, cantonName, grossYearStr, netMonthStr))}</p></header>`;
 
   const tiles = renderStatGrid([
     { label: c.tileGrossYear, value: grossYearStr, tone: 'accent', href: calcHref },
@@ -582,11 +609,11 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
   // carries the longest suffix of any profession-landing template
   // ("— lordo {g} e netto" / "— gross {g} and net" etc); falls back to the
   // shorter BRIDGE_COPY title (no gross-salary clause) when it would overflow.
-  const titleCandidates = [c.metaTitle(role, cantonName, grossYearStr), BRIDGE_COPY[locale].title(role, cantonName)];
-
+  // Calcolato sopra come `pageTitle`, prima dell'header: l'H1 deve confrontarsi
+  // con la stringa ESATTA che finisce nel `<title>`.
   const html = buildSeoPageHtml({
     locale,
-    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
+    title: pageTitle,
     description: c.metaDesc(role, cantonName, grossYearStr, netMonthStr),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),

@@ -48,6 +48,16 @@
  * di #5267/#5337 — differenziare l'H1 a render time, mai il `<title>`
  * (`build-plugins/shared/titleSuffix.ts` vieta di accorciare un headline).
  *
+ * ─── La stessa forma vive in ALTRI DUE produttori ───────────────────────
+ *
+ * `salaryProfessionCantonPages.ts` ha la collisione su **tre** locali su
+ * quattro (en/de/fr; solo `it` differisce, per un «nel») e il `metaTitle` piu'
+ * lungo di tutta la famiglia — non l'avevo vista, l'ha alzata
+ * `check-sibling-patterns.mjs` sul diff di questa PR. Riparata nello stesso
+ * giro. Il quarto gemello, `salaryStatsChCantonPages.ts`, la stessa trappola
+ * l'aveva gia' chiusa a modo suo (candidato `${h1} · 2026`, col commento che
+ * la spiega): li' non c'e' niente da fare.
+ *
  * ─── Il gemello: profession-CITY ha lo stesso difetto, spento ───────────
  *
  * `professionCityLandings.ts` ha la stessa cascata e la stessa collisione
@@ -70,7 +80,7 @@
  * su un dist reidratato: i denominatori `scanned` devono essere full-corpus,
  * quindi scriverli a mano da un campione al 25 % sarebbe proprio l'errore che
  * quella procedura vieta. Questo test copre l'altra meta', quella che un
- * ratchet non copre mai: non «quanti ce ne sono» ma «da questi due produttori
+ * ratchet non copre mai: non «quanti ce ne sono» ma «da questi tre produttori
  * non ne puo' nascere nessuno», su TUTTO lo spazio delle combinazioni e non
  * su un campione.
  */
@@ -80,6 +90,9 @@ import { resolve } from 'node:path';
 
 import { renderProfessionCantonPage } from '../build-plugins/professionCantonLandings';
 import { renderProfessionCityPage } from '../build-plugins/professionCityLandings';
+import { renderSalaryProfessionCantonPage } from '../build-plugins/salaryProfessionCantonPages';
+import { SALARY_PROFESSION_ELIGIBLE_IDS } from '../build-plugins/salaryProfessionCantonData';
+import medians from '../data/profession-salary-medians.json' with { type: 'json' };
 import {
   PROFESSION_CANTON_KEYS,
   buildProfessionCantonPath,
@@ -259,6 +272,47 @@ describe('profession-CITY — il gemello latente resta chiuso', () => {
     expect(rendered).toBe(
       PROFESSION_CITY_KEYS.length * PROFESSION_IDS.length * PROFESSION_LOCALES.length,
     );
+    expect(dupes).toEqual([]);
+  });
+});
+
+describe('salary-profession-canton — la TERZA istanza, trovata dal sibling-check', () => {
+  /**
+   * Non l'avevo vista: l'ha alzata `check-sibling-patterns.mjs` sul diff di
+   * questa PR, ed e' la ragione per cui quel controllo esiste. Qui la
+   * collisione e' PEGGIORE che sui due gemelli — `BRIDGE_COPY[locale].title`
+   * coincide con `COPY[locale].h1` su **tre** locali su quattro (en/de/fr;
+   * solo `it` differisce, per un «nel») — e il `metaTitle` di questa famiglia
+   * e' il piu' lungo di tutte («— lordo {grossYear} e netto»), quindi e'
+   * anche quella che raggiunge il fallback piu' spesso.
+   *
+   * Il gemello `salaryStatsChCantonPages.ts` la stessa trappola l'aveva gia'
+   * chiusa a modo suo (candidato `${h1} · 2026`, con il commento che la
+   * spiega); questo file era rimasto indietro.
+   */
+  const presets = new Map(
+    (medians as { presets: Array<{ id: string; label: Record<string, string>; medianSalaryChf: number }> })
+      .presets.map((p) => [p.id, p]),
+  );
+
+  it('copre tutte le combinazioni cantone × professione-eleggibile × locale', () => {
+    const dupes: string[] = [];
+    let rendered = 0;
+    for (const cantonKey of PROFESSION_CANTON_KEYS) {
+      for (const id of SALARY_PROFESSION_ELIGIBLE_IDS) {
+        const preset = presets.get(id);
+        if (!preset) continue;
+        for (const locale of PROFESSION_LOCALES as readonly ProfessionLocale[]) {
+          const { html } = renderSalaryProfessionCantonPage({
+            locale, cantonKey, id, preset: preset as never, snapshot: SNAP, distDir: '',
+          });
+          rendered += 1;
+          const { title, h1 } = titleAndH1(html);
+          if (h1 && stripBrand(title) === h1) dupes.push(`${locale}/${cantonKey}/${id}  «${h1}»`);
+        }
+      }
+    }
+    expect(rendered).toBeGreaterThan(0);
     expect(dupes).toEqual([]);
   });
 });
