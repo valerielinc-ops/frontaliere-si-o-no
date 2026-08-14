@@ -1,9 +1,20 @@
 {
-  "_doc": "Per-slug canonical override map for frontaliere-section blog articles. Same shape, same loader and same semantics as data/swiss-article-canonical-overrides.json (issue #3010 item 1) — the mechanism was hardwired to the svizzera section in ogPagesPlugin.ts and is now driven per section by shared/canonicalOverrideFiles.mjs. Key = page slug (last URL segment, no leading slash) of the shadowed (lower-authority) variant, one entry per locale. Value = absolute canonical URL of the authoritative/winner variant in the SAME locale. Both pages stay live (no removal, no noindex, no redirect — repo anti-cut rule): only the shadowed variant's <link rel=\"canonical\"> and og:url point at the winner, and the shadowed URL is not advertised in a sitemap (a sitemap <loc> whose page canonicalises elsewhere is a hard CI gate failure — scripts/audit-sitemap-canonicals.mjs, scripts/validate-sitemap-pages.mjs). RSS is NOT touched, same as the svizzera precedent. This file lives inside packages/articles/engine/ on purpose: mirror-articles-engine.yml carries engine/** to the corpus repo that renders article pages, while scripts/pull-articles-corpus.mjs would delete a site-only file placed under packages/articles/content/. Source: three near-duplicate piastrellista guides published 2026-08-09 (11:30, 15:44 and 16:08 UTC); winner chosen by the owner.",
+  "_doc": "Per-slug canonical override map for frontaliere-section blog articles. Same shape, same loader and same semantics as data/swiss-article-canonical-overrides.json (issue #3010 item 1) — the mechanism was hardwired to the svizzera section in ogPagesPlugin.ts and is now driven per section by shared/canonicalOverrideFiles.mjs. Key = page slug (last URL segment, no leading slash) of the shadowed (lower-authority) variant, one entry per locale. Value = absolute canonical URL of the authoritative/winner variant in the SAME locale. Both pages stay live (no removal, no noindex, no redirect — repo anti-cut rule): only the shadowed variant's <link rel=\"canonical\"> and og:url point at the winner, and the shadowed URL is not advertised in a sitemap (a sitemap <loc> whose page canonicalises elsewhere is a hard CI gate failure — scripts/audit-sitemap-canonicals.mjs, scripts/validate-sitemap-pages.mjs). RSS is NOT touched, same as the svizzera precedent. This file lives inside packages/articles/engine/ on purpose: mirror-articles-engine.yml carries engine/** to the corpus repo that renders article pages, while scripts/pull-articles-corpus.mjs would delete a site-only file placed under packages/articles/content/. Source: three near-duplicate piastrellista guides published 2026-08-09 (11:30, 15:44 and 16:08 UTC); winner chosen by the owner. Second family added 2026-08-14 (#5510): six near-duplicate educatore-infanzia guides in this section, winner frontaliere-educatore-ticino-stipendio-requisiti (2026-07-23, the newest and the only one following the frontaliere-<mestiere>-ticino-stipendio-requisiti shape the owner already picked as the piastrellista winner). All six answer 200 and stay live. The three educatore guides in the SVIZZERA section are deliberately NOT pulled in here: they are governed by data/swiss-article-canonical-overrides.json, where lavorare-educatore-infanzia-ticino is already a settled winner, and consolidating across sections would move canonicals that issue #3010 item 1 already decided.",
+  "_groupsDoc": "One entry per near-duplicate family. `winner` and `shadowed` are ARTICLE IDS (the it slug), not per-locale slugs: the locale slugs live in `overrides` and are derived from the registry. tests/frontaliere-article-canonical-overrides.test.ts reads THIS map to build its cases, so a family added here is automatically held to every invariant — the winner keeps its sitemap entry, each shadowed id resolves onto the winner in all four locales, and no member is removed, redirected or noindexed. Adding a family without adding its 4 x N override rows fails there rather than shipping half-wired.",
   "_groups": {
     "piastrellista": {
       "winner": "frontaliere-piastrellista-ticino-stipendio-requisiti",
       "shadowed": ["lavoro-piastrellista-ticino-frontaliere", "piastrellista-frontaliere-ticino-guadagno"]
+    },
+    "educatore": {
+      "winner": "frontaliere-educatore-ticino-stipendio-requisiti",
+      "shadowed": [
+        "educatore-infanzia-ticino-stipendio-requisiti",
+        "educatore-infanzia-ticino-stipendi-2026",
+        "educatore-infanzia-ticino-stipendi",
+        "educatore-infanzia-ticino-stipendi-requisiti",
+        "educatore-infanzia-ticino-stipendio"
+      ]
     }
   },
   "overrides": {
@@ -15,6 +26,31 @@
     "piastrellista-frontaliere-ticino-guadagno": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-piastrellista-ticino-stipendio-requisiti/",
     "tile-layer-frontalier-ticino-income": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-tile-layer-ticino-salary-requirements/",
     "fliesenleger-frontalier-tessin-erlos": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-kachelerschweiz-gehalt-anforderungen/",
-    "platrier-frontalier-tessin-revenu": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-peintre-en-ceramique-suisse-salaire-exigences/"
+    "platrier-frontalier-tessin-revenu": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-peintre-en-ceramique-suisse-salaire-exigences/",
+
+    "educatore-infanzia-ticino-stipendio-requisiti": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/",
+    "kindergarten-educator-ticino-salary-requirements": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/",
+    "kindergaerten-erzzieher-tessin-gehalt-anforderungen": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-lehrer-ticino-grosses-netto-anforderungen/",
+    "educateur-de-la-petite-enfance-tessin-salaire-exigences": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-ticino-salaire-requis/",
+
+    "educatore-infanzia-ticino-stipendi-2026": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/",
+    "child-educator-ticino-salary-2026": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/",
+    "kinderbetreuer-tessin-gehalt-2026": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-lehrer-ticino-grosses-netto-anforderungen/",
+    "educateur-enfance-tessin-salaire-2026": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-ticino-salaire-requis/",
+
+    "educatore-infanzia-ticino-stipendi": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/",
+    "child-educator-ticino-salary": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/",
+    "kinderbetreuer-tessin-gehalt": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-lehrer-ticino-grosses-netto-anforderungen/",
+    "educateur-ticino-salaire": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-ticino-salaire-requis/",
+
+    "educatore-infanzia-ticino-stipendi-requisiti": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/",
+    "kindergarten-teacher-ticino-salary-requirements": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/",
+    "kindergartenlehrer-tessin-gehalt-voraussetzungen": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-lehrer-ticino-grosses-netto-anforderungen/",
+    "educateur-petite-enfance-tessin-salaires-exigences": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-ticino-salaire-requis/",
+
+    "educatore-infanzia-ticino-stipendio": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-educatore-ticino-stipendio-requisiti/",
+    "work-educator-ticino": "https://frontaliereticino.ch/en/cross-border-articles/frontalier-educator-ticino-salary-requirements/",
+    "arbeiten-erzieher-tessin": "https://frontaliereticino.ch/de/grenzgaenger-artikel/frontalier-lehrer-ticino-grosses-netto-anforderungen/",
+    "travailler-educateur-tessin": "https://frontaliereticino.ch/fr/articles-frontalier/frontalier-educateur-ticino-salaire-requis/"
   }
 }
