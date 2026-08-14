@@ -34,6 +34,19 @@ Estrai sezione `## Non implementato (ancora)`. Ogni bullet `- **X** — Y` → c
 - Voci `blocked: <causa esterna reale>` → candidate issue (label `blocked`), tracciate fino a sblocco.
 - **Ogni altra voce di scope dovuto → candidate issue** (il task non è chiuso finché non è fatta). Il vecchio skip su motivo `out of scope` / `posposto` è **ABOLITO**: non sono più scappatoie di chiusura. Restano fuori solo le categorie hard-exclude qui sotto (churn non-actionable / missing-test / live-verify-only), che non sono scope-feature.
 
+**Il routing lo decide lo STATO LETTERALE del bullet**, ed è già codificato — `scripts/ci/followup-has-candidates.mjs` importa `bulletState()` da `scripts/lib/pr-body-sections-check.mjs`, che è la sola definizione della tassonomia. Questo elenco la descrive, non la duplica:
+
+| stato dichiarato | candidate? | perché |
+|---|---|---|
+| `in questa PR` | no | è già nel diff mergiato |
+| `PR concatenata #N` | no | ha già il suo tracciamento: la issue sarebbe un doppione |
+| `per scelta` / `by construction` | no | è un no motivato, non un rinvio |
+| `blocked: decisione del proprietario` | no | deciso da chi decide |
+| `blocked: <causa tecnica>` | **sì** | lavoro sospeso su una causa esterna: va riaperto |
+| **nessuno stato dichiarato** | **sì** | fail-safe: un residuo non qualificato è lavoro potenzialmente dovuto, e tacerlo è peggio che generare una traccia |
+
+L'ultima riga è la ragione per cui l'advisory `bullet-without-state` del gate non va promosso a duro finché i generatori non sono a zero: finché i bullet senza stato esistono, sono la classe più numerosa, e filtrarli qui aprirebbe una finestra cieca proprio su di essa.
+
 ### Da reviewer bot reviews
 
 Parse il body markdown della review più recente. Per ogni riga:
@@ -114,6 +127,7 @@ Body:
 
 ### 1. <one-line item>
 - Source: <PR body Non implementato | reviewer 🟡 nit | reviewer ❓ q | adversarial check>
+- Stato dichiarato nella PR: <lo stato letterale verbatim, es. `blocked: <causa>` | nessuno>
 - Original text:
   > <verbatim>
 - Funnel impact: <monetizzazione | traffico | funnel | none>
@@ -122,12 +136,15 @@ Body:
 
 ### 2. <one-line item>
 - Source: ...
+- Stato dichiarato nella PR: ...
 - Original text:
   > ...
 - Funnel impact: ...
 - Rationale: ...
 - Suggested action: ...
 ```
+
+`Stato dichiarato nella PR` è **obbligatorio su ogni item, anche quando è `nessuno`**. È il campo che permette a un agente di distinguere a macchina un residuo che aspetta una decisione umana da uno che potrebbe chiudere subito; senza, l'unico modo è rileggere la PR d'origine a mano, ed è per questo che la coda non si smaltisce. Un item che riporta `nessuno` NON va filtrato via: va aperto lo stesso e sarà il fixer a qualificarlo.
 
 Anche con UN solo candidate item la issue mantiene la forma aggregata (un'unica sezione `### 1.`) → formato uniforme, parsabile dal fixer.
 
