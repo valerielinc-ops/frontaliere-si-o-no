@@ -23,8 +23,13 @@
  * exist locally.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  SCAN_TEST_TIMEOUT_MS,
+  assertScanCompleted,
+  scanDistHtml,
+} from './helpers/distHtmlScan';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
 
@@ -62,17 +67,6 @@ const NON_DESCRIPTIVE_ANCHOR_TEXT = new Set<string>([
  'plus',
  'en savoir plus',
 ]);
-
-function walkHtml(dir: string, out: string[] = []): string[] {
- if (!existsSync(dir)) return out;
- for (const entry of readdirSync(dir)) {
- const full = join(dir, entry);
- const st = statSync(full);
- if (st.isDirectory()) walkHtml(full, out);
- else if (entry.endsWith('.html')) out.push(full);
- }
- return out;
-}
 
 /**
  * Returns true when the anchor's outer markup provides any accessible
@@ -132,22 +126,21 @@ describe('dist HTML — link anchor text gate (Semrush A3 + A11)', () => {
  return;
  }
 
- it(`fewer than ${MAX_LINKS_WITHOUT_ANCHOR_TEXT} anchors lack an accessible name`, () => {
- const files = walkHtml(DIST_DIR);
+ it(`fewer than ${MAX_LINKS_WITHOUT_ANCHOR_TEXT} anchors lack an accessible name`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
  let offending = 0;
  const sample: string[] = [];
 
- for (const file of files) {
- const html = readFileSync(file, 'utf-8');
+ const scan = scanDistHtml(DIST_DIR, (relPath, html) => {
  for (const a of extractAnchors(html)) {
  if (!hasAccessibleName(a.outer, a.inner)) {
  offending += 1;
  if (sample.length < 5) {
- sample.push(`${file.replace(DIST_DIR, '')} :: ${a.outer.slice(0, 120)}`);
+ sample.push(`${relPath} :: ${a.outer.slice(0, 120)}`);
  }
  }
  }
- }
+ });
+ assertScanCompleted(scan, 'anchors lack an accessible name', sample);
 
  if (offending > MAX_LINKS_WITHOUT_ANCHOR_TEXT) {
  throw new Error(
@@ -157,19 +150,22 @@ describe('dist HTML — link anchor text gate (Semrush A3 + A11)', () => {
  expect(offending).toBeLessThanOrEqual(MAX_LINKS_WITHOUT_ANCHOR_TEXT);
  });
 
- it('no anchor uses non-descriptive text ("qui", "click here", "leggi tutto", …)', () => {
- const files = walkHtml(DIST_DIR);
+ it('no anchor uses non-descriptive text ("qui", "click here", "leggi tutto", …)', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
  const offenders: { path: string; text: string }[] = [];
 
- for (const file of files) {
- const html = readFileSync(file, 'utf-8');
+ const scan = scanDistHtml(DIST_DIR, (relPath, html) => {
  for (const a of extractAnchors(html)) {
  const visible = a.inner.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
  if (NON_DESCRIPTIVE_ANCHOR_TEXT.has(visible)) {
- offenders.push({ path: file.replace(DIST_DIR, ''), text: visible });
+ offenders.push({ path: relPath, text: visible });
  }
  }
- }
+ });
+ assertScanCompleted(
+ scan,
+ 'non-descriptive anchor text',
+ offenders.map((o) => `${o.path} :: "${o.text}"`),
+ );
 
  if (offenders.length > 0) {
  const report = offenders

@@ -38,6 +38,25 @@ const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
 
 const LOCALES: ReadonlyArray<Locale> = ['it', 'en', 'de', 'fr'];
 
+/**
+ * Every `it` below enumerates and reads cluster pages under
+ * `dist/{section}/{prefix}-*`. On the 2026-08-14 post-deploy run that
+ * directory held 84,990 entries per locale, so each of these bodies runs for
+ * minutes — far past vitest.config.ts's `testTimeout: 15000`.
+ *
+ * Vitest cannot interrupt a SYNCHRONOUS body: the timer it races only fires
+ * once the body returns, and it then wins that race **only when the body
+ * returned normally**. So every one of these tests that PASSED was reported
+ * as `Test timed out in 15000ms`, while the ones that genuinely failed showed
+ * their real assertion. Six of the seven false failures in issue #5729's
+ * fourth reopening were born exactly here.
+ *
+ * The explicit timeout costs nothing in wall time — it never truncated
+ * anything — and buys a truthful pass/fail. `tests/dist-gate-explicit-timeout.test.ts`
+ * enforces it for every gate in `npm run gate:dist-quality`.
+ */
+const DIST_SCAN_TIMEOUT_MS = 300_000;
+
 const LOCALE_PREFIX: Record<Locale, string> = {
   it: '',
   en: '/en',
@@ -197,7 +216,7 @@ const HAS_PAGES = HAS_DIST && totalClusterCount() > 0;
 describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
   'dist HTML — related-search cluster landings',
   () => {
-    it('emits at least one cluster page across the four locales', () => {
+    it('emits at least one cluster page across the four locales', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const counts: Record<Locale, number> = { it: 0, en: 0, de: 0, fr: 0 };
       let total = 0;
       for (const loc of LOCALES) {
@@ -216,7 +235,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       }
     });
 
-    it('mobile-fold: <h1> precedes any <details> in source order', () => {
+    it('mobile-fold: <h1> precedes any <details> in source order', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       // The static body no longer renders the JobCard grid (the SPA renders
       // it on hydrate inside `#root`). Mobile-first compliance is therefore
       // checked at the heading-hierarchy level: H1 must precede any
@@ -240,7 +259,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('every page has exactly one <h1>, one canonical, and ≥1 hreflang alternate', () => {
+    it('every page has exactly one <h1>, one canonical, and ≥1 hreflang alternate', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
@@ -267,7 +286,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('every <title> is ≤66 chars and contains no `(#abcdef12)` disambiguator', () => {
+    it('every <title> is ≤66 chars and contains no `(#abcdef12)` disambiguator', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc)) {
@@ -287,7 +306,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('JSON-LD: every page emits BreadcrumbList', () => {
+    it('JSON-LD: every page emits BreadcrumbList', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       // ItemList intentionally NOT emitted — the static body no longer
       // visibly lists the jobs (Google's structured-data policy requires
       // structured data to match visible content). The job listings are
@@ -304,7 +323,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('FAQPage (when present) has ≥1 mainEntity with non-empty name + acceptedAnswer.text', () => {
+    it('FAQPage (when present) has ≥1 mainEntity with non-empty name + acceptedAnswer.text', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc)) {
@@ -330,7 +349,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('section landing links to the per-locale hub (when section landing exists)', () => {
+    it('section landing links to the per-locale hub (when section landing exists)', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       for (const loc of LOCALES) {
         if (listClusterDirs(loc).length === 0) continue;
         const section = getJobBoardSectionSlug(loc);
@@ -354,7 +373,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       }
     });
 
-    it('hub index lists every cluster directory on disk (±5 tolerance for pagination)', () => {
+    it('hub index lists every cluster directory on disk (±5 tolerance for pagination)', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       // Pick the locale with the most clusters to get a meaningful signal.
       const counts = LOCALES.map((loc) => ({ loc, n: listClusterDirs(loc).length }));
       counts.sort((a, b) => b.n - a.n);
@@ -405,7 +424,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       ).toBeLessThanOrEqual(tolerance);
     });
 
-    it('no `dark:` color prefix classes leak into emitted cluster HTML', () => {
+    it('no `dark:` color prefix classes leak into emitted cluster HTML', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       // The repo policy forbids dark:bg-/dark:text-/dark:border-/etc in
       // emitted output (semantic tokens auto-switch). `dark:prose-invert`
       // is the only legal exception and the cluster plugin uses no prose
@@ -422,7 +441,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('text-to-HTML ratio ≥10 % across a sample of 30 pages', () => {
+    it('text-to-HTML ratio ≥10 % across a sample of 30 pages', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       let sampled = 0;
       outer: for (const loc of LOCALES) {
@@ -438,7 +457,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('every ImageObject in JSON-LD carries the four GSC license fields', () => {
+    it('every ImageObject in JSON-LD carries the four GSC license fields', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       // The plugin emits no ImageObject by design — this should pass
       // trivially. If a future change adds inline images, the helper at
       // services/seo/imageObjectLd.ts MUST populate the quartet.
@@ -460,7 +479,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
     });
 
-    it('cluster slugs round-trip through parseSearchSlugFilter to non-empty queries', () => {
+    it('cluster slugs round-trip through parseSearchSlugFilter to non-empty queries', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const sample: ClusterPage[] = [];
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 3)) sample.push(page);

@@ -24,8 +24,13 @@
  * tighten `MAX_DUPLICATE_PAGES_PER_DESCRIPTION` from 2 toward 1.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  SCAN_TEST_TIMEOUT_MS,
+  assertScanCompleted,
+  scanDistHtml,
+} from './helpers/distHtmlScan';
 import { extractMetaDescriptionRaw } from '../scripts/lib/meta-description-extract.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
@@ -43,17 +48,6 @@ const ALLOWLIST_PREFIXES: readonly string[] = [
  'Seite nicht gefunden',
  'Page introuvable',
 ];
-
-function walkHtml(dir: string, out: string[] = []): string[] {
- if (!existsSync(dir)) return out;
- for (const entry of readdirSync(dir)) {
- const full = join(dir, entry);
- const st = statSync(full);
- if (st.isDirectory()) walkHtml(full, out);
- else if (entry.endsWith('.html')) out.push(full);
- }
- return out;
-}
 
 /**
  * Shared quote-agnostic reader. The local pair of regexes this replaces
@@ -78,19 +72,18 @@ describe('dist HTML — duplicate meta description gate (Semrush E6)', () => {
  return;
  }
 
- it(`no description appears on more than ${MAX_DUPLICATE_PAGES_PER_DESCRIPTION} pages`, () => {
- const files = walkHtml(DIST_DIR);
+ it(`no description appears on more than ${MAX_DUPLICATE_PAGES_PER_DESCRIPTION} pages`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
  const byDescription = new Map<string, string[]>();
 
- for (const file of files) {
- const html = readFileSync(file, 'utf-8');
+ const scan = scanDistHtml(DIST_DIR, (relPath, html) => {
  const desc = extractMetaDescription(html);
- if (!desc) continue;
- if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) continue;
+ if (!desc) return;
+ if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) return;
  const existing = byDescription.get(desc) ?? [];
- existing.push(file.replace(DIST_DIR, ''));
+ existing.push(relPath);
  byDescription.set(desc, existing);
- }
+ });
+ assertScanCompleted(scan, 'duplicate meta description');
 
  const offenders: { description: string; pages: string[] }[] = [];
  for (const [desc, pages] of byDescription) {
