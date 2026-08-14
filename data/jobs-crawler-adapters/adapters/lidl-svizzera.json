@@ -136,6 +136,7 @@
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-40-schluein-710973",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-duebendorf-701459",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-wallisellen-701469",
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-100-zuerich-735754",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-1-brig-733924",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-1-muri-ag-695104",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-affoltern-am-albis-712361",
@@ -210,6 +211,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-ostermundigen-694207",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-rothrist-689818",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-uster-726334",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-zuerich-735544",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-80-kehrsatz-727582",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-bellach-702326",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-biel-bienne-697951",
@@ -219,6 +221,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-thun-733389",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-willisau-716099",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-80-flueelen-685897",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-80-zuerich-735749",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-lyss-698560",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-80-100-bern-696052",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-1-schaffhausen-705271",
@@ -264,6 +267,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-90-ostermundigen-694195",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-winterthur-722351",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-reiden-714285",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-zuerich-735751",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-springerfunktion-m-w-d-80-100-1-muri-ag-731141",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-chatel-saint-denis-726048",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-collombey-muraz-726009",
@@ -293,10 +297,11 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-region-lausanne-mont-sur-lausanne-721712",
-    "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st.-moritz-728439"
+    "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st.-moritz-728439",
+    "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-lugano-715078"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-14T10:12:00.868Z",
+  "updatedAt": "2026-08-14T21:27:45.663Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -1116,6 +1121,42 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-zuerich-735544": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-80-zuerich-735749": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-zuerich-735751": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-100-zuerich-735754": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-lausen-727515": {
       "location": "Lausen",
@@ -2790,6 +2831,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-lugano-715078": {
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685": {
       "location": "Collombey-Muraz",

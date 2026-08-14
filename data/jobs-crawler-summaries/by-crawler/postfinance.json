@@ -1,57 +1,18 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-14T10:18:27.804Z",
+  "generatedAt": "2026-08-14T21:29:37.734Z",
   "total": 17,
-  "newCount": 1,
-  "updatedCount": 16,
+  "newCount": 0,
+  "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 31660,
-  "avgDurationMs": 31660,
+  "durationMs": 30266,
+  "avgDurationMs": 30266,
   "durationHistory": [
-    31660
+    30266
   ],
-  "newJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Spezialistin-Fund-Operations/74347-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Spezialistin-Fund-Operations/74347-de_DE",
-      "title": "Spezialist:in Fund Operations",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "spezialist-in-fund-operations-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "14.08.26",
-      "validThrough": "13.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "70-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
@@ -133,6 +94,46 @@
         "richness": 20,
         "translation": 25,
         "completeness": 11
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Spezialistin-Fund-Operations/74347-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Spezialistin-Fund-Operations/74347-de_DE",
+      "title": "Spezialist:in Fund Operations",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "specialista-nelle-operazioni-del-fondo-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Projektmanagement"
+      ],
+      "category": [
+        "Büro-Projektmanagement"
+      ],
+      "datePosted": "14.08.26",
+      "validThrough": "13.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "70-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-424081800635",
+      "firstSeenAt": "2026-08-14T10:18:27.800Z",
+      "crawledAt": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 9
       }
     },
     {
