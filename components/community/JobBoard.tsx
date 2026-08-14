@@ -202,6 +202,7 @@ import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import type { Article } from '@/data/blog-articles-data';
 // Layer 2D — Internal linking: cross-feature SEO page builders (sidebar "Strumenti correlati").
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
@@ -2661,13 +2662,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [emailAccessGranted, setEmailAccessGranted] = useState(
  () => !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY)
  );
- const isCrawlerVisitor = useMemo(
- () =>
- /bot|crawler|spider|crawling|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i.test(
- navigator.userAgent || ''
- ),
- []
- );
+ // One home for the crawler pattern (#5705): functions/src/lib/returnVisit.js.
+ // The identical regex used to sit here and in NewsletterPopup.tsx, and the
+ // return-visit rule that decides whether a decayed job alert comes back must
+ // give the same verdict as the gate that lets a crawler read the board.
+ const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.

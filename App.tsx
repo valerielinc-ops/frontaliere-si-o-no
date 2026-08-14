@@ -162,6 +162,7 @@ import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
+import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts)
 // Set consent defaults ASAP (before any analytics/ad scripts load)
@@ -277,6 +278,11 @@ const App: React.FC = () => {
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
  useSeoPageTracking();
+ // "This person came back to the site" — the single fact a decayed job alert
+ // needs to come back to life (#5705, owner's decision of 2026-08-14). Records
+ // only; the sender decides, and refuses on seven grounds. One write per browser
+ // per day, deferred to idle, and a no-op for an unidentified session.
+ useJobAlertReturnVisit(authUser);
 
  // Thin-shell feedback signal (artifact-shrink Fase 1). Build emits
  // `window.__THIN_SHELL__ = 1` on the thinned variant of a static page
