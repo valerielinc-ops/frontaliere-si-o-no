@@ -139,7 +139,11 @@ describe('the scale and the ceiling', () => {
     for (const profile of [clickedAJob(1), { last_open_at: daysAgo(2) }, {}]) {
       const decision = resolveJobAlertCadence(backfilledAlert(), sub(profile), NOW, { ceilingDays: 7 });
       expect(decision.intervalDays).toBe(7);
-      expect(decision.ceilingApplied).toBe(true);
+      // `ceilingApplied` dice se il soffitto ha MORSO, non se era impostato:
+      // per chi sta gia' sulla fascia da 7 giorni il tetto non cambia nulla e
+      // resta false. E' la distinzione che rende il flag utile a contare
+      // quanti destinatari il soffitto sta effettivamente rallentando.
+      expect(decision.ceilingApplied).toBe(decision.tierDays < 7);
     }
   });
 
