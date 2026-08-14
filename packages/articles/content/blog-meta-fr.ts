@@ -9942,6 +9942,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.barasso-riqualificazione-piazza-san-martino.title': 'Barasso : Piazza San Martino se renouvelle pour l\'Assomption',
     'blog.article.barasso-riqualificazione-piazza-san-martino.excerpt': 'La municipalité de Barasso a terminé une intervention d\'ameublement urbain et de redécoration verte sur la Piazza San Martino en vue de la Fête de l\'Assomption.',
     'blog.article.barasso-riqualificazione-piazza-san-martino.imageAlt': 'Place San Martino à Barasso rénovée avec de nouvelles jardinières',
+    'blog.article.ciclopedonale-piambello-completamento.title': 'Cyclopédale Piambello : vers l\'achèvement',
+    'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Derniers travaux en cours entre Porto Ceresio et Bisuschio pour la piste cyclable du Piambello. Le président Sartorio compte fermer le chantier d\'ici le printemps prochain.',
+    'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Piste cyclable et piétonne du Piambello immergée dans la nature, prête pour l\'inauguration.',
 };
 
 export default blogMetaFr;

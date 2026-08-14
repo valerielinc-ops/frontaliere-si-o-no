@@ -9940,6 +9940,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.barasso-riqualificazione-piazza-san-martino.title': 'Barasso: Piazza San Martino is renewed for the Assumption',
     'blog.article.barasso-riqualificazione-piazza-san-martino.excerpt': 'The Municipality of Barasso has completed an intervention of urban furniture and green restyling in Piazza San Martino in view of the Feast of the Assumption.',
     'blog.article.barasso-riqualificazione-piazza-san-martino.imageAlt': 'San Martino square in Barasso renewed with new planters and botanical species',
+    'blog.article.ciclopedonale-piambello-completamento.title': 'Pedestrian cycle Piambello: towards completion',
+    'blog.article.ciclopedonale-piambello-completamento.excerpt': 'Last works in progress between Porto Ceresio and Bisuschio for the pedestrian cycle of Piambello. Chairman Sartorio plans to close the construction site by next spring.',
+    'blog.article.ciclopedonale-piambello-completamento.imageAlt': 'Piambello cycling and walking path immersed in nature, ready for inauguration.',
 };
 
 export default blogMetaEn;

@@ -29802,6 +29802,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ciclopedonale-piambello-completamento',
+ category: 'pratico',
+ date: '2026-08-14T02:46:55.059Z',
+ image: '/images/blog/ciclopedonale-piambello-completamento.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
