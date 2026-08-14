@@ -665,7 +665,6 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:58:50.793Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -678,8 +677,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "bkw-ec2a3ce9fae0",

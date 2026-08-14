@@ -290,7 +290,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing specialist FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/ère diplômé/e HES/HF"
@@ -418,7 +418,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.775Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -447,7 +446,7 @@
       "title": "Dipl. Experte / Expertin Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Esperto / Esperta in Anestesia NDS HF",
-        "en": "Dipl. Experte / Expertin Anästhesie NDS HF",
+        "en": "Dipl. Expert / Expert Anesthesia NDS HF",
         "de": "Dipl. Experte / Expertin Anästhesie NDS HF",
         "fr": "Expert(e) en anesthésie NDS HF"
       },
@@ -497,7 +496,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.771Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -660,7 +658,6 @@
         "cure-di-stoccaggio-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.774Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -848,7 +845,7 @@
       "title": "Dipl. Expertin/Experte Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin/Experte Anästhesie NDS HF",
+        "en": "Dipl. Expert/Expert Anesthesia NDS HF",
         "de": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "fr": "Dipl. Expert/Dipl. Expert Anesthésie Soins NDS HF"
       },
@@ -906,7 +903,6 @@
         "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.762Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1013,7 +1009,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Expert terapia intensiva NDS HF o specialista infermieristico dipl. con corso IMC",
-        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
+        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expertin/Expert soins intensifs NDS HF ou dipl. spécialiste des soins infirmiers avec cours IMC"
       },
@@ -1063,7 +1059,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:51.847Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1252,7 +1247,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmière diplômée FH/HF"
@@ -1295,7 +1290,11 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
         "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
+        "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1307,18 +1306,23 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
+          "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740"
         ],
         "fr": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital"
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-lindenhofgruppe-sonnenhofspital",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740"
         ]
       },
       "firstSeenAt": "2026-06-11T13:03:30.775Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1397,7 +1401,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.996Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1555,7 +1558,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.968Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1583,7 +1585,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Registered Nurse FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/infirmière diplômé(e) FH/HF"
@@ -1644,7 +1646,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:31:36.606Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1672,7 +1673,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1727,7 +1728,6 @@
         ]
       },
       "firstSeenAt": "2026-07-18T21:58:23.063Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1755,7 +1755,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1810,7 +1810,6 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:09:01.939Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1838,7 +1837,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1912,7 +1911,6 @@
         ]
       },
       "firstSeenAt": "2026-07-19T22:16:44.389Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1940,7 +1938,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1995,7 +1993,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:59:40.952Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2023,7 +2020,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2088,7 +2085,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:27:43.405Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2285,7 +2281,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
+        "it": "Dipl. Infermieristica Focus F - Neonatologia",
         "en": "Dipl. Nursing specialist Focus F - Neonatology",
         "de": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "fr": "Dipl. Spécialiste des soins infirmiers Focus F - Néonatologie"
@@ -2340,7 +2336,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.711Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2368,7 +2363,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2428,7 +2423,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:55:52.059Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2456,7 +2450,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Radiologiefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann",
+        "it": "Dipl. Specialista di radiologia",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -2511,7 +2505,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:09:50.994Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2760,7 +2753,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:41.538Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2927,7 +2919,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:03:40.286Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3202,7 +3193,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
+        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -3251,7 +3242,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:31:34.545Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3343,7 +3333,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:46:48.405Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3607,7 +3596,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann",
+        "it": "Dipl. Infermieristica professionale",
         "en": "Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau/-mann",
         "fr": "Dipl. Professionnels des soins infirmiers"
@@ -3660,7 +3649,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:23:40.522Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3690,15 +3678,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter/in Sekretariat Radiologie",
         "it": "Collaboratore/trice Sekretariat Radiologie",
-        "en": "Mitarbeiter/in Sekretariat Radiologie",
-        "fr": "Mitarbeiter/in Sekretariat Radiologie"
+        "en": "Employee/Secretary Radiology",
+        "fr": "Employé/Secrétaire Radiologie"
       },
       "description": "Aufgaben:\nAls erste Ansprechperson, sowohl am Empfang wie auch telefonisch, bist du die Visitenkarte der Radiologie Lindenhof.\n• Du empfängst unsere Patientinnen und Patienten, erledigst Aufnahmeformalitäten und bearbeitest Anfragen kundenorientiert.\n\n• Das Bearbeiten von allgemeinen administrativen Aufgaben rundet deinen abwechslungsreichen Arbeitsalltag ab.\n\n• Du arbeitest in fixen Diensten (ohne Wochenende und Feiertage).\n\nAnforderungen:\n• Du verfügst über eine Ausbildung als medizinische/r Praxisassistent/in oder eine gleichwertige Grundausbildung mit einer Weiterbildung als medizinische/r Sekretär/in.\n\n• Bereits vorhandene Berufserfahrung im Gesundheitswesen ist von grossem Vorteil.\n\n• Du legst Wert auf Zuverlässigkeit, qualitätsbewusstes und effizientes Arbeiten und deine EDV Kenntnisse bringst du gerne in die Arbeit mit ein.\n\n• Mit deinem stilsicheren Deutsch sowie den guten mündlichen Französisch- und Englischkenntnissen, fällt es dir leicht unsere Patienten und Patientinnen kundenorientiert zu empfangen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
       "descriptionByLocale": {
         "de": "Aufgaben:\nAls erste Ansprechperson, sowohl am Empfang wie auch telefonisch, bist du die Visitenkarte der Radiologie Lindenhof.\n• Du empfängst unsere Patientinnen und Patienten, erledigst Aufnahmeformalitäten und bearbeitest Anfragen kundenorientiert.\n\n• Das Bearbeiten von allgemeinen administrativen Aufgaben rundet deinen abwechslungsreichen Arbeitsalltag ab.\n\n• Du arbeitest in fixen Diensten (ohne Wochenende und Feiertage).\n\nAnforderungen:\n• Du verfügst über eine Ausbildung als medizinische/r Praxisassistent/in oder eine gleichwertige Grundausbildung mit einer Weiterbildung als medizinische/r Sekretär/in.\n\n• Bereits vorhandene Berufserfahrung im Gesundheitswesen ist von grossem Vorteil.\n\n• Du legst Wert auf Zuverlässigkeit, qualitätsbewusstes und effizientes Arbeiten und deine EDV Kenntnisse bringst du gerne in die Arbeit mit ein.\n\n• Mit deinem stilsicheren Deutsch sowie den guten mündlichen Französisch- und Englischkenntnissen, fällt es dir leicht unsere Patienten und Patientinnen kundenorientiert zu empfangen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "it": "Aufgaben:\nAls erste Ansprechperson, sowohl am Empfang wie auch telefonisch, bist du die Visitenkarte der Radiologie Lindenhof.\n• Du empfängst unsere Patientinnen und Patienten, erledigst Aufnahmeformalitäten und bearbeitest Anfragen kundenorientiert.\n\n• Das Bearbeiten von allgemeinen administrativen Aufgaben rundet deinen abwechslungsreichen Arbeitsalltag ab.\n\n• Du arbeitest in fixen Diensten (ohne Wochenende und Feiertage).\n\nAnforderungen:\n• Du verfügst über eine Ausbildung als medizinische/r Praxisassistent/in oder eine gleichwertige Grundausbildung mit einer Weiterbildung als medizinische/r Sekretär/in.\n\n• Bereits vorhandene Berufserfahrung im Gesundheitswesen ist von grossem Vorteil.\n\n• Du legst Wert auf Zuverlässigkeit, qualitätsbewusstes und effizientes Arbeiten und deine EDV Kenntnisse bringst du gerne in die Arbeit mit ein.\n\n• Mit deinem stilsicheren Deutsch sowie den guten mündlichen Französisch- und Englischkenntnissen, fällt es dir leicht unsere Patienten und Patientinnen kundenorientiert zu empfangen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "en": "Aufgaben:\nAls erste Ansprechperson, sowohl am Empfang wie auch telefonisch, bist du die Visitenkarte der Radiologie Lindenhof.\n• Du empfängst unsere Patientinnen und Patienten, erledigst Aufnahmeformalitäten und bearbeitest Anfragen kundenorientiert.\n\n• Das Bearbeiten von allgemeinen administrativen Aufgaben rundet deinen abwechslungsreichen Arbeitsalltag ab.\n\n• Du arbeitest in fixen Diensten (ohne Wochenende und Feiertage).\n\nAnforderungen:\n• Du verfügst über eine Ausbildung als medizinische/r Praxisassistent/in oder eine gleichwertige Grundausbildung mit einer Weiterbildung als medizinische/r Sekretär/in.\n\n• Bereits vorhandene Berufserfahrung im Gesundheitswesen ist von grossem Vorteil.\n\n• Du legst Wert auf Zuverlässigkeit, qualitätsbewusstes und effizientes Arbeiten und deine EDV Kenntnisse bringst du gerne in die Arbeit mit ein.\n\n• Mit deinem stilsicheren Deutsch sowie den guten mündlichen Französisch- und Englischkenntnissen, fällt es dir leicht unsere Patienten und Patientinnen kundenorientiert zu empfangen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "fr": "Aufgaben:\nAls erste Ansprechperson, sowohl am Empfang wie auch telefonisch, bist du die Visitenkarte der Radiologie Lindenhof.\n• Du empfängst unsere Patientinnen und Patienten, erledigst Aufnahmeformalitäten und bearbeitest Anfragen kundenorientiert.\n\n• Das Bearbeiten von allgemeinen administrativen Aufgaben rundet deinen abwechslungsreichen Arbeitsalltag ab.\n\n• Du arbeitest in fixen Diensten (ohne Wochenende und Feiertage).\n\nAnforderungen:\n• Du verfügst über eine Ausbildung als medizinische/r Praxisassistent/in oder eine gleichwertige Grundausbildung mit einer Weiterbildung als medizinische/r Sekretär/in.\n\n• Bereits vorhandene Berufserfahrung im Gesundheitswesen ist von grossem Vorteil.\n\n• Du legst Wert auf Zuverlässigkeit, qualitätsbewusstes und effizientes Arbeiten und deine EDV Kenntnisse bringst du gerne in die Arbeit mit ein.\n\n• Mit deinem stilsicheren Deutsch sowie den guten mündlichen Französisch- und Englischkenntnissen, fällt es dir leicht unsere Patienten und Patientinnen kundenorientiert zu empfangen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• Treueprämie: freie Tage im 5. und 7. Anstellungsjahr, ab 10. Anstellungsjahr alle 5 Jahre\n\n• Beim Nachtdienst eine Zeitgutschrift von 30% (optional)\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)"
+        "it": "Compiti:\nCome prima persona di contatto, sia alla reception che per telefono, siete il biglietto da visita di Radiologie Lindenhof.\n• Ricevete i nostri pazienti, le formalità di ammissione complete e le richieste orientate al cliente.\n\n• Il trattamento dei compiti amministrativi generali completa il vostro vario lavoro quotidiano.\n\n• Lavori in servizi fissi (senza fine settimana e festivi).\n\nRequisiti\n• Hai una formazione come assistente medico o una formazione di base equivalente con ulteriore formazione come segretaria medica.\n\n• L'esperienza professionale esistente nel settore sanitario è di grande vantaggio.\n\n• Si attribuisce importanza all'affidabilità, alla qualità-cosciente ed efficiente lavoro e si è felici di portare la vostra conoscenza IT nel lavoro.\n\n• Con le tue abilità di francese e inglese, è facile per te ricevere i nostri pazienti in modo orientato al cliente.\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 vacanze\n\n• Possibilità di acquistare una vacanza\n\n• Bonus fedeltà: giorni liberi nel 5 ° e 7 ° anno di occupazione, dal 10 ° anno di occupazione ogni 5 anni\n\n• Al servizio notturno un tempo di credito del 30% (opzionale)\n Gestione della salute sul lavoro (BGM) - \"ZÄME GSUND\"\n• Misure per rafforzare la salute\n\n• Laboratori di Cadre e Team con focus sulla salute\n Lavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\n Vantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\n Precauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Prosecuzione salariale Generosa in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
+        "en": "Tasks:\nAs the first contact person, both at the reception and by phone, you are the business card of Radiologie Lindenhof.\n• You receive our patients, complete admission formalities and process customer-oriented inquiries.\n\n• The processing of general administrative tasks rounds off your varied everyday work.\n\n• You work in fixed services (without weekends and holidays).\n\nRequirements\n• You have training as a medical assistant or an equivalent basic training with further training as a medical secretary.\n\n• Existing professional experience in the healthcare sector is of great advantage.\n\n• You attach importance to reliability, quality-conscious and efficient work and you are happy to bring your IT knowledge into the work.\n\n• With your stylish German and good oral French and English skills, it is easy for you to receive our patients in a customer-oriented manner.\n\nWe offer:\nHolidays and leisure\n• Mind. 26 holidays\n\n• Possibility to buy a holiday\n\n• Loyalty bonus: days off in the 5th and 7th year of employment, from 10th year of employment every 5 years\n\n• At night service a time credit of 30% (optional)\n Occupational Health Management (BGM) - \"ZÄME GSUND\"\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\n Work and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\n Advantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\n Precautions\n• Half coordination deduction according to BVG\n\n• Generous wage continuation in case of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
+        "fr": "Tâches :\nComme première personne de contact, à la réception et par téléphone, vous êtes la carte de visite de Radiologie Lindenhof.\n• Vous recevez nos patients, des formalités d'admission complètes et traitez des demandes orientées client.\n\n• Le traitement des tâches administratives générales complète votre travail quotidien varié.\n\n• Vous travaillez dans des services fixes (sans week-end et jours fériés).\n\nExigences\n• Vous avez une formation d'assistant médical ou une formation de base équivalente avec une formation complémentaire de secrétaire médical.\n\n• L'expérience professionnelle dans le secteur des soins de santé présente un grand avantage.\n\n• Vous attachez de l'importance à la fiabilité, à la qualité et à l'efficacité du travail et vous êtes heureux d'apporter vos connaissances informatiques dans le travail.\n\n• Grâce à vos compétences en allemand et en français oral et en anglais, il est facile de recevoir nos patients d'une manière orientée client.\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours fériés\n\n• Possibilité d'acheter des vacances\n\n• Prime de fidélité: jours de congé de la 5ème et 7ème année d'emploi, à partir de 10ème année d'emploi tous les 5 ans\n\n• Au service de nuit un crédit de temps de 30% (facultatif)\n Gestion de la santé au travail (BGM) - \"ZÄME GSUND\"\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\n Travail et famille\n• KITA – heures d'ouverture axées sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\n Avantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\n Précautions\n• Déduction pour demi-coordination selon BVG\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100 %, puis indemnités journalières à 90 %)"
       },
       "location": "Lindenhofspital",
       "canton": "BE",
@@ -3724,7 +3712,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
