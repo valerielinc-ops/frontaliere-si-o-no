@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-08-14T10:17:23.961Z",
+  "generatedAt": "2026-08-14T21:36:09.786Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7296,
-  "avgDurationMs": 7296,
+  "durationMs": 8346,
+  "avgDurationMs": 8346,
   "durationHistory": [
-    7296
+    8346
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-3775ad5fe453",
-      "slug": "stock-specialist-prada-group-vancouver-stock-specialist",
+      "slug": "stock-specialista-prada-group-vancouver-stock-specialist",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,17 +34,16 @@
       "url": "https://jobs.pradagroup.com/job/Vancouver-Stock-Specialist-BC/1405663033/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:17:19.018Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-08-14T21:36:04.758Z",
+      "firstSeenAt": "2026-08-14T10:17:19.018Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-6c4e57745113",
       "slug": "runner-prada-sankt-moritz-prada-group-saint-moritz",
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:17:18.148Z",
+      "crawledAt": "2026-08-14T21:36:03.518Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -75,46 +75,11 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-a992bea64306",
-      "slug": "client-consulente-houston-prada-group-nearest-major-market-houston",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Client Advisor, Houston",
-      "location": "Nearest Major Market: Houston",
-      "canton": "TI",
-      "addressLocality": "Nearest Major Market: Houston",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "url": "https://jobs.pradagroup.com/job/Houston-Client-Advisor%2C-Houston-TX-77001/1404783433/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T21:56:32.420Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-12T10:22:52.029Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-3775ad5fe453",
-      "slug": "stock-specialist-prada-group-vancouver-stock-specialist",
+      "slug": "stock-specialista-prada-group-vancouver-stock-specialist",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -132,16 +97,16 @@
       "url": "https://jobs.pradagroup.com/job/Vancouver-Stock-Specialist-BC/1405663033/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:17:19.018Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-14T21:36:04.758Z",
+      "firstSeenAt": "2026-08-14T10:17:19.018Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -165,7 +130,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:17:18.148Z",
+      "crawledAt": "2026-08-14T21:36:03.518Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -204,7 +169,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -239,7 +204,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

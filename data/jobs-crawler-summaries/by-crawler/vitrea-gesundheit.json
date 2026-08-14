@@ -1,18 +1,55 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-08-14T10:12:29.263Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-14T21:27:54.303Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 21811,
-  "avgDurationMs": 21811,
+  "unchangedCount": 1,
+  "durationMs": 20727,
+  "avgDurationMs": 20727,
   "durationHistory": [
-    21811
+    20727
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "vitrea-gesundheit-ad91fcabfed8",
+      "slug": "mitarbeiterin-a-qualitatsmanagement-60-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "MitarbeiterIn (a) Qualitätsmanagement 60%",
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ywwwv6ezl7ifkeaix5w59tg3xtty144",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T21:27:38.365Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/ywwwv6ezl7ifkeaix5w59tg3xtty144",
+      "_qualityScore": 53,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "vitrea-gesundheit-7895604b77a5",
@@ -27,7 +64,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/7b7w5k2apjm0ieaps75pghysnvz8t4z",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:12.418Z",
+      "crawledAt": "2026-08-14T21:27:40.158Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/qdmiaqy8io593p97jxyjgg9yx6xgekx",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:14.219Z",
+      "crawledAt": "2026-08-14T21:27:41.560Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/vdnphaddx35mq5afxy85knsqykfnjky",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:16.043Z",
+      "crawledAt": "2026-08-14T21:27:42.966Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/pvbf9h8flu8qlee7n4m0z1gqordzdnu",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:17.878Z",
+      "crawledAt": "2026-08-14T21:27:44.699Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/hm53jr8wku71z4o2adru1vd2z2elqxz",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:19.395Z",
+      "crawledAt": "2026-08-14T21:27:45.794Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/zlzq7od0acoxzegwlgctykh1iocnblc",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:21.147Z",
+      "crawledAt": "2026-08-14T21:27:47.228Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ur56n6k0jkpkt14fhi6m4k1oujhtskk",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:22.271Z",
+      "crawledAt": "2026-08-14T21:27:48.933Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/rw70b75ijl93j57a9vq0c5iwvdadimc",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:24.042Z",
+      "crawledAt": "2026-08-14T21:27:50.293Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/e5nuihlksolkupnw27z0wsa2ilw559a",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:12:25.228Z",
+      "crawledAt": "2026-08-14T21:27:52.072Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -346,7 +383,10 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "vitrea-gesundheit-4acf748acd30",
       "slug": "dipl-pflegefachperson-hf-a-mit-fachverantwortung-pflege-80-100-vitrea-gesundheit-dussnang",
@@ -376,15 +416,16 @@
       "postedDate": "2026-07-29",
       "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/20tht1mi5zj9ye6h9ukd9453uutlpya",
       "firstSeenAt": "2026-07-29T11:33:56.056Z",
-      "_qualityScore": 74,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

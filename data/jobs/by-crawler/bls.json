@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-14T08:28:36.037Z",
+  "assembledAt": "2026-08-14T21:28:47.617Z",
   "jobs": [
     {
       "id": "bls-6818c194f1ed",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:51.561Z",
+      "crawledAt": "2026-08-14T21:28:44.591Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -70,11 +70,13 @@
         ]
       },
       "previousSlugs": [
-        "junior-produktemanager-in-autoverlad-bls-ch"
+        "junior-produktemanager-in-autoverlad-bls-ch",
+        "junior-product-manager-in-autoverlad-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-produktemanager-in-autoverlad-bls-ch"
+          "junior-produktemanager-in-autoverlad-bls-ch",
+          "junior-product-manager-in-autoverlad-bls-ag-bern"
         ],
         "en": [
           "junior-produktemanager-in-autoverlad-bls-ch"
@@ -84,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -129,7 +132,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-vorgaben/184b247b-4707-4fae-88db-5ff01e37fe60",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:50.568Z",
+      "crawledAt": "2026-08-14T21:28:43.775Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -166,11 +169,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-vorgaben-bls-ch"
+        "teamleiter-in-vorgaben-bls-ch",
+        "team-leader-nelle-specifiche-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-vorgaben-bls-ch"
+          "teamleiter-in-vorgaben-bls-ch",
+          "team-leader-nelle-specifiche-bls-ag-bern"
         ],
         "en": [
           "teamleiter-in-vorgaben-bls-ch"
@@ -180,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:34:11.461Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -225,7 +231,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:49.784Z",
+      "crawledAt": "2026-08-14T21:28:43.097Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,7 +269,8 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -273,7 +280,8 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -329,7 +337,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:48.985Z",
+      "crawledAt": "2026-08-14T21:28:42.342Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -364,14 +372,16 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
         "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
           "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
@@ -427,7 +437,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:48.058Z",
+      "crawledAt": "2026-08-14T21:28:41.496Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,11 +472,13 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-security-bahnproduktion-bls-ch"
+        "leiter-in-security-bahnproduktion-bls-ch",
+        "responsabile-security-bahnproduktion-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-security-bahnproduktion-bls-ch"
+          "leiter-in-security-bahnproduktion-bls-ch",
+          "responsabile-security-bahnproduktion-bls-ag-bern"
         ],
         "en": [
           "leiter-in-security-bahnproduktion-bls-ch"
@@ -506,7 +518,7 @@
       "title": "Applikations-Manager:in IAM",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in IAM",
-        "en": "Application Manager: in IAM",
+        "en": "Applikations-Manager:in IAM",
         "de": "Applikations-Manager:in IAM",
         "fr": "Gestionnaire d'applications: dans IAM"
       },
@@ -522,7 +534,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:47.138Z",
+      "crawledAt": "2026-08-14T21:28:40.811Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -556,11 +568,13 @@
         ]
       },
       "previousSlugs": [
-        "applikations-manager-in-iam-bls-ch"
+        "applikations-manager-in-iam-bls-ch",
+        "gestione-delle-applicazioni-in-iam-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-iam-bls-ch"
+          "applikations-manager-in-iam-bls-ch",
+          "gestione-delle-applicazioni-in-iam-bls-ag-bern"
         ],
         "fr": [
           "applikations-manager-in-iam-bls-ch"
@@ -613,7 +627,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T10:21:46.118Z",
+      "crawledAt": "2026-08-14T21:28:40.040Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,6 +661,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -691,7 +706,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-business-partner-finance-bahnproduktion/265c3f03-9dda-4d26-bae5-b02fde879552",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:45.169Z",
+      "crawledAt": "2026-08-14T21:28:39.361Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -723,11 +738,13 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-business-partner-finance-bahnproduktion-bls-ch"
+        "leiter-in-business-partner-finance-bahnproduktion-bls-ch",
+        "responsabile-business-partner-finanza-bahnproduktion-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-business-partner-finance-bahnproduktion-bls-ch"
+          "leiter-in-business-partner-finance-bahnproduktion-bls-ch",
+          "responsabile-business-partner-finanza-bahnproduktion-bls-ag-bern"
         ],
         "en": [
           "leiter-in-business-partner-finance-bahnproduktion-bls-ch"
@@ -783,7 +800,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:44.151Z",
+      "crawledAt": "2026-08-14T21:28:38.609Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -817,11 +834,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+          "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
         ],
         "fr": [
           "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
@@ -874,7 +893,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:43.314Z",
+      "crawledAt": "2026-08-14T21:28:37.844Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -909,11 +928,13 @@
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-bahnbau-bls-ch"
+        "baufuhrer-in-bahnbau-bls-ch",
+        "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-in-bahnbau-bls-ch"
+          "baufuhrer-in-bahnbau-bls-ch",
+          "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
         ],
         "en": [
           "baufuhrer-in-bahnbau-bls-ch"
@@ -969,7 +990,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:42.521Z",
+      "crawledAt": "2026-08-14T21:28:37.072Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1005,11 +1026,13 @@
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+          "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
         ],
         "en": [
           "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
@@ -1065,7 +1088,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T10:21:41.713Z",
+      "crawledAt": "2026-08-14T21:28:36.260Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -1097,6 +1120,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1141,7 +1165,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-inwerkstatt/018ea1ac-f126-44b0-ae9f-d19992805f0e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:40.957Z",
+      "crawledAt": "2026-08-14T21:28:35.500Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1173,11 +1197,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-werkstatt-bls-ch"
+        "teamleiter-in-werkstatt-bls-ch",
+        "team-leader-in-officina-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-werkstatt-bls-ch"
+          "teamleiter-in-werkstatt-bls-ch",
+          "team-leader-in-officina-bls-ag-bonigen"
         ],
         "en": [
           "teamleiter-in-werkstatt-bls-ch"
@@ -1233,7 +1259,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/dba4554d-b4c7-4b34-9dbe-5172c585b85b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:40.035Z",
+      "crawledAt": "2026-08-14T21:28:34.605Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1305,9 +1331,9 @@
       "id": "bls-aa3f63b6db66",
       "slug": "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken",
       "slugByLocale": {
-        "de": "metallbauer-in-nautiker-in-interlaken-bls-ch",
         "it": "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken",
         "en": "metalworkers-in-navigator-in-interlaken-bls-ag-interlaken",
+        "de": "metallbauer-in-nautiker-in-interlaken-bls-ch",
         "fr": "metaux-in-navigateur-in-interlaken-bls-ag-interlaken"
       },
       "company": "BLS AG",
@@ -1315,16 +1341,16 @@
       "companyDomain": "bls.ch",
       "title": "Metallbauer:in / Nautiker:in Interlaken",
       "titleByLocale": {
-        "de": "Metallbauer:in / Nautiker:in Interlaken",
         "it": "Lavoratori metallici:in / Navigatore:in Interlaken",
         "en": "Metalworkers:in / Navigator:in Interlaken",
+        "de": "Metallbauer:in / Nautiker:in Interlaken",
         "fr": "Métaux:in / Navigateur:in Interlaken"
       },
       "description": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
       "descriptionByLocale": {
-        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
         "it": "Ci piacciono i laghi, ci piace la natura, ci piacciono i nostri ospiti – e ci piacciono le persone che vogliono plasmare attivamente il futuro della spedizione BLS insieme a noi. Offriamo ai nostri dipendenti un ambiente unico, vario e stabile. Con noi, puoi scoprire nuovi orizzonti dandoci l'opportunità di sviluppare il tuo talento organizzativo in un ambiente dinamico e di modellare in modo decisivo lo sviluppo dei processi operativi.\n\nTi aspetta:\n\n• I nostri ospiti nazionali e internazionali forniscono consulenza e assistenza convincenti e competenti\n\n• Check e vendita di biglietti\n\n• Preparazione e follow-up delle navi\n\n• Collaborazione nel servizio nautico (ti formiamo)\n\n• Manutenzione e rinnovo della nostra flotta in inverno\n\nQuesto è ciò che portate con voi:\n\n• Lavoratori di metalli di formazione completi: in EFZ, esperienza nella saldatura e nella costruzione e diversi anni di esperienza professionale\n\n• Titolo di guida della categoria B\n\n• Godimento di trattare con gli ospiti di diverse culture\n\n• Competenze linguistiche: Molto bene tedesco, orale inglese e francese competenze (o la volontà di imparare loro)\n\n• Forte senso di sicurezza e responsabilità\n\n• Prontezza per incarichi di lavoro irregolari (weekend / sera)\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi un GA 2. Abbonamento di classe o di mezza quota, nonché interessanti vantaggi di guida per la famiglia e biglietti gratuiti internazionali.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Contribuiamo il 60% dei contributi del fondo pensione.\n\n• Regali generosi di anzianità da cinque anni di servizio.\n\n• Un luogo di lavoro onirico vi aspetta nel cuore dell'Oberland Bernese.\n\nInformazioni sulla spedizione BLS\n\nNavi bianche. Acqua blu. Aria fresca. Le montagne dell'Oberland Bernese. Ciò che quasi suona come cliché non è altro che il fascino della spedizione. Per circa 120 dipendenti sul lago Brienzer e Thunersee, questo fa parte della realtà quotidiana.",
         "en": "We like lakes, we like nature, we like our guests – and we like people who want to actively shape the future of BLS shipping together with us. We offer our employees a unique, varied and stable environment. With us, you can discover new horizons by giving us the opportunity to develop your organizational talent in a dynamic environment and to shape the development of operational processes decisively.\n\nThis is waiting for you:\n\n• Our national and international guests provide convincing and competent advice and care\n\n• Checks and sales of tickets\n\n• Preparation and follow-up of ships\n\n• Collaboration in nautical service (we train you)\n\n• Maintenance and renewal of our fleet in winter\n\nThis is what you bring with you:\n\n• Completed training metalworkers: in EFZ, experience in welding and construction as well as several years of professional experience\n\n• Category B driving licence\n\n• Enjoyment of dealing with guests from different cultures\n\n• Language skills: Very good German, oral English & French skills (or willingness to learn them)\n\n• Strong sense of security and responsibility\n\n• Readiness for irregular work assignments (weekend / evening)\n\nYour advantages – you can look forward to:\n\n• Get a GA 2. Class or a half-tax subscription as well as attractive driving benefits for the family and free international free tickets.\n\n• Share your working time freely. We promote part-time work.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• We contribute 60 percent of the pension fund contributions.\n\n• Generous gifts of seniority from five years of service.\n\n• A dreamlike place of work awaits you in the heart of the Bernese Oberland.\n\nAbout BLS shipping\n\nWhite ships. Blue water. Fresh air. The mountains of the Bernese Oberland. What almost sounds like cliché is nothing more than the fascination of shipping. For around 120 employees on and on Lake Brienzer and Thunersee, this is part of daily reality.",
+        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
         "fr": "Nous aimons les lacs, nous aimons la nature, nous aimons nos invités – et nous aimons les gens qui veulent façonner activement l'avenir de la navigation BLS avec nous. Nous offrons à nos employés un environnement unique, varié et stable. Avec nous, vous pouvez découvrir de nouveaux horizons en nous donnant l'occasion de développer votre talent organisationnel dans un environnement dynamique et de façonner de façon décisive le développement des processus opérationnels.\n\nCeci vous attend :\n\n• Nos invités nationaux et internationaux fournissent des conseils et des soins convaincants et compétents\n\n• Contrôles et ventes de billets\n\n• Préparation et suivi des navires\n\n• Collaboration en service nautique (nous vous formons)\n\n• Entretien et renouvellement de notre flotte en hiver\n\nVoici ce que vous apportez avec vous :\n\n• Formation complète des métallurgistes: en EFZ, expérience en soudage et construction ainsi que plusieurs années d'expérience professionnelle\n\n• Permis de conduire de catégorie B\n\n• Appréciation de traiter avec des clients de différentes cultures\n\n• Compétences linguistiques: Très bonne compétence en allemand, anglais oral et français (ou volonté de les apprendre)\n\n• Fort sentiment de sécurité et de responsabilité\n\n• Préparation aux affectations irrégulières (fin de semaine / soir)\n\nVos avantages – vous pouvez attendre avec impatience:\n\n• Obtenez un GA 2. Un abonnement en classe ou demi-taxe ainsi que des avantages de conduite attrayants pour la famille et des billets gratuits internationaux gratuits.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Nous cotisons 60 pour cent des cotisations du fonds de pension.\n\n• Dons généreux d'ancienneté de cinq ans de service.\n\n• Un lieu de travail onirique vous attend au cœur de l'Oberland bernois.\n\nA propos de l'expédition BLS\n\nDes vaisseaux blancs. Eau bleue. L'air frais. Les montagnes de l'Oberland bernois. Ce qui ressemble presque au cliché n'est rien de plus que la fascination de la navigation. Pour environ 120 employés sur et sur le lac Brienzer et Thunersee, cela fait partie de la réalité quotidienne."
       },
       "location": "Interlaken",
@@ -1332,7 +1358,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:39.320Z",
+      "crawledAt": "2026-08-14T21:28:33.901Z",
       "addressLocality": "Interlaken",
       "addressCountry": "CH",
       "country": "CH",
@@ -1358,7 +1384,6 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung",
           "Führerausweis Kategorie B",
           "Freude am Umgang mit Gästen aus verschiedenen Kulturen",
           "Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)",
@@ -1366,7 +1391,24 @@
           "Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)"
         ]
       },
+      "previousSlugs": [
+        "metallbauer-in-nautiker-in-interlaken-bls-ch",
+        "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-nautiker-in-interlaken-bls-ch",
+          "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+        ],
+        "en": [
+          "metallbauer-in-nautiker-in-interlaken-bls-ch"
+        ],
+        "fr": [
+          "metallbauer-in-nautiker-in-interlaken-bls-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:21:39.320Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1379,30 +1421,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-14T10:21:39.320Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "metallbauer-in-nautiker-in-interlaken-bls-ch"
-        ],
-        "en": [
-          "metallbauer-in-nautiker-in-interlaken-bls-ch"
-        ],
-        "fr": [
-          "metallbauer-in-nautiker-in-interlaken-bls-ch"
-        ]
-      },
-      "previousSlugs": [
-        "metallbauer-in-nautiker-in-interlaken-bls-ch"
-      ]
+      "addressRegion": "BE"
     },
     {
       "id": "bls-96a54e15e203",
       "slug": "metalworker-in-navigatore-in-thun-bls-ag-bern",
       "slugByLocale": {
-        "de": "metallbauer-in-nautiker-in-thun-bls-ch",
         "it": "metalworker-in-navigatore-in-thun-bls-ag-bern",
         "en": "metalworker-in-navigator-in-thun-bls-ag-bern",
+        "de": "metallbauer-in-nautiker-in-thun-bls-ch",
         "fr": "metaux-in-navigateur-in-thun-bls-ag-bern"
       },
       "company": "BLS AG",
@@ -1410,16 +1437,16 @@
       "companyDomain": "bls.ch",
       "title": "Metallbauer:in / Nautiker:in Thun",
       "titleByLocale": {
-        "de": "Metallbauer:in / Nautiker:in Thun",
         "it": "Metalworker:in / Navigatore:in Thun",
         "en": "Metalworker:in / Navigator:in Thun",
+        "de": "Metallbauer:in / Nautiker:in Thun",
         "fr": "Métaux:in / Navigateur:in Thun"
       },
       "description": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
       "descriptionByLocale": {
-        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
         "it": "Ci piacciono i laghi, ci piace la natura, ci piacciono i nostri ospiti – e ci piacciono le persone che vogliono plasmare attivamente il futuro della spedizione BLS insieme a noi. Offriamo ai nostri dipendenti un ambiente unico, vario e stabile. Con noi, puoi scoprire nuovi orizzonti dandoci l'opportunità di sviluppare il tuo talento organizzativo in un ambiente dinamico e di modellare in modo decisivo lo sviluppo dei processi operativi.\n\nTi aspetta:\n\n• I nostri ospiti nazionali e internazionali forniscono consulenza e assistenza convincenti e competenti\n\n• Check e vendita di biglietti\n\n• Preparazione e follow-up delle navi\n\n• Collaborazione nel servizio nautico (ti formiamo)\n\n• Manutenzione e rinnovo della nostra flotta in inverno\n\nQuesto è ciò che portate con voi:\n\n• Lavoratori di metalli di formazione completi: in EFZ, esperienza nella saldatura e nella costruzione e diversi anni di esperienza professionale\n\n• Titolo di guida della categoria B\n\n• Godimento di trattare con gli ospiti di diverse culture\n\n• Competenze linguistiche: Molto bene tedesco, orale inglese e francese competenze (o la volontà di imparare loro)\n\n• Forte senso di sicurezza e responsabilità\n\n• Prontezza per incarichi di lavoro irregolari (weekend / sera)\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi un GA 2. Abbonamento di classe o di mezza quota, nonché interessanti vantaggi di guida per la famiglia e biglietti gratuiti internazionali.\n\n• Hai tempo libero quando gli altri lavorano. È possibile lavorare part-time, e ci sono supplementi per i pensionati di notte e nei fine settimana.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Contribuiamo il 60% dei contributi del fondo pensione.\n\n• Regali generosi di anzianità da cinque anni di servizio.\n\n• Un luogo di lavoro onirico vi aspetta nel cuore dell'Oberland Bernese.\n\nInformazioni sulla spedizione BLS\n\nNavi bianche. Acqua blu. Aria fresca. Le montagne dell'Oberland Bernese. Ciò che quasi suona come cliché non è altro che il fascino della spedizione. Per circa 120 dipendenti sul lago Brienzer e Thunersee, questo fa parte della realtà quotidiana.",
         "en": "We like lakes, we like nature, we like our guests – and we like people who want to actively shape the future of BLS shipping together with us. We offer our employees a unique, varied and stable environment. With us, you can discover new horizons by giving us the opportunity to develop your organizational talent in a dynamic environment and to shape the development of operational processes decisively.\n\nThis is waiting for you:\n\n• Our national and international guests provide convincing and competent advice and care\n\n• Checks and sales of tickets\n\n• Preparation and follow-up of ships\n\n• Collaboration in nautical service (we train you)\n\n• Maintenance and renewal of our fleet in winter\n\nThis is what you bring with you:\n\n• Completed training metalworkers: in EFZ, experience in welding and construction as well as several years of professional experience\n\n• Category B driving licence\n\n• Enjoyment of dealing with guests from different cultures\n\n• Language skills: Very good German, oral English & French skills (or willingness to learn them)\n\n• Strong sense of security and responsibility\n\n• Readiness for irregular work assignments (weekend / evening)\n\nYour advantages – you can look forward to:\n\n• Get a GA 2. Class or a half-tax subscription as well as attractive driving benefits for the family and free international free tickets.\n\n• You have free time when others work. You can work part-time, and there are surcharges for boarders at night and on weekends.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• We contribute 60 percent of the pension fund contributions.\n\n• Generous gifts of seniority from five years of service.\n\n• A dreamlike place of work awaits you in the heart of the Bernese Oberland.\n\nAbout BLS shipping\n\nWhite ships. Blue water. Fresh air. The mountains of the Bernese Oberland. What almost sounds like cliché is nothing more than the fascination of shipping. For around 120 employees on and on Lake Brienzer and Thunersee, this is part of daily reality.",
+        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nDas wartet auf dich:\n\n• Unsere nationalen und internationalen Gäste überzeugend und kompetent beraten und betreuen\n\n• Kontrolle und Verkauf von Fahrausweisen\n\n• Vor- und Nachbereitung der Schiffe\n\n• Mitarbeit im nautischen Dienst (wir bilden dich aus)\n\n• Instandhaltung und Erneuerung unserer Flotte im Winterhalbjahr\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung\n\n• Führerausweis Kategorie B\n\n• Freude am Umgang mit Gästen aus verschiedenen Kulturen\n\n• Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)\n\n• Ausgeprägtes Sicherheits- und Verantwortungsbewusstsein\n\n• Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
         "fr": "Nous aimons les lacs, nous aimons la nature, nous aimons nos invités – et nous aimons les gens qui veulent façonner activement l'avenir de la navigation BLS avec nous. Nous offrons à nos employés un environnement unique, varié et stable. Avec nous, vous pouvez découvrir de nouveaux horizons en nous donnant l'occasion de développer votre talent organisationnel dans un environnement dynamique et de façonner de façon décisive le développement des processus opérationnels.\n\nCeci vous attend :\n\n• Nos invités nationaux et internationaux fournissent des conseils et des soins convaincants et compétents\n\n• Contrôles et ventes de billets\n\n• Préparation et suivi des navires\n\n• Collaboration en service nautique (nous vous formons)\n\n• Entretien et renouvellement de notre flotte en hiver\n\nVoici ce que vous apportez avec vous :\n\n• Formation complète des métallurgistes: en EFZ, expérience en soudage et construction ainsi que plusieurs années d'expérience professionnelle\n\n• Permis de conduire de catégorie B\n\n• Appréciation de traiter avec des clients de différentes cultures\n\n• Compétences linguistiques: Très bonne compétence en allemand, anglais oral et français (ou volonté de les apprendre)\n\n• Fort sentiment de sécurité et de responsabilité\n\n• Préparation aux affectations irrégulières (fin de semaine / soir)\n\nVos avantages – vous pouvez attendre avec impatience:\n\n• Obtenez un GA 2. Un abonnement en classe ou demi-taxe ainsi que des avantages de conduite attrayants pour la famille et des billets gratuits internationaux gratuits.\n\n• Vous avez du temps libre quand les autres travaillent. Vous pouvez travailler à temps partiel, et il ya des suppléments pour les pensionnaires la nuit et le week-end.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Nous cotisons 60 pour cent des cotisations du fonds de pension.\n\n• Dons généreux d'ancienneté de cinq ans de service.\n\n• Un lieu de travail onirique vous attend au cœur de l'Oberland bernois.\n\nA propos de l'expédition BLS\n\nDes vaisseaux blancs. Eau bleue. L'air frais. Les montagnes de l'Oberland bernois. Ce qui ressemble presque au cliché n'est rien de plus que la fascination de la navigation. Pour environ 120 employés sur et sur le lac Brienzer et Thunersee, cela fait partie de la réalité quotidienne."
       },
       "location": "Bern",
@@ -1427,7 +1454,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:21:38.595Z",
+      "crawledAt": "2026-08-14T21:28:33.144Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1454,7 +1481,6 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Abgeschlossene Ausbildung Metallbauer:in EFZ, Erfahrung beim Schweissen und Konstruieren sowie einige Jahre Berufserfahrung",
           "Führerausweis Kategorie B",
           "Freude am Umgang mit Gästen aus verschiedenen Kulturen",
           "Sprachkenntnisse: Sehr gut Deutsch, mündliche Englisch- & Französischkenntnisse (oder Bereitschaft diese zu erlernen)",
@@ -1462,7 +1488,24 @@
           "Bereitschaft für unregelmässige Arbeitseinsätze (Wochenende / Abend)"
         ]
       },
+      "previousSlugs": [
+        "metallbauer-in-nautiker-in-thun-bls-ch",
+        "metalworker-in-navigatore-in-thun-bls-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-nautiker-in-thun-bls-ch",
+          "metalworker-in-navigatore-in-thun-bls-ag-bern"
+        ],
+        "en": [
+          "metallbauer-in-nautiker-in-thun-bls-ch"
+        ],
+        "fr": [
+          "metallbauer-in-nautiker-in-thun-bls-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:21:38.595Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1475,22 +1518,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-14T10:21:38.595Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "metallbauer-in-nautiker-in-thun-bls-ch"
-        ],
-        "en": [
-          "metallbauer-in-nautiker-in-thun-bls-ch"
-        ],
-        "fr": [
-          "metallbauer-in-nautiker-in-thun-bls-ch"
-        ]
-      },
-      "previousSlugs": [
-        "metallbauer-in-nautiker-in-thun-bls-ch"
-      ]
+      "addressRegion": "BE"
     }
   ]
 }

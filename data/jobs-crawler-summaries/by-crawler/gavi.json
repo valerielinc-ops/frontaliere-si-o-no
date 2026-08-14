@@ -1,18 +1,56 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-14T10:15:27.376Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-08-14T21:37:06.593Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5523,
-  "avgDurationMs": 5523,
+  "durationMs": 6135,
+  "avgDurationMs": 6135,
   "durationHistory": [
-    5523
+    6135
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "gavi-c05f6ddca435",
+      "slug": "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
+      "company": "Gavi, the Vaccine Alliance",
+      "companyKey": "gavi",
+      "companyDomain": "gavi.org",
+      "title": "Manager, Strategy Design and Delivery",
+      "location": "Le Grand-Saconnex",
+      "canton": "GE",
+      "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
+      "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-14T21:37:03.167Z",
+      "addressLocality": "Le Grand-Saconnex",
+      "addressRegion": "GE",
+      "streetAddress": "Chemin du Pommier 40",
+      "postalCode": "1218",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Salute globale / Organizzazioni internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-11",
+      "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
+      "jobReqId": "VN2520",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "gavi-d99e316b3873",
@@ -26,7 +64,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2515&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:15:23.842Z",
+      "crawledAt": "2026-08-14T21:37:02.489Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
