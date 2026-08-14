@@ -385,3 +385,186 @@ describe('reopenWithinHours + buildSha deploy-latency guard (#5539)', () => {
     expect(reopenCall?.[2]).toBe('50');
   });
 });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// The #5539 guard shipped with ONE source for the closing commit — the `closed`
+// event's `commit_id` — and this repo's automation never populates it: the bot
+// closes with `gh issue close`, so GitHub records no keyword close. Measured
+// 2026-08-13, all three reopens of that day came back null from it and reopened
+// unconditionally on a build that could not contain their own fix:
+//
+//   #5729/#5786  run 31736768103 created 19:37:29Z on build 78a1f7ae
+//                (committed 19:33:46Z); PR #5778 merged eb7eac6a at 19:40:32Z,
+//                issues closed 19:40:34/35Z. Build predates the fix by 3 min.
+//                `gh api .../compare/eb7eac6a...78a1f7ae` → "behind".
+//   #5752        build 349fa50a committed 03:26:23Z; PR #5761 merged 03:52:30Z,
+//                issue closed 03:52:32Z. Build predates the fix by 26 min.
+//
+// #5729 is recoverable by SHA (its timeline carries `referenced eb7eac6a` in the
+// same second as the close); #5786 and #5752 carry no commit reference at all
+// and are only reachable by timestamp. Hence two rungs — and each case below
+// pins one, INCLUDING the ones that must still reopen, because a guard that
+// abstains everywhere is just a disabled reopener.
+// ─────────────────────────────────────────────────────────────────────────────
+describe('reopen guard: closing commit recovered from the timeline, timestamp fallback', () => {
+  const CLOSED_AT = ISO(1);
+  const CLOSED_ISSUE = {
+    number: 50,
+    title: 'Validation Failure (dist): dist:quality-tests',
+    url: 'https://github.com/o/r/issues/50',
+    closedAt: CLOSED_AT,
+  };
+  const beforeClose = new Date(Date.parse(CLOSED_AT) - 3 * 60 * 1000).toISOString();
+  const afterClose = new Date(Date.parse(CLOSED_AT) + 30 * 60 * 1000).toISOString();
+  /** Far enough back to sit outside CLOSING_REFERENCE_WINDOW_MS (5 min). */
+  const wayBeforeClose = new Date(Date.parse(CLOSED_AT) - 25 * 60 * 1000).toISOString();
+
+  /**
+   * @param eventsSha    what `/issues/50/events` yields ('' = the real-world null)
+   * @param timeline     lines of "<iso>\t<sha>" from `/issues/50/timeline`
+   * @param compare      status returned by `/compare/...`
+   * @param commitDate   committer date for `/commits/<sha>` (null = lookup fails)
+   */
+  function mockGh({
+    eventsSha = '', timeline = [] as string[], compare = 'diverged', commitDate = null as string | null,
+  }) {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const state = args[args.indexOf('--state') + 1];
+        return state === 'closed' ? JSON.stringify([CLOSED_ISSUE]) : '[]';
+      }
+      if (args[0] === 'api') {
+        const path = String(args[1]);
+        if (path.includes('/timeline')) return timeline.join('\n');
+        if (path.includes('/events')) return eventsSha;
+        if (path.includes('/compare/')) return compare;
+        if (path.includes('/commits/')) {
+          if (commitDate === null) throw new Error('404 Not Found'); // gh exits non-zero
+          return commitDate;
+        }
+      }
+      return '';
+    });
+  }
+
+  const report = (buildSha: string) => createGithubIssue({
+    title: 'Validation Failure (dist): dist:quality-tests',
+    description: 'gate failed',
+    priority: 1,
+    labels: ['Bug'],
+    reopenWithinHours: 6,
+    buildSha,
+  } as any);
+
+  const reopened = () => ghCalls().some((a) => a[0] === 'issue' && a[1] === 'reopen');
+  const commentBody = () => {
+    const c = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'comment');
+    return c ? String(c[c.indexOf('--body') + 1]) : '';
+  };
+
+  // (a) — the run PREDATES the closing commit. Must NOT reopen.
+  it('(a1) #5729 shape: closed event has no commit_id, timeline does → ancestor check fires, no reopen', async () => {
+    mockGh({
+      eventsSha: '',                                   // real-world: commit_id is null
+      timeline: [`${CLOSED_AT}\teb7eac6a`],            // referenced in the same second as the close
+      compare: 'ahead',                                // buildSha is an ancestor of eb7eac6a
+    });
+
+    const res = await report('78a1f7ae');
+
+    expect(reopened()).toBe(false);
+    expect(commentBody()).toContain('precede la fix');
+    expect(commentBody()).toContain('eb7eac6a');
+    expect((res as any)?.staleBuild).toBe(true);
+  });
+
+  it('(a2) #5752 shape: no closing commit anywhere → build committed before the close, no reopen', async () => {
+    mockGh({ eventsSha: '', timeline: [], commitDate: beforeClose });
+
+    const res = await report('349fa50a');
+
+    expect(reopened()).toBe(false);
+    expect(commentBody()).toContain('Riapertura saltata');
+    expect(commentBody()).toContain(beforeClose);      // the evidence is named, not just asserted
+    expect((res as any)?.staleBuild).toBe(true);
+  });
+
+  // (b) — a genuine recurrence AFTER the fix. Must reopen. Without these two the
+  // guard could "pass" by never reopening anything at all.
+  it('(b1) build already contains the fix (compare says not an ancestor) → reopens', async () => {
+    mockGh({
+      eventsSha: '',
+      timeline: [`${CLOSED_AT}\teb7eac6a`],
+      compare: 'behind',                               // buildSha is NOT an ancestor
+      commitDate: beforeClose,                         // rung 2 would have abstained — must not be consulted
+    });
+
+    await report('freshBuildSha');
+
+    expect(reopened()).toBe(true);
+    expect(commentBody()).toContain('Reopened');
+  });
+
+  it('(b2) no closing commit, build committed AFTER the close → real recurrence, reopens', async () => {
+    mockGh({ eventsSha: '', timeline: [], commitDate: afterClose });
+
+    await report('freshBuildSha');
+
+    expect(reopened()).toBe(true);
+    expect(commentBody()).toContain('Reopened');
+  });
+
+  // (c) — ambiguity. Fail-safe is to REPORT, never to swallow.
+  it('(c1) closing commit not recoverable and the commit lookup fails → reopens (fail-safe)', async () => {
+    mockGh({ eventsSha: '', timeline: [], commitDate: null }); // /commits/<sha> throws
+
+    await report('unknownSha');
+
+    expect(reopened()).toBe(true);
+  });
+
+  it('(c2) issue closed with no closedAt at all → no timestamp to compare, reopens (fail-safe)', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const state = args[args.indexOf('--state') + 1];
+        // closedAt present (the finder filters on it) but unparseable downstream.
+        return state === 'closed' ? JSON.stringify([{ ...CLOSED_ISSUE, closedAt: ISO(1) }]) : '[]';
+      }
+      if (args[0] === 'api' && String(args[1]).includes('/commits/')) return 'not-a-date';
+      return '';
+    });
+
+    await report('someSha');
+
+    expect(reopened()).toBe(true);
+  });
+
+  // The trap that makes the timeline rung safe: #5729 also carried an unrelated
+  // `referenced d72549e1` 25 minutes before the close, from a PR that merely
+  // mentioned the issue. Attributing the close to it would judge staleness
+  // against the wrong commit.
+  it('ignores a referenced commit far from the close, then falls back to the timestamp', async () => {
+    mockGh({
+      eventsSha: '',
+      timeline: [`${wayBeforeClose}\td72549e1`],
+      compare: 'ahead',                                // would abstain if d72549e1 were used as closing sha
+      commitDate: afterClose,                          // timestamp rung says: real recurrence
+    });
+
+    await report('freshBuildSha');
+
+    expect(reopened()).toBe(true);
+    expect(ghCalls().some((a) => a[0] === 'api' && String(a[1]).includes('/compare/'))).toBe(false);
+  });
+
+  it('prefers the closed event commit_id when GitHub does populate it', async () => {
+    mockGh({ eventsSha: 'keywordSha', timeline: [`${CLOSED_AT}\totherSha`], compare: 'ahead' });
+
+    await report('staleSha');
+
+    expect(reopened()).toBe(false);
+    expect(commentBody()).toContain('keywordSha');
+    // The timeline is not even queried when the strong source answered.
+    expect(ghCalls().some((a) => a[0] === 'api' && String(a[1]).includes('/timeline'))).toBe(false);
+  });
+});
