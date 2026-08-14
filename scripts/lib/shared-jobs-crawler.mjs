@@ -1263,7 +1263,7 @@ ${rawText}`;
     structureDescriptionCalls++;
     const result = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'gemini-2.0-flash', maxTokens: 4000, temperature: 0.1 }
+      { model: 'gemini-flash-latest', maxTokens: 4000, temperature: 0.1 }
     );
     if (!result) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
@@ -1395,7 +1395,7 @@ ${contextParts.join('\n\n')}`;
     enrichThinCalls++;
     const result = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'gemini-2.0-flash', maxTokens: 4000, temperature: 0.2 }
+      { model: 'gemini-flash-latest', maxTokens: 4000, temperature: 0.2 }
     );
     if (!result) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);

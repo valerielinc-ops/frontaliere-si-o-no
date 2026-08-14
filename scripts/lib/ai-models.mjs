@@ -116,6 +116,12 @@ export const AI_MODELS = Object.freeze({
   // Gemma models use the same Gemini API endpoint — 14,400 req/day each!
   GEMINI_FLASH:     'gemini-2.5-flash',
   GEMINI_PRO:       'gemini-2.5-pro',
+  // gemini-2.0-flash e' RITIRATO: l'API risponde HTTP 404 "This model models/gemini-2.0-flash is
+  //                       no longer available" (2026-08-14, run 31823202761, 8 hit). Resta in
+  //                       roster di proposito: dal fix al matcher del 404 qui sotto viene marcato
+  //                       esaurito al PRIMO 404 e non piu' richiamato per il resto della run.
+  //                       Curare il roster a mano e' cio' che ha gia' fallito una volta (vedi
+  //                       GEMINI_31_FLASH_LITE piu' sotto): la lista rimarcisce, il matcher no.
   GEMINI_2_FLASH:   'gemini-2.0-flash',
   GEMINI_FLASH_LITE:'gemini-2.5-flash-lite',
   // Gemma models via Gemini API — 14,400 req/day each!
@@ -129,6 +135,8 @@ export const AI_MODELS = Object.freeze({
   //                       OR_GEMMA_3_12B / CF_GEMMA_3_12B remain available.
   // New Gemini 3.x models (preview)
   GEMINI_3_FLASH:   'gemini-3-flash-preview',
+  // gemini-3-pro-preview e' RITIRATO (HTTP 404 "no longer available", 2026-08-14, 4 hit). Stessa
+  //                       nota di GEMINI_2_FLASH sopra: se ne occupa il matcher, non la lista.
   GEMINI_3_PRO:     'gemini-3-pro-preview',
   // GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
   //                       The GA replacement `gemini-3.1-flash-lite` is exposed below as GEMINI_31_FLASH_LITE_GA and stays in the chain.
@@ -138,6 +146,8 @@ export const AI_MODELS = Object.freeze({
   GEMINI_FLASH_LATEST:        'gemini-flash-latest',
   GEMINI_FLASH_LITE_LATEST:   'gemini-flash-lite-latest',
   GEMINI_PRO_LATEST:          'gemini-pro-latest',
+  // gemini-2.0-flash-lite e' RITIRATO (HTTP 404 "no longer available", 2026-08-14, 10 hit — il
+  //                       fallimento piu' frequente di quella run). Stessa nota.
   GEMINI_2_FLASH_LITE:        'gemini-2.0-flash-lite',
   GEMINI_31_FLASH_LITE_GA:    'gemini-3.1-flash-lite',
 
@@ -391,7 +401,7 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.GPT_5 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.LLAMA_4_MAVERICK,   // 4.  Meta Llama 4 flagship  (GitHub Models)
   AI_MODELS.GEMINI_FLASH,       // 5.  Google fast            (Gemini API free)
-  AI_MODELS.GEMINI_3_PRO,       // 5b. Gemini 3 Pro preview   (Gemini API free)
+  AI_MODELS.GEMINI_3_PRO,       // 5b. Gemini 3 Pro preview   (ritirato — vedi nota su AI_MODELS)
   AI_MODELS.GEMINI_3_FLASH,     // 5c. Gemini 3 Flash preview (Gemini API free)
   // AI_MODELS.O3 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // AI_MODELS.GROK_3 removed — GitHub Models HTTP 400 "unknown_model: grok-3" (2026-05-18)
@@ -425,7 +435,7 @@ export const DEFAULT_CHAIN = [
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // AI_MODELS.O1 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // AI_MODELS.LLAMA_3_2_90B removed chain — GitHub Models HTTP 400 "unknown_model: Llama-3.2-90B-Vision-Instruct" (2026-07-05, confirmed retired live, 12x in 30-run sample)
-  AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (Gemini API free)
+  AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (ritirato — vedi nota su AI_MODELS)
   // AI_MODELS.GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
   //                                 The deprecated preview kept winning the fallback selector because 404 didn't mark it exhausted, causing the
   //                                 entire blog-generator workflow to fail with 50+ retries against the dead endpoint. The GA non-preview model
@@ -569,7 +579,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GEMINI_FLASH_LATEST,        // alias → today's stable flash
   AI_MODELS.GEMINI_FLASH_LITE_LATEST,   // alias → today's stable flash-lite
   AI_MODELS.GEMINI_PRO_LATEST,          // alias → today's stable pro
-  AI_MODELS.GEMINI_2_FLASH_LITE,        // Gemini 2.0 flash lite (extra quota)
+  AI_MODELS.GEMINI_2_FLASH_LITE,        // Gemini 2.0 flash lite (ritirato — vedi nota su AI_MODELS)
   AI_MODELS.GEMINI_31_FLASH_LITE_GA,    // Gemini 3.1 flash lite GA (non-preview)
   // Groq compound full (not just mini)
   AI_MODELS.GROQ_COMPOUND_FULL,
@@ -1229,6 +1239,11 @@ const _ghExhaustedPats = new Set();
 // modelId → reason it was exhausted ('quota' | 'timeout' | 'content' | 'stale' |
 // 'nonretryable'). Gates the GitHub multi-PAT skip-exemption (quota only).
 const _exhaustReason = new Map();
+// modelId → optional free-text detail for that reason, e.g. 'HTTP 402'. Kept
+// separate from _exhaustReason so the coarse reason values the multi-PAT
+// exemption compares against (`=== 'quota'`) stay a closed set, while the skip
+// message can still name the actual status. See _exhaustSkipCause.
+const _exhaustDetail = new Map();
 // Tracks which exhausted models have already been logged this run, so a model
 // that's been exhausted since startup doesn't produce a "Skipped — exhausted"
 // line every time the fallback chain ticks past it.
@@ -2574,12 +2589,55 @@ function sortChainByScore(chain) {
 // exhaustion (account-independent → rotation cannot help, and re-trying would
 // neutralise those circuit-breakers). Default 'quota' covers the daily-limit and
 // rate-limit paths; the non-quota breakers pass an explicit reason.
-export function markModelExhausted(modelId, reason = 'quota') {
+export function markModelExhausted(modelId, reason = 'quota', detail = '') {
   _exhaustedModels.add(modelId);
   _exhaustReason.set(modelId, reason);
+  if (detail) _exhaustDetail.set(modelId, detail);
   _dirtyModels.add(modelId);
   _schedulePersist();
   console.warn(`🚫 Model ${modelId} marked as exhausted (${reason}) — will be skipped for rest of run`);
+}
+
+/**
+ * Human-and-classifier readable cause for a model that is being skipped because
+ * it is exhausted.
+ *
+ * ── Why this exists ───────────────────────────────────────────────────────
+ *
+ * The skip below used to push one fixed string for every exhausted model:
+ *
+ *   "skipped — exhausted (daily limit / consecutive 429s / timeout circuit-breaker)"
+ *
+ * A three-way disjunction, of which two branches are NOT transient. Every model
+ * exhausted by a 401 (stale key), a 402 (depleted credits) or a 404 (retired
+ * model) — all three classified `nonretryable` right where they are marked, with
+ * a comment explaining they must not be labelled quota — reappeared in the
+ * aggregate `Errors:` summary claiming a daily limit. `classifyExhaustionCause`
+ * then matched it on `daily limit` and counted it TRANSIENT, and
+ * `transientExhaustion` decides whether create-article.mjs defers (exit 0,
+ * workflow green) or alerts.
+ *
+ * Measured on run 31823202761: of 104 tallied models, all 54 on the transient
+ * side carried this one string, against 49 persistent — so the deferral, and the
+ * green run that produced no article, turned on a message that named the wrong
+ * cause. The reason was already recorded in `_exhaustReason`; only the message
+ * threw it away.
+ *
+ * The returned phrases are chosen to carry vocabulary `classifyExhaustionCause`
+ * already keys on, and the regexes there now name them explicitly rather than
+ * matching them by accident.
+ */
+function _exhaustSkipCause(model) {
+  const reason = _exhaustReason.get(model) || 'quota';
+  const detail = _exhaustDetail.get(model);
+  switch (reason) {
+    case 'quota':        return 'daily limit / consecutive 429s';
+    case 'timeout':      return 'timeout circuit-breaker';
+    case 'stale':        return 'stale credentials (HTTP 401)';
+    case 'content':      return 'repeated unusable content';
+    case 'nonretryable': return `non-retryable provider error${detail ? ` (${detail})` : ''}`;
+    default:             return reason;
+  }
 }
 
 // Whether the chain runner should SKIP a model because it's exhausted.
@@ -2846,7 +2904,7 @@ export function isQuotaExhaustedError(err) {
  * - context length / too many tokens: prompt too large for this model
  * Returns { nonRetryable: boolean, markExhausted: boolean }
  */
-function classifyNonRetryableError(status, bodyText = '') {
+export function classifyNonRetryableError(status, bodyText = '') {
   const b = String(bodyText).toLowerCase();
 
   // HTTP 413 — payload too large / token limit reached
@@ -2874,8 +2932,26 @@ function classifyNonRetryableError(status, bodyText = '') {
   }
 
   // HTTP 404 — model not found (Cerebras, Groq, OpenRouter return 404 for invalid model IDs)
+  //
+  // `no longer available` / `no longer supported` are GOOGLE's wording for a
+  // retired model — "This model models/gemini-2.0-flash is no longer available.
+  // Please update your code to use a newer model". Without them here a retired
+  // Gemini model is nonRetryable but NOT exhausted, so it is re-attempted on
+  // every pass of every retry instead of being skipped after the first 404.
+  //
+  // This is the second time. The roster comment on GEMINI_31_FLASH_LITE records
+  // the first (2026-05-27, run 26534353239): "The deprecated preview kept winning
+  // the fallback selector because 404 didn't mark it exhausted, causing the entire
+  // blog-generator workflow to fail with 50+ retries against the dead endpoint."
+  // That was fixed by deleting the one model and leaving the matcher alone, so on
+  // 2026-08-14 it recurred with three others (gemini-2.0-flash, -flash-lite,
+  // gemini-3-pro-preview, 48 futile 404s in run 31823202761). Deleting the models
+  // is the symptom; this line is the cause.
   if (status === 404) {
-    if (b.includes('model_not_found') || b.includes('not_found_error') || b.includes('does not exist')) {
+    if (
+      b.includes('model_not_found') || b.includes('not_found_error') || b.includes('does not exist')
+      || b.includes('no longer available') || b.includes('no longer supported')
+    ) {
       return { nonRetryable: true, markExhausted: true };
     }
     return { nonRetryable: true, markExhausted: false };
@@ -3451,7 +3527,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
             _learnSchemaIncompatible(modelForTracking);
           }
           if (nrc.markExhausted && !_isLastResortProvider(modelForTracking)) {
-            markModelExhausted(modelForTracking, 'nonretryable');
+            markModelExhausted(modelForTracking, 'nonretryable', `HTTP ${res.status}`);
             _stats.exhausted++;
           }
           const err = new Error(`[${displayModel}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
@@ -4125,7 +4201,7 @@ async function _callGeminiRaw(model, messages, opts) {
             // if it were a daily quota — exactly the over-persistence #4073
             // removed (quota-only persist gate in _persistScoresToFirestore).
             // Review 🔴 on #4073.
-            markModelExhausted(model, 'nonretryable');
+            markModelExhausted(model, 'nonretryable', `HTTP ${res.status}`);
             _stats.exhausted++;
           }
           const err = new Error(`[${model}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
@@ -4477,16 +4553,21 @@ export async function callLLM(messages, opts = {}) {
     // 300+ times in a single run (one per fallback attempt × per fact-check
     // retry × per generation retry).
     if (_shouldSkipExhausted(model)) {
+      const cause = _exhaustSkipCause(model);
       if (!_exhaustedLogged.has(model)) {
-        console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit, future hits silenced)`);
+        console.warn(`⏭️  [${model}] Skipped — exhausted (${cause}, future hits silenced)`);
         _exhaustedLogged.add(model);
       }
       // Record the skip reason so the aggregate "All AI models failed … Errors:"
       // message is never empty when every candidate is skipped pre-flight (e.g.
       // a single-model chain whose only model is exhausted, as in the smoke
       // test). Without this the harness surfaces a blank cause — undiagnosable.
-      errors.push(`${model}: skipped — exhausted (daily limit / consecutive 429s / timeout circuit-breaker)`);
-      _recordLastResortSkip(model, 'exhausted (daily limit)');
+      //
+      // The cause is the RECORDED one, not a fixed disjunction: see
+      // _exhaustSkipCause for why naming it wrong here turned a persistent-fault
+      // run into a green deferral 60+ times on 2026-08-14.
+      errors.push(`${model}: skipped — exhausted (${cause})`);
+      _recordLastResortSkip(model, `exhausted (${cause})`);
       continue;
     }
 
@@ -4791,9 +4872,20 @@ export async function callLLM(messages, opts = {}) {
  * (recovers on its own). Persistent = auth/credit/removed-model/payload/no-key
  * (needs intervention). Reasons matching neither are ignored in the tally.
  */
-function classifyExhaustionCause(errors) {
-  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|payment|insufficient|credit/i;
-  const transientRe = /daily (request )?limit|daily quota|exceeded your current quota|plan and billing|free.?models.?per.?day|\b429\b|rate.?limit|resource.?exhausted|cooling down|timeout|aborted|overloaded|\b5\d\d\b|temporarily/i;
+export function classifyExhaustionCause(errors) {
+  // `non-retryable provider error`, `stale credentials`, `repeated unusable
+  // content` and `no longer available` are the vocabulary _exhaustSkipCause and
+  // classifyNonRetryableError emit. They are named here EXPLICITLY rather than
+  // left to be caught incidentally by the `\b40[124]\b` alternative: a phrase
+  // that classifies correctly only because it happens to contain a status code
+  // is one rewording away from silently flipping a persistent fault to
+  // transient — which is exactly the failure this pair of regexes suffered.
+  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|no longer available|non-retryable|stale credentials|unusable content|payment|insufficient|credit/i;
+  // `timed out` alongside `timeout`: the claude-CLI provider rejects with
+  // "claude CLI timed out after 120000ms", which matched NEITHER regex and fell
+  // into the ignored ambiguous bucket — leaving the one model that was actually
+  // invoked out of the tally entirely (run 31823202761, 10 timeouts, 0 counted).
+  const transientRe = /daily (request )?limit|daily quota|exceeded your current quota|plan and billing|free.?models.?per.?day|\b429\b|rate.?limit|resource.?exhausted|cooling down|timeout|timed out|aborted|overloaded|\b5\d\d\b|temporarily/i;
   let transient = 0;
   let persistent = 0;
   for (const reason of errors) {
