@@ -122,7 +122,15 @@ export function formatPublishedDigest(entries, { excerptChars = 100 } = {}) {
     .join('\n');
 }
 
-const CANDIDATE_KEY_RE = new RegExp(`^\\s*${CANDIDATE_KEY_PREFIX}\\s*(\\d+)\\s*$`, 'i');
+// Case-sensitive apposta (issue #5849 item 4): il prompt di correzione
+// (selectionCorrectionNote) e formatCandidateList mostrano solo `H<n>`
+// maiuscolo — un parser case-insensitive accettava `h1` che il modello non
+// vede mai esemplificato, un'asimmetria fra ciò che il parser tollera e ciò
+// che il prompt promette. Allineare aggiungendo `h1` agli esempi del prompt
+// avrebbe aggiunto byte a un prompt già oltre la soglia token di ogni modello
+// del roster (8898 token, 2026-08-14) — la correzione va sul lato che non
+// costa: il parser accetta esattamente quello che il prompt mostra.
+const CANDIDATE_KEY_RE = new RegExp(`^\\s*${CANDIDATE_KEY_PREFIX}\\s*(\\d+)\\s*$`);
 const BARE_NUMBER_RE = /^\s*[+-]?\d+\s*$/;
 
 function reject(rejection, detail) {

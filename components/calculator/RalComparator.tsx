@@ -10,7 +10,7 @@ import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
-import { calculateProgressiveWorkDeduction, calculateIrpefGross } from '@/services/calculationService';
+import { calculateProgressiveWorkDeduction, calculateIrpefGross, getTicinoTaxRate } from '@/services/calculationService';
 
 // ─── Italian INPS Contribution Rates 2026 ────────────────────────────────
 
@@ -33,20 +33,16 @@ const LPP_RATES: Record<string, number> = {
  '55+': 0.09,
 };
 
-// Ticino tax table A (single, no children) — simplified interpolation
-const TABLE_A: number[][] = [[0, 0], [17000, 0.20], [25000, 2.00], [30000, 3.20], [40000, 5.20], [50000, 6.00], [60000, 8.50], [80000, 11.30], [100000, 13.20], [120000, 14.90], [150000, 17.20], [200000, 19.40], [300000, 24.50], [500000, 28.30]];
-const TABLE_B: number[][] = [[0, 0], [25000, 0.30], [30000, 0.70], [40000, 1.10], [50000, 1.50], [60000, 2.50], [80000, 5.10], [100000, 8.70], [120000, 10.70], [150000, 13.40], [200000, 16.50], [300000, 22.80]];
-
-function interpolate(value: number, points: number[][]): number {
- if (value <= points[0][0]) return points[0][1];
- if (value >= points[points.length - 1][0]) return points[points.length - 1][1];
- for (let i = 0; i < points.length - 1; i++) {
- const [x0, y0] = points[i];
- const [x1, y1] = points[i + 1];
- if (value >= x0 && value < x1) return y0 + (value - x0) * (y1 - y0) / (x1 - x0);
- }
- return 0;
-}
+// Ticino withholding tax — single source of truth: `getTicinoTaxRate` in
+// `services/calculationService.ts`. This file used to carry its own barème A/B
+// tables (14/12 calibration points vs the 20/16 of calculationService), which
+// diverged from the shared source by up to 0.85pt (barème A) / 3.7pt (barème
+// B) — same defect fixed for `PermitCompare` in #5375/#5895, same fix here
+// (issue #5374). `spouseWorks`/`children` are not modeled on the Swiss side of
+// this comparator (pre-existing behavior, unchanged): SINGLE maps to barème A,
+// MARRIED to barème B, same as before.
+export const getRalComparatorSwissTaxRate = (grossCHF: number, maritalStatus: string): number =>
+ getTicinoTaxRate(grossCHF, maritalStatus, 0, false).rate;
 
 // ─── Calculate Italian Net from RAL ──────────────────────────────────────
 
@@ -123,8 +119,7 @@ function calculateSwissNet(grossCHF: number, ageGroup: string, maritalStatus: st
  const lpp = grossCHF * (LPP_RATES[ageGroup] || 0.05);
  const totalSocial = avs + ac + laa + ijm + lpp;
 
- const tablePoints = maritalStatus === 'MARRIED' ? TABLE_B : TABLE_A;
- const taxRate = interpolate(grossCHF, tablePoints) / 100;
+ const taxRate = getRalComparatorSwissTaxRate(grossCHF, maritalStatus);
  const taxes = grossCHF * taxRate;
  const healthAnnual = healthInsurance * 12;
 
