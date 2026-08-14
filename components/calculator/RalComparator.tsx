@@ -41,7 +41,7 @@ const LPP_RATES: Record<string, number> = {
 // (issue #5374). `spouseWorks`/`children` are not modeled on the Swiss side of
 // this comparator (pre-existing behavior, unchanged): SINGLE maps to barème A,
 // MARRIED to barème B, same as before.
-const getRalComparatorSwissTaxRate = (grossCHF: number, maritalStatus: string): number =>
+export const getRalComparatorSwissTaxRate = (grossCHF: number, maritalStatus: string): number =>
  getTicinoTaxRate(grossCHF, maritalStatus, 0, false).rate;
 
 // ─── Calculate Italian Net from RAL ──────────────────────────────────────
