@@ -2665,6 +2665,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Lucerne Cantonal Scholarships: Requirements and Amounts',
     'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Find out about the requirements and amounts of scholarships offered by the Canton of Lucerne.',
     'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Image of Lucerne, with a focus on academic life and students.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.title': 'A laser that sees, hears and corrects itself',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.excerpt': 'A system developed by Empa, SUPSI and Bystronic that uses cameras and microphones to evaluate the quality of metal cutting and adapt settings independently.',
+    'blog.article.laser-vede-ascolta-si-corregge-da-solo.imageAlt': 'A Swiss laser system using cameras and microphones to evaluate the quality of metal cutting and adjust settings automatically.',
 };
 
 export default blogMetaChEn;
