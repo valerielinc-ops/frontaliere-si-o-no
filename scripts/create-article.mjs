@@ -151,6 +151,7 @@ import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
 import { assertNoSlugPromptLeak, stripSlugPromptLeak, findSlugPromptLeak } from './lib/slug-prompt-leak-guard.mjs';
 import { fixMicrocopy } from './lib/it-microcopy-guard.mjs';
+import { cleanFaqPairs, sanitizePromptPlaceholders } from './lib/prompt-placeholder-guard.mjs';
 // Il protocollo di riferimento del prompt di selezione headline (issue #188).
 // Le due liste del prompt — candidate e articoli gia' pubblicati — avevano la
 // STESSA sintassi `[n]`, quindi un riferimento del modello era leggibile in due
@@ -5609,10 +5610,28 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     if (!Array.isArray(rawFaq)) {
       console.error('  ⚠️  FAQ non è un array, lo rimuovo');
     } else {
-      const validFaq = rawFaq.filter(pair =>
-        pair && typeof pair.q === 'string' && typeof pair.a === 'string' &&
-        pair.q.length > 10 && pair.a.length > 20
-      ).slice(0, 7);
+      // ── Perche' il filtro di FORMA non bastava ─────────────────────────
+      //
+      // Il filtro qui sotto era `q.length > 10 && a.length > 20`. La domanda
+      // segnaposto dello schema («Domanda frequente 1 basata sui fatti
+      // dell'articolo?») e' lunga 50 caratteri e la sua risposta 44: passavano
+      // entrambe, e la riga di log stampava «✅ FAQ: 3 coppie valide» mentre le
+      // tre coppie ERANO lo schema. Una FAQ segnaposto e' strutturalmente
+      // valida — si contano le coppie e si passa — e da qui finiva dritta nello
+      // schema FAQPage (engine/ogPagesPlugin.ts) come structured data falso
+      // verso i motori di ricerca. Stessa correzione gia' fatta nel corpus
+      // (PR #196): vedi scripts/lib/prompt-placeholder-guard.mjs.
+      //
+      // `cleanFaqPairs` aggiunge il controllo di CONTENUTO e tiene la soglia
+      // delle 2 coppie dov'era, perche' e' la stessa dell'engine.
+      const { pairs: cleaned, repaired, dropped } = cleanFaqPairs(rawFaq);
+      if (dropped.length) {
+        console.error(`  ⚠️  FAQ: ${dropped.length} coppie scartate (${dropped.map((d) => d.reason).join('; ')})`);
+      }
+      if (repaired) {
+        console.error(`  ✍️  FAQ: ${repaired} coppie ripulite dall'etichetta dello schema`);
+      }
+      const validFaq = cleaned ? cleaned.slice(0, 7) : [];
       if (validFaq.length < 2) {
         console.error(`  ⚠️  FAQ troppo poche (${validFaq.length}), rimuovo`);
       } else {
@@ -10681,6 +10700,22 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   console.error(`   Slug IT: ${data.slugs.it}`);
   console.error('');
 
+  // Step 3a.1: Reject/repair prompt-schema placeholders leaked into any
+  // published field (title/excerpt/body1-3/imageAlt/seo.*) — same guard
+  // registerArticleFiles() runs for publish-journalist-article.mjs, which
+  // never passes through main(). After translateArticle() so it also sees
+  // translation-introduced leaks, before image generation so a doomed
+  // article doesn't spend an image call first. Tagged qualityReject like
+  // every other throw in this function: a placeholder is a per-headline
+  // generation failure, not an infra error — the retry loop should rotate to
+  // the next headline, not crash the run.
+  try {
+    sanitizePromptPlaceholders(data);
+  } catch (e) {
+    e.qualityReject = true;
+    throw e;
+  }
+
   // Step 3b: Generate article image via Gemini native image generation
   console.error('🎨 Generazione immagine articolo:');
   const imagePath = await generateArticleImage(data);
@@ -10981,6 +11016,15 @@ export async function registerArticleFiles(data, opts = {}) {
         'Refresh the body files instead of re-registering.',
     );
   }
+  // Sta QUI, sul percorso di scrittura condiviso, per la stessa ragione
+  // argomentata sopra a `deriveAndSanitizeArticleSlugs()`: `main()` e' UN
+  // produttore, e `scripts/publish-journalist-article.mjs` importa
+  // `registerArticleFiles` direttamente senza mai passare da `main()` — gira
+  // ogni 15 minuti, quindi un segnaposto che sfugge qui va live senza che
+  // nessuno lo veda (corpus issue #195, #208 item 1). Prima di
+  // `clampSeoDescriptions`: troncare a 160 caratteri un campo che E' il
+  // segnaposto lo renderebbe solo un segnaposto piu' corto, non lo toglierebbe.
+  sanitizePromptPlaceholders(data);
   clampSeoDescriptions(data);
   const slugs = deriveAndSanitizeArticleSlugs(data);
   modifyRouterTs(data);
