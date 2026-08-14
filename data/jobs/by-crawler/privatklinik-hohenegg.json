@@ -1,7 +1,75 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-08-13T10:17:52.303Z",
+  "assembledAt": "2026-08-14T21:28:36.897Z",
   "jobs": [
+    {
+      "id": "privatklinik-hohenegg-ce6d6d862ab0",
+      "slug": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+      "slugByLocale": {
+        "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+        "it": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+        "en": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+        "fr": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+      },
+      "company": "Privatklinik Hohenegg",
+      "companyKey": "privatklinik-hohenegg",
+      "companyDomain": "hohenegg.ch",
+      "title": "Mitarbeitende Hotellerie (auf Abruf)",
+      "titleByLocale": {
+        "de": "Mitarbeitende Hotellerie (auf Abruf)",
+        "it": "Mitarbeitende Hotellerie (auf Abruf)",
+        "en": "Mitarbeitende Hotellerie (auf Abruf)",
+        "fr": "Mitarbeitende Hotellerie (auf Abruf)"
+      },
+      "description": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+      "descriptionByLocale": {
+        "de": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+        "it": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+        "en": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
+        "fr": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen"
+      },
+      "needsRetranslation": true,
+      "location": "Meilen",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
+      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T21:28:33.112Z",
+      "addressLocality": "Meilen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8706",
+      "category": "Ospitalità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://apply.refline.ch/640332/0063/pub/3/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 10,
+      "pensumMax": 10,
+      "pensum": "10%",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T21:28:33.112Z"
+    },
     {
       "id": "privatklinik-hohenegg-77a7146b0afe",
       "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
@@ -81,7 +149,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
