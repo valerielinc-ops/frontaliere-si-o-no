@@ -1,59 +1,16 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-08-13T21:48:44.991Z",
-  "total": 1,
+  "generatedAt": "2026-08-14T10:21:33.058Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2925,
-  "avgDurationMs": 2925,
-  "durationHistory": [
-    2925
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "bitfinex-48d8a6e17a56",
-      "slug": "product-manager-100-remote-worldwide-bitfinex-ch",
-      "company": "Bitfinex",
-      "companyKey": "bitfinex",
-      "companyDomain": "bitfinex.com",
-      "title": "Product Manager - (100% remote Worldwide)",
-      "location": "Lisboa, Lisboa",
-      "canton": "TI",
-      "url": "https://bitfinex.recruitee.com/o/product-manager-100-remote-worldwide-12",
-      "source": "bitfinex-careers-crawler",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-13T21:48:42.386Z",
-      "addressLocality": "Lisboa",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "remote",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "workModel": "remote",
-      "sector": "Fintech / Blockchain",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-16",
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://careers.bitfinex.com/o/product-manager-100-remote-worldwide-12/c/new",
-      "department": "Product",
-      "firstSeenAt": "2026-06-16T22:25:01.499Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
