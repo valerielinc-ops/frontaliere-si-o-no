@@ -905,6 +905,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abort-topical-relevance-trump-health': { it: 'abort-topical-relevance-trump-health', en: 'news-not-relevant', de: 'nicht-zutreffende-nachrichten', fr: 'information-non-pertinente' },
  'imposte-cantonali-canton-lucerna-aliquote': { it: 'imposte-cantonali-canton-lucerna-aliquote', en: 'canton-lucerne-cantonal-taxes-deductions', de: 'kantonssteuern-kanton-luzern-abzuege', fr: 'impots-cantonaux-canton-lucerne-baremes' },
  'premi-cassa-malati-lucerna-2026': { it: 'premi-cassa-malati-lucerna-2026', en: 'health-insurance-premiums-lucerne', de: 'krankenversicherungspramien-luzern', fr: 'primes-maladie-lucerne' },
+ 'permesso-dimora-b-lucerna-requisiti': { it: 'permesso-dimora-b-lucerna-requisiti', en: 'permesso-dimora-b-lucerne', de: 'b-erlaubnis-luzern', fr: 'permis-de-sejour-b-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

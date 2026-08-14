@@ -2638,6 +2638,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-lucerna-2026.title': 'Premi cassa malati Canton Lucerna e riduzione premi',
     'blog.article.premi-cassa-malati-lucerna-2026.excerpt': 'La legge sulle assicurazioni malattie obbligatorie nel Canton Lucerna: fasce di premio, franchigie, modelli alternativi e requisiti per ottenere la riduzione dei premi.',
     'blog.article.premi-cassa-malati-lucerna-2026.imageAlt': 'Scena di vita in Svizzera con alloggi e mercati locali',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Il permesso di dimora B a Lucerna: requisiti e procedura',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'Il permesso di dimora B nel Cantone di Lucerna è un tipo di permesso di soggiorno che può essere rinnovato. Ecco i requisiti, i documenti da produrre e la procedura di rinnovo.',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'Il permesso di dimora B nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

@@ -2638,6 +2638,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-lucerna-2026.title': 'Health insurance premiums Canton Lucerne and premium reductions',
     'blog.article.premi-cassa-malati-lucerna-2026.excerpt': 'The law on compulsory health insurance in the Canton of Lucerne: premium bands, deductibles, alternative models and requirements to obtain the reduction of premiums.',
     'blog.article.premi-cassa-malati-lucerna-2026.imageAlt': 'Swiss life with housing and local markets',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.title': 'Residence permit B in Lucerne: requirements and procedure',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.excerpt': 'The B residence permit in the Canton of Lucerne is a type of residence permit that can be renewed. Here are the requirements, the documents to be produced and the renewal procedure.',
+    'blog.article.permesso-dimora-b-lucerna-requisiti.imageAlt': 'The B permit in the Canton of Lucerne',
 };
 
 export default blogMetaChEn;
