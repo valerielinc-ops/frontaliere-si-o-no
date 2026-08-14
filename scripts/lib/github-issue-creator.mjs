@@ -37,6 +37,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
 
 const PRIORITY_LABEL = {
   1: 'priority:urgent',
@@ -89,6 +90,16 @@ const LEDGER_KEY_PREFIX = 'transient-key:'; // machine-readable per-crawler key 
 // (scripts/ci/followup-drainer.mjs); keep the literal in sync.
 const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
+// How close to the `closed` event a `referenced` commit event must sit before we
+// accept it AS the closing commit (see findClosingCommitSha). GitHub emits the
+// two in the same second when a merge commit's `Closes #N` retires the issue —
+// measured 0s apart on #5729 (`referenced eb7eac6a` and `closed`, both
+// 2026-08-13T19:40:34Z). The window exists only to reject an UNRELATED older
+// reference: #5729 also carried `referenced d72549e1` 25 minutes earlier, from a
+// PR that merely mentioned the issue. Widening this trades precision for the
+// risk of attributing the close to a commit that did not cause it.
+const CLOSING_REFERENCE_WINDOW_MS = 5 * 60 * 1000;
+
 /**
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
  * stderr is forwarded for visibility (workflow logs will show the actual error).
@@ -104,6 +115,22 @@ function gh(args, { allowFailure = false } = {}) {
     if (allowFailure) return null;
     throw err;
   }
+}
+
+/**
+ * Append one line to the job summary, when running inside Actions. The issue
+ * comment is the primary trace for an abstention, but it goes through `gh` and
+ * `gh` is allowed to fail silently here; the summary is written locally and
+ * survives that. A SILENT abstention is indistinguishable from a broken
+ * reopener — which is the very defect this guard repairs — so the trace is part
+ * of the behaviour, not decoration. No-op outside CI, never throws.
+ */
+function appendStepSummary(line) {
+  const file = process.env.GITHUB_STEP_SUMMARY;
+  if (!file) return;
+  try {
+    fs.appendFileSync(file, `${line}\n`);
+  } catch { /* best-effort: a summary write must never break a reporter */ }
 }
 
 function repoFlag() {
@@ -265,20 +292,90 @@ function apiRepoPath(suffix) {
 
 /**
  * The commit SHA of the event that most recently CLOSED an issue (issue #5539).
- * GitHub's issue-events API records a `commit_id` on a `closed` event only when
- * the close happened via a commit/PR merge carrying a closing keyword — exactly
- * the case here (the fix PR's `Closes #N`). Returns null on any degradation
- * (no such event, e.g. manually closed; API error; malformed JSON) so the
- * caller falls back to the pre-#5539 behaviour (reopen unconditionally).
+ *
+ * Two sources, tried in order, because the first one is EMPTY for the entire
+ * class of issues this guard exists to protect:
+ *
+ *  1. `/issues/N/events` — a `closed` event carries `commit_id` only when GitHub
+ *     itself retired the issue from a closing keyword. Measured 2026-08-13: on
+ *     #5729, #5786 and #5752 every `closed` event has `commit_id: null`, because
+ *     `frontaliere-automation[bot]` closes them explicitly (`gh issue close`)
+ *     rather than letting the keyword do it. So this rung returns null on 3/3 of
+ *     the observed reopens — the #5539 guard was structurally dead here, not
+ *     merely unlucky, and that is why it never fired.
+ *
+ *  2. `/issues/N/timeline` — the richer endpoint still records the merge commit
+ *     as a `referenced` event. On #5729 that is `eb7eac6a` (the merge commit of
+ *     PR #5778) at 2026-08-13T19:40:34Z, the same second as the `closed` event.
+ *     We accept the LATEST such commit within CLOSING_REFERENCE_WINDOW_MS before
+ *     `closedAt`, which excludes the unrelated `d72549e1` referenced 25 minutes
+ *     earlier by a different PR.
+ *
+ * Returns null on any degradation (manual close with no reference; API error;
+ * malformed JSON) so the caller keeps the fail-safe: no proof of staleness →
+ * reopen. `closedAt` is optional; without it only rung 1 is attempted.
  */
-function findClosingCommitSha(issueNumber) {
-  const out = gh([
+function findClosingCommitSha(issueNumber, closedAt = null) {
+  const fromEvents = gh([
     'api', apiRepoPath(`/issues/${issueNumber}/events`), '--paginate',
     '--jq', '[.[] | select(.event == "closed" and .commit_id != null) | .commit_id] | last',
   ], { allowFailure: true });
-  if (!out) return null;
-  const sha = out.trim();
-  return sha && sha !== 'null' ? sha : null;
+  const eventSha = fromEvents?.trim();
+  if (eventSha && eventSha !== 'null') return eventSha;
+
+  const closedMs = closedAt ? Date.parse(closedAt) : NaN;
+  if (!Number.isFinite(closedMs)) return null;
+
+  // `.[]` guards against the endpoint returning an object (error payload)
+  // instead of an array — `--jq` would otherwise abort the whole call.
+  const raw = gh([
+    'api', apiRepoPath(`/issues/${issueNumber}/timeline`), '--paginate',
+    '--jq', '.[] | select(.event == "referenced" and .commit_id != null) '
+      + '| "\\(.created_at)\\t\\(.commit_id)"',
+  ], { allowFailure: true });
+  if (!raw) return null;
+
+  let best = null;
+  for (const line of raw.split('\n')) {
+    const [at, sha] = line.split('\t');
+    const atMs = Date.parse(at || '');
+    if (!sha || !Number.isFinite(atMs)) continue;
+    // At or before the close, and near enough to have caused it.
+    if (atMs > closedMs || closedMs - atMs > CLOSING_REFERENCE_WINDOW_MS) continue;
+    if (!best || atMs >= best.atMs) best = { atMs, sha: sha.trim() };
+  }
+  return best?.sha || null;
+}
+
+/**
+ * True when the commit under validation was authored into the repo STRICTLY
+ * BEFORE the issue was closed — the coarse rung of the staleness ladder, used
+ * only when no closing commit SHA is recoverable at all.
+ *
+ * Less precise than the ancestor check by design: it proves "this code predates
+ * the close", not "this code predates the specific fix". The two coincide
+ * whenever the close is caused by the fix, which is the automated path here —
+ * measured 2s between merge and close on both #5729 (eb7eac6a merged
+ * 19:40:32Z, closed 19:40:34Z) and #5752 (PR #5761 merged 03:52:30Z, closed
+ * 03:52:32Z). They diverge when a HUMAN closes an issue long after the fix
+ * landed: a build committed inside that gap does contain the fix, yet is judged
+ * stale. That over-abstention is bounded — it costs one deploy cycle, because
+ * the next build (committed after the close) is not stale and reopens normally.
+ *
+ * Fails CLOSED on every uncertainty (unknown commit, unparseable date, API
+ * error): no proof of staleness → the caller reopens, as before.
+ */
+function buildPredatesClose(buildSha, closedAt) {
+  const closedMs = closedAt ? Date.parse(closedAt) : NaN;
+  if (!buildSha || !Number.isFinite(closedMs)) return null;
+  const out = gh([
+    'api', apiRepoPath(`/commits/${buildSha}`), '--jq', '.commit.committer.date',
+  ], { allowFailure: true });
+  const date = out?.trim();
+  if (!date || date === 'null') return null;
+  const builtMs = Date.parse(date);
+  if (!Number.isFinite(builtMs) || builtMs >= closedMs) return null;
+  return date;
 }
 
 /**
@@ -712,15 +809,42 @@ export async function createGithubIssue({
       // that stale build is the same pre-fix breakage observed again, not a
       // recurrence. Only checked when the caller can supply buildSha; degrades
       // to the pre-#5539 unconditional reopen on any lookup failure.
+      //
+      // TWO rungs, strongest first. #5539 shipped only the first, and the first
+      // needs a closing commit SHA that this repo's automation does not leave
+      // behind (see findClosingCommitSha): measured 2026-08-13, all three
+      // reopens of the day — #5729, #5786, #5752 — got null from it and were
+      // reopened unconditionally on builds that predated their own fix by 3, 3
+      // and 26 minutes. The ladder is what makes the guard reachable; either
+      // rung firing means the same thing (this build cannot contain the fix)
+      // and both abstain LOUDLY, never in silence.
       if (buildSha) {
-        const closingSha = findClosingCommitSha(recentlyClosed.number);
-        if (closingSha && isAncestorCommit(buildSha, closingSha)) {
+        const closingSha = findClosingCommitSha(recentlyClosed.number, recentlyClosed.closedAt);
+        let staleReason = null;
+        if (closingSha) {
+          // Rung 1 — graph proof. A closing SHA we could not prove stale is NOT
+          // downgraded to the timestamp rung: the strong answer was available
+          // and it said "this build already has the fix", which is a real
+          // recurrence. Falling through would let the coarse rung overturn it.
+          if (isAncestorCommit(buildSha, closingSha)) {
+            staleReason = `precede la fix (commit \`${closingSha}\`) che ha chiuso questa issue`;
+          }
+        } else {
+          // Rung 2 — timestamp proof, only when no closing SHA exists at all.
+          const builtAt = buildPredatesClose(buildSha, recentlyClosed.closedAt);
+          if (builtAt) {
+            staleReason = `è stata committata (\`${builtAt}\`) prima che questa issue venisse chiusa (\`${recentlyClosed.closedAt}\`); il commit di chiusura non è ricavabile, quindi il confronto è sui timestamp`;
+          }
+        }
+        if (staleReason) {
+          const note = `⏳ Build \`${buildSha}\` ${staleReason} — è latenza del deploy dentro la finestra post-merge, non una ricorrenza. Riapertura saltata; in attesa di una build che contenga la fix.`;
           gh([
             'issue', 'comment', String(recentlyClosed.number),
-            '--body', `⏳ Build \`${buildSha}\` precede la fix (commit \`${closingSha}\`) che ha chiuso questa issue — è latenza del deploy dentro la finestra post-merge, non una ricorrenza. In attesa di una build che contenga la fix.\n\n${body}`,
+            '--body', `${note}\n\n${body}`,
             ...repoFlag(),
           ], { allowFailure: true });
-          console.log(`[github-issue-creator] Stale build ${buildSha} predates closing commit ${closingSha} on #${recentlyClosed.number} — not reopening (deploy latency).`);
+          appendStepSummary(`⏳ **Riapertura saltata** — la run su \`${buildSha}\` non contiene la fix che ha chiuso #${recentlyClosed.number}. ${staleReason}.`);
+          console.log(`[github-issue-creator] Stale build ${buildSha} predates the close of #${recentlyClosed.number} — not reopening (deploy latency).`);
           return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url, staleBuild: true };
         }
       }
