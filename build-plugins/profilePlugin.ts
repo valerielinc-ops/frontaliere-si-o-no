@@ -29,6 +29,8 @@
 
 import type { Plugin } from 'vite';
 
+import { forceGc } from './shared/forceGc';
+
 const PROFILE_ON = process.env.BUILD_PROFILE !== '0';
 // Force sequential closeBundle execution. Use only for one-off profiling runs:
 // it serializes every plugin so wall-clock per plugin reflects real work
@@ -85,16 +87,18 @@ export function withProfile(plugin: Plugin): Plugin {
       // fragmentation. The kernel OOM trips at ~13.1 GB on the GHA runner
       // — last log line before exit 143 was nursing-landings rss=13,100.
       //
-      // `global.gc(true)` (exposed by NODE_OPTIONS --expose-gc in
-      // build:ci) runs a full STOP-THE-WORLD major GC + memory-reduction
-      // pass. Unlike the default scavenger, this WILL return pages to
-      // the OS, shrinking RSS. Cost: ~50-200 ms per call × ~30 plugins =
-      // ~3-6 s total; cheap insurance vs SIGTERM at 27-min mark.
-      // Guarded by `typeof global.gc === 'function'` so local dev (no
-      // --expose-gc) is unaffected.
-      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
-        (globalThis as { gc: () => void }).gc();
-      }
+      // `forceGc()` (gc is exposed by NODE_OPTIONS --expose-gc in build:ci)
+      // runs a full STOP-THE-WORLD major GC + memory-reduction pass. Unlike
+      // the default scavenger, this WILL return pages to the OS, shrinking
+      // RSS. Cost: ~100 ms per call × ~62 plugins = ~6 s total; cheap
+      // insurance vs SIGTERM at 27-min mark. No-ops without --expose-gc, so
+      // local dev is unaffected.
+      //
+      // This used to call bare `gc()`, which freed the heap but left the
+      // pages mapped — the claim above was prose the call did not deliver,
+      // and the memory guard samples RSS. See shared/forceGc.ts for the
+      // before/after measurement that #5899 turned on.
+      forceGc();
       // Memory profile per-plugin. RSS logged AFTER the forced GC so the
       // value reflects post-shrink RSS — the gap vs pre-GC heapUsed shows
       // how much V8 actually returned to the OS this iteration.
