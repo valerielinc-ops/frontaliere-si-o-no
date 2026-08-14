@@ -232,12 +232,33 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
  * this whole feature errs in by design. `confirmation_message_id` stays null, so
  * the two cases remain distinguishable afterwards.
  *
+ * ── ONE BATCH, NOT TWO PASSES (#5843, item 2) ──────────────────────────────
+ *
+ * The counter and its event used to be written by two sequential
+ * `commitInChunks` calls, because the helper's contract was one operation per
+ * item. Between those two calls there was a window: a process killed there
+ * left `confirmation_attempts` incremented and the matching
+ * `confirmation_email_sent` event missing from the subcollection — the counter
+ * says three, the evidence says two, and the evidence is the half that gets
+ * shown to an authority. Nothing raised, nothing logged, nothing to find
+ * afterwards except a document that disagrees with its own history.
+ *
+ * They are now ONE operation pair in ONE batch per recipient, and a Firestore
+ * batch commits atomically: either both writes land or neither does. Neither
+ * is the safe end of that fork — the cascade already refuses to send again
+ * inside the same day, so an uncounted send costs at most one repeated
+ * reminder, while a counted send with no event costs the record of it.
+ *
+ * Exported for tests/newsletter-confirmation-ledger-atomicity.test.ts, which
+ * drives it against a Firestore double whose commit dies mid-run and asserts
+ * that no document is ever left holding one of the two.
+ *
  * @param {unknown} db
  * @param {Array<object>} due
  * @param {{nowIso: string, secret: string, tokenPolicy?: object}} ctx
  * @returns {Promise<{sent: number, ambiguous: number, failed: number}>}
  */
-async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }) {
+export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }) {
   const items = due.map((it) => buildFollowupRequest(it, { secret, tokenPolicy }));
   const { sent, failed } = await sendEmailCascade(items);
 
@@ -246,9 +267,9 @@ async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }
   const counted = [...sent, ...ambiguous];
 
   if (counted.length) {
-    // Two passes: commitInChunks contracts for at most ONE operation per item.
-    // The counter first — it is what the cap reads, and a request that went out
-    // without being counted is a fourth request waiting to happen.
+    // ONE pass, two writes per recipient, same batch. commitInChunks evaluates
+    // its chunk boundary only between items, so these two never end up on
+    // opposite sides of a commit.
     await commitInChunks(db, counted, (batch, s) => {
       batch.set(
         s.meta.ref,
@@ -261,9 +282,6 @@ async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }
         }),
         { merge: true },
       );
-    });
-
-    await commitInChunks(db, counted, (batch, s) => {
       batch.set(
         s.meta.ref.collection('events').doc(),
         buildConfirmationSentEvent({
@@ -409,9 +427,15 @@ async function main() {
     return;
   }
 
-  // Two passes because commitInChunks contracts for at most ONE operation per
-  // item. The status transition first: if the event write fails afterwards the
-  // record is still closed, which is the half that must not be lost.
+  // Two passes HERE BY CHOICE, and no longer by limitation — commitInChunks
+  // can now carry both writes of one record in a single atomic batch, and the
+  // send path above uses exactly that. The closure keeps its split for the
+  // reason it always had: the status transition is the half that must not be
+  // lost, so it goes first and stands on its own even if the evidence write
+  // never happens. Merging the two would make a crash lose the closure as
+  // well — recoverable (the next run re-derives it) but a different tradeoff
+  // than the one the owner's rule was written around. Changing it is a
+  // decision, not a cleanup.
   await commitInChunks(db, expiring, (batch, it) => {
     batch.set(it.ref, buildConfirmationExpiryFields(it.decision, nowIso), { merge: true });
   });

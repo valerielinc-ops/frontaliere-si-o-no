@@ -433,9 +433,12 @@ export const PrivacyPolicy: React.FC = () => {
           </h2>
           <div className="space-y-3 text-subtle">
             <p>
-              Alcuni fornitori (Google, Microsoft) possono trattare dati anche al di fuori dell'Unione Europea e
-              della Svizzera, in particolare negli Stati Uniti. Tali trasferimenti avvengono in presenza di
-              garanzie adeguate ai sensi del Capo V del GDPR e della nLPD:
+              Alcuni fornitori possono trattare dati anche al di fuori dell'Unione Europea e della Svizzera, in
+              particolare negli Stati Uniti: Google e Microsoft per analisi, pubblicità e autenticazione;
+              Cloudflare per la distribuzione dei contenuti; i fornitori di posta elettronica, Stripe e i
+              fornitori di modelli linguistici elencati alla sezione «Servizi di Terze Parti». Tali
+              trasferimenti avvengono in presenza di garanzie adeguate ai sensi del Capo V del GDPR e della
+              nLPD:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4 text-sm">
               <li>adesione al <strong>EU–U.S. Data Privacy Framework</strong> (e relativa estensione UK e Swiss–U.S.), ove applicabile;</li>
@@ -462,6 +465,31 @@ export const PrivacyPolicy: React.FC = () => {
               <li><strong>PostHog EU</strong>: analisi comportamentale anonima (dati in Europa) — <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent underline">posthog.com/privacy</a></li>
               <li><strong>Microsoft Clarity</strong>: heatmap e registrazioni di sessione anonime — <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-accent underline">privacy.microsoft.com</a></li>
               <li><strong>Cloudflare</strong>: rete di distribuzione (CDN), sicurezza e protezione dagli abusi</li>
+              <li>
+                <strong>Fornitori di posta elettronica</strong> (Resend, Mailgun, Mailjet, Maileroo, Cloudflare
+                Email Service): recapito della newsletter, dei job alert e delle e-mail di servizio. Ricevono
+                il tuo indirizzo e il contenuto del messaggio, e ci restituiscono gli esiti di recapito
+                (consegna, apertura, clic, rimbalzo, segnalazione di spam). Non usiamo un unico fornitore: il
+                messaggio viene affidato al primo disponibile fra quelli elencati, quindi nel tempo il tuo
+                indirizzo può essere passato a più d'uno di essi.
+              </li>
+              <li>
+                <strong>Stripe</strong>: incasso dei pagamenti per l'abbonamento «senza pubblicità», per la
+                pubblicazione di annunci di lavoro e per le consulenze. Il pagamento avviene sulle pagine di
+                Stripe: la carta non transita dai nostri sistemi. Stripe riceve l'indirizzo e-mail e i dati di
+                pagamento e ce ne restituisce l'esito —{' '}
+                <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent underline">stripe.com/privacy</a>
+              </li>
+              <li>
+                <strong>Fornitori di modelli linguistici</strong> (Google Gemini, Groq, NVIDIA e, come ultima
+                riserva, Anthropic Claude): fanno funzionare l'assistente del sito e i pulsanti di scrittura
+                assistita. Il testo che scrivi in queste funzioni viene trasmesso al fornitore per generare la
+                risposta, <strong>senza rimozione preventiva di eventuali dati personali che tu abbia
+                incluso nel testo</strong>: ti chiediamo di non inserirvi dati che non vuoi far uscire dal
+                sito. Le richieste partono dai nostri server e non dal tuo browser, e noi non vi aggiungiamo
+                il tuo indirizzo e-mail né il tuo identificativo utente: al fornitore arriva il testo della
+                richiesta, non chi l'ha scritta.
+              </li>
             </ul>
             <p className="text-sm italic">
               Non siamo responsabili delle pratiche di privacy di siti web di terze parti.
