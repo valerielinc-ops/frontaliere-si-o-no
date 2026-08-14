@@ -1,18 +1,91 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-08-13T21:50:58.905Z",
-  "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "generatedAt": "2026-08-14T10:26:37.728Z",
+  "total": 7,
+  "newCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10219,
-  "avgDurationMs": 10219,
+  "unchangedCount": 2,
+  "durationMs": 9376,
+  "avgDurationMs": 9376,
   "durationHistory": [
-    10219
+    9376
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "wagerenhof-d85633d5218d",
+      "slug": "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
+      "company": "Stiftung Wagerenhof",
+      "companyKey": "wagerenhof",
+      "companyDomain": "wagerenhof.ch",
+      "title": "Fachfrau / Fachmann Betreuung / FaBe (70 – 100 %)",
+      "needsRetranslation": true,
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
+      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:26:30.367Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "wagerenhof-ca3abf939a62",
+      "slug": "sozialpadagogin-sozialpadagoge-als-co-teamleitung-80-100-wagerenhof-uster",
+      "company": "Stiftung Wagerenhof",
+      "companyKey": "wagerenhof",
+      "companyDomain": "wagerenhof.ch",
+      "title": "Sozialpädagogin / Sozialpädagoge als Co-Teamleitung (80 – 100 %)",
+      "needsRetranslation": true,
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-548&cHash=10e3bcf8e0a34f047eb82865486633f8",
+      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T10:26:31.371Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-548&cHash=10e3bcf8e0a34f047eb82865486633f8",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "wagerenhof-bc43a0992b6d",
@@ -27,7 +100,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-536&cHash=322704e990587b9fa1cceb748f0b757e",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:50.351Z",
+      "crawledAt": "2026-08-14T10:26:32.330Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +137,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-540&cHash=22b577b4c069c8eaf0ea8744b6b727e1",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:51.246Z",
+      "crawledAt": "2026-08-14T10:26:33.318Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +174,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-545&cHash=ddc6a12ed98a5820256f03d135d63013",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:50:52.120Z",
+      "crawledAt": "2026-08-14T10:26:34.325Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,10 +197,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "wagerenhof-aa8c79861863",
-      "slug": "co-teamleitung-der-wohngemeinschaft-sonne-80-100-wagerenhof-uster",
+      "slug": "co-team-management-della-comunita-residenziale-sonne-80-100-stiftung-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
@@ -154,17 +230,20 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-547&cHash=38a5c966d2c75a5e139852370a2fcc58",
       "firstSeenAt": "2026-08-04T11:42:09.004Z",
-      "_qualityScore": 85,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "wagerenhof-960e85b55337",
-      "slug": "sozialpadagogin-sozialpadagoge-als-teamleitung-fur-den-standort-steg-im-tosstal-80-100",
+      "slug": "educatore-sociale-come-capo-team-per-il-sito-di-steg-nel-tosstal-80-100-stiftung-wagerenhof-bauma",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
@@ -191,15 +270,16 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
       "firstSeenAt": "2026-08-03T12:48:51.314Z",
-      "_qualityScore": 85,
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
