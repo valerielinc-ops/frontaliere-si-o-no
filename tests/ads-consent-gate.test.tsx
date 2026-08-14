@@ -27,6 +27,8 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { render, cleanup, act } from '@testing-library/react';
 import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED } from '@/services/adsConsent';
@@ -37,11 +39,18 @@ const REAL_UA =
 const ADSENSE_SELECTOR = 'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]';
 const GPT_SELECTOR = 'script[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]';
 
-/** Every advertising script, by origin — not just the one a given test expects. */
+/**
+ * Every advertising script, whatever its origin — not just the one a given test
+ * expects. Prebid is served first-party from `/assets/prebid.js`, so a filter
+ * written only against third-party ad hosts would miss it entirely; that is why
+ * this matches a path as well as the Google origins.
+ */
 function injectedAdScripts(): string[] {
   return Array.from(document.querySelectorAll('script'))
     .map((s) => s.getAttribute('src') || '')
-    .filter((src) => /pagead2\.googlesyndication\.com|securepubads\.g\.doubleclick\.net|fundingchoicesmessages\.google\.com/.test(src));
+    .filter((src) =>
+      /pagead2\.googlesyndication\.com|securepubads\.g\.doubleclick\.net|fundingchoicesmessages\.google\.com|\/assets\/prebid\.js/.test(src),
+    );
 }
 
 /**
@@ -145,6 +154,27 @@ describe('ads-consent gate — no ad script before consent', () => {
     render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
     expect(injectedAdScripts()).toEqual([]);
     expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
+  });
+
+  it('Prebid (header bidding) carries the gate before its sticky latch — SOURCE-level', () => {
+    // Deliberately a source assertion, and the reason is worth stating: Prebid
+    // is behind `PREBID_ENABLED = false`, a hardcoded master flag, and
+    // `prebidActiveFor()` additionally requires bidders configured through
+    // VITE_PREBID_CONFIG. The runtime path is therefore unreachable today, and
+    // a behavioural test would assert "no script was injected" while proving
+    // only that the feature is switched off — the first version of this test
+    // did exactly that and the mutation harness scored it as a hole.
+    //
+    // The gate still belongs in the code: Prebid broadcasts bid requests to
+    // third-party bidders and forwards the TCF string, so whenever that flag
+    // flips it must already be consent-gated rather than needing to remember.
+    const src = readFileSync(resolve(__dirname, '..', 'services/headerBidding.ts'), 'utf8');
+    const gateAt = src.indexOf('if (!isAdsConsentGranted()) return;');
+    const latchAt = src.indexOf('scriptRequested = true;');
+    expect(gateAt).toBeGreaterThan(-1);
+    // Before the latch: gating after it would mark the script "requested" on a
+    // blocked call and lock out a visitor who accepts later in the session.
+    expect(gateAt).toBeLessThan(latchAt);
   });
 
   it('SPA <GptAdSlot> injects NOTHING when no decision has been made', async () => {
