@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-25T12:58:08.207Z",
-    "label": "before",
-    "total": 24887,
-    "needsRetranslation": 2824,
-    "suppressed": 37,
-    "incomplete": 111,
-    "complete": 24776,
-    "missingByLocale": {
-      "it": 61,
-      "en": 34,
-      "de": 54,
-      "fr": 49
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 30
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Jumbo, Division der Coop Genossenschaft",
-        "pending": 7
-      },
-      {
-        "company": "IKEA",
-        "pending": 6
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Sulzer",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-25T14:22:04.309Z",
-    "label": "after",
-    "total": 24887,
-    "needsRetranslation": 981,
-    "suppressed": 38,
-    "incomplete": 105,
-    "complete": 24782,
-    "missingByLocale": {
-      "it": 60,
-      "en": 32,
-      "de": 52,
-      "fr": 48
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 30
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "Jumbo, Division der Coop Genossenschaft",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 6
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Sulzer",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-25T16:00:10.642Z",
     "label": "before",
     "total": 24800,
@@ -11542,6 +11428,130 @@
       {
         "company": "Zurich Insurance (sede Ticino)",
         "pending": 229
+      },
+      {
+        "company": "BKW",
+        "pending": 225
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-14T06:01:54.520Z",
+    "label": "before",
+    "total": 27135,
+    "needsRetranslation": 15727,
+    "suppressed": 49,
+    "incomplete": 12779,
+    "complete": 14356,
+    "slotsPresent": 14356,
+    "flaggedAmongSlotsPresent": 4520,
+    "verifiedTranslated": 9836,
+    "sourceCopyExcused": 503,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 265,
+      "en": 172,
+      "de": 154,
+      "fr": 250
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2157
+      },
+      {
+        "company": "Roche",
+        "pending": 674
+      },
+      {
+        "company": "Genossenschaft Migros Luzern",
+        "pending": 489
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 338
+      },
+      {
+        "company": "LANDI",
+        "pending": 292
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 285
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 278
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "Galenica AG (Galenica)",
+        "pending": 246
+      },
+      {
+        "company": "BKW",
+        "pending": 225
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-14T06:11:31.075Z",
+    "label": "after",
+    "total": 27135,
+    "needsRetranslation": 11204,
+    "suppressed": 54,
+    "incomplete": 12779,
+    "complete": 14356,
+    "slotsPresent": 14356,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 14356,
+    "sourceCopyExcused": 503,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 265,
+      "en": 172,
+      "de": 154,
+      "fr": 250
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2157
+      },
+      {
+        "company": "Roche",
+        "pending": 674
+      },
+      {
+        "company": "Genossenschaft Migros Luzern",
+        "pending": 489
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 338
+      },
+      {
+        "company": "LANDI",
+        "pending": 292
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 285
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 278
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "Galenica AG (Galenica)",
+        "pending": 246
       },
       {
         "company": "BKW",
