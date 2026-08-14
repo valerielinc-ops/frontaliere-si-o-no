@@ -2659,6 +2659,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Asilo nido e custodia bambini Canton Lucerna: costi',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Lucerna sono soggetti a diversi fattori.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Una famiglia con bambini in una scena di vita quotidiana in Svizzera, con un focus sulla regione del Canton Lucerna.',
+    'blog.article.apprendistato-lucerna.title': 'Apprendistato e formazione professionale nel Cantone di Lucerna',
+    'blog.article.apprendistato-lucerna.excerpt': 'Come trovare un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Lucerna.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Giovani in Lucerna apprendono un mestiere in una scuola professionale.',
 };
 
 export default blogMetaChIt;

@@ -34454,6 +34454,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-lucerna': {
+    title: 'Apprendistato e formazione professionale nel Cantone di Lucerna',
+    description: 'Il Cantone di Lucerna offre diverse possibilità di apprendistato e formazione professionale, inclusi contratti di tirocinio, corsi di formazione professionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, cantone',
+    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Lucerna',
+    ogDescription: 'Il Cantone di Lucerna offre diverse possibilità di apprendistato e formazione professionale, inclusi contratti di tirocinio, corsi di formazione professionale e apprendistati di lunga durata.',
+    canonicalPath: '/articoli-svizzera/apprendistato-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Cantone di Lucerna",
+      "description": "Il Cantone di Lucerna offre diverse possibilità di apprendistato e formazione professionale, inclusi contratti di tirocinio, corsi di formazione professionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani in Lucerna apprendono un mestiere in una scuola professionale."
+      },
+      "datePublished": "2026-08-14T03:04:05+00:00",
+      "dateModified": "2026-08-14T03:04:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
