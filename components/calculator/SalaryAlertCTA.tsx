@@ -25,7 +25,12 @@ import { useAuth } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { savePendingJobAlert } from '@/services/pendingJobAlert';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
-import { buildSalaryAlertConfig, subscribeSalaryAlert } from '@/services/jobAlertService';
+import {
+  buildSalaryAlertConfig,
+  subscribeSalaryAlert,
+  upgradeBackfilledAlertConsent,
+} from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
 
 const VIEW_SESSION_KEY = 'salary_alert_cta_viewed';
@@ -137,6 +142,11 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
         /* storage unavailable */
       }
       setStatus('success');
+      // #5876 — an explicit tap on "attiva alert" under the notice below. If
+      // this person's alert came from the travaso, the act converts the deduced
+      // consent into an explicit one. Never awaited into the catch: the
+      // subscription succeeded whatever the proof write does.
+      void upgradeBackfilledAlertConsent(email, alertLocale).catch(() => {});
     } catch {
       setStatus('error');
     }
@@ -198,6 +208,11 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
                   ? t('results.salaryAlert.retry')
                   : t('results.salaryAlert.button')}
               </button>
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={alertLocale}
+                className="mt-2 text-[11px] text-muted leading-relaxed block"
+              />
             </>
           )}
         </div>

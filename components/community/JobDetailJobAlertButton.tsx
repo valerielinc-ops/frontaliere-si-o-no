@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertForJob } from '@/services/jobAlertService';
+import { subscribeJobAlertForJob, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 
 export type JobDetailJobAlertButtonStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -27,6 +28,8 @@ export interface JobDetailJobAlertButtonProps {
   onErrored?: (error: unknown) => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertForJob;
+  /** Optional override for the consent-proof upgrade (used by tests). */
+  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
 
 export default function JobDetailJobAlertButton({
@@ -40,6 +43,7 @@ export default function JobDetailJobAlertButton({
   onSubscribed,
   onErrored,
   subscribe = subscribeJobAlertForJob,
+  upgradeConsent = upgradeBackfilledAlertConsent,
 }: JobDetailJobAlertButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailJobAlertButtonStatus>('idle');
@@ -54,12 +58,18 @@ export default function JobDetailJobAlertButton({
         title: sourceJobTitle ?? null,
       });
       setStatus('success');
+      // #5876 — the person pressed a button that activates an alert, with the
+      // notice above on screen. If their alert came from the travaso, that act
+      // is what turns a deduced consent into an explicit one. Deliberately not
+      // awaited into this CTA's error path: a proof that fails to land must
+      // never present a successful subscription as a failure.
+      void upgradeConsent(email, locale).catch(() => {});
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [email, jobId, locale, onErrored, onSubscribed, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
+  }, [email, jobId, locale, onErrored, onSubscribed, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, upgradeConsent, userId]);
 
   if (status === 'success') {
     return (
@@ -86,6 +96,11 @@ export default function JobDetailJobAlertButton({
         )}
         {t('jobAlert.jobDetailButton.cta', 'Avvisami per questo annuncio')}
       </button>
+      <ConsentNotice
+        consentKey="communicationsOptIn"
+        locale={locale}
+        className="mt-2 text-[11px] text-muted leading-relaxed block"
+      />
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">
           {t(

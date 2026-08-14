@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 
 export type JobDetailAlertPromptStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -38,6 +39,8 @@ export interface JobDetailAlertPromptProps {
   onManage: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertOneTap;
+  /** Optional override for the consent-proof upgrade (used by tests). */
+  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
 
 const TITLE_ID = 'job-detail-alert-prompt-title';
@@ -58,6 +61,7 @@ export default function JobDetailAlertPrompt({
   onErrored,
   onManage,
   subscribe = subscribeJobAlertOneTap,
+  upgradeConsent = upgradeBackfilledAlertConsent,
 }: JobDetailAlertPromptProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<JobDetailAlertPromptStatus>('idle');
@@ -78,12 +82,18 @@ export default function JobDetailAlertPrompt({
         cantonCode ?? null,
       );
       setStatus('success');
+      // #5876 — "Sì, attiva" is the explicit act the owner ruled on: if this
+      // person's alert came from the travaso, it is now consented to, with the
+      // notice rendered below as the stored formula. Never awaited into the
+      // error path — a proof that fails to land must not turn a successful
+      // subscription into an error toast.
+      void upgradeConsent(email, locale).catch(() => {});
       onAccepted();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [category, email, locale, onAccepted, onErrored, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
+  }, [category, email, locale, onAccepted, onErrored, subscribe, upgradeConsent, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();
@@ -168,6 +178,13 @@ export default function JobDetailAlertPrompt({
               {title}
             </h3>
             <p className="mt-1 text-xs text-subtle">{body}</p>
+            {status === 'idle' && (
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[11px] text-muted leading-relaxed block"
+              />
+            )}
             <div className="mt-3 flex items-center gap-2">
               {status === 'idle' && (
                 <>

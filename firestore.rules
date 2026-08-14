@@ -254,9 +254,28 @@ service cloud.firestore {
         allow create: if request.auth != null
           && request.auth.uid == request.resource.data.userId
           && request.auth.token.email.lower() == email;
+        // UPDATE takes the same disjunction `read` already takes, and #5876 is
+        // why. `update` used to require `uid == resource.data.userId` AND the
+        // email match — but the 6.295 alerts created by the travaso
+        // (functions/src/jobAlertBackfillCore.js, `userId: data?.user_id ||
+        // null`) were built from newsletter documents that had no `user_id`:
+        // measured on production 2026-08-14, **0 of 6.295 carry one**. Every
+        // client update on a travaso alert was therefore permission-denied, for
+        // every signed-in owner, including the "record the consent I just gave"
+        // write this rule change exists to allow — a feature that would have
+        // shipped green and moved its metric by exactly zero.
+        //
+        // The email match alone is not a weakening: the document lives under
+        // `job_alert_subscribers/{that person's own email}`, which is the same
+        // argument `read` above already accepts, and the token's email is
+        // verified by Firebase Auth. `create` deliberately keeps the AND — a
+        // NEW document must denormalise the writer's own uid, or the
+        // (userId, active, createdAt) collection-group query that lists alerts
+        // would stop seeing what the client just wrote.
         allow update, delete: if request.auth != null
-          && request.auth.uid == resource.data.userId
-          && request.auth.token.email.lower() == email;
+          && request.auth.token.email.lower() == email
+          && (request.auth.uid == resource.data.userId
+              || resource.data.userId == null);
       }
 
       // Per-alert delivery state and the raw ESP event log. Both are written by
