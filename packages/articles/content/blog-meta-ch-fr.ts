@@ -2659,6 +2659,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Garderie et garde d\'enfants Canton de Lucerne : coûts',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'Les frais de crèche et de garde d\'enfants dans le canton de Lucerne sont soumis à plusieurs facteurs.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Une famille avec enfants dans un scénario de vie quotidienne en Suisse, avec un focus sur la région du canton de Lucerne.',
+    'blog.article.apprendistato-lucerna.title': 'Apprentissage et formation professionnelle dans le canton de Lucerne',
+    'blog.article.apprendistato-lucerna.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, une rémunération d\'apprenti et une maturité professionnelle dans le canton de Lucerne.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Jeunes gens à Lucerne apprennent un métier dans une école professionnelle.',
 };
 
 export default blogMetaChFr;

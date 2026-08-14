@@ -2659,6 +2659,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Kindergarten und Kinderbetreuung im Kanton Luzern: Kosten',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'Die Kosten für Kindertagesstätten und Kinderbetreuung im Kanton Luzern unterliegen verschiedenen Faktoren.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Eine Familie mit Kindern in einem Alltagslebensszenario in der Schweiz, mit einem Fokus auf die Region des Kantons Luzern.',
+    'blog.article.apprendistato-lucerna.title': 'Lehre und Berufsausbildung im Kanton Luzern',
+    'blog.article.apprendistato-lucerna.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Luzern.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Junge Menschen in Luzern lernen ein Handwerk in einer Berufsschule.',
 };
 
 export default blogMetaChDe;

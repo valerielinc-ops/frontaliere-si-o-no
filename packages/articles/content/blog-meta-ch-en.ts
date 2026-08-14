@@ -2659,6 +2659,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Kindergarten and childcare in the canton of Lucerne: costs',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'The costs for daycare and childcare in the Canton of Lucerne are subject to several factors.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'A family with children in a daily life scene in Switzerland, with a focus on the region of the Canton Lucerne.',
+    'blog.article.apprendistato-lucerna.title': 'Apprenticeship and vocational training in the Canton of Lucerne',
+    'blog.article.apprendistato-lucerna.excerpt': 'How to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Canton of Lucerne.',
+    'blog.article.apprendistato-lucerna.imageAlt': 'Young people in Lucerne learn a trade in a vocational school.',
 };
 
 export default blogMetaChEn;
