@@ -2620,6 +2620,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Impôt succession et donation Canton de Berne : taux',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide des taux par degré de parenté, exemptions pour conjoints et descendants et délais de déclaration dans le canton de Berne.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'Vue sur la vieille ville de Berne avec la tour Zytglogge',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Impôts sur les successions dans le canton de Berne',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Connaître les taux par degré de parenté et les exemptions pour conjoint et descendants',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Famille discutant la taxe sur la succession et la donation à Berne',
 };
 
 export default blogMetaChFr;

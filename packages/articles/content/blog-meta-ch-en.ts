@@ -2620,6 +2620,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-berna.title': 'Inheritance and donation tax Canton Bern: rates',
     'blog.article.imposta-successione-donazione-berna.excerpt': 'Guide to rates for degree of kinship, exemptions for spouses and descendants and terms of declaration in the Canton of Bern.',
     'blog.article.imposta-successione-donazione-berna.imageAlt': 'View of the historic center of Bern with the Zytglogge tower',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Inheritance taxes in the Canton of Bern',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Know the kinship rates and exemptions for spouses and descendants',
+    'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Family discussing inheritance and donation tax in Bern',
 };
 
 export default blogMetaChEn;
