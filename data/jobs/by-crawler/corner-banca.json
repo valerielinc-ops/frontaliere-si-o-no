@@ -1327,7 +1327,7 @@
         "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
         "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
         "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
-        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-et-risque-de-liquidite-ref-1086-corner-banca"
+        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-ref-1086-corner-banca"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1407,7 +1407,15 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-14T10:12:28.239Z"
+      "firstSeenAt": "2026-08-14T10:12:28.239Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-et-risque-de-liquidite-ref-1086-corner-banca"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-et-risque-de-liquidite-ref-1086-corner-banca"
+      ]
     },
     {
       "id": "corner-banca-62309aa78f00",

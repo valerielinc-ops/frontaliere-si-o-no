@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-3775ad5fe453",
-      "slug": "stock-specialist-prada-group-vancouver-stock-specialist",
+      "slug": "stock-specialista-prada-group-vancouver-stock-specialist",
       "slugByLocale": {
         "en": "stock-specialist-prada-group-vancouver-stock-specialist",
-        "it": "stock-specialist-prada-group-vancouver-stock-specialist",
-        "de": "stock-specialist-prada-group-vancouver-stock-specialist",
-        "fr": "stock-specialist-prada-group-vancouver-stock-specialist"
+        "it": "stock-specialista-prada-group-vancouver-stock-specialist",
+        "de": "stock-spezialist-prada-group-vancouver-stock-specialist",
+        "fr": "stock-specialiste-prada-group-vancouver-stock-specialist"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -59,7 +59,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-14T10:17:19.018Z"
+      "firstSeenAt": "2026-08-14T10:17:19.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stock-specialist-prada-group-vancouver-stock-specialist"
+        ],
+        "de": [
+          "stock-specialist-prada-group-vancouver-stock-specialist"
+        ],
+        "fr": [
+          "stock-specialist-prada-group-vancouver-stock-specialist"
+        ]
+      },
+      "previousSlugs": [
+        "stock-specialist-prada-group-vancouver-stock-specialist"
+      ]
     },
     {
       "id": "prada-6c4e57745113",
