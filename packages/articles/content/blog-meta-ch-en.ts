@@ -2644,6 +2644,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-lucerna.title': 'Residence permit C Lucerne: requirements and application',
     'blog.article.permesso-domicilio-c-lucerna.excerpt': 'Complete guide to the C settlement permit in the canton of Lucerne: integration criteria, requirements and procedure.',
     'blog.article.permesso-domicilio-c-lucerna.imageAlt': 'C permit residence in Lucerne canton requirements and application',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.title': 'Short-term permit L in the Canton of Lucerne: validity and extension',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.excerpt': 'The requirements for the short-term L permit in the Canton of Lucerne, its validity and how to obtain an extension.',
+    'blog.article.permesso-l-canton-lucerna-validita-e-proroga.imageAlt': 'A scenic view of Lugano, Switzerland, with a focus on the city\'s financial district.',
 };
 
 export default blogMetaChEn;

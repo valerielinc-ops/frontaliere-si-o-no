@@ -907,6 +907,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-lucerna-2026': { it: 'premi-cassa-malati-lucerna-2026', en: 'health-insurance-premiums-lucerne', de: 'krankenversicherungspramien-luzern', fr: 'primes-maladie-lucerne' },
  'permesso-dimora-b-lucerna-requisiti': { it: 'permesso-dimora-b-lucerna-requisiti', en: 'permesso-dimora-b-lucerne', de: 'b-erlaubnis-luzern', fr: 'permis-de-sejour-b-lucerne' },
  'permesso-domicilio-c-lucerna': { it: 'permesso-domicilio-c-lucerna', en: 'c-permit-lucerne-canton-requirements-application', de: 'c-ausweis-kanton-luzern-voraussetzungen', fr: 'permis-etablissement-c-canton-lucerne' },
+ 'permesso-l-canton-lucerna-validita-e-proroga': { it: 'permesso-l-canton-lucerna-validita-e-proroga', en: 'permesso-l-lucerne-validity-and-extension', de: 'permesso-l-luzern-gueltigkeit-und-verlaengerung', fr: 'permesso-l-lucerne-validite-et-prorogation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
