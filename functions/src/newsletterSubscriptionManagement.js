@@ -870,14 +870,22 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }, { merge: true });
  }
 
- // Only the opt-OUT direction gets forensics: the fields are named
- // `unsubscribe_*` and would be a lie on a resubscribe write.
+ // The `unsubscribe_*`-named fields stay opt-OUT-only — they would be a lie
+ // on a resubscribe write. But `subscription_resubscribed` is itself an
+ // affirmative action (#5681) and today drops IP/UA on the floor entirely;
+ // `metadata.ip`/`metadata.user_agent` are direction-neutral (same shape the
+ // ESP webhook event writes already use, e.g. newsletterMailtrapWebhookCore.js),
+ // so they are recorded on both directions.
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
  event_type: desired ? 'subscription_resubscribed' : 'subscription_unsubscribed',
  source_channel: 'preferences_link',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
+ metadata: {
+ ip: forensicFields.unsubscribe_ip || null,
+ user_agent: forensicFields.unsubscribe_user_agent || null,
+ },
  ...(desired ? {} : forensicFields),
  });
 
@@ -917,6 +925,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
  source_channel: 'preferences_link',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
+ // #5681 — an affirmative preference change, same metadata.ip/user_agent
+ // shape already used by the ESP webhook event writes (e.g.
+ // newsletterMailtrapWebhookCore.js), not the `unsubscribe_*`-named fields.
+ metadata: {
+ ip: forensicFields.unsubscribe_ip || null,
+ user_agent: forensicFields.unsubscribe_user_agent || null,
+ },
  });
 
  return { status: 200, json: { success: true, dailyBriefFrequency: requested } };
@@ -1255,6 +1270,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  source_channel: 'confirmation_link',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
+ // #5681 — the double opt-in confirmation click is an affirmative action
+ // that was recording no attribution at all. Same metadata.ip/user_agent
+ // shape already used by the ESP webhook event writes (e.g.
+ // newsletterMailtrapWebhookCore.js), not the `unsubscribe_*`-named fields.
+ metadata: {
+ ip: forensicFields.unsubscribe_ip || null,
+ user_agent: forensicFields.unsubscribe_user_agent || null,
+ },
  });
 
  // Fire the welcome email within seconds of confirmation instead of
