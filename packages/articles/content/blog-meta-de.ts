@@ -9924,6 +9924,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'So melden Sie sich bei der OCST-Arbeitslosenkasse an',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Kein Termin erforderlich. Sie können sich in wenigen Minuten von zu Hause aus online anmelden.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Redaktionelles Bild zu: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST Frau-Arbeit: Schutz und Unterstützung',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Unterstützungs-, Beratungs- und Rechtsschutzdienste für Arbeitnehmerinnen in Schwierigkeiten, mit Kursen und Berufsberatung.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Unterstützungsschalter für Arbeitnehmer im Tessin',
 };
 
 export default blogMetaDe;

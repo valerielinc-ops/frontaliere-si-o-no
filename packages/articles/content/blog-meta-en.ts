@@ -9925,6 +9925,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'How to register with the OCST unemployment fund',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'No appointments needed. You can advertise online from home in minutes.',
     'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Editorial image related to: Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.ocst-donna-lavoro-servizi.title': 'OCST woman-work: protection and support',
+    'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Support services, advice and legal protection for workers in difficulty, with courses and professional guidance.',
+    'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Support desk for workers in Ticino',
 };
 
 export default blogMetaEn;

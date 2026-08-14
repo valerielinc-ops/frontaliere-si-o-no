@@ -67619,6 +67619,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ocst-donna-lavoro-servizi': {
+    title: 'OCST donna-lavoro: tutela e supporto | Frontaliere Ticino',
+    description: 'Scopri i servizi di supporto, consulenza legale, corsi e orientamento professionale offerti da OCST donna-lavoro per le lavoratrici in difficoltà.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocst, donna-lavoro, tutela, supporto',
+    ogTitle: 'OCST donna-lavoro: tutela e supporto per le lavoratrici',
+    ogDescription: 'Scopri i servizi di supporto, consulenza legale, corsi e orientamento professionale offerti da OCST donna-lavoro per le lavoratrici in difficoltà.',
+    canonicalPath: '/articoli-frontaliere/ocst-donna-lavoro-servizi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCST donna-lavoro: tutela e supporto",
+      "description": "Scopri i servizi di supporto, consulenza legale, corsi e orientamento professionale offerti da OCST donna-lavoro per le lavoratrici in difficoltà.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ocst-donna-lavoro-servizi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sportello di supporto per i lavoratori in Ticino"
+      },
+      "datePublished": "2026-08-14T01:14:02+00:00",
+      "dateModified": "2026-08-14T01:14:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ocst-donna-lavoro-servizi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
