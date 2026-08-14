@@ -6,12 +6,26 @@
  * The other four are withdrawn — but the corpus mirror had already DELETED them
  * from both repos while the deployed shard kept serving them, so all 16 URLs
  * (4 articles x 4 locales) were live 200s with nothing left to rebuild them.
- * Without an entry in `legacyRedirectsPlugin`'s table the next shard deploy
- * turns each one into a bare 404 with no signal for the crawler.
  *
- * This test pins all 16 redirects. It is deliberately hermetic (reads the
- * plugin source, no Vite build, no network) — the same idiom as
- * `tests/router-locale-slugs.test.ts`'s Cluster B block.
+ * This test pins all 16 redirects, i.e. the TARGET chosen for each. It is
+ * deliberately hermetic (reads the plugin source, no Vite build, no network) —
+ * the same idiom as `tests/router-locale-slugs.test.ts`'s Cluster B block.
+ *
+ * IT DOES NOT PROVE THE 16 URLS ARE DEINDEXED, and it never did.
+ * ─────────────────────────────────────────────────────────────
+ * Its first version said "without an entry in `legacyRedirectsPlugin`'s table
+ * the next shard deploy turns each one into a bare 404". There is no next shard
+ * deploy from this build for these sections: they run with
+ * `<SECTION>_BUILD_EMIT_SKIP=true` and deploy.yml excludes them from the
+ * full-replace push, so the shard is append-only and the bridge this table
+ * declares never reaches the serving path. All 20 assertions below stayed green
+ * for the six days the 16 URLs answered 200 `index, follow` with a SELF
+ * canonical (issue #5369 §4, measured 2026-08-14).
+ *
+ * The serving-path half is `tests/edge-retired-paths.test.ts`, which exercises
+ * the Worker's `retiredEdgeResponse` for these same 16 URLs. Keep both: this
+ * file is the authority on WHERE a retired URL should point, that one on
+ * whether anything on the wire acts on it.
  */
 
 import { describe, it, expect } from 'vitest';

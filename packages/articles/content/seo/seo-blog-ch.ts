@@ -33986,6 +33986,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasparenza-fatture-ospedaliere-svizzera': {
+    title: 'Fatture ospedaliere in Svizzera: cosa prevede la legge',
+    description: 'Scopri cosa prevede la legge svizzera sulla ricezione delle fatture ospedaliere e perché la loro decifrazione risulta spesso complessa per i pazienti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fatture, ospedaliere, cosa, prevede',
+    ogTitle: 'Fatture ospedaliere in Svizzera: cosa prevede la legge',
+    ogDescription: 'Approfondimento sulla trasparenza delle fatture ospedaliere in Svizzera e sul diritto dei pazienti di ricevere una copia dei documenti emessi a proprio nome.',
+    canonicalPath: '/articoli-svizzera/trasparenza-fatture-ospedaliere-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fatture ospedaliere in Svizzera: cosa prevede la legge",
+      "description": "Scopri cosa prevede la legge svizzera sulla ricezione delle fatture ospedaliere e perché la loro decifrazione risulta spesso complessa per i pazienti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasparenza-fatture-ospedaliere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e fatture in un ufficio svizzero"
+      },
+      "datePublished": "2026-08-14T01:20:16+00:00",
+      "dateModified": "2026-08-14T01:20:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasparenza-fatture-ospedaliere-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuova-notifiche-di-cessazione-delle-inquieste-del-sisi': {
+    title: 'Nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
+    description: 'La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d\'inchiesta svizzero sulla sicurezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, notifiche, cessazione, inquieste',
+    ogTitle: 'Nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
+    ogDescription: 'La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d\'inchiesta svizzero sulla sicurezza.',
+    canonicalPath: '/articoli-svizzera/nuova-notifiche-di-cessazione-delle-inquieste-del-sisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova notifiche di cessazione delle inquieste (aviazione) del SISI",
+      "description": "La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d'inchiesta svizzero sulla sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La pubblicazione di una nuova notifiche di cessazione delle inquieste (aviazione) del SISI"
+      },
+      "datePublished": "2026-08-14T01:30:17+00:00",
+      "dateModified": "2026-08-14T01:30:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nuova-notifiche-di-cessazione-delle-inquieste-del-sisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-abort-topical-relevance-trump-health': {
+    title: 'Notizia non pertinente | Frontaliere Ticino',
+    description: 'Contenuto non pubblicato per mancanza di rilevanza con la Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, notizia, pertinente, fonte, trattata',
+    ogTitle: 'Notizia non pertinente',
+    ogDescription: 'Contenuto non pubblicato per mancanza di rilevanza con la Svizzera.',
+    canonicalPath: '/articoli-svizzera/abort-topical-relevance-trump-health/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Notizia non pertinente",
+      "description": "Contenuto non pubblicato per mancanza di rilevanza con la Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abort-topical-relevance-trump-health.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Redazione di notizie economiche in Svizzera"
+      },
+      "datePublished": "2026-08-14T01:37:12+00:00",
+      "dateModified": "2026-08-14T01:37:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abort-topical-relevance-trump-health/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposte-cantonali-canton-lucerna-aliquote': {
+    title: 'Imposte cantonali canton Lucerna: aliquote e deduzioni',
+    description: 'Guida alle imposte cantonali e comunali nel Cantone di Lucerna: aliquote, scaglioni, deduzioni, scadenze e portale dell\'amministrazione fiscale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, canton, lucerna',
+    ogTitle: 'Imposte cantonali Canton Lucerna: aliquote e deduzioni',
+    ogDescription: 'Approfondimento sulle imposte cantonali e comunali nel Cantone di Lucerna con aliquote, scaglioni, deduzioni e portale dell\'amministrazione fiscale.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-canton-lucerna-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali canton Lucerna: aliquote e deduzioni",
+      "description": "Guida alle imposte cantonali e comunali nel Cantone di Lucerna: aliquote, scaglioni, deduzioni, scadenze e portale dell'amministrazione fiscale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-canton-lucerna-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imposte cantonali e comunali nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-08-14T01:47:31+00:00",
+      "dateModified": "2026-08-14T01:47:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-canton-lucerna-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-cassa-malati-lucerna-2026': {
+    title: 'Premi cassa malati Canton Lucerna e riduzione premi',
+    description: 'La legge sulle assicurazioni malattie obbligatorie nel Canton Lucerna prevede diverse fasce di premio e franchigie. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
+    ogTitle: 'Premi cassa malati Canton Lucerna e riduzione premi',
+    ogDescription: 'La legge sulle assicurazioni malattie obbligatorie nel Canton Lucerna prevede diverse fasce di premio e franchigie.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-lucerna-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Canton Lucerna e riduzione premi",
+      "description": "La legge sulle assicurazioni malattie obbligatorie nel Canton Lucerna prevede diverse fasce di premio e franchigie. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-lucerna-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di vita in Svizzera con alloggi e mercati locali"
+      },
+      "datePublished": "2026-08-14T01:51:57+00:00",
+      "dateModified": "2026-08-14T01:51:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-lucerna-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-dimora-b-lucerna-requisiti': {
+    title: 'Il permesso di dimora B a Lucerna: requisiti e procedura',
+    description: 'Il permesso di dimora B nel Cantone di Lucerna è un tipo di permesso di soggiorno che può essere rinnovato. I requisiti per ottenere il permesso di dimora B',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, lucerna, requisiti',
+    ogTitle: 'Il permesso di dimora B nel Cantone di Lucerna',
+    ogDescription: 'Il permesso di dimora B nel Cantone di Lucerna è un tipo di permesso di soggiorno che può essere rinnovato. I requisiti per ottenere il permesso di dimora B sono stabiliti dal Cantone di Lucerna.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-lucerna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il permesso di dimora B a Lucerna: requisiti e procedura",
+      "description": "Il permesso di dimora B nel Cantone di Lucerna è un tipo di permesso di soggiorno che può essere rinnovato. I requisiti per ottenere il permesso di dimora B",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-lucerna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il permesso di dimora B nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-08-14T01:57:31+00:00",
+      "dateModified": "2026-08-14T01:57:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-lucerna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-domicilio-c-lucerna': {
+    title: 'Permesso di domicilio C Lucerna: requisiti e domanda',
+    description: 'Guida pratica al permesso di domicilio C nel Cantone di Lucerna: requisiti di residenza, criteri di integrazione, lingua e procedura di domanda. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, lucerna, requisiti',
+    ogTitle: 'Permesso di domicilio C Lucerna: requisiti e domanda',
+    ogDescription: 'Scopri i requisiti, i criteri di integrazione e la procedura per richiedere il permesso di domicilio C nel Cantone di Lucerna in base alle normative svizzere.',
+    canonicalPath: '/articoli-svizzera/permesso-domicilio-c-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C Lucerna: requisiti e domanda",
+      "description": "Guida pratica al permesso di domicilio C nel Cantone di Lucerna: requisiti di residenza, criteri di integrazione, lingua e procedura di domanda. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-domicilio-c-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Permesso di domicilio C nel Cantone di Lucerna requisiti e domanda"
+      },
+      "datePublished": "2026-08-14T02:07:04+00:00",
+      "dateModified": "2026-08-14T02:07:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-domicilio-c-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

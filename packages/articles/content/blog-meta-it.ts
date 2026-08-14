@@ -9929,6 +9929,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ocst-donna-lavoro-servizi.title': 'OCST donna-lavoro: tutela e supporto',
     'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Servizi di supporto, consulenza e tutela legale per le lavoratrici in difficoltà, con corsi e orientamento professionale.',
     'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Sportello di supporto per i lavoratori in Ticino',
+    'blog.article.no-rimborso-ticino-2020.title': 'Ticino 2020: nessun rimborso ai Comuni. ‘Responsabilità da entrambe le parti’',
+    'blog.article.no-rimborso-ticino-2020.excerpt': 'Il governo risponde picche a chi chiedeva un risarcimento per i soldi spesi a favore del progetto poi naufragato.',
+    'blog.article.no-rimborso-ticino-2020.imageAlt': 'Frontalieri ticinesi in attesa di risarcimento',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Crisi aziendali, al Mimit 37 tavoli attivi: Beko Europe sotto osservazione',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'I tavoli di crisi aziendale al ministero delle Imprese e del Made in Italy scendono a 37, mentre i tavoli di monitoraggio salgono a 46.',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Riunione al ministero delle Imprese e del Made in Italy sulle crisi aziendali',
 };
 
 export default blogMetaIt;

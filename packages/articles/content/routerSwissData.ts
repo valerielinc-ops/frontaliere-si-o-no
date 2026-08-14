@@ -900,6 +900,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'intelligenza-animali-domestici-ricerca': { it: 'intelligenza-animali-domestici-ricerca', en: 'intelligence-dogs-cats-research', de: 'intelligenz-hunde-katzen-forschung', fr: 'intelligence-chiens-chats-recherche' },
  'imposta-successione-donazione-berna': { it: 'imposta-successione-donazione-berna', en: 'inheritance-gift-tax-bern-rates', de: 'erbschafts-schenkungssteuer-bern-steuersatz', fr: 'impot-succession-donation-berne-taux' },
  'imposta-di-succesione-e-donazione-canton-berna-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-berna-aliquote', en: 'inheritance-and-donation-tax-canton-berne-rates', de: 'erbschafts-und-schenkungssteuer-kanton-bern-zahlungen', fr: 'taxe-sur-la-succesions-et-la-donation-canton-de-berne' },
+ 'trasparenza-fatture-ospedaliere-svizzera': { it: 'trasparenza-fatture-ospedaliere-svizzera', en: 'hospital-invoice-transparency-switzerland', de: 'transparenz-hospitalrechnungen-schweiz', fr: 'transparence-factures-hospitalieres-suisse' },
+ 'nuova-notifiche-di-cessazione-delle-inquieste-del-sisi': { it: 'nuova-notifiche-di-cessazione-delle-inquieste-del-sisi', en: 'new-notice-of-cessation-of-investigations-of-the-sisi', de: 'neue-benachrichtigung-uber-die-einstellung-der-ermittlungen-des-sisi', fr: 'nouvelle-notification-de-cessation-des-enquetes-du-sisi' },
+ 'abort-topical-relevance-trump-health': { it: 'abort-topical-relevance-trump-health', en: 'news-not-relevant', de: 'nicht-zutreffende-nachrichten', fr: 'information-non-pertinente' },
+ 'imposte-cantonali-canton-lucerna-aliquote': { it: 'imposte-cantonali-canton-lucerna-aliquote', en: 'canton-lucerne-cantonal-taxes-deductions', de: 'kantonssteuern-kanton-luzern-abzuege', fr: 'impots-cantonaux-canton-lucerne-baremes' },
+ 'premi-cassa-malati-lucerna-2026': { it: 'premi-cassa-malati-lucerna-2026', en: 'health-insurance-premiums-lucerne', de: 'krankenversicherungspramien-luzern', fr: 'primes-maladie-lucerne' },
+ 'permesso-dimora-b-lucerna-requisiti': { it: 'permesso-dimora-b-lucerna-requisiti', en: 'permesso-dimora-b-lucerne', de: 'b-erlaubnis-luzern', fr: 'permis-de-sejour-b-lucerne' },
+ 'permesso-domicilio-c-lucerna': { it: 'permesso-domicilio-c-lucerna', en: 'c-permit-lucerne-canton-requirements-application', de: 'c-ausweis-kanton-luzern-voraussetzungen', fr: 'permis-etablissement-c-canton-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
