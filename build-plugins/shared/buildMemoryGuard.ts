@@ -103,6 +103,29 @@ export const RSS_CEILING_FRACTION = 0.807;
  */
 export const DEFAULT_HOST_AVAIL_FLOOR_MB = 768;
 
+/**
+ * `MemTotal` del runner sul quale e' stata misurata la calibrazione (run
+ * 31747139648, 2026-08-13, ultimo deploy verde 4/4 — vedi il docblock del
+ * modulo). `RSS_CEILING_FRACTION` scala correttamente con `MemTotal` perche'
+ * e' espresso come frazione; `DEFAULT_HOST_AVAIL_FLOOR_MB` NO — e' un margine
+ * assoluto derivato dai minimi verdi misurati su QUESTO host. Se GitHub
+ * cambia la classe macchina di `ubuntu-latest` (e' gia' successo in passato:
+ * i runner standard sono passati da 2 core/7 GB a 4 core/16 GB), il pavimento
+ * smette di essere calibrato senza che il gate lo segnali in alcun modo —
+ * questa costante e' il riferimento contro cui `resolveThresholds` rileva il
+ * drift (#5831 item 5).
+ */
+export const CALIBRATION_HOST_TOTAL_MB = 15988;
+
+/**
+ * Tolleranza sul drift di `MemTotal` rispetto a {@link CALIBRATION_HOST_TOTAL_MB}
+ * prima di avvisare. 10 %: assorbe la variazione naturale fra run sulla
+ * stessa classe di runner (memoria riservata al kernel/hypervisor puo'
+ * oscillare di qualche decina di MB) senza generare rumore, ma intercetta un
+ * cambio di classe macchina reale.
+ */
+export const CALIBRATION_DRIFT_TOLERANCE = 0.1;
+
 /** Intervallo di campionamento e campioni consecutivi richiesti. */
 export const DEFAULT_SAMPLE_INTERVAL_MS = 5000;
 export const DEFAULT_CONSECUTIVE_SAMPLES = 3;
@@ -234,6 +257,28 @@ export function applyTighteningOverride(
 }
 
 /**
+ * Rileva se `MemTotal` di questo host si e' allontanato troppo dalla
+ * calibrazione empirica di {@link DEFAULT_HOST_AVAIL_FLOOR_MB}. Non cambia
+ * nessuna soglia — e' una funzione pura di sola osservazione, cosi' com'e'
+ * per `observeSample`, cosi' e' testabile senza un runner diverso davvero.
+ *
+ * @returns un messaggio da loggare, o `null` se il drift e' entro tolleranza.
+ */
+export function detectCalibrationDrift(totalMb: number): string | null {
+  const driftRatio = Math.abs(totalMb - CALIBRATION_HOST_TOTAL_MB) / CALIBRATION_HOST_TOTAL_MB;
+  if (driftRatio <= CALIBRATION_DRIFT_TOLERANCE) return null;
+  return (
+    `MemTotal di questo runner (${totalMb} MB) si discosta di oltre il ` +
+    `${Math.round(CALIBRATION_DRIFT_TOLERANCE * 100)}% dalla calibrazione ` +
+    `(${CALIBRATION_HOST_TOTAL_MB} MB, run 31747139648). rssCeilingMb riscala ` +
+    `correttamente con MemTotal, ma hostAvailFloorMb=${DEFAULT_HOST_AVAIL_FLOOR_MB}MB ` +
+    "e' un margine ASSOLUTO misurato su quel runner e potrebbe non essere piu' " +
+    'valido su una classe macchina diversa: ri-misurare i minimi verdi e ri-derivare ' +
+    'il pavimento prima di fidarsi ciecamente di questo numero.'
+  );
+}
+
+/**
  * Risolve le soglie effettive per questo host.
  *
  * @param env normalmente `process.env`; iniettabile per i test.
@@ -241,7 +286,7 @@ export function applyTighteningOverride(
 export function resolveThresholds(
   env: NodeJS.ProcessEnv = process.env,
   procMeminfoPath = '/proc/meminfo',
-): GuardThresholds & { ignoredOverrides: string[] } {
+): GuardThresholds & { ignoredOverrides: string[]; calibrationDriftWarning: string | null } {
   const totalMb = readHostTotalMb(procMeminfoPath);
   const ceilingDefault = Math.round(totalMb * RSS_CEILING_FRACTION);
   const ceiling = applyTighteningOverride(ceilingDefault, env.BUILD_MEM_RSS_CEILING_MB, 'lower');
@@ -260,6 +305,7 @@ export function resolveThresholds(
     hostAvailFloorMb: hostReadable ? floor.value : null,
     consecutiveSamples: DEFAULT_CONSECUTIVE_SAMPLES,
     ignoredOverrides,
+    calibrationDriftWarning: hostReadable ? detectCalibrationDrift(totalMb) : null,
   };
 }
 
@@ -412,6 +458,10 @@ export function buildMemoryGuardPlugin(): Plugin {
         console.warn(
           `[build-mem-guard] override ignorati perche' ALLENTAVANO la soglia: ${thresholds.ignoredOverrides.join(', ')}`,
         );
+      }
+      if (thresholds.calibrationDriftWarning) {
+        // eslint-disable-next-line no-console
+        console.warn(`[build-mem-guard] ${thresholds.calibrationDriftWarning}`);
       }
       // eslint-disable-next-line no-console
       console.log(
