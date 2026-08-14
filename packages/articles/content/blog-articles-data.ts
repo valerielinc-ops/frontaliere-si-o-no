@@ -29793,6 +29793,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'barasso-riqualificazione-piazza-san-martino',
+ category: 'pratico',
+ date: '2026-08-14T02:27:03.154Z',
+ image: '/images/blog/barasso-riqualificazione-piazza-san-martino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
