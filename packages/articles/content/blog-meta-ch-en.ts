@@ -2656,6 +2656,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Lucerne cantonal school system: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Find out about the school cycles, enrolment age and school calendar for the Canton of Lucerne',
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'scenic school in a lucerne institute',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Kindergarten and childcare in the canton of Lucerne: costs',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'The costs for daycare and childcare in the Canton of Lucerne are subject to several factors.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'A family with children in a daily life scene in Switzerland, with a focus on the region of the Canton Lucerne.',
 };
 
 export default blogMetaChEn;

@@ -7966,6 +7966,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asilo-nido-e-custodia-bambini-canton-lucerna-costi',
+    category: 'fiscale',
+    date: '2026-08-14T02:53:59.094Z',
+    image: '/images/blog/asilo-nido-e-custodia-bambini-canton-lucerna-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

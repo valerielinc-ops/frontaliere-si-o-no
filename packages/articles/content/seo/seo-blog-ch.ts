@@ -34415,6 +34415,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asilo-nido-e-custodia-bambini-canton-lucerna-costi': {
+    title: 'Asilo nido e custodia bambini Canton Lucerna: costi',
+    description: 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Lucerna sono soggetti a diversi fattori. Scopri come funziona l\'asilo nido e come affidare',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini Canton Lucerna: costi',
+    ogDescription: 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Lucerna sono soggetti a diversi fattori. Scopri come funziona l\'asilo nido e come affidare la custodia dei bambini.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-e-custodia-bambini-canton-lucerna-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini Canton Lucerna: costi",
+      "description": "I costi per l'asilo nido e la custodia dei bambini nel Canton Lucerna sono soggetti a diversi fattori. Scopri come funziona l'asilo nido e come affidare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-e-custodia-bambini-canton-lucerna-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia con bambini in una scena di vita quotidiana in Svizzera, con un focus sulla regione del Canton Lucerna."
+      },
+      "datePublished": "2026-08-14T02:53:59+00:00",
+      "dateModified": "2026-08-14T02:53:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-e-custodia-bambini-canton-lucerna-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2656,6 +2656,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Kantonales Schulsystem Luzern: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Informieren Sie sich über die Schulzyklen, das Einschreibealter und den Schulkalender für den Kanton Luzern',
     'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'szenische schule in einem institut lucerne',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.title': 'Kindergarten und Kinderbetreuung im Kanton Luzern: Kosten',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.excerpt': 'Die Kosten für Kindertagesstätten und Kinderbetreuung im Kanton Luzern unterliegen verschiedenen Faktoren.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-lucerna-costi.imageAlt': 'Eine Familie mit Kindern in einem Alltagslebensszenario in der Schweiz, mit einem Fokus auf die Region des Kantons Luzern.',
 };
 
 export default blogMetaChDe;
