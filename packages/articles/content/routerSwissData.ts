@@ -907,6 +907,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-lucerna-2026': { it: 'premi-cassa-malati-lucerna-2026', en: 'health-insurance-premiums-lucerne', de: 'krankenversicherungspramien-luzern', fr: 'primes-maladie-lucerne' },
  'permesso-dimora-b-lucerna-requisiti': { it: 'permesso-dimora-b-lucerna-requisiti', en: 'permesso-dimora-b-lucerne', de: 'b-erlaubnis-luzern', fr: 'permis-de-sejour-b-lucerne' },
  'permesso-domicilio-c-lucerna': { it: 'permesso-domicilio-c-lucerna', en: 'c-permit-lucerne-canton-requirements-application', de: 'c-ausweis-kanton-luzern-voraussetzungen', fr: 'permis-etablissement-c-canton-lucerne' },
+ 'permesso-l-canton-lucerna-validita-e-proroga': { it: 'permesso-l-canton-lucerna-validita-e-proroga', en: 'permesso-l-lucerne-validity-and-extension', de: 'permesso-l-luzern-gueltigkeit-und-verlaengerung', fr: 'permesso-l-lucerne-validite-et-prorogation' },
+ 'permesso-l-breve-durata-lucerna': { it: 'permesso-l-breve-durata-lucerna', en: 'short-term-l-permit-lucerne', de: 'kurzaufenthaltsbewilligung-l-luzern', fr: 'permis-de-courte-duree-l-lucerne' },
+ 'assegni-familiari-canton-lucerna': { it: 'assegni-familiari-canton-lucerna', en: 'family-allowances-in-the-canton-of-lucerne-amounts-and-application', de: 'familienzulagen-im-kanton-luzern-betrage-und-antrag', fr: 'allocations-familiales-dans-le-canton-de-lucerne-montants-et-demande' },
+ 'sistema-scolastico-canton-lucerna-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-lucerna-iscrizione-e-cicli', en: 'lucerne-school-system-enrollment-and-cycles', de: 'kantonales-schulsystem-luzern-einschreibung-und-zyklen', fr: 'systeme-scolaire-canton-lucerne-inscription-et-cycles' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -9933,6 +9933,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Unternehmenskrisen im Mimit 37 aktive Tische: BEKO Europe unter Beobachtung',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'Die Zahl der Unternehmenskrisentische im Ministerium für Unternehmen und Made in Italy sinkt auf 37, während die Zahl der Überwachungstische auf 46 ansteigt.',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Sitzung im Ministerium für Unternehmen und Made in Italy zu Unternehmenskrise',
+    'blog.article.como-gera-lario-nuoto-record.title': 'Schwimmen von Como nach Gera Lario: historischer Rekord für Hector Pardoe',
+    'blog.article.como-gera-lario-nuoto-record.excerpt': 'Der britische Olympiateilnehmer Hector Pardoe schwamm 47,54 km von Como nach Gera Lario in 10 Stunden, 41 Minuten und 31 Sekunden.',
+    'blog.article.como-gera-lario-nuoto-record.imageAlt': 'Comoseo-Landschaft mit klarem Wasser und Bergen',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.title': 'Barasso: Piazza San Martino wird für die Assunta erneuert',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.excerpt': 'Die Gemeinde Barasso hat auf der Piazza San Martino im Hinblick auf das Fest der Himmelfahrt eine städtische Einrichtung und ein grünes Restyling durchgeführt.',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.imageAlt': 'San Martino Platz in Barasso erneuert mit neuen Pflanzgefässen',
 };
 
 export default blogMetaDe;

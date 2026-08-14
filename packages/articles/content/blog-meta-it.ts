@@ -9935,6 +9935,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Crisi aziendali, al Mimit 37 tavoli attivi: Beko Europe sotto osservazione',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'I tavoli di crisi aziendale al ministero delle Imprese e del Made in Italy scendono a 37, mentre i tavoli di monitoraggio salgono a 46.',
     'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Riunione al ministero delle Imprese e del Made in Italy sulle crisi aziendali',
+    'blog.article.como-gera-lario-nuoto-record.title': 'Nuoto da Como a Gera Lario: record storico per Hector Pardoe',
+    'blog.article.como-gera-lario-nuoto-record.excerpt': 'L\'atleta olimpico britannico Hector Pardoe ha percorso a nuoto 47,54 km da Como a Gera Lario in 10 ore, 41 minuti e 31 secondi.',
+    'blog.article.como-gera-lario-nuoto-record.imageAlt': 'Panorama del Lago di Como con acque limpide e montagne',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.title': 'Barasso: Piazza San Martino si rinnova per l\'Assunta',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.excerpt': 'Il Comune di Barasso ha completato un intervento di arredo urbano e restyling verde in Piazza San Martino in vista della Festa dell\'Assunta.',
+    'blog.article.barasso-riqualificazione-piazza-san-martino.imageAlt': 'Piazza San Martino a Barasso rinnovata con nuove fioriere ed essenze botaniche',
 };
 
 export default blogMetaIt;
