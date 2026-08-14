@@ -124,7 +124,22 @@ const names = (iss) => (iss.labels || []).map((l) => l.name);
 const has = (iss, n) => names(iss).includes(n);
 
 // Labels che indicano che il routing è già stato applicato (in qualsiasi forma).
-const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued', 'fu-parked', 'fu-attempt:1', 'fu-attempt:2', 'fu-attempt:3'];
+//
+// Exported (#5524 item 3): i tre `fu-attempt:N` qui sono un DUPLICATO manuale
+// di `MAX_ATTEMPTS` in followup-drainer.mjs (quel modulo alza il contatore fino
+// a `MAX_ATTEMPTS`; questo elenca le label che ne risultano, così `unrouted`
+// sotto non ri-tratta come orfana una issue che il drainer ha già preso in
+// carico). Nessun test legava i due prima d'ora — vedi
+// tests/followup-drainer-max-attempts-labels.test.ts, che pretende
+// `ROUTING_LABELS` contenga esattamente `fu-attempt:1..MAX_ATTEMPTS`, né più né
+// meno. Se `MAX_ATTEMPTS` sale senza toccare questa riga, il tetto reale del
+// drainer supera l'ultima label che questo sweep riconosce come "instradata":
+// `gh issue edit --add-label` su una label che il repo non ha mai creato fallisce
+// (silenziosamente, catturato dal try/catch di `edit()` in followup-drainer.mjs),
+// quindi la label non nuova non arriva mai sulla issue mentre quella vecchia non
+// viene mai rimossa — la issue resta bloccata sul contatore precedente,
+// ritentata a ogni giro senza mai raggiungere `fu-parked`.
+export const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued', 'fu-parked', 'fu-attempt:1', 'fu-attempt:2', 'fu-attempt:3'];
 
 function main() {
   if (!REPO) { console.error('GH_REPO/GITHUB_REPOSITORY mancante'); process.exit(1); }

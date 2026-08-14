@@ -139,3 +139,19 @@ jobs:
             --priority 2 \
             --label automation \
             --workflow "${{ github.workflow }}"
+
+      # Closer half (#5437 — this title had none, unlike its sibling "Pages
+      # publish lag: …" a few lines up, which already resolves on recovery).
+      # Negation of the crash condition: healthy (outcome success) OR an
+      # intentional degraded reading (outcome failure WITH a summary) both mean
+      # the monitor itself did not crash.
+      - name: Resolve monitor-crash issue when the check itself is healthy
+        if: steps.check.outcome == 'success' || steps.check.outputs.summary != ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Pages publish-lag monitor crashed" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
