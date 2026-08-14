@@ -2629,6 +2629,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'Nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'La notifiche di cessazione delle inquieste (aviazione) del SISI è stata pubblicata sul sito web del Servizio d\'inchiesta svizzero sulla sicurezza.',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'La pubblicazione di una nuova notifiche di cessazione delle inquieste (aviazione) del SISI',
+    'blog.article.abort-topical-relevance-trump-health.title': 'Notizia non pertinente',
+    'blog.article.abort-topical-relevance-trump-health.excerpt': 'La fonte trattata non presenta un nesso reale con la vita di chi vive o lavora in Svizzera.',
+    'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Redazione di notizie economiche in Svizzera',
 };
 
 export default blogMetaChIt;

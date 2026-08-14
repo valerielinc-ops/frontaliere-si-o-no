@@ -34064,6 +34064,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abort-topical-relevance-trump-health': {
+    title: 'Notizia non pertinente | Frontaliere Ticino',
+    description: 'Contenuto non pubblicato per mancanza di rilevanza con la Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, notizia, pertinente, fonte, trattata',
+    ogTitle: 'Notizia non pertinente',
+    ogDescription: 'Contenuto non pubblicato per mancanza di rilevanza con la Svizzera.',
+    canonicalPath: '/articoli-svizzera/abort-topical-relevance-trump-health/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Notizia non pertinente",
+      "description": "Contenuto non pubblicato per mancanza di rilevanza con la Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abort-topical-relevance-trump-health.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Redazione di notizie economiche in Svizzera"
+      },
+      "datePublished": "2026-08-14T01:37:12+00:00",
+      "dateModified": "2026-08-14T01:37:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abort-topical-relevance-trump-health/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

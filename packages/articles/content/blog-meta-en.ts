@@ -9928,6 +9928,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ocst-donna-lavoro-servizi.title': 'OCST woman-work: protection and support',
     'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Support services, advice and legal protection for workers in difficulty, with courses and professional guidance.',
     'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Support desk for workers in Ticino',
+    'blog.article.no-rimborso-ticino-2020.title': 'Ticino 2020: no reimbursement to the Municipalities. ‘Liability on both sides’',
+    'blog.article.no-rimborso-ticino-2020.excerpt': 'The government responds to those who asked for compensation for the money spent on the project that was then shipwrecked.',
+    'blog.article.no-rimborso-ticino-2020.imageAlt': 'Ticino 2020: no reimbursement for commuters',
 };
 
 export default blogMetaEn;
