@@ -18,6 +18,10 @@
  *   - keep the record with the latest `crawledAt` (freshest crawl wins)
  *   - capture every OTHER record's slug/slugByLocale into the survivor's
  *     previousSlugs so the retired URL still resolves via bridge/redirect
+ *   - carry every OTHER record's `needsRetranslation` onto the survivor
+ *     (#5645): the flag is monotone and the dropped record is the only place
+ *     it may exist, so keeping one side whole would DELETE the mark — the same
+ *     resolution this script already refuses for slugs, one field over
  *   - drop the other record(s)
  *
  * Idempotent: a re-run finds no groups. Dry-run by default; --apply writes.
@@ -32,6 +36,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { addPreviousSlugForLocale, LOCALES, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -56,6 +61,7 @@ function main() {
 
   let totalGroups = 0;
   let totalDropped = 0;
+  let marksCarried = 0;
   const report = [];
 
   for (const file of files) {
@@ -86,6 +92,7 @@ function main() {
       const others = group.filter((j) => j !== winner);
 
       for (const dropped of others) {
+        marksCarried += carryForwardMarks(winner, dropped);
         for (const locale of LOCALES) {
           const slug = dropped.slugByLocale?.[locale];
           if (slug && slug !== winner.slugByLocale?.[locale]) {
@@ -115,7 +122,7 @@ function main() {
     }
   }
 
-  console.log(`\n${APPLY ? 'Applied' : 'Dry-run'}: ${totalGroups} duplicate-id group(s), ${totalDropped} record(s) collapsed.`);
+  console.log(`\n${APPLY ? 'Applied' : 'Dry-run'}: ${totalGroups} duplicate-id group(s), ${totalDropped} record(s) collapsed, ${marksCarried} needsRetranslation mark(s) carried onto a survivor.`);
   for (const line of report) console.log(`  - ${line}`);
 }
 

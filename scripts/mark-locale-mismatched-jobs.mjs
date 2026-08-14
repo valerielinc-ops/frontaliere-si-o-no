@@ -72,9 +72,32 @@ for (const job of jobs) {
 
 if (flagged > 0) {
   writeJsonAtomic(DATA_JOBS_PATH, jobs);
-  const { totalMarked, slicesChanged, unresolved } = persistMarksToSlices(flaggedSlugs, { root: ROOT });
+  const {
+    totalMarked, slicesChanged, unresolved, duplicated, racesResolved, racesLost,
+  } = persistMarksToSlices(flaggedSlugs, { root: ROOT });
   console.log(`Flagged ${flagged} job(s) with needsRetranslation=true.`);
   console.log(`Persisted ${totalMarked} mark(s) across ${slicesChanged} committed slice(s).`);
+  if (duplicated > 0) {
+    // Not a failure — every copy was marked, which is the policy. It is
+    // reported because a duplicated slug is the shape in which a mark gets
+    // lost later: assembly keeps one copy per identity, and a crawler that
+    // re-crawls the winning slice drops the flag from it (#5645).
+    console.log(
+      `ℹ️  ${duplicated} flagged slug(s) live in more than one committed slice; every copy was marked.`
+    );
+  }
+  if (racesResolved > 0) {
+    console.log(
+      `ℹ️  ${racesResolved} slice write(s) were rebuilt on fresher bytes — another writer`
+        + ' committed to the same slice mid-pass and its content was kept.'
+    );
+  }
+  if (racesLost > 0) {
+    console.warn(
+      `⚠️  ${racesLost} slice(s) abandoned after ${racesLost === 1 ? 'a writer' : 'writers'} kept winning the`
+        + ' compare-and-swap: those marks did NOT reach the committed half and will evaporate.'
+    );
+  }
   if (unresolved > 0 || slugless > 0) {
     // Loud on purpose: a mark that reached only the artefact is a mark that
     // will evaporate, which is exactly the failure this script was fixed for.
