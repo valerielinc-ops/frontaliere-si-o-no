@@ -17,6 +17,8 @@
  * (`grep '\[mem\]'` over a downloaded run log) keep matching.
  */
 
+import { forceGc } from './forceGc';
+
 /**
  * @param label Milestone name, conventionally `<plugin>: <phase>` — e.g.
  *   `jobsSeoPages: after city-hubs`. The plugin prefix is what makes two
@@ -32,9 +34,13 @@ export function logBuildMem(label: string, collector?: unknown): void {
   // PURPOSE: if this reclaims the per-phase growth, the gc() calls themselves
   // bound the peak and prevent the OOM (cheap fix); if heap stays high post-gc
   // it's genuine retention needing a code fix — and `gcFreed` tells us which. (#1290)
-  const gc = (globalThis as { gc?: () => void }).gc;
+  //
+  // Via forceGc() since #5899: the `rss=` field below is only meaningful if the
+  // collection actually returns pages, and bare gc() does not. The reported
+  // heapUsed/gcFreed are unchanged by the switch — a major GC frees the same
+  // objects either way; what moves is rss.
   const beforeHeap = process.memoryUsage().heapUsed;
-  if (typeof gc === 'function') gc();
+  forceGc();
   const m = process.memoryUsage();
   const freed = mb(beforeHeap - m.heapUsed);
   const c = collector as { writes?: Map<unknown, unknown>; _pendingFlushes?: Set<unknown> } | undefined;
