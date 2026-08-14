@@ -16,10 +16,19 @@
  * CONSENT (#5759). Third-party advertising is its own consent category since
  * the owner's decision of 2026-08-13, collected as an OPT-OUT: no extra
  * checkbox at signup, named on /comunicazioni/, switchable off on its own. The
- * audience filter therefore drops anyone whose stored `consent_text` predates
- * the page version that named advertising, and anyone who used that switch —
- * both in services/publisherBlastMatch.mjs, so a dry-run reports the real
- * audience and not a larger one.
+ * audience filter therefore drops anyone who used that switch, plus everyone
+ * the other senders drop — opted out, suppressed, never double-opted-in — all
+ * in services/publisherBlastMatch.mjs, so a dry-run reports the real audience
+ * and not a larger one.
+ *
+ * AND WHO IT NO LONGER DROPS (owner's decision of 2026-08-14). Until that day
+ * it also refused anyone whose stored `consent_text` predated the page version
+ * that named advertising, which was effectively the whole list. The owner was
+ * told so and decided the disclosure reaches back over all of it, so that
+ * filter is gone — `consentCoversAdvertising` carries the reasoning. What is
+ * left of the question is `toldAboutAdvertising` on each matched row, counted
+ * into the log line below: the size of the cohort mailed advertising without
+ * ever having read the word, reported per run rather than estimated once.
  *
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/blast-publisher-ads.mjs            # dry-run (logs audience)
  *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/blast-publisher-ads.mjs --send      # send (CI only)
@@ -95,8 +104,15 @@ async function main() {
     const audience = isCanaryJob(ad)
       ? [{ email: OWNER_EMAIL, locale: ad.sourceLang || 'it', score: 999 }]
       : matchSubscribersForAd(ad, subscribers, { minScore: 5, max: PER_AD_CAP });
+    // The second number is what the owner's 2026-08-14 decision costs, counted
+    // rather than estimated: recipients whose own stored disclosure never named
+    // third-party advertising. It stopped excluding them that day (see
+    // `consentCoversAdvertising`), so this line is the only place the size of
+    // that cohort is ever written down.
+    const untold = audience.filter((r) => r.toldAboutAdvertising === false).length;
     console.log(
-      `[blast] ad "${ad.title}" (${ad.id})${isCanaryJob(ad) ? ' [CANARY → owner only]' : ''} → ${audience.length} matched subscriber(s)`,
+      `[blast] ad "${ad.title}" (${ad.id})${isCanaryJob(ad) ? ' [CANARY → owner only]' : ''} → ${audience.length} matched subscriber(s)` +
+        (untold ? `, ${untold} of them with a consent proof that predates the advertising disclosure` : ''),
     );
     if (!SEND) continue;
     if (audience.length === 0) {

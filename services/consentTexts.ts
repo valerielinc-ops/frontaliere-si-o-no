@@ -195,18 +195,27 @@ export const CONSENT_PAGE_LABEL = 'frontaliereticino.ch/comunicazioni';
  *    (services/communicationChannels.ts), rendered in the preference centre
  *    beside the other channels and read by services/publisherBlastMatch.mjs.
  *
- * And what it still does NOT cover, which is not a leftover of the old fork but
- * a consequence of this one: a subscriber whose stored `consent_text` names a
- * page version older than `ADVERTISING_NAMED_FROM_PAGE_VERSION` read a page
- * that did not mention advertising. The owner's defence does not exist for
- * them, so the blast may not reach them, and the matcher enforces it.
+ * AND WHO IT REACHES, WHICH CHANGED ON 2026-08-14. As shipped, #5759 also
+ * excluded a subscriber whose stored `consent_text` named a page version older
+ * than `ADVERTISING_NAMED_FROM_PAGE_VERSION` — they had read a page with no
+ * advertising section, so the "the formula names it" half of the defence did
+ * not exist for them. On the day that shipped it was effectively the whole
+ * list, and the owner was told so before answering: send to all of them.
+ *
+ * So the third bullet above now applies retroactively, to people who were
+ * subscribed before either the naming or the switch existed. It is weaker than
+ * waiting for the list to pass through the new formula, and the two things left
+ * holding it up are the page that names the category today and the switch that
+ * turns it off. `consentCoversAdvertising`
+ * (services/publisherBlastMatch.mjs) is where the decision is written down, in
+ * the function that used to enforce the opposite.
  *
  * Slipping the channel under "aggiornamenti redazionali" is still the shortcut
  * that produced the 6.308 unrequested job alerts (#5705). It has a category of
  * its own precisely so nobody needs to.
  */
 export const ADVERTISING_CONSENT_BASIS =
-  'owner decision 2026-08-13 (#5764 §3, #5759) — third-party advertising (publisher-blast.yml) is its own consent category, named on /comunicazioni/ and collected as an OPT-OUT: no extra checkbox, a per-channel switch in the preference centre, and no send to a subscriber whose stored consent_text predates the page version that named it';
+  'owner decisions 2026-08-13 (#5764 §3, #5759) and 2026-08-14 — third-party advertising (publisher-blast.yml) is its own consent category, named on /comunicazioni/ and collected as an OPT-OUT: no extra checkbox, a per-channel switch in the preference centre, and, since 2026-08-14, no exclusion by the version of the stored consent_text — the disclosure reaches the whole list, including subscribers whose proof predates the page version that named it';
 
 /** How the address reached us, stored as `consent_method`. */
 export type ConsentMethod =
@@ -350,7 +359,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-13.3',
+    version: '2026-08-14.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -376,7 +385,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-13.3',
+    version: '2026-08-14.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -408,7 +417,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-08-13.3',
+    version: '2026-08-14.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,

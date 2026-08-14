@@ -145,6 +145,14 @@ describe('matchSubscribersForAd', () => {
    * in for the tick is a formula that names it and a switch that stops it. This
    * function is where both become a fact about who receives mail.
    *
+   * AND THE HALF THAT WAS TAKEN AWAY ON 2026-08-14. #5759 also refused anyone
+   * whose stored proof predated the page version that named advertising. The
+   * owner was told what that meant — effectively the whole list — and decided
+   * the disclosure reaches back over all of it. The first test below is the
+   * former one turned around, and it is written as an assertion rather than
+   * deleted precisely so that tomorrow the reach reads as a decision somebody
+   * took and not as a filter somebody lost.
+   *
    * The contract-level version of the same claim — that the naming and the
    * switch cannot ship without each other — lives in
    * tests/consent-shown-at-signup.test.tsx, which is where the guard that used
@@ -155,18 +163,41 @@ describe('matchSubscribersForAd', () => {
     const emails = (rows: Array<Record<string, unknown>>) =>
       matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
 
-    it('drops a perfect match whose stored disclosure predates the page that named advertising', () => {
-      // Every subscriber alive when this shipped is one of the first three
-      // shapes: an older page version, no `consent_text` at all (8.505 of 8.605
-      // documents, measured 2026-08-12), or something with no version in it.
-      // All three mean the same thing — we cannot show this person was told.
+    it('reaches a match whose stored disclosure predates the page that named advertising', () => {
+      // THE DECISION, PINNED. Each of these three shapes was excluded until
+      // 2026-08-14: an older page version, no `consent_text` at all (8.505 of
+      // 8.605 documents, measured 2026-08-12), a text with no version in it.
+      // They are now recipients like anybody else, and this expectation exists
+      // so that a future reader finds the choice recorded instead of inferring
+      // a regression from a missing check.
       const older = CONSENTED.consent_text.replace('2026-08-13.2', '2026-08-13.1');
       expect(emails([
         { email: 'old@example.com', ...strongMatch, ...CONSENTED, consent_text: older },
         { email: 'none@example.com', ...strongMatch, ...CONSENTED, consent_text: undefined },
         { email: 'no-version@example.com', ...strongMatch, ...CONSENTED, consent_text: 'Accetto le comunicazioni.' },
         { email: 'told@example.com', ...strongMatch, ...CONSENTED },
-      ])).toEqual(['told@example.com']);
+      ]).sort()).toEqual(['no-version@example.com', 'none@example.com', 'old@example.com', 'told@example.com']);
+    });
+
+    it('reports, per recipient, whether their own proof named advertising', () => {
+      // The cost of the decision above, made countable. Reporting is not
+      // enforcing, and the difference is the whole point: `consentCoversAdvertising`
+      // no longer looks at this, `scripts/blast-publisher-ads.mjs` logs it.
+      const older = CONSENTED.consent_text.replace('2026-08-13.2', '2026-08-13.1');
+      const rows = matchSubscribersForAd(
+        fisioAd,
+        [
+          { email: 'told@example.com', ...strongMatch, ...CONSENTED },
+          { email: 'untold@example.com', ...strongMatch, ...CONSENTED, consent_text: older },
+          { email: 'no-proof@example.com', ...strongMatch, ...CONSENTED, consent_text: undefined },
+        ],
+        { minScore: 3 },
+      ) as Array<{ email: string; toldAboutAdvertising: boolean }>;
+      expect(Object.fromEntries(rows.map((r) => [r.email, r.toldAboutAdvertising]))).toEqual({
+        'told@example.com': true,
+        'untold@example.com': false,
+        'no-proof@example.com': false,
+      });
     });
 
     it('drops the reader who used the switch, and only on an explicit true', () => {
@@ -178,6 +209,86 @@ describe('matchSubscribersForAd', () => {
         { email: 'left-on@example.com', ...strongMatch, ...CONSENTED, advertising_opt_out: false },
         { email: 'never-asked@example.com', ...strongMatch, ...CONSENTED },
       ]).sort()).toEqual(['left-on@example.com', 'never-asked@example.com']);
+    });
+  });
+
+  /**
+   * WHAT MUST STILL HOLD NOW THAT THE VERSION FILTER IS GONE.
+   *
+   * "Advertising may reach the whole list" was a decision about ONE gate. The
+   * others — the per-channel switch, a global opt-out, a hard suppression, the
+   * double-opt-in stamp — are not that decision, and the way a relaxation goes
+   * wrong is by taking more than it was given: each of those is checked in the
+   * same loop, one `continue` away from the line that was changed.
+   *
+   * Every case below therefore ships with a CONTROL that is identical except
+   * for the one field under test, and the control's `consent_text` is a version
+   * OLDER than the naming — so a control that is admitted proves the relaxation
+   * really is in force, and a case that is dropped proves the drop is the field
+   * and not a leftover of the removed filter. Without the control both halves
+   * would pass on a matcher that rejected everybody.
+   */
+  describe('the gates that must still hold after the relaxation (owner decision 2026-08-14)', () => {
+    const strongMatch = { job_search_query: 'Fisioterapista diplomato/a', sector_interest: 'health' };
+    /** A proof from BEFORE advertising was named: admitted since 2026-08-14. */
+    const ANCIENT = {
+      confirmed_at: '2026-01-01T00:00:00.000Z',
+      consent_text:
+        'Inserendo il mio indirizzo email nel modulo della newsletter, chiedo di ricevere la newsletter per frontalieri. (versione 2026-08-12.1)',
+    };
+    const emails = (rows: Array<Record<string, unknown>>) =>
+      matchSubscribersForAd(fisioAd, rows, { minScore: 3 }).map((r: { email: string }) => r.email);
+    /** The control, restated in every case so no test can pass by dropping both rows. */
+    const control = { email: 'control@example.com', ...strongMatch, ...ANCIENT };
+
+    it('the per-channel switch still stops it, on a document old enough to have been excluded before', () => {
+      expect(emails([
+        control,
+        { email: 'switched-off@example.com', ...strongMatch, ...ANCIENT, advertising_opt_out: true },
+      ])).toEqual(['control@example.com']);
+    });
+
+    it('a global opt-out still stops it — in both spellings of the stamp, and on status alone', () => {
+      // The three shapes `isNewsletterOptOutBinding` exists for (#5673, #5688):
+      // the Cloud Function status, the SPA camelCase stamp, the snake_case one.
+      // A person who asked us to stop is not an advertising audience whatever
+      // the owner decided about the disclosure.
+      expect(emails([
+        control,
+        { email: 'status@example.com', ...strongMatch, ...ANCIENT, status: 'unsubscribed' },
+        { email: 'camel@example.com', ...strongMatch, ...ANCIENT, unsubscribedAt: '2026-02-01T00:00:00.000Z' },
+        { email: 'snake@example.com', ...strongMatch, ...ANCIENT, unsubscribed_at: '2026-02-01T00:00:00.000Z' },
+      ])).toEqual(['control@example.com']);
+    });
+
+    it('a hard suppression still stops it — bounced, complained, suppressed', () => {
+      expect(emails([
+        control,
+        { email: 'bounced@example.com', ...strongMatch, ...ANCIENT, status: 'bounced' },
+        { email: 'complained@example.com', ...strongMatch, ...ANCIENT, status: 'complained' },
+        { email: 'suppressed@example.com', ...strongMatch, ...ANCIENT, status: 'SUPPRESSED' },
+      ])).toEqual(['control@example.com']);
+    });
+
+    it('the double opt-in stamp is still required — an unconfirmed address is not reached', () => {
+      // #5686. The relaxed gate is about WHAT they were told, not about whether
+      // they ever completed a subscription: a `confirmed` word with no stamp
+      // behind it is the shape that mailed 1.488 addresses.
+      expect(emails([
+        control,
+        { email: 'pending@example.com', ...strongMatch, ...ANCIENT, confirmed_at: undefined, status: 'pending' },
+        { email: 'claims@example.com', ...strongMatch, ...ANCIENT, confirmed_at: undefined, status: 'confirmed' },
+      ])).toEqual(['control@example.com']);
+    });
+
+    it('an opt-out and an ancient proof together are still one drop, not a cancellation', () => {
+      // The combination is the one a "send to everybody" change is most likely
+      // to get wrong: the relaxation admits the proof, and the switch must
+      // still be read afterwards rather than treated as satisfied by it.
+      expect(emails([
+        control,
+        { email: 'both@example.com', ...strongMatch, ...ANCIENT, advertising_opt_out: true, status: 'unsubscribed' },
+      ])).toEqual(['control@example.com']);
     });
   });
 });

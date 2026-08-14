@@ -149,17 +149,24 @@ const CATEGORY_HEADING: Record<NamedConsentCategory, Record<PageLocale, string>>
  *
  * Only `advertising` has one, and it is not decoration: it is where the shape
  * of that consent is stated to the person it applies to — no separate box was
- * ticked, the switch is per-channel, and the disclosure only reaches forward.
- * A reader who wants to contest "I never agreed to advertising" is entitled to
- * find, on the page their proof names, exactly what they were and were not
- * asked.
+ * ticked, and the switch is per-channel. A reader who wants to contest "I never
+ * agreed to advertising" is entitled to find, on the page their proof names,
+ * exactly what they were and were not asked.
+ *
+ * REWRITTEN ON 2026-08-14, AND THE OLD SENTENCE IS THE REASON. It ended "chi si
+ * è iscritto prima del 13 agosto 2026 non lo riceve", which described the
+ * version filter `services/publisherBlastMatch.mjs` applied at the time. The
+ * owner removed that filter, so the sentence had to go in the same change: a
+ * page telling a reader they are exempt while the sender mails them is a worse
+ * disclosure than one that admits the reach, and it is the half of this page a
+ * complaint would quote first.
  */
 const CATEGORY_NOTE: Partial<Record<NamedConsentCategory, Record<PageLocale, string>>> = {
   advertising: {
-    it: 'Questa categoria è compresa nelle comunicazioni a cui ti sei iscritto: non ti è stata proposta una casella separata e il numero di spunte all’iscrizione non è cambiato. In cambio puoi disattivare solo questo canale, dalle tue preferenze, senza toccare nulla del resto. Chi si è iscritto prima del 13 agosto 2026 non lo riceve: il testo che ha letto non nominava la pubblicità di terzi, e quel testo è ciò che vale.',
-    en: 'This category is included in the communications you signed up for: no separate box was offered to you and the number of ticks at signup did not change. In exchange you can switch off this channel alone, from your preferences, without touching any of the rest. People who subscribed before 13 August 2026 do not receive it: the text they read did not name third-party advertising, and that text is what counts.',
-    de: 'Diese Kategorie ist in den Mitteilungen enthalten, für die Sie sich angemeldet haben: Es wurde Ihnen kein separates Kästchen angeboten, und die Anzahl der Häkchen bei der Anmeldung hat sich nicht geändert. Dafür können Sie allein diesen Kanal in Ihren Einstellungen abschalten, ohne am Rest etwas zu ändern. Wer sich vor dem 13. August 2026 angemeldet hat, erhält ihn nicht: Der gelesene Text nannte Werbung Dritter nicht, und dieser Text ist massgebend.',
-    fr: 'Cette catégorie est comprise dans les communications auxquelles vous vous êtes inscrit : aucune case distincte ne vous a été proposée et le nombre de cases à cocher à l’inscription n’a pas changé. En contrepartie, vous pouvez désactiver ce seul canal, depuis vos préférences, sans toucher au reste. Les personnes inscrites avant le 13 août 2026 ne le reçoivent pas : le texte qu’elles ont lu ne nommait pas la publicité de tiers, et c’est ce texte qui fait foi.',
+    it: 'Questa categoria è compresa nelle comunicazioni a cui ti sei iscritto: non ti è stata proposta una casella separata e il numero di spunte all’iscrizione non è cambiato. Vale per tutte le persone iscritte, anche per chi si è iscritto prima del 13 agosto 2026, cioè prima che questa pagina nominasse la pubblicità di terzi: è una decisione del titolare del 14 agosto 2026. In cambio puoi disattivare solo questo canale, dalle tue preferenze, senza toccare nulla del resto.',
+    en: 'This category is included in the communications you signed up for: no separate box was offered to you and the number of ticks at signup did not change. It applies to everyone who is subscribed, including people who subscribed before 13 August 2026, that is, before this page named third-party advertising: this is a decision the data controller took on 14 August 2026. In exchange you can switch off this channel alone, from your preferences, without touching any of the rest.',
+    de: 'Diese Kategorie ist in den Mitteilungen enthalten, für die Sie sich angemeldet haben: Es wurde Ihnen kein separates Kästchen angeboten, und die Anzahl der Häkchen bei der Anmeldung hat sich nicht geändert. Sie gilt für alle angemeldeten Personen, auch für jene, die sich vor dem 13. August 2026 angemeldet haben, also bevor diese Seite Werbung Dritter nannte: Das ist eine Entscheidung der verantwortlichen Person vom 14. August 2026. Dafür können Sie allein diesen Kanal in Ihren Einstellungen abschalten, ohne am Rest etwas zu ändern.',
+    fr: 'Cette catégorie est comprise dans les communications auxquelles vous vous êtes inscrit : aucune case distincte ne vous a été proposée et le nombre de cases à cocher à l’inscription n’a pas changé. Elle s’applique à toutes les personnes inscrites, y compris celles inscrites avant le 13 août 2026, c’est-à-dire avant que cette page ne nomme la publicité de tiers : c’est une décision du responsable du traitement du 14 août 2026. En contrepartie, vous pouvez désactiver ce seul canal, depuis vos préférences, sans toucher au reste.',
   },
 };
 
@@ -269,6 +276,142 @@ const PRIVACY_CTA: Record<PageLocale, string> = {
 };
 
 /**
+ * WHAT THE CONSENT HAS TO COVER FOR THE OWNER TO BE ABLE TO DO IT AT ALL.
+ *
+ * Owner's decision of 2026-08-14, second half: they want to be able to
+ * communicate subscriber data to third parties for advertising and commercial
+ * purposes, and to transfer the data together with the business if the site is
+ * sold. Under the nLPD a consent covers the purposes it NAMES, so a purpose
+ * nobody has been told about is not consented to however the sentence is
+ * phrased — which is why this is text and not a flag somewhere.
+ *
+ * CATEGORIES, NEVER COMPANY NAMES. That is the property that makes the same
+ * text valid for a partner who does not exist yet, and it is the same property
+ * the channel rows above are built on: a new advertiser tomorrow is covered by
+ * "partner pubblicitari e commerciali" without a re-collection. Naming an
+ * advertiser would buy nothing and would have to be maintained.
+ *
+ * AND NO OMNIBUS CLAUSE. There is deliberately no "and for any other future
+ * purpose": a catch-all does not extend the consent — the purposes have to be
+ * determinate, so the clause is inoperative on exactly the things it did not
+ * name — while making the text read as if everything were covered. It is the
+ * one addition that would look like protection and be the opposite.
+ *
+ * NOTHING HERE IS COPIED FROM ANOTHER SITE'S POLICY. Each item describes what
+ * THIS repo does, checked against it: `services/publisherBlastMatch.mjs` scores
+ * subscribers against one paid ad, `functions/src/lib/engagementScore.js` and
+ * `services/newsletter-priority.mjs` rank the list by open/click behaviour,
+ * `services/jobMatchProfile.ts` re-ranks the job board per person. What the
+ * repo does NOT do is stated as not done, and the list stops there: a borrowed
+ * paragraph describes somebody else's processing and is worthless as proof of
+ * our own.
+ */
+const SHARING_HEADING: Record<PageLocale, string> = {
+  it: 'A chi possono essere comunicati i tuoi dati, e per quali finalità',
+  en: 'Who your data may be shared with, and for what purposes',
+  de: 'An wen Ihre Daten weitergegeben werden können, und zu welchen Zwecken',
+  fr: 'À qui vos données peuvent être communiquées, et à quelles fins',
+};
+
+const SHARING_INTRO: Record<PageLocale, string> = {
+  it: 'Qui sotto trovi le categorie di destinatari e le finalità, non i nomi delle singole aziende: è questo che permette di cambiare un fornitore o di aggiungere un partner senza riscrivere il testo e senza chiederti di nuovo il consenso. Vale però solo per le finalità scritte qui: quello che non è nominato non è coperto.',
+  en: 'Below are the categories of recipient and the purposes, not the names of individual companies: that is what makes it possible to change a supplier or add a partner without rewriting this text and without asking you for consent again. It only holds for the purposes written here, though: what is not named is not covered.',
+  de: 'Nachstehend finden Sie die Kategorien von Empfängern und die Zwecke, nicht die Namen einzelner Unternehmen: Das erlaubt es, einen Dienstleister zu wechseln oder einen Partner hinzuzunehmen, ohne diesen Text neu zu schreiben und ohne Sie erneut um Einwilligung zu bitten. Es gilt allerdings nur für die hier genannten Zwecke: Was nicht genannt ist, ist nicht abgedeckt.',
+  fr: 'Vous trouverez ci-dessous les catégories de destinataires et les finalités, et non les noms des entreprises : c’est ce qui permet de changer de prestataire ou d’ajouter un partenaire sans réécrire ce texte ni vous redemander votre consentement. Cela ne vaut toutefois que pour les finalités écrites ici : ce qui n’est pas nommé n’est pas couvert.',
+};
+
+const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[]> = {
+  it: [
+    {
+      lead: 'Partner pubblicitari e commerciali.',
+      body: 'I tuoi dati possono essere comunicati a terzi — inserzionisti, agenzie e altri partner commerciali — per finalità pubblicitarie e di marketing, compresi partner con cui oggi non abbiamo alcun rapporto. Per la posta elettronica oggi non accade: gli annunci degli inserzionisti te li inviamo noi e l’inserzionista non riceve il tuo indirizzo. Sulle pagine del sito, invece, i circuiti pubblicitari che pubblicano gli annunci raccolgono per conto proprio identificativi del browser e dati di navigazione: sono descritti nell’informativa completa.',
+    },
+    {
+      lead: 'Profilazione a fini commerciali.',
+      body: 'Usiamo ciò che ci hai indicato tu — professione cercata, settore, luogo, annunci salvati, aziende seguite — e il modo in cui interagisci con le nostre email e con il sito — se le apri, su quali link clicchi, da quanto tempo non le apri — per scegliere quali contenuti, annunci di lavoro e messaggi pubblicitari inviarti, con quale frequenza e quando smettere di scriverti. Non compriamo dati su di te da terzi: il profilo è costruito solo con quello che ci dai tu e con il tuo comportamento sulle nostre email e sul nostro sito. Nessuna di queste elaborazioni produce decisioni automatizzate con effetti giuridici o economici nei tuoi confronti.',
+    },
+    {
+      lead: 'Cessione, fusione o vendita dell’attività.',
+      body: 'Se il sito, o un suo ramo di attività, viene ceduto, conferito o fuso in un’altra azienda, i dati degli iscritti possono essere trasferiti a chi acquista, insieme all’attività, e il rapporto prosegue alle condizioni descritte in questa pagina. Se dopo il trasferimento le finalità cambiano, te ne verrà data notizia prima che il cambiamento abbia effetto.',
+    },
+    {
+      lead: 'Fornitori che lavorano per noi.',
+      body: 'Servizi di invio e recapito delle email, hosting e infrastruttura, misurazione del traffico e strumenti di generazione dei testi trattano i dati per nostro conto e secondo le nostre istruzioni, non per finalità proprie. L’elenco per categoria e i Paesi coinvolti sono nell’informativa completa.',
+    },
+  ],
+  en: [
+    {
+      lead: 'Advertising and commercial partners.',
+      body: 'Your data may be shared with third parties — advertisers, agencies and other commercial partners — for advertising and marketing purposes, including partners we have no relationship with today. For email this does not happen at present: we send advertisers’ announcements ourselves and the advertiser does not receive your address. On the site’s pages, by contrast, the advertising networks that serve the ads collect browser identifiers and browsing data on their own account: they are described in the full privacy notice.',
+    },
+    {
+      lead: 'Profiling for commercial purposes.',
+      body: 'We use what you told us — the role you searched for, sector, place, saved listings, followed employers — and how you interact with our emails and the site — whether you open them, which links you click, how long since you last opened one — to choose which content, job listings and advertising messages to send you, how often, and when to stop writing. We do not buy data about you from third parties: the profile is built only from what you give us and from your behaviour on our emails and our site. None of this produces automated decisions with legal or economic effects on you.',
+    },
+    {
+      lead: 'Sale, merger or transfer of the business.',
+      body: 'If the site, or a branch of it, is sold, contributed or merged into another company, subscribers’ data may be transferred to the buyer together with the business, and the relationship continues on the terms described on this page. If the purposes change after the transfer, you will be told before the change takes effect.',
+    },
+    {
+      lead: 'Suppliers working for us.',
+      body: 'Email sending and delivery services, hosting and infrastructure, traffic measurement and text-generation tools process the data on our behalf and on our instructions, not for purposes of their own. The list by category and the countries involved are in the full privacy notice.',
+    },
+  ],
+  de: [
+    {
+      lead: 'Werbe- und Geschäftspartner.',
+      body: 'Ihre Daten können an Dritte — Inserenten, Agenturen und andere Geschäftspartner — zu Werbe- und Marketingzwecken weitergegeben werden, auch an Partner, zu denen heute keine Beziehung besteht. Bei der E-Mail geschieht das derzeit nicht: Die Anzeigen der Inserenten versenden wir selbst, und der Inserent erhält Ihre Adresse nicht. Auf den Seiten der Website hingegen erheben die Werbenetzwerke, welche die Anzeigen ausliefern, auf eigene Rechnung Browser-Kennungen und Nutzungsdaten: Sie sind in der vollständigen Datenschutzerklärung beschrieben.',
+    },
+    {
+      lead: 'Profilbildung zu kommerziellen Zwecken.',
+      body: 'Wir verwenden Ihre eigenen Angaben — gesuchter Beruf, Branche, Ort, gespeicherte Inserate, gefolgte Arbeitgeber — und die Art, wie Sie mit unseren E-Mails und der Website umgehen — ob Sie sie öffnen, welche Links Sie anklicken, wie lange Sie nichts geöffnet haben — um auszuwählen, welche Inhalte, Stelleninserate und Werbenachrichten Sie erhalten, wie oft, und wann wir aufhören zu schreiben. Wir kaufen keine Daten über Sie bei Dritten: Das Profil entsteht allein aus Ihren Angaben und Ihrem Verhalten in unseren E-Mails und auf unserer Website. Nichts davon führt zu automatisierten Entscheidungen mit rechtlichen oder wirtschaftlichen Folgen für Sie.',
+    },
+    {
+      lead: 'Verkauf, Fusion oder Übertragung des Unternehmens.',
+      body: 'Wird die Website oder ein Teil davon verkauft, eingebracht oder mit einem anderen Unternehmen fusioniert, können die Daten der Angemeldeten zusammen mit dem Geschäftsbetrieb an die Erwerberin übertragen werden; das Verhältnis läuft zu den auf dieser Seite beschriebenen Bedingungen weiter. Ändern sich nach der Übertragung die Zwecke, werden Sie darüber informiert, bevor die Änderung wirksam wird.',
+    },
+    {
+      lead: 'Dienstleister, die für uns arbeiten.',
+      body: 'Dienste für Versand und Zustellung von E-Mails, Hosting und Infrastruktur, Reichweitenmessung sowie Werkzeuge zur Texterstellung bearbeiten die Daten in unserem Auftrag und nach unseren Weisungen, nicht zu eigenen Zwecken. Die Liste nach Kategorien und die beteiligten Länder stehen in der vollständigen Datenschutzerklärung.',
+    },
+  ],
+  fr: [
+    {
+      lead: 'Partenaires publicitaires et commerciaux.',
+      body: 'Vos données peuvent être communiquées à des tiers — annonceurs, agences et autres partenaires commerciaux — à des fins publicitaires et de marketing, y compris à des partenaires avec lesquels nous n’avons aujourd’hui aucune relation. Pour le courrier électronique, cela n’a pas lieu actuellement : les annonces des annonceurs, c’est nous qui vous les envoyons, et l’annonceur ne reçoit pas votre adresse. Sur les pages du site, en revanche, les régies publicitaires qui diffusent les annonces collectent pour leur propre compte des identifiants de navigateur et des données de navigation : elles sont décrites dans la politique de confidentialité complète.',
+    },
+    {
+      lead: 'Profilage à des fins commerciales.',
+      body: 'Nous utilisons ce que vous nous avez indiqué — métier recherché, secteur, lieu, offres enregistrées, entreprises suivies — et la manière dont vous interagissez avec nos e-mails et avec le site — si vous les ouvrez, sur quels liens vous cliquez, depuis combien de temps vous n’avez rien ouvert — pour choisir quels contenus, offres d’emploi et messages publicitaires vous envoyer, à quelle fréquence, et quand cesser de vous écrire. Nous n’achetons pas de données vous concernant auprès de tiers : le profil est construit uniquement à partir de ce que vous nous donnez et de votre comportement dans nos e-mails et sur notre site. Rien de tout cela ne produit de décision automatisée ayant des effets juridiques ou économiques à votre égard.',
+    },
+    {
+      lead: 'Cession, fusion ou vente de l’activité.',
+      body: 'Si le site, ou une branche de son activité, est cédé, apporté ou fusionné dans une autre entreprise, les données des personnes inscrites peuvent être transférées à l’acquéreur avec l’activité, et la relation se poursuit aux conditions décrites sur cette page. Si les finalités changent après le transfert, vous en serez informé avant que le changement ne prenne effet.',
+    },
+    {
+      lead: 'Prestataires qui travaillent pour nous.',
+      body: 'Les services d’envoi et de remise des e-mails, l’hébergement et l’infrastructure, la mesure d’audience et les outils de génération de textes traitent les données pour notre compte et sur nos instructions, non à leurs propres fins. La liste par catégorie et les pays concernés figurent dans la politique de confidentialité complète.',
+    },
+  ],
+};
+
+/**
+ * The revocation half, which a consent text is not a consent text without.
+ *
+ * It has to say HOW, and the how has to be a route that exists: the preference
+ * centre linked from every channel row above, the unsubscribe link, or a
+ * message to the controller named in this same section. It also says what
+ * revoking does NOT do — undo what already happened — because the alternative
+ * is a reader who believes withdrawing erases the past and finds out otherwise.
+ */
+const REVOCATION_TEXT: Record<PageLocale, string> = {
+  it: 'Puoi revocare il consenso in qualsiasi momento e senza motivare la richiesta: dalle tue preferenze, dal link di disiscrizione in fondo a ogni email, oppure scrivendo al titolare all’indirizzo qui sopra. Puoi anche revocarne una parte sola, spegnendo un singolo canale invece di tutti. La revoca vale per il futuro: non rende illecito quello che è stato fatto prima.',
+  en: 'You can withdraw your consent at any time and without giving a reason: from your preferences, from the unsubscribe link at the bottom of every email, or by writing to the controller at the address above. You can also withdraw part of it, switching off a single channel instead of all of them. Withdrawal applies going forward: it does not make unlawful what was done before.',
+  de: 'Sie können Ihre Einwilligung jederzeit und ohne Begründung widerrufen: in Ihren Einstellungen, über den Abmeldelink am Ende jeder E-Mail oder mit einer Nachricht an die oben genannte verantwortliche Person. Sie können auch nur einen Teil widerrufen und einen einzelnen Kanal statt aller abschalten. Der Widerruf wirkt für die Zukunft: Er macht das zuvor Geschehene nicht widerrechtlich.',
+  fr: 'Vous pouvez retirer votre consentement à tout moment et sans motiver votre demande : depuis vos préférences, via le lien de désinscription en bas de chaque e-mail, ou en écrivant au responsable du traitement à l’adresse ci-dessus. Vous pouvez aussi n’en retirer qu’une partie, en désactivant un seul canal plutôt que tous. Le retrait vaut pour l’avenir : il ne rend pas illicite ce qui a été fait auparavant.',
+};
+
+/**
  * The version stamp, printed so a person can compare it with the one inside the
  * sentence they agreed to.
  *
@@ -333,6 +476,14 @@ function renderBody(locale: PageLocale): string {
       <h2 style="${H2_STYLE}">${esc(CONTROLLER_HEADING[locale])}</h2>
       <p style="${BODY_STYLE}">${esc(CONTROLLER_NOTE[locale])}</p>
       <p style="${BODY_STYLE}">${esc(DATA_CONTROLLER_FOOTER_LINE[locale])}</p>
+      <h3 style="${H3_STYLE}">${esc(SHARING_HEADING[locale])}</h3>
+      <p style="${BODY_STYLE}">${esc(SHARING_INTRO[locale])}</p>${SHARING_ITEMS[locale]
+        .map(
+          (item) =>
+            `\n      <p style="${BODY_STYLE}"><strong>${esc(item.lead)}</strong> ${esc(item.body)}</p>`,
+        )
+        .join('')}
+      <p style="${BODY_STYLE}">${esc(REVOCATION_TEXT[locale])}</p>
       <p style="${BODY_STYLE}"><a href="${esc(PRIVACY_PATH[locale])}">${esc(PRIVACY_CTA[locale])}</a></p>
     </section>
     <section>

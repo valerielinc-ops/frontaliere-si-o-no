@@ -26,6 +26,13 @@ import { hasConfirmationProof } from './subscriberConsent.mjs';
  * `tests/consent-shown-at-signup.test.tsx` fails if the two sides disagree —
  * the same no-import-shape boundary, and the same remedy, as the cron
  * expressions and the `CHANNEL-STATUS` marker.
+ *
+ * `ADVERTISING_NAMED_FROM_PAGE_VERSION` STOPPED DECIDING SENDS ON 2026-08-14.
+ * It is now a date, not a gate: the version from which `/comunicazioni/` began
+ * naming third-party advertising, which is a fact about the page and stays
+ * true. See `consentCoversAdvertising` below for the decision that took the
+ * gate away, and `advertisingDisclosureWasShown` for what the constant still
+ * answers.
  */
 export const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 export const ADVERTISING_NAMED_FROM_PAGE_VERSION = '2026-08-13.2';
@@ -37,32 +44,79 @@ function parsePageVersion(raw) {
 }
 
 /**
- * Did the disclosure this person actually received name third-party
- * advertising?
+ * Did the disclosure THIS person received name third-party advertising?
  *
- * The owner's decision (#5764 §3) is an opt-out, and the defence it rests on is
- * "the formula names it and a switch stops it". That defence exists only for
- * someone whose stored sentence names it — every displayed formula since
- * `ADVERTISING_NAMED_FROM_PAGE_VERSION` carries the page version inside the
- * text (#5765), so the stored document answers the question by itself.
+ * A question about their stored document, and since 2026-08-14 nothing more: it
+ * decides no send. Every displayed formula carries the page version inside the
+ * sentence (#5765), so the document answers it by itself — `true` means the
+ * page they were pointed at already had the advertising section,
+ * `false` means an older version, no `consent_text` at all (8.505 of 8.605
+ * documents, measured 2026-08-12) or a text with no version in it.
  *
- * Fail-closed on purpose, and the cases are not equivalent to each other only
- * in appearance: no `consent_text` at all (8.505 of 8.605 documents measured
- * 2026-08-12), a text from an older page version, or an unparseable one all
- * mean the same thing here — we cannot show that this person was told. The
- * audience refills with everyone who reads the new sentence.
+ * It is kept, and kept honest, for two reasons. It is the measure of what the
+ * owner's retroactive decision actually costs — every recipient answering
+ * `false` is one who was mailed advertising without having read the word — and
+ * `matchSubscribersForAd` reports it per recipient so the number is observable
+ * instead of estimated. It is also the predicate a future re-tightening would
+ * use, and re-deriving it later from an unread comment is how the comparison
+ * below gets rewritten wrong.
  *
  * Comparison is on (date, revision) and not lexicographic: `2026-08-13.10`
- * sorts BELOW `2026-08-13.2` as a string, and getting that wrong would silently
- * start excluding people the disclosure does cover.
+ * sorts BELOW `2026-08-13.2` as a string, and reporting that wrong would
+ * understate the cohort by exactly the people the disclosure does cover.
  */
-export function consentCoversAdvertising(sub) {
+export function advertisingDisclosureWasShown(sub) {
   const stored = parsePageVersion(sub?.consent_text);
   if (!stored) return false;
   const floor = parsePageVersion(ADVERTISING_NAMED_FROM_PAGE_VERSION);
   if (!floor) return false;
   if (stored.date !== floor.date) return stored.date > floor.date;
   return stored.revision >= floor.revision;
+}
+
+/**
+ * Does the consent we hold cover third-party advertising for this person?
+ *
+ * YES, FOR EVERYONE ON THE LIST. Owner's decision of 2026-08-14, taken after
+ * the consequence had been put to them in writing and confirmed explicitly:
+ * third-party advertising may reach the whole list, including the subscribers
+ * whose proof of consent PREDATES the page version that names it.
+ *
+ * WHAT THIS FUNCTION USED TO DO, so that nobody reads the change as a bug.
+ * From #5759 until 2026-08-14 it compared the version inside the stored
+ * `consent_text` against `ADVERTISING_NAMED_FROM_PAGE_VERSION` and returned
+ * `false` for anything older, absent or unparseable — which on that day was
+ * effectively the entire list. The alternative to removing it was to wait for
+ * people to pass through the new formula, and the owner chose not to wait.
+ *
+ * IT IS RETROACTIVE, AND IT IS WEAKER THAN WAITING. A person subscribed before
+ * 2026-08-13 read a page with no advertising section; extending the consent
+ * they gave to a purpose named afterwards is a claim about what they agreed to,
+ * not a record of it, and this is the sentence to quote when somebody says they
+ * never agreed to advertising. It is the owner's decision to make and the owner
+ * made it knowingly; recording that here is the only thing this file can do
+ * about it.
+ *
+ * WHAT DEFENDS IT, now that the version no longer does. Two things, both of
+ * which have to keep existing or the decision loses its footing:
+ *   1. the text that NAMES it — `/comunicazioni/` heads a "Pubblicità di terzi"
+ *      category in all four locales, and the one-line formula at every gate
+ *      points at that page, so the naming is current for anybody reading today
+ *      and for anybody who goes and looks;
+ *   2. the SWITCH that turns it off — `ADVERTISING_OPT_OUT_FIELD`, rendered in
+ *      the preference centre beside the other channels, per channel, and read
+ *      three lines below. `tests/consent-shown-at-signup.test.tsx` and
+ *      `tests/preference-center-coverage.test.ts` refuse to let either half
+ *      ship without the other.
+ *
+ * The parameter is kept in the signature, unread, because every call site
+ * passes the subscriber and the day this is ever re-tightened it is the
+ * subscriber that will decide. `advertisingDisclosureWasShown` above is the
+ * same question this used to ask, still asked, now only reported.
+ */
+// eslint-disable-next-line no-unused-vars
+export function consentCoversAdvertising(sub) {
+  return true;
 }
 
 /**
@@ -137,7 +191,7 @@ export function scoreSubscriberForAd(ad, sub) {
  * @param {object} ad
  * @param {object[]} subscribers
  * @param {object} [opts] { minScore=5, max=Infinity }
- * @returns {{email:string, locale:string, score:number}[]} sorted desc by score
+ * @returns {{email:string, locale:string, score:number, toldAboutAdvertising:boolean}[]} sorted desc by score
  */
 export function matchSubscribersForAd(ad, subscribers, opts = {}) {
   const minScore = Number.isFinite(opts.minScore) ? opts.minScore : 5;
@@ -164,16 +218,26 @@ export function matchSubscribersForAd(ad, subscribers, opts = {}) {
     // that never completed the double opt-in. The stamp decides, not `status`.
     if (!hasConfirmationProof(sub)) continue;
     // …and the third question, which only this channel has to ask (#5759).
-    // Advertising is a consent category of its own, collected as an opt-out:
-    // so the disclosure has to have named it (`consentCoversAdvertising`) and
-    // the reader must not have switched it off (`isAdvertisingOptedOut`).
-    // Order is irrelevant to the result and deliberate for the reader: "were
-    // they told" comes before "did they object".
+    // Advertising is a consent category of its own, collected as an opt-out.
+    // Two halves used to answer it — "were they told" and "did they object" —
+    // and since 2026-08-14 only the second decides anything: the owner ruled
+    // that the disclosure reaches back over the whole list, so
+    // `consentCoversAdvertising` is `true` for everybody and the call stays
+    // because that is where the ruling is written down. Deleting it would
+    // leave the decision in a commit message.
     if (!consentCoversAdvertising(sub)) continue;
     if (isAdvertisingOptedOut(sub)) continue;
     const score = scoreSubscriberForAd(ad, sub);
     if (score >= minScore) {
-      scored.push({ email: String(sub.email), locale: sub.locale || 'it', score });
+      scored.push({
+        email: String(sub.email),
+        locale: sub.locale || 'it',
+        score,
+        // The first half, reported instead of enforced. It is what the
+        // retroactive decision costs, per recipient, and the send log is the
+        // only place that number can be counted after the fact.
+        toldAboutAdvertising: advertisingDisclosureWasShown(sub),
+      });
     }
   }
   scored.sort((a, b) => b.score - a.score);

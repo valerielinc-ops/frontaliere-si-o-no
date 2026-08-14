@@ -63,6 +63,7 @@ import {
 import {
   ADVERTISING_NAMED_FROM_PAGE_VERSION as MATCHER_ADVERTISING_FROM,
   ADVERTISING_OPT_OUT_FIELD as MATCHER_OPT_OUT_FIELD,
+  advertisingDisclosureWasShown,
   consentCoversAdvertising,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
@@ -1104,24 +1105,26 @@ describe('what the displayed formulas may and may not say', () => {
       expect(MATCHER_OPT_OUT_FIELD, 'the two spellings of the field must agree').toBe(
         ADVERTISING_OPT_OUT_FIELD,
       );
-      expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the version floor must agree').toBe(
+      expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the naming date must agree').toBe(
         ADVERTISING_NAMED_FROM_PAGE_VERSION,
       );
     });
 
-    it('anchors the version floor to a page revision that was really published', () => {
-      // `ADVERTISING_NAMED_FROM_PAGE_VERSION` decides who may be blasted, so a
-      // typo in it is not a cosmetic defect: a version that never shipped
-      // matches nobody's stored text and silently empties the channel forever.
+    it('anchors the naming date to a page revision that was really published', () => {
+      // `ADVERTISING_NAMED_FROM_PAGE_VERSION` stopped deciding who may be
+      // blasted on 2026-08-14 and became the date the page began naming the
+      // category. A typo in it is still not cosmetic — it is now the number
+      // that reports how many recipients were never told — so it must name a
+      // revision that really shipped.
       expect(Object.keys(COMMUNICATIONS_PAGE_REVISIONS)).toContain(
         ADVERTISING_NAMED_FROM_PAGE_VERSION,
       );
       /**
-       * …and it may not run ahead of the page: a floor above the current
-       * version excludes people whose sentence names advertising.
+       * …and it may not run ahead of the page: a naming date above the current
+       * version would report people as untold whose sentence names advertising.
        *
        * ASKED THROUGH THE SENDER'S OWN COMPARISON, and not with `<=` on the two
-       * strings (#5739, reviewer nit on #5777). `consentCoversAdvertising`
+       * strings (#5739, reviewer nit on #5777). `advertisingDisclosureWasShown`
        * compares on (date, revision) for a stated reason — `2026-08-13.10` is
        * not below `2026-08-13.2` — and a lexicographic compare here agrees with
        * it for nine revisions and then stops agreeing, on the one day the
@@ -1135,10 +1138,10 @@ describe('what the displayed formulas may and may not say', () => {
        */
       for (const locale of CONSENT_LOCALES) {
         expect(
-          consentCoversAdvertising({
+          advertisingDisclosureWasShown({
             consent_text: consentDisplayText('communicationsOptIn', locale),
           }),
-          `a consent collected today in ${locale} must clear ADVERTISING_NAMED_FROM_PAGE_VERSION`,
+          `a consent collected today in ${locale} must be reported as told`,
         ).toBe(true);
       }
     });
@@ -1186,32 +1189,74 @@ describe('what the displayed formulas may and may not say', () => {
         ).toEqual(['explicit-yes@example.com', 'never-asked@example.com']);
       });
 
-      it('drops the subscriber whose proof predates the page that named advertising', () => {
-        // THE POPULATION THAT MATTERS: every subscriber alive today is this
-        // shape. Their stored sentence pointed at a page with no advertising
-        // section, so the owner's defence — "the formula names it" — is not
-        // available for them, and the blast may not reach them.
+      /**
+       * THE OWNER'S DECISION OF 2026-08-14, WHICH IS THIS BLOCK REVERSED.
+       *
+       * Until that day the three shapes below were dropped: a proof naming an
+       * older page version, no `consent_text` at all, a text with no version in
+       * it. Between them they were the whole list (8.505 of 8.605 documents had
+       * no `consent_text`, measured 2026-08-12), which is what the owner was
+       * told before answering — advertising must reach all of them.
+       *
+       * The assertion is inverted rather than deleted, and that is the point of
+       * it. A missing test would leave the reach looking like the absence of a
+       * check; a test that spells out "these four are recipients" makes it a
+       * decision with a date on it, and the next person to consider tightening
+       * it has to change a line that says so.
+       */
+      it('reaches the subscriber whose proof predates the page that named advertising', () => {
         expect(
           audience([
             { email: 'old-proof@example.com', ...base, consent_text: OLD },
             { email: 'no-proof-at-all@example.com', ...base },
             { email: 'unparseable@example.com', ...base, consent_text: 'Accetto le comunicazioni.' },
             { email: 'new-proof@example.com', ...base, consent_text: NAMED },
-          ]),
-        ).toEqual(['new-proof@example.com']);
+          ]).sort(),
+        ).toEqual([
+          'new-proof@example.com',
+          'no-proof-at-all@example.com',
+          'old-proof@example.com',
+          'unparseable@example.com',
+        ]);
+        // …and the same four, seen through the predicate that still asks the
+        // question the send no longer asks. Three of them were never told, and
+        // the send log is where that shows up (scripts/blast-publisher-ads.mjs).
+        expect(advertisingDisclosureWasShown({ consent_text: NAMED })).toBe(true);
+        expect(advertisingDisclosureWasShown({ consent_text: OLD })).toBe(false);
+        expect(advertisingDisclosureWasShown({})).toBe(false);
+        expect(advertisingDisclosureWasShown({ consent_text: 'Accetto le comunicazioni.' })).toBe(false);
+      });
+
+      it('covers everybody, whatever the stored version says — including versions that do not exist', () => {
+        // The gate is not "a wider floor", it is no floor: a version from
+        // before the site existed and a malformed one answer the same as
+        // today's. Written out because "returns true" is exactly the shape a
+        // reader mistakes for a stub.
+        for (const text of [
+          `(versione ${ADVERTISING_NAMED_FROM_PAGE_VERSION})`,
+          '(versione 2026-08-12.9)',
+          '(versione 1999-01-01.1)',
+          '(versione banana)',
+          '',
+        ]) {
+          expect(consentCoversAdvertising({ consent_text: text }), text || '(empty)').toBe(true);
+        }
+        expect(consentCoversAdvertising({})).toBe(true);
+        expect(consentCoversAdvertising(undefined)).toBe(true);
       });
 
       it('compares revisions numerically, so .10 is not below .2', () => {
         // A lexicographic compare would read `2026-08-13.10` as older than
-        // `2026-08-13.2` and start dropping people the disclosure covers — the
-        // kind of defect that produces no error and no report.
-        expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-13.10)` })).toBe(true);
-        expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-14.1)` })).toBe(true);
-        expect(consentCoversAdvertising({ consent_text: `(versione 2026-08-12.9)` })).toBe(false);
-        expect(consentCoversAdvertising({})).toBe(false);
+        // `2026-08-13.2`. It no longer decides a send, but it still decides the
+        // reported cohort, and a wrong count is what would be used to argue the
+        // decision was cheaper than it was.
+        expect(advertisingDisclosureWasShown({ consent_text: `(versione 2026-08-13.10)` })).toBe(true);
+        expect(advertisingDisclosureWasShown({ consent_text: `(versione 2026-08-14.1)` })).toBe(true);
+        expect(advertisingDisclosureWasShown({ consent_text: `(versione 2026-08-12.9)` })).toBe(false);
+        expect(advertisingDisclosureWasShown({})).toBe(false);
         // The wrong answer, pinned as a literal so nobody can read the two
         // assertions above as belt-and-braces: on strings, `.10` really does
-        // sort below `.2`, and the version floor is a `>=` on that comparison.
+        // sort below `.2`, and the comparison is a `>=` on that pair.
         // This is the shape the assertion in the sibling test used to be
         // written in (#5739).
         expect('2026-08-13.10' < '2026-08-13.2').toBe(true);
@@ -1248,6 +1293,201 @@ describe('what the displayed formulas may and may not say', () => {
       expect(plugin).toContain('UNCONSENTED_HEADING');
       expect(plugin).toMatch(/COMMUNICATION_CHANNELS\.filter\(isUncoveredChannel\)/);
     });
+  });
+});
+
+/**
+ * THE SECOND OWNER DECISION OF 2026-08-14: what the consent has to NAME.
+ *
+ * The owner wants to be able to communicate subscriber data to third parties
+ * for advertising and commercial purposes, and to transfer it with the business
+ * if the site is sold. Under the nLPD a consent covers the purposes it names,
+ * so "being able to" is a text problem before it is a code problem — and the
+ * text lives on `/comunicazioni/`, because #5765 put every category there and
+ * the one-line formula points at it.
+ *
+ * The three claims below are the ones a reader would have to find on the page
+ * their stored proof names. They are asserted per LOCALE, not once: a consent
+ * in a language the reader does not speak is not a consent, and the register's
+ * own history here is the popup that SHOWED German and STORED Italian.
+ *
+ * Asserted against the plugin SOURCE rather than a render, for the reason
+ * stated at the top of this file: importing a build plugin pulls ~12 files
+ * under data/ and public/assets/ at module scope, which is green in CI and red
+ * in a sparse worktree. The render-side guard is that the constants must be
+ * referenced by `renderBody`, checked below — a locale table nobody renders is
+ * exactly the shape this whole file exists to refuse.
+ */
+describe('the page names the recipients, the profiling and the business transfer (owner decision 2026-08-14)', () => {
+  const plugin = read('build-plugins/communicationsPagePlugin.ts');
+  /**
+   * The same file with the comments taken out, and every NEGATIVE assertion is
+   * made against this one.
+   *
+   * A comment is not the page. The block above `CATEGORY_NOTE` quotes the
+   * exempting sentence it replaced — deliberately, so the next reader knows why
+   * the wording is what it is — and a "the page must not say X" check run over
+   * the raw source would fail on the explanation of why the page no longer says
+   * it. That is the shape where a guard teaches people to delete their reasons.
+   */
+  const pluginCode = stripComments(plugin);
+  const body = plugin.slice(plugin.indexOf('function renderBody('), plugin.indexOf('function homeUrl('));
+
+  it('heads a recipients-and-purposes section, in all four locales', () => {
+    for (const heading of [
+      'A chi possono essere comunicati i tuoi dati, e per quali finalità',
+      'Who your data may be shared with, and for what purposes',
+      'An wen Ihre Daten weitergegeben werden können, und zu welchen Zwecken',
+      'À qui vos données peuvent être communiquées, et à quelles fins',
+    ]) {
+      expect(plugin, `/comunicazioni/ must head "${heading}"`).toContain(heading);
+    }
+  });
+
+  /**
+   * (a) communication to third parties for advertising and marketing.
+   *
+   * By CATEGORY — "inserzionisti, agenzie e altri partner commerciali" — and
+   * that is the load-bearing part, not a stylistic one: a text that named the
+   * advertisers we have today would stop covering the ones we do not have yet,
+   * which is the exact thing the owner asked to be able to do.
+   */
+  it('names third parties for advertising and marketing purposes, as categories', () => {
+    for (const claim of [
+      'inserzionisti, agenzie e altri partner commerciali',
+      'advertisers, agencies and other commercial partners',
+      'Inserenten, Agenturen und andere Geschäftspartner',
+      'annonceurs, agences et autres partenaires commerciaux',
+    ]) {
+      expect(plugin).toContain(claim);
+    }
+    // …and no advertiser is named anywhere on the page, which is the same
+    // property the category headings are built on (#5759).
+    expect(pluginCode).not.toMatch(/\b(AdSense|DoubleClick|Criteo|Sovrn|Media\.net)\b/);
+  });
+
+  /** (b) profiling for commercial purposes — only what this repo actually does. */
+  it('declares the profiling it really performs, and refuses the part it does not', () => {
+    for (const claim of [
+      'Profilazione a fini commerciali.',
+      'Profiling for commercial purposes.',
+      'Profilbildung zu kommerziellen Zwecken.',
+      'Profilage à des fins commerciales.',
+    ]) {
+      expect(plugin).toContain(claim);
+    }
+    // The two halves that make it a description and not a formula. What is
+    // declared is what `services/publisherBlastMatch.mjs`,
+    // `functions/src/lib/engagementScore.js` and `services/newsletter-priority.mjs`
+    // do — declared interests plus open/click behaviour — and what is denied is
+    // denied because no code buys third-party data or takes automated decisions
+    // with legal effect. A borrowed privacy paragraph would have claimed both
+    // ways round and been evidence of nothing.
+    expect(plugin).toContain('su quali link clicchi');
+    expect(plugin).toContain('Non compriamo dati su di te da terzi');
+    expect(plugin).toContain('decisioni automatizzate con effetti giuridici o economici');
+  });
+
+  /** (c) business transfer — the scenario the owner raised first. */
+  it('states the transfer of data on a sale, merger or transfer of the business', () => {
+    for (const claim of [
+      'ceduto, conferito o fuso in un’altra azienda',
+      'sold, contributed or merged into another company',
+      'verkauft, eingebracht oder mit einem anderen Unternehmen fusioniert',
+      'cédé, apporté ou fusionné dans une autre entreprise',
+    ]) {
+      expect(plugin, 'the business-transfer case has to be explicit, not implied').toContain(claim);
+    }
+  });
+
+  it('carries NO omnibus clause — a catch-all does not extend a consent, it only reads as if it did', () => {
+    /**
+     * The rule this guards is not a style preference. A consent is valid for
+     * DETERMINATE purposes; a clause reaching at "any other future purpose" is
+     * inoperative on precisely the purposes it did not name, so it adds nothing
+     * except the impression of cover — and the impression is what would stop
+     * somebody writing the specific clause they actually needed.
+     *
+     * Driven against the shapes it exists to catch, in the four languages the
+     * page ships, so the assertion is a rule rather than a spelling.
+     */
+    const OMNIBUS =
+      /(qualunque|qualsiasi) altra finalit|per (ogni|qualsiasi) (altro )?scopo|any other purpose|for any purpose|jeden anderen Zweck|jeglichen? weiteren Zweck|toute autre finalit/i;
+    expect(pluginCode, 'an omnibus purpose clause has appeared on the page').not.toMatch(OMNIBUS);
+    // The guard itself, exercised — otherwise "no match" would also be what a
+    // rotted regex returns.
+    for (const bad of [
+      'e per qualunque altra finalità futura',
+      'and for any other purpose we may decide',
+      'sowie für jeden anderen Zweck',
+      'et pour toute autre finalité ultérieure',
+    ]) {
+      expect(bad, `the omnibus matcher no longer catches "${bad}"`).toMatch(OMNIBUS);
+    }
+  });
+
+  it('says the consent can be withdrawn, and by which route', () => {
+    // Naming the purposes without the way out would be the #5684 shape on the
+    // page instead of in an email: a disclosure that takes and gives nothing.
+    for (const claim of [
+      'Puoi revocare il consenso in qualsiasi momento',
+      'You can withdraw your consent at any time',
+      'Sie können Ihre Einwilligung jederzeit',
+      'Vous pouvez retirer votre consentement à tout moment',
+    ]) {
+      expect(plugin).toContain(claim);
+    }
+    // The routes have to exist on the page that states them.
+    expect(plugin).toMatch(/PREFERENCES_PATH\[locale\]/);
+    expect(plugin).toContain('DATA_CONTROLLER_FOOTER_LINE');
+  });
+
+  it('renders all of it — the tables are not declared and left orphaned', () => {
+    // The failure this catches is the one the register has met before: copy
+    // that exists in the file, satisfies a `toContain`, and never reaches a
+    // screen. `renderBody` is the only path to the emitted HTML.
+    for (const constant of ['SHARING_HEADING', 'SHARING_INTRO', 'SHARING_ITEMS', 'REVOCATION_TEXT']) {
+      expect(body, `${constant} is declared but never rendered`).toContain(`${constant}[locale]`);
+    }
+    // Inside the existing controller section, extended rather than duplicated:
+    // a second "who processes your data" block would let the two disagree.
+    expect(body).toMatch(/id="titolare"[\s\S]*SHARING_HEADING\[locale\][\s\S]*REVOCATION_TEXT\[locale\]/);
+    expect(body.match(/CONTROLLER_HEADING\[locale\]/g) ?? [], 'one controller section, not two').toHaveLength(1);
+  });
+
+  it('no longer tells subscribers from before the naming that they are exempt', () => {
+    /**
+     * The page half of the FIRST decision of 2026-08-14. `CATEGORY_NOTE`
+     * carried, in four locales, "chi si è iscritto prima del 13 agosto 2026 non
+     * lo riceve" — a description of the version filter that
+     * `consentCoversAdvertising` applied at the time. The filter is gone, so
+     * the sentence had to go with it in the same change: a page that tells a
+     * reader they are exempt while the sender mails them is worse than one that
+     * admits the reach, and it is the first thing a complaint would quote.
+     */
+    for (const gone of [
+      'non lo riceve',
+      'do not receive it',
+      'erhält ihn nicht',
+      'ne le reçoivent pas',
+    ]) {
+      expect(pluginCode, `the page still claims an exemption: "${gone}"`).not.toContain(gone);
+    }
+    for (const said of [
+      'Vale per tutte le persone iscritte',
+      'It applies to everyone who is subscribed',
+      'Sie gilt für alle angemeldeten Personen',
+      'Elle s’applique à toutes les personnes inscrites',
+    ]) {
+      expect(plugin, 'and it has to say the reach positively, not merely stop denying it').toContain(said);
+    }
+    // The registry's own row said the same thing and had to be corrected with it.
+    const blast = COMMUNICATION_CHANNELS.find((c) => c.id === 'publisher-blast');
+    for (const locale of CONSENT_LOCALES) {
+      expect(blast?.cadence[locale], `publisher-blast cadence/${locale}`).not.toMatch(
+        /dopo il 13 agosto|after 13 August|nach dem 13\. August|après le 13 août/,
+      );
+    }
   });
 });
 
@@ -1571,6 +1811,17 @@ describe('the page the formula points at cannot change without saying so (#5765)
     // pointed at it, and rewriting its fingerprint would rewrite what their
     // stored sentence means.
     '2026-08-13.2': '4c6226e23619772a',
+    // #5760 — the BreadcrumbList JSON-LD. Backfilled here on 2026-08-14: it was
+    // added to the registry and not to this table, which left the version that
+    // was live for a day unpinned, i.e. free to be edited into agreement with
+    // whatever the page said next. That is the one thing this table exists to
+    // stop, and a version becomes eligible for it the moment it ships.
+    '2026-08-13.3': '0d6e0b9159efb394',
+    // Owner decisions of 2026-08-14: the advertising note stops telling early
+    // subscribers they are exempt (the filter behind that sentence was
+    // removed), and "Chi tratta i tuoi dati" gains the recipients, profiling
+    // and business-transfer disclosures.
+    '2026-08-14.1': '28c22f25c931e7ab',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {
