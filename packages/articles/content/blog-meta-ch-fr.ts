@@ -2632,6 +2632,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abort-topical-relevance-trump-health.title': 'Information non pertinente',
     'blog.article.abort-topical-relevance-trump-health.excerpt': 'La source traitée ne présente pas de lien réel avec la vie de ceux qui vivent ou travaillent en Suisse.',
     'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Salle de redaction economique en Suisse',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Impôts cantonaux canton de Lucerne : taux et déductions',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Guide des impôts cantonaux et communaux dans le canton de Lucerne avec taux, tranches, déductions et portail officiel de l\'administration fiscale.',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Impôts cantonaux du canton de Lucerne déductions et barèmes',
 };
 
 export default blogMetaChFr;
