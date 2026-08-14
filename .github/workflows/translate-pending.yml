@@ -13,8 +13,8 @@ on:
   workflow_dispatch:
     inputs:
       max_jobs:
-        description: 'Max jobs for the PREMIUM/free HTTP cascade (quota-bound; keep modest)'
-        default: '100'
+        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — the 90min cascade deadline stops it first.'
+        default: '900'
       mopup_max_jobs:
         description: 'Max jobs for the local-MT (Argos) mop-up — free + unlimited, drain the whole backlog'
         default: '6000'
@@ -269,8 +269,16 @@ jobs:
       # when it is missing/too short/an exact copy of the source, so it covers
       # the `source-copy` family (~14% of flags) and nothing else; a partially
       # translated title can only be rewritten by the QUOTA-BOUND cascade in
-      # Phase 2b below, whose `max_jobs` default is 100/run. So the marking cap
-      # is 100/run to match, and the script additionally refuses to mark at all
+      # Phase 2b below, whose `max_jobs` default is 900/run since #5650. So the
+      # marking cap WAS 100/run to match that step's old 100.
+      #
+      # It is deliberately NOT raised to 900 alongside it. This cap governs
+      # INGRESS to the retranslation queue, and the queue is the problem being
+      # worked on: 10.192 jobs / 26.924 (37,8%) on 2026-08-14. Raising the drain
+      # and the ingress together would leave the ratio where it is while costing
+      # the cascade time. Raise it once the ratio is actually falling — it is a
+      # repo var, so that needs no code change.
+      # The script additionally refuses to mark at all
       # once ~2000 jobs already await retranslation
       # (TITLE_MISTRANSLATION_QUEUE_CEILING) — a queue that grows faster than it
       # drains would starve the genuinely-incomplete jobs competing for the same
@@ -306,6 +314,35 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # ── More Haiku (#5650) ────────────────────────────────────────────
+          # Being ELIGIBLE was never the problem. claude-cli has been tier-0
+          # (AI_COMPETING_TIERS) since 2026-07-29, and promotion only removes
+          # the tier penalty — inside tier 0 the order is by accumulated score,
+          # and a tier that is never called accumulates none. So it sat at score
+          # 0 behind every free model with a positive history. Measured on run
+          # 31690534255 (2026-08-13, this workflow): 46 free models exhausted,
+          # 12 fallbacks, and `last-resort: … claude-cli not reached this run`
+          # — not skipped, not failed: never reached, on every one of the run's
+          # AI summaries.
+          #
+          # AI_MODELS_PREFER moves it to the FRONT of the score-sorted chain
+          # while keeping the entire chain behind it as fallback (unlike
+          # AI_MODELS_FORCE_CHAIN, which would truncate to just this model).
+          # Haiku is paid on the existing Max subscription and converts instead
+          # of 429-ing, which is what makes the raised cap below reachable: the
+          # cascade's cost per job is dominated by falling through exhausted
+          # free providers, not by the translation itself.
+          # Revert: delete this line (chain returns to pure score order).
+          AI_MODELS_PREFER: claude-cli/haiku
+          # The cap that actually bounds Haiku usage. Default is 25/run because
+          # this quota is SHARED with pr-review-loop.yml / issue-fix.yml, and
+          # starving those would stall the merge pipeline. Raised to 300 to
+          # match the cascade cap below (900 jobs, of which only the LLM
+          # localization path calls a model at all — measured 21 callLLM calls
+          # per 100 jobs on run 31690534255, so ~190 at 900 jobs; 300 leaves
+          # headroom without unbounding it). This is the declared cost lever:
+          # raise it further only with the review loop's usage in hand.
+          CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
           # Cap the slow cascade's run-wide deadline so it does a SHORT top-up pass
           # instead of expanding to fill 250min (measured: Phase 2b grew to 229min /
           # ~269min total on run 28074729486 even though Phase 2a had already drained
@@ -326,7 +363,22 @@ jobs:
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           # Dispatch inputs reach the shell as DATA, never as script text.
-          INPUT_MAX_JOBS: ${{ inputs.max_jobs || '100' }}
+          # 100 → 900 (#5650). The number is measured, not chosen: on run
+          # 31766645401 (2026-08-14) this step translated its full 100-job cap
+          # in 9,0 minutes — 11,1 jobs/min — inside a 90-minute window, i.e. the
+          # CAP stopped the drain at ~10% of the budget it had. 90min × 11,1 ≈
+          # 999, so 900 is the throughput ceiling of the window, and the
+          # constraint that binds from here on is JOBS_CASCADE_DEADLINE_MS
+          # above, not this number.
+          #
+          # It cannot lengthen a run: the deadline is measured from RUN_START
+          # and is already self-throttling, so on a slow run (31690534255:
+          # 87,3min for the same 100 jobs, every free provider exhausted) the
+          # clock binds exactly where it bound before. Worst case this is a
+          # no-op; best case it is ×9 the drained jobs per run. Which 900 —
+          # highest served traffic first — is decided by
+          # scripts/lib/job-traffic-priority.mjs.
+          INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
           INPUT_COMPANY_KEY: ${{ inputs.company_key }}
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
           # dead on the runner. The cascade now uses premium tiers + local Opus-MT +

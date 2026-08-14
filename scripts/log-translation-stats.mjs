@@ -63,6 +63,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
+import { summarizeQueueAge } from './lib/job-traffic-priority.mjs';
 
 const CRAWLERS_DIR = 'data/jobs/by-crawler';
 const STATS_FILE = 'data/translation-stats-history.json';
@@ -146,6 +147,10 @@ export function emptyCounters() {
     suppressed: 0,
     sourceCopyExcused: 0,
     byLocale: { it: 0, en: 0, de: 0, fr: 0 },
+    // One minimal timestamp-bearing stand-in per FLAGGED job, for the queue-age
+    // metric (#5653 item 2). Not the job objects themselves: keeping references
+    // to 10k jobs would pin every slice this loop was written to release.
+    queuedSamples: [],
   };
 }
 
@@ -161,7 +166,15 @@ export function summarizeJobs(jobs) {
     c.total++;
     const { incomplete, sourceCopyExcused } = classifyJob(job);
     const flagged = !!job.needsRetranslation;
-    if (flagged) c.needsRetranslation++;
+    if (flagged) {
+      c.needsRetranslation++;
+      c.queuedSamples.push({
+        firstSeenAt: job.firstSeenAt,
+        postedDate: job.postedDate,
+        crawledAt: job.crawledAt,
+        datePosted: job.datePosted,
+      });
+    }
     // A flagged job whose four slots are all populated is precisely the job the
     // old report called "complete". Subtracting these is what turns a presence
     // count into a (still upper-bound) translation count.
@@ -194,6 +207,7 @@ export function mergeCounters(dst, src) {
   dst.suppressed += src.suppressed;
   dst.sourceCopyExcused += src.sourceCopyExcused;
   for (const loc of LOCALES) dst.byLocale[loc] += src.byLocale[loc];
+  if (src.queuedSamples?.length) dst.queuedSamples.push(...src.queuedSamples);
   return dst;
 }
 
@@ -204,8 +218,24 @@ export function mergeCounters(dst, src) {
  * series stays comparable; `slotsPresent` is the same number under a name that
  * does not claim more than it measures.
  */
-export function finalizeEntry(counters, { label, topPending = [], timestamp = new Date().toISOString() } = {}) {
+export function finalizeEntry(counters, { label, topPending = [], timestamp = new Date().toISOString(), now = Date.now() } = {}) {
   const complete = counters.total - counters.incomplete;
+  // Queue AGE, not just queue SIZE (#5653 item 2).
+  //
+  // The retranslation queue is a moving window — between 2026-08-11 and
+  // 2026-08-14 the corpus grew 22.690 → 26.924 (+18,5%) while the queue fell
+  // 14.041 → 10.192. With only the count, a drain that is genuinely clearing
+  // the backlog and a drain that is merely keeping up with new arrivals trace
+  // the SAME curve. The age of the oldest job still queued separates them: it
+  // can only fall if the tail is actually being served.
+  //
+  // It is also the specific detector for the risk that traffic-weighted
+  // ordering (#5650, scripts/lib/job-traffic-priority.mjs) introduces — old
+  // jobs carry less accumulated traffic, so a pure traffic order would drain
+  // the head forever. `queueAge.alert` fires when the oldest queued job passes
+  // QUEUE_AGE_ALERT_DAYS, which sits above the live maximum measured on
+  // 2026-08-14 (123,2 days).
+  const queueAge = summarizeQueueAge(counters.queuedSamples || [], { now });
   return {
     timestamp,
     label,
@@ -222,6 +252,11 @@ export function finalizeEntry(counters, { label, topPending = [], timestamp = ne
     // (see validate-translation-completeness.mjs) lands and is costed.
     languageVerified: null,
     missingByLocale: counters.byLocale,
+    // Measured from the job's first-seen timestamp (100% coverage on the live
+    // queue), so it is an UPPER bound on time-in-queue — no field records when
+    // the flag was set. Named for what it measures, never conflated with a
+    // flag-time age this repo does not have.
+    queueAge,
     topPending,
   };
 }
@@ -251,6 +286,21 @@ export function formatReport(entry) {
   row('Suppressed (gave up):', entry.suppressed);
   const bl = entry.missingByLocale;
   row('Missing by locale:', `IT=${bl.it} EN=${bl.en} DE=${bl.de} FR=${bl.fr}`);
+
+  // Queue AGE. Printed unconditionally, including the `n/a` case, so a run that
+  // stopped producing the metric is visible in the log instead of looking like
+  // a run with an empty queue.
+  const qa = entry.queueAge;
+  if (qa) {
+    row('Queue age (oldest):', `${qa.oldestAgeDays ?? 'n/a'}d`,
+        `(p50 ${qa.p50AgeDays ?? 'n/a'}d · p90 ${qa.p90AgeDays ?? 'n/a'}d · dated ${qa.withTimestamp}/${qa.count} · from first-seen, upper bound)`);
+    row('Queue age buckets:', Object.entries(qa.buckets).map(([k, v]) => `${k}=${v}`).join(' '));
+    if (qa.alert) {
+      lines.push(`   ⚠️ QUEUE AGE ALERT — oldest queued job is ${qa.oldestAgeDays}d, at or past the ${qa.alertDays}d ratchet:`);
+      lines.push('      the count can still be falling while the tail is never served. Check the oldest-first');
+      lines.push('      reserve (RESERVE_FOR_OLDEST in scripts/lib/job-traffic-priority.mjs) and the cascade cap.');
+    }
+  }
 
   // COMPLETE is reserved for the exact case: nothing missing and nothing
   // flagged. Anything else says so in words, not just in a percentage.
