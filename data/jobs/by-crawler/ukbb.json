@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-08-13T21:48:42.387Z",
+  "assembledAt": "2026-08-14T09:56:03.556Z",
   "jobs": [
     {
       "id": "ukbb-95b135d028d1",
@@ -581,85 +581,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ukbb-dc6fb21b372c",
-      "slug": "collaboratore-trice-in-patientengastronomie-20-universitats-kinderspital-beider-basel",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-patientengastronomie-20-universitats-kinderspital-beider-basel",
-        "en": "employee-in-patient-catering-20-universitats-kinderspital-beider-basel-basel",
-        "de": "mitarbeiter-in-patientengastronomie-20-ukbb-basel",
-        "fr": "employes-dans-la-restauration-de-patients-20-universitats-kinderspital-beider-basel-basel"
-      },
-      "company": "Universitäts-Kinderspital beider Basel",
-      "companyKey": "ukbb",
-      "companyDomain": "ukbb.ch",
-      "title": "Mitarbeiter*in Patientengastronomie 20%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Patientengastronomie 20%",
-        "en": "Employee*in patient catering 20%",
-        "de": "Mitarbeiter*in Patientengastronomie 20%",
-        "fr": "Employés*dans la restauration de patients 20%"
-      },
-      "description": "Mitarbeiter*in Patientengastronomie 20% — Universitäts-Kinderspital beider Basel, Basel.\n\n• Vorbereiten und Service des Abendessens\n\n• Abwaschen des Geschirrs, Reinigen der Gastronomieküche\n\n• Bei Bedarf Menüaufnahme nach den individuellen Wünschen der Patient*innen sowie deren Begleitpersonen im Zimmer",
-      "descriptionByLocale": {
-        "it": "Dipendente* nella ristorazione del paziente 20% — Ospedale per bambini dell'Università di Basilea, Basilea.\n\n• Preparazione e servizio di cena\n\n• Lavatrice stoviglie, pulizia della cucina gastronomica\n\n• Se necessario, registrazione menu secondo i desideri individuali dei pazienti e dei loro accompagnatori nella stanza",
-        "en": "Employee*in patient catering 20% — University Children's Hospital of both Basel, Basel.\n\n• Preparation and service of dinner\n\n• Washing dishes, cleaning the gastronomy kitchen\n\n• If necessary, menu recording according to the individual wishes of the patients and their accompanying persons in the room",
-        "de": "Mitarbeiter*in Patientengastronomie 20% — Universitäts-Kinderspital beider Basel, Basel.\n\n• Vorbereiten und Service des Abendessens\n\n• Abwaschen des Geschirrs, Reinigen der Gastronomieküche\n\n• Bei Bedarf Menüaufnahme nach den individuellen Wünschen der Patient*innen sowie deren Begleitpersonen im Zimmer",
-        "fr": "Employé*en soins aux patients 20% — Hôpital universitaire pour enfants de Bâle, Bâle.\n\n• Préparation et service du dîner\n\n• Lave-vaisselle, nettoyage de la cuisine gastronomique\n\n• Si nécessaire, enregistrement de menu selon les souhaits individuels des patients et de leurs accompagnateurs dans la salle"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.ukbb.ch/jobs/mitarbeiter-in-patientengastronomie-20/ca5f3bcb-7022-4c0c-bb50-d3a026efd630",
-      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-13T21:48:34.091Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4056",
-      "streetAddress": "Spitalstrasse 33",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://jobs.ukbb.ch/jobs/mitarbeiter-in-patientengastronomie-20/ca5f3bcb-7022-4c0c-bb50-d3a026efd630",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-patientengastronomie-20-ukbb-basel",
-        "mitarbeiter-in-patientengastronomie-20-universitats-kinderspital-beider-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-patientengastronomie-20-ukbb-basel"
-        ],
-        "en": [
-          "mitarbeiter-in-patientengastronomie-20-universitats-kinderspital-beider-basel-basel"
-        ],
-        "fr": [
-          "mitarbeiter-in-patientengastronomie-20-universitats-kinderspital-beider-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T21:43:58.643Z",
-      "salaryMin": 12900,
-      "salaryMax": 22000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 12900,
-          "maxValue": 22000,
           "unitText": "YEAR"
         }
       }
