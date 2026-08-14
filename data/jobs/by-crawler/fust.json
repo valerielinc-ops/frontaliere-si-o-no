@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-14T10:23:57.639Z",
+  "assembledAt": "2026-08-14T09:09:59.746Z",
   "jobs": [
     {
       "id": "company-rvi62v",
@@ -8851,7 +8851,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alla-vendita-food-coop-genossenschaft-luterbach",
           "addetto-a-alla-vendita-food-coop-genossenschaft-menzingen",
           "addetto-a-alla-vendita-food-coop-genossenschaft-reichenburg",
           "addetto-a-alla-vendita-food-coop-genossenschaft-seuzach",
@@ -8870,7 +8869,8 @@
           "food-sales-assistant-coop-genossenschaft-schiers",
           "food-sales-assistant-coop-genossenschaft-seuzach",
           "food-sales-assistant-coop-genossenschaft-winterthur",
-          "food-sales-assistant-coop-genossenschaft-winterthur-6299ae"
+          "food-sales-assistant-coop-genossenschaft-winterthur-6299ae",
+          "addetto-alla-vendita-food-coop-genossenschaft-winterthur-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-winterthur-zurich-kmw0i5",
@@ -12609,7 +12609,8 @@
       },
       "addressLocality": "Maur, Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-dm60u8",
@@ -12784,7 +12785,8 @@
       "addressLocality": "Samedan, Graubünden",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-u42on7",
@@ -15068,18 +15070,39 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-winterthur-zurich",
-          "consulente-commerciale-in-christ-uhren-schmuck-ag-winterthur",
-          "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich"
+          "sales-consultant-christ-uhren-schmuck-ag-zurich-ed863b",
+          "sales-consultant-christ-uhren-schmuck-ag-zurich-o72dhl",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-52lnk0",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-o72dhl",
+          "consulente-vendite-christ-uhren-schmuck-ag-winterthur",
+          "sales-consultant-christ-uhren-schmuck-ag-winterthur-vw2o0o",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-vw2o0o",
+          "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur-vw2o0o",
+          "consulente-commerciale-in-christ-uhren-schmuck-ag-zurich",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich",
+          "consulente-di-vendita-christ-uhren-schmuck-ag-zurich",
+          "consulente-divendita-christ-uhren-schmuck-ag-zurich",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5",
+          "sales-consultant-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen",
+          "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5",
+          "sales-consultant-christ-uhren-schmuck-ag-wallisellen",
+          "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen-zurich",
+          "sales-consultant-christ-uhren-schmuck-ag-wallisellen-jglgp5"
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich-qt34wb",
-          "sales-consultant-in-christ-uhren-schmuck-ag-winterthur"
+          "sales-consultant-in-christ-uhren-schmuck-ag-winterthur",
+          "sales-consultant-in-christ-uhren-schmuck-ag-zurich"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich-qt34wb",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-winterthur"
+          "consultant-en-ventes-christ-uhren-schmuck-ag-winterthur",
+          "consultant-en-ventes-christ-uhren-schmuck-ag-zurich"
+        ],
+        "de": [
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i"
         ]
       },
       "previousSlugs": [
@@ -15089,7 +15112,36 @@
         "consulente-commerciale-in-christ-uhren-schmuck-ag-winterthur",
         "sales-consultant-in-christ-uhren-schmuck-ag-winterthur",
         "consultant-en-ventes-christ-uhren-schmuck-ag-winterthur",
-        "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich"
+        "verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen",
+        "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5",
+        "sales-consultant-christ-uhren-schmuck-ag-wallisellen",
+        "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen-zurich",
+        "sales-consultant-christ-uhren-schmuck-ag-wallisellen-jglgp5",
+        "consultant-en-vente-christ-uhren-schmuck-ag-wallisellen-jglgp5",
+        "sales-consultant-christ-orologi-gioielli-wallisellen-zurich-jglgp5",
+        "consultant-en-vente-christ-orologi-gioielli-wallisellen-zurich-jglgp5",
+        "sales-consultant-christ-uhren-schmuck-ag-zurich-8380c6",
+        "sales-consultant-christ-uhren-schmuck-ag-zurich-abw94l",
+        "sales-consultant-christ-uhren-schmuck-ag-zurich-dc57d4",
+        "sales-consultant-christ-uhren-schmuck-ag-zurich-ed863b",
+        "sales-consultant-christ-uhren-schmuck-ag-zurich-o72dhl",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-52lnk0",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-o72dhl",
+        "consulente-vendite-christ-uhren-schmuck-ag-winterthur",
+        "sales-consultant-christ-uhren-schmuck-ag-winterthur-vw2o0o",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-vw2o0o",
+        "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur-vw2o0o",
+        "sales-consultant-in-christ-uhren-schmuck-ag-zurich",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-zurich",
+        "consulente-commerciale-in-christ-uhren-schmuck-ag-zurich",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-zurich",
+        "consulente-di-vendita-christ-uhren-schmuck-ag-zurich",
+        "consulente-divendita-christ-uhren-schmuck-ag-zurich",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5",
+        "sales-consultant-christ-uhren-schmuck-ag-wallisellen-zurich-jglgp5"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -20800,7 +20852,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -20809,7 +20862,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

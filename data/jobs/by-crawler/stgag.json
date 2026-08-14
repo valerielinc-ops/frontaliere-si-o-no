@@ -710,14 +710,6 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3756/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen",
-        "pflegerische-r-leiter-in-demenzberatung-stgag-ch",
-        "pflegerische-r-responsabile-demenzberatung-spital-thurgau-stgag-munsterlingen",
-        "nurse-director-in-dementia-counselling-spital-thurgau-stgag-munsterlingen",
-        "infirmiere-directeur-conseil-en-demence-spital-thurgau-stgag-munsterlingen",
-        "pflegerische-r-responsabile-demenzberatung-spital-thurgau-stgag-weinfelden"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen",
@@ -725,21 +717,32 @@
           "pflegerische-r-responsabile-demenzberatung-spital-thurgau-stgag-munsterlingen",
           "pflegerische-r-responsabile-demenzberatung-spital-thurgau-stgag-weinfelden"
         ],
+        "de": [
+          "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen"
+        ],
         "en": [
           "pflegerische-r-leiter-in-demenzberatung-stgag-ch",
           "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen",
-          "nurse-director-in-dementia-counselling-spital-thurgau-stgag-munsterlingen"
-        ],
-        "de": [
-          "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen"
+          "nurse-director-in-dementia-counselling-spital-thurgau-stgag-munsterlingen",
+          "nurse-director-in-dementia-counselling-spital-thurgau-stgag-weinfelden"
         ],
         "fr": [
           "pflegerische-r-leiter-in-demenzberatung-stgag-ch",
           "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen",
-          "infirmiere-directeur-conseil-en-demence-spital-thurgau-stgag-munsterlingen"
+          "infirmiere-directeur-conseil-en-demence-spital-thurgau-stgag-munsterlingen",
+          "infirmiere-directeur-conseil-en-demence-spital-thurgau-stgag-weinfelden"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:49:56.340Z",
+      "previousSlugs": [
+        "pflegerische-r-leiter-in-demenzberatung-stgag-munsterlingen",
+        "pflegerische-r-leiter-in-demenzberatung-stgag-ch",
+        "pflegerische-r-responsabile-demenzberatung-spital-thurgau-stgag-munsterlingen",
+        "nurse-director-in-dementia-counselling-spital-thurgau-stgag-munsterlingen",
+        "infirmiere-directeur-conseil-en-demence-spital-thurgau-stgag-munsterlingen",
+        "pflegerische-r-responsabile-demenzberatung-spital-thurgau-stgag-weinfelden",
+        "nurse-director-in-dementia-counselling-spital-thurgau-stgag-weinfelden",
+        "infirmiere-directeur-conseil-en-demence-spital-thurgau-stgag-weinfelden"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -751,7 +754,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T21:49:56.340Z"
     },
     {
       "id": "stgag-7b5ae68b6cfa",

@@ -598,7 +598,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-14T10:18:02.910Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8057",
       "streetAddress": "Winterthurerstrasse 190",
@@ -615,29 +614,22 @@
       "applyUrl": "https://jobs.zfv.ch/Betriebstournante-80-de-j4662.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
-        "cafeteria-collaboratore-trice-50-zfv-unternehmungen-zurich",
-        "cafeteria-associate-50-zfv-unternehmungen-zurich",
-        "cafeteria-collaborateur-trice-50-zfv-unternehmungen-zurich",
-        "betriebstournant-e-80-zfv-unternehmungen-zurich",
-        "tour-operateur-e-80-zfv-unternehmungen-zurich",
-        "tour-operator-e-80-zfv-unternehmungen-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich"
+        ],
         "it": [
           "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
           "cafeteria-collaboratore-trice-50-zfv-unternehmungen-zurich",
           "betriebstournant-e-80-zfv-unternehmungen-zurich",
-          "tour-operator-e-80-zfv-unternehmungen-zurich"
+          "tour-operator-e-80-zfv-unternehmungen-zurich",
+          "operating-tour-operator-e-60-zfv-unternehmungen-zurich",
+          "tour-operateur-e-60-zfv-unternehmungen-zurich"
         ],
         "en": [
           "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
           "cafeteria-associate-50-zfv-unternehmungen-zurich",
           "betriebstournant-e-80-zfv-unternehmungen-zurich"
-        ],
-        "de": [
-          "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
@@ -646,6 +638,17 @@
           "betriebstournant-e-80-zfv-unternehmungen-zurich"
         ]
       },
+      "previousSlugs": [
+        "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
+        "cafeteria-collaboratore-trice-50-zfv-unternehmungen-zurich",
+        "cafeteria-associate-50-zfv-unternehmungen-zurich",
+        "cafeteria-collaborateur-trice-50-zfv-unternehmungen-zurich",
+        "betriebstournant-e-80-zfv-unternehmungen-zurich",
+        "tour-operateur-e-80-zfv-unternehmungen-zurich",
+        "tour-operator-e-80-zfv-unternehmungen-zurich",
+        "operating-tour-operator-e-60-zfv-unternehmungen-zurich",
+        "tour-operateur-e-60-zfv-unternehmungen-zurich"
+      ],
       "firstSeenAt": "2026-08-11T22:07:50.458Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -658,7 +661,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-3984eafd6742",
