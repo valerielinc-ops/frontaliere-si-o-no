@@ -65,6 +65,39 @@ jobs:
     if: >-
       github.event_name != 'pull_request' ||
       (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)
+    # Issue #5553: `regressed=0, errors=2` — `orphan-sitemap-pages` and
+    # `max-bfs-depth` both died with a V8 heap OOM (`node::OOMErrorHandler` /
+    # `Heap::CollectGarbage` in the child's stderr), NOT with a crash before
+    # detection. Two gates therefore reported `status=error current=? baseline=?`
+    # and the workflow failed without a single regression having been evaluated.
+    #
+    # It is not an accumulation bug in the audits. Both already dequeue with an
+    # index cursor instead of `shift()` and both already keep bare path strings
+    # in the frontier (see the comments in scripts/audit-bfs-depth.mjs and
+    # scripts/audit-orphan-pages-in-sitemaps.mjs); the offender lists they build
+    # are small — 26,398 offenders over 255,347 sitemap URLs in
+    # data/bfs-depth-baseline.json, a few MB. The heap goes into the BFS
+    # visited-set itself, which is inherent: one Map/Set entry per reachable
+    # path over the whole rehydrated dist/.
+    #
+    # What was actually missing is the heap, and the asymmetry was invisible
+    # because it lives in a DIFFERENT file from the audits: the very same two
+    # audits are given `--max-old-space-size=8192` by their seed workflows
+    # (seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml), and this
+    # gate — which runs them over a dist/ that is larger, because it is
+    # rehydrated with the locale + section shards — inherited node's default
+    # heap instead. Same binary, same corpus, a quarter of the memory.
+    #
+    # 8192 matches those two seed workflows deliberately: it is the value
+    # already proven on this runner for these audits, and it stays well under
+    # the 16 GB of `ubuntu-latest` so a raised V8 ceiling cannot turn a clean
+    # heap OOM into a KERNEL OOM-kill — the failure mode #5169 removed.
+    #
+    # `scripts/cathedral-seo-gates-check.mjs` spawns each audit with
+    # `env: process.env`, so a job-level value reaches every `npm run audit:*`
+    # child. Guarded by tests/cathedral-gates-audit-heap.test.ts.
+    env:
+      NODE_OPTIONS: '--max-old-space-size=8192'
     steps:
       # Free ~25-30 GB before dist/ lands. This gate no longer BUILDS dist
       # (issue #5169 — see the replay steps below), but it still materialises
