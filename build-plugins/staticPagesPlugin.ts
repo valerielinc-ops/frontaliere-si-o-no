@@ -120,6 +120,7 @@ import {
   renderLocaleVariantSitemaps,
   isLocaleVariantSitemapFile,
 } from './shared/localeVariantSitemap';
+import { forceGc } from './shared/forceGc';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 function capTitle70(s: string): string {
  if (!s) return s;
@@ -1872,9 +1873,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // this plugin contributes to the shared ~11 GB closeBundle plateau.
  // NODE_OPTIONS=--expose-gc is set in `build:ci` (see package.json); guarded
  // for local dev runs without the flag.
- if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
-   (globalThis as { gc: () => void }).gc();
- }
+ forceGc();
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
  // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
@@ -5663,9 +5662,7 @@ ${hrefTags}
  // a small extra stall, not a collision. If this turns out to cost more
  // wall-time than expected, that's covered by this PR's revert-trigger
  // (see PR body `## Non implementato`), not something to guess about here.
- if ((count + skipped) % 2000 === 0 && typeof (globalThis as { gc?: () => void }).gc === 'function') {
-   (globalThis as { gc: () => void }).gc();
- }
+ if ((count + skipped) % 2000 === 0) forceGc();
  }
 
  // ── Phase 2-UI — SEO hub-pages emitter ──

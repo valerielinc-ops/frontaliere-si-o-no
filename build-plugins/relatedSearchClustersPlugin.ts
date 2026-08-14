@@ -112,6 +112,7 @@ import {
   recordEmit as profileRecord,
   printSummary as printRelatedSearchProfile,
 } from './shared/relatedSearchClustersProfiler';
+import { forceGc } from './shared/forceGc';
 
 // ── Constants ───────────────────────────────────────────────────────────
 
@@ -3211,9 +3212,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // (0.59 ms → 1.18 ms, run 26490352942) — adding a blocking full-GC on
       // top of that tuned mechanism risks reintroducing the same class of
       // wall-time regression instead of a clean memory win.
-      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
-        (globalThis as { gc: () => void }).gc();
-      }
+      forceGc();
 
       if (contexts.length === 0) {
         printRelatedSearchProfile();
@@ -3634,9 +3633,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // to `tokenIndex` above, and the sibling fix in staticPagesPlugin.ts
       // / borderMunicipalityPagesPlugin.ts for the same build-locale(it)
       // OOM incident (runs 29867257038 / 29881848735).
-      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
-        (globalThis as { gc: () => void }).gc();
-      }
+      forceGc();
 
       // Persist for next build. patchMasterSitemap is intentionally skipped
       // here — it patches a file owned by another plugin and is re-run on
