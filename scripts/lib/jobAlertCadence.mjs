@@ -16,9 +16,10 @@
  * ─────────────────────
  *  1. Turns the engagement verdict of scripts/lib/jobAlertEngagementTier.mjs
  *     into an interval in CALENDAR DAYS on the [1, 3, 7] scale the owner chose.
- *  2. Applies JOB_ALERT_CADENCE_CEILING_DAYS = 7 on top of it: the effective
+ *  2. Applies JOB_ALERT_CADENCE_CEILING_DAYS on top of it: the effective
  *     interval is max(tier, ceiling). Engagement can move a recipient BELOW the
- *     ceiling's frequency, never above it.
+ *     ceiling's frequency, never above it. The ceiling is currently `null`
+ *     (disabled) — see the block below.
  *  3. Decides "is this alert due today?" as a pure function of stored state and
  *     the calendar day.
  *  4. Advances the stored state after a send, and stamps a TERMINAL, PRESERVED
@@ -37,21 +38,37 @@
  *     slip by a measured median of 240 minutes and up to 590, so two slots that
  *     are "far enough apart" are only far enough apart on a good day.
  *
- * THE CEILING, AND WHY IT SWALLOWS THE SCALE (owner, 2026-08-13)
+ * THE CEILING IS OFF (owner, 2026-08-14 — supersedes 2026-08-13)
  * ─────────────────────────────────────────────────────────────
- * With the ceiling at 7 the whole [1, 3, 7] table collapses to 7 for every
- * engine-managed alert. That is the decision, not a bug, and the tiers are not
- * thereby useless: they are what feeds the demotion streak and the decay
- * counter, and they are what will differentiate again the day the ceiling is
- * raised. Every function here takes `ceilingDays` as an argument so both
- * behaviours are exercised by tests and the lever is one value, not a rewrite.
+ * `JOB_ALERT_CADENCE_CEILING_DAYS` is `null`, so the [1, 3, 7] table applies as
+ * written: one a day for a recipient who clicks, one every three days for one
+ * who opens without clicking, one a week for one who does neither.
  *
- * The reasoning behind the ceiling is the daily brief's `consentCeilingDays`
- * (#5679) applied to a channel whose accepted formula does not name it at all:
- * a formula that never mentions job adverts names no periodicity for them
- * either, so the prudent reading is the slowest one we run anywhere. The
- * measurement of engagement cannot lift it — "engagement is a measurement, and
- * a measurement is never permission".
+ * History, because the reversal is the interesting part. On 2026-08-13 the
+ * owner set the ceiling to 7 in answer to a question that did not spell out its
+ * consequence: with the ceiling at 7 the whole table collapses to 7 for every
+ * engine-managed alert, i.e. nobody gets the cadence the table describes. Once
+ * that was made explicit on 2026-08-14 the owner disagreed and removed it. What
+ * changed is the ceiling, not the table — the table was always the owner's.
+ *
+ * The argument FOR a ceiling is still on the record and still true, so a future
+ * reader can weigh it rather than rediscover it: it was the daily brief's
+ * `consentCeilingDays` (#5679) applied to a channel whose accepted formula does
+ * not name it at all. A formula that never mentions job adverts names no
+ * periodicity for them either, so the prudent reading was the slowest cadence
+ * we run anywhere — "engagement is a measurement, and a measurement is never
+ * permission". That reasoning did not become wrong; it was weighed against the
+ * cost to the product and lost.
+ *
+ * What still bounds the channel without a ceiling: the decay
+ * (JOB_ALERT_DECAY_AFTER_SLOW_SENDS) still switches off alerts nobody reads,
+ * the demotion streak still drags the inert down to the slow tier, and the
+ * synthetic-click filter still refuses to promote on a scanner's click. The
+ * ceiling was the blunt instrument; those three are the measured ones.
+ *
+ * Every function here takes `ceilingDays` as an argument, so restoring a
+ * ceiling is one value and not a rewrite, and both behaviours stay exercised
+ * by tests whichever way the constant points.
  *
  * THE ONE EXEMPTION: `frequencyOverride: true`.
  * Those alerts carry the only explicit act of the person about their own
@@ -121,8 +138,12 @@ export const JOB_ALERT_CADENCE_TIERS = Object.freeze([1, 3, 7]);
  * The ceiling nobody's engagement can lift. `null` disables it and restores the
  * bare owner table — the lever, kept as an argument everywhere so raising it is
  * one value and not a rewrite.
+ *
+ * OFF since 2026-08-14 by the owner's decision (it was 7 for one day). Setting
+ * it back to a number is all that is needed to cap the channel again; nothing
+ * else has to change, and the tests cover both directions.
  */
-export const JOB_ALERT_CADENCE_CEILING_DAYS = 7;
+export const JOB_ALERT_CADENCE_CEILING_DAYS = null;
 
 /** Consecutive signal-free sends before an alert drops one tier. */
 export const JOB_ALERT_DEMOTION_STREAK = 3;

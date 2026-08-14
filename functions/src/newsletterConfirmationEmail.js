@@ -228,16 +228,51 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  //
  // Only for a real cycle send: a passwordless login link and a re-probe of an
  // already-confirmed address are not double opt-in requests and must not
- // consume one of the three. `isCycleSend`/`attemptsBefore` are read ABOVE, from
- // the same values that chose the frame, so the email and the ledger can never
- // describe different attempts.
+ // consume one of the three. `isCycleSend` is decided ABOVE, at composition
+ // time, and stays decided: it is a property of the message that just left.
  //
  // Both writes come from lib/confirmationFollowup.js because the follow-up
  // runner performs them too, for requests #2 and #3. A second copy of the
  // increment here is how one of the two senders would eventually stop counting.
- await subscriberRef.update(
+ //
+ // ── THE ATTEMPT NUMBER IS RE-DERIVED INSIDE A TRANSACTION (#5843, item 3) ──
+ //
+ // `attemptsBefore` above is read once, outside any transaction, and the send
+ // sits between that read and this write. Two "resend" clicks a few hundred
+ // milliseconds apart — two Cloud Function instances, which is the normal
+ // shape here — both read 1, both send, and both then wrote
+ // `confirmation_attempts: 2`. Two messages, one increment: the cap of three
+ // silently becomes four, and the event log carries two rows claiming to be
+ // attempt #2. The 1-hour cooldown does not close this; it is checked against
+ // the same stale read, so it lets both through together and only stops the
+ // click that arrives after the first write has landed.
+ //
+ // The fix is not FieldValue.increment(). `confirmationAttemptsUsed` is not a
+ // plain field read: it takes the MAX of the counter and a legacy floor
+ // derived from `confirmation_sent_at`, which is what stops the ~619 documents
+ // written before the counter existed from being re-asked from zero. A blind
+ // +1 on those documents would write 1 where the truth is 2 and hand them an
+ // extra reminder. So the transaction re-reads the document and asks the same
+ // shared function again, on fresh data — the increment stays derived, and it
+ // is derived from a value nobody can have changed since.
+ //
+ // The event is written in the SAME transaction, which is also what closes
+ // item 2 of #5843 on this sender: counter and evidence commit together or
+ // not at all.
+ const nowIso = new Date().toISOString();
+ const recordedAttemptsBefore = await db.runTransaction(async (tx) => {
+ const fresh = await tx.get(subscriberRef);
+ // The document was deleted between the send and this write. Recreating it
+ // here would resurrect a record somebody removed, which is a worse outcome
+ // than an unrecorded send — the send itself is already gone either way.
+ if (!fresh.exists) return null;
+
+ const attemptsAtWrite = isCycleSend ? confirmationAttemptsUsed(fresh.data()) : attemptsBefore;
+
+ tx.update(
+ subscriberRef,
  buildConfirmationSentFields({
- attemptsBefore,
+ attemptsBefore: attemptsAtWrite,
  isCycleSend,
  messageId,
  locale: emailLocale,
@@ -245,17 +280,25 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  }),
  );
 
- await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add(
+ tx.set(
+ subscriberRef.collection('events').doc(),
  buildConfirmationSentEvent({
  email: normalizedEmail,
- attemptsBefore,
+ attemptsBefore: attemptsAtWrite,
  isCycleSend,
  messageId,
  locale: emailLocale,
- occurredAt: new Date().toISOString(),
+ occurredAt: nowIso,
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  }),
  );
+
+ return attemptsAtWrite;
+ });
+
+ if (recordedAttemptsBefore === null) {
+ console.warn('[newsletterConfirmation] subscriber vanished before the ledger write — send not recorded');
+ }
 
  return { success: true, messageId };
 }
